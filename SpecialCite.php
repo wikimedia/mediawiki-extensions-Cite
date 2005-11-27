@@ -59,14 +59,14 @@ function wfSpecialCite() {
 			$title = Title::newFromText( $page );
 			$article = new Article( $title );
 
-			$cform = new CiteForm( &$title );
+			$cform = new CiteForm( $title );
 
 			if ( is_null( $title ) || ! $article->exists() )
 				$cform->execute();
 			else {
 				$cform->execute();
 				
-				$cout = new CiteOutput( &$title, &$article );
+				$cout = new CiteOutput( $title, $article );
 				$cout->execute();
 			}
 		}
@@ -121,7 +121,7 @@ function wfSpecialCite() {
 		var $mTitle, $mArticle, $mParserOptions;
 		var $mParser;
 
-		function CiteOutput( $title, $article ) {
+		function CiteOutput( &$title, &$article ) {
 			global $wgHooks, $wgParser;
 			
 			$this->mTitle =& $title;
@@ -142,7 +142,7 @@ function wfSpecialCite() {
 
 			$msg = wfMsgForContentNoTrans( 'cite_text' );
 			$this->mArticle->fetchContent();
-			$ret = $wgParser->parse( $msg, &$this->mTitle, $this->mParserOptions, false, true, $this->mArticle->getRevIdFetched() );
+			$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->mArticle->getRevIdFetched() );
 			$wgOut->addHtml( $ret->getText() );
 		}
 

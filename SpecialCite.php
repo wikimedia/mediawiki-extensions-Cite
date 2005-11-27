@@ -132,7 +132,6 @@ function wfSpecialCite() {
 			$this->mTitle =& $title;
 			$this->mArticle =& $article;
 
-			$wgHooks['ParserGetVariableValueRevid'][] = array( $this, 'revid' );
 			$wgHooks['ParserGetVariableValueVarCache'][] = array( $this, 'varCache' );
 
 			$this->genParserOptions();
@@ -147,7 +146,8 @@ function wfSpecialCite() {
 			$wgHooks['ParserGetVariableValueTs'][] = array( $this, 'timestamp' );
 
 			$msg = wfMsgForContentNoTrans( 'cite_text' );
-			$ret = $wgParser->parse( $msg, &$this->mTitle, $this->mParserOptions );
+			$this->mArticle->fetchContent();
+			$ret = $wgParser->parse( $msg, &$this->mTitle, $this->mParserOptions, false, true, $this->mArticle->getRevIdFetched() );
 			$wgOut->addHtml( $ret->getText() );
 		}
 
@@ -176,13 +176,6 @@ function wfSpecialCite() {
 				$ts = wfTimestamp( TS_UNIX, $this->mArticle->getTimestamp() );
 			
 			return true;
-		}
-
-		function revid( &$parser, &$revid ) {
-			$this->mArticle->fetchContent();
-			$revid = $this->mArticle->getRevIdFetched();
-
-			return false;
 		}
 	}
 	

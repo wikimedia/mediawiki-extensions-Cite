@@ -26,17 +26,30 @@ $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav
 $wgHooks['MonoBookTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';
 
 function wfSpecialCite() {
-	global $IP, $wgMessageCache, $wgHooks;
-	
+	global $IP, $wgMessageCache, $wgHooks, $wgLanguageCode;
+
 	$wgMessageCache->addMessages(
 		array(
 			'cite' => 'Cite',
 			'cite_page' => 'Page: ',
 			'cite_submit' => 'Cite',
 			'cite_article_link' => 'Cite this article',
-			'cite_text' => file_get_contents( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cite_text' )
 		)
 	);
+
+	# FIXME long lines of code -- Hashar
+
+	# Do we have a translated text for the current language ?
+	if($wgLanguageCode && file_exists( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cite_text'. '-' . strtolower($wgLanguageCode) ) ) {
+		$wgMessageCache->addMessages(
+			array( 'cite_text' => file_get_contents( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cite_text' . '-' . strtolower($wgLanguageCode) ) )
+		);
+	} else {
+		# Add default text (english)
+		$wgMessageCache->addMessages(
+			array( 'cite_text' => file_get_contents( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cite_text' ) )
+		);
+	}
 
 	require_once "$IP/includes/SpecialPage.php";
 	class Cite extends SpecialPage {

@@ -118,7 +118,7 @@ function wfSpecialCite() {
 	}
 
 	class CiteOutput {
-		var $mTitle, $mArticle, $mMsg, $mParserOptions;
+		var $mTitle, $mArticle, $mParserOptions;
 		var $mParser;
 
 		function CiteOutput( $title, $article ) {
@@ -141,18 +141,9 @@ function wfSpecialCite() {
 
 			$wgHooks['ParserGetVariableValueTs'][] = array( $this, 'timestamp' );
 
-			$this->genMessage();
-			$ret = $wgParser->parse( $this->mMsg, &$this->mTitle, $this->mParserOptions );
+			$msg = wfMsgForContentNoTrans( 'cite_text' );
+			$ret = $wgParser->parse( $msg, &$this->mTitle, $this->mParserOptions );
 			$wgOut->addHtml( $ret->getText() );
-		}
-
-		function genMessage() {
-			global $wgMessageCache;
-			
-			$setting = $wgMessageCache->mDisableTransform;
-			$wgMessageCache->disableTransform();
-			$this->mMsg = $wgMessageCache->get( 'cite_text', true, true );
-			$wgMessageCache->mDisableTransform = $setting;
 		}
 
 		function genParserOptions() {

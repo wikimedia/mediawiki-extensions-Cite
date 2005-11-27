@@ -33,7 +33,7 @@ function wfSpecialCite() {
 			'cite' => 'Cite',
 			'cite_page' => 'Page: ',
 			'cite_submit' => 'Cite',
-			'cite_page_link' => 'Cite this page',
+			'cite_article_link' => 'Cite this article',
 			'cite_text' =>
 					"* ''{{FULLPAGENAME}}'' (last modified {{CURRENTTIME}}," .
 					' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} UTC).' .
@@ -50,7 +50,12 @@ function wfSpecialCite() {
 		}
 		
 		function execute( $par ) {
-			global $wgOut, $wgRequest;
+			global $wgOut, $wgRequest, $wgUseTidy;
+
+			// Having tidy on causes whitespace and <pre> tags to
+			// be generated around the output of the CiteOutput
+			// class TODO FIXME.
+			$wgUseTidy = false;
 
 			$this->setHeaders();
 
@@ -133,7 +138,7 @@ function wfSpecialCite() {
 			$this->genParserOptions();
 			$this->genParser();
 
-			$wgParser->setHook( 'cite', 'CiteParse', $this, &$mParser );
+			$wgParser->setHook( 'cite', array( $this, 'CiteParse' ) );
 		}
 		
 		function execute() {
@@ -185,16 +190,18 @@ function wfSpecialCite() {
 }
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
-	if ( (int)$oldid  )
-		$nav_urls['cite'] = array(
-			'text' => wfMsg( 'cite_page_link' ),
-			'href' => ''
-		);
-	else if ( $revid !== 0 )
-		$nav_urls['cite'] = array(
-			'text' => wfMsg( 'cite_page_link' ),
-			'href' => $skintemplate->makeSpecialUrl( 'Cite/' . $skintemplate->thispage )
-		);
+	if ( $skintemplate->mTitle->getNamespace() === NS_MAIN ) {
+		if ( (int)$oldid  )
+			$nav_urls['cite'] = array(
+				'text' => wfMsg( 'cite_article_link' ),
+				'href' => ''
+			);
+		else if ( $revid !== 0 )
+			$nav_urls['cite'] = array(
+				'text' => wfMsg( 'cite_article_link' ),
+				'href' => $skintemplate->makeSpecialUrl( 'Cite/' . $skintemplate->thispage )
+			);
+	}
 
 	return true;
 }
@@ -202,11 +209,11 @@ function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 function wfSpecialCiteToolbox( &$monobook ) {
 	if ( isset( $monobook->data['nav_urls']['cite'] ) )
 		if ( $monobook->data['nav_urls']['cite']['href'] == '' ) {
-			?><li id="t-iscite"><?php echo $monobook->msg( 'cite_page_link' ); ?></li><?php
+			?><li id="t-iscite"><?php echo $monobook->msg( 'cite_article_link' ); ?></li><?php
 		} else {
 			?><li id="t-cite">
 				<a href="<?php echo htmlspecialchars( $monobook->data['nav_urls']['cite']['href'] ) ?>">
-					<?php echo $monobook->msg( 'cite_page_link' ); ?>
+					<?php echo $monobook->msg( 'cite_article_link' ); ?>
 				</a>
 			</li>
 			<?php

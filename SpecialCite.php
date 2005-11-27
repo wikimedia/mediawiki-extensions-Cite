@@ -34,12 +34,7 @@ function wfSpecialCite() {
 			'cite_page' => 'Page: ',
 			'cite_submit' => 'Cite',
 			'cite_article_link' => 'Cite this article',
-			'cite_text' =>
-					"* ''{{FULLPAGENAME}}'' (last modified {{CURRENTTIME}}," .
-					' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} UTC).' .
-					' {{SITENAME}}, {{int:sitesubtitle}}. Retrived <citation>{{CURRENTTIME}},' .
-					' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation> from' .
-					' {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'
+			'cite_text' => file_get_contents( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cite_text' )
 		)
 	);
 

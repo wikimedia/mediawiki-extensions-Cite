@@ -37,8 +37,8 @@ function wfSpecialCite() {
 			'cite_text' =>
 					"* ''{{FULLPAGENAME}}'' (last modified {{CURRENTTIME}}," .
 					' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} UTC).' .
-					' {{SITENAME}}, {{int:sitesubtitle}}. Retrived <cite>{{CURRENTTIME}},' .
-					' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</cite> from' .
+					' {{SITENAME}}, {{int:sitesubtitle}}. Retrived <citation>{{CURRENTTIME}},' .
+					' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation> from' .
 					' {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'
 		)
 	);
@@ -138,7 +138,7 @@ function wfSpecialCite() {
 			$this->genParserOptions();
 			$this->genParser();
 
-			$wgParser->setHook( 'cite', array( $this, 'CiteParse' ) );
+			$wgParser->setHook( 'citation', array( $this, 'CiteParse' ) );
 		}
 		
 		function execute() {
@@ -172,7 +172,7 @@ function wfSpecialCite() {
 		function varCache() { return false; }
 
 		function timestamp( &$parser, &$ts ) {
-			if ( isset( $parser->mTagHooks['cite'] ) )
+			if ( isset( $parser->mTagHooks['citation'] ) )
 				$ts = wfTimestamp( TS_UNIX, $this->mArticle->getTimestamp() );
 			
 			return true;

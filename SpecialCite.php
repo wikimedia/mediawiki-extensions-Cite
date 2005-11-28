@@ -26,30 +26,21 @@ $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav
 $wgHooks['MonoBookTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';
 
 function wfSpecialCite() {
-	global $IP, $wgMessageCache, $wgHooks, $wgLanguageCode;
+	global $IP, $wgMessageCache, $wgContLang, $wgContLanguageCode;
 
+	$dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR;
+	$code = $wgContLang->lc( $wgContLanguageCode );
+	$file = file_exists( "${dir}cite_text-$code" ) ? "${dir}cite_text-$code" : "${dir}cite_text";
+	
 	$wgMessageCache->addMessages(
 		array(
 			'cite' => 'Cite',
 			'cite_page' => 'Page: ',
 			'cite_submit' => 'Cite',
 			'cite_article_link' => 'Cite this article',
+			'cite_text' => file_get_contents( $file )
 		)
 	);
-
-	# FIXME long lines of code -- Hashar
-
-	# Do we have a translated text for the current language ?
-	if($wgLanguageCode && file_exists( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cite_text'. '-' . strtolower($wgLanguageCode) ) ) {
-		$wgMessageCache->addMessages(
-			array( 'cite_text' => file_get_contents( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cite_text' . '-' . strtolower($wgLanguageCode) ) )
-		);
-	} else {
-		# Add default text (english)
-		$wgMessageCache->addMessages(
-			array( 'cite_text' => file_get_contents( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cite_text' ) )
-		);
-	}
 
 	require_once "$IP/includes/SpecialPage.php";
 	class Cite extends SpecialPage {
@@ -68,6 +59,7 @@ function wfSpecialCite() {
 			$this->setHeaders();
 
 			$page = isset( $par ) ? $par : $wgRequest->getText( 'page' );
+			$id = $wgRequest->getInt( 'id' );
 			
 			$title = Title::newFromText( $page );
 			$article = new Article( $title );
@@ -79,7 +71,7 @@ function wfSpecialCite() {
 			else {
 				$cform->execute();
 				
-				$cout = new CiteOutput( $title, $article );
+				$cout = new CiteOutput( $title, $article, $id );
 				$cout->execute();
 			}
 		}
@@ -131,14 +123,15 @@ function wfSpecialCite() {
 	}
 
 	class CiteOutput {
-		var $mTitle, $mArticle, $mParserOptions;
-		var $mParser;
+		var $mTitle, $mArticle, $mId;
+		var $mParser, $mParserOptions;
 
-		function CiteOutput( &$title, &$article ) {
+		function CiteOutput( &$title, &$article, $id ) {
 			global $wgHooks, $wgParser;
 			
 			$this->mTitle =& $title;
 			$this->mArticle =& $article;
+			$this->mId = $id;
 
 			$wgHooks['ParserGetVariableValueVarCache'][] = array( $this, 'varCache' );
 
@@ -154,7 +147,7 @@ function wfSpecialCite() {
 			$wgHooks['ParserGetVariableValueTs'][] = array( $this, 'timestamp' );
 
 			$msg = wfMsgForContentNoTrans( 'cite_text' );
-			$this->mArticle->fetchContent();
+			$this->mArticle->fetchContent( $this->mId, false );
 			$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->mArticle->getRevIdFetched() );
 			$wgOut->addHtml( $ret->getText() );
 		}
@@ -191,19 +184,12 @@ function wfSpecialCite() {
 }
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
-	if ( $skintemplate->mTitle->getNamespace() === NS_MAIN ) {
-		if ( (int)$oldid  )
-			$nav_urls['cite'] = array(
-				'text' => wfMsg( 'cite_article_link' ),
-				'href' => ''
-			);
-		else if ( $revid !== 0 )
-			$nav_urls['cite'] = array(
-				'text' => wfMsg( 'cite_article_link' ),
-				'href' => $skintemplate->makeSpecialUrl( 'Cite/' . $skintemplate->thispage )
-			);
-	}
-
+	if ( $skintemplate->mTitle->getNamespace() === NS_MAIN && $revid !== 0 )
+		$nav_urls['cite'] = array(
+			'text' => wfMsg( 'cite_article_link' ),
+			'href' => $skintemplate->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid" )
+		);
+	
 	return true;
 }
 
@@ -212,12 +198,11 @@ function wfSpecialCiteToolbox( &$monobook ) {
 		if ( $monobook->data['nav_urls']['cite']['href'] == '' ) {
 			?><li id="t-iscite"><?php echo $monobook->msg( 'cite_article_link' ); ?></li><?php
 		} else {
-			?><li id="t-cite">
-				<a href="<?php echo htmlspecialchars( $monobook->data['nav_urls']['cite']['href'] ) ?>">
-					<?php echo $monobook->msg( 'cite_article_link' ); ?>
-				</a>
-			</li>
-			<?php
+			?><li id="t-cite"><?php
+				?><a href="<?php echo htmlspecialchars( $monobook->data['nav_urls']['cite']['href'] ) ?>"><?php
+					echo $monobook->msg( 'cite_article_link' );
+				?></a><?php
+			?></li><?php
 		}
 	
 	return true;

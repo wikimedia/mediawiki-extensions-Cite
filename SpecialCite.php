@@ -43,8 +43,8 @@ function wfSpecialCite() {
 	);
 
 	require_once "$IP/includes/SpecialPage.php";
-	class Cite extends SpecialPage {
-		function Cite() {
+	class SpecialCite extends SpecialPage {
+		function SpecialCite() {
 			SpecialPage::SpecialPage( 'Cite' );
 		}
 		
@@ -180,7 +180,7 @@ function wfSpecialCite() {
 		}
 	}
 	
-	SpecialPage::addPage( new Cite );
+	SpecialPage::addPage( new SpecialCite );
 }
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {

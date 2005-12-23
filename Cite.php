@@ -53,9 +53,18 @@ function wfCite() {
 			/*
 			   Debug & errors
 			*/
+			
+			// Internal errors
 			'cite_croak' => 'Cite croaked; $1: $2',
 
+			'cite_error_' . CITE_ERROR_STR_INVALID => 'Internal error; invalid $str',
+			'cite_error_' . CITE_ERROR_KEY_INVALID_1 => 'Internal error; invalid key',
+			'cite_error_' . CITE_ERROR_KEY_INVALID_2 => 'Internal error; invalid key',
+			'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Internal error; invalid stack key',
+
+			// User errors
 			'cite_error' => 'Cite error $1; $2',
+			
 			'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY => 'Invalid call; expecting a non-integer key',
 			'cite_error_' . CITE_ERROR_REF_NO_KEY => 'Invalid call; no key specified',
 			'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS => 'Invalid call; too many keys specified',
@@ -457,13 +466,26 @@ function wfCite() {
 		}
 
 		/**
+		 * Gets run when Parser::clearState() gets run, since we don't
+		 * want the counts to transcend pages and other instances
+		 */
+		function clearState() {
+			$this->mOutCnt = $this->mInCnt = 0;
+			$this->mRefs = array();
+
+			return true;
+		}
+
+		/**
 		 * Initialize the parser hooks
 		 */
 		function setHooks() {
-			global $wgParser;
+			global $wgParser, $wgHooks;
 			
 			$wgParser->setHook( 'ref' , array( &$this, 'ref' ) );
 			$wgParser->setHook( 'references' , array( &$this, 'references' ) );
+
+			$wgHooks['ParserClearState'][] = array( &$this, 'clearState' );
 		}
 
 		/**

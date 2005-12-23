@@ -343,7 +343,7 @@ function wfCite() {
 
 		/**
 		 * Return an id for use in wikitext output based on a key and
-		 * optionally the # of it, used in <references>, not <ref>
+		 * optionally the # of it, used in <ref>, not <references>
 		 * (since otherwise it would link to itself)
 		 *
 		 * @param string $key The key

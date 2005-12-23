@@ -56,7 +56,7 @@ function wfCite() {
 			'cite_croak' => 'Cite croaked; $1: $2',
 
 			'cite_error' => 'Cite error $1; $2',
-			'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY => 'Invalid call; expecting a key that matched /^[^0-9]+$/',
+			'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY => 'Invalid call; expecting a non-integer key',
 			'cite_error_' . CITE_ERROR_REF_NO_KEY => 'Invalid call; no key specified',
 			'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS => 'Invalid call; too many keys specified',
 			'cite_error_' . CITE_ERROR_REF_NO_INPUT => 'Invalid call; no input specified',
@@ -475,7 +475,12 @@ function wfCite() {
 		function error( $id ) {
 			if ( $id > 0 )
 				// User errors are positive
-				return $this->parse( wfMsgforContent( 'cite_error', $id, wfMsgForContent( "cite_error_$id" ) ) );
+				return 
+					$this->parse(
+						'<strong class="error">' .
+						wfMsgforContent( 'cite_error', $id, wfMsgForContent( "cite_error_$id" ) ) .
+						'</strong>'
+					);
 			else if ( $id < 0 )
 				return wfMsgforContent( 'cite_error', $id );
 		}

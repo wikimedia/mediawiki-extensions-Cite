@@ -90,10 +90,12 @@ function wfCite() {
 		/**#@+ @access private */
 		var $mRefs = array();
 		var $mI = 0, $mJ = 0;
+		var $mParser, $mParserOptions;
 		/**#@-*/
 
 		function Cite() {
 			$this->setHooks();
+			$this->genParser();
 		}
 
 		/**#@+ @access private */
@@ -292,14 +294,39 @@ function wfCite() {
 				return (string)$arr[0];
 			else {
 				$t = array_slice( $arr, 0, $cnt - 1 );
-				return implode( $sep, $t ) . " $and " . $arr[$cnt - 1];
+				return implode( $sep, $t ) . $and . $arr[$cnt - 1];
 			}
 		}
 
 		function parse( $in ) {
-			global $wgOut;
+			global $wgTitle;
 
-			return $wgOut->parse( $in, false );
+			$ret = $this->mParser->parse( $in, $wgTitle, $this->mParserOptions, false );
+			$text = $ret->getText();
+			
+			return $this->fixTidy( $text );
+			// This had trouble with including stuff
+			//return $wgOut->parse( $in, false );
+		}
+
+		function fixTidy( $text ) {
+			global $wgUseTidy;
+
+			if ( ! $wgUseTidy )
+				return $text;
+			else {
+				$text = preg_replace( '/^<p>\s*/', '', $text );
+				$text = preg_replace( '/\s*<\/p>\s*/', '', $text );
+				
+				wfDebugLog( 'misc', "'''$text'''" );
+
+				return $text;
+			}
+		}
+
+		function genParser() {
+			$this->mParser = new Parser;
+			$this->mParserOptions = new ParserOptions;
 		}
 
 		/**

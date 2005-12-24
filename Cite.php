@@ -14,7 +14,7 @@ $wgExtensionFunctions[] = 'wfCite';
 $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
-	'description' => 'adds <nowiki><ref[ id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
+	'description' => 'adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
 	'url' => 'http://avar.lir.dk/mw/HEAD/wiki/Cite'
 );
 
@@ -67,7 +67,7 @@ function wfCite() {
 			
 			'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY => 'Invalid call; expecting a non-integer key',
 			'cite_error_' . CITE_ERROR_REF_NO_KEY => 'Invalid call; no key specified',
-			'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS => 'Invalid call; too many keys specified',
+			'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS => 'Invalid call; invalid keys, e.g. too many or wrong key specified',
 			'cite_error_' . CITE_ERROR_REF_NO_INPUT => 'Invalid call; no input specified',
 			'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT => 'Invalid input; expecting none',
 			'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid parameters; expecting none',
@@ -217,12 +217,19 @@ function wfCite() {
 		 *               input and null on no input
 		 */
 		function refArg( $argv ) {
-			if ( count( $argv ) > 1 )
+
+			$cnt = count( $argv );
+			
+			if ( $cnt > 1 )
 				// There should only be one key
 				return false;
-			else if ( count( $argv ) == 1 )
-				// Key given.
-				return array_shift( $argv );
+			else if ( $cnt == 1 )
+				if ( isset( $argv['name'] ) )
+					// Key given.
+					return array_shift( $argv );
+				else
+					// Invalid key
+					return false;
 			else
 				// No key
 				return null;

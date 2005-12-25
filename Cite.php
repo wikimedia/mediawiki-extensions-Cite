@@ -2,8 +2,13 @@
 if ( ! defined( 'MEDIAWIKI' ) )
 	die();
 /**#@+
+ * A parser extension that adds two tags, <ref> and <references> for adding
+ * citations to pages
+ *
  * @package MediaWiki
  * @subpackage Extensions
+ *
+ * @link http://meta.wikimedia.org/wiki/Cite/Cite.php Documentation
  *
  * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
@@ -15,7 +20,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
-	'url' => 'http://avar.lir.dk/mw/HEAD/wiki/Cite'
+	'url' => 'http://meta.wikimedia.org/wiki/Cite/Cite.php'
 );
 
 /**

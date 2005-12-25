@@ -7,7 +7,7 @@ if (!defined('MEDIAWIKI')) die();
  * @package MediaWiki
  * @subpackage Extensions
  *
- * @link http://meta.wikimedia.org/wiki/Help:Cite Documentation
+ * @link http://meta.wikimedia.org/wiki/Cite/SpecialCite.php Documentation
  *
  * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
@@ -19,7 +19,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link',
-	'url' => 'http://meta.wikimedia.org/wiki/Help:Cite'
+	'url' => 'http://meta.wikimedia.org/wiki/Cite/SpecialCite.php'
 );
 
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';

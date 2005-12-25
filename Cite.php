@@ -433,8 +433,19 @@ function wfCite() {
 		 */
 		function parse( $in ) {
 			global $wgTitle;
-
-			$ret = $this->mParser->parse( $in, $wgTitle, $this->mParserOptions, false );
+			
+			$ret = $this->mParser->parse(
+				$in,
+				$wgTitle,
+				$this->mParserOptions,
+				// Avoid whitespace buildup
+				false,
+				// Important, otherwise $this->clearState()
+				// would get run every time <ref> or
+				// <references> is called, fucking the whole
+				// thing up.
+				false
+			);
 			$text = $ret->getText();
 			
 			return $this->fixTidy( $text );

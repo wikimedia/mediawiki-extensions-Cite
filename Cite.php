@@ -467,8 +467,6 @@ function wfCite() {
 				$text = preg_replace( '#^<p>\s*#', '', $text );
 				$text = preg_replace( '#\s*</p>\s*#', '', $text );
 				
-				wfDebugLog( 'misc', "'''$text'''" );
-
 				return $text;
 			}
 		}

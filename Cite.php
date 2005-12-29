@@ -39,7 +39,8 @@ $wgCiteErrors = array(
 		'CITE_ERROR_REF_TOO_MANY_KEYS',
 		'CITE_ERROR_REF_NO_INPUT',
 		'CITE_ERROR_REFERENCES_INVALID_INPUT',
-		'CITE_ERROR_REFERENCES_INVALID_PARAMETERS'
+		'CITE_ERROR_REFERENCES_INVALID_PARAMETERS',
+		'CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL'
 	)
 );
 
@@ -76,6 +77,7 @@ function wfCite() {
 			'cite_error_' . CITE_ERROR_REF_NO_INPUT => 'Invalid call; no input specified',
 			'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT => 'Invalid input; expecting none',
 			'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid parameters; expecting none',
+			'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
 
 			/*
 			   Output formatting
@@ -92,6 +94,8 @@ function wfCite() {
 			'cite_references_link_one' => '<li><cite id="$1">[[#$2|^]] $3</cite></li>',
 			'cite_references_link_many' => '<li>^ <cite id="$1">$2 $3</cite></li>',
 			'cite_references_link_many_format' => '[[#$1|<sup>$2</sup>]]',
+			// An item from this set is passed as $3 in the message above
+			'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
 			'cite_references_link_many_sep' => "\xc2\xa0", // &nbsp;
 			'cite_references_link_many_and' => "\xc2\xa0", // &nbps;
 
@@ -114,12 +118,16 @@ function wfCite() {
 		 * 	'user supplied' => array(
 		 *		'text' => 'user supplied reference & key',
 		 *		'count' => 1, // occurs twice
+		 * 		'number' => 1, // The first reference, we want
+		 * 		               // all occourances of it to
+		 * 		               // use the same number
 		 *	),
 		 *	0 => 'Anonymous reference',
 		 *	1 => 'Another anonymous reference',
 		 *	'some key' => array(
 		 *		'text' => 'this one occurs once'
-		 *		'count' => 0
+		 *		'count' => 0,
+		 * 		'number' => 4
 		 *	),
 		 *	3 => 'more stuff'
 		 * );
@@ -151,6 +159,15 @@ function wfCite() {
 		 * @var int
 		 */
 		var $mInCnt = 0;
+
+		/**
+		 * The backlinks, in order, to pass as $3 to
+		 * 'cite_references_link_many_format', defined in
+		 * 'cite_references_link_many_format_backlink_labels
+		 *
+		 * @var array
+		 */
+		var $mBacklinkLabels;
 		
 		/**
 		 * @var object
@@ -165,6 +182,7 @@ function wfCite() {
 		function Cite() {
 			$this->setHooks();
 			$this->genParser();
+			$this->genBacklinkLabels();
 		}
 
 		/**#@+ @access private */
@@ -258,12 +276,23 @@ function wfCite() {
 					// First occourance
 					$this->mRefs[$key] = array(
 						'text' => $str,
-						'count' => 0
+						'count' => 0,
+						'number' => ++$this->mOutCnt
 					);
-					return $this->linkRef( $key, 0 );
+					return
+						$this->linkRef(
+							$key,
+							$this->mRefs[$key]['count'],
+							$this->mRefs[$key]['number']
+						);
 				} else
 					// We've been here before
-					return $this->linkRef( $key, ++$this->mRefs[$key]['count'] );
+					return 
+						$this->linkRef(
+							$key,
+							++$this->mRefs[$key]['count'],
+							$this->mRefs[$key]['number']
+						);
 			else
 				$this->croak( CITE_ERROR_STACK_INVALID_INPUT, serialize( array( $key, $str ) ) );
 		}
@@ -312,8 +341,6 @@ function wfCite() {
 		 * @return string Wikitext
 		 */
 		function referencesFormatEntry( $key, $val ) {
-			global $wgContLang;
-			
 			if ( ! is_array( $val ) )
 				return
 					wfMsgForContentNoTrans(
@@ -329,7 +356,8 @@ function wfCite() {
 					$links[] = wfMsgForContentNoTrans(
 							'cite_references_link_many_format',
 							$this->refKey( $key, $i ),
-							$wgContLang->formatNum( $i + 1 )
+							$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i ),
+							$this->referencesFormatEntryAlternateBacklinkLabel( $i )
 					);
 				}
 
@@ -342,6 +370,39 @@ function wfCite() {
 						$val['text']
 					);
 			}
+		}
+
+		/**
+		 * Generate a numeric backlink given a base number and an
+		 * offset, e.g. $base = 1, $offset = 2; = 1.2
+		 *
+		 * @param int $base The base
+		 * @param int $offset The offset
+		 *
+		 * @return string
+		 */
+		function referencesFormatEntryNumericBacklinkLabel( $base, $offset ) {
+			global $wgContLang;
+
+			return $wgContLang->formatNum( $base + ( $offset + 1 ) / 10 );
+		}
+
+		/**
+		 * Generate a custom format backlink given an offset, e.g.
+		 * $offset = 2; = c if $this->mBacklinkLabels = array( 'a',
+		 * 'b', 'c', ...). Return an error if the offset > the # of
+		 * array items
+		 *
+		 * @param int $offset The offset
+		 *
+		 * @return string
+		 */
+		function referencesFormatEntryAlternateBacklinkLabel( $offset ) {
+			if ( isset( $this->mBacklinkLabels[$offset] ) )
+				return $this->mBacklinkLabels[$offset];
+			else
+				// Feed me!
+				return $this->error( CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL );
 		}
 
 		/**
@@ -385,21 +446,24 @@ function wfCite() {
 		 * and return XHTML ready for output
 		 *
 		 * @param string $key The key for the link
-		 * @param int $num The # of the key, used for distinguishing
-		 *                 multiple occourances of the same key
+		 * @param int $count The # of the key, used for distinguishing
+		 *                   multiple occourances of the same key
+		 * @param int $label The label to use for the link, I want to
+		 *                   use the same label for all occourances of
+		 *                   the same named reference.
 		 *
 		 * @return string
 		 */
-		function linkRef( $key, $num = null ) {
+		function linkRef( $key, $count = null, $label = null ) {
 			global $wgContLang;
-			
+
 			return
 				$this->parse(
 					wfMsgForContentNoTrans(
 						'cite_reference_link',
-						$this->refKey( $key, $num ),
+						$this->refKey( $key, $count ),
 						$this->referencesKey( $key ),
-						$wgContLang->formatNum( ++$this->mOutCnt )
+						$wgContLang->formatNum( is_null( $label ) ? ++$this->mOutCnt : $label )
 					)
 				);
 		}
@@ -484,6 +548,16 @@ function wfCite() {
 		function genParser() {
 			$this->mParser = new Parser;
 			$this->mParserOptions = new ParserOptions;
+		}
+
+		/**
+		 * Generate the labels to pass to the
+		 * 'cite_references_link_many_format' message, the format is an
+		 * arbitary number of tokens seperated by [\t\n ]
+		 */
+		function genBacklinkLabels() {
+			$text = wfMsgForContentNoTrans( 'cite_references_link_many_format_backlink_labels' );
+			$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
 		}
 
 		/**

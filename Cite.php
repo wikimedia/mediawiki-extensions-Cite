@@ -9,6 +9,8 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * @subpackage Extensions
  *
  * @link http://meta.wikimedia.org/wiki/Cite/Cite.php Documentation
+ * @link http://www.w3.org/TR/html4/struct/text.html#edef-CITE <cite> definition in HTML
+ * @link http://www.w3.org/TR/2005/WD-xhtml2-20050527/mod-text.html#edef_text_cite <cite> definition in XHTML 2.0
  *
  * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
@@ -91,8 +93,8 @@ function wfCite() {
 			'cite_references_link_suffix' => '',
 
 			'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-			'cite_references_link_one' => '<li><cite id="$1">[[#$2|^]] $3</cite></li>',
-			'cite_references_link_many' => '<li>^ <cite id="$1">$2 $3</cite></li>',
+			'cite_references_link_one' => '<li id="$1">[[#$2|^]] $3</li>',
+			'cite_references_link_many' => '<li id="$1">^ $2 $3</li>',
 			'cite_references_link_many_format' => '[[#$1|<sup>$2</sup>]]',
 			// An item from this set is passed as $3 in the message above
 			'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
@@ -234,8 +236,9 @@ function wfCite() {
 		/**
 		 * Parse the arguments to the <ref> tag
 		 *
-		 * @param array $argv The argument vector
+		 * @static
 		 *
+		 * @param array $argv The argument vector
 		 * @return mixed false on invalid input, a string on valid
 		 *               input and null on no input
 		 */
@@ -337,7 +340,6 @@ function wfCite() {
 		 * @param string $key The key of the reference
 		 * @param mixed $val The value of the reference, string for anonymous
 		 *                   references, array for user-suppplied
-		 *
 		 * @return string Wikitext
 		 */
 		function referencesFormatEntry( $key, $val ) {
@@ -376,9 +378,10 @@ function wfCite() {
 		 * Generate a numeric backlink given a base number and an
 		 * offset, e.g. $base = 1, $offset = 2; = 1.2
 		 *
+		 * @static
+		 *
 		 * @param int $base The base
 		 * @param int $offset The offset
-		 *
 		 * @return string
 		 */
 		function referencesFormatEntryNumericBacklinkLabel( $base, $offset ) {
@@ -410,6 +413,8 @@ function wfCite() {
 		 * optionally the # of it, used in <references>, not <ref>
 		 * (since otherwise it would link to itself)
 		 *
+		 * @static
+		 *
 		 * @param string $key The key
 		 * @param int $num The number of the key
 		 * @return string A key for use in wikitext
@@ -427,6 +432,8 @@ function wfCite() {
 		 * Return an id for use in wikitext output based on a key and
 		 * optionally the # of it, used in <ref>, not <references>
 		 * (since otherwise it would link to itself)
+		 *
+		 * @static
 		 *
 		 * @param string $key The key
 		 * @param int $num The number of the key
@@ -451,7 +458,6 @@ function wfCite() {
 		 * @param int $label The label to use for the link, I want to
 		 *                   use the same label for all occourances of
 		 *                   the same named reference.
-		 *
 		 * @return string
 		 */
 		function linkRef( $key, $count = null, $label = null ) {
@@ -474,6 +480,8 @@ function wfCite() {
 		 * slightly different purpose (people might not want , as the
 		 * first seperator and not 'and' as the second, and this has to
 		 * use messages from the content language) I'm rolling my own.
+		 *
+		 * @static
 		 *
 		 * @param array $arr The array to format
 		 * @return string
@@ -524,6 +532,8 @@ function wfCite() {
 		 * Tidy treats all input as a block, it will e.g. wrap most
 		 * input in <p> if it isn't already, fix that and return the fixed text
 		 *
+		 * @static
+		 *
 		 * @param string $text The text to fix
 		 * @return string The fixed text
 		 */
@@ -533,8 +543,9 @@ function wfCite() {
 			if ( ! $wgUseTidy )
 				return $text;
 			else {
-				$text = preg_replace( '#^<p>\s*#', '', $text );
-				$text = preg_replace( '#\s*</p>\s*#', '', $text );
+				$text = preg_replace( '~^<p>\s*~', '', $text );
+				$text = preg_replace( '~\s*</p>\s*~', '', $text );
+				$text = preg_replace( '~\n$~', '', $text );
 				
 				return $text;
 			}
@@ -616,7 +627,7 @@ function wfCite() {
 		/**#@-*/
 	}
 
-	new PersistentObject( new Cite );
+	new Cite;
 }
 
 /**#@-*/

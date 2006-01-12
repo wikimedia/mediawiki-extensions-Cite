@@ -12,6 +12,8 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * @link http://www.w3.org/TR/html4/struct/text.html#edef-CITE <cite> definition in HTML
  * @link http://www.w3.org/TR/2005/WD-xhtml2-20050527/mod-text.html#edef_text_cite <cite> definition in XHTML 2.0
  *
+ * @bug 4579
+ *
  * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
@@ -86,10 +88,10 @@ function wfCite() {
 			*/
 			'cite_reference_link_key_with_num' => '$1_$2',
 			// Ids produced by <ref>
-			'cite_reference_link_prefix' => '_ref_',
+			'cite_reference_link_prefix' => '_ref-',
 			'cite_reference_link_suffix' => '',
 			// Ids produced by <references>
-			'cite_references_link_prefix' => '_note_',
+			'cite_references_link_prefix' => '_note-',
 			'cite_references_link_suffix' => '',
 
 			'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',

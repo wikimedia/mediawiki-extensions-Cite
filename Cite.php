@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'MEDIAWIKI' ) )
-	die();
+	die( -1 );
 /**#@+
  * A parser extension that adds two tags, <ref> and <references> for adding
  * citations to pages
@@ -55,61 +55,7 @@ for ( $i = 0; $i < count( $wgCiteErrors['user'] ); ++$i )
 	// User errors are positive integers
 	define( $wgCiteErrors['user'][$i], $i + 1 );
 
-function wfCite() {
-	global $wgMessageCache;
-
-	$wgMessageCache->addMessages(
-		array(
-			/*
-			   Debug & errors
-			*/
-			
-			// Internal errors
-			'cite_croak' => 'Cite croaked; $1: $2',
-
-			'cite_error_' . CITE_ERROR_STR_INVALID => 'Internal error; invalid $str',
-			'cite_error_' . CITE_ERROR_KEY_INVALID_1 => 'Internal error; invalid key',
-			'cite_error_' . CITE_ERROR_KEY_INVALID_2 => 'Internal error; invalid key',
-			'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Internal error; invalid stack key',
-
-			// User errors
-			'cite_error' => 'Cite error $1; $2',
-			
-			'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY => 'Invalid call; expecting a non-integer key',
-			'cite_error_' . CITE_ERROR_REF_NO_KEY => 'Invalid call; no key specified',
-			'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS => 'Invalid call; invalid keys, e.g. too many or wrong key specified',
-			'cite_error_' . CITE_ERROR_REF_NO_INPUT => 'Invalid call; no input specified',
-			'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT => 'Invalid input; expecting none',
-			'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid parameters; expecting none',
-			'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
-
-			/*
-			   Output formatting
-			*/
-			'cite_reference_link_key_with_num' => '$1_$2',
-			// Ids produced by <ref>
-			'cite_reference_link_prefix' => '_ref-',
-			'cite_reference_link_suffix' => '',
-			// Ids produced by <references>
-			'cite_references_link_prefix' => '_note-',
-			'cite_references_link_suffix' => '',
-
-			'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-			'cite_references_link_one' => '<li id="$1">[[#$2|^]] $3</li>',
-			'cite_references_link_many' => '<li id="$1">^ $2 $3</li>',
-			'cite_references_link_many_format' => '[[#$1|<sup>$2</sup>]]',
-			// An item from this set is passed as $3 in the message above
-			'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-			'cite_references_link_many_sep' => "\xc2\xa0", // &nbsp;
-			'cite_references_link_many_and' => "\xc2\xa0", // &nbps;
-
-			// Although I could just use # instead of <li> above and nothing here that
-			// will break on input that contains linebreaks
-			'cite_references_prefix' => '<ol class="references">',
-			'cite_references_suffix' => '</ol>',
-		)
-	);
-	
+function wfCite() {	
 	class Cite {
 		/**#@+
 		 * @access private
@@ -177,7 +123,18 @@ function wfCite() {
 		 * @var object
 		 */
 		var $mParser, $mParserOptions;
-		
+
+		/**#@+
+		 * Whether or not the variables above have been loaded, doing so in a
+		 * request where they're not going to be used (like when thumb.php gets
+		 * loaded) is redundant and expensive
+		 *
+		 * @var bool
+		 */
+		var $mLoadedBacklinkLabels = false;
+		var $mLoadedParser = false;
+		/**#@-*/
+
 		/**#@-*/
 
 		/**
@@ -185,8 +142,7 @@ function wfCite() {
 		 */
 		function Cite() {
 			$this->setHooks();
-			$this->genParser();
-			$this->genBacklinkLabels();
+			$this->setMessages();
 		}
 
 		/**#@+ @access private */
@@ -208,7 +164,7 @@ function wfCite() {
 					// I don't want keys in the form of /^[0-9]+$/ because they would
 					// conflict with the php datastructure I'm using, besides, why specify
 					// a manual key if it's just going to be any old integer?
-					if ( sprintf( '%d', $key ) === (string)$key )
+					if ( ctype_digit( $key ) )
 						return $this->error( CITE_ERROR_REF_NUMERIC_KEY );
 					else
 						return $this->stack( $str, $key );
@@ -220,7 +176,7 @@ function wfCite() {
 					$this->croak( CITE_ERROR_KEY_INVALID_1, serialize( $key ) );
 			} else if ( $str === null ) {
 				if ( is_string( $key ) )
-					if ( sprintf( '%d', $key ) === (string)$key )
+					if ( ctype_digit( $key ) )
 						return $this->error( CITE_ERROR_REF_NUMERIC_KEY );
 					else
 						return $this->stack( $str, $key );
@@ -403,6 +359,7 @@ function wfCite() {
 		 * @return string
 		 */
 		function referencesFormatEntryAlternateBacklinkLabel( $offset ) {
+			$this->genBacklinkLabels();
 			if ( isset( $this->mBacklinkLabels[$offset] ) )
 				return $this->mBacklinkLabels[$offset];
 			else
@@ -511,6 +468,9 @@ function wfCite() {
 		 * @return string The parsed text
 		 */
 		function parse( $in ) {
+			if ( ! $this->mLoadedParser )
+				$this->genParser();
+
 			global $wgTitle;
 			
 			$ret = $this->mParser->parse(
@@ -561,6 +521,7 @@ function wfCite() {
 		function genParser() {
 			$this->mParser = new Parser;
 			$this->mParserOptions = new ParserOptions;
+			$this->mLoadedParser = true;
 		}
 
 		/**
@@ -569,8 +530,11 @@ function wfCite() {
 		 * arbitary number of tokens seperated by [\t\n ]
 		 */
 		function genBacklinkLabels() {
+			if ( $this->mLoadedBacklinkLabels )
+				return;
 			$text = wfMsgForContentNoTrans( 'cite_references_link_many_format_backlink_labels' );
 			$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
+			$this->mLoadedBacklinkLabels = true;
 		}
 
 		/**
@@ -594,6 +558,65 @@ function wfCite() {
 			$wgParser->setHook( 'references' , array( &$this, 'references' ) );
 
 			$wgHooks['ParserClearState'][] = array( &$this, 'clearState' );
+		}
+
+		/**
+		 * Initialize the messages
+		 */
+		 function setMessages() {
+			global $wgMessageCache;
+		
+			$wgMessageCache->addMessages(
+				array(
+					/*
+					   Debug & errors
+					*/
+					
+					// Internal errors
+					'cite_croak' => 'Cite croaked; $1: $2',
+		
+					'cite_error_' . CITE_ERROR_STR_INVALID => 'Internal error; invalid $str',
+					'cite_error_' . CITE_ERROR_KEY_INVALID_1 => 'Internal error; invalid key',
+					'cite_error_' . CITE_ERROR_KEY_INVALID_2 => 'Internal error; invalid key',
+					'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Internal error; invalid stack key',
+		
+					// User errors
+					'cite_error' => 'Cite error $1; $2',
+					
+					'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY => 'Invalid call; expecting a non-integer key',
+					'cite_error_' . CITE_ERROR_REF_NO_KEY => 'Invalid call; no key specified',
+					'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS => 'Invalid call; invalid keys, e.g. too many or wrong key specified',
+					'cite_error_' . CITE_ERROR_REF_NO_INPUT => 'Invalid call; no input specified',
+					'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT => 'Invalid input; expecting none',
+					'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid parameters; expecting none',
+					'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
+		
+					/*
+					   Output formatting
+					*/
+					'cite_reference_link_key_with_num' => '$1_$2',
+					// Ids produced by <ref>
+					'cite_reference_link_prefix' => '_ref-',
+					'cite_reference_link_suffix' => '',
+					// Ids produced by <references>
+					'cite_references_link_prefix' => '_note-',
+					'cite_references_link_suffix' => '',
+		
+					'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+					'cite_references_link_one' => '<li id="$1">[[#$2|^]] $3</li>',
+					'cite_references_link_many' => '<li id="$1">^ $2 $3</li>',
+					'cite_references_link_many_format' => '[[#$1|<sup>$2</sup>]]',
+					// An item from this set is passed as $3 in the message above
+					'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
+					'cite_references_link_many_sep' => "\xc2\xa0", // &nbsp;
+					'cite_references_link_many_and' => "\xc2\xa0", // &nbps;
+		
+					// Although I could just use # instead of <li> above and nothing here that
+					// will break on input that contains linebreaks
+					'cite_references_prefix' => '<ol class="references">',
+					'cite_references_suffix' => '</ol>',
+				)
+			);
 		}
 
 		/**

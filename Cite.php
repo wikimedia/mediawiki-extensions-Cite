@@ -176,7 +176,7 @@ function wfCite() {
 		/**
 		 * @var object
 		 */
-		var $mParser, $mParserOptions;
+		var $mParser;
 		
 		/**#@-*/
 
@@ -185,7 +185,6 @@ function wfCite() {
 		 */
 		function Cite() {
 			$this->setHooks();
-			$this->genParser();
 			$this->genBacklinkLabels();
 		}
 
@@ -198,7 +197,8 @@ function wfCite() {
 		 * @param array $argv Arguments
 		 * @return string
 		 */
-		function ref( $str, $argv ) {
+		function ref( $str, $argv, $parser ) {
+			$this->mParser = $parser;
 			$key = $this->refArg( $argv );
 			
 			if ( $str !== null ) {
@@ -309,7 +309,8 @@ function wfCite() {
 		 * @param array $argv Arguments
 		 * @return string
 		 */
-		function references( $str, $argv ) {
+		function references( $str, $argv, $parser ) {
+			$this->mParser = $parser;
 			if ( $str !== null )
 				return $this->error( CITE_ERROR_REFERENCES_INVALID_INPUT );
 			else if ( count( $argv ) )
@@ -516,7 +517,7 @@ function wfCite() {
 			$ret = $this->mParser->parse(
 				$in,
 				$wgTitle,
-				$this->mParserOptions,
+				$this->mParser->mOptions,
 				// Avoid whitespace buildup
 				false,
 				// Important, otherwise $this->clearState()
@@ -551,16 +552,6 @@ function wfCite() {
 				
 				return $text;
 			}
-		}
-
-		/**
-		 * $wgOut->parse() has issues with the elements defined in
-		 * setHooks() being used inside includes templates so I'm
-		 * rolling my own parser
-		 */
-		function genParser() {
-			$this->mParser = new Parser;
-			$this->mParserOptions = new ParserOptions;
 		}
 
 		/**

@@ -346,6 +346,7 @@ function wfCite() {
 		 * @return string Wikitext
 		 */
 		function referencesFormatEntry( $key, $val ) {
+			// Anonymous reference
 			if ( ! is_array( $val ) )
 				return
 					wfMsgForContentNoTrans(
@@ -354,6 +355,19 @@ function wfCite() {
 						$this->refKey( $key ),
 						$val
 					);
+			// Standalone named reference, I want to format this like an
+			// anonymous reference because displaying "1. 1.1 Ref text" is
+			// overkill and users frequently use named references when they
+			// don't need them for convenience
+			else if ( $val['count'] === 0 )
+				return
+					wfMsgForContentNoTrans(
+						'cite_references_link_one',
+						$this->referencesKey( $key ),
+						$this->refKey( $key, $val['count'] ),
+						$val['text']
+					);
+			// Named references with >1 occurrences
 			else {
 				$links = array();
 

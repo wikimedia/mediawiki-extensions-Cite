@@ -95,8 +95,8 @@ function wfCite() {
 			'cite_references_link_suffix' => '',
 
 			'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-			'cite_references_link_one' => '<li id="$1">[[#$2|^]] $3</li>',
-			'cite_references_link_many' => '<li id="$1">^ $2 $3</li>',
+			'cite_references_link_one' => '<li id="$1">[[#$2|↑]] $3</li>',
+			'cite_references_link_many' => '<li id="$1">↑ $2 $3</li>',
 			'cite_references_link_many_format' => '[[#$1|<sup>$2</sup>]]',
 			// An item from this set is passed as $3 in the message above
 			'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',

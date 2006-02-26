@@ -57,6 +57,7 @@ function wfSpecialCite() {
 			$wgUseTidy = false;
 
 			$this->setHeaders();
+			$this->outputHeader();
 
 			$page = isset( $par ) ? $par : $wgRequest->getText( 'page' );
 			$id = $wgRequest->getInt( 'id' );

@@ -526,11 +526,9 @@ function wfCite() {
 		 * @return string The parsed text
 		 */
 		function parse( $in ) {
-			global $wgTitle;
-			
 			$ret = $this->mParser->parse(
 				$in,
-				$wgTitle,
+				$this->mParser->mTitle,
 				$this->mParser->mOptions,
 				// Avoid whitespace buildup
 				false,

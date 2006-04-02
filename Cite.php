@@ -325,6 +325,10 @@ function wfCite() {
 		 * @return string XHTML ready for output
 		 */
 		function referencesFormat() {
+			global $wgTitle;
+
+			wfDebugLog( 'cite', $wgTitle->getFullText() );
+			
 			$ent = array();
 			
 			foreach ( $this->mRefs as $k => $v )
@@ -334,7 +338,8 @@ function wfCite() {
 			$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
 			$content = implode( "\n", $ent );
 			
-			return $this->parse( $prefix . $content . $suffix );
+			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
+			return rtrim( $this->parse( $prefix . $content . $suffix ), "\n" );
 		}
 
 		/**

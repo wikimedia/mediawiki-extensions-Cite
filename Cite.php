@@ -325,10 +325,6 @@ function wfCite() {
 		 * @return string XHTML ready for output
 		 */
 		function referencesFormat() {
-			global $wgTitle;
-
-			wfDebugLog( 'cite', $wgTitle->getFullText() );
-			
 			$ent = array();
 			
 			foreach ( $this->mRefs as $k => $v )

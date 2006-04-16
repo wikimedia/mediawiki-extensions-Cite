@@ -178,6 +178,14 @@ function wfCite() {
 		 */
 		var $mParser;
 		
+		/**
+		 * True when a <ref> or <references> tag is being processed.
+		 * Used to avoid infinite recursion
+		 * 
+		 * @var boolean
+		 */
+		var $mInCite = false;
+		
 		/**#@-*/
 
 		/**
@@ -198,6 +206,17 @@ function wfCite() {
 		 * @return string
 		 */
 		function ref( $str, $argv, $parser ) {
+			if ( $this->mInCite ) {
+				return htmlspecialchars( "<ref>$str</ref>" );
+			} else {
+				$this->mInCite = true;
+				$ret = $this->guardedRef( $str, $argv, $parser );
+				$this->mInCite = false;
+				return $ret;
+			}
+		}
+		
+		function guardedRef( $str, $argv, $parser ) {
 			$this->mParser = $parser;
 			$key = $this->refArg( $argv );
 			
@@ -310,6 +329,21 @@ function wfCite() {
 		 * @return string
 		 */
 		function references( $str, $argv, $parser ) {
+			if ( $this->mInCite ) {
+				if ( is_null( $str ) ) {
+					return htmlspecialchars( "<references/>" );
+				} else {
+					return htmlspecialchars( "<references>$str</references>" );
+				}
+			} else {
+				$this->mInCite = true;
+				$ret = $this->guardedReferences( $str, $argv, $parser );
+				$this->mInCite = false;
+				return $ret;
+			}
+		}
+		
+		function guardedReferences( $str, $argv, $parser ) {
 			$this->mParser = $parser;
 			if ( $str !== null )
 				return $this->error( CITE_ERROR_REFERENCES_INVALID_INPUT );

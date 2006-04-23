@@ -671,3 +671,4 @@ function wfCite() {
 }
 
 /**#@-*/
+?>

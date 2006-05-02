@@ -410,7 +410,7 @@ function wfCite() {
 					$links[] = wfMsgForContentNoTrans(
 							'cite_references_link_many_format',
 							$this->refKey( $key, $i ),
-							$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i ),
+							$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
 							$this->referencesFormatEntryAlternateBacklinkLabel( $i )
 					);
 				}
@@ -429,17 +429,22 @@ function wfCite() {
 		/**
 		 * Generate a numeric backlink given a base number and an
 		 * offset, e.g. $base = 1, $offset = 2; = 1.2
+		 * Since bug #5525, it correctly does 1.9 -> 1.10 as well as 1.099 -> 1.100
 		 *
 		 * @static
 		 *
 		 * @param int $base The base
 		 * @param int $offset The offset
+		 * @param int $max Maximum value expected.
 		 * @return string
 		 */
-		function referencesFormatEntryNumericBacklinkLabel( $base, $offset ) {
+		function referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max ) {
 			global $wgContLang;
-
-			return $wgContLang->formatNum( $base + ( $offset + 1 ) / 10 );
+			$scope = strlen( $max );
+			$ret = $wgContLang->formatNum(
+				sprintf("%s.%0{$scope}s", $base, $offset)
+			);
+			return $ret;
 		}
 
 		/**

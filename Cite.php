@@ -273,13 +273,39 @@ function wfCite() {
 			else if ( $cnt == 1 )
 				if ( isset( $argv['name'] ) )
 					// Key given.
-					return array_shift( $argv );
+					return $this->validateName( array_shift( $argv ) );
 				else
 					// Invalid key
 					return false;
 			else
 				// No key
 				return null;
+		}
+		
+		/**
+		 * Since the key name is used in an XHTML id attribute, it must
+		 * conform to the validity rules. The restriction to begin with
+		 * a letter is lifted since references have their own prefix.
+		 *
+		 * @fixme merge this code with the various section name transformations
+		 * @fixme double-check for complete validity
+		 * @return string if valid, false if invalid
+		 */
+		function validateName( $name ) {
+			if( preg_match( '/^[A-Za-z0-9:_.-]*$/i', $name ) ) {
+				return $name;
+			} else {
+				// WARNING: CRAPPY CUT AND PASTE MAKES BABY JESUS CRY
+				$text = urlencode( str_replace( ' ', '_', $name ) );
+				$replacearray = array(
+					'%3A' => ':',
+					'%' => '.'
+				);
+				return str_replace(
+					array_keys( $replacearray ),
+					array_values( $replacearray ),
+					$text );
+			}
 		}
 
 		/**

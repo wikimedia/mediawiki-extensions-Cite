@@ -97,3 +97,22 @@ Templating<ref>Text<!--comment--></ref>
 <ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> Text</li></ol>
 
 !! end
+
+!! test
+<references> after <gallery> (bug 6164)
+!! input
+<ref>one</ref>
+
+<gallery>Image:Foobar.jpg</gallery>
+
+<references/>
+!! result
+<p><sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
+</p>
+<table class="gallery" cellspacing="0" cellpadding="0"><tr><td><div class="gallerybox"><div class="thumb" style="padding: 66px 0;"><a href="/wiki/Image:Foobar.jpg" title="Image:Foobar.jpg"><img src="http://example.com/images/thumb/3/3a/Foobar.jpg/120px-Foobar.jpg" width="120" height="14" alt="" /></a></div><div class="gallerytext">
+</div></div></td>
+</tr>
+</table>
+<ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> one</li></ol>
+
+!! end

@@ -1,0 +1,99 @@
+# Force the test runner to ensure the extension is loaded
+!! hooks
+ref
+references
+!! endhooks
+
+!! test
+Simple <ref>, no <references/>
+!! input
+Wikipedia rocks!<ref>Proceeds of Rockology, vol. XXI</ref>
+!! result
+<p>Wikipedia rocks!<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
+</p>
+!! end
+
+!! test
+Simple <ref>, with <references/>
+!! input
+Wikipedia rocks!<ref>Proceeds of Rockology, vol. XXI</ref>
+
+<references/>
+!! result
+<p>Wikipedia rocks!<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
+</p>
+<ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> Proceeds of Rockology, vol. XXI</li></ol>
+
+!! end
+
+
+!! article
+Template:Simple template
+!! text
+A ''simple'' template.
+!! endarticle
+
+
+!! test
+<ref> with a simple template
+!! input
+Templating<ref>{{simple template}}</ref>
+
+<references/>
+!! result
+<p>Templating<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
+</p>
+<ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> A <i>simple</i> template.</li></ol>
+
+!! end
+
+!! test
+<ref> with a <nowiki>
+!! input
+Templating<ref><nowiki>{{simple template}}</nowiki></ref>
+
+<references/>
+!! result
+<p>Templating<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
+</p>
+<ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> {{simple template}}</li></ol>
+
+!! end
+
+
+!! test
+<ref> in a <nowiki>
+!! input
+Templating<nowiki><ref>{{simple template}}</ref></nowiki>
+
+<references/>
+!! result
+<p>Templating&lt;ref&gt;{{simple template}}&lt;/ref&gt;
+</p><p><ol class="references"></ol>
+</p>
+!! end
+
+!! test
+<ref> in a <!--comment-->
+!! input
+Templating<!--<ref>{{simple template}}</ref>-->
+
+<references/>
+!! result
+<p>Templating
+</p><p><ol class="references"></ol>
+</p>
+!! end
+
+!! test
+<!--comment--> in a <ref> (bug 5384)
+!! input
+Templating<ref>Text<!--comment--></ref>
+
+<references/>
+!! result
+<p>Templating<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
+</p>
+<ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> Text</li></ol>
+
+!! end

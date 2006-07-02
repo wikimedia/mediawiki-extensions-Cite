@@ -57,7 +57,6 @@ for ( $i = 0; $i < count( $wgCiteErrors['user'] ); ++$i )
 
 function wfCite() {
 	global $wgMessageCache;
-
 	$wgMessageCache->addMessages(
 		array(
 			/*
@@ -193,7 +192,6 @@ function wfCite() {
 		 */
 		function Cite() {
 			$this->setHooks();
-			$this->genBacklinkLabels();
 		}
 
 		/**#@+ @access private */
@@ -484,11 +482,15 @@ function wfCite() {
 		 * @return string
 		 */
 		function referencesFormatEntryAlternateBacklinkLabel( $offset ) {
-			if ( isset( $this->mBacklinkLabels[$offset] ) )
+			if ( !isset( $this->mBacklinkLabels ) ) {
+				$this->genBacklinkLabels();
+			}
+			if ( isset( $this->mBacklinkLabels[$offset] ) ) {
 				return $this->mBacklinkLabels[$offset];
-			else
+			} else {
 				// Feed me!
 				return $this->error( CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL );
+			}
 		}
 
 		/**
@@ -638,8 +640,10 @@ function wfCite() {
 		 * arbitary number of tokens seperated by [\t\n ]
 		 */
 		function genBacklinkLabels() {
+			wfProfileIn( __METHOD__ );
 			$text = wfMsgForContentNoTrans( 'cite_references_link_many_format_backlink_labels' );
 			$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
+			wfProfileOut( __METHOD__ );
 		}
 
 		/**

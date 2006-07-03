@@ -15,6 +15,12 @@ $wgSpecialCiteMessages['en'] = array(
 	'cite_submit'       => 'Cite',
 	'cite_text'         => '', # Don't translate this
 );
+$wgSpecialCiteMessages['de'] = array(
+	'cite_article_link' => 'Artikel zitieren',
+	'cite'              => 'Zitierhilfe',
+	'cite_page'         => 'Seite:',
+	'cite_submit'       => 'anzeigen',
+);
 $wgSpecialCiteMessages['he'] = array(
 	'cite_article_link' => 'צטט דף זה',
 	'cite'              => 'ציטוט',

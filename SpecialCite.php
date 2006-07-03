@@ -22,6 +22,9 @@ $wgExtensionCredits['specialpage'][] = array(
 	'url' => 'http://meta.wikimedia.org/wiki/Cite/SpecialCite.php'
 );
 
+# Internationlization file
+require_once( 'SpecialCite.i18n.php' );
+
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';
 $wgHooks['MonoBookTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';
 
@@ -31,8 +34,11 @@ if ( !function_exists( 'extAddSpecialPage' ) ) {
 extAddSpecialPage( dirname(__FILE__) . '/SpecialCite_body.php', 'Cite', 'SpecialCite' );
 
 function wfSpecialCite() {
-	global $wgMessageCache;
-	$wgMessageCache->addMessage( 'cite_article_link', 'Cite this article' );
+	# Add messages
+	global $wgMessageCache, $wgSpecialCiteMessages;
+	foreach( $wgSpecialCiteMessages as $key => $value ) {
+		$wgMessageCache->addMessages( $wgSpecialCiteMessages[$key], $key );
+	}
 }
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {

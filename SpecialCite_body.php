@@ -1,20 +1,12 @@
 <?php
 if (!defined('MEDIAWIKI')) die();
 
-global $wgMessageCache, $wgContLang, $wgContLanguageCode;
+global $wgMessageCache, $wgContLang, $wgContLanguageCode, $wgCiteDefaultText;
 
 $dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR;
 $code = $wgContLang->lc( $wgContLanguageCode );
 $file = file_exists( "${dir}cite_text-$code" ) ? "${dir}cite_text-$code" : "${dir}cite_text";
-
-$wgMessageCache->addMessages(
-	array(
-		'cite' => 'Cite',
-		'cite_page' => 'Page: ',
-		'cite_submit' => 'Cite',
-		'cite_text' => file_get_contents( $file )
-	)
-);
+$wgCiteDefaultText = file_get_contents( $file );
 
 class SpecialCite extends SpecialPage {
 	function SpecialCite() {
@@ -71,7 +63,7 @@ class CiteForm {
 				null
 			) .
 				wfOpenElement( 'label' ) .
-					wfMsgHtml( 'cite_page' ) .
+					wfMsgHtml( 'cite_page' ) . ' ' .
 					wfElement( 'input',
 						array(
 							'type' => 'text',
@@ -116,11 +108,14 @@ class CiteOutput {
 	}
 	
 	function execute() {
-		global $wgOut, $wgUser, $wgParser, $wgHooks;
+		global $wgOut, $wgUser, $wgParser, $wgHooks, $wgCiteDefaultText;
 
 		$wgHooks['ParserGetVariableValueTs'][] = array( $this, 'timestamp' );
 
 		$msg = wfMsgForContentNoTrans( 'cite_text' );
+		if( $msg == '' ) {
+			$msg = $wgCiteDefaultText;
+		}
 		$this->mArticle->fetchContent( $this->mId, false );
 		$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->mArticle->getRevIdFetched() );
 		$wgOut->addHtml( $ret->getText() );

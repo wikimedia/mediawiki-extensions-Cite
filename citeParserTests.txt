@@ -118,3 +118,21 @@ Templating<ref>Text<!--comment--></ref>
 <ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> one</li></ol>
 
 !! end
+
+!! test
+{{REVISIONID}} on page with <ref> (bug 6299)
+!! input
+{{REVISIONID}}<ref>elite</ref>
+!! result
+<p>1337<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
+</p>
+!! end
+
+!! test
+{{REVISIONID}} on page without <ref> (bug 6299 sanity check)
+!! input
+{{REVISIONID}}
+!! result
+<p>1337
+</p>
+!! end

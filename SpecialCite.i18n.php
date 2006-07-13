@@ -1,6 +1,6 @@
 <?php
 /**
- * Internationalization file for Cite special page extension.
+ * Internationalisation file for Cite special page extension.
  *
  * @package MediaWiki
  * @subpackage Extensions

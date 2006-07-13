@@ -32,4 +32,10 @@ $wgSpecialCiteMessages['id'] = array(
 	'cite_page'   => 'Halaman:',
 	'cite_submit' => 'Kutip',
 );
+$wgSpecialCiteMessages['nl'] = array(
+	'cite_article_link' => 'Citeer dit artikel',
+	'cite'              => 'Citeerhulp',
+	'cite_page'         => 'Pagina:',
+	'cite_submit'       => 'Citeer',
+);
 ?>

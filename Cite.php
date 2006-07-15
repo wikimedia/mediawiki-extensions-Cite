@@ -56,14 +56,15 @@ for ( $i = 0; $i < count( $wgCiteErrors['user'] ); ++$i )
 	define( $wgCiteErrors['user'][$i], $i + 1 );
 
 # Internationalisation file
+if ( !function_exists( 'extAddMessages' ) ) {
+	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
+}
 require_once( 'Cite.i18n.php' );
 
 function wfCite() {
 	# Add messages
-	global $wgMessageCache, $wgCiteMessages;
-	foreach( $wgCiteMessages as $key => $value ) {
-		$wgMessageCache->addMessages( $wgCiteMessages[$key], $key );
-	}
+	global $wgCiteMessages;
+	extAddMessages( $wgCiteMessages );
 	
 	class Cite {
 		/**#@+

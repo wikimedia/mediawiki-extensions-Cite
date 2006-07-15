@@ -106,4 +106,22 @@ $wgCiteMessages['he'] = array(
 	'cite_references_prefix' => '<ol class="references">',
 	'cite_references_suffix' => '</ol>',
 );
+$wgCiteMessages['id'] = array(
+	# Internal errors
+	'cite_croak' => 'Kegagalan pengutipan; $1: $2',
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Kesalahan internal; $str tak sah',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Kesalahan internal; kunci tak sah',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Kesalahan internal; kunci tak sah',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Kesalahan internal; kunci stack tak sah',
+
+	# User errors
+	'cite_error' => 'Kesalahan pengutipan $1; $2',
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Kesalahan pemanggilan; diharapkan suatu kunci non-integer',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Kesalahan pemanggilan; tidak ada kunci yang dispesifikasikan',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Kesalahan pemanggilan; kunci tak sah, contohnya karena terlalu banyak atau tidak ada kunci yang dispesifikasikan',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Kesalahan pemanggilan; tidak ada masukan yang dispesifikasikan',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Kesalahan masukan; seharusnya tidak ada',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Paramater tak sah; seharusnya tidak ada',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Kehabisan label pralana balik, tambakan pada pesan sistem \"''cite_references_link_many_format_backlink_labels''\"",
+);
 ?>

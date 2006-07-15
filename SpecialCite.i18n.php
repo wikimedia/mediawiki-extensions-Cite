@@ -28,6 +28,7 @@ $wgSpecialCiteMessages['he'] = array(
 	'cite_submit'       => 'צטט',
 );
 $wgSpecialCiteMessages['id'] = array(
+	'cite_article_link' => 'Kutip artikel ini',
 	'cite'        => 'Kutip',
 	'cite_page'   => 'Halaman:',
 	'cite_submit' => 'Kutip',

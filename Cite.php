@@ -55,7 +55,7 @@ for ( $i = 0; $i < count( $wgCiteErrors['user'] ); ++$i )
 	// User errors are positive integers
 	define( $wgCiteErrors['user'][$i], $i + 1 );
 
-# Internationlisation file
+# Internationalisation file
 require_once( 'Cite.i18n.php' );
 
 function wfCite() {

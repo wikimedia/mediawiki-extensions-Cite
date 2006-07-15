@@ -22,7 +22,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'url' => 'http://meta.wikimedia.org/wiki/Cite/SpecialCite.php'
 );
 
-# Internationlisation file
+# Internationalisation file
 require_once( 'SpecialCite.i18n.php' );
 
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';

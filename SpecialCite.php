@@ -23,9 +23,6 @@ $wgExtensionCredits['specialpage'][] = array(
 );
 
 # Internationalisation file
-if ( !function_exists( 'extAddMessages' ) ) {
-	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
-}
 require_once( 'SpecialCite.i18n.php' );
 
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';
@@ -38,8 +35,10 @@ extAddSpecialPage( dirname(__FILE__) . '/SpecialCite_body.php', 'Cite', 'Special
 
 function wfSpecialCite() {
 	# Add messages
-	global $wgSpecialCiteMessages;
-	extAddMessages( $wgSpecialCiteMessages );
+	global $wgMessageCache, $wgSpecialCiteMessages;
+	foreach( $wgSpecialCiteMessages as $key => $value ) {
+		$wgMessageCache->addMessages( $wgSpecialCiteMessages[$key], $key );
+	}
 }
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {

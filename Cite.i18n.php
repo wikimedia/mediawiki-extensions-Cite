@@ -57,6 +57,24 @@ $wgCiteMessages['en'] = array(
 	'cite_references_prefix' => '<ol class="references">',
 	'cite_references_suffix' => '</ol>',
 );
+$wgCiteMessages['fr'] = array(
+        # Internal errors
+        'cite_croak' => 'Citation corrompue; $1: $2',
+        'cite_error_' . CITE_ERROR_STR_INVALID         => 'Erreur interne; $str attendue',
+        'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Erreur interne; clé invalide',
+        'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Erreur interne; clé invalide ',
+        'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erreur interne; clé de pile invalide',
+
+        # User errors
+        'cite_error' => 'Kesalahan pengutipan $1; $2',
+        'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Appel invalide; clé non-intégrale attendue',
+        'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Appel invalide; aucune clé spécifiée',
+        'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Appel invalide; clés invalides : clé erronée, ou trop de clés spécifiées',
+        'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Appel invalide; aucune entrée spécifiée',
+        'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Entrée invalides; entrée attendu',
+        'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Arguments invalides; argument attendu',
+        'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Exécution en dehors des étiquettes personnalisées, définissez plus dans le message \"''cite_references_link_many_format_backlink_labels''\"",
+);
 $wgCiteMessages['he'] = array(
 	/*
 		Debug and errors

@@ -550,21 +550,27 @@ function wfCite() {
 		 * @return string The parsed text
 		 */
 		function parse( $in ) {
-			$ret = $this->mParser->parse(
-				$in,
-				$this->mParser->mTitle,
-				$this->mParser->mOptions,
-				// Avoid whitespace buildup
-				false,
-				// Important, otherwise $this->clearState()
-				// would get run every time <ref> or
-				// <references> is called, fucking the whole
-				// thing up.
-				false
-			);
-			$text = $ret->getText();
-			
-			return $this->fixTidy( $text );
+			if ( method_exists( $this->mParser, 'recursiveTagParse' ) ) {
+				// New fast method
+				return $this->mParser->recursiveTagParse( $in );
+			} else {
+				// Old method
+				$ret = $this->mParser->parse(
+					$in,
+					$this->mParser->mTitle,
+					$this->mParser->mOptions,
+					// Avoid whitespace buildup
+					false,
+					// Important, otherwise $this->clearState()
+					// would get run every time <ref> or
+					// <references> is called, fucking the whole
+					// thing up.
+					false
+				);
+				$text = $ret->getText();
+				
+				return $this->fixTidy( $text );
+			}
 		}
 
 		/**

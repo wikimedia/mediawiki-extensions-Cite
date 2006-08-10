@@ -39,4 +39,7 @@ $wgSpecialCiteMessages['nl'] = array(
 	'cite_page'         => 'Pagina:',
 	'cite_submit'       => 'Citeer',
 );
+$wgSpecialCiteMessages['wa'] = array(
+	'cite_page' => 'Pådje:',
+);
 ?>

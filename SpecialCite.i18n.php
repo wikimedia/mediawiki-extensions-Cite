@@ -39,6 +39,12 @@ $wgSpecialCiteMessages['nl'] = array(
 	'cite_page'         => 'Pagina:',
 	'cite_submit'       => 'Citeer',
 );
+$wgSpecialCiteMessages['pl'] = array(
+	'cite_article_link' => 'Odwołanie bibliograficzne',
+	'cite'              => 'Cytowanie',
+	'cite_page'         => 'Strona:',
+	'cite_submit'       => 'Cytuj',
+);
 $wgSpecialCiteMessages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );

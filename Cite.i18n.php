@@ -142,4 +142,28 @@ $wgCiteMessages['id'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Paramater tak sah; seharusnya tidak ada',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Kehabisan label pralana balik, tambakan pada pesan sistem \"''cite_references_link_many_format_backlink_labels''\"",
 );
+$wgCiteMessages['nl'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => 'Probleem met Cite; $1: $2',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Interne fout; onjuiste $str',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Interne fout; onjuiste sleutel',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Interne fout; onjuiste sleutel',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Interne fout; onjuiste stacksleutel',
+
+	# User errors
+	'cite_error' => 'Citefout $1; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Onjuiste call; expecting a non-integer key',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Onjuiste call; no key specified',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Onjuiste call; invalid keys, e.g. too many or wrong key specified',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Onjuiste call; no input specified',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Onjuiste invoer; geen verwacht',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Onjuiste parameters; geen verwacht',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Voorraad terugverwijslabels was op, stel er meer in bij het bericht \"''cite_references_link_many_format_backlink_labels''\"",
+);
 ?>

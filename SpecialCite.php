@@ -9,15 +9,15 @@ if (!defined('MEDIAWIKI')) die();
  *
  * @link http://meta.wikimedia.org/wiki/Cite/SpecialCite.php Documentation
  *
- * @author  var Arnfjörð Bjarmason <avarab@gmail.com>
- * @copyright Copyright © 2005,  var Arnfjörð Bjarmason
+ * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
+ * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
 $wgExtensionFunctions[] = 'wfSpecialCite';
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Cite',
-	'author' => ' var Arnfjörð Bjarmason',
+	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link',
 	'url' => 'http://meta.wikimedia.org/wiki/Cite/SpecialCite.php'
 );

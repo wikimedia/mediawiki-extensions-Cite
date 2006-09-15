@@ -166,6 +166,35 @@ $wgCiteMessages['nl'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Onjuiste parameters; geen verwacht',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Voorraad terugverwijslabels was op, stel er meer in bij het bericht \"''cite_references_link_many_format_backlink_labels''\"",
 );
+$wgCiteMessages['ru'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => 'Цитата сдохла; $1: $2',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Внутренняя ошибка: неверный $str',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Внутренняя ошибка: неверный ключ',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Внутренняя ошибка: неверный ключ',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Внутренняя ошибка: неверный ключ стека ',
+
+	# User errors
+	'cite_error' => 'Ошибка цитирования $1; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Неправильный вызов: ожидался нечисловой ключ',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Неправильный вызов: ключ не был указан',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Неправильный вызов: неверные ключи, например было указано слишком много ключей или ключ был неправильным',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Неверный вызов: нет входных данных',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Входные данные недействительны, так как не предполагаются',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Переданы недействительные параметры; их вообще не предусмотрено.',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную «cite_references_link_many_format_backlink_labels».',
+
+	/*
+	   Output formatting
+	*/
+	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я',
+);
 $wgCiteMessages['zh-cn'] = array(
 	/*
 		Debug and errors

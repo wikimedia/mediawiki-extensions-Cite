@@ -45,6 +45,12 @@ $wgSpecialCiteMessages['pl'] = array(
 	'cite_page'         => 'Strona:',
 	'cite_submit'       => 'Cytuj',
 );
+$wgSpecialCiteMessages['ru'] = array(
+	'cite_article_link' => 'Цитировать статью',
+	'cite'              => 'Цитирование',
+	'cite_page'         => 'Страница:',
+	'cite_submit'       => 'Процитировать',
+);
 $wgSpecialCiteMessages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );

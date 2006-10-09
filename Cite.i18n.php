@@ -195,6 +195,55 @@ $wgCiteMessages['ru'] = array(
 	*/
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я',
 );
+$wgCiteMessages['sk'] = array(
+	/*
+	    Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => 'Cite croaked; $1: $2',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Vnútorná chyba; neplatný $str',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Vnútorná chyba; neplatný kľúč',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Vnútorná chyba; neplatný kľúč',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Vnútorná chyba; neplatný kľúč zásobníka',
+
+	# User errors
+	'cite_error' => 'Chyba citácie $1; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Neplatné volanie; očakáva sa neceločíselný typ kľúča',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Neplatné volanie; nebol špecifikovaný kľúč',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Neplatné volanie; neplatné kľúče, napr. príliš veľa alebo nesprávne špecifikovaný kľúč',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Neplatné volanie; nebol špecifikovaný vstup',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Neplatné volanie; neočakával sa vstup',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Neplatné parametre; neočakávli sa žiadne',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Minuli sa generované návestia spätných odkazov, definujte viac v správe \"''cite_references_link_many_format_backlink_labels''\"",
+
+	/*
+	   Output formatting
+	*/
+	'cite_reference_link_key_with_num' => '$1_$2',
+	# Ids produced by <ref>
+	'cite_reference_link_prefix'       => '_ref-',
+	'cite_reference_link_suffix'       => '',
+	# Ids produced by <references>
+	'cite_references_link_prefix'      => '_note-',
+	'cite_references_link_suffix'      => '',
+
+	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
+	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
+	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
+	# An item from this set is passed as $3 in the message above
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
+	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
+	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbps;
+
+	# Although I could just use # instead of <li> above and nothing here that
+	# will break on input that contains linebreaks
+	'cite_references_prefix' => '<ol class="references">',
+	'cite_references_suffix' => '</ol>',
+);
 $wgCiteMessages['zh-cn'] = array(
 	/*
 		Debug and errors

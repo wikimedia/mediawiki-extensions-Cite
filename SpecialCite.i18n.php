@@ -29,9 +29,9 @@ $wgSpecialCiteMessages['he'] = array(
 );
 $wgSpecialCiteMessages['id'] = array(
 	'cite_article_link' => 'Kutip artikel ini',
-	'cite'        => 'Kutip',
-	'cite_page'   => 'Halaman:',
-	'cite_submit' => 'Kutip',
+	'cite'              => 'Kutip',
+	'cite_page'         => 'Halaman:',
+	'cite_submit'       => 'Kutip',
 );
 $wgSpecialCiteMessages['nl'] = array(
 	'cite_article_link' => 'Citeer dit artikel',
@@ -50,6 +50,12 @@ $wgSpecialCiteMessages['ru'] = array(
 	'cite'              => 'Цитирование',
 	'cite_page'         => 'Страница:',
 	'cite_submit'       => 'Процитировать',
+);
+$wgSpecialCiteMessages['sk'] = array(
+	'cite_article_link' => 'Citovať článok',
+	'cite'              => 'Citovať',
+	'cite_page'         => 'Stránka:',
+	'cite_submit'       => 'Citovať',
 );
 $wgSpecialCiteMessages['wa'] = array(
 	'cite_page' => 'Pådje:',

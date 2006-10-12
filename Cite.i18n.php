@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Internationalisation file for Cite extension.
  *
@@ -24,12 +24,13 @@ $wgCiteMessages['en'] = array(
 	# User errors
 	'cite_error' => 'Cite error $1; $2',
 
-	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Invalid call; expecting a non-integer key',
-	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Invalid call; no key specified',
-	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Invalid call; invalid keys, e.g. too many or wrong key specified',
-	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Invalid call; no input specified',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Invalid input; expecting none',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid parameters; expecting none',
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer, use a descriptive title',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Invalid <code>&lt;ref&gt;</code> tag; refs with no content must have a name',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Invalid <code>&lt;ref&gt;</code> tag; invalid names, e.g. too many',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Invalid <code>&lt;references&gt;</code> tag; no input is allowed, use
+<code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
 
 	/*

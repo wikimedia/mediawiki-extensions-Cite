@@ -59,22 +59,22 @@ $wgCiteMessages['en'] = array(
 	'cite_references_suffix' => '</ol>',
 );
 $wgCiteMessages['fr'] = array(
-        # Internal errors
-        'cite_croak' => 'Citation corrompue; $1: $2',
-        'cite_error_' . CITE_ERROR_STR_INVALID         => 'Erreur interne; $str attendue',
-        'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Erreur interne; clé invalide',
-        'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Erreur interne; clé invalide ',
-        'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erreur interne; clé de pile invalide',
+	# Internal errors
+	'cite_croak' => 'Citation corrompue; $1: $2',
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Erreur interne; $str attendue',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Erreur interne; clé invalide',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Erreur interne; clé invalide ',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erreur interne; clé de pile invalide',
 
-        # User errors
-        'cite_error' => 'Kesalahan pengutipan $1; $2',
-        'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Appel invalide; clé non-intégrale attendue',
-        'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Appel invalide; aucune clé spécifiée',
-        'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Appel invalide; clés invalides : clé erronée, ou trop de clés spécifiées',
-        'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Appel invalide; aucune entrée spécifiée',
-        'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Entrée invalides; entrée attendu',
-        'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Arguments invalides; argument attendu',
-        'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Exécution en dehors des étiquettes personnalisées, définissez plus dans le message \"''cite_references_link_many_format_backlink_labels''\"",
+	# User errors
+	'cite_error' => 'Kesalahan pengutipan $1; $2',
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Appel invalide; clé non-intégrale attendue',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Appel invalide; aucune clé spécifiée',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Appel invalide; clés invalides : clé erronée, ou trop de clés spécifiées',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Appel invalide; aucune entrée spécifiée',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Entrée invalides; entrée attendu',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Arguments invalides; argument attendu',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Exécution en dehors des étiquettes personnalisées, définissez plus dans le message \"''cite_references_link_many_format_backlink_labels''\"",
 );
 $wgCiteMessages['he'] = array(
 	/*
@@ -92,12 +92,12 @@ $wgCiteMessages['he'] = array(
 	# User errors
 	'cite_error' => 'שגיאת ציטוט $1; $2',
 
-	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'קריאה שגויה; מצפה למפתח שאינו מספר',
-	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'קריאה שגויה; לא צוין מפתח',
-	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'קריאה שגויה; מפתחות שגויים, למשל, רבים מדי או שמפתח שגוי צוין',
-	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'קריאה שגויה; לא צוין קלט',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'קריאה שגויה; מצפה לכלום',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'פרמטרים שגויים; מצפה לכלום',
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'תגית <code>&lt;ref&gt;</code> שגויה; שם לא יכול להיות מספר פשוט, יש להשתמש בכותרת תיאורית',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא תוכן חייב להיות שם',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'תגית <code>&lt;ref&gt;</code> שגויה; שמות שגויים, למשל, רבים מדי',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא שם חייב להיות תוכן',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן לכתוב תוכן, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן להשתמש בפרמטרים, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת \"''cite_references_link_many_format_backlink_labels''\"",
 
 	/*

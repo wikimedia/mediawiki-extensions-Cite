@@ -202,7 +202,7 @@ $wgCiteMessages['sk'] = array(
 	*/
 
 	# Internal errors
-	'cite_croak' => 'Cite croaked; $1: $2',
+	'cite_croak' => 'Citát je už neaktuálny; $1: $2',
 
 	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Vnútorná chyba; neplatný $str',
 	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Vnútorná chyba; neplatný kľúč',

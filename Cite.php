@@ -291,7 +291,7 @@ function wfCite() {
 						);
 				} else {
 					// We've been here before
-					if ( empty($this->mRefs[$key]['text']) and !empty($str)) {
+					if ( $this->mRefs[$key]['text'] === null && $str !== '' ) {
 						// If no text found before, use this text
 						$this->mRefs[$key]['text'] = $str;
 					};

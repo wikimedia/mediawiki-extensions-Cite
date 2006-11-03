@@ -136,3 +136,51 @@ Templating<ref>Text<!--comment--></ref>
 <p>1337
 </p>
 !! end
+
+!! test
+Blank ref followed by ref with content
+!! input
+<ref name="blank"/>
+
+<ref name="blank">content</ref>
+
+<references/>
+!! result
+<p><sup id="_ref-blank_0" class="reference"><a href="#_note-blank" title="">[1]</a></sup>
+</p><p><sup id="_ref-blank_1" class="reference"><a href="#_note-blank" title="">[1]</a></sup>
+</p>
+<ol class="references"><li id="_note-blank">↑ <a href="#_ref-blank_0" title=""><sup>1.0</sup></a> <a href="#_ref-blank_1" title=""><sup>1.1</sup></a> content</li></ol>
+
+!! end
+
+!! test
+Regression: non-blank ref "0" followed by ref with content
+!! input
+<ref name="blank">0</ref>
+
+<ref name="blank">content</ref>
+
+<references/>
+!! result
+<p><sup id="_ref-blank_0" class="reference"><a href="#_note-blank" title="">[1]</a></sup>
+</p><p><sup id="_ref-blank_1" class="reference"><a href="#_note-blank" title="">[1]</a></sup>
+</p>
+<ol class="references"><li id="_note-blank">↑ <a href="#_ref-blank_0" title=""><sup>1.0</sup></a> <a href="#_ref-blank_1" title=""><sup>1.1</sup></a> 0</li></ol>
+
+!! end
+
+!! test
+Regression sanity check: non-blank ref "1" followed by ref with content
+!! input
+<ref name="blank">1</ref>
+
+<ref name="blank">content</ref>
+
+<references/>
+!! result
+<p><sup id="_ref-blank_0" class="reference"><a href="#_note-blank" title="">[1]</a></sup>
+</p><p><sup id="_ref-blank_1" class="reference"><a href="#_note-blank" title="">[1]</a></sup>
+</p>
+<ol class="references"><li id="_note-blank">↑ <a href="#_ref-blank_0" title=""><sup>1.0</sup></a> <a href="#_ref-blank_1" title=""><sup>1.1</sup></a> 1</li></ol>
+
+!! end

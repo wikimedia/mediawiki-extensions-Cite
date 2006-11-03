@@ -289,14 +289,18 @@ function wfCite() {
 							$this->mRefs[$key]['count'],
 							$this->mRefs[$key]['number']
 						);
-				} else
+				} else {
 					// We've been here before
+					if ( empty($this->mRefs[$key]['text']) and !empty($str)) {
+						// If no text found before, use this text
+						$this->mRefs[$key]['text'] = $str;
+					};
 					return 
 						$this->linkRef(
 							$key,
 							++$this->mRefs[$key]['count'],
 							$this->mRefs[$key]['number']
-						);
+						); }
 			else
 				$this->croak( CITE_ERROR_STACK_INVALID_INPUT, serialize( array( $key, $str ) ) );
 		}

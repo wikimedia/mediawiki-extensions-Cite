@@ -26,6 +26,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'description' => 'adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
 	'url' => 'http://meta.wikimedia.org/wiki/Cite/Cite.php'
 );
+$wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
 
 /**
  * Error codes, first array = internal errors; second array = user errors

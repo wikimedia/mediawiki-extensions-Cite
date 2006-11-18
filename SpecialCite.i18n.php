@@ -33,6 +33,25 @@ $wgSpecialCiteMessages['id'] = array(
 	'cite_page'         => 'Halaman:',
 	'cite_submit'       => 'Kutip',
 );
+$wgSpecialCiteMessages['kk-kz'] = array(
+	'cite_article_link' => 'Беттен дәйексоз алу',
+	'cite'              => 'Дәйексөз алу',
+	'cite_page'         => 'Бет атауы:',
+	'cite_submit'       => 'Дәйексөз ал!',
+);
+$wgSpecialCiteMessages['kk-tr'] = array(
+	'cite_article_link' => 'Betten däýeksoz alw',
+	'cite'              => 'Däýeksöz alw',
+	'cite_page'         => 'Bet atawı:',
+	'cite_submit'       => 'Däýeksöz al!',
+);
+$wgSpecialCiteMessages['kk-cn'] = array(
+	'cite_article_link' => 'بەتتەن دٴايەكسوز الۋ',
+	'cite'              => 'دٴايەكسٴوز الۋ',
+	'cite_page'         => 'بەت اتاۋى:',
+	'cite_submit'       => 'دٴايەكسٴوز ال!',
+);
+$wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-kz'];
 $wgSpecialCiteMessages['nl'] = array(
 	'cite_article_link' => 'Citeer dit artikel',
 	'cite'              => 'Citeerhulp',

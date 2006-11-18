@@ -143,6 +143,79 @@ $wgCiteMessages['id'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Paramater tak sah; seharusnya tidak ada',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Kehabisan label pralana balik, tambakan pada pesan sistem \"''cite_references_link_many_format_backlink_labels''\"",
 );
+$wgCiteMessages['kk-kz'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => 'Дәйексөз алу сәтсіз бітті; $1: $2 ',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Ішкі қате; жарамсыз $str ',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Ішкі қате; жарамсыз кілт',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Ішкі қате; жарамсыз кілт',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Ішкі қате; жарамсыз стек кілті',
+
+	# User errors
+	'cite_error' => 'Дәйексөз алу $1 қатесі; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; атау кәдімгі бүтін сан болуы мүмкін емес, сиппатауыш атау қолданыңыз',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; мағлұматсыз түсініктемелерде атау болуы қажет',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; жарамсыз атаулар, мысалы, тым көп',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; атаусыз түсініктемелерде мағлұматы болуы қажет',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Жарамсыз <code>&lt;references&gt;</code> белгіше; еш кіріс рұқсат етілмейді, былай <code>&lt;references /&gt;</code> қолданыңыз',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Жарамсыз <code>&lt;references&gt;</code> белгіше; еш баптар рұқсат етілмейді, былай <code>&lt;references /&gt;</code> қолданыңыз',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => 'Қосымша белгілердің саны бітті, одан әрі көбірек «\'\'cite_references_link_many_format_backlink_labels\'\'» жүйе хабарында белгілеңіз',
+);
+$wgCiteMessages['kk-tr'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => 'Däýeksöz alw sätsiz bitti; $1: $2 ',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'İşki qate; jaramsız $str ',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'İşki qate; jaramsız kilt',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'İşki qate; jaramsız kilt',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'İşki qate; jaramsız stek kilti',
+
+	# User errors
+	'cite_error' => 'Däýeksöz alw $1 qatesi; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Jaramsız <code>&lt;ref&gt;</code> belgişesi; ataw kädimgi bütin san bolwı mümkin emes, sïppatawış ataw qoldanıñız',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Jaramsız <code>&lt;ref&gt;</code> belgişesi; mağlumatsız tüsiniktemelerde ataw bolwı qajet',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Jaramsız <code>&lt;ref&gt;</code> belgişe; jaramsız atawlar, mısalı, tım köp',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Jaramsız <code>&lt;ref&gt;</code> belgişe; atawsız tüsiniktemelerde mağlumatı bolwı qajet',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Jaramsız <code>&lt;references&gt;</code> belgişe; eş kiris ruqsat etilmeýdi, bılaý <code>&lt;references /&gt;</code> qoldanıñız',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Jaramsız <code>&lt;references&gt;</code> belgişe; eş baptar ruqsat etilmeýdi, bılaý <code>&lt;references /&gt;</code> qoldanıñız',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => 'Qosımşa belgilerdiñ sanı bitti, odan äri köbirek «\'\'cite_references_link_many_format_backlink_labels\'\'» jüýe xabarında belgileñiz',
+);
+$wgCiteMessages['kk-cn'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => 'دٴايەكسٴوز الۋ سٴاتسٴىز بٴىتتٴى; $1: $2 ',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'ٴىشكٴى قاتە; جارامسىز $str ',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'ٴىشكٴى قاتە; جارامسىز كٴىلت',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'ٴىشكٴى قاتە; جارامسىز كٴىلت',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'ٴىشكٴى قاتە; جارامسىز ستەك كٴىلتٴى',
+
+	# User errors
+	'cite_error' => 'دٴايەكسٴوز الۋ $1 قاتەسٴى; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٴىشەسٴى; اتاۋ كٴادٴىمگٴى بٴۇتٴىن سان بولۋى مٴۇمكٴىن ەمەس, سيپپاتاۋىش اتاۋ قولدانىڭىز',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٴىشەسٴى; ماعلۇماتسىز تٴۇسٴىنٴىكتەمەلەردە اتاۋ بولۋى قاجەت',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٴىشە; جارامسىز اتاۋلار, مىسالى, تىم كٴوپ',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٴىشە; اتاۋسىز تٴۇسٴىنٴىكتەمەلەردە ماعلۇماتى بولۋى قاجەت',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'جارامسىز <code>&lt;references&gt;</code> بەلگٴىشە; ەش كٴىرٴىس رۇقسات ەتٴىلمەيدٴى, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'جارامسىز <code>&lt;references&gt;</code> بەلگٴىشە; ەش باپتار رۇقسات ەتٴىلمەيدٴى, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => 'قوسىمشا بەلگٴىلەردٴىڭ سانى بٴىتتٴى, ودان ٴارٴى كٴوبٴىرەك «\'\'cite_references_link_many_format_backlink_labels\'\'» جٴۇيە حابارىندا بەلگٴىلەڭٴىز',
+);
+$wgCiteMessages['kk'] = $wgCiteMessages['kk-kz'];
 $wgCiteMessages['nl'] = array(
 	/*
 		Debug and errors

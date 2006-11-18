@@ -58,6 +58,55 @@ $wgCiteMessages['en'] = array(
 	'cite_references_prefix' => '<ol class="references">',
 	'cite_references_suffix' => '</ol>',
 );
+$wgCiteMessages['cs'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => 'Nefunkční citace; $1: $2',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Vnitřní chyba; neplatný $str',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Vnitřní chyba; neplatný klíč',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Vnitřní chyba; neplatný klíč',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Vnitřní chyba; neplatný klíč zásobníku',
+
+	# User errors
+	'cite_error' => 'Chybná citace $1; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Chyba v tagu <code>&lt;ref&gt;</code>; názvem nesmí být prosté číslo, použijte popisné označení',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Chyba v tagu <code>&lt;ref&gt;</code>; prázdné citace musí obsahovat název',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Chyba v tagu <code>&lt;ref&gt;</code>; chybné názvy, např. je jich příliš mnoho',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Chyba v tagu <code>&lt;ref&gt;</code>; citace bez názvu musí mít vlastní obsah',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Chyba v tagu <code>&lt;references&gt;</code>; zde není dovolen vstup, použijte <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Došla označení zpětných odkazů, přidejte jich několik do zprávy „''cite_references_link_many_format_backlink_labels''“",
+
+	/*
+	   Output formatting
+	*/
+	'cite_reference_link_key_with_num' => '$1_$2',
+	# Ids produced by <ref>
+	'cite_reference_link_prefix'       => '_ref-',
+	'cite_reference_link_suffix'       => '',
+	# Ids produced by <references>
+	'cite_references_link_prefix'      => '_note-',
+	'cite_references_link_suffix'      => '',
+
+	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
+	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
+	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
+	# An item from this set is passed as $3 in the message above
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
+	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
+	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbsp;
+
+	# Although I could just use # instead of <li> above and nothing here that
+	# will break on input that contains linebreaks
+	'cite_references_prefix' => '<ol class="references">',
+	'cite_references_suffix' => '</ol>',
+);
 $wgCiteMessages['fr'] = array(
 	# Internal errors
 	'cite_croak' => 'Citation corrompue; $1: $2',

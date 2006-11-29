@@ -277,7 +277,7 @@ function wfCite() {
 				return $this->linkRef( $this->mInCnt++ );
 			} else if ( is_string( $key ) )
 				// Valid key
-				if ( ! @is_array( $this->mRefs[$key] ) ) {
+				if ( ! isset( $this->mRefs[$key] ) || ! is_array( $this->mRefs[$key] ) ) {
 					// First occourance
 					$this->mRefs[$key] = array(
 						'text' => $str,

@@ -192,6 +192,27 @@ $wgCiteMessages['id'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Paramater tak sah; seharusnya tidak ada',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Kehabisan label pralana balik, tambakan pada pesan sistem \"''cite_references_link_many_format_backlink_labels''\"",
 );
+$wgCiteMessages['it'] = array(
+
+	# Internal errors
+	'cite_croak' => 'Errore nella citazione: $1: $2',
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Errore interno: $str errato',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Errore interno: chiave errata',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Errore interno: chiave errata',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Errore interno: chiave di stack errata',
+
+	# User errors
+	'cite_error' => 'Errore nella funzione Cite $1: $2',
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Errore nell\'uso del marcatore <code>&lt;ref&gt;</code>: il nome non può essere un numero intero. Usare un titolo esteso',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Errore nell\'uso del marcatore <code>&lt;ref&gt;</code>: i ref vuoti non possono essere privi di nome',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Errore nell\'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Errore nell\'uso del marcatore <code>&lt;ref&gt;</code>: i ref privi di nome non possono essere vuoti',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Errore nell\'uso del marcatoree <code>&lt;references&gt;</code>: input non ammesso, usare il marcatore
+<code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Errore nell\'uso del marcatore <code>&lt;references&gt;</code>: parametri non ammessi, usare il marcatore <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio \"''cite_references_link_many_format_backlink_labels''\"",
+
+);
 $wgCiteMessages['kk-kz'] = array(
 	/*
 		Debug and errors

@@ -33,6 +33,12 @@ $wgSpecialCiteMessages['id'] = array(
 	'cite_page'         => 'Halaman:',
 	'cite_submit'       => 'Kutip',
 );
+$wgSpecialCiteMessages['it'] = array(
+	'cite_article_link' => 'Cita questa voce',
+	'cite'              => 'Citazione',
+	'cite_page'         => 'Pagina da citare:',
+	'cite_submit'       => 'Crea la citazione',
+);
 $wgSpecialCiteMessages['kk-kz'] = array(
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite'              => 'Дәйексөз алу',

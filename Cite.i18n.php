@@ -239,6 +239,29 @@ $wgCiteMessages['it'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio \"''cite_references_link_many_format_backlink_labels''\"",
 
 );
+
+$wgCiteMessages['ja'] = array(
+
+	# Internal errors
+	'cite_croak' => '引用タグ機能の重大なエラー; $1: $2',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => '内部エラー; 無効な $str',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '内部エラー; 無効なキー',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '内部エラー; 無効なキー',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '内部エラー; 無効なスタックキー',
+
+	# User errors
+	'cite_error' => '引用エラー $1; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => '無効な <code>&lt;ref&gt;</code> タグ: 名前に単純な数値は使用できません。',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => '無効な <code>&lt;ref&gt;</code> タグ: 引用句の内容がない場合には名前 （<code>name</code> 属性）が必要です',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => '無効な <code>&lt;ref&gt;</code> タグ: 無効な名前（多すぎる、もしくは誤った指定）',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => '無効な <code>&lt;ref&gt;</code> タグ: 名前 （<code>name</code> 属性）がない場合には引用句の内容が必要です',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => '無効な <code>&lt;references&gt;</code> タグ: 内容のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '無効な <code>&lt;references&gt;</code> タグ: 引数のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "バックリンクラベルが使用できる個数を超えました。\"''cite_references_link_many_format_backlink_labels''\" メッセージでの定義を増やしてください。",
+);
+
 $wgCiteMessages['kk-kz'] = array(
 	/*
 		Debug and errors

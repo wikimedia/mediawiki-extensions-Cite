@@ -39,6 +39,12 @@ $wgSpecialCiteMessages['it'] = array(
 	'cite_page'         => 'Pagina da citare:',
 	'cite_submit'       => 'Crea la citazione',
 );
+$wgSpecialCiteMessages['ja'] = array(
+	'cite_article_link' => 'この項目を引用',
+	'cite'              => 'ウィキの項目を引用する',
+	'cite_page'         => 'ページ名:',
+	'cite_submit'       => '引用する',
+);
 $wgSpecialCiteMessages['kk-kz'] = array(
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite'              => 'Дәйексөз алу',

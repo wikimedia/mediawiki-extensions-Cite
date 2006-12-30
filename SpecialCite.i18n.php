@@ -21,6 +21,12 @@ $wgSpecialCiteMessages['de'] = array(
 	'cite_page'         => 'Seite:',
 	'cite_submit'       => 'anzeigen',
 );
+$wgSpecialCiteMessages['fi'] = array(
+	'cite_article_link' => 'Viitetiedot',
+	'cite'              => 'Viitetiedot',
+	'cite_page'         => 'Sivu:',
+	'cite_submit'       => 'Viittaa',
+);
 $wgSpecialCiteMessages['he'] = array(
 	'cite_article_link' => 'צטט דף זה',
 	'cite'              => 'ציטוט',

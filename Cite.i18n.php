@@ -142,7 +142,7 @@ $wgCiteMessages['fr'] = array(
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erreur interne; clé de pile invalide',
 
 	# User errors
-	'cite_error' => 'Kesalahan pengutipan $1; $2',
+	'cite_error' => 'Citation erreur $1; $2',
 	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Appel invalide; clé non-intégrale attendue',
 	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Appel invalide; aucune clé spécifiée',
 	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Appel invalide; clés invalides : clé erronée, ou trop de clés spécifiées',

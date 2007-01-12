@@ -27,6 +27,12 @@ $wgSpecialCiteMessages['fi'] = array(
 	'cite_page'         => 'Sivu:',
 	'cite_submit'       => 'Viittaa',
 );
+$wgSpecialCiteMessages['en'] = array(
+	'cite_article_link' => 'Citer cet article',
+	'cite'              => 'Citation ',
+	'cite_page'         => 'Page :',
+	'cite_submit'       => 'Citer',
+);
 $wgSpecialCiteMessages['he'] = array(
 	'cite_article_link' => 'צטט דף זה',
 	'cite'              => 'ציטוט',

@@ -47,9 +47,6 @@ $wgCiteMessages['en'] = array(
 	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
 	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
 	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
-	'cite_scriptline_prefix'                           => '<script type = "text/javascript">/*<![CDATA[*/',
-	'cite_scriptline'                                  => 'var ref=document.getElementById("$1");ref.title="$2";',
-	'cite_scriptline_suffix'                           => '/*]]>*/</script>',
 	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
@@ -138,21 +135,21 @@ $wgCiteMessages['de'] = array(
 
 $wgCiteMessages['fr'] = array(
 	# Internal errors
-	'cite_croak' => 'Citation corrompue ; $1 : $2',
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Erreur interne ; $str attendue',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Erreur interne ; clé invalide',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Erreur interne ; clé invalide',
-	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erreur interne ; clé de pile invalide',
+	'cite_croak' => 'Citation corrompue; $1: $2',
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Erreur interne; $str attendue',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Erreur interne; clé invalide',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Erreur interne; clé invalide ',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erreur interne; clé de pile invalide',
 
 	# User errors
-	'cite_error' => 'Erreur de citation $1 ; $2',
-	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Appel invalide ; clé non-intégrale attendue',
-	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Appel invalide ; aucune clé spécifiée',
-	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Appel invalide ; clés invalides, par exemple, trop de clés spécifiées ou clé erronée',
-	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Appel invalide ; aucune entrée spécifiée',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Entrée invalide ; entrée attendue',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Arguments invalides ; argument attendu',
-	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Exécution hors des étiquettes personnalisées, définissez plus dans le message « cite_references_link_many_format_backlink_labels »",
+	'cite_error' => 'Citation erreur $1; $2',
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Appel invalide; clé non-intégrale attendue',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Appel invalide; aucune clé spécifiée',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Appel invalide; clés invalides : clé erronée, ou trop de clés spécifiées',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Appel invalide; aucune entrée spécifiée',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Entrée invalides; entrée attendu',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Arguments invalides; argument attendu',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Exécution en dehors des étiquettes personnalisées, définissez plus dans le message \"''cite_references_link_many_format_backlink_labels''\"",
 );
 $wgCiteMessages['he'] = array(
 	/*

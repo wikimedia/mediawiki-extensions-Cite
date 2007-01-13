@@ -345,57 +345,16 @@ function wfCite() {
 		 */
 		function referencesFormat() {
 			$ent = array();
-			$varlist = "";
-			foreach ( $this->mRefs as $k => $v ) {
+			
+			foreach ( $this->mRefs as $k => $v )
 				$ent[] = $this->referencesFormatEntry( $k, $v );
-				$varlist .= $this->referencesTagName($k, $v);
-			}
 			
 			$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
 			$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
-			$varprefix = wfMsgForContentNoTrans( 'cite_scriptline_prefix' );
-			$varsuffix = wfMsgForContentNoTrans( 'cite_scriptline_suffix' );
 			$content = implode( "\n", $ent );
 			
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
-			return rtrim( $this->parse( $prefix . $content . $suffix ), "\n" ) . $varprefix  . " " . $varlist . " " . $varsuffix;
-		}
-
-		/**
-		 * Create a scriptline for the tooltip of the reference
-		 *
-		 * @param string $key The key of the reference
-		 * @param mixed $val The value of the reference, string for anonymous
-		 *                   references, array for user-supplied
-		 * @return string javascript
-		 */
-		function referencesTagName($key, $val) {
-			// Anonymous reference
-			if ( ! is_array( $val ) )
-				return wfMsgForContentNoTrans(
-					'cite_scriptline',
-					$this->refKey($key),
-						str_replace(array("\"", "\'"), "", strip_tags($this->parse($val)))
-				);
-			// Named references with only 1 occurence
-			else if ( $val['count'] === 0 ) {
-				return wfMsgForContentNoTrans(
-					'cite_scriptline',
-					$this->refKey($key,0),
-						str_replace(array("\"", "\'"), "", strip_tags($this->parse($val['text'])))
-				);
-			// Named references with >1 occurrences
-			} else {
-				$links = "";
-				for ( $i = 0; $i <= $val['count']; ++$i ) {
-					$links .= wfMsgForContentNoTrans(
-						'cite_scriptline',
-						$this->refKey($key, $i),
-						str_replace(array("\"", "\'"), "", strip_tags($this->parse($val['text'])))
-					);
-				}
-				return $links;
-			}
+			return rtrim( $this->parse( $prefix . $content . $suffix ), "\n" );
 		}
 
 		/**
@@ -403,7 +362,7 @@ function wfCite() {
 		 *
 		 * @param string $key The key of the reference
 		 * @param mixed $val The value of the reference, string for anonymous
-		 *                   references, array for user-supplied
+		 *                   references, array for user-suppplied
 		 * @return string Wikitext
 		 */
 		function referencesFormatEntry( $key, $val ) {

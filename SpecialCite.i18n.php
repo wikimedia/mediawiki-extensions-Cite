@@ -2,8 +2,7 @@
 /**
  * Internationalisation file for Cite special page extension.
  *
- * @package MediaWiki
- * @subpackage Extensions
+ * @addtogroup Extensions
 */
 
 $wgSpecialCiteMessages = array();

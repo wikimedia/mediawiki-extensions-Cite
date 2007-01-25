@@ -350,13 +350,13 @@ $wgCiteMessages['nl'] = array(
 	# User errors
 	'cite_error' => 'Citefout $1; $2',
 
-	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Onjuiste call; expecting a non-integer key',
-	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Onjuiste call; no key specified',
-	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Onjuiste call; invalid keys, e.g. too many or wrong key specified',
-	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Onjuiste call; no input specified',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Onjuiste invoer; geen verwacht',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Onjuiste parameters; geen verwacht',
-	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Voorraad terugverwijslabels was op, stel er meer in bij het bericht \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Onjuiste tag <code>&lt;ref&gt;</code>; de naam kan geen simplele integer zijn, gebruik een beschrijvende titel',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder inhoud moeten een naam hebben',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Onjuiste tag <code>&lt;ref&gt;</code>; onjuiste namen, bijvoorbeeld te veel',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder naam moeten inhoud hebben',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Onjuiste tag <code>&lt;references&gt;</code>; invoer is niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Onjuiste tag <code>&lt;references&gt;</code>; parameters zijn niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
 );
 $wgCiteMessages['ru'] = array(
 	/*

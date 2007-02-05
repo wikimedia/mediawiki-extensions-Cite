@@ -49,8 +49,8 @@ $wgCiteMessages['en'] = array(
 	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
-	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbps;
+	'cite_references_link_many_sep'                    => " ",
+	'cite_references_link_many_and'                    => " ",
 
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks
@@ -98,8 +98,8 @@ $wgCiteMessages['cs'] = array(
 	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
-	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbsp;
+	'cite_references_link_many_sep'                    => ' ',
+	'cite_references_link_many_and'                    => ' ',
 
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks
@@ -191,8 +191,8 @@ $wgCiteMessages['he'] = array(
 	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
-	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbps;
+	'cite_references_link_many_sep'                    => " ",
+	'cite_references_link_many_and'                    => " ",
 
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks
@@ -428,8 +428,8 @@ $wgCiteMessages['sk'] = array(
 	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
-	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbps;
+	'cite_references_link_many_sep'                    => ' ',
+	'cite_references_link_many_and'                    => ' ',
 
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks
@@ -477,8 +477,8 @@ $wgCiteMessages['zh-cn'] = array(
 	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
-	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbps;
+	'cite_references_link_many_sep'                    => ' ',
+	'cite_references_link_many_and'                    => ' ',
 
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks
@@ -526,8 +526,8 @@ $wgCiteMessages['zh-tw'] = array(
 	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
-	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbps;
+	'cite_references_link_many_sep'                    => ' ',
+	'cite_references_link_many_and'                    => ' ',
 
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks
@@ -575,8 +575,8 @@ $wgCiteMessages['zh-yue'] = array(
 	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => "\xc2\xa0", // &nbsp;
-	'cite_references_link_many_and'                    => "\xc2\xa0", // &nbps;
+	'cite_references_link_many_sep'                    => ' ',
+	'cite_references_link_many_and'                    => ' ',
 
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks

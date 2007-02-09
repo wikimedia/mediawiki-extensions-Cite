@@ -56,7 +56,7 @@ for ( $i = 0; $i < count( $wgCiteErrors['user'] ); ++$i )
 	define( $wgCiteErrors['user'][$i], $i + 1 );
 
 # Internationalisation file
-require_once( 'Cite.i18n.php' );
+require_once( dirname(__FILE__) . '/Cite.i18n.php' );
 
 function wfCite() {
 	# Add messages

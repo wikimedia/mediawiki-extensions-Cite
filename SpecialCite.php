@@ -22,7 +22,7 @@ $wgExtensionCredits['specialpage'][] = array(
 );
 
 # Internationalisation file
-require_once( 'SpecialCite.i18n.php' );
+require_once( dirname(__FILE__) . '/SpecialCite.i18n.php' );
 
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';
 $wgHooks['MonoBookTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';

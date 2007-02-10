@@ -114,7 +114,7 @@ Templating<ref>Text<!--comment--></ref>
 <table class="gallery" cellspacing="0" cellpadding="0">
 	<tr>
 		<td><div class="gallerybox" style="width: 150px;">
-			<div class="thumb" style="padding: 66px 0; width: 150;"><a href="/wiki/Image:Foobar.jpg" title="Image:Foobar.jpg"><img src="http://example.com/images/thumb/3/3a/Foobar.jpg/120px-Foobar.jpg" width="120" height="14" alt="" /></a></div>
+			<div class="thumb" style="padding: 66px 0; width: 150px;"><a href="/wiki/Image:Foobar.jpg" title="Image:Foobar.jpg"><img src="http://example.com/images/thumb/3/3a/Foobar.jpg/120px-Foobar.jpg" width="120" height="14" alt="" /></a></div>
 			<div class="gallerytext">
 			</div>
 		</div></td>

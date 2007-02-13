@@ -18,7 +18,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link',
-	'url' => 'http://meta.wikimedia.org/wiki/Cite/SpecialCite.php'
+	'url' => 'http://meta.wikimedia.org/wiki/Cite/Special:Cite.php'
 );
 
 # Internationalisation file

@@ -79,6 +79,12 @@ $wgSpecialCiteMessages['kk-cn'] = array(
 	'cite_submit'       => 'دٴايەكسٴوز ال!',
 );
 $wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-kz'];
+$wgSpecialCiteMessages['lt'] = array(
+	'cite_article_link' => 'Cituoti šį straipsnį',
+	'cite'              => 'Cituoti',
+	'cite_page'         => 'Puslapis:',
+	'cite_submit'       => 'Cituoti',
+);
 $wgSpecialCiteMessages['nl'] = array(
 	'cite_article_link' => 'Citeer dit artikel',
 	'cite'              => 'Citeerhulp',

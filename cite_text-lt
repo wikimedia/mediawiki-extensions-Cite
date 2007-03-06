@@ -1,0 +1,59 @@
+__NOTOC__
+<div style="border: 1px solid grey; background: #E6E8FA; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;">
+
+== Bibliografines "{{FULLPAGENAME}}" detales==
+
+* Puslapio pavadinimas: {{FULLPAGENAME}} 
+* Autorius: Projekto "{{SITENAME}}" naudotojai
+* Leidejas: ''{{SITENAME}}''. 
+* Paskutines versijos data: {{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}} {{CURRENTTIME}} UTC
+* Puslapis gautas: <citation>{{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}} {{CURRENTTIME}} UTC</citation>
+* Nuolatine nuoroda: {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Puslapio versijos Nr.: {{REVISIONID}}
+
+</div>
+<div class="plainlinks" style="border: 1px solid grey; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;">
+
+== Citatu stiliai puslapiui "{{FULLPAGENAME}}" ==
+
+=== APA stilius ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}''. Gautas <citation>{{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}} {{CURRENTTIME}}</citation> iš {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== MLA stilius ===
+"{{FULLPAGENAME}}." ''{{SITENAME}}''. {{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}} {{CURRENTTIME}} UTC. <citation>{{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}} {{CURRENTTIME}}</citation> &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== MHRA stilius ===
+{{SITENAME}} naudotojai, '{{FULLPAGENAME}}', ''{{SITENAME}},'' {{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}} {{CURRENTTIME}} UTC, &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [žiureta <citation>{{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}}</citation>]
+
+=== Cikagos stilius ===
+{{SITENAME}} naudotojai, "{{FULLPAGENAME}}",  ''{{SITENAME}}'', {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (žiureta <citation>{{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}}</citation>).
+
+=== CBE/CSE stilius ===
+{{SITENAME}} naudotojai. {{FULLPAGENAME}} [internete].  {{SITENAME}},  {{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}} {{CURRENTTIME}} UTC [cituota <citation>{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY2}}</citation>]. Galima rasti: 
+{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== Bluebook stilius ===
+{{FULLPAGENAME}}, {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (paskutini karta žiureta <citation>{{CURRENTYEAR}} {{CURRENTMONTHNAME}} {{CURRENTDAY}}</citation>).
+
+=== BibTeX irašas ===
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}",
+    note = "[Žiniatinklyje; žiureta <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]"
+  }
+
+Kai naudojate LaTeX paketa ''url'' (<code>\usepackage{url}</code> kur nors pradžioje), kuris skirtas duoti daug gražiau suformuotus žiniatinklio adresus, patartina naudoti šitaip:
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "'''\url{'''{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''",
+    note = "[Žiniatinklyje; žiureta <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]"
+  }
+
+
+</div>

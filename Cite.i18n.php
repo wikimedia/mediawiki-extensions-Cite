@@ -334,6 +334,24 @@ $wgCiteMessages['kk-cn'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => 'قوسىمشا بەلگٴىلەردٴىڭ سانى بٴىتتٴى, ودان ٴارٴى كٴوبٴىرەك «\'\'cite_references_link_many_format_backlink_labels\'\'» جٴۇيە حابارىندا بەلگٴىلەڭٴىز',
 );
 $wgCiteMessages['kk'] = $wgCiteMessages['kk-kz'];
+$wgCiteMessages['lt'] = array(
+	# Internal errors
+	'cite_croak' => 'Cituoti nepavyko; $1: $2',
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Vidinė klaida; neleistinas $str',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Vidinė klaida; neleistinas raktas',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Vidinė klaida; neleistinas raktas',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Vidinė klaida; neleistinas steko raktas',
+
+	# User errors
+	'cite_error' => 'Citavimo klaida $1; $2',
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Neleistina <code>&lt;ref&gt;</code> gairė; vardas negali būti tiesiog skaičius, naudokite tekstinį pavadinimą',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be turinio turi turėti vardą',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Neleistina <code>&lt;ref&gt;</code> gairė; neleistini vardai, pvz., per daug',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT        /**/          => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be vardo turi turėti turinį',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Baigėsi antraštės, nurodykite daugiau \"''cite_references_link_many_format_backlink_labels''\" sisteminiame tekste",
+);
 $wgCiteMessages['nl'] = array(
 	/*
 		Debug and errors

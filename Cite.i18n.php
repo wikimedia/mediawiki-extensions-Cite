@@ -46,7 +46,7 @@ $wgCiteMessages['en'] = array(
 	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
 	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
 	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
-	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
+	'cite_references_link_many_format'                 => '<sup>[[#$1|$2]]</sup>',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
 	'cite_references_link_many_sep'                    => " ",
@@ -80,31 +80,6 @@ $wgCiteMessages['cs'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Chyba v tagu <code>&lt;references&gt;</code>; zde není dovolen vstup, použijte <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Došla označení zpětných odkazů, přidejte jich několik do zprávy „''cite_references_link_many_format_backlink_labels''“",
-
-	/*
-	   Output formatting
-	*/
-	'cite_reference_link_key_with_num' => '$1_$2',
-	# Ids produced by <ref>
-	'cite_reference_link_prefix'       => '_ref-',
-	'cite_reference_link_suffix'       => '',
-	# Ids produced by <references>
-	'cite_references_link_prefix'      => '_note-',
-	'cite_references_link_suffix'      => '',
-
-	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
-	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
-	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
-	# An item from this set is passed as $3 in the message above
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => ' ',
-	'cite_references_link_many_and'                    => ' ',
-
-	# Although I could just use # instead of <li> above and nothing here that
-	# will break on input that contains linebreaks
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol>',
 );
 
 $wgCiteMessages['de'] = array(
@@ -173,31 +148,6 @@ $wgCiteMessages['he'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן לכתוב תוכן, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן להשתמש בפרמטרים, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת \"''cite_references_link_many_format_backlink_labels''\"",
-
-	/*
-	   Output formatting
-	*/
-	'cite_reference_link_key_with_num' => '$1_$2',
-	# Ids produced by <ref>
-	'cite_reference_link_prefix'       => '_ref-',
-	'cite_reference_link_suffix'       => '',
-	# Ids produced by <references>
-	'cite_references_link_prefix'      => '_note-',
-	'cite_references_link_suffix'      => '',
-
-	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
-	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
-	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
-	# An item from this set is passed as $3 in the message above
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => " ",
-	'cite_references_link_many_and'                    => " ",
-
-	# Although I could just use # instead of <li> above and nothing here that
-	# will break on input that contains linebreaks
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol>',
 );
 $wgCiteMessages['id'] = array(
 	# Internal errors
@@ -347,7 +297,7 @@ $wgCiteMessages['lt'] = array(
 	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Neleistina <code>&lt;ref&gt;</code> gairė; vardas negali būti tiesiog skaičius, naudokite tekstinį pavadinimą',
 	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be turinio turi turėti vardą',
 	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Neleistina <code>&lt;ref&gt;</code> gairė; neleistini vardai, pvz., per daug',
-	'cite_error_' . CITE_ERROR_REF_NO_INPUT        /**/          => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be vardo turi turėti turinį',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be vardo turi turėti turinį',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Baigėsi antraštės, nurodykite daugiau \"''cite_references_link_many_format_backlink_labels''\" sisteminiame tekste",
@@ -428,31 +378,6 @@ $wgCiteMessages['sk'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Neplatné volanie; neočakával sa vstup',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Neplatné parametre; neočakávli sa žiadne',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Minuli sa generované návestia spätných odkazov, definujte viac v správe \"''cite_references_link_many_format_backlink_labels''\"",
-
-	/*
-	   Output formatting
-	*/
-	'cite_reference_link_key_with_num' => '$1_$2',
-	# Ids produced by <ref>
-	'cite_reference_link_prefix'       => '_ref-',
-	'cite_reference_link_suffix'       => '',
-	# Ids produced by <references>
-	'cite_references_link_prefix'      => '_note-',
-	'cite_references_link_suffix'      => '',
-
-	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
-	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
-	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
-	# An item from this set is passed as $3 in the message above
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => ' ',
-	'cite_references_link_many_and'                    => ' ',
-
-	# Although I could just use # instead of <li> above and nothing here that
-	# will break on input that contains linebreaks
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol>',
 );
 $wgCiteMessages['zh-cn'] = array(
 	/*
@@ -477,31 +402,6 @@ $wgCiteMessages['zh-cn'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => '无效输入；需求为空',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '非法参数；需求为空',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "自定义后退标签已经用完了，现在可在标签 \"''cite_references_link_many_format_backlink_labels''\" 定义更多信息",
-
-	/*
-	   Output formatting
-	*/
-	'cite_reference_link_key_with_num' => '$1_$2',
-	# Ids produced by <ref>
-	'cite_reference_link_prefix'       => '_ref-',
-	'cite_reference_link_suffix'       => '',
-	# Ids produced by <references>
-	'cite_references_link_prefix'      => '_note-',
-	'cite_references_link_suffix'      => '',
-
-	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
-	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
-	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
-	# An item from this set is passed as $3 in the message above
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => ' ',
-	'cite_references_link_many_and'                    => ' ',
-
-	# Although I could just use # instead of <li> above and nothing here that
-	# will break on input that contains linebreaks
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol>',
 );
 $wgCiteMessages['zh-tw'] = array(
 	/*
@@ -526,31 +426,6 @@ $wgCiteMessages['zh-tw'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => '無效輸入；需求為空',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '非法參數；需求為空',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
-
-	/*
-	   Output formatting
-	*/
-	'cite_reference_link_key_with_num' => '$1_$2',
-	# Ids produced by <ref>
-	'cite_reference_link_prefix'       => '_ref-',
-	'cite_reference_link_suffix'       => '',
-	# Ids produced by <references>
-	'cite_references_link_prefix'      => '_note-',
-	'cite_references_link_suffix'      => '',
-
-	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
-	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
-	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
-	# An item from this set is passed as $3 in the message above
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => ' ',
-	'cite_references_link_many_and'                    => ' ',
-
-	# Although I could just use # instead of <li> above and nothing here that
-	# will break on input that contains linebreaks
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol>',
 );
 $wgCiteMessages['zh-yue'] = array(
 	/*
@@ -575,31 +450,6 @@ $wgCiteMessages['zh-yue'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => '無效嘅輸入; 唔需要有嘢',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '無效嘅參數; 唔需要有嘢',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "用晒啲自定返回標籤, 響 \"''cite_references_link_many_format_backlink_labels''\" 信息再整多啲",
-
-	/*
-	   Output formatting
-	*/
-	'cite_reference_link_key_with_num' => '$1_$2',
-	# Ids produced by <ref>
-	'cite_reference_link_prefix'       => '_ref-',
-	'cite_reference_link_suffix'       => '',
-	# Ids produced by <references>
-	'cite_references_link_prefix'      => '_note-',
-	'cite_references_link_suffix'      => '',
-
-	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
-	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
-	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
-	'cite_references_link_many_format'                 => '[[#$1|<sup>$2</sup>]]',
-	# An item from this set is passed as $3 in the message above
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
-	'cite_references_link_many_sep'                    => ' ',
-	'cite_references_link_many_and'                    => ' ',
-
-	# Although I could just use # instead of <li> above and nothing here that
-	# will break on input that contains linebreaks
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol>',
 );
 $wgCiteMessages['zh-hk'] = $wgCiteMessages['zh-tw'];
 $wgCiteMessages['zh-sg'] = $wgCiteMessages['zh-cn'];

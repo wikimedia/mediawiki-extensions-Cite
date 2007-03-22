@@ -42,6 +42,12 @@ $wgSpecialCiteMessages['he'] = array(
 	'cite_page'         => 'דף:',
 	'cite_submit'       => 'צטט',
 );
+$wgSpecialCiteMessages['hu'] = array(
+	'cite_article_link' => 'Irodalomjegyzékbe',
+	'cite'              => 'Irodalomjegyzék-bejegyzés készítése',
+	'cite_page'         => 'Idézendő lap:',
+	'cite_submit'       => 'Bejegyzés elkészítése',
+);
 $wgSpecialCiteMessages['id'] = array(
 	'cite_article_link' => 'Kutip artikel ini',
 	'cite'              => 'Kutip',

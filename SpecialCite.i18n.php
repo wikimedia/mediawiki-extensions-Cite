@@ -115,6 +115,13 @@ $wgSpecialCiteMessages['sk'] = array(
 	'cite_page'         => 'Stránka:',
 	'cite_submit'       => 'Citovať',
 );
+$wgSpecialCiteMessages['ur'] = array(
+	'cite_article_link' => 'مضمون کا حوالہ دیں',
+	'cite'              => 'حوالہ',
+	'cite_page'         => 'صفحہ:',
+	'cite_submit'       => 'Cite',
+	'cite_text'         => '', # Don't translate this
+);
 $wgSpecialCiteMessages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );

@@ -1,0 +1,63 @@
+﻿__NOTOC__
+<div style="border: 1px solid grey; background: #E6E8FA; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;">
+
+== «{{FULLPAGENAME}}» اتاۋىلى بەتٴىنٴىڭ كٴىتاپنامالىق ەگجەي-تەگجەيلەرٴى ==
+
+* بەتتٴىڭ اتاۋى: {{FULLPAGENAME}}
+* اۋتورى: {{SITENAME}} ٴۇلەسكەرلەرٴى
+* باسپاگەرٴى: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* سوڭعى نۇسقاسىنىڭ كەزٴى: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* الىنعان كەزٴى: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* تۇراقتى سٴىلتەمەسٴى: {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* بەت نۇسقاسىنىڭ تەڭدەستٴىرۋ نومٴىرٴى: {{REVISIONID}}
+
+</div>
+<div class="plainlinks" style="border: 1px solid grey; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;">
+
+== «{{FULLPAGENAME}}» بەتٴىنٴىڭ دٴايەكسٴوز مٴانەرلەرٴى ==
+
+=== [[گوست مٴانەرٴى]] ===
+<!-- ([[گوست 7.1|گوست 7.1—2003]] جٴانە [[گوست 7.82|گوست 7.82—2001]]) -->
+{{SITENAME}}, {{int:sitesubtitle}} [ەلەكتروندى قاينار] : {{FULLPAGENAME}}, نۇسقاسىنىڭ نٴومٴىرٴى {{REVISIONID}}, سوڭعى تٴۇزەتۋٴى {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC / ۋيكيپەدييا اۋتورلارى. — ەلەكتروندى دەرەك. — فلوريدا شتاتى. : ۋيكيمەدييا قورى, {{CURRENTYEAR}}. — قاتىناۋ رەتٴى: {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+
+=== [[APA مٴانەرٴى]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}'' ماعلۇماتى. {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} بەتٴىنەن <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> كەزٴىندە الىنعان.
+
+=== [[MLA مٴانەرٴى]] ===
+«{{FULLPAGENAME}}». ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA مٴانەرٴى]] ===
+{{SITENAME}} ٴۇلەسكەرلەرٴى, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [<citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation> كەزٴىندە قاتىنالدى]
+
+=== [[شيكاگو مٴانەرٴى]] ===
+{{SITENAME}} ٴۇلەسكەرٴى, «{{FULLPAGENAME}}», ''{{SITENAME}}, {{int:sitesubtitle}},'' {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (<citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> كەزٴىندە قاتىنالدى).
+
+=== [[CBE/CSE مٴانەرٴى]] ===
+{{SITENAME}} ٴۇلەسكەرلەرٴى. {{FULLPAGENAME}} [ينتەرنەت]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [<citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation> كەزٴىندە دٴايەكسٴوز الىندى]. قاتىناۋى:
+{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[كٴوك كٴىتاپ|كٴوك كٴىتاپ مٴانەرٴى]] ===
+{{FULLPAGENAME}}, {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (سوڭعى قارالعانى <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> كەزٴىندە).
+
+=== [[BibTeX]] جازباسى ===
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}",
+    note = "[جەلٴىدەن; <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation> كەزٴىندە قاتىنالدى]"
+  }
+
+[[LaTeX]] بۋماسىنىڭ URL جايىن (<code>\usepackage{url}</code> كٴىرٴىسپەنٴىڭ قايبٴىر ورنىندا) قولدانعاندا (ۆەب جايلارىن ٴونەرلەۋ پٴىشٴىمدەۋٴىن كەلتٴىرەدٴى) كەلەسٴىسٴىن قالاۋعا بولادى:
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "'''\url{'''{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''",
+    note = "[جەلٴىدەن; <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation> كەزٴىندە قاتىنالدى]"
+  }
+
+
+</div> <!--closing div for "plainlinks"-->

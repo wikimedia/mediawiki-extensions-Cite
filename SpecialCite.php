@@ -40,11 +40,11 @@ function wfSpecialCite() {
 	}
 }
 
-function wfSpecialCiteNav( &$skintemplate, &$nav_urls, $oldid, $revid ) {
+function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 	if ( $skintemplate->mTitle->getNamespace() === NS_MAIN && $revid !== 0 )
 		$nav_urls['cite'] = array(
 			'text' => wfMsg( 'cite_article_link' ),
-			'href' => $skintemplate->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=" . intval( $oldid ) )
+			'href' => $skintemplate->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid" )
 		);
 	
 	return true;

@@ -91,6 +91,9 @@ $wgSpecialCiteMessages['kk-cn'] = array(
 	'cite_submit'       => 'دٴايەكسٴوز ال!',
 );
 $wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-kz'];
+$wgSpecialCiteMessages['ku'] = array(
+	'cite_page'         => 'Rûpel:',
+);
 $wgSpecialCiteMessages['lt'] = array(
 	'cite_article_link' => 'Cituoti šį straipsnį',
 	'cite'              => 'Cituoti',

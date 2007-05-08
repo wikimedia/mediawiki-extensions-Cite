@@ -343,8 +343,10 @@ function wfCite() {
 		 * @return string XHTML ready for output
 		 */
 		function referencesFormat() {
-			$ent = array();
+			if ( count( $this->mRefs ) == 0 )
+				return '';
 			
+			$ent = array();
 			foreach ( $this->mRefs as $k => $v )
 				$ent[] = $this->referencesFormatEntry( $k, $v );
 			

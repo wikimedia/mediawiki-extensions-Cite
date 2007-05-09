@@ -118,6 +118,12 @@ $wgSpecialCiteMessages['pl'] = array(
 	'cite_page'         => 'Strona:',
 	'cite_submit'       => 'Cytuj',
 );
+$wgSpecialCiteMessages['pt'] = array(
+	'cite_article_link' => 'Citar esta página',
+	'cite'              => 'Citar',
+	'cite_page'         => 'Página:',
+	'cite_submit'       => 'Citar',
+);
 $wgSpecialCiteMessages['ru'] = array(
 	'cite_article_link' => 'Цитировать статью',
 	'cite'              => 'Цитирование',

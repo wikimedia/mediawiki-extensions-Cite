@@ -326,6 +326,31 @@ $wgCiteMessages['nl'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Onjuiste tag <code>&lt;references&gt;</code>; parameters zijn niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
 );
+$wgCiteMessages['pt'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => 'Citação com problemas; $1: $2',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Erro interno; $str inválido',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Erro interno; chave inválida',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Erro interno; chave inválida',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erro interno; chave fixa inválida',
+
+	# User errors
+	'cite_error' => 'Erro de citação $1; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'Código <code>&lt;ref&gt;</code> inválido; o nome não pode ser um número. Utilize um nome descritivo',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'Código <code>&lt;ref&gt;</code> inválido; refs sem conteúdo devem ter um parâmetro de nome',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'Código <code>&lt;ref&gt;</code> inválido; nomes inválidos (por exemplo, nome muito extenso)',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'Código <code>&lt;ref&gt;</code> inválido; refs sem parâmetro de nome devem possuir conteúdo a elas associado',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Código <code>&lt;references&gt;</code> inválido; no input is allowed, use
+<code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Código <code>&lt;references&gt;</code> inválido; não são permitidos parâmetros. Utilize como <code>&lt;references /&gt;</code>',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
+);
 $wgCiteMessages['ru'] = array(
 	/*
 		Debug and errors

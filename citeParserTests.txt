@@ -69,9 +69,8 @@ Templating<nowiki><ref>{{simple template}}</ref></nowiki>
 <references/>
 !! result
 <p>Templating&lt;ref&gt;{{simple template}}&lt;/ref&gt;
+</p><p><br />
 </p>
-<ol class="references"></ol>
-
 !! end
 
 !! test
@@ -82,9 +81,8 @@ Templating<!--<ref>{{simple template}}</ref>-->
 <references/>
 !! result
 <p>Templating
+</p><p><br />
 </p>
-<ol class="references"></ol>
-
 !! end
 
 !! test

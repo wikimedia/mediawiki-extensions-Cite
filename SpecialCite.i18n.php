@@ -85,10 +85,10 @@ $wgSpecialCiteMessages['kk-tr'] = array(
 	'cite_submit'       => 'Däýeksöz al!',
 );
 $wgSpecialCiteMessages['kk-cn'] = array(
-	'cite_article_link' => 'بەتتەن دٴايەكسوز الۋ',
-	'cite'              => 'دٴايەكسٴوز الۋ',
+	'cite_article_link' => 'بەتتەن دٵيەكسوز الۋ',
+	'cite'              => 'دٵيەكسٶز الۋ',
 	'cite_page'         => 'بەت اتاۋى:',
-	'cite_submit'       => 'دٴايەكسٴوز ال!',
+	'cite_submit'       => 'دٵيەكسٶز ال!',
 );
 $wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-kz'];
 $wgSpecialCiteMessages['ku'] = array(

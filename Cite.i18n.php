@@ -265,23 +265,23 @@ $wgCiteMessages['kk-cn'] = array(
 	*/
 
 	# Internal errors
-	'cite_croak' => 'دٴايەكسٴوز الۋ سٴاتسٴىز بٴىتتٴى; $1: $2 ',
+	'cite_croak' => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2 ',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'ٴىشكٴى قاتە; جارامسىز $str ',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'ٴىشكٴى قاتە; جارامسىز كٴىلت',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'ٴىشكٴى قاتە; جارامسىز كٴىلت',
-	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'ٴىشكٴى قاتە; جارامسىز ستەك كٴىلتٴى',
+	'cite_error_' . CITE_ERROR_STR_INVALID         => 'ٸشكٸ قاتە; جارامسىز $str ',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'ٸشكٸ قاتە; جارامسىز كٸلت',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'ٸشكٸ قاتە; جارامسىز كٸلت',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'ٸشكٸ قاتە; جارامسىز ستەك كٸلتٸ',
 
 	# User errors
-	'cite_error' => 'دٴايەكسٴوز الۋ $1 قاتەسٴى; $2',
+	'cite_error' => 'دٵيەكسٶز الۋ $1 قاتەسٸ; $2',
 
-	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٴىشەسٴى; اتاۋ كٴادٴىمگٴى بٴۇتٴىن سان بولۋى مٴۇمكٴىن ەمەس, سيپپاتاۋىش اتاۋ قولدانىڭىز',
-	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٴىشەسٴى; ماعلۇماتسىز تٴۇسٴىنٴىكتەمەلەردە اتاۋ بولۋى قاجەت',
-	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٴىشە; جارامسىز اتاۋلار, مىسالى, تىم كٴوپ',
-	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٴىشە; اتاۋسىز تٴۇسٴىنٴىكتەمەلەردە ماعلۇماتى بولۋى قاجەت',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'جارامسىز <code>&lt;references&gt;</code> بەلگٴىشە; ەش كٴىرٴىس رۇقسات ەتٴىلمەيدٴى, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'جارامسىز <code>&lt;references&gt;</code> بەلگٴىشە; ەش باپتار رۇقسات ەتٴىلمەيدٴى, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
-	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => 'قوسىمشا بەلگٴىلەردٴىڭ سانى بٴىتتٴى, ودان ٴارٴى كٴوبٴىرەك «\'\'cite_references_link_many_format_backlink_labels\'\'» جٴۇيە حابارىندا بەلگٴىلەڭٴىز',
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; اتاۋ كٵدٸمگٸ بٷتٸن سان بولۋى مٷمكٸن ەمەس, سيپپاتاۋىش اتاۋ قولدانىڭىز',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; ماعلۇماتسىز تٷسٸنٸكتەمەلەردە اتاۋ بولۋى قاجەت',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; جارامسىز اتاۋلار, مىسالى, تىم كٶپ',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; اتاۋسىز تٷسٸنٸكتەمەلەردە ماعلۇماتى بولۋى قاجەت',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش كٸرٸس رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش باپتار رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => 'قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك «\'\'cite_references_link_many_format_backlink_labels\'\'» جٷيە حابارىندا بەلگٸلەڭٸز',
 );
 $wgCiteMessages['kk'] = $wgCiteMessages['kk-kz'];
 $wgCiteMessages['lt'] = array(

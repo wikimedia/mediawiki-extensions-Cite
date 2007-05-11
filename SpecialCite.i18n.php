@@ -136,6 +136,12 @@ $wgSpecialCiteMessages['sk'] = array(
 	'cite_page'         => 'Stránka:',
 	'cite_submit'       => 'Citovať',
 );
+$wgSpecialCiteMessages['su'] = array(
+	'cite_article_link' => 'Cutat artikel ieu',
+	'cite'              => 'Cutat',
+	'cite_page'         => 'Kaca:',
+	'cite_submit'       => 'Cutat',
+);
 $wgSpecialCiteMessages['ur'] = array(
 	'cite_article_link' => 'مضمون کا حوالہ دیں',
 	'cite'              => 'حوالہ',

@@ -109,6 +109,12 @@ $wgSpecialCiteMessages['nl'] = array(
 	'cite_page'         => 'Pagina:',
 	'cite_submit'       => 'Citeer',
 );
+$wgSpecialCiteMessages['no'] = array(
+	'cite_article_link' => 'Siter denne artikkelen',
+	'cite'              => 'Siter',
+	'cite_page'         => 'Side:',
+	'cite_submit'       => 'Siter',
+);
 $wgSpecialCiteMessages['oc'] = array(
 	'cite_article_link' => 'Citar aqueste article',
 	'cite'              => 'Citacion',

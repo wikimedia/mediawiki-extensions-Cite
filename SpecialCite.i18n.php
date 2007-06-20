@@ -145,6 +145,12 @@ $wgSpecialCiteMessages['sk'] = array(
 	'cite_page'         => 'Stránka:',
 	'cite_submit'       => 'Citovať',
 );
+$wgSpecialCiteMessages['sq'] = array(
+	'cite_article_link' => 'Cito artikullin',
+	'cite'              => 'Citate',
+	'cite_page'         => 'Faqja:',
+	'cite_submit'       => 'Citoje',
+);
 $wgSpecialCiteMessages['su'] = array(
 	'cite_article_link' => 'Cutat artikel ieu',
 	'cite'              => 'Cutat',

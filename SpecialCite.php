@@ -41,7 +41,7 @@ function wfSpecialCite() {
 }
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
-	if ( $skintemplate->mTitle->getNamespace() === NS_MAIN && $revid !== 0 )
+	if ( $skintemplate->mTitle->isContentPage() && $revid !== 0 )
 		$nav_urls['cite'] = array(
 			'text' => wfMsg( 'cite_article_link' ),
 			'href' => $skintemplate->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid" )

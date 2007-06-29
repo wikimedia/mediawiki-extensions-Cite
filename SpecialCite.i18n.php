@@ -187,4 +187,4 @@ $wgSpecialCiteMessages['zh-yue'] = array(
 );
 $wgSpecialCiteMessages['zh-hk'] = $wgSpecialCiteMessages['zh-tw'];
 $wgSpecialCiteMessages['zh-sg'] = $wgSpecialCiteMessages['zh-cn'];
-?>
+

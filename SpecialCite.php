@@ -66,4 +66,4 @@ function wfSpecialCiteToolbox( &$monobook ) {
 }
 
 
-?>
+

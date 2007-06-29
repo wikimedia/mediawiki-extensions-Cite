@@ -478,4 +478,4 @@ $wgCiteMessages['zh-yue'] = array(
 );
 $wgCiteMessages['zh-hk'] = $wgCiteMessages['zh-tw'];
 $wgCiteMessages['zh-sg'] = $wgCiteMessages['zh-cn'];
-?>
+

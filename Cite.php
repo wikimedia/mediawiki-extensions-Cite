@@ -23,7 +23,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
-	'url' => 'http://meta.wikimedia.org/wiki/Cite/Cite.php'
+	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
 

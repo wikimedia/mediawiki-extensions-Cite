@@ -167,24 +167,28 @@ $wgSpecialCiteMessages['ur'] = array(
 $wgSpecialCiteMessages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );
-$wgSpecialCiteMessages['zh-cn'] = array(
-	'cite_article_link' => '引用此文',
-	'cite'              => '引用文章',
-	'cite_page'         => '页面：',
-	'cite_submit'       => '引用',
-);
-$wgSpecialCiteMessages['zh-tw'] = array(
-	'cite_article_link' => '引用此文',
-	'cite'              => '引用文章',
-	'cite_page'         => '頁面：',
-	'cite_submit'       => '引用',
-);
-$wgSpecialCiteMessages['zh-yue'] = array(
+$wgSpecialCiteMessages['yue'] = array(
 	'cite_article_link' => '引用呢篇文',
 	'cite'              => '引用文章',
 	'cite_page'         => '版：',
 	'cite_submit'       => '引用',
 );
-$wgSpecialCiteMessages['zh-hk'] = $wgSpecialCiteMessages['zh-tw'];
-$wgSpecialCiteMessages['zh-sg'] = $wgSpecialCiteMessages['zh-cn'];
+$wgSpecialCiteMessages['zh-hans'] = array(
+	'cite_article_link' => '引用此文',
+	'cite'              => '引用文章',
+	'cite_page'         => '页面：',
+	'cite_submit'       => '引用',
+);
+$wgSpecialCiteMessages['zh-hant'] = array(
+	'cite_article_link' => '引用此文',
+	'cite'              => '引用文章',
+	'cite_page'         => '頁面：',
+	'cite_submit'       => '引用',
+);
+$wgSpecialCiteMessages['zh-cn'] = $wgSpecialCiteMessages['zh-hans'];
+$wgSpecialCiteMessages['zh-hk'] = $wgSpecialCiteMessages['zh-hant'];
+$wgSpecialCiteMessages['zh-sg'] = $wgSpecialCiteMessages['zh-hans'];
+$wgSpecialCiteMessages['zh-tw'] = $wgSpecialCiteMessages['zh-hant'];
+$wgSpecialCiteMessages['zh-yue'] = $wgSpecialCiteMessages['yue'];
+
 

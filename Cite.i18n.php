@@ -404,55 +404,7 @@ $wgCiteMessages['sk'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Neplatné parametre; neočakávli sa žiadne',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Minuli sa generované návestia spätných odkazov, definujte viac v správe \"''cite_references_link_many_format_backlink_labels''\"",
 );
-$wgCiteMessages['zh-cn'] = array(
-	/*
-		Debug and errors
-	*/
-
-	# Internal errors
-	'cite_croak' => '引用阻塞; $1: $2',
-
-	'cite_error_' . CITE_ERROR_STR_INVALID         => '内部错误；非法的 $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '内部错误；非法键值',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '内部错误；非法键值',
-	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '内部错误；非法堆栈键值',
-
-	# User errors
-	'cite_error' => '引用错误 $1; $2',
-
-	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => '无效呼叫；需要一个非整数的键值',
-	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => '无效呼叫；没有指定键值',
-	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => '无效呼叫；非法键值，例如：过多或错误的指定键值',
-	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => '无效呼叫；没有指定的输入',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => '无效输入；需求为空',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '非法参数；需求为空',
-	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "自定义后退标签已经用完了，现在可在标签 \"''cite_references_link_many_format_backlink_labels''\" 定义更多信息",
-);
-$wgCiteMessages['zh-tw'] = array(
-	/*
-		Debug and errors
-	*/
-
-	# Internal errors
-	'cite_croak' => '引用阻塞; $1: $2',
-
-	'cite_error_' . CITE_ERROR_STR_INVALID         => '內部錯誤；非法的 $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '內部錯誤；非法鍵',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '內部錯誤；非法鍵',
-	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '內部錯誤；非法堆疊鍵值',
-
-	# User errors
-	'cite_error' => '引用錯誤 $1; $2',
-
-	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => '無效呼叫；需要一個非整數的鍵',
-	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => '無效呼叫；沒有指定鍵',
-	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => '無效呼叫；非法鍵值，例如：過多或錯誤的指定鍵',
-	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => '無效呼叫；沒有指定的輸入',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => '無效輸入；需求為空',
-	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '非法參數；需求為空',
-	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
-);
-$wgCiteMessages['zh-yue'] = array(
+$wgCiteMessages['yue'] = array(
 	/*
 		Debug and errors
 	*/
@@ -476,6 +428,58 @@ $wgCiteMessages['zh-yue'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '無效嘅參數; 唔需要有嘢',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "用晒啲自定返回標籤, 響 \"''cite_references_link_many_format_backlink_labels''\" 信息再整多啲",
 );
-$wgCiteMessages['zh-hk'] = $wgCiteMessages['zh-tw'];
-$wgCiteMessages['zh-sg'] = $wgCiteMessages['zh-cn'];
+$wgCiteMessages['zh-hans'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => '引用阻塞; $1: $2',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => '内部错误；非法的 $str',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '内部错误；非法键值',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '内部错误；非法键值',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '内部错误；非法堆栈键值',
+
+	# User errors
+	'cite_error' => '引用错误 $1; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => '无效呼叫；需要一个非整数的键值',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => '无效呼叫；没有指定键值',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => '无效呼叫；非法键值，例如：过多或错误的指定键值',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => '无效呼叫；没有指定的输入',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => '无效输入；需求为空',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '非法参数；需求为空',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "自定义后退标签已经用完了，现在可在标签 \"''cite_references_link_many_format_backlink_labels''\" 定义更多信息",
+);
+$wgCiteMessages['zh-hant'] = array(
+	/*
+		Debug and errors
+	*/
+
+	# Internal errors
+	'cite_croak' => '引用阻塞; $1: $2',
+
+	'cite_error_' . CITE_ERROR_STR_INVALID         => '內部錯誤；非法的 $str',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '內部錯誤；非法鍵',
+	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '內部錯誤；非法鍵',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '內部錯誤；非法堆疊鍵值',
+
+	# User errors
+	'cite_error' => '引用錯誤 $1; $2',
+
+	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY               => '無效呼叫；需要一個非整數的鍵',
+	'cite_error_' . CITE_ERROR_REF_NO_KEY                    => '無效呼叫；沒有指定鍵',
+	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS             => '無效呼叫；非法鍵值，例如：過多或錯誤的指定鍵',
+	'cite_error_' . CITE_ERROR_REF_NO_INPUT                  => '無效呼叫；沒有指定的輸入',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => '無效輸入；需求為空',
+	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '非法參數；需求為空',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
+);
+$wgCiteMessages['zh-cn'] = $wgCiteMessages['zh-hans'];
+$wgCiteMessages['zh-hk'] = $wgCiteMessages['zh-hant'];
+$wgCiteMessages['zh-sg'] = $wgCiteMessages['zh-hans'];
+$wgCiteMessages['zh-tw'] = $wgCiteMessages['zh-hant'];
+$wgCiteMessages['zh-yue'] = $wgCiteMessages['yue'];
+
 

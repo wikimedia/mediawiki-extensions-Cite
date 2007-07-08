@@ -127,6 +127,12 @@ $wgSpecialCiteMessages['pl'] = array(
 	'cite_page'         => 'Strona:',
 	'cite_submit'       => 'Cytuj',
 );
+$wgSpecialCiteMessages['pms'] = array(
+	'cite_article_link' => 'Cita sta vos-sì',
+	'cite'              => 'Citassion',
+	'cite_page'         => 'Pàgina da cité:',
+	'cite_submit'       => 'Pronta la citassion',
+);
 $wgSpecialCiteMessages['pt'] = array(
 	'cite_article_link' => 'Citar esta página',
 	'cite'              => 'Citar',

@@ -14,6 +14,10 @@ $wgSpecialCiteMessages['en'] = array(
 	'cite_submit'       => 'Cite',
 	'cite_text'         => '', # Don't translate this
 );
+$wgSpecialCiteMessages['af'] = array(
+	'cite_article_link' => 'Haal dié blad aan',
+	'cite'              => 'Aanhaling',
+);
 $wgSpecialCiteMessages['ar'] = array(
 	'cite_article_link' => 'استشهد بهذه المقالة',
 	'cite'              => 'استشهد',

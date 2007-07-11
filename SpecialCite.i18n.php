@@ -20,9 +20,9 @@ $wgSpecialCiteMessages['af'] = array(
 );
 $wgSpecialCiteMessages['ar'] = array(
 	'cite_article_link' => 'استشهد بهذه المقالة',
-	'cite'              => 'استشهد',
-	'cite_page'         => 'المقال:',
-	'cite_submit'       => 'اعرض',
+	'cite'              => 'استشهاد',
+	'cite_page'         => 'الصفحة:',
+	'cite_submit'       => 'استشهاد',
 );
 $wgSpecialCiteMessages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',

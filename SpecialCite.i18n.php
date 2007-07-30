@@ -101,6 +101,11 @@ $wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-kz'];
 $wgSpecialCiteMessages['ku'] = array(
 	'cite_page'         => 'Rûpel:',
 );
+$wgSpecialCiteMessages['lo'] = array(
+	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',
+	'cite'              => 'ອ້າງອີງ',
+	'cite_page'         => 'ໜ້າ:',
+);
 $wgSpecialCiteMessages['lt'] = array(
 	'cite_article_link' => 'Cituoti šį straipsnį',
 	'cite'              => 'Cituoti',

@@ -649,11 +649,11 @@ function wfCite() {
 				return 
 					$this->parse(
 						'<strong class="error">' .
-						wfMsgforContent( 'cite_error', $id, wfMsgForContent( "cite_error_$id" ) ) .
+						wfMsg( 'cite_error', $id, wfMsg( "cite_error_$id" ) ) .
 						'</strong>'
 					);
 			else if ( $id < 0 )
-				return wfMsgforContent( 'cite_error', $id );
+				return wfMsg( 'cite_error', $id );
 		}
 
 		/**

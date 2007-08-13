@@ -113,8 +113,8 @@ $wgSpecialCiteMessages['lt'] = array(
 	'cite_submit'       => 'Cituoti',
 );
 $wgSpecialCiteMessages['nl'] = array(
-	'cite_article_link' => 'Citeer dit artikel',
-	'cite'              => 'Citeerhulp',
+	'cite_article_link' => 'Citeer deze pagina',
+	'cite'              => 'citeer',
 	'cite_page'         => 'Pagina:',
 	'cite_submit'       => 'Citeer',
 );

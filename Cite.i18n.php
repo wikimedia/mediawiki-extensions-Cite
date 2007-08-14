@@ -93,18 +93,17 @@ $wgCiteMessages['de'] = array(
 
 	# User errors
 	'cite_error_' . CITE_ERROR_REF_NUMERIC_KEY		 => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „name“ darf kein ' .
-									'reiner Zahlenwert sein, benutzen Sie einen beschreibenden Namen.',
+									'reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
 	'cite_error_' . CITE_ERROR_REF_NO_KEY			 => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',
 	'cite_error_' . CITE_ERROR_REF_TOO_MANY_KEYS		 => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „name“ ist ungültig oder zu lang.',
 	'cite_error_' . CITE_ERROR_REF_NO_INPUT			 => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „ref“ ohne Namen muss einen Inhalt haben.',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT	 => 'Ungültige <code><nowiki><references></nowiki></code>-Verwendung: Es ist kein zusätzlicher Text erlaubt, ' .
-									'verwenden Sie ausschließlich <code><nowiki><references /></nowiki></code>.',
+									'verwende ausschließlich <code><nowiki><references /></nowiki></code>.',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Ungültige <code><nowiki><reference></nowiki></code>-Verwendung: Es sind keine ' .
 									'zusätzlichen Parameter erlaubt, ' .
-									'verwenden Sie ausschließlich <code><nowiki><reference /></nowiki></code>.',
+									'verwende ausschließlich <code><nowiki><reference /></nowiki></code>.',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL	 => 'Eine Referenz der Form <code><nowiki><ref name="…"/></nowiki></code> wird öfter ' .
-									'benutzt als Buchstaben vorhanden sind. Falls nötig, <nowiki>[[MediaWiki:cite ' .
-									'references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
+									'benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
 );
 
 $wgCiteMessages['fr'] = array(

@@ -188,6 +188,10 @@ $wgSpecialCiteMessages['yue'] = array(
 	'cite_page'         => '版：',
 	'cite_submit'       => '引用',
 );
+$wgSpecialCiteMessages['zh-classical'] = array(
+	'cite_article_link' => '引文',
+	'cite'              => '引文',
+);
 $wgSpecialCiteMessages['zh-hans'] = array(
 	'cite_article_link' => '引用此文',
 	'cite'              => '引用文章',
@@ -200,10 +204,12 @@ $wgSpecialCiteMessages['zh-hant'] = array(
 	'cite_page'         => '頁面：',
 	'cite_submit'       => '引用',
 );
+$wgSpecialCiteMessages['zh'] = $wgSpecialCiteMessages['zh-hans'];
 $wgSpecialCiteMessages['zh-cn'] = $wgSpecialCiteMessages['zh-hans'];
 $wgSpecialCiteMessages['zh-hk'] = $wgSpecialCiteMessages['zh-hant'];
 $wgSpecialCiteMessages['zh-sg'] = $wgSpecialCiteMessages['zh-hans'];
 $wgSpecialCiteMessages['zh-tw'] = $wgSpecialCiteMessages['zh-hant'];
 $wgSpecialCiteMessages['zh-yue'] = $wgSpecialCiteMessages['yue'];
+
 
 

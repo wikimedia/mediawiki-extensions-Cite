@@ -475,10 +475,12 @@ $wgCiteMessages['zh-hant'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => '非法參數；需求為空',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
 );
+$wgCiteMessages['zh'] = $wgCiteMessages['zh-hans'];
 $wgCiteMessages['zh-cn'] = $wgCiteMessages['zh-hans'];
 $wgCiteMessages['zh-hk'] = $wgCiteMessages['zh-hant'];
 $wgCiteMessages['zh-sg'] = $wgCiteMessages['zh-hans'];
 $wgCiteMessages['zh-tw'] = $wgCiteMessages['zh-hant'];
 $wgCiteMessages['zh-yue'] = $wgCiteMessages['yue'];
+
 
 

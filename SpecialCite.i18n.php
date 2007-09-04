@@ -24,6 +24,12 @@ $wgSpecialCiteMessages['ar'] = array(
 	'cite_page'         => 'الصفحة:',
 	'cite_submit'       => 'استشهاد',
 );
+$wgSpecialCiteMessages['bcl'] = array(
+	'cite_article_link' => 'Sambiton an artikulong ini',
+	'cite'              => 'Sambiton',
+	'cite_page'         => 'Pahina:',
+	'cite_submit'       => 'Sambiton',
+);
 $wgSpecialCiteMessages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',
@@ -36,6 +42,12 @@ $wgSpecialCiteMessages['de'] = array(
 	'cite'              => 'Zitierhilfe',
 	'cite_page'         => 'Seite:',
 	'cite_submit'       => 'anzeigen',
+);
+$wgSpecialCiteMessages['eo'] = array(
+	'cite_article_link' => 'Citu ĉi tiun artikolon',
+	'cite'              => 'Citado',
+	'cite_page'         => 'Paĝo:',
+	'cite_submit'       => 'Citu',
 );
 $wgSpecialCiteMessages['fi'] = array(
 	'cite_article_link' => 'Viitetiedot',
@@ -54,6 +66,12 @@ $wgSpecialCiteMessages['he'] = array(
 	'cite'              => 'ציטוט',
 	'cite_page'         => 'דף:',
 	'cite_submit'       => 'צטט',
+);
+$wgSpecialCiteMessages['hsb'] = array(
+	'cite_article_link' => 'Nastawk citować',
+	'cite'              => 'Citowanska pomoc',
+	'cite_page'         => 'Strona:',
+	'cite_submit'       => 'pokazać',
 );
 $wgSpecialCiteMessages['hu'] = array(
 	'cite_article_link' => 'Irodalomjegyzékbe',

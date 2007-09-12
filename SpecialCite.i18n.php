@@ -85,6 +85,11 @@ $wgSpecialCiteMessages['id'] = array(
 	'cite_page'         => 'Halaman:',
 	'cite_submit'       => 'Kutip',
 );
+$wgSpecialCiteMessages['is'] = array(
+	'cite_article_link' => 'Vitna í þessa grein',
+	'cite'              => 'Vitna í síðu',
+	'cite_page'         => 'Síða:',
+);
 $wgSpecialCiteMessages['it'] = array(
 	'cite_article_link' => 'Cita questa voce',
 	'cite'              => 'Citazione',

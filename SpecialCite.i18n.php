@@ -34,6 +34,12 @@ $wgSpecialCiteMessages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',
 );
+$wgSpecialCiteMessages['cs'] = array(
+	'cite_article_link' => 'Citovat stránku',
+	'cite'              => 'Citace',
+	'cite_page'         => 'Článek:',
+	'cite_submit'       => 'Citovat',
+);
 $wgSpecialCiteMessages['cu'] = array(
 	'cite_article_link' => 'Приведи статїѭ',
 );

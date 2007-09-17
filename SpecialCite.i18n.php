@@ -34,6 +34,12 @@ $wgSpecialCiteMessages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',
 );
+$wgSpecialCiteMessages['ca'] = array(
+	'cite_article_link' => 'Cita aquest article',
+	'cite'              => 'Citeu',
+	'cite_page'         => 'Pàgina:',
+	'cite_submit'       => 'Cita',
+);
 $wgSpecialCiteMessages['cs'] = array(
 	'cite_article_link' => 'Citovat stránku',
 	'cite'              => 'Citace',
@@ -54,6 +60,12 @@ $wgSpecialCiteMessages['eo'] = array(
 	'cite'              => 'Citado',
 	'cite_page'         => 'Paĝo:',
 	'cite_submit'       => 'Citu',
+);
+$wgSpecialCiteMessages['es'] = array(
+	'cite_article_link' => 'Citar este artículo',
+	'cite'              => 'Citar',
+	'cite_page'         => 'Página:',
+	'cite_submit'       => 'Citar',
 );
 $wgSpecialCiteMessages['fi'] = array(
 	'cite_article_link' => 'Viitetiedot',

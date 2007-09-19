@@ -49,6 +49,9 @@ $wgSpecialCiteMessages['cs'] = array(
 $wgSpecialCiteMessages['cu'] = array(
 	'cite_article_link' => 'Приведи статїѭ',
 );
+$wgSpecialCiteMessages['da'] = array(
+	'cite_article_link' => 'Citér denne artikel',
+);
 $wgSpecialCiteMessages['de'] = array(
 	'cite_article_link' => 'Artikel zitieren',
 	'cite'              => 'Zitierhilfe',
@@ -78,6 +81,9 @@ $wgSpecialCiteMessages['fr'] = array(
 	'cite'              => 'Citation ',
 	'cite_page'         => 'Page :',
 	'cite_submit'       => 'Citer',
+);
+$wgSpecialCiteMessages['gl'] = array(
+	'cite_article_link' => 'Citar este artigo',
 );
 $wgSpecialCiteMessages['he'] = array(
 	'cite_article_link' => 'צטט דף זה',

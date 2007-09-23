@@ -148,6 +148,10 @@ $wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-kz'];
 $wgSpecialCiteMessages['ku'] = array(
 	'cite_page'         => 'Rûpel:',
 );
+$wgSpecialCiteMessages['la'] = array(
+	'cite'              => 'Paginam citare',
+	'cite_page'         => 'Pagina:',
+);
 $wgSpecialCiteMessages['lo'] = array(
 	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',
 	'cite'              => 'ອ້າງອີງ',

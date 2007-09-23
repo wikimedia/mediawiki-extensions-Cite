@@ -194,7 +194,7 @@ $wgSpecialCiteMessages['pms'] = array(
 	'cite_submit'       => 'Pronta la citassion',
 );
 $wgSpecialCiteMessages['pt'] = array(
-	'cite_article_link' => 'Citar esta página',
+	'cite_article_link' => 'Citar este artigo',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',
 	'cite_submit'       => 'Citar',

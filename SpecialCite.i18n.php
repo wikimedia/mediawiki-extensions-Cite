@@ -219,6 +219,12 @@ $wgSpecialCiteMessages['su'] = array(
 	'cite_page'         => 'Kaca:',
 	'cite_submit'       => 'Cutat',
 );
+$wgSpecialCiteMessages['tet'] = array(
+	'cite_article_link' => 'Sita artigu ne\'e',
+	'cite'              => 'Sita',
+	'cite_page'         => 'Pájina:',
+	'cite_submit'       => 'Sita',
+);
 $wgSpecialCiteMessages['ur'] = array(
 	'cite_article_link' => 'مضمون کا حوالہ دیں',
 	'cite'              => 'حوالہ',

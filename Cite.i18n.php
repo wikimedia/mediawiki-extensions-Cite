@@ -31,6 +31,7 @@ $wgCiteMessages['en'] = array(
 <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_TEXT            => 'No text given.',
 
 	/*
 	   Output formatting

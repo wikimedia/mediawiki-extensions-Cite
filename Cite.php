@@ -44,7 +44,8 @@ $wgCiteErrors = array(
 		'CITE_ERROR_REF_NO_INPUT',
 		'CITE_ERROR_REFERENCES_INVALID_INPUT',
 		'CITE_ERROR_REFERENCES_INVALID_PARAMETERS',
-		'CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL'
+		'CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL',
+		'CITE_ERROR_REFERENCES_NO_TEXT'
 	)
 );
 
@@ -375,6 +376,13 @@ function wfCite() {
 						$this->referencesKey( $key ),
 						$this->refKey( $key ),
 						$val
+					);
+			else if ($val['text']=='') return
+					wfMsgForContentNoTrans(
+						'cite_references_link_one',
+						$this->referencesKey( $key ),
+						$this->refKey( $key, $val['count'] ),
+						$this->error(CITE_ERROR_REFERENCES_NO_TEXT)
 					);
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is

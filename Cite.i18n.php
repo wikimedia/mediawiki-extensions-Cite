@@ -148,6 +148,7 @@ $wgCiteMessages['he'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן לכתוב תוכן, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן להשתמש בפרמטרים, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_TEXT            => 'לא נכתב טקסט.',
 );
 $wgCiteMessages['id'] = array(
 	# Internal errors

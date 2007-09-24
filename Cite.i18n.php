@@ -105,6 +105,7 @@ $wgCiteMessages['de'] = array(
 									'verwende ausschließlich <code><nowiki><reference /></nowiki></code>.',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL	 => 'Eine Referenz der Form <code><nowiki><ref name="…"/></nowiki></code> wird öfter ' .
 									'benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_TEXT            => 'Eine Referenz der Form <code><nowiki><ref name="…"/></nowiki></code> wird verwendet, ohne definiert worden zu sein.',
 );
 
 $wgCiteMessages['fr'] = array(

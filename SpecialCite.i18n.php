@@ -18,6 +18,12 @@ $wgSpecialCiteMessages['af'] = array(
 	'cite_article_link' => 'Haal dié blad aan',
 	'cite'              => 'Aanhaling',
 );
+$wgSpecialCiteMessages['am'] = array(
+	'cite_article_link' => 'መጥቀሻ ለዚህ መጣጥፍ',
+	'cite'              => 'መጥቀሻ',
+	'cite_page'         => 'አርዕስት፦',
+	'cite_submit'       => 'ዝርዝሮች ይታዩ',
+);
 $wgSpecialCiteMessages['ar'] = array(
 	'cite_article_link' => 'استشهد بهذه المقالة',
 	'cite'              => 'استشهاد',
@@ -69,6 +75,12 @@ $wgSpecialCiteMessages['es'] = array(
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',
 	'cite_submit'       => 'Citar',
+);
+$wgSpecialCiteMessages['ext'] = array(
+	'cite_article_link' => 'Almiental esti artículu',
+	'cite'              => 'Almiental',
+	'cite_page'         => 'Páhina:',
+	'cite_submit'       => 'Almiental',
 );
 $wgSpecialCiteMessages['fi'] = array(
 	'cite_article_link' => 'Viitetiedot',

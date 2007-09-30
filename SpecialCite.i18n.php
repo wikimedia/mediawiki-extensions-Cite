@@ -103,6 +103,10 @@ $wgSpecialCiteMessages['he'] = array(
 	'cite_page'         => 'דף:',
 	'cite_submit'       => 'צטט',
 );
+$wgSpecialCiteMessages['hr'] = array(
+	'cite_article_link' => 'Citiraj ovaj članak',
+	'cite'              => 'Citiranje',
+);
 $wgSpecialCiteMessages['hsb'] = array(
 	'cite_article_link' => 'Nastawk citować',
 	'cite'              => 'Citowanska pomoc',
@@ -210,6 +214,12 @@ $wgSpecialCiteMessages['pt'] = array(
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',
 	'cite_submit'       => 'Citar',
+);
+$wgSpecialCiteMessages['ro'] = array(
+	'cite_article_link' => 'Citează acest articol',
+	'cite'              => 'Citează',
+	'cite_page'         => 'Citează pagina:',
+	'cite_submit'       => 'Deschide informaţii',
 );
 $wgSpecialCiteMessages['ru'] = array(
 	'cite_article_link' => 'Цитировать статью',

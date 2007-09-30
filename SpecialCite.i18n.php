@@ -110,7 +110,7 @@ $wgSpecialCiteMessages['hsb'] = array(
 	'cite_submit'       => 'pokazać',
 );
 $wgSpecialCiteMessages['hu'] = array(
-	'cite_article_link' => 'Irodalomjegyzékbe',
+	'cite_article_link' => 'Szócikk idézése',
 	'cite'              => 'Irodalomjegyzék-bejegyzés készítése',
 	'cite_page'         => 'Idézendő lap:',
 	'cite_submit'       => 'Bejegyzés elkészítése',

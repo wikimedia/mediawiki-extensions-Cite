@@ -125,6 +125,7 @@ $wgCiteMessages['fr'] = array(
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_INPUT      => 'Entrée invalide ; entrée attendue',
 	'cite_error_' . CITE_ERROR_REFERENCES_INVALID_PARAMETERS => 'Arguments invalides ; argument attendu',
 	'cite_error_' . CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL  => "Exécution hors des étiquettes personnalisées, définissez plus dans le message « cite_references_link_many_format_backlink_labels »",
+	'cite_error_' . CITE_ERROR_REFERENCES_NO_TEXT            => 'Aucun texte indiqué.',
 );
 $wgCiteMessages['he'] = array(
 	/*
@@ -484,6 +485,3 @@ $wgCiteMessages['zh-hk'] = $wgCiteMessages['zh-hant'];
 $wgCiteMessages['zh-sg'] = $wgCiteMessages['zh-hans'];
 $wgCiteMessages['zh-tw'] = $wgCiteMessages['zh-hant'];
 $wgCiteMessages['zh-yue'] = $wgCiteMessages['yue'];
-
-
-

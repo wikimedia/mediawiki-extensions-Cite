@@ -394,7 +394,7 @@ function wfCite() {
 						'cite_references_link_one',
 						$this->referencesKey( $key ),
 						$this->refKey( $key, $val['count'] ),
-						($val['text']!=''?$val['text']:$this->error(CITE_ERROR_REFERENCES_NO_TEXT))
+						( $val['text'] != '' ? $val['text'] : $this->error( CITE_ERROR_REFERENCES_NO_TEXT ) )
 					);
 			// Named references with >1 occurrences
 			else {
@@ -415,7 +415,7 @@ function wfCite() {
 					wfMsgForContentNoTrans( 'cite_references_link_many',
 						$this->referencesKey( $key ),
 						$list,
-						($val['text']!=''?$val['text']:$this->error(CITE_ERROR_REFERENCES_NO_TEXT))
+						( $val['text'] != '' ? $val['text'] : $this->error( CITE_ERROR_REFERENCES_NO_TEXT ) )
 					);
 			}
 		}

@@ -245,6 +245,12 @@ $wgSpecialCiteMessages['su'] = array(
 	'cite_page'         => 'Kaca:',
 	'cite_submit'       => 'Cutat',
 );
+$wgSpecialCiteMessages['sv'] = array(
+	'cite_article_link' => 'Ange denna artikel som källa',
+	'cite'              => 'Ange källa',
+	'cite_page'         => 'Sida:',
+	'cite_submit'       => 'Ange som källa',
+);
 $wgSpecialCiteMessages['tet'] = array(
 	'cite_article_link' => 'Sita artigu ne\'e',
 	'cite'              => 'Sita',

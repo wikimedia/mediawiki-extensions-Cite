@@ -90,7 +90,7 @@ $wgSpecialCiteMessages['fi'] = array(
 );
 $wgSpecialCiteMessages['fr'] = array(
 	'cite_article_link' => 'Citer cet article',
-	'cite'              => 'Citation ',
+	'cite'              => 'Citation',
 	'cite_page'         => 'Page :',
 	'cite_submit'       => 'Citer',
 );

@@ -179,6 +179,12 @@ $wgSpecialCiteMessages['lt'] = array(
 	'cite_page'         => 'Puslapis:',
 	'cite_submit'       => 'Cituoti',
 );
+$wgSpecialCiteMessages['nan'] = array(
+	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
+	'cite'              => 'Ín-iōng',
+	'cite_page'         => 'Ia̍h:',
+	'cite_submit'       => 'Ín-iōng',
+);
 $wgSpecialCiteMessages['nl'] = array(
 	'cite_article_link' => 'Citeer deze pagina',
 	'cite'              => 'citeer',
@@ -262,7 +268,6 @@ $wgSpecialCiteMessages['ur'] = array(
 	'cite'              => 'حوالہ',
 	'cite_page'         => 'صفحہ:',
 	'cite_submit'       => 'Cite',
-	'cite_text'         => '', # Don't translate this
 );
 $wgSpecialCiteMessages['wa'] = array(
 	'cite_page' => 'Pådje:',
@@ -292,9 +297,7 @@ $wgSpecialCiteMessages['zh-hant'] = array(
 $wgSpecialCiteMessages['zh'] = $wgSpecialCiteMessages['zh-hans'];
 $wgSpecialCiteMessages['zh-cn'] = $wgSpecialCiteMessages['zh-hans'];
 $wgSpecialCiteMessages['zh-hk'] = $wgSpecialCiteMessages['zh-hant'];
+$wgSpecialCiteMessages['zh-min-nan'] = $wgSpecialCiteMessages['nan'];
 $wgSpecialCiteMessages['zh-sg'] = $wgSpecialCiteMessages['zh-hans'];
 $wgSpecialCiteMessages['zh-tw'] = $wgSpecialCiteMessages['zh-hant'];
 $wgSpecialCiteMessages['zh-yue'] = $wgSpecialCiteMessages['yue'];
-
-
-

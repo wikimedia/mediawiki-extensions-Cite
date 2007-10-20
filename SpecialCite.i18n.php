@@ -233,6 +233,9 @@ $wgSpecialCiteMessages['ru'] = array(
 	'cite_page'         => 'Страница:',
 	'cite_submit'       => 'Процитировать',
 );
+$wgSpecialCiteMessages['sd'] = array(
+	'cite'              => 'حواليو',
+);
 $wgSpecialCiteMessages['sk'] = array(
 	'cite_article_link' => 'Citovať článok',
 	'cite'              => 'Citovať',

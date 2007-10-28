@@ -186,10 +186,10 @@ $wgSpecialCiteMessages['nan'] = array(
 	'cite_submit'       => 'Ín-iōng',
 );
 $wgSpecialCiteMessages['nl'] = array(
-	'cite_article_link' => 'Citeer deze pagina',
-	'cite'              => 'citeer',
+	'cite_article_link' => 'Deze pagina citeren',
+	'cite'              => 'Citeren',
 	'cite_page'         => 'Pagina:',
-	'cite_submit'       => 'Citeer',
+	'cite_submit'       => 'Citeren',
 );
 $wgSpecialCiteMessages['no'] = array(
 	'cite_article_link' => 'Siter denne artikkelen',

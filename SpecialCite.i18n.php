@@ -30,6 +30,9 @@ $wgSpecialCiteMessages['ar'] = array(
 	'cite_page'         => 'الصفحة:',
 	'cite_submit'       => 'استشهاد',
 );
+$wgSpecialCiteMessages['ast'] = array(
+	'cite_article_link' => 'Citar esti artículu',
+);
 $wgSpecialCiteMessages['bcl'] = array(
 	'cite_article_link' => 'Sambiton an artikulong ini',
 	'cite'              => 'Sambiton',
@@ -96,6 +99,9 @@ $wgSpecialCiteMessages['fr'] = array(
 );
 $wgSpecialCiteMessages['gl'] = array(
 	'cite_article_link' => 'Citar este artigo',
+	'cite'              => 'Citar',
+	'cite_page'         => 'Páxina:',
+	'cite_submit'       => 'Citar',
 );
 $wgSpecialCiteMessages['he'] = array(
 	'cite_article_link' => 'צטט דף זה',
@@ -118,6 +124,12 @@ $wgSpecialCiteMessages['hu'] = array(
 	'cite'              => 'Irodalomjegyzék-bejegyzés készítése',
 	'cite_page'         => 'Idézendő lap:',
 	'cite_submit'       => 'Bejegyzés elkészítése',
+);
+$wgSpecialCiteMessages['hy'] = array(
+	'cite_article_link' => 'Քաղվածել հոդվածը',
+	'cite'              => 'Քաղվածում',
+	'cite_page'         => 'Էջ.',
+	'cite_submit'       => 'Քաղվածել',
 );
 $wgSpecialCiteMessages['id'] = array(
 	'cite_article_link' => 'Kutip artikel ini',
@@ -220,6 +232,9 @@ $wgSpecialCiteMessages['pt'] = array(
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',
 	'cite_submit'       => 'Citar',
+);
+$wgSpecialCiteMessages['rm'] = array(
+	'cite_page'         => 'Pagina:',
 );
 $wgSpecialCiteMessages['ro'] = array(
 	'cite_article_link' => 'Citează acest articol',

@@ -85,6 +85,12 @@ $wgSpecialCiteMessages['ext'] = array(
 	'cite_page'         => 'Páhina:',
 	'cite_submit'       => 'Almiental',
 );
+$wgSpecialCiteMessages['fa'] = array(
+	'cite_article_link' => 'یادکرد پیوند این مقاله',
+	'cite'              => 'یادکرد این مقاله',
+	'cite_page'         => 'صفحه:',
+	'cite_submit'       => 'یادکرد',
+);
 $wgSpecialCiteMessages['fi'] = array(
 	'cite_article_link' => 'Viitetiedot',
 	'cite'              => 'Viitetiedot',

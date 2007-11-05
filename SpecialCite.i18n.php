@@ -287,6 +287,11 @@ $wgSpecialCiteMessages['tet'] = array(
 	'cite_page'         => 'Pájina:',
 	'cite_submit'       => 'Sita',
 );
+$wgSpecialCiteMessages['tr'] = array(
+	'cite_article_link' => 'Sayfayı kaynak göster',
+	'cite'              => 'Kaynak göster',
+	'cite_page'         => 'Sayfa:',
+);
 $wgSpecialCiteMessages['ur'] = array(
 	'cite_article_link' => 'مضمون کا حوالہ دیں',
 	'cite'              => 'حوالہ',

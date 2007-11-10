@@ -103,6 +103,12 @@ $wgSpecialCiteMessages['fr'] = array(
 	'cite_page'         => 'Page :',
 	'cite_submit'       => 'Citer',
 );
+$wgSpecialCiteMessages['frp'] = array(
+	'cite_article_link' => 'Citar ceti articllo',
+	'cite'              => 'Citacion',
+	'cite_page'         => 'Pâge :',
+	'cite_submit'       => 'Citar',
+);
 $wgSpecialCiteMessages['gl'] = array(
 	'cite_article_link' => 'Citar este artigo',
 	'cite'              => 'Citar',

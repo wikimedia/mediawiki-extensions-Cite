@@ -203,6 +203,9 @@ $wgSpecialCiteMessages['lt'] = array(
 	'cite_page'         => 'Puslapis:',
 	'cite_submit'       => 'Cituoti',
 );
+$wgSpecialCiteMessages['lv'] = array(
+	'cite_article_link' => 'Atsauce uz šo rakstu',
+);
 $wgSpecialCiteMessages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
 	'cite'              => 'Ín-iōng',

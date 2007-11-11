@@ -251,6 +251,11 @@ $wgSpecialCiteMessages['pt'] = array(
 $wgSpecialCiteMessages['rm'] = array(
 	'cite_page'         => 'Pagina:',
 );
+$wgSpecialCiteMessages['rmy'] = array(
+	'cite_article_link' => 'Prinjardo phandipen ko lekh',
+	'cite'              => 'Kana trebul phandipen',
+	'cite_submit'       => 'Ja',
+);
 $wgSpecialCiteMessages['ro'] = array(
 	'cite_article_link' => 'Citează acest articol',
 	'cite'              => 'Citează',

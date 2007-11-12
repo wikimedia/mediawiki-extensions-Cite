@@ -206,6 +206,12 @@ $wgSpecialCiteMessages['lt'] = array(
 $wgSpecialCiteMessages['lv'] = array(
 	'cite_article_link' => 'Atsauce uz šo rakstu',
 );
+$wgSpecialCiteMessages['mk'] = array(
+	'cite_article_link' => 'Библиографски детали',
+	'cite'              => 'Библиографија',
+	'cite_page'         => 'Страница:',
+	'cite_submit'       => 'Цитирај',
+);
 $wgSpecialCiteMessages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
 	'cite'              => 'Ín-iōng',

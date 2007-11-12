@@ -62,7 +62,7 @@ $wgSpecialCiteMessages['da'] = array(
 	'cite_article_link' => 'Citér denne artikel',
 );
 $wgSpecialCiteMessages['de'] = array(
-	'cite_article_link' => 'Artikel zitieren',
+	'cite_article_link' => 'Seite zitieren',
 	'cite'              => 'Zitierhilfe',
 	'cite_page'         => 'Seite:',
 	'cite_submit'       => 'anzeigen',

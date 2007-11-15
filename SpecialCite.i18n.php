@@ -67,6 +67,9 @@ $wgSpecialCiteMessages['de'] = array(
 	'cite_page'         => 'Seite:',
 	'cite_submit'       => 'anzeigen',
 );
+$wgSpecialCiteMessages['el'] = array(
+	'cite_page'         => 'Σελίδα:',
+);
 $wgSpecialCiteMessages['eo'] = array(
 	'cite_article_link' => 'Citu ĉi tiun artikolon',
 	'cite'              => 'Citado',
@@ -189,8 +192,10 @@ $wgSpecialCiteMessages['ku'] = array(
 	'cite_page'         => 'Rûpel:',
 );
 $wgSpecialCiteMessages['la'] = array(
+	'cite_article_link' => 'Hanc paginam citare',
 	'cite'              => 'Paginam citare',
 	'cite_page'         => 'Pagina:',
+	'cite_submit'       => 'Citare',
 );
 $wgSpecialCiteMessages['lo'] = array(
 	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',

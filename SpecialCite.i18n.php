@@ -17,6 +17,8 @@ $wgSpecialCiteMessages['en'] = array(
 $wgSpecialCiteMessages['af'] = array(
 	'cite_article_link' => 'Haal dié blad aan',
 	'cite'              => 'Aanhaling',
+	'cite_page'         => 'Bladsy:',
+	'cite_submit'       => 'Aanhaling',
 );
 $wgSpecialCiteMessages['am'] = array(
 	'cite_article_link' => 'መጥቀሻ ለዚህ መጣጥፍ',

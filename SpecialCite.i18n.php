@@ -70,6 +70,8 @@ $wgSpecialCiteMessages['de'] = array(
 	'cite_submit'       => 'anzeigen',
 );
 $wgSpecialCiteMessages['el'] = array(
+	'cite_article_link' => 'Αναφέρεται αυτό το άρθρο',
+	'cite'              => 'Αναφορά',
 	'cite_page'         => 'Σελίδα:',
 );
 $wgSpecialCiteMessages['eo'] = array(
@@ -83,6 +85,12 @@ $wgSpecialCiteMessages['es'] = array(
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',
 	'cite_submit'       => 'Citar',
+);
+$wgSpecialCiteMessages['eu'] = array(
+	'cite_article_link' => 'Artikulu hau aipatu',
+	'cite'              => 'Aipamenak',
+	'cite_page'         => 'Orrialdea:',
+	'cite_submit'       => 'Aipatu',
 );
 $wgSpecialCiteMessages['ext'] = array(
 	'cite_article_link' => 'Almiental esti artículu',

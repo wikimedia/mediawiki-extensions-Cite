@@ -41,6 +41,9 @@ $wgSpecialCiteMessages['bcl'] = array(
 	'cite_page'         => 'Pahina:',
 	'cite_submit'       => 'Sambiton',
 );
+$wgSpecialCiteMessages['be'] = array(
+	'cite_article_link' => 'Цытаваць гэты артыкул',
+);
 $wgSpecialCiteMessages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',

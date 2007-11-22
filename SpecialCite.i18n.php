@@ -113,6 +113,12 @@ $wgSpecialCiteMessages['fi'] = array(
 	'cite_page'         => 'Sivu:',
 	'cite_submit'       => 'Viittaa',
 );
+$wgSpecialCiteMessages['fo'] = array(
+	'cite_article_link' => 'Sitera hesa greinina',
+	'cite'              => 'Sitera',
+	'cite_page'         => 'Síða:',
+	'cite_submit'       => 'Sitera',
+);
 $wgSpecialCiteMessages['fr'] = array(
 	'cite_article_link' => 'Citer cet article',
 	'cite'              => 'Citation',

@@ -207,6 +207,12 @@ $wgSpecialCiteMessages['kk-cn'] = array(
 	'cite_submit'       => 'دٵيەكسٶز ال!',
 );
 $wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-kz'];
+$wgSpecialCiteMessages['ksh'] = array(
+	'cite_article_link' => 'Di Sigk Zitteere',
+	'cite'              => 'Zittiere',
+	'cite_page'         => 'Sigk:',
+	'cite_submit'       => 'Zittėere',
+);
 $wgSpecialCiteMessages['ku'] = array(
 	'cite_page'         => 'Rûpel:',
 );

@@ -188,6 +188,9 @@ $wgSpecialCiteMessages['ja'] = array(
 	'cite_page'         => 'ページ名',
 	'cite_submit'       => '引用する',
 );
+$wgSpecialCiteMessages['ka'] = array(
+	'cite_article_link' => 'ამ გვერდის ციტირება',
+);
 $wgSpecialCiteMessages['kk-kz'] = array(
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite'              => 'Дәйексөз алу',

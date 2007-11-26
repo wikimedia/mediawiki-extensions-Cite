@@ -54,6 +54,12 @@ $wgSpecialCiteMessages['ca'] = array(
 	'cite_page'         => 'Pàgina:',
 	'cite_submit'       => 'Cita',
 );
+$wgSpecialCiteMessages['cdo'] = array(
+	'cite_article_link' => 'Īng-ê̤ṳng cī piĕng ùng-ciŏng',
+	'cite'              => 'Īng-ê̤ṳng',
+	'cite_page'         => 'Hiĕk-miêng:',
+	'cite_submit'       => 'Īng-ê̤ṳng',
+);
 $wgSpecialCiteMessages['cs'] = array(
 	'cite_article_link' => 'Citovat stránku',
 	'cite'              => 'Citace',

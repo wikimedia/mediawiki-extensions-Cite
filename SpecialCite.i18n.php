@@ -95,6 +95,12 @@ $wgSpecialCiteMessages['es'] = array(
 	'cite_page'         => 'Página:',
 	'cite_submit'       => 'Citar',
 );
+$wgSpecialCiteMessages['et'] = array(
+	'cite_article_link' => 'Tsiteeri seda artiklit',
+	'cite'              => 'Tsiteeri',
+	'cite_page'         => 'Leht:',
+	'cite_submit'       => 'Tsiteeri',
+);
 $wgSpecialCiteMessages['eu'] = array(
 	'cite_article_link' => 'Artikulu hau aipatu',
 	'cite'              => 'Aipamenak',

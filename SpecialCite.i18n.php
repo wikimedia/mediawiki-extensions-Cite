@@ -158,6 +158,8 @@ $wgSpecialCiteMessages['he'] = array(
 $wgSpecialCiteMessages['hr'] = array(
 	'cite_article_link' => 'Citiraj ovaj članak',
 	'cite'              => 'Citiranje',
+	'cite_page'         => 'Stranica:',
+	'cite_submit'       => 'Citiraj',
 );
 $wgSpecialCiteMessages['hsb'] = array(
 	'cite_article_link' => 'Nastawk citować',

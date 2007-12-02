@@ -368,6 +368,12 @@ $wgSpecialCiteMessages['ur'] = array(
 $wgSpecialCiteMessages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );
+$wgSpecialCiteMessages['wuu'] = array(
+	'cite_article_link' => '引用该篇文章',
+	'cite'              => '引用',
+	'cite_page'         => '页面:',
+	'cite_submit'       => '引用',
+);
 $wgSpecialCiteMessages['yue'] = array(
 	'cite_article_link' => '引用呢篇文',
 	'cite'              => '引用文章',

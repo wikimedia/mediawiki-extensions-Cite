@@ -48,6 +48,12 @@ $wgSpecialCiteMessages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',
 );
+$wgSpecialCiteMessages['br'] = array(
+	'cite_article_link' => 'Menegiñ ar pennad-mañ',
+	'cite'              => 'Menegiñ',
+	'cite_page'         => 'Pajenn:',
+	'cite_submit'       => 'Menegiñ',
+);
 $wgSpecialCiteMessages['ca'] = array(
 	'cite_article_link' => 'Cita aquest article',
 	'cite'              => 'Citeu',

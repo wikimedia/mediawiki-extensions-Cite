@@ -44,6 +44,9 @@ $wgSpecialCiteMessages['bcl'] = array(
 $wgSpecialCiteMessages['be'] = array(
 	'cite_article_link' => 'Цытаваць гэты артыкул',
 );
+$wgSpecialCiteMessages['bg'] = array(
+	'cite_page'         => 'Страница:',
+);
 $wgSpecialCiteMessages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',
@@ -65,6 +68,11 @@ $wgSpecialCiteMessages['cdo'] = array(
 	'cite'              => 'Īng-ê̤ṳng',
 	'cite_page'         => 'Hiĕk-miêng:',
 	'cite_submit'       => 'Īng-ê̤ṳng',
+);
+$wgSpecialCiteMessages['co'] = array(
+	'cite_article_link' => 'Cità issu articulu',
+	'cite'              => 'Cità',
+	'cite_page'         => 'Pagina:',
 );
 $wgSpecialCiteMessages['cs'] = array(
 	'cite_article_link' => 'Citovat stránku',

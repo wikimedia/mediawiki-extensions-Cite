@@ -350,6 +350,15 @@ $wgSpecialCiteMessages['sq'] = array(
 	'cite_page'         => 'Faqja:',
 	'cite_submit'       => 'Citoje',
 );
+
+/** Seeltersk (Seeltersk)
+ * @author Pyt
+ */
+$wgSpecialCiteMessages['stq'] = array(
+	'cite_article_link' => 'Siede zitierje',
+
+);
+
 $wgSpecialCiteMessages['su'] = array(
 	'cite_article_link' => 'Cutat artikel ieu',
 	'cite'              => 'Cutat',

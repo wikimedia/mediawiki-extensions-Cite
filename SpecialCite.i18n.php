@@ -149,6 +149,15 @@ $wgSpecialCiteMessages['fi'] = array(
 	'cite_page'         => 'Sivu:',
 	'cite_submit'       => 'Viittaa',
 );
+
+/** Fijian (Na Vosa Vakaviti)
+ * @author SPQRobin
+ */
+$wgSpecialCiteMessages['fj'] = array(
+	'cite_article_link' => 'Vola dau vaqarai',
+
+);
+
 $wgSpecialCiteMessages['fo'] = array(
 	'cite_article_link' => 'Sitera hesa greinina',
 	'cite'              => 'Sitera',
@@ -366,6 +375,9 @@ $wgSpecialCiteMessages['sq'] = array(
  */
 $wgSpecialCiteMessages['stq'] = array(
 	'cite_article_link' => 'Siede zitierje',
+	'cite'              => 'Zitierhälpe',
+	'cite_page'         => 'Siede:',
+	'cite_submit'       => 'anwiese',
 
 );
 

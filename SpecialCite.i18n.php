@@ -92,6 +92,16 @@ $wgSpecialCiteMessages['de'] = array(
 	'cite_page'         => 'Seite:',
 	'cite_submit'       => 'anzeigen',
 );
+
+/** Zazaki (Zazaki)
+ * @author SPQRobin
+ */
+$wgSpecialCiteMessages['diq'] = array(
+	'cite_article_link' => 'Na pele çıme bımocne',
+	'cite'              => 'Çıme bımocne',
+
+);
+
 $wgSpecialCiteMessages['el'] = array(
 	'cite_article_link' => 'Αναφέρεται αυτό το άρθρο',
 	'cite'              => 'Αναφορά',

@@ -18,7 +18,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php',
+	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
 );
 
 # Internationalisation file
@@ -46,7 +46,7 @@ function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 			'text' => wfMsg( 'cite_article_link' ),
 			'href' => $skintemplate->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid" )
 		);
-
+	
 	return true;
 }
 
@@ -61,6 +61,9 @@ function wfSpecialCiteToolbox( &$monobook ) {
 				?></a><?php
 			?></li><?php
 		}
-
+	
 	return true;
 }
+
+
+

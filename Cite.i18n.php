@@ -101,6 +101,13 @@ $messages['fr'] = array(
 	'cite_error_references_no_text'            => 'Aucun texte indiqué.',
 );
 
+/** Galician (Galego)
+ * @author Alma
+ */
+$messages['gl'] = array(
+	'cite_error' => 'Citar erro: $1',
+);
+
 /** Hebrew (עברית) */
 $messages['he'] = array(
 	'cite_croak'                               => 'בהערה יש שגיאה; $1: $2',
@@ -283,6 +290,16 @@ $messages['sk'] = array(
 	'cite_error_references_invalid_input'      => 'Neplatné volanie; neočakával sa vstup',
 	'cite_error_references_invalid_parameters' => 'Neplatné parametre; neočakávli sa žiadne',
 	'cite_error_references_no_backlink_label'  => "Minuli sa generované návestia spätných odkazov, definujte viac v správe \"''cite_references_link_many_format_backlink_labels''\"",
+);
+
+/** Seeltersk (Seeltersk)
+ * @author Pyt
+ */
+$messages['stq'] = array(
+	'cite_error_key_str_invalid'    => 'Internen Failer: ungultigen $str',
+	'cite_error_ref_too_many_keys'  => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ is uungultich of tou loang.',
+	'cite_error_ref_no_input'       => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Noome mout n Inhoold hääbe.',
+	'cite_error_references_no_text' => 'Ne Referenz fon ju Foarm <code><nowiki><ref name="…"/></nowiki></code> wäd ferwoand, sunner definierd wuuden tou weesen.',
 );
 
 /** Kantonese (粵語) */

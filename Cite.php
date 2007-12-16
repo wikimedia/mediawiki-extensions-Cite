@@ -32,9 +32,7 @@ $wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
  */
 $wgCiteErrors = array(
 	'system' => array(
-		'CITE_ERROR_STR_INVALID',
-		'CITE_ERROR_KEY_INVALID_1',
-		'CITE_ERROR_KEY_INVALID_2',
+		'CITE_ERROR_KEY_STR_INVALID',
 		'CITE_ERROR_STACK_INVALID_INPUT'
 	),
 	'user' => array(
@@ -173,40 +171,47 @@ function wfCite() {
 		
 		function guardedRef( $str, $argv, $parser ) {
 			$this->mParser = $parser;
+			
+			# The key here is the "name" attribute.
 			$key = $this->refArg( $argv );
 			
-			if ( $str !== null ) {
-				if ( $str === '' )
-					return $this->error( CITE_ERROR_REF_NO_INPUT );
-				if ( is_string( $key ) )
-					// I don't want keys in the form of /^[0-9]+$/ because they would
-					// conflict with the php datastructure I'm using, besides, why specify
-					// a manual key if it's just going to be any old integer?
-					if ( sprintf( '%d', $key ) === (string)$key )
-						return $this->error( CITE_ERROR_REF_NUMERIC_KEY );
-					else
-						return $this->stack( $str, $key );
-				else if ( $key === null )
-					return $this->stack( $str );
-				else if ( $key === false )
-					return $this->error( CITE_ERROR_REF_TOO_MANY_KEYS );
-				else
-					$this->croak( CITE_ERROR_KEY_INVALID_1, serialize( $key ) );
-			} else if ( $str === null ) {
-				if ( is_string( $key ) )
-					if ( sprintf( '%d', $key ) === (string)$key )
-						return $this->error( CITE_ERROR_REF_NUMERIC_KEY );
-					else
-						return $this->stack( $str, $key );
-				else if ( $key === false )
-					return $this->error( CITE_ERROR_REF_TOO_MANY_KEYS );
-				else if ( $key === null )
-					return $this->error( CITE_ERROR_REF_NO_KEY );
-				else
-					$this->croak( CITE_ERROR_KEY_INVALID_2, serialize( $key ) );
+			if( $str === '' ) {
+				# <ref ...></ref>.  This construct is always invalid: either
+				# it's a contentful ref, or it's a named duplicate and should
+				# be <ref ... />.
+				return $this->error( CITE_ERROR_REF_NO_INPUT );
+			}
 					
-			} else
-				$this->croak( CITE_ERROR_STR_INVALID, serialize( $str ) );
+			if( $key === false ) {
+				# TODO: Comment this case; what does this condition mean?
+				return $this->error( CITE_ERROR_REF_TOO_MANY_KEYS );
+			}
+
+			if( $str === null and $key === null ) {
+				# Something like <ref />; this makes no sense.
+				return $this->error( CITE_ERROR_REF_NO_KEY );
+			}
+			
+			if( preg_match( '/[0-9]+/', $key ) ) {
+				# Numeric names mess up the resulting id's, potentially produ-
+				# cing duplicate id's in the XHTML.  The Right Thing To Do
+				# would be to mangle them, but it's not really high-priority
+				# (and would produce weird id's anyway).
+				return $this->error( CITE_ERROR_REF_NUMERIC_KEY );
+			}
+			
+			if( is_string( $key ) or is_string( $str ) ) {
+				# We don't care about the content: if the key exists, the ref
+				# is presumptively valid.  Either it stores a new ref, or re-
+				# fers to an existing one.  If it refers to a nonexistent ref,
+				# we'll figure that out later.  Likewise it's definitely valid
+				# if there's any content, regardless of key.
+				return $this->stack( $str, $key );
+			}
+
+			# Not clear how we could get here, but something is probably
+			# wrong with the types.  Let's fail fast.
+			$this->croak( CITE_ERROR_KEY_STR_INVALID, serialize( "$str; $key" ) );
 		}
 
 		/**

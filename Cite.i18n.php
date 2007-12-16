@@ -15,10 +15,8 @@ $wgCiteMessages['en'] = array(
 	# Internal errors
 	'cite_croak' => 'Cite croaked; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Internal error; invalid $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Internal error; invalid key',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Internal error; invalid key',
-	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Internal error; invalid stack key',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Internal error; invalid $str and/or $key.  This should never occur.',
+	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT     => 'Internal error; invalid stack key.  This should never occur.',
 
 	# User errors
 	'cite_error' => 'Cite error $1; $2',
@@ -66,9 +64,7 @@ $wgCiteMessages['cs'] = array(
 	# Internal errors
 	'cite_croak' => 'Nefunkční citace; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Vnitřní chyba; neplatný $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Vnitřní chyba; neplatný klíč',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Vnitřní chyba; neplatný klíč',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Vnitřní chyba; neplatný $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Vnitřní chyba; neplatný klíč zásobníku',
 
 	# User errors
@@ -87,9 +83,7 @@ $wgCiteMessages['de'] = array(
 	# Internal errors
 	'cite_croak'	=> 'Fehler im Referenz-System. $1: $2',
 	'cite_error'	=> 'Referenz-Fehler $1: $2',
-	'cite_error_' . CITE_ERROR_STR_INVALID			 => 'Interner Fehler: ungültiger $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1		 => 'Interner Fehler: Ungültiger „name“',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2		 => 'Interner Fehler: ungültiger „name“',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID			 => 'Interner Fehler: ungültiger $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT		 => 'Interner Fehler: ungültiger „name“-stack',
 
 	# User errors
@@ -111,9 +105,7 @@ $wgCiteMessages['de'] = array(
 $wgCiteMessages['fr'] = array(
 	# Internal errors
 	'cite_croak' => 'Citation corrompue ; $1 : $2',
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Erreur interne ; $str attendue',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Erreur interne ; clé invalide',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Erreur interne ; clé invalide ',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Erreur interne ; $str attendue',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erreur interne ; clé de pile invalide',
 
 	# User errors
@@ -135,9 +127,7 @@ $wgCiteMessages['he'] = array(
 	# Internal errors
 	'cite_croak' => 'בהערה יש שגיאה; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'שגיאה פנימית; $str שגוי',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'שגיאה פנימית; מפתח שגוי',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'שגיאה פנימית; מפתח שגוי',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'שגיאה פנימית; $str שגוי',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'שגיאה פנימית; מפתח שגוי בערימה',
 
 	# User errors
@@ -155,9 +145,7 @@ $wgCiteMessages['he'] = array(
 $wgCiteMessages['id'] = array(
 	# Internal errors
 	'cite_croak' => 'Kegagalan pengutipan; $1: $2',
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Kesalahan internal; $str tak sah',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Kesalahan internal; kunci tak sah',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Kesalahan internal; kunci tak sah',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Kesalahan internal; $str tak sah',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Kesalahan internal; kunci stack tak sah',
 
 	# User errors
@@ -174,9 +162,7 @@ $wgCiteMessages['it'] = array(
 
 	# Internal errors
 	'cite_croak' => 'Errore nella citazione: $1: $2',
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Errore interno: $str errato',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Errore interno: chiave errata',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Errore interno: chiave errata',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Errore interno: $str errato',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Errore interno: chiave di stack errata',
 
 	# User errors
@@ -197,9 +183,7 @@ $wgCiteMessages['ja'] = array(
 	# Internal errors
 	'cite_croak' => '引用タグ機能の重大なエラー; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => '内部エラー; 無効な $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '内部エラー; 無効なキー',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '内部エラー; 無効なキー',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => '内部エラー; 無効な $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '内部エラー; 無効なスタックキー',
 
 	# User errors
@@ -222,9 +206,7 @@ $wgCiteMessages['kk-kz'] = array(
 	# Internal errors
 	'cite_croak' => 'Дәйексөз алу сәтсіз бітті; $1: $2 ',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Ішкі қате; жарамсыз $str ',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Ішкі қате; жарамсыз кілт',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Ішкі қате; жарамсыз кілт',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Ішкі қате; жарамсыз $str ',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Ішкі қате; жарамсыз стек кілті',
 
 	# User errors
@@ -246,9 +228,7 @@ $wgCiteMessages['kk-tr'] = array(
 	# Internal errors
 	'cite_croak' => 'Däýeksöz alw sätsiz bitti; $1: $2 ',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'İşki qate; jaramsız $str ',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'İşki qate; jaramsız kilt',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'İşki qate; jaramsız kilt',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'İşki qate; jaramsız $str ',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'İşki qate; jaramsız stek kilti',
 
 	# User errors
@@ -270,9 +250,7 @@ $wgCiteMessages['kk-cn'] = array(
 	# Internal errors
 	'cite_croak' => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2 ',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'ٸشكٸ قاتە; جارامسىز $str ',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'ٸشكٸ قاتە; جارامسىز كٸلت',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'ٸشكٸ قاتە; جارامسىز كٸلت',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'ٸشكٸ قاتە; جارامسىز $str ',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'ٸشكٸ قاتە; جارامسىز ستەك كٸلتٸ',
 
 	# User errors
@@ -290,9 +268,7 @@ $wgCiteMessages['kk'] = $wgCiteMessages['kk-kz'];
 $wgCiteMessages['lt'] = array(
 	# Internal errors
 	'cite_croak' => 'Cituoti nepavyko; $1: $2',
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Vidinė klaida; neleistinas $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Vidinė klaida; neleistinas raktas',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Vidinė klaida; neleistinas raktas',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Vidinė klaida; neleistinas $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Vidinė klaida; neleistinas steko raktas',
 
 	# User errors
@@ -313,9 +289,7 @@ $wgCiteMessages['nl'] = array(
 	# Internal errors
 	'cite_croak' => 'Probleem met Cite; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Interne fout; onjuiste $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Interne fout; onjuiste sleutel',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Interne fout; onjuiste sleutel',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Interne fout; onjuiste $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Interne fout; onjuiste stacksleutel',
 
 	# User errors
@@ -337,9 +311,7 @@ $wgCiteMessages['pt'] = array(
 	# Internal errors
 	'cite_croak' => 'Citação com problemas; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Erro interno; $str inválido',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Erro interno; chave inválida',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Erro interno; chave inválida',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Erro interno; $str inválido',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Erro interno; chave fixa inválida',
 
 	# User errors
@@ -362,9 +334,7 @@ $wgCiteMessages['ru'] = array(
 	# Internal errors
 	'cite_croak' => 'Цитата сдохла; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Внутренняя ошибка: неверный $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Внутренняя ошибка: неверный ключ',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Внутренняя ошибка: неверный ключ',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Внутренняя ошибка: неверный $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Внутренняя ошибка: неверный ключ стека ',
 
 	# User errors
@@ -391,9 +361,7 @@ $wgCiteMessages['sk'] = array(
 	# Internal errors
 	'cite_croak' => 'Citát je už neaktuálny; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => 'Vnútorná chyba; neplatný $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => 'Vnútorná chyba; neplatný kľúč',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => 'Vnútorná chyba; neplatný kľúč',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => 'Vnútorná chyba; neplatný $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => 'Vnútorná chyba; neplatný kľúč zásobníka',
 
 	# User errors
@@ -415,9 +383,7 @@ $wgCiteMessages['yue'] = array(
 	# Internal errors
 	'cite_croak' => '引用阻塞咗; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => '內部錯誤; 無效嘅 $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '內部錯誤; 無效嘅匙',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '內部錯誤; 無效嘅匙',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => '內部錯誤; 無效嘅 $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '內部錯誤; 無效嘅堆疊匙',
 
 	# User errors
@@ -439,9 +405,7 @@ $wgCiteMessages['zh-hans'] = array(
 	# Internal errors
 	'cite_croak' => '引用阻塞; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => '内部错误；非法的 $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '内部错误；非法键值',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '内部错误；非法键值',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => '内部错误；非法的 $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '内部错误；非法堆栈键值',
 
 	# User errors
@@ -463,9 +427,7 @@ $wgCiteMessages['zh-hant'] = array(
 	# Internal errors
 	'cite_croak' => '引用阻塞; $1: $2',
 
-	'cite_error_' . CITE_ERROR_STR_INVALID         => '內部錯誤；非法的 $str',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_1       => '內部錯誤；非法鍵',
-	'cite_error_' . CITE_ERROR_KEY_INVALID_2       => '內部錯誤；非法鍵',
+	'cite_error_' . CITE_ERROR_KEY_STR_INVALID         => '內部錯誤；非法的 $str',
 	'cite_error_' . CITE_ERROR_STACK_INVALID_INPUT => '內部錯誤；非法堆疊鍵值',
 
 	# User errors

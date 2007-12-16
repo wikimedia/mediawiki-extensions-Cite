@@ -21,10 +21,9 @@ if ( ! defined( 'MEDIAWIKI' ) )
 $wgExtensionFunctions[] = 'wfCite';
 $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'Cite',
-	'version' => '1.1',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Cite.php',
+	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
 
@@ -66,12 +65,12 @@ function wfCite() {
 	foreach( $wgCiteMessages as $key => $value ) {
 		$wgMessageCache->addMessages( $wgCiteMessages[$key], $key );
 	}
-
+	
 	class Cite {
 		/**#@+
 		 * @access private
 		 */
-
+		
 		/**
 		 * Datastructure representing <ref> input, in the format of:
 		 * <code>
@@ -104,7 +103,7 @@ function wfCite() {
 		 * @var array
 		 **/
 		var $mRefs = array();
-
+		
 		/**
 		 * Count for user displayed output (ref[1], ref[2], ...)
 		 *
@@ -129,20 +128,20 @@ function wfCite() {
 		 * @var array
 		 */
 		var $mBacklinkLabels;
-
+		
 		/**
 		 * @var object
 		 */
 		var $mParser;
-
+		
 		/**
 		 * True when a <ref> or <references> tag is being processed.
 		 * Used to avoid infinite recursion
-		 *
+		 * 
 		 * @var boolean
 		 */
 		var $mInCite = false;
-
+		
 		/**#@-*/
 
 		/**
@@ -171,11 +170,11 @@ function wfCite() {
 				return $ret;
 			}
 		}
-
+		
 		function guardedRef( $str, $argv, $parser ) {
 			$this->mParser = $parser;
 			$key = $this->refArg( $argv );
-
+			
 			if ( $str !== null ) {
 				if ( $str === '' )
 					return $this->error( CITE_ERROR_REF_NO_INPUT );
@@ -205,7 +204,7 @@ function wfCite() {
 					return $this->error( CITE_ERROR_REF_NO_KEY );
 				else
 					$this->croak( CITE_ERROR_KEY_INVALID_2, serialize( $key ) );
-
+					
 			} else
 				$this->croak( CITE_ERROR_STR_INVALID, serialize( $str ) );
 		}
@@ -222,7 +221,7 @@ function wfCite() {
 		function refArg( $argv ) {
 
 			$cnt = count( $argv );
-
+			
 			if ( $cnt > 1 )
 				// There should only be one key
 				return false;
@@ -237,7 +236,7 @@ function wfCite() {
 				// No key
 				return null;
 		}
-
+		
 		/**
 		 * Since the key name is used in an XHTML id attribute, it must
 		 * conform to the validity rules. The restriction to begin with
@@ -269,7 +268,7 @@ function wfCite() {
 		 *
 		 * @param string $str Input from the <ref> tag
 		 * @param mixed $key Argument to the <ref> tag as returned by $this->refArg()
-		 * @return string
+		 * @return string 
 		 */
 		function stack( $str, $key = null ) {
 			if ( $key === null ) {
@@ -297,7 +296,7 @@ function wfCite() {
 						// If no text found before, use this text
 						$this->mRefs[$key]['text'] = $str;
 					};
-					return
+					return 
 						$this->linkRef(
 							$key,
 							++$this->mRefs[$key]['count'],
@@ -306,7 +305,7 @@ function wfCite() {
 			else
 				$this->croak( CITE_ERROR_STACK_INVALID_INPUT, serialize( array( $key, $str ) ) );
 		}
-
+		
 		/**
 		 * Callback function for <references>
 		 *
@@ -328,7 +327,7 @@ function wfCite() {
 				return $ret;
 			}
 		}
-
+		
 		function guardedReferences( $str, $argv, $parser ) {
 			$this->mParser = $parser;
 			if ( $str !== null )
@@ -347,15 +346,15 @@ function wfCite() {
 		function referencesFormat() {
 			if ( count( $this->mRefs ) == 0 )
 				return '';
-
+			
 			$ent = array();
 			foreach ( $this->mRefs as $k => $v )
 				$ent[] = $this->referencesFormatEntry( $k, $v );
-
+			
 			$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
 			$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
 			$content = implode( "\n", $ent );
-
+			
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 			return rtrim( $this->parse( $prefix . $content . $suffix ), "\n" );
 		}
@@ -480,7 +479,7 @@ function wfCite() {
 			$suffix = wfMsgForContent( 'cite_reference_link_suffix' );
 			if ( isset( $num ) )
 				$key = wfMsgForContentNoTrans( 'cite_reference_link_key_with_num', $key, $num );
-
+			
 			return $prefix . $key . $suffix;
 		}
 
@@ -500,7 +499,7 @@ function wfCite() {
 			$suffix = wfMsgForContent( 'cite_references_link_suffix' );
 			if ( isset( $num ) )
 				$key = wfMsgForContentNoTrans( 'cite_reference_link_key_with_num', $key, $num );
-
+			
 			return $prefix . $key . $suffix;
 		}
 
@@ -583,7 +582,7 @@ function wfCite() {
 					false
 				);
 				$text = $ret->getText();
-
+				
 				return $this->fixTidy( $text );
 			}
 		}
@@ -606,7 +605,7 @@ function wfCite() {
 				$text = preg_replace( '~^<p>\s*~', '', $text );
 				$text = preg_replace( '~\s*</p>\s*~', '', $text );
 				$text = preg_replace( '~\n$~', '', $text );
-
+				
 				return $text;
 			}
 		}
@@ -639,7 +638,7 @@ function wfCite() {
 		 */
 		function setHooks() {
 			global $wgParser, $wgHooks;
-
+			
 			$wgParser->setHook( 'ref' , array( &$this, 'ref' ) );
 			$wgParser->setHook( 'references' , array( &$this, 'references' ) );
 
@@ -655,7 +654,7 @@ function wfCite() {
 		function error( $id ) {
 			if ( $id > 0 )
 				// User errors are positive
-				return
+				return 
 					$this->parse(
 						'<strong class="error">' .
 						wfMsg( 'cite_error', $id, wfMsg( "cite_error_$id" ) ) .
@@ -681,3 +680,6 @@ function wfCite() {
 
 	new Cite;
 }
+
+/**#@-*/
+

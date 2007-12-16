@@ -207,18 +207,19 @@ Erroneous refs
 
 <references />
 !! result
-<p><strong class="error">Cite error 1; Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer, use a descriptive title</strong>
+<p><strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer, use a descriptive title</strong>
 </p><p><sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>
-</p><p><strong class="error">Cite error 2; Invalid <code>&lt;ref&gt;</code> tag; refs with no content must have a name</strong>
+</p><p><strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no content must have a name</strong>
 </p><p><sup id="_ref-bar_0" class="reference"><a href="#_note-bar" title="">[2]</a></sup>
 </p><p><sup id="_ref-blankwithnoreference_0" class="reference"><a href="#_note-blankwithnoreference" title="">[3]</a></sup>
-</p><p><strong class="error">Cite error 5; Invalid <code>&lt;references&gt;</code> tag; no input is allowed, use
+</p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag; no input is allowed, use
 <code>&lt;references /&gt;</code></strong>
-</p><p><strong class="error">Cite error 6; Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code></strong>
+</p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code></strong>
 </p>
 <ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> Also zero, but differently! (Normal ref)</li>
-<li id="_note-bar"><a href="#_ref-bar_0" title="">↑</a> <strong class="error">Cite error 8; No text given.</strong></li>
-<li id="_note-blankwithnoreference"><a href="#_ref-blankwithnoreference_0" title="">↑</a> <strong class="error">Cite error 8; No text given.</strong></li></ol>
+<li id="_note-bar"><a href="#_ref-bar_0" title="">↑</a> <strong class="error">Cite error: No text given.</strong></li>
+<li id="_note-blankwithnoreference"><a href="#_ref-blankwithnoreference_0" title="">↑</a> <strong class="error">Cite error: No text given.</strong></li></ol>
 
 !! end
+
 

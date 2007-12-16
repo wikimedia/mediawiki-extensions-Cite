@@ -26,44 +26,11 @@ $wgExtensionCredits['parserhook'][] = array(
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
-
-/**
- * Error codes, first array = internal errors; second array = user errors
- */
-$wgCiteErrors = array(
-	'system' => array(
-		'CITE_ERROR_KEY_STR_INVALID',
-		'CITE_ERROR_STACK_INVALID_INPUT'
-	),
-	'user' => array(
-		'CITE_ERROR_REF_NUMERIC_KEY',
-		'CITE_ERROR_REF_NO_KEY',
-		'CITE_ERROR_REF_TOO_MANY_KEYS',
-		'CITE_ERROR_REF_NO_INPUT',
-		'CITE_ERROR_REFERENCES_INVALID_INPUT',
-		'CITE_ERROR_REFERENCES_INVALID_PARAMETERS',
-		'CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL',
-		'CITE_ERROR_REFERENCES_NO_TEXT'
-	)
-);
-
-for ( $i = 0; $i < count( $wgCiteErrors['system'] ); ++$i )
-	// System errors are negative integers
-	define( $wgCiteErrors['system'][$i], -($i + 1) );
-for ( $i = 0; $i < count( $wgCiteErrors['user'] ); ++$i )
-	// User errors are positive integers
-	define( $wgCiteErrors['user'][$i], $i + 1 );
-
-# Internationalisation file
-require_once( dirname(__FILE__) . '/Cite.i18n.php' );
+$wgExtensionMessagesFiles['Cite'] = dirname( __FILE__ ) . "/Cite.i18n.php";
 
 function wfCite() {
-	# Add messages
-	global $wgMessageCache, $wgCiteMessages;
-	foreach( $wgCiteMessages as $key => $value ) {
-		$wgMessageCache->addMessages( $wgCiteMessages[$key], $key );
-	}
-	
+	wfLoadExtensionMessages( 'Cite' );
+
 	class Cite {
 		/**#@+
 		 * @access private
@@ -179,17 +146,17 @@ function wfCite() {
 				# <ref ...></ref>.  This construct is always invalid: either
 				# it's a contentful ref, or it's a named duplicate and should
 				# be <ref ... />.
-				return $this->error( CITE_ERROR_REF_NO_INPUT );
+				return $this->error( 'cite_error_ref_no_input' );
 			}
 					
 			if( $key === false ) {
 				# TODO: Comment this case; what does this condition mean?
-				return $this->error( CITE_ERROR_REF_TOO_MANY_KEYS );
+				return $this->error( 'cite_error_ref_too_many_keys' );
 			}
 
 			if( $str === null and $key === null ) {
 				# Something like <ref />; this makes no sense.
-				return $this->error( CITE_ERROR_REF_NO_KEY );
+				return $this->error( 'cite_error_ref_no_key' );
 			}
 			
 			if( preg_match( '/[0-9]+/', $key ) ) {
@@ -197,7 +164,7 @@ function wfCite() {
 				# cing duplicate id's in the XHTML.  The Right Thing To Do
 				# would be to mangle them, but it's not really high-priority
 				# (and would produce weird id's anyway).
-				return $this->error( CITE_ERROR_REF_NUMERIC_KEY );
+				return $this->error( 'cite_error_ref_numeric_key' );
 			}
 			
 			if( is_string( $key ) or is_string( $str ) ) {
@@ -211,7 +178,7 @@ function wfCite() {
 
 			# Not clear how we could get here, but something is probably
 			# wrong with the types.  Let's fail fast.
-			$this->croak( CITE_ERROR_KEY_STR_INVALID, serialize( "$str; $key" ) );
+			$this->croak( 'cite_error_key_str_invalid', serialize( "$str; $key" ) );
 		}
 
 		/**
@@ -224,7 +191,6 @@ function wfCite() {
 		 *               input and null on no input
 		 */
 		function refArg( $argv ) {
-
 			$cnt = count( $argv );
 			
 			if ( $cnt > 1 )
@@ -308,7 +274,7 @@ function wfCite() {
 							$this->mRefs[$key]['number']
 						); }
 			else
-				$this->croak( CITE_ERROR_STACK_INVALID_INPUT, serialize( array( $key, $str ) ) );
+				$this->croak( 'cite_error_stack_invalid_input', serialize( array( $key, $str ) ) );
 		}
 		
 		/**
@@ -336,9 +302,9 @@ function wfCite() {
 		function guardedReferences( $str, $argv, $parser ) {
 			$this->mParser = $parser;
 			if ( $str !== null )
-				return $this->error( CITE_ERROR_REFERENCES_INVALID_INPUT );
+				return $this->error( 'cite_error_references_invalid_input' );
 			else if ( count( $argv ) )
-				return $this->error( CITE_ERROR_REFERENCES_INVALID_PARAMETERS );
+				return $this->error( 'cite_error_references_invalid_parameters' );
 			else
 				return $this->referencesFormat();
 		}
@@ -387,7 +353,7 @@ function wfCite() {
 						'cite_references_link_one',
 						$this->referencesKey( $key ),
 						$this->refKey( $key, $val['count'] ),
-						$this->error(CITE_ERROR_REFERENCES_NO_TEXT)
+						$this->error( 'cite_error_references_no_text' )
 					);
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is
@@ -399,7 +365,7 @@ function wfCite() {
 						'cite_references_link_one',
 						$this->referencesKey( $key ),
 						$this->refKey( $key, $val['count'] ),
-						( $val['text'] != '' ? $val['text'] : $this->error( CITE_ERROR_REFERENCES_NO_TEXT ) )
+						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text' ) )
 					);
 			// Named references with >1 occurrences
 			else {
@@ -420,7 +386,7 @@ function wfCite() {
 					wfMsgForContentNoTrans( 'cite_references_link_many',
 						$this->referencesKey( $key ),
 						$list,
-						( $val['text'] != '' ? $val['text'] : $this->error( CITE_ERROR_REFERENCES_NO_TEXT ) )
+						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text' ) )
 					);
 			}
 		}
@@ -464,7 +430,7 @@ function wfCite() {
 				return $this->mBacklinkLabels[$offset];
 			} else {
 				// Feed me!
-				return $this->error( CITE_ERROR_REFERENCES_NO_BACKLINK_LABEL );
+				return $this->error( 'cite_error_references_no_backlink_label' );
 			}
 		}
 
@@ -653,20 +619,16 @@ function wfCite() {
 		/**
 		 * Return an error message based on an error ID
 		 *
-		 * @param int $id ID for the error
+		 * @param string $key Message name for the error
 		 * @return string XHTML ready for output
 		 */
-		function error( $id ) {
-			if ( $id > 0 )
-				// User errors are positive
-				return 
-					$this->parse(
-						'<strong class="error">' .
-						wfMsg( 'cite_error', $id, wfMsg( "cite_error_$id" ) ) .
-						'</strong>'
-					);
-			else if ( $id < 0 )
-				return wfMsg( 'cite_error', $id );
+		function error( $key ) {
+			return 
+				$this->parse(
+					'<strong class="error">' .
+					wfMsg( 'cite_error', wfMsg( $key ) ) .
+					'</strong>'
+				);
 		}
 
 		/**
@@ -687,4 +649,5 @@ function wfCite() {
 }
 
 /**#@-*/
+
 

@@ -55,6 +55,33 @@ $messages['en'] = array(
 	'cite_references_suffix' => '</ol>',
 );
 
+/** Arabic (العربية)
+ * @author Meno25
+ */
+$messages['ar'] = array(
+	'cite_croak'                               => 'الاستشهاد كروكد؛ $1: $2',
+	'cite_error_key_str_invalid'               => 'خطأ داخلي؛ $str و/أو $key غير صحيح.  هذا لا يجب أن يحدث أبدا.',
+	'cite_error_stack_invalid_input'           => 'خطأ داخلي؛ مفتاح ستاك غير صحيح.  هذا لا يجب أن يحدث أبدا.',
+	'cite_error'                               => 'خطأ استشهاد: $1',
+	'cite_error_ref_numeric_key'               => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ الاسم لا يمكن أن يكون عددا صحيحا بسيطا، استخدم عنوانا وصفيا',
+	'cite_error_ref_no_key'                    => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ المراجع غير ذات المحتوى يجب أن تمتلك اسما',
+	'cite_error_ref_too_many_keys'             => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ أسماء غير صحيحة، مثال كثيرة جدا',
+	'cite_error_ref_no_input'                  => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ المراجع غير ذات الاسم يجب أن تمتلك محتوى',
+	'cite_error_references_invalid_input'      => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا مدخل مسموح به، استخدم
+<code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا محددات مسموح بها، استخدم <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "نفدت علامات الباك لينك الكوستوم، عرف المزيد في رسالة \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'لا نص معطى.',
+);
+
+/** Asturian (Asturianu)
+ * @author SPQRobin
+ */
+$messages['ast'] = array(
+	'cite_croak' => 'Cita corrompida; $1: $2',
+	'cite_error' => 'Error de cita: $1',
+);
+
 /** Czech (Česky) */
 $messages['cs'] = array(
 	'cite_croak'                              => 'Nefunkční citace; $1: $2',
@@ -105,7 +132,15 @@ $messages['fr'] = array(
  * @author Alma
  */
 $messages['gl'] = array(
-	'cite_error' => 'Citar erro: $1',
+	'cite_error'                               => 'Citar erro: $1',
+	'cite_error_ref_numeric_key'               => 'Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple entero, use un título descriptivo',
+	'cite_error_ref_no_key'                    => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan contido deben ter un nome',
+	'cite_error_ref_too_many_keys'             => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nomes non válidos, é dicir, demasiados',
+	'cite_error_ref_no_input'                  => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan nome, deben ter contido',
+	'cite_error_references_invalid_input'      => 'Etiqueta <code>&lt;references&gt;</code> non válida; non se permite esa entrada, use
+<code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> non válida; non están permitidos esos parámetros, use <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_text'            => 'Ningún texto foi dado.',
 );
 
 /** Hebrew (עברית) */
@@ -122,6 +157,25 @@ $messages['he'] = array(
 	'cite_error_references_invalid_parameters' => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן להשתמש בפרמטרים, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת \"''cite_references_link_many_format_backlink_labels''\"",
 	'cite_error_references_no_text'            => 'לא נכתב טקסט.',
+);
+
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'cite_croak'                               => 'Zmylk w referencnym systemje; $1: $2',
+	'cite_error_key_str_invalid'               => 'Interny zmylk: njepłaćiwy $str a/abo $key. To njeměło ženje wustupić.',
+	'cite_error_stack_invalid_input'           => 'Interny zmylk; njepłaćiwy kluč staploweho składa. To njeměło ženje wustupić.',
+	'cite_error'                               => 'Referencny zmylk: $1',
+	'cite_error_ref_numeric_key'               => 'Njepłaćiwe wužiwanje taflički <code>&lt;ref&gt;</code>; "name" njesmě jednora hódnota integer być, wužij wopisowace mjeno.',
+	'cite_error_ref_no_key'                    => 'Njepłaćiwe wužiwanje taflički <code>&lt;ref&gt;</code>; "ref" bjez wobsaha dyrbi mjeno měć.',
+	'cite_error_ref_too_many_keys'             => 'Njepłaćiwe wužiwanje taflički <code>&lt;ref&gt;</code>; njepłaćiwe mjena, na př. předołho',
+	'cite_error_ref_no_input'                  => 'Njepłaćiwe wužiwanje taflički <code>&lt;ref&gt;</code>; "ref" bjez mjena dyrbi wobsah měć',
+	'cite_error_references_invalid_input'      => 'Njepłaćiwe wužiwanje taflički <code>&lt;references&gt;</code>; žadyn zapodaty tekst dowoleny, wužij jenož
+<code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Njepłaćiwe wužiwanje taflički <code>&lt;references&gt;</code>; žane parametry dowolene, wužij jenož <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => 'Referenca formy <code><nowiki><ref name="…"/></nowiki></code> so husćišo wužiwa hač su pismiki. Administrator dyrbi <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> nałožić, zo by dalše pismiki dodał.',
+	'cite_error_references_no_text'            => 'Žadyn tekst podaty.',
 );
 
 /** Indonesian (Bahasa Indonesia) */

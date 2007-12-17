@@ -32,9 +32,16 @@ $wgSpecialCiteMessages['ar'] = array(
 	'cite_page'         => 'الصفحة:',
 	'cite_submit'       => 'استشهاد',
 );
+
+/** Asturian (Asturianu)
+ * @author SPQRobin
+ * @author לערי ריינהארט
+ */
 $wgSpecialCiteMessages['ast'] = array(
 	'cite_article_link' => 'Citar esti artículu',
+	'cite'              => 'Citar',
 );
+
 $wgSpecialCiteMessages['bcl'] = array(
 	'cite_article_link' => 'Sambiton an artikulong ini',
 	'cite'              => 'Sambiton',

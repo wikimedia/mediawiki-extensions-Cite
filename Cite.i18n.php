@@ -72,8 +72,8 @@ $messages['cs'] = array(
 /** German (Deutsch) */
 $messages['de'] = array(
 	'cite_croak'                               => 'Fehler im Referenz-System. $1: $2',
-	'cite_error_key_str_invalid'               => 'Interner Fehler: ungültiger $str',
-	'cite_error_stack_invalid_input'           => 'Interner Fehler: ungültiger „name“-stack',
+	'cite_error_key_str_invalid'               => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
+	'cite_error_stack_invalid_input'           => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',
 	'cite_error'                               => 'Referenz-Fehler $1',
 	'cite_error_ref_numeric_key'               => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
 	'cite_error_ref_no_key'                    => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',

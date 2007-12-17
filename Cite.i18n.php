@@ -111,9 +111,9 @@ $messages['gl'] = array(
 /** Hebrew (עברית) */
 $messages['he'] = array(
 	'cite_croak'                               => 'בהערה יש שגיאה; $1: $2',
-	'cite_error_key_str_invalid'               => 'שגיאה פנימית; $str שגוי',
-	'cite_error_stack_invalid_input'           => 'שגיאה פנימית; מפתח שגוי בערימה',
-	'cite_error'                               => 'שגיאת ציטוט $1',
+	'cite_error_key_str_invalid'               => 'שגיאה פנימית; $str ו/או $key שגויים. זהו באג בתוכנה.',
+	'cite_error_stack_invalid_input'           => 'שגיאה פנימית; מפתח שגוי במחסנית. זהו באג בתוכנה.',
+	'cite_error'                               => 'שגיאת ציטוט: $1',
 	'cite_error_ref_numeric_key'               => 'תגית <code>&lt;ref&gt;</code> שגויה; שם לא יכול להיות מספר פשוט, יש להשתמש בכותרת תיאורית',
 	'cite_error_ref_no_key'                    => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא תוכן חייב להיות שם',
 	'cite_error_ref_too_many_keys'             => 'תגית <code>&lt;ref&gt;</code> שגויה; שמות שגויים, למשל, רבים מדי',

@@ -232,7 +232,9 @@ $messages['lt'] = array(
 	'cite_error_references_no_backlink_label'  => "Baigėsi antraštės, nurodykite daugiau \"''cite_references_link_many_format_backlink_labels''\" sisteminiame tekste",
 );
 
-/** Dutch (Nederlands) */
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
 $messages['nl'] = array(
 	'cite_croak'                               => 'Probleem met Cite; $1: $2',
 	'cite_error_key_str_invalid'               => 'Interne fout; onjuiste $str',
@@ -244,6 +246,8 @@ $messages['nl'] = array(
 	'cite_error_ref_no_input'                  => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder naam moeten inhoud hebben',
 	'cite_error_references_invalid_input'      => 'Onjuiste tag <code>&lt;references&gt;</code>; invoer is niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Onjuiste tag <code>&lt;references&gt;</code>; parameters zijn niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "Het aantal beschikbare backlinklabels is opgebruikt. Geef meer labels op in het bericht \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'Geen tekst opgegeven.',
 );
 
 /** Portuguese (Português) */

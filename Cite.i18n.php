@@ -59,19 +59,20 @@ $messages['en'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
-	'cite_croak'                               => 'الاستشهاد كروكد؛ $1: $2',
-	'cite_error_key_str_invalid'               => 'خطأ داخلي؛ $str و/أو $key غير صحيح.  هذا لا يجب أن يحدث أبدا.',
-	'cite_error_stack_invalid_input'           => 'خطأ داخلي؛ مفتاح ستاك غير صحيح.  هذا لا يجب أن يحدث أبدا.',
-	'cite_error'                               => 'خطأ استشهاد: $1',
-	'cite_error_ref_numeric_key'               => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ الاسم لا يمكن أن يكون عددا صحيحا بسيطا، استخدم عنوانا وصفيا',
-	'cite_error_ref_no_key'                    => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ المراجع غير ذات المحتوى يجب أن تمتلك اسما',
-	'cite_error_ref_too_many_keys'             => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ أسماء غير صحيحة، مثال كثيرة جدا',
-	'cite_error_ref_no_input'                  => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ المراجع غير ذات الاسم يجب أن تمتلك محتوى',
-	'cite_error_references_invalid_input'      => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا مدخل مسموح به، استخدم
+	'cite_croak'                                       => 'الاستشهاد كروكد؛ $1: $2',
+	'cite_error_key_str_invalid'                       => 'خطأ داخلي؛ $str و/أو $key غير صحيح.  هذا لا يجب أن يحدث أبدا.',
+	'cite_error_stack_invalid_input'                   => 'خطأ داخلي؛ مفتاح ستاك غير صحيح.  هذا لا يجب أن يحدث أبدا.',
+	'cite_error'                                       => 'خطأ استشهاد: $1',
+	'cite_error_ref_numeric_key'                       => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ الاسم لا يمكن أن يكون عددا صحيحا بسيطا، استخدم عنوانا وصفيا',
+	'cite_error_ref_no_key'                            => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ المراجع غير ذات المحتوى يجب أن تمتلك اسما',
+	'cite_error_ref_too_many_keys'                     => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ أسماء غير صحيحة، مثال كثيرة جدا',
+	'cite_error_ref_no_input'                          => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ المراجع غير ذات الاسم يجب أن تمتلك محتوى',
+	'cite_error_references_invalid_input'              => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا مدخل مسموح به، استخدم
 <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا محددات مسموح بها، استخدم <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "نفدت علامات الباك لينك الكوستوم، عرف المزيد في رسالة \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'لا نص معطى.',
+	'cite_error_references_invalid_parameters'         => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا محددات مسموح بها، استخدم <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'          => "نفدت علامات الباك لينك الكوستوم، عرف المزيد في رسالة \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'                    => 'لا نص معطى.',
+	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي',
 );
 
 /** Asturian (Asturianu)
@@ -110,6 +111,13 @@ $messages['de'] = array(
 	'cite_error_references_invalid_parameters' => 'Ungültige <code><nowiki><reference></nowiki></code>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschließlich <code><nowiki><reference /></nowiki></code>.',
 	'cite_error_references_no_backlink_label'  => 'Eine Referenz der Form <code><nowiki><ref name="…"/></nowiki></code> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
 	'cite_error_references_no_text'            => 'Eine Referenz der Form <code><nowiki><ref name="…"/></nowiki></code> wird verwendet, ohne definiert worden zu sein.',
+);
+
+/** Greek (Ελληνικά)
+ * @author Consta
+ */
+$messages['el'] = array(
+	'cite_error_references_no_text' => 'Δεν δίνετε κείμενο.',
 );
 
 /** French (Français) */

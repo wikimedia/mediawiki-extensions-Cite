@@ -79,8 +79,9 @@ $messages['ar'] = array(
  * @author SPQRobin
  */
 $messages['ast'] = array(
-	'cite_croak' => 'Cita corrompida; $1: $2',
-	'cite_error' => 'Error de cita: $1',
+	'cite_croak'                                       => 'Cita corrompida; $1: $2',
+	'cite_error'                                       => 'Error de cita: $1',
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n ñ o p q r s t u v w x y z',
 );
 
 /** Czech (Česky) */

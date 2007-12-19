@@ -40,6 +40,8 @@ $wgSpecialCiteMessages['ar'] = array(
 $wgSpecialCiteMessages['ast'] = array(
 	'cite_article_link' => 'Citar esti artículu',
 	'cite'              => 'Citar',
+	'cite_page'         => 'Páxina:',
+	'cite_submit'       => 'Citar',
 );
 
 $wgSpecialCiteMessages['bcl'] = array(
@@ -189,6 +191,14 @@ $wgSpecialCiteMessages['gl'] = array(
 	'cite_page'         => 'Páxina:',
 	'cite_submit'       => 'Citar',
 );
+
+/** Hawaiian (Hawai`i)
+ * @author SPQRobin
+ */
+$wgSpecialCiteMessages['haw'] = array(
+	'cite_article_link' => "E ho'ōia i kēia mea",
+);
+
 $wgSpecialCiteMessages['he'] = array(
 	'cite_article_link' => 'צטט דף זה',
 	'cite'              => 'ציטוט',

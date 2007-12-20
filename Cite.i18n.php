@@ -234,7 +234,7 @@ $messages['ja'] = array(
 );
 
 /** ‪Қазақша (Қазақстан)‬ (‪Қазақша (Қазақстан)‬) */
-$messages['kk-kz'] = array(
+$messages['kk-cyrl'] = array(
 	'cite_croak'                               => 'Дәйексөз алу сәтсіз бітті; $1: $2 ',
 	'cite_error_key_str_invalid'               => 'Ішкі қате; жарамсыз $str ',
 	'cite_error_stack_invalid_input'           => 'Ішкі қате; жарамсыз стек кілті',
@@ -249,7 +249,7 @@ $messages['kk-kz'] = array(
 );
 
 /** ‪Qazaqşa (Türkïya)‬ (‪Qazaqşa (Türkïya)‬) */
-$messages['kk-tr'] = array(
+$messages['kk-latn'] = array(
 	'cite_croak'                               => 'Däýeksöz alw sätsiz bitti; $1: $2 ',
 	'cite_error_key_str_invalid'               => 'İşki qate; jaramsız $str ',
 	'cite_error_stack_invalid_input'           => 'İşki qate; jaramsız stek kilti',
@@ -264,7 +264,7 @@ $messages['kk-tr'] = array(
 );
 
 /** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */
-$messages['kk-cn'] = array(
+$messages['kk-arab'] = array(
 	'cite_croak'                               => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2 ',
 	'cite_error_key_str_invalid'               => 'ٸشكٸ قاتە; جارامسىز $str ',
 	'cite_error_stack_invalid_input'           => 'ٸشكٸ قاتە; جارامسىز ستەك كٸلتٸ',
@@ -277,8 +277,6 @@ $messages['kk-cn'] = array(
 	'cite_error_references_invalid_parameters' => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش باپتار رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
 	'cite_error_references_no_backlink_label'  => "قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك «''cite_references_link_many_format_backlink_labels''» جٷيە حابارىندا بەلگٸلەڭٸز",
 );
-
-$messages['kk'] = $messages['kk-kz'];
 
 /** Lietuvių (Lietuvių) */
 $messages['lt'] = array(
@@ -414,6 +412,13 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_backlink_label'  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
 );
 
+# Kazakh fallback
+$wgCiteMessages['kk-kz'] = $wgCiteMessages['kk-cyrl'];
+$wgCiteMessages['kk-tr'] = $wgCiteMessages['kk-latn'];
+$wgCiteMessages['kk-cn'] = $wgCiteMessages['kk-arab'];
+$wgCiteMessages['kk'] = $wgCiteMessages['kk-cyrl'];
+
+# Chinese fallback
 $messages['zh'] = $messages['zh-hans'];
 $messages['zh-cn'] = $messages['zh-hans'];
 $messages['zh-hk'] = $messages['zh-hant'];

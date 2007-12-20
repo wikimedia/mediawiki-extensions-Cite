@@ -255,25 +255,24 @@ $wgSpecialCiteMessages['ja'] = array(
 $wgSpecialCiteMessages['ka'] = array(
 	'cite_article_link' => 'ამ გვერდის ციტირება',
 );
-$wgSpecialCiteMessages['kk-kz'] = array(
+$wgSpecialCiteMessages['kk-cyrl'] = array(
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite'              => 'Дәйексөз алу',
 	'cite_page'         => 'Бет атауы:',
 	'cite_submit'       => 'Дәйексөз ал!',
 );
-$wgSpecialCiteMessages['kk-tr'] = array(
+$wgSpecialCiteMessages['kk-latn'] = array(
 	'cite_article_link' => 'Betten däýeksoz alw',
 	'cite'              => 'Däýeksöz alw',
 	'cite_page'         => 'Bet atawı:',
 	'cite_submit'       => 'Däýeksöz al!',
 );
-$wgSpecialCiteMessages['kk-cn'] = array(
+$wgSpecialCiteMessages['kk-arab'] = array(
 	'cite_article_link' => 'بەتتەن دٵيەكسوز الۋ',
 	'cite'              => 'دٵيەكسٶز الۋ',
 	'cite_page'         => 'بەت اتاۋى:',
 	'cite_submit'       => 'دٵيەكسٶز ال!',
 );
-$wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-kz'];
 $wgSpecialCiteMessages['ksh'] = array(
 	'cite_article_link' => 'Di Sigk Zitteere',
 	'cite'              => 'Zittiere',
@@ -458,6 +457,13 @@ $wgSpecialCiteMessages['zh-hant'] = array(
 	'cite_page'         => '頁面：',
 	'cite_submit'       => '引用',
 );
+# Fallback Kazakh
+$wgSpecialCiteMessages['kk-kz'] = $wgSpecialCiteMessages['kk-cyrl'];
+$wgSpecialCiteMessages['kk-tr'] = $wgSpecialCiteMessages['kk-latn'];
+$wgSpecialCiteMessages['kk-cn'] = $wgSpecialCiteMessages['kk-arab'];
+$wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-cyrl'];
+
+# Fallback Chinese
 $wgSpecialCiteMessages['zh'] = $wgSpecialCiteMessages['zh-hans'];
 $wgSpecialCiteMessages['zh-cn'] = $wgSpecialCiteMessages['zh-hans'];
 $wgSpecialCiteMessages['zh-hk'] = $wgSpecialCiteMessages['zh-hant'];

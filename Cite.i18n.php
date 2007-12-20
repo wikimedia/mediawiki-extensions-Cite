@@ -168,6 +168,13 @@ $messages['he'] = array(
 	'cite_error_references_no_text'            => 'לא נכתב טקסט.',
 );
 
+/** Croatian (Hrvatski)
+ * @author Dnik
+ */
+$messages['hr'] = array(
+	'cite_error_references_no_text' => 'Nije zadan tekst.',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
@@ -361,10 +368,18 @@ $messages['sk'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
-	'cite_error_key_str_invalid'    => 'Internen Failer: ungultigen $str',
-	'cite_error_ref_too_many_keys'  => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ is uungultich of tou loang.',
-	'cite_error_ref_no_input'       => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Noome mout n Inhoold hääbe.',
-	'cite_error_references_no_text' => 'Ne Referenz fon ju Foarm <code><nowiki><ref name="…"/></nowiki></code> wäd ferwoand, sunner definierd wuuden tou weesen.',
+	'cite_croak'                               => 'Failer in dät Referenz-System. $1: $2',
+	'cite_error_key_str_invalid'               => 'Internen Failer: ungultigen $str',
+	'cite_error_stack_invalid_input'           => 'Internen Failer: uungultigen „name“-stack. Dit schuul eegentelk goarnit passierje konne.',
+	'cite_error'                               => 'Referenz-Failer $1',
+	'cite_error_ref_numeric_key'               => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ duur naan scheenen Toalenwäid weese, benutsje n beschrieuwenden Noome.',
+	'cite_error_ref_no_key'                    => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Inhoold mout n Noome hääbe.',
+	'cite_error_ref_too_many_keys'             => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ is uungultich of tou loang.',
+	'cite_error_ref_no_input'                  => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Noome mout n Inhoold hääbe.',
+	'cite_error_references_invalid_input'      => 'Uungultige <code><nowiki><references></nowiki></code>-Ferweendenge: Der is naan bietoukuumenden Text ferlööwed, ferweend bloot <code><nowiki><references /></nowiki></code>.',
+	'cite_error_references_invalid_parameters' => 'Uungultige <code><nowiki><reference></nowiki></code>-Ferweendenge: Der sunt neen bietoukuumende Parametere ferlööwed, ferweend bloot <code><nowiki><reference /></nowiki></code>.',
+	'cite_error_references_no_backlink_label'  => 'Ne Referenz fon ju Foarm <code><nowiki><ref name="…"/></nowiki></code> wäd oafter benutsed as Bouksteeuwen deer sunt. N Administrator mout <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> uum wiedere Bouksteeuwen/Teekene ferfulständigje.',
+	'cite_error_references_no_text'            => 'Ne Referenz fon ju Foarm <code><nowiki><ref name="…"/></nowiki></code> wäd ferwoand, sunner definierd wuuden tou weesen.',
 );
 
 /** Kantonese (粵語) */

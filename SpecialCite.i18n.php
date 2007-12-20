@@ -415,6 +415,15 @@ $wgSpecialCiteMessages['tet'] = array(
 	'cite_page'         => 'Pájina:',
 	'cite_submit'       => 'Sita',
 );
+
+/** Tonga (faka-Tonga)
+ * @author SPQRobin
+ */
+$wgSpecialCiteMessages['to'] = array(
+	'cite_article_link' => 'Lau ki he kupú ni',
+	'cite'              => 'Lau ki he',
+);
+
 $wgSpecialCiteMessages['tr'] = array(
 	'cite_article_link' => 'Sayfayı kaynak göster',
 	'cite'              => 'Kaynak göster',

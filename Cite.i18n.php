@@ -413,10 +413,10 @@ $messages['zh-hant'] = array(
 );
 
 # Kazakh fallback
-$wgCiteMessages['kk-kz'] = $wgCiteMessages['kk-cyrl'];
-$wgCiteMessages['kk-tr'] = $wgCiteMessages['kk-latn'];
-$wgCiteMessages['kk-cn'] = $wgCiteMessages['kk-arab'];
-$wgCiteMessages['kk'] = $wgCiteMessages['kk-cyrl'];
+$messages['kk-kz'] = $messages['kk-cyrl'];
+$messages['kk-tr'] = $messages['kk-latn'];
+$messages['kk-cn'] = $messages['kk-arab'];
+$messages['kk'] = $messages['kk-cyrl'];
 
 # Chinese fallback
 $messages['zh'] = $messages['zh-hans'];

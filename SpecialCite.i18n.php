@@ -235,6 +235,17 @@ $wgSpecialCiteMessages['id'] = array(
 	'cite_page'         => 'Halaman:',
 	'cite_submit'       => 'Kutip',
 );
+
+/** Iloko (Ilokano)
+ * @author SPQRobin
+ */
+$wgSpecialCiteMessages['ilo'] = array(
+	'cite_article_link' => 'Dakamaten ti articulo',
+	'cite'              => 'Dakamaten',
+	'cite_page'         => 'Panid:',
+	'cite_submit'       => 'Idakamat',
+);
+
 $wgSpecialCiteMessages['is'] = array(
 	'cite_article_link' => 'Vitna í þessa grein',
 	'cite'              => 'Vitna í síðu',
@@ -308,6 +319,13 @@ $wgSpecialCiteMessages['mk'] = array(
 	'cite_page'         => 'Страница:',
 	'cite_submit'       => 'Цитирај',
 );
+
+/** Burmese (Myanmasa) */
+$wgSpecialCiteMessages['my'] = array(
+	'cite_article_link' => 'ကိုး​ကား​ရန်​',
+	'cite_page'         => 'પાનું:',
+);
+
 $wgSpecialCiteMessages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
 	'cite'              => 'Ín-iōng',

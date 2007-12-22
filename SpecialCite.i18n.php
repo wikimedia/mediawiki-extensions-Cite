@@ -320,12 +320,6 @@ $wgSpecialCiteMessages['mk'] = array(
 	'cite_submit'       => 'Цитирај',
 );
 
-/** Burmese (Myanmasa) */
-$wgSpecialCiteMessages['my'] = array(
-	'cite_article_link' => 'ကိုး​ကား​ရန်​',
-	'cite_page'         => 'પાનું:',
-);
-
 $wgSpecialCiteMessages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
 	'cite'              => 'Ín-iōng',

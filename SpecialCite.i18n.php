@@ -185,6 +185,18 @@ $wgSpecialCiteMessages['frp'] = array(
 	'cite_page'         => 'Pâge :',
 	'cite_submit'       => 'Citar',
 );
+
+/** Irish (Gaeilge)
+ * @author SPQRobin
+ * @author לערי ריינהארט
+ */
+$wgSpecialCiteMessages['ga'] = array(
+	'cite_article_link' => 'Luaigh an lch seo',
+	'cite'              => 'Luaigh',
+	'cite_page'         => 'Leathanach:',
+	'cite_submit'       => 'Luaigh',
+);
+
 $wgSpecialCiteMessages['gl'] = array(
 	'cite_article_link' => 'Citar este artigo',
 	'cite'              => 'Citar',

@@ -53,9 +53,16 @@ $wgSpecialCiteMessages['bcl'] = array(
 $wgSpecialCiteMessages['be'] = array(
 	'cite_article_link' => 'Цытаваць гэты артыкул',
 );
+
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
 $wgSpecialCiteMessages['bg'] = array(
-	'cite_page'         => 'Страница:',
+	'cite'        => 'Цитиране',
+	'cite_page'   => 'Страница:',
+	'cite_submit' => 'Цитиране',
 );
+
 $wgSpecialCiteMessages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',
@@ -311,6 +318,14 @@ $wgSpecialCiteMessages['la'] = array(
 	'cite_page'         => 'Pagina:',
 	'cite_submit'       => 'Citare',
 );
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$wgSpecialCiteMessages['lb'] = array(
+	'cite_page' => 'Säit:',
+);
+
 $wgSpecialCiteMessages['lo'] = array(
 	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',
 	'cite'              => 'ອ້າງອີງ',

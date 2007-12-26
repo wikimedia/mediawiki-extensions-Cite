@@ -58,9 +58,10 @@ $wgSpecialCiteMessages['be'] = array(
  * @author DCLXVI
  */
 $wgSpecialCiteMessages['bg'] = array(
-	'cite'        => 'Цитиране',
-	'cite_page'   => 'Страница:',
-	'cite_submit' => 'Цитиране',
+	'cite_article_link' => 'Цитиране на страницата',
+	'cite'              => 'Цитиране',
+	'cite_page'         => 'Страница:',
+	'cite_submit'       => 'Цитиране',
 );
 
 $wgSpecialCiteMessages['bpy'] = array(

@@ -170,9 +170,22 @@ $messages['he'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dnik
+ * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'cite_error_references_no_text' => 'Nije zadan tekst.',
+	'cite_croak'                               => 'Nevaljan citat; $1: $2',
+	'cite_error_key_str_invalid'               => 'Unutrašnja greška: loš $str i/ili $key. Ovo se nikada ne bi smjelo dogoditi.',
+	'cite_error_stack_invalid_input'           => 'Unutrašnja greška; loš ključ stacka.  Ovo se nikada ne bi smjelo dogoditi.',
+	'cite_error'                               => 'Greška u citiranju: $1',
+	'cite_error_ref_numeric_key'               => 'Loša <code>&lt;ref&gt;</code> oznaka; naziv ne smije biti jednostavni broj, koristite opisni naziv',
+	'cite_error_ref_no_key'                    => 'Loša <code>&lt;ref&gt;</code> oznaka; ref-ovi bez sadržaja moraju imati naziv',
+	'cite_error_ref_too_many_keys'             => 'Loša <code>&lt;ref&gt;</code> oznaka; loš naziv, npr. previše naziva',
+	'cite_error_ref_no_input'                  => 'Loša <code>&lt;ref&gt;</code> oznaka; ref-ovi bez imena moraju imati sadržaj',
+	'cite_error_references_invalid_input'      => 'Loša <code>&lt;references&gt;</code> oznaka; nije dozvoljen unos, koristite
+<code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Loša <code>&lt;references&gt;</code> oznaka; parametri nisu dozvoljeni, koristite <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "Potrošene sve posebne oznake za poveznice unatrag, definirajte više u poruci \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'Nije zadan tekst.',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -373,7 +386,7 @@ $messages['stq'] = array(
 	'cite_error_key_str_invalid'               => 'Internen Failer: ungultigen $str',
 	'cite_error_stack_invalid_input'           => 'Internen Failer: uungultigen „name“-stack. Dit schuul eegentelk goarnit passierje konne.',
 	'cite_error'                               => 'Referenz-Failer $1',
-	'cite_error_ref_numeric_key'               => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ duur naan scheenen Toalenwäid weese, benutsje n beschrieuwenden Noome.',
+	'cite_error_ref_numeric_key'               => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ duur naan scheenen Taalenwäid weese, benutsje n beschrieuwenden Noome.',
 	'cite_error_ref_no_key'                    => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Inhoold mout n Noome hääbe.',
 	'cite_error_ref_too_many_keys'             => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ is uungultich of tou loang.',
 	'cite_error_ref_no_input'                  => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Noome mout n Inhoold hääbe.',

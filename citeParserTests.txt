@@ -189,6 +189,25 @@ Regression sanity check: non-blank ref "1" followed by ref with content
 !! end
 
 !! test
+Ref names containing a number
+!! input
+<ref name="test123test">One</ref>
+<ref name="123test">Two</ref>
+<ref name="test123">Three</ref>
+
+<references />
+!! result
+<p><sup id="_ref-test123test_0" class="reference"><a href="#_note-test123test" title="">[1]</a></sup>
+<sup id="_ref-123test_0" class="reference"><a href="#_note-123test" title="">[2]</a></sup>
+<sup id="_ref-test123_0" class="reference"><a href="#_note-test123" title="">[3]</a></sup>
+</p>
+<ol class="references"><li id="_note-test123test"><a href="#_ref-test123test_0" title="">↑</a> One</li>
+<li id="_note-123test"><a href="#_ref-123test_0" title="">↑</a> Two</li>
+<li id="_note-test123"><a href="#_ref-test123_0" title="">↑</a> Three</li></ol>
+
+!! end
+
+!! test
 Erroneous refs
 !! input
 <ref name="0">Zero</ref>

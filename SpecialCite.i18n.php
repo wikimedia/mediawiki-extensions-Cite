@@ -249,6 +249,7 @@ $wgSpecialCiteMessages['hy'] = array(
 	'cite_page'         => 'Էջ.',
 	'cite_submit'       => 'Քաղվածել',
 );
+
 $wgSpecialCiteMessages['id'] = array(
 	'cite_article_link' => 'Kutip artikel ini',
 	'cite'              => 'Kutip',
@@ -271,12 +272,14 @@ $wgSpecialCiteMessages['is'] = array(
 	'cite'              => 'Vitna í síðu',
 	'cite_page'         => 'Síða:',
 );
+
 $wgSpecialCiteMessages['it'] = array(
 	'cite_article_link' => 'Cita questa voce',
 	'cite'              => 'Citazione',
 	'cite_page'         => 'Pagina da citare:',
 	'cite_submit'       => 'Crea la citazione',
 );
+
 $wgSpecialCiteMessages['ja'] = array(
 	'cite_article_link' => 'この項目を引用する',
 	'cite'              => '{{SITENAME}}の項目を引用する',
@@ -310,9 +313,11 @@ $wgSpecialCiteMessages['ksh'] = array(
 	'cite_page'         => 'Sigk:',
 	'cite_submit'       => 'Zittėere',
 );
+
 $wgSpecialCiteMessages['ku'] = array(
 	'cite_page'         => 'Rûpel:',
 );
+
 $wgSpecialCiteMessages['la'] = array(
 	'cite_article_link' => 'Hanc paginam citare',
 	'cite'              => 'Paginam citare',
@@ -324,7 +329,9 @@ $wgSpecialCiteMessages['la'] = array(
  * @author Robby
  */
 $wgSpecialCiteMessages['lb'] = array(
-	'cite_page' => 'Säit:',
+	'cite'        => 'Zitéierhëllef',
+	'cite_page'   => 'Säit:',
+	'cite_submit' => 'uweisen',
 );
 
 $wgSpecialCiteMessages['lo'] = array(
@@ -332,15 +339,25 @@ $wgSpecialCiteMessages['lo'] = array(
 	'cite'              => 'ອ້າງອີງ',
 	'cite_page'         => 'ໜ້າ:',
 );
+
 $wgSpecialCiteMessages['lt'] = array(
 	'cite_article_link' => 'Cituoti šį straipsnį',
 	'cite'              => 'Cituoti',
 	'cite_page'         => 'Puslapis:',
 	'cite_submit'       => 'Cituoti',
 );
+
+/** Latvian (Latviešu)
+ * @author SPQRobin
+ * @author לערי ריינהארט
+ */
 $wgSpecialCiteMessages['lv'] = array(
 	'cite_article_link' => 'Atsauce uz šo rakstu',
+	'cite'              => 'Citēšana',
+	'cite_page'         => 'Raksts:',
+	'cite_submit'       => 'Parādīt atsauci',
 );
+
 $wgSpecialCiteMessages['mk'] = array(
 	'cite_article_link' => 'Библиографски детали',
 	'cite'              => 'Библиографија',
@@ -372,27 +389,35 @@ $wgSpecialCiteMessages['oc'] = array(
 	'cite_page'         => 'Pagina:',
 	'cite_submit'       => 'Citar',
 );
+
 $wgSpecialCiteMessages['pl'] = array(
 	'cite_article_link' => 'Odwołanie bibliograficzne',
 	'cite'              => 'Cytowanie',
 	'cite_page'         => 'Strona:',
 	'cite_submit'       => 'Cytuj',
 );
+
 $wgSpecialCiteMessages['pms'] = array(
 	'cite_article_link' => 'Cita sta vos-sì',
 	'cite'              => 'Citassion',
 	'cite_page'         => 'Pàgina da cité:',
 	'cite_submit'       => 'Pronta la citassion',
 );
+
+/** Portuguese (Português)
+ * @author 555
+ */
 $wgSpecialCiteMessages['pt'] = array(
-	'cite_article_link' => 'Citar este artigo',
+	'cite_article_link' => 'Citar esta página',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',
 	'cite_submit'       => 'Citar',
 );
+
 $wgSpecialCiteMessages['rm'] = array(
 	'cite_page'         => 'Pagina:',
 );
+
 $wgSpecialCiteMessages['rmy'] = array(
 	'cite_article_link' => 'Prinjardo phandipen ko lekh',
 	'cite'              => 'Kana trebul phandipen',

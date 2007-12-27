@@ -331,7 +331,9 @@ $messages['nl'] = array(
 	'cite_error_references_no_text'            => 'Geen tekst opgegeven.',
 );
 
-/** Portuguese (Português) */
+/** Portuguese (Português)
+ * @author 555
+ */
 $messages['pt'] = array(
 	'cite_croak'                               => 'Citação com problemas; $1: $2',
 	'cite_error_key_str_invalid'               => 'Erro interno; $str inválido',
@@ -344,6 +346,7 @@ $messages['pt'] = array(
 	'cite_error_references_invalid_input'      => 'Código <code>&lt;references&gt;</code> inválido; no input is allowed, use
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Código <code>&lt;references&gt;</code> inválido; não são permitidos parâmetros. Utilize como <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_text'            => 'Não foi fornecido texto.',
 );
 
 /** Russian (Русский) */

@@ -8,7 +8,7 @@
 $wgSpecialCiteMessages = array();
 
 $wgSpecialCiteMessages['en'] = array(
-	'cite_article_link' => 'Cite this article',
+	'cite_article_link' => 'Cite this page',
 	'cite'              => 'Cite',
 	'cite_page'         => 'Page:',
 	'cite_submit'       => 'Cite',

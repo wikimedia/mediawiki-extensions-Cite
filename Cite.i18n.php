@@ -152,6 +152,11 @@ $messages['gl'] = array(
 	'cite_error_references_no_text'            => 'Ningún texto foi dado.',
 );
 
+/** Gujarati (ગુજરાતી) */
+$messages['gu'] = array(
+	'cite_references_link_many_format_backlink_labels' => 'અ આ ઇ ઈ ઉ ઊ એ ઐ ઓ ઔ ક ખ ગ ઘ ચ છ જ ઝ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ વ શ ષ સ હ ળ',
+);
+
 /** Hebrew (עברית) */
 $messages['he'] = array(
 	'cite_croak'                               => 'בהערה יש שגיאה; $1: $2',

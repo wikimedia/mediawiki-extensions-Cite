@@ -84,6 +84,7 @@ $wgSpecialCiteMessages['bpy'] = array(
 
 /** Breton (Brezhoneg)
  * @author SPQRobin
+ * @author Fulup
  */
 $wgSpecialCiteMessages['br'] = array(
 	'cite_article_link' => 'Menegiñ ar pennad-mañ',
@@ -95,14 +96,14 @@ $wgSpecialCiteMessages['br'] = array(
 /** Catalan (Català)
  * @author Toniher
  * @author SMP
+ * @author SPQRobin
  */
 $wgSpecialCiteMessages['ca'] = array(
-	'cite_article_link' => 'Cita aquest article',
+	'cite_article_link' => 'Cita aquesta pàgina',
 	'cite'              => 'Citeu',
 	'cite_page'         => 'Pàgina:',
 	'cite_submit'       => 'Cita',
 );
-
 
 $wgSpecialCiteMessages['cdo'] = array(
 	'cite_article_link' => 'Īng-ê̤ṳng cī piĕng ùng-ciŏng',
@@ -261,7 +262,7 @@ $wgSpecialCiteMessages['fr'] = array(
  * @author ChrisPtDe
  */
 $wgSpecialCiteMessages['frp'] = array(
-	'cite_article_link' => 'Citar ceti articllo',
+	'cite_article_link' => 'Citar ceta pâge',
 	'cite'              => 'Citacion',
 	'cite_page'         => 'Pâge :',
 	'cite_submit'       => 'Citar',
@@ -610,7 +611,7 @@ $wgSpecialCiteMessages['sq'] = array(
  * @author Pyt
  */
 $wgSpecialCiteMessages['stq'] = array(
-	'cite_article_link' => 'Siede zitierje',
+	'cite_article_link' => 'Disse Siede zitierje',
 	'cite'              => 'Zitierhälpe',
 	'cite_page'         => 'Siede:',
 	'cite_submit'       => 'anwiese',

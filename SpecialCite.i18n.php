@@ -288,6 +288,13 @@ $wgSpecialCiteMessages['gl'] = array(
 	'cite_submit'       => 'Citar',
 );
 
+/** Gujarati (ગુજરાતી)
+ * @author SPQRobin
+ */
+$wgSpecialCiteMessages['gu'] = array(
+	'cite_page' => 'પાનું:',
+);
+
 /** Hawaiian (Hawai`i)
  * @author SPQRobin
  */

@@ -303,6 +303,11 @@ $messages['kk-arab'] = array(
 	'cite_error_references_no_backlink_label'  => "قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك «''cite_references_link_many_format_backlink_labels''» جٷيە حابارىندا بەلگٸلەڭٸز",
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array();
+
 /** Lietuvių (Lietuvių) */
 $messages['lt'] = array(
 	'cite_croak'                               => 'Cituoti nepavyko; $1: $2',

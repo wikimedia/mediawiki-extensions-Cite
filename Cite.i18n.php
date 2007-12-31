@@ -139,6 +139,13 @@ $messages['el'] = array(
 	'cite_error_references_no_text' => 'Δεν δίνετε κείμενο.',
 );
 
+/** Finnish (Suomi)
+ * @author Nike
+ */
+$messages['fi'] = array(
+	'cite_error_references_invalid_parameters' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
+);
+
 /** French (Français) */
 $messages['fr'] = array(
 	'cite_croak'                               => 'Citation corrompue ; $1 : $2',

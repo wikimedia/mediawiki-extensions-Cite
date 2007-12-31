@@ -24,9 +24,10 @@ $wgSpecialCiteMessages['af'] = array(
 
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
+ * @author Teferra
  */
 $wgSpecialCiteMessages['am'] = array(
-	'cite_article_link' => 'መጥቀሻ ለዚህ መጣጥፍ',
+	'cite_article_link' => 'ይህንን ገጽ አጣቅስ',
 	'cite'              => 'መጥቀሻ',
 	'cite_page'         => 'አርዕስት፦',
 	'cite_submit'       => 'ዝርዝሮች ይታዩ',
@@ -125,6 +126,7 @@ $wgSpecialCiteMessages['co'] = array(
 /** Czech (Česky)
  * @author Martin Kozák
  * @author Beren
+ * @author Li-sung
  */
 $wgSpecialCiteMessages['cs'] = array(
 	'cite_article_link' => 'Citovat stránku',

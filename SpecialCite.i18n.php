@@ -694,6 +694,13 @@ $wgSpecialCiteMessages['ur'] = array(
 	'cite_submit'       => 'Cite',
 );
 
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$wgSpecialCiteMessages['vo'] = array(
+	'cite_page' => 'Pad:',
+);
+
 $wgSpecialCiteMessages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );

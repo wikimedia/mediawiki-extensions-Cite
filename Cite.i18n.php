@@ -86,12 +86,13 @@ $messages['ast'] = array(
 
 /** Bulgarian (Български)
  * @author Spiritia
+ * @author DCLXVI
  */
 $messages['bg'] = array(
 	'cite_error_key_str_invalid'               => 'Вътрешна грешка: невалиден параметър $str и/или $key.  Това не би трябвало да се случва никога.',
 	'cite_error_stack_invalid_input'           => "'''Вътрешна грешка:''' невалиден ключ на стека. Това не би трябвало да се случва никога.",
-	'cite_error'                               => 'Грешка при цитирането: $1',
-	'cite_error_ref_numeric_key'               => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' името не може да бъде число, използвайте описателно име",
+	'cite_error'                               => 'Грешка при цитиране: $1',
+	'cite_error_ref_numeric_key'               => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' името не може да бъде число, използва се описателно име",
 	'cite_error_ref_no_key'                    => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без съдържание трябва да имат име",
 	'cite_error_ref_too_many_keys'             => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' грешка в името, например повече от едно име на етикета",
 	'cite_error_ref_no_input'                  => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без име трябва да имат съдържание",

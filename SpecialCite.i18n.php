@@ -44,9 +44,10 @@ $wgSpecialCiteMessages['ar'] = array(
 
 /** Asturian (Asturianu)
  * @author SPQRobin
+ * @author Esbardu
  */
 $wgSpecialCiteMessages['ast'] = array(
-	'cite_article_link' => 'Citar esti artículu',
+	'cite_article_link' => 'Citar esta páxina',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Páxina:',
 	'cite_submit'       => 'Citar',
@@ -505,7 +506,7 @@ $wgSpecialCiteMessages['nl'] = array(
  * @author Jon Harald Søby
  */
 $wgSpecialCiteMessages['no'] = array(
-	'cite_article_link' => 'Siter denne artikkelen',
+	'cite_article_link' => 'Siter denne siden',
 	'cite'              => 'Siter',
 	'cite_page'         => 'Side:',
 	'cite_submit'       => 'Siter',

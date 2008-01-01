@@ -162,6 +162,16 @@ $messages['fr'] = array(
 	'cite_error_references_no_text'            => 'Aucun texte indiqué.',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'cite_croak'                     => 'Citacion corrompua ; $1 : $2',
+	'cite_error_key_str_invalid'     => 'Èrror de dedens ; $str atendua.',
+	'cite_error_stack_invalid_input' => 'Èrror de dedens ; cllâf de pila envalida.',
+	'cite_error'                     => 'Èrror de citacion $1',
+);
+
 /** Galician (Galego)
  * @author Alma
  */

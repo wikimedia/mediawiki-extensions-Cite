@@ -416,6 +416,14 @@ $wgSpecialCiteMessages['kk-arab'] = array(
 	'cite_submit'       => 'دٵيەكسٶز ال!',
 );
 
+/** Kannada (ಕನ್ನಡ)
+ * @author Shushruth
+ */
+$wgSpecialCiteMessages['kn'] = array(
+	'cite_article_link' => 'ಈ ಪುಟವನ್ನು ಉಲ್ಲೇಖಿಸಿ',
+	'cite'              => 'ಉಲ್ಲೇಖಿಸಿ',
+);
+
 $wgSpecialCiteMessages['ksh'] = array(
 	'cite_article_link' => 'Di Sigk Zitteere',
 	'cite'              => 'Zittiere',

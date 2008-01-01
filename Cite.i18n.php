@@ -166,10 +166,18 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'cite_croak'                     => 'Citacion corrompua ; $1 : $2',
-	'cite_error_key_str_invalid'     => 'Èrror de dedens ; $str atendua.',
-	'cite_error_stack_invalid_input' => 'Èrror de dedens ; cllâf de pila envalida.',
-	'cite_error'                     => 'Èrror de citacion $1',
+	'cite_croak'                               => 'Citacion corrompua ; $1 : $2',
+	'cite_error_key_str_invalid'               => 'Èrror de dedens ; $str atendua.',
+	'cite_error_stack_invalid_input'           => 'Èrror de dedens ; cllâf de pila envalida.',
+	'cite_error'                               => 'Èrror de citacion $1',
+	'cite_error_ref_numeric_key'               => 'Apèl envalido ; cllâf pas entègrâla atendua.',
+	'cite_error_ref_no_key'                    => 'Apèl envalido ; niona cllâf spècefiâ.',
+	'cite_error_ref_too_many_keys'             => 'Apèl envalido ; cllâfs envalides, per ègzemplo, trop de cllâfs spècefiâs ou ben cllâf fôssa.',
+	'cite_error_ref_no_input'                  => 'Apèl envalido ; niona entrâ spècefiâ.',
+	'cite_error_references_invalid_input'      => 'Entrâ envalida ; entrâ atendua.',
+	'cite_error_references_invalid_parameters' => 'Arguments envalidos ; argument atendu.',
+	'cite_error_references_no_backlink_label'  => 'Ègzécucion en defôr de les ètiquètes pèrsonalisâs, dèfenésséd de ples dens lo mèssâjo « cite_references_link_many_format_backlink_labels ».',
+	'cite_error_references_no_text'            => 'Nion tèxte endicâ.',
 );
 
 /** Galician (Galego)

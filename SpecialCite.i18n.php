@@ -372,9 +372,11 @@ $wgSpecialCiteMessages['is'] = array(
 	'cite_page'         => 'Síða:',
 );
 
-/** Italian (Italiano) */
+/** Italian (Italiano)
+ * @author BrokenArrow
+ */
 $wgSpecialCiteMessages['it'] = array(
-	'cite_article_link' => 'Cita questa voce',
+	'cite_article_link' => 'Cita questa pagina',
 	'cite'              => 'Citazione',
 	'cite_page'         => 'Pagina da citare:',
 	'cite_submit'       => 'Crea la citazione',
@@ -447,11 +449,12 @@ $wgSpecialCiteMessages['la'] = array(
 
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
+ * @author Kaffi
  */
 $wgSpecialCiteMessages['lb'] = array(
 	'cite'        => 'Zitéierhëllef',
 	'cite_page'   => 'Säit:',
-	'cite_submit' => 'uweisen',
+	'cite_submit' => 'weisen',
 );
 
 $wgSpecialCiteMessages['lo'] = array(
@@ -532,9 +535,11 @@ $wgSpecialCiteMessages['oc'] = array(
 	'cite_submit'       => 'Citar',
 );
 
-/** Polish (Polski) */
+/** Polish (Polski)
+ * @author Sp5uhe
+ */
 $wgSpecialCiteMessages['pl'] = array(
-	'cite_article_link' => 'Odwołanie bibliograficzne',
+	'cite_article_link' => 'Cytuj ten artykuł',
 	'cite'              => 'Cytowanie',
 	'cite_page'         => 'Strona:',
 	'cite_submit'       => 'Cytuj',

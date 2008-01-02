@@ -273,6 +273,7 @@ $wgSpecialCiteMessages['frp'] = array(
 
 /** Irish (Gaeilge)
  * @author SPQRobin
+ * @author Alison
  */
 $wgSpecialCiteMessages['ga'] = array(
 	'cite_article_link' => 'Luaigh an lch seo',

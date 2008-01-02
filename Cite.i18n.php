@@ -270,7 +270,9 @@ $messages['id'] = array(
 	'cite_error_references_no_backlink_label'  => "Kehabisan label pralana balik, tambakan pada pesan sistem \"''cite_references_link_many_format_backlink_labels''\"",
 );
 
-/** Italian (Italiano) */
+/** Italian (Italiano)
+ * @author BrokenArrow
+ */
 $messages['it'] = array(
 	'cite_croak'                               => 'Errore nella citazione: $1: $2',
 	'cite_error_key_str_invalid'               => 'Errore interno: $str errato',
@@ -284,6 +286,7 @@ $messages['it'] = array(
 <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "Errore nell'uso del marcatore <code>&lt;references&gt;</code>: parametri non ammessi, usare il marcatore <code>&lt;references /&gt;</code>",
 	'cite_error_references_no_backlink_label'  => "Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'Non è stato indicato alcun testo.',
 );
 
 /** Japanese (日本語) */
@@ -469,6 +472,21 @@ $messages['stq'] = array(
 	'cite_error_references_invalid_parameters' => 'Uungultige <code><nowiki><reference></nowiki></code>-Ferweendenge: Der sunt neen bietoukuumende Parametere ferlööwed, ferweend bloot <code><nowiki><reference /></nowiki></code>.',
 	'cite_error_references_no_backlink_label'  => 'Ne Referenz fon ju Foarm <code><nowiki><ref name="…"/></nowiki></code> wäd oafter benutsed as Bouksteeuwen deer sunt. N Administrator mout <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> uum wiedere Bouksteeuwen/Teekene ferfulständigje.',
 	'cite_error_references_no_text'            => 'Ne Referenz fon ju Foarm <code><nowiki><ref name="…"/></nowiki></code> wäd ferwoand, sunner definierd wuuden tou weesen.',
+);
+
+/** Swedish (Svenska)
+ * @author Lejonel
+ */
+$messages['sv'] = array(
+	'cite_error'                               => 'Referensfel: $1',
+	'cite_error_ref_numeric_key'               => "Ogiltig <code>&lt;ref&gt;</code>-tag; parametern 'name' kan inte vara ett tal, använd ett beskrivande namn",
+	'cite_error_ref_no_key'                    => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan innehåll måste ha ett namn',
+	'cite_error_ref_too_many_keys'             => "Ogiltig <code>&lt;ref&gt;</code>-tag; ogiltiga parametrar, den enda tillåtna parametern är 'name'",
+	'cite_error_ref_no_input'                  => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan namn måste ha innehåll',
+	'cite_error_references_invalid_input'      => 'Ogiltig <code>&lt;references&gt;</code>-tag; inget innehåll är tillåtet, använd <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Ogiltig <code>&lt;references&gt;</code>-tag; inga parametrar tillåts, använd <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "De definierade etiketterna för tillbaka-länkar har tagit slut, definiera fler etiketter i systemmedelandet \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'Ingen text har angivits.',
 );
 
 /** Kantonese (粵語) */

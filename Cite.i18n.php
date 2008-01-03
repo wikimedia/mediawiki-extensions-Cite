@@ -441,7 +441,11 @@ $messages['ru'] = array(
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я',
 );
 
-/** Slovak (Slovenčina) */
+/** Slovak (Slovenčina)
+ * @author Helix84
+ * @author Siebrand
+ * @author Robbot
+ */
 $messages['sk'] = array(
 	'cite_croak'                               => 'Citát je už neaktuálny; $1: $2',
 	'cite_error_key_str_invalid'               => 'Vnútorná chyba; neplatný $str',
@@ -454,6 +458,7 @@ $messages['sk'] = array(
 	'cite_error_references_invalid_input'      => 'Neplatné volanie; neočakával sa vstup',
 	'cite_error_references_invalid_parameters' => 'Neplatné parametre; neočakávli sa žiadne',
 	'cite_error_references_no_backlink_label'  => "Minuli sa generované návestia spätných odkazov, definujte viac v správe \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'Nebol zadaný text.',
 );
 
 /** Seeltersk (Seeltersk)

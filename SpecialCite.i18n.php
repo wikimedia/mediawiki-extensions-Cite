@@ -610,10 +610,10 @@ $wgSpecialCiteMessages['sd'] = array(
 
 /** Slovak (Slovenčina)
  * @author Martin Kozák
- * @author Robbot
+ * @author Helix84
  */
 $wgSpecialCiteMessages['sk'] = array(
-	'cite_article_link' => 'Citovať článok',
+	'cite_article_link' => 'Citovať túto stránku',
 	'cite'              => 'Citovať',
 	'cite_page'         => 'Stránka:',
 	'cite_submit'       => 'Citovať',

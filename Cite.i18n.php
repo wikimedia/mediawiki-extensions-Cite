@@ -116,6 +116,24 @@ $messages['cs'] = array(
 	'cite_error_references_no_backlink_label' => "Došla označení zpětných odkazů, přidejte jich několik do zprávy „''cite_references_link_many_format_backlink_labels''“",
 );
 
+/** Danish (Dansk)
+ * @author Morten LJ
+ */
+$messages['da'] = array(
+	'cite_croak'                               => 'Fodnoten døde; $1: $2',
+	'cite_error_key_str_invalid'               => 'Intern fejl: Ugyldig $str og/eller $key. Dette burde aldrig forekomme.',
+	'cite_error_stack_invalid_input'           => 'Intern fejl: Ugyldig staknøgle. Dette burde aldrig forekomme.',
+	'cite_error'                               => 'Fodnotefejl: $1',
+	'cite_error_ref_numeric_key'               => 'Ugyldigt <code>&lt;ref&gt;</code>-tag; "name" kan ikke være et simpelt heltal, brug en beskrivende titel',
+	'cite_error_ref_no_key'                    => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden indhold skal have et navn',
+	'cite_error_ref_too_many_keys'             => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldige navne, fx for mange',
+	'cite_error_ref_no_input'                  => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden navn skal have indhold',
+	'cite_error_references_invalid_input'      => 'Ugyldigt <code>&lt;references&gt;</code>-tag: Indhold ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => 'For mange <code>&lt;ref&gt;</code>-tags har det samme "name", tillad flere i beskeden "\'\'cite_references_link_many_format_backlink_labels\'\'"',
+	'cite_error_references_no_text'            => 'Intet andet <code>&lt;ref&gt;</code>-tag specificerer en tekst til dette <code>&lt;ref /&gt;</code>-tags "name" attribut',
+);
+
 /** German (Deutsch) */
 $messages['de'] = array(
 	'cite_croak'                               => 'Fehler im Referenz-System. $1: $2',

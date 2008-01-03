@@ -139,9 +139,14 @@ $wgSpecialCiteMessages['cu'] = array(
 	'cite_article_link' => 'Приведи статїѭ',
 );
 
-/** Danish (Dansk) */
+/** Danish (Dansk)
+ * @author Morten LJ
+ */
 $wgSpecialCiteMessages['da'] = array(
 	'cite_article_link' => 'Citér denne artikel',
+	'cite'              => 'Fodnote',
+	'cite_page'         => 'Side:',
+	'cite_submit'       => 'Fodnote',
 );
 
 $wgSpecialCiteMessages['de'] = array(

@@ -509,6 +509,13 @@ $wgSpecialCiteMessages['nan'] = array(
 	'cite_submit'       => 'Ín-iōng',
 );
 
+/** Low German (Plattdüütsch)
+ * @author Slomox
+ */
+$wgSpecialCiteMessages['nds'] = array(
+	'cite_page' => 'Siet:',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Effeietsanders

@@ -631,6 +631,13 @@ $wgSpecialCiteMessages['sk'] = array(
 	'cite_submit'       => 'Citovať',
 );
 
+/** Southern Sami (Åarjelsaemien gïele)
+ * @author Max sonnelid
+ */
+$wgSpecialCiteMessages['sma'] = array(
+	'cite_page' => 'Bielie:',
+);
+
 /** Shona (chiShona) */
 $wgSpecialCiteMessages['sn'] = array(
 	'cite_article_link' => 'Ita cite nyaya iyi',
@@ -651,6 +658,13 @@ $wgSpecialCiteMessages['stq'] = array(
 	'cite'              => 'Zitierhälpe',
 	'cite_page'         => 'Siede:',
 	'cite_submit'       => 'anwiese',
+);
+
+/** ћирилица (ћирилица)
+ * @author Sasa Stefanovic
+ */
+$wgSpecialCiteMessages['sr-ec'] = array(
+	'cite_page' => 'Страница:',
 );
 
 /** Sundanese (Basa Sunda)

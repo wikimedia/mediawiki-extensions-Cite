@@ -99,7 +99,7 @@ $messages['bg'] = array(
 	'cite_error_references_invalid_input'      => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' не е разрешен вход, използва се така: 
 <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' използва се без параметри, така: <code>&lt;references /&gt;</code>",
-	'cite_error_references_no_text'            => 'Не е подаден текст.',
+	'cite_error_references_no_text'            => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
 );
 
 /** Czech (Česky) */
@@ -195,7 +195,7 @@ $messages['frp'] = array(
 	'cite_error_references_invalid_input'      => 'Entrâ envalida ; entrâ atendua.',
 	'cite_error_references_invalid_parameters' => 'Arguments envalidos ; argument atendu.',
 	'cite_error_references_no_backlink_label'  => 'Ègzécucion en defôr de les ètiquètes pèrsonalisâs, dèfenésséd de ples dens lo mèssâjo « cite_references_link_many_format_backlink_labels ».',
-	'cite_error_references_no_text'            => 'Nion tèxte endicâ.',
+	'cite_error_references_no_text'            => 'Nion tèxte endicâ por les rèferences siuventes : <code>$1</code>',
 );
 
 /** Galician (Galego)
@@ -402,7 +402,7 @@ $messages['nl'] = array(
 	'cite_error_references_invalid_input'      => 'Onjuiste tag <code>&lt;references&gt;</code>; invoer is niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Onjuiste tag <code>&lt;references&gt;</code>; parameters zijn niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Het aantal beschikbare backlinklabels is opgebruikt. Geef meer labels op in het bericht \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'Geen tekst opgegeven.',
+	'cite_error_references_no_text'            => 'Onjuiste tag <code>&lt;ref&gt;</code>; er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 );
 
 /** Norwegian (‪Norsk (bokmål)‬)

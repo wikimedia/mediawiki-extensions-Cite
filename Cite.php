@@ -353,7 +353,7 @@ function wfCite() {
 						'cite_references_link_one',
 						$this->referencesKey( $key ),
 						$this->refKey( $key, $val['count'] ),
-						$this->error( 'cite_error_references_no_text' )
+						$this->error( 'cite_error_references_no_text', $key )
 					);
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is
@@ -365,7 +365,7 @@ function wfCite() {
 						'cite_references_link_one',
 						$this->referencesKey( $key ),
 						$this->refKey( $key, $val['count'] ),
-						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text' ) )
+						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
 					);
 			// Named references with >1 occurrences
 			else {
@@ -386,7 +386,7 @@ function wfCite() {
 					wfMsgForContentNoTrans( 'cite_references_link_many',
 						$this->referencesKey( $key ),
 						$list,
-						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text' ) )
+						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
 					);
 			}
 		}
@@ -619,14 +619,18 @@ function wfCite() {
 		/**
 		 * Return an error message based on an error ID
 		 *
-		 * @param string $key Message name for the error
+		 * @param string $key   Message name for the error
+		 * @param string $param Parameter to pass to the message
 		 * @return string XHTML ready for output
 		 */
-		function error( $key ) {
+		function error( $key, $param=null ) {
+			# We rely on the fact that PHP is okay with passing unused argu-
+			# ments to functions.  If $1 is not used in the message, wfMsg will
+			# just ignore the extra parameter.
 			return 
 				$this->parse(
 					'<strong class="error">' .
-					wfMsg( 'cite_error', wfMsg( $key ) ) .
+					wfMsg( 'cite_error', wfMsg( $key, $param ) ) .
 					'</strong>'
 				);
 		}

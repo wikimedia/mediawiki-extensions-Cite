@@ -236,8 +236,8 @@ Erroneous refs
 </p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code></strong>
 </p>
 <ol class="references"><li id="_note-0"><a href="#_ref-0" title="">↑</a> Also zero, but differently! (Normal ref)</li>
-<li id="_note-bar"><a href="#_ref-bar_0" title="">↑</a> <strong class="error">Cite error: No text given.</strong></li>
-<li id="_note-blankwithnoreference"><a href="#_ref-blankwithnoreference_0" title="">↑</a> <strong class="error">Cite error: No text given.</strong></li></ol>
+<li id="_note-bar"><a href="#_ref-bar_0" title="">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>bar</code></strong></li>
+<li id="_note-blankwithnoreference"><a href="#_ref-blankwithnoreference_0" title="">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>blankwithnoreference</code></strong></li></ol>
 
 !! end
 

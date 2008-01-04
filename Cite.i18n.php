@@ -27,7 +27,7 @@ $messages['en'] = array(
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
-	'cite_error_references_no_text'            => 'No text given.',
+	'cite_error_references_no_text'            => 'Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>$1</code>',
 
 	/*
 	   Output formatting

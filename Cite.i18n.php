@@ -71,7 +71,7 @@ $messages['ar'] = array(
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters'         => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا محددات مسموح بها، استخدم <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'          => "نفدت علامات الباك لينك الكوستوم، عرف المزيد في رسالة \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'                    => 'لا نص معطى.',
+	'cite_error_references_no_text'                    => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛ لا نص تم توفيره للمراجع المسماة <code>$1</code>',
 	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي',
 );
 
@@ -120,7 +120,7 @@ $messages['cs'] = array(
  * @author Morten LJ
  */
 $messages['da'] = array(
-	'cite_croak'                               => 'Fodnoten døde; $1: $2',
+	'cite_croak'                               => 'Fodnoten døde: $1: $2',
 	'cite_error_key_str_invalid'               => 'Intern fejl: Ugyldig $str og/eller $key. Dette burde aldrig forekomme.',
 	'cite_error_stack_invalid_input'           => 'Intern fejl: Ugyldig staknøgle. Dette burde aldrig forekomme.',
 	'cite_error'                               => 'Fodnotefejl: $1',
@@ -131,7 +131,7 @@ $messages['da'] = array(
 	'cite_error_references_invalid_input'      => 'Ugyldigt <code>&lt;references&gt;</code>-tag: Indhold ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => 'For mange <code>&lt;ref&gt;</code>-tags har det samme "name", tillad flere i beskeden "\'\'cite_references_link_many_format_backlink_labels\'\'"',
-	'cite_error_references_no_text'            => 'Intet andet <code>&lt;ref&gt;</code>-tag specificerer en tekst til dette <code>&lt;ref /&gt;</code>-tags "name" attribut',
+	'cite_error_references_no_text'            => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
 );
 
 /** German (Deutsch) */
@@ -271,6 +271,22 @@ $messages['hsb'] = array(
 	'cite_error_references_invalid_parameters' => 'Njepłaćiwe wužiwanje taflički <code>&lt;references&gt;</code>; žane parametry dowolene, wužij jenož <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => 'Referenca formy <code><nowiki><ref name="…"/></nowiki></code> so husćišo wužiwa hač su pismiki. Administrator dyrbi <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> nałožić, zo by dalše pismiki dodał.',
 	'cite_error_references_no_text'            => 'Žadyn tekst podaty.',
+);
+
+/** Hungarian (Magyar)
+ * @author Bdanee
+ */
+$messages['hu'] = array(
+	'cite_error'                               => 'Hiba a forráshivatkozásban: $1',
+	'cite_error_ref_numeric_key'               => 'Hibás <code>&lt;ref&gt;</code> tag; a name értéke nem lehet csupán egy szám, használj leíró címeket',
+	'cite_error_ref_no_key'                    => 'Hibás <code>&lt;ref&gt;</code> tag; a tartalom nélküli ref-eknek kötelező nevet (name) adni',
+	'cite_error_ref_too_many_keys'             => 'Hibás <code>&lt;ref&gt;</code> tag; hibás nevek, pl. túl sok',
+	'cite_error_ref_no_input'                  => 'Hibás <code>&lt;ref&gt;</code> tag; a név (name) nélküli ref-eknek adni kell valamilyen tartalmat',
+	'cite_error_references_invalid_input'      => 'Hibás <code>&lt;references&gt;</code> tag; nem lehet neki tartalmat adni, használd a
+<code>&lt;references /&gt;</code> formát',
+	'cite_error_references_invalid_parameters' => 'Hibás <code>&lt;references&gt;</code> tag; nincsenek paraméterei, használd a <code>&lt;references /&gt;</code> formát',
+	'cite_error_references_no_backlink_label'  => "Elfogytak a visszahivatkozásra használt címkék, adj meg többet a ''cite_references_link_many_format_backlink_labels'' üzenetben",
+	'cite_error_references_no_text'            => 'Hibás <code>&lt;ref&gt;</code> tag; nincs megadva szöveg a(z) <code>$1</code> nevű ref-eknek',
 );
 
 /** Indonesian (Bahasa Indonesia) */

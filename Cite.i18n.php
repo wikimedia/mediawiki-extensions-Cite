@@ -275,8 +275,12 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Bdanee
+ * @author KossuthRad
  */
 $messages['hu'] = array(
+	'cite_croak'                               => 'Sikertelen forráshivatkozás; $1: $2',
+	'cite_error_key_str_invalid'               => 'Belső hiba; érvénytelen $str és/vagy $key. Ennek soha nem kellene előfordulnia.',
+	'cite_error_stack_invalid_input'           => 'Belső hiba; érvénytelen kulcs. Ennek soha nem kellene előfordulnia.',
 	'cite_error'                               => 'Hiba a forráshivatkozásban: $1',
 	'cite_error_ref_numeric_key'               => 'Hibás <code>&lt;ref&gt;</code> tag; a name értéke nem lehet csupán egy szám, használj leíró címeket',
 	'cite_error_ref_no_key'                    => 'Hibás <code>&lt;ref&gt;</code> tag; a tartalom nélküli ref-eknek kötelező nevet (name) adni',
@@ -320,7 +324,7 @@ $messages['it'] = array(
 <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "Errore nell'uso del marcatore <code>&lt;references&gt;</code>: parametri non ammessi, usare il marcatore <code>&lt;references /&gt;</code>",
 	'cite_error_references_no_backlink_label'  => "Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'Non è stato indicato alcun testo.',
+	'cite_error_references_no_text'            => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
 );
 
 /** Japanese (日本語) */
@@ -492,7 +496,7 @@ $messages['sk'] = array(
 	'cite_error_references_invalid_input'      => 'Neplatné volanie; neočakával sa vstup',
 	'cite_error_references_invalid_parameters' => 'Neplatné parametre; neočakávli sa žiadne',
 	'cite_error_references_no_backlink_label'  => "Minuli sa generované návestia spätných odkazov, definujte viac v správe \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'Nebol zadaný text.',
+	'cite_error_references_no_text'            => 'Neplatná značka <code>&lt;ref&gt;</code>; nebol zadaný text pre referencie s názvom <code>$1</code>',
 );
 
 /** Seeltersk (Seeltersk)

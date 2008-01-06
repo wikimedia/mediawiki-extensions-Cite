@@ -463,6 +463,16 @@ $wgSpecialCiteMessages['lb'] = array(
 	'cite_submit' => 'weisen',
 );
 
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$wgSpecialCiteMessages['li'] = array(
+	'cite_article_link' => 'Citeer dees pazjena',
+	'cite'              => 'Citere',
+	'cite_page'         => 'Pazjena:',
+	'cite_submit'       => 'Citere',
+);
+
 $wgSpecialCiteMessages['lo'] = array(
 	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',
 	'cite'              => 'ອ້າງອີງ',

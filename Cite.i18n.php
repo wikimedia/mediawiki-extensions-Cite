@@ -407,6 +407,16 @@ $messages['lt'] = array(
 	'cite_error_references_no_backlink_label'  => "Baigėsi antraštės, nurodykite daugiau \"''cite_references_link_many_format_backlink_labels''\" sisteminiame tekste",
 );
 
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'cite_croak'                     => 'Perbleem mit Citere; $1: $2',
+	'cite_error_key_str_invalid'     => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
+	'cite_error_stack_invalid_input' => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
+	'cite_error'                     => 'Citeerfout: $1',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -462,7 +472,9 @@ $messages['pt'] = array(
 	'cite_error_references_no_text'            => 'Não foi fornecido texto.',
 );
 
-/** Russian (Русский) */
+/** Russian (Русский)
+ * @author Kalan
+ */
 $messages['ru'] = array(
 	'cite_croak'                                       => 'Цитата сдохла; $1: $2',
 	'cite_error_key_str_invalid'                       => 'Внутренняя ошибка: неверный $str',
@@ -475,7 +487,7 @@ $messages['ru'] = array(
 	'cite_error_references_invalid_input'              => 'Входные данные недействительны, так как не предполагаются',
 	'cite_error_references_invalid_parameters'         => 'Переданы недействительные параметры; их вообще не предусмотрено.',
 	'cite_error_references_no_backlink_label'          => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную «cite_references_link_many_format_backlink_labels».',
-	'cite_error_references_no_text'                    => 'Не указан текст.',
+	'cite_error_references_no_text'                    => 'Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст',
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я',
 );
 

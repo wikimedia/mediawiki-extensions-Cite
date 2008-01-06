@@ -513,7 +513,10 @@ $wgSpecialCiteMessages['nan'] = array(
  * @author Slomox
  */
 $wgSpecialCiteMessages['nds'] = array(
-	'cite_page' => 'Siet:',
+	'cite_article_link' => 'Disse Siet ziteren',
+	'cite'              => 'Ziteerhelp',
+	'cite_page'         => 'Siet:',
+	'cite_submit'       => 'Ziteren',
 );
 
 /** Dutch (Nederlands)

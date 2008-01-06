@@ -270,7 +270,7 @@ $messages['hsb'] = array(
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Njepłaćiwe wužiwanje taflički <code>&lt;references&gt;</code>; žane parametry dowolene, wužij jenož <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => 'Referenca formy <code><nowiki><ref name="…"/></nowiki></code> so husćišo wužiwa hač su pismiki. Administrator dyrbi <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> nałožić, zo by dalše pismiki dodał.',
-	'cite_error_references_no_text'            => 'Žadyn tekst podaty.',
+	'cite_error_references_no_text'            => 'Njepłaćiwa referenca formy <code>&lt;ref&gt;</code>; žadyn tekst za referency z mjenom  <code>$1</code> podaty.',
 );
 
 /** Hungarian (Magyar)

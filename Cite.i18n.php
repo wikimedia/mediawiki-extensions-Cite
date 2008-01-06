@@ -469,7 +469,7 @@ $messages['pt'] = array(
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Código <code>&lt;references&gt;</code> inválido; não são permitidos parâmetros. Utilize como <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Etiquetas de backlink esgotadas. Defina mais na mensagem \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'Não foi fornecido texto.',
+	'cite_error_references_no_text'            => 'Tag <code>&lt;ref&gt;</code> inválida: não foi fornecido texto para as refs nomeadas como <code>$1</code>',
 );
 
 /** Russian (Русский)

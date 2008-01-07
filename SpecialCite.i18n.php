@@ -33,6 +33,16 @@ $wgSpecialCiteMessages['am'] = array(
 	'cite_submit'       => 'ዝርዝሮች ይታዩ',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$wgSpecialCiteMessages['an'] = array(
+	'cite_article_link' => 'Zitar ista pachina',
+	'cite'              => 'Zitar',
+	'cite_page'         => 'Pachina:',
+	'cite_submit'       => 'Zitar',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */

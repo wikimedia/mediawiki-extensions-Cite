@@ -59,13 +59,18 @@ $messages['en'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'cite_error_key_str_invalid'     => 'Error interna; $str y/u $key no conforme(s). Isto no abría d\'escaizer nunca.',
-	'cite_error_stack_invalid_input' => "Error interna; clau de pila no conforme. Isto no abría d'escaizer nunca.",
-	'cite_error'                     => 'Error en a zita: $1',
-	'cite_error_ref_numeric_key'     => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; o nombre d'a etiqueta no puede estar un numero entero, faiga serbir un títol descriptibo",
-	'cite_error_ref_no_key'          => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin de conteniu han de tener un nombre',
-	'cite_error_ref_too_many_keys'   => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; nombres de parametros incorreutos.',
-	'cite_error_ref_no_input'        => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin nombre no han de tener conteniu',
+	'cite_croak'                               => 'Zita corrompita; $1: $2',
+	'cite_error_key_str_invalid'               => 'Error interna; $str y/u $key no conforme(s). Isto no abría d\'escaizer nunca.',
+	'cite_error_stack_invalid_input'           => "Error interna; clau de pila no conforme. Isto no abría d'escaizer nunca.",
+	'cite_error'                               => 'Error en a zita: $1',
+	'cite_error_ref_numeric_key'               => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; o nombre d'a etiqueta no puede estar un numero entero, faiga serbir un títol descriptibo",
+	'cite_error_ref_no_key'                    => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin de conteniu han de tener un nombre',
+	'cite_error_ref_too_many_keys'             => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; nombres de parametros incorreutos.',
+	'cite_error_ref_no_input'                  => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin nombre no han de tener conteniu',
+	'cite_error_references_invalid_input'      => 'Etiqueta <code>&lt;references&gt;</code> incorreuta; no se premite emplegar input en a etiqueta, faiga serbir <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> incorreuta; no se premiten parametros, faiga serbir <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "Ya no quedan etiquetas backlink presonalizatas, defina más en o mensache \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; no ha escrito garra testo t'as referenzias nombratas <code>$1</code>",
 );
 
 /** Arabic (العربية)

@@ -55,6 +55,19 @@ $messages['en'] = array(
 	'cite_references_suffix' => '</ol>',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'cite_error_key_str_invalid'     => 'Error interna; $str y/u $key no conforme(s). Isto no abría d\'escaizer nunca.',
+	'cite_error_stack_invalid_input' => "Error interna; clau de pila no conforme. Isto no abría d'escaizer nunca.",
+	'cite_error'                     => 'Error en a zita: $1',
+	'cite_error_ref_numeric_key'     => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; o nombre d'a etiqueta no puede estar un numero entero, faiga serbir un títol descriptibo",
+	'cite_error_ref_no_key'          => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin de conteniu han de tener un nombre',
+	'cite_error_ref_too_many_keys'   => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; nombres de parametros incorreutos.',
+	'cite_error_ref_no_input'        => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin nombre no han de tener conteniu',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  */
@@ -100,6 +113,13 @@ $messages['bg'] = array(
 <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' използва се без параметри, така: <code>&lt;references /&gt;</code>",
 	'cite_error_references_no_text'            => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
+);
+
+/** Catalan (Català)
+ * @author Juanpabl
+ */
+$messages['ca'] = array(
+	'cite_croak' => 'Zita corrompita; $1: $2',
 );
 
 /** Czech (Česky) */
@@ -360,6 +380,21 @@ $messages['ja'] = array(
 	'cite_error_references_no_backlink_label'  => "バックリンクラベルが使用できる個数を超えました。\"''cite_references_link_many_format_backlink_labels''\" メッセージでの定義を増やしてください。",
 );
 
+/** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */
+$messages['kk-arab'] = array(
+	'cite_croak'                               => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2 ',
+	'cite_error_key_str_invalid'               => 'ٸشكٸ قاتە; جارامسىز $str ',
+	'cite_error_stack_invalid_input'           => 'ٸشكٸ قاتە; جارامسىز ستەك كٸلتٸ',
+	'cite_error'                               => 'دٵيەكسٶز الۋ $1 قاتەسٸ',
+	'cite_error_ref_numeric_key'               => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; اتاۋ كٵدٸمگٸ بٷتٸن سان بولۋى مٷمكٸن ەمەس, سيپپاتاۋىش اتاۋ قولدانىڭىز',
+	'cite_error_ref_no_key'                    => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; ماعلۇماتسىز تٷسٸنٸكتەمەلەردە اتاۋ بولۋى قاجەت',
+	'cite_error_ref_too_many_keys'             => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; جارامسىز اتاۋلار, مىسالى, تىم كٶپ',
+	'cite_error_ref_no_input'                  => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; اتاۋسىز تٷسٸنٸكتەمەلەردە ماعلۇماتى بولۋى قاجەت',
+	'cite_error_references_invalid_input'      => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش كٸرٸس رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
+	'cite_error_references_invalid_parameters' => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش باپتار رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
+	'cite_error_references_no_backlink_label'  => "قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك «''cite_references_link_many_format_backlink_labels''» جٷيە حابارىندا بەلگٸلەڭٸز",
+);
+
 /** ‪Қазақша (Қазақстан)‬ (‪Қазақша (Қазақстан)‬) */
 $messages['kk-cyrl'] = array(
 	'cite_croak'                               => 'Дәйексөз алу сәтсіз бітті; $1: $2 ',
@@ -390,25 +425,20 @@ $messages['kk-latn'] = array(
 	'cite_error_references_no_backlink_label'  => "Qosımşa belgilerdiñ sanı bitti, odan äri köbirek «''cite_references_link_many_format_backlink_labels''» jüýe xabarında belgileñiz",
 );
 
-/** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */
-$messages['kk-arab'] = array(
-	'cite_croak'                               => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2 ',
-	'cite_error_key_str_invalid'               => 'ٸشكٸ قاتە; جارامسىز $str ',
-	'cite_error_stack_invalid_input'           => 'ٸشكٸ قاتە; جارامسىز ستەك كٸلتٸ',
-	'cite_error'                               => 'دٵيەكسٶز الۋ $1 قاتەسٸ',
-	'cite_error_ref_numeric_key'               => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; اتاۋ كٵدٸمگٸ بٷتٸن سان بولۋى مٷمكٸن ەمەس, سيپپاتاۋىش اتاۋ قولدانىڭىز',
-	'cite_error_ref_no_key'                    => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; ماعلۇماتسىز تٷسٸنٸكتەمەلەردە اتاۋ بولۋى قاجەت',
-	'cite_error_ref_too_many_keys'             => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; جارامسىز اتاۋلار, مىسالى, تىم كٶپ',
-	'cite_error_ref_no_input'                  => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; اتاۋسىز تٷسٸنٸكتەمەلەردە ماعلۇماتى بولۋى قاجەت',
-	'cite_error_references_invalid_input'      => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش كٸرٸس رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
-	'cite_error_references_invalid_parameters' => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش باپتار رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
-	'cite_error_references_no_backlink_label'  => "قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك «''cite_references_link_many_format_backlink_labels''» جٷيە حابارىندا بەلگٸلەڭٸز",
-);
-
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
 $messages['lb'] = array();
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'cite_croak'                     => 'Perbleem mit Citere; $1: $2',
+	'cite_error_key_str_invalid'     => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
+	'cite_error_stack_invalid_input' => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
+	'cite_error'                     => 'Citeerfout: $1',
+);
+
 
 /** Lietuvių (Lietuvių) */
 $messages['lt'] = array(
@@ -423,16 +453,6 @@ $messages['lt'] = array(
 	'cite_error_references_invalid_input'      => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Baigėsi antraštės, nurodykite daugiau \"''cite_references_link_many_format_backlink_labels''\" sisteminiame tekste",
-);
-
-/** Limburgish (Limburgs)
- * @author Ooswesthoesbes
- */
-$messages['li'] = array(
-	'cite_croak'                     => 'Perbleem mit Citere; $1: $2',
-	'cite_error_key_str_invalid'     => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
-	'cite_error_stack_invalid_input' => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
-	'cite_error'                     => 'Citeerfout: $1',
 );
 
 /** Dutch (Nederlands)
@@ -559,7 +579,7 @@ $messages['sv'] = array(
 	'cite_error_references_invalid_input'      => 'Ogiltig <code>&lt;references&gt;</code>-tag; inget innehåll är tillåtet, använd <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ogiltig <code>&lt;references&gt;</code>-tag; inga parametrar tillåts, använd <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "De definierade etiketterna för tillbaka-länkar har tagit slut, definiera fler etiketter i systemmedelandet \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'Ingen text har angivits.',
+	'cite_error_references_no_text'            => 'Ogiltig <code>&lt;ref&gt;</code>-tag; ingen text har angivits för referensen med namnet <code>$1</code>',
 );
 
 /** Kantonese (粵語) */
@@ -608,10 +628,10 @@ $messages['zh-hant'] = array(
 );
 
 # Kazakh fallback
+$messages['kk'] = $messages['kk-cyrl'];
+$messages['kk-cn'] = $messages['kk-arab'];
 $messages['kk-kz'] = $messages['kk-cyrl'];
 $messages['kk-tr'] = $messages['kk-latn'];
-$messages['kk-cn'] = $messages['kk-arab'];
-$messages['kk'] = $messages['kk-cyrl'];
 
 # Chinese fallback
 $messages['zh'] = $messages['zh-hans'];

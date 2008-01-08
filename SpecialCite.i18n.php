@@ -178,7 +178,7 @@ $wgSpecialCiteMessages['diq'] = array(
  * @author Consta
  */
 $wgSpecialCiteMessages['el'] = array(
-	'cite_article_link' => 'Αναφέρεται αυτό το άρθρο',
+	'cite_article_link' => 'Αναφέρεται αυτή τη σελίδα',
 	'cite'              => 'Αναφορά',
 	'cite_page'         => 'Σελίδα:',
 );

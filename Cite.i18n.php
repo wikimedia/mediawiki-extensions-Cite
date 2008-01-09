@@ -127,18 +127,22 @@ $messages['ca'] = array(
 	'cite_croak' => 'Zita corrompita; $1: $2',
 );
 
-/** Czech (Česky) */
+/** Czech (Česky)
+ * @author Li-sung
+ */
 $messages['cs'] = array(
-	'cite_croak'                              => 'Nefunkční citace; $1: $2',
-	'cite_error_key_str_invalid'              => 'Vnitřní chyba; neplatný $str',
-	'cite_error_stack_invalid_input'          => 'Vnitřní chyba; neplatný klíč zásobníku',
-	'cite_error'                              => 'Chybná citace $1',
-	'cite_error_ref_numeric_key'              => 'Chyba v tagu <code>&lt;ref&gt;</code>; názvem nesmí být prosté číslo, použijte popisné označení',
-	'cite_error_ref_no_key'                   => 'Chyba v tagu <code>&lt;ref&gt;</code>; prázdné citace musí obsahovat název',
-	'cite_error_ref_too_many_keys'            => 'Chyba v tagu <code>&lt;ref&gt;</code>; chybné názvy, např. je jich příliš mnoho',
-	'cite_error_ref_no_input'                 => 'Chyba v tagu <code>&lt;ref&gt;</code>; citace bez názvu musí mít vlastní obsah',
-	'cite_error_references_invalid_input'     => 'Chyba v tagu <code>&lt;references&gt;</code>; zde není dovolen vstup, použijte <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label' => "Došla označení zpětných odkazů, přidejte jich několik do zprávy „''cite_references_link_many_format_backlink_labels''“",
+	'cite_croak'                               => 'Nefunkční citace; $1: $2',
+	'cite_error_key_str_invalid'               => 'Vnitřní chyba; neplatný $str',
+	'cite_error_stack_invalid_input'           => 'Vnitřní chyba; neplatný klíč zásobníku',
+	'cite_error'                               => 'Chybná citace $1',
+	'cite_error_ref_numeric_key'               => 'Chyba v tagu <code>&lt;ref&gt;</code>; názvem nesmí být prosté číslo, použijte popisné označení',
+	'cite_error_ref_no_key'                    => 'Chyba v tagu <code>&lt;ref&gt;</code>; prázdné citace musí obsahovat název',
+	'cite_error_ref_too_many_keys'             => 'Chyba v tagu <code>&lt;ref&gt;</code>; chybné názvy, např. je jich příliš mnoho',
+	'cite_error_ref_no_input'                  => 'Chyba v tagu <code>&lt;ref&gt;</code>; citace bez názvu musí mít vlastní obsah',
+	'cite_error_references_invalid_input'      => 'Chyba v tagu <code>&lt;references&gt;</code>; zde není dovolen vstup, použijte <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Chyba v tagu <code>&lt;references&gt;</code>;  zde není dovolen parametr, použijte <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "Došla označení zpětných odkazů, přidejte jich několik do zprávy „''cite_references_link_many_format_backlink_labels''“",
+	'cite_error_references_no_text'            => 'Chyba v tagu <code>&lt;ref&gt;</code>; citaci označené <code>$1</code> není určen žádný text',
 );
 
 /** Danish (Dansk)
@@ -294,7 +298,7 @@ $messages['hr'] = array(
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Loša <code>&lt;references&gt;</code> oznaka; parametri nisu dozvoljeni, koristite <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Potrošene sve posebne oznake za poveznice unatrag, definirajte više u poruci \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'Nije zadan tekst.',
+	'cite_error_references_no_text'            => 'Nije zadan tekst za izvor <code>$1</code>',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -550,7 +554,7 @@ $messages['sk'] = array(
 	'cite_error_ref_no_input'                  => 'Neplatné volanie; nebol špecifikovaný vstup',
 	'cite_error_references_invalid_input'      => 'Neplatné volanie; neočakával sa vstup',
 	'cite_error_references_invalid_parameters' => 'Neplatné parametre; neočakávli sa žiadne',
-	'cite_error_references_no_backlink_label'  => "Minuli sa generované návestia spätných odkazov, definujte viac v správe \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_backlink_label'  => "Minuli sa generované návestia spätných odkazov, definujte viac v správe „''cite_references_link_many_format_backlink_labels''“",
 	'cite_error_references_no_text'            => 'Neplatná značka <code>&lt;ref&gt;</code>; nebol zadaný text pre referencie s názvom <code>$1</code>',
 );
 
@@ -632,13 +636,10 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_backlink_label'  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
 );
 
-# Kazakh fallback
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];
 $messages['kk-kz'] = $messages['kk-cyrl'];
 $messages['kk-tr'] = $messages['kk-latn'];
-
-# Chinese fallback
 $messages['zh'] = $messages['zh-hans'];
 $messages['zh-cn'] = $messages['zh-hans'];
 $messages['zh-hk'] = $messages['zh-hant'];

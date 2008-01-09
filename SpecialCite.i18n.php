@@ -5,9 +5,9 @@
  * @addtogroup Extensions
 */
 
-$wgSpecialCiteMessages = array();
+$messages = array();
 
-$wgSpecialCiteMessages['en'] = array(
+$messages['en'] = array(
 	'cite_article_link' => 'Cite this page',
 	'cite'              => 'Cite',
 	'cite_page'         => 'Page:',
@@ -15,7 +15,7 @@ $wgSpecialCiteMessages['en'] = array(
 	'cite_text'         => '', # Don't translate this
 );
 
-$wgSpecialCiteMessages['af'] = array(
+$messages['af'] = array(
 	'cite_article_link' => 'Haal dié blad aan',
 	'cite'              => 'Aanhaling',
 	'cite_page'         => 'Bladsy:',
@@ -26,7 +26,7 @@ $wgSpecialCiteMessages['af'] = array(
  * @author Codex Sinaiticus
  * @author Teferra
  */
-$wgSpecialCiteMessages['am'] = array(
+$messages['am'] = array(
 	'cite_article_link' => 'ይህንን ገጽ አጣቅስ',
 	'cite'              => 'መጥቀሻ',
 	'cite_page'         => 'አርዕስት፦',
@@ -36,7 +36,7 @@ $wgSpecialCiteMessages['am'] = array(
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
-$wgSpecialCiteMessages['an'] = array(
+$messages['an'] = array(
 	'cite_article_link' => 'Zitar ista pachina',
 	'cite'              => 'Zitar',
 	'cite_page'         => 'Pachina:',
@@ -46,7 +46,7 @@ $wgSpecialCiteMessages['an'] = array(
 /** Arabic (العربية)
  * @author Meno25
  */
-$wgSpecialCiteMessages['ar'] = array(
+$messages['ar'] = array(
 	'cite_article_link' => 'استشهد بهذه الصفحة',
 	'cite'              => 'استشهاد',
 	'cite_page'         => 'الصفحة:',
@@ -57,7 +57,7 @@ $wgSpecialCiteMessages['ar'] = array(
  * @author SPQRobin
  * @author Esbardu
  */
-$wgSpecialCiteMessages['ast'] = array(
+$messages['ast'] = array(
 	'cite_article_link' => 'Citar esta páxina',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Páxina:',
@@ -67,7 +67,7 @@ $wgSpecialCiteMessages['ast'] = array(
 /** Bikol Central (Bikol Central)
  * @author Filipinayzd
  */
-$wgSpecialCiteMessages['bcl'] = array(
+$messages['bcl'] = array(
 	'cite_article_link' => 'Sambiton an artikulong ini',
 	'cite'              => 'Sambiton',
 	'cite_page'         => 'Pahina:',
@@ -75,21 +75,21 @@ $wgSpecialCiteMessages['bcl'] = array(
 );
 
 /** Belarusian (Беларуская) */
-$wgSpecialCiteMessages['be'] = array(
+$messages['be'] = array(
 	'cite_article_link' => 'Цытаваць гэты артыкул',
 );
 
 /** Bulgarian (Български)
  * @author DCLXVI
  */
-$wgSpecialCiteMessages['bg'] = array(
+$messages['bg'] = array(
 	'cite_article_link' => 'Цитиране на страницата',
 	'cite'              => 'Цитиране',
 	'cite_page'         => 'Страница:',
 	'cite_submit'       => 'Цитиране',
 );
 
-$wgSpecialCiteMessages['bpy'] = array(
+$messages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',
 );
@@ -98,7 +98,7 @@ $wgSpecialCiteMessages['bpy'] = array(
  * @author SPQRobin
  * @author Fulup
  */
-$wgSpecialCiteMessages['br'] = array(
+$messages['br'] = array(
 	'cite_article_link' => 'Menegiñ ar pennad-mañ',
 	'cite'              => 'Menegiñ',
 	'cite_page'         => 'Pajenn:',
@@ -110,14 +110,14 @@ $wgSpecialCiteMessages['br'] = array(
  * @author SMP
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['ca'] = array(
+$messages['ca'] = array(
 	'cite_article_link' => 'Cita aquesta pàgina',
 	'cite'              => 'Citeu',
 	'cite_page'         => 'Pàgina:',
 	'cite_submit'       => 'Cita',
 );
 
-$wgSpecialCiteMessages['cdo'] = array(
+$messages['cdo'] = array(
 	'cite_article_link' => 'Īng-ê̤ṳng cī piĕng ùng-ciŏng',
 	'cite'              => 'Īng-ê̤ṳng',
 	'cite_page'         => 'Hiĕk-miêng:',
@@ -127,7 +127,7 @@ $wgSpecialCiteMessages['cdo'] = array(
 /** Corsican (Corsu)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['co'] = array(
+$messages['co'] = array(
 	'cite_article_link' => 'Cità issu articulu',
 	'cite'              => 'Cità',
 	'cite_page'         => 'Pagina:',
@@ -138,28 +138,28 @@ $wgSpecialCiteMessages['co'] = array(
  * @author Beren
  * @author Li-sung
  */
-$wgSpecialCiteMessages['cs'] = array(
+$messages['cs'] = array(
 	'cite_article_link' => 'Citovat stránku',
 	'cite'              => 'Citace',
 	'cite_page'         => 'Článek:',
 	'cite_submit'       => 'Citovat',
 );
 
-$wgSpecialCiteMessages['cu'] = array(
+$messages['cu'] = array(
 	'cite_article_link' => 'Приведи статїѭ',
 );
 
 /** Danish (Dansk)
  * @author Morten LJ
  */
-$wgSpecialCiteMessages['da'] = array(
+$messages['da'] = array(
 	'cite_article_link' => 'Citér denne artikel',
 	'cite'              => 'Fodnote',
 	'cite_page'         => 'Side:',
 	'cite_submit'       => 'Fodnote',
 );
 
-$wgSpecialCiteMessages['de'] = array(
+$messages['de'] = array(
 	'cite_article_link' => 'Seite zitieren',
 	'cite'              => 'Zitierhilfe',
 	'cite_page'         => 'Seite:',
@@ -169,7 +169,7 @@ $wgSpecialCiteMessages['de'] = array(
 /** Zazaki (Zazaki)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['diq'] = array(
+$messages['diq'] = array(
 	'cite_article_link' => 'Na pele çıme bımocne',
 	'cite'              => 'Çıme bımocne',
 );
@@ -177,7 +177,7 @@ $wgSpecialCiteMessages['diq'] = array(
 /** Greek (Ελληνικά)
  * @author Consta
  */
-$wgSpecialCiteMessages['el'] = array(
+$messages['el'] = array(
 	'cite_article_link' => 'Αναφέρεται αυτή τη σελίδα',
 	'cite'              => 'Αναφορά',
 	'cite_page'         => 'Σελίδα:',
@@ -186,7 +186,7 @@ $wgSpecialCiteMessages['el'] = array(
 /** Esperanto (Esperanto)
  * @author Tlustulimu
  */
-$wgSpecialCiteMessages['eo'] = array(
+$messages['eo'] = array(
 	'cite_article_link' => 'Citu ĉi tiun artikolon',
 	'cite'              => 'Citado',
 	'cite_page'         => 'Paĝo:',
@@ -196,7 +196,7 @@ $wgSpecialCiteMessages['eo'] = array(
 /** Spanish (Español)
  * @author Icvav
  */
-$wgSpecialCiteMessages['es'] = array(
+$messages['es'] = array(
 	'cite_article_link' => 'Citar este artículo',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',
@@ -206,7 +206,7 @@ $wgSpecialCiteMessages['es'] = array(
 /** Estonian (Eesti)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['et'] = array(
+$messages['et'] = array(
 	'cite_article_link' => 'Tsiteeri seda artiklit',
 	'cite'              => 'Tsiteeri',
 	'cite_page'         => 'Leht:',
@@ -216,7 +216,7 @@ $wgSpecialCiteMessages['et'] = array(
 /** Basque (Euskara)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['eu'] = array(
+$messages['eu'] = array(
 	'cite_article_link' => 'Artikulu hau aipatu',
 	'cite'              => 'Aipamenak',
 	'cite_page'         => 'Orrialdea:',
@@ -226,21 +226,21 @@ $wgSpecialCiteMessages['eu'] = array(
 /** Extremaduran (Estremeñu)
  * @author Better
  */
-$wgSpecialCiteMessages['ext'] = array(
+$messages['ext'] = array(
 	'cite_article_link' => 'Almiental esti artículu',
 	'cite'              => 'Almiental',
 	'cite_page'         => 'Páhina:',
 	'cite_submit'       => 'Almiental',
 );
 
-$wgSpecialCiteMessages['fa'] = array(
+$messages['fa'] = array(
 	'cite_article_link' => 'یادکرد پیوند این مقاله',
 	'cite'              => 'یادکرد این مقاله',
 	'cite_page'         => 'صفحه:',
 	'cite_submit'       => 'یادکرد',
 );
 
-$wgSpecialCiteMessages['fi'] = array(
+$messages['fi'] = array(
 	'cite_article_link' => 'Viitetiedot',
 	'cite'              => 'Viitetiedot',
 	'cite_page'         => 'Sivu:',
@@ -250,7 +250,7 @@ $wgSpecialCiteMessages['fi'] = array(
 /** Fijian (Na Vosa Vakaviti)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['fj'] = array(
+$messages['fj'] = array(
 	'cite_article_link' => 'Vola dau vaqarai',
 
 );
@@ -258,7 +258,7 @@ $wgSpecialCiteMessages['fj'] = array(
 /** Faroese (Føroyskt)
  * @author Spacebirdy
  */
-$wgSpecialCiteMessages['fo'] = array(
+$messages['fo'] = array(
 	'cite_article_link' => 'Sitera hesa greinina',
 	'cite'              => 'Sitera',
 	'cite_page'         => 'Síða:',
@@ -269,7 +269,7 @@ $wgSpecialCiteMessages['fo'] = array(
  * @author Hégésippe Cormier
  * @author Grondin
  */
-$wgSpecialCiteMessages['fr'] = array(
+$messages['fr'] = array(
 	'cite_article_link' => 'Citer cette page',
 	'cite'              => 'Citation',
 	'cite_page'         => 'Page :',
@@ -279,7 +279,7 @@ $wgSpecialCiteMessages['fr'] = array(
 /** Franco-Provençal (Arpetan)
  * @author ChrisPtDe
  */
-$wgSpecialCiteMessages['frp'] = array(
+$messages['frp'] = array(
 	'cite_article_link' => 'Citar ceta pâge',
 	'cite'              => 'Citacion',
 	'cite_page'         => 'Pâge :',
@@ -290,7 +290,7 @@ $wgSpecialCiteMessages['frp'] = array(
  * @author SPQRobin
  * @author Alison
  */
-$wgSpecialCiteMessages['ga'] = array(
+$messages['ga'] = array(
 	'cite_article_link' => 'Luaigh an lch seo',
 	'cite'              => 'Luaigh',
 	'cite_page'         => 'Leathanach:',
@@ -300,7 +300,7 @@ $wgSpecialCiteMessages['ga'] = array(
 /** Galician (Galego)
  * @author Xosé
  */
-$wgSpecialCiteMessages['gl'] = array(
+$messages['gl'] = array(
 	'cite_article_link' => 'Citar este artigo',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Páxina:',
@@ -310,18 +310,18 @@ $wgSpecialCiteMessages['gl'] = array(
 /** Gujarati (ગુજરાતી)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['gu'] = array(
+$messages['gu'] = array(
 	'cite_page' => 'પાનું:',
 );
 
 /** Hawaiian (Hawai`i)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['haw'] = array(
+$messages['haw'] = array(
 	'cite_article_link' => "E ho'ōia i kēia mea",
 );
 
-$wgSpecialCiteMessages['he'] = array(
+$messages['he'] = array(
 	'cite_article_link' => 'צטט דף זה',
 	'cite'              => 'ציטוט',
 	'cite_page'         => 'דף:',
@@ -331,21 +331,21 @@ $wgSpecialCiteMessages['he'] = array(
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
  */
-$wgSpecialCiteMessages['hr'] = array(
+$messages['hr'] = array(
 	'cite_article_link' => 'Citiraj ovaj članak',
 	'cite'              => 'Citiranje',
 	'cite_page'         => 'Stranica:',
 	'cite_submit'       => 'Citiraj',
 );
 
-$wgSpecialCiteMessages['hsb'] = array(
+$messages['hsb'] = array(
 	'cite_article_link' => 'Nastawk citować',
 	'cite'              => 'Citowanska pomoc',
 	'cite_page'         => 'Strona:',
 	'cite_submit'       => 'pokazać',
 );
 
-$wgSpecialCiteMessages['hu'] = array(
+$messages['hu'] = array(
 	'cite_article_link' => 'Szócikk idézése',
 	'cite'              => 'Irodalomjegyzék-bejegyzés készítése',
 	'cite_page'         => 'Idézendő lap:',
@@ -355,14 +355,14 @@ $wgSpecialCiteMessages['hu'] = array(
 /** Armenian (Հայերեն)
  * @author Teak
  */
-$wgSpecialCiteMessages['hy'] = array(
+$messages['hy'] = array(
 	'cite_article_link' => 'Քաղվածել հոդվածը',
 	'cite'              => 'Քաղվածում',
 	'cite_page'         => 'Էջ.',
 	'cite_submit'       => 'Քաղվածել',
 );
 
-$wgSpecialCiteMessages['id'] = array(
+$messages['id'] = array(
 	'cite_article_link' => 'Kutip artikel ini',
 	'cite'              => 'Kutip',
 	'cite_page'         => 'Halaman:',
@@ -372,7 +372,7 @@ $wgSpecialCiteMessages['id'] = array(
 /** Iloko (Ilokano)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['ilo'] = array(
+$messages['ilo'] = array(
 	'cite_article_link' => 'Dakamaten ti articulo',
 	'cite'              => 'Dakamaten',
 	'cite_page'         => 'Panid:',
@@ -382,7 +382,7 @@ $wgSpecialCiteMessages['ilo'] = array(
 /** Icelandic (Íslenska)
  * @author לערי ריינהארט
  */
-$wgSpecialCiteMessages['is'] = array(
+$messages['is'] = array(
 	'cite_article_link' => 'Vitna í þessa grein',
 	'cite'              => 'Vitna í síðu',
 	'cite_page'         => 'Síða:',
@@ -391,7 +391,7 @@ $wgSpecialCiteMessages['is'] = array(
 /** Italian (Italiano)
  * @author BrokenArrow
  */
-$wgSpecialCiteMessages['it'] = array(
+$messages['it'] = array(
 	'cite_article_link' => 'Cita questa pagina',
 	'cite'              => 'Citazione',
 	'cite_page'         => 'Pagina da citare:',
@@ -401,7 +401,7 @@ $wgSpecialCiteMessages['it'] = array(
 /** Japanese (日本語)
  * @author Suisui
  */
-$wgSpecialCiteMessages['ja'] = array(
+$messages['ja'] = array(
 	'cite_article_link' => 'この項目を引用する',
 	'cite'              => '{{SITENAME}}の項目を引用する',
 	'cite_page'         => 'ページ名',
@@ -409,25 +409,25 @@ $wgSpecialCiteMessages['ja'] = array(
 );
 
 /** Georgian (ქართული) */
-$wgSpecialCiteMessages['ka'] = array(
+$messages['ka'] = array(
 	'cite_article_link' => 'ამ გვერდის ციტირება',
 );
 
-$wgSpecialCiteMessages['kk-cyrl'] = array(
+$messages['kk-cyrl'] = array(
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite'              => 'Дәйексөз алу',
 	'cite_page'         => 'Бет атауы:',
 	'cite_submit'       => 'Дәйексөз ал!',
 );
 
-$wgSpecialCiteMessages['kk-latn'] = array(
+$messages['kk-latn'] = array(
 	'cite_article_link' => 'Betten däýeksoz alw',
 	'cite'              => 'Däýeksöz alw',
 	'cite_page'         => 'Bet atawı:',
 	'cite_submit'       => 'Däýeksöz al!',
 );
 
-$wgSpecialCiteMessages['kk-arab'] = array(
+$messages['kk-arab'] = array(
 	'cite_article_link' => 'بەتتەن دٵيەكسوز الۋ',
 	'cite'              => 'دٵيەكسٶز الۋ',
 	'cite_page'         => 'بەت اتاۋى:',
@@ -437,26 +437,26 @@ $wgSpecialCiteMessages['kk-arab'] = array(
 /** Kannada (ಕನ್ನಡ)
  * @author Shushruth
  */
-$wgSpecialCiteMessages['kn'] = array(
+$messages['kn'] = array(
 	'cite_article_link' => 'ಈ ಪುಟವನ್ನು ಉಲ್ಲೇಖಿಸಿ',
 	'cite'              => 'ಉಲ್ಲೇಖಿಸಿ',
 );
 
-$wgSpecialCiteMessages['ksh'] = array(
+$messages['ksh'] = array(
 	'cite_article_link' => 'Di Sigk Zitteere',
 	'cite'              => 'Zittiere',
 	'cite_page'         => 'Sigk:',
 	'cite_submit'       => 'Zittėere',
 );
 
-$wgSpecialCiteMessages['ku'] = array(
+$messages['ku'] = array(
 	'cite_page'         => 'Rûpel:',
 );
 
 /** Latin (Latina)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['la'] = array(
+$messages['la'] = array(
 	'cite_article_link' => 'Hanc paginam citare',
 	'cite'              => 'Paginam citare',
 	'cite_page'         => 'Pagina:',
@@ -467,7 +467,7 @@ $wgSpecialCiteMessages['la'] = array(
  * @author Robby
  * @author Kaffi
  */
-$wgSpecialCiteMessages['lb'] = array(
+$messages['lb'] = array(
 	'cite'        => 'Zitéierhëllef',
 	'cite_page'   => 'Säit:',
 	'cite_submit' => 'weisen',
@@ -476,21 +476,21 @@ $wgSpecialCiteMessages['lb'] = array(
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
  */
-$wgSpecialCiteMessages['li'] = array(
+$messages['li'] = array(
 	'cite_article_link' => 'Citeer dees pazjena',
 	'cite'              => 'Citere',
 	'cite_page'         => 'Pazjena:',
 	'cite_submit'       => 'Citere',
 );
 
-$wgSpecialCiteMessages['lo'] = array(
+$messages['lo'] = array(
 	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',
 	'cite'              => 'ອ້າງອີງ',
 	'cite_page'         => 'ໜ້າ:',
 );
 
 /** Lithuanian (Lietuvių) */
-$wgSpecialCiteMessages['lt'] = array(
+$messages['lt'] = array(
 	'cite_article_link' => 'Cituoti straipsnį',
 	'cite'              => 'Cituoti',
 	'cite_page'         => 'Puslapis:',
@@ -500,7 +500,7 @@ $wgSpecialCiteMessages['lt'] = array(
 /** Latvian (Latviešu)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['lv'] = array(
+$messages['lv'] = array(
 	'cite_article_link' => 'Atsauce uz šo rakstu',
 	'cite'              => 'Citēšana',
 	'cite_page'         => 'Raksts:',
@@ -510,7 +510,7 @@ $wgSpecialCiteMessages['lv'] = array(
 /** Macedonian (Македонски)
  * @author Misos
  */
-$wgSpecialCiteMessages['mk'] = array(
+$messages['mk'] = array(
 	'cite_article_link' => 'Библиографски детали',
 	'cite'              => 'Библиографија',
 	'cite_page'         => 'Страница:',
@@ -518,11 +518,11 @@ $wgSpecialCiteMessages['mk'] = array(
 );
 
 /** Mongolian (Монгол) */
-$wgSpecialCiteMessages['mn'] = array(
+$messages['mn'] = array(
 	'cite_article_link' => 'Энэ бичлэгийг эш татах',
 );
 
-$wgSpecialCiteMessages['nan'] = array(
+$messages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
 	'cite'              => 'Ín-iōng',
 	'cite_page'         => 'Ia̍h:',
@@ -532,7 +532,7 @@ $wgSpecialCiteMessages['nan'] = array(
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
-$wgSpecialCiteMessages['nds'] = array(
+$messages['nds'] = array(
 	'cite_article_link' => 'Disse Siet ziteren',
 	'cite'              => 'Ziteerhelp',
 	'cite_page'         => 'Siet:',
@@ -544,7 +544,7 @@ $wgSpecialCiteMessages['nds'] = array(
  * @author Effeietsanders
  * @author Siebrand
  */
-$wgSpecialCiteMessages['nl'] = array(
+$messages['nl'] = array(
 	'cite_article_link' => 'Deze pagina citeren',
 	'cite'              => 'Citeren',
 	'cite_page'         => 'Pagina:',
@@ -554,7 +554,7 @@ $wgSpecialCiteMessages['nl'] = array(
 /** Norwegian (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
-$wgSpecialCiteMessages['no'] = array(
+$messages['no'] = array(
 	'cite_article_link' => 'Siter denne siden',
 	'cite'              => 'Siter',
 	'cite_page'         => 'Side:',
@@ -564,7 +564,7 @@ $wgSpecialCiteMessages['no'] = array(
 /** Occitan (Occitan)
  * @author Cedric31
  */
-$wgSpecialCiteMessages['oc'] = array(
+$messages['oc'] = array(
 	'cite_article_link' => 'Citar aqueste article',
 	'cite'              => 'Citacion',
 	'cite_page'         => 'Pagina:',
@@ -574,7 +574,7 @@ $wgSpecialCiteMessages['oc'] = array(
 /** Polish (Polski)
  * @author Sp5uhe
  */
-$wgSpecialCiteMessages['pl'] = array(
+$messages['pl'] = array(
 	'cite_article_link' => 'Cytuj ten artykuł',
 	'cite'              => 'Cytowanie',
 	'cite_page'         => 'Strona:',
@@ -584,7 +584,7 @@ $wgSpecialCiteMessages['pl'] = array(
 /** Piemontèis (Piemontèis)
  * @author Bèrto 'd Sèra
  */
-$wgSpecialCiteMessages['pms'] = array(
+$messages['pms'] = array(
 	'cite_article_link' => 'Cita sta vos-sì',
 	'cite'              => 'Citassion',
 	'cite_page'         => 'Pàgina da cité:',
@@ -594,21 +594,21 @@ $wgSpecialCiteMessages['pms'] = array(
 /** Portuguese (Português)
  * @author 555
  */
-$wgSpecialCiteMessages['pt'] = array(
+$messages['pt'] = array(
 	'cite_article_link' => 'Citar esta página',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',
 	'cite_submit'       => 'Citar',
 );
 
-$wgSpecialCiteMessages['rm'] = array(
+$messages['rm'] = array(
 	'cite_page'         => 'Pagina:',
 );
 
 /** Romani (Romani)
  * @author Desiphral
  */
-$wgSpecialCiteMessages['rmy'] = array(
+$messages['rmy'] = array(
 	'cite_article_link' => 'Prinjardo phandipen ko lekh',
 	'cite'              => 'Kana trebul phandipen',
 	'cite_submit'       => 'Ja',
@@ -617,7 +617,7 @@ $wgSpecialCiteMessages['rmy'] = array(
 /** Romanian (Română)
  * @author Emily
  */
-$wgSpecialCiteMessages['ro'] = array(
+$messages['ro'] = array(
 	'cite_article_link' => 'Citează acest articol',
 	'cite'              => 'Citează',
 	'cite_page'         => 'Citează pagina:',
@@ -625,21 +625,21 @@ $wgSpecialCiteMessages['ro'] = array(
 );
 
 /** Armãneashce (Armãneashce) */
-$wgSpecialCiteMessages['roa-rup'] = array(
+$messages['roa-rup'] = array(
 	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
 );
 
 /** Russian (Русский)
  * @author .:Ajvol:.
  */
-$wgSpecialCiteMessages['ru'] = array(
+$messages['ru'] = array(
 	'cite_article_link' => 'Цитировать страницу',
 	'cite'              => 'Цитирование',
 	'cite_page'         => 'Страница:',
 	'cite_submit'       => 'Процитировать',
 );
 
-$wgSpecialCiteMessages['sd'] = array(
+$messages['sd'] = array(
 	'cite'              => 'حواليو',
 );
 
@@ -647,7 +647,7 @@ $wgSpecialCiteMessages['sd'] = array(
  * @author Martin Kozák
  * @author Helix84
  */
-$wgSpecialCiteMessages['sk'] = array(
+$messages['sk'] = array(
 	'cite_article_link' => 'Citovať túto stránku',
 	'cite'              => 'Citovať',
 	'cite_page'         => 'Stránka:',
@@ -657,16 +657,16 @@ $wgSpecialCiteMessages['sk'] = array(
 /** Southern Sami (Åarjelsaemien gïele)
  * @author Max sonnelid
  */
-$wgSpecialCiteMessages['sma'] = array(
+$messages['sma'] = array(
 	'cite_page' => 'Bielie:',
 );
 
 /** Shona (chiShona) */
-$wgSpecialCiteMessages['sn'] = array(
+$messages['sn'] = array(
 	'cite_article_link' => 'Ita cite nyaya iyi',
 );
 
-$wgSpecialCiteMessages['sq'] = array(
+$messages['sq'] = array(
 	'cite_article_link' => 'Cito artikullin',
 	'cite'              => 'Citate',
 	'cite_page'         => 'Faqja:',
@@ -676,7 +676,7 @@ $wgSpecialCiteMessages['sq'] = array(
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */
-$wgSpecialCiteMessages['stq'] = array(
+$messages['stq'] = array(
 	'cite_article_link' => 'Disse Siede zitierje',
 	'cite'              => 'Zitierhälpe',
 	'cite_page'         => 'Siede:',
@@ -686,14 +686,14 @@ $wgSpecialCiteMessages['stq'] = array(
 /** ћирилица (ћирилица)
  * @author Sasa Stefanovic
  */
-$wgSpecialCiteMessages['sr-ec'] = array(
+$messages['sr-ec'] = array(
 	'cite_page' => 'Страница:',
 );
 
 /** Sundanese (Basa Sunda)
  * @author Kandar
  */
-$wgSpecialCiteMessages['su'] = array(
+$messages['su'] = array(
 	'cite_article_link' => 'Cutat artikel ieu',
 	'cite'              => 'Cutat',
 	'cite_page'         => 'Kaca:',
@@ -704,7 +704,7 @@ $wgSpecialCiteMessages['su'] = array(
  * @author Sannab
  * @author Lejonel
  */
-$wgSpecialCiteMessages['sv'] = array(
+$messages['sv'] = array(
 	'cite_article_link' => 'Ange denna sida som källa',
 	'cite'              => 'Ange källa',
 	'cite_page'         => 'Sida:',
@@ -714,7 +714,7 @@ $wgSpecialCiteMessages['sv'] = array(
 /** Säggssch (Säggssch)
  * @author Thogo
  */
-$wgSpecialCiteMessages['sxu'] = array(
+$messages['sxu'] = array(
 	'cite_article_link' => 'Zidier dän ardiggl hier',
 	'cite'              => 'Zidierhilfe',
 	'cite_submit'       => 'Zidierhilfe',
@@ -723,7 +723,7 @@ $wgSpecialCiteMessages['sxu'] = array(
 /** Tetum (Tetun)
  * @author MF-Warburg
  */
-$wgSpecialCiteMessages['tet'] = array(
+$messages['tet'] = array(
 	'cite_article_link' => "Sita pájina ne'e",
 	'cite'              => 'Sita',
 	'cite_page'         => 'Pájina:',
@@ -731,14 +731,14 @@ $wgSpecialCiteMessages['tet'] = array(
 );
 
 /** Tswana (Setswana) */
-$wgSpecialCiteMessages['tn'] = array(
+$messages['tn'] = array(
 	'cite_article_link' => 'Nopola mokwalo o',
 );
 
 /** Tonga (faka-Tonga)
  * @author SPQRobin
  */
-$wgSpecialCiteMessages['to'] = array(
+$messages['to'] = array(
 	'cite_article_link' => 'Lau ki he kupú ni',
 	'cite'              => 'Lau ki he',
 );
@@ -746,13 +746,13 @@ $wgSpecialCiteMessages['to'] = array(
 /** Turkish (Türkçe)
  * @author Uğur Başak
  */
-$wgSpecialCiteMessages['tr'] = array(
+$messages['tr'] = array(
 	'cite_article_link' => 'Sayfayı kaynak göster',
 	'cite'              => 'Kaynak göster',
 	'cite_page'         => 'Sayfa:',
 );
 
-$wgSpecialCiteMessages['ur'] = array(
+$messages['ur'] = array(
 	'cite_article_link' => 'مضمون کا حوالہ دیں',
 	'cite'              => 'حوالہ',
 	'cite_page'         => 'صفحہ:',
@@ -762,58 +762,55 @@ $wgSpecialCiteMessages['ur'] = array(
 /** Volapük (Volapük)
  * @author Malafaya
  */
-$wgSpecialCiteMessages['vo'] = array(
+$messages['vo'] = array(
 	'cite_page' => 'Pad:',
 );
 
-$wgSpecialCiteMessages['wa'] = array(
+$messages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );
 
-$wgSpecialCiteMessages['wuu'] = array(
+$messages['wuu'] = array(
 	'cite_article_link' => '引用该篇文章',
 	'cite'              => '引用',
 	'cite_page'         => '页面:',
 	'cite_submit'       => '引用',
 );
 
-$wgSpecialCiteMessages['yue'] = array(
+$messages['yue'] = array(
 	'cite_article_link' => '引用呢篇文',
 	'cite'              => '引用文章',
 	'cite_page'         => '版：',
 	'cite_submit'       => '引用',
 );
 
-$wgSpecialCiteMessages['zh-classical'] = array(
+$messages['zh-classical'] = array(
 	'cite_article_link' => '引文',
 	'cite'              => '引文',
 );
 
-$wgSpecialCiteMessages['zh-hans'] = array(
+$messages['zh-hans'] = array(
 	'cite_article_link' => '引用此文',
 	'cite'              => '引用文章',
 	'cite_page'         => '页面：',
 	'cite_submit'       => '引用',
 );
 
-$wgSpecialCiteMessages['zh-hant'] = array(
+$messages['zh-hant'] = array(
 	'cite_article_link' => '引用此文',
 	'cite'              => '引用文章',
 	'cite_page'         => '頁面：',
 	'cite_submit'       => '引用',
 );
 
-# Fallback Kazakh
-$wgSpecialCiteMessages['kk-kz'] = $wgSpecialCiteMessages['kk-cyrl'];
-$wgSpecialCiteMessages['kk-tr'] = $wgSpecialCiteMessages['kk-latn'];
-$wgSpecialCiteMessages['kk-cn'] = $wgSpecialCiteMessages['kk-arab'];
-$wgSpecialCiteMessages['kk'] = $wgSpecialCiteMessages['kk-cyrl'];
-
-# Fallback Chinese
-$wgSpecialCiteMessages['zh'] = $wgSpecialCiteMessages['zh-hans'];
-$wgSpecialCiteMessages['zh-cn'] = $wgSpecialCiteMessages['zh-hans'];
-$wgSpecialCiteMessages['zh-hk'] = $wgSpecialCiteMessages['zh-hant'];
-$wgSpecialCiteMessages['zh-min-nan'] = $wgSpecialCiteMessages['nan'];
-$wgSpecialCiteMessages['zh-sg'] = $wgSpecialCiteMessages['zh-hans'];
-$wgSpecialCiteMessages['zh-tw'] = $wgSpecialCiteMessages['zh-hant'];
-$wgSpecialCiteMessages['zh-yue'] = $wgSpecialCiteMessages['yue'];
+$messages['kk'] = $messages['kk-cyrl'];
+$messages['kk-cn'] = $messages['kk-arab'];
+$messages['kk-kz'] = $messages['kk-cyrl'];
+$messages['kk-tr'] = $messages['kk-latn'];
+$messages['zh'] = $messages['zh-hans'];
+$messages['zh-cn'] = $messages['zh-hans'];
+$messages['zh-hk'] = $messages['zh-hant'];
+$messages['zh-min-nan'] = $messages['nan'];
+$messages['zh-sg'] = $messages['zh-hans'];
+$messages['zh-tw'] = $messages['zh-hant'];
+$messages['zh-yue'] = $messages['yue'];

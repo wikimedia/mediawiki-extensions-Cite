@@ -16,13 +16,14 @@ if (!defined('MEDIAWIKI')) die();
 $wgExtensionFunctions[] = 'wfSpecialCite';
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Cite',
+	'version' => '2008-01-09',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
 );
 
 # Internationalisation file
-require_once( dirname(__FILE__) . '/SpecialCite.i18n.php' );
+$wgExtensionMessagesFiles['SpecialCite'] = dirname( __FILE__ ) . "/SpecialCite.i18n.php";
 
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';
 $wgHooks['MonoBookTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';
@@ -33,11 +34,7 @@ if ( !function_exists( 'extAddSpecialPage' ) ) {
 extAddSpecialPage( dirname(__FILE__) . '/SpecialCite_body.php', 'Cite', 'SpecialCite' );
 
 function wfSpecialCite() {
-	# Add messages
-	global $wgMessageCache, $wgSpecialCiteMessages;
-	foreach( $wgSpecialCiteMessages as $key => $value ) {
-		$wgMessageCache->addMessages( $wgSpecialCiteMessages[$key], $key );
-	}
+	wfLoadExtensionMessages( 'SpecialCite' );
 }
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
@@ -46,7 +43,7 @@ function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 			'text' => wfMsg( 'cite_article_link' ),
 			'href' => $skintemplate->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid" )
 		);
-	
+
 	return true;
 }
 
@@ -61,9 +58,6 @@ function wfSpecialCiteToolbox( &$monobook ) {
 				?></a><?php
 			?></li><?php
 		}
-	
+
 	return true;
 }
-
-
-

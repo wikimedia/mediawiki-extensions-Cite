@@ -112,7 +112,6 @@ function wfCite() {
 		 */
 		function Cite() {
 			$this->setHooks();
-			wfLoadExtensionMessages( 'Cite' );
 		}
 
 		/**#@+ @access private */
@@ -125,6 +124,7 @@ function wfCite() {
 		 * @return string
 		 */
 		function ref( $str, $argv, $parser ) {
+			wfLoadExtensionMessages( 'Cite' );
 			if ( $this->mInCite ) {
 				return htmlspecialchars( "<ref>$str</ref>" );
 			} else {
@@ -284,6 +284,7 @@ function wfCite() {
 		 * @return string
 		 */
 		function references( $str, $argv, $parser ) {
+			wfLoadExtensionMessages( 'Cite' );
 			if ( $this->mInCite ) {
 				if ( is_null( $str ) ) {
 					return htmlspecialchars( "<references/>" );

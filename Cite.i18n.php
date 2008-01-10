@@ -247,6 +247,7 @@ $messages['frp'] = array(
 
 /** Galician (Galego)
  * @author Alma
+ * @author Xosé
  */
 $messages['gl'] = array(
 	'cite_error'                               => 'Citar erro: $1',
@@ -257,7 +258,7 @@ $messages['gl'] = array(
 	'cite_error_references_invalid_input'      => 'Etiqueta <code>&lt;references&gt;</code> non válida; non se permite esa entrada, use
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> non válida; non están permitidos esos parámetros, use <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_text'            => 'Ningún texto foi dado.',
+	'cite_error_references_no_text'            => 'Etiqueta non válida <code>&lt;ref&gt;</code>; non se forneceu texto para as refs de nome <code>$1</code>',
 );
 
 /** Gujarati (ગુજરાતી) */

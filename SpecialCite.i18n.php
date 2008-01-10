@@ -301,7 +301,7 @@ $messages['ga'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'cite_article_link' => 'Citar este artigo',
+	'cite_article_link' => 'Citar esta páxina',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Páxina:',
 	'cite_submit'       => 'Citar',
@@ -413,6 +413,13 @@ $messages['ka'] = array(
 	'cite_article_link' => 'ამ გვერდის ციტირება',
 );
 
+$messages['kk-arab'] = array(
+	'cite_article_link' => 'بەتتەن دٵيەكسوز الۋ',
+	'cite'              => 'دٵيەكسٶز الۋ',
+	'cite_page'         => 'بەت اتاۋى:',
+	'cite_submit'       => 'دٵيەكسٶز ال!',
+);
+
 $messages['kk-cyrl'] = array(
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite'              => 'Дәйексөз алу',
@@ -425,13 +432,6 @@ $messages['kk-latn'] = array(
 	'cite'              => 'Däýeksöz alw',
 	'cite_page'         => 'Bet atawı:',
 	'cite_submit'       => 'Däýeksöz al!',
-);
-
-$messages['kk-arab'] = array(
-	'cite_article_link' => 'بەتتەن دٵيەكسوز الۋ',
-	'cite'              => 'دٵيەكسٶز الۋ',
-	'cite_page'         => 'بەت اتاۋى:',
-	'cite_submit'       => 'دٵيەكسٶز ال!',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -468,9 +468,10 @@ $messages['la'] = array(
  * @author Kaffi
  */
 $messages['lb'] = array(
-	'cite'        => 'Zitéierhëllef',
-	'cite_page'   => 'Säit:',
-	'cite_submit' => 'weisen',
+	'cite_article_link' => 'Dës Säit zitéieren',
+	'cite'              => 'Zitéierhëllef',
+	'cite_page'         => 'Säit:',
+	'cite_submit'       => 'weisen',
 );
 
 /** Limburgish (Limburgs)
@@ -673,6 +674,13 @@ $messages['sq'] = array(
 	'cite_submit'       => 'Citoje',
 );
 
+/** ћирилица (ћирилица)
+ * @author Sasa Stefanovic
+ */
+$messages['sr-ec'] = array(
+	'cite_page' => 'Страница:',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */
@@ -681,13 +689,6 @@ $messages['stq'] = array(
 	'cite'              => 'Zitierhälpe',
 	'cite_page'         => 'Siede:',
 	'cite_submit'       => 'anwiese',
-);
-
-/** ћирилица (ћирилица)
- * @author Sasa Stefanovic
- */
-$messages['sr-ec'] = array(
-	'cite_page' => 'Страница:',
 );
 
 /** Sundanese (Basa Sunda)
@@ -709,15 +710,6 @@ $messages['sv'] = array(
 	'cite'              => 'Ange källa',
 	'cite_page'         => 'Sida:',
 	'cite_submit'       => 'Ange som källa',
-);
-
-/** Säggssch (Säggssch)
- * @author Thogo
- */
-$messages['sxu'] = array(
-	'cite_article_link' => 'Zidier dän ardiggl hier',
-	'cite'              => 'Zidierhilfe',
-	'cite_submit'       => 'Zidierhilfe',
 );
 
 /** Tetum (Tetun)

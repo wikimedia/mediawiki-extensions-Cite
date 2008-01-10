@@ -591,6 +591,13 @@ $messages['sv'] = array(
 	'cite_error_references_no_text'            => 'Ogiltig <code>&lt;ref&gt;</code>-tag; ingen text har angivits för referensen med namnet <code>$1</code>',
 );
 
+/** Turkish (Türkçe)
+ * @author SPQRobin
+ */
+$messages['tr'] = array(
+	'cite_error' => 'Kaynak hatası $1',
+);
+
 /** Kantonese (粵語) */
 $messages['yue'] = array(
 	'cite_croak'                               => '引用阻塞咗; $1: $2',

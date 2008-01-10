@@ -386,6 +386,7 @@ $messages['is'] = array(
 	'cite_article_link' => 'Vitna í þessa grein',
 	'cite'              => 'Vitna í síðu',
 	'cite_page'         => 'Síða:',
+	'cite_submit'       => 'Áfrám',
 );
 
 /** Italian (Italiano)

@@ -29,8 +29,6 @@ $wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
 $wgExtensionMessagesFiles['Cite'] = dirname( __FILE__ ) . "/Cite.i18n.php";
 
 function wfCite() {
-	wfLoadExtensionMessages( 'Cite' );
-
 	class Cite {
 		/**#@+
 		 * @access private
@@ -114,6 +112,7 @@ function wfCite() {
 		 */
 		function Cite() {
 			$this->setHooks();
+			wfLoadExtensionMessages( 'Cite' );
 		}
 
 		/**#@+ @access private */

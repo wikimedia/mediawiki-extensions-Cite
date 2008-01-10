@@ -13,7 +13,6 @@ if (!defined('MEDIAWIKI')) die();
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
-$wgExtensionFunctions[] = 'wfSpecialCite';
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Cite',
 	'version' => '2008-01-09',
@@ -33,11 +32,8 @@ if ( !function_exists( 'extAddSpecialPage' ) ) {
 }
 extAddSpecialPage( dirname(__FILE__) . '/SpecialCite_body.php', 'Cite', 'SpecialCite' );
 
-function wfSpecialCite() {
-	wfLoadExtensionMessages( 'SpecialCite' );
-}
-
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
+	wfLoadExtensionMessages( 'SpecialCite' );
 	if ( $skintemplate->mTitle->isContentPage() && $revid !== 0 )
 		$nav_urls['cite'] = array(
 			'text' => wfMsg( 'cite_article_link' ),
@@ -48,6 +44,7 @@ function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 }
 
 function wfSpecialCiteToolbox( &$monobook ) {
+	wfLoadExtensionMessages( 'SpecialCite' );
 	if ( isset( $monobook->data['nav_urls']['cite'] ) )
 		if ( $monobook->data['nav_urls']['cite']['href'] == '' ) {
 			?><li id="t-iscite"><?php echo $monobook->msg( 'cite_article_link' ); ?></li><?php

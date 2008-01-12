@@ -501,6 +501,13 @@ $messages['no'] = array(
 	'cite_error_references_no_text'            => 'Ingen tekst oppgitt.',
 );
 
+/** Pangasinan (Pangasinan)
+ * @author SPQRobin
+ */
+$messages['pag'] = array(
+	'cite_error' => 'Bitlaen so error $1; $2',
+);
+
 /** Portuguese (Português)
  * @author 555
  */

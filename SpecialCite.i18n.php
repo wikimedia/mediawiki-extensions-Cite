@@ -415,10 +415,10 @@ $messages['ka'] = array(
 );
 
 $messages['kk-arab'] = array(
-	'cite_article_link' => 'بەتتەن دٵيەكسوز الۋ',
-	'cite'              => 'دٵيەكسٶز الۋ',
+	'cite_article_link' => 'بەتتەن دايەكسوز الۋ',
+	'cite'              => 'دايەكسوز الۋ',
 	'cite_page'         => 'بەت اتاۋى:',
-	'cite_submit'       => 'دٵيەكسٶز ال!',
+	'cite_submit'       => 'دايەكسوز ال!',
 );
 
 $messages['kk-cyrl'] = array(
@@ -433,13 +433,6 @@ $messages['kk-latn'] = array(
 	'cite'              => 'Däýeksöz alw',
 	'cite_page'         => 'Bet atawı:',
 	'cite_submit'       => 'Däýeksöz al!',
-);
-
-$messages['kk-arab'] = array(
-	'cite_article_link' => 'بەتتەن دايەكسوز الۋ',
-	'cite'              => 'دايەكسوز الۋ',
-	'cite_page'         => 'بەت اتاۋى:',
-	'cite_submit'       => 'دايەكسوز ال!',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -578,6 +571,16 @@ $messages['oc'] = array(
 	'cite'              => 'Citacion',
 	'cite_page'         => 'Pagina:',
 	'cite_submit'       => 'Citar',
+);
+
+/** Pangasinan (Pangasinan)
+ * @author SPQRobin
+ */
+$messages['pag'] = array(
+	'cite_article_link' => 'Bitlaen yan article',
+	'cite'              => 'Bitlaen',
+	'cite_page'         => 'Bolong:',
+	'cite_submit'       => 'Bitlaen',
 );
 
 /** Polish (Polski)
@@ -761,9 +764,11 @@ $messages['ur'] = array(
 
 /** Volapük (Volapük)
  * @author Malafaya
+ * @author Smeira
  */
 $messages['vo'] = array(
-	'cite_page' => 'Pad:',
+	'cite_article_link' => 'Saitön padi at',
+	'cite_page'         => 'Pad:',
 );
 
 $messages['wa'] = array(

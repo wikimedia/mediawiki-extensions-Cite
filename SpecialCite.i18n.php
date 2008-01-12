@@ -435,6 +435,13 @@ $messages['kk-latn'] = array(
 	'cite_submit'       => 'Däýeksöz al!',
 );
 
+$messages['kk-arab'] = array(
+	'cite_article_link' => 'بەتتەن دايەكسوز الۋ',
+	'cite'              => 'دايەكسوز الۋ',
+	'cite_page'         => 'بەت اتاۋى:',
+	'cite_submit'       => 'دايەكسوز ال!',
+);
+
 /** Kannada (ಕನ್ನಡ)
  * @author Shushruth
  */

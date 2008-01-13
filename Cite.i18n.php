@@ -449,6 +449,22 @@ $messages['li'] = array(
 	'cite_error'                     => 'Citeerfout: $1',
 );
 
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'cite_croak'                               => 'Perbleem mit Citere; $1: $2',
+	'cite_error_key_str_invalid'               => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
+	'cite_error_stack_invalid_input'           => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
+	'cite_error'                               => 'Citeerfout: $1',
+	'cite_error_ref_numeric_key'               => "Ónzjuuste tag <code>&lt;ref&gt;</code>; de naam kin gein simpele integer zeen, gebroek 'ne besjrievendje titel",
+	'cite_error_ref_no_key'                    => "Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger inhoud mótte 'ne naam höbbe",
+	'cite_error_ref_too_many_keys'             => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; ónzjuuste name, beveurbeildj te väöl',
+	'cite_error_ref_no_input'                  => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger naam mótte inhoud höbbe',
+	'cite_error_references_invalid_input'      => 'Ónzjuuste tag <code>&lt;references&gt;</code>; inveur is neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Ónzjuuste tag <code>&lt;references&gt;</code>; paramaeters zeen neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
+);
+
 
 /** Lietuvių (Lietuvių) */
 $messages['lt'] = array(

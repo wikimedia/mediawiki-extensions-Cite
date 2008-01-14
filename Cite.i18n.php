@@ -1,6 +1,6 @@
 <?php
 /**
- * Internationalisation file for Cite extension.
+ * Internationalisation file for Ci;te extension.
  *
  * @addtogroup Extensions
 */
@@ -169,14 +169,14 @@ $messages['de'] = array(
 	'cite_error_key_str_invalid'               => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
 	'cite_error_stack_invalid_input'           => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',
 	'cite_error'                               => 'Referenz-Fehler $1',
-	'cite_error_ref_numeric_key'               => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
-	'cite_error_ref_no_key'                    => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',
-	'cite_error_ref_too_many_keys'             => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „name“ ist ungültig oder zu lang.',
-	'cite_error_ref_no_input'                  => 'Ungültige <code><nowiki><ref></nowiki></code>-Verwendung: „ref“ ohne Namen muss einen Inhalt haben.',
-	'cite_error_references_invalid_input'      => 'Ungültige <code><nowiki><references></nowiki></code>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwende ausschließlich <code><nowiki><references /></nowiki></code>.',
-	'cite_error_references_invalid_parameters' => 'Ungültige <code><nowiki><reference></nowiki></code>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschließlich <code><nowiki><reference /></nowiki></code>.',
-	'cite_error_references_no_backlink_label'  => 'Eine Referenz der Form <code><nowiki><ref name="…"/></nowiki></code> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
-	'cite_error_references_no_text'            => 'Eine Referenz der Form <code><nowiki><ref name="…"/></nowiki></code> wird verwendet, ohne definiert worden zu sein.',
+	'cite_error_ref_numeric_key'               => 'Ungültige <code>&lt;ref&gt;</code>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
+	'cite_error_ref_no_key'                    => 'Ungültige <code>&lt;ref&gt;</code>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',
+	'cite_error_ref_too_many_keys'             => 'Ungültige <code>&lt;ref&gt;</code>-Verwendung: „name“ ist ungültig oder zu lang.',
+	'cite_error_ref_no_input'                  => 'Ungültige <code>&lt;ref&gt;</code>-Verwendung: „ref“ ohne Namen muss einen Inhalt haben.',
+	'cite_error_references_invalid_input'      => 'Ungültige <code>&lt;references&gt;</code>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwende ausschließlich <code><nowiki><references /></nowiki></code>.',
+	'cite_error_references_invalid_parameters' => 'Ungültige <code>&lt;reference&gt;</code>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschließlich <code><nowiki><reference /></nowiki></code>.',
+	'cite_error_references_no_backlink_label'  => 'Eine Referenz der Form <code>&lt;ref name="…"/&gt;</code> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
+	'cite_error_references_no_text'            => 'Ungültiger <code>&lt;ref&gt;</code>>-Tag; es wurde kein Text für das Ref mit dem Namen <code>$1</code> angegeben.',
 );
 
 /** Greek (Ελληνικά)

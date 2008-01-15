@@ -808,6 +808,8 @@ $messages['zh-hant'] = array(
 	'cite_submit'       => '引用',
 );
 
+# Fallbacks:
+$messages['de-formal'] = $messages['de'];
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];
 $messages['kk-kz'] = $messages['kk-cyrl'];

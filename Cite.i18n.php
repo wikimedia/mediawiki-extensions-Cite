@@ -463,6 +463,8 @@ $messages['li'] = array(
 	'cite_error_ref_no_input'                  => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger naam mótte inhoud höbbe',
 	'cite_error_references_invalid_input'      => 'Ónzjuuste tag <code>&lt;references&gt;</code>; inveur is neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ónzjuuste tag <code>&lt;references&gt;</code>; paramaeters zeen neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "'t Aantal besjikbare backlinklabels is opgebroek. Gaef meer labels op in 't berich \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => "Ónzjuuste tag <code>&lt;ref&gt;</code>; d'r is gein teks opgegaeve veur refs mit de naam <code>$1</code>",
 );
 
 
@@ -667,7 +669,6 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_backlink_label'  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
 );
 
-# Fallbacks:
 $messages['de-formal'] = $messages['de'];
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];

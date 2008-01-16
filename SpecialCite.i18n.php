@@ -524,6 +524,13 @@ $messages['mn'] = array(
 	'cite_article_link' => 'Энэ бичлэгийг эш татах',
 );
 
+/** Erzya (эрзянь кель)
+ * @author Amdf
+ */
+$messages['myv'] = array(
+	'cite_page' => 'Лопа:',
+);
+
 $messages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
 	'cite'              => 'Ín-iōng',
@@ -808,7 +815,6 @@ $messages['zh-hant'] = array(
 	'cite_submit'       => '引用',
 );
 
-# Fallbacks:
 $messages['de-formal'] = $messages['de'];
 $messages['kk'] = $messages['kk-cyrl'];
 $messages['kk-cn'] = $messages['kk-arab'];

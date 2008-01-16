@@ -519,6 +519,24 @@ $messages['no'] = array(
 	'cite_error_references_no_text'            => 'Ingen tekst oppgitt.',
 );
 
+/** Occitan (Occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'cite_croak'                               => 'Citacion corrompuda ; $1 : $2',
+	'cite_error_key_str_invalid'               => 'Error intèrna ; $str esperada',
+	'cite_error_stack_invalid_input'           => 'Error intèrna ; clau de pila invalida',
+	'cite_error'                               => 'Error de citacion $1',
+	'cite_error_ref_numeric_key'               => 'Apèl invalid ; clau non-integrala esperada',
+	'cite_error_ref_no_key'                    => 'Apèl invalid ; cap de clau pas especificada',
+	'cite_error_ref_too_many_keys'             => 'Apèl invalid ; claus invalidas, per exemple, tròp de claus especificadas o clau erronèa',
+	'cite_error_ref_no_input'                  => 'Apèl invalid ; cap de dintrada pas especificada',
+	'cite_error_references_invalid_input'      => 'Entrada invalida ; entrada esperada',
+	'cite_error_references_invalid_parameters' => 'Arguments invalids ; argument esperat',
+	'cite_error_references_no_backlink_label'  => 'Execucion en defòra de las etiquetas personalizadas, definissetz mai dins lo messatge « cite_references_link_many_format_backlink_labels »',
+	'cite_error_references_no_text'            => 'Cap de tèxt pas indicat.',
+);
+
 /** Pangasinan (Pangasinan)
  * @author SPQRobin
  */
@@ -604,8 +622,10 @@ $messages['stq'] = array(
 
 /** Swedish (Svenska)
  * @author Lejonel
+ * @author Max sonnelid
  */
 $messages['sv'] = array(
+	'cite_croak'                               => 'Citering krockad; $1: $2',
 	'cite_error'                               => 'Referensfel: $1',
 	'cite_error_ref_numeric_key'               => "Ogiltig <code>&lt;ref&gt;</code>-tag; parametern 'name' kan inte vara ett tal, använd ett beskrivande namn",
 	'cite_error_ref_no_key'                    => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan innehåll måste ha ett namn',

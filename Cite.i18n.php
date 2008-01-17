@@ -121,10 +121,10 @@ $messages['bg'] = array(
 );
 
 /** Catalan (Català)
- * @author Juanpabl
+ * @author SMP
  */
 $messages['ca'] = array(
-	'cite_croak' => 'Zita corrompita; $1: $2',
+	'cite_croak' => 'Cita corrompuda; $1: $2',
 );
 
 /** Czech (Česky)
@@ -622,10 +622,11 @@ $messages['stq'] = array(
 
 /** Swedish (Svenska)
  * @author Lejonel
- * @author Max sonnelid
  */
 $messages['sv'] = array(
-	'cite_croak'                               => 'Citering krockad; $1: $2',
+	'cite_croak'                               => 'Fel i fotnotssystemet; $1: $2',
+	'cite_error_key_str_invalid'               => 'Internt fel; $str eller $key är ogiltiga.  Det här borde aldrig hända.',
+	'cite_error_stack_invalid_input'           => 'Internt fel; ogiltig nyckel i stacken.  Det här borde aldrig hända.',
 	'cite_error'                               => 'Referensfel: $1',
 	'cite_error_ref_numeric_key'               => "Ogiltig <code>&lt;ref&gt;</code>-tag; parametern 'name' kan inte vara ett tal, använd ett beskrivande namn",
 	'cite_error_ref_no_key'                    => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan innehåll måste ha ett namn',

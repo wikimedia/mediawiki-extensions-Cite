@@ -645,6 +645,13 @@ $messages['tr'] = array(
 	'cite_error' => 'Kaynak hatası $1',
 );
 
+/** Volapük (Volapük)
+ * @author Smeira
+ */
+$messages['vo'] = array(
+	'cite_error_key_str_invalid' => 'Pöl ninik: $str e/u $key no lonöföl(s). Atos no sötonöv jenön.',
+);
+
 /** Kantonese (粵語) */
 $messages['yue'] = array(
 	'cite_croak'                               => '引用阻塞咗; $1: $2',

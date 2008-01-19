@@ -491,9 +491,11 @@ $messages['lo'] = array(
 	'cite_page'         => 'ໜ້າ:',
 );
 
-/** Lithuanian (Lietuvių) */
+/** Lithuanian (Lietuvių)
+ * @author Garas
+ */
 $messages['lt'] = array(
-	'cite_article_link' => 'Cituoti straipsnį',
+	'cite_article_link' => 'Cituoti šį puslapį',
 	'cite'              => 'Cituoti',
 	'cite_page'         => 'Puslapis:',
 	'cite_submit'       => 'Cituoti',

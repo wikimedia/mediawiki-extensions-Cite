@@ -620,6 +620,16 @@ $messages['pt'] = array(
 	'cite_submit'       => 'Citar',
 );
 
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'cite_article_link' => 'Kay qillqamanta willay',
+	'cite'              => 'Qillqamanta willay',
+	'cite_page'         => "P'anqa:",
+	'cite_submit'       => 'Qillqamanta willay',
+);
+
 $messages['rm'] = array(
 	'cite_page'         => 'Pagina:',
 );

@@ -750,6 +750,13 @@ $messages['sv'] = array(
 	'cite_submit'       => 'Ange som källa',
 );
 
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'cite_page' => 'పేజీ:',
+);
+
 /** Tetum (Tetun)
  * @author MF-Warburg
  */

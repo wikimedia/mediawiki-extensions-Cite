@@ -242,7 +242,7 @@ $messages['frp'] = array(
 	'cite_error_references_invalid_input'      => 'Entrâ envalida ; entrâ atendua.',
 	'cite_error_references_invalid_parameters' => 'Arguments envalidos ; argument atendu.',
 	'cite_error_references_no_backlink_label'  => 'Ègzécucion en defôr de les ètiquètes pèrsonalisâs, dèfenésséd de ples dens lo mèssâjo « cite_references_link_many_format_backlink_labels ».',
-	'cite_error_references_no_text'            => 'Nion tèxte endicâ por les rèferences siuventes : <code>$1</code>',
+	'cite_error_references_no_text'            => 'Nion tèxte endicâ por les refèrences siuventes : <code>$1</code>',
 );
 
 /** Galician (Galego)
@@ -438,15 +438,8 @@ $messages['kk-latn'] = array(
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
-$messages['lb'] = array();
-/** Limburgish (Limburgs)
- * @author Ooswesthoesbes
- */
-$messages['li'] = array(
-	'cite_croak'                     => 'Perbleem mit Citere; $1: $2',
-	'cite_error_key_str_invalid'     => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
-	'cite_error_stack_invalid_input' => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
-	'cite_error'                     => 'Citeerfout: $1',
+$messages['lb'] = array(
+	'cite_error' => 'Zitéierfeeler: $1',
 );
 
 /** Limburgish (Limburgs)

@@ -485,6 +485,14 @@ $messages['li'] = array(
 	'cite_submit'       => 'Citere',
 );
 
+/** Lumbaart (Lumbaart)
+ * @author SPQRobin
+ */
+$messages['lmo'] = array(
+	'cite_article_link' => 'Cita questa vus',
+	'cite'              => 'Cita una vus',
+);
+
 $messages['lo'] = array(
 	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',
 	'cite'              => 'ອ້າງອີງ',

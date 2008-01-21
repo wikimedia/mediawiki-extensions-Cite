@@ -179,6 +179,16 @@ $messages['de'] = array(
 	'cite_error_references_no_text'            => 'Ungültiger <code>&lt;ref&gt;</code>>-Tag; es wurde kein Text für das Ref mit dem Namen <code>$1</code> angegeben.',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'cite_croak'                     => 'Zmólka w referencnem systemje. $1: $2',
+	'cite_error_key_str_invalid'     => 'Interna zmólka: njpłaśiwy $str a/abo $key. To njaměło se staś.',
+	'cite_error_stack_invalid_input' => 'Interna zmólka: njepłaśiwy stackowy kluc. To njaměło se staś.',
+	'cite_error'                     => 'Referencna zmólka: $1',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */

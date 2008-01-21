@@ -174,6 +174,16 @@ $messages['diq'] = array(
 	'cite'              => 'Çıme bımocne',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'cite_article_link' => 'Toś ten bok citěrowaś',
+	'cite'              => 'Citěrowanska pomoc',
+	'cite_page'         => 'Bok:',
+	'cite_submit'       => 'pokazaś',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */

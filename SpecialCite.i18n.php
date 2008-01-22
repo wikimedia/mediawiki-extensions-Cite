@@ -89,6 +89,13 @@ $messages['bg'] = array(
 	'cite_submit'       => 'Цитиране',
 );
 
+/** Bengali (বাংলা)
+ * @author Bellayet
+ */
+$messages['bn'] = array(
+	'cite_page' => 'পাতা:',
+);
+
 $messages['bpy'] = array(
 	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite'                  => 'উদ্ধৃত করেদে',
@@ -628,6 +635,14 @@ $messages['pms'] = array(
 	'cite'              => 'Citassion',
 	'cite_page'         => 'Pàgina da cité:',
 	'cite_submit'       => 'Pronta la citassion',
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'cite_article_link' => 'د همدې ليکنې درک',
+	'cite'              => 'درک',
 );
 
 /** Portuguese (Português)

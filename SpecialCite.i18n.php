@@ -806,6 +806,16 @@ $messages['ur'] = array(
 	'cite_submit'       => 'Cite',
 );
 
+/** Vietnamese (Tiếng Việt)
+ * @author Vinhtantran
+ */
+$messages['vi'] = array(
+	'cite_article_link' => 'Chú thích trang này',
+	'cite'              => 'Chú thích',
+	'cite_page'         => 'Trang:',
+	'cite_submit'       => 'Chú thích',
+);
+
 /** Volapük (Volapük)
  * @author Malafaya
  * @author Smeira

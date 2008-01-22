@@ -648,6 +648,24 @@ $messages['tr'] = array(
 	'cite_error' => 'Kaynak hatası $1',
 );
 
+/** Vietnamese (Tiếng Việt)
+ * @author Vinhtantran
+ */
+$messages['vi'] = array(
+	'cite_croak'                               => 'Chú thích bị hỏng; $1: $2',
+	'cite_error_key_str_invalid'               => 'Lỗi nội bộ; $str và/hoặc $key sai.  Đáng ra không bao giờ xảy ra điều này.',
+	'cite_error_stack_invalid_input'           => 'Lỗi nội bộ; khóa xác định chồng bị sai.  Đáng ra không bao giờ xảy ra điều này.',
+	'cite_error'                               => 'Lỗi chú thích: $1',
+	'cite_error_ref_numeric_key'               => 'Thẻ <code>&lt;ref&gt;</code> sai; tên không thể chỉ là số nguyên, hãy dùng tựa đề có tính miêu tả',
+	'cite_error_ref_no_key'                    => 'Thẻ <code>&lt;ref&gt;</code> sai; thẻ ref không có nội dung thì phải có tên',
+	'cite_error_ref_too_many_keys'             => 'Thẻ <code>&lt;ref&gt;</code> sai; thông số tên sai, như, nhiều thông số tên quá',
+	'cite_error_ref_no_input'                  => 'Mã <code>&lt;ref&gt;</code> sai; thẻ ref không có tên thì phải có nội dung',
+	'cite_error_references_invalid_input'      => 'Thẻ <code>&lt;references&gt;</code> sai; không được phép nhập nội dung cho thẻ, hãy dùng <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Thẻ <code>&lt;references&gt;</code> sai; không được có thông số, hãy dùng <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "Đã dùng hết nhãn tham khảo chung, hãy định nghĩa nhiều hơn ở thông báo \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
+);
+
 /** Volapük (Volapük)
  * @author Smeira
  */

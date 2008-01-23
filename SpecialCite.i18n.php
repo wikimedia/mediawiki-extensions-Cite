@@ -93,7 +93,10 @@ $messages['bg'] = array(
  * @author Bellayet
  */
 $messages['bn'] = array(
-	'cite_page' => 'পাতা:',
+	'cite_article_link' => 'এ পাতাটি উদ্ধৃত করো',
+	'cite'              => 'উদ্ধৃত',
+	'cite_page'         => 'পাতা:',
+	'cite_submit'       => 'উদ্ধৃত করো',
 );
 
 $messages['bpy'] = array(

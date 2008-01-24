@@ -205,9 +205,10 @@ $messages['el'] = array(
 
 /** Esperanto (Esperanto)
  * @author Tlustulimu
+ * @author Yekrats
  */
 $messages['eo'] = array(
-	'cite_article_link' => 'Citu ĉi tiun artikolon',
+	'cite_article_link' => 'Citu ĉi tiun pagxon',
 	'cite'              => 'Citado',
 	'cite_page'         => 'Paĝo:',
 	'cite_submit'       => 'Citu',

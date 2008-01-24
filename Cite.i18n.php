@@ -175,7 +175,9 @@ $messages['da'] = array(
 	'cite_error_references_no_text'            => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Raimond Spekking
+ */
 $messages['de'] = array(
 	'cite_croak'                               => 'Fehler im Referenz-System. $1: $2',
 	'cite_error_key_str_invalid'               => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
@@ -188,7 +190,7 @@ $messages['de'] = array(
 	'cite_error_references_invalid_input'      => 'Ungültige <code>&lt;references&gt;</code>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwende ausschließlich <code><nowiki><references /></nowiki></code>.',
 	'cite_error_references_invalid_parameters' => 'Ungültige <code>&lt;reference&gt;</code>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschließlich <code><nowiki><reference /></nowiki></code>.',
 	'cite_error_references_no_backlink_label'  => 'Eine Referenz der Form <code>&lt;ref name="…"/&gt;</code> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
-	'cite_error_references_no_text'            => 'Ungültiger <code>&lt;ref&gt;</code>>-Tag; es wurde kein Text für das Ref mit dem Namen <code>$1</code> angegeben.',
+	'cite_error_references_no_text'            => 'Ungültiger <code>&lt;ref&gt;</code>-Tag; es wurde kein Text für das Ref mit dem Namen <code>$1</code> angegeben.',
 );
 
 /** Lower Sorbian (Dolnoserbski)

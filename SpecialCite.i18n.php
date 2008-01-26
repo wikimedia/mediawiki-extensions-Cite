@@ -780,10 +780,13 @@ $messages['sv'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Mpradeep
  * @author Veeven
  */
 $messages['te'] = array(
-	'cite_page' => 'పేజీ:',
+	'cite_article_link' => 'ఈ వ్యాసాన్ని ఉదహరించండి',
+	'cite'              => 'ఉదహరించు',
+	'cite_page'         => 'పేజీ:',
 );
 
 /** Tetum (Tetun)

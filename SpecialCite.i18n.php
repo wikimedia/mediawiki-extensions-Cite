@@ -707,6 +707,15 @@ $messages['ru'] = array(
 	'cite_submit'       => 'Процитировать',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'cite_article_link' => 'Сирэйи цитируйдааһын',
+	'cite'              => 'Цитата',
+	'cite_page'         => 'Сирэй:',
+);
+
 $messages['sd'] = array(
 	'cite'              => 'حواليو',
 );

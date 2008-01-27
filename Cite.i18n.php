@@ -599,6 +599,17 @@ $messages['ru'] = array(
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'cite_error_key_str_invalid'              => 'Иһинээҕи сыыһа: $str уонна/эбэтэр $key сыыһалар.',
+	'cite_error_stack_invalid_input'          => 'Иһинээҕи сыыһа: stack key сыыһалаах',
+	'cite_error'                              => 'Цитата сыыһата: $1',
+	'cite_error_ref_numeric_key'              => 'Неправильный вызов: ожидался нечисловой ключ',
+	'cite_error_references_no_backlink_label' => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную «cite_references_link_many_format_backlink_labels».',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  * @author Siebrand
@@ -684,7 +695,17 @@ $messages['vi'] = array(
  * @author Smeira
  */
 $messages['vo'] = array(
-	'cite_error_key_str_invalid' => 'Pöl ninik: $str e/u $key no lonöföl(s). Atos no sötonöv jenön.',
+	'cite_croak'                               => 'Saitot dädik; $1: $2',
+	'cite_error_key_str_invalid'               => 'Pöl ninik: $str e/u $key no lonöföl(s). Atos no sötonöv jenön.',
+	'cite_error_stack_invalid_input'           => 'Pöl ninik; kumakik no lonöföl. Atos neai sötonöv jenön.',
+	'cite_error'                               => 'Saitamapöl: $1',
+	'cite_error_ref_numeric_key'               => 'Nem ela <code>&lt;ref&gt;</code> no lonöföl. Nem no kanon binädön te me numats; gebolös bepenami.',
+	'cite_error_ref_no_key'                    => 'Geb no lonöföl ela <code>&lt;ref&gt;</code>: els ref nen ninäd mutons labön nemi',
+	'cite_error_ref_too_many_keys'             => 'El <code>&lt;ref&gt;</code> no lonöfon: labon nemis no lonöfikis, a. s. tumödikis',
+	'cite_error_ref_no_input'                  => 'El <code>&lt;ref&gt;</code> no lonöfon: els ref nen nem mutons labön ninädi',
+	'cite_error_references_invalid_input'      => 'El <code>&lt;references&gt;</code> no lonöfon; gebolös eli <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'El <code>&lt;references&gt;</code> no lonöfon: paramets no padälons. Gebolös eli <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_text'            => 'El <code>&lt;ref&gt;</code> no lonöfon: vödem nonik pegivon eles refs labü nem: <code>$1</code>',
 );
 
 /** Kantonese (粵語) */

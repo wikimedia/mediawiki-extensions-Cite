@@ -318,6 +318,8 @@ function wfCite() {
 			if ( count( $this->mRefs ) == 0 )
 				return '';
 			
+			wfProfileIn( __METHOD__ );
+			wfProfileIn( __METHOD__ .'-entries' );
 			$ent = array();
 			foreach ( $this->mRefs as $k => $v )
 				$ent[] = $this->referencesFormatEntry( $k, $v );
@@ -326,8 +328,14 @@ function wfCite() {
 			$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
 			$content = implode( "\n", $ent );
 			
+			wfProfileOut( __METHOD__ .'-entries' );
+			wfProfileIn( __METHOD__ .'-parse' );
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
-			return rtrim( $this->parse( $prefix . $content . $suffix ), "\n" );
+			$ret = rtrim( $this->parse( $prefix . $content . $suffix ), "\n" );
+			wfProfileOut( __METHOD__ .'-parse' );
+			wfProfileOut( __METHOD__ );
+			
+			return $ret;
 		}
 
 		/**

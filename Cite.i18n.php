@@ -675,6 +675,7 @@ $messages['tr'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
+ * @author Minh Nguyen
  */
 $messages['vi'] = array(
 	'cite_croak'                               => 'Chú thích bị hỏng; $1: $2',
@@ -687,7 +688,7 @@ $messages['vi'] = array(
 	'cite_error_ref_no_input'                  => 'Mã <code>&lt;ref&gt;</code> sai; thẻ ref không có tên thì phải có nội dung',
 	'cite_error_references_invalid_input'      => 'Thẻ <code>&lt;references&gt;</code> sai; không được phép nhập nội dung cho thẻ, hãy dùng <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Thẻ <code>&lt;references&gt;</code> sai; không được có thông số, hãy dùng <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "Đã dùng hết nhãn tham khảo chung, hãy định nghĩa nhiều hơn ở thông báo \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_backlink_label'  => "Đã dùng hết nhãn tham khảo chung, hãy định nghĩa nhiều hơn ở thông báo “''cite_references_link_many_format_backlink_labels''”",
 	'cite_error_references_no_text'            => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 );
 

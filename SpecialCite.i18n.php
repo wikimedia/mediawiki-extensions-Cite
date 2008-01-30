@@ -402,12 +402,13 @@ $messages['ilo'] = array(
 
 /** Icelandic (Íslenska)
  * @author לערי ריינהארט
+ * @author S.Örvarr.S
  */
 $messages['is'] = array(
-	'cite_article_link' => 'Vitna í þessa grein',
+	'cite_article_link' => 'Vitna í þessa síðu',
 	'cite'              => 'Vitna í síðu',
 	'cite_page'         => 'Síða:',
-	'cite_submit'       => 'Áfrám',
+	'cite_submit'       => 'Vitna í',
 );
 
 /** Italian (Italiano)
@@ -714,6 +715,7 @@ $messages['sah'] = array(
 	'cite_article_link' => 'Сирэйи цитируйдааһын',
 	'cite'              => 'Цитата',
 	'cite_page'         => 'Сирэй:',
+	'cite_submit'       => 'Цитаата',
 );
 
 $messages['sd'] = array(
@@ -823,11 +825,13 @@ $messages['to'] = array(
 
 /** Turkish (Türkçe)
  * @author Uğur Başak
+ * @author Erkan Yilmaz
  */
 $messages['tr'] = array(
 	'cite_article_link' => 'Sayfayı kaynak göster',
 	'cite'              => 'Kaynak göster',
 	'cite_page'         => 'Sayfa:',
+	'cite_submit'       => 'Belirt',
 );
 
 $messages['ur'] = array(

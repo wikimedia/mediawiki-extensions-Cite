@@ -8,10 +8,10 @@
 $messages = array();
 
 $messages['en'] = array(
+	'cite_desc'                      => 'Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
 	/*
 		Debug and errors
 	*/
-
 	# Internal errors
 	'cite_croak'                     => 'Cite croaked; $1: $2',
 	'cite_error_key_str_invalid'     => 'Internal error; invalid $str and/or $key.  This should never occur.',
@@ -179,6 +179,7 @@ $messages['da'] = array(
  * @author Raimond Spekking
  */
 $messages['de'] = array(
+	'cite_desc'                                => 'Ergänzt für Quellennachweise die <nowiki><ref[ name=id]></nowiki> und <nowiki><references/></nowiki> Tags',
 	'cite_croak'                               => 'Fehler im Referenz-System. $1: $2',
 	'cite_error_key_str_invalid'               => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
 	'cite_error_stack_invalid_input'           => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',

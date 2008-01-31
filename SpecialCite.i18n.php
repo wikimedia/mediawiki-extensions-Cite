@@ -8,6 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
+	'cite_article_desc' => 'Adds a [[Special:Cite|citation]] special page & toolbox link',
 	'cite_article_link' => 'Cite this page',
 	'cite'              => 'Cite',
 	'cite_page'         => 'Page:',
@@ -170,6 +171,7 @@ $messages['da'] = array(
 );
 
 $messages['de'] = array(
+	'cite_article_desc' => 'Ergänzt die [[Special:Cite|Zitierhilfe]]-Spezialseite und einen Link im Kasten Werkzeuge',
 	'cite_article_link' => 'Seite zitieren',
 	'cite'              => 'Zitierhilfe',
 	'cite_page'         => 'Seite:',

@@ -15,9 +15,10 @@ if (!defined('MEDIAWIKI')) die();
 
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Cite',
-	'version' => '2008-01-09',
+	'version' => '2008-01-31',
 	'author' => 'Ævar Arnfjörð Bjarmason',
-	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link',
+	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link', // kept for b/c
+	'descriptionmsg' => 'cite_article_desc',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
 );
 

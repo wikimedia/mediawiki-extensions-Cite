@@ -293,6 +293,7 @@ $messages['gu'] = array(
 
 /** Hebrew (עברית) */
 $messages['he'] = array(
+	'cite_desc'                                => 'מוסיף תגיות <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki>, עבור הערות שוליים',
 	'cite_croak'                               => 'בהערה יש שגיאה; $1: $2',
 	'cite_error_key_str_invalid'               => 'שגיאה פנימית; $str ו/או $key שגויים. זהו באג בתוכנה.',
 	'cite_error_stack_invalid_input'           => 'שגיאה פנימית; מפתח שגוי במחסנית. זהו באג בתוכנה.',

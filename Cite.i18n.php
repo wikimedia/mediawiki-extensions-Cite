@@ -505,6 +505,7 @@ $messages['lt'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
+	'cite_desc'                                => 'Voegt <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe voor citaten',
 	'cite_croak'                               => 'Probleem met Cite; $1: $2',
 	'cite_error_key_str_invalid'               => 'Interne fout; onjuiste $str',
 	'cite_error_stack_invalid_input'           => 'Interne fout; onjuiste stacksleutel',

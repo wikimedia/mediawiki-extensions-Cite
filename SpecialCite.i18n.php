@@ -583,11 +583,12 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Siebrand
  * @author SPQRobin
  * @author Effeietsanders
- * @author Siebrand
  */
 $messages['nl'] = array(
+	'cite_article_desc' => 'Voegt een special pagina en een link naar een toolbox voor [[Special:Cite|citaten]] toe',
 	'cite_article_link' => 'Deze pagina citeren',
 	'cite'              => 'Citeren',
 	'cite_page'         => 'Pagina:',

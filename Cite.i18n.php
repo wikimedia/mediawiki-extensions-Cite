@@ -619,6 +619,7 @@ $messages['sah'] = array(
  * @author Robbot
  */
 $messages['sk'] = array(
+	'cite_desc'                                => 'Pridáva značky <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> pre citácie',
 	'cite_croak'                               => 'Citát je už neaktuálny; $1: $2',
 	'cite_error_key_str_invalid'               => 'Vnútorná chyba; neplatný $str',
 	'cite_error_stack_invalid_input'           => 'Vnútorná chyba; neplatný kľúč zásobníka',

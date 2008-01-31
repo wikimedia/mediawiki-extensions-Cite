@@ -726,10 +726,11 @@ $messages['sd'] = array(
 );
 
 /** Slovak (Slovenčina)
- * @author Martin Kozák
  * @author Helix84
+ * @author Martin Kozák
  */
 $messages['sk'] = array(
+	'cite_article_desc' => 'Pridáva špeciálnu stránku [[Special:Cite|Citovať]] a odkaz v nástrojoch',
 	'cite_article_link' => 'Citovať túto stránku',
 	'cite'              => 'Citovať',
 	'cite_page'         => 'Stránka:',
@@ -855,8 +856,8 @@ $messages['vi'] = array(
 );
 
 /** Volapük (Volapük)
- * @author Smeira
  * @author Malafaya
+ * @author Smeira
  */
 $messages['vo'] = array(
 	'cite_article_link' => 'Saitön padi at',

@@ -855,12 +855,14 @@ $messages['vi'] = array(
 );
 
 /** Volapük (Volapük)
- * @author Malafaya
  * @author Smeira
+ * @author Malafaya
  */
 $messages['vo'] = array(
 	'cite_article_link' => 'Saitön padi at',
+	'cite'              => 'Saitön',
 	'cite_page'         => 'Pad:',
+	'cite_submit'       => 'Saitön',
 );
 
 $messages['wa'] = array(

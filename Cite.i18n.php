@@ -237,8 +237,11 @@ $messages['fi'] = array(
 	'cite_error_references_invalid_parameters' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
 );
 
-/** French (Français) */
+/** French (Français)
+ * @author Grondin
+ */
 $messages['fr'] = array(
+	'cite_desc'                                => 'Ajoute les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, pour les citations.',
 	'cite_croak'                               => 'Citation corrompue ; $1 : $2',
 	'cite_error_key_str_invalid'               => 'Erreur interne ; $str attendue',
 	'cite_error_stack_invalid_input'           => 'Erreur interne ; clé de pile invalide',
@@ -257,6 +260,7 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
+	'cite_desc'                                => 'Apond les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, por les citacions.',
 	'cite_croak'                               => 'Citacion corrompua ; $1 : $2',
 	'cite_error_key_str_invalid'               => 'Èrror de dedens ; $str atendua.',
 	'cite_error_stack_invalid_input'           => 'Èrror de dedens ; cllâf de pila envalida.',
@@ -314,6 +318,7 @@ $messages['he'] = array(
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
+	'cite_desc'                                => 'Dodaje <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> oznake, za citiranje',
 	'cite_croak'                               => 'Nevaljan citat; $1: $2',
 	'cite_error_key_str_invalid'               => 'Unutrašnja greška: loš $str i/ili $key. Ovo se nikada ne bi smjelo dogoditi.',
 	'cite_error_stack_invalid_input'           => 'Unutrašnja greška; loš ključ stacka.  Ovo se nikada ne bi smjelo dogoditi.',
@@ -333,6 +338,7 @@ $messages['hr'] = array(
  * @author Michawiki
  */
 $messages['hsb'] = array(
+	'cite_desc'                                => 'Přidawa taflički <nowiki><ref[ name=id]></nowiki> a <nowiki><references /></nowiki> za žórłowe podaća',
 	'cite_croak'                               => 'Zmylk w referencnym systemje; $1: $2',
 	'cite_error_key_str_invalid'               => 'Interny zmylk: njepłaćiwy $str a/abo $key. To njeměło ženje wustupić.',
 	'cite_error_stack_invalid_input'           => 'Interny zmylk; njepłaćiwy kluč staploweho składa. To njeměło ženje wustupić.',
@@ -353,6 +359,7 @@ $messages['hsb'] = array(
  * @author KossuthRad
  */
 $messages['hu'] = array(
+	'cite_desc'                                => 'Lehetővé teszi idézések létrehozását <nowiki><ref[ name=id]></nowiki> és <nowiki><references/></nowiki> tagek segítségével',
 	'cite_croak'                               => 'Sikertelen forráshivatkozás; $1: $2',
 	'cite_error_key_str_invalid'               => 'Belső hiba; érvénytelen $str és/vagy $key. Ennek soha nem kellene előfordulnia.',
 	'cite_error_stack_invalid_input'           => 'Belső hiba; érvénytelen kulcs. Ennek soha nem kellene előfordulnia.',

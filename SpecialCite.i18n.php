@@ -294,6 +294,7 @@ $messages['fo'] = array(
  * @author Grondin
  */
 $messages['fr'] = array(
+	'cite_article_desc' => 'Ajoute une page spéciale [[Special:Cite|citation]] et un lien dans la boîte à outil',
 	'cite_article_link' => 'Citer cette page',
 	'cite'              => 'Citation',
 	'cite_page'         => 'Page :',
@@ -304,6 +305,7 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
+	'cite_article_desc' => 'Apond una pâge spèciâla [[Special:Cite|citacion]] et un lim dens la bouèta d’outils.',
 	'cite_article_link' => 'Citar ceta pâge',
 	'cite'              => 'Citacion',
 	'cite_page'         => 'Pâge :',
@@ -362,14 +364,22 @@ $messages['hr'] = array(
 	'cite_submit'       => 'Citiraj',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
 $messages['hsb'] = array(
+	'cite_article_desc' => 'Přidawa specialnu stronu [[Special:Cite|Citowanska pomoc]] a wotkaz w gratowym kašćiku',
 	'cite_article_link' => 'Nastawk citować',
 	'cite'              => 'Citowanska pomoc',
 	'cite_page'         => 'Strona:',
 	'cite_submit'       => 'pokazać',
 );
 
+/** Hungarian (Magyar)
+ * @author Bdanee
+ */
 $messages['hu'] = array(
+	'cite_article_desc' => '[[Special:Cite|Irodalomjegyzék-bejegyzés készítése]] speciális lap és hivatkozás az eszközdobozba',
 	'cite_article_link' => 'Szócikk idézése',
 	'cite'              => 'Irodalomjegyzék-bejegyzés készítése',
 	'cite_page'         => 'Idézendő lap:',
@@ -584,12 +594,12 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
- * @author Siebrand
  * @author SPQRobin
  * @author Effeietsanders
+ * @author Siebrand
  */
 $messages['nl'] = array(
-	'cite_article_desc' => 'Voegt een special pagina en een link naar een toolbox voor [[Special:Cite|citaten]] toe',
+	'cite_article_desc' => 'Voegt een [[Special:Cite|special pagina om te citeren]] toe, en een link ernaar in de toolbox',
 	'cite_article_link' => 'Deze pagina citeren',
 	'cite'              => 'Citeren',
 	'cite_page'         => 'Pagina:',

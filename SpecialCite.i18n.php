@@ -145,11 +145,12 @@ $messages['co'] = array(
 );
 
 /** Czech (Česky)
+ * @author Li-sung
  * @author Martin Kozák
  * @author Beren
- * @author Li-sung
  */
 $messages['cs'] = array(
+	'cite_article_desc' => 'Přidává speciální stránku [[Special:Cite|Citace]] a odkaz v nabídce nástrojů',
 	'cite_article_link' => 'Citovat stránku',
 	'cite'              => 'Citace',
 	'cite_page'         => 'Článek:',
@@ -705,6 +706,7 @@ $messages['roa-rup'] = array(
  * @author .:Ajvol:.
  */
 $messages['ru'] = array(
+	'cite_article_desc' => 'Добавляет служебную страницу [[Special:Cite|цитирования]] и ссылку в инструментах',
 	'cite_article_link' => 'Цитировать страницу',
 	'cite'              => 'Цитирование',
 	'cite_page'         => 'Страница:',
@@ -728,6 +730,7 @@ $messages['sd'] = array(
 /** Slovak (Slovenčina)
  * @author Helix84
  * @author Martin Kozák
+ * @author Robbot
  */
 $messages['sk'] = array(
 	'cite_article_desc' => 'Pridáva špeciálnu stránku [[Special:Cite|Citovať]] a odkaz v nástrojoch',
@@ -788,6 +791,7 @@ $messages['su'] = array(
  * @author Lejonel
  */
 $messages['sv'] = array(
+	'cite_article_desc' => 'Lägger till en specialsida för [[Special:Cite|källhänvisning]] och en länk i verktygslådan',
 	'cite_article_link' => 'Ange denna sida som källa',
 	'cite'              => 'Ange källa',
 	'cite_page'         => 'Sida:',

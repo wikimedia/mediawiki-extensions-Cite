@@ -143,6 +143,7 @@ $messages['ca'] = array(
  * @author Li-sung
  */
 $messages['cs'] = array(
+	'cite_desc'                                => 'Přidává značky <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> na označení citací',
 	'cite_croak'                               => 'Nefunkční citace; $1: $2',
 	'cite_error_key_str_invalid'               => 'Vnitřní chyba; neplatný $str',
 	'cite_error_stack_invalid_input'           => 'Vnitřní chyba; neplatný klíč zásobníku',
@@ -585,8 +586,10 @@ $messages['pt'] = array(
 
 /** Russian (Русский)
  * @author Kalan
+ * @author .:Ajvol:.
  */
 $messages['ru'] = array(
+	'cite_desc'                                        => 'Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок',
 	'cite_croak'                                       => 'Цитата сдохла; $1: $2',
 	'cite_error_key_str_invalid'                       => 'Внутренняя ошибка: неверный $str',
 	'cite_error_stack_invalid_input'                   => 'Внутренняя ошибка: неверный ключ стека ',
@@ -656,6 +659,7 @@ $messages['stq'] = array(
  * @author Lejonel
  */
 $messages['sv'] = array(
+	'cite_desc'                                => 'Lägger till taggarna <nowiki><ref[ name=id]></nowiki> och <nowiki><references/></nowiki> för referenser till källor',
 	'cite_croak'                               => 'Fel i fotnotssystemet; $1: $2',
 	'cite_error_key_str_invalid'               => 'Internt fel; $str eller $key är ogiltiga.  Det här borde aldrig hända.',
 	'cite_error_stack_invalid_input'           => 'Internt fel; ogiltig nyckel i stacken.  Det här borde aldrig hända.',

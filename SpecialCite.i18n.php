@@ -727,6 +727,7 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
+	'cite_article_desc' => 'Аналлаах [[Special:Cite|быһа тардыы]] сирэйин уонна үнүстүрүмүөннэргэ ыйынньык эбэн биэрэр',
 	'cite_article_link' => 'Сирэйи цитируйдааһын',
 	'cite'              => 'Цитата',
 	'cite_page'         => 'Сирэй:',

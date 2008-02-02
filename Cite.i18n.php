@@ -98,6 +98,7 @@ $messages['ar'] = array(
  * @author SPQRobin
  */
 $messages['ast'] = array(
+	'cite_desc'                                        => 'Añade les etiquetes <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> pa les cites',
 	'cite_croak'                                       => 'Cita corrompida; $1: $2',
 	'cite_error_key_str_invalid'                       => 'Error internu; $str y/o $key non válidos.  Esto nun habría asoceder nunca.',
 	'cite_error_stack_invalid_input'                   => 'Error internu; clave de pila non válida. Esto nun habría asoceder nunca.',
@@ -621,6 +622,7 @@ $messages['sah'] = array(
 	'cite_error'                              => 'Цитата сыыһата: $1',
 	'cite_error_ref_numeric_key'              => 'Неправильный вызов: ожидался нечисловой ключ',
 	'cite_error_references_no_backlink_label' => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную «cite_references_link_many_format_backlink_labels».',
+	'cite_error_references_no_text'           => 'Сыыһа тиэк (тег) <code>&lt;ref&gt;</code>; хос быһаарыыларга <code>$1</code> тиэкис ыйыллыбатах',
 );
 
 /** Slovak (Slovenčina)

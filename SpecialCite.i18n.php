@@ -637,6 +637,16 @@ $messages['pag'] = array(
 	'cite_submit'       => 'Bitlaen',
 );
 
+/** Pampanga (Kapampangan)
+ * @author SPQRobin
+ */
+$messages['pam'] = array(
+	'cite_article_link' => 'Banggitan ya ing articulung ini',
+	'cite'              => 'Banggitan ya',
+	'cite_page'         => 'Bulung:',
+	'cite_submit'       => 'Banggitan me',
+);
+
 /** Polish (Polski)
  * @author Sp5uhe
  */
@@ -667,8 +677,10 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Malafaya
  */
 $messages['pt'] = array(
+	'cite_article_desc' => 'Adiciona uma página especial de [[{{ns:special}}:Cite|citação]] & ligação da caixa de ferramentas',
 	'cite_article_link' => 'Citar esta página',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',

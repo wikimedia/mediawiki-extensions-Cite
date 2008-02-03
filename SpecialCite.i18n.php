@@ -59,6 +59,7 @@ $messages['ar'] = array(
  * @author Esbardu
  */
 $messages['ast'] = array(
+	'cite_article_desc' => 'Añade una páxina especial de [[Special:Cite|cites]] y un enllaz a la caxa de ferramientes',
 	'cite_article_link' => 'Citar esta páxina',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Páxina:',
@@ -829,6 +830,16 @@ $messages['tet'] = array(
 	'cite_submit'       => 'Sita',
 );
 
+/** Tajik (Тоҷикӣ)
+ * @author Ibrahim
+ */
+$messages['tg'] = array(
+	'cite_article_link' => 'Ёд кардани пайванди ин мақола',
+	'cite'              => 'Ёд кардани ин мақола',
+	'cite_page'         => 'Саҳифа:',
+	'cite_submit'       => 'Ёд кардан',
+);
+
 /** Tswana (Setswana) */
 $messages['tn'] = array(
 	'cite_article_link' => 'Nopola mokwalo o',
@@ -871,10 +882,11 @@ $messages['vi'] = array(
 );
 
 /** Volapük (Volapük)
- * @author Malafaya
  * @author Smeira
+ * @author Malafaya
  */
 $messages['vo'] = array(
+	'cite_article_desc' => 'Läükon padi patik [[{{ns:special}}:Cite|saitama]] sa yüm ad stumem',
 	'cite_article_link' => 'Saitön padi at',
 	'cite'              => 'Saitön',
 	'cite_page'         => 'Pad:',

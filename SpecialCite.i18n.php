@@ -617,6 +617,14 @@ $messages['no'] = array(
 	'cite_submit'       => 'Siter',
 );
 
+/** Novial (Novial)
+ * @author MF-Warburg
+ */
+$messages['nov'] = array(
+	'cite_article_link' => 'Sita disi artikle',
+	'cite'              => 'Sita',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -823,13 +831,15 @@ $messages['sv'] = array(
 );
 
 /** Telugu (తెలుగు)
- * @author Mpradeep
  * @author Veeven
+ * @author Mpradeep
  */
 $messages['te'] = array(
+	'cite_article_desc' => '[[Special:Cite|ఉదహరింపు]] అనే ప్రత్యేక పేజీని & పరికర పెట్టె లింకునీ చేరుస్తుంది',
 	'cite_article_link' => 'ఈ వ్యాసాన్ని ఉదహరించండి',
 	'cite'              => 'ఉదహరించు',
 	'cite_page'         => 'పేజీ:',
+	'cite_submit'       => 'ఉదహరించు',
 );
 
 /** Tetum (Tetun)

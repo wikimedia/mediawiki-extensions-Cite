@@ -192,8 +192,9 @@ $messages['diq'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
+	'cite_article_desc' => 'Pśidawa specialny bok [[Special:Cite|Citěrowańska pomoc]] a link w kašćiku źěłowe rědy',
 	'cite_article_link' => 'Toś ten bok citěrowaś',
-	'cite'              => 'Citěrowanska pomoc',
+	'cite'              => 'Citěrowańska pomoc',
 	'cite_page'         => 'Bok:',
 	'cite_submit'       => 'pokazaś',
 );
@@ -311,6 +312,14 @@ $messages['frp'] = array(
 	'cite'              => 'Citacion',
 	'cite_page'         => 'Pâge :',
 	'cite_submit'       => 'Citar',
+);
+
+/** Friulian (Furlan)
+ * @author MF-Warburg
+ */
+$messages['fur'] = array(
+	'cite_article_link' => 'Cite cheste vôs',
+	'cite_page'         => 'Pagjine:',
 );
 
 /** Irish (Gaeilge)
@@ -594,6 +603,15 @@ $messages['nds'] = array(
 	'cite_submit'       => 'Ziteren',
 );
 
+/** Nepali (नेपाली)
+ * @author SPQRobin
+ */
+$messages['ne'] = array(
+	'cite_article_link' => 'लेख उद्दरण गर्नुहोस्',
+	'cite'              => 'उद्दरण गर्नु',
+	'cite_page'         => 'पृष्ठ:',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Effeietsanders
@@ -611,6 +629,7 @@ $messages['nl'] = array(
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
+	'cite_article_desc' => 'Legger til en [[Special:Cite|siteringsside]] og lenke i verktøy-menyen',
 	'cite_article_link' => 'Siter denne siden',
 	'cite'              => 'Siter',
 	'cite_page'         => 'Side:',

@@ -544,6 +544,7 @@ $messages['nl'] = array(
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
+	'cite_desc'                                => 'Legger til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referanser',
 	'cite_croak'                               => 'Sitering døde; $1: $2',
 	'cite_error_key_str_invalid'               => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri forekomme.',
 	'cite_error_stack_invalid_input'           => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri forekomme.',
@@ -555,7 +556,7 @@ $messages['no'] = array(
 	'cite_error_references_invalid_input'      => 'Ugyldig <code>&lt;references&gt;</code>-kode; kan ikke oppgi parametere, bruk <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-kode; ingen parametere tillates, bruk <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Gikk tom for egendefinerte tilbakelenketekster; definer flere i beskjeden «''cite_references_link_many_format_backlink_labels''»",
-	'cite_error_references_no_text'            => 'Ingen tekst oppgitt.',
+	'cite_error_references_no_text'            => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for ref-er ved navn <code>$1</code>',
 );
 
 /** Occitan (Occitan)

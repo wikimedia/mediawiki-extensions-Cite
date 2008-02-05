@@ -118,11 +118,12 @@ $messages['br'] = array(
 );
 
 /** Catalan (Català)
- * @author Toniher
  * @author SMP
+ * @author Toniher
  * @author SPQRobin
  */
 $messages['ca'] = array(
+	'cite_article_desc' => 'Afegeix un enllaç i una pàgina especial de [[Special:Cite|citació]]',
 	'cite_article_link' => 'Cita aquesta pàgina',
 	'cite'              => 'Citeu',
 	'cite_page'         => 'Pàgina:',
@@ -524,6 +525,7 @@ $messages['lb'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'cite_article_desc' => "Voeg 'n [[Special:Cite|speciaal pazjena óm te citere]] toe en 'ne lank d'rhaer inne gereidsjapskis",
 	'cite_article_link' => 'Citeer dees pazjena',
 	'cite'              => 'Citere',
 	'cite_page'         => 'Pazjena:',

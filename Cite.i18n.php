@@ -491,6 +491,7 @@ $messages['lb'] = array(
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
+	'cite_desc'                                => 'Voeg <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe veur citate',
 	'cite_croak'                               => 'Perbleem mit Citere; $1: $2',
 	'cite_error_key_str_invalid'               => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
 	'cite_error_stack_invalid_input'           => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
@@ -585,8 +586,8 @@ $messages['pag'] = array(
 );
 
 /** Portuguese (Português)
- * @author 555
  * @author Malafaya
+ * @author 555
  */
 $messages['pt'] = array(
 	'cite_desc'                                => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
@@ -602,7 +603,7 @@ $messages['pt'] = array(
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Código <code>&lt;references&gt;</code> inválido; não são permitidos parâmetros. Utilize como <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Etiquetas de backlink esgotadas. Defina mais na mensagem \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'Tag <code>&lt;ref&gt;</code> inválida: não foi fornecido texto para as refs nomeadas como <code>$1</code>',
+	'cite_error_references_no_text'            => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
 );
 
 /** Russian (Русский)

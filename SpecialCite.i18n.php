@@ -48,6 +48,7 @@ $messages['an'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
+	'cite_article_desc' => 'يضيف صفحة [[Special:Cite|استشهاد]] خاصة ووصلة صندوق أدوات',
 	'cite_article_link' => 'استشهد بهذه الصفحة',
 	'cite'              => 'استشهاد',
 	'cite_page'         => 'الصفحة:',
@@ -904,6 +905,7 @@ $messages['to'] = array(
 /** Turkish (Türkçe)
  * @author Uğur Başak
  * @author Erkan Yilmaz
+ * @author Srhat
  */
 $messages['tr'] = array(
 	'cite_article_link' => 'Sayfayı kaynak göster',

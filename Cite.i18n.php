@@ -77,6 +77,7 @@ $messages['an'] = array(
  * @author Meno25
  */
 $messages['ar'] = array(
+	'cite_desc'                                        => 'يضيف وسوم <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهادات',
 	'cite_croak'                                       => 'الاستشهاد كروكد؛ $1: $2',
 	'cite_error_key_str_invalid'                       => 'خطأ داخلي؛ $str و/أو $key غير صحيح.  هذا لا يجب أن يحدث أبدا.',
 	'cite_error_stack_invalid_input'                   => 'خطأ داخلي؛ مفتاح ستاك غير صحيح.  هذا لا يجب أن يحدث أبدا.',
@@ -120,6 +121,7 @@ $messages['ast'] = array(
  * @author DCLXVI
  */
 $messages['bg'] = array(
+	'cite_desc'                                => 'Добавя етикетите <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, подходящи за цитиране',
 	'cite_error_key_str_invalid'               => 'Вътрешна грешка: невалиден параметър $str и/или $key.  Това не би трябвало да се случва никога.',
 	'cite_error_stack_invalid_input'           => "'''Вътрешна грешка:''' невалиден ключ на стека. Това не би трябвало да се случва никога.",
 	'cite_error'                               => 'Грешка при цитиране: $1',
@@ -674,6 +676,7 @@ $messages['sk'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
+	'cite_desc'                                => 'Föiget foar Wällenätterwiese do <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags tou',
 	'cite_croak'                               => 'Failer in dät Referenz-System. $1: $2',
 	'cite_error_key_str_invalid'               => 'Internen Failer: ungultigen $str',
 	'cite_error_stack_invalid_input'           => 'Internen Failer: uungultigen „name“-stack. Dit schuul eegentelk goarnit passierje konne.',

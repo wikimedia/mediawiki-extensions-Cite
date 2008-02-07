@@ -260,11 +260,16 @@ $messages['ext'] = array(
 	'cite_submit'       => 'Almiental',
 );
 
+/** فارسی (فارسی)
+ * @author Huji
+ */
 $messages['fa'] = array(
+	'cite_article_desc' => 'صفحهٔ ویژه‌ای برای [[Special:Cite|یادکرد]] اضافه می‌کند و پیوندی به جعبه ابزار می‌افزاید',
 	'cite_article_link' => 'یادکرد پیوند این مقاله',
 	'cite'              => 'یادکرد این مقاله',
 	'cite_page'         => 'صفحه:',
 	'cite_submit'       => 'یادکرد',
+
 );
 
 $messages['fi'] = array(

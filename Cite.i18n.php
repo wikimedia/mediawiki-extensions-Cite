@@ -223,8 +223,11 @@ $messages['el'] = array(
 	'cite_error_references_no_text' => 'Δεν δίνετε κείμενο.',
 );
 
-# فارسی (Huji)
+/** فارسی (فارسی)
+ * @author Huji
+ */
 $messages['fa'] = array(
+	'cite_desc'                                => 'برچسب‌های <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> را برای یادکرد اضافه می‌کند',
 	'cite_croak'                               => 'یادکرد خراب شد؛ $1: $2',
 	'cite_error_key_str_invalid'               => 'خطای داخلی؛ $str و/یا $key غیر مجاز. این خطا نباید هرگز رخ دهد.',
 	'cite_error_stack_invalid_input'           => 'خطای داخلی؛ کلید پشته غیرمجاز.  این خطا نباید هرگز رخ دهد.',

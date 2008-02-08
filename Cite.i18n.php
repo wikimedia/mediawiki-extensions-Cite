@@ -296,6 +296,7 @@ $messages['frp'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
+	'cite_desc'                                => 'Engada <nowiki><ref[ nome=id]></nowiki> e <nowiki><references/></nowiki> tags, para notas',
 	'cite_error'                               => 'Citar erro: $1',
 	'cite_error_ref_numeric_key'               => 'Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple entero, use un título descriptivo',
 	'cite_error_ref_no_key'                    => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan contido deben ter un nome',
@@ -715,6 +716,7 @@ $messages['sv'] = array(
  */
 $messages['te'] = array(
 	'cite_desc'                      => 'ఉదహరింపులకు <nowiki><ref[ name=id]></nowiki> మరియు <nowiki><references/></nowiki> టాగులను చేర్చుతుంది',
+	'cite_croak'                     => 'ఉదహరింపు చచ్చింది; $1: $2',
 	'cite_error_key_str_invalid'     => 'అంతర్గత పొరపాటు: తప్పుడు $str మరియు/లేదా $key. ఇది ఎప్పుడూ జరగకూడదు.',
 	'cite_error_stack_invalid_input' => 'అంతర్గత పొరపాటు: తప్పుడు స్టాక్ కీ. ఇది ఎప్పుడూ జరగకూడదు.',
 	'cite_error'                     => 'ఉదహరింపు పొరపాటు: $1',
@@ -808,3 +810,4 @@ $messages['zh-hant'] = array(
 	'cite_error_references_invalid_parameters' => '非法參數；需求為空',
 	'cite_error_references_no_backlink_label'  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
 );
+

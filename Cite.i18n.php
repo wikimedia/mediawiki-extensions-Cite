@@ -808,15 +808,3 @@ $messages['zh-hant'] = array(
 	'cite_error_references_invalid_parameters' => '非法參數；需求為空',
 	'cite_error_references_no_backlink_label'  => "自訂後退標籤已經用完了，現在可在標籤 \"''cite_references_link_many_format_backlink_labels''\" 定義更多信息",
 );
-
-$messages['de-formal'] = $messages['de'];
-$messages['kk'] = $messages['kk-cyrl'];
-$messages['kk-cn'] = $messages['kk-arab'];
-$messages['kk-kz'] = $messages['kk-cyrl'];
-$messages['kk-tr'] = $messages['kk-latn'];
-$messages['zh'] = $messages['zh-hans'];
-$messages['zh-cn'] = $messages['zh-hans'];
-$messages['zh-hk'] = $messages['zh-hant'];
-$messages['zh-sg'] = $messages['zh-hans'];
-$messages['zh-tw'] = $messages['zh-hant'];
-$messages['zh-yue'] = $messages['yue'];

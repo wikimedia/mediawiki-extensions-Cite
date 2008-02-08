@@ -979,16 +979,3 @@ $messages['zh-hant'] = array(
 	'cite_page'         => '頁面：',
 	'cite_submit'       => '引用',
 );
-
-$messages['de-formal'] = $messages['de'];
-$messages['kk'] = $messages['kk-cyrl'];
-$messages['kk-cn'] = $messages['kk-arab'];
-$messages['kk-kz'] = $messages['kk-cyrl'];
-$messages['kk-tr'] = $messages['kk-latn'];
-$messages['zh'] = $messages['zh-hans'];
-$messages['zh-cn'] = $messages['zh-hans'];
-$messages['zh-hk'] = $messages['zh-hant'];
-$messages['zh-min-nan'] = $messages['nan'];
-$messages['zh-sg'] = $messages['zh-hans'];
-$messages['zh-tw'] = $messages['zh-hant'];
-$messages['zh-yue'] = $messages['yue'];

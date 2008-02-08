@@ -29,11 +29,12 @@ class SpecialCite extends SpecialPage {
 		$id = $wgRequest->getInt( 'id' );
 
 		$title = Title::newFromText( $page );
-		$article = new Article( $title );
-
+		if ( $title ) {
+			$article = new Article( $title );
+		}
 		$cform = new CiteForm( $title );
 
-		if ( is_null( $title ) || ! $article->exists() )
+		if ( !$title || ! $article->exists() )
 			$cform->execute();
 		else {
 			$cform->execute();

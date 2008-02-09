@@ -723,6 +723,13 @@ $messages['te'] = array(
 	'cite_error_ref_numeric_key'     => 'తప్పుడు <code>&lt;ref&gt;</code> టాగు; పేరు సరళ సంఖ్య అయివుండకూడదు, వివరమైన శీర్షిక వాడండి',
 );
 
+/** Tajik (Тоҷикӣ)
+ * @author Ibrahim
+ */
+$messages['tg'] = array(
+	'cite_error' => 'Хатои ёдкард: $1',
+);
+
 /** Turkish (Türkçe)
  * @author SPQRobin
  */

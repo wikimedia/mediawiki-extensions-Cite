@@ -490,6 +490,7 @@ $messages['kk-latn'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'cite_croak' => 'Feeler am Referenz-System. $1 : $2',
 	'cite_error' => 'Zitéierfeeler: $1',
 );
 
@@ -742,6 +743,7 @@ $messages['tr'] = array(
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
+	'cite_desc'                                => 'Thêm các thẻ <nowiki><ref[ name=id]></nowiki> và <nowiki><references/></nowiki> để ghi cước chú',
 	'cite_croak'                               => 'Chú thích bị hỏng; $1: $2',
 	'cite_error_key_str_invalid'               => 'Lỗi nội bộ; $str và/hoặc $key sai.  Đáng ra không bao giờ xảy ra điều này.',
 	'cite_error_stack_invalid_input'           => 'Lỗi nội bộ; khóa xác định chồng bị sai.  Đáng ra không bao giờ xảy ra điều này.',

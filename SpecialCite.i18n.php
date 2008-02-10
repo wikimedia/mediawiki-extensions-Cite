@@ -923,8 +923,10 @@ $messages['ur'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
+ * @author Minh Nguyen
  */
 $messages['vi'] = array(
+	'cite_article_desc' => 'Thêm trang đặc biệt để [[Special:Cite|ghi chú bài]] và đặt liên kết đến nó trong thanh công cụ',
 	'cite_article_link' => 'Chú thích trang này',
 	'cite'              => 'Chú thích',
 	'cite_page'         => 'Trang:',
@@ -979,3 +981,4 @@ $messages['zh-hant'] = array(
 	'cite_page'         => '頁面：',
 	'cite_submit'       => '引用',
 );
+

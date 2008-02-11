@@ -708,6 +708,7 @@ $messages['pms'] = array(
 $messages['ps'] = array(
 	'cite_article_link' => 'د همدې ليکنې درک',
 	'cite'              => 'درک',
+	'cite_page'         => 'مخ:',
 );
 
 /** Portuguese (Português)
@@ -839,7 +840,8 @@ $messages['stq'] = array(
  * @author Kandar
  */
 $messages['su'] = array(
-	'cite_article_link' => 'Cutat artikel ieu',
+	'cite_article_desc' => 'Nambahkeun kaca husus [[Special:Cite|cutatan]] & tumbu toolbox',
+	'cite_article_link' => 'Cutat kaca ieu',
 	'cite'              => 'Cutat',
 	'cite_page'         => 'Kaca:',
 	'cite_submit'       => 'Cutat',

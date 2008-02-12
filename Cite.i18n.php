@@ -154,9 +154,10 @@ $messages['ca'] = array(
 
 /** Czech (Česky)
  * @author Li-sung
+ * @author Danny B.
  */
 $messages['cs'] = array(
-	'cite_desc'                                => 'Přidává značky <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> na označení citací',
+	'cite_desc'                                => 'Přidává značky <nowiki><ref[ name="id"]></nowiki> a&nbsp;<nowiki><references /></nowiki> na označení citací',
 	'cite_croak'                               => 'Nefunkční citace; $1: $2',
 	'cite_error_key_str_invalid'               => 'Vnitřní chyba; neplatný $str',
 	'cite_error_stack_invalid_input'           => 'Vnitřní chyba; neplatný klíč zásobníku',

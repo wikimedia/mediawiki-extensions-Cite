@@ -201,6 +201,13 @@ $messages['dsb'] = array(
 	'cite_submit'       => 'pokazaś',
 );
 
+/** Ewe (Eʋegbe)
+ * @author M.M.S.
+ */
+$messages['ee'] = array(
+	'cite_page' => 'Nuŋɔŋlɔ:',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  */
@@ -521,6 +528,7 @@ $messages['la'] = array(
  * @author Kaffi
  */
 $messages['lb'] = array(
+	'cite_article_desc' => "Setzt eng [[Special:Cite|Zitatioun op dëser Spezialsäit]] bäi an e Link an d'Geschiirkëscht",
 	'cite_article_link' => 'Dës Säit zitéieren',
 	'cite'              => 'Zitéierhëllef',
 	'cite_page'         => 'Säit:',
@@ -650,6 +658,13 @@ $messages['no'] = array(
 $messages['nov'] = array(
 	'cite_article_link' => 'Sita disi artikle',
 	'cite'              => 'Sita',
+);
+
+/** Northern Sotho (Sesotho sa Leboa)
+ * @author Mohau
+ */
+$messages['nso'] = array(
+	'cite_page' => 'Letlakala:',
 );
 
 /** Occitan (Occitan)

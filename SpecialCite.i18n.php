@@ -671,6 +671,7 @@ $messages['nso'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
+	'cite_article_desc' => "Ajusta una pagina especiala [[Special:Cite|citacion]] e un ligam dins la boita d'espleches",
 	'cite_article_link' => 'Citar aqueste article',
 	'cite'              => 'Citacion',
 	'cite_page'         => 'Pagina:',

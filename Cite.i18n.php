@@ -572,6 +572,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
+	'cite_desc'                                => 'Ajusta las balisas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, per las citacions.',
 	'cite_croak'                               => 'Citacion corrompuda ; $1 : $2',
 	'cite_error_key_str_invalid'               => 'Error intèrna ; $str esperada',
 	'cite_error_stack_invalid_input'           => 'Error intèrna ; clau de pila invalida',
@@ -591,6 +592,16 @@ $messages['oc'] = array(
  */
 $messages['pag'] = array(
 	'cite_error' => 'Bitlaen so error $1; $2',
+);
+
+/** Polish (Polski)
+ * @author Sp5uhe
+ */
+$messages['pl'] = array(
+	'cite_desc'                      => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
+	'cite_error_key_str_invalid'     => 'Błąd wewnętrzny - nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
+	'cite_error_stack_invalid_input' => 'Błąd wewnętrzny - nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
+	'cite_error'                     => "Błąd rozszerzenia ''cite'': $1",
 );
 
 /** Portuguese (Português)

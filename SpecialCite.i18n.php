@@ -308,9 +308,10 @@ $messages['fo'] = array(
 /** French (Français)
  * @author Hégésippe Cormier
  * @author Grondin
+ * @author Urhixidur
  */
 $messages['fr'] = array(
-	'cite_article_desc' => 'Ajoute une page spéciale [[Special:Cite|citation]] et un lien dans la boîte à outil',
+	'cite_article_desc' => 'Ajoute une page spéciale [[Special:Cite|citation]] et un lien dans la boîte à outils',
 	'cite_article_link' => 'Citer cette page',
 	'cite'              => 'Citation',
 	'cite_page'         => 'Page :',
@@ -460,8 +461,10 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Suisui
+ * @author JtFuruhata
  */
 $messages['ja'] = array(
+	'cite_article_desc' => '特別ページ [[{{ns:Special}}:Cite|{{SITENAME}}の項目を引用する]] とツールボックスへのリンクを追加する',
 	'cite_article_link' => 'この項目を引用する',
 	'cite'              => '{{SITENAME}}の項目を引用する',
 	'cite_page'         => 'ページ名',

@@ -255,6 +255,7 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Urhixidur
  * @author Grondin
  */
 $messages['fr'] = array(
@@ -269,7 +270,7 @@ $messages['fr'] = array(
 	'cite_error_ref_no_input'                  => 'Appel invalide ; aucune entrée spécifiée',
 	'cite_error_references_invalid_input'      => 'Entrée invalide ; entrée attendue',
 	'cite_error_references_invalid_parameters' => 'Arguments invalides ; argument attendu',
-	'cite_error_references_no_backlink_label'  => 'Exécution hors des étiquettes personnalisées, définissez plus dans le message « cite_references_link_many_format_backlink_labels »',
+	'cite_error_references_no_backlink_label'  => 'Épuisement des étiquettes personnalisées, définissez-en un plus grand nombre dans le message « cite_references_link_many_format_backlink_labels »',
 	'cite_error_references_no_text'            => 'Aucun texte indiqué.',
 );
 
@@ -427,8 +428,11 @@ $messages['it'] = array(
 	'cite_error_references_no_text'            => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
 );
 
-/** Japanese (日本語) */
+/** Japanese (日本語)
+ * @author JtFuruhata
+ */
 $messages['ja'] = array(
+	'cite_desc'                                => '引用のためのタグ<nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
 	'cite_croak'                               => '引用タグ機能の重大なエラー; $1: $2',
 	'cite_error_key_str_invalid'               => '内部エラー; 無効な $str',
 	'cite_error_stack_invalid_input'           => '内部エラー; 無効なスタックキー',
@@ -440,6 +444,7 @@ $messages['ja'] = array(
 	'cite_error_references_invalid_input'      => '無効な <code>&lt;references&gt;</code> タグ: 内容のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
 	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ: 引数のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
 	'cite_error_references_no_backlink_label'  => "バックリンクラベルが使用できる個数を超えました。\"''cite_references_link_many_format_backlink_labels''\" メッセージでの定義を増やしてください。",
+	'cite_error_references_no_text'            => '無効な <code>&lt;ref&gt;</code> タグ: <code>$1</code>という名前の引用句に対するテキストがありません。',
 );
 
 /** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */
@@ -733,15 +738,23 @@ $messages['sv'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Chaduvari
  * @author Veeven
  */
 $messages['te'] = array(
-	'cite_desc'                      => 'ఉదహరింపులకు <nowiki><ref[ name=id]></nowiki> మరియు <nowiki><references/></nowiki> టాగులను చేర్చుతుంది',
-	'cite_croak'                     => 'ఉదహరింపు చచ్చింది; $1: $2',
-	'cite_error_key_str_invalid'     => 'అంతర్గత పొరపాటు: తప్పుడు $str మరియు/లేదా $key. ఇది ఎప్పుడూ జరగకూడదు.',
-	'cite_error_stack_invalid_input' => 'అంతర్గత పొరపాటు: తప్పుడు స్టాక్ కీ. ఇది ఎప్పుడూ జరగకూడదు.',
-	'cite_error'                     => 'ఉదహరింపు పొరపాటు: $1',
-	'cite_error_ref_numeric_key'     => 'తప్పుడు <code>&lt;ref&gt;</code> టాగు; పేరు సరళ సంఖ్య అయివుండకూడదు, వివరమైన శీర్షిక వాడండి',
+	'cite_desc'                                => 'ఉదహరింపులకు <nowiki><ref[ name=id]></nowiki> మరియు <nowiki><references/></nowiki> టాగులను చేర్చుతుంది',
+	'cite_croak'                               => 'ఉదహరింపు చచ్చింది; $1: $2',
+	'cite_error_key_str_invalid'               => 'అంతర్గత పొరపాటు: తప్పుడు $str మరియు/లేదా $key. ఇది ఎప్పుడూ జరగకూడదు.',
+	'cite_error_stack_invalid_input'           => 'అంతర్గత పొరపాటు: తప్పుడు స్టాక్ కీ. ఇది ఎప్పుడూ జరగకూడదు.',
+	'cite_error'                               => 'ఉదహరింపు పొరపాటు: $1',
+	'cite_error_ref_numeric_key'               => 'తప్పుడు <code>&lt;ref&gt;</code> టాగు; పేరు సరళ సంఖ్య అయివుండకూడదు, వివరమైన శీర్షిక వాడండి',
+	'cite_error_ref_no_key'                    => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; విషయం లేని ref లకు తప్పనిసరిగా పేరొకటుండాలి',
+	'cite_error_ref_too_many_keys'             => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; తప్పు పేర్లు, ఉదాహరణకు మరీ ఎక్కువ',
+	'cite_error_ref_no_input'                  => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; పేరు లేని ref లలో తప్పనిసరిగా విషయం ఉండాలి',
+	'cite_error_references_invalid_input'      => 'సరైన <code>&lt;references&gt;</code> ట్యాగు కాదు; ఇన్‌పుట్ కు అనుమతి లేదు, <code>&lt;references /&gt;</code> వాడండి.',
+	'cite_error_references_invalid_parameters' => 'సరైన <code>&lt;references&gt;</code> ట్యాగు కాదు; పారామీటర్లకు కు అనుమతి లేదు, ఈ లోపాన్ని కలుగజేసే ఒక ఉదాహరణ: <references someparameter="value" />',
+	'cite_error_references_no_backlink_label'  => "మీ స్వంత బ్యాక్‌లింకు లేబుళ్ళు అయిపోయాయి. \"''cite_references_link_many_format_backlink_labels''\" సందేశంలో మరిన్ని లేబుళ్ళను నిర్వచించుకోండి.",
+	'cite_error_references_no_text'            => 'సరైన <code>&lt;ref&gt;</code> కాదు; <code>$1</code> అనే పేరుగల ref లకు పాఠ్యమేమీ ఇవ్వలేదు',
 );
 
 /** Tajik (Тоҷикӣ)

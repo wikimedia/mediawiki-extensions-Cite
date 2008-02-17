@@ -94,8 +94,10 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Zaheen
  */
 $messages['bn'] = array(
+	'cite_article_desc' => 'একটি বিশেষ [[Special:Cite|উদ্ধৃতি]] পাতা ও টুলবক্স সংযোগ যোগ করে',
 	'cite_article_link' => 'এ পাতাটি উদ্ধৃত করো',
 	'cite'              => 'উদ্ধৃত',
 	'cite_page'         => 'পাতা:',

@@ -136,13 +136,23 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Zaheen
  * @author Bellayet
  */
 $messages['bn'] = array(
-	'cite_desc'                      => 'উদ্ধৃতির জন্য <nowiki><ref[ name=id]></nowiki> এবং <nowiki><references/></nowiki> ট্যাগসমূহ যোগ করুন',
-	'cite_error_key_str_invalid'     => 'আভ্যন্তরীন ত্রুটি; অবৈধ $str এবং/অথবা $key। এটা কখনই ঘটা উচিত নয়।',
-	'cite_error_stack_invalid_input' => 'আভ্যন্তরীন ত্রুটি; অবৈধ স্ট্যাক কি। এটা কখনই ঘটা উচিত নয়।',
-	'cite_error'                     => 'উদ্ধৃতি ত্রুটি: $1',
+	'cite_desc'                                => 'উদ্ধৃতির জন্য <nowiki><ref[ name=id]></nowiki> এবং <nowiki><references/></nowiki> ট্যাগসমূহ যোগ করুন',
+	'cite_croak'                               => 'উদ্ধৃতি ক্রোক করা হয়েছে; $1: $2',
+	'cite_error_key_str_invalid'               => 'আভ্যন্তরীন ত্রুটি; অবৈধ $str এবং/অথবা $key। এটা কখনই ঘটা উচিত নয়।',
+	'cite_error_stack_invalid_input'           => 'আভ্যন্তরীন ত্রুটি; অবৈধ স্ট্যাক কি। এটা কখনই ঘটা উচিত নয়।',
+	'cite_error'                               => 'উদ্ধৃতি ত্রুটি: $1',
+	'cite_error_ref_numeric_key'               => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নাম কোন সরল পূর্ণসংখ্যা হতে পারবেনা, একটি বিবরণমূলক শিরোনাম ব্যবহার করুন',
+	'cite_error_ref_no_key'                    => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; বিষয়বস্তুহীন refসমূহের অবশ্যই নাম থাকতে হবে',
+	'cite_error_ref_too_many_keys'             => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; অবৈধ নাম (যেমন- সংখ্যাতিরিক্ত)',
+	'cite_error_ref_no_input'                  => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নামবিহীন refসমূহের অবশ্যই বিষয়বস্তু থাকতে হবে',
+	'cite_error_references_invalid_input'      => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; কোন ইনপুট অনুমোদিত নয়, <code>&lt;references /&gt;</code> ব্যবহার করুন',
+	'cite_error_references_invalid_parameters' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; কোন প্যারামিটার অনুমোদিত নয়, <code>&lt;references /&gt;</code> ব্যবহার করুন',
+	'cite_error_references_no_backlink_label'  => "পছন্দমাফিক ব্যাকলিংক লেবেলের সংখ্যা ফুরিয়ে গেছে, \"''cite_references_link_many_format_backlink_labels''\" বার্তায় আরও সংজ্ঞায়িত করুন",
+	'cite_error_references_no_text'            => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের refগুলির জন্য কোন টেক্সট প্রদান করা হয়নি',
 );
 
 /** Catalan (Català)

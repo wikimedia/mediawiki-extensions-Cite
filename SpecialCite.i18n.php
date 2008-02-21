@@ -707,6 +707,7 @@ $messages['pam'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
+	'cite_article_desc' => 'Dodaje stronę specjalną i guzik w toolbarze edycyjnym do obsługi [[Special:Cite|cytowania]]',
 	'cite_article_link' => 'Cytuj ten artykuł',
 	'cite'              => 'Cytowanie',
 	'cite_page'         => 'Strona:',

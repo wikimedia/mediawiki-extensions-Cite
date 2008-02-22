@@ -38,6 +38,7 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'cite_article_desc' => 'Adibe un binclo y una pachina espezial de [[Special:Cite|zita]]',
 	'cite_article_link' => 'Zitar ista pachina',
 	'cite'              => 'Zitar',
 	'cite_page'         => 'Pachina:',

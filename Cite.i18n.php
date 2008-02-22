@@ -59,6 +59,7 @@ $messages['en'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'cite_desc'                                => 'Adibe as etiquetas <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> ta fer zitas',
 	'cite_croak'                               => 'Zita corrompita; $1: $2',
 	'cite_error_key_str_invalid'               => 'Error interna; $str y/u $key no conforme(s). Isto no abría d\'escaizer nunca.',
 	'cite_error_stack_invalid_input'           => "Error interna; clau de pila no conforme. Isto no abría d'escaizer nunca.",
@@ -577,10 +578,10 @@ $messages['no'] = array(
 	'cite_error_ref_no_key'                    => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten innhold må inneholde navn',
 	'cite_error_ref_too_many_keys'             => 'Ugyldig <code>&lt;ref&gt;</code>-kode; ugyldige navn, f.eks. for mange',
 	'cite_error_ref_no_input'                  => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten navn må ha innhold',
-	'cite_error_references_invalid_input'      => 'Ugyldig <code>&lt;references&gt;</code>-kode; kan ikke oppgi parametere, bruk <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_input'      => 'Ugyldig <code>&lt;references&gt;</code>-tagg: Innhold er ikke tillatt, bruk i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-kode; ingen parametere tillates, bruk <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Gikk tom for egendefinerte tilbakelenketekster; definer flere i beskjeden «''cite_references_link_many_format_backlink_labels''»",
-	'cite_error_references_no_text'            => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for ref-er ved navn <code>$1</code>',
+	'cite_error_references_no_text'            => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>',
 );
 
 /** Occitan (Occitan)

@@ -306,10 +306,13 @@ $messages['frp'] = array(
 
 /** Galician (Galego)
  * @author Alma
+ * @author Toliño
  * @author Xosé
  */
 $messages['gl'] = array(
 	'cite_desc'                                => 'Engada <nowiki><ref[ nome=id]></nowiki> e <nowiki><references/></nowiki> tags, para notas',
+	'cite_error_key_str_invalid'               => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
+	'cite_error_stack_invalid_input'           => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
 	'cite_error'                               => 'Citar erro: $1',
 	'cite_error_ref_numeric_key'               => 'Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple entero, use un título descriptivo',
 	'cite_error_ref_no_key'                    => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan contido deben ter un nome',

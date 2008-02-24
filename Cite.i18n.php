@@ -427,6 +427,7 @@ $messages['id'] = array(
  * @author BrokenArrow
  */
 $messages['it'] = array(
+	'cite_desc'                                => 'Aggiunge i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> per gestire le citazioni',
 	'cite_croak'                               => 'Errore nella citazione: $1: $2',
 	'cite_error_key_str_invalid'               => 'Errore interno: $str errato',
 	'cite_error_stack_invalid_input'           => 'Errore interno: chiave di stack errata',

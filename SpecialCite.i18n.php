@@ -456,6 +456,7 @@ $messages['is'] = array(
  * @author BrokenArrow
  */
 $messages['it'] = array(
+	'cite_article_desc' => 'Aggiunge una pagina speciale per le [[Special:Cite|citazioni]] e un collegamento negli strumenti',
 	'cite_article_link' => 'Cita questa pagina',
 	'cite'              => 'Citazione',
 	'cite_page'         => 'Pagina da citare:',

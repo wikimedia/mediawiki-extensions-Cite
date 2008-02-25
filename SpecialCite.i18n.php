@@ -501,6 +501,13 @@ $messages['kk-latn'] = array(
 	'cite_submit'       => 'Däýeksöz al!',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author Chhorran
+ */
+$messages['km'] = array(
+	'cite_page' => 'ទំព័រ ៖',
+);
+
 /** Kannada (ಕನ್ನಡ)
  * @author Shushruth
  */

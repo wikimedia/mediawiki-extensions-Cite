@@ -609,6 +609,16 @@ $messages['mn'] = array(
 	'cite_article_link' => 'Энэ бичлэгийг эш татах',
 );
 
+/** Marathi (मराठी)
+ * @author Mahitgar
+ */
+$messages['mr'] = array(
+	'cite_article_link' => 'हे पान उधृत करा',
+	'cite'              => 'उधृत करा',
+	'cite_page'         => 'पान',
+	'cite_submit'       => 'उधृत करा',
+);
+
 /** Erzya (эрзянь кель)
  * @author Amdf
  */

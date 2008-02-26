@@ -904,6 +904,17 @@ $messages['sv'] = array(
 	'cite_submit'       => 'Ange som källa',
 );
 
+/** Tamil (தமிழ்)
+ * @author Trengarasu
+ */
+$messages['ta'] = array(
+	'cite_article_desc' => 'கருவிப் பெட்டியில் [[Special:Cite|மேற்கோள்]] காடுவதற்கான இணைப்பை ஏற்படுத்துகிறது',
+	'cite_article_link' => 'இப்பக்க்த்தை மேற்கோள் காட்டு',
+	'cite'              => 'மேற்கோள் காட்டு',
+	'cite_page'         => 'பக்கம்',
+	'cite_submit'       => 'மேற்கோள் காட்டு',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  * @author Mpradeep

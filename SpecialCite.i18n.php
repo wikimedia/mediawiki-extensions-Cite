@@ -424,7 +424,11 @@ $messages['hy'] = array(
 	'cite_submit'       => 'Քաղվածել',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author IvanLanin
+ */
 $messages['id'] = array(
+	'cite_article_desc' => 'Menambahkan halaman istimewa [[Special:Cite|kutipan]] dan pranala pada kotak peralatan',
 	'cite_article_link' => 'Kutip artikel ini',
 	'cite'              => 'Kutip',
 	'cite_page'         => 'Halaman:',

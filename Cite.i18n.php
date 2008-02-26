@@ -130,7 +130,7 @@ $messages['bg'] = array(
 	'cite_error_ref_no_key'                    => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без съдържание трябва да имат име",
 	'cite_error_ref_too_many_keys'             => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' грешка в името, например повече от едно име на етикета",
 	'cite_error_ref_no_input'                  => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без име трябва да имат съдържание",
-	'cite_error_references_invalid_input'      => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' не е разрешен вход, използва се така: 
+	'cite_error_references_invalid_input'      => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' не е разрешен вход, използва се така:
 <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' използва се без параметри, така: <code>&lt;references /&gt;</code>",
 	'cite_error_references_no_text'            => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
@@ -260,7 +260,7 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Nike
  */
- 
+
 $messages['fi'] = array(
 	'cite_error_references_invalid_parameters' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
 );
@@ -408,8 +408,11 @@ $messages['hu'] = array(
 	'cite_error_references_no_text'            => 'Hibás <code>&lt;ref&gt;</code> tag; nincs megadva szöveg a(z) <code>$1</code> nevű ref-eknek',
 );
 
-/** Indonesian (Bahasa Indonesia) */
+/** Indonesian (Bahasa Indonesia)
+ * @author IvanLanin
+ */
 $messages['id'] = array(
+	'cite_desc'                                => 'Menambahkan tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk kutipan',
 	'cite_croak'                               => 'Kegagalan pengutipan; $1: $2',
 	'cite_error_key_str_invalid'               => 'Kesalahan internal; $str tak sah',
 	'cite_error_stack_invalid_input'           => 'Kesalahan internal; kunci stack tak sah',
@@ -421,6 +424,7 @@ $messages['id'] = array(
 	'cite_error_references_invalid_input'      => 'Kesalahan masukan; seharusnya tidak ada',
 	'cite_error_references_invalid_parameters' => 'Paramater tak sah; seharusnya tidak ada',
 	'cite_error_references_no_backlink_label'  => "Kehabisan label pralana balik, tambakan pada pesan sistem \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'Tag <code>&lt;ref&gt;</code> tak valid; tak ditemukan teks dengan ref dengan nama <code>$1</code>',
 );
 
 /** Italian (Italiano)

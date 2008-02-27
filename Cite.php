@@ -21,7 +21,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
 $wgExtensionFunctions[] = 'wfCite';
 $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'Cite',
-	'version' => '2008-01-31',
+	'version' => preg_replace('/^.* (\d\d\d\d-\d\d-\d\d) .*$/', '\1', '$LastChangedDate$'), #just the date of the last change
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations', // kept for b/c
 	'descriptionmsg' => 'cite_desc',

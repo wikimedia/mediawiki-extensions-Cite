@@ -512,7 +512,7 @@ function wfCite() {
 
 		/**
 		 * This does approximately the same thing as
-		 * Langauge::listToText() but due to this being used for a
+		 * Language::listToText() but due to this being used for a
 		 * slightly different purpose (people might not want , as the
 		 * first seperator and not 'and' as the second, and this has to
 		 * use messages from the content language) I'm rolling my own.

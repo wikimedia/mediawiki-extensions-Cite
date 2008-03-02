@@ -237,6 +237,13 @@ $messages['el'] = array(
 	'cite_error_references_no_text' => 'Δεν δίνετε κείμενο.',
 );
 
+/** Basque (Euskara)
+ * @author SPQRobin
+ */
+$messages['eu'] = array(
+	'cite_error' => 'Aipamen errorea: $1',
+);
+
 /** فارسی (فارسی)
  * @author Huji
  */
@@ -552,6 +559,13 @@ $messages['lt'] = array(
 	'cite_error_references_invalid_input'      => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Baigėsi antraštės, nurodykite daugiau \"''cite_references_link_many_format_backlink_labels''\" sisteminiame tekste",
+);
+
+/** Marathi (मराठी)
+ * @author Mahitgar
+ */
+$messages['mr'] = array(
+	'cite_error' => 'त्रूटी उधृत करा:$1',
 );
 
 /** Dutch (Nederlands)

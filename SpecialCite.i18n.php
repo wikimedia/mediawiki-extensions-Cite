@@ -875,6 +875,7 @@ $messages['sr-ec'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
+	'cite_article_desc' => 'Föiget ju [[Special:Cite|Zitierhilfe]]-Spezioalsiede un n Link in dän Kasten Reewen bietou',
 	'cite_article_link' => 'Disse Siede zitierje',
 	'cite'              => 'Zitierhälpe',
 	'cite_page'         => 'Siede:',

@@ -120,9 +120,11 @@ $messages['ast'] = array(
 /** Bulgarian (Български)
  * @author Spiritia
  * @author DCLXVI
+ * @author Borislav
  */
 $messages['bg'] = array(
 	'cite_desc'                                => 'Добавя етикетите <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, подходящи за цитиране',
+	'cite_croak'                               => 'Цитиращата система се срути; $1: $2',
 	'cite_error_key_str_invalid'               => 'Вътрешна грешка: невалиден параметър $str и/или $key.  Това не би трябвало да се случва никога.',
 	'cite_error_stack_invalid_input'           => "'''Вътрешна грешка:''' невалиден ключ на стека. Това не би трябвало да се случва никога.",
 	'cite_error'                               => 'Грешка при цитиране: $1',
@@ -130,7 +132,7 @@ $messages['bg'] = array(
 	'cite_error_ref_no_key'                    => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без съдържание трябва да имат име",
 	'cite_error_ref_too_many_keys'             => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' грешка в името, например повече от едно име на етикета",
 	'cite_error_ref_no_input'                  => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без име трябва да имат съдържание",
-	'cite_error_references_invalid_input'      => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' не е разрешен вход, използва се така:
+	'cite_error_references_invalid_input'      => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' не е разрешен вход, използва се така: 
 <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' използва се без параметри, така: <code>&lt;references /&gt;</code>",
 	'cite_error_references_no_text'            => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
@@ -794,7 +796,20 @@ $messages['te'] = array(
  * @author Ibrahim
  */
 $messages['tg'] = array(
-	'cite_error' => 'Хатои ёдкард: $1',
+	'cite_desc'                                => 'Барчасбҳои <nowiki><ref[ name=id]></nowiki> ва <nowiki><references/></nowiki>  барои ёд кардан, изофа мекунад',
+	'cite_croak'                               => 'Ёд кардан хароб шуд; $1: $2',
+	'cite_error_key_str_invalid'               => 'Хатои дохилӣ; $str ва/ё $key ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
+	'cite_error_stack_invalid_input'           => 'Хатои дохилӣ; клиди пушта ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
+	'cite_error'                               => 'Хатои ёдкард: $1',
+	'cite_error_ref_numeric_key'               => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ном наметавонад як адад бошад, унвони возеҳтареро истифода кунед',
+	'cite_error_ref_no_key'                    => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳо бидуни мӯҳтаво бояд ном дошта бошанд',
+	'cite_error_ref_too_many_keys'             => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; номҳои ғайримиҷоз ё беш аз андоза',
+	'cite_error_ref_no_input'                  => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳои бидуни ном бояд мӯҳтаво дошта бошанд',
+	'cite_error_references_invalid_input'      => 'Барчасби <code>&lt;references&gt;</code> ғайримиҷоз; вуруди матн миҷоз нест, аз
+<code>&lt;references /&gt;</code> истифода кунед',
+	'cite_error_references_invalid_parameters' => 'Барчасби <code>&lt;references&gt;</code> ғайримиҷоз; истифода аз параметр миҷоз аст, аз  <code>&lt;references /&gt;</code> истифода кунед',
+	'cite_error_references_no_backlink_label'  => "Барчасбҳои пайванд ба интиҳо расид, мавориди ҷадидро дар пайём  \"''cite_references_link_many_format_backlink_labels''\" истифода кунед",
+	'cite_error_references_no_text'            => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; матне барои ёдкардҳо бо номи <code>$1</code> ворид нашудааст',
 );
 
 /** Turkish (Türkçe)

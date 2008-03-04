@@ -87,6 +87,7 @@ $messages['be'] = array(
  * @author DCLXVI
  */
 $messages['bg'] = array(
+	'cite_article_desc' => 'Добавя специална страница и препратка за [[Special:Cite|цитиране]]',
 	'cite_article_link' => 'Цитиране на страницата',
 	'cite'              => 'Цитиране',
 	'cite_page'         => 'Страница:',
@@ -942,6 +943,7 @@ $messages['tet'] = array(
  * @author Ibrahim
  */
 $messages['tg'] = array(
+	'cite_article_desc' => 'Саҳифаи вижае барои [[Special:Cite|ёдкард]] изофа мекунад ва пайванде ба ҷаъбаи абзор меафзояд',
 	'cite_article_link' => 'Ёд кардани пайванди ин мақола',
 	'cite'              => 'Ёд кардани ин мақола',
 	'cite_page'         => 'Саҳифа:',

@@ -755,6 +755,7 @@ $messages['ps'] = array(
 	'cite_article_link' => 'د همدې ليکنې درک',
 	'cite'              => 'درک',
 	'cite_page'         => 'مخ:',
+	'cite_submit'       => 'درک لګول',
 );
 
 /** Portuguese (Português)

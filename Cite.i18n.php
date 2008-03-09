@@ -13,7 +13,7 @@ $messages['en'] = array(
 		Debug and errors
 	*/
 	# Internal errors
-	'cite_croak'                     => 'Cite croaked; $1: $2',
+	'cite_croak'                     => 'Cite died; $1: $2',
 	'cite_error_key_str_invalid'     => 'Internal error; invalid $str and/or $key.  This should never occur.',
 	'cite_error_stack_invalid_input' => 'Internal error; invalid stack key.  This should never occur.',
 

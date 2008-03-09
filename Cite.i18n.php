@@ -635,13 +635,22 @@ $messages['pag'] = array(
 );
 
 /** Polish (Polski)
+ * @author Holek
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'cite_desc'                      => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
-	'cite_error_key_str_invalid'     => 'Błąd wewnętrzny - nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
-	'cite_error_stack_invalid_input' => 'Błąd wewnętrzny - nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
-	'cite_error'                     => "Błąd rozszerzenia ''cite'': $1",
+	'cite_desc'                                => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
+	'cite_error_key_str_invalid'               => 'Błąd wewnętrzny - nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
+	'cite_error_stack_invalid_input'           => 'Błąd wewnętrzny - nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
+	'cite_error'                               => "Błąd rozszerzenia ''cite'': $1",
+	'cite_error_ref_numeric_key'               => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.',
+	'cite_error_ref_no_key'                    => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.',
+	'cite_error_ref_too_many_keys'             => 'Nieprawidłowe nazwy parametrów tagu <code>&lt;ref&gt;</code>.',
+	'cite_error_ref_no_input'                  => 'Bład w składni tagu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
+	'cite_error_references_invalid_input'      => 'Bład w składni tagu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym tagu, użyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Bład w składni tagu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego tagu, użyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => "Zabrakło etykiet do przypisów. Dopisz więcej w wiadomości \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'            => 'Bład w składni tagu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
 );
 
 /** Portuguese (Português)

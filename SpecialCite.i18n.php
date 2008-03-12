@@ -169,7 +169,7 @@ $messages['cu'] = array(
 );
 
 /** Danish (Dansk)
- * @author Morten LJ
+ * @author Morten
  */
 $messages['da'] = array(
 	'cite_article_link' => 'Citér denne artikel',
@@ -848,7 +848,7 @@ $messages['sk'] = array(
 );
 
 /** Southern Sami (Åarjelsaemien gïele)
- * @author Max sonnelid
+ * @author M.M.S.
  */
 $messages['sma'] = array(
 	'cite_page' => 'Bielie:',

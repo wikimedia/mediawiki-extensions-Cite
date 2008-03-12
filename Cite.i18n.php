@@ -186,7 +186,7 @@ $messages['cs'] = array(
 );
 
 /** Danish (Dansk)
- * @author Morten LJ
+ * @author Morten
  */
 $messages['da'] = array(
 	'cite_croak'                               => 'Fodnoten døde: $1: $2',
@@ -237,6 +237,13 @@ $messages['dsb'] = array(
  */
 $messages['el'] = array(
 	'cite_error_references_no_text' => 'Δεν δίνετε κείμενο.',
+);
+
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
 );
 
 /** Basque (Euskara)
@@ -635,8 +642,9 @@ $messages['pag'] = array(
 );
 
 /** Polish (Polski)
- * @author Holek
  * @author Sp5uhe
+ * @author Derbeth
+ * @author Holek
  */
 $messages['pl'] = array(
 	'cite_desc'                                => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
@@ -645,12 +653,12 @@ $messages['pl'] = array(
 	'cite_error'                               => "Błąd rozszerzenia ''cite'': $1",
 	'cite_error_ref_numeric_key'               => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.',
 	'cite_error_ref_no_key'                    => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.',
-	'cite_error_ref_too_many_keys'             => 'Nieprawidłowe nazwy parametrów tagu <code>&lt;ref&gt;</code>.',
-	'cite_error_ref_no_input'                  => 'Bład w składni tagu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
-	'cite_error_references_invalid_input'      => 'Bład w składni tagu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym tagu, użyj <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Bład w składni tagu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego tagu, użyj <code>&lt;references /&gt;</code>',
+	'cite_error_ref_too_many_keys'             => 'Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.',
+	'cite_error_ref_no_input'                  => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
+	'cite_error_references_invalid_input'      => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym elemencie, użyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Zabrakło etykiet do przypisów. Dopisz więcej w wiadomości \"''cite_references_link_many_format_backlink_labels''\"",
-	'cite_error_references_no_text'            => 'Bład w składni tagu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
+	'cite_error_references_no_text'            => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
 );
 
 /** Portuguese (Português)

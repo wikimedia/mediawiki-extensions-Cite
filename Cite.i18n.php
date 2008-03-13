@@ -577,6 +577,13 @@ $messages['mr'] = array(
 	'cite_error' => 'त्रूटी उधृत करा:$1',
 );
 
+/** Low German (Plattdüütsch)
+ * @author Slomox
+ */
+$messages['nds'] = array(
+	'cite_error' => 'Zitat-Fehler: $1',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */

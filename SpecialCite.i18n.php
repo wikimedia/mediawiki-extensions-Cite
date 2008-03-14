@@ -616,8 +616,10 @@ $messages['mn'] = array(
 
 /** Marathi (मराठी)
  * @author Mahitgar
+ * @author Kaustubh
  */
 $messages['mr'] = array(
+	'cite_article_desc' => 'एक विशेष [[Special:Cite|बाह्यदुवे]] देणारे पान व टूलबॉक्सची लिंक तयार करा',
 	'cite_article_link' => 'हे पान उधृत करा',
 	'cite'              => 'उधृत करा',
 	'cite_page'         => 'पान',
@@ -901,10 +903,10 @@ $messages['su'] = array(
  */
 $messages['sv'] = array(
 	'cite_article_desc' => 'Lägger till en specialsida för [[Special:Cite|källhänvisning]] och en länk i verktygslådan',
-	'cite_article_link' => 'Ange denna sida som källa',
-	'cite'              => 'Ange källa',
+	'cite_article_link' => 'Citera denna artikel',
+	'cite'              => 'Citera',
 	'cite_page'         => 'Sida:',
-	'cite_submit'       => 'Ange som källa',
+	'cite_submit'       => 'Citera',
 );
 
 /** Tamil (தமிழ்)
@@ -974,6 +976,17 @@ $messages['tr'] = array(
 	'cite'              => 'Kaynak göster',
 	'cite_page'         => 'Sayfa:',
 	'cite_submit'       => 'Belirt',
+);
+
+/** Ukrainian (Українська)
+ * @author Ahonc
+ */
+$messages['uk'] = array(
+	'cite_article_desc' => 'Додає спеціальну сторінку [[Special:Cite|цитування]] і посилання в інструментах',
+	'cite_article_link' => 'Цитувати сторінку',
+	'cite'              => 'Цитування',
+	'cite_page'         => 'Сторінка:',
+	'cite_submit'       => 'Процитувати',
 );
 
 $messages['ur'] = array(

@@ -327,6 +327,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'cite_desc'                                => 'Engada <nowiki><ref[ nome=id]></nowiki> e <nowiki><references/></nowiki> tags, para notas',
+	'cite_croak'                               => 'Cita morta; $1: $2',
 	'cite_error_key_str_invalid'               => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
 	'cite_error_stack_invalid_input'           => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
 	'cite_error'                               => 'Citar erro: $1',
@@ -571,10 +572,23 @@ $messages['lt'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Kaustubh
  * @author Mahitgar
  */
 $messages['mr'] = array(
-	'cite_error' => 'त्रूटी उधृत करा:$1',
+	'cite_desc'                                => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
+	'cite_croak'                               => 'संदर्भ देता आला नाही; $1: $2',
+	'cite_error_key_str_invalid'               => 'अंतर्गत त्रुटी; चुकीचे $str आणि/किंवा $key. असे कधीही घडले नाही पाहिजे.',
+	'cite_error_stack_invalid_input'           => 'अंतर्गत त्रुटी; चुकीची स्टॅक चावी. असे कधीही घडले नाही पाहिजे.',
+	'cite_error'                               => 'त्रूटी उधृत करा:$1',
+	'cite_error_ref_numeric_key'               => '<code>&lt;ref&gt;</code> चुकीचा कोड; नाव हे पूर्णांकी संख्या असू शकत नाही, कृपया माहितीपूर्ण शीर्षक द्या',
+	'cite_error_ref_no_key'                    => '<code>&lt;ref&gt;</code> चुकीचा कोड; रिकाम्या संदर्भांना नाव असणे गरजेचे आहे',
+	'cite_error_ref_too_many_keys'             => '<code>&lt;ref&gt;</code> चुकीचा कोड; चुकीची नावे, उदा. खूप सारी',
+	'cite_error_ref_no_input'                  => '<code>&lt;ref&gt;</code> चुकीचा कोड; निनावी संदर्भांमध्ये माहिती असणे गरजेचे आहे',
+	'cite_error_references_invalid_input'      => '<code>&lt;references&gt;</code> चुकीचा कोड; माहिती देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
+	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
+	'cite_error_references_no_backlink_label'  => "तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे \"''cite_references_link_many_format_backlink_labels''\" या प्रणाली संदेशात लिहा",
+	'cite_error_references_no_text'            => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
 );
 
 /** Low German (Plattdüütsch)

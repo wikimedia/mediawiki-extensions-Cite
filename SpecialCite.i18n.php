@@ -480,6 +480,16 @@ $messages['ja'] = array(
 	'cite_submit'       => '引用する',
 );
 
+/** Jutish (Jysk)
+ * @author Huslåke
+ */
+$messages['jut'] = array(
+	'cite_article_link' => 'Fodnåter denne ertikel',
+	'cite'              => 'Fodnåt',
+	'cite_page'         => 'Side:',
+	'cite_submit'       => 'Fodnåt',
+);
+
 /** Georgian (ქართული) */
 $messages['ka'] = array(
 	'cite_article_link' => 'ამ გვერდის ციტირება',

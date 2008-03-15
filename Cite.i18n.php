@@ -483,6 +483,24 @@ $messages['ja'] = array(
 	'cite_error_references_no_text'            => '無効な <code>&lt;ref&gt;</code> タグ: <code>$1</code>という名前の引用句に対するテキストがありません。',
 );
 
+/** Jutish (Jysk)
+ * @author Huslåke
+ */
+$messages['jut'] = array(
+	'cite_croak'                               => 'Æ fodnåt døde; $1: $2',
+	'cite_error_key_str_invalid'               => 'Intern fejl: Ugyldeg $str og/æller $key. Dette burde aldreg førekåm.',
+	'cite_error_stack_invalid_input'           => 'Intern fejl: Ugyldeg staknøgle. Dette burde aldreg førekåm.',
+	'cite_error'                               => 'Fodnåtfejl: $1',
+	'cite_error_ref_numeric_key'               => 'Ugyldigt <code>&lt;ref&gt;</code>-tag; "name" kan ikke være et simpelt heltal, brug en beskrivende titel',
+	'cite_error_ref_no_key'                    => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden indhold skal have et navn',
+	'cite_error_ref_too_many_keys'             => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldege navne, fx før mange',
+	'cite_error_ref_no_input'                  => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden navn skal have indhold',
+	'cite_error_references_invalid_input'      => 'Ugyldigt <code>&lt;references&gt;</code>-tag: Indhold ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_backlink_label'  => 'For mange <code>&lt;ref&gt;</code>-tags har det samme "name", tillad flere i beskeden "\'\'cite_references_link_many_format_backlink_labels\'\'"',
+	'cite_error_references_no_text'            => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
+);
+
 /** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */
 $messages['kk-arab'] = array(
 	'cite_croak'                               => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2 ',

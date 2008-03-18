@@ -687,6 +687,7 @@ $messages['pag'] = array(
  */
 $messages['pl'] = array(
 	'cite_desc'                                => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
+	'cite_croak'                               => 'Cytowanie nieudane; $1: $2',
 	'cite_error_key_str_invalid'               => 'Błąd wewnętrzny - nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
 	'cite_error_stack_invalid_input'           => 'Błąd wewnętrzny - nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
 	'cite_error'                               => "Błąd rozszerzenia ''cite'': $1",

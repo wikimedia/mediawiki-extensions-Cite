@@ -34,10 +34,10 @@ $messages['en'] = array(
 	*/
 	'cite_reference_link_key_with_num' => '$1_$2',
 	# Ids produced by <ref>
-	'cite_reference_link_prefix'       => '_ref-',
+	'cite_reference_link_prefix'       => 'cite_ref-',
 	'cite_reference_link_suffix'       => '',
 	# Ids produced by <references>
-	'cite_references_link_prefix'      => '_note-',
+	'cite_references_link_prefix'      => 'cite_note-',
 	'cite_references_link_suffix'      => '',
 
 	'cite_reference_link'                              => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',

@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'cite_article_desc' => 'Adds a [[Special:Cite|citation]] special page & toolbox link',
+	'cite_article_desc' => 'Adds a [[Special:Cite|citation]] special page and toolbox link',
 	'cite_article_link' => 'Cite this page',
 	'cite'              => 'Cite',
 	'cite_page'         => 'Page:',

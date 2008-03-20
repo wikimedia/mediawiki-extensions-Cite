@@ -30,6 +30,13 @@ $wgExtensionCredits['parserhook'][] = array(
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
 $wgExtensionMessagesFiles['Cite'] = dirname( __FILE__ ) . "/Cite.i18n.php";
 
+define( 'CITE_DEFAULT_GROUP', '');
+/**
+ * The emergency shut-off switch.  Override in local settings to disable
+ * groups; or remove all references from this file to enable unconditionally
+ */
+$wgAllowCiteGroups = true; 
+
 function wfCite() {
 	class Cite {
 		/**#@+
@@ -75,6 +82,7 @@ function wfCite() {
 		 * @var int
 		 */
 		var $mOutCnt = 0;
+		var $mGroupCnt = array();
 
 		/**
 		 * Internal counter for anonymous references, seperate from
@@ -137,11 +145,11 @@ function wfCite() {
 			}
 		}
 		
-		function guardedRef( $str, $argv, $parser ) {
+		function guardedRef( $str, $argv, $parser, $default_group=CITE_DEFAULT_GROUP ) {
 			$this->mParser = $parser;
 			
 			# The key here is the "name" attribute.
-			$key = $this->refArg( $argv );
+			list($key,$group) = $this->refArg( $argv );
 			
 			if( $str === '' ) {
 				# <ref ...></ref>.  This construct is always invalid: either
@@ -167,6 +175,11 @@ function wfCite() {
 				# (and would produce weird id's anyway).
 				return $this->error( 'cite_error_ref_numeric_key' );
 			}
+
+			#Split these into groups.
+			if( $group === null ) {
+				$group = $default_group;
+			}
 			
 			if( is_string( $key ) or is_string( $str ) ) {
 				# We don't care about the content: if the key exists, the ref
@@ -174,7 +187,7 @@ function wfCite() {
 				# fers to an existing one.  If it refers to a nonexistent ref,
 				# we'll figure that out later.  Likewise it's definitely valid
 				# if there's any content, regardless of key.
-				return $this->stack( $str, $key );
+				return $this->stack( $str, $key, $group );
 			}
 
 			# Not clear how we could get here, but something is probably
@@ -192,21 +205,36 @@ function wfCite() {
 		 *               input and null on no input
 		 */
 		function refArg( $argv ) {
+ 			global $wgAllowCiteGroups;
 			$cnt = count( $argv );
 			
-			if ( $cnt > 1 )
-				// There should only be one key
+			if ( $cnt > 2 )
+				// There should only be one key and one group
 				return false;
-			else if ( $cnt == 1 )
-				if ( isset( $argv['name'] ) )
+			else if ( $cnt >= 1 ) {
+				if ( isset( $argv['name'] ) ) {
 					// Key given.
-					return $this->validateName( array_shift( $argv ) );
+					$key = $this->validateName( $argv['name'] );
+					unset( $argv['name']);
+					--$cnt;
+				}
+				if ( isset( $argv['group'] ) ){
+					if (! $wgAllowCiteGroups ) return array(false); //remove when groups are fully tested.
+					// Group given.
+					$group = $this->validateName( $argv['group'] );
+					unset( $argv['group']);
+					--$cnt;
+				}
+
+				if ( $cnt == 0)
+					return array ($key,$group);
 				else
 					// Invalid key
-					return false;
+					return array(false);
+			}
 			else
 				// No key
-				return null;
+				return array(null,$group);
 		}
 		
 		/**
@@ -242,38 +270,47 @@ function wfCite() {
 		 * @param mixed $key Argument to the <ref> tag as returned by $this->refArg()
 		 * @return string 
 		 */
-		function stack( $str, $key = null ) {
+		function stack( $str, $key = null, $group ) {
 			if ( $key === null ) {
 				// No key
-				$this->mRefs[] = $str;
-				return $this->linkRef( $this->mInCnt++ );
-			} else if ( is_string( $key ) )
+				//$this->mRefs[$group][] = $str;
+				$this->mRefs[$group][] = array('count'=>-1, 'text'=>$str, 'key'=>++$this->mOutCnt);
+
+				return $this->linkRef( $group, $this->mInCnt++ );
+			} else if ( is_string( $key ) ) {
 				// Valid key
-				if ( ! isset( $this->mRefs[$key] ) || ! is_array( $this->mRefs[$key] ) ) {
-					// First occourance
-					$this->mRefs[$key] = array(
+				if ( ! isset( $this->mRefs[$group][$key] ) || ! is_array( $this->mRefs[$group][$key] ) ) {
+					// First occurance
+					$this->mRefs[$group][$key] = array(
 						'text' => $str,
 						'count' => 0,
-						'number' => ++$this->mOutCnt
+						'key' => ++$this->mOutCnt,
+						'number' => ++$this->mGroupCnt[$group]
 					);
 					return
 						$this->linkRef(
+							$group,
 							$key,
-							$this->mRefs[$key]['count'],
-							$this->mRefs[$key]['number']
+							$this->mRefs[$group][$key]['key']."-".$this->mRefs[$group][$key]['count'],
+							$this->mRefs[$group][$key]['number'],
+							"-".$this->mRefs[$group][$key]['key']
 						);
 				} else {
 					// We've been here before
-					if ( $this->mRefs[$key]['text'] === null && $str !== '' ) {
+					if ( $this->mRefs[$group][$key]['text'] === null && $str !== '' ) {
 						// If no text found before, use this text
-						$this->mRefs[$key]['text'] = $str;
+						$this->mRefs[$group][$key]['text'] = $str;
 					};
 					return 
 						$this->linkRef(
+							$group,
 							$key,
-							++$this->mRefs[$key]['count'],
-							$this->mRefs[$key]['number']
+							$this->mRefs[$group][$key]['key']."-".++$this->mRefs[$group][$key]['count'],
+							$this->mRefs[$group][$key]['number'],
+							"-".$this->mRefs[$group][$key]['key']
 						); }
+			}
+
 			else
 				$this->croak( 'cite_error_stack_invalid_input', serialize( array( $key, $str ) ) );
 		}
@@ -300,15 +337,26 @@ function wfCite() {
 				return $ret;
 			}
 		}
-		
-		function guardedReferences( $str, $argv, $parser ) {
+
+		function guardedReferences( $str, $argv, $parser, $group = CITE_DEFAULT_GROUP ) {
+			global $wgAllowCiteGroups;
+
 			$this->mParser = $parser;
+			
 			if ( $str !== null )
 				return $this->error( 'cite_error_references_invalid_input' );
-			else if ( count( $argv ) )
+
+			
+			if ( isset( $argv['group'] ) and $wgAllowCiteGroups) {
+				$group = $argv['group'];
+				unset ($argv['group']);
+				
+			}
+			
+			if ( count( $argv ) )
 				return $this->error( 'cite_error_references_invalid_parameters' );
 			else
-				return $this->referencesFormat();
+				return $this->referencesFormat($group);
 		}
 
 		/**
@@ -316,14 +364,14 @@ function wfCite() {
 		 *
 		 * @return string XHTML ready for output
 		 */
-		function referencesFormat() {
-			if ( count( $this->mRefs ) == 0 )
+		function referencesFormat($group) {
+			if (( count( $this->mRefs ) == 0 ) or (count( $this->mRefs[$group] ) == 0 ))
 				return '';
 			
 			wfProfileIn( __METHOD__ );
 			wfProfileIn( __METHOD__ .'-entries' );
 			$ent = array();
-			foreach ( $this->mRefs as $k => $v )
+			foreach ( $this->mRefs[$group] as $k => $v )
 				$ent[] = $this->referencesFormatEntry( $k, $v );
 			
 			$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
@@ -365,6 +413,16 @@ function wfCite() {
 						$this->refKey( $key, $val['count'] ),
 						$this->error( 'cite_error_references_no_text', $key )
 					);
+			if ( $val['count'] < 0 )
+				return
+					wfMsgForContentNoTrans(
+						'cite_references_link_one',
+						$this->referencesKey( $val['key'] ),
+						#$this->refKey( $val['key'], $val['count'] ),
+						$this->refKey( $val['key'] ),
+
+						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )						
+					);
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is
 			// overkill and users frequently use named references when they
@@ -373,18 +431,19 @@ function wfCite() {
 				return
 					wfMsgForContentNoTrans(
 						'cite_references_link_one',
-						$this->referencesKey( $key ),
-						$this->refKey( $key, $val['count'] ),
+						$this->referencesKey( $key ."-" . $val['key'] ),
+						#$this->refKey( $key, $val['count'] ),
+						$this->refKey( $key, $val['key']."-".$val['count'] ),
 						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
 					);
 			// Named references with >1 occurrences
 			else {
 				$links = array();
-
+//for group handling, we have an extra key here.
 				for ( $i = 0; $i <= $val['count']; ++$i ) {
 					$links[] = wfMsgForContentNoTrans(
 							'cite_references_link_many_format',
-							$this->refKey( $key, $i ),
+							$this->refKey( $key, $val['key']."-$i" ),
 							$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
 							$this->referencesFormatEntryAlternateBacklinkLabel( $i )
 					);
@@ -394,7 +453,7 @@ function wfCite() {
 
 				return
 					wfMsgForContentNoTrans( 'cite_references_link_many',
-						$this->referencesKey( $key ),
+						$this->referencesKey( $key ."-" . $val['key'] ),
 						$list,
 						( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
 					);
@@ -446,7 +505,7 @@ function wfCite() {
 
 		/**
 		 * Return an id for use in wikitext output based on a key and
-		 * optionally the # of it, used in <references>, not <ref>
+		 * optionally the number of it, used in <references>, not <ref>
 		 * (since otherwise it would link to itself)
 		 *
 		 * @static
@@ -466,7 +525,7 @@ function wfCite() {
 
 		/**
 		 * Return an id for use in wikitext output based on a key and
-		 * optionally the # of it, used in <ref>, not <references>
+		 * optionally the number of it, used in <ref>, not <references>
 		 * (since otherwise it would link to itself)
 		 *
 		 * @static
@@ -489,23 +548,22 @@ function wfCite() {
 		 * and return XHTML ready for output
 		 *
 		 * @param string $key The key for the link
-		 * @param int $count The # of the key, used for distinguishing
-		 *                   multiple occourances of the same key
+		 * @param int $count The index of the key, used for distinguishing
+		 *                   multiple occurances of the same key
 		 * @param int $label The label to use for the link, I want to
 		 *                   use the same label for all occourances of
 		 *                   the same named reference.
 		 * @return string
 		 */
-		function linkRef( $key, $count = null, $label = null ) {
+		function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
 			global $wgContLang;
-
 			return
 				$this->parse(
 					wfMsgForContentNoTrans(
 						'cite_reference_link',
 						$this->refKey( $key, $count ),
-						$this->referencesKey( $key ),
-						$wgContLang->formatNum( is_null( $label ) ? ++$this->mOutCnt : $label )
+						$this->referencesKey( $key . $subkey ),
+						(($group == CITE_DEFAULT_GROUP)?'':"$group ").$wgContLang->formatNum( is_null( $label ) ? ++$this->mGroupCnt[$group] : $label )
 					)
 				);
 		}
@@ -608,7 +666,9 @@ function wfCite() {
 		 * want the counts to transcend pages and other instances
 		 */
 		function clearState() {
-			$this->mOutCnt = $this->mInCnt = 0;
+			$this->mGroupCnt = array();
+			$this->mOutCnt = -1;
+			$this->mInCnt = 0;
 			$this->mRefs = array();
 
 			return true;

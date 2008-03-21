@@ -405,7 +405,7 @@ $messages['hsb'] = array(
 );
 
 /** Hungarian (Magyar)
- * @author Bdanee
+ * @author Dani
  */
 $messages['hu'] = array(
 	'cite_article_desc' => '[[Special:Cite|Irodalomjegyzék-bejegyzés készítése]] speciális lap és hivatkozás az eszközdobozba',

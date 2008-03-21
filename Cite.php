@@ -294,6 +294,7 @@ function wfCite() {
 						'key' => ++$this->mOutCnt,
 						'number' => ++$this->mGroupCnt[$group]
 					);
+					$this->mInCnt++;
 					return
 						$this->linkRef(
 							$group,

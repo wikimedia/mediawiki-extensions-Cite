@@ -149,10 +149,10 @@ Blank ref followed by ref with content
 
 <references/>
 !! result
-<p><sup id="cite_ref-blank_0-0" class="reference"><a href="#cite_note-blank-0" title="">[1]</a></sup>
-</p><p><sup id="cite_ref-blank_0-1" class="reference"><a href="#cite_note-blank-0" title="">[1]</a></sup>
+<p><sup id="cite_ref-blank_0" class="reference"><a href="#cite_note-blank" title="">[1]</a></sup>
+</p><p><sup id="cite_ref-blank_1" class="reference"><a href="#cite_note-blank" title="">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0" title="">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1" title="">1.1</a></sup> content</li></ol>
+<ol class="references"><li id="cite_note-blank">↑ <sup><a href="#cite_ref-blank_0" title="">1.0</a></sup> <sup><a href="#cite_ref-blank_1" title="">1.1</a></sup> content</li></ol>
 
 !! end
 
@@ -165,10 +165,10 @@ Regression: non-blank ref "0" followed by ref with content
 
 <references/>
 !! result
-<p><sup id="cite_ref-blank_0-0" class="reference"><a href="#cite_note-blank-0" title="">[1]</a></sup>
-</p><p><sup id="cite_ref-blank_0-1" class="reference"><a href="#cite_note-blank-0" title="">[1]</a></sup>
+<p><sup id="cite_ref-blank_0" class="reference"><a href="#cite_note-blank" title="">[1]</a></sup>
+</p><p><sup id="cite_ref-blank_1" class="reference"><a href="#cite_note-blank" title="">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0" title="">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1" title="">1.1</a></sup> 0</li></ol>
+<ol class="references"><li id="cite_note-blank">↑ <sup><a href="#cite_ref-blank_0" title="">1.0</a></sup> <sup><a href="#cite_ref-blank_1" title="">1.1</a></sup> 0</li></ol>
 
 !! end
 
@@ -181,10 +181,10 @@ Regression sanity check: non-blank ref "1" followed by ref with content
 
 <references/>
 !! result
-<p><sup id="cite_ref-blank_0-0" class="reference"><a href="#cite_note-blank-0" title="">[1]</a></sup>
-</p><p><sup id="cite_ref-blank_0-1" class="reference"><a href="#cite_note-blank-0" title="">[1]</a></sup>
+<p><sup id="cite_ref-blank_0" class="reference"><a href="#cite_note-blank" title="">[1]</a></sup>
+</p><p><sup id="cite_ref-blank_1" class="reference"><a href="#cite_note-blank" title="">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0" title="">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1" title="">1.1</a></sup> 1</li></ol>
+<ol class="references"><li id="cite_note-blank">↑ <sup><a href="#cite_ref-blank_0" title="">1.0</a></sup> <sup><a href="#cite_ref-blank_1" title="">1.1</a></sup> 1</li></ol>
 
 !! end
 
@@ -197,13 +197,13 @@ Ref names containing a number
 
 <references />
 !! result
-<p><sup id="cite_ref-test123test_0-0" class="reference"><a href="#cite_note-test123test-0" title="">[1]</a></sup>
-<sup id="cite_ref-123test_1-0" class="reference"><a href="#cite_note-123test-1" title="">[2]</a></sup>
-<sup id="cite_ref-test123_2-0" class="reference"><a href="#cite_note-test123-2" title="">[3]</a></sup>
+<p><sup id="cite_ref-test123test_0" class="reference"><a href="#cite_note-test123test" title="">[1]</a></sup>
+<sup id="cite_ref-123test_0" class="reference"><a href="#cite_note-123test" title="">[2]</a></sup>
+<sup id="cite_ref-test123_0" class="reference"><a href="#cite_note-test123" title="">[3]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-test123test-0"><a href="#cite_ref-test123test_0-0" title="">↑</a> One</li>
-<li id="cite_note-123test-1"><a href="#cite_ref-123test_1-0" title="">↑</a> Two</li>
-<li id="cite_note-test123-2"><a href="#cite_ref-test123_2-0" title="">↑</a> Three</li></ol>
+<ol class="references"><li id="cite_note-test123test"><a href="#cite_ref-test123test_0" title="">↑</a> One</li>
+<li id="cite_note-123test"><a href="#cite_ref-123test_0" title="">↑</a> Two</li>
+<li id="cite_note-test123"><a href="#cite_ref-test123_0" title="">↑</a> Three</li></ol>
 
 !! end
 
@@ -229,8 +229,8 @@ Erroneous refs
 <p><strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer, use a descriptive title</strong>
 </p><p><sup id="cite_ref-0" class="reference"><a href="#cite_note-0" title="">[1]</a></sup>
 </p><p><strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no content must have a name</strong>
-</p><p><sup id="cite_ref-bar_1-0" class="reference"><a href="#cite_note-bar-1" title="">[2]</a></sup>
-</p><p><sup id="cite_ref-blankwithnoreference_2-0" class="reference"><a href="#cite_note-blankwithnoreference-2" title="">[3]</a></sup>
+</p><p><sup id="cite_ref-bar_0" class="reference"><a href="#cite_note-bar" title="">[2]</a></sup>
+</p><p><sup id="cite_ref-blankwithnoreference_0" class="reference"><a href="#cite_note-blankwithnoreference" title="">[3]</a></sup>
 </p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag; no input is allowed, use
 <code>&lt;references /&gt;</code></strong>
 </p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code></strong>
@@ -242,19 +242,3 @@ Erroneous refs
 !! end
 
 
-!! test
-Simple <ref>, with <references/> in group
-!! input
-Wikipedia rocks!<ref>Proceeds of Rockology, vol. XXI</ref>
-Wikipedia rocks!<ref group=note>Proceeds of Rockology, vol. XXI</ref>
-
-<references/>
-<references group=note/>
-!! result
-<p>Wikipedia rocks!<sup id="cite_ref-0" class="reference"><a href="#cite_note-0" title="">[1]</a></sup>
-Wikipedia rocks!<sup id="cite_ref-1" class="reference"><a href="#cite_note-1" title="">[note 1]</a></sup>
-</p>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0" title="">↑</a> Proceeds of Rockology, vol. XXI</li></ol>
-<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1" title="">↑</a> Proceeds of Rockology, vol. XXI</li></ol>
-
-!! end

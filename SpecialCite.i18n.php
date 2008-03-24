@@ -682,6 +682,13 @@ $messages['nl'] = array(
 	'cite_submit'       => 'Citeren',
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Jon Harald Søby
+ */
+$messages['nn'] = array(
+	'cite_page' => 'Side:',
+);
+
 /** Norwegian (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */

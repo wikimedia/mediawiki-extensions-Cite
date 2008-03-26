@@ -13,7 +13,7 @@ $messages['en'] = array(
 	'cite'              => 'Cite',
 	'cite_page'         => 'Page:',
 	'cite_submit'       => 'Cite',
-	'cite_text'         => '', # Don't translate this
+	'cite_text'         => '', # Do not translate this
 );
 
 $messages['af'] = array(

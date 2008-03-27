@@ -37,7 +37,7 @@ no input is allowed. Use <code>&lt;references /&gt;</code>',
 no parameters are allowed.
 Use <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Invalid <code>&lt;references&gt;</code> tag;
-parameter group is allowed only.
+parameter "group" is allowed only.
 Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_invalid_group'            => 'Invalid <code>&lt;references group="$1" /&gt;</code> tag;
 group name "$1" not defined in <code>&lt;ref&gt;</code>',

@@ -1,6 +1,6 @@
 <?php
 /**
- * Internationalisation file for Ci;te extension.
+ * Internationalisation file for Cite extension.
  *
  * @addtogroup Extensions
 */
@@ -18,16 +18,17 @@ $messages['en'] = array(
 	'cite_error_stack_invalid_input' => 'Internal error; invalid stack key.  This should never occur.',
 
 	# User errors
-	'cite_error'                               => 'Cite error: $1',
-	'cite_error_ref_numeric_key'               => 'Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer, use a descriptive title',
-	'cite_error_ref_no_key'                    => 'Invalid <code>&lt;ref&gt;</code> tag; refs with no content must have a name',
-	'cite_error_ref_too_many_keys'             => 'Invalid <code>&lt;ref&gt;</code> tag; invalid names, e.g. too many',
-	'cite_error_ref_no_input'                  => 'Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content',
-	'cite_error_references_invalid_input'      => 'Invalid <code>&lt;references&gt;</code> tag; no input is allowed, use
-<code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "Ran out of custom backlink labels, define more in the \"''cite_references_link_many_format_backlink_labels''\" message",
-	'cite_error_references_no_text'            => 'Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>$1</code>',
+	'cite_error'                                     => 'Cite error: $1',
+	'cite_error_ref_numeric_key'                     => 'Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer, use a descriptive title',
+	'cite_error_ref_no_key'                          => 'Invalid <code>&lt;ref&gt;</code> tag; refs with no content must have a name',
+	'cite_error_ref_too_many_keys'                   => 'Invalid <code>&lt;ref&gt;</code> tag; invalid names, e.g. too many',
+	'cite_error_ref_no_input'                        => 'Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content',
+	'cite_error_references_invalid_input'            => 'Invalid <code>&lt;references&gt;</code> tag; no input is allowed, use <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Invalid <code>&lt;references&gt;</code> tag; parameter group is allowed only, use <code>&lt;references /&gt;</code> or <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'            => 'Invalid <code>&lt;references group="$1" /&gt;</code> tag; group name "$1" not defined in <code>&lt;ref&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Ran out of custom backlink labels, define more in the <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> message',
+	'cite_error_references_no_text'                  => 'Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>$1</code>',
 
 	/*
 	   Output formatting
@@ -207,19 +208,21 @@ $messages['da'] = array(
  * @author Raimond Spekking
  */
 $messages['de'] = array(
-	'cite_desc'                                => 'Ergänzt für Quellennachweise die <tt><nowiki><ref[ name=id]></nowiki></tt> und <tt><nowiki><references /></nowiki></tt>-Tags',
-	'cite_croak'                               => 'Fehler im Referenz-System. $1: $2',
-	'cite_error_key_str_invalid'               => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
-	'cite_error_stack_invalid_input'           => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',
-	'cite_error'                               => 'Referenz-Fehler $1',
-	'cite_error_ref_numeric_key'               => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
-	'cite_error_ref_no_key'                    => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',
-	'cite_error_ref_too_many_keys'             => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ ist ungültig oder zu lang.',
-	'cite_error_ref_no_input'                  => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Namen muss einen Inhalt haben.',
-	'cite_error_references_invalid_input'      => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwende ausschließlich <tt><nowiki><references /></nowiki></tt>.',
-	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschließlich <tt><nowiki><references /></nowiki></tt>.',
-	'cite_error_references_no_backlink_label'  => 'Eine Referenz der Form <tt>&lt;ref name="…"/&gt;</tt> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
-	'cite_error_references_no_text'            => 'Ungültiger <tt>&lt;ref&gt;</tt>-Tag; es wurde kein Text für das Ref mit dem Namen <tt>$1</tt> angegeben.',
+	'cite_desc'                                      => 'Ergänzt für Quellennachweise die <tt><nowiki><ref[ name=id]></nowiki></tt> und <tt><nowiki><references /></nowiki></tt>-Tags',
+	'cite_croak'                                     => 'Fehler im Referenz-System. $1: $2',
+	'cite_error_key_str_invalid'                     => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
+	'cite_error_stack_invalid_input'                 => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',
+	'cite_error'                                     => 'Referenz-Fehler: $1',
+	'cite_error_ref_numeric_key'                     => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
+	'cite_error_ref_no_key'                          => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',
+	'cite_error_ref_too_many_keys'                   => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ ist ungültig oder zu lang.',
+	'cite_error_ref_no_input'                        => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Namen muss einen Inhalt haben.',
+	'cite_error_references_invalid_input'            => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwende ausschließlich <tt><nowiki><references /></nowiki></tt>.',
+	'cite_error_references_invalid_parameters'       => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschließlich <tt><nowiki><references /></nowiki></tt>.',
+	'cite_error_references_invalid_parameters_group' => 'Ungültige <code>&lt;references&gt;</code>-Verwendung: Nur der Parameter „group“ ist erlaubt, verwende <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="…" /&gt;</tt>',
+	'cite_error_references_invalid_group'            => 'Ungültige <code>&lt;references group="$1" /&gt;</code>-Verwendung: Gruppenname „$1“ wurde in keinem <tt>&lt;ref&gt;</tt> definiert',
+	'cite_error_references_no_backlink_label'        => 'Eine Referenz der Form <tt>&lt;ref name="…"/&gt;</tt> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
+	'cite_error_references_no_text'                  => 'Ungültiger <tt>&lt;ref&gt;</tt>-Tag; es wurde kein Text für das Ref mit dem Namen <tt>$1</tt> angegeben.',
 );
 
 /** Lower Sorbian (Dolnoserbski)

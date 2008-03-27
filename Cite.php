@@ -350,21 +350,27 @@ function wfCite() {
 			global $wgAllowCiteGroups;
 
 			$this->mParser = $parser;
-			
-			if ( $str !== null )
-				return $this->error( 'cite_error_references_invalid_input' );
 
-			
+			if ( $str !== null ) {
+				return $this->error( 'cite_error_references_invalid_input' );
+			}
+
 			if ( isset( $argv['group'] ) and $wgAllowCiteGroups) {
 				$group = $argv['group'];
 				unset ($argv['group']);
-				
 			}
-			
-			if ( count( $argv ) )
-				return $this->error( 'cite_error_references_invalid_parameters' );
-			else
-				return $this->referencesFormat($group);
+
+			if ( count( $argv ) ) {
+				if( $wgAllowCiteGroups ) {
+					return $this->error( 'cite_error_references_invalid_parameters_group' );
+				} else {
+					return $this->error( 'cite_error_references_invalid_parameters' );
+				}
+			} elseif ( $wgAllowCiteGroups && !isset( $this->mRefs[$group] ) ) {
+					return $this->error( 'cite_error_references_invalid_group', htmlspecialchars( $group ) );
+			} else {
+				return $this->referencesFormat( $group );
+			}
 		}
 
 		/**

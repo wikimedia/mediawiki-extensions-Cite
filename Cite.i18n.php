@@ -614,19 +614,21 @@ $messages['lt'] = array(
  * @author Mahitgar
  */
 $messages['mr'] = array(
-	'cite_desc'                                => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
-	'cite_croak'                               => 'संदर्भ देता आला नाही; $1: $2',
-	'cite_error_key_str_invalid'               => 'अंतर्गत त्रुटी; चुकीचे $str आणि/किंवा $key. असे कधीही घडले नाही पाहिजे.',
-	'cite_error_stack_invalid_input'           => 'अंतर्गत त्रुटी; चुकीची स्टॅक चावी. असे कधीही घडले नाही पाहिजे.',
-	'cite_error'                               => 'त्रूटी उधृत करा:$1',
-	'cite_error_ref_numeric_key'               => '<code>&lt;ref&gt;</code> चुकीचा कोड; नाव हे पूर्णांकी संख्या असू शकत नाही, कृपया माहितीपूर्ण शीर्षक द्या',
-	'cite_error_ref_no_key'                    => '<code>&lt;ref&gt;</code> चुकीचा कोड; रिकाम्या संदर्भांना नाव असणे गरजेचे आहे',
-	'cite_error_ref_too_many_keys'             => '<code>&lt;ref&gt;</code> चुकीचा कोड; चुकीची नावे, उदा. खूप सारी',
-	'cite_error_ref_no_input'                  => '<code>&lt;ref&gt;</code> चुकीचा कोड; निनावी संदर्भांमध्ये माहिती असणे गरजेचे आहे',
-	'cite_error_references_invalid_input'      => '<code>&lt;references&gt;</code> चुकीचा कोड; माहिती देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
-	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
-	'cite_error_references_no_backlink_label'  => 'तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> या प्रणाली संदेशात लिहा',
-	'cite_error_references_no_text'            => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
+	'cite_desc'                                      => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
+	'cite_croak'                                     => 'संदर्भ देता आला नाही; $1: $2',
+	'cite_error_key_str_invalid'                     => 'अंतर्गत त्रुटी; चुकीचे $str आणि/किंवा $key. असे कधीही घडले नाही पाहिजे.',
+	'cite_error_stack_invalid_input'                 => 'अंतर्गत त्रुटी; चुकीची स्टॅक चावी. असे कधीही घडले नाही पाहिजे.',
+	'cite_error'                                     => 'त्रूटी उधृत करा:$1',
+	'cite_error_ref_numeric_key'                     => '<code>&lt;ref&gt;</code> चुकीचा कोड; नाव हे पूर्णांकी संख्या असू शकत नाही, कृपया माहितीपूर्ण शीर्षक द्या',
+	'cite_error_ref_no_key'                          => '<code>&lt;ref&gt;</code> चुकीचा कोड; रिकाम्या संदर्भांना नाव असणे गरजेचे आहे',
+	'cite_error_ref_too_many_keys'                   => '<code>&lt;ref&gt;</code> चुकीचा कोड; चुकीची नावे, उदा. खूप सारी',
+	'cite_error_ref_no_input'                        => '<code>&lt;ref&gt;</code> चुकीचा कोड; निनावी संदर्भांमध्ये माहिती असणे गरजेचे आहे',
+	'cite_error_references_invalid_input'            => '<code>&lt;references&gt;</code> चुकीचा कोड; माहिती देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
+	'cite_error_references_invalid_parameters'       => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
+	'cite_error_references_invalid_parameters_group' => 'चुकीची <code>&lt;references&gt;</code> खूण; फक्त पॅरॅमीटर चा गट वापरता येईल, <code>&lt;references /&gt;</code> किंवा <code>&lt;references group="..." /&gt;</code> चा वापर करा',
+	'cite_error_references_invalid_group'            => 'चुकीची <code>&lt;references group="$1" /&gt;</code> खूण; <code>&lt;ref&gt;</code> मध्ये "$1" गट नाव दिलेले नाही',
+	'cite_error_references_no_backlink_label'        => 'तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> या प्रणाली संदेशात लिहा',
+	'cite_error_references_no_text'                  => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
 );
 
 /** Low German (Plattdüütsch)
@@ -640,20 +642,25 @@ $messages['nds'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'cite_desc'                                => 'Voegt <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe voor citaten',
-	'cite_croak'                               => 'Probleem met Cite; $1: $2',
-	'cite_error_key_str_invalid'               => 'Interne fout; onjuiste $str',
-	'cite_error_stack_invalid_input'           => 'Interne fout; onjuiste stacksleutel',
-	'cite_error'                               => 'Citefout: $1',
-	'cite_error_ref_numeric_key'               => 'Onjuiste tag <code>&lt;ref&gt;</code>; de naam kan geen simplele integer zijn, gebruik een beschrijvende titel',
-	'cite_error_ref_no_key'                    => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder inhoud moeten een naam hebben',
-	'cite_error_ref_too_many_keys'             => 'Onjuiste tag <code>&lt;ref&gt;</code>; onjuiste namen, bijvoorbeeld te veel',
-	'cite_error_ref_no_input'                  => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder naam moeten inhoud hebben',
-	'cite_error_references_invalid_input'      => 'Onjuiste tag <code>&lt;references&gt;</code>; invoer is niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Onjuiste tag <code>&lt;references&gt;</code>; parameters zijn niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Het aantal beschikbare backlinklabels is opgebruikt.
+	'cite_desc'                                      => 'Voegt <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe voor citaten',
+	'cite_croak'                                     => 'Probleem met Cite; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Interne fout; onjuiste $str',
+	'cite_error_stack_invalid_input'                 => 'Interne fout; onjuiste stacksleutel',
+	'cite_error'                                     => 'Citefout: $1',
+	'cite_error_ref_numeric_key'                     => 'Onjuiste tag <code>&lt;ref&gt;</code>; de naam kan geen simplele integer zijn, gebruik een beschrijvende titel',
+	'cite_error_ref_no_key'                          => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder inhoud moeten een naam hebben',
+	'cite_error_ref_too_many_keys'                   => 'Onjuiste tag <code>&lt;ref&gt;</code>; onjuiste namen, bijvoorbeeld te veel',
+	'cite_error_ref_no_input'                        => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder naam moeten inhoud hebben',
+	'cite_error_references_invalid_input'            => 'Onjuiste tag <code>&lt;references&gt;</code>; invoer is niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Onjuiste tag <code>&lt;references&gt;</code>; parameters zijn niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Onjuiste tag <code>&lt;references&gt;</code>;
+alleen de parameter "group" is toegestaan.
+Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'            => 'Onjuiste tag <code>&lt;references group="$1" /&gt;</code>;
+de groepsnaam "$1" is niet bekend in <code>&lt;ref&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Het aantal beschikbare backlinklabels is opgebruikt.
 Geef meer labels op in het bericht <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'            => 'Onjuiste tag <code>&lt;ref&gt;</code>; er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
+	'cite_error_references_no_text'                  => 'Onjuiste tag <code>&lt;ref&gt;</code>; er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 );
 
 /** Norwegian (‪Norsk (bokmål)‬)
@@ -912,7 +919,7 @@ $messages['vi'] = array(
 	'cite_error_ref_no_input'                  => 'Mã <code>&lt;ref&gt;</code> sai; thẻ ref không có tên thì phải có nội dung',
 	'cite_error_references_invalid_input'      => 'Thẻ <code>&lt;references&gt;</code> sai; không được phép nhập nội dung cho thẻ, hãy dùng <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Thẻ <code>&lt;references&gt;</code> sai; không được có thông số, hãy dùng <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Đã dùng hết nhãn tham khảo chung, hãy định nghĩa nhiều hơn ở thông báo <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'  => 'Đã dùng hết nhãn tham khảo chung, hãy định nghĩa nhiều hơn ở thông báo <nowiki>[[MediaWiki:Ccite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text'            => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 );
 
@@ -977,3 +984,4 @@ $messages['zh-hant'] = array(
 	'cite_error_references_invalid_parameters' => '非法參數；需求為空',
 	'cite_error_references_no_backlink_label'  => "自訂後退標籤已經用完了，現在可在標籤 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定義更多信息",
 );
+

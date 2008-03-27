@@ -619,6 +619,13 @@ $messages['mk'] = array(
 	'cite_submit'       => 'Цитирај',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Shijualex
+ */
+$messages['ml'] = array(
+	'cite_page' => 'താള്‍:',
+);
+
 /** Mongolian (Монгол) */
 $messages['mn'] = array(
 	'cite_article_link' => 'Энэ бичлэгийг эш татах',

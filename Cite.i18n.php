@@ -241,6 +241,15 @@ $messages['de'] = array(
 	'cite_error_references_no_text'                  => 'Ungültiger <tt>&lt;ref&gt;</tt>-Tag; es wurde kein Text für das Ref mit dem Namen <tt>$1</tt> angegeben.',
 );
 
+/** German - formal address (Deutsch - förmliche Anrede)
+ * @author Raimond Spekking
+ */
+$messages['de-formal'] = array(
+	'cite_error_ref_numeric_key'               => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutzen Sie einen beschreibenden Namen.',
+	'cite_error_references_invalid_input'      => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwenden Sie ausschließlich <tt><nowiki><references /></nowiki></tt>.',
+	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwenden Sie ausschließlich <tt><nowiki><references /></nowiki></tt>.',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

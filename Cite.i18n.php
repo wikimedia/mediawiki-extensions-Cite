@@ -313,21 +313,30 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
+ * @author Siebrand
  */
 $messages['fr'] = array(
-	'cite_desc'                                => 'Ajoute les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, pour les citations.',
-	'cite_croak'                               => 'Citation corrompue ; $1 : $2',
-	'cite_error_key_str_invalid'               => 'Erreur interne ; $str attendue',
-	'cite_error_stack_invalid_input'           => 'Erreur interne ; clé de pile invalide',
-	'cite_error'                               => 'Erreur de citation $1',
-	'cite_error_ref_numeric_key'               => 'Appel invalide ; clé non-intégrale attendue',
-	'cite_error_ref_no_key'                    => 'Appel invalide ; aucune clé spécifiée',
-	'cite_error_ref_too_many_keys'             => 'Appel invalide ; clés invalides, par exemple, trop de clés spécifiées ou clé erronée',
-	'cite_error_ref_no_input'                  => 'Appel invalide ; aucune entrée spécifiée',
-	'cite_error_references_invalid_input'      => 'Entrée invalide ; entrée attendue',
-	'cite_error_references_invalid_parameters' => 'Arguments invalides ; argument attendu',
-	'cite_error_references_no_backlink_label'  => 'Épuisement des étiquettes personnalisées, définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'            => 'Aucun texte indiqué.',
+	'cite_desc'                                      => 'Ajoute les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, pour les citations.',
+	'cite_croak'                                     => 'Citation corrompue ; $1 : $2',
+	'cite_error_key_str_invalid'                     => 'Erreur interne ; $str attendue',
+	'cite_error_stack_invalid_input'                 => 'Erreur interne ; clé de pile invalide',
+	'cite_error'                                     => 'Erreur de citation $1',
+	'cite_error_ref_numeric_key'                     => 'Appel invalide ; clé non-intégrale attendue',
+	'cite_error_ref_no_key'                          => 'Appel invalide ; aucune clé spécifiée',
+	'cite_error_ref_too_many_keys'                   => 'Appel invalide ; clés invalides, par exemple, trop de clés spécifiées ou clé erronée',
+	'cite_error_ref_no_input'                        => 'Appel invalide ; aucune entrée spécifiée',
+	'cite_error_references_invalid_input'            => 'Entrée invalide ; entrée attendue',
+	'cite_error_references_invalid_parameters'       => 'Arguments invalides ; argument attendu',
+	'cite_error_references_invalid_parameters_group' => 'Balise <code>&lt;references&gt;</code> incorrecte ;
+
+seul le paramètre « group » est autorisé.
+
+Utilisez <code>&lt;references /&gt;</code>, ou bien <code>&lt;references group="..." /&gt;</code>.',
+	'cite_error_references_invalid_group'            => 'Balise  <code>&lt;references group="$1" /&gt;</code> incorrecte ;
+
+nom du groupe « $1 » non défini dans <code>&lt;ref&gt;</code>.',
+	'cite_error_references_no_backlink_label'        => 'Épuisement des étiquettes personnalisées, définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Aucun texte indiqué.',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -435,23 +444,26 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Siebrand
  * @author KossuthRad
  */
 $messages['hu'] = array(
-	'cite_desc'                                => 'Lehetővé teszi idézések létrehozását <nowiki><ref[ name=id]></nowiki> és <nowiki><references/></nowiki> tagek segítségével',
-	'cite_croak'                               => 'Sikertelen forráshivatkozás; $1: $2',
-	'cite_error_key_str_invalid'               => 'Belső hiba; érvénytelen $str és/vagy $key. Ennek soha nem kellene előfordulnia.',
-	'cite_error_stack_invalid_input'           => 'Belső hiba; érvénytelen kulcs. Ennek soha nem kellene előfordulnia.',
-	'cite_error'                               => 'Hiba a forráshivatkozásban: $1',
-	'cite_error_ref_numeric_key'               => 'Hibás <code>&lt;ref&gt;</code> tag; a name értéke nem lehet csupán egy szám, használj leíró címeket',
-	'cite_error_ref_no_key'                    => 'Hibás <code>&lt;ref&gt;</code> tag; a tartalom nélküli ref-eknek kötelező nevet (name) adni',
-	'cite_error_ref_too_many_keys'             => 'Hibás <code>&lt;ref&gt;</code> tag; hibás nevek, pl. túl sok',
-	'cite_error_ref_no_input'                  => 'Hibás <code>&lt;ref&gt;</code> tag; a név (name) nélküli ref-eknek adni kell valamilyen tartalmat',
-	'cite_error_references_invalid_input'      => 'Hibás <code>&lt;references&gt;</code> tag; nem lehet neki tartalmat adni, használd a
+	'cite_desc'                                      => 'Lehetővé teszi idézések létrehozását <nowiki><ref[ name=id]></nowiki> és <nowiki><references/></nowiki> tagek segítségével',
+	'cite_croak'                                     => 'Sikertelen forráshivatkozás; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Belső hiba; érvénytelen $str és/vagy $key. Ennek soha nem kellene előfordulnia.',
+	'cite_error_stack_invalid_input'                 => 'Belső hiba; érvénytelen kulcs. Ennek soha nem kellene előfordulnia.',
+	'cite_error'                                     => 'Hiba a forráshivatkozásban: $1',
+	'cite_error_ref_numeric_key'                     => 'Érvénytelen <code>&lt;ref&gt;</code> tag; a name értéke nem lehet csupán egy szám, használj leíró címeket',
+	'cite_error_ref_no_key'                          => 'Érvénytelen <code>&lt;ref&gt;</code> tag; a tartalom nélküli ref-eknek kötelező nevet (name) adni',
+	'cite_error_ref_too_many_keys'                   => 'Érvénytelen <code>&lt;ref&gt;</code> tag; hibás nevek, pl. túl sok',
+	'cite_error_ref_no_input'                        => 'Érvénytelen <code>&lt;ref&gt;</code> tag; a név (name) nélküli ref-eknek adni kell valamilyen tartalmat',
+	'cite_error_references_invalid_input'            => 'Érvénytelen <code>&lt;references&gt;</code> tag; nem lehet neki tartalmat adni, használd a
 <code>&lt;references /&gt;</code> formát',
-	'cite_error_references_invalid_parameters' => 'Hibás <code>&lt;references&gt;</code> tag; nincsenek paraméterei, használd a <code>&lt;references /&gt;</code> formát',
-	'cite_error_references_no_backlink_label'  => 'Elfogytak a visszahivatkozásra használt címkék, adj meg többet a <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> üzenetben',
-	'cite_error_references_no_text'            => 'Hibás <code>&lt;ref&gt;</code> tag; nincs megadva szöveg a(z) <code>$1</code> nevű ref-eknek',
+	'cite_error_references_invalid_parameters'       => 'Érvénytelen <code>&lt;references&gt;</code> tag; nincsenek paraméterei, használd a <code>&lt;references /&gt;</code> formát',
+	'cite_error_references_invalid_parameters_group' => 'Érvénytelen <code>&lt;references&gt;</code> tag; csak a „group” attribútum használható. Használd a <code>&lt;references /&gt;</code>, vagy a <code>&lt;references group="..." /&gt;</code> formát.',
+	'cite_error_references_invalid_group'            => 'Érvénytelen <code>&lt;references group="$1" /&gt;</code> tag; nincs egyetlen <code>&lt;ref&gt;</code> tagben sem „$1” nevű csoport.',
+	'cite_error_references_no_backlink_label'        => 'Elfogytak a visszahivatkozásra használt címkék, adj meg többet a <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> üzenetben',
+	'cite_error_references_no_text'                  => 'Érvénytelen <code>&lt;ref&gt;</code> tag; nincs megadva szöveg a(z) <code>$1</code> nevű ref-eknek',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -742,25 +754,30 @@ $messages['pl'] = array(
  * @author 555
  */
 $messages['pt'] = array(
-	'cite_desc'                                => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
-	'cite_croak'                               => 'Citação com problemas; $1: $2',
-	'cite_error_key_str_invalid'               => 'Erro interno; $str inválido',
-	'cite_error_stack_invalid_input'           => 'Erro interno; chave fixa inválida',
-	'cite_error'                               => 'Erro de citação $1',
-	'cite_error_ref_numeric_key'               => 'Código <code>&lt;ref&gt;</code> inválido; o nome não pode ser um número. Utilize um nome descritivo',
-	'cite_error_ref_no_key'                    => 'Código <code>&lt;ref&gt;</code> inválido; refs sem conteúdo devem ter um parâmetro de nome',
-	'cite_error_ref_too_many_keys'             => 'Código <code>&lt;ref&gt;</code> inválido; nomes inválidos (por exemplo, nome muito extenso)',
-	'cite_error_ref_no_input'                  => 'Código <code>&lt;ref&gt;</code> inválido; refs sem parâmetro de nome devem possuir conteúdo a elas associado',
-	'cite_error_references_invalid_input'      => 'Código <code>&lt;references&gt;</code> inválido; no input is allowed, use
+	'cite_desc'                                      => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
+	'cite_croak'                                     => 'Citação com problemas; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Erro interno; $str inválido',
+	'cite_error_stack_invalid_input'                 => 'Erro interno; chave fixa inválida',
+	'cite_error'                                     => 'Erro de citação $1',
+	'cite_error_ref_numeric_key'                     => 'Código <code>&lt;ref&gt;</code> inválido; o nome não pode ser um número. Utilize um nome descritivo',
+	'cite_error_ref_no_key'                          => 'Código <code>&lt;ref&gt;</code> inválido; refs sem conteúdo devem ter um parâmetro de nome',
+	'cite_error_ref_too_many_keys'                   => 'Código <code>&lt;ref&gt;</code> inválido; nomes inválidos (por exemplo, nome muito extenso)',
+	'cite_error_ref_no_input'                        => 'Código <code>&lt;ref&gt;</code> inválido; refs sem parâmetro de nome devem possuir conteúdo a elas associado',
+	'cite_error_references_invalid_input'            => 'Código <code>&lt;references&gt;</code> inválido; no input is allowed, use
 <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Código <code>&lt;references&gt;</code> inválido; não são permitidos parâmetros. Utilize como <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "Etiquetas de backlink esgotadas. Defina mais na mensagem <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
-	'cite_error_references_no_text'            => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
+	'cite_error_references_invalid_parameters'       => 'Código <code>&lt;references&gt;</code> inválido; não são permitidos parâmetros. Utilize como <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Marca <code>&lt;references&gt;</code> inválida;
+só o parâmetro "group" é permitido.
+Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'            => 'Marca <code>&lt;references group="$1" /&gt;</code> inválida;
+nome de grupo "$1" não definido em <code>&lt;ref&gt;</code>',
+	'cite_error_references_no_backlink_label'        => "Etiquetas de backlink esgotadas. Defina mais na mensagem \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_text'                  => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
 );
 
 /** Russian (Русский)
- * @author Kalan
  * @author .:Ajvol:.
+ * @author Kalan
  */
 $messages['ru'] = array(
 	'cite_desc'                                        => 'Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок',
@@ -774,6 +791,11 @@ $messages['ru'] = array(
 	'cite_error_ref_no_input'                          => 'Неверный вызов: нет входных данных',
 	'cite_error_references_invalid_input'              => 'Входные данные недействительны, так как не предполагаются',
 	'cite_error_references_invalid_parameters'         => 'Переданы недействительные параметры; их вообще не предусмотрено.',
+	'cite_error_references_invalid_parameters_group'   => 'Ошибочный тег <code>&lt;references&gt;</code>;
+можно использовать только параметр «group».
+Используйте <code>&lt;references /&gt;</code>, или <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'              => 'Ошибочный тег <code>&lt;references group="$1" /&gt;</code>;
+имя группы «$1» не определено в <code>&lt;ref&gt;</code>.',
 	'cite_error_references_no_backlink_label'          => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text'                    => 'Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст',
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я',
@@ -848,21 +870,28 @@ $messages['su'] = array(
 
 /** Swedish (Svenska)
  * @author Lejonel
+ * @author M.M.S.
+ * @author Siebrand
  */
 $messages['sv'] = array(
-	'cite_desc'                                => 'Lägger till taggarna <nowiki><ref[ name=id]></nowiki> och <nowiki><references/></nowiki> för referenser till källor',
-	'cite_croak'                               => 'Fel i fotnotssystemet; $1: $2',
-	'cite_error_key_str_invalid'               => 'Internt fel; $str eller $key är ogiltiga.  Det här borde aldrig hända.',
-	'cite_error_stack_invalid_input'           => 'Internt fel; ogiltig nyckel i stacken.  Det här borde aldrig hända.',
-	'cite_error'                               => 'Referensfel: $1',
-	'cite_error_ref_numeric_key'               => "Ogiltig <code>&lt;ref&gt;</code>-tag; parametern 'name' kan inte vara ett tal, använd ett beskrivande namn",
-	'cite_error_ref_no_key'                    => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan innehåll måste ha ett namn',
-	'cite_error_ref_too_many_keys'             => "Ogiltig <code>&lt;ref&gt;</code>-tag; ogiltiga parametrar, den enda tillåtna parametern är 'name'",
-	'cite_error_ref_no_input'                  => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan namn måste ha innehåll',
-	'cite_error_references_invalid_input'      => 'Ogiltig <code>&lt;references&gt;</code>-tag; inget innehåll är tillåtet, använd <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Ogiltig <code>&lt;references&gt;</code>-tag; inga parametrar tillåts, använd <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'De definierade etiketterna för tillbaka-länkar har tagit slut, definiera fler etiketter i systemmedelandet <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'            => 'Ogiltig <code>&lt;ref&gt;</code>-tag; ingen text har angivits för referensen med namnet <code>$1</code>',
+	'cite_desc'                                      => 'Lägger till taggarna <nowiki><ref[ name=id]></nowiki> och <nowiki><references/></nowiki> för referenser till källor',
+	'cite_croak'                                     => 'Fel i fotnotssystemet; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Internt fel; $str eller $key är ogiltiga.  Det här borde aldrig hända.',
+	'cite_error_stack_invalid_input'                 => 'Internt fel; ogiltig nyckel i stacken.  Det här borde aldrig hända.',
+	'cite_error'                                     => 'Referensfel: $1',
+	'cite_error_ref_numeric_key'                     => "Ogiltig <code>&lt;ref&gt;</code>-tag; parametern 'name' kan inte vara ett tal, använd ett beskrivande namn",
+	'cite_error_ref_no_key'                          => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan innehåll måste ha ett namn',
+	'cite_error_ref_too_many_keys'                   => "Ogiltig <code>&lt;ref&gt;</code>-tag; ogiltiga parametrar, den enda tillåtna parametern är 'name'",
+	'cite_error_ref_no_input'                        => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan namn måste ha innehåll',
+	'cite_error_references_invalid_input'            => 'Ogiltig <code>&lt;references&gt;</code>-tag; inget innehåll är tillåtet, använd <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Ogiltig <code>&lt;references&gt;</code>-tag; inga parametrar tillåts, använd <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Ogiltig <code>&lt;references&gt;</code>-tagg;
+"group"-parametern är endast tillåten.
+Använd <code>&lt;references /&gt;</code>, eller <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'            => 'Ogiltig <code>&lt;references group="$1" /&gt;</code>-tagg;
+gruppnamn "$1" inte definierad i <code>&lt;ref&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'De definierade etiketterna för tillbaka-länkar har tagit slut, definiera fler etiketter i systemmedelandet <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Ogiltig <code>&lt;ref&gt;</code>-tag; ingen text har angivits för referensen med namnet <code>$1</code>',
 );
 
 /** Telugu (తెలుగు)
@@ -928,7 +957,8 @@ $messages['vi'] = array(
 	'cite_error_ref_no_input'                  => 'Mã <code>&lt;ref&gt;</code> sai; thẻ ref không có tên thì phải có nội dung',
 	'cite_error_references_invalid_input'      => 'Thẻ <code>&lt;references&gt;</code> sai; không được phép nhập nội dung cho thẻ, hãy dùng <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Thẻ <code>&lt;references&gt;</code> sai; không được có thông số, hãy dùng <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Đã dùng hết nhãn tham khảo chung, hãy định nghĩa nhiều hơn ở thông báo <nowiki>[[MediaWiki:Ccite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'  => 'Đã dùng hết nhãn tham khảo chung.
+Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text'            => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 );
 

@@ -979,8 +979,9 @@ $messages['vo'] = array(
 	'cite_error_references_no_text'            => 'El <code>&lt;ref&gt;</code> no lonöfon: vödem nonik pegivon eles refs labü nem: <code>$1</code>',
 );
 
-/** Kantonese (粵語) */
+/** Cantonese (粵語) */
 $messages['yue'] = array(
+	'cite_desc'                                => '加 <nowiki><ref[ name=id]></nowiki> 同 <nowiki><references/></nowiki> 標籤用響引用度',
 	'cite_croak'                               => '引用阻塞咗; $1: $2',
 	'cite_error_key_str_invalid'               => '內部錯誤; 無效嘅 $str',
 	'cite_error_stack_invalid_input'           => '內部錯誤; 無效嘅堆疊匙',
@@ -996,6 +997,7 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬) */
 $messages['zh-hans'] = array(
+	'cite_desc'                                => '加入 <nowiki><ref[ name=id]></nowiki> 与 <nowiki><references/></nowiki> 标签用于引用中',
 	'cite_croak'                               => '引用阻塞; $1: $2',
 	'cite_error_key_str_invalid'               => '内部错误；非法的 $str',
 	'cite_error_stack_invalid_input'           => '内部错误；非法堆栈键值',
@@ -1011,6 +1013,7 @@ $messages['zh-hans'] = array(
 
 /** ‪Traditional Chinese (‪中文(繁體)‬) */
 $messages['zh-hant'] = array(
+	'cite_desc'                                => '加入 <nowiki><ref[ name=id]></nowiki> 與 <nowiki><references/></nowiki> 標籤用於引用中',
 	'cite_croak'                               => '引用阻塞; $1: $2',
 	'cite_error_key_str_invalid'               => '內部錯誤；非法的 $str',
 	'cite_error_stack_invalid_input'           => '內部錯誤；非法堆疊鍵值',

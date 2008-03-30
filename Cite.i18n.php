@@ -212,6 +212,10 @@ n\'eus nemet an arventenn "strollad" zo aotreet.
 Grit gant ar valizenn <code>&lt;references /&gt;</code>, pe <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_invalid_group'            => 'Fazi implijout ar valizenn <code>&lt;references group="$1" /&gt;</code> ;
 n\'eo ket termenet anv ar strollad "$1" e <code>&lt;ref&gt;</code>',
+	'cite_error_references_no_backlink_label'        => "N'eus ket a dikedennoù personelaet mui.
+Spisait un niver brasoc'h anezho er gemennadenn <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
+	'cite_error_references_no_text'                  => 'Balizenn <code>&lt;ref&gt;</code> direizh ;
+ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
 );
 
 /** Catalan (Català)
@@ -638,6 +642,7 @@ $messages['kk-latn'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'cite_desc'                  => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
 	'cite_croak'                 => 'Feeler am Referenz-System. $1 : $2',
 	'cite_error_key_str_invalid' => 'Interne Feeler;
 ongültege $str an/oder $schlëssel.

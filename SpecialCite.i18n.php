@@ -112,13 +112,14 @@ $messages['bpy'] = array(
 );
 
 /** Breton (Brezhoneg)
- * @author SPQRobin
  * @author Fulup
+ * @author SPQRobin
  */
 $messages['br'] = array(
+	'cite_article_desc' => 'Ouzhpennañ a ra ur bajenn zibar [[Special:Cite|arroud]] hag ul liamm er voest ostilhoù',
 	'cite_article_link' => 'Menegiñ ar pennad-mañ',
 	'cite'              => 'Menegiñ',
-	'cite_page'         => 'Pajenn:',
+	'cite_page'         => 'Pajenn :',
 	'cite_submit'       => 'Menegiñ',
 );
 

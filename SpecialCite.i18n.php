@@ -970,7 +970,7 @@ $messages['tet'] = array(
 /** Tajik (Тоҷикӣ)
  * @author Ibrahim
  */
-$messages['tg'] = array(
+$messages['tg-cyrl'] = array(
 	'cite_article_desc' => 'Саҳифаи вижае барои [[Special:Cite|ёдкард]] изофа мекунад ва пайванде ба ҷаъбаи абзор меафзояд',
 	'cite_article_link' => 'Ёд кардани пайванди ин мақола',
 	'cite'              => 'Ёд кардани ин мақола',

@@ -384,6 +384,17 @@ $messages['he'] = array(
 	'cite_submit'       => 'צטט',
 );
 
+/** Hindi (हिन्दी)
+ * @author Kaustubh
+ */
+$messages['hi'] = array(
+	'cite_article_desc' => 'एक विशेष [[Special:Cite|बाह्यकड़ियां]] देनेवाला पन्ना और टूलबॉक्सका लिंक बनाईयें',
+	'cite_article_link' => 'इस पन्ने को उद्घृत करें',
+	'cite'              => 'उद्घॄत करें',
+	'cite_page'         => 'पन्ना:',
+	'cite_submit'       => 'उद्घृत करें',
+);
+
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
  */
@@ -519,9 +530,11 @@ $messages['kk-latn'] = array(
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
+ * @author Lovekhmer
  */
 $messages['km'] = array(
-	'cite_page' => 'ទំព័រ ៖',
+	'cite_article_link' => 'ប្រភពនៃទំព័រនេះ',
+	'cite_page'         => 'ទំព័រ ៖',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -893,11 +906,11 @@ $messages['sq'] = array(
 	'cite_submit'       => 'Citoje',
 );
 
-/** ћирилица (ћирилица)
+/** Serbian Cyrillic ekavian (ћирилица)
  * @author Sasa Stefanovic
  */
 $messages['sr-ec'] = array(
-	'cite_page' => 'Страница:',
+	'cite_page' => 'Страна:',
 );
 
 /** Seeltersk (Seeltersk)

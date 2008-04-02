@@ -452,6 +452,19 @@ $messages['he'] = array(
 	'cite_error_references_no_text'            => 'תגית <code>&lt;ref&gt;</code> שגויה; לא נכתב טקסט עבור הערת השוליים בשם <code>$1</code>',
 );
 
+/** Hindi (हिन्दी)
+ * @author Kaustubh
+ */
+$messages['hi'] = array(
+	'cite_desc'                      => '<nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> यह दो संदर्भ देनेके लिये इस्तेमालमें आने वाले शब्द बढाये जायेंगे।',
+	'cite_croak'                     => 'संदर्भ दे नहीं पाये; $1: $2',
+	'cite_error_key_str_invalid'     => 'आंतर्गत गलती;
+गलत $str या/और $key।
+ऐसा होना नहीं चाहियें।',
+	'cite_error_stack_invalid_input' => 'आंतर्गत गलती; गलत स्टॅक की। ऐसा होना नहीं चाहियें।',
+	'cite_error'                     => 'गलती उद्घृत करें: $1',
+);
+
 /** Croatian (Hrvatski)
  * @author Dnik
  * @author SpeedyGonsales
@@ -687,14 +700,14 @@ $messages['lt'] = array(
 
 /** Marathi (मराठी)
  * @author Kaustubh
- * @author Mahitgar
+ * @author Siebrand
  */
 $messages['mr'] = array(
 	'cite_desc'                                      => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
 	'cite_croak'                                     => 'संदर्भ देता आला नाही; $1: $2',
 	'cite_error_key_str_invalid'                     => 'अंतर्गत त्रुटी; चुकीचे $str आणि/किंवा $key. असे कधीही घडले नाही पाहिजे.',
 	'cite_error_stack_invalid_input'                 => 'अंतर्गत त्रुटी; चुकीची स्टॅक चावी. असे कधीही घडले नाही पाहिजे.',
-	'cite_error'                                     => 'त्रूटी उधृत करा:$1',
+	'cite_error'                                     => 'त्रूटी उधृत करा: $1',
 	'cite_error_ref_numeric_key'                     => '<code>&lt;ref&gt;</code> चुकीचा कोड; नाव हे पूर्णांकी संख्या असू शकत नाही, कृपया माहितीपूर्ण शीर्षक द्या',
 	'cite_error_ref_no_key'                          => '<code>&lt;ref&gt;</code> चुकीचा कोड; रिकाम्या संदर्भांना नाव असणे गरजेचे आहे',
 	'cite_error_ref_too_many_keys'                   => '<code>&lt;ref&gt;</code> चुकीचा कोड; चुकीची नावे, उदा. खूप सारी',
@@ -894,19 +907,24 @@ $messages['sah'] = array(
  * @author Robbot
  */
 $messages['sk'] = array(
-	'cite_desc'                                => 'Pridáva značky <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> pre citácie',
-	'cite_croak'                               => 'Citát je už neaktuálny; $1: $2',
-	'cite_error_key_str_invalid'               => 'Vnútorná chyba; neplatný $str',
-	'cite_error_stack_invalid_input'           => 'Vnútorná chyba; neplatný kľúč zásobníka',
-	'cite_error'                               => 'Chyba citácie $1',
-	'cite_error_ref_numeric_key'               => 'Neplatné volanie; očakáva sa neceločíselný typ kľúča',
-	'cite_error_ref_no_key'                    => 'Neplatné volanie; nebol špecifikovaný kľúč',
-	'cite_error_ref_too_many_keys'             => 'Neplatné volanie; neplatné kľúče, napr. príliš veľa alebo nesprávne špecifikovaný kľúč',
-	'cite_error_ref_no_input'                  => 'Neplatné volanie; nebol špecifikovaný vstup',
-	'cite_error_references_invalid_input'      => 'Neplatné volanie; neočakával sa vstup',
-	'cite_error_references_invalid_parameters' => 'Neplatné parametre; neočakávli sa žiadne',
-	'cite_error_references_no_backlink_label'  => 'Minuli sa generované návestia spätných odkazov, definujte viac v správe <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'            => 'Neplatná značka <code>&lt;ref&gt;</code>; nebol zadaný text pre referencie s názvom <code>$1</code>',
+	'cite_desc'                                      => 'Pridáva značky <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> pre citácie',
+	'cite_croak'                                     => 'Citát je už neaktuálny; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Vnútorná chyba; neplatný $str',
+	'cite_error_stack_invalid_input'                 => 'Vnútorná chyba; neplatný kľúč zásobníka',
+	'cite_error'                                     => 'Chyba citácie $1',
+	'cite_error_ref_numeric_key'                     => 'Neplatné volanie; očakáva sa neceločíselný typ kľúča',
+	'cite_error_ref_no_key'                          => 'Neplatné volanie; nebol špecifikovaný kľúč',
+	'cite_error_ref_too_many_keys'                   => 'Neplatné volanie; neplatné kľúče, napr. príliš veľa alebo nesprávne špecifikovaný kľúč',
+	'cite_error_ref_no_input'                        => 'Neplatné volanie; nebol špecifikovaný vstup',
+	'cite_error_references_invalid_input'            => 'Neplatné volanie; neočakával sa vstup',
+	'cite_error_references_invalid_parameters'       => 'Neplatné parametre; neočakávli sa žiadne',
+	'cite_error_references_invalid_parameters_group' => 'Neplatná značka <code>&lt;references&gt;</code>;
+je povolený iba parameter „group“.
+Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'            => 'Neplatná značka <code>&lt;references group="$1" /&gt;</code>;
+názov skupiny "$1" nie je definovaný v <code>&lt;ref&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Minuli sa generované návestia spätných odkazov, definujte viac v správe <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Neplatná značka <code>&lt;ref&gt;</code>; nebol zadaný text pre referencie s názvom <code>$1</code>',
 );
 
 /** Seeltersk (Seeltersk)

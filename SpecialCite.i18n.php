@@ -637,7 +637,10 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'cite_page' => 'താള്‍:',
+	'cite_article_link' => 'ഈ താള്‍ ഉദ്ധരിക്കുക',
+	'cite'              => 'ഉദ്ധരിക്കുക',
+	'cite_page'         => 'താള്‍:',
+	'cite_submit'       => 'ഉദ്ധരിക്കുക',
 );
 
 /** Mongolian (Монгол) */

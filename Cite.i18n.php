@@ -456,13 +456,23 @@ $messages['he'] = array(
  * @author Kaustubh
  */
 $messages['hi'] = array(
-	'cite_desc'                      => '<nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> यह दो संदर्भ देनेके लिये इस्तेमालमें आने वाले शब्द बढाये जायेंगे।',
-	'cite_croak'                     => 'संदर्भ दे नहीं पाये; $1: $2',
-	'cite_error_key_str_invalid'     => 'आंतर्गत गलती;
+	'cite_desc'                                      => '<nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> यह दो संदर्भ देनेके लिये इस्तेमालमें आने वाले शब्द बढाये जायेंगे।',
+	'cite_croak'                                     => 'संदर्भ दे नहीं पाये; $1: $2',
+	'cite_error_key_str_invalid'                     => 'आंतर्गत गलती;
 गलत $str या/और $key।
 ऐसा होना नहीं चाहियें।',
-	'cite_error_stack_invalid_input' => 'आंतर्गत गलती; गलत स्टॅक की। ऐसा होना नहीं चाहियें।',
-	'cite_error'                     => 'गलती उद्घृत करें: $1',
+	'cite_error_stack_invalid_input'                 => 'आंतर्गत गलती; गलत स्टॅक की। ऐसा होना नहीं चाहियें।',
+	'cite_error'                                     => 'गलती उद्घृत करें: $1',
+	'cite_error_ref_numeric_key'                     => '<code>&lt;ref&gt;</code> गलत कोड; नाम यह पूर्णांकी संख्या नहीं हो सकता, कृपया माहितीपूर्ण शीर्षक दें',
+	'cite_error_ref_no_key'                          => '<code>&lt;ref&gt;</code> गलत कोड; खाली संदर्भोंको नाम होना आवश्यक हैं',
+	'cite_error_ref_too_many_keys'                   => '<code>&lt;ref&gt;</code> गलत कोड; गलत नाम, उदा. ढेर सारी',
+	'cite_error_ref_no_input'                        => '<code>&lt;ref&gt;</code> गलत कोड; नाम ना होने वाले संदर्भोंमें ज़ानकारी देना आवश्यक हैं',
+	'cite_error_references_invalid_input'            => '<code>&lt;ref&gt;</code> गलत कोड; इनपुट नहीं कर सकतें। <code>&lt;references /&gt;</code> का इस्तेमाल करें',
+	'cite_error_references_invalid_parameters'       => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स नहीं दे सकते, <code>&lt;references /&gt;</code> का इस्तेमाल करें',
+	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> गलत कोड; सिर्फ पॅरॅमीटर का "ग्रुप" इस्तेमाल में लाया जा सकता हैं, <code>&lt;references /&gt;</code> या फिर <code>&lt;references group="..." /&gt;</code> का इस्तेमाल करें',
+	'cite_error_references_invalid_group'            => '<code>&lt;references group="$1" /&gt;</code> गलत कोड; <code>&lt;ref&gt;</code> में "$1" यह ग्रुप नाम नहीं हैं',
+	'cite_error_references_no_backlink_label'        => 'तैयार किये हुए पीछे की कड़ियां देनेवाले नाम खतम हुए हैं, अधिक नाम <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> इस संदेश में बढायें',
+	'cite_error_references_no_text'                  => '<code>&lt;ref&gt;</code> गलत कोड; <code>$1</code> नामके संदर्भमें ज़ानकारी नहीं हैं',
 );
 
 /** Croatian (Hrvatski)
@@ -696,6 +706,13 @@ $messages['lt'] = array(
 	'cite_error_references_invalid_input'      => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "Baigėsi antraštės, nurodykite daugiau <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> sisteminiame tekste",
+);
+
+/** Malayalam (മലയാളം)
+ * @author Shijualex
+ */
+$messages['ml'] = array(
+	'cite_error' => 'ഉദ്ധരിച്ചതില്‍ പിഴവ്: $1',
 );
 
 /** Marathi (मराठी)
@@ -1027,25 +1044,64 @@ $messages['tr'] = array(
 	'cite_error' => 'Kaynak hatası $1',
 );
 
+/** Ukrainian (Українська)
+ * @author Ahonc
+ * @author AS
+ */
+$messages['uk'] = array(
+	'cite_desc'                                      => 'Додає теги <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для виносок',
+	'cite_croak'                                     => 'Цитата померла; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Внутрішня помилка:
+неправильний $str і/або $key.',
+	'cite_error_stack_invalid_input'                 => 'Внутрішня помилка: неправильний ключ стека.',
+	'cite_error'                                     => 'Помилка цитування: $1',
+	'cite_error_ref_numeric_key'                     => 'Неправильний виклик <code>&lt;ref&gt;</code>:
+назва не може містити тільки цифри.',
+	'cite_error_ref_no_key'                          => 'Неправильний виклик <code>&lt;ref&gt;</code>:
+порожній тег <code>ref</code> повинен мати параметр name.',
+	'cite_error_ref_too_many_keys'                   => 'Неправильний виклик <code>&lt;ref&gt;</code>:
+вказані неправильні значення <code>name</code> або вказано багато прамаетрів',
+	'cite_error_ref_no_input'                        => 'Неправильний виклик <code>&lt;ref&gt;</code>:
+тег <code>ref</code> без назви повинен мати вхідні дані',
+	'cite_error_references_invalid_input'            => 'Неправильний тег <code>&lt;references&gt;</code>:
+вхідні дані недопустимі. Використовуйте <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Неправильний тег <code>&lt;references&gt;</code>:
+параметри не передбачені. Використовуйте <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Помилковий тег <code>&lt;references&gt;</code>;
+можна використовувати тільки параметр «group».
+Використовуйте <code>&lt;references /&gt;</code> або <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'            => 'Помилковий тег <code>&lt;references group="$1" /&gt;</code>;
+назва групи «$1» не визначена в <code>&lt;ref&gt;</code>.',
+	'cite_error_references_no_backlink_label'        => 'Недостатньо символів для зворотних гіперпосилань.
+Потрібно розширити системну змінну <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Неправильний виклик <code>&lt;ref&gt;</code>:
+для виносок <code>$1</code> не вказаний текст',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
  * @author Minh Nguyen
  */
 $messages['vi'] = array(
-	'cite_desc'                                => 'Thêm các thẻ <nowiki><ref[ name=id]></nowiki> và <nowiki><references/></nowiki> để ghi cước chú',
-	'cite_croak'                               => 'Chú thích bị hỏng; $1: $2',
-	'cite_error_key_str_invalid'               => 'Lỗi nội bộ; $str và/hoặc $key sai.  Đáng ra không bao giờ xảy ra điều này.',
-	'cite_error_stack_invalid_input'           => 'Lỗi nội bộ; khóa xác định chồng bị sai.  Đáng ra không bao giờ xảy ra điều này.',
-	'cite_error'                               => 'Lỗi chú thích: $1',
-	'cite_error_ref_numeric_key'               => 'Thẻ <code>&lt;ref&gt;</code> sai; tên không thể chỉ là số nguyên, hãy dùng tựa đề có tính miêu tả',
-	'cite_error_ref_no_key'                    => 'Thẻ <code>&lt;ref&gt;</code> sai; thẻ ref không có nội dung thì phải có tên',
-	'cite_error_ref_too_many_keys'             => 'Thẻ <code>&lt;ref&gt;</code> sai; thông số tên sai, như, nhiều thông số tên quá',
-	'cite_error_ref_no_input'                  => 'Mã <code>&lt;ref&gt;</code> sai; thẻ ref không có tên thì phải có nội dung',
-	'cite_error_references_invalid_input'      => 'Thẻ <code>&lt;references&gt;</code> sai; không được phép nhập nội dung cho thẻ, hãy dùng <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Thẻ <code>&lt;references&gt;</code> sai; không được có thông số, hãy dùng <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Đã dùng hết nhãn tham khảo chung.
+	'cite_desc'                                      => 'Thêm các thẻ <nowiki><ref[ name=id]></nowiki> và <nowiki><references/></nowiki> để ghi cước chú',
+	'cite_croak'                                     => 'Chú thích bị hỏng; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Lỗi nội bộ; $str và/hoặc $key sai.  Đáng ra không bao giờ xảy ra điều này.',
+	'cite_error_stack_invalid_input'                 => 'Lỗi nội bộ; khóa xác định chồng bị sai.  Đáng ra không bao giờ xảy ra điều này.',
+	'cite_error'                                     => 'Lỗi chú thích: $1',
+	'cite_error_ref_numeric_key'                     => 'Thẻ <code>&lt;ref&gt;</code> sai; tên không thể chỉ là số nguyên, hãy dùng tựa đề có tính miêu tả',
+	'cite_error_ref_no_key'                          => 'Thẻ <code>&lt;ref&gt;</code> sai; thẻ ref không có nội dung thì phải có tên',
+	'cite_error_ref_too_many_keys'                   => 'Thẻ <code>&lt;ref&gt;</code> sai; thông số tên sai, như, nhiều thông số tên quá',
+	'cite_error_ref_no_input'                        => 'Mã <code>&lt;ref&gt;</code> sai; thẻ ref không có tên thì phải có nội dung',
+	'cite_error_references_invalid_input'            => 'Thẻ <code>&lt;references&gt;</code> sai; không được phép nhập nội dung cho thẻ, hãy dùng <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Thẻ <code>&lt;references&gt;</code> sai; không được có thông số, hãy dùng <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Thẻ <code>&lt;references&gt;</code> không hợp lệ;
+chỉ cho phép tham số "group".
+Hãy dùng <code>&lt;references /&gt;</code>, hoặc <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'            => 'Thẻ <code>&lt;references group="$1" /&gt;</code> không hợp lệ;
+tên nhóm "$1" chưa được định nghĩa trong <code>&lt;ref&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Đã dùng hết nhãn tham khảo chung.
 Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'            => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
+	'cite_error_references_no_text'                  => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 );
 
 /** Volapük (Volapük)

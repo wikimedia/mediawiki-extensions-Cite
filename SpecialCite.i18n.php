@@ -363,6 +363,13 @@ $messages['gl'] = array(
 	'cite_submit'       => 'Citar',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author AndreasJS
+ */
+$messages['grc'] = array(
+	'cite_article_link' => 'Άναφέρειν τήνδε τὴν δέλτον',
+);
+
 /** Gujarati (ગુજરાતી)
  * @author SPQRobin
  */

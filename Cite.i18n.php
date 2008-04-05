@@ -321,6 +321,9 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'cite_croak'                               => 'Cito mortis; $1: $2',
+	'cite_error_key_str_invalid'               => 'Intera eraro;
+nevalida $str kaj/aŭ $key.
+Ĉi tio neniam povus okazi.',
 	'cite_error'                               => 'Citu eraron: $1',
 	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
 );
@@ -843,7 +846,8 @@ $messages['pl'] = array(
 	'cite_error_ref_no_input'                  => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
 	'cite_error_references_invalid_input'      => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym elemencie, użyj <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Zabrakło etykiet do przypisów. Dopisz więcej w wiadomości <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'  => 'Zabrakło etykiet do przypisów.
+Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'            => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
 );
 

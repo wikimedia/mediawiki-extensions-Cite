@@ -515,7 +515,8 @@ $messages['hsb'] = array(
 	'cite_error_references_invalid_input'      => 'Njepłaćiwe wužiwanje taflički <code>&lt;references&gt;</code>; žadyn zapodaty tekst dowoleny, wužij jenož
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Njepłaćiwe wužiwanje taflički <code>&lt;references&gt;</code>; žane parametry dowolene, wužij jenož <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Referenca formy <code><nowiki><ref name="…"/></nowiki></code> so husćišo wužiwa hač su pismiki. Administrator dyrbi <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> nałožić, zo by dalše pismiki dodał.',
+	'cite_error_references_no_backlink_label'  => 'Zwučene etikety wróćowotkazow wućerpjene.
+Definuj wjace w powěsći <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'            => 'Njepłaćiwa referenca formy <code>&lt;ref&gt;</code>; žadyn tekst za referency z mjenom  <code>$1</code> podaty.',
 );
 
@@ -715,7 +716,29 @@ $messages['lt'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'cite_error' => 'ഉദ്ധരിച്ചതില്‍ പിഴവ്: $1',
+	'cite_error_key_str_invalid'                     => 'ആന്തരിക പിഴവ്; 
+അസാധുവായ $str അല്ലെങ്കില്‍ $key.
+ഇതു ഒരിക്കലും സംഭവിക്കാന്‍ പാടില്ലായിരുന്നു.',
+	'cite_error_stack_invalid_input'                 => 'ആന്തരിക പിഴവ്; അസാധുവായ സ്റ്റാക് കീ. ഇതു ഒരിക്കലും സംഭവിക്കാന്‍ പാടില്ലായിരുന്നു.',
+	'cite_error'                                     => 'ഉദ്ധരിച്ചതില്‍ പിഴവ്: $1',
+	'cite_error_ref_numeric_key'                     => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
+നാമത്തില്‍ സംഖ്യ മാത്രമായി അനുവദനീയമല്ല. എന്തെങ്കിലും ലഘുവിവരണം ഉപയോഗിക്കുക.',
+	'cite_error_ref_no_key'                          => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
+ഉള്ളടക്കമൊന്നുമില്ലാത്ത അവലംബത്തിനും ഒരു പേരു വേണം.',
+	'cite_error_ref_too_many_keys'                   => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
+അസാധുവായ പേരുകള്‍, ഉദാ: too many',
+	'cite_error_ref_no_input'                        => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
+പേരില്ലാത്ത അവലംബത്തിനു ഉള്ളടക്കമുണ്ടായിരിക്കണം.',
+	'cite_error_references_invalid_input'            => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
+റെഫറന്‍സ് ടാഗിനകത്ത് ടെക്സ്റ്റ് അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണു.',
+	'cite_error_references_invalid_parameters'       => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
+റെഫറന്‍സ് ടാഗിനകത്ത് പരാമീററ്ററുകള്‍ അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണു.',
+	'cite_error_references_invalid_parameters_group' => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
+റെഫറന്‍സ് ടാഗിനകത്ത് "group" പരാമീറ്റര്‍ മാത്രമേ അനുവദനീമായുള്ളൂ. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code>, അല്ലെങ്കില്‍ <code>&lt;references group="..." /&gt;</code> ചെയ്യാവുന്നതാണു.',
+	'cite_error_references_invalid_group'            => 'അസാധുവായ <code>&lt;references group="$1" /&gt;</code>  ടാഗ്;
+<code>&lt;ref&gt;</code> എന്ന ടാഗിനകത്ത് "$1" എന്ന ഗ്രൂപ്പ് നാമം നിര്‍‌വചിച്ചിട്ടില്ല.',
+	'cite_error_references_no_text'                  => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
+<code>$1</code> എന്ന അവലംബങ്ങള്‍ക്ക് ടെക്സ്റ്റ് ഒന്നും കൊടുത്തിട്ടില്ല.',
 );
 
 /** Marathi (मराठी)
@@ -835,20 +858,25 @@ $messages['pag'] = array(
  * @author Derbeth
  */
 $messages['pl'] = array(
-	'cite_desc'                                => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
-	'cite_croak'                               => 'Cytowanie nieudane; $1: $2',
-	'cite_error_key_str_invalid'               => 'Błąd wewnętrzny - nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
-	'cite_error_stack_invalid_input'           => 'Błąd wewnętrzny - nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
-	'cite_error'                               => "Błąd rozszerzenia ''cite'': $1",
-	'cite_error_ref_numeric_key'               => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.',
-	'cite_error_ref_no_key'                    => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.',
-	'cite_error_ref_too_many_keys'             => 'Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.',
-	'cite_error_ref_no_input'                  => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
-	'cite_error_references_invalid_input'      => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym elemencie, użyj <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Zabrakło etykiet do przypisów.
+	'cite_desc'                                      => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
+	'cite_croak'                                     => 'Cytowanie nieudane; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Błąd wewnętrzny - nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
+	'cite_error_stack_invalid_input'                 => 'Błąd wewnętrzny - nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
+	'cite_error'                                     => "Błąd rozszerzenia ''cite'': $1",
+	'cite_error_ref_numeric_key'                     => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.',
+	'cite_error_ref_no_key'                          => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.',
+	'cite_error_ref_too_many_keys'                   => 'Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.',
+	'cite_error_ref_no_input'                        => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
+	'cite_error_references_invalid_input'            => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym elemencie, użyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Nieprawidłowy znacznik <code>&lt;references&gt;</code>;
+dostępny jest wyłącznie parametr "group".
+Użyj znacznika <code>&lt;references /&gt;</code>, lub <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_group'            => 'Nieprawidłowy znacznik <code>&lt;references group="$1" /&gt;</code>;
+nazwa grupy "$1" nie została zdefiniowana w <code>&lt;ref&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Zabrakło etykiet do przypisów.
 Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_references_no_text'            => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
+	'cite_error_references_no_text'                  => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
 );
 
 /** Portuguese (Português)

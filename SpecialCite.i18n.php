@@ -1044,6 +1044,13 @@ $messages['ur'] = array(
 	'cite_submit'       => 'Cite',
 );
 
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'cite' => 'Citazion',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
  * @author Minh Nguyen

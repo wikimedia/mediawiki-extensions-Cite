@@ -1090,6 +1090,7 @@ $messages['wuu'] = array(
 );
 
 $messages['yue'] = array(
+	'cite_article_desc' => '加一個[[Special:Cite|引用]]特別頁同埋一個工具箱連結',
 	'cite_article_link' => '引用呢篇文',
 	'cite'              => '引用文章',
 	'cite_page'         => '版：',
@@ -1102,6 +1103,7 @@ $messages['zh-classical'] = array(
 );
 
 $messages['zh-hans'] = array(
+	'cite_article_desc' => '加入一个[[Special:Cite|引用]]的特殊页面以及一个工具箱链接',
 	'cite_article_link' => '引用此文',
 	'cite'              => '引用文章',
 	'cite_page'         => '页面：',
@@ -1109,6 +1111,7 @@ $messages['zh-hans'] = array(
 );
 
 $messages['zh-hant'] = array(
+	'cite_article_desc' => '加入一個[[Special:Cite|引用]]的特殊頁面以及一個工具箱連結',
 	'cite_article_link' => '引用此文',
 	'cite'              => '引用文章',
 	'cite_page'         => '頁面：',

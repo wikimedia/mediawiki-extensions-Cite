@@ -716,6 +716,7 @@ $messages['lt'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
+	'cite_desc'                                      => 'അവലംബം ചേര്‍ക്കുവാന്‍ ഉപയോഗിക്കാനുള്ള <nowiki><ref[ name=id]></nowiki>, <nowiki><references/></nowiki> എന്നീ ടാഗുകള്‍ ചേര്‍ക്കുന്നു',
 	'cite_error_key_str_invalid'                     => 'ആന്തരിക പിഴവ്; 
 അസാധുവായ $str അല്ലെങ്കില്‍ $key.
 ഇതു ഒരിക്കലും സംഭവിക്കാന്‍ പാടില്ലായിരുന്നു.',
@@ -1049,24 +1050,30 @@ $messages['te'] = array(
 	'cite_error_references_no_text'            => 'సరైన <code>&lt;ref&gt;</code> కాదు; <code>$1</code> అనే పేరుగల ref లకు పాఠ్యమేమీ ఇవ్వలేదు',
 );
 
-/** Tajik (Тоҷикӣ)
+/** Tajik (Cyrillic) (Тоҷикӣ/tojikī (Cyrillic))
  * @author Ibrahim
+ * @author Siebrand
  */
 $messages['tg-cyrl'] = array(
-	'cite_desc'                                => 'Барчасбҳои <nowiki><ref[ name=id]></nowiki> ва <nowiki><references/></nowiki>  барои ёд кардан, изофа мекунад',
-	'cite_croak'                               => 'Ёд кардан хароб шуд; $1: $2',
-	'cite_error_key_str_invalid'               => 'Хатои дохилӣ; $str ва/ё $key ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
-	'cite_error_stack_invalid_input'           => 'Хатои дохилӣ; клиди пушта ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
-	'cite_error'                               => 'Хатои ёдкард: $1',
-	'cite_error_ref_numeric_key'               => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ном наметавонад як адад бошад, унвони возеҳтареро истифода кунед',
-	'cite_error_ref_no_key'                    => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳо бидуни мӯҳтаво бояд ном дошта бошанд',
-	'cite_error_ref_too_many_keys'             => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; номҳои ғайримиҷоз ё беш аз андоза',
-	'cite_error_ref_no_input'                  => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳои бидуни ном бояд мӯҳтаво дошта бошанд',
-	'cite_error_references_invalid_input'      => 'Барчасби <code>&lt;references&gt;</code> ғайримиҷоз; вуруди матн миҷоз нест, аз
+	'cite_desc'                                      => 'Барчасбҳои <nowiki><ref[ name=id]></nowiki> ва <nowiki><references/></nowiki>  барои ёд кардан, изофа мекунад',
+	'cite_croak'                                     => 'Ёд кардан хароб шуд; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Хатои дохилӣ; $str ва/ё $key ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
+	'cite_error_stack_invalid_input'                 => 'Хатои дохилӣ; клиди пушта ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
+	'cite_error'                                     => 'Хатои ёдкард: $1',
+	'cite_error_ref_numeric_key'                     => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ном наметавонад як адад бошад, унвони возеҳтареро истифода кунед',
+	'cite_error_ref_no_key'                          => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳо бидуни мӯҳтаво бояд ном дошта бошанд',
+	'cite_error_ref_too_many_keys'                   => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; номҳои ғайримиҷоз ё беш аз андоза',
+	'cite_error_ref_no_input'                        => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳои бидуни ном бояд мӯҳтаво дошта бошанд',
+	'cite_error_references_invalid_input'            => 'Барчасби <code>&lt;references&gt;</code> ғайримиҷоз; вуруди матн миҷоз нест, аз
 <code>&lt;references /&gt;</code> истифода кунед',
-	'cite_error_references_invalid_parameters' => 'Барчасби <code>&lt;references&gt;</code> ғайримиҷоз; истифода аз параметр миҷоз аст, аз  <code>&lt;references /&gt;</code> истифода кунед',
-	'cite_error_references_no_backlink_label'  => 'Барчасбҳои пайванд ба интиҳо расид, мавориди ҷадидро дар пайём  <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> истифода кунед',
-	'cite_error_references_no_text'            => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; матне барои ёдкардҳо бо номи <code>$1</code> ворид нашудааст',
+	'cite_error_references_invalid_parameters'       => 'Барчасби <code>&lt;references&gt;</code> ғайримиҷоз; истифода аз параметр миҷоз аст, аз  <code>&lt;references /&gt;</code> истифода кунед',
+	'cite_error_references_invalid_parameters_group' => 'Барчасби <code>&lt;references&gt;</code> номӯътабар;
+параметри "гурӯҳ" танҳо иҷозашуда аст.
+Барчасби <code>&lt;references /&gt;</code> ё <code>&lt;references group="..." /&gt;</code> -ро истифода баред',
+	'cite_error_references_invalid_group'            => 'Барчасби <code>&lt;references group="$1" /&gt;</code> номӯътабар;
+номи гурӯҳ "$1" дар <code>&lt;ref&gt;</code> мушаххас нашудааст',
+	'cite_error_references_no_backlink_label'        => 'Барчасбҳои пайванд ба интиҳо расид, мавориди ҷадидро дар пайём  <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> истифода кунед',
+	'cite_error_references_no_text'                  => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; матне барои ёдкардҳо бо номи <code>$1</code> ворид нашудааст',
 );
 
 /** Turkish (Türkçe)

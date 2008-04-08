@@ -1048,7 +1048,10 @@ $messages['ur'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'cite' => 'Citazion',
+	'cite_article_link' => 'Cita sta pagina',
+	'cite'              => 'Citazion',
+	'cite_page'         => 'Pagina da citar:',
+	'cite_submit'       => 'Crea la citazion',
 );
 
 /** Vietnamese (Tiếng Việt)

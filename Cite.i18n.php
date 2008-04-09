@@ -326,24 +326,25 @@ $messages['eu'] = array(
 	'cite_error' => 'Aipamen errorea: $1',
 );
 
-/** فارسی (فارسی)
+/** Persian (فارسی)
  * @author Huji
  */
 $messages['fa'] = array(
-	'cite_desc'                                => 'برچسب‌های <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> را برای یادکرد اضافه می‌کند',
-	'cite_croak'                               => 'یادکرد خراب شد؛ $1: $2',
-	'cite_error_key_str_invalid'               => 'خطای داخلی؛ $str و/یا $key غیر مجاز. این خطا نباید هرگز رخ دهد.',
-	'cite_error_stack_invalid_input'           => 'خطای داخلی؛ کلید پشته غیرمجاز.  این خطا نباید هرگز رخ دهد.',
-	'cite_error'                               => 'خطای یادکرد: $1',
-	'cite_error_ref_numeric_key'               => 'برچسب <code><ref></code> غیرمجاز؛ نام نمی‌تواند یک عدد باشد. عنوان واضح‌تری را برگزینید',
-	'cite_error_ref_no_key'                    => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون محتوا باید نام داشته باشند',
-	'cite_error_ref_too_many_keys'             => 'برچسب <code><ref></code> غیرمجاز؛ نام‌های غیرمجاز یا بیش از اندازه',
-	'cite_error_ref_no_input'                  => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون نام باید محتوا داشته باشند',
-	'cite_error_references_invalid_input'      => 'برچسب <code><references></code> غیرمجاز؛ ورود متن مجاز نیست، از <code><references /></code> استفاده کنید',
-	'cite_error_references_invalid_parameters' => 'برچسب <code><references></code> غیرمجاز؛ استفاده از پارامتر مجاز است. از <code><references /></code> استفاده کنید',
-	'cite_error_references_no_backlink_label'  => "برچسب‌های پیوند به انتها رسید؛‌ موارد جدیدی را در پیام <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> تعریف کنید",
-	'cite_error_references_no_text'            => 'برچسب <code><ref></code> غیرمجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
-
+	'cite_desc'                                      => 'برچسب‌های <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> را برای یادکرد اضافه می‌کند',
+	'cite_croak'                                     => 'یادکرد خراب شد؛ $1: $2',
+	'cite_error_key_str_invalid'                     => 'خطای داخلی؛ $str و/یا $key غیر مجاز. این خطا نباید هرگز رخ دهد.',
+	'cite_error_stack_invalid_input'                 => 'خطای داخلی؛ کلید پشته غیرمجاز.  این خطا نباید هرگز رخ دهد.',
+	'cite_error'                                     => 'خطای یادکرد: $1',
+	'cite_error_ref_numeric_key'                     => 'برچسب <code><ref></code> غیرمجاز؛ نام نمی‌تواند یک عدد باشد. عنوان واضح‌تری را برگزینید',
+	'cite_error_ref_no_key'                          => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون محتوا باید نام داشته باشند',
+	'cite_error_ref_too_many_keys'                   => 'برچسب <code><ref></code> غیرمجاز؛ نام‌های غیرمجاز یا بیش از اندازه',
+	'cite_error_ref_no_input'                        => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون نام باید محتوا داشته باشند',
+	'cite_error_references_invalid_input'            => 'برچسب <code><references></code> غیرمجاز؛ ورود متن مجاز نیست، از <code><references /></code> استفاده کنید',
+	'cite_error_references_invalid_parameters'       => 'برچسب <code><references></code> غیرمجاز؛ استفاده از پارامتر مجاز است. از <code><references /></code> استفاده کنید',
+	'cite_error_references_invalid_parameters_group' => 'برچسب <code>&lt;references&gt;</code> غیر مجاز؛ تنها پارامتر «group» قابل استفاده است.
+از <code>&lt;references /&gt;</code> یا <code>&lt;references group="..." /&gt;</code> استفاده کنید',
+	'cite_error_references_no_backlink_label'        => 'برچسب‌های پیوند به انتها رسید؛‌ موارد جدیدی را در پیام <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> تعریف کنید',
+	'cite_error_references_no_text'                  => 'برچسب <code><ref></code> غیرمجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
 );
 
 /** Finnish (Suomi)

@@ -1048,6 +1048,7 @@ $messages['ur'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
+	'cite_article_desc' => 'Zonta na pagina speciale par le [[Special:Cite|citazion]] e un colegamento nei strumenti',
 	'cite_article_link' => 'Cita sta pagina',
 	'cite'              => 'Citazion',
 	'cite_page'         => 'Pagina da citar:',

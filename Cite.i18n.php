@@ -834,9 +834,10 @@ $messages['pag'] = array(
 /** Polish (Polski)
  * @author Sp5uhe
  * @author Derbeth
+ * @author Holek
  */
 $messages['pl'] = array(
-	'cite_desc'                                      => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
+	'cite_desc'                                      => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
 	'cite_croak'                                     => 'Cytowanie nieudane; $1: $2',
 	'cite_error_key_str_invalid'                     => 'Błąd wewnętrzny - nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
 	'cite_error_stack_invalid_input'                 => 'Błąd wewnętrzny - nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
@@ -1078,6 +1079,31 @@ $messages['uk'] = array(
 Потрібно розширити системну змінну <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Неправильний виклик <code>&lt;ref&gt;</code>:
 для виносок <code>$1</code> не вказаний текст',
+);
+
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'cite_desc'                                      => 'Zonta i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> par gestir le citazion',
+	'cite_croak'                                     => 'Eror ne la citazion: $1: $2',
+	'cite_error_key_str_invalid'                     => 'Eror interno: $str e/o $key sbaglià. Sta roba qua no la dovarìa mai capitar.',
+	'cite_error_stack_invalid_input'                 => 'Eror interno;
+ciave de stack sbaglià.
+Sta roba no la dovarìa mai capitar.',
+	'cite_error'                                     => 'Eror ne la funsion Cite $1',
+	'cite_error_ref_numeric_key'                     => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: el nome no'l pode mìa èssar un nùmaro intiero. Dòpara un titolo esteso",
+	'cite_error_ref_no_key'                          => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: i ref vodi no i pol no verghe un nome",
+	'cite_error_ref_too_many_keys'                   => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: nomi mìa validi (ad es. nùmaro massa elevà)",
+	'cite_error_ref_no_input'                        => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: i ref che no gà un nome no i pol mìa èssar vodi",
+	'cite_error_references_invalid_input'            => "Eror ne l'uso del marcator <code>&lt;references&gt;</code>: input mìa consentìo, dòpara el marcator
+<code>&lt;references /&gt;</code>",
+	'cite_error_references_invalid_parameters'       => "Eror ne l'uso del marcator <code>&lt;references&gt;</code>: parametri mìa consentìi, dòpara el marcator <code>&lt;references /&gt;</code>",
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> mìa valido;
+solo el parametro "group" el xe permesso.
+Dòpara <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Etichete de rimando personalizàe esaurìe, auménteghen el nùmaro nel messagio <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Marcator <code>&lt;ref&gt;</code> mìa valido; no xe stà indicà nissun testo par el marcator <code>$1</code>',
 );
 
 /** Vietnamese (Tiếng Việt)

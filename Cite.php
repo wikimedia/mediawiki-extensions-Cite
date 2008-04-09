@@ -350,27 +350,21 @@ function wfCite() {
 			global $wgAllowCiteGroups;
 
 			$this->mParser = $parser;
-
-			if ( $str !== null ) {
+			
+			if ( $str !== null )
 				return $this->error( 'cite_error_references_invalid_input' );
-			}
 
+			
 			if ( isset( $argv['group'] ) and $wgAllowCiteGroups) {
 				$group = $argv['group'];
 				unset ($argv['group']);
+				
 			}
-
-			if ( count( $argv ) ) {
-				if( $wgAllowCiteGroups ) {
-					return $this->error( 'cite_error_references_invalid_parameters_group' );
-				} else {
-					return $this->error( 'cite_error_references_invalid_parameters' );
-				}
-			} elseif ( $wgAllowCiteGroups && !isset( $this->mRefs[$group] ) ) {
-					return $this->error( 'cite_error_references_invalid_group', htmlspecialchars( $group ) );
-			} else {
-				return $this->referencesFormat( $group );
-			}
+			
+			if ( count( $argv ) )
+				return $this->error( 'cite_error_references_invalid_parameters' );
+			else
+				return $this->referencesFormat($group);
 		}
 
 		/**
@@ -379,7 +373,7 @@ function wfCite() {
 		 * @return string XHTML ready for output
 		 */
 		function referencesFormat($group) {
-			if (( count( $this->mRefs ) == 0 ) or (count( $this->mRefs[$group] ) == 0 ))
+			if (( count( $this->mRefs ) == 0 ) or (empty( $this->mRefs[$group] ) ))
 				return '';
 			
 			wfProfileIn( __METHOD__ );

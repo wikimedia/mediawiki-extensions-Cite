@@ -509,6 +509,16 @@ $messages['jut'] = array(
 	'cite_submit'       => 'Fodnåt',
 );
 
+/** Javanese (Basa Jawa)
+ * @author Meursault2004
+ */
+$messages['jv'] = array(
+	'cite_article_link' => 'Kutip (sitir) kaca iki',
+	'cite'              => 'Kutip (sitir)',
+	'cite_page'         => 'Kaca:',
+	'cite_submit'       => 'Kutip (sitir)',
+);
+
 /** Georgian (ქართული) */
 $messages['ka'] = array(
 	'cite_article_link' => 'ამ გვერდის ციტირება',
@@ -644,6 +654,7 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
+	'cite_article_desc' => '[[Special:Cite|സൈറ്റേഷന്‍]] എന്ന പ്രത്യേക താളും, പണി സഞ്ചി  കണ്ണിയും ചേര്‍ക്കുന്നു',
 	'cite_article_link' => 'ഈ താള്‍ ഉദ്ധരിക്കുക',
 	'cite'              => 'ഉദ്ധരിക്കുക',
 	'cite_page'         => 'താള്‍:',

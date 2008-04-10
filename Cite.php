@@ -351,7 +351,7 @@ function wfCite() {
 
 			$this->mParser = $parser;
 			
-			if ( $str !== null )
+			if ( strval( $str ) !== '' )
 				return $this->error( 'cite_error_references_invalid_input' );
 
 			

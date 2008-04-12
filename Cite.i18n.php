@@ -655,6 +655,13 @@ $messages['kk-latn'] = array(
 	'cite_error_references_no_backlink_label'  => "Qosımşa belgilerdiñ sanı bitti, odan äri köbirek <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> jüýe xabarında belgileñiz",
 );
 
+/** Korean (한국어)
+ * @author ToePeu
+ */
+$messages['ko'] = array(
+	'cite_desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 더합니다.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

@@ -968,6 +968,13 @@ $messages['sv'] = array(
 	'cite_submit'       => 'Citera',
 );
 
+/** Silesian (ślůnski)
+ * @author Herr Kriss
+ */
+$messages['szl'] = array(
+	'cite_page' => 'Zajta:',
+);
+
 /** Tamil (தமிழ்)
  * @author Trengarasu
  */

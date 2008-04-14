@@ -72,21 +72,25 @@ no text was provided for refs named <code>$1</code>',
 
 /** Aragonese (Aragonés)
  * @author Juanpabl
+ * @author Siebrand
  */
 $messages['an'] = array(
-	'cite_desc'                                => 'Adibe as etiquetas <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> ta fer zitas',
-	'cite_croak'                               => 'Zita corrompita; $1: $2',
-	'cite_error_key_str_invalid'               => 'Error interna; $str y/u $key no conforme(s). Isto no abría d\'escaizer nunca.',
-	'cite_error_stack_invalid_input'           => "Error interna; clau de pila no conforme. Isto no abría d'escaizer nunca.",
-	'cite_error'                               => 'Error en a zita: $1',
-	'cite_error_ref_numeric_key'               => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; o nombre d'a etiqueta no puede estar un numero entero, faiga serbir un títol descriptibo",
-	'cite_error_ref_no_key'                    => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin de conteniu han de tener un nombre',
-	'cite_error_ref_too_many_keys'             => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; nombres de parametros incorreutos.',
-	'cite_error_ref_no_input'                  => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin nombre no han de tener conteniu',
-	'cite_error_references_invalid_input'      => 'Etiqueta <code>&lt;references&gt;</code> incorreuta; no se premite emplegar input en a etiqueta, faiga serbir <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> incorreuta; no se premiten parametros, faiga serbir <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Ya no quedan etiquetas backlink presonalizatas, defina más en o mensache <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'            => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; no ha escrito garra testo t'as referenzias nombratas <code>$1</code>",
+	'cite_desc'                                      => 'Adibe as etiquetas <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> ta fer zitas',
+	'cite_croak'                                     => 'Zita corrompita; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Error interna; $str y/u $key no conforme(s). Isto no abría d\'escaizer nunca.',
+	'cite_error_stack_invalid_input'                 => "Error interna; clau de pila no conforme. Isto no abría d'escaizer nunca.",
+	'cite_error'                                     => 'Error en a zita: $1',
+	'cite_error_ref_numeric_key'                     => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; o nombre d'a etiqueta no puede estar un numero entero, faiga serbir un títol descriptibo",
+	'cite_error_ref_no_key'                          => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin de conteniu han de tener un nombre',
+	'cite_error_ref_too_many_keys'                   => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; nombres de parametros incorreutos.',
+	'cite_error_ref_no_input'                        => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin nombre no han de tener conteniu',
+	'cite_error_references_invalid_input'            => 'Etiqueta <code>&lt;references&gt;</code> incorreuta; no se premite emplegar input en a etiqueta, faiga serbir <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Etiqueta <code>&lt;references&gt;</code> incorreuta; no se premiten parametros, faiga serbir <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> no conforme;
+nomás se premite o parametro "group".
+Faiga serbir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Ya no quedan etiquetas backlink presonalizatas, defina más en o mensache <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; no ha escrito garra testo t'as referenzias nombratas <code>$1</code>",
 );
 
 /** Arabic (العربية)
@@ -849,23 +853,24 @@ $messages['pag'] = array(
  * @author Holek
  */
 $messages['pl'] = array(
-	'cite_desc'                                      => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
-	'cite_croak'                                     => 'Cytowanie nieudane; $1: $2',
-	'cite_error_key_str_invalid'                     => 'Błąd wewnętrzny - nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
-	'cite_error_stack_invalid_input'                 => 'Błąd wewnętrzny - nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
-	'cite_error'                                     => "Błąd rozszerzenia ''cite'': $1",
-	'cite_error_ref_numeric_key'                     => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.',
-	'cite_error_ref_no_key'                          => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.',
-	'cite_error_ref_too_many_keys'                   => 'Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.',
-	'cite_error_ref_no_input'                        => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
-	'cite_error_references_invalid_input'            => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym elemencie, użyj <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters'       => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Nieprawidłowy znacznik <code>&lt;references&gt;</code>;
+	'cite_desc'                                        => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
+	'cite_croak'                                       => 'Cytowanie nieudane; $1: $2',
+	'cite_error_key_str_invalid'                       => 'Błąd wewnętrzny – nieprawidłowy tekst $str i/lub klucz $key. To nigdy nie powinno się zdarzyć.',
+	'cite_error_stack_invalid_input'                   => 'Błąd wewnętrzny – nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
+	'cite_error'                                       => "Błąd rozszerzenia ''cite'': $1",
+	'cite_error_ref_numeric_key'                       => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.',
+	'cite_error_ref_no_key'                            => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.',
+	'cite_error_ref_too_many_keys'                     => 'Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.',
+	'cite_error_ref_no_input'                          => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
+	'cite_error_references_invalid_input'              => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym elemencie, użyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'         => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group'   => 'Nieprawidłowy znacznik <code>&lt;references&gt;</code>;
 dostępny jest wyłącznie parametr "group".
 Użyj znacznika <code>&lt;references /&gt;</code>, lub <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'Zabrakło etykiet do przypisów.
+	'cite_error_references_no_backlink_label'          => 'Zabrakło etykiet do przypisów.
 Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_references_no_text'                  => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
+	'cite_error_references_no_text'                    => 'Bład w składni elementu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
 /** Portuguese (Português)

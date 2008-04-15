@@ -865,7 +865,7 @@ $messages['pl'] = array(
 	'cite_error_references_invalid_input'              => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym elemencie, użyj <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters'         => 'Bład w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group'   => 'Nieprawidłowy znacznik <code>&lt;references&gt;</code>;
-dostępny jest wyłącznie parametr "group".
+dostępny jest wyłącznie parametr „group”.
 Użyj znacznika <code>&lt;references /&gt;</code>, lub <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'          => 'Zabrakło etykiet do przypisów.
 Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',

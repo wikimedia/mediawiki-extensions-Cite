@@ -513,6 +513,7 @@ $messages['jut'] = array(
  * @author Meursault2004
  */
 $messages['jv'] = array(
+	'cite_article_desc' => 'Nambahaké kaca astaméwa [[Special:Cite|sitat (kutipan)]] lan pranala ing kothak piranti',
 	'cite_article_link' => 'Kutip (sitir) kaca iki',
 	'cite'              => 'Kutip (sitir)',
 	'cite_page'         => 'Kaca:',

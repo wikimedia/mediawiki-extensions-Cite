@@ -146,19 +146,22 @@ $messages['ast'] = array(
  * @author Borislav
  */
 $messages['bg'] = array(
-	'cite_desc'                                => 'Добавя етикетите <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, подходящи за цитиране',
-	'cite_croak'                               => 'Цитиращата система се срути; $1: $2',
-	'cite_error_key_str_invalid'               => 'Вътрешна грешка: невалиден параметър $str и/или $key.  Това не би трябвало да се случва никога.',
-	'cite_error_stack_invalid_input'           => "'''Вътрешна грешка:''' невалиден ключ на стека. Това не би трябвало да се случва никога.",
-	'cite_error'                               => 'Грешка при цитиране: $1',
-	'cite_error_ref_numeric_key'               => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' името не може да бъде число, използва се описателно име",
-	'cite_error_ref_no_key'                    => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без съдържание трябва да имат име",
-	'cite_error_ref_too_many_keys'             => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' грешка в името, например повече от едно име на етикета",
-	'cite_error_ref_no_input'                  => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без име трябва да имат съдържание",
-	'cite_error_references_invalid_input'      => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' не е разрешен вход, използва се така: 
+	'cite_desc'                                      => 'Добавя етикетите <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, подходящи за цитиране',
+	'cite_croak'                                     => 'Цитиращата система се срути; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Вътрешна грешка: невалиден параметър $str и/или $key.  Това не би трябвало да се случва никога.',
+	'cite_error_stack_invalid_input'                 => "'''Вътрешна грешка:''' невалиден ключ на стека. Това не би трябвало да се случва никога.",
+	'cite_error'                                     => 'Грешка при цитиране: $1',
+	'cite_error_ref_numeric_key'                     => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' името не може да бъде число, използва се описателно име",
+	'cite_error_ref_no_key'                          => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без съдържание трябва да имат име",
+	'cite_error_ref_too_many_keys'                   => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' грешка в името, например повече от едно име на етикета",
+	'cite_error_ref_no_input'                        => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без име трябва да имат съдържание",
+	'cite_error_references_invalid_input'            => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' не е разрешен вход, използва се така: 
 <code>&lt;references /&gt;</code>",
-	'cite_error_references_invalid_parameters' => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' използва се без параметри, така: <code>&lt;references /&gt;</code>",
-	'cite_error_references_no_text'            => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
+	'cite_error_references_invalid_parameters'       => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' използва се без параметри, така: <code>&lt;references /&gt;</code>",
+	'cite_error_references_invalid_parameters_group' => 'Невалиден етикет <code>&lt;references&gt;</code>;
+позволен е само параметър "group".
+Използвайте <code>&lt;references /&gt;</code> или <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text'                  => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
 );
 
 /** Bengali (বাংলা)
@@ -612,6 +615,14 @@ $messages['jut'] = array(
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => 'For mange <code>&lt;ref&gt;</code>-tags har det samme "name", tillad flere i beskeden <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text'            => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
+);
+
+/** Javanese (Basa Jawa)
+ * @author Meursault2004
+ */
+$messages['jv'] = array(
+	'cite_croak' => 'Sitaté (pangutipané) gagal; $1: $2',
+	'cite_error' => 'Kaluputan sitat (pangutipan) $1',
 );
 
 /** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */

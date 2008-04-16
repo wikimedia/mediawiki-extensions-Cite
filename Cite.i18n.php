@@ -621,8 +621,11 @@ $messages['jut'] = array(
  * @author Meursault2004
  */
 $messages['jv'] = array(
-	'cite_croak' => 'Sitaté (pangutipané) gagal; $1: $2',
-	'cite_error' => 'Kaluputan sitat (pangutipan) $1',
+	'cite_croak'                 => 'Sitaté (pangutipané) gagal; $1: $2',
+	'cite_error_key_str_invalid' => 'Kaluputan jero;
+$str lan/utawa $key ora absah.
+Iki sajatiné ora tau olèh kadadéyan.',
+	'cite_error'                 => 'Kaluputan sitat (pangutipan) $1',
 );
 
 /** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */

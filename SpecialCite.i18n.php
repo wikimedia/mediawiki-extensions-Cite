@@ -465,6 +465,13 @@ $messages['ilo'] = array(
 	'cite_submit'       => 'Idakamat',
 );
 
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'cite_page' => 'Pagino:',
+);
+
 /** Icelandic (Íslenska)
  * @author לערי ריינהארט
  * @author S.Örvarr.S
@@ -762,7 +769,7 @@ $messages['nso'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'cite_article_desc' => "Ajusta una pagina especiala [[Special:Cite|citacion]] e un ligam dins la boita d'espleches",
+	'cite_article_desc' => "Apond una pagina especiala [[Special:Cite|citacion]] e un ligam dins la bóstia d'espleches",
 	'cite_article_link' => 'Citar aqueste article',
 	'cite'              => 'Citacion',
 	'cite_page'         => 'Pagina:',

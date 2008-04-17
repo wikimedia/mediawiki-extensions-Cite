@@ -832,26 +832,27 @@ $messages['no'] = array(
  * @author Siebrand
  */
 $messages['oc'] = array(
-	'cite_desc'                                      => 'Ajusta las balisas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, per las citacions.',
-	'cite_croak'                                     => 'Citacion corrompuda ; $1 : $2',
-	'cite_error_key_str_invalid'                     => 'Error intèrna ; $str esperada',
-	'cite_error_stack_invalid_input'                 => 'Error intèrna ; clau de pila invalida',
-	'cite_error'                                     => 'Error de citacion $1',
-	'cite_error_ref_numeric_key'                     => 'Apèl invalid ; clau non-integrala esperada',
-	'cite_error_ref_no_key'                          => 'Apèl invalid ; cap de clau pas especificada',
-	'cite_error_ref_too_many_keys'                   => 'Apèl invalid ; claus invalidas, per exemple, tròp de claus especificadas o clau erronèa',
-	'cite_error_ref_no_input'                        => 'Apèl invalid ; cap de dintrada pas especificada',
-	'cite_error_references_invalid_input'            => 'Entrada invalida ; entrada esperada',
-	'cite_error_references_invalid_parameters'       => 'Arguments invalids ; argument esperat',
-	'cite_error_references_invalid_parameters_group' => 'Balisa <code>&lt;references&gt;</code> incorrècta ;
+	'cite_desc'                                        => 'Ajusta las balisas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, per las citacions.',
+	'cite_croak'                                       => 'Citacion corrompuda ; $1 : $2',
+	'cite_error_key_str_invalid'                       => 'Error intèrna ; $str esperada',
+	'cite_error_stack_invalid_input'                   => 'Error intèrna ; clau de pila invalida',
+	'cite_error'                                       => 'Error de citacion $1',
+	'cite_error_ref_numeric_key'                       => 'Apèl invalid ; clau non-integrala esperada',
+	'cite_error_ref_no_key'                            => 'Apèl invalid ; cap de clau pas especificada',
+	'cite_error_ref_too_many_keys'                     => 'Apèl invalid ; claus invalidas, per exemple, tròp de claus especificadas o clau erronèa',
+	'cite_error_ref_no_input'                          => 'Apèl invalid ; cap de dintrada pas especificada',
+	'cite_error_references_invalid_input'              => 'Entrada invalida ; entrada esperada',
+	'cite_error_references_invalid_parameters'         => 'Arguments invalids ; argument esperat',
+	'cite_error_references_invalid_parameters_group'   => 'Balisa <code>&lt;references&gt;</code> incorrècta ;
 
 sol lo paramètre « group » es autorizat.
 
 Utilizatz <code>&lt;references /&gt;</code>, o alara <code>&lt;references group="..." /&gt;</code>.',
-	'cite_error_references_no_backlink_label'        => 'Execucion en defòra de las etiquetas personalizadas, definissetz mai dins lo messatge <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'                  => 'Balisa  <code>&lt;ref&gt;</code> incorrècta ;
+	'cite_error_references_no_backlink_label'          => 'Execucion en defòra de las etiquetas personalizadas, definissetz mai dins lo messatge <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                    => 'Balisa  <code>&lt;ref&gt;</code> incorrècta ;
 
 pas de tèxt per las referéncias nomenadas <code>$1</code>.',
+	'cite_references_link_many_format_backlink_labels' => 'a á à b c ç d e é è f g h i í ì ï j k l m n o ó ò p q r s t u ú ù ü v w x y z',
 );
 
 /** Pangasinan (Pangasinan)

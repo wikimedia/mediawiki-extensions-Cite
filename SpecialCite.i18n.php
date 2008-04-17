@@ -355,8 +355,10 @@ $messages['ga'] = array(
 
 /** Galician (Galego)
  * @author Xosé
+ * @author Toliño
  */
 $messages['gl'] = array(
+	'cite_article_desc' => 'Engade unha páxina especial de [[Special:Cite|citas]] e unha ligazón na caixa de ferramentas',
 	'cite_article_link' => 'Citar esta páxina',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Páxina:',
@@ -375,6 +377,16 @@ $messages['grc'] = array(
  */
 $messages['gu'] = array(
 	'cite_page' => 'પાનું:',
+);
+
+/** Manx (Gaelg)
+ * @author MacTire02
+ */
+$messages['gv'] = array(
+	'cite_article_link' => 'Symney yn duillag shoh',
+	'cite'              => 'Symney',
+	'cite_page'         => 'Duillag:',
+	'cite_submit'       => 'Symney',
 );
 
 /** Hawaiian (Hawai`i)
@@ -801,10 +813,10 @@ $messages['pam'] = array(
  */
 $messages['pl'] = array(
 	'cite_article_desc' => 'Dodaje stronę specjalną i guzik w toolbarze edycyjnym do obsługi [[Special:Cite|cytowania]]',
-	'cite_article_link' => 'Cytuj ten artykuł',
+	'cite_article_link' => 'Odwołanie bibliograficzne',
 	'cite'              => 'Cytowanie',
 	'cite_page'         => 'Strona:',
-	'cite_submit'       => 'Cytuj',
+	'cite_submit'       => 'stwórz wpis bibliograficzny',
 );
 
 /** Piemontèis (Piemontèis)

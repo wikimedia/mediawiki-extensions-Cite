@@ -226,18 +226,24 @@ Erroneous refs
 
 <references />
 !! result
-<p><strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer, use a descriptive title</strong>
+<p><strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+name cannot be a simple integer. Use a descriptive title</strong>
 </p><p><sup id="cite_ref-0" class="reference"><a href="#cite_note-0" title="">[1]</a></sup>
-</p><p><strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no content must have a name</strong>
+</p><p><strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+refs with no content must have a name</strong>
 </p><p><sup id="cite_ref-bar_1-0" class="reference"><a href="#cite_note-bar-1" title="">[2]</a></sup>
 </p><p><sup id="cite_ref-blankwithnoreference_2-0" class="reference"><a href="#cite_note-blankwithnoreference-2" title="">[3]</a></sup>
-</p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag; no input is allowed, use
-<code>&lt;references /&gt;</code></strong>
-</p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag; no parameters are allowed, use <code>&lt;references /&gt;</code></strong>
+</p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag;
+no input is allowed. Use <code>&lt;references /&gt;</code></strong>
+</p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag;
+no parameters are allowed.
+Use <code>&lt;references /&gt;</code></strong>
 </p>
 <ol class="references"><li id="cite_note-0"><a href="#cite_ref-0" title="">↑</a> Also zero, but differently! (Normal ref)</li>
-<li id="cite_note-bar"><a href="#cite_ref-bar_0" title="">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>bar</code></strong></li>
-<li id="cite_note-blankwithnoreference"><a href="#cite_ref-blankwithnoreference_0" title="">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>blankwithnoreference</code></strong></li></ol>
+<li id="cite_note-bar"><a href="#cite_ref-bar_0" title="">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>bar</code></strong></li>
+<li id="cite_note-blankwithnoreference"><a href="#cite_ref-blankwithnoreference_0" title="">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>blankwithnoreference</code></strong></li></ol>
 
 !! end
 

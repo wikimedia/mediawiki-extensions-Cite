@@ -285,7 +285,11 @@ $messages['fa'] = array(
 
 );
 
+/** Finnish (Suomi)
+ * @author Nike
+ */
 $messages['fi'] = array(
+	'cite_article_desc' => 'Lisää työkaluihin toimintosivun, joka neuvoo [[Special:Cite|viittaamaan]] oikeaoppisesti.',
 	'cite_article_link' => 'Viitetiedot',
 	'cite'              => 'Viitetiedot',
 	'cite_page'         => 'Sivu:',
@@ -784,7 +788,7 @@ $messages['oc'] = array(
 	'cite_article_desc' => "Apond una pagina especiala [[Special:Cite|citacion]] e un ligam dins la bóstia d'espleches",
 	'cite_article_link' => 'Citar aqueste article',
 	'cite'              => 'Citacion',
-	'cite_page'         => 'Pagina:',
+	'cite_page'         => 'Pagina :',
 	'cite_submit'       => 'Citar',
 );
 

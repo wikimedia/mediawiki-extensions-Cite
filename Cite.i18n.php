@@ -324,6 +324,8 @@ nevalida $str kaj/aŭ $key.
 Ĉi tio neniam povus okazi.',
 	'cite_error'                               => 'Citu eraron: $1',
 	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_text'            => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
+neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 );
 
 /** Basque (Euskara)
@@ -357,8 +359,10 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Nike
  */
-
 $messages['fi'] = array(
+	'cite_desc'                                => 'Tarjoaa <nowiki><ref[ name=id]></nowiki>- ja <nowiki><references/></nowiki>-elementit viittauksien tekemiseen.',
+	'cite_croak'                               => 'Virhe viittausjärjestelmässä: $1: $2',
+	'cite_error'                               => 'Viittausvirhe: $1',
 	'cite_error_references_invalid_parameters' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
 );
 
@@ -621,11 +625,35 @@ $messages['jut'] = array(
  * @author Meursault2004
  */
 $messages['jv'] = array(
-	'cite_croak'                 => 'Sitaté (pangutipané) gagal; $1: $2',
-	'cite_error_key_str_invalid' => 'Kaluputan jero;
+	'cite_desc'                                      => 'Nambahaké tag <nowiki><ref[ name=id]></nowiki> lan <nowiki><references/></nowiki> kanggo kutipan (sitat)',
+	'cite_croak'                                     => 'Sitaté (pangutipané) gagal; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Kaluputan jero;
 $str lan/utawa $key ora absah.
 Iki sajatiné ora tau olèh kadadéyan.',
-	'cite_error'                 => 'Kaluputan sitat (pangutipan) $1',
+	'cite_error_stack_invalid_input'                 => 'Kaluputan internal;
+stack key ora absah.
+Iki samesthine ora kadadéan.',
+	'cite_error'                                     => 'Kaluputan sitat (pangutipan) $1',
+	'cite_error_ref_numeric_key'                     => 'Tag <code>&lt;ref&gt;</code> ora absah;
+jenengé ora bisa namung angka integer waé. Gunakna irah-irahan (judhul) dèskriptif',
+	'cite_error_ref_no_key'                          => 'Tag <code>&lt;ref&gt;</code> ora absah;
+refs tanpa isi kudu duwé jeneng',
+	'cite_error_ref_too_many_keys'                   => 'Tag <code>&lt;ref&gt;</code> ora absah;
+jeneng-jenengé ora absah, contoné kakèhan',
+	'cite_error_ref_no_input'                        => 'Tag <code>&lt;ref&gt;</code> ora absah;
+refs tanpa jeneng kudu ana isiné',
+	'cite_error_references_invalid_input'            => 'Tag <code>&lt;references&gt;</code> ora absah;
+input (panglebokan) ora diparengaké. Enggonen <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Tag <code>&lt;references&gt;</code> ora absah;
+ora ana paramèter sing diidinaké.
+Gunakna <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> ora absah;
+namung paramèter "group" sing diolèhaké.
+Gunakna <code>&lt;references /&gt;</code>, utawa <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Kentèkan label pranala balik.
+Tambahna ing pesenan sistém <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Tag <code>&lt;ref&gt;</code> ora absah; 
+ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 );
 
 /** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */

@@ -543,9 +543,12 @@ $messages['jv'] = array(
 	'cite_submit'       => 'Kutip (sitir)',
 );
 
-/** Georgian (ქართული) */
+/** Georgian (ქართული)
+ * @author Malafaya
+ */
 $messages['ka'] = array(
 	'cite_article_link' => 'ამ გვერდის ციტირება',
+	'cite_page'         => 'გვერდი:',
 );
 
 $messages['kk-arab'] = array(
@@ -584,6 +587,17 @@ $messages['km'] = array(
 $messages['kn'] = array(
 	'cite_article_link' => 'ಈ ಪುಟವನ್ನು ಉಲ್ಲೇಖಿಸಿ',
 	'cite'              => 'ಉಲ್ಲೇಖಿಸಿ',
+);
+
+/** Korean (한국어)
+ * @author ToePeu
+ */
+$messages['ko'] = array(
+	'cite_article_desc' => '[[Special:Cite|인용]] 특수문서와 도구상자 고리를 더함',
+	'cite_article_link' => '이 문서 인용하기',
+	'cite'              => '인용',
+	'cite_page'         => '문서:',
+	'cite_submit'       => '인용',
 );
 
 $messages['ksh'] = array(

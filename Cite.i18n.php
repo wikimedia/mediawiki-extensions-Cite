@@ -322,6 +322,9 @@ $messages['eo'] = array(
 	'cite_error_key_str_invalid'               => 'Intera eraro;
 nevalida $str kaj/aŭ $key.
 Ĉi tio neniam povus okazi.',
+	'cite_error_stack_invalid_input'           => 'Interna eraro;
+nevalida staka ŝlosilo.
+Ĉi tio verŝajne neniam okazus.',
 	'cite_error'                               => 'Citu eraron: $1',
 	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_text'            => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
@@ -716,31 +719,38 @@ $messages['ko'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'cite_desc'                  => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
-	'cite_croak'                 => 'Feeler am Referenz-System. $1 : $2',
-	'cite_error_key_str_invalid' => 'Interne Feeler;
+	'cite_desc'                      => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
+	'cite_croak'                     => 'Feeler am Referenz-System. $1 : $2',
+	'cite_error_key_str_invalid'     => 'Interne Feeler;
 ongültege $str an/oder $schlëssel.
 Dëst sollt eigentlech ni gschéien.',
-	'cite_error'                 => 'Zitéierfeeler: $1',
+	'cite_error_stack_invalid_input' => "Interne Feeler;
+ongëltege ''stack''-Schlëssel.
+Dës sollt eigentlech guer net geschéien.",
+	'cite_error'                     => 'Zitéierfeeler: $1',
 );
 
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
+ * @author Siebrand
  */
 $messages['li'] = array(
-	'cite_desc'                                => 'Voeg <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe veur citate',
-	'cite_croak'                               => 'Perbleem mit Citere; $1: $2',
-	'cite_error_key_str_invalid'               => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
-	'cite_error_stack_invalid_input'           => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
-	'cite_error'                               => 'Citeerfout: $1',
-	'cite_error_ref_numeric_key'               => "Ónzjuuste tag <code>&lt;ref&gt;</code>; de naam kin gein simpele integer zeen, gebroek 'ne besjrievendje titel",
-	'cite_error_ref_no_key'                    => "Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger inhoud mótte 'ne naam höbbe",
-	'cite_error_ref_too_many_keys'             => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; ónzjuuste name, beveurbeildj te väöl',
-	'cite_error_ref_no_input'                  => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger naam mótte inhoud höbbe',
-	'cite_error_references_invalid_input'      => 'Ónzjuuste tag <code>&lt;references&gt;</code>; inveur is neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Ónzjuuste tag <code>&lt;references&gt;</code>; paramaeters zeen neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "'t Aantal besjikbare backlinklabels is opgebroek. Gaef meer labels op in 't berich <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
-	'cite_error_references_no_text'            => "Ónzjuuste tag <code>&lt;ref&gt;</code>; d'r is gein teks opgegaeve veur refs mit de naam <code>$1</code>",
+	'cite_desc'                                      => 'Voeg <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe veur citate',
+	'cite_croak'                                     => 'Perbleem mit Citere; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
+	'cite_error_stack_invalid_input'                 => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
+	'cite_error'                                     => 'Citeerfout: $1',
+	'cite_error_ref_numeric_key'                     => "Ónzjuuste tag <code>&lt;ref&gt;</code>; de naam kin gein simpele integer zeen, gebroek 'ne besjrievendje titel",
+	'cite_error_ref_no_key'                          => "Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger inhoud mótte 'ne naam höbbe",
+	'cite_error_ref_too_many_keys'                   => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; ónzjuuste name, beveurbeildj te väöl',
+	'cite_error_ref_no_input'                        => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger naam mótte inhoud höbbe',
+	'cite_error_references_invalid_input'            => 'Ónzjuuste tag <code>&lt;references&gt;</code>; inveur is neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Ónzjuuste tag <code>&lt;references&gt;</code>; paramaeters zeen neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Onjuuste tag <code>&lt;references&gt;</code>;
+allein de paramaeter "group" is toegestaon.
+Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => "'t Aantal besjikbare backlinklabels is opgebroek. Gaef meer labels op in 't berich <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
+	'cite_error_references_no_text'                  => "Ónzjuuste tag <code>&lt;ref&gt;</code>; d'r is gein teks opgegaeve veur refs mit de naam <code>$1</code>",
 );
 
 
@@ -869,10 +879,10 @@ $messages['oc'] = array(
 	'cite_error_key_str_invalid'                       => 'Error intèrna ; $str esperada',
 	'cite_error_stack_invalid_input'                   => 'Error intèrna ; clau de pila invalida',
 	'cite_error'                                       => 'Error de citacion $1',
-	'cite_error_ref_numeric_key'                       => 'Apèl invalid ; clau non-integrala esperada',
-	'cite_error_ref_no_key'                            => 'Apèl invalid ; cap de clau pas especificada',
-	'cite_error_ref_too_many_keys'                     => 'Apèl invalid ; claus invalidas, per exemple, tròp de claus especificadas o clau erronèa',
-	'cite_error_ref_no_input'                          => 'Apèl invalid ; cap de dintrada pas especificada',
+	'cite_error_ref_numeric_key'                       => 'Ampèl invalid ; clau non-integrala esperada',
+	'cite_error_ref_no_key'                            => 'Ampèl invalid ; cap de clau pas especificada',
+	'cite_error_ref_too_many_keys'                     => 'Ampèl invalid ; claus invalidas, per exemple, tròp de claus especificadas o clau erronèa',
+	'cite_error_ref_no_input'                          => 'Ampèl invalid ; cap de dintrada pas especificada',
 	'cite_error_references_invalid_input'              => 'Entrada invalida ; entrada esperada',
 	'cite_error_references_invalid_parameters'         => 'Arguments invalids ; argument esperat',
 	'cite_error_references_invalid_parameters_group'   => 'Balisa <code>&lt;references&gt;</code> incorrècta ;

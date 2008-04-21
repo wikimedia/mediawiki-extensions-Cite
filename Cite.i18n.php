@@ -823,6 +823,7 @@ $messages['mr'] = array(
  * @author Slomox
  */
 $messages['nds'] = array(
+	'cite_croak' => 'Fehler bi de Referenzen. $1: $2',
 	'cite_error' => 'Zitat-Fehler: $1',
 );
 

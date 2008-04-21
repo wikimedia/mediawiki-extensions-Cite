@@ -806,6 +806,13 @@ $messages['oc'] = array(
 	'cite_submit'       => 'Citar',
 );
 
+/** Ossetic (Иронау)
+ * @author Amikeco
+ */
+$messages['os'] = array(
+	'cite_page' => 'Фарс:',
+);
+
 /** Pangasinan (Pangasinan)
  * @author SPQRobin
  */

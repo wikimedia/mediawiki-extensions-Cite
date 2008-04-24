@@ -235,6 +235,7 @@ $messages['eo'] = array(
 
 /** Spanish (Español)
  * @author Icvav
+ * @author Jatrobat
  */
 $messages['es'] = array(
 	'cite_article_link' => 'Citar este artículo',

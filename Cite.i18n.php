@@ -981,21 +981,25 @@ $messages['ru'] = array(
 
 /** Yakut (Саха тыла)
  * @author HalanTul
+ * @author Siebrand
  */
 $messages['sah'] = array(
-	'cite_desc'                                => 'Хос быһаарыы <nowiki><ref[ name=id]></nowiki> уонна <nowiki><references/></nowiki> тиэктэрин эбэр',
-	'cite_croak'                               => 'Быһа тардыы суох буолбут (Цитата сдохла); $1: $2',
-	'cite_error_key_str_invalid'               => 'Иһинээҕи сыыһа: $str уонна/эбэтэр $key сыыһалар.',
-	'cite_error_stack_invalid_input'           => 'Иһинээҕи сыыһа: stack key сыыһалаах',
-	'cite_error'                               => 'Цитата сыыһата: $1',
-	'cite_error_ref_numeric_key'               => 'Неправильный вызов: ожидался нечисловой ключ',
-	'cite_error_ref_no_key'                    => '<code>&lt;ref&gt;</code> тиэк алҕаһа (Неправильный вызов): аата (күлүүһэ) ыйыллыбатах',
-	'cite_error_ref_too_many_keys'             => '<code>&lt;ref&gt;</code> тиэк алҕаһа (Неправильный вызов): аата сыыһа ыйыллыбыт, эбэтэр наһаа элбэх аат суруллубут',
-	'cite_error_ref_no_input'                  => '<code>&lt;ref&gt;</code> тиэк алҕастаах (Неверный вызов): иһинээҕитэ сыыһа',
-	'cite_error_references_invalid_input'      => '<code>&lt;references&gt;</code> тиэк алҕаһа, иһигэр туох да суох буолуохтаах',
-	'cite_error_references_invalid_parameters' => 'Сыыһа параметрдар бэриллибиттэр; <code>&lt;references /&gt;</code> тиэккэ отой суох буолуохтаахтар',
-	'cite_error_references_no_backlink_label'  => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'            => 'Сыыһа тиэк (тег) <code>&lt;ref&gt;</code>; хос быһаарыыларга <code>$1</code> тиэкис ыйыллыбатах',
+	'cite_desc'                                      => 'Хос быһаарыы <nowiki><ref[ name=id]></nowiki> уонна <nowiki><references/></nowiki> тиэктэрин эбэр',
+	'cite_croak'                                     => 'Быһа тардыы суох буолбут (Цитата сдохла); $1: $2',
+	'cite_error_key_str_invalid'                     => 'Иһинээҕи сыыһа: $str уонна/эбэтэр $key сыыһалар.',
+	'cite_error_stack_invalid_input'                 => 'Иһинээҕи сыыһа: stack key сыыһалаах',
+	'cite_error'                                     => 'Цитата сыыһата: $1',
+	'cite_error_ref_numeric_key'                     => 'Неправильный вызов: ожидался нечисловой ключ',
+	'cite_error_ref_no_key'                          => '<code>&lt;ref&gt;</code> тиэк алҕаһа (Неправильный вызов): аата (күлүүһэ) ыйыллыбатах',
+	'cite_error_ref_too_many_keys'                   => '<code>&lt;ref&gt;</code> тиэк алҕаһа (Неправильный вызов): аата сыыһа ыйыллыбыт, эбэтэр наһаа элбэх аат суруллубут',
+	'cite_error_ref_no_input'                        => '<code>&lt;ref&gt;</code> тиэк алҕастаах (Неверный вызов): иһинээҕитэ сыыһа',
+	'cite_error_references_invalid_input'            => '<code>&lt;references&gt;</code> тиэк алҕаһа, иһигэр туох да суох буолуохтаах',
+	'cite_error_references_invalid_parameters'       => 'Сыыһа параметрдар бэриллибиттэр; <code>&lt;references /&gt;</code> тиэккэ отой суох буолуохтаахтар',
+	'cite_error_references_invalid_parameters_group' => 'Сыыһалаах <code>&lt;references&gt;</code> тиэк;
+"group" эрэ парааматыры туһаныахха сөп.
+Маны <code>&lt;references /&gt;</code>, эбэтэр <code>&lt;references group="..." /&gt;</code> туһан.',
+	'cite_error_references_no_backlink_label'        => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Сыыһа тиэк (тег) <code>&lt;ref&gt;</code>; хос быһаарыыларга <code>$1</code> тиэкис ыйыллыбатах',
 );
 
 /** Slovak (Slovenčina)

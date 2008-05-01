@@ -246,6 +246,7 @@ $messages['es'] = array(
 
 /** Estonian (Eesti)
  * @author SPQRobin
+ * @author WikedKentaur
  */
 $messages['et'] = array(
 	'cite_article_link' => 'Tsiteeri seda artiklit',

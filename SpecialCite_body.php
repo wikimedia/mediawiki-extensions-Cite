@@ -69,7 +69,7 @@ class CiteForm {
 					wfElement( 'input',
 						array(
 							'type' => 'text',
-							'size' => 20,
+							'size' => 30,
 							'name' => 'page',
 							'value' => is_object( $this->mTitle ) ? $this->mTitle->getPrefixedText() : ''
 						),

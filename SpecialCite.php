@@ -28,10 +28,9 @@ $wgExtensionMessagesFiles['SpecialCite'] = dirname( __FILE__ ) . "/SpecialCite.i
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';
 $wgHooks['MonoBookTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';
 
-if ( !function_exists( 'extAddSpecialPage' ) ) {
-	require( dirname(__FILE__) . '/../ExtensionFunctions.php' );
-}
-extAddSpecialPage( dirname(__FILE__) . '/SpecialCite_body.php', 'Cite', 'SpecialCite' );
+$dir = dirname(__FILE__) . '/';
+$wgSpecialPages['Cite'] = 'SpecialCite';
+$wgAutoloadClasses['SpecialCite'] = $dir . 'SpecialCite_body.php';
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 	wfLoadExtensionMessages( 'SpecialCite' );

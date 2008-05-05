@@ -420,6 +420,13 @@ $messages['hi'] = array(
 	'cite_submit'       => 'उद्घृत करें',
 );
 
+/** Hiligaynon (Ilonggo)
+ * @author Jose77
+ */
+$messages['hil'] = array(
+	'cite_article_link' => 'Tumuron ining artikulo',
+);
+
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
  */
@@ -462,6 +469,13 @@ $messages['hy'] = array(
 	'cite_submit'       => 'Քաղվածել',
 );
 
+/** Interlingua (Interlingua)
+ * @author Malafaya
+ */
+$messages['ia'] = array(
+	'cite_page' => 'Pagina:',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
  */
@@ -487,7 +501,10 @@ $messages['ilo'] = array(
  * @author Malafaya
  */
 $messages['io'] = array(
-	'cite_page' => 'Pagino:',
+	'cite_article_link' => 'Citar ca pagino',
+	'cite'              => 'Citar',
+	'cite_page'         => 'Pagino:',
+	'cite_submit'       => 'Citar',
 );
 
 /** Icelandic (Íslenska)

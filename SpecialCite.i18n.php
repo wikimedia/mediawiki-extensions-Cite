@@ -619,6 +619,13 @@ $messages['ko'] = array(
 	'cite_submit'       => '인용',
 );
 
+/** Kinaray-a (Kinaray-a)
+ * @author Jose77
+ */
+$messages['krj'] = array(
+	'cite_page' => 'Pahina:',
+);
+
 $messages['ksh'] = array(
 	'cite_article_link' => 'Di Sigk Zitteere',
 	'cite'              => 'Zittiere',

@@ -67,7 +67,7 @@ function wfCite() {
 		 * </code>
 		 *
 		 * This works because:
-		 * * PHP's datastructures are guarenteed to be returned in the
+		 * * PHP's datastructures are guaranteed to be returned in the
 		 *   order that things are inserted into them (unless you mess
 		 *   with that)
 		 * * User supplied keys can't be integers, therefore avoiding
@@ -82,7 +82,7 @@ function wfCite() {
 		 *
 		 * @var int
 		 */
-		var $mOutCnt = 0;
+		static $mOutCnt = 0;
 		var $mGroupCnt = array();
 
 		/**
@@ -92,7 +92,7 @@ function wfCite() {
 		 *
 		 * @var int
 		 */
-		var $mInCnt = 0;
+		static $mInCnt = 0;
 
 		/**
 		 * The backlinks, in order, to pass as $3 to
@@ -282,9 +282,9 @@ function wfCite() {
 			if ( $key === null ) {
 				// No key
 				//$this->mRefs[$group][] = $str;
-				$this->mRefs[$group][] = array('count'=>-1, 'text'=>$str, 'key'=>++$this->mOutCnt);
+				$this->mRefs[$group][] = array('count'=>-1, 'text'=>$str, 'key'=>++self::$mOutCnt);
 
-				return $this->linkRef( $group, $this->mInCnt++ );
+				return $this->linkRef( $group, self::$mInCnt++ );
 			} else if ( is_string( $key ) ) {
 				// Valid key
 				if ( ! isset( $this->mRefs[$group][$key] ) || ! is_array( $this->mRefs[$group][$key] ) ) {
@@ -292,10 +292,10 @@ function wfCite() {
 					$this->mRefs[$group][$key] = array(
 						'text' => $str,
 						'count' => 0,
-						'key' => ++$this->mOutCnt,
+						'key' => ++self::$mOutCnt,
 						'number' => ++$this->mGroupCnt[$group]
 					);
-					$this->mInCnt++;
+					self::$mInCnt++;
 					return
 						$this->linkRef(
 							$group,
@@ -373,7 +373,7 @@ function wfCite() {
 		 *
 		 * @return string XHTML ready for output
 		 */
-		function referencesFormat($group) {
+		function referencesFormat($group, $prefix='cite_references_prefix') {
 			if (( count( $this->mRefs ) == 0 ) or (empty( $this->mRefs[$group] ) ))
 				return '';
 			
@@ -383,7 +383,7 @@ function wfCite() {
 			foreach ( $this->mRefs[$group] as $k => $v )
 				$ent[] = $this->referencesFormatEntry( $k, $v );
 			
-			$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
+			$prefix = wfMsgForContentNoTrans( $prefix );
 			$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
 			$content = implode( "\n", $ent );
 			
@@ -516,6 +516,12 @@ function wfCite() {
 			}
 		}
 
+		function refCounterString($counter) { 
+			global $wgContLang;
+			return $wgContLang->formatNum($counter);
+		}
+
+
 		/**
 		 * Return an id for use in wikitext output based on a key and
 		 * optionally the number of it, used in <references>, not <ref>
@@ -564,19 +570,18 @@ function wfCite() {
 		 * @param int $count The index of the key, used for distinguishing
 		 *                   multiple occurances of the same key
 		 * @param int $label The label to use for the link, I want to
-		 *                   use the same label for all occourances of
+		 *                   use the same label for all occurances of
 		 *                   the same named reference.
 		 * @return string
 		 */
 		function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
-			global $wgContLang;
 			return
 				$this->parse(
 					wfMsgForContentNoTrans(
 						'cite_reference_link',
 						$this->refKey( $key, $count ),
 						$this->referencesKey( $key . $subkey ),
-						(($group == CITE_DEFAULT_GROUP)?'':"$group ").$wgContLang->formatNum( is_null( $label ) ? ++$this->mGroupCnt[$group] : $label )
+						(($group == CITE_DEFAULT_GROUP)?'':"$group ").$this->refCounterString( is_null( $label ) ? ++$this->mGroupCnt[$group] : $label )
 					)
 				);
 		}
@@ -680,8 +685,8 @@ function wfCite() {
 		 */
 		function clearState() {
 			$this->mGroupCnt = array();
-			$this->mOutCnt = -1;
-			$this->mInCnt = 0;
+			self::$mOutCnt = -1;
+			self::$mInCnt = 0;
 			$this->mRefs = array();
 
 			return true;
@@ -732,7 +737,51 @@ function wfCite() {
 		/**#@-*/
 	}
 
+
+
+	class Note extends Cite 
+	{
+  
+		/**
+		 * Constructor
+		 */
+		function Note() {
+			$this->setHooks();
+		}
+
+		/**
+		 * Initialize the parser hooks
+		 */
+		function setHooks() {
+			global $wgParser, $wgHooks;
+			
+			$wgParser->setHook( 'note' , array( &$this, 'ref' ) );
+			$wgParser->setHook( 'footnotes' , array( &$this, 'references' ) );
+
+			$wgHooks['ParserClearState'][] = array( &$this, 'clearState' );
+		}
+
+		function refCounterString($counter) {
+			return $this->referencesFormatEntryAlternateBacklinkLabel( $counter-1 );
+		}
+
+
+		/**
+		 * Make output to be returned from the references() function
+		 *
+		 * @return string XHTML ready for output
+		 */
+		function referencesFormat($group, $prefix='cite_references_prefix_a') {
+			return parent::referencesFormat($group, $prefix);
+}
+
+	}
+
+
+
+
 	new Cite;
+	new Note;
 }
 
 /**#@-*/

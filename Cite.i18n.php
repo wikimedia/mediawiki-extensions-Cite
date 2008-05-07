@@ -67,7 +67,6 @@ no text was provided for refs named <code>$1</code>',
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks
 	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_prefix_a' => '<ol type="a" class="references">',
 	'cite_references_suffix' => '</ol>',
 );
 

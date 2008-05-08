@@ -659,6 +659,13 @@ $messages['lb'] = array(
 	'cite_submit'       => 'weisen',
 );
 
+/** Lingua Franca Nova (Lingua Franca Nova)
+ * @author Malafaya
+ */
+$messages['lfn'] = array(
+	'cite_page' => 'Paje:',
+);
+
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
  */

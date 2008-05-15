@@ -1005,7 +1005,6 @@ $messages['sah'] = array(
 /** Slovak (Slovenčina)
  * @author Helix84
  * @author Siebrand
- * @author Robbot
  */
 $messages['sk'] = array(
 	'cite_desc'                                      => 'Pridáva značky <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> pre citácie',

@@ -976,7 +976,6 @@ $messages['sd'] = array(
 /** Slovak (Slovenčina)
  * @author Helix84
  * @author Martin Kozák
- * @author Robbot
  */
 $messages['sk'] = array(
 	'cite_article_desc' => 'Pridáva špeciálnu stránku [[Special:Cite|Citovať]] a odkaz v nástrojoch',

@@ -376,13 +376,14 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Grondin
  * @author Siebrand
+ * @author Cedric31
  */
 $messages['fr'] = array(
 	'cite_desc'                                      => 'Ajoute les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, pour les citations.',
 	'cite_croak'                                     => 'Citation corrompue ; $1 : $2',
 	'cite_error_key_str_invalid'                     => 'Erreur interne ; $str attendue',
 	'cite_error_stack_invalid_input'                 => 'Erreur interne ; clé de pile invalide',
-	'cite_error'                                     => 'Erreur de citation $1',
+	'cite_error'                                     => 'Erreur de citation : $1',
 	'cite_error_ref_numeric_key'                     => 'Appel invalide ; clé non-intégrale attendue',
 	'cite_error_ref_no_key'                          => 'Appel invalide ; aucune clé spécifiée',
 	'cite_error_ref_too_many_keys'                   => 'Appel invalide ; clés invalides, par exemple, trop de clés spécifiées ou clé erronée',
@@ -879,7 +880,7 @@ $messages['oc'] = array(
 	'cite_croak'                                       => 'Citacion corrompuda ; $1 : $2',
 	'cite_error_key_str_invalid'                       => 'Error intèrna ; $str esperada',
 	'cite_error_stack_invalid_input'                   => 'Error intèrna ; clau de pila invalida',
-	'cite_error'                                       => 'Error de citacion $1',
+	'cite_error'                                       => 'Error de citacion : $1',
 	'cite_error_ref_numeric_key'                       => 'Ampèl invalid ; clau non-integrala esperada',
 	'cite_error_ref_no_key'                            => 'Ampèl invalid ; cap de clau pas especificada',
 	'cite_error_ref_too_many_keys'                     => 'Ampèl invalid ; claus invalidas, per exemple, tròp de claus especificadas o clau erronèa',
@@ -1040,7 +1041,7 @@ $messages['stq'] = array(
 	'cite_error_ref_no_input'                  => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Noome mout n Inhoold hääbe.',
 	'cite_error_references_invalid_input'      => 'Uungultige <code><nowiki><references></nowiki></code>-Ferweendenge: Der is naan bietoukuumenden Text ferlööwed, ferweend bloot <code><nowiki><references /></nowiki></code>.',
 	'cite_error_references_invalid_parameters' => 'Uungultige <code><nowiki><reference></nowiki></code>-Ferweendenge: Der sunt neen bietoukuumende Parametere ferlööwed, ferweend bloot <code><nowiki><reference /></nowiki></code>.',
-	'cite_error_references_no_backlink_label'  => ' Ne Referenz fon ju Foarm <code><nowiki><ref name="…"/></nowiki></code> wäd oafter benutsed as Bouksteeuwen deer sunt. N Administrator mout <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> uum wiedere Bouksteeuwen/Teekene ferfulständigje. !!FAILT UK IN ORIGINOAL!!',
+	'cite_error_references_no_backlink_label'  => ' Ne Referenz fon ju Foarm <code><nowiki><ref name="…"/></nowiki></code> wäd oafter benutsed as Bouksteeuwen deer sunt. N Administrator mout <nowiki>[[MediaWiki:cite references link many format backlink labels]]</nowiki> uum wiedere Bouksteeuwen/Teekene ferfulständigje. !!FAILT UK IN DÜÜTSKE VERSION!!',
 	'cite_error_references_no_text'            => 'Uungultigen <code>&lt;ref&gt;</code>-Tag; der wuude naan Text foar dät Ref mäd dän Noome <code>$1</code> anroat.',
 );
 

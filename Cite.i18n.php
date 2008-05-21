@@ -957,7 +957,7 @@ Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;
 );
 
 /** Russian (Русский)
- * @author .:Ajvol:.
+ * @author Александр Сигачёв
  * @author Kalan
  */
 $messages['ru'] = array(

@@ -230,7 +230,7 @@ $messages['eo'] = array(
 	'cite_article_link' => 'Citu ĉi tiun pagxon',
 	'cite'              => 'Citado',
 	'cite_page'         => 'Paĝo:',
-	'cite_submit'       => 'Citu',
+	'cite_submit'       => 'Citado',
 );
 
 /** Spanish (Español)

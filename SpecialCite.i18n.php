@@ -366,7 +366,7 @@ $messages['ga'] = array(
 $messages['gl'] = array(
 	'cite_article_desc' => 'Engade unha páxina especial de [[Special:Cite|citas]] e unha ligazón na caixa de ferramentas',
 	'cite_article_link' => 'Citar esta páxina',
-	'cite'              => 'Citar',
+	'cite'              => 'Citar un artigo',
 	'cite_page'         => 'Páxina:',
 	'cite_submit'       => 'Citar',
 );

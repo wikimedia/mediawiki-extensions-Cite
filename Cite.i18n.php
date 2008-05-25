@@ -424,7 +424,7 @@ $messages['frp'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'cite_desc'                                => 'Engada <nowiki><ref[ nome=id]></nowiki> e <nowiki><references/></nowiki> tags, para notas',
+	'cite_desc'                                => 'Engade <nowiki><ref[ nome=id]></nowiki> e etiquetas <nowiki><references/></nowiki>, para notas',
 	'cite_croak'                               => 'Cita morta; $1: $2',
 	'cite_error_key_str_invalid'               => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
 	'cite_error_stack_invalid_input'           => 'Erro interno; stack key inválido. Isto non debera ocorrer.',

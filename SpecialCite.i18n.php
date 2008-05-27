@@ -626,7 +626,11 @@ $messages['krj'] = array(
 	'cite_page' => 'Pahina:',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
 $messages['ksh'] = array(
+	'cite_article_desc' => 'Brenk de Sondersigg [[{{#special:Cite}}|Ziteere]] un ene Link onger „{{int:toolbox}}“',
 	'cite_article_link' => 'Di Sigk Zitteere',
 	'cite'              => 'Zittiere',
 	'cite_page'         => 'Sigk:',

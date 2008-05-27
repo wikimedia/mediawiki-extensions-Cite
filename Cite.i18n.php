@@ -716,6 +716,15 @@ $messages['ko'] = array(
 	'cite_desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 더합니다.',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'cite_desc'  => 'Erlaub Quelle un Referenze met <tt><nowiki><ref[ name="id"]></nowiki></tt> un <tt><nowiki><references /></nowiki></tt> aanzejevve.',
+	'cite_croak' => 'Fääler met Refenenze. $1: $2',
+	'cite_error' => 'Fääler met Refenenze: $1',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */

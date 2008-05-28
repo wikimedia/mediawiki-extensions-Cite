@@ -220,10 +220,16 @@ ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
 );
 
 /** Catalan (Català)
+ * @author Jordi Roqué
  * @author SMP
  */
 $messages['ca'] = array(
-	'cite_croak' => 'Cita corrompuda; $1: $2',
+	'cite_croak'                               => 'Cita corrompuda; $1: $2',
+	'cite_error_ref_no_input'                  => 'Etiqueta <code>&lt;ref&gt;</code> invàlida; 
+les referències sense nom han de tenir contingut',
+	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> invàlida; 
+no es permeten paràmetres. 
+Useu <code>&lt;references /&gt;</code>',
 );
 
 /** Czech (Česky)
@@ -424,19 +430,22 @@ $messages['frp'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'cite_desc'                                => 'Engade <nowiki><ref[ nome=id]></nowiki> e etiquetas <nowiki><references/></nowiki>, para notas',
-	'cite_croak'                               => 'Cita morta; $1: $2',
-	'cite_error_key_str_invalid'               => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
-	'cite_error_stack_invalid_input'           => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
-	'cite_error'                               => 'Citar erro: $1',
-	'cite_error_ref_numeric_key'               => 'Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple entero, use un título descriptivo',
-	'cite_error_ref_no_key'                    => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan contido deben ter un nome',
-	'cite_error_ref_too_many_keys'             => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nomes non válidos, é dicir, demasiados',
-	'cite_error_ref_no_input'                  => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan nome, deben ter contido',
-	'cite_error_references_invalid_input'      => 'Etiqueta <code>&lt;references&gt;</code> non válida; non se permite esa entrada, use
+	'cite_desc'                                      => 'Engade <nowiki><ref[ nome=id]></nowiki> e etiquetas <nowiki><references/></nowiki>, para notas',
+	'cite_croak'                                     => 'Cita morta; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
+	'cite_error_stack_invalid_input'                 => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
+	'cite_error'                                     => 'Citar erro: $1',
+	'cite_error_ref_numeric_key'                     => 'Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple entero, use un título descriptivo',
+	'cite_error_ref_no_key'                          => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan contido deben ter un nome',
+	'cite_error_ref_too_many_keys'                   => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nomes non válidos, é dicir, demasiados',
+	'cite_error_ref_no_input'                        => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan nome, deben ter contido',
+	'cite_error_references_invalid_input'            => 'Etiqueta <code>&lt;references&gt;</code> non válida; non se permite esa entrada, use
 <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> non válida; non están permitidos esos parámetros, use <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_text'            => 'Etiqueta non válida <code>&lt;ref&gt;</code>; non se forneceu texto para as refs de nome <code>$1</code>',
+	'cite_error_references_invalid_parameters'       => 'Etiqueta <code>&lt;references&gt;</code> non válida; non están permitidos esos parámetros, use <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> inválida;
+só está permitido o parámetro "group" ("grupo").
+Use <code>&lt;references /&gt;</code> ou <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text'                  => 'Etiqueta non válida <code>&lt;ref&gt;</code>; non se forneceu texto para as refs de nome <code>$1</code>',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -555,21 +564,25 @@ $messages['hu'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
+ * @author Rex
  */
 $messages['id'] = array(
-	'cite_desc'                                => 'Menambahkan tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk kutipan',
-	'cite_croak'                               => 'Kegagalan pengutipan; $1: $2',
-	'cite_error_key_str_invalid'               => 'Kesalahan internal; $str tak sah',
-	'cite_error_stack_invalid_input'           => 'Kesalahan internal; kunci stack tak sah',
-	'cite_error'                               => 'Kesalahan pengutipan $1',
-	'cite_error_ref_numeric_key'               => 'Kesalahan pemanggilan; diharapkan suatu kunci non-integer',
-	'cite_error_ref_no_key'                    => 'Kesalahan pemanggilan; tidak ada kunci yang dispesifikasikan',
-	'cite_error_ref_too_many_keys'             => 'Kesalahan pemanggilan; kunci tak sah, contohnya karena terlalu banyak atau tidak ada kunci yang dispesifikasikan',
-	'cite_error_ref_no_input'                  => 'Kesalahan pemanggilan; tidak ada masukan yang dispesifikasikan',
-	'cite_error_references_invalid_input'      => 'Kesalahan masukan; seharusnya tidak ada',
-	'cite_error_references_invalid_parameters' => 'Paramater tak sah; seharusnya tidak ada',
-	'cite_error_references_no_backlink_label'  => "Kehabisan label pralana balik, tambakan pada pesan sistem <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
-	'cite_error_references_no_text'            => 'Tag <code>&lt;ref&gt;</code> tak valid; tak ditemukan teks dengan ref dengan nama <code>$1</code>',
+	'cite_desc'                                      => 'Menambahkan tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk kutipan',
+	'cite_croak'                                     => 'Kegagalan pengutipan; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Kesalahan internal; $str tak sah',
+	'cite_error_stack_invalid_input'                 => 'Kesalahan internal; kunci stack tak sah',
+	'cite_error'                                     => 'Kesalahan pengutipan $1',
+	'cite_error_ref_numeric_key'                     => 'Kesalahan pemanggilan; diharapkan suatu kunci non-integer',
+	'cite_error_ref_no_key'                          => 'Kesalahan pemanggilan; tidak ada kunci yang dispesifikasikan',
+	'cite_error_ref_too_many_keys'                   => 'Kesalahan pemanggilan; kunci tak sah, contohnya karena terlalu banyak atau tidak ada kunci yang dispesifikasikan',
+	'cite_error_ref_no_input'                        => 'Kesalahan pemanggilan; tidak ada masukan yang dispesifikasikan',
+	'cite_error_references_invalid_input'            => 'Kesalahan masukan; seharusnya tidak ada',
+	'cite_error_references_invalid_parameters'       => 'Paramater tak sah; seharusnya tidak ada',
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> tidak valid;
+hanya parameter "group" yang diizinkan.
+Gunakan tag <code>&lt;references /&gt;</code>, atau <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Kehabisan label pralana balik, tambakan pada pesan sistem <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Tag <code>&lt;ref&gt;</code> tak valid; tak ditemukan teks dengan ref dengan nama <code>$1</code>',
 );
 
 /** Italian (Italiano)

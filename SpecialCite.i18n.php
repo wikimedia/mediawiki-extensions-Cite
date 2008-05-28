@@ -165,8 +165,11 @@ $messages['cs'] = array(
 	'cite_submit'       => 'Citovat',
 );
 
+/** Church Slavic (Словѣньскъ)
+ * @author ОйЛ
+ */
 $messages['cu'] = array(
-	'cite_article_link' => 'Приведи статїѭ',
+	'cite_article_link' => 'привєдє́ниѥ члѣ́на словє́съ',
 );
 
 /** Danish (Dansk)

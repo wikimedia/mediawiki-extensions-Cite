@@ -332,6 +332,8 @@ nevalida $str kaj/aŭ $key.
 nevalida staka ŝlosilo.
 Ĉi tio verŝajne neniam okazus.',
 	'cite_error'                               => 'Citu eraron: $1',
+	'cite_error_ref_numeric_key'               => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
+nomo ne povas esti simpla entjero. Uzu priskriban titolon.',
 	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_text'            => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
 neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
@@ -898,7 +900,7 @@ $messages['no'] = array(
  * @author Siebrand
  */
 $messages['oc'] = array(
-	'cite_desc'                                        => 'Ajusta las balisas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, per las citacions.',
+	'cite_desc'                                        => 'Apondís las balisas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, per las citacions.',
 	'cite_croak'                                       => 'Citacion corrompuda ; $1 : $2',
 	'cite_error_key_str_invalid'                       => 'Error intèrna ; $str esperada',
 	'cite_error_stack_invalid_input'                   => 'Error intèrna ; clau de pila invalida',

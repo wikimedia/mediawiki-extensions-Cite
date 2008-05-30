@@ -1263,7 +1263,12 @@ $messages['yue'] = array(
 	'cite_error_ref_no_input'                  => '無效嘅呼叫; 未指定輸入',
 	'cite_error_references_invalid_input'      => '無效嘅輸入; 唔需要有嘢',
 	'cite_error_references_invalid_parameters' => '無效嘅參數; 唔需要有嘢',
+	'cite_error_references_invalid_parameters_group' => '無效嘅<code>&lt;references&gt;</code>標籤；
+只容許 "group" 參數。
+用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "用晒啲自定返回標籤, 響 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 信息再整多啲",
+	'cite_error_references_no_text'                  => '無效嘅<code>&lt;ref&gt;</code>標籤；
+無文字提供於名為<code>$1</code>嘅參照',
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */
@@ -1279,7 +1284,13 @@ $messages['zh-hans'] = array(
 	'cite_error_ref_no_input'                  => '无效呼叫；没有指定的输入',
 	'cite_error_references_invalid_input'      => '无效输入；需求为空',
 	'cite_error_references_invalid_parameters' => '非法参数；需求为空',
+	'cite_error_references_invalid_parameters_group' => '无效的<code>&lt;references&gt;</code>标签；
+只容许 "group" 参数。
+用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "自定义后退标签已经用完了，现在可在标签 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定义更多信息",
+	'cite_error_references_no_text'                  => '无效的<code>&lt;ref&gt;</code>标签；
+无文字提供于名为<code>$1</code>的参照',
+
 );
 
 /** ‪Traditional Chinese (‪中文(繁體)‬) */
@@ -1295,6 +1306,11 @@ $messages['zh-hant'] = array(
 	'cite_error_ref_no_input'                  => '無效呼叫；沒有指定的輸入',
 	'cite_error_references_invalid_input'      => '無效輸入；需求為空',
 	'cite_error_references_invalid_parameters' => '非法參數；需求為空',
+	'cite_error_references_invalid_parameters_group' => '無效的<code>&lt;references&gt;</code>標籤；
+只容許 "group" 參數。
+用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => "自訂後退標籤已經用完了，現在可在標籤 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定義更多信息",
+	'cite_error_references_no_text'                  => '無效的<code>&lt;ref&gt;</code>標籤；
+無文字提供於名為<code>$1</code>的參照',
 );
 

@@ -224,12 +224,33 @@ ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
  * @author SMP
  */
 $messages['ca'] = array(
-	'cite_croak'                               => 'Cita corrompuda; $1: $2',
-	'cite_error_ref_no_input'                  => 'Etiqueta <code>&lt;ref&gt;</code> invàlida; 
+	'cite_desc'                                      => 'Afegeix les etiquetes <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki>, per a cites',
+	'cite_croak'                                     => 'Cita corrompuda; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Error intern;
+els valors $str i/o $key no valen.
+Aquesta situació no s\'hauria de donar mai.',
+	'cite_error_stack_invalid_input'                 => "Error intern;
+el valor d'emmagatzematge no és vàlid.
+Aquesta situació no s'hauria de donar mai.",
+	'cite_error'                                     => 'Error de cita: $1',
+	'cite_error_ref_numeric_key'                     => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida;
+el nom no pot ser un nombre. Empreu una paraula o un títol descriptiu',
+	'cite_error_ref_no_key'                          => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida;
+les refs sense contingut han de tenir nom',
+	'cite_error_ref_too_many_keys'                   => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida;
+empreu l\'estructura <code>&lt;ref name="Nom"&gt;</code>',
+	'cite_error_ref_no_input'                        => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida; 
 les referències sense nom han de tenir contingut',
-	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> invàlida; 
+	'cite_error_references_invalid_input'            => 'Etiqueta <code>&lt;references&gt;</code> no vàlida;
+no es permet afegir text. Useu <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Etiqueta <code>&lt;references&gt;</code> no vàlida; 
 no es permeten paràmetres. 
 Useu <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> no vàlida;
+únicament es permet el paràmetre "group".
+Useu <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text'                  => "Etiqueta <code>&lt;ref&gt;</code> no vàlida;
+no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
 );
 
 /** Czech (Česky)
@@ -254,6 +275,13 @@ je povolen pouze parametr „group“.
 Použijte <tt>&lt;references /&gt;</tt> nebo <tt>&lt;references group="..." /&gt;</tt>.',
 	'cite_error_references_no_backlink_label'        => 'Došla označení zpětných odkazů, přidejte jich několik do zprávy <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Chyba v tagu <code>&lt;ref&gt;</code>; citaci označené <code>$1</code> není určen žádný text',
+);
+
+/** Church Slavic (Словѣньскъ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'cite_references_link_many_format_backlink_labels' => 'а б в г д є ж ꙃ ꙁ и і к л м н о п р с т ф х ѡ ц ч ш щ ъ ꙑ ь ѣ ю ꙗ ѥ ѧ ѫ ѩ ѭ ѯ ѱ ѳ ѵ ѷ',
 );
 
 /** Danish (Dansk)
@@ -324,6 +352,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'cite_desc'                                => 'Aldonas etikedojn <nowiki><ref[ name=id]></nowiki> kaj <nowiki><references/></nowiki> por citaĵoj',
 	'cite_croak'                               => 'Cito mortis; $1: $2',
 	'cite_error_key_str_invalid'               => 'Intera eraro;
 nevalida $str kaj/aŭ $key.

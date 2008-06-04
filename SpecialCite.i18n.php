@@ -640,10 +640,6 @@ $messages['ksh'] = array(
 	'cite_submit'       => 'Zittėere',
 );
 
-$messages['ku'] = array(
-	'cite_page'         => 'Rûpel:',
-);
-
 /** Latin (Latina)
  * @author SPQRobin
  */

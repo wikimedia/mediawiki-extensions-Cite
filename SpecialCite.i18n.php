@@ -172,6 +172,12 @@ $messages['cu'] = array(
 	'cite_article_link' => 'привєдє́ниѥ члѣ́на словє́съ',
 );
 
+/** Welsh (Cymraeg) */
+$messages['cy'] = array(
+	'cite_article_desc' => 'Yn ychwanegu tudalen arbennig ar gyfer [[Special:Cite|dyfynnu erthygl]] a chyswllt bocs offer',
+	'cite_article_link' => 'Dyfynnwch yr erthygl hon',
+);
+
 /** Danish (Dansk)
  * @author Morten
  */
@@ -230,6 +236,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'cite_article_desc' => 'Aldonas specialan paĝon por [[Special:Cite|citado]] kaj ligilo al ilaro',
 	'cite_article_link' => 'Citu ĉi tiun pagxon',
 	'cite'              => 'Citado',
 	'cite_page'         => 'Paĝo:',

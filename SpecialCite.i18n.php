@@ -172,7 +172,9 @@ $messages['cu'] = array(
 	'cite_article_link' => 'привєдє́ниѥ члѣ́на словє́съ',
 );
 
-/** Welsh (Cymraeg) */
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
 $messages['cy'] = array(
 	'cite_article_desc' => 'Yn ychwanegu tudalen arbennig ar gyfer [[Special:Cite|dyfynnu erthygl]] a chyswllt bocs offer',
 	'cite_article_link' => 'Dyfynnwch yr erthygl hon',

@@ -365,6 +365,8 @@ nevalida staka ŝlosilo.
 nomo ne povas esti simpla entjero. Uzu priskriban titolon.',
 	'cite_error_ref_no_key'                    => "Nevalida etikedo <code>&lt;ref&gt;</code>;
 ''ref'' kun nenia enhava nomo devas havi nomon",
+	'cite_error_ref_too_many_keys'             => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
+nevalidaj nomoj (ekz-e: tro multaj)',
 	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_text'            => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
 neniu teksto estis donita por ref-oj nomataj <code>$1</code>',

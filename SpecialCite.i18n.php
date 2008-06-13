@@ -414,11 +414,15 @@ $messages['haw'] = array(
 	'cite_article_link' => "E ho'ōia i kēia mea",
 );
 
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
 $messages['he'] = array(
-	'cite_article_link' => 'צטט דף זה',
+	'cite_article_desc' => 'הוספת דף מיוחד וקישור בתיבת הכלים ל[[Special:Cite|ציטוט]]',
+	'cite_article_link' => 'ציטוט דף זה',
 	'cite'              => 'ציטוט',
 	'cite_page'         => 'דף:',
-	'cite_submit'       => 'צטט',
+	'cite_submit'       => 'ציטוט',
 );
 
 /** Hindi (हिन्दी)

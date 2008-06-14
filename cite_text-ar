@@ -1,41 +1,41 @@
 __NOTOC__
 <div style="border: 1px solid grey; background: #E6E8FA; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;">
 
-== สÝวีํแ วแสรแํÝ แ{{FULLPAGENAME}} ==
+== ุชูุงุตูู ุงูุชุฃููู ู{{FULLPAGENAME}} ==
 
-* วำใ วแีÝอษ: {{FULLPAGENAME}}
-* วแใฤแÝ: ใำวๅใๆ {{SITENAME}}
-* วแไวิั: ''{{SITENAME}}, {{int:sitesubtitle}}''.
-* สวัํฮ ยฮั ใัวฬฺษ: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
-* สวัํฮ วแวำสัฬวฺ: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
-* ๆีแษ ฯวฦใษ: {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
-* ัÞใ ไำฮษ วแีÝอษ: {{REVISIONID}}
+* ุงุณู… ุงูุตูุญุฉ: {{FULLPAGENAME}}
+* ุงูู…ุคูู: ู…ุณุงูู…ู {{SITENAME}}
+* ุงููุงุดุฑ: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* ุชุงุฑูุฎ ุขุฎุฑ ู…ุฑุงุฌุนุฉ: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* ุชุงุฑูุฎ ุงูุงุณุชุฑุฌุงุน: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* ูุตูุฉ ุฏุงุฆู…ุฉ: {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* ุฑูู… ูุณุฎุฉ ุงูุตูุญุฉ: {{REVISIONID}}
 
 </div>
 <div class="plainlinks" style="border: 1px solid grey; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;">
 
-== รไใวุ วแวำสิๅวฯ แ{{FULLPAGENAME}} ==
+== ุฃูู…ุงุท ุงูุงุณุชุดูุงุฏ ู{{FULLPAGENAME}} ==
 
-=== [[APA style|ไใุ APA]] ===
+=== [[APA style|ูู…ุท APA]] ===
 {{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Retrieved <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> from {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[The MLA style manual|ไใุ MLA]] ===
+=== [[The MLA style manual|ูู…ุท MLA]] ===
 "{{FULLPAGENAME}}." ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
 
-=== [[MHRA Style Guide|ไใุ MHRA]] ===
+=== [[MHRA Style Guide|ูู…ุท MHRA]] ===
 {{SITENAME}} contributors, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
 
-=== [[The Chicago Manual of Style|ไใุ ิํ฿วÛๆ]] ===
+=== [[The Chicago Manual of Style|ูู…ุท ุดููุงุบู]] ===
 {{SITENAME}} contributors, "{{FULLPAGENAME}}," ''{{SITENAME}}, {{int:sitesubtitle}},'' {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-=== [[Council of Science Editors|ไใุ CBE/CSE]] ===
+=== [[Council of Science Editors|ูู…ุท CBE/CSE]] ===
 {{SITENAME}} contributors. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Available from:
 {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[Bluebook|ไใุ Bluebook]] ===
+=== [[Bluebook|ูู…ุท Bluebook]] ===
 {{FULLPAGENAME}}, {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (last visited <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-=== ใฯฮแษ [[BibTeX]] ===
+=== ู…ุฏุฎูุฉ [[BibTeX]] ===
 
   @misc{ wiki:xxx,
     author = "{{SITENAME}}",
@@ -45,7 +45,7 @@ __NOTOC__
     note = "[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]"
   }
 
-ฺไฯ วำสฮฯวใ ๆีแษ ใฬใๆฺษ [[LaTeX]] (<code>\usepackage{url}</code> Ýํ ใ฿วไ ใว) ใใว ํฤฯํ ล์ ลฺุวม ฺไวๆํไ ๆํศ ใๅํรษ ศิ฿แ รÝึแก วแสวแํ ัศใว ํ฿ๆไ ใÝึแว:
+ุนูุฏ ุงุณุชุฎุฏุงู… ูุตูุฉ ู…ุฌู…ูุนุฉ [[LaTeX]] (<code>\usepackage{url}</code> ูู ู…ูุงู ู…ุง) ู…ู…ุง ูุคุฏู ุฅู ุฅุนุทุงุก ุนูุงููู ููุจ ู…ููุฃุฉ ุจุดูู ุฃูุถูุ ุงูุชุงูู ุฑุจู…ุง ูููู ู…ูุถูุง:
 
   @misc{ wiki:xxx,
     author = "{{SITENAME}}",

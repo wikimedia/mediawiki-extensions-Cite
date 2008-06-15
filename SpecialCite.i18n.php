@@ -360,6 +360,16 @@ $messages['fur'] = array(
 	'cite_page'         => 'Pagjine:',
 );
 
+/** Western Frisian (Frysk)
+ * @author Snakesteuben
+ */
+$messages['fy'] = array(
+	'cite_article_link' => 'Sitearje dizze side',
+	'cite'              => 'Sitearje',
+	'cite_page'         => 'Side:',
+	'cite_submit'       => 'Sitearje',
+);
+
 /** Irish (Gaeilge)
  * @author SPQRobin
  * @author Alison
@@ -408,10 +418,11 @@ $messages['gv'] = array(
 );
 
 /** Hawaiian (Hawai`i)
- * @author SPQRobin
+ * @author Singularity
  */
 $messages['haw'] = array(
 	'cite_article_link' => "E ho'ōia i kēia mea",
+	'cite_page'         => '‘Ao‘ao:',
 );
 
 /** Hebrew (עברית)
@@ -763,6 +774,13 @@ $messages['mr'] = array(
 	'cite'              => 'उधृत करा',
 	'cite_page'         => 'पान',
 	'cite_submit'       => 'उधृत करा',
+);
+
+/** Maltese (Malti)
+ * @author Giangian15
+ */
+$messages['mt'] = array(
+	'cite_page' => 'Paġna:',
 );
 
 /** Erzya (эрзянь кель)
@@ -1199,6 +1217,13 @@ $messages['wuu'] = array(
 	'cite'              => '引用',
 	'cite_page'         => '页面:',
 	'cite_submit'       => '引用',
+);
+
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'cite' => 'ציטיר',
 );
 
 $messages['yue'] = array(

@@ -352,25 +352,30 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'cite_desc'                                => 'Aldonas etikedojn <nowiki><ref[ name=id]></nowiki> kaj <nowiki><references/></nowiki> por citaĵoj',
-	'cite_croak'                               => 'Cito mortis; $1: $2',
-	'cite_error_key_str_invalid'               => 'Intera eraro;
+	'cite_desc'                                      => 'Aldonas etikedojn <nowiki><ref[ name=id]></nowiki> kaj <nowiki><references/></nowiki> por citaĵoj',
+	'cite_croak'                                     => 'Cito mortis; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Intera eraro;
 nevalida $str kaj/aŭ $key.
 Ĉi tio neniam povus okazi.',
-	'cite_error_stack_invalid_input'           => 'Interna eraro;
+	'cite_error_stack_invalid_input'                 => 'Interna eraro;
 nevalida staka ŝlosilo.
 Ĉi tio verŝajne neniam okazus.',
-	'cite_error'                               => 'Citu eraron: $1',
-	'cite_error_ref_numeric_key'               => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
+	'cite_error'                                     => 'Citu eraron: $1',
+	'cite_error_ref_numeric_key'                     => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
 nomo ne povas esti simpla entjero. Uzu priskriban titolon.',
-	'cite_error_ref_no_key'                    => "Nevalida etikedo <code>&lt;ref&gt;</code>;
+	'cite_error_ref_no_key'                          => "Nevalida etikedo <code>&lt;ref&gt;</code>;
 ''ref'' kun nenia enhava nomo devas havi nomon",
-	'cite_error_ref_too_many_keys'             => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
+	'cite_error_ref_too_many_keys'                   => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
 nevalidaj nomoj (ekz-e: tro multaj)',
-	'cite_error_ref_no_input'                  => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
+	'cite_error_ref_no_input'                        => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
 ref-etikedoj sen nomo devas havi enhavojn.',
-	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_text'            => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
+	'cite_error_references_invalid_input'            => 'Nevalida etikedo <code>&lt;references&gt;</code>;
+neniu enigo estas permesita. Uzu etikedon <code>&lt;references /&gt;</code>.',
+	'cite_error_references_invalid_parameters'       => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Nevalida etikedon <code>&lt;references&gt;</code>;
+parametro "group" nur estas permesita.
+Uzu etikedon <code>&lt;references /&gt;</code>, aŭ <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text'                  => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
 neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 );
 
@@ -1286,6 +1291,13 @@ $messages['vo'] = array(
 	'cite_error_references_invalid_input'      => 'El <code>&lt;references&gt;</code> no lonöfon; gebolös eli <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'El <code>&lt;references&gt;</code> no lonöfon: paramets no padälons. Gebolös eli <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_text'            => 'El <code>&lt;ref&gt;</code> no lonöfon: vödem nonik pegivon eles refs labü nem: <code>$1</code>',
+);
+
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'cite_error' => 'ציטירן גרײַז: $1',
 );
 
 /** Cantonese (粵語) */

@@ -657,6 +657,11 @@ class Cite {
 	 * want the counts to transcend pages and other instances
 	 */
 	function clearState() {
+		# Don't clear state when we're in the middle of parsing
+		# a <ref> tag
+		if($this->mInCite)
+			return true;
+ 
 		$this->mGroupCnt = array();
 		$this->mOutCnt = -1;
 		$this->mInCnt = 0;

@@ -202,7 +202,7 @@ class Cite {
 			if ( isset( $argv['group'] ) ){
 				if (! $wgAllowCiteGroups ) return array(false); //remove when groups are fully tested.
 				// Group given.
-				$group = $this->validateName( $argv['group'] );
+				$group = $argv['group'];//don't apply validateName for group display
 				unset( $argv['group']);
 				--$cnt;
 			}

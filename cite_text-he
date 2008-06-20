@@ -6,8 +6,8 @@ __NOTOC__
 * שם הדף: {{FULLPAGENAME}}
 * מחבר: תורמי {{SITENAME}}
 * מוציא לאור: ''{{SITENAME}}, {{int:sitesubtitle}}''.
-* תאריך השינוי האחרון: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
-* תאריך האחזור: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* תאריך השינוי האחרון: {{CURRENTDAY}} {{CURRENTMONTHNAMEGEN}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* תאריך האחזור: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAMEGEN}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
 * קישור קבוע: {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
 * קוד זיהוי גרסה: {{REVISIONID}}
 
@@ -23,7 +23,7 @@ __NOTOC__
 "{{FULLPAGENAME}}." ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
 
 === [[MHRA Style Guide|MHRA style]] ===
-תורמי {{SITENAME}}, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [אוחזר <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+תורמי {{SITENAME}}, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAMEGEN}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [אוחזר <citation>{{CURRENTDAY}} {{CURRENTMONTHNAMEGEN}} {{CURRENTYEAR}}</citation>]
 
 === [[The Chicago Manual of Style|Chicago style]] ===
 תורמי {{SITENAME}}, "{{FULLPAGENAME}}," ''{{SITENAME}}, {{int:sitesubtitle}},'' {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (אוחזר <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).

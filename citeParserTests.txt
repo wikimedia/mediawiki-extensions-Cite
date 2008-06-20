@@ -264,3 +264,25 @@ Wikipedia rocks!<sup id="cite_ref-1" class="reference"><a href="#cite_note-1" ti
 <ol class="references"><li id="cite_note-1"><a href="#cite_ref-1" title="">↑</a> Proceeds of Rockology, vol. XXI</li></ol>
 
 !! end
+
+!! test
+Simple <ref>, with <references/> in group, with groupname in chinese 
+!! input
+AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="参">ref c</ref>
+
+;refs
+<references group="参" />
+;notes
+<references group="注" />
+!! result
+<p>AAA<sup id="cite_ref-0" class="reference"><a href="#cite_note-0" title="">[参 1]</a></sup>BBB<sup id="cite_ref-1" class="reference"><a href="#cite_note-1" title="">[注 1]</a></sup>CCC<sup id="cite_ref-2" class="reference"><a href="#cite_note-2" title="">[参 2]</a></sup>
+</p>
+<dl><dt>refs
+</dt></dl>
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0" title="">↑</a> ref a</li>
+<li id="cite_note-2"><a href="#cite_ref-2" title="">↑</a> ref c</li></ol>
+<dl><dt>notes
+</dt></dl>
+<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1" title="">↑</a> note b</li></ol>
+
+!! end

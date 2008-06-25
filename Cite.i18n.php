@@ -113,7 +113,7 @@ $messages['ar'] = array(
 	'cite_error_references_invalid_parameters_group'   => 'وسم <code>&lt;references&gt;</code> غير صحيح؛
 المحدد "group" فقط مسموح به.
 استخدم <code>&lt;references /&gt;</code>، أو <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'          => 'نفدت علامات الباك لينك الكوستوم، عرف المزيد في رسالة <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'          => 'نفدت علامات الباك لينك الكوستوم، عرف المزيد في رسالة <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                    => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛ لا نص تم توفيره للمراجع المسماة <code>$1</code>',
 	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي',
 );
@@ -375,6 +375,8 @@ neniu enigo estas permesita. Uzu etikedon <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters_group' => 'Nevalida etikedon <code>&lt;references&gt;</code>;
 parametro "group" nur estas permesita.
 Uzu etikedon <code>&lt;references /&gt;</code>, aŭ <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Neniom plu memfaritaj retroligaj etikedoj.
+Difinu pliajn en la mesaĝo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text'                  => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
 neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 );
@@ -423,8 +425,9 @@ $messages['fi'] = array(
 
 /** French (Français)
  * @author Grondin
- * @author Siebrand
+ * @author IAlex
  * @author Cedric31
+ * @author Siebrand
  */
 $messages['fr'] = array(
 	'cite_desc'                                      => 'Ajoute les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, pour les citations.',
@@ -444,7 +447,8 @@ seul le paramètre « group » est autorisé.
 
 Utilisez <code>&lt;references /&gt;</code>, ou bien <code>&lt;references group="..." /&gt;</code>.',
 	'cite_error_references_no_backlink_label'        => 'Épuisement des étiquettes personnalisées, définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text'                  => 'Aucun texte indiqué.',
+	'cite_error_references_no_text'                  => "Balise <code>&lt;ref&gt;</code> invalide;
+aucun texte n'a été fourni pour les références nommées <code>$1</code>",
 );
 
 /** Franco-Provençal (Arpetan)
@@ -467,27 +471,30 @@ $messages['frp'] = array(
 );
 
 /** Galician (Galego)
- * @author Alma
  * @author Toliño
+ * @author Alma
  * @author Xosé
  */
 $messages['gl'] = array(
-	'cite_desc'                                      => 'Engade <nowiki><ref[ nome=id]></nowiki> e etiquetas <nowiki><references/></nowiki>, para notas',
-	'cite_croak'                                     => 'Cita morta; $1: $2',
-	'cite_error_key_str_invalid'                     => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
-	'cite_error_stack_invalid_input'                 => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
-	'cite_error'                                     => 'Citar erro: $1',
-	'cite_error_ref_numeric_key'                     => 'Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple entero, use un título descriptivo',
-	'cite_error_ref_no_key'                          => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan contido deben ter un nome',
-	'cite_error_ref_too_many_keys'                   => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nomes non válidos, é dicir, demasiados',
-	'cite_error_ref_no_input'                        => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan nome, deben ter contido',
-	'cite_error_references_invalid_input'            => 'Etiqueta <code>&lt;references&gt;</code> non válida; non se permite esa entrada, use
+	'cite_desc'                                        => 'Engade <nowiki><ref[ nome=id]></nowiki> e etiquetas <nowiki><references/></nowiki>, para notas',
+	'cite_croak'                                       => 'Cita morta; $1: $2',
+	'cite_error_key_str_invalid'                       => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
+	'cite_error_stack_invalid_input'                   => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
+	'cite_error'                                       => 'Citar erro: $1',
+	'cite_error_ref_numeric_key'                       => 'Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple entero, use un título descriptivo',
+	'cite_error_ref_no_key'                            => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan contido deben ter un nome',
+	'cite_error_ref_too_many_keys'                     => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nomes non válidos, é dicir, demasiados',
+	'cite_error_ref_no_input'                          => 'Etiqueta <code>&lt;ref&gt;</code> non válida; refs que non teñan nome, deben ter contido',
+	'cite_error_references_invalid_input'              => 'Etiqueta <code>&lt;references&gt;</code> non válida; non se permite esa entrada, use
 <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters'       => 'Etiqueta <code>&lt;references&gt;</code> non válida; non están permitidos esos parámetros, use <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> inválida;
+	'cite_error_references_invalid_parameters'         => 'Etiqueta <code>&lt;references&gt;</code> non válida; non están permitidos esos parámetros, use <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group'   => 'Etiqueta <code>&lt;references&gt;</code> inválida;
 só está permitido o parámetro "group" ("grupo").
 Use <code>&lt;references /&gt;</code> ou <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_text'                  => 'Etiqueta non válida <code>&lt;ref&gt;</code>; non se forneceu texto para as refs de nome <code>$1</code>',
+	'cite_error_references_no_backlink_label'          => 'As etiquetas personalizadas esgotáronse.
+Defina máis na mensaxe <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text'                    => 'Etiqueta non válida <code>&lt;ref&gt;</code>; non se forneceu texto para as refs de nome <code>$1</code>',
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i l m n ñ o p q r s t u v x z',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -787,15 +794,24 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'cite_desc'                      => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
-	'cite_croak'                     => 'Feeler am Referenz-System. $1 : $2',
-	'cite_error_key_str_invalid'     => 'Interne Feeler;
+	'cite_desc'                                => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
+	'cite_croak'                               => 'Feeler am Referenz-System. $1 : $2',
+	'cite_error_key_str_invalid'               => 'Interne Feeler;
 ongültege $str an/oder $schlëssel.
 Dëst sollt eigentlech ni gschéien.',
-	'cite_error_stack_invalid_input' => "Interne Feeler;
+	'cite_error_stack_invalid_input'           => "Interne Feeler;
 ongëltege ''stack''-Schlëssel.
 Dës sollt eigentlech guer net geschéien.",
-	'cite_error'                     => 'Zitéierfeeler: $1',
+	'cite_error'                               => 'Zitéierfeeler: $1',
+	'cite_error_ref_too_many_keys'             => 'Ongëltege <code>&lt;ref&gt;</code> Tag;
+ongëlteg Nimm, z. Bsp. zevill',
+	'cite_error_ref_no_input'                  => "Ongëltege <code>&lt;ref&gt;</code> Tag;
+''refs'' ouni Numm muss een Inhalt hun",
+	'cite_error_references_invalid_input'      => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
+Keen Input ass erlaabt. Benotzt <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
+et si keng Parameter erlaabt.
+Benotzt <code>&lt;references /&gt;</code>',
 );
 
 /** Limburgish (Limburgs)
@@ -885,6 +901,16 @@ $messages['mr'] = array(
 	'cite_error_references_invalid_parameters_group' => 'चुकीची <code>&lt;references&gt;</code> खूण; फक्त पॅरॅमीटर चा गट वापरता येईल, <code>&lt;references /&gt;</code> किंवा <code>&lt;references group="..." /&gt;</code> चा वापर करा',
 	'cite_error_references_no_backlink_label'        => 'तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> या प्रणाली संदेशात लिहा',
 	'cite_error_references_no_text'                  => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'cite_croak'                     => 'Ralat maut petik; $1: $2',
+	'cite_error_key_str_invalid'     => 'Ralat dalaman; str dan/atau $key tidak sah.',
+	'cite_error_stack_invalid_input' => 'Ralat dalaman; kunci tindanan tidak sah.',
+	'cite_error'                     => 'Ralat petik: $1',
 );
 
 /** Low German (Plattdüütsch)

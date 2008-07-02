@@ -23,6 +23,13 @@ $messages['mhr'] = array(
 	'cite_page' => 'Лаштык:',
 );
 
+/** Niuean (native name missing)
+ * @author Jose77
+ */
+$messages['niu'] = array(
+	'cite_article_link' => 'Fakakite e tala nei',
+);
+
 $messages['af'] = array(
 	'cite_article_link' => 'Haal dié blad aan',
 	'cite'              => 'Aanhaling',
@@ -172,11 +179,12 @@ $messages['cs'] = array(
 	'cite_submit'       => 'Citovat',
 );
 
-/** Church Slavic (Словѣньскъ)
+/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
 	'cite_article_link' => 'привєдє́ниѥ члѣ́на словє́съ',
+	'cite_page'         => 'страни́ца :',
 );
 
 /** Welsh (Cymraeg)

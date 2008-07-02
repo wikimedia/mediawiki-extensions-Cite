@@ -812,6 +812,8 @@ Keen Input ass erlaabt. Benotzt <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
 et si keng Parameter erlaabt.
 Benotzt <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_text'            => "Ongëltegen <code>&lt;ref&gt;</code> Tag;
+et gouf keen Text uginn fir d'Referenzen mam Numm <code>$1</code>",
 );
 
 /** Limburgish (Limburgs)
@@ -1068,7 +1070,8 @@ $messages['ru'] = array(
 	'cite_error_references_invalid_parameters_group'   => 'Ошибочный тег <code>&lt;references&gt;</code>;
 можно использовать только параметр «group».
 Используйте <code>&lt;references /&gt;</code>, или <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'          => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'          => 'Не хватает символов для возвратных гиперссылок.
+Следует расширить системное сообщение <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                    => 'Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст',
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я',
 );
@@ -1212,6 +1215,13 @@ $messages['tg-cyrl'] = array(
 Барчасби <code>&lt;references /&gt;</code> ё <code>&lt;references group="..." /&gt;</code> -ро истифода баред',
 	'cite_error_references_no_backlink_label'        => 'Барчасбҳои пайванд ба интиҳо расид, мавориди ҷадидро дар пайём  <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> истифода кунед',
 	'cite_error_references_no_text'                  => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; матне барои ёдкардҳо бо номи <code>$1</code> ворид нашудааст',
+);
+
+/** Thai (ไทย)
+ * @author Passawuth
+ */
+$messages['th'] = array(
+	'cite_error' => 'อ้างอิงผิดพลาด: $1',
 );
 
 /** Turkish (Türkçe)

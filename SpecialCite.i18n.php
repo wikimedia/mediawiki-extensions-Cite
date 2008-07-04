@@ -490,12 +490,23 @@ $messages['hsb'] = array(
 	'cite_submit'       => 'pokazać',
 );
 
+/** Haitian (Kreyòl ayisyen)
+ * @author Masterches
+ */
+$messages['ht'] = array(
+	'cite_article_desc' => 'Ajoute yon paj espesyal [[Special:Cite|sitasyon]] epitou yon lyen nan bwat zouti yo',
+	'cite_article_link' => 'Site paj sa',
+	'cite'              => 'Sitasyon',
+	'cite_page'         => 'Paj:',
+	'cite_submit'       => 'Site',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  */
 $messages['hu'] = array(
 	'cite_article_desc' => '[[Special:Cite|Irodalomjegyzék-bejegyzés készítése]] speciális lap és hivatkozás az eszközdobozba',
-	'cite_article_link' => 'Szócikk idézése',
+	'cite_article_link' => 'A lap idézése',
 	'cite'              => 'Irodalomjegyzék-bejegyzés készítése',
 	'cite_page'         => 'Idézendő lap:',
 	'cite_submit'       => 'Bejegyzés elkészítése',

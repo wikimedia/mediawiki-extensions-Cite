@@ -667,22 +667,26 @@ Gunakan tag <code>&lt;references /&gt;</code>, atau <code>&lt;references group="
 
 /** Italian (Italiano)
  * @author BrokenArrow
+ * @author Darth Kule
  */
 $messages['it'] = array(
-	'cite_desc'                                => 'Aggiunge i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> per gestire le citazioni',
-	'cite_croak'                               => 'Errore nella citazione: $1: $2',
-	'cite_error_key_str_invalid'               => 'Errore interno: $str errato',
-	'cite_error_stack_invalid_input'           => 'Errore interno: chiave di stack errata',
-	'cite_error'                               => 'Errore nella funzione Cite $1',
-	'cite_error_ref_numeric_key'               => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: il nome non può essere un numero intero. Usare un titolo esteso",
-	'cite_error_ref_no_key'                    => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref vuoti non possono essere privi di nome",
-	'cite_error_ref_too_many_keys'             => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)",
-	'cite_error_ref_no_input'                  => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref privi di nome non possono essere vuoti",
-	'cite_error_references_invalid_input'      => "Errore nell'uso del marcatoree <code>&lt;references&gt;</code>: input non ammesso, usare il marcatore
+	'cite_desc'                                      => 'Aggiunge i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> per gestire le citazioni',
+	'cite_croak'                                     => 'Errore nella citazione: $1: $2',
+	'cite_error_key_str_invalid'                     => 'Errore interno: $str errato',
+	'cite_error_stack_invalid_input'                 => 'Errore interno: chiave di stack errata',
+	'cite_error'                                     => 'Errore nella funzione Cite $1',
+	'cite_error_ref_numeric_key'                     => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: il nome non può essere un numero intero. Usare un titolo esteso",
+	'cite_error_ref_no_key'                          => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref vuoti non possono essere privi di nome",
+	'cite_error_ref_too_many_keys'                   => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)",
+	'cite_error_ref_no_input'                        => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref privi di nome non possono essere vuoti",
+	'cite_error_references_invalid_input'            => "Errore nell'uso del marcatoree <code>&lt;references&gt;</code>: input non ammesso, usare il marcatore
 <code>&lt;references /&gt;</code>",
-	'cite_error_references_invalid_parameters' => "Errore nell'uso del marcatore <code>&lt;references&gt;</code>: parametri non ammessi, usare il marcatore <code>&lt;references /&gt;</code>",
-	'cite_error_references_no_backlink_label'  => "Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
-	'cite_error_references_no_text'            => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
+	'cite_error_references_invalid_parameters'       => "Errore nell'uso del marcatore <code>&lt;references&gt;</code>: parametri non ammessi, usare il marcatore <code>&lt;references /&gt;</code>",
+	'cite_error_references_invalid_parameters_group' => 'Errore nell\'uso del marcatore <code>&lt;references&gt;</code>;
+solo il parametro "group" è permesso.
+Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
 );
 
 /** Japanese (日本語)

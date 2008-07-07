@@ -835,6 +835,8 @@ Dëst sollt eigentlech ni gschéien.',
 ongëltege ''stack''-Schlëssel.
 Dës sollt eigentlech guer net geschéien.",
 	'cite_error'                               => 'Zitéierfeeler: $1',
+	'cite_error_ref_numeric_key'               => 'Ongëltegen <code>&lt;ref&gt;</code> Tag;
+De Numm ka keng einfach ganz Zuel sinn. Benotzt w.e.g. een Titel den eng Beschreiwung gëtt',
 	'cite_error_ref_too_many_keys'             => 'Ongëltege <code>&lt;ref&gt;</code> Tag;
 ongëlteg Nimm, z. Bsp. zevill',
 	'cite_error_ref_no_input'                  => "Ongëltege <code>&lt;ref&gt;</code> Tag;
@@ -941,10 +943,21 @@ $messages['mr'] = array(
  * @author Aviator
  */
 $messages['ms'] = array(
-	'cite_croak'                     => 'Ralat maut petik; $1: $2',
-	'cite_error_key_str_invalid'     => 'Ralat dalaman; str dan/atau $key tidak sah.',
-	'cite_error_stack_invalid_input' => 'Ralat dalaman; kunci tindanan tidak sah.',
-	'cite_error'                     => 'Ralat petik: $1',
+	'cite_desc'                                      => 'Menambah tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk pemetikan',
+	'cite_croak'                                     => 'Ralat maut petik; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Ralat dalaman; str dan/atau $key tidak sah.',
+	'cite_error_stack_invalid_input'                 => 'Ralat dalaman; kunci tindanan tidak sah.',
+	'cite_error'                                     => 'Ralat petik: $1',
+	'cite_error_ref_numeric_key'                     => 'Tag <code>&lt;ref&gt;</code> tidak sah; nombor ringkas tidak dibenarkan, sila masukkan tajuk yang lebih terperinci',
+	'cite_error_ref_no_key'                          => 'Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa kandungan mestilah mempunyai nama',
+	'cite_error_ref_too_many_keys'                   => 'Tag <code>&lt;ref&gt;</code> tidak sah; nama-nama tidak sah, misalnya terlalu banyak',
+	'cite_error_ref_no_input'                        => "'Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa nama mestilah mempunyai kandungan",
+	'cite_error_references_invalid_input'            => 'Tag <code>&lt;references&gt;</code> tidak sah; input tidak dibenarkan, gunakan <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Tag <code>&lt;references&gt;</code> tidak sah; parameter tidak dibenarkan, gunakan <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> tidak sah; hanya parameter "group" dibenarkan.
+Gunakan <code>&lt;references /&gt;</code> atau <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Kehabisan label pautan balik tempahan. Sila tambah label dalam pesanan <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Tag <code>&lt;ref&gt;</code> tidak sah; teks bagi rujukan <code>$1</code> tidak disediakan',
 );
 
 /** Low German (Plattdüütsch)

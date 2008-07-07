@@ -277,7 +277,7 @@ Použijte <tt>&lt;references /&gt;</tt> nebo <tt>&lt;references group="..." /&gt
 	'cite_error_references_no_text'                  => 'Chyba v tagu <code>&lt;ref&gt;</code>; citaci označené <code>$1</code> není určen žádný text',
 );
 
-/** Church Slavic (Словѣньскъ)
+/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(

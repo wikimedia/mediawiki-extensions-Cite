@@ -16,14 +16,14 @@ $messages['en'] = array(
 	'cite_text'         => '', # Do not translate this
 );
 
-/** Eastern Mari (Олык Марий йылме)
+/** Eastern Mari (Олык Марий)
  * @author Сай
  */
 $messages['mhr'] = array(
 	'cite_page' => 'Лаштык:',
 );
 
-/** Niuean (native name missing)
+/** Niuean (ko e vagahau Niuē)
  * @author Jose77
  */
 $messages['niu'] = array(
@@ -1260,7 +1260,8 @@ $messages['wuu'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
-	'cite' => 'ציטיר',
+	'cite_article_link' => 'ציטירן דעם דאזיגן בלאט',
+	'cite'              => 'ציטיר',
 );
 
 $messages['yue'] = array(

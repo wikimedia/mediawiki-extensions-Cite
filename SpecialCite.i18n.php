@@ -97,6 +97,14 @@ $messages['be'] = array(
 	'cite_article_link' => 'Цытаваць гэты артыкул',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author EugeneZelenko
+ */
+$messages['be-tarask'] = array(
+	'cite_article_link' => 'Цытаваць гэтую старонку',
+	'cite_page'         => 'Старонка:',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  */
@@ -1005,6 +1013,7 @@ $messages['rmy'] = array(
 
 /** Romanian (Română)
  * @author Emily
+ * @author Firilacroco
  */
 $messages['ro'] = array(
 	'cite_article_link' => 'Citează acest articol',

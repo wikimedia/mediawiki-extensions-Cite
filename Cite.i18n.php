@@ -1378,7 +1378,21 @@ $messages['vo'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
-	'cite_error' => 'ציטירן גרײַז: $1',
+	'cite_desc'                                => 'לייגט צו <nowiki><ref[ name=id]></nowiki> און <nowiki><references/></nowiki> טאַגן, פֿאר ציטירונגען (אין הערות)',
+	'cite_croak'                               => 'טעות אין ציטירונג; $1: $2',
+	'cite_error'                               => 'ציטירן גרײַז: $1',
+	'cite_error_ref_numeric_key'               => 'גרײַזיגער <code>&lt;ref&gt;</code> טאַג;
+נאמען טאר נישט זײַן קיין פשוטער נומער. ניצט א באשרײַבדיק קעפל',
+	'cite_error_ref_no_key'                    => 'אומגילדיגער <code>&lt;ref&gt;</code> טאַג;
+א רעפֿערענץ אָן תוכן מוז האבן א נאמען',
+	'cite_error_ref_too_many_keys'             => 'אומגילטיגער <code>&lt;ref&gt;</code> טאַג;
+אומגילטיגע נעמען, צ.ב. צו פֿיל',
+	'cite_error_ref_no_input'                  => 'אומגילטיגער <code>&lt;ref&gt;</code> טאַג;
+א רעפֿערענץ אָן א נאמען דארף האבן תוכן',
+	'cite_error_references_invalid_input'      => 'אומגילטיגער <code>&lt;references&gt;</code> טאַג;
+נעמט נישט קיין תוכן. ניצט <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'אומגילטיגער <code>&lt;references&gt;</code> טאַג;
+קיין פאראמעטערס נישט ערלויבט. ניצט <code>&lt;references /&gt;</code>',
 );
 
 /** Cantonese (粵語) */

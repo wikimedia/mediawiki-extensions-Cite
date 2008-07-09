@@ -322,7 +322,7 @@ $messages['de'] = array(
 	'cite_error_references_no_text'                  => 'Ungültiger <tt>&lt;ref&gt;</tt>-Tag; es wurde kein Text für das Ref mit dem Namen <tt>$1</tt> angegeben.',
 );
 
-/** German - formal address (Deutsch - förmliche Anrede)
+/** German (formal address) (Deutsch (Sie-Form))
  * @author Raimond Spekking
  */
 $messages['de-formal'] = array(
@@ -506,22 +506,22 @@ $messages['gu'] = array(
 
 /** Hebrew (עברית) */
 $messages['he'] = array(
-	'cite_desc'                                => 'הוספת תגיות <nowiki><ref[ name=id]></nowiki> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
-	'cite_croak'                               => 'בהערה יש שגיאה; $1: $2',
-	'cite_error_key_str_invalid'               => 'שגיאה פנימית; $str ו/או $key שגויים. זהו באג בתוכנה.',
-	'cite_error_stack_invalid_input'           => 'שגיאה פנימית; מפתח שגוי במחסנית. זהו באג בתוכנה.',
-	'cite_error'                               => 'שגיאת ציטוט: $1',
-	'cite_error_ref_numeric_key'               => 'תגית <code>&lt;ref&gt;</code> שגויה; שם לא יכול להיות מספר פשוט, יש להשתמש בכותרת תיאורית',
-	'cite_error_ref_no_key'                    => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא תוכן חייב להיות שם',
-	'cite_error_ref_too_many_keys'             => 'תגית <code>&lt;ref&gt;</code> שגויה; שמות שגויים, למשל, רבים מדי',
-	'cite_error_ref_no_input'                  => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא שם חייב להיות תוכן',
-	'cite_error_references_invalid_input'      => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן לכתוב תוכן, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן להשתמש בפרמטרים, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
+	'cite_desc'                                      => 'הוספת תגיות <nowiki><ref[ name=id]></nowiki> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
+	'cite_croak'                                     => 'בהערה יש שגיאה; $1: $2',
+	'cite_error_key_str_invalid'                     => 'שגיאה פנימית; $str ו/או $key שגויים. זהו באג בתוכנה.',
+	'cite_error_stack_invalid_input'                 => 'שגיאה פנימית; מפתח שגוי במחסנית. זהו באג בתוכנה.',
+	'cite_error'                                     => 'שגיאת ציטוט: $1',
+	'cite_error_ref_numeric_key'                     => 'תגית <code>&lt;ref&gt;</code> שגויה; שם לא יכול להיות מספר פשוט, יש להשתמש בכותרת תיאורית',
+	'cite_error_ref_no_key'                          => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא תוכן חייב להיות שם',
+	'cite_error_ref_too_many_keys'                   => 'תגית <code>&lt;ref&gt;</code> שגויה; שמות שגויים, למשל, רבים מדי',
+	'cite_error_ref_no_input'                        => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא שם חייב להיות תוכן',
+	'cite_error_references_invalid_input'            => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן לכתוב תוכן, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן להשתמש בפרמטרים, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'תגית <code>&lt;references&gt;</code> שגויה;
 רק הפרמטר "group" מותר לשימוש.
 אנא השתמשו בקוד <code>&lt;references /&gt;</code>, או בקוד <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
-	'cite_error_references_no_text'            => 'תגית <code>&lt;ref&gt;</code> שגויה; לא נכתב טקסט עבור הערת השוליים בשם <code>$1</code>',
+	'cite_error_references_no_backlink_label'        => 'נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'תגית <code>&lt;ref&gt;</code> שגויה; לא נכתב טקסט עבור הערת השוליים בשם <code>$1</code>',
 );
 
 /** Hindi (हिन्दी)
@@ -704,7 +704,7 @@ $messages['ja'] = array(
 	'cite_error_ref_no_input'                  => '無効な <code>&lt;ref&gt;</code> タグ: 名前 （<code>name</code> 属性）がない場合には引用句の内容が必要です',
 	'cite_error_references_invalid_input'      => '無効な <code>&lt;references&gt;</code> タグ: 内容のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
 	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ: 引数のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
-	'cite_error_references_no_backlink_label'  => "バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> メッセージでの定義を増やしてください。",
+	'cite_error_references_no_backlink_label'  => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> メッセージでの定義を増やしてください。',
 	'cite_error_references_no_text'            => '無効な <code>&lt;ref&gt;</code> タグ: <code>$1</code>という名前の引用句に対するテキストがありません。',
 );
 
@@ -761,7 +761,7 @@ Tambahna ing pesenan sistém <nowiki>[[MediaWiki:Cite references link many forma
 ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 );
 
-/** ‫قازاقشا (جۇنگو)‬ (‫قازاقشا (جۇنگو)‬) */
+/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'cite_croak'                               => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2 ',
 	'cite_error_key_str_invalid'               => 'ٸشكٸ قاتە; جارامسىز $str ',
@@ -773,10 +773,10 @@ $messages['kk-arab'] = array(
 	'cite_error_ref_no_input'                  => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; اتاۋسىز تٷسٸنٸكتەمەلەردە ماعلۇماتى بولۋى قاجەت',
 	'cite_error_references_invalid_input'      => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش كٸرٸس رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
 	'cite_error_references_invalid_parameters' => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش باپتار رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
-	'cite_error_references_no_backlink_label'  => "قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> جٷيە حابارىندا بەلگٸلەڭٸز",
+	'cite_error_references_no_backlink_label'  => 'قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> جٷيە حابارىندا بەلگٸلەڭٸز',
 );
 
-/** ‪Қазақша (Қазақстан)‬ (‪Қазақша (Қазақстан)‬) */
+/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
 $messages['kk-cyrl'] = array(
 	'cite_croak'                               => 'Дәйексөз алу сәтсіз бітті; $1: $2 ',
 	'cite_error_key_str_invalid'               => 'Ішкі қате; жарамсыз $str ',
@@ -788,10 +788,10 @@ $messages['kk-cyrl'] = array(
 	'cite_error_ref_no_input'                  => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; атаусыз түсініктемелерде мағлұматы болуы қажет',
 	'cite_error_references_invalid_input'      => 'Жарамсыз <code>&lt;references&gt;</code> белгіше; еш кіріс рұқсат етілмейді, былай <code>&lt;references /&gt;</code> қолданыңыз',
 	'cite_error_references_invalid_parameters' => 'Жарамсыз <code>&lt;references&gt;</code> белгіше; еш баптар рұқсат етілмейді, былай <code>&lt;references /&gt;</code> қолданыңыз',
-	'cite_error_references_no_backlink_label'  => "Қосымша белгілердің саны бітті, одан әрі көбірек <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> жүйе хабарында белгілеңіз",
+	'cite_error_references_no_backlink_label'  => 'Қосымша белгілердің саны бітті, одан әрі көбірек <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> жүйе хабарында белгілеңіз',
 );
 
-/** ‪Qazaqşa (Türkïya)‬ (‪Qazaqşa (Türkïya)‬) */
+/** Kazakh (Latin) (Қазақша (Latin)) */
 $messages['kk-latn'] = array(
 	'cite_croak'                               => 'Däýeksöz alw sätsiz bitti; $1: $2 ',
 	'cite_error_key_str_invalid'               => 'İşki qate; jaramsız $str ',
@@ -803,7 +803,7 @@ $messages['kk-latn'] = array(
 	'cite_error_ref_no_input'                  => 'Jaramsız <code>&lt;ref&gt;</code> belgişe; atawsız tüsiniktemelerde mağlumatı bolwı qajet',
 	'cite_error_references_invalid_input'      => 'Jaramsız <code>&lt;references&gt;</code> belgişe; eş kiris ruqsat etilmeýdi, bılaý <code>&lt;references /&gt;</code> qoldanıñız',
 	'cite_error_references_invalid_parameters' => 'Jaramsız <code>&lt;references&gt;</code> belgişe; eş baptar ruqsat etilmeýdi, bılaý <code>&lt;references /&gt;</code> qoldanıñız',
-	'cite_error_references_no_backlink_label'  => "Qosımşa belgilerdiñ sanı bitti, odan äri köbirek <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> jüýe xabarında belgileñiz",
+	'cite_error_references_no_backlink_label'  => 'Qosımşa belgilerdiñ sanı bitti, odan äri köbirek <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> jüýe xabarında belgileñiz',
 );
 
 /** Korean (한국어)
@@ -873,8 +873,7 @@ Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /
 	'cite_error_references_no_text'                  => "Ónzjuuste tag <code>&lt;ref&gt;</code>; d'r is gein teks opgegaeve veur refs mit de naam <code>$1</code>",
 );
 
-
-/** Lietuvių (Lietuvių) */
+/** Lithuanian (Lietuvių) */
 $messages['lt'] = array(
 	'cite_croak'                               => 'Cituoti nepavyko; $1: $2',
 	'cite_error_key_str_invalid'               => 'Vidinė klaida; neleistinas $str',
@@ -886,7 +885,7 @@ $messages['lt'] = array(
 	'cite_error_ref_no_input'                  => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be vardo turi turėti turinį',
 	'cite_error_references_invalid_input'      => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "Baigėsi antraštės, nurodykite daugiau <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> sisteminiame tekste",
+	'cite_error_references_no_backlink_label'  => 'Baigėsi antraštės, nurodykite daugiau <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> sisteminiame tekste',
 );
 
 /** Malayalam (മലയാളം)
@@ -1395,66 +1394,65 @@ $messages['yi'] = array(
 קיין פאראמעטערס נישט ערלויבט. ניצט <code>&lt;references /&gt;</code>',
 );
 
-/** Cantonese (粵語) */
+/** Yue (粵語) */
 $messages['yue'] = array(
-	'cite_desc'                                => '加 <nowiki><ref[ name=id]></nowiki> 同 <nowiki><references/></nowiki> 標籤用響引用度',
-	'cite_croak'                               => '引用阻塞咗; $1: $2',
-	'cite_error_key_str_invalid'               => '內部錯誤; 無效嘅 $str',
-	'cite_error_stack_invalid_input'           => '內部錯誤; 無效嘅堆疊匙',
-	'cite_error'                               => '引用錯誤 $1',
-	'cite_error_ref_numeric_key'               => '無效嘅呼叫; 需要一個非整數嘅匙',
-	'cite_error_ref_no_key'                    => '無效嘅呼叫; 未指定匙',
-	'cite_error_ref_too_many_keys'             => '無效嘅呼叫; 無效嘅匙, 例如: 太多或者指定咗一個錯咗嘅匙',
-	'cite_error_ref_no_input'                  => '無效嘅呼叫; 未指定輸入',
-	'cite_error_references_invalid_input'      => '無效嘅輸入; 唔需要有嘢',
-	'cite_error_references_invalid_parameters' => '無效嘅參數; 唔需要有嘢',
+	'cite_desc'                                      => '加 <nowiki><ref[ name=id]></nowiki> 同 <nowiki><references/></nowiki> 標籤用響引用度',
+	'cite_croak'                                     => '引用阻塞咗; $1: $2',
+	'cite_error_key_str_invalid'                     => '內部錯誤; 無效嘅 $str',
+	'cite_error_stack_invalid_input'                 => '內部錯誤; 無效嘅堆疊匙',
+	'cite_error'                                     => '引用錯誤 $1',
+	'cite_error_ref_numeric_key'                     => '無效嘅呼叫; 需要一個非整數嘅匙',
+	'cite_error_ref_no_key'                          => '無效嘅呼叫; 未指定匙',
+	'cite_error_ref_too_many_keys'                   => '無效嘅呼叫; 無效嘅匙, 例如: 太多或者指定咗一個錯咗嘅匙',
+	'cite_error_ref_no_input'                        => '無效嘅呼叫; 未指定輸入',
+	'cite_error_references_invalid_input'            => '無效嘅輸入; 唔需要有嘢',
+	'cite_error_references_invalid_parameters'       => '無效嘅參數; 唔需要有嘢',
 	'cite_error_references_invalid_parameters_group' => '無效嘅<code>&lt;references&gt;</code>標籤；
 只容許 "group" 參數。
 用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "用晒啲自定返回標籤, 響 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 信息再整多啲",
+	'cite_error_references_no_backlink_label'        => '用晒啲自定返回標籤, 響 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 信息再整多啲',
 	'cite_error_references_no_text'                  => '無效嘅<code>&lt;ref&gt;</code>標籤；
 無文字提供於名為<code>$1</code>嘅參照',
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */
 $messages['zh-hans'] = array(
-	'cite_desc'                                => '加入 <nowiki><ref[ name=id]></nowiki> 与 <nowiki><references/></nowiki> 标签用于引用中',
-	'cite_croak'                               => '引用阻塞; $1: $2',
-	'cite_error_key_str_invalid'               => '内部错误；非法的 $str',
-	'cite_error_stack_invalid_input'           => '内部错误；非法堆栈键值',
-	'cite_error'                               => '引用错误 $1',
-	'cite_error_ref_numeric_key'               => '无效呼叫；需要一个非整数的键值',
-	'cite_error_ref_no_key'                    => '无效呼叫；没有指定键值',
-	'cite_error_ref_too_many_keys'             => '无效呼叫；非法键值，例如：过多或错误的指定键值',
-	'cite_error_ref_no_input'                  => '无效呼叫；没有指定的输入',
-	'cite_error_references_invalid_input'      => '无效输入；需求为空',
-	'cite_error_references_invalid_parameters' => '非法参数；需求为空',
+	'cite_desc'                                      => '加入 <nowiki><ref[ name=id]></nowiki> 与 <nowiki><references/></nowiki> 标签用于引用中',
+	'cite_croak'                                     => '引用阻塞; $1: $2',
+	'cite_error_key_str_invalid'                     => '内部错误；非法的 $str',
+	'cite_error_stack_invalid_input'                 => '内部错误；非法堆栈键值',
+	'cite_error'                                     => '引用错误 $1',
+	'cite_error_ref_numeric_key'                     => '无效呼叫；需要一个非整数的键值',
+	'cite_error_ref_no_key'                          => '无效呼叫；没有指定键值',
+	'cite_error_ref_too_many_keys'                   => '无效呼叫；非法键值，例如：过多或错误的指定键值',
+	'cite_error_ref_no_input'                        => '无效呼叫；没有指定的输入',
+	'cite_error_references_invalid_input'            => '无效输入；需求为空',
+	'cite_error_references_invalid_parameters'       => '非法参数；需求为空',
 	'cite_error_references_invalid_parameters_group' => '无效的<code>&lt;references&gt;</code>标签；
 只容许 "group" 参数。
 用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "自定义后退标签已经用完了，现在可在标签 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定义更多信息",
+	'cite_error_references_no_backlink_label'        => '自定义后退标签已经用完了，现在可在标签 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定义更多信息',
 	'cite_error_references_no_text'                  => '无效的<code>&lt;ref&gt;</code>标签；
 无文字提供于名为<code>$1</code>的参照',
-
 );
 
-/** ‪Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(繁體)‬) */
 $messages['zh-hant'] = array(
-	'cite_desc'                                => '加入 <nowiki><ref[ name=id]></nowiki> 與 <nowiki><references/></nowiki> 標籤用於引用中',
-	'cite_croak'                               => '引用阻塞; $1: $2',
-	'cite_error_key_str_invalid'               => '內部錯誤；非法的 $str',
-	'cite_error_stack_invalid_input'           => '內部錯誤；非法堆疊鍵值',
-	'cite_error'                               => '引用錯誤 $1',
-	'cite_error_ref_numeric_key'               => '無效呼叫；需要一個非整數的鍵',
-	'cite_error_ref_no_key'                    => '無效呼叫；沒有指定鍵',
-	'cite_error_ref_too_many_keys'             => '無效呼叫；非法鍵值，例如：過多或錯誤的指定鍵',
-	'cite_error_ref_no_input'                  => '無效呼叫；沒有指定的輸入',
-	'cite_error_references_invalid_input'      => '無效輸入；需求為空',
-	'cite_error_references_invalid_parameters' => '非法參數；需求為空',
+	'cite_desc'                                      => '加入 <nowiki><ref[ name=id]></nowiki> 與 <nowiki><references/></nowiki> 標籤用於引用中',
+	'cite_croak'                                     => '引用阻塞; $1: $2',
+	'cite_error_key_str_invalid'                     => '內部錯誤；非法的 $str',
+	'cite_error_stack_invalid_input'                 => '內部錯誤；非法堆疊鍵值',
+	'cite_error'                                     => '引用錯誤 $1',
+	'cite_error_ref_numeric_key'                     => '無效呼叫；需要一個非整數的鍵',
+	'cite_error_ref_no_key'                          => '無效呼叫；沒有指定鍵',
+	'cite_error_ref_too_many_keys'                   => '無效呼叫；非法鍵值，例如：過多或錯誤的指定鍵',
+	'cite_error_ref_no_input'                        => '無效呼叫；沒有指定的輸入',
+	'cite_error_references_invalid_input'            => '無效輸入；需求為空',
+	'cite_error_references_invalid_parameters'       => '非法參數；需求為空',
 	'cite_error_references_invalid_parameters_group' => '無效的<code>&lt;references&gt;</code>標籤；
 只容許 "group" 參數。
 用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => "自訂後退標籤已經用完了，現在可在標籤 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定義更多信息",
+	'cite_error_references_no_backlink_label'        => '自訂後退標籤已經用完了，現在可在標籤 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定義更多信息',
 	'cite_error_references_no_text'                  => '無效的<code>&lt;ref&gt;</code>標籤；
 無文字提供於名為<code>$1</code>的參照',
 );

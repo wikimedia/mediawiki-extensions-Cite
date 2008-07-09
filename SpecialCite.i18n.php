@@ -30,6 +30,9 @@ $messages['niu'] = array(
 	'cite_article_link' => 'Fakakite e tala nei',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author SPQRobin
+ */
 $messages['af'] = array(
 	'cite_article_link' => 'Haal dié blad aan',
 	'cite'              => 'Aanhaling',
@@ -128,9 +131,10 @@ $messages['bn'] = array(
 	'cite_submit'       => 'উদ্ধৃত করো',
 );
 
+/** Bishnupriya (ইমার ঠার/বিষ্ণুপ্রিয়া মণিপুরী) */
 $messages['bpy'] = array(
-	'cite_article_link'     => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
-	'cite'                  => 'উদ্ধৃত করেদে',
+	'cite_article_link' => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
+	'cite'              => 'উদ্ধৃত করেদে',
 );
 
 /** Breton (Brezhoneg)
@@ -158,6 +162,7 @@ $messages['ca'] = array(
 	'cite_submit'       => 'Cita',
 );
 
+/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $messages['cdo'] = array(
 	'cite_article_link' => 'Īng-ê̤ṳng cī piĕng ùng-ciŏng',
 	'cite'              => 'Īng-ê̤ṳng',
@@ -213,6 +218,7 @@ $messages['da'] = array(
 	'cite_submit'       => 'Fodnote',
 );
 
+/** German (Deutsch) */
 $messages['de'] = array(
 	'cite_article_desc' => 'Ergänzt die [[Special:Cite|Zitierhilfe]]-Spezialseite und einen Link im Kasten Werkzeuge',
 	'cite_article_link' => 'Seite zitieren',
@@ -310,7 +316,7 @@ $messages['ext'] = array(
 	'cite_submit'       => 'Almiental',
 );
 
-/** فارسی (فارسی)
+/** Persian (فارسی)
  * @author Huji
  */
 $messages['fa'] = array(
@@ -319,7 +325,6 @@ $messages['fa'] = array(
 	'cite'              => 'یادکرد این مقاله',
 	'cite_page'         => 'صفحه:',
 	'cite_submit'       => 'یادکرد',
-
 );
 
 /** Finnish (Suomi)
@@ -338,7 +343,6 @@ $messages['fi'] = array(
  */
 $messages['fj'] = array(
 	'cite_article_link' => 'Vola dau vaqarai',
-
 );
 
 /** Faroese (Føroyskt)
@@ -631,6 +635,7 @@ $messages['ka'] = array(
 	'cite_page'         => 'გვერდი:',
 );
 
+/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'cite_article_link' => 'بەتتەن دايەكسوز الۋ',
 	'cite'              => 'دايەكسوز الۋ',
@@ -638,6 +643,7 @@ $messages['kk-arab'] = array(
 	'cite_submit'       => 'دايەكسوز ال!',
 );
 
+/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
 $messages['kk-cyrl'] = array(
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite'              => 'Дәйексөз алу',
@@ -645,6 +651,7 @@ $messages['kk-cyrl'] = array(
 	'cite_submit'       => 'Дәйексөз ал!',
 );
 
+/** Kazakh (Latin) (Қазақша (Latin)) */
 $messages['kk-latn'] = array(
 	'cite_article_link' => 'Betten däýeksoz alw',
 	'cite'              => 'Däýeksöz alw',
@@ -700,6 +707,7 @@ $messages['ksh'] = array(
 
 /** Latin (Latina)
  * @author SPQRobin
+ * @author UV
  */
 $messages['la'] = array(
 	'cite_article_link' => 'Hanc paginam citare',
@@ -746,6 +754,7 @@ $messages['lmo'] = array(
 	'cite'              => 'Cita una vus',
 );
 
+/** Lao (ລາວ) */
 $messages['lo'] = array(
 	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',
 	'cite'              => 'ອ້າງອີງ',
@@ -828,13 +837,14 @@ $messages['mt'] = array(
 	'cite_page' => 'Paġna:',
 );
 
-/** Erzya (эрзянь кель)
+/** Erzya (Эрзянь)
  * @author Amdf
  */
 $messages['myv'] = array(
 	'cite_page' => 'Лопа:',
 );
 
+/** Min Nan Chinese (Bân-lâm-gú) */
 $messages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
 	'cite'              => 'Ín-iōng',
@@ -881,7 +891,7 @@ $messages['nn'] = array(
 	'cite_page' => 'Side:',
 );
 
-/** Norwegian (‪Norsk (bokmål)‬)
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
@@ -998,8 +1008,11 @@ $messages['qu'] = array(
 	'cite_submit'       => 'Qillqamanta willay',
 );
 
+/** Rhaeto-Romance (Rumantsch)
+ * @author SPQRobin
+ */
 $messages['rm'] = array(
-	'cite_page'         => 'Pagina:',
+	'cite_page' => 'Pagina:',
 );
 
 /** Romani (Romani)
@@ -1022,7 +1035,7 @@ $messages['ro'] = array(
 	'cite_submit'       => 'Deschide informaţii',
 );
 
-/** Armãneashce (Armãneashce) */
+/** Aromanian (Armãneashce) */
 $messages['roa-rup'] = array(
 	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
 );
@@ -1049,13 +1062,17 @@ $messages['sah'] = array(
 	'cite_submit'       => 'Цитаата',
 );
 
+/** Sindhi (سنڌي)
+ * @author SPQRobin
+ */
 $messages['sd'] = array(
-	'cite'              => 'حواليو',
+	'cite' => 'حواليو',
 );
 
 /** Slovak (Slovenčina)
  * @author Helix84
  * @author Martin Kozák
+ * @author Andre Engels
  */
 $messages['sk'] = array(
 	'cite_article_desc' => 'Pridáva špeciálnu stránku [[Special:Cite|Citovať]] a odkaz v nástrojoch',
@@ -1077,6 +1094,7 @@ $messages['sn'] = array(
 	'cite_article_link' => 'Ita cite nyaya iyi',
 );
 
+/** Albanian (Shqip) */
 $messages['sq'] = array(
 	'cite_article_link' => 'Cito artikullin',
 	'cite'              => 'Citate',
@@ -1125,7 +1143,7 @@ $messages['sv'] = array(
 	'cite_submit'       => 'Citera',
 );
 
-/** Silesian (ślůnski)
+/** Silesian (Ślůnski)
  * @author Herr Kriss
  */
 $messages['szl'] = array(
@@ -1165,7 +1183,7 @@ $messages['tet'] = array(
 	'cite_submit'       => 'Sita',
 );
 
-/** Tajik (Тоҷикӣ)
+/** Tajik (Cyrillic) (Тоҷикӣ/tojikī (Cyrillic))
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1212,11 +1230,11 @@ $messages['uk'] = array(
 	'cite_submit'       => 'Процитувати',
 );
 
+/** Urdu (اردو) */
 $messages['ur'] = array(
 	'cite_article_link' => 'مضمون کا حوالہ دیں',
 	'cite'              => 'حوالہ',
 	'cite_page'         => 'صفحہ:',
-	'cite_submit'       => 'Cite',
 );
 
 /** Vèneto (Vèneto)
@@ -1254,10 +1272,14 @@ $messages['vo'] = array(
 	'cite_submit'       => 'Saitön',
 );
 
+/** Walloon (Walon)
+ * @author Srtxg
+ */
 $messages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );
 
+/** Wu (吴语) */
 $messages['wuu'] = array(
 	'cite_article_link' => '引用该篇文章',
 	'cite'              => '引用',
@@ -1273,6 +1295,7 @@ $messages['yi'] = array(
 	'cite'              => 'ציטיר',
 );
 
+/** Yue (粵語) */
 $messages['yue'] = array(
 	'cite_article_desc' => '加一個[[Special:Cite|引用]]特別頁同埋一個工具箱連結',
 	'cite_article_link' => '引用呢篇文',
@@ -1281,11 +1304,13 @@ $messages['yue'] = array(
 	'cite_submit'       => '引用',
 );
 
+/** Classical Chinese (文言) */
 $messages['zh-classical'] = array(
 	'cite_article_link' => '引文',
 	'cite'              => '引文',
 );
 
+/** Simplified Chinese (‪中文(简体)‬) */
 $messages['zh-hans'] = array(
 	'cite_article_desc' => '加入一个[[Special:Cite|引用]]的特殊页面以及一个工具箱链接',
 	'cite_article_link' => '引用此文',
@@ -1294,6 +1319,7 @@ $messages['zh-hans'] = array(
 	'cite_submit'       => '引用',
 );
 
+/** Traditional Chinese (‪中文(繁體)‬) */
 $messages['zh-hant'] = array(
 	'cite_article_desc' => '加入一個[[Special:Cite|引用]]的特殊頁面以及一個工具箱連結',
 	'cite_article_link' => '引用此文',

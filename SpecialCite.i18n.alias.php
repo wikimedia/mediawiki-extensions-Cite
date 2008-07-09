@@ -18,3 +18,10 @@ $aliases['en'] = array(
 $aliases['de'] = array(
 	'Cite' => array( 'Zitierhilfe' ),
 );
+
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
+$aliases['he'] = array(
+	'Cite' => array( 'ציטוט' ),
+);

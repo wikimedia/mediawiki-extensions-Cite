@@ -6,7 +6,7 @@ if (!defined('MEDIAWIKI')) die();
  *
  * @addtogroup Extensions
  *
- * @link http://meta.wikimedia.org/wiki/Cite/SpecialCite.php Documentation
+ * @link http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php Documentation
  *
  * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
@@ -23,13 +23,14 @@ $wgExtensionCredits['specialpage'][] = array(
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
 );
 
+$dir = dirname(__FILE__) . '/';
 # Internationalisation file
-$wgExtensionMessagesFiles['SpecialCite'] = dirname( __FILE__ ) . "/SpecialCite.i18n.php";
+$wgExtensionMessagesFiles['SpecialCite'] = $dir . 'SpecialCite.i18n.php';
+$wgExtensionAliasesFiles['SpecialCite'] = $dir . 'SpecialCite.i18n.alias.php';
 
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';
 $wgHooks['MonoBookTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';
 
-$dir = dirname(__FILE__) . '/';
 $wgSpecialPages['Cite'] = 'SpecialCite';
 $wgAutoloadClasses['SpecialCite'] = $dir . 'SpecialCite_body.php';
 

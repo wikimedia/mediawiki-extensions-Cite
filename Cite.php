@@ -36,6 +36,7 @@ $wgExtensionCredits['parserhook'][] = array(
 $wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
 $wgExtensionMessagesFiles['Cite'] = dirname( __FILE__ ) . "/Cite.i18n.php";
 $wgAutoloadClasses['Cite'] = dirname( __FILE__ ) . "/Cite_body.php";
+$wgSpecialPageGroups['Cite'] = 'pagetools';
 
 define( 'CITE_DEFAULT_GROUP', '');
 /**

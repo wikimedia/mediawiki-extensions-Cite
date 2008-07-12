@@ -1104,9 +1104,13 @@ $messages['sq'] = array(
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Sasa Stefanovic
+ * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'cite_page' => 'Страна:',
+	'cite_article_link' => 'цитирање ове стране',
+	'cite'              => 'цитат',
+	'cite_page'         => 'Страна:',
+	'cite_submit'       => 'цитат',
 );
 
 /** Seeltersk (Seeltersk)

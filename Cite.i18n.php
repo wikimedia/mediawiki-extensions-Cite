@@ -99,7 +99,7 @@ Faiga serbir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..
  */
 $messages['ar'] = array(
 	'cite_desc'                                        => 'يضيف وسوم <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهادات',
-	'cite_croak'                                       => 'الاستشهاد كروكد؛ $1: $2',
+	'cite_croak'                                       => 'الاستشهاد مات؛ $1: $2',
 	'cite_error_key_str_invalid'                       => 'خطأ داخلي؛ $str و/أو $key غير صحيح.  هذا لا يجب أن يحدث أبدا.',
 	'cite_error_stack_invalid_input'                   => 'خطأ داخلي؛ مفتاح ستاك غير صحيح.  هذا لا يجب أن يحدث أبدا.',
 	'cite_error'                                       => 'خطأ استشهاد: $1',
@@ -1164,6 +1164,13 @@ je povolený iba parameter „group“.
 Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'        => 'Minuli sa generované návestia spätných odkazov, definujte viac v správe <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Neplatná značka <code>&lt;ref&gt;</code>; nebol zadaný text pre referencie s názvom <code>$1</code>',
+);
+
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'cite_error' => 'Грешка цитата: $1',
 );
 
 /** Seeltersk (Seeltersk)

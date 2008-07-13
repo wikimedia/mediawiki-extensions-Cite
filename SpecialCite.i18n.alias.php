@@ -56,6 +56,11 @@ $aliases['hu'] = array(
 	'Cite' => array( 'Irodalomjegyzék' ),
 );
 
+/** Luxembourgish (Lëtzebuergesch) */
+$aliases['lb'] = array(
+	'Cite' => array( 'Zitéierhellëf' ),
+);
+
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),

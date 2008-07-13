@@ -12,11 +12,26 @@ $aliases['en'] = array(
 	'Cite' => array( 'Cite' ),
 );
 
+/** Arabic (العربية) */
+$aliases['ar'] = array(
+	'Cite' => array( 'استشهاد' ),
+);
+
+/** Egyptian Spoken Arabic (مصرى) */
+$aliases['arz'] = array(
+	'Cite' => array( 'استشهاد' ),
+);
+
 /** German
  * @author Raimond Spekking
  */
 $aliases['de'] = array(
 	'Cite' => array( 'Zitierhilfe' ),
+);
+
+/** Finnish (Suomi) */
+$aliases['fi'] = array(
+	'Cite' => array( 'Viittaus' ),
 );
 
 /** Hebrew (עברית)
@@ -25,3 +40,29 @@ $aliases['de'] = array(
 $aliases['he'] = array(
 	'Cite' => array( 'ציטוט' ),
 );
+
+/** Croatian (Hrvatski) */
+$aliases['hr'] = array(
+	'Cite' => array( 'Citiraj' ),
+);
+
+/** Haitian (Kreyòl ayisyen) */
+$aliases['ht'] = array(
+	'Cite' => array( 'Site' ),
+);
+
+/** Hungarian (Magyar) */
+$aliases['hu'] = array(
+	'Cite' => array( 'Irodalomjegyzék' ),
+);
+
+/** Dutch (Nederlands) */
+$aliases['nl'] = array(
+	'Cite' => array( 'Citeren' ),
+);
+
+/** Swedish (Svenska) */
+$aliases['sv'] = array(
+	'Cite' => array( 'Citera' ),
+);
+

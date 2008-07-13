@@ -411,16 +411,21 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Nike
+ * @author Str4nd
  */
 $messages['fi'] = array(
-	'cite_desc'                                => 'Tarjoaa <nowiki><ref[ name=id]></nowiki>- ja <nowiki><references/></nowiki>-elementit viittauksien tekemiseen.',
-	'cite_croak'                               => 'Virhe viittausjärjestelmässä: $1: $2',
-	'cite_error_key_str_invalid'               => 'Sisäinen virhe: kelpaamaton $str ja/tai $key.',
-	'cite_error_stack_invalid_input'           => 'Sisäinen virhe: kelpaamaton pinoavain.',
-	'cite_error'                               => 'Viittausvirhe: $1',
-	'cite_error_ref_numeric_key'               => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: nimi ei voi olla numero – käytä kuvaavampaa nimeä.',
-	'cite_error_ref_no_key'                    => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: sisällöttömille refeille pitää määrittää nimi.',
-	'cite_error_references_invalid_parameters' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
+	'cite_desc'                                      => 'Tarjoaa <nowiki><ref[ name=id]></nowiki>- ja <nowiki><references/></nowiki>-elementit viittauksien tekemiseen.',
+	'cite_croak'                                     => 'Virhe viittausjärjestelmässä: $1: $2',
+	'cite_error_key_str_invalid'                     => 'Sisäinen virhe: kelpaamaton $str ja/tai $key.',
+	'cite_error_stack_invalid_input'                 => 'Sisäinen virhe: kelpaamaton pinoavain.',
+	'cite_error'                                     => 'Viittausvirhe: $1',
+	'cite_error_ref_numeric_key'                     => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: nimi ei voi olla numero – käytä kuvaavampaa nimeä.',
+	'cite_error_ref_no_key'                          => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: sisällöttömille refeille pitää määrittää nimi.',
+	'cite_error_ref_too_many_keys'                   => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: virheelliset nimet, esim. liian monta',
+	'cite_error_ref_no_input'                        => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: viitteillä ilman nimiä täytyy olla sisältöä',
+	'cite_error_references_invalid_input'            => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: sisällön lisääminen ei ole sallittu. Käytä elementtiä <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
+	'cite_error_references_invalid_parameters_group' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: vain parametri ”group” on sallittu. Käytä tagia <code>&lt;references /&gt;</code> tai <code>&lt;references group="…" /&gt;</code>',
 );
 
 /** French (Français)
@@ -826,27 +831,32 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'cite_desc'                                => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
-	'cite_croak'                               => 'Feeler am Referenz-System. $1 : $2',
-	'cite_error_key_str_invalid'               => 'Interne Feeler;
+	'cite_desc'                                      => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
+	'cite_croak'                                     => 'Feeler am Referenz-System. $1 : $2',
+	'cite_error_key_str_invalid'                     => 'Interne Feeler;
 ongültege $str an/oder $schlëssel.
 Dëst sollt eigentlech ni gschéien.',
-	'cite_error_stack_invalid_input'           => "Interne Feeler;
+	'cite_error_stack_invalid_input'                 => "Interne Feeler;
 ongëltege ''stack''-Schlëssel.
 Dës sollt eigentlech guer net geschéien.",
-	'cite_error'                               => 'Zitéierfeeler: $1',
-	'cite_error_ref_numeric_key'               => 'Ongëltegen <code>&lt;ref&gt;</code> Tag;
+	'cite_error'                                     => 'Zitéierfeeler: $1',
+	'cite_error_ref_numeric_key'                     => 'Ongëltegen <code>&lt;ref&gt;</code> Tag;
 De Numm ka keng einfach ganz Zuel sinn. Benotzt w.e.g. een Titel den eng Beschreiwung gëtt',
-	'cite_error_ref_too_many_keys'             => 'Ongëltege <code>&lt;ref&gt;</code> Tag;
+	'cite_error_ref_no_key'                          => 'Ongëltegen <code>&lt;ref&gt;</code> Tag;
+Referenzen ouni Inhalt mussen e Numm hunn',
+	'cite_error_ref_too_many_keys'                   => 'Ongëltege <code>&lt;ref&gt;</code> Tag;
 ongëlteg Nimm, z. Bsp. zevill',
-	'cite_error_ref_no_input'                  => "Ongëltege <code>&lt;ref&gt;</code> Tag;
+	'cite_error_ref_no_input'                        => "Ongëltege <code>&lt;ref&gt;</code> Tag;
 ''refs'' ouni Numm muss een Inhalt hun",
-	'cite_error_references_invalid_input'      => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
+	'cite_error_references_invalid_input'            => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
 Keen Input ass erlaabt. Benotzt <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
+	'cite_error_references_invalid_parameters'       => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
 et si keng Parameter erlaabt.
 Benotzt <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_text'            => "Ongëltegen <code>&lt;ref&gt;</code> Tag;
+	'cite_error_references_invalid_parameters_group' => 'Ongëltege  <code>&lt;references&gt;</code> Tag;
+nëmmen de Parameter "group" ass erlaabt.
+Benotzt <code>&lt;references /&gt;</code>, oder <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text'                  => "Ongëltegen <code>&lt;ref&gt;</code> Tag;
 et gouf keen Text uginn fir d'Referenzen mam Numm <code>$1</code>",
 );
 
@@ -1170,7 +1180,20 @@ Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="...
  * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'cite_error' => 'Грешка цитата: $1',
+	'cite_desc'                                      => 'Додаје <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаке за цитирање.',
+	'cite_croak'                                     => 'Додатак за цитирање је умро; $1: $2.',
+	'cite_error_key_str_invalid'                     => 'Унутрашња грешка; лош $str и/или $key. Ово не би требало никад да се деси.',
+	'cite_error_stack_invalid_input'                 => 'Унутрашња грешка; лош кључ стека. Ово не би требало никад да се деси.',
+	'cite_error'                                     => 'Грешка цитата: $1',
+	'cite_error_ref_numeric_key'                     => 'Лоша ознака <code>&lt;ref&gt;</code>; име не може бити једноставни интеџер. Користи описни наслов.',
+	'cite_error_ref_no_key'                          => 'Лоша ознака <code>&lt;ref&gt;</code>; ref-ови без садржаја морају имати име.',
+	'cite_error_ref_too_many_keys'                   => 'Лоша ознака <code>&lt;ref&gt;</code>; лоша имена, односно много њих.',
+	'cite_error_ref_no_input'                        => 'Лоша ознака <code>&lt;ref&gt;</code>; ref-ови без имена морају имати садржај.',
+	'cite_error_references_invalid_input'            => 'Лоша ознака <code>&lt;references&gt;</code>; улаз није дозвољен. Користи <code>&lt;references /&gt;</code>.',
+	'cite_error_references_invalid_parameters'       => 'Лоша ознака <code>&lt;references&gt;</code>; параметри нису дозвољени. Користи <code>&lt;references /&gt;</code>.',
+	'cite_error_references_invalid_parameters_group' => 'Лоша ознака <code>&lt;references&gt;</code>; само је парамтера "group" дозвољен. Користи <code>&lt;references /&gt;</code> или <code>&lt;references group="..."&gt;</code>.',
+	'cite_error_references_no_backlink_label'        => 'Нестале су посебне ознаке за задње везе. Одреди их више у поруци <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_references_no_text'                  => 'Лоша ознака <code>&lt;ref&gt;</code>; нема текста за ref-ове под именом <code>$1</code>.',
 );
 
 /** Seeltersk (Seeltersk)

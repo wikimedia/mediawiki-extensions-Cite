@@ -1107,6 +1107,7 @@ $messages['sq'] = array(
  * @author Millosh
  */
 $messages['sr-ec'] = array(
+	'cite_article_desc' => 'Додаје специјалну страну за [[Special:Cite|цитирање]] и везу ка оруђима.',
 	'cite_article_link' => 'цитирање ове стране',
 	'cite'              => 'цитат',
 	'cite_page'         => 'Страна:',

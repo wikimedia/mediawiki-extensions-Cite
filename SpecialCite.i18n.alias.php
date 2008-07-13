@@ -22,7 +22,7 @@ $aliases['arz'] = array(
 	'Cite' => array( 'استشهاد' ),
 );
 
-/** German
+/** German (Deutsch)
  * @author Raimond Spekking
  */
 $aliases['de'] = array(
@@ -59,6 +59,11 @@ $aliases['hu'] = array(
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
+$aliases['no'] = array(
+	'Cite' => array( 'Siteringshjelp' ),
 );
 
 /** Swedish (Svenska) */

@@ -22,6 +22,11 @@ $aliases['arz'] = array(
 	'Cite' => array( 'استشهاد' ),
 );
 
+/** Bikol Central (Bikol Central) */
+$aliases['bcl'] = array(
+	'Cite' => array( 'Sambitón' ),
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */

@@ -140,6 +140,46 @@ $messages['ast'] = array(
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n ñ o p q r s t u v w x y z',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'cite_desc'                                        => 'اضفافه کنت<nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> تگ, په ارجاع دهگ',
+	'cite_croak'                                       => 'ذکر منبع چه بن رپت; $1: $2',
+	'cite_error_key_str_invalid'                       => 'حطا درونی ;
+نامعتبرین $str و/یا  $key.
+شی نباید هچ وهد پیش کیت',
+	'cite_error_stack_invalid_input'                   => 'درونی حطا;
+نامعتربین دسته کلیت.
+شی نبایدن هچ وهد پیش کیت.',
+	'cite_error'                                       => 'حطا ارجاع: $1',
+	'cite_error_ref_numeric_key'                       => 'نامعتبر <code>&lt;ref&gt;</code>تگ;
+نام یک سادگین هوری نه نه بیت. یک توضیحی عنوانی استفاده کنیت',
+	'cite_error_ref_no_key'                            => 'نامعتبر<code>&lt;ref&gt;</code>تگ;
+مراجع بی محتوا بایدن نامی داشته بنت',
+	'cite_error_ref_too_many_keys'                     => 'نامعتبر<code>&lt;ref&gt;</code>تگ;
+نامعتبر نامان, په داب بازین',
+	'cite_error_ref_no_input'                          => 'نامعتبر <code>&lt;ref&gt;</code> تگ;
+مراجع بی نام بایدن محتوا داشته بنت',
+	'cite_error_references_invalid_input'              => 'نامعتبر <code>&lt;references&gt;</code>تگ;
+هچ ورودی اجازت نهنت. استفاده کن  <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'         => 'نامعتبر <code>&lt;references&gt;</code>تگ;
+هچ پارامتری مجاز نهنت.
+استفاده کن چه <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group'   => 'نامعتبر <code>&lt;references&gt;</code>تگ;
+پارامتر "گروه" فقط مجازنت.
+استفاده کن چه <code>&lt;references /&gt;</code>, یا <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'          => 'هلگ برجسپان لینک عقب رسمی.
+گیشتر تعریف کن ته <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> کوله',
+	'cite_error_references_no_text'                    => 'نامعتبر<code>&lt;ref&gt;</code>تگ;
+په نام ارجاع هچ متنی دهگ نه بیته <code>$1</code>',
+	'cite_reference_link_prefix'                       => 'هل_مرج-',
+	'cite_references_link_prefix'                      => 'ذکرـیادداشت-',
+	'cite_references_link_many_format_backlink_labels' => 'ا ب پ ت ج چ خ د ر ز س ش غ ف ک ل م ن و ه ی',
+	'cite_references_link_many_sep'                    => 'س',
+	'cite_references_link_many_and'                    => 'و',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  * @author Spiritia

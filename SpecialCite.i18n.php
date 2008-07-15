@@ -85,6 +85,17 @@ $messages['ast'] = array(
 	'cite_submit'       => 'Citar',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'cite_article_desc' => 'اضافه کن یک [[Special:Cite|citation]] صفحه حاص و لینک جعبه ابزار',
+	'cite_article_link' => 'ای صفحه ی مرجع بل',
+	'cite'              => 'مرجع',
+	'cite_page'         => 'صفحه:',
+	'cite_submit'       => 'مرجع',
+);
+
 /** Bikol Central (Bikol Central)
  * @author Filipinayzd
  */

@@ -39,6 +39,11 @@ $aliases['fi'] = array(
 	'Cite' => array( 'Viittaus' ),
 );
 
+/** Galician (Galego) */
+$aliases['gl'] = array(
+	'Cite' => array( 'Cita' ),
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */

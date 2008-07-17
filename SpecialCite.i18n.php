@@ -547,9 +547,14 @@ $messages['hy'] = array(
 
 /** Interlingua (Interlingua)
  * @author Malafaya
+ * @author McDutchie
  */
 $messages['ia'] = array(
-	'cite_page' => 'Pagina:',
+	'cite_article_desc' => 'Adde un pagina special de [[Special:Cite|citation]] e un ligamine verso le instrumentario',
+	'cite_article_link' => 'Citar iste pagina',
+	'cite'              => 'Citation',
+	'cite_page'         => 'Pagina:',
+	'cite_submit'       => 'Citar',
 );
 
 /** Indonesian (Bahasa Indonesia)

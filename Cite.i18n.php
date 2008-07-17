@@ -687,6 +687,41 @@ $messages['hu'] = array(
 	'cite_error_references_no_text'                  => 'Érvénytelen <code>&lt;ref&gt;</code> tag; nincs megadva szöveg a(z) <code>$1</code> nevű ref-eknek',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'cite_desc'                                      => 'Adde etiquettas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, pro citationes',
+	'cite_croak'                                     => 'Citation corrumpite; $1: $2',
+	'cite_error_key_str_invalid'                     => 'Error interne;
+clave $str e/o $key invalide.
+Isto non deberea jammais occurrer.',
+	'cite_error_stack_invalid_input'                 => 'Error interne;
+clave de pila invalide.
+Isto non deberea jammais occurrer.',
+	'cite_error'                                     => 'Error de citation: $1',
+	'cite_error_ref_numeric_key'                     => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
+le nomine non pote esser un numero integre. Usa un titulo descriptive',
+	'cite_error_ref_no_key'                          => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
+le refs sin contento debe haber un nomine',
+	'cite_error_ref_too_many_keys'                   => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
+nomines invalide, p.ex. troppo de nomines',
+	'cite_error_ref_no_input'                        => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
+le refs sin nomine debe haber contento',
+	'cite_error_references_invalid_input'            => 'Etiquetta <code>&lt;references&gt;</code> invalide;
+nulle entrata es permittite. Usa <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => 'Etiquetta <code>&lt;references&gt;</code> invalide;
+nulle parametros es permittite.
+Usa <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Etiquetta <code>&lt;references&gt;</code> invalide;
+solmente le parametro "group" es permittite.
+Usa <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => 'Le etiquettas de retroligamine personalisate es exhaurite.
+Defini plus in le message <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text'                  => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
+nulle texto esseva fornite pro le refs nominate <code>$1</code>',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
  * @author Rex

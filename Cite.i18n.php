@@ -89,7 +89,7 @@ $messages['an'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> no conforme;
 nomás se premite o parametro "group".
 Faiga serbir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'Ya no quedan etiquetas backlink presonalizatas, defina más en o mensache <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'Ya no quedan etiquetas backlink presonalizatas, defina más en o mensache <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; no ha escrito garra testo t'as referenzias nombratas <code>$1</code>",
 );
 
@@ -254,7 +254,7 @@ Grit gant ar valizenn <code>&lt;references /&gt;</code>",
 n\'eus nemet an arventenn "strollad" zo aotreet.
 Grit gant ar valizenn <code>&lt;references /&gt;</code>, pe <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'        => "N'eus ket a dikedennoù personelaet mui.
-Spisait un niver brasoc'h anezho er gemennadenn <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
+Spisait un niver brasoc'h anezho er gemennadenn <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
 	'cite_error_references_no_text'                  => 'Balizenn <code>&lt;ref&gt;</code> direizh ;
 ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
 );
@@ -313,7 +313,7 @@ $messages['cs'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Neplatná značka <tt>&lt;references&gt;</tt>;
 je povolen pouze parametr „group“.
 Použijte <tt>&lt;references /&gt;</tt> nebo <tt>&lt;references group="..." /&gt;</tt>.',
-	'cite_error_references_no_backlink_label'        => 'Došla označení zpětných odkazů, přidejte jich několik do zprávy <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'Došla označení zpětných odkazů, přidejte jich několik do zprávy <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Chyba v tagu <code>&lt;ref&gt;</code>; citaci označené <code>$1</code> není určen žádný text',
 );
 
@@ -491,7 +491,7 @@ $messages['fr'] = array(
 seul le paramètre « group » est autorisé.
 
 Utilisez <code>&lt;references /&gt;</code>, ou bien <code>&lt;references group="..." /&gt;</code>.',
-	'cite_error_references_no_backlink_label'        => 'Épuisement des étiquettes personnalisées, définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'Épuisement des étiquettes personnalisées, définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => "Balise <code>&lt;ref&gt;</code> invalide;
 aucun texte n'a été fourni pour les références nommées <code>$1</code>",
 );
@@ -549,7 +549,8 @@ $messages['gu'] = array(
 	'cite_references_link_many_format_backlink_labels' => 'અ આ ઇ ઈ ઉ ઊ એ ઐ ઓ ઔ ક ખ ગ ઘ ચ છ જ ઝ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ વ શ ષ સ હ ળ ક્ષ જ્ઞ ઋ',
 );
 
-/** Hebrew (עברית) */
+/** Hebrew (עברית)
+ */
 $messages['he'] = array(
 	'cite_desc'                                      => 'הוספת תגיות <nowiki><ref[ name=id]></nowiki> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
 	'cite_croak'                                     => 'בהערה יש שגיאה; $1: $2',
@@ -565,7 +566,7 @@ $messages['he'] = array(
 	'cite_error_references_invalid_parameters_group' => 'תגית <code>&lt;references&gt;</code> שגויה;
 רק הפרמטר "group" מותר לשימוש.
 אנא השתמשו בקוד <code>&lt;references /&gt;</code>, או בקוד <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'תגית <code>&lt;ref&gt;</code> שגויה; לא נכתב טקסט עבור הערת השוליים בשם <code>$1</code>',
 );
 
@@ -587,7 +588,7 @@ $messages['hi'] = array(
 	'cite_error_references_invalid_input'            => '<code>&lt;ref&gt;</code> गलत कोड; इनपुट नहीं कर सकतें। <code>&lt;references /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_invalid_parameters'       => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स नहीं दे सकते, <code>&lt;references /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> गलत कोड; सिर्फ पॅरॅमीटर का "ग्रुप" इस्तेमाल में लाया जा सकता हैं, <code>&lt;references /&gt;</code> या फिर <code>&lt;references group="..." /&gt;</code> का इस्तेमाल करें',
-	'cite_error_references_no_backlink_label'        => 'तैयार किये हुए पीछे की कड़ियां देनेवाले नाम खतम हुए हैं, अधिक नाम <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> इस संदेश में बढायें',
+	'cite_error_references_no_backlink_label'        => 'तैयार किये हुए पीछे की कड़ियां देनेवाले नाम खतम हुए हैं, अधिक नाम <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> इस संदेश में बढायें',
 	'cite_error_references_no_text'                  => '<code>&lt;ref&gt;</code> गलत कोड; <code>$1</code> नामके संदर्भमें ज़ानकारी नहीं हैं',
 );
 
@@ -608,7 +609,7 @@ $messages['hr'] = array(
 	'cite_error_references_invalid_input'      => 'Loša <code>&lt;references&gt;</code> oznaka; nije dozvoljen unos, koristite
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Loša <code>&lt;references&gt;</code> oznaka; parametri nisu dozvoljeni, koristite <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label'  => 'Potrošene sve posebne oznake za poveznice unatrag, definirajte više u poruci <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'  => 'Potrošene sve posebne oznake za poveznice unatrag, definirajte više u poruci <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'            => 'Nije zadan tekst za izvor <code>$1</code>',
 );
 
@@ -683,7 +684,7 @@ $messages['hu'] = array(
 <code>&lt;references /&gt;</code> formát',
 	'cite_error_references_invalid_parameters'       => 'Érvénytelen <code>&lt;references&gt;</code> tag; nincsenek paraméterei, használd a <code>&lt;references /&gt;</code> formát',
 	'cite_error_references_invalid_parameters_group' => 'Érvénytelen <code>&lt;references&gt;</code> tag; csak a „group” attribútum használható. Használd a <code>&lt;references /&gt;</code>, vagy a <code>&lt;references group="..." /&gt;</code> formát.',
-	'cite_error_references_no_backlink_label'        => 'Elfogytak a visszahivatkozásra használt címkék, adj meg többet a <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> üzenetben',
+	'cite_error_references_no_backlink_label'        => 'Elfogytak a visszahivatkozásra használt címkék, adj meg többet a <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> üzenetben',
 	'cite_error_references_no_text'                  => 'Érvénytelen <code>&lt;ref&gt;</code> tag; nincs megadva szöveg a(z) <code>$1</code> nevű ref-eknek',
 );
 
@@ -741,7 +742,7 @@ $messages['id'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> tidak valid;
 hanya parameter "group" yang diizinkan.
 Gunakan tag <code>&lt;references /&gt;</code>, atau <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'Kehabisan label pralana balik, tambakan pada pesan sistem <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'Kehabisan label pralana balik, tambakan pada pesan sistem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Tag <code>&lt;ref&gt;</code> tak valid; tak ditemukan teks dengan ref dengan nama <code>$1</code>',
 );
 
@@ -765,7 +766,7 @@ $messages['it'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Errore nell\'uso del marcatore <code>&lt;references&gt;</code>;
 solo il parametro "group" è permesso.
 Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
 );
 
@@ -784,7 +785,7 @@ $messages['ja'] = array(
 	'cite_error_ref_no_input'                  => '無効な <code>&lt;ref&gt;</code> タグ: 名前 （<code>name</code> 属性）がない場合には引用句の内容が必要です',
 	'cite_error_references_invalid_input'      => '無効な <code>&lt;references&gt;</code> タグ: 内容のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
 	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ: 引数のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
-	'cite_error_references_no_backlink_label'  => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> メッセージでの定義を増やしてください。',
+	'cite_error_references_no_backlink_label'  => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。',
 	'cite_error_references_no_text'            => '無効な <code>&lt;ref&gt;</code> タグ: <code>$1</code>という名前の引用句に対するテキストがありません。',
 );
 
@@ -1019,7 +1020,7 @@ $messages['mr'] = array(
 	'cite_error_references_invalid_input'            => '<code>&lt;references&gt;</code> चुकीचा कोड; माहिती देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
 	'cite_error_references_invalid_parameters'       => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
 	'cite_error_references_invalid_parameters_group' => 'चुकीची <code>&lt;references&gt;</code> खूण; फक्त पॅरॅमीटर चा गट वापरता येईल, <code>&lt;references /&gt;</code> किंवा <code>&lt;references group="..." /&gt;</code> चा वापर करा',
-	'cite_error_references_no_backlink_label'        => 'तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> या प्रणाली संदेशात लिहा',
+	'cite_error_references_no_backlink_label'        => 'तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> या प्रणाली संदेशात लिहा',
 	'cite_error_references_no_text'                  => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
 );
 
@@ -1071,7 +1072,7 @@ $messages['nl'] = array(
 alleen de parameter "group" is toegestaan.
 Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'        => 'Het aantal beschikbare backlinklabels is opgebruikt.
-Geef meer labels op in het bericht <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+Geef meer labels op in het bericht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Onjuiste tag <code>&lt;ref&gt;</code>; er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 );
 
@@ -1116,7 +1117,7 @@ $messages['oc'] = array(
 sol lo paramètre « group » es autorizat.
 
 Utilizatz <code>&lt;references /&gt;</code>, o alara <code>&lt;references group="..." /&gt;</code>.',
-	'cite_error_references_no_backlink_label'          => 'Execucion en defòra de las etiquetas personalizadas, definissetz mai dins lo messatge <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'          => 'Execucion en defòra de las etiquetas personalizadas, definissetz mai dins lo messatge <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                    => 'Balisa  <code>&lt;ref&gt;</code> incorrècta ;
 
 pas de tèxt per las referéncias nomenadas <code>$1</code>.',
@@ -1247,7 +1248,7 @@ $messages['sk'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Neplatná značka <code>&lt;references&gt;</code>;
 je povolený iba parameter „group“.
 Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'Minuli sa generované návestia spätných odkazov, definujte viac v správe <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'Minuli sa generované návestia spätných odkazov, definujte viac v správe <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Neplatná značka <code>&lt;ref&gt;</code>; nebol zadaný text pre referencie s názvom <code>$1</code>',
 );
 
@@ -1318,7 +1319,7 @@ $messages['sv'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Ogiltig <code>&lt;references&gt;</code>-tagg;
 "group"-parametern är endast tillåten.
 Använd <code>&lt;references /&gt;</code>, eller <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'De definierade etiketterna för tillbaka-länkar har tagit slut, definiera fler etiketter i systemmedelandet <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'De definierade etiketterna för tillbaka-länkar har tagit slut, definiera fler etiketter i systemmedelandet <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Ogiltig <code>&lt;ref&gt;</code>-tag; ingen text har angivits för referensen med namnet <code>$1</code>',
 );
 
@@ -1338,7 +1339,7 @@ $messages['te'] = array(
 	'cite_error_ref_no_input'                  => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; పేరు లేని ref లలో తప్పనిసరిగా విషయం ఉండాలి',
 	'cite_error_references_invalid_input'      => 'సరైన <code>&lt;references&gt;</code> ట్యాగు కాదు; ఇన్‌పుట్ కు అనుమతి లేదు, <code>&lt;references /&gt;</code> వాడండి.',
 	'cite_error_references_invalid_parameters' => 'సరైన <code>&lt;references&gt;</code> ట్యాగు కాదు; పారామీటర్లకు కు అనుమతి లేదు, ఈ లోపాన్ని కలుగజేసే ఒక ఉదాహరణ: <references someparameter="value" />',
-	'cite_error_references_no_backlink_label'  => 'మీ స్వంత బ్యాక్‌లింకు లేబుళ్ళు అయిపోయాయి. <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> సందేశంలో మరిన్ని లేబుళ్ళను నిర్వచించుకోండి.',
+	'cite_error_references_no_backlink_label'  => 'మీ స్వంత బ్యాక్‌లింకు లేబుళ్ళు అయిపోయాయి. <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> సందేశంలో మరిన్ని లేబుళ్ళను నిర్వచించుకోండి.',
 	'cite_error_references_no_text'            => 'సరైన <code>&lt;ref&gt;</code> కాదు; <code>$1</code> అనే పేరుగల ref లకు పాఠ్యమేమీ ఇవ్వలేదు',
 );
 
@@ -1362,7 +1363,7 @@ $messages['tg-cyrl'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Барчасби <code>&lt;references&gt;</code> номӯътабар;
 параметри "гурӯҳ" танҳо иҷозашуда аст.
 Барчасби <code>&lt;references /&gt;</code> ё <code>&lt;references group="..." /&gt;</code> -ро истифода баред',
-	'cite_error_references_no_backlink_label'        => 'Барчасбҳои пайванд ба интиҳо расид, мавориди ҷадидро дар пайём  <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> истифода кунед',
+	'cite_error_references_no_backlink_label'        => 'Барчасбҳои пайванд ба интиҳо расид, мавориди ҷадидро дар пайём  <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> истифода кунед',
 	'cite_error_references_no_text'                  => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; матне барои ёдкардҳо бо номи <code>$1</code> ворид нашудааст',
 );
 
@@ -1407,7 +1408,7 @@ $messages['uk'] = array(
 можна використовувати тільки параметр «group».
 Використовуйте <code>&lt;references /&gt;</code> або <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'        => 'Недостатньо символів для зворотних гіперпосилань.
-Потрібно розширити системну змінну <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+Потрібно розширити системну змінну <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Неправильний виклик <code>&lt;ref&gt;</code>:
 для виносок <code>$1</code> не вказаний текст',
 );
@@ -1433,7 +1434,7 @@ Sta roba no la dovarìa mai capitar.',
 	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> mìa valido;
 solo el parametro "group" el xe permesso.
 Dòpara <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'Etichete de rimando personalizàe esaurìe, auménteghen el nùmaro nel messagio <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'Etichete de rimando personalizàe esaurìe, auménteghen el nùmaro nel messagio <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Marcator <code>&lt;ref&gt;</code> mìa valido; no xe stà indicà nissun testo par el marcator <code>$1</code>',
 );
 
@@ -1457,7 +1458,7 @@ $messages['vi'] = array(
 chỉ cho phép tham số "group".
 Hãy dùng <code>&lt;references /&gt;</code>, hoặc <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'        => 'Đã dùng hết nhãn tham khảo chung.
-Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 );
 
@@ -1520,7 +1521,8 @@ $messages['yue'] = array(
 無文字提供於名為<code>$1</code>嘅參照',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ */
 $messages['zh-hans'] = array(
 	'cite_desc'                                      => '加入 <nowiki><ref[ name=id]></nowiki> 与 <nowiki><references/></nowiki> 标签用于引用中',
 	'cite_croak'                                     => '引用阻塞; $1: $2',
@@ -1536,12 +1538,13 @@ $messages['zh-hans'] = array(
 	'cite_error_references_invalid_parameters_group' => '无效的<code>&lt;references&gt;</code>标签；
 只容许 "group" 参数。
 用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => '自定义后退标签已经用完了，现在可在标签 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定义更多信息',
+	'cite_error_references_no_backlink_label'        => '自定义后退标签已经用完了，现在可在标签 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> 定义更多信息',
 	'cite_error_references_no_text'                  => '无效的<code>&lt;ref&gt;</code>标签；
 无文字提供于名为<code>$1</code>的参照',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(繁體)‬)
+ */
 $messages['zh-hant'] = array(
 	'cite_desc'                                      => '加入 <nowiki><ref[ name=id]></nowiki> 與 <nowiki><references/></nowiki> 標籤用於引用中',
 	'cite_croak'                                     => '引用阻塞; $1: $2',
@@ -1557,7 +1560,7 @@ $messages['zh-hant'] = array(
 	'cite_error_references_invalid_parameters_group' => '無效的<code>&lt;references&gt;</code>標籤；
 只容許 "group" 參數。
 用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => '自訂後退標籤已經用完了，現在可在標籤 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 定義更多信息',
+	'cite_error_references_no_backlink_label'        => '自訂後退標籤已經用完了，現在可在標籤 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> 定義更多信息',
 	'cite_error_references_no_text'                  => '無效的<code>&lt;ref&gt;</code>標籤；
 無文字提供於名為<code>$1</code>的參照',
 );

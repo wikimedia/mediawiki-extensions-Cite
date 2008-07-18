@@ -615,7 +615,7 @@ $messages['it'] = array(
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'cite_article_desc' => '特別ページ [[{{ns:Special}}:Cite|{{SITENAME}}の項目を引用する]] とツールボックスへのリンクを追加する',
+	'cite_article_desc' => '特別ページ [[Special:Cite|{{SITENAME}}の項目を引用する]] とツールボックスへのリンクを追加する',
 	'cite_article_link' => 'この項目を引用する',
 	'cite'              => '{{SITENAME}}の項目を引用する',
 	'cite_page'         => 'ページ名',
@@ -1007,7 +1007,7 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'cite_article_desc' => 'Adiciona uma página especial de [[{{ns:special}}:Cite|citação]] & ligação da caixa de ferramentas',
+	'cite_article_desc' => 'Adiciona uma página especial de [[Special:Cite|citação]] & ligação da caixa de ferramentas',
 	'cite_article_link' => 'Citar esta página',
 	'cite'              => 'Citar',
 	'cite_page'         => 'Página:',

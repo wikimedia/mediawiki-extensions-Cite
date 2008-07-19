@@ -81,6 +81,11 @@ $aliases['no'] = array(
 	'Cite' => array( 'Siteringshjelp' ),
 );
 
+/** Pashto (پښتو) */
+$aliases['ps'] = array(
+	'Cite' => array( 'درک' ),
+);
+
 /** Swedish (Svenska) */
 $aliases['sv'] = array(
 	'Cite' => array( 'Citera' ),

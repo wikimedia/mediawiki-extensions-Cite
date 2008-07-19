@@ -742,7 +742,8 @@ $messages['id'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> tidak valid;
 hanya parameter "group" yang diizinkan.
 Gunakan tag <code>&lt;references /&gt;</code>, atau <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => 'Kehabisan label pralana balik, tambakan pada pesan sistem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_backlink_label'        => 'Kehabisan label pralana balik tersuai.
+Tambahkan lagi di pesan sistem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text'                  => 'Tag <code>&lt;ref&gt;</code> tak valid; tak ditemukan teks dengan ref dengan nama <code>$1</code>',
 );
 
@@ -1371,6 +1372,8 @@ $messages['tg-cyrl'] = array(
  * @author Passawuth
  */
 $messages['th'] = array(
+	'cite_desc'  => 'ใส่ <nowiki><ref[ name=id]></nowiki> และ <nowiki><references /></nowiki> สำหรับการอ้างอิง',
+	'cite_croak' => 'แหล่งอ้างอิงเสีย; $1: $2',
 	'cite_error' => 'อ้างอิงผิดพลาด: $1',
 );
 

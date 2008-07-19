@@ -860,6 +860,14 @@ $messages['myv'] = array(
 	'cite_page' => 'Лопа:',
 );
 
+/** Nahuatl (Nahuatl)
+ * @author Fluence
+ */
+$messages['nah'] = array(
+	'cite_article_link' => 'Tlahtoa inīn tlahcuilōltechcopa',
+	'cite'              => 'Tlahtoa',
+);
+
 /** Min Nan Chinese (Bân-lâm-gú) */
 $messages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
@@ -1213,6 +1221,16 @@ $messages['tg-cyrl'] = array(
 	'cite'              => 'Ёд кардани ин мақола',
 	'cite_page'         => 'Саҳифа:',
 	'cite_submit'       => 'Ёд кардан',
+);
+
+/** Thai (ไทย)
+ * @author Passawuth
+ */
+$messages['th'] = array(
+	'cite_article_link' => 'อ้างอิงหน้านี้',
+	'cite'              => 'อ้างอิง',
+	'cite_page'         => 'หน้า:',
+	'cite_submit'       => 'อ้างอิง',
 );
 
 /** Tswana (Setswana) */

@@ -445,7 +445,8 @@ $messages['fa'] = array(
 	'cite_error_references_invalid_parameters'       => 'برچسب <code><references></code> غیرمجاز؛ استفاده از پارامتر مجاز است. از <code><references /></code> استفاده کنید',
 	'cite_error_references_invalid_parameters_group' => 'برچسب <code>&lt;references&gt;</code> غیر مجاز؛ تنها پارامتر «group» قابل استفاده است.
 از <code>&lt;references /&gt;</code> یا <code>&lt;references group="..." /&gt;</code> استفاده کنید',
-	'cite_error_references_no_backlink_label'        => 'برچسب‌های پیوند به انتها رسید؛‌ موارد جدیدی را در پیام <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> تعریف کنید',
+	'cite_error_references_no_backlink_label'        => 'برچسب‌های پیوند به انتها رسید.
+موارد جدیدی را در پیام <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> تعریف کنید',
 	'cite_error_references_no_text'                  => 'برچسب <code><ref></code> غیرمجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
 );
 

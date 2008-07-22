@@ -71,6 +71,11 @@ $aliases['lb'] = array(
 	'Cite' => array( 'Zitéierhellëf' ),
 );
 
+/** Nahuatl (Nahuatl) */
+$aliases['nah'] = array(
+	'Cite' => array( 'Tlahtoa' ),
+);
+
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),
@@ -84,6 +89,16 @@ $aliases['no'] = array(
 /** Pashto (پښتو) */
 $aliases['ps'] = array(
 	'Cite' => array( 'درک' ),
+);
+
+/** Portuguese (Português) */
+$aliases['pt'] = array(
+	'Cite' => array( 'Citar' ),
+);
+
+/** Brazilian Portuguese (Português do Brasil) */
+$aliases['pt-br'] = array(
+	'Cite' => array( 'Citar' ),
 );
 
 /** Swedish (Svenska) */

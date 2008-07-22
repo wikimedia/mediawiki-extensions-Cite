@@ -866,6 +866,7 @@ $messages['myv'] = array(
 $messages['nah'] = array(
 	'cite_article_link' => 'Tlahtoa inīn tlahcuilōltechcopa',
 	'cite'              => 'Tlahtoa',
+	'cite_page'         => 'Zāzanilli:',
 );
 
 /** Min Nan Chinese (Bân-lâm-gú) */
@@ -1051,11 +1052,12 @@ $messages['rmy'] = array(
 /** Romanian (Română)
  * @author Emily
  * @author Firilacroco
+ * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
 	'cite_article_link' => 'Citează acest articol',
 	'cite'              => 'Citează',
-	'cite_page'         => 'Citează pagina:',
+	'cite_page'         => 'Pagină:',
 	'cite_submit'       => 'Deschide informaţii',
 );
 
@@ -1256,6 +1258,13 @@ $messages['tr'] = array(
 	'cite'              => 'Kaynak göster',
 	'cite_page'         => 'Sayfa:',
 	'cite_submit'       => 'Belirt',
+);
+
+/** Tsonga (Xitsonga)
+ * @author Thuvack
+ */
+$messages['ts'] = array(
+	'cite_page' => 'Tluka:',
 );
 
 /** Ukrainian (Українська)

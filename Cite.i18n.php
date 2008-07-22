@@ -1183,6 +1183,15 @@ Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;
 	'cite_error_references_no_text'                  => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
 );
 
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'cite_desc'  => 'Adaugă etichete <nowiki><ref[ name=id]></nowiki> şi <nowiki><references/></nowiki>, pentru citări',
+	'cite_croak' => 'Citare coruptă; $1 : $2',
+	'cite_error' => 'Eroare la citare: $1',
+);
+
 /** Russian (Русский)
  * @author Александр Сигачёв
  * @author Kalan

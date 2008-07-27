@@ -100,21 +100,33 @@ Faiga serbir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..
 $messages['ar'] = array(
 	'cite_desc'                                        => 'يضيف وسوم <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهادات',
 	'cite_croak'                                       => 'الاستشهاد مات؛ $1: $2',
-	'cite_error_key_str_invalid'                       => 'خطأ داخلي؛ $str و/أو $key غير صحيح.  هذا لا يجب أن يحدث أبدا.',
-	'cite_error_stack_invalid_input'                   => 'خطأ داخلي؛ مفتاح ستاك غير صحيح.  هذا لا يجب أن يحدث أبدا.',
+	'cite_error_key_str_invalid'                       => 'خطأ داخلي؛
+$str و/أو $key غير صحيح.
+هذا لا يجب أن يحدث أبدا.',
+	'cite_error_stack_invalid_input'                   => 'خطأ داخلي؛
+مفتاح ستاك غير صحيح.
+هذا لا يجب أن يحدث أبدا.',
 	'cite_error'                                       => 'خطأ استشهاد: $1',
-	'cite_error_ref_numeric_key'                       => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ الاسم لا يمكن أن يكون عددا صحيحا بسيطا، استخدم عنوانا وصفيا',
-	'cite_error_ref_no_key'                            => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ المراجع غير ذات المحتوى يجب أن تمتلك اسما',
-	'cite_error_ref_too_many_keys'                     => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ أسماء غير صحيحة، مثال كثيرة جدا',
-	'cite_error_ref_no_input'                          => 'معرفة <code>&lt;ref&gt;</code> غير صحيحة؛ المراجع غير ذات الاسم يجب أن تمتلك محتوى',
-	'cite_error_references_invalid_input'              => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا مدخل مسموح به، استخدم
-<code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters'         => 'معرفة <code>&lt;references&gt;</code> غير صحيحة؛ لا محددات مسموح بها، استخدم <code>&lt;references /&gt;</code>',
+	'cite_error_ref_numeric_key'                       => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
+الاسم لا يمكن أن يكون عددا صحيحا بسيطا. استخدم عنوانا وصفيا',
+	'cite_error_ref_no_key'                            => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
+المراجع غير ذات المحتوى يجب أن تمتلك اسما',
+	'cite_error_ref_too_many_keys'                     => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
+أسماء غير صحيحة، على سبيل المثال كثيرة جدا',
+	'cite_error_ref_no_input'                          => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
+المراجع غير ذات الاسم يجب أن تمتلك محتوى',
+	'cite_error_references_invalid_input'              => 'وسم <code>&lt;references&gt;</code> غير صحيح؛
+لا مدخل مسموح به، استخدم <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'         => 'وسم <code>&lt;references&gt;</code> غير صحيح؛
+لا محددات مسموح بها.
+استخدم <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group'   => 'وسم <code>&lt;references&gt;</code> غير صحيح؛
 المحدد "group" فقط مسموح به.
 استخدم <code>&lt;references /&gt;</code>، أو <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'          => 'نفدت علامات الباك لينك الكوستوم، عرف المزيد في رسالة <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_references_no_text'                    => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛ لا نص تم توفيره للمراجع المسماة <code>$1</code>',
+	'cite_error_references_no_backlink_label'          => 'نفدت علامات الوصلات الراجعة المخصصة.
+عرف المزيد في رسالة <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text'                    => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
+لا نص تم توفيره للمراجع المسماة <code>$1</code>',
 	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي',
 );
 

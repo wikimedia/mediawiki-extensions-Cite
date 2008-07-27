@@ -433,9 +433,13 @@ $messages['gl'] = array(
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
  * @author AndreasJS
+ * @author LeighvsOptimvsMaximvs
  */
 $messages['grc'] = array(
 	'cite_article_link' => 'Άναφέρειν τήνδε τὴν δέλτον',
+	'cite'              => 'Μνημονεύειν',
+	'cite_page'         => 'Δέλτος:',
+	'cite_submit'       => 'Μνημονεύειν',
 );
 
 /** Gujarati (ગુજરાતી)

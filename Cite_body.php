@@ -155,7 +155,7 @@ class Cite {
 			return $this->error( 'cite_error_ref_numeric_key' );
 		}
 
-		#Split these into groups.
+		# Split these into groups.
 		if( $group === null ) {
 			$group = $default_group;
 		}
@@ -195,14 +195,14 @@ class Cite {
 		else if ( $cnt >= 1 ) {
 			if ( isset( $argv['name'] ) ) {
 				// Key given.
-				$key = $this->validateName( $argv['name'] );
+				$key = Sanitizer::escapeId( $argv['name'] );
 				unset( $argv['name']);
 				--$cnt;
 			}
 			if ( isset( $argv['group'] ) ){
 				if (! $wgAllowCiteGroups ) return array(false); //remove when groups are fully tested.
 				// Group given.
-				$group = $argv['group'];//don't apply validateName for group display
+				$group = $argv['group'];
 				unset( $argv['group']);
 				--$cnt;
 			}
@@ -216,32 +216,6 @@ class Cite {
 		else
 			// No key
 			return array(null,$group);
-	}
-	
-	/**
-	 * Since the key name is used in an XHTML id attribute, it must
-	 * conform to the validity rules. The restriction to begin with
-	 * a letter is lifted since references have their own prefix.
-	 *
-	 * @fixme merge this code with the various section name transformations
-	 * @fixme double-check for complete validity
-	 * @return string if valid, false if invalid
-	 */
-	function validateName( $name ) {
-		if( preg_match( '/^[A-Za-z0-9:_.-]*$/i', $name ) ) {
-			return $name;
-		} else {
-			// WARNING: CRAPPY CUT AND PASTE MAKES BABY JESUS CRY
-			$text = urlencode( str_replace( ' ', '_', $name ) );
-			$replacearray = array(
-				'%3A' => ':',
-				'%' => '.'
-			);
-			return str_replace(
-				array_keys( $replacearray ),
-				array_values( $replacearray ),
-				$text );
-		}
 	}
 
 	/**

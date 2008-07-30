@@ -1063,6 +1063,7 @@ Gunakan <code>&lt;references /&gt;</code> atau <code>&lt;references group="..." 
  * @author Slomox
  */
 $messages['nds'] = array(
+	'cite_desc'  => 'Föögt <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags för Zitaten to',
 	'cite_croak' => 'Fehler bi de Referenzen. $1: $2',
 	'cite_error' => 'Zitat-Fehler: $1',
 );

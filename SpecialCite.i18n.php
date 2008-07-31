@@ -885,6 +885,7 @@ $messages['nan'] = array(
  * @author Slomox
  */
 $messages['nds'] = array(
+	'cite_article_desc' => 'Föögt en [[Special:Cite|Spezialsied för Zitaten]] un en Lenk dorop in’n Kasten Warktüüch to',
 	'cite_article_link' => 'Disse Siet ziteren',
 	'cite'              => 'Ziteerhelp',
 	'cite_page'         => 'Siet:',
@@ -1269,6 +1270,13 @@ $messages['tr'] = array(
  */
 $messages['ts'] = array(
 	'cite_page' => 'Tluka:',
+);
+
+/** Udmurt (Удмурт)
+ * @author ОйЛ
+ */
+$messages['udm'] = array(
+	'cite_article_link' => 'Кызьы со статьяез цитировать кароно',
 );
 
 /** Ukrainian (Українська)

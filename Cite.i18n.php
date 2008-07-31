@@ -465,6 +465,7 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Nike
  * @author Str4nd
+ * @author Agony
  */
 $messages['fi'] = array(
 	'cite_desc'                                      => 'Tarjoaa <nowiki><ref[ name=id]></nowiki>- ja <nowiki><references/></nowiki>-elementit viittauksien tekemiseen.',
@@ -479,6 +480,8 @@ $messages['fi'] = array(
 	'cite_error_references_invalid_input'            => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: sisällön lisääminen ei ole sallittu. Käytä elementtiä <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters'       => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters_group' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: vain parametri ”group” on sallittu. Käytä tagia <code>&lt;references /&gt;</code> tai <code>&lt;references group="…" /&gt;</code>',
+	'cite_error_references_no_text'                  => 'Virheellinen <code>&lt;ref&gt;</code>-tagi;
+viitettä <code>$1</code> ei löytynyt',
 );
 
 /** French (Français)
@@ -1063,9 +1066,20 @@ Gunakan <code>&lt;references /&gt;</code> atau <code>&lt;references group="..." 
  * @author Slomox
  */
 $messages['nds'] = array(
-	'cite_desc'  => 'Föögt <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags för Zitaten to',
-	'cite_croak' => 'Fehler bi de Referenzen. $1: $2',
-	'cite_error' => 'Zitat-Fehler: $1',
+	'cite_desc'                                      => 'Föögt <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags för Zitaten to',
+	'cite_croak'                                     => 'Fehler bi de Referenzen. $1: $2',
+	'cite_error_key_str_invalid'                     => 'Internen Fehler: ungülligen $str un/oder $key. Dat schull egentlich nie vörkamen.',
+	'cite_error_stack_invalid_input'                 => 'Internen Fehler: ungülligen Stack-Slötel. Dat schull egentlich nie vörkamen.',
+	'cite_error'                                     => 'Zitat-Fehler: $1',
+	'cite_error_ref_numeric_key'                     => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: de Naam dröff keen reine Tall wesen, bruuk en Naam, de de Saak beschrifft.',
+	'cite_error_ref_no_key'                          => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: „ref“ ahn Inholt mutt en Naam hebben.',
+	'cite_error_ref_too_many_keys'                   => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: ungüllige Naams, to’n Bispeel to veel.',
+	'cite_error_ref_no_input'                        => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: „ref“ ahn Naam mutt en Inholt hebben.',
+	'cite_error_references_invalid_input'            => 'Ungülligen Tag <code>&lt;references&gt;</code>: Tosätzlichen Text is nich verlöövt, bruuk <tt>&lt;references /&gt;</tt>',
+	'cite_error_references_invalid_parameters'       => 'Ungülligen Tag <code>&lt;references&gt;</code>: Parameters sünd nich verlöövt, bruuk <tt>&lt;references /&gt;</tt>',
+	'cite_error_references_invalid_parameters_group' => 'Ungülligen Tag <code>&lt;references&gt;</code>: Blot de Parameter „group“ is verlöövt, bruuk <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="…" /&gt;</tt>',
+	'cite_error_references_no_backlink_label'        => 'De verföögboren Tekens för de Lenken op Referenzen sünd all. Dat lett sik repareren, wenn in de Systemnaricht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mehr Tekens angeven warrt.',
+	'cite_error_references_no_text'                  => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>; is keen Text för Refs mit den Naam <tt>$1</tt> angeven.',
 );
 
 /** Dutch (Nederlands)

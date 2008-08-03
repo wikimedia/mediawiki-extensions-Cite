@@ -181,6 +181,13 @@ $messages['cdo'] = array(
 	'cite_submit'       => 'Īng-ê̤ṳng',
 );
 
+/** Cebuano (Cebuano)
+ * @author Abastillas
+ */
+$messages['ceb'] = array(
+	'cite' => 'Kutloa',
+);
+
 /** Corsican (Corsu)
  * @author SPQRobin
  */

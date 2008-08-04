@@ -12,12 +12,16 @@ $aliases['en'] = array(
 	'Cite' => array( 'Cite' ),
 );
 
-/** Arabic (العربية) */
+/** Arabic (العربية)
+ * @author Meno25
+ */
 $aliases['ar'] = array(
 	'Cite' => array( 'استشهاد' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
 $aliases['arz'] = array(
 	'Cite' => array( 'استشهاد' ),
 );

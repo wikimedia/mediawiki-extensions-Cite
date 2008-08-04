@@ -130,6 +130,17 @@ $str و/أو $key غير صحيح.
 	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Ghaly
+ */
+$messages['arz'] = array(
+	'cite_croak'                 => 'المرجع مات; $1: $2',
+	'cite_error_key_str_invalid' => 'غلط داخلى؛
+$str و/أو $key غلط.
+ده لازم مايحصلش ابدا.',
+	'cite_error'                 => 'المرجع غلط; $1: $2',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  * @author SPQRobin

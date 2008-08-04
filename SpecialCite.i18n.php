@@ -73,6 +73,17 @@ $messages['ar'] = array(
 	'cite_submit'       => 'استشهاد',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Ghaly
+ * @author Ramsis1978
+ */
+$messages['arz'] = array(
+	'cite_article_link' => 'استشهد بالصفحة دي',
+	'cite'              => 'مرجع',
+	'cite_page'         => 'الصفحه:',
+	'cite_submit'       => 'مرجع',
+);
+
 /** Asturian (Asturianu)
  * @author SPQRobin
  * @author Esbardu

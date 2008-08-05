@@ -75,6 +75,11 @@ $aliases['lb'] = array(
 	'Cite' => array( 'Zitéierhellëf' ),
 );
 
+/** Malay (Bahasa Melayu) */
+$aliases['ms'] = array(
+	'Cite' => array( 'Petik' ),
+);
+
 /** Nahuatl (Nahuatl) */
 $aliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),

@@ -925,7 +925,7 @@ $messages['ne'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'cite_article_desc' => 'Voegt een [[Special:Cite|special pagina om te citeren]] toe, en een link ernaar in de toolbox',
+	'cite_article_desc' => 'Voegt een [[Special:Cite|speciale pagina om te citeren]] toe, en een link ernaar in de hulpmiddelen',
 	'cite_article_link' => 'Deze pagina citeren',
 	'cite'              => 'Citeren',
 	'cite_page'         => 'Pagina:',

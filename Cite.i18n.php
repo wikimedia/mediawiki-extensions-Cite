@@ -59,6 +59,7 @@ no text was provided for refs named <code>$1</code>',
 	'cite_references_link_one'                         => '<li id="$1">[[#$2|↑]] $3</li>',
 	'cite_references_link_many'                        => '<li id="$1">↑ $2 $3</li>',
 	'cite_references_link_many_format'                 => '<sup>[[#$1|$2]]</sup>',
+	'cite_references_link_many_format_alpha'           => '<sup>[[#$1|$2]]</sup>',
 	# An item from this set is passed as $3 in the message above
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
 	'cite_references_link_many_sep'                    => " ",
@@ -66,8 +67,9 @@ no text was provided for refs named <code>$1</code>',
 
 	# Although I could just use # instead of <li> above and nothing here that
 	# will break on input that contains linebreaks
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol>',
+	'cite_references_prefix'       => '<ol class="references">',
+	'cite_references_prefix_alpha' => '<ol type="a" class="references">',
+	'cite_references_suffix'       => '</ol>',
 );
 
 /** Aragonese (Aragonés)

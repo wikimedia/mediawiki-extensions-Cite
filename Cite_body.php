@@ -17,7 +17,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
-class Cite {
+class CiteNumeric {
 	/**#@+
 	 * @access private
 	 */
@@ -60,7 +60,7 @@ class Cite {
 	 *
 	 * @var int
 	 */
-	var $mOutCnt = 0;
+	static $mOutCnt = 0;
 	var $mGroupCnt = array();
 
 	/**
@@ -70,7 +70,7 @@ class Cite {
 	 *
 	 * @var int
 	 */
-	var $mInCnt = 0;
+	static $mInCnt = 0;
 
 	/**
 	 * The backlinks, in order, to pass as $3 to
@@ -94,13 +94,22 @@ class Cite {
 	 */
 	var $mInCite = false;
 	
+	/**
+	 * formatting messages, can be overridden in derived class.
+	 */
+	var $cite_references_prefix = 'cite_references_prefix';
+	var $cite_references_link_many_format = 'cite_references_link_many_format';
+	
+
+
 	/**#@-*/
 
 	/**
 	 * Constructor
 	 */
-	function Cite() {
+	function CiteNumeric() {
 		$this->setHooks();
+		self::$mOutCnt = self::$mInCnt = 0;
 	}
 
 	/**#@+ @access private */
@@ -234,9 +243,9 @@ class Cite {
 		if ( $key === null ) {
 			// No key
 			//$this->mRefs[$group][] = $str;
-			$this->mRefs[$group][] = array('count'=>-1, 'text'=>$str, 'key'=>++$this->mOutCnt);
+			$this->mRefs[$group][] = array('count'=>-1, 'text'=>$str, 'key'=>++self::$mOutCnt);
 
-			return $this->linkRef( $group, $this->mInCnt++ );
+			return $this->linkRef( $group, self::$mInCnt++ );
 		} else if ( is_string( $key ) ) {
 			// Valid key
 			if ( ! isset( $this->mRefs[$group][$key] ) || ! is_array( $this->mRefs[$group][$key] ) ) {
@@ -244,10 +253,10 @@ class Cite {
 				$this->mRefs[$group][$key] = array(
 					'text' => $str,
 					'count' => 0,
-					'key' => ++$this->mOutCnt,
+					'key' => ++self::$mOutCnt,
 					'number' => ++$this->mGroupCnt[$group]
 				);
-				$this->mInCnt++;
+				self::$mInCnt++;
 				return
 					$this->linkRef(
 						$group,
@@ -335,7 +344,7 @@ class Cite {
 		foreach ( $this->mRefs[$group] as $k => $v )
 			$ent[] = $this->referencesFormatEntry( $k, $v );
 		
-		$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
+		$prefix = wfMsgForContentNoTrans( $this->cite_references_prefix );
 		$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
 		$content = implode( "\n", $ent );
 		
@@ -407,7 +416,7 @@ class Cite {
 //for group handling, we have an extra key here.
 			for ( $i = 0; $i <= $val['count']; ++$i ) {
 				$links[] = wfMsgForContentNoTrans(
-						'cite_references_link_many_format',
+						$this->cite_references_link_many_format,
 						$this->refKey( $key, $val['key']."-$i" ),
 						$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
 						$this->referencesFormatEntryAlternateBacklinkLabel( $i )
@@ -467,6 +476,13 @@ class Cite {
 			return $this->error( 'cite_error_references_no_backlink_label' );
 		}
 	}
+
+
+	function refCounterString($counter) { 
+		global $wgContLang;
+		return $wgContLang->formatNum($counter);
+	}
+
 
 	/**
 	 * Return an id for use in wikitext output based on a key and
@@ -528,7 +544,8 @@ class Cite {
 					'cite_reference_link',
 					$this->refKey( $key, $count ),
 					$this->referencesKey( $key . $subkey ),
-					(($group == CITE_DEFAULT_GROUP)?'':"$group ").$wgContLang->formatNum( is_null( $label ) ? ++$this->mGroupCnt[$group] : $label )
+					(($group == CITE_DEFAULT_GROUP)?'':"$group ").$this->refCounterString( is_null( $label ) ? ++$this->mGroupCnt[$group] : $label )
+
 				)
 			);
 	}
@@ -637,8 +654,8 @@ class Cite {
 			return true;
  
 		$this->mGroupCnt = array();
-		$this->mOutCnt = -1;
-		$this->mInCnt = 0;
+		self::$mOutCnt = -1;
+		self::$mInCnt = 0;
 		$this->mRefs = array();
 
 		return true;
@@ -649,10 +666,6 @@ class Cite {
 	 */
 	function setHooks() {
 		global $wgParser, $wgHooks;
-		
-		$wgParser->setHook( 'ref' , array( &$this, 'ref' ) );
-		$wgParser->setHook( 'references' , array( &$this, 'references' ) );
-
 		$wgHooks['ParserClearState'][] = array( &$this, 'clearState' );
 	}
 
@@ -688,5 +701,85 @@ class Cite {
 
 	/**#@-*/
 }
+
+
+
+class CiteAlpha extends CiteNumeric 
+{
+
+	var $cite_references_link_many_format = 'cite_references_link_many_format_alpha';
+	var $cite_references_prefix = 'cite_references_prefix_alpha';
+
+	/**
+	 * Constructor
+	 */
+	function CiteAlpha() {
+		$this->setHooks();
+	}
+
+	function refCounterString($counter) {
+
+		return $this->referencesFormatEntryAlternateBacklinkLabel( $counter-1 );
+	}
+
+}
+
+
+
+class Cite
+{
+#  var $mNumeric = new CiteNumeric();
+#  var $mAlpha = new CiteAlpha();
+ 
+	var $mObjects;
+
+	/**
+	 * Constructor
+	 */
+	function Cite() {
+		$this->setHooks();
+		$this->mObjects = array('n'=>new CiteNumeric(), 'a'=>new CiteAlpha());
+	}
+
+	/**
+	 * Initialize the parser hooks
+	 */
+	function setHooks() {
+		global $wgParser, $wgHooks;
+		
+		$wgParser->setHook( 'ref' , array( &$this, 'ref' ) );
+		$wgParser->setHook( 'references' , array( &$this, 'references' ) );
+	}
+
+	function selectFormat($method,$str,$argv,$parser) {
+	  $object = $this->mObjects['n'];
+
+	  if (isset($argv['format'])) {
+	    if (isset($this->mObjects[$argv['format']])) {
+	      $object = $this->mObjects[$argv['format']];
+	    } else {
+	      return $object->error('cite_error_unknown_format', $argv['format']);
+	    }
+	    unset($argv['format']);
+	    $argv=array_merge($argv);
+	  }
+	  
+	  return call_user_func(array($object,$method),$str,$argv,$parser);
+	  
+	}
+	
+	function ref($str,$argv,$parser)
+	  {
+	    return $this->selectFormat('ref',$str,$argv,$parser);
+	  }
+
+	function references($str,$argv,$parser)
+	  {
+	    return $this->selectFormat('references',$str,$argv,$parser);
+	  }
+	
+	
+}
+
 
 ?>

@@ -134,11 +134,14 @@ $str و/أو $key غير صحيح.
  * @author Ghaly
  */
 $messages['arz'] = array(
-	'cite_croak'                 => 'المرجع مات; $1: $2',
-	'cite_error_key_str_invalid' => 'غلط داخلى؛
+	'cite_croak'                     => 'المرجع مات; $1: $2',
+	'cite_error_key_str_invalid'     => 'غلط داخلى؛
 $str و/أو $key غلط.
 ده لازم مايحصلش ابدا.',
-	'cite_error'                 => 'المرجع غلط; $1: $2',
+	'cite_error_stack_invalid_input' => 'غلط داخلي؛
+مفتاح ستاك مش صحيح.
+ده لازم مايحصلش ابدا',
+	'cite_error'                     => 'المرجع غلط; $1: $2',
 );
 
 /** Asturian (Asturianu)
@@ -1000,6 +1003,14 @@ $messages['lt'] = array(
 	'cite_error_references_invalid_input'      => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label'  => 'Baigėsi antraštės, nurodykite daugiau <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> sisteminiame tekste',
+);
+
+/** Latvian (Latviešu)
+ * @author Xil
+ */
+$messages['lv'] = array(
+	'cite_desc'  => 'Pievieno <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> tagus, atsaucēm',
+	'cite_error' => 'Kļūda atsaucē: $1',
 );
 
 /** Malayalam (മലയാളം)

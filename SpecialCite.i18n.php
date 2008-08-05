@@ -810,10 +810,10 @@ $messages['lt'] = array(
 );
 
 /** Latvian (Latviešu)
- * @author SPQRobin
+ * @author Xil
  */
 $messages['lv'] = array(
-	'cite_article_link' => 'Atsauce uz šo rakstu',
+	'cite_article_link' => 'Atsauce uz šo lapu',
 	'cite'              => 'Citēšana',
 	'cite_page'         => 'Raksts:',
 	'cite_submit'       => 'Parādīt atsauci',

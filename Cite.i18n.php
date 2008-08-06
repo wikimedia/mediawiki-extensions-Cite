@@ -1133,20 +1133,21 @@ Geef meer labels op in het bericht <nowiki>[[MediaWiki:Cite references link many
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
-	'cite_desc'                                      => 'Legger til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referanser',
-	'cite_croak'                                     => 'Sitering døde; $1: $2',
-	'cite_error_key_str_invalid'                     => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri forekomme.',
-	'cite_error_stack_invalid_input'                 => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri forekomme.',
-	'cite_error'                                     => 'Siteringsfeil: $1',
-	'cite_error_ref_numeric_key'                     => 'Ugyldig <code>&lt;ref&gt;</code>-kode; navnet kan ikke være et enkelt heltall, bruk en beskrivende tittel',
-	'cite_error_ref_no_key'                          => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten innhold må inneholde navn',
-	'cite_error_ref_too_many_keys'                   => 'Ugyldig <code>&lt;ref&gt;</code>-kode; ugyldige navn, f.eks. for mange',
-	'cite_error_ref_no_input'                        => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten navn må ha innhold',
-	'cite_error_references_invalid_input'            => 'Ugyldig <code>&lt;references&gt;</code>-tagg: Innhold er ikke tillatt, bruk i stedet <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters'       => 'Ugyldig <code>&lt;references&gt;</code>-kode; ingen parametere tillates, bruk <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Ugyldig <code>&lt;references&gt;</code>-tagg; kun parameteret «group» tillates. Bruk <code>&lt;references /&gt;</code> eller <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label'        => "Gikk tom for egendefinerte tilbakelenketekster; definer flere i beskjeden «''cite_references_link_many_format_backlink_labels''»",
-	'cite_error_references_no_text'                  => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>',
+	'cite_desc'                                        => 'Legger til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referanser',
+	'cite_croak'                                       => 'Sitering døde; $1: $2',
+	'cite_error_key_str_invalid'                       => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri forekomme.',
+	'cite_error_stack_invalid_input'                   => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri forekomme.',
+	'cite_error'                                       => 'Siteringsfeil: $1',
+	'cite_error_ref_numeric_key'                       => 'Ugyldig <code>&lt;ref&gt;</code>-kode; navnet kan ikke være et enkelt heltall, bruk en beskrivende tittel',
+	'cite_error_ref_no_key'                            => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten innhold må inneholde navn',
+	'cite_error_ref_too_many_keys'                     => 'Ugyldig <code>&lt;ref&gt;</code>-kode; ugyldige navn, f.eks. for mange',
+	'cite_error_ref_no_input'                          => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten navn må ha innhold',
+	'cite_error_references_invalid_input'              => 'Ugyldig <code>&lt;references&gt;</code>-tagg: Innhold er ikke tillatt, bruk i stedet <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'         => 'Ugyldig <code>&lt;references&gt;</code>-kode; ingen parametere tillates, bruk <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group'   => 'Ugyldig <code>&lt;references&gt;</code>-tagg; kun parameteret «group» tillates. Bruk <code>&lt;references /&gt;</code> eller <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'          => "Gikk tom for egendefinerte tilbakelenketekster; definer flere i beskjeden «''cite_references_link_many_format_backlink_labels''»",
+	'cite_error_references_no_text'                    => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>',
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å',
 );
 
 /** Occitan (Occitan)

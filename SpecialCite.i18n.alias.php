@@ -31,6 +31,11 @@ $aliases['bcl'] = array(
 	'Cite' => array( 'Sambitón' ),
 );
 
+/** Danish (Dansk) */
+$aliases['da'] = array(
+	'Cite' => array( 'Citer' ),
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */
@@ -80,7 +85,7 @@ $aliases['ms'] = array(
 	'Cite' => array( 'Petik' ),
 );
 
-/** Nahuatl (Nahuatl) */
+/** Nahuatl (Nāhuatl) */
 $aliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),
 );

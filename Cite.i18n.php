@@ -148,7 +148,6 @@ $str و/أو $key غلط.
 
 /** Asturian (Asturianu)
  * @author Esbardu
- * @author SPQRobin
  */
 $messages['ast'] = array(
 	'cite_desc'                                        => 'Añade les etiquetes <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> pa les cites',
@@ -163,6 +162,9 @@ $messages['ast'] = array(
 	'cite_error_references_invalid_input'              => 'Etiqueta <code>&lt;references&gt;</code> non válida; nun se permiten entraes, usa
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters'         => 'Etiqueta <code>&lt;references&gt;</code> non válida; nun se permiten parámetros, usa <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group'   => 'Etiqueta <code>&lt;references&gt;</code> non válida;
+namái se permite\'l parámetru "group".
+Usa <code>&lt;references /&gt;</code>, o bien <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'          => 'Etiquetes personalizaes agotaes, defini más nel mensaxe <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text'                    => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nun se conseñó testu pa les referencies nomaes <code>$1</code>',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n ñ o p q r s t u v w x y z',
@@ -422,13 +424,13 @@ $messages['el'] = array(
 $messages['eo'] = array(
 	'cite_desc'                                      => 'Aldonas etikedojn <nowiki><ref[ name=id]></nowiki> kaj <nowiki><references/></nowiki> por citaĵoj',
 	'cite_croak'                                     => 'Cito mortis; $1: $2',
-	'cite_error_key_str_invalid'                     => 'Intera eraro;
+	'cite_error_key_str_invalid'                     => 'Interna eraro;
 nevalida $str kaj/aŭ $key.
-Ĉi tio neniam povus okazi.',
+Ĉi tio neniam okazos.',
 	'cite_error_stack_invalid_input'                 => 'Interna eraro;
 nevalida staka ŝlosilo.
 Ĉi tio verŝajne neniam okazus.',
-	'cite_error'                                     => 'Citu eraron: $1',
+	'cite_error'                                     => 'Citaĵa eraro: $1',
 	'cite_error_ref_numeric_key'                     => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
 nomo ne povas esti simpla entjero. Uzu priskriban titolon.',
 	'cite_error_ref_no_key'                          => "Nevalida etikedo <code>&lt;ref&gt;</code>;

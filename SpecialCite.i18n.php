@@ -297,10 +297,10 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'cite_article_desc' => 'Aldonas specialan paĝon por [[Special:Cite|citado]] kaj ligilo al ilaro',
-	'cite_article_link' => 'Citu ĉi tiun pagxon',
+	'cite_article_link' => 'Citi ĉi tiun paĝon',
 	'cite'              => 'Citado',
 	'cite_page'         => 'Paĝo:',
-	'cite_submit'       => 'Citado',
+	'cite_submit'       => 'Citi',
 );
 
 /** Spanish (Español)

@@ -90,6 +90,11 @@ $aliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),
 );
 
+/** Low German (Plattdüütsch) */
+$aliases['nds'] = array(
+	'Cite' => array( 'Ziteerhelp' ),
+);
+
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),

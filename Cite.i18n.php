@@ -72,7 +72,8 @@ no text was provided for refs named <code>$1</code>',
 
 /** Message documentation (Message documentation)
  * @author Lejonel
- * @author Raymond
+ * @author Raimond Spekking
+ * @author Siebrand
  */
 $messages['qqq'] = array(
 	'cite_desc' => 'Extension description for cite. Do not translate or change tag names.',
@@ -371,7 +372,7 @@ $messages['cu'] = array(
 );
 
 /** Danish (Dansk)
- * @author Morten
+ * @author Morten LJ
  */
 $messages['da'] = array(
 	'cite_croak' => 'Fodnoten døde: $1: $2',

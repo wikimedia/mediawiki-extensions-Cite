@@ -16,7 +16,10 @@ $messages['en'] = array(
 	'cite_text'         => '', # Do not translate this
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ * @author Siebrand
+ */
 $messages['qqq'] = array(
 	'cite_article_desc' => 'Extension description for cite. Do not translate or change links, and tag names.',
 	'cite' => '{{Identical|Cite}}',
@@ -250,7 +253,7 @@ $messages['cy'] = array(
 );
 
 /** Danish (Dansk)
- * @author Morten
+ * @author Morten LJ
  */
 $messages['da'] = array(
 	'cite_article_link' => 'Citér denne artikel',

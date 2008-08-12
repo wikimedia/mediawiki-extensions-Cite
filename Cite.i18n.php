@@ -1246,11 +1246,36 @@ Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;
 
 /** Romanian (Română)
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
 	'cite_desc' => 'Adaugă etichete <nowiki><ref[ name=id]></nowiki> şi <nowiki><references/></nowiki>, pentru citări',
 	'cite_croak' => 'Citare coruptă; $1 : $2',
+	'cite_error_key_str_invalid' => 'Eroare internă;
+$str invalid sau/şi $key.
+Acestea nu ar trebui să se întâmple.',
+	'cite_error_stack_invalid_input' => 'Eroare internă;
+stivă cheie invalidă.
+Acestea nu ar trebui să se întâmple.',
 	'cite_error' => 'Eroare la citare: $1',
+	'cite_error_ref_numeric_key' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
+numele nu poate fi un număr. Foloseşte un titlu descriptiv',
+	'cite_error_ref_no_key' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
+ref-urile fără conţinut trebuie să aibă un nume',
+	'cite_error_ref_too_many_keys' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
+nume invalid, ex. prea multe nume',
+	'cite_error_ref_no_input' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
+ref-urile fără nume trebuie să aibă conţinut',
+	'cite_error_references_invalid_input' => 'Etichetă <code>&lt;references&gt;</code> invalidă;
+nu sunt permise intrări. Foloseşte eticheta <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Etichetă <code>&lt;references&gt;</code> invalidă;
+parametrii nu sunt permişi.
+Foloseşte eticheta <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Etichetă <code>&lt;references&gt;</code> invalidă;
+doar parametrul „grup” este permis.
+Foloseşte eticheta <code>&lt;references /&gt;</code>, sau <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
+niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
 );
 
 /** Russian (Русский)

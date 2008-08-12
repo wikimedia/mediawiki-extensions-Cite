@@ -518,9 +518,11 @@ $messages['hil'] = array(
 );
 
 /** Croatian (Hrvatski)
+ * @author Dalibor Bosits
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
+	'cite_article_desc' => 'Dodaje posebnu stranicu za [[Special:Cite|citiranje]] i link u okvir za alate',
 	'cite_article_link' => 'Citiraj ovaj članak',
 	'cite' => 'Citiranje',
 	'cite_page' => 'Stranica:',
@@ -1075,8 +1077,10 @@ $messages['rmy'] = array(
  * @author Emily
  * @author Firilacroco
  * @author KlaudiuMihaila
+ * @author Mihai
  */
 $messages['ro'] = array(
+	'cite_article_desc' => 'Adaugă o pagină specială [[Special:Cite|citare]] şi o legătură cutie unelte',
 	'cite_article_link' => 'Citează acest articol',
 	'cite' => 'Citează',
 	'cite_page' => 'Pagină:',

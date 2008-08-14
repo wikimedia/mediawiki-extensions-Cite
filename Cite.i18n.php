@@ -947,7 +947,47 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'cite_desc' => 'Erlaub Quelle un Referenze met <tt><nowiki><ref[ name="id"]></nowiki></tt> un <tt><nowiki><references /></nowiki></tt> aanzejevve.',
 	'cite_croak' => 'Fääler met Refenenze. $1: $2',
-	'cite_error' => 'Fääler met Refenenze: $1',
+	'cite_error_key_str_invalid' => 'Interne Fähler in <i lang="en">cite</i>:
+<code>$str</code> udder <code>$key</code> stemme nit.
+Dat sull nie optredde.',
+	'cite_error_stack_invalid_input' => 'Interne Fähler in <i lang="en">cite</i>:
+Der <i lang="en">stack</i>-Schößel stemmp nit.
+Dat sull nie optredde.',
+	'cite_error' => 'Fähler in <i lang="en">cite</i> met Refenenze: $1',
+	'cite_error_ref_numeric_key' => 'Fähler en <i lang="en">cite</i>:
+Ene <code>&lt;ref&gt;</code>-Name kann kei Zahl sin.
+Nemm enne Tittel, dä jät säht.',
+	'cite_error_ref_no_key' => 'Fähler en <i lang="en">cite</i>:
+E <code>&lt;ref&gt;</code> oohne Enhalt moß ene Name han.
+Nemm enne Tittel, dä jät säht.',
+	'cite_error_ref_too_many_keys' => 'Fähler en <i lang="en">cite</i>:
+Zo fill <code>&lt;ref&gt;</code>-Name,
+udder kapodde ene Name.',
+	'cite_error_ref_no_input' => 'Fähler en <i lang="en">cite</i>:
+E <code>&lt;ref&gt;</code> oohne Name moß ene Enhallt han.',
+	'cite_error_references_invalid_input' => 'Fähler en <i lang="en">cite</i>:
+E <code>&lt;references&gt;</code> moß oohne Enhalt sin.
+Nemm eifach <code>&lt;references /&gt;</code> un söns nix.',
+	'cite_error_references_invalid_parameters' => 'Fähler en <i lang="en">cite</i>:
+E <code>&lt;references&gt;</code> moß oohne Parrametere sin.
+Nemm eifach <code>&lt;references /&gt;</code> un söns nix.',
+	'cite_error_references_invalid_parameters_group' => 'Fähler en <i lang="en">cite</i>:
+E <code>&lt;references&gt;</code> darf nur dä Parrameeter „<code>group</code>“ han.
+Nemm eifach <code>&lt;references /&gt;</code> udder <code>&lt;references group="..." /&gt;</code> un söns nix.',
+	'cite_error_references_no_backlink_label' => 'Fähler en <i lang="en">cite</i>:
+Nit jenoch Name för retuur-Lengks.
+Donn mieh en dä Sigg <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> enndrare.',
+	'cite_error_references_no_text' => 'Fähler en <i lang="en">cite</i>:
+Et wohr keine Tex aanjejovve för de
+<code>&lt;ref&gt;</code>s met dämm Name „<code>$1</code>“.',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link_prefix' => 'cite_ref-',
+	'cite_references_link_prefix' => 'cite_note-',
+	'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+	'cite_references_link_one' => '<li id="$1">[[#$2|↑]] $3</li>',
+	'cite_references_link_many' => '<li id="$1">↑ $2 $3</li>',
+	'cite_references_link_many_format' => '<sup>[[#$1|$2]]</sup>',
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

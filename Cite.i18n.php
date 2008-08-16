@@ -151,8 +151,10 @@ $str و/أو $key غير صحيح.
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Ghaly
+ * @author Ramsis II
  */
 $messages['arz'] = array(
+	'cite_desc' => 'بيضيف التاجز <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهاد',
 	'cite_croak' => 'المرجع مات; $1: $2',
 	'cite_error_key_str_invalid' => 'غلط داخلى؛
 $str و/أو $key غلط.
@@ -161,6 +163,14 @@ $str و/أو $key غلط.
 مفتاح ستاك مش صحيح.
 ده لازم مايحصلش ابدا',
 	'cite_error' => 'المرجع غلط; $1: $2',
+	'cite_error_ref_numeric_key' => 'التاج <code>&lt;ref&gt;</code> مش صحيح؛
+الاسم ماينفعش يكون عدد صحيح بسيط. استخدم عنوان بيوصف',
+	'cite_error_ref_no_key' => 'التاج <code>&lt;ref&gt;</code> مش صحيح؛
+المراجع اللي من غير محتوى لازميكون ليها اسم',
+	'cite_error_ref_too_many_keys' => 'التاج <code>&lt;ref&gt;</code> مش صحيح؛
+أسامي مش صحيحة، يعني مثلا: كتير قوي',
+	'cite_error_ref_no_input' => 'تاج <code>&lt;ref&gt;</code> مش صحيح؛
+المراجع اللي من غير اسم لازم يكون ليها محتوى',
 );
 
 /** Asturian (Asturianu)
@@ -182,7 +192,8 @@ $messages['ast'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> non válida;
 namái se permite\'l parámetru "group".
 Usa <code>&lt;references /&gt;</code>, o bien <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Etiquetes personalizaes agotaes, defini más nel mensaxe <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label' => 'Etiquetes personalizaes agotaes.
+Defini más nel mensaxe <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nun se conseñó testu pa les referencies nomaes <code>$1</code>',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n ñ o p q r s t u v w x y z',
 );
@@ -640,6 +651,7 @@ $messages['hi'] = array(
 );
 
 /** Croatian (Hrvatski)
+ * @author Dalibor Bosits
  * @author Dnik
  * @author SpeedyGonsales
  */
@@ -656,6 +668,9 @@ $messages['hr'] = array(
 	'cite_error_references_invalid_input' => 'Loša <code>&lt;references&gt;</code> oznaka; nije dozvoljen unos, koristite
 <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Loša <code>&lt;references&gt;</code> oznaka; parametri nisu dozvoljeni, koristite <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Neispravna <code>&lt;references&gt;</code> oznaka;
+Dopuštena je samo opcija "group".
+Koristite <code>&lt;references /&gt;</code>, ili <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Potrošene sve posebne oznake za poveznice unatrag, definirajte više u poruci <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Nije zadan tekst za izvor <code>$1</code>',
 );

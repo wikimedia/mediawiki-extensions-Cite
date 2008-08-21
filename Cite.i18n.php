@@ -833,6 +833,7 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -847,6 +848,7 @@ $messages['ja'] = array(
 	'cite_error_ref_no_input' => '無効な <code>&lt;ref&gt;</code> タグ: 名前 （<code>name</code> 属性）がない場合には引用句の内容が必要です',
 	'cite_error_references_invalid_input' => '無効な <code>&lt;references&gt;</code> タグ: 内容のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
 	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ: 引数のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
+	'cite_error_references_invalid_parameters_group' => '無効な <code>&lt;references&gt;</code> タグです。使用できるパラメータは "group" のみです。 <code>&lt;references /&gt;</code> または <code>&lt;references group="..." /&gt;</code> を使用してください。',
 	'cite_error_references_no_backlink_label' => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。',
 	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグ: <code>$1</code>という名前の引用句に対するテキストがありません。',
 );

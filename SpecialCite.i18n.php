@@ -739,7 +739,7 @@ $messages['krj'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'cite_article_desc' => 'Brenk de Sondersigg [[{{#special:Cite}}|Ziteere]] un ene Link onger „{{int:toolbox}}“.',
+	'cite_article_desc' => 'Brenk de Sondersigg „[[Special:Cite|Ziteere]]“ un ene Link onger „{{int:toolbox}}“.',
 	'cite_article_link' => 'Di Sigk Zitteere',
 	'cite' => 'Zittiere',
 	'cite_page' => 'Sigk:',
@@ -1025,6 +1025,13 @@ $messages['pms'] = array(
 	'cite' => 'Citassion',
 	'cite_page' => 'Pàgina da cité:',
 	'cite_submit' => 'Pronta la citassion',
+);
+
+/** Pontic (Ποντιακά)
+ * @author Sinopeus
+ */
+$messages['pnt'] = array(
+	'cite_page' => 'Σελίδα:',
 );
 
 /** Pashto (پښتو)

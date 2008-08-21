@@ -100,6 +100,11 @@ $aliases['nds'] = array(
 	'Cite' => array( 'Ziteerhelp' ),
 );
 
+/** Nedersaksisch (Nedersaksisch) */
+$aliases['nds-nl'] = array(
+	'Cite' => array( 'Citeerhulpe' ),
+);
+
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),
@@ -128,5 +133,10 @@ $aliases['pt-br'] = array(
 /** Swedish (Svenska) */
 $aliases['sv'] = array(
 	'Cite' => array( 'Citera' ),
+);
+
+/** Tetum (Tetun) */
+$aliases['tet'] = array(
+	'Cite' => array( 'Sita' ),
 );
 

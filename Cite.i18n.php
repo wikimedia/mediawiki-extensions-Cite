@@ -135,7 +135,7 @@ $str و/أو $key غير صحيح.
 	'cite_error_ref_no_input' => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
 المراجع غير ذات الاسم يجب أن تمتلك محتوى',
 	'cite_error_references_invalid_input' => 'وسم <code>&lt;references&gt;</code> غير صحيح؛
-لا مدخل مسموح به، استخدم <code>&lt;references /&gt;</code>',
+لا مدخل مسموح به. استخدم <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'وسم <code>&lt;references&gt;</code> غير صحيح؛
 لا محددات مسموح بها.
 استخدم <code>&lt;references /&gt;</code>',

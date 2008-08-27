@@ -479,6 +479,13 @@ Difinu pliajn en la mesaĝo <nowiki>[[MediaWiki:Cite references link many format
 neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 );
 
+/** Spanish (Español)
+ * @author Muro de Aguas
+ */
+$messages['es'] = array(
+	'cite_error' => 'Error en la cita: $1',
+);
+
 /** Basque (Euskara) */
 $messages['eu'] = array(
 	'cite_error' => 'Aipamen errorea: $1',

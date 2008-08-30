@@ -916,8 +916,8 @@ ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
-	'cite_croak' => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2 ',
-	'cite_error_key_str_invalid' => 'ٸشكٸ قاتە; جارامسىز $str ',
+	'cite_croak' => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2',
+	'cite_error_key_str_invalid' => 'ٸشكٸ قاتە; جارامسىز $str',
 	'cite_error_stack_invalid_input' => 'ٸشكٸ قاتە; جارامسىز ستەك كٸلتٸ',
 	'cite_error' => 'دٵيەكسٶز الۋ $1 قاتەسٸ',
 	'cite_error_ref_numeric_key' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; اتاۋ كٵدٸمگٸ بٷتٸن سان بولۋى مٷمكٸن ەمەس, سيپپاتاۋىش اتاۋ قولدانىڭىز',
@@ -931,8 +931,8 @@ $messages['kk-arab'] = array(
 
 /** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
 $messages['kk-cyrl'] = array(
-	'cite_croak' => 'Дәйексөз алу сәтсіз бітті; $1: $2 ',
-	'cite_error_key_str_invalid' => 'Ішкі қате; жарамсыз $str ',
+	'cite_croak' => 'Дәйексөз алу сәтсіз бітті; $1: $2',
+	'cite_error_key_str_invalid' => 'Ішкі қате; жарамсыз $str',
 	'cite_error_stack_invalid_input' => 'Ішкі қате; жарамсыз стек кілті',
 	'cite_error' => 'Дәйексөз алу $1 қатесі',
 	'cite_error_ref_numeric_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; атау кәдімгі бүтін сан болуы мүмкін емес, сиппатауыш атау қолданыңыз',
@@ -946,8 +946,8 @@ $messages['kk-cyrl'] = array(
 
 /** Kazakh (Latin) (Қазақша (Latin)) */
 $messages['kk-latn'] = array(
-	'cite_croak' => 'Däýeksöz alw sätsiz bitti; $1: $2 ',
-	'cite_error_key_str_invalid' => 'İşki qate; jaramsız $str ',
+	'cite_croak' => 'Däýeksöz alw sätsiz bitti; $1: $2',
+	'cite_error_key_str_invalid' => 'İşki qate; jaramsız $str',
 	'cite_error_stack_invalid_input' => 'İşki qate; jaramsız stek kilti',
 	'cite_error' => 'Däýeksöz alw $1 qatesi',
 	'cite_error_ref_numeric_key' => 'Jaramsız <code>&lt;ref&gt;</code> belgişesi; ataw kädimgi bütin san bolwı mümkin emes, sïppatawış ataw qoldanıñız',
@@ -1351,7 +1351,7 @@ $messages['ru'] = array(
 	'cite_desc' => 'Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок',
 	'cite_croak' => 'Цитата сдохла; $1: $2',
 	'cite_error_key_str_invalid' => 'Внутренняя ошибка: неверный $str',
-	'cite_error_stack_invalid_input' => 'Внутренняя ошибка: неверный ключ стека ',
+	'cite_error_stack_invalid_input' => 'Внутренняя ошибка: неверный ключ стека',
 	'cite_error' => 'Ошибка цитирования $1',
 	'cite_error_ref_numeric_key' => 'Неправильный вызов: ожидался нечисловой ключ',
 	'cite_error_ref_no_key' => 'Неправильный вызов: ключ не был указан',

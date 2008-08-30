@@ -172,7 +172,7 @@ $messages['bn'] = array(
 	'cite_submit' => 'উদ্ধৃত করো',
 );
 
-/** Bishnupriya (ইমার ঠার/বিষ্ণুপ্রিয়া মণিপুরী) */
+/** Bishnupria Manipuri (ইমার ঠার/বিষ্ণুপ্রিয়া মণিপুরী) */
 $messages['bpy'] = array(
 	'cite_article_link' => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite' => 'উদ্ধৃত করেদে',

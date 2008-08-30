@@ -151,6 +151,7 @@ $str و/أو $key غير صحيح.
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Ghaly
+ * @author Meno25
  * @author Ramsis II
  */
 $messages['arz'] = array(
@@ -166,11 +167,11 @@ $str و/أو $key غلط.
 	'cite_error_ref_numeric_key' => 'التاج <code>&lt;ref&gt;</code> مش صحيح؛
 الاسم ماينفعش يكون عدد صحيح بسيط. استخدم عنوان بيوصف',
 	'cite_error_ref_no_key' => 'التاج <code>&lt;ref&gt;</code> مش صحيح؛
-المراجع اللي من غير محتوى لازميكون ليها اسم',
+المراجع اللى من غير محتوى لازميكون ليها اسم',
 	'cite_error_ref_too_many_keys' => 'التاج <code>&lt;ref&gt;</code> مش صحيح؛
-أسامي مش صحيحة، يعني مثلا: كتير قوي',
+أسامى مش صحيحة، يعنى مثلا: كتير قوي',
 	'cite_error_ref_no_input' => 'تاج <code>&lt;ref&gt;</code> مش صحيح؛
-المراجع اللي من غير اسم لازم يكون ليها محتوى',
+المراجع اللى من غير اسم لازم يكون ليها محتوى',
 );
 
 /** Asturian (Asturianu)

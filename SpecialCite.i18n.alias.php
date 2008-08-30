@@ -75,6 +75,11 @@ $aliases['hu'] = array(
 	'Cite' => array( 'Irodalomjegyzék' ),
 );
 
+/** Indonesian (Bahasa Indonesia) */
+$aliases['id'] = array(
+	'Cite' => array( 'Kutip' ),
+);
+
 /** Korean (한국어) */
 $aliases['ko'] = array(
 	'Cite' => array( '인용' ),

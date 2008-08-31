@@ -172,6 +172,21 @@ $str و/أو $key غلط.
 أسامى مش صحيحة، يعنى مثلا: كتير قوي',
 	'cite_error_ref_no_input' => 'تاج <code>&lt;ref&gt;</code> مش صحيح؛
 المراجع اللى من غير اسم لازم يكون ليها محتوى',
+	'cite_error_references_invalid_input' => 'مش صحيح <code>&lt;references&gt;</code> تاج;
+مافيش مدخل مسموح بيه. استخدم <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'مش صحيح <code>&lt;references&gt;</code> تاج;
+مافيش محددات مسموح بيها.
+استخدم <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'مش صحيح <code>&lt;references&gt;</code> تاج;
+محدد "group" مسموح بيه بس.
+استخدم <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'علامات الوصلات الراجعة المخصصة خلصت.
+عرف اكتر في رسالة <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text' => 'مش صحيح <code>&lt;ref&gt;</code> تاج;
+مافيش نص متوافر في المراجع اللي اسمها<code>$1</code>',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link_prefix' => 'cite_ref-',
+	'cite_references_link_prefix' => 'cite_note-',
 );
 
 /** Asturian (Asturianu)

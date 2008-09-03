@@ -879,9 +879,10 @@ $messages['mt'] = array(
 
 /** Erzya (Эрзянь)
  * @author Amdf
+ * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
-	'cite_page' => 'Лопа:',
+	'cite_page' => 'Лопась:',
 );
 
 /** Nahuatl (Nāhuatl)
@@ -1349,7 +1350,7 @@ $messages['vi'] = array(
  * @author Smeira
  */
 $messages['vo'] = array(
-	'cite_article_desc' => 'Läükon padi patik [[{{ns:special}}:Cite|saitama]] sa yüm ad stumem',
+	'cite_article_desc' => 'Läükon padi patik [[Special:Cite|saitama]] sa yüm ad stumem',
 	'cite_article_link' => 'Saitön padi at',
 	'cite' => 'Saitön',
 	'cite_page' => 'Pad:',

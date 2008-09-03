@@ -181,12 +181,13 @@ $str و/أو $key غلط.
 محدد "group" مسموح بيه بس.
 استخدم <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'علامات الوصلات الراجعة المخصصة خلصت.
-عرف اكتر في رسالة <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+عرف اكتر فى رسالة <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'مش صحيح <code>&lt;ref&gt;</code> تاج;
-مافيش نص متوافر في المراجع اللي اسمها<code>$1</code>',
+مافيش نص متوافر فى المراجع اللى اسمها<code>$1</code>',
 	'cite_reference_link_key_with_num' => '$1_$2',
 	'cite_reference_link_prefix' => 'cite_ref-',
 	'cite_references_link_prefix' => 'cite_note-',
+	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى',
 );
 
 /** Asturian (Asturianu)

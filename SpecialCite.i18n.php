@@ -318,8 +318,10 @@ $messages['eo'] = array(
 /** Spanish (Español)
  * @author Icvav
  * @author Jatrobat
+ * @author Sanbec
  */
 $messages['es'] = array(
+	'cite_article_desc' => 'Añade una página especial para [[Special:Cite|citar artículo]] y un enlace en la caja de herramientas.',
 	'cite_article_link' => 'Citar este artículo',
 	'cite' => 'Citar',
 	'cite_page' => 'Página:',

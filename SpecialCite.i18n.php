@@ -598,6 +598,13 @@ $messages['id'] = array(
 	'cite_submit' => 'Kutip',
 );
 
+/** Interlingue (Interlingue)
+ * @author Malafaya
+ */
+$messages['ie'] = array(
+	'cite_page' => 'Págine:',
+);
+
 /** Iloko (Ilokano) */
 $messages['ilo'] = array(
 	'cite_article_link' => 'Dakamaten ti articulo',

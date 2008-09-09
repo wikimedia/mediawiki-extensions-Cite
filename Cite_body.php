@@ -314,7 +314,9 @@ class Cite {
 			
 		}
 		
-		if ( count( $argv ) )
+		if ( count( $argv ) && $wgAllowCiteGroups )
+			return $this->error( 'cite_error_references_invalid_parameters_group' );
+		elseif ( count( $argv ) )
 			return $this->error( 'cite_error_references_invalid_parameters' );
 		else
 			return $this->referencesFormat($group);

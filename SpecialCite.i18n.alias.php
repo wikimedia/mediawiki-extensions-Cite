@@ -48,6 +48,11 @@ $aliases['fi'] = array(
 	'Cite' => array( 'Viittaus' ),
 );
 
+/** French (Français) */
+$aliases['fr'] = array(
+	'Cite' => array( 'Citer' ),
+);
+
 /** Galician (Galego) */
 $aliases['gl'] = array(
 	'Cite' => array( 'Cita' ),

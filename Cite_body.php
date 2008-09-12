@@ -211,7 +211,7 @@ class Cite {
 				return array ($key,$group);
 			else
 				// Invalid key
-				return array(false);
+				return array(false,false);
 		}
 		else
 			// No key

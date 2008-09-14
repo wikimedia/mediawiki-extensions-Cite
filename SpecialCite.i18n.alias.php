@@ -43,6 +43,11 @@ $aliases['de'] = array(
 	'Cite' => array( 'Zitierhilfe' ),
 );
 
+/** Greek (Ελληνικά) */
+$aliases['el'] = array(
+	'Cite' => array( 'Παραπομπή' ),
+);
+
 /** Finnish (Suomi) */
 $aliases['fi'] = array(
 	'Cite' => array( 'Viittaus' ),
@@ -138,6 +143,11 @@ $aliases['pt'] = array(
 /** Brazilian Portuguese (Português do Brasil) */
 $aliases['pt-br'] = array(
 	'Cite' => array( 'Citar' ),
+);
+
+/** Albanian (Shqip) */
+$aliases['sq'] = array(
+	'Cite' => array( 'Citim' ),
 );
 
 /** Swedish (Svenska) */

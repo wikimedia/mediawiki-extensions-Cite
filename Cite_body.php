@@ -64,7 +64,7 @@ class Cite {
 	var $mGroupCnt = array();
 
 	/**
-	 * Internal counter for anonymous references, seperate from
+	 * Internal counter for anonymous references, separate from
 	 * $mOutCnt because anonymous references won't increment it,
 	 * but will incremement $mOutCnt
 	 *
@@ -539,7 +539,7 @@ class Cite {
 	 * This does approximately the same thing as
 	 * Language::listToText() but due to this being used for a
 	 * slightly different purpose (people might not want , as the
-	 * first seperator and not 'and' as the second, and this has to
+	 * first separator and not 'and' as the second, and this has to
 	 * use messages from the content language) I'm rolling my own.
 	 *
 	 * @static
@@ -619,7 +619,7 @@ class Cite {
 	/**
 	 * Generate the labels to pass to the
 	 * 'cite_references_link_many_format' message, the format is an
-	 * arbitary number of tokens seperated by [\t\n ]
+	 * arbitary number of tokens separated by [\t\n ]
 	 */
 	function genBacklinkLabels() {
 		wfProfileIn( __METHOD__ );

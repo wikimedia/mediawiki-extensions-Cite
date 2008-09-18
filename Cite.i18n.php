@@ -43,6 +43,7 @@ Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;
 Define more in the <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> message',
 	'cite_error_references_no_text'                  => 'Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>$1</code>',
+	'cite_error_included_ref'                        => 'Closing &lt;/ref&gt; missing for &lt;ref&gt; tag',
 
 	/*
 	   Output formatting

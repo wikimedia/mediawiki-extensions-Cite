@@ -155,6 +155,23 @@ class Cite {
 			return $this->error( 'cite_error_ref_numeric_key' );
 		}
 
+		if( strpos(
+			preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $str ),
+			'<ref>'
+		) !== false	) {
+			# (bug 6199) This most likely implies that someone left off the
+			# closing </ref> tag, which will cause the entire article to be
+			# eaten up until the next <ref>.  So we bail out early instead.
+			# The fancy regex above first tries chopping out anything that
+			# looks like a comment or SGML tag, which is a crude way to avoid
+			# false alarms for <nowiki>, <pre>, etc.
+			#
+			# Possible improvement: print the warning, followed by the contents
+			# of the <ref> tag.  This way no part of the article will be eaten
+			# even temporarily.
+			return $this->error( 'cite_error_included_ref' );
+		}
+
 		# Split these into groups.
 		if( $group === null ) {
 			$group = $default_group;

@@ -155,10 +155,10 @@ class Cite {
 			return $this->error( 'cite_error_ref_numeric_key' );
 		}
 
-		if( strpos(
-			preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $str ),
-			'<ref>'
-		) !== false	) {
+		if( preg_match(
+			'/<ref\b[^<]*?>/',
+			preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $str )
+		) ) {
 			# (bug 6199) This most likely implies that someone left off the
 			# closing </ref> tag, which will cause the entire article to be
 			# eaten up until the next <ref>.  So we bail out early instead.

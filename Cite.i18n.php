@@ -641,7 +641,9 @@ $messages['gu'] = array(
 	'cite_references_link_many_format_backlink_labels' => 'અ આ ઇ ઈ ઉ ઊ એ ઐ ઓ ઔ ક ખ ગ ઘ ચ છ જ ઝ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ વ શ ષ સ હ ળ ક્ષ જ્ઞ ઋ',
 );
 
-/** Hebrew (עברית) */
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
 $messages['he'] = array(
 	'cite_desc' => 'הוספת תגיות <nowiki><ref[ name=id]></nowiki> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
 	'cite_croak' => 'בהערה יש שגיאה; $1: $2',
@@ -659,6 +661,7 @@ $messages['he'] = array(
 אנא השתמשו בקוד <code>&lt;references /&gt;</code>, או בקוד <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'תגית <code>&lt;ref&gt;</code> שגויה; לא נכתב טקסט עבור הערת השוליים בשם <code>$1</code>',
+	'cite_error_included_ref' => 'חסרה תגית &lt;/ref&gt; המתאימה לתגית &lt;ref&gt;',
 );
 
 /** Hindi (हिन्दी)

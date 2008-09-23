@@ -500,37 +500,40 @@ Uzu etikedon <code>&lt;references /&gt;</code>, aŭ <code>&lt;references group="
 Difinu pliajn en la mesaĝo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
 neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
+	'cite_error_included_ref' => 'Ferma &lt;/ref&gt; mankas por &lt;ref&gt; etikedon',
 );
 
 /** Spanish (Español)
  * @author Muro de Aguas
  * @author Remember the dot
+ * @author Sanbec
  */
 $messages['es'] = array(
 	'cite_desc' => 'Añade las etiquietas <nowiki><ref[ name=id]> y <references /></nowiki> para utilizar notas al pie.',
+	'cite_croak' => "La extensión ''Cite'' se murió; $1: $2",
 	'cite_error_key_str_invalid' => 'Error interno;
 $str y/o $key no válido.
 Esto nunca debe occurir.',
-	'cite_error_stack_invalid_input' => 'Error internal;
-la llave de la pila no es válida.
+	'cite_error_stack_invalid_input' => 'Error interno;
+la clave de la pila no es válida.
 Esto nunca debe ocurrir.',
 	'cite_error' => 'Error en la cita: $1',
 	'cite_error_ref_numeric_key' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
 el nombre no puede ser un número entero simple. Use un título descriptivo',
 	'cite_error_ref_no_key' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
-referencias sin contenido deben tener un nombre',
+las referencias sin contenido deben tener un nombre',
 	'cite_error_ref_too_many_keys' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
-los nombres no son válidos, por ejemplo, hay demasiados',
+nombres de parámetros no válidos',
 	'cite_error_ref_no_input' => 'Elemento <code>&lt;ref&gt;</code> no válido;
 referencias sin nombre deben tener contenido',
 	'cite_error_references_invalid_parameters' => 'El elemento <code>&lt;references&gt;</code> no es válido;
-no se permite parámetros.
+no admite parámetros.
 Use <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'El elemento <code>&lt;references&gt;</code> no es válido;
 sólo se permite el parámetro «group».
 Use <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
-no se proveió texto para las referencias llamadas <code>$1</code>',
+pues no hay una referencia con texto llamada <code>$1</code>',
 );
 
 /** Basque (Euskara) */
@@ -558,6 +561,7 @@ $messages['fa'] = array(
 	'cite_error_references_no_backlink_label' => 'برچسب‌های پیوند به انتها رسید.
 موارد جدیدی را در پیام <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> تعریف کنید',
 	'cite_error_references_no_text' => 'برچسب <code><ref></code> غیرمجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
+	'cite_error_included_ref' => 'برچسب تمام کنندهٔ &lt;/ref&gt; بدون برچسب &lt;ref&gt;',
 );
 
 /** Finnish (Suomi)
@@ -1069,6 +1073,7 @@ Donn mieh en dä Sigg <nowiki>[[MediaWiki:Cite references link many format backl
 	'cite_error_references_no_text' => 'Fähler en <i lang="en">cite</i>:
 Et wohr keine Tex aanjejovve för de
 <code>&lt;ref&gt;</code>s met dämm Name „<code>$1</code>“.',
+	'cite_error_included_ref' => 'Hee för dat &lt;ref&gt; ham_mer kei zopaß &lt;/ref&gt;',
 	'cite_reference_link_key_with_num' => '$1_$2',
 	'cite_reference_link_prefix' => 'cite_ref-',
 	'cite_references_link_prefix' => 'cite_note-',
@@ -1290,6 +1295,7 @@ $messages['no'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Ugyldig <code>&lt;references&gt;</code>-tagg; kun parameteret «group» tillates. Bruk <code>&lt;references /&gt;</code> eller <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => "Gikk tom for egendefinerte tilbakelenketekster; definer flere i beskjeden «''cite_references_link_many_format_backlink_labels''»",
 	'cite_error_references_no_text' => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>',
+	'cite_error_included_ref' => 'Avsluttende &lt;/ref&gt;-tagg mangler for &lt;ref&gt;',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az aæ aø aå ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz bæ bø bå ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz cæ cø cå da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz dæ dø då ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez eæ eø eå fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz fæ fø få ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz gæ gø gå ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz hæ hø hå ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz iæ iø iå ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz jæ jø jå ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz kæ kø kå la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz læ lø lå ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz mæ mø må na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz næ nø nå oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz oæ oø oå pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz pæ pø på qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz qæ qø qå ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz ræ rø rå sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz sæ sø så ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz tæ tø tå ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz uæ uø uå va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz væ vø vå wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz wæ wø wå xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz xæ xø xå ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz yæ yø yå za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz zæ zø zå æa æb æc æd æe æf æg æh æi æj æk æl æm æn æo æp æq ær æs æt æu æv æw æx æy æz ææ æø æå øa øb øc ød øe øf øg øh øi øj øk øl øm øn øo øp øq ør øs øt øu øv øw øx øy øz øæ øø øå åa åb åc åd åe åf åg åh åi åj åk ål åm ån åo åp åq år ås åt åu åv åw åx åy åz åæ åø åå',
 );
 
@@ -1317,6 +1323,7 @@ Utilizatz <code>&lt;references /&gt;</code>, o alara <code>&lt;references group=
 	'cite_error_references_no_text' => 'Balisa  <code>&lt;ref&gt;</code> incorrècta ;
 
 pas de tèxt per las referéncias nomenadas <code>$1</code>.',
+	'cite_error_included_ref' => 'Clausura &lt;/ref&gt; omesa per la balisa &lt;ref&gt;',
 	'cite_references_link_many_format_backlink_labels' => 'a á à b c ç d e é è f g h i í ì ï j k l m n o ó ò p q r s t u ú ù ü v w x y z',
 );
 
@@ -1431,6 +1438,7 @@ $messages['ru'] = array(
 	'cite_error_references_no_backlink_label' => 'Не хватает символов для возвратных гиперссылок.
 Следует расширить системное сообщение <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст',
+	'cite_error_included_ref' => 'Отсутствует закрывающий тег &lt;/ref&gt;',
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я',
 );
 

@@ -31,6 +31,11 @@ $aliases['bcl'] = array(
 	'Cite' => array( 'Sambitón' ),
 );
 
+/** Catalan (Català) */
+$aliases['ca'] = array(
+	'Cite' => array( 'Citau', 'Citeu' ),
+);
+
 /** Danish (Dansk) */
 $aliases['da'] = array(
 	'Cite' => array( 'Citer' ),

@@ -911,6 +911,7 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Ficell
  * @author JtFuruhata
  */
 $messages['ja'] = array(
@@ -929,6 +930,7 @@ $messages['ja'] = array(
 	'cite_error_references_no_backlink_label' => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。',
 	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグ: <code>$1</code>という名前の引用句に対するテキストがありません。',
 	'cite_error_included_ref' => '&lt;ref&gt; タグに対応する &lt;/ref&gt; が不足しています。',
+	'cite_references_link_many_format_backlink_labels' => 'い ろ は に ほ へ と ち り ぬ る を わ か よ た れ そ つ ね な ら む う ゐ の お く や ま け ふ こ え て あ さ き ゆ め み し ゑ ひ も せ す ん イ ロ ハ ニ ホ ヘ ト チ リ ヌ ル ヲ ワ カ ヨ タ レ ソ ツ ネ ナ ラ ム ウ ヰ ノ オ ク ヤ マ ケ フ コ エ テ ア サ キ ユ メ ミ シ ヱ ヒ モ セ ス ン',
 );
 
 /** Jutish (Jysk)
@@ -1035,7 +1037,7 @@ $messages['kk-latn'] = array(
  */
 $messages['ko'] = array(
 	'cite_desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 더합니다.',
-	'cite_references_link_many_format_backlink_labels' => '가 나 다 라 마 바 사 아 자 차 카 타 파 하',
+	'cite_references_link_many_format_backlink_labels' => '가 나 다 라 마 바 사 아 자 차 카 타 파 하 거 너 더 러 머 버 서 어 저 처 커 터 퍼 허 고 노 도 로 모 보 소 오 조 초 코 토 포 호 구 누 두 루 무 부 수 우 주 추 쿠 투 푸 후 그 느 드 르 므 브 스 으 즈 츠 크 트 프 흐 기 니 디 리 미 비 시 이 지 치 키 티 피 히',
 );
 
 /** Ripoarisch (Ripoarisch)

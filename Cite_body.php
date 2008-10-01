@@ -134,7 +134,10 @@ class Cite {
 			# <ref ...></ref>.  This construct is always invalid: either
 			# it's a contentful ref, or it's a named duplicate and should
 			# be <ref ... />.
-			return $this->error( 'cite_error_ref_no_input' );
+			if ( $key == false )
+				return $this->error( 'cite_error_ref_no_input' );
+			else
+				$str = null;
 		}
 				
 		if( $key === false ) {

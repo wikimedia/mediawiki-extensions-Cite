@@ -131,9 +131,9 @@ class Cite {
 		list($key,$group) = $this->refArg( $argv );
 		
 		if( $str === '' ) {
-			# <ref ...></ref>.  This construct is always invalid: either
-			# it's a contentful ref, or it's a named duplicate and should
-			# be <ref ... />.
+			# <ref ...></ref>.  This construct is  invalid if
+			# it's a contentful ref, but OK if it's a named duplicate and should
+			# be equivalent <ref ... />, for compatability with #tag.
 			if ( $key == false )
 				return $this->error( 'cite_error_ref_no_input' );
 			else

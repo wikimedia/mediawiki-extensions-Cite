@@ -1389,6 +1389,7 @@ só o parâmetro "group" é permitido.
 Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => "Etiquetas de backlink esgotadas. Defina mais na mensagem \"''cite_references_link_many_format_backlink_labels''\"",
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
+	'cite_error_included_ref' => '&lt;/ref&gt; de fecho em falta para a marca &lt;ref&gt;',
 );
 
 /** Romanian (Română)
@@ -1423,6 +1424,7 @@ doar parametrul „grup” este permis.
 Foloseşte eticheta <code>&lt;references /&gt;</code>, sau <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
 niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
+	'cite_error_included_ref' => 'Adaugă &lt;/ref&gt; eticheta a fost deschisă prin &lt;ref&gt;',
 );
 
 /** Russian (Русский)

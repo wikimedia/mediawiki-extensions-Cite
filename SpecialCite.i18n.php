@@ -116,6 +116,14 @@ $messages['ast'] = array(
 	'cite_submit' => 'Citar',
 );
 
+/** Samogitian (Žemaitėška)
+ * @author Hugo.arg
+ */
+$messages['bat-smg'] = array(
+	'cite' => 'Citoutė',
+	'cite_page' => 'Poslapis:',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

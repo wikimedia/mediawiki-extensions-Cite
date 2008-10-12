@@ -664,7 +664,7 @@ Use <code>&lt;references /&gt;</code> ou <code>&lt;references group="..." /&gt;<
 Defina máis na mensaxe <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
 non se forneceu texto para as referencias de nome <code>$1</code>',
-	'cite_error_included_ref' => 'Pechada a etiqueta &lt;/ref&gt; que lle faltaba á outra etiqueta &lt;ref&gt;',
+	'cite_error_included_ref' => 'peche a etiqueta &lt;/ref&gt; que lle falta á outra etiqueta &lt;ref&gt;',
 	'cite_reference_link_key_with_num' => '$1_$2',
 	'cite_reference_link_prefix' => 'cite_ref-',
 	'cite_references_link_prefix' => 'cite_note-',
@@ -1428,6 +1428,7 @@ niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
 );
 
 /** Russian (Русский)
+ * @author Ahonc
  * @author Kaganer
  * @author Kalan
  * @author Александр Сигачёв
@@ -1436,7 +1437,7 @@ $messages['ru'] = array(
 	'cite_desc' => 'Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок',
 	'cite_croak' => 'Цитата сдохла; $1: $2',
 	'cite_error_key_str_invalid' => 'Внутренняя ошибка: неверный $str',
-	'cite_error_stack_invalid_input' => 'Внутренняя ошибка: неверный ключ стека',
+	'cite_error_stack_invalid_input' => '!! Внутренняя ошибка: неверный ключ стека',
 	'cite_error' => 'Ошибка цитирования $1',
 	'cite_error_ref_numeric_key' => 'Неправильный вызов: ожидался нечисловой ключ',
 	'cite_error_ref_no_key' => 'Неправильный вызов: ключ не был указан',
@@ -1667,6 +1668,7 @@ $messages['uk'] = array(
 	'cite_reference_link_prefix' => 'cite_ref-',
 	'cite_references_link_prefix' => 'cite_note-',
 	'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ж и к л м н п р с т у ф х ц ш щ ю я аа аб ав аг ад ае аж аи ак ал ам ан ап ар ас ат ау аф ах ац аш ащ аю ая ба бб бв бг бд бе бж би бк бл бм бн бп бр бс бт бу бф бх бц бш бщ бю бя ва вб вв вг вд ве вж ви вк вл вм вн вп вр вс вт ву вф вх вц вш вщ вю вя га гб гв гг гд ге гж ги гк гл гм гн гп гр гс гт гу гф гх гц гш гщ гю гя да дб дв дг дд де дж ди дк дл дм дн дп др дс дт ду дф дх дц дш дщ дю дя еа еб ев ег ед ее еж еи ек ел ем ен еп ер ес ет еу еф ех ец еш ещ ею ея жа жб жв жг жд же жж жи жк жл жм жн жп жр жс жт жу жф жх жц жш жщ жю жя иа иб ив иг ид ие иж ии ик ил им ин ип ир ис ит иу иф их иц иш ищ ию ия ка кб кв кг кд ке кж ки кк кл км кн кп кр кс кт ку кф кх кц кш кщ кю кя ла лб лв лг лд ле лж ли лк лл лм лн лп лр лс лт лу лф лх лц лш лщ лю ля ма мб мв мг мд ме мж ми мк мл мм мн мп мр мс мт му мф мх мц мш мщ мю мя на нб нв нг нд не нж ни нк нл нм нн нп нр нс нт ну нф нх нц нш нщ ню ня па пб пв пг пд пе пж пи пк пл пм пн пп пр пс пт пу пф пх пц пш пщ пю пя ра рб рв рг рд ре рж ри рк рл рм рн рп рр рс рт ру рф рх рц рш рщ рю ря са сб св сг сд се сж си ск сл см сн сп ср сс ст су сф сх сц сш сщ сю ся та тб тв тг тд те тж ти тк тл тм тн тп тр тс тт ту тф тх тц тш тщ тю тя уа уб ув уг уд уе уж уи ук ул ум ун уп ур ус ут уу уф ух уц уш ущ ую уя фа фб фв фг фд фе фж фи фк фл фм фн фп фр фс фт фу фф фх фц фш фщ фю фя ха хб хв хг хд хе хж хи хк хл хм хн хп хр хс хт ху хф хх хц хш хщ хю хя ца цб цв цг цд це цж ци цк цл цм цн цп цр цс цт цу цф цх цц цш цщ цю ця ша шб шв шг шд ше шж ши шк шл шм шн шп шр шс шт шу шф шх шц шш шщ шю шя ща щб щв щг щд ще щж щи щк щл щм щн щп щр щс щт щу щф щх щц щш щщ щю щя юа юб юв юг юд юе юж юи юк юл юм юн юп юр юс ют юу юф юх юц юш ющ юю юя яа яб яв яг яд яе яж яи як ял ям ян яп яр яс ят яу яф ях яц яш ящ яю яя',
 );
 
 /** Vèneto (Vèneto)

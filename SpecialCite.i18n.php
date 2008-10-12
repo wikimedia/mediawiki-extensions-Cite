@@ -93,6 +93,13 @@ $messages['ar'] = array(
 	'cite_submit' => 'استشهاد',
 );
 
+/** Araucanian (Mapudungun)
+ * @author Remember the dot
+ */
+$messages['arn'] = array(
+	'cite_page' => 'Pakina:',
+);
+
 /** Egyptian Spoken Arabic (مصرى)
  * @author Ghaly
  * @author Ramsis II
@@ -1116,6 +1123,15 @@ $messages['ro'] = array(
 /** Aromanian (Armãneashce) */
 $messages['roa-rup'] = array(
 	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
+);
+
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'cite' => 'Cite',
+	'cite_page' => 'Pàgene:',
+	'cite_submit' => 'Cite',
 );
 
 /** Russian (Русский)

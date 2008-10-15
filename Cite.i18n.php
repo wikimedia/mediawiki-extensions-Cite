@@ -1437,7 +1437,9 @@ $messages['ru'] = array(
 	'cite_desc' => 'Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок',
 	'cite_croak' => 'Цитата сдохла; $1: $2',
 	'cite_error_key_str_invalid' => 'Внутренняя ошибка: неверный $str',
-	'cite_error_stack_invalid_input' => '!! Внутренняя ошибка: неверный ключ стека',
+	'cite_error_stack_invalid_input' => 'Внутренняя ошибка.
+Неверный ключ стека.
+Это никогда не должно происходить.',
 	'cite_error' => 'Ошибка цитирования $1',
 	'cite_error_ref_numeric_key' => 'Неправильный вызов: ожидался нечисловой ключ',
 	'cite_error_ref_no_key' => 'Неправильный вызов: ключ не был указан',
@@ -1702,9 +1704,9 @@ Dòpara <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'cite_desc' => 'Thêm các thẻ <nowiki><ref[ name=id]></nowiki> và <nowiki><references/></nowiki> để ghi cước chú',
+	'cite_desc' => 'Thêm các thẻ <nowiki><ref[ name=id]></nowiki> và <nowiki><references/></nowiki> để ghi chú thích hoặc nguồn tham khảo',
 	'cite_croak' => 'Chú thích bị hỏng; $1: $2',
-	'cite_error_key_str_invalid' => 'Lỗi nội bộ; $str và/hoặc $key sai.  Đáng ra không bao giờ xảy ra điều này.',
+	'cite_error_key_str_invalid' => 'Lỗi nội bộ; $str và/hoặc $key không hợp lệ. Điều này không bao giờ nên xảy ra.',
 	'cite_error_stack_invalid_input' => 'Lỗi nội bộ; khóa xác định chồng bị sai.  Đáng ra không bao giờ xảy ra điều này.',
 	'cite_error' => 'Lỗi chú thích: $1',
 	'cite_error_ref_numeric_key' => 'Thẻ <code>&lt;ref&gt;</code> sai; tên không thể chỉ là số nguyên, hãy dùng tựa đề có tính miêu tả',

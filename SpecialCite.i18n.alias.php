@@ -105,6 +105,11 @@ $aliases['lb'] = array(
 	'Cite' => array( 'Zitéierhellëf' ),
 );
 
+/** Macedonian (Македонски) */
+$aliases['mk'] = array(
+	'Cite' => array( 'Цитат' ),
+);
+
 /** Malay (Bahasa Melayu) */
 $aliases['ms'] = array(
 	'Cite' => array( 'Petik' ),
@@ -133,6 +138,11 @@ $aliases['nl'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
 $aliases['no'] = array(
 	'Cite' => array( 'Siteringshjelp' ),
+);
+
+/** Occitan (Occitan) */
+$aliases['oc'] = array(
+	'Cite' => array( 'Citar' ),
 );
 
 /** Pashto (پښتو) */

@@ -94,6 +94,15 @@ It is not possible to make a clickable link to this message. "nowiki" is mandato
 	'cite_error_included_ref' => 'Error message shown if the <tt>&lt;ref&gt;</tt> tag is unbalanced, that means a <tt>&lt;ref&gt;</tt> is not followed by a <tt>&lt;/ref&gt;</tt>',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'cite_desc' => 'Maak <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> etikette beskikbaar vir sitasie.',
+	'cite_croak' => 'Probleem met Cite; $1: $2',
+	'cite_error' => 'Citefout: $1',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */

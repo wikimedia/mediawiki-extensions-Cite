@@ -36,13 +36,6 @@ $messages['sxu'] = array(
 	'cite_submit' => 'Zidierhilfe',
 );
 
-/** Eastern Mari (Олык Марий)
- * @author Сай
- */
-$messages['mhr'] = array(
-	'cite_page' => 'Лаштык:',
-);
-
 /** Niuean (ko e vagahau Niuē)
  * @author Jose77
  */
@@ -51,9 +44,11 @@ $messages['niu'] = array(
 );
 
 /** Afrikaans (Afrikaans)
+ * @author Naudefj
  * @author SPQRobin
  */
 $messages['af'] = array(
+	'cite_article_desc' => "Maak 'n [[Special:Cite|spesiale bladsy vir sitasie]], en 'n skakel daarna in hulpmiddels beskikbaar",
 	'cite_article_link' => 'Haal dié blad aan',
 	'cite' => 'Aanhaling',
 	'cite_page' => 'Bladsy:',
@@ -845,6 +840,13 @@ $messages['lv'] = array(
 	'cite_submit' => 'Parādīt atsauci',
 );
 
+/** Eastern Mari (Олык Марий)
+ * @author Сай
+ */
+$messages['mhr'] = array(
+	'cite_page' => 'Лаштык:',
+);
+
 /** Macedonian (Македонски)
  * @author Misos
  */
@@ -1076,6 +1078,17 @@ $messages['ps'] = array(
  */
 $messages['pt'] = array(
 	'cite_article_desc' => 'Adiciona uma página especial de [[Special:Cite|citação]] & ligação da caixa de ferramentas',
+	'cite_article_link' => 'Citar esta página',
+	'cite' => 'Citar',
+	'cite_page' => 'Página:',
+	'cite_submit' => 'Citar',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Carla404
+ */
+$messages['pt-br'] = array(
+	'cite_article_desc' => 'Adiciona uma página especial de [[Special:Cite|citação]] e link para a caixa de ferramentas',
 	'cite_article_link' => 'Citar esta página',
 	'cite' => 'Citar',
 	'cite_page' => 'Página:',

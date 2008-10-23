@@ -145,6 +145,11 @@ $aliases['oc'] = array(
 	'Cite' => array( 'Citar' ),
 );
 
+/** Polish (Polski) */
+$aliases['pl'] = array(
+	'Cite' => array( 'Cytuj' ),
+);
+
 /** Pashto (پښتو) */
 $aliases['ps'] = array(
 	'Cite' => array( 'درک' ),

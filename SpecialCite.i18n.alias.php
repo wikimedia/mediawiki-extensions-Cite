@@ -31,6 +31,11 @@ $aliases['bcl'] = array(
 	'Cite' => array( 'Sambitón' ),
 );
 
+/** Bosnian (Bosanski) */
+$aliases['bs'] = array(
+	'Cite' => array( 'Citiraj' ),
+);
+
 /** Catalan (Català) */
 $aliases['ca'] = array(
 	'Cite' => array( 'Citau', 'Citeu' ),
@@ -51,6 +56,11 @@ $aliases['de'] = array(
 /** Greek (Ελληνικά) */
 $aliases['el'] = array(
 	'Cite' => array( 'Παραπομπή' ),
+);
+
+/** Spanish (Español) */
+$aliases['es'] = array(
+	'Cite' => array( 'Citar' ),
 );
 
 /** Finnish (Suomi) */

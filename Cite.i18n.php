@@ -1286,21 +1286,34 @@ $messages['nds'] = array(
 $messages['nl'] = array(
 	'cite_desc' => 'Voegt <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe voor citaten',
 	'cite_croak' => 'Probleem met Cite; $1: $2',
-	'cite_error_key_str_invalid' => 'Interne fout; onjuiste $str',
-	'cite_error_stack_invalid_input' => 'Interne fout; onjuiste stacksleutel',
+	'cite_error_key_str_invalid' => 'Interne fout;
+onjuiste $str and/of $key.
+Dit zou niet voor moeten komen.',
+	'cite_error_stack_invalid_input' => 'Interne fout;
+onjuiste stacksleutel.
+Dit zou niet voor moeten komen.',
 	'cite_error' => 'Citefout: $1',
-	'cite_error_ref_numeric_key' => 'Onjuiste tag <code>&lt;ref&gt;</code>; de naam kan geen simplele integer zijn, gebruik een beschrijvende titel',
-	'cite_error_ref_no_key' => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder inhoud moeten een naam hebben',
-	'cite_error_ref_too_many_keys' => 'Onjuiste tag <code>&lt;ref&gt;</code>; onjuiste namen, bijvoorbeeld te veel',
-	'cite_error_ref_no_input' => 'Onjuiste tag <code>&lt;ref&gt;</code>; refs zonder naam moeten inhoud hebben',
-	'cite_error_references_invalid_input' => 'Onjuiste tag <code>&lt;references&gt;</code>; invoer is niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Onjuiste tag <code>&lt;references&gt;</code>; parameters zijn niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
+	'cite_error_ref_numeric_key' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
+de naam kan geen eenvoudige integer zijn.
+Gebruik een beschrijvende titel',
+	'cite_error_ref_no_key' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
+refs zonder inhoud moeten een naam hebben',
+	'cite_error_ref_too_many_keys' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
+onjuiste namen, bijvoorbeeld te veel',
+	'cite_error_ref_no_input' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
+refs zonder naam moeten inhoud hebben',
+	'cite_error_references_invalid_input' => 'Onjuiste tag <code>&lt;references&gt;</code>;
+invoer is niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Onjuiste tag <code>&lt;references&gt;</code>;
+parameters zijn niet toegestaan.
+Gebruik <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Onjuiste tag <code>&lt;references&gt;</code>;
 alleen de parameter "group" is toegestaan.
 Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Het aantal beschikbare backlinklabels is opgebruikt.
 Geef meer labels op in het bericht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_references_no_text' => 'Onjuiste tag <code>&lt;ref&gt;</code>; er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
+	'cite_error_references_no_text' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
+er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_included_ref' => 'Het sluitteken &lt;/ref&gt; mist voor de tag &lt;ref&gt;',
 );
 
@@ -1844,3 +1857,4 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_text' => '無效的<code>&lt;ref&gt;</code>標籤；
 無文字提供於名為<code>$1</code>的參照',
 );
+

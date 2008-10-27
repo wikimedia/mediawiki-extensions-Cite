@@ -603,22 +603,33 @@ viitettä <code>$1</code> ei löytynyt',
 $messages['fr'] = array(
 	'cite_desc' => 'Ajoute les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, pour les citations.',
 	'cite_croak' => 'Citation corrompue ; $1 : $2',
-	'cite_error_key_str_invalid' => 'Erreur interne ; $str attendue',
-	'cite_error_stack_invalid_input' => 'Erreur interne ; clé de pile invalide',
+	'cite_error_key_str_invalid' => 'Erreur interne ; $str ou $key incorrects.
+Ceci ne devrait jamais se produire.',
+	'cite_error_stack_invalid_input' => 'Erreur interne ;
+clé de pile incorrecte.
+Ceci ne devrait jamais se produire.',
 	'cite_error' => 'Erreur de citation : $1',
-	'cite_error_ref_numeric_key' => 'Appel invalide ; clé non-intégrale attendue',
-	'cite_error_ref_no_key' => 'Appel invalide ; aucune clé spécifiée',
-	'cite_error_ref_too_many_keys' => 'Appel invalide ; clés invalides, par exemple, trop de clés spécifiées ou clé erronée',
-	'cite_error_ref_no_input' => 'Appel invalide ; aucune entrée spécifiée',
-	'cite_error_references_invalid_input' => 'Entrée invalide ; entrée attendue',
-	'cite_error_references_invalid_parameters' => 'Arguments invalides ; argument attendu',
+	'cite_error_ref_numeric_key' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
+Le nom ne peut être un entier simple. Utilisez un titre descriptif.',
+	'cite_error_ref_no_key' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
+les références sans contenu doivent avoir un nom',
+	'cite_error_ref_too_many_keys' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
+Noms incorrects, par exemple : trop nombreux',
+	'cite_error_ref_no_input' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
+Les références sans nom doivent avoir un contenu',
+	'cite_error_references_invalid_input' => 'Balise <code>&lt;references&gt;</code> incorrecte ;
+aucune entrée n’est permise. Utilisez simplement <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => "Balise <code>&lt;references&gt;</code> incorrecte ;
+Aucun paramètre n'est permis.
+Utilisez simplement <code>&lt;references&gt;</code>",
 	'cite_error_references_invalid_parameters_group' => 'Balise <code>&lt;references&gt;</code> incorrecte ;
 
 seul le paramètre « group » est autorisé.
 
 Utilisez <code>&lt;references /&gt;</code>, ou bien <code>&lt;references group="..." /&gt;</code>.',
-	'cite_error_references_no_backlink_label' => 'Épuisement des étiquettes personnalisées, définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_references_no_text' => "Balise <code>&lt;ref&gt;</code> invalide;
+	'cite_error_references_no_backlink_label' => 'Épuisement des étiquettes personnalisées.
+Définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text' => "Balise <code>&lt;ref&gt;</code> incorecte ;
 aucun texte n'a été fourni pour les références nommées <code>$1</code>",
 	'cite_error_included_ref' => 'Clôture &lt;/ref&gt; omise pour la balise &lt;ref&gt;',
 );
@@ -1833,4 +1844,3 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_text' => '無效的<code>&lt;ref&gt;</code>標籤；
 無文字提供於名為<code>$1</code>的參照',
 );
-

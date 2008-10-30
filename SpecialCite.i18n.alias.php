@@ -105,6 +105,11 @@ $aliases['id'] = array(
 	'Cite' => array( 'Kutip' ),
 );
 
+/** Japanese (日本語) */
+$aliases['ja'] = array(
+	'Cite' => array( '引用' ),
+);
+
 /** Korean (한국어) */
 $aliases['ko'] = array(
 	'Cite' => array( '인용' ),

@@ -31,6 +31,11 @@ $aliases['bcl'] = array(
 	'Cite' => array( 'Sambitón' ),
 );
 
+/** Breton (Brezhoneg) */
+$aliases['br'] = array(
+	'Cite' => array( 'Menegiñ' ),
+);
+
 /** Bosnian (Bosanski) */
 $aliases['bs'] = array(
 	'Cite' => array( 'Citiraj' ),

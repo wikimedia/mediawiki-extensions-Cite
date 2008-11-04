@@ -259,8 +259,11 @@ $messages['cu'] = array(
  * @author Lloffiwr
  */
 $messages['cy'] = array(
-	'cite_article_desc' => 'Yn ychwanegu tudalen arbennig ar gyfer [[Special:Cite|dyfynnu erthygl]] a chyswllt bocs offer',
-	'cite_article_link' => 'Dyfynnwch yr erthygl hon',
+	'cite_article_desc' => 'Yn ychwanegu tudalen arbennig ar gyfer [[Special:Cite|cyfeirio at erthygl]] a chyswllt bocs offer',
+	'cite_article_link' => 'Cyfeiriwch at yr erthygl hon',
+	'cite' => 'Cyfeirio at erthygl',
+	'cite_page' => 'Tudalen:',
+	'cite_submit' => 'Cyfeirio',
 );
 
 /** Danish (Dansk)

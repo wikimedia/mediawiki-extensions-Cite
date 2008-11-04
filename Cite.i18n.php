@@ -413,6 +413,34 @@ $messages['cu'] = array(
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д є ж ꙃ ꙁ и і к л м н о п р с т ф х ѡ ц ч ш щ ъ ꙑ ь ѣ ю ꙗ ѥ ѧ ѫ ѩ ѭ ѯ ѱ ѳ ѵ ѷ',
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'cite_desc' => 'Yn ychwanegu tagiau <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki>, ar gyfer cyfeiriadau',
+	'cite_croak' => 'Cyfeirio at farwolaeth; $1: $2',
+	'cite_error_key_str_invalid' => 'Gwall mewnol;
+$str a/neu $key annilys.
+Ni ddylai hyn fyth ddigwydd.',
+	'cite_error_stack_invalid_input' => 'Gwall mewnol;
+Allwedd pentwr annilys.
+Ni ddylai hyn fyth ddigwydd.',
+	'cite_error' => 'Gwall cyfeirio: $1',
+	'cite_error_ref_numeric_key' => 'Tag <code>&lt;ref&gt;</code> annilys;
+ni all enw fod yn rif yn unig. Defnyddiwch deitl disgrifiadol.',
+	'cite_error_ref_no_key' => 'Tag <code>&lt;ref&gt;</code> annilys;
+rhaid i dagiau ref sydd heb gynnwys iddynt gael enw',
+	'cite_error_ref_too_many_keys' => 'Tag <code>&lt;ref&gt;</code> annilys;
+enwau annilys; e.e. gormod ohonynt',
+	'cite_error_ref_no_input' => 'Tag <code>&lt;ref&gt;</code> annilys;
+rhaid i dagiau ref heb enw iddynt gynnwys rhywbeth',
+	'cite_error_references_invalid_input' => 'Tag <code>&lt;references&gt;</code> annilys;
+ni chaniateir mewnbwn. Defnyddiwch <code>&lt;references /&gt;</code>',
+	'cite_error_references_no_text' => "Tag <code>&lt;ref&gt;</code> annilys;
+ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
+	'cite_error_included_ref' => '&lt;/ref&gt; clo yn eisiau ar gyfer y tag &lt;ref&gt;',
+);
+
 /** Danish (Dansk)
  * @author Morten LJ
  */

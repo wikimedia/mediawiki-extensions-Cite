@@ -120,7 +120,7 @@ class CiteOutput {
 		}
 		$this->mArticle->fetchContent( $this->mId, false );
 		$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->mArticle->getRevIdFetched() );
-		$wgOut->addHtml( $ret->getText() );
+		$wgOut->addHTML( $ret->getText() );
 	}
 
 	function genParserOptions() {

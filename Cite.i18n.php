@@ -346,6 +346,16 @@ Spisait un niver brasoc'h anezho er gemennadenn <nowiki>[[MediaWiki:Cite referen
 ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'cite_error_stack_invalid_input' => 'Unutrašnja greška;
+nepoznat "stack" ključ.
+Ovo se ne bi smjelo događati.',
+	'cite_error' => 'Greška kod citiranja: $1',
+);
+
 /** Catalan (Català)
  * @author Jordi Roqué
  * @author SMP

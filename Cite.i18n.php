@@ -289,6 +289,7 @@ $messages['bg'] = array(
 позволен е само параметър "group".
 Използвайте <code>&lt;references /&gt;</code> или <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
+	'cite_error_included_ref' => 'Липсва затварящ етикет &lt;/ref&gt; след отварящия етикет &lt;ref&gt;',
 );
 
 /** Bengali (বাংলা)
@@ -1180,6 +1181,7 @@ nëmmen de Parameter "group" ass erlaabt.
 Benotzt <code>&lt;references /&gt;</code>, oder <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => "Ongëltegen <code>&lt;ref&gt;</code> Tag;
 et gouf keen Text uginn fir d'Referenzen mam Numm <code>$1</code>",
+	'cite_error_included_ref' => 'Den Tag &lt;/ref&gt; feelt fir den Tag &lt;ref&gt; zouzemaachen',
 );
 
 /** Limburgish (Limburgs)

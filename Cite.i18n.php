@@ -638,6 +638,7 @@ viitettä <code>$1</code> ei löytynyt',
  * @author Cedric31
  * @author Grondin
  * @author IAlex
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'cite_desc' => 'Ajoute les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, pour les citations.',
@@ -671,6 +672,7 @@ Définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite ref
 	'cite_error_references_no_text' => "Balise <code>&lt;ref&gt;</code> incorecte ;
 aucun texte n'a été fourni pour les références nommées <code>$1</code>",
 	'cite_error_included_ref' => 'Clôture &lt;/ref&gt; omise pour la balise &lt;ref&gt;',
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -1355,6 +1357,29 @@ Geef meer labels op in het bericht <nowiki>[[MediaWiki:Cite references link many
 	'cite_error_references_no_text' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
 er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_included_ref' => 'Het sluitteken &lt;/ref&gt; mist voor de tag &lt;ref&gt;',
+);
+
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Frokor
+ */
+$messages['nn'] = array(
+	'cite_desc' => 'Legg til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referansar',
+	'cite_croak' => 'Feil i fotnotesystemet; $1: $2',
+	'cite_error_key_str_invalid' => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri skjedd.',
+	'cite_error_stack_invalid_input' => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri skjedd.',
+	'cite_error' => 'Referansefeil: $1',
+	'cite_error_ref_numeric_key' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; namnet kan ikkje vere eit enkelt heiltal, bruk ein skildrande tittel',
+	'cite_error_ref_no_key' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referansar utan innhald må innehalde namn',
+	'cite_error_ref_too_many_keys' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; ugyldige namn, t.d. for mange',
+	'cite_error_ref_no_input' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referansar uten namn må ha innhald',
+	'cite_error_references_invalid_input' => 'Ugyldig <code>&lt;references&gt;</code>-tagg: Innhald er ikkje tillete, bruk i staden <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-kode; ingen parametrar er tillat, bruk <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Ugyldig <code>&lt;references&gt;</code>-tagg; berre parameteren «group» er tillatt. Bruk <code>&lt;references /&gt;</code> eller <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Gjekk tom for eigendefinerte tilbakelenketekstar.
+Definer fleire i meldinga <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text' => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst vart gjeve for referansen med namnet <code>$1</code>',
+	'cite_error_included_ref' => 'Avsluttande &lt;/ref&gt;-tagg manglar for &lt;ref&gt;',
+	'cite_reference_link_key_with_num' => '$1_$2',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

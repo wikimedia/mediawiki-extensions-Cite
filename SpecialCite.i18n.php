@@ -200,6 +200,13 @@ $messages['br'] = array(
 	'cite_submit' => 'Menegiñ',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'cite_page' => 'Članak:',
+);
+
 /** Catalan (Català)
  * @author SMP
  * @author Toniher

@@ -1015,6 +1015,7 @@ $messages['jut'] = array(
 
 /** Javanese (Basa Jawa)
  * @author Meursault2004
+ * @author Pras
  */
 $messages['jv'] = array(
 	'cite_desc' => 'Nambahaké tag <nowiki><ref[ name=id]></nowiki> lan <nowiki><references/></nowiki> kanggo kutipan (sitat)',
@@ -1046,6 +1047,7 @@ Gunakna <code>&lt;references /&gt;</code>, utawa <code>&lt;references group="...
 Tambahna ing pesenan sistém <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> ora absah; 
 ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
+	'cite_error_included_ref' => 'Tag &lt;ref&gt; kudu ditutup déning &lt;/ref&gt;',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */

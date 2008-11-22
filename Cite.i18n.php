@@ -73,12 +73,13 @@ no text was provided for refs named <code>$1</code>',
 
 /** Message documentation (Message documentation)
  * @author Lejonel
+ * @author Purodha
  * @author Raimond Spekking
  * @author Raymond
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'cite_desc' => 'Extension description for cite. Do not translate or change tag names.',
+	'cite_desc' => 'Extension description for cite. Shown in [[Special:Version]]. Do not translate or change tag names.',
 	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
 	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.',

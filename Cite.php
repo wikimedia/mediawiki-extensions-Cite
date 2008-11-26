@@ -33,9 +33,11 @@ $wgExtensionCredits['parserhook'][] = array(
 	'descriptionmsg' => 'cite_desc',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );
-$wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
-$wgExtensionMessagesFiles['Cite'] = dirname( __FILE__ ) . "/Cite.i18n.php";
-$wgAutoloadClasses['Cite'] = dirname( __FILE__ ) . "/Cite_body.php";
+
+$dir = dirname(__FILE__) . '/';
+$wgParserTestFiles[] = $dir . "citeParserTests.txt";
+$wgExtensionMessagesFiles['Cite'] = $dir . "Cite.i18n.php";
+$wgAutoloadClasses['Cite'] = $dir . "Cite_body.php";
 $wgSpecialPageGroups['Cite'] = 'pagetools';
 
 define( 'CITE_DEFAULT_GROUP', '');

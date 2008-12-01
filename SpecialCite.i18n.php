@@ -666,11 +666,12 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  * @author Suisui
  */
 $messages['ja'] = array(
-	'cite_article_desc' => '特別ページ [[Special:Cite|{{SITENAME}}の項目を引用する]] とツールボックスへのリンクを追加する',
+	'cite_article_desc' => '[[Special:Cite|引用情報のための特別ページ]]とツールボックスからのリンクを追加する',
 	'cite_article_link' => 'この項目を引用する',
 	'cite' => '{{SITENAME}}の項目を引用する',
 	'cite_page' => 'ページ名',
@@ -1182,6 +1183,17 @@ $messages['sah'] = array(
 /** Sindhi (سنڌي) */
 $messages['sd'] = array(
 	'cite' => 'حواليو',
+);
+
+/** Sinhala (සිංහල)
+ * @author නන්දිමිතුරු
+ */
+$messages['si'] = array(
+	'cite_article_desc' => '[[Special:Cite|උපහරණ]] විශේෂ පිටුවක් හා මෙවලම්ගොන්න සබැඳියක් එක්කරයි',
+	'cite_article_link' => 'මෙම පිටුව උපන්‍යාස කරන්න',
+	'cite' => 'උපන්‍යාසය',
+	'cite_page' => 'පිටුව:',
+	'cite_submit' => 'උපන්‍යාසය',
 );
 
 /** Slovak (Slovenčina)

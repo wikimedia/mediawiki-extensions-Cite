@@ -1578,6 +1578,49 @@ $messages['sah'] = array(
 	'cite_error_references_no_text' => 'Сыыһа тиэк (тег) <code>&lt;ref&gt;</code>; хос быһаарыыларга <code>$1</code> тиэкис ыйыллыбатах',
 );
 
+/** Sinhala (සිංහල)
+ * @author නන්දිමිතුරු
+ */
+$messages['si'] = array(
+	'cite_desc' => 'උපහරණයන් සඳහා, <nowiki><ref[ name=id]></nowiki> සහ <nowiki><references/></nowiki> ටැගයන්, එකතු කරයි',
+	'cite_croak' => 'උපන්‍යාසය නිරුද්ධවිය; $1: $2',
+	'cite_error_key_str_invalid' => 'අභ්‍යන්තර දෝෂය;
+අනීතික  $str සහ/හෝ $key.
+මෙය කිසිදින සිදුනොවිය යුතුය.',
+	'cite_error_stack_invalid_input' => 'අභ්‍යන්තර දෝෂය;
+අනීතික ඇසිරුම්  යතුර.
+මෙය කිසිදින සිදුනොවිය යුතුය.',
+	'cite_error' => 'උපන්‍යාස දෝෂය: $1',
+	'cite_error_ref_numeric_key' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
+නම සරල  පූර්ණාංකයක් විය නොහැක. විස්තරශීලි ශිර්ෂයක් භාවිතා කරන්න',
+	'cite_error_ref_no_key' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
+පෙළ විරහිත ආශ්‍රේය සඳහා නමක් තිබිය යුතුය',
+	'cite_error_ref_too_many_keys' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
+අනීතික නාමයන්, නිද. පමණට වැඩි',
+	'cite_error_ref_no_input' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
+නාමයක් නොමැති ආශ්‍රේය සඳහා පෙළක් තිබිය යුතුය',
+	'cite_error_references_invalid_input' => 'අනීතික <code>&lt;references&gt;</code> ටැගය;
+කිසිම ප්‍රදානයකට ඉඩ නොදෙයි. <code>&lt;references /&gt;</code> භාවිත කරන්න',
+	'cite_error_references_invalid_parameters' => 'අනීතික <code>&lt;references&gt;</code> ටැගය;
+කිසිම පරාමිතිකයකට ඉඩ නොදෙයි.
+<code>&lt;references /&gt;</code> භාවිත කරන්න',
+	'cite_error_references_invalid_parameters_group' => 'අනීතික <code>&lt;references&gt;</code> ටැගය;
+"කාණ්ඩය" පරාමිතියට පමණක් ඉඩ දෙයි.
+<code>&lt;references /&gt;</code>, හෝ <code>&lt;references group="..." /&gt;</code> භාවිත කරන්න',
+	'cite_error_references_no_backlink_label' => 'උපයෝග්‍ය පසුසබැඳුම් ලේබල අවසාන විය.
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> පණිවුඩයෙහි තවත් ඒවා අර්ථදක්වන්න',
+	'cite_error_references_no_text' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
+<code>$1</code> නමැති ආශ්‍රේයන් සඳහා කිසිදු පෙළක් සපයා නොතිබුණි',
+	'cite_error_included_ref' => '&lt;ref&gt; ටැගය සොයාගත නොහැකි බැවින් &lt;/ref&gt; වසා දමමින්',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link_prefix' => 'උපන්‍යාස_යොමුව-',
+	'cite_references_link_prefix' => 'උපන්‍යාස_සටහන-',
+	'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+	'cite_references_link_one' => '<li id="$1">[[#$2|↑]] $3</li>',
+	'cite_references_link_many' => '<li id="$1">↑ $2 $3</li>',
+	'cite_references_link_many_format' => '<sup>[[#$1|$2]]</sup>',
+);
+
 /** Slovak (Slovenčina)
  * @author Helix84
  */

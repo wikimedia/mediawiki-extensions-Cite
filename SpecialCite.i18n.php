@@ -459,6 +459,7 @@ $messages['fy'] = array(
  * @author Alison
  */
 $messages['ga'] = array(
+	'cite_article_desc' => 'Cuir [[Special:Cite|deismireacht]] leathanach speisíalta agus nasc bosca uirlisí',
 	'cite_article_link' => 'Luaigh an lch seo',
 	'cite' => 'Luaigh',
 	'cite_page' => 'Leathanach:',

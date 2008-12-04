@@ -200,6 +200,11 @@ $aliases['sv'] = array(
 	'Cite' => array( 'Citera' ),
 );
 
+/** Swahili (Kiswahili) */
+$aliases['sw'] = array(
+	'Cite' => array( 'Taja', 'Hakikisha' ),
+);
+
 /** Tetum (Tetun) */
 $aliases['tet'] = array(
 	'Cite' => array( 'Sita' ),

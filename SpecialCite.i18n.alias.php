@@ -88,6 +88,11 @@ $aliases['gl'] = array(
 	'Cite' => array( 'Cita' ),
 );
 
+/** Swiss German (Alemannisch) */
+$aliases['gsw'] = array(
+	'Cite' => array( 'Zitierhilf' ),
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */

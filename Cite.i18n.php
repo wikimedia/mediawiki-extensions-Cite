@@ -506,10 +506,30 @@ $messages['de-formal'] = array(
  * @author Michawiki
  */
 $messages['dsb'] = array(
+	'cite_desc' => 'Pśidawa toflicce <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> za pódaśa zrědłow',
 	'cite_croak' => 'Zmólka w referencnem systemje. $1: $2',
 	'cite_error_key_str_invalid' => 'Interna zmólka: njpłaśiwy $str a/abo $key. To njaměło se staś.',
 	'cite_error_stack_invalid_input' => 'Interna zmólka: njepłaśiwy stackowy kluc. To njaměło se staś.',
 	'cite_error' => 'Referencna zmólka: $1',
+	'cite_error_ref_numeric_key' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
+mě njamóžo jadnora licba byś. Wužyj wugroniwy titel',
+	'cite_error_ref_no_key' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
+"ref" bźez wopśimjeśa musy mě měś',
+	'cite_error_ref_too_many_keys' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
+njepłaśiwe mjenja, na pś. pśewjele',
+	'cite_error_ref_no_input' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
+"ref" bźez mjenja musy wopśimjeśe měś',
+	'cite_error_references_invalid_input' => 'Njepłaśiwa toflicka <code>&lt;references&gt;</code>;
+žedne zapódaśe dowólone. Wužyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Njepłaśiwa toflicka <code>&lt;references&gt;</code>;
+žedne parametry dowólone.
+Wužyj <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Njepłaśiwa toflicka <code>&lt;references&gt;</code>;
+jano parameter "group" jo dowólony,
+Wužyj <code>&lt;references /&gt;</code> abo <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
+za ref z mjenim <code>$1</code> njejo se tekst pódał',
+	'cite_error_included_ref' => 'Kóńceca toflicka &lt;/ref&gt; felujo za toflicku &lt;ref&gt;',
 );
 
 /** Greek (Ελληνικά)

@@ -1154,6 +1154,8 @@ $messages['roa-rup'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'cite_article_desc' => "Aggiunge 'na pàgena speciele de [[Special:Cite|citaziune]] e collegamende a scatele de le struminde",
+	'cite_article_link' => 'Cite sta pàgene',
 	'cite' => 'Cite',
 	'cite_page' => 'Pàgene:',
 	'cite_submit' => 'Cite',

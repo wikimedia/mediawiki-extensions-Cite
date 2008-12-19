@@ -481,8 +481,10 @@ $messages['gl'] = array(
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
  * @author AndreasJS
  * @author LeighvsOptimvsMaximvs
+ * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'cite_article_desc' => 'Προσθέτει εἰδικὴν δἐλτον [[Special:Cite|ἀναφορῶν]] τινὰ καὶ σύνδεσμον τινὰ ἐν τῷ ἐργαλειοκάδῳ',
 	'cite_article_link' => 'Άναφέρειν τήνδε τὴν δέλτον',
 	'cite' => 'Μνημονεύειν',
 	'cite_page' => 'Δέλτος:',

@@ -527,6 +527,8 @@ Wužyj <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Njepłaśiwa toflicka <code>&lt;references&gt;</code>;
 jano parameter "group" jo dowólony,
 Wužyj <code>&lt;references /&gt;</code> abo <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Swójske etikety slědkwótkazow wupócerane.
+Definěruj dalšne w powěsći <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
 za ref z mjenim <code>$1</code> njejo se tekst pódał',
 	'cite_error_included_ref' => 'Kóńceca toflicka &lt;/ref&gt; felujo za toflicku &lt;ref&gt;',

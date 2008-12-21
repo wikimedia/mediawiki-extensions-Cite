@@ -491,6 +491,13 @@ $messages['grc'] = array(
 	'cite_submit' => 'Μνημονεύειν',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Strommops
+ */
+$messages['gsw'] = array(
+	'cite_article_link' => 'Die Site zitiere',
+);
+
 /** Gujarati (ગુજરાતી) */
 $messages['gu'] = array(
 	'cite_page' => 'પાનું:',

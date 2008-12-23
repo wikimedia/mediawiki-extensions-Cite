@@ -656,11 +656,11 @@ $messages['fi'] = array(
 	'cite_error_references_invalid_input' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: sisällön lisääminen ei ole sallittu. Käytä elementtiä <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters_group' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: vain parametri ”group” on sallittu. Käytä tagia <code>&lt;references /&gt;</code> tai <code>&lt;references group="…" /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Määritetyt taakseviittausnimikkeet loppuivat kesken.
-Määritä lisää <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> -viestissä',
+	'cite_error_references_no_backlink_label' => 'Määritetyt takaisinviittausnimikkeet loppuivat kesken.
+Niitä voi määritellä lisää sivulla <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => 'Virheellinen <code>&lt;ref&gt;</code>-tagi;
 viitettä <code>$1</code> ei löytynyt',
-	'cite_error_included_ref' => '&lt;ref&gt;-tagin sulku &lt;/ref&gt; puuttuu',
+	'cite_error_included_ref' => '&lt;ref&gt;-tägin sulkeva &lt;/ref&gt; puuttuu',
 );
 
 /** French (Français)

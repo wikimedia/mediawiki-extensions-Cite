@@ -1126,6 +1126,8 @@ $messages['ko'] = array(
 	'cite_error' => '인용 오류: $1',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 내용이 없는 주석은 이름이 있어야 합니다.',
+	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
+이름이 없는 ref 태그는 반드시 내용이 있어야 합니다.',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
 변수를 넣어서는 안 됩니다.
 <code>&lt;references /&gt;</code>를 이용하십시오.',

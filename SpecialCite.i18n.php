@@ -677,6 +677,7 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Fryed-peach
  * @author JtFuruhata
  * @author Suisui
  */
@@ -684,7 +685,7 @@ $messages['ja'] = array(
 	'cite_article_desc' => '[[Special:Cite|引用情報のための特別ページ]]とツールボックスからのリンクを追加する',
 	'cite_article_link' => 'この項目を引用する',
 	'cite' => '{{SITENAME}}の項目を引用する',
-	'cite_page' => 'ページ名',
+	'cite_page' => 'ページ:',
 	'cite_submit' => '引用する',
 );
 

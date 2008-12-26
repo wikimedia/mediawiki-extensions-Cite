@@ -598,6 +598,8 @@ las referencias sin contenido deben tener un nombre',
 nombres de parámetros no válidos',
 	'cite_error_ref_no_input' => 'Elemento <code>&lt;ref&gt;</code> no válido;
 referencias sin nombre deben tener contenido',
+	'cite_error_references_invalid_input' => 'Elemento <code>&lt;references&gt;</code> inválido;
+no se permite nada entrada. Usa <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'El elemento <code>&lt;references&gt;</code> no es válido;
 no admite parámetros.
 Use <code>&lt;references /&gt;</code>',

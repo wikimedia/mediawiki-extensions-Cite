@@ -598,8 +598,7 @@ las referencias sin contenido deben tener un nombre',
 nombres de parámetros no válidos',
 	'cite_error_ref_no_input' => 'Elemento <code>&lt;ref&gt;</code> no válido;
 referencias sin nombre deben tener contenido',
-	'cite_error_references_invalid_input' => 'Elemento <code>&lt;references&gt;</code> inválido;
-no se permite nada entrada. Usa <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_input' => 'Elemento <code>&lt;references&gt;</code> no válido. Usa sólo <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'El elemento <code>&lt;references&gt;</code> no es válido;
 no admite parámetros.
 Use <code>&lt;references /&gt;</code>',
@@ -1133,6 +1132,9 @@ $messages['ko'] = array(
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
 변수를 넣어서는 안 됩니다.
 <code>&lt;references /&gt;</code>를 이용하십시오.',
+	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
+"group" 변수만 사용할 수 있습니다.
+<code>&lt;references /&gt;</code>나 <code>&lt;references group="..." /&gt;</code>만 이용하십시오.',
 	'cite_references_link_many_format_backlink_labels' => '가 나 다 라 마 바 사 아 자 차 카 타 파 하 거 너 더 러 머 버 서 어 저 처 커 터 퍼 허 고 노 도 로 모 보 소 오 조 초 코 토 포 호 구 누 두 루 무 부 수 우 주 추 쿠 투 푸 후 그 느 드 르 므 브 스 으 즈 츠 크 트 프 흐 기 니 디 리 미 비 시 이 지 치 키 티 피 히',
 );
 
@@ -1354,6 +1356,7 @@ $messages['nds'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Ungülligen Tag <code>&lt;references&gt;</code>: Blot de Parameter „group“ is verlöövt, bruuk <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="…" /&gt;</tt>',
 	'cite_error_references_no_backlink_label' => 'De verföögboren Tekens för de Lenken op Referenzen sünd all. Dat lett sik repareren, wenn in de Systemnaricht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mehr Tekens angeven warrt.',
 	'cite_error_references_no_text' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>; is keen Text för Refs mit den Naam <tt>$1</tt> angeven.',
+	'cite_error_included_ref' => 'Dor fehlt en tosluten &lt;/ref&gt;',
 );
 
 /** Dutch (Nederlands)
@@ -1609,6 +1612,38 @@ $messages['sah'] = array(
 Маны <code>&lt;references /&gt;</code>, эбэтэр <code>&lt;references group="..." /&gt;</code> туһан.',
 	'cite_error_references_no_backlink_label' => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Сыыһа тиэк (тег) <code>&lt;ref&gt;</code>; хос быһаарыыларга <code>$1</code> тиэкис ыйыллыбатах',
+);
+
+/** Sicilian (Sicilianu)
+ * @author Santu
+ */
+$messages['scn'] = array(
+	'cite_desc' => 'Junci li tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> pi gistiri li citazzioni',
+	'cite_croak' => 'Sbàgghiu nnâ citazzioni: $1: $2',
+	'cite_error_key_str_invalid' => 'Sbàgghiu nternu: $str sbagghiatu',
+	'cite_error_stack_invalid_input' => 'Sbàgghiu nternu: chiavi di stack sbagghiata',
+	'cite_error' => 'Sbàgghiu nnâ funzioni Cite $1',
+	'cite_error_ref_numeric_key' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;ref&gt;</code>: lu nomu pò èssiri nu nùmmiru sanu. Usari nu tìtulu discrittivu",
+	'cite_error_ref_no_key' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;ref&gt;</code>: li ref vacanti non ponnu èssiri senza nomu.",
+	'cite_error_ref_too_many_keys' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;ref&gt;</code>: nomi non vàlidi (pi es. nùmmiru troppu àutu)",
+	'cite_error_ref_no_input' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;ref&gt;</code>: li ref senza nomu non ponnu èssiri vacanti",
+	'cite_error_references_invalid_input' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;references&gt;</code>: input non ammittutu, usari lu marcaturi
+<code>&lt;references /&gt;</code>",
+	'cite_error_references_invalid_parameters' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;references&gt;</code>: paràmitri non ammittuti, usari li marcaturi <code>&lt;references /&gt;</code>",
+	'cite_error_references_invalid_parameters_group' => 'Sbàgghiu ni l\'usu dû marcaturi <code>&lt;references&gt;</code>; 
+sulu lu paràmitru "group" è pirmittutu.
+Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Etichetti di rimannata pirsunalizzati finuti, aumintari lu nùmmiru ntô missàggiu <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text' => 'Marcaturi <code>&lt;ref&gt;</code> non vàlidu; non vinni nnicatu nuddu testu pô marcaturi <code>$1</code>',
+	'cite_error_included_ref' => '&lt;/ref&gt; di chiusura mancanti pô marcaturi &lt;ref&gt;',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link_prefix' => 'muntuari ref',
+	'cite_references_link_prefix' => 'muntuari annutazzioni',
+	'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+	'cite_references_link_one' => '<li id="$1">[[#$2|↑]] $3</li>',
+	'cite_references_link_many' => '<li id="$1">↑ $2 $3</li>',
+	'cite_references_link_many_format' => '<sup>[[#$1|$2]]</sup>',
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
 /** Sinhala (සිංහල)
@@ -1958,7 +1993,9 @@ $messages['yue'] = array(
 無文字提供於名為<code>$1</code>嘅參照',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Gaoxuewei
+ */
 $messages['zh-hans'] = array(
 	'cite_desc' => '加入 <nowiki><ref[ name=id]></nowiki> 与 <nowiki><references/></nowiki> 标签用于引用中',
 	'cite_croak' => '引用阻塞; $1: $2',
@@ -1977,6 +2014,7 @@ $messages['zh-hans'] = array(
 	'cite_error_references_no_backlink_label' => '自定义后退标签已经用完了，现在可在标签 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> 定义更多信息',
 	'cite_error_references_no_text' => '无效的<code>&lt;ref&gt;</code>标签；
 无文字提供于名为<code>$1</code>的参照',
+	'cite_error_included_ref' => '没有找到与 &lt;ref&gt; 对应的 &lt;/ref&gt; 标签',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬) */

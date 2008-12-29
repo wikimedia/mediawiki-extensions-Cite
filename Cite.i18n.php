@@ -353,10 +353,36 @@ ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
  * @author CERminator
  */
 $messages['bs'] = array(
+	'cite_desc' => 'Dodaje oznake <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> za citiranje',
+	'cite_croak' => 'Citiranje neuspješno; $1: $2',
+	'cite_error_key_str_invalid' => 'Unutrašnja greška;
+nevaljan $str i/ili $key.
+Ovo se ne bi trebalo dešavati.',
 	'cite_error_stack_invalid_input' => 'Unutrašnja greška;
 nepoznat "stack" ključ.
 Ovo se ne bi smjelo događati.',
 	'cite_error' => 'Greška kod citiranja: $1',
+	'cite_error_ref_numeric_key' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
+naslov ne može biti jednostavni cijeli broj. Koristite opisni naslov',
+	'cite_error_ref_no_key' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
+reference bez sadržaja moraju imati naziv',
+	'cite_error_ref_too_many_keys' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
+nevaljani nazivi, npr. možda ih je previše',
+	'cite_error_ref_no_input' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
+reference bez naziva moraju imati sadržaj',
+	'cite_error_references_invalid_input' => 'Nevaljana oznaka <code>&lt;references&gt;</code>;
+nije dozvoljen unos. Koristite <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Nevaljana oznaka <code>&lt;references&gt;</code>;
+nisu dozvoljeni parametri.
+Koristite <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Nevaljana oznaka <code>&lt;references&gt;</code;
+dozvoljen je samo parametar "group".
+Koristite <code>&lt;references /&gt;</code> ili <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Ponestalo je prilagođenih naslova backlinkova.
+Definirajte ih još u <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> poruci',
+	'cite_error_references_no_text' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
+nije naveden tekst za reference sa imenom <code>$1</code>',
+	'cite_error_included_ref' => 'Nedostaje oznaka za zatvaranje &lt;/ref&gt; nakon &lt;ref&gt;',
 );
 
 /** Catalan (Català)

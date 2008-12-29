@@ -204,7 +204,11 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'cite_article_desc' => 'Dodaje posebnu stranicu za [[Special:Cite|citiranje]] i link u alatnoj kutiji',
+	'cite_article_link' => 'Citiraj ovu stranicu',
+	'cite' => 'Citiranje',
 	'cite_page' => 'Članak:',
+	'cite_submit' => 'Citiraj',
 );
 
 /** Catalan (Català)
@@ -1198,6 +1202,17 @@ $messages['sah'] = array(
 	'cite_submit' => 'Цитаата',
 );
 
+/** Sicilian (Sicilianu)
+ * @author Santu
+ */
+$messages['scn'] = array(
+	'cite_article_desc' => 'Junci na pàggina spiciali pi li [[Special:Cite|cosi di muntuari]] e nu lijami ntê strumenti',
+	'cite_article_link' => 'Muntùa sta pàggina',
+	'cite' => 'Muntuazzioni',
+	'cite_page' => 'Pàggina di muntari',
+	'cite_submit' => 'Cria la cosa di muntuari',
+);
+
 /** Sindhi (سنڌي) */
 $messages['sd'] = array(
 	'cite' => 'حواليو',
@@ -1326,6 +1341,7 @@ $messages['te'] = array(
  * @author MF-Warburg
  */
 $messages['tet'] = array(
+	'cite_article_desc' => 'Kria pájina espesíal ba [[Special:Cite|sitasaun]] ho ligasaun iha kaixa besi nian',
 	'cite_article_link' => "Sita pájina ne'e",
 	'cite' => 'Sita',
 	'cite_page' => 'Pájina:',

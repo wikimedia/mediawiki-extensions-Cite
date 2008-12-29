@@ -1866,6 +1866,42 @@ $messages['th'] = array(
 	'cite_error' => 'อ้างอิงผิดพลาด: $1',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'cite_desc' => 'Nagdaragdag ng mga tatak na <nowiki><ref[ name=id]></nowiki> at <nowiki><references/></nowiki>, para sa mga pagtukoy',
+	'cite_croak' => 'Nawalan ng buhay ang pagtukoy; $1: $2',
+	'cite_error_key_str_invalid' => 'Panloob na kamalian;
+hindi tanggap na $str at/o $sus.
+Hindi ito dapat mangyari.',
+	'cite_error_stack_invalid_input' => 'Panloob na kamalian;
+hindi tanggap na susi ng salansan.
+Hindi ito dapat mangyari.',
+	'cite_error' => 'Kamalian sa pagtukoy: $1',
+	'cite_error_ref_numeric_key' => "Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;
+hindi maaaring isang payak na buumbilang (''integer'') ang pangalan.  Gumamit ng isang mapaglarawang pamagat",
+	'cite_error_ref_no_key' => "Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;
+kinakailangan may isang pangalan ang mga sangguniang (''ref'') walang nilalaman",
+	'cite_error_ref_too_many_keys' => 'Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;
+hindi tanggap na mga pangalan, ang ibig sabihin ay napakarami',
+	'cite_error_ref_no_input' => "Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;
+kinakailangang may nilalaman ang mga sangguniang (''ref'') walang pangalan",
+	'cite_error_references_invalid_input' => 'Hindi tanggap ang tatak na <code>&lt;references&gt;</code>;
+walang pinapahintulutang pagpapasok/paglalagay. Gamitin ang <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Hindi tanggap na <code>&lt;references&gt;</code>;
+walang pinapahintulutang mga parametro.
+Gamitin ang <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Hindi tanggap ang tatak na <code>&lt;references&gt;</code>;
+Pinapahintulutan lamang ang parametrong "pangkat" (\'\'group\'\').
+Gamitin ang <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Naubusan ng pasadyang mga tatak na pantukoy ng panlikod na kawing.
+Dagdagan pa ng pakahulugan sa loob ng mensaheng <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text' => "Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;
+walang tekstong ibinigay para sa mga sangguniang (''ref'') pinangalanang <code>$1</code>",
+	'cite_error_included_ref' => 'Naawawala ang pansarang &lt;/ref&gt; na para sa tatak na &lt;ref&gt;',
+);
+
 /** Turkish (Türkçe) */
 $messages['tr'] = array(
 	'cite_error' => 'Kaynak hatası $1',

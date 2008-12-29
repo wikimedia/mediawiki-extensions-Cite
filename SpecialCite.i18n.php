@@ -1369,6 +1369,17 @@ $messages['th'] = array(
 	'cite_submit' => 'อ้างอิง',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'cite_article_desc' => 'Nagdaragdag ng isang natatanging pahinang [[Special:Cite|pampagtutukoy]] at kawing sa kahon (lalagyan) ng kagamitan',
+	'cite_article_link' => 'Tukuyin ang pahinang ito',
+	'cite' => 'Tukuyin',
+	'cite_page' => 'Pahina:',
+	'cite_submit' => 'Tukuyin',
+);
+
 /** Tswana (Setswana) */
 $messages['tn'] = array(
 	'cite_article_link' => 'Nopola mokwalo o',

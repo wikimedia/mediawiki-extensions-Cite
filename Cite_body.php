@@ -215,7 +215,7 @@ class Cite {
 		else if ( $cnt >= 1 ) {
 			if ( isset( $argv['name'] ) ) {
 				// Key given.
-				$key = Sanitizer::escapeId( $argv['name'] );
+				$key = Sanitizer::escapeId( $argv['name'], 'noninitial' );
 				unset( $argv['name']);
 				--$cnt;
 			}

@@ -156,8 +156,11 @@ $messages['be'] = array(
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
+	'cite_article_desc' => 'Дадае спэцыяльную старонку [[Special:Cite|цытаваньня]] і спасылку ў інструмэнтах',
 	'cite_article_link' => 'Цытаваць гэтую старонку',
+	'cite' => 'Цытаваньне',
 	'cite_page' => 'Старонка:',
+	'cite_submit' => 'Цытаваць',
 );
 
 /** Bulgarian (Български)

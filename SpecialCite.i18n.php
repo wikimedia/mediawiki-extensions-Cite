@@ -365,9 +365,12 @@ $messages['et'] = array(
 	'cite_submit' => 'Tsiteeri',
 );
 
-/** Basque (Euskara) */
+/** Basque (Euskara)
+ * @author Theklan
+ */
 $messages['eu'] = array(
-	'cite_article_link' => 'Artikulu hau aipatu',
+	'cite_article_desc' => '[[Special:Cite|Aipatu]] orrialde berezia gehitzen du tresna-kutxaren loturetan',
+	'cite_article_link' => 'Orrialde hau aipatu',
 	'cite' => 'Aipamenak',
 	'cite_page' => 'Orrialdea:',
 	'cite_submit' => 'Aipatu',

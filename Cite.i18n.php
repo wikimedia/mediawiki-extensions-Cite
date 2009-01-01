@@ -512,6 +512,14 @@ enwau annilys; e.e. gormod ohonynt',
 rhaid i dagiau ref heb enw iddynt gynnwys rhywbeth',
 	'cite_error_references_invalid_input' => 'Tag <code>&lt;references&gt;</code> annilys;
 ni chaniateir mewnbwn. Defnyddiwch <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> annilys;
+ni chaniateir paramedrau.
+Defnyddiwch <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> annilys;
+dim ond y paramedr "group" a ganiateir.
+Defnyddiwch <code>&lt;references /&gt;</code>, neu <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Dim rhagor o labeli ôl-gyswllt ar gael.
+Diffiniwch ragor ohonynt yn y neges <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => "Tag <code>&lt;ref&gt;</code> annilys;
 ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 	'cite_error_included_ref' => '&lt;/ref&gt; clo yn eisiau ar gyfer y tag &lt;ref&gt;',

@@ -145,6 +145,11 @@ $aliases['ms'] = array(
 	'Cite' => array( 'Petik' ),
 );
 
+/** Maltese (Malti) */
+$aliases['mt'] = array(
+	'Cite' => array( 'Iċċita' ),
+);
+
 /** Nahuatl (Nāhuatl) */
 $aliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),

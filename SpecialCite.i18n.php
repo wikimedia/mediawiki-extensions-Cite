@@ -880,13 +880,15 @@ $messages['mhr'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Brest
  * @author Misos
  */
 $messages['mk'] = array(
-	'cite_article_link' => 'Библиографски детали',
-	'cite' => 'Библиографија',
+	'cite_article_desc' => 'Додава специјална страница за [[Special:Cite|цитирање]] и врска кон алатникот.',
+	'cite_article_link' => 'Цитирање на оваа страница',
+	'cite' => 'Цитат',
 	'cite_page' => 'Страница:',
-	'cite_submit' => 'Цитирај',
+	'cite_submit' => 'Цитат',
 );
 
 /** Malayalam (മലയാളം)
@@ -1399,10 +1401,12 @@ $messages['to'] = array(
 
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
+ * @author Joseph
  * @author Srhat
  * @author Uğur Başak
  */
 $messages['tr'] = array(
+	'cite_article_desc' => '[[Special:Cite|Alıntı]] özel sayfa ve araç kutusu linkini ekler',
 	'cite_article_link' => 'Sayfayı kaynak göster',
 	'cite' => 'Kaynak göster',
 	'cite_page' => 'Sayfa:',

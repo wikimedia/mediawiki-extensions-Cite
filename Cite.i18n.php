@@ -428,6 +428,8 @@ Definirajte ih još u <nowiki>[[MediaWiki:Cite references link many format backl
 	'cite_error_references_no_text' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
 nije naveden tekst za reference sa imenom <code>$1</code>',
 	'cite_error_included_ref' => 'Nedostaje oznaka za zatvaranje &lt;/ref&gt; nakon &lt;ref&gt;',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> oznake postoje, ali oznaka <code>&lt;references/&gt;</code> nije pronađena',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> oznake postoje za grupu pod imenom "$1", ali nije pronađena pripadajuća oznaka <code>&lt;references group="$1"/&gt;</code>',
 );
 
 /** Catalan (Català)
@@ -752,6 +754,7 @@ Niitä voi määritellä lisää sivulla <nowiki>[[MediaWiki:Cite references lin
 	'cite_error_references_no_text' => 'Virheellinen <code>&lt;ref&gt;</code>-tagi;
 viitettä <code>$1</code> ei löytynyt',
 	'cite_error_included_ref' => '&lt;ref&gt;-tägin sulkeva &lt;/ref&gt; puuttuu',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-elementti löytyy, mutta <code>&lt;references/&gt;</code>-elementtiä ei löydy',
 );
 
 /** French (Français)
@@ -846,6 +849,8 @@ Defina máis na mensaxe <nowiki>[[MediaWiki:Cite references link many format bac
 	'cite_error_references_no_text' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
 non se forneceu texto para as referencias de nome <code>$1</code>',
 	'cite_error_included_ref' => 'peche a etiqueta &lt;/ref&gt; que lle falta á outra etiqueta &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen, pero non se atopou ningunha etiqueta <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado "$1", pero non se atopou ningunha etiqueta <code>&lt;references group="$1"/&gt;</code> correspondente',
 	'cite_reference_link_key_with_num' => '$1_$2',
 	'cite_reference_link_prefix' => 'cite_ref-',
 	'cite_references_link_prefix' => 'cite_note-',
@@ -1412,6 +1417,8 @@ $messages['mk'] = array(
 	'cite_error_references_no_text' => 'Погрешен <code>&lt;ref&gt;</code> приврзок;
 нема текст за наводот означен како <code>$1</code>',
 	'cite_error_included_ref' => 'Затворање на &lt;/ref&gt; недостасува за &lt;ref&gt; приврзок',
+	'cite_error_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> приврзоци, но нема <code>&lt;references/&gt;</code> приврзок',
+	'cite_error_group_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> приврзоци за група именувана како "$1", но нема соодветен <code>&lt;references group="$1"/&gt;</code> приврзок',
 	'cite_reference_link_key_with_num' => '$1_$2',
 	'cite_reference_link_prefix' => 'cite_ref-',
 );
@@ -1623,6 +1630,8 @@ Utilizatz <code>&lt;references /&gt;</code>, o alara <code>&lt;references group=
 
 pas de tèxt per las referéncias nomenadas <code>$1</code>.',
 	'cite_error_included_ref' => 'Clausura &lt;/ref&gt; omesa per la balisa &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís, mas cap de balisa <code>&lt;references/&gt;</code> pas trobada.',
+	'cite_error_group_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís per un grop nomenat « $1 », mas cap de balisa <code>&lt;references group="$1"/&gt;</code> correspondenta pas trobada',
 	'cite_references_link_many_format_backlink_labels' => 'a á à b c ç d e é è f g h i í ì ï j k l m n o ó ò p q r s t u ú ù ü v w x y z',
 );
 

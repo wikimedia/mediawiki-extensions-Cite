@@ -101,7 +101,7 @@ $messages['arn'] = array(
  */
 $messages['arz'] = array(
 	'cite_article_desc' => 'بيضيف [[Special:Cite|استشهاد]] صفحة مخصوصة ولينك لصندوء أدوات',
-	'cite_article_link' => 'استشهد بالصفحة دي',
+	'cite_article_link' => 'استشهد بالصفحة دى',
 	'cite' => 'مرجع',
 	'cite_page' => 'الصفحه:',
 	'cite_submit' => 'مرجع',

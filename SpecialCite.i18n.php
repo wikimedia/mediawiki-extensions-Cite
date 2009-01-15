@@ -448,11 +448,14 @@ $messages['frp'] = array(
 );
 
 /** Friulian (Furlan)
+ * @author Klenje
  * @author MF-Warburg
  */
 $messages['fur'] = array(
 	'cite_article_link' => 'Cite cheste vôs',
+	'cite' => 'Citazion',
 	'cite_page' => 'Pagjine:',
+	'cite_submit' => 'Cree la citazion',
 );
 
 /** Western Frisian (Frysk)
@@ -502,10 +505,15 @@ $messages['grc'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Holder
  * @author Strommops
  */
 $messages['gsw'] = array(
+	'cite_article_desc' => 'Ergänzt d [[Special:Cite|Zitierhilf]]-Spezialsyte un e Gleich im Chaschte Wärchzyyg',
 	'cite_article_link' => 'Die Site zitiere',
+	'cite' => 'Zitierhilf',
+	'cite_page' => 'Syte:',
+	'cite_submit' => 'aazeige',
 );
 
 /** Gujarati (ગુજરાતી) */

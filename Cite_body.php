@@ -355,8 +355,10 @@ class Cite {
 		wfProfileIn( __METHOD__ .'-entries' );
 		$ent = array();
 		foreach ( $this->mRefs[$group] as $k => $v )
+			//echo "test_K: " . $k . "\n";
+			//echo "test_V" . $v;
 			$ent[] = $this->referencesFormatEntry( $k, $v );
-		
+		var_dump($ent);
 		$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
 		$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
 		$content = implode( "\n", $ent );

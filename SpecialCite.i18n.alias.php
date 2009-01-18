@@ -200,6 +200,11 @@ $aliases['pt-br'] = array(
 	'Cite' => array( 'Citar' ),
 );
 
+/** Sanskrit (संस्कृत) */
+$aliases['sa'] = array(
+	'Cite' => array( 'उद्धृत' ),
+);
+
 /** Albanian (Shqip) */
 $aliases['sq'] = array(
 	'Cite' => array( 'Citim' ),

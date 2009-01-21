@@ -1521,7 +1521,7 @@ $messages['yue'] = array(
 );
 
 /** Classical Chinese (文言) */
-$messages['zh-classical'] = array(
+$messages['lzh'] = array(
 	'cite_article_link' => '引文',
 	'cite' => '引文',
 );

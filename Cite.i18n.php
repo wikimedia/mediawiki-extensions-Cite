@@ -2057,7 +2057,35 @@ walang tekstong ibinigay para sa mga sangguniang (''ref'') pinangalanang <code>$
  */
 $messages['tr'] = array(
 	'cite_desc' => 'Alıntılar için, <nowiki><ref[ name=id]></nowiki> ve <nowiki><references/></nowiki> etiketlerini ekler',
+	'cite_croak' => 'Alıntı kaybedildi; $1: $2',
+	'cite_error_key_str_invalid' => 'Dahili hata;
+geçersiz $str ve/ya da $key.
+Bu asla olmamalı.',
+	'cite_error_stack_invalid_input' => 'Dahili hata;
+geçersiz stack anahtarı.
+Bu asla olmamalı.',
 	'cite_error' => 'Kaynak hatası $1',
+	'cite_error_ref_numeric_key' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
+isim basit bir tamsayı olamaz. Tanımlayıcı bir başlık kullanın',
+	'cite_error_ref_no_key' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
+içeriksiz reflerin bir ismi olmalı',
+	'cite_error_ref_too_many_keys' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
+geçersiz isimler, ör. çok fazla',
+	'cite_error_ref_no_input' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
+isimsiz reflerin içeriği olmalı',
+	'cite_error_references_invalid_input' => 'Geçersiz <code>&lt;references&gt;</code> etiketi;
+girdiye izin verilmiyor. <code>&lt;references /&gt;</code> kullanın',
+	'cite_error_references_invalid_parameters' => 'Geçersiz <code>&lt;references&gt;</code> etiketi;
+parametrelere izin verilmiyor.
+<code>&lt;references /&gt;</code> kullanın',
+	'cite_error_references_invalid_parameters_group' => 'Geçersiz <code>&lt;references&gt;</code> etiketi;
+sadece "group" parametresine izin verilir.
+<code>&lt;references /&gt;</code>, ya da <code>&lt;references group="..." /&gt;</code> kullanın',
+	'cite_error_references_no_backlink_label' => 'Özel geribağlantı etiketleri kalmadı.
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mesajında daha fazla tanımlayın',
+	'cite_error_references_no_text' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
+<code>$1</code> isimli refler için metin temin edilmemiş',
+	'cite_error_included_ref' => '&lt;ref&gt; etiketi için &lt;/ref&gt; kapanışı eksik',
 );
 
 /** Ukrainian (Українська)

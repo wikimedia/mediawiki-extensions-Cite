@@ -1366,7 +1366,9 @@ Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /
 	'cite_error_references_no_text' => "Ónzjuuste tag <code>&lt;ref&gt;</code>; d'r is gein teks opgegaeve veur refs mit de naam <code>$1</code>",
 );
 
-/** Lithuanian (Lietuvių) */
+/** Lithuanian (Lietuvių)
+ * @author Homo
+ */
 $messages['lt'] = array(
 	'cite_croak' => 'Cituoti nepavyko; $1: $2',
 	'cite_error_key_str_invalid' => 'Vidinė klaida; neleistinas $str',

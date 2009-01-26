@@ -667,6 +667,25 @@ class Cite {
 	}
 
 	/**
+	 * Called at the end of page processing to append an error if refs were 
+	 * used without a references tag.
+	 */
+	function checkRefsNoReferences(&$parser, &$text){
+		if ( $parser->getOptions()->getIsSectionPreview() ) return true;
+
+		foreach ( $this->mRefs as $group => $refs ) {
+			if ( count( $refs ) == 0 ) continue;
+			$text .= "\n<br />";
+			if ( $group == CITE_DEFAULT_GROUP ) {
+				$text .= $this->error( 'cite_error_refs_without_references' );
+			} else {
+				$text .= $this->error( 'cite_error_group_refs_without_references', htmlspecialchars( $group ) );
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Initialize the parser hooks
 	 */
 	function setHooks() {
@@ -676,6 +695,7 @@ class Cite {
 		$wgParser->setHook( 'references' , array( &$this, 'references' ) );
 
 		$wgHooks['ParserClearState'][] = array( &$this, 'clearState' );
+		$wgHooks['ParserBeforeTidy'][] = array( &$this, 'checkRefsNoReferences' );
 	}
 
 	/**

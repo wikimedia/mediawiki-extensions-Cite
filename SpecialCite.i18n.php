@@ -838,12 +838,13 @@ $messages['lfn'] = array(
 
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
+ * @author Pahles
  */
 $messages['li'] = array(
-	'cite_article_desc' => "Voeg 'n [[Special:Cite|speciaal pazjena óm te citere]] toe en 'ne lank d'rhaer inne gereidsjapskis",
-	'cite_article_link' => 'Citeer dees pazjena',
+	'cite_article_desc' => "Voog 'n [[Special:Cite|speciaal pagina óm te citere]] toe en 'ne link derhaer in de gereidsjapskis",
+	'cite_article_link' => 'Citeer dees pagina',
 	'cite' => 'Citere',
-	'cite_page' => 'Pazjena:',
+	'cite_page' => 'Pagina:',
 	'cite_submit' => 'Citere',
 );
 
@@ -878,6 +879,12 @@ $messages['lv'] = array(
 	'cite' => 'Citēšana',
 	'cite_page' => 'Raksts:',
 	'cite_submit' => 'Parādīt atsauci',
+);
+
+/** Classical Chinese (文言) */
+$messages['lzh'] = array(
+	'cite_article_link' => '引文',
+	'cite' => '引文',
 );
 
 /** Eastern Mari (Олык Марий)
@@ -1518,12 +1525,6 @@ $messages['yue'] = array(
 	'cite' => '引用文章',
 	'cite_page' => '版：',
 	'cite_submit' => '引用',
-);
-
-/** Classical Chinese (文言) */
-$messages['lzh'] = array(
-	'cite_article_link' => '引文',
-	'cite' => '引文',
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */

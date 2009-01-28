@@ -1332,8 +1332,10 @@ $messages['sv'] = array(
 
 /** Silesian (Ślůnski)
  * @author Herr Kriss
+ * @author Timpul
  */
 $messages['szl'] = array(
+	'cite_article_link' => 'Cytuj ta zajta',
 	'cite_page' => 'Zajta:',
 );
 

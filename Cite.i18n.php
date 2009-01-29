@@ -1265,6 +1265,7 @@ $str 혹은 $key가 잘봇되었습니다.
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
 "group" 변수만 사용할 수 있습니다.
 <code>&lt;references /&gt;</code>나 <code>&lt;references group="..." /&gt;</code>만 이용하십시오.',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> 태그가 존재하지만, <code>&lt;references/&gt;</code> 태그가 없습니다.',
 	'cite_references_link_many_format_backlink_labels' => '가 나 다 라 마 바 사 아 자 차 카 타 파 하 거 너 더 러 머 버 서 어 저 처 커 터 퍼 허 고 노 도 로 모 보 소 오 조 초 코 토 포 호 구 누 두 루 무 부 수 우 주 추 쿠 투 푸 후 그 느 드 르 므 브 스 으 즈 츠 크 트 프 흐 기 니 디 리 미 비 시 이 지 치 키 티 피 히',
 );
 

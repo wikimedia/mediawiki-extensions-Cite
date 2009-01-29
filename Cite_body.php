@@ -711,9 +711,7 @@ class Cite {
 		# just ignore the extra parameter.
 		return 
 			$this->parse(
-				'<strong class="error">' .
-				wfMsg( 'cite_error', wfMsg( $key, $param ) ) .
-				'</strong>'
+				wfMsg( 'cite_error', wfMsg( $key, $param ) )
 			);
 	}
 

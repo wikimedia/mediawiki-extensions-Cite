@@ -22,7 +22,7 @@ invalid stack key.
 This should never occur.',
 
 	# User errors
-	'cite_error'                                     => 'Cite error: $1',
+	'cite_error'                                     => '<strong class="error">Cite error: $1</strong>',
 	'cite_error_ref_numeric_key'                     => 'Invalid <code>&lt;ref&gt;</code> tag;
 name cannot be a simple integer. Use a descriptive title',
 	'cite_error_ref_no_key'                          => 'Invalid <code>&lt;ref&gt;</code> tag;
@@ -105,7 +105,7 @@ It is not possible to make a clickable link to this message. "nowiki" is mandato
 $messages['af'] = array(
 	'cite_desc' => 'Maak <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> etikette beskikbaar vir sitasie.',
 	'cite_croak' => 'Probleem met Cite; $1: $2',
-	'cite_error' => 'Citefout: $1',
+	'cite_error' => '<strong class="error">Citefout: $1</strong>',
 );
 
 /** Aragonese (Aragonés)
@@ -116,7 +116,7 @@ $messages['an'] = array(
 	'cite_croak' => 'Zita corrompita; $1: $2',
 	'cite_error_key_str_invalid' => 'Error interna; $str y/u $key no conforme(s). Isto no abría d\'escaizer nunca.',
 	'cite_error_stack_invalid_input' => "Error interna; clau de pila no conforme. Isto no abría d'escaizer nunca.",
-	'cite_error' => 'Error en a zita: $1',
+	'cite_error' => '<strong class="error">Error en a zita: $1</strong>',
 	'cite_error_ref_numeric_key' => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; o nombre d'a etiqueta no puede estar un numero entero, faiga serbir un títol descriptibo",
 	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin de conteniu han de tener un nombre',
 	'cite_error_ref_too_many_keys' => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; nombres de parametros incorreutos.',
@@ -143,7 +143,7 @@ $str و/أو $key غير صحيح.
 	'cite_error_stack_invalid_input' => 'خطأ داخلي؛
 مفتاح ستاك غير صحيح.
 هذا لا يجب أن يحدث أبدا.',
-	'cite_error' => 'خطأ استشهاد: $1',
+	'cite_error' => '<strong class="error">خطأ استشهاد: $1</strong>',
 	'cite_error_ref_numeric_key' => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
 الاسم لا يمكن أن يكون عددا صحيحا بسيطا. استخدم عنوانا وصفيا',
 	'cite_error_ref_no_key' => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
@@ -182,7 +182,7 @@ $str و/أو $key غلط.
 	'cite_error_stack_invalid_input' => 'غلط داخلي؛
 مفتاح ستاك مش صحيح.
 ده لازم مايحصلش ابدا',
-	'cite_error' => 'المرجع غلط: $1',
+	'cite_error' => '<strong class="error">المرجع غلط: $1</strong>',
 	'cite_error_ref_numeric_key' => 'التاج <code>&lt;ref&gt;</code> مش صحيح؛
 الاسم ماينفعش يكون عدد صحيح بسيط. استخدم عنوان بيوصف',
 	'cite_error_ref_no_key' => 'التاج <code>&lt;ref&gt;</code> مش صحيح؛
@@ -215,7 +215,7 @@ $messages['ast'] = array(
 	'cite_croak' => 'Cita corrompida; $1: $2',
 	'cite_error_key_str_invalid' => 'Error internu; $str y/o $key non válidos.  Esto nun habría asoceder nunca.',
 	'cite_error_stack_invalid_input' => 'Error internu; clave de pila non válida. Esto nun habría asoceder nunca.',
-	'cite_error' => 'Error de cita: $1',
+	'cite_error' => '<strong class="error">Error de cita: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; el nome nun pue ser un enteru simple, usa un títulu descriptivu',
 	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; les referencies ensin conteníu han tener un nome',
 	'cite_error_ref_too_many_keys' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nomes non válidos (p.ex. demasiaos)',
@@ -245,7 +245,7 @@ $messages['bcc'] = array(
 	'cite_error_stack_invalid_input' => 'درونی حطا;
 نامعتربین دسته کلیت.
 شی نبایدن هچ وهد پیش کیت.',
-	'cite_error' => 'حطا ارجاع: $1',
+	'cite_error' => '<strong class="error">حطا ارجاع: $1</strong>',
 	'cite_error_ref_numeric_key' => 'نامعتبر <code>&lt;ref&gt;</code>تگ;
 نام یک سادگین هوری نه نه بیت. یک توضیحی عنوانی استفاده کنیت',
 	'cite_error_ref_no_key' => 'نامعتبر<code>&lt;ref&gt;</code>تگ;
@@ -287,7 +287,7 @@ $messages['be-tarask'] = array(
 	'cite_error_stack_invalid_input' => 'Унутраная памылка;
 няслушны ключ стэку.
 Гэтага ніколі не павінна быць.',
-	'cite_error' => 'Памылка цытаваньня: $1',
+	'cite_error' => '<strong class="error">Памылка цытаваньня: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Няслушны тэг <code>&lt;ref&gt;</code>;
 назва ня можа быць лічбавай. Карыстайцеся назвай апісаньня',
 	'cite_error_ref_no_key' => 'Няслушны тэг <code>&lt;ref&gt;</code>;
@@ -321,7 +321,7 @@ $messages['bg'] = array(
 	'cite_croak' => 'Цитиращата система се срути; $1: $2',
 	'cite_error_key_str_invalid' => 'Вътрешна грешка: невалиден параметър $str и/или $key.  Това не би трябвало да се случва никога.',
 	'cite_error_stack_invalid_input' => "'''Вътрешна грешка:''' невалиден ключ на стека. Това не би трябвало да се случва никога.",
-	'cite_error' => 'Грешка при цитиране: $1',
+	'cite_error' => '<strong class="error">Грешка при цитиране: $1</strong>',
 	'cite_error_ref_numeric_key' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' името не може да бъде число, използва се описателно име",
 	'cite_error_ref_no_key' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без съдържание трябва да имат име",
 	'cite_error_ref_too_many_keys' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' грешка в името, например повече от едно име на етикета",
@@ -345,7 +345,7 @@ $messages['bn'] = array(
 	'cite_croak' => 'উদ্ধৃতি ক্রোক করা হয়েছে; $1: $2',
 	'cite_error_key_str_invalid' => 'আভ্যন্তরীন ত্রুটি; অবৈধ $str এবং/অথবা $key। এটা কখনই ঘটা উচিত নয়।',
 	'cite_error_stack_invalid_input' => 'আভ্যন্তরীন ত্রুটি; অবৈধ স্ট্যাক কি। এটা কখনই ঘটা উচিত নয়।',
-	'cite_error' => 'উদ্ধৃতি ত্রুটি: $1',
+	'cite_error' => '<strong class="error">উদ্ধৃতি ত্রুটি: $1</strong>',
 	'cite_error_ref_numeric_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নাম কোন সরল পূর্ণসংখ্যা হতে পারবেনা, একটি বিবরণমূলক শিরোনাম ব্যবহার করুন',
 	'cite_error_ref_no_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; বিষয়বস্তুহীন refসমূহের অবশ্যই নাম থাকতে হবে',
 	'cite_error_ref_too_many_keys' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; অবৈধ নাম (যেমন- সংখ্যাতিরিক্ত)',
@@ -368,7 +368,7 @@ Ne zlefe ket c\'hoarvezout gwezh ebet.',
 	'cite_error_stack_invalid_input' => "Fazi diabarzh ;
 alc'hwez pil direizh.
 Ne zlefe ket c'hoarvezout gwezh ebet.",
-	'cite_error' => 'Fazi arroud : $1',
+	'cite_error' => '<strong class="error">Fazi arroud : $1</strong>',
 	'cite_error_ref_numeric_key' => "Fazi implijout ar valizenn <code>&lt;ref&gt;</code> ;
 n'hall ket an anv bezañ un niver anterin. Grit gant un titl deskrivus",
 	'cite_error_ref_no_key' => "Fazi implijout ar valizenn <code>&lt;ref&gt;</code> ;
@@ -403,7 +403,7 @@ Ovo se ne bi trebalo dešavati.',
 	'cite_error_stack_invalid_input' => 'Unutrašnja greška;
 nepoznat "stack" ključ.
 Ovo se ne bi smjelo događati.',
-	'cite_error' => 'Greška kod citiranja: $1',
+	'cite_error' => '<strong class="error">Greška kod citiranja: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
 naslov ne može biti jednostavni cijeli broj. Koristite opisni naslov',
 	'cite_error_ref_no_key' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
@@ -440,7 +440,7 @@ Aquesta situació no s\'hauria de donar mai.',
 	'cite_error_stack_invalid_input' => "Error intern;
 el valor d'emmagatzematge no és vàlid.
 Aquesta situació no s'hauria de donar mai.",
-	'cite_error' => 'Error de cita: $1',
+	'cite_error' => '<strong class="error">Error de cita: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida;
 el nom no pot ser un nombre. Empreu una paraula o un títol descriptiu',
 	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida;
@@ -472,7 +472,7 @@ $messages['cs'] = array(
 	'cite_croak' => 'Nefunkční citace; $1: $2',
 	'cite_error_key_str_invalid' => 'Vnitřní chyba; neplatný $str nebo $key. Toto by nikdy nemělo nastat.',
 	'cite_error_stack_invalid_input' => 'Vnitřní chyba; neplatný klíč zásobníku',
-	'cite_error' => 'Chybná citace $1',
+	'cite_error' => '<strong class="error">Chybná citace $1</strong>',
 	'cite_error_ref_numeric_key' => 'Chyba v tagu <code>&lt;ref&gt;</code>; názvem nesmí být prosté číslo, použijte popisné označení',
 	'cite_error_ref_no_key' => 'Chyba v tagu <code>&lt;ref&gt;</code>; prázdné citace musí obsahovat název',
 	'cite_error_ref_too_many_keys' => 'Chyba v tagu <code>&lt;ref&gt;</code>; chybné názvy, např. je jich příliš mnoho',
@@ -506,7 +506,7 @@ Ni ddylai hyn fyth ddigwydd.',
 	'cite_error_stack_invalid_input' => 'Gwall mewnol;
 Allwedd pentwr annilys.
 Ni ddylai hyn fyth ddigwydd.',
-	'cite_error' => 'Gwall cyfeirio: $1',
+	'cite_error' => '<strong class="error">Gwall cyfeirio: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Tag <code>&lt;ref&gt;</code> annilys;
 ni all enw fod yn rif yn unig. Defnyddiwch deitl disgrifiadol.',
 	'cite_error_ref_no_key' => 'Tag <code>&lt;ref&gt;</code> annilys;
@@ -537,7 +537,7 @@ $messages['da'] = array(
 	'cite_croak' => 'Fodnoten døde: $1: $2',
 	'cite_error_key_str_invalid' => 'Intern fejl: Ugyldig $str og/eller $key. Dette burde aldrig forekomme.',
 	'cite_error_stack_invalid_input' => 'Intern fejl: Ugyldig staknøgle. Dette burde aldrig forekomme.',
-	'cite_error' => 'Fodnotefejl: $1',
+	'cite_error' => '<strong class="error">Fodnotefejl: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag; "name" kan ikke være et simpelt heltal, brug en beskrivende titel',
 	'cite_error_ref_no_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden indhold skal have et navn',
 	'cite_error_ref_too_many_keys' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldige navne, fx for mange',
@@ -558,7 +558,7 @@ $messages['de'] = array(
 	'cite_croak' => 'Fehler im Referenz-System. $1: $2',
 	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
 	'cite_error_stack_invalid_input' => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',
-	'cite_error' => 'Referenz-Fehler: $1',
+	'cite_error' => '<strong class="error">Referenz-Fehler: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
 	'cite_error_ref_no_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',
 	'cite_error_ref_too_many_keys' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ ist ungültig oder zu lang.',
@@ -588,7 +588,7 @@ $messages['dsb'] = array(
 	'cite_croak' => 'Zmólka w referencnem systemje. $1: $2',
 	'cite_error_key_str_invalid' => 'Interna zmólka: njpłaśiwy $str a/abo $key. To njaměło se staś.',
 	'cite_error_stack_invalid_input' => 'Interna zmólka: njepłaśiwy stackowy kluc. To njaměło se staś.',
-	'cite_error' => 'Referencna zmólka: $1',
+	'cite_error' => '<strong class="error">Referencna zmólka: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
 mě njamóžo jadnora licba byś. Wužyj wugroniwy titel',
 	'cite_error_ref_no_key' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
@@ -617,7 +617,7 @@ za ref z mjenim <code>$1</code> njejo se tekst pódał',
  * @author Omnipaedista
  */
 $messages['el'] = array(
-	'cite_error' => 'Σφάλμα αναφοράς: $1',
+	'cite_error' => '<strong class="error">Σφάλμα αναφοράς: $1</strong>',
 	'cite_error_references_no_text' => 'Δεν δίνετε κείμενο.',
 );
 
@@ -633,7 +633,7 @@ nevalida $str kaj/aŭ $key.
 	'cite_error_stack_invalid_input' => 'Interna eraro;
 nevalida staka ŝlosilo.
 Ĉi tio verŝajne neniam okazus.',
-	'cite_error' => 'Citaĵa eraro: $1',
+	'cite_error' => '<strong class="error">Citaĵa eraro: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
 nomo ne povas esti simpla entjero. Uzu priskriban titolon.',
 	'cite_error_ref_no_key' => "Nevalida etikedo <code>&lt;ref&gt;</code>;
@@ -669,7 +669,7 @@ Esto nunca debe occurir.',
 	'cite_error_stack_invalid_input' => 'Error interno;
 la clave de la pila no es válida.
 Esto nunca debe ocurrir.',
-	'cite_error' => 'Error en la cita: $1',
+	'cite_error' => '<strong class="error">Error en la cita: $1</strong>',
 	'cite_error_ref_numeric_key' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
 el nombre no puede ser un número entero simple. Use un título descriptivo',
 	'cite_error_ref_no_key' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
@@ -691,7 +691,7 @@ pues no hay una referencia con texto llamada <code>$1</code>',
 
 /** Basque (Euskara) */
 $messages['eu'] = array(
-	'cite_error' => 'Aipamen errorea: $1',
+	'cite_error' => '<strong class="error">Aipamen errorea: $1</strong>',
 );
 
 /** Persian (فارسی)
@@ -702,7 +702,7 @@ $messages['fa'] = array(
 	'cite_croak' => 'یادکرد خراب شد؛ $1: $2',
 	'cite_error_key_str_invalid' => 'خطای داخلی؛ $str و/یا $key غیر مجاز. این خطا نباید هرگز رخ دهد.',
 	'cite_error_stack_invalid_input' => 'خطای داخلی؛ کلید پشته غیرمجاز.  این خطا نباید هرگز رخ دهد.',
-	'cite_error' => 'خطای یادکرد: $1',
+	'cite_error' => '<strong class="error">خطای یادکرد: $1</strong>',
 	'cite_error_ref_numeric_key' => 'برچسب <code><ref></code> غیرمجاز؛ نام نمی‌تواند یک عدد باشد. عنوان واضح‌تری را برگزینید',
 	'cite_error_ref_no_key' => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون محتوا باید نام داشته باشند',
 	'cite_error_ref_too_many_keys' => 'برچسب <code><ref></code> غیرمجاز؛ نام‌های غیرمجاز یا بیش از اندازه',
@@ -731,7 +731,7 @@ $messages['fi'] = array(
 	'cite_croak' => 'Virhe viittausjärjestelmässä: $1: $2',
 	'cite_error_key_str_invalid' => 'Sisäinen virhe: kelpaamaton $str ja/tai $key.',
 	'cite_error_stack_invalid_input' => 'Sisäinen virhe: kelpaamaton pinoavain.',
-	'cite_error' => 'Viittausvirhe: $1',
+	'cite_error' => '<strong class="error">Viittausvirhe: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: nimi ei voi olla numero – käytä kuvaavampaa nimeä.',
 	'cite_error_ref_no_key' => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: sisällöttömille refeille pitää määrittää nimi.',
 	'cite_error_ref_too_many_keys' => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: virheelliset nimet, esim. liian monta',
@@ -762,7 +762,7 @@ Ceci ne devrait jamais se produire.',
 	'cite_error_stack_invalid_input' => 'Erreur interne ;
 clé de pile incorrecte.
 Ceci ne devrait jamais se produire.',
-	'cite_error' => 'Erreur de citation : $1',
+	'cite_error' => '<strong class="error">Erreur de citation : $1</strong>',
 	'cite_error_ref_numeric_key' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
 Le nom ne peut être un entier simple. Utilisez un titre descriptif.',
 	'cite_error_ref_no_key' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
@@ -793,7 +793,7 @@ $messages['frp'] = array(
 	'cite_croak' => 'Citacion corrompua ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Èrror de dedens ; $str atendua.',
 	'cite_error_stack_invalid_input' => 'Èrror de dedens ; cllâf de pila envalida.',
-	'cite_error' => 'Èrror de citacion $1',
+	'cite_error' => '<strong class="error">Èrror de citacion $1</strong>',
 	'cite_error_ref_numeric_key' => 'Apèl envalido ; cllâf pas entègrâla atendua.',
 	'cite_error_ref_no_key' => 'Apèl envalido ; niona cllâf spècefiâ.',
 	'cite_error_ref_too_many_keys' => 'Apèl envalido ; cllâfs envalides, per ègzemplo, trop de cllâfs spècefiâs ou ben cllâf fôssa.',
@@ -808,7 +808,7 @@ $messages['frp'] = array(
  * @author Klenje
  */
 $messages['fur'] = array(
-	'cite_error' => 'Erôr te funzion Cite: $1',
+	'cite_error' => '<strong class="error">Erôr te funzion Cite: $1</strong>',
 );
 
 /** Galician (Galego)
@@ -821,7 +821,7 @@ $messages['gl'] = array(
 	'cite_croak' => 'Cita morta; $1: $2',
 	'cite_error_key_str_invalid' => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
 	'cite_error_stack_invalid_input' => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
-	'cite_error' => 'Erro no código da cita: $1',
+	'cite_error' => '<strong class="error">Erro no código da cita: $1</strong>',
 	'cite_error_ref_numeric_key' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
 o nome non pode ser un simple entero: use un título descritivo',
 	'cite_error_ref_no_key' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
@@ -853,7 +853,7 @@ non se forneceu texto para as referencias de nome <code>$1</code>',
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'cite_error' => 'Σφάλμα μνείας: $1',
+	'cite_error' => '<strong class="error">Σφάλμα μνείας: $1</strong>',
 );
 
 /** Swiss German (Alemannisch)
@@ -864,7 +864,7 @@ $messages['gsw'] = array(
 	'cite_croak' => 'Fähler im Referenz-Syschtem. $1: $2',
 	'cite_error_key_str_invalid' => 'Intärne Fähler: uugiltige $str un/oder $key. Des sott eigetli gar nit chenne gschäh.',
 	'cite_error_stack_invalid_input' => 'Intärne Fähler: uugiltige „name“-stack. Des sott eigetli gar nit chenne gschäh.',
-	'cite_error' => 'Referänz-Fähler: $1',
+	'cite_error' => '<strong class="error">Referänz-Fähler: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Uugiltigi <tt>&lt;ref&gt;</tt>-Verwändig: „name“ derf kei reine Zahlewärt syy, verwänd e Name wu bschrybt.',
 	'cite_error_ref_no_key' => 'Uugiltigi <tt>&lt;ref&gt;</tt>-Verwändig: „ref“ ohni Inhalt muess e Name haa.',
 	'cite_error_ref_too_many_keys' => 'Uugiltigi <tt>&lt;ref&gt;</tt>-Verwändig: „name“ isch uugiltig oder z lang.',
@@ -887,7 +887,7 @@ $messages['he'] = array(
 	'cite_croak' => 'בהערה יש שגיאה; $1: $2',
 	'cite_error_key_str_invalid' => 'שגיאה פנימית; $str ו/או $key שגויים. זהו באג בתוכנה.',
 	'cite_error_stack_invalid_input' => 'שגיאה פנימית; מפתח שגוי במחסנית. זהו באג בתוכנה.',
-	'cite_error' => 'שגיאת ציטוט: $1',
+	'cite_error' => '<strong class="error">שגיאת ציטוט: $1</strong>',
 	'cite_error_ref_numeric_key' => 'תגית <code>&lt;ref&gt;</code> שגויה; שם לא יכול להיות מספר פשוט, יש להשתמש בכותרת תיאורית',
 	'cite_error_ref_no_key' => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא תוכן חייב להיות שם',
 	'cite_error_ref_too_many_keys' => 'תגית <code>&lt;ref&gt;</code> שגויה; שמות שגויים, למשל, רבים מדי',
@@ -914,7 +914,7 @@ $messages['hi'] = array(
 गलत $str या/और $key।
 ऐसा होना नहीं चाहियें।',
 	'cite_error_stack_invalid_input' => 'आंतर्गत गलती; गलत स्टॅक की। ऐसा होना नहीं चाहियें।',
-	'cite_error' => 'गलती उद्घृत करें: $1',
+	'cite_error' => '<strong class="error">गलती उद्घृत करें: $1</strong>',
 	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> गलत कोड; नाम यह पूर्णांकी संख्या नहीं हो सकता, कृपया माहितीपूर्ण शीर्षक दें',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> गलत कोड; खाली संदर्भोंको नाम होना आवश्यक हैं',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> गलत कोड; गलत नाम, उदा. ढेर सारी',
@@ -936,7 +936,7 @@ $messages['hr'] = array(
 	'cite_croak' => 'Nevaljan citat; $1: $2',
 	'cite_error_key_str_invalid' => 'Unutrašnja greška: loš $str i/ili $key. Ovo se nikada ne bi smjelo dogoditi.',
 	'cite_error_stack_invalid_input' => 'Unutrašnja greška; loš ključ stacka.  Ovo se nikada ne bi smjelo dogoditi.',
-	'cite_error' => 'Greška u citiranju: $1',
+	'cite_error' => '<strong class="error">Greška u citiranju: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Loša <code>&lt;ref&gt;</code> oznaka; naziv ne smije biti jednostavni broj, koristite opisni naziv',
 	'cite_error_ref_no_key' => 'Loša <code>&lt;ref&gt;</code> oznaka; ref-ovi bez sadržaja moraju imati naziv',
 	'cite_error_ref_too_many_keys' => 'Loša <code>&lt;ref&gt;</code> oznaka; loš naziv, npr. previše naziva',
@@ -960,7 +960,7 @@ $messages['hsb'] = array(
 	'cite_croak' => 'Zmylk w referencnym systemje; $1: $2',
 	'cite_error_key_str_invalid' => 'Interny zmylk: njepłaćiwy $str a/abo $key. To njeměło ženje wustupić.',
 	'cite_error_stack_invalid_input' => 'Interny zmylk; njepłaćiwy kluč staploweho składa. To njeměło ženje wustupić.',
-	'cite_error' => 'Referencny zmylk: $1',
+	'cite_error' => '<strong class="error">Referencny zmylk: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Njepłaćiwe wužiwanje taflički <code>&lt;ref&gt;</code>; "name" njesmě jednora hódnota integer być, wužij wopisowace mjeno.',
 	'cite_error_ref_no_key' => 'Njepłaćiwe wužiwanje taflički <code>&lt;ref&gt;</code>; "ref" bjez wobsaha dyrbi mjeno měć.',
 	'cite_error_ref_too_many_keys' => 'Njepłaćiwe wužiwanje taflički <code>&lt;ref&gt;</code>; njepłaćiwe mjena, na př. předołho',
@@ -988,7 +988,7 @@ Erè sa pat janm dwèt rive.',
 	'cite_error_stack_invalid_input' => 'Erè nan sistèm an ; 
 kle pil an pa bon ditou.
 Sa pa te dwe janm rive',
-	'cite_error' => 'Erè nan sitasyon : $1',
+	'cite_error' => '<strong class="error">Erè nan sitasyon : $1</strong>',
 	'cite_error_ref_numeric_key' => 'Apèl ou fè an pa bon ; se kle ki pa entegral, ki pat long nou tap tann',
 	'cite_error_ref_no_key' => 'Apèl sa pa bon : nou pa bay pyès kle',
 	'cite_error_ref_too_many_keys' => 'Apèl ou fè an pa bon ; kle yo pa bon, pa egzanp, nou bay twòp kle oubyen kle yo pa bon oubyen nou pa byen rantre yo nan sistèm an.',
@@ -1014,7 +1014,7 @@ $messages['hu'] = array(
 	'cite_croak' => 'Sikertelen forráshivatkozás; $1: $2',
 	'cite_error_key_str_invalid' => 'Belső hiba; érvénytelen $str és/vagy $key. Ennek soha nem kellene előfordulnia.',
 	'cite_error_stack_invalid_input' => 'Belső hiba; érvénytelen kulcs. Ennek soha nem kellene előfordulnia.',
-	'cite_error' => 'Hiba a forráshivatkozásban: $1',
+	'cite_error' => '<strong class="error">Hiba a forráshivatkozásban: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Érvénytelen <code>&lt;ref&gt;</code> tag; a name értéke nem lehet csupán egy szám, használj leíró címeket',
 	'cite_error_ref_no_key' => 'Érvénytelen <code>&lt;ref&gt;</code> tag; a tartalom nélküli ref-eknek kötelező nevet (name) adni',
 	'cite_error_ref_too_many_keys' => 'Érvénytelen <code>&lt;ref&gt;</code> tag; hibás nevek, pl. túl sok',
@@ -1040,7 +1040,7 @@ Isto non deberea jammais occurrer.',
 	'cite_error_stack_invalid_input' => 'Error interne;
 clave de pila invalide.
 Isto non deberea jammais occurrer.',
-	'cite_error' => 'Error de citation: $1',
+	'cite_error' => '<strong class="error">Error de citation: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
 le nomine non pote esser un numero integre. Usa un titulo descriptive',
 	'cite_error_ref_no_key' => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
@@ -1073,7 +1073,7 @@ $messages['id'] = array(
 	'cite_croak' => 'Kegagalan pengutipan; $1: $2',
 	'cite_error_key_str_invalid' => 'Kesalahan internal; $str tak sah',
 	'cite_error_stack_invalid_input' => 'Kesalahan internal; kunci stack tak sah',
-	'cite_error' => 'Kesalahan pengutipan $1',
+	'cite_error' => '<strong class="error">Kesalahan pengutipan $1</strong>',
 	'cite_error_ref_numeric_key' => 'Kesalahan pemanggilan; diharapkan suatu kunci non-integer',
 	'cite_error_ref_no_key' => 'Kesalahan pemanggilan; tidak ada kunci yang dispesifikasikan',
 	'cite_error_ref_too_many_keys' => 'Kesalahan pemanggilan; kunci tak sah, contohnya karena terlalu banyak atau tidak ada kunci yang dispesifikasikan',
@@ -1100,7 +1100,7 @@ $messages['it'] = array(
 $str e/o $key errati.
 Non dovrebbe mai verificarsi.',
 	'cite_error_stack_invalid_input' => 'Errore interno: chiave di stack errata',
-	'cite_error' => 'Errore nella funzione Cite $1',
+	'cite_error' => '<strong class="error">Errore nella funzione Cite $1</strong>',
 	'cite_error_ref_numeric_key' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: il nome non può essere un numero intero. Usare un titolo esteso",
 	'cite_error_ref_no_key' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref vuoti non possono essere privi di nome",
 	'cite_error_ref_too_many_keys' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)",
@@ -1127,7 +1127,7 @@ $messages['ja'] = array(
 	'cite_croak' => '引用タグ機能の重大なエラー; $1: $2',
 	'cite_error_key_str_invalid' => '内部エラー; $str と $key の両方または一方が無効。これはソフトウェアのバグです。',
 	'cite_error_stack_invalid_input' => '内部エラー; スタックキーが無効。これはソフトウェアのバグです。',
-	'cite_error' => '引用エラー $1',
+	'cite_error' => '<strong class="error">引用エラー $1</strong>',
 	'cite_error_ref_numeric_key' => '無効な <code>&lt;ref&gt;</code> タグ: 名前に単純な数値は使用できません。',
 	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグ: 引用句の内容がない場合には名前 （<code>name</code> 属性）が必要です',
 	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグ: 無効な名前（多すぎる、もしくは誤った指定）',
@@ -1148,7 +1148,7 @@ $messages['jut'] = array(
 	'cite_croak' => 'Æ fodnåt døde; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern fejl: Ugyldeg $str og/æller $key. Dette burde aldreg førekåm.',
 	'cite_error_stack_invalid_input' => 'Intern fejl: Ugyldeg staknøgle. Dette burde aldreg førekåm.',
-	'cite_error' => 'Fodnåtfejl: $1',
+	'cite_error' => '<strong class="error">Fodnåtfejl: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag; "name" kan ikke være et simpelt heltal, brug en beskrivende titel',
 	'cite_error_ref_no_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden indhold skal have et navn',
 	'cite_error_ref_too_many_keys' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldege navne, fx før mange',
@@ -1172,7 +1172,7 @@ Iki sajatiné ora tau olèh kadadéyan.',
 	'cite_error_stack_invalid_input' => 'Kaluputan internal;
 stack key ora absah.
 Iki samesthine ora kadadéan.',
-	'cite_error' => 'Kaluputan sitat (pangutipan) $1',
+	'cite_error' => '<strong class="error">Kaluputan sitat (pangutipan) $1</strong>',
 	'cite_error_ref_numeric_key' => 'Tag <code>&lt;ref&gt;</code> ora absah;
 jenengé ora bisa namung angka integer waé. Gunakna irah-irahan (judhul) dèskriptif',
 	'cite_error_ref_no_key' => 'Tag <code>&lt;ref&gt;</code> ora absah;
@@ -1201,7 +1201,7 @@ $messages['kk-arab'] = array(
 	'cite_croak' => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2',
 	'cite_error_key_str_invalid' => 'ٸشكٸ قاتە; جارامسىز $str',
 	'cite_error_stack_invalid_input' => 'ٸشكٸ قاتە; جارامسىز ستەك كٸلتٸ',
-	'cite_error' => 'دٵيەكسٶز الۋ $1 قاتەسٸ',
+	'cite_error' => '<strong class="error">دٵيەكسٶز الۋ $1 قاتەسٸ</strong>',
 	'cite_error_ref_numeric_key' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; اتاۋ كٵدٸمگٸ بٷتٸن سان بولۋى مٷمكٸن ەمەس, سيپپاتاۋىش اتاۋ قولدانىڭىز',
 	'cite_error_ref_no_key' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; ماعلۇماتسىز تٷسٸنٸكتەمەلەردە اتاۋ بولۋى قاجەت',
 	'cite_error_ref_too_many_keys' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; جارامسىز اتاۋلار, مىسالى, تىم كٶپ',
@@ -1216,7 +1216,7 @@ $messages['kk-cyrl'] = array(
 	'cite_croak' => 'Дәйексөз алу сәтсіз бітті; $1: $2',
 	'cite_error_key_str_invalid' => 'Ішкі қате; жарамсыз $str',
 	'cite_error_stack_invalid_input' => 'Ішкі қате; жарамсыз стек кілті',
-	'cite_error' => 'Дәйексөз алу $1 қатесі',
+	'cite_error' => '<strong class="error">Дәйексөз алу $1 қатесі</strong>',
 	'cite_error_ref_numeric_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; атау кәдімгі бүтін сан болуы мүмкін емес, сиппатауыш атау қолданыңыз',
 	'cite_error_ref_no_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; мағлұматсыз түсініктемелерде атау болуы қажет',
 	'cite_error_ref_too_many_keys' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; жарамсыз атаулар, мысалы, тым көп',
@@ -1231,7 +1231,7 @@ $messages['kk-latn'] = array(
 	'cite_croak' => 'Däýeksöz alw sätsiz bitti; $1: $2',
 	'cite_error_key_str_invalid' => 'İşki qate; jaramsız $str',
 	'cite_error_stack_invalid_input' => 'İşki qate; jaramsız stek kilti',
-	'cite_error' => 'Däýeksöz alw $1 qatesi',
+	'cite_error' => '<strong class="error">Däýeksöz alw $1 qatesi</strong>',
 	'cite_error_ref_numeric_key' => 'Jaramsız <code>&lt;ref&gt;</code> belgişesi; ataw kädimgi bütin san bolwı mümkin emes, sïppatawış ataw qoldanıñız',
 	'cite_error_ref_no_key' => 'Jaramsız <code>&lt;ref&gt;</code> belgişesi; mağlumatsız tüsiniktemelerde ataw bolwı qajet',
 	'cite_error_ref_too_many_keys' => 'Jaramsız <code>&lt;ref&gt;</code> belgişe; jaramsız atawlar, mısalı, tım köp',
@@ -1252,7 +1252,7 @@ $messages['ko'] = array(
 	'cite_error_key_str_invalid' => '내부 오류;
 $str 혹은 $key가 잘봇되었습니다.
 이 오류는 발생하지 않아야 합니다.',
-	'cite_error' => '인용 오류: $1',
+	'cite_error' => '<strong class="error">인용 오류: $1</strong>',
 	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 이름은 숫자가 될 수 없습니다. 설명적인 이름을 사용하십시오.',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
@@ -1280,7 +1280,7 @@ Dat sull nie optredde.',
 	'cite_error_stack_invalid_input' => 'Interne Fähler in <i lang="en">cite</i>:
 Der <i lang="en">stack</i>-Schößel stemmp nit.
 Dat sull nie optredde.',
-	'cite_error' => 'Fähler in <i lang="en">cite</i> met Refenenze: $1',
+	'cite_error' => '<strong class="error">Fähler in <i lang="en">cite</i> met Refenenze: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Fähler en <i lang="en">cite</i>:
 Ene <code>&lt;ref&gt;</code>-Name kann kei Zahl sin.
 Nemm enne Tittel, dä jät säht.',
@@ -1330,7 +1330,7 @@ Dëst sollt eigentlech ni geschéien.',
 	'cite_error_stack_invalid_input' => "Interne Feeler;
 ongëltege ''stack''-Schlëssel.
 Dës sollt eigentlech guer net geschéien.",
-	'cite_error' => 'Zitéierfeeler: $1',
+	'cite_error' => '<strong class="error">Zitéierfeeler: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Ongëltegen <code>&lt;ref&gt;</code> Tag;
 De Numm ka keng einfach ganz Zuel sinn. Benotzt w.e.g. een Titel den eng Beschreiwung gëtt',
 	'cite_error_ref_no_key' => 'Ongëltegen <code>&lt;ref&gt;</code> Tag;
@@ -1360,7 +1360,7 @@ $messages['li'] = array(
 	'cite_croak' => 'Perbleem mit Citere; $1: $2',
 	'cite_error_key_str_invalid' => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
 	'cite_error_stack_invalid_input' => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
-	'cite_error' => 'Citeerfout: $1',
+	'cite_error' => '<strong class="error">Citeerfout: $1</strong>',
 	'cite_error_ref_numeric_key' => "Ónzjuuste tag <code>&lt;ref&gt;</code>; de naam kin gein simpele integer zeen, gebroek 'ne besjrievendje titel",
 	'cite_error_ref_no_key' => "Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger inhoud mótte 'ne naam höbbe",
 	'cite_error_ref_too_many_keys' => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; ónzjuuste name, beveurbeildj te väöl',
@@ -1381,7 +1381,7 @@ $messages['lt'] = array(
 	'cite_croak' => 'Cituoti nepavyko; $1: $2',
 	'cite_error_key_str_invalid' => 'Vidinė klaida; neleistinas $str',
 	'cite_error_stack_invalid_input' => 'Vidinė klaida; neleistinas steko raktas',
-	'cite_error' => 'Citavimo klaida $1',
+	'cite_error' => '<strong class="error">Citavimo klaida $1</strong>',
 	'cite_error_ref_numeric_key' => 'Neleistina <code>&lt;ref&gt;</code> gairė; vardas negali būti tiesiog skaičius, naudokite tekstinį pavadinimą',
 	'cite_error_ref_no_key' => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be turinio turi turėti vardą',
 	'cite_error_ref_too_many_keys' => 'Neleistina <code>&lt;ref&gt;</code> gairė; neleistini vardai, pvz., per daug',
@@ -1396,7 +1396,7 @@ $messages['lt'] = array(
  */
 $messages['lv'] = array(
 	'cite_desc' => 'Pievieno <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> tagus, atsaucēm',
-	'cite_error' => 'Kļūda atsaucē: $1',
+	'cite_error' => '<strong class="error">Kļūda atsaucē: $1</strong>',
 );
 
 /** Macedonian (Македонски)
@@ -1411,7 +1411,7 @@ $messages['mk'] = array(
 	'cite_error_stack_invalid_input' => 'Интерна грешка;
 погрешен клуч за купот.
 Ова не треба никогаш да се појави.',
-	'cite_error' => 'Грешка во цитирање: $1.',
+	'cite_error' => '<strong class="error">Грешка во цитирање: $1.</strong>',
 	'cite_error_ref_numeric_key' => 'Погрешен <code>&lt;ref&gt;</code> приврзок;
 името не може да биде број. Употребувајте описен наслов',
 	'cite_error_ref_no_key' => 'Погрешен <code>&lt;ref&gt;</code> приврзок;
@@ -1447,7 +1447,7 @@ $messages['ml'] = array(
 അസാധുവായ $str അല്ലെങ്കില്‍ $key.
 ഇതു ഒരിക്കലും സംഭവിക്കാന്‍ പാടില്ലായിരുന്നു.',
 	'cite_error_stack_invalid_input' => 'ആന്തരിക പിഴവ്; അസാധുവായ സ്റ്റാക് കീ. ഇതു ഒരിക്കലും സംഭവിക്കാന്‍ പാടില്ലായിരുന്നു.',
-	'cite_error' => 'ഉദ്ധരിച്ചതില്‍ പിഴവ്: $1',
+	'cite_error' => '<strong class="error">ഉദ്ധരിച്ചതില്‍ പിഴവ്: $1</strong>',
 	'cite_error_ref_numeric_key' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
 നാമത്തില്‍ സംഖ്യ മാത്രമായി അനുവദനീയമല്ല. എന്തെങ്കിലും ലഘുവിവരണം ഉപയോഗിക്കുക.',
 	'cite_error_ref_no_key' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
@@ -1474,7 +1474,7 @@ $messages['mr'] = array(
 	'cite_croak' => 'संदर्भ देता आला नाही; $1: $2',
 	'cite_error_key_str_invalid' => 'अंतर्गत त्रुटी; चुकीचे $str आणि/किंवा $key. असे कधीही घडले नाही पाहिजे.',
 	'cite_error_stack_invalid_input' => 'अंतर्गत त्रुटी; चुकीची स्टॅक चावी. असे कधीही घडले नाही पाहिजे.',
-	'cite_error' => 'त्रूटी उधृत करा: $1',
+	'cite_error' => '<strong class="error">त्रूटी उधृत करा: $1</strong>',
 	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> चुकीचा कोड; नाव हे पूर्णांकी संख्या असू शकत नाही, कृपया माहितीपूर्ण शीर्षक द्या',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> चुकीचा कोड; रिकाम्या संदर्भांना नाव असणे गरजेचे आहे',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> चुकीचा कोड; चुकीची नावे, उदा. खूप सारी',
@@ -1494,7 +1494,7 @@ $messages['ms'] = array(
 	'cite_croak' => 'Ralat maut petik; $1: $2',
 	'cite_error_key_str_invalid' => 'Ralat dalaman; str dan/atau $key tidak sah.',
 	'cite_error_stack_invalid_input' => 'Ralat dalaman; kunci tindanan tidak sah.',
-	'cite_error' => 'Ralat petik: $1',
+	'cite_error' => '<strong class="error">Ralat petik: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Tag <code>&lt;ref&gt;</code> tidak sah; nombor ringkas tidak dibenarkan, sila masukkan tajuk yang lebih terperinci',
 	'cite_error_ref_no_key' => 'Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa kandungan mestilah mempunyai nama',
 	'cite_error_ref_too_many_keys' => 'Tag <code>&lt;ref&gt;</code> tidak sah; nama-nama tidak sah, misalnya terlalu banyak',
@@ -1516,7 +1516,7 @@ $messages['nds'] = array(
 	'cite_croak' => 'Fehler bi de Referenzen. $1: $2',
 	'cite_error_key_str_invalid' => 'Internen Fehler: ungülligen $str un/oder $key. Dat schull egentlich nie vörkamen.',
 	'cite_error_stack_invalid_input' => 'Internen Fehler: ungülligen Stack-Slötel. Dat schull egentlich nie vörkamen.',
-	'cite_error' => 'Zitat-Fehler: $1',
+	'cite_error' => '<strong class="error">Zitat-Fehler: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: de Naam dröff keen reine Tall wesen, bruuk en Naam, de de Saak beschrifft.',
 	'cite_error_ref_no_key' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: „ref“ ahn Inholt mutt en Naam hebben.',
 	'cite_error_ref_too_many_keys' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: ungüllige Naams, to’n Bispeel to veel.',
@@ -1541,7 +1541,7 @@ Dit zou niet voor moeten komen.',
 	'cite_error_stack_invalid_input' => 'Interne fout;
 onjuiste stacksleutel.
 Dit zou niet voor moeten komen.',
-	'cite_error' => 'Citefout: $1',
+	'cite_error' => '<strong class="error">Citefout: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
 de naam kan geen eenvoudige integer zijn.
 Gebruik een beschrijvende titel',
@@ -1575,7 +1575,7 @@ $messages['nn'] = array(
 	'cite_croak' => 'Feil i fotnotesystemet; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri skjedd.',
 	'cite_error_stack_invalid_input' => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri skjedd.',
-	'cite_error' => 'Referansefeil: $1',
+	'cite_error' => '<strong class="error">Referansefeil: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; namnet kan ikkje vere eit enkelt heiltal, bruk ein skildrande tittel',
 	'cite_error_ref_no_key' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referansar utan innhald må innehalde namn',
 	'cite_error_ref_too_many_keys' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; ugyldige namn, t.d. for mange',
@@ -1599,7 +1599,7 @@ $messages['no'] = array(
 	'cite_croak' => 'Sitering døde; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri forekomme.',
 	'cite_error_stack_invalid_input' => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri forekomme.',
-	'cite_error' => 'Siteringsfeil: $1',
+	'cite_error' => '<strong class="error">Siteringsfeil: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; navnet kan ikke være et enkelt heltall, bruk en beskrivende tittel',
 	'cite_error_ref_no_key' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten innhold må inneholde navn',
 	'cite_error_ref_too_many_keys' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; ugyldige navn, f.eks. for mange',
@@ -1623,7 +1623,7 @@ $messages['oc'] = array(
 $str o $key incorrèctes.
 Aquò se deuriá pas jamai produsir.',
 	'cite_error_stack_invalid_input' => 'Error intèrna ; clau de pila invalida',
-	'cite_error' => 'Error de citacion : $1',
+	'cite_error' => '<strong class="error">Error de citacion : $1</strong>',
 	'cite_error_ref_numeric_key' => 'Ampèl invalid ; clau non-integrala esperada',
 	'cite_error_ref_no_key' => 'Ampèl invalid ; cap de clau pas especificada',
 	'cite_error_ref_too_many_keys' => 'Ampèl invalid ; claus invalidas, per exemple, tròp de claus especificadas o clau erronèa',
@@ -1661,7 +1661,7 @@ $messages['pl'] = array(
 nieprawidłowy $str i/lub $key.
 To nigdy nie powinno się zdarzyć.',
 	'cite_error_stack_invalid_input' => 'Błąd wewnętrzny – nieprawidłowy klucz sterty. To nigdy nie powinno się zdarzyć.',
-	'cite_error' => "Błąd rozszerzenia ''cite'': $1",
+	'cite_error' => "<strong class=\"error\">Błąd rozszerzenia ''cite'': $1</strong>",
 	'cite_error_ref_numeric_key' => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.',
 	'cite_error_ref_no_key' => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.',
 	'cite_error_ref_too_many_keys' => 'Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.',
@@ -1690,7 +1690,7 @@ $messages['pt'] = array(
 $str e/ou $key inválido.
 Isto nunca deveria acontecer.',
 	'cite_error_stack_invalid_input' => 'Erro interno; chave fixa inválida',
-	'cite_error' => 'Erro de citação $1',
+	'cite_error' => '<strong class="error">Erro de citação $1</strong>',
 	'cite_error_ref_numeric_key' => 'Código <code>&lt;ref&gt;</code> inválido; o nome não pode ser um número. Utilize um nome descritivo',
 	'cite_error_ref_no_key' => 'Código <code>&lt;ref&gt;</code> inválido; refs sem conteúdo devem ter um parâmetro de nome',
 	'cite_error_ref_too_many_keys' => 'Código <code>&lt;ref&gt;</code> inválido; nomes inválidos (por exemplo, nome muito extenso)',
@@ -1719,7 +1719,7 @@ Acestea nu ar trebui să se întâmple.',
 	'cite_error_stack_invalid_input' => 'Eroare internă;
 stivă cheie invalidă.
 Acestea nu ar trebui să se întâmple.',
-	'cite_error' => 'Eroare la citare: $1',
+	'cite_error' => '<strong class="error">Eroare la citare: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
 numele nu poate fi un număr. Foloseşte un titlu descriptiv',
 	'cite_error_ref_no_key' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
@@ -1756,7 +1756,7 @@ $messages['ru'] = array(
 	'cite_error_stack_invalid_input' => 'Внутренняя ошибка.
 Неверный ключ стека.
 Это никогда не должно происходить.',
-	'cite_error' => 'Ошибка цитирования $1',
+	'cite_error' => '<strong class="error">Ошибка цитирования $1</strong>',
 	'cite_error_ref_numeric_key' => 'Неправильный вызов: ожидался нечисловой ключ',
 	'cite_error_ref_no_key' => 'Неправильный вызов: ключ не был указан',
 	'cite_error_ref_too_many_keys' => 'Неправильный вызов: неверные ключи, например было указано слишком много ключей или ключ был неправильным',
@@ -1783,7 +1783,7 @@ $messages['sah'] = array(
 	'cite_croak' => 'Быһа тардыы суох буолбут (Цитата сдохла); $1: $2',
 	'cite_error_key_str_invalid' => 'Иһинээҕи сыыһа: $str уонна/эбэтэр $key сыыһалар.',
 	'cite_error_stack_invalid_input' => 'Иһинээҕи сыыһа: stack key сыыһалаах',
-	'cite_error' => 'Цитата сыыһата: $1',
+	'cite_error' => '<strong class="error">Цитата сыыһата: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Неправильный вызов: ожидался нечисловой ключ',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> тиэк алҕаһа (Неправильный вызов): аата (күлүүһэ) ыйыллыбатах',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> тиэк алҕаһа (Неправильный вызов): аата сыыһа ыйыллыбыт, эбэтэр наһаа элбэх аат суруллубут',
@@ -1805,7 +1805,7 @@ $messages['scn'] = array(
 	'cite_croak' => 'Sbàgghiu nnâ citazzioni: $1: $2',
 	'cite_error_key_str_invalid' => 'Sbàgghiu nternu: $str sbagghiatu',
 	'cite_error_stack_invalid_input' => 'Sbàgghiu nternu: chiavi di stack sbagghiata',
-	'cite_error' => 'Sbàgghiu nnâ funzioni Cite $1',
+	'cite_error' => '<strong class="error">Sbàgghiu nnâ funzioni Cite $1</strong>',
 	'cite_error_ref_numeric_key' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;ref&gt;</code>: lu nomu pò èssiri nu nùmmiru sanu. Usari nu tìtulu discrittivu",
 	'cite_error_ref_no_key' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;ref&gt;</code>: li ref vacanti non ponnu èssiri senza nomu.",
 	'cite_error_ref_too_many_keys' => "Sbàgghiu ni l'usu dû marcaturi <code>&lt;ref&gt;</code>: nomi non vàlidi (pi es. nùmmiru troppu àutu)",
@@ -1841,7 +1841,7 @@ $messages['si'] = array(
 	'cite_error_stack_invalid_input' => 'අභ්‍යන්තර දෝෂය;
 අනීතික ඇසිරුම්  යතුර.
 මෙය කිසිදින සිදුනොවිය යුතුය.',
-	'cite_error' => 'උපන්‍යාස දෝෂය: $1',
+	'cite_error' => '<strong class="error">උපන්‍යාස දෝෂය: $1</strong>',
 	'cite_error_ref_numeric_key' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
 නම සරල  පූර්ණාංකයක් විය නොහැක. විස්තරශීලි ශිර්ෂයක් භාවිතා කරන්න',
 	'cite_error_ref_no_key' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
@@ -1882,7 +1882,7 @@ $messages['sk'] = array(
 neplatný $str a/alebo $key.
 Toto by sa nemalo nikdy stať.',
 	'cite_error_stack_invalid_input' => 'Vnútorná chyba; neplatný kľúč zásobníka',
-	'cite_error' => 'Chyba citácie $1',
+	'cite_error' => '<strong class="error">Chyba citácie $1</strong>',
 	'cite_error_ref_numeric_key' => 'Neplatné volanie; očakáva sa neceločíselný typ kľúča',
 	'cite_error_ref_no_key' => 'Neplatné volanie; nebol špecifikovaný kľúč',
 	'cite_error_ref_too_many_keys' => 'Neplatné volanie; neplatné kľúče, napr. príliš veľa alebo nesprávne špecifikovaný kľúč',
@@ -1905,7 +1905,7 @@ $messages['sr-ec'] = array(
 	'cite_croak' => 'Додатак за цитирање је умро; $1: $2.',
 	'cite_error_key_str_invalid' => 'Унутрашња грешка; лош $str и/или $key. Ово не би требало никад да се деси.',
 	'cite_error_stack_invalid_input' => 'Унутрашња грешка; лош кључ стека. Ово не би требало никад да се деси.',
-	'cite_error' => 'Грешка цитата: $1',
+	'cite_error' => '<strong class="error">Грешка цитата: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Лоша ознака <code>&lt;ref&gt;</code>; име не може бити једноставни интеџер. Користи описни наслов.',
 	'cite_error_ref_no_key' => 'Лоша ознака <code>&lt;ref&gt;</code>; ref-ови без садржаја морају имати име.',
 	'cite_error_ref_too_many_keys' => 'Лоша ознака <code>&lt;ref&gt;</code>; лоша имена, односно много њих.',
@@ -1925,7 +1925,7 @@ $messages['stq'] = array(
 	'cite_croak' => 'Failer in dät Referenz-System. $1: $2',
 	'cite_error_key_str_invalid' => 'Internen Failer: uungultigen $str un/of $key. Dit schuul eegentelk goar nit passierje konne.',
 	'cite_error_stack_invalid_input' => 'Internen Failer: uungultigen „name“-stack. Dit schuul eegentelk goarnit passierje konne.',
-	'cite_error' => 'Referenz-Failer $1',
+	'cite_error' => '<strong class="error">Referenz-Failer $1</strong>',
 	'cite_error_ref_numeric_key' => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ duur naan scheenen Taalenwäid weese, benutsje n beschrieuwenden Noome.',
 	'cite_error_ref_no_key' => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Inhoold mout n Noome hääbe.',
 	'cite_error_ref_too_many_keys' => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ is uungultich of tou loang.',
@@ -1959,7 +1959,7 @@ $messages['sv'] = array(
 	'cite_croak' => 'Fel i fotnotssystemet; $1: $2',
 	'cite_error_key_str_invalid' => 'Internt fel; $str eller $key är ogiltiga.  Det här borde aldrig hända.',
 	'cite_error_stack_invalid_input' => 'Internt fel; ogiltig nyckel i stacken.  Det här borde aldrig hända.',
-	'cite_error' => 'Referensfel: $1',
+	'cite_error' => '<strong class="error">Referensfel: $1</strong>',
 	'cite_error_ref_numeric_key' => "Ogiltig <code>&lt;ref&gt;</code>-tag; parametern 'name' kan inte vara ett tal, använd ett beskrivande namn",
 	'cite_error_ref_no_key' => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan innehåll måste ha ett namn',
 	'cite_error_ref_too_many_keys' => "Ogiltig <code>&lt;ref&gt;</code>-tag; ogiltiga parametrar, den enda tillåtna parametern är 'name'",
@@ -1983,7 +1983,7 @@ $messages['te'] = array(
 	'cite_croak' => 'ఉదహరింపు చచ్చింది; $1: $2',
 	'cite_error_key_str_invalid' => 'అంతర్గత పొరపాటు: తప్పుడు $str మరియు/లేదా $key. ఇది ఎప్పుడూ జరగకూడదు.',
 	'cite_error_stack_invalid_input' => 'అంతర్గత పొరపాటు: తప్పుడు స్టాక్ కీ. ఇది ఎప్పుడూ జరగకూడదు.',
-	'cite_error' => 'ఉదహరింపు పొరపాటు: $1',
+	'cite_error' => '<strong class="error">ఉదహరింపు పొరపాటు: $1</strong>',
 	'cite_error_ref_numeric_key' => 'తప్పుడు <code>&lt;ref&gt;</code> టాగు; పేరు సరళ సంఖ్య అయివుండకూడదు, వివరమైన శీర్షిక వాడండి',
 	'cite_error_ref_no_key' => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; విషయం లేని ref లకు తప్పనిసరిగా పేరొకటుండాలి',
 	'cite_error_ref_too_many_keys' => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; తప్పు పేర్లు, ఉదాహరణకు మరీ ఎక్కువ',
@@ -2002,7 +2002,7 @@ $messages['tg-cyrl'] = array(
 	'cite_croak' => 'Ёд кардан хароб шуд; $1: $2',
 	'cite_error_key_str_invalid' => 'Хатои дохилӣ; $str ва/ё $key ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
 	'cite_error_stack_invalid_input' => 'Хатои дохилӣ; клиди пушта ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
-	'cite_error' => 'Хатои ёдкард: $1',
+	'cite_error' => '<strong class="error">Хатои ёдкард: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ном наметавонад як адад бошад, унвони возеҳтареро истифода кунед',
 	'cite_error_ref_no_key' => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳо бидуни мӯҳтаво бояд ном дошта бошанд',
 	'cite_error_ref_too_many_keys' => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; номҳои ғайримиҷоз ё беш аз андоза',
@@ -2023,7 +2023,7 @@ $messages['tg-cyrl'] = array(
 $messages['th'] = array(
 	'cite_desc' => 'ใส่ <nowiki><ref[ name=id]></nowiki> และ <nowiki><references /></nowiki> สำหรับการอ้างอิง',
 	'cite_croak' => 'แหล่งอ้างอิงเสีย; $1: $2',
-	'cite_error' => 'อ้างอิงผิดพลาด: $1',
+	'cite_error' => '<strong class="error">อ้างอิงผิดพลาด: $1</strong>',
 );
 
 /** Tagalog (Tagalog)
@@ -2038,7 +2038,7 @@ Hindi ito dapat mangyari.',
 	'cite_error_stack_invalid_input' => 'Panloob na kamalian;
 hindi tanggap na susi ng salansan.
 Hindi ito dapat mangyari.',
-	'cite_error' => 'Kamalian sa pagtukoy: $1',
+	'cite_error' => '<strong class="error">Kamalian sa pagtukoy: $1</strong>',
 	'cite_error_ref_numeric_key' => "Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;
 hindi maaaring isang payak na buumbilang (''integer'') ang pangalan.  Gumamit ng isang mapaglarawang pamagat",
 	'cite_error_ref_no_key' => "Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;
@@ -2076,7 +2076,7 @@ Bu asla olmamalı.',
 	'cite_error_stack_invalid_input' => 'Dahili hata;
 geçersiz stack anahtarı.
 Bu asla olmamalı.',
-	'cite_error' => 'Kaynak hatası $1',
+	'cite_error' => '<strong class="error">Kaynak hatası $1</strong>',
 	'cite_error_ref_numeric_key' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
 isim basit bir tamsayı olamaz. Tanımlayıcı bir başlık kullanın',
 	'cite_error_ref_no_key' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
@@ -2110,7 +2110,7 @@ $messages['uk'] = array(
 	'cite_error_key_str_invalid' => 'Внутрішня помилка:
 неправильний $str і/або $key.',
 	'cite_error_stack_invalid_input' => 'Внутрішня помилка: неправильний ключ стека.',
-	'cite_error' => 'Помилка цитування: $1',
+	'cite_error' => '<strong class="error">Помилка цитування: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Неправильний виклик <code>&lt;ref&gt;</code>:
 назва не може містити тільки цифри.',
 	'cite_error_ref_no_key' => 'Неправильний виклик <code>&lt;ref&gt;</code>:
@@ -2148,7 +2148,7 @@ $messages['vec'] = array(
 	'cite_error_stack_invalid_input' => 'Eror interno;
 ciave de stack sbaglià.
 Sta roba no la dovarìa mai capitar.',
-	'cite_error' => 'Eror ne la funsion Cite $1',
+	'cite_error' => '<strong class="error">Eror ne la funsion Cite $1</strong>',
 	'cite_error_ref_numeric_key' => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: el nome no'l pode mìa èssar un nùmaro intiero. Dòpara un titolo esteso",
 	'cite_error_ref_no_key' => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: i ref vodi no i pol no verghe un nome",
 	'cite_error_ref_too_many_keys' => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: nomi mìa validi (ad es. nùmaro massa elevà)",
@@ -2173,7 +2173,7 @@ $messages['vi'] = array(
 	'cite_croak' => 'Chú thích bị hỏng; $1: $2',
 	'cite_error_key_str_invalid' => 'Lỗi nội bộ; $str và/hoặc $key không hợp lệ. Điều này không bao giờ nên xảy ra.',
 	'cite_error_stack_invalid_input' => 'Lỗi nội bộ; khóa xác định chồng bị sai.  Đáng ra không bao giờ xảy ra điều này.',
-	'cite_error' => 'Lỗi chú thích: $1',
+	'cite_error' => '<strong class="error">Lỗi chú thích: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Thẻ <code>&lt;ref&gt;</code> sai; tên không thể chỉ là số nguyên, hãy dùng tựa đề có tính miêu tả',
 	'cite_error_ref_no_key' => 'Thẻ <code>&lt;ref&gt;</code> sai; thẻ ref không có nội dung thì phải có tên',
 	'cite_error_ref_too_many_keys' => 'Thẻ <code>&lt;ref&gt;</code> sai; thông số tên sai, như, nhiều thông số tên quá',
@@ -2196,7 +2196,7 @@ $messages['vo'] = array(
 	'cite_croak' => 'Saitot dädik; $1: $2',
 	'cite_error_key_str_invalid' => 'Pöl ninik: $str e/u $key no lonöföl(s). Atos no sötonöv jenön.',
 	'cite_error_stack_invalid_input' => 'Pöl ninik; kumakik no lonöföl. Atos neai sötonöv jenön.',
-	'cite_error' => 'Saitamapöl: $1',
+	'cite_error' => '<strong class="error">Saitamapöl: $1</strong>',
 	'cite_error_ref_numeric_key' => 'Nem ela <code>&lt;ref&gt;</code> no lonöföl. Nem no kanon binädön te me numats; gebolös bepenami.',
 	'cite_error_ref_no_key' => 'Geb no lonöföl ela <code>&lt;ref&gt;</code>: els ref nen ninäd mutons labön nemi',
 	'cite_error_ref_too_many_keys' => 'El <code>&lt;ref&gt;</code> no lonöfon: labon nemis no lonöfikis, a. s. tumödikis',
@@ -2212,7 +2212,7 @@ $messages['vo'] = array(
 $messages['yi'] = array(
 	'cite_desc' => 'לייגט צו <nowiki><ref[ name=id]></nowiki> און <nowiki><references/></nowiki> טאַגן, פֿאר ציטירונגען (אין הערות)',
 	'cite_croak' => 'טעות אין ציטירונג; $1: $2',
-	'cite_error' => 'ציטירן גרײַז: $1',
+	'cite_error' => '<strong class="error">ציטירן גרײַז: $1</strong>',
 	'cite_error_ref_numeric_key' => 'גרײַזיגער <code>&lt;ref&gt;</code> טאַג;
 נאמען טאר נישט זײַן קיין פשוטער נומער. ניצט א באשרײַבדיק קעפל',
 	'cite_error_ref_no_key' => 'אומגילדיגער <code>&lt;ref&gt;</code> טאַג;
@@ -2233,7 +2233,7 @@ $messages['yue'] = array(
 	'cite_croak' => '引用阻塞咗; $1: $2',
 	'cite_error_key_str_invalid' => '內部錯誤; 無效嘅 $str',
 	'cite_error_stack_invalid_input' => '內部錯誤; 無效嘅堆疊匙',
-	'cite_error' => '引用錯誤 $1',
+	'cite_error' => '<strong class="error">引用錯誤 $1</strong>',
 	'cite_error_ref_numeric_key' => '無效嘅呼叫; 需要一個非整數嘅匙',
 	'cite_error_ref_no_key' => '無效嘅呼叫; 未指定匙',
 	'cite_error_ref_too_many_keys' => '無效嘅呼叫; 無效嘅匙, 例如: 太多或者指定咗一個錯咗嘅匙',
@@ -2256,7 +2256,7 @@ $messages['zh-hans'] = array(
 	'cite_croak' => '引用阻塞; $1: $2',
 	'cite_error_key_str_invalid' => '内部错误；非法的 $str',
 	'cite_error_stack_invalid_input' => '内部错误；非法堆栈键值',
-	'cite_error' => '引用错误 $1',
+	'cite_error' => '<strong class="error">引用错误 $1</strong>',
 	'cite_error_ref_numeric_key' => '无效呼叫；需要一个非整数的键值',
 	'cite_error_ref_no_key' => '无效呼叫；没有指定键值',
 	'cite_error_ref_too_many_keys' => '无效呼叫；非法键值，例如：过多或错误的指定键值',
@@ -2278,7 +2278,7 @@ $messages['zh-hant'] = array(
 	'cite_croak' => '引用阻塞; $1: $2',
 	'cite_error_key_str_invalid' => '內部錯誤；非法的 $str',
 	'cite_error_stack_invalid_input' => '內部錯誤；非法堆疊鍵值',
-	'cite_error' => '引用錯誤 $1',
+	'cite_error' => '<strong class="error">引用錯誤 $1</strong>',
 	'cite_error_ref_numeric_key' => '無效呼叫；需要一個非整數的鍵',
 	'cite_error_ref_no_key' => '無效呼叫；沒有指定鍵',
 	'cite_error_ref_too_many_keys' => '無效呼叫；非法鍵值，例如：過多或錯誤的指定鍵',

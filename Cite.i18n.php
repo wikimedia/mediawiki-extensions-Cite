@@ -1062,6 +1062,8 @@ Defini plus in le message <nowiki>[[MediaWiki:Cite references link many format b
 	'cite_error_references_no_text' => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
 nulle texto esseva fornite pro le refs nominate <code>$1</code>',
 	'cite_error_included_ref' => 'Le clausura &lt;/ref&gt; manca pro le etiquetta &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Il existe etiquettas <code>&lt;ref&gt;</code>, ma nulle etiquetta <code>&lt;references/&gt;</code> ha essite trovate',
+	'cite_error_group_refs_without_references' => 'Il existe etiquettas <code>&lt;ref&gt;</code> pro un gruppo nominate "$1", ma nulle etiquetta <code>&lt;references group="$1"/&gt;</code> correspondente ha essite trovate',
 );
 
 /** Indonesian (Bahasa Indonesia)

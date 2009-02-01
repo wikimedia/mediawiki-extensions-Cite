@@ -334,6 +334,8 @@ $messages['bg'] = array(
 Използвайте <code>&lt;references /&gt;</code> или <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
 	'cite_error_included_ref' => 'Липсва затварящ етикет &lt;/ref&gt; след отварящия етикет &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Присъстват етикети <code>&lt;ref&gt;</code>; липсва етикет <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Присъстват етикети <code>&lt;ref&gt;</code> за групата "$1"; но липсва съответният етикет <code>&lt;references group="$1"/&gt;</code>',
 );
 
 /** Bengali (বাংলা)
@@ -2069,6 +2071,7 @@ walang tekstong ibinigay para sa mga sangguniang (''ref'') pinangalanang <code>$
 
 /** Turkish (Türkçe)
  * @author Joseph
+ * @author Runningfridgesrule
  */
 $messages['tr'] = array(
 	'cite_desc' => 'Alıntılar için, <nowiki><ref[ name=id]></nowiki> ve <nowiki><references/></nowiki> etiketlerini ekler',
@@ -2101,6 +2104,7 @@ sadece "group" parametresine izin verilir.
 	'cite_error_references_no_text' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
 <code>$1</code> isimli refler için metin temin edilmemiş',
 	'cite_error_included_ref' => '&lt;ref&gt; etiketi için &lt;/ref&gt; kapanışı eksik',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> etiketleri var, ama <code>&lt;references/&gt;</code> etiketi bulunamadı',
 );
 
 /** Ukrainian (Українська)

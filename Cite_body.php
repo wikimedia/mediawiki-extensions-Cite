@@ -360,12 +360,28 @@ class Cite {
 		$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
 		$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
 		$content = implode( "\n", $ent );
-		
+
+		// Let's try to cache it.
+		$parserInput = $prefix . $content . $suffix;
+		global $wgMemc;
+		$cacheKey = wfMemcKey( 'citeref', md5($parserInput), $this->mParser->Title()->getArticleID() );
+
 		wfProfileOut( __METHOD__ .'-entries' );
-		wfProfileIn( __METHOD__ .'-parse' );
-		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
-		$ret = rtrim( $this->parse( $prefix . $content . $suffix ), "\n" );
-		wfProfileOut( __METHOD__ .'-parse' );
+
+		wfProfileIn( __METHOD__.'-cache-get' );
+		$ret = $wgMemc->get( $cacheKey );
+		wfProfileOut( __METHOD__.'-cache' );
+		
+		if ( !$ret ) {
+			wfProfileIn( __METHOD__ .'-parse' );
+			
+			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
+			$ret = rtrim( $this->parse( $parserInput ), "\n" );
+			$wgMemc->set( $cacheKey,  $ret, 86400 );
+			
+			wfProfileOut( __METHOD__ .'-parse' );
+		}
+
 		wfProfileOut( __METHOD__ );
 		
 		//done, clean up so we can reuse the group

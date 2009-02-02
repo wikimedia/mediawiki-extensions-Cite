@@ -370,7 +370,7 @@ class Cite {
 
 		wfProfileIn( __METHOD__.'-cache-get' );
 		$ret = $wgMemc->get( $cacheKey );
-		wfProfileOut( __METHOD__.'-cache' );
+		wfProfileOut( __METHOD__.'-cache-get' );
 		
 		if ( !$ret ) {
 			wfProfileIn( __METHOD__ .'-parse' );

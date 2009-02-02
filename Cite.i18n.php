@@ -530,6 +530,8 @@ Diffiniwch ragor ohonynt yn y neges <nowiki>[[MediaWiki:Cite references link man
 	'cite_error_references_no_text' => "Tag <code>&lt;ref&gt;</code> annilys;
 ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 	'cite_error_included_ref' => '&lt;/ref&gt; clo yn eisiau ar gyfer y tag &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol, ond dim tag <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol ar gyfer y grwp "$1", ond ni chafwyd tag <code>&lt;references/&gt;</code>',
 );
 
 /** Danish (Dansk)

@@ -63,6 +63,11 @@ $aliases['de'] = array(
 	'Cite' => array( 'Zitierhilfe' ),
 );
 
+/** Lower Sorbian (Dolnoserbski) */
+$aliases['dsb'] = array(
+	'Cite' => array( 'Citěrowańska pomoc' ),
+);
+
 /** Greek (Ελληνικά) */
 $aliases['el'] = array(
 	'Cite' => array( 'Παραπομπή' ),
@@ -103,6 +108,11 @@ $aliases['he'] = array(
 /** Croatian (Hrvatski) */
 $aliases['hr'] = array(
 	'Cite' => array( 'Citiraj' ),
+);
+
+/** Upper Sorbian (Hornjoserbsce) */
+$aliases['hsb'] = array(
+	'Cite' => array( 'Citowanska pomoc' ),
 );
 
 /** Haitian (Kreyòl ayisyen) */

@@ -369,17 +369,20 @@ class Cite {
 		wfProfileOut( __METHOD__ .'-entries' );
 
 		wfProfileIn( __METHOD__.'-cache-get' );
-		$ret = $wgMemc->get( $cacheKey );
+		$data = $wgMemc->get( $cacheKey );
 		wfProfileOut( __METHOD__.'-cache-get' );
 		
-		if ( !$ret ) {
+		if ( !$data ) {
 			wfProfileIn( __METHOD__ .'-parse' );
 			
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 			$ret = rtrim( $this->parse( $parserInput ), "\n" );
-			$wgMemc->set( $cacheKey,  $ret, 86400 );
+			$serData = $this->mParser->serialiseHalfParsedText( $ret );
+			$wgMemc->set( $cacheKey, $serData, 86400 );
 			
 			wfProfileOut( __METHOD__ .'-parse' );
+		} else {
+			$ret = $this->mParser->unserialiseHalfParsedText( $data );
 		}
 
 		wfProfileOut( __METHOD__ );

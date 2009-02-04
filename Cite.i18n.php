@@ -2107,6 +2107,7 @@ sadece "group" parametresine izin verilir.
 <code>$1</code> isimli refler için metin temin edilmemiş',
 	'cite_error_included_ref' => '&lt;ref&gt; etiketi için &lt;/ref&gt; kapanışı eksik',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> etiketleri var, ama <code>&lt;references/&gt;</code> etiketi bulunamadı',
+	'cite_error_group_refs_without_references' => '"$1" isimli grup için <code>&lt;ref&gt;</code> etiketleri mevcut, ancak karşılık gelen <code>&lt;references group="$1"/&gt;</code> etiketi bulunamadı',
 );
 
 /** Ukrainian (Українська)
@@ -2196,6 +2197,8 @@ Hãy dùng <code>&lt;references /&gt;</code>, hoặc <code>&lt;references group=
 Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 	'cite_error_included_ref' => 'Không có &lt;/ref&gt; để đóng thẻ &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code>, nhưng không tìm thấy thẻ <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code> với tên nhóm “$1”, nhưng không tìm thấy thẻ <code>&lt;references group="$1"/&gt;</code> tương ứng',
 );
 
 /** Volapük (Volapük)
@@ -2234,6 +2237,8 @@ $messages['yi'] = array(
 נעמט נישט קיין תוכן. ניצט <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'אומגילטיגער <code>&lt;references&gt;</code> טאַג;
 קיין פאראמעטערס נישט ערלויבט. ניצט <code>&lt;references /&gt;</code>',
+	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&lt;references/&gt;</code> טאַג.",
+	'cite_error_group_refs_without_references' => 'ס\'זענען דא <code>&lt;ref&gt;</code> טאַגן פֿאַר א גרופע וואס הייסט "$1", אבער מ\'האט נישט געטראפֿן קיין אַנטקעגענעם  <code>&lt;references group="$1"/&gt;</code> טאַג.',
 );
 
 /** Yue (粵語) */

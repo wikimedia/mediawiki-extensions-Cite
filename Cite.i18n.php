@@ -332,6 +332,8 @@ $messages['bg'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Невалиден етикет <code>&lt;references&gt;</code>;
 позволен е само параметър "group".
 Използвайте <code>&lt;references /&gt;</code> или <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Изчерпани са специалните етикети за обратна референция.
+Още етикети могат да се дефинират в системното съобщение <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
 	'cite_error_included_ref' => 'Липсва затварящ етикет &lt;/ref&gt; след отварящия етикет &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Присъстват етикети <code>&lt;ref&gt;</code>; липсва етикет <code>&lt;references/&gt;</code>',
@@ -1357,6 +1359,8 @@ Benotzt <code>&lt;references /&gt;</code>, oder <code>&lt;references group="..."
 	'cite_error_references_no_text' => "Ongëltegen <code>&lt;ref&gt;</code> Tag;
 et gouf keen Text uginn fir d'Referenzen mam Numm <code>$1</code>",
 	'cite_error_included_ref' => 'Den Tag &lt;/ref&gt; feelt fir den Tag &lt;ref&gt; zouzemaachen',
+	'cite_error_refs_without_references' => 'Den Tag <code>&lt;ref&gt;</code> gëtt et, awer den Tag <code>&lt;references/&gt;</code> gouf net fonnt',
+	'cite_error_group_refs_without_references' => 'Den Tag <code>&lt;ref&gt;</code> gëtt et fir de Grupp "$1", awer den entspriechenden Tag <code>&lt;references group="$1"/&gt;</code> gouf net fonnt',
 );
 
 /** Limburgish (Limburgs)

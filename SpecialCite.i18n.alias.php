@@ -235,3 +235,12 @@ $aliases['tet'] = array(
 	'Cite' => array( 'Sita' ),
 );
 
+/** Chinese (Simplified) */
+$aliases['zh-hans'] = array(
+	'Cite' => array( '引用' ),
+);
+
+/** Chinese (Traditional) */
+$aliases['zh-hant'] = array(
+	'Cite' => array( '引用' ),
+);

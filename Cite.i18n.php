@@ -2270,48 +2270,49 @@ $messages['yue'] = array(
 無文字提供於名為<code>$1</code>嘅參照',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文(简化字)‬)
  * @author Gaoxuewei
+ * @author Philip
  */
 $messages['zh-hans'] = array(
-	'cite_desc' => '加入 <nowiki><ref[ name=id]></nowiki> 与 <nowiki><references/></nowiki> 标签用于引用中',
-	'cite_croak' => '引用阻塞; $1: $2',
-	'cite_error_key_str_invalid' => '内部错误；非法的 $str',
-	'cite_error_stack_invalid_input' => '内部错误；非法堆栈键值',
-	'cite_error' => '引用错误 $1',
-	'cite_error_ref_numeric_key' => '无效呼叫；需要一个非整数的键值',
-	'cite_error_ref_no_key' => '无效呼叫；没有指定键值',
-	'cite_error_ref_too_many_keys' => '无效呼叫；非法键值，例如：过多或错误的指定键值',
-	'cite_error_ref_no_input' => '无效呼叫；没有指定的输入',
-	'cite_error_references_invalid_input' => '无效输入；需求为空',
-	'cite_error_references_invalid_parameters' => '非法参数；需求为空',
-	'cite_error_references_invalid_parameters_group' => '无效的<code>&lt;references&gt;</code>标签；
-只容许 "group" 参数。
-用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => '自定义后退标签已经用完了，现在可在标签 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> 定义更多信息',
-	'cite_error_references_no_text' => '无效的<code>&lt;ref&gt;</code>标签；
-无文字提供于名为<code>$1</code>的参照',
-	'cite_error_included_ref' => '没有找到与 &lt;ref&gt; 对应的 &lt;/ref&gt; 标签',
+	'cite_desc'                                      => '增加用于引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>标签',
+	'cite_croak'                                     => '引用失效；$1：$2',
+	'cite_error_key_str_invalid'                     => '内部错误；不应出现的非法$str和／或$key。',
+	'cite_error_stack_invalid_input'                 => '内部错误；不应出现的非法堆栈键值。',
+	'cite_error'                                     => '引用错误：$1',
+	'cite_error_ref_numeric_key'                     => '无效<code>&lt;ref&gt;</code>标签；name属性不能是单一的数字，请使用可辨识的标题',
+	'cite_error_ref_no_key'                          => '无效<code>&lt;ref&gt;</code>标签；未填内容的引用必须填写name属性',
+	'cite_error_ref_too_many_keys'                   => '无效<code>&lt;ref&gt;</code>标签；name属性非法，可能是内容过长',
+	'cite_error_ref_no_input'                        => '无效<code>&lt;ref&gt;</code>标签；未填name属性的引用必须填写内容',
+	'cite_error_references_invalid_input'            => '无效<code>&lt;references&gt;</code>标签；不允许填写内容，请使用<code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => '无效<code>&lt;references&gt;</code>标签；不允许填写参数，请使用<code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => '无效<code>&lt;references&gt;</code>标签；只允许填写“group”参数，请使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => '自定义回链标签耗尽。请在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定义更多的标签',
+	'cite_error_references_no_text'                  => '无效<code>&lt;ref&gt;</code>标签；未为name属性为<code>$1</code>的引用提供文字',
+	'cite_error_included_ref'                        => '没有找到与&lt;/ref&gt;对应的&lt;ref&gt;标签',
+	'cite_error_refs_without_references'             => '<code>&lt;ref&gt;</code>标签存在，但没有找到<code>&lt;references/&gt;</code>标签',
+	'cite_error_group_refs_without_references'       => '组名为“$1”的<code>&lt;ref&gt;</code>标签存在，但没有找到相应的<code>&lt;references group="$1"/&gt;</code>标签',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(傳統字)‬)
+* @author Philip
+*/
 $messages['zh-hant'] = array(
-	'cite_desc' => '加入 <nowiki><ref[ name=id]></nowiki> 與 <nowiki><references/></nowiki> 標籤用於引用中',
-	'cite_croak' => '引用阻塞; $1: $2',
-	'cite_error_key_str_invalid' => '內部錯誤；非法的 $str',
-	'cite_error_stack_invalid_input' => '內部錯誤；非法堆疊鍵值',
-	'cite_error' => '引用錯誤 $1',
-	'cite_error_ref_numeric_key' => '無效呼叫；需要一個非整數的鍵',
-	'cite_error_ref_no_key' => '無效呼叫；沒有指定鍵',
-	'cite_error_ref_too_many_keys' => '無效呼叫；非法鍵值，例如：過多或錯誤的指定鍵',
-	'cite_error_ref_no_input' => '無效呼叫；沒有指定的輸入',
-	'cite_error_references_invalid_input' => '無效輸入；需求為空',
-	'cite_error_references_invalid_parameters' => '非法參數；需求為空',
-	'cite_error_references_invalid_parameters_group' => '無效的<code>&lt;references&gt;</code>標籤；
-只容許 "group" 參數。
-用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => '自訂後退標籤已經用完了，現在可在標籤 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> 定義更多信息',
-	'cite_error_references_no_text' => '無效的<code>&lt;ref&gt;</code>標籤；
-無文字提供於名為<code>$1</code>的參照',
+	'cite_desc'                                      => '增加用於引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>標簽',
+	'cite_croak'                                     => '引用失效；$1：$2',
+	'cite_error_key_str_invalid'                     => '內部錯誤；不應出現的非法$str和／或$key。',
+	'cite_error_stack_invalid_input'                 => '內部錯誤；不應出現的非法堆疊鍵值。',
+	'cite_error'                                     => '引用錯誤：$1',
+	'cite_error_ref_numeric_key'                     => '無效<code>&lt;ref&gt;</code>標簽；name屬性不能是單一的數字，請使用可辨識的標題',
+	'cite_error_ref_no_key'                          => '無效<code>&lt;ref&gt;</code>標簽；未填內容的引用必須填寫name屬性',
+	'cite_error_ref_too_many_keys'                   => '無效<code>&lt;ref&gt;</code>標簽；name屬性非法，可能是內容過長',
+	'cite_error_ref_no_input'                        => '無效<code>&lt;ref&gt;</code>標簽；未填name屬性的引用必須填寫內容',
+	'cite_error_references_invalid_input'            => '無效<code>&lt;references&gt;</code>標簽；不允许填寫內容，請使用<code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters'       => '無效<code>&lt;references&gt;</code>標簽；不允许填寫參量，請使用<code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => '無效<code>&lt;references&gt;</code>標簽；只允许填寫「group」參量，請使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label'        => '自定義回連標簽耗盡。請在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定義更多的標簽',
+	'cite_error_references_no_text'                  => '無效<code>&lt;ref&gt;</code>標簽；未為name屬性為<code>$1</code>的引用提供文字',
+	'cite_error_included_ref'                        => '沒有找到與&lt;/ref&gt;對應的&lt;ref&gt;標簽',
+	'cite_error_refs_without_references'             => '<code>&lt;ref&gt;</code>標簽存在，但沒有找到<code>&lt;references/&gt;</code>標簽',
+	'cite_error_group_refs_without_references'       => '組名為「$1」的<code>&lt;ref&gt;</code>標簽存在，但沒有找到相應的<code>&lt;references group="$1"/&gt;</code>標簽',
 );
-

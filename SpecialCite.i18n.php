@@ -1529,7 +1529,7 @@ $messages['yue'] = array(
 	'cite_submit' => '引用',
 );
 
-/** Simplified Chinese (‪中文(简化字)‬) */
+/** Simplified Chinese (‪中文(简体)‬) */
 $messages['zh-hans'] = array(
 	'cite_article_desc' => '增加[[Special:Cite|引用]]特殊页面以及工具箱链接',
 	'cite_article_link' => '引用此文',
@@ -1538,7 +1538,7 @@ $messages['zh-hans'] = array(
 	'cite_submit' => '引用',
 );
 
-/** Traditional Chinese (‪中文(傳統字)‬) */
+/** Traditional Chinese (‪中文(繁體)‬) */
 $messages['zh-hant'] = array(
 	'cite_article_desc' => '增加[[Special:Cite|引用]]特殊頁面以及工具箱連結',
 	'cite_article_link' => '引用此文',

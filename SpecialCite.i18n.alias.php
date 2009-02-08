@@ -180,6 +180,11 @@ $aliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
+$aliases['nn'] = array(
+	'Cite' => array( 'Siter' ),
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
 $aliases['no'] = array(
 	'Cite' => array( 'Siteringshjelp' ),
@@ -235,12 +240,13 @@ $aliases['tet'] = array(
 	'Cite' => array( 'Sita' ),
 );
 
-/** Chinese (Simplified) */
+/** Simplified Chinese (‪中文(简体)‬) */
 $aliases['zh-hans'] = array(
 	'Cite' => array( '引用' ),
 );
 
-/** Chinese (Traditional) */
+/** Traditional Chinese (‪中文(繁體)‬) */
 $aliases['zh-hant'] = array(
 	'Cite' => array( '引用' ),
 );
+

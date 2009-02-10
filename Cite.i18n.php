@@ -461,8 +461,13 @@ Useu <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> no vàlida;
 únicament es permet el paràmetre "group".
 Useu <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => "Hi ha massa etiquetes personalitzades.
+Se'n poden definir més a <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
 	'cite_error_references_no_text' => "Etiqueta <code>&lt;ref&gt;</code> no vàlida;
 no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
+	'cite_error_included_ref' => 'Es tanca el &lt;/ref&gt; que manca per una etiqueta &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Hi ha etiquetes <code>&lt;ref&gt;</code> però no cap etiqueta <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Existeixen etiquetes <code>&lt;ref&gt;</code> pel grup «$1» però no l\'etiqueta <code>&lt;references group="$1"/&gt;</code> corresponent',
 );
 
 /** Czech (Česky)
@@ -662,6 +667,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 );
 
 /** Spanish (Español)
+ * @author Baiji
  * @author Muro de Aguas
  * @author Remember the dot
  * @author Sanbec
@@ -693,6 +699,7 @@ sólo se permite el parámetro «group».
 Use <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
 pues no hay una referencia con texto llamada <code>$1</code>',
+	'cite_error_included_ref' => 'Código wiki para cierre &lt;/ref&gt; sin un código de apertura &lt;ref&gt; existente',
 );
 
 /** Basque (Euskara) */

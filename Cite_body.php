@@ -123,7 +123,7 @@ class Cite {
 			return $ret;
 		}
 	}
-	
+
 	function guardedRef( $str, $argv, $parser, $default_group=CITE_DEFAULT_GROUP ) {
 		$this->mParser = $parser;
 		
@@ -709,7 +709,7 @@ class Cite {
 	 */
 	function setHooks() {
 		global $wgParser, $wgHooks;
-		
+
 		$wgParser->setHook( 'ref' , array( &$this, 'ref' ) );
 		$wgParser->setHook( 'references' , array( &$this, 'references' ) );
 
@@ -731,7 +731,7 @@ class Cite {
 		return 
 			$this->parse(
 				'<strong class="error">' .
-				wfMsg( 'cite_error', wfMsg( $key, $param ) ) .
+				wfMsgNoTrans( 'cite_error', wfMsgNoTrans( $key, $param ) ) .
 				'</strong>'
 			);
 	}

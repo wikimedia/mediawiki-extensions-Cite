@@ -45,6 +45,11 @@ define( 'CITE_DEFAULT_GROUP', '');
  */
 $wgAllowCiteGroups = true; 
 
+/**
+ * An emergency optimisation measure for caching cite <references /> output.
+ */
+$wgCiteCacheReferences = false;
+
 function wfCite() {
 	new Cite;
 	return true;

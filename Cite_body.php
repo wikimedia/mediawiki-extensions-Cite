@@ -367,18 +367,24 @@ class Cite {
 		$cacheKey = wfMemcKey( 'citeref', md5($parserInput), $this->mParser->Title()->getArticleID() );
 
 		wfProfileOut( __METHOD__ .'-entries' );
-
-		wfProfileIn( __METHOD__.'-cache-get' );
-		$data = $wgMemc->get( $cacheKey );
-		wfProfileOut( __METHOD__.'-cache-get' );
 		
-		if ( !$data ) {
+		global $wgCiteCacheReferences;
+		if ( $wgCiteCacheReferences ) {
+			wfProfileIn( __METHOD__.'-cache-get' );
+			$data = $wgMemc->get( $cacheKey );
+			wfProfileOut( __METHOD__.'-cache-get' );
+		}
+		
+		if ( empty($data) ) {
 			wfProfileIn( __METHOD__ .'-parse' );
 			
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 			$ret = rtrim( $this->parse( $parserInput ), "\n" );
-			$serData = $this->mParser->serialiseHalfParsedText( $ret );
-			$wgMemc->set( $cacheKey, $serData, 86400 );
+			
+			if ( $wgCiteCacheReferences ) {
+				$serData = $this->mParser->serialiseHalfParsedText( $ret );
+				$wgMemc->set( $cacheKey, $serData, 86400 );
+			}
 			
 			wfProfileOut( __METHOD__ .'-parse' );
 		} else {

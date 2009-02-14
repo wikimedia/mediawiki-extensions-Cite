@@ -436,6 +436,7 @@ nije naveden tekst za reference sa imenom <code>$1</code>',
 /** Catalan (Català)
  * @author Jordi Roqué
  * @author SMP
+ * @author Vriullop
  */
 $messages['ca'] = array(
 	'cite_desc' => 'Afegeix les etiquetes <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki>, per a cites',
@@ -446,7 +447,7 @@ Aquesta situació no s\'hauria de donar mai.',
 	'cite_error_stack_invalid_input' => "Error intern;
 el valor d'emmagatzematge no és vàlid.
 Aquesta situació no s'hauria de donar mai.",
-	'cite_error' => 'Error de cita: $1',
+	'cite_error' => 'Error de citació: $1',
 	'cite_error_ref_numeric_key' => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida;
 el nom no pot ser un nombre. Empreu una paraula o un títol descriptiu',
 	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida;
@@ -631,7 +632,8 @@ za ref z mjenim <code>$1</code> njejo se tekst pódał',
  */
 $messages['el'] = array(
 	'cite_error' => 'Σφάλμα αναφοράς: $1',
-	'cite_error_references_no_text' => 'Δεν δίνετε κείμενο.',
+	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
+Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',
 );
 
 /** Esperanto (Esperanto)
@@ -1300,7 +1302,7 @@ $messages['ksh'] = array(
 <code>$str</code> udder <code>$key</code> stemme nit.
 Dat sull nie optredde.',
 	'cite_error_stack_invalid_input' => 'Interne Fähler in <i lang="en">cite</i>:
-Der <i lang="en">stack</i>-Schößel stemmp nit.
+Der <i lang="en">stack</i>-Schlößel stemmp nit.
 Dat sull nie optredde.',
 	'cite_error' => 'Fähler in <i lang="en">cite</i> met Refenenze: $1',
 	'cite_error_ref_numeric_key' => 'Fähler en <i lang="en">cite</i>:
@@ -1330,6 +1332,8 @@ Donn mieh en dä Sigg <nowiki>[[MediaWiki:Cite references link many format backl
 Et wohr keine Tex aanjejovve för de
 <code>&lt;ref&gt;</code>s met dämm Name „<code>$1</code>“.',
 	'cite_error_included_ref' => 'Hee för dat &lt;ref&gt; ham_mer kei zopaß &lt;/ref&gt;',
+	'cite_error_refs_without_references' => 'Et sinn_er <code>&lt;ref&gt;</code>-Befähle en dä Sigg, ävver mer han keine <code>&lt;references/&gt;</code>-Befähl jefunge.',
+	'cite_error_group_refs_without_references' => 'Et sinn_er <code>&lt;ref&gt;</code>-Befähle för de jrop „$1“ en hee dä Sigg, ävver mer han keine <code>&lt;references group="$1"/&gt;</code>-Befähl jefunge.',
 	'cite_reference_link_key_with_num' => '$1_$2',
 	'cite_reference_link_prefix' => 'cite_ref-',
 	'cite_references_link_prefix' => 'cite_note-',

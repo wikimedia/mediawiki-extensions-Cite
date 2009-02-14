@@ -323,11 +323,14 @@ $messages['ee'] = array(
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Omnipaedista
  */
 $messages['el'] = array(
+	'cite_article_desc' => 'Προσθέτει μία ειδική σελίδα [[Special:Cite|παραθέσεων]] καί έναν σύνδεσμο προς την εργαλειοθήκη',
 	'cite_article_link' => 'Αναφέρεται αυτή τη σελίδα',
 	'cite' => 'Αναφορά',
 	'cite_page' => 'Σελίδα:',
+	'cite_submit' => 'Προσθήκη παραθέσεων',
 );
 
 /** Esperanto (Esperanto)

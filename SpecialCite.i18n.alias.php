@@ -125,6 +125,11 @@ $aliases['hu'] = array(
 	'Cite' => array( 'Irodalomjegyzék' ),
 );
 
+/** Interlingua (Interlingua) */
+$aliases['ia'] = array(
+	'Cite' => array( 'Citation' ),
+);
+
 /** Indonesian (Bahasa Indonesia) */
 $aliases['id'] = array(
 	'Cite' => array( 'Kutip' ),
@@ -238,6 +243,11 @@ $aliases['sw'] = array(
 /** Tetum (Tetun) */
 $aliases['tet'] = array(
 	'Cite' => array( 'Sita' ),
+);
+
+/** Tagalog (Tagalog) */
+$aliases['tl'] = array(
+	'Cite' => array( 'Tukuyin' ),
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */

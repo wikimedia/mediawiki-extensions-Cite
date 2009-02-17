@@ -75,7 +75,7 @@ $aliases['el'] = array(
 
 /** Spanish (Español) */
 $aliases['es'] = array(
-	'Cite' => array( 'Citar' ),
+	'Cite' => array( 'Citar', 'Cita' ),
 );
 
 /** Finnish (Suomi) */

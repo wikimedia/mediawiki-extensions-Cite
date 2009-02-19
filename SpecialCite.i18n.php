@@ -668,6 +668,7 @@ $messages['ilo'] = array(
  * @author Malafaya
  */
 $messages['io'] = array(
+	'cite_article_desc' => 'Ico adjuntas specala pagino e ligilo por [[Special:Cite|citaji]] en utensilo-buxo',
 	'cite_article_link' => 'Citar ca pagino',
 	'cite' => 'Citar',
 	'cite_page' => 'Pagino:',

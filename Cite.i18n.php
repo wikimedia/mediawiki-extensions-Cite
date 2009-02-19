@@ -772,33 +772,38 @@ viitettä <code>$1</code> ei löytynyt',
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'cite_desc' => 'Ajoute les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, pour les citations.',
-	'cite_croak' => 'Citation corrompue ; $1 : $2',
-	'cite_error_key_str_invalid' => 'Erreur interne ; $str ou $key incorrects.
+	'cite_desc' => 'Ajoute les balises <tt><nowiki><ref[ name="id"]></nowiki></tt> et <tt><nowiki><references/></nowiki></tt> pour les citations.',
+	'cite_croak' => 'Citation en impasse ; $1 : $2',
+	'cite_error_key_str_invalid' => 'Erreur interne ;
+$str ou $key invalides.
 Ceci ne devrait jamais se produire.',
 	'cite_error_stack_invalid_input' => 'Erreur interne ;
-clé de pile incorrecte.
+clé de pile invalide.
 Ceci ne devrait jamais se produire.',
 	'cite_error' => 'Erreur de citation : $1',
 	'cite_error_ref_numeric_key' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
-Le nom ne peut être un entier simple. Utilisez un titre descriptif.',
+le nom ne peut être un entier simple. Utilisez un titre descriptif.',
 	'cite_error_ref_no_key' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
 les références sans contenu doivent avoir un nom.',
 	'cite_error_ref_too_many_keys' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
-Noms incorrects, par exemple ils sont trop nombreux.',
+noms incorrects, par exemple trop nombreux.',
 	'cite_error_ref_no_input' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
 les références sans nom doivent avoir un contenu.',
 	'cite_error_references_invalid_input' => 'Balise <code>&lt;references&gt;</code> incorrecte ;
-aucune entrée n’est permise. Utilisez simplement <code>&lt;references /&gt;</code>.',
+aucune donnée n’est permise. Utilisez simplement <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters' => "Balise <code>&lt;references&gt;</code> incorrecte ;
-aucun paramètre n'est permis. Utilisez simplement <code>&lt;references /&gt;</code>.",
+aucun paramètre n'est permis.
+Utilisez simplement <code>&lt;references /&gt;</code>.",
 	'cite_error_references_invalid_parameters_group' => 'Balise <code>&lt;references&gt;</code> incorrecte ;
-seul le paramètre « group » est autorisé. Utilisez <code>&lt;references /&gt;</code>, ou bien <code>&lt;references group="..." /&gt;</code>.',
-	'cite_error_references_no_backlink_label' => 'Épuisement des étiquettes personnalisées.
+seul l’attribut « group » est autorisé.
+Utilisez <code>&lt;references /&gt;</code>, ou bien <code>&lt;references group="..." /&gt;</code>.',
+	'cite_error_references_no_backlink_label' => 'Épuisement des étiquettes de liens personnalisées.
 Définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
-	'cite_error_references_no_text' => "Balise <code>&lt;ref&gt;</code> incorrecte ;
-aucun texte n'a été fourni pour les références nommées <code>$1</code>.",
-	'cite_error_included_ref' => 'Clôture &lt;/ref&gt; omise pour la balise &lt;ref&gt;',
+	'cite_error_references_no_text' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
+aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
+	'cite_error_included_ref' => 'Clôture <code>&lt;/ref&gt;</code> manquante pour la balise <code>&lt;ref&gt;</code>.',
+	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent, mais aucune balise <code>&lt;references/&gt;</code> n’a été trouvée.',
+	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent pour un groupe nommé « $1 », mais aucune balise <code>&lt;references group="$1"/&gt;</code> correspondante n’a été trouvée.',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
@@ -1148,7 +1153,7 @@ $messages['ja'] = array(
 	'cite_croak' => '引用タグ機能の重大なエラー; $1: $2',
 	'cite_error_key_str_invalid' => '内部エラー; $str と $key の両方または一方が無効。これはソフトウェアのバグです。',
 	'cite_error_stack_invalid_input' => '内部エラー; スタックキーが無効。これはソフトウェアのバグです。',
-	'cite_error' => '引用エラー $1',
+	'cite_error' => '引用エラー: $1',
 	'cite_error_ref_numeric_key' => '無効な <code>&lt;ref&gt;</code> タグ: 名前に単純な数値は使用できません。',
 	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグ: 引用句の内容がない場合には名前 （<code>name</code> 属性）が必要です',
 	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグ: 無効な名前（多すぎる、もしくは誤った指定）',
@@ -1732,6 +1737,44 @@ Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;
 	'cite_error_references_no_backlink_label' => "Etiquetas de backlink esgotadas. Defina mais na mensagem \"''cite_references_link_many_format_backlink_labels''\"",
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; de fecho em falta para a marca &lt;ref&gt;',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'cite_desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
+	'cite_croak' => 'Citação com problemas; $1: $2',
+	'cite_error_key_str_invalid' => 'Erro interno;
+$str e/ou $key inválido.
+Isto nunca deveria acontecer.',
+	'cite_error_stack_invalid_input' => 'Erro interno;
+chave fixa inválida.
+Isto nunca deveria ocorrer.',
+	'cite_error' => 'Erro de citação: $1',
+	'cite_error_ref_numeric_key' => 'Marca <code>&lt;ref&gt;</code> inválida; 
+o nome não pode ser um número. Utilize um título descritivo',
+	'cite_error_ref_no_key' => 'Marca <code>&lt;ref&gt;</code> inválida; 
+refs sem conteúdo devem ter um nome',
+	'cite_error_ref_too_many_keys' => 'Marca <code>&lt;ref&gt;</code> inválida; 
+nomes inválidos (por exemplo, nome muito extenso)',
+	'cite_error_ref_no_input' => 'Marca <code>&lt;ref&gt;</code> inválida; 
+refs sem nome devem possuir conteúdo',
+	'cite_error_references_invalid_input' => 'Marca <code>&lt;references&gt;</code> inválida; 
+não é permitido dado de entrada. Use <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters' => 'Marca <code>&lt;references&gt;</code> inválida; 
+não são permitidos parâmetros.
+Utilize <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Marca <code>&lt;references&gt;</code> inválida;
+só o parâmetro "group" é permitido.
+Utilize <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Etiquetas de backlink esgotadas. 
+Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text' => 'Marca <code>&lt;ref&gt;</code> inválida; 
+não foi fornecido texto para as refs chamadas <code>$1</code>',
+	'cite_error_included_ref' => '&lt;/ref&gt; de fechamento ausente para para a marca &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code>, mas nenhuma marca <code>&lt;references/&gt;</code> foi encontrada',
+	'cite_error_group_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma marca <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada',
 );
 
 /** Romanian (Română)

@@ -348,10 +348,11 @@ $messages['eo'] = array(
 /** Spanish (Español)
  * @author Icvav
  * @author Jatrobat
+ * @author Muro de Aguas
  * @author Sanbec
  */
 $messages['es'] = array(
-	'cite_article_desc' => 'Añade una página especial para [[Special:Cite|citar artículo]] y un enlace en la caja de herramientas.',
+	'cite_article_desc' => 'Añade una página especial para [[Special:Cite|citar la página]] y un enlace en la caja de herramientas.',
 	'cite_article_link' => 'Citar este artículo',
 	'cite' => 'Citar',
 	'cite_page' => 'Página:',
@@ -1446,6 +1447,13 @@ $messages['ts'] = array(
  */
 $messages['udm'] = array(
 	'cite_article_link' => 'Кызьы со статьяез цитировать кароно',
+);
+
+/** Uighur (Latin) (Uyghurche‎ / ئۇيغۇرچە (Latin))
+ * @author Jose77
+ */
+$messages['ug-latn'] = array(
+	'cite_page' => 'Bet:',
 );
 
 /** Ukrainian (Українська)

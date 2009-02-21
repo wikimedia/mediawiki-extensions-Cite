@@ -250,6 +250,11 @@ $aliases['tl'] = array(
 	'Cite' => array( 'Tukuyin' ),
 );
 
+/** Turkish (Türkçe) */
+$aliases['tr'] = array(
+	'Cite' => array( 'KaynakGöster' ),
+);
+
 /** Simplified Chinese (‪中文(简体)‬) */
 $aliases['zh-hans'] = array(
 	'Cite' => array( '引用' ),

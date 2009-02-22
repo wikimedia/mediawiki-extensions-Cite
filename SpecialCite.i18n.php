@@ -1269,6 +1269,17 @@ $messages['sk'] = array(
 	'cite_submit' => 'Citovať',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Smihael
+ */
+$messages['sl'] = array(
+	'cite_article_desc' => 'Doda [[Special:Cite|posebno stran za navedbo vira]] in povezavo v orodno vrstico',
+	'cite_article_link' => 'Navedi to stran',
+	'cite' => 'Navedi',
+	'cite_page' => 'Stran:',
+	'cite_submit' => 'Navedi',
+);
+
 /** Southern Sami (Åarjelsaemien)
  * @author M.M.S.
  */

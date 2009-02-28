@@ -672,6 +672,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 
 /** Spanish (Español)
  * @author Baiji
+ * @author Drini
  * @author Muro de Aguas
  * @author Remember the dot
  * @author Sanbec
@@ -704,6 +705,8 @@ Use <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;<
 	'cite_error_references_no_text' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
 pues no hay una referencia con texto llamada <code>$1</code>',
 	'cite_error_included_ref' => 'Código wiki para cierre &lt;/ref&gt; sin un código de apertura &lt;ref&gt; existente',
+	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se encontró una etiqueta <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado "$1", pero no se encontró una etiqueta <code>&lt;references group="$1"/&gt;</code>',
 );
 
 /** Basque (Euskara) */
@@ -1113,6 +1116,13 @@ Gunakan tag <code>&lt;references /&gt;</code>, atau <code>&lt;references group="
 Tambahkan lagi di pesan sistem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> tak valid; tak ditemukan teks dengan ref dengan nama <code>$1</code>',
 	'cite_error_included_ref' => 'Tag &lt;ref&gt; harus ditutup oleh &lt;/ref&gt;',
+);
+
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'cite_error' => 'Citala eroro: $1',
 );
 
 /** Italian (Italiano)

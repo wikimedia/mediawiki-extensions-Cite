@@ -1149,6 +1149,7 @@ $messages['io'] = array(
 /** Italian (Italiano)
  * @author BrokenArrow
  * @author Darth Kule
+ * @author Pietrodn
  */
 $messages['it'] = array(
 	'cite_desc' => 'Aggiunge i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> per gestire le citazioni',
@@ -1171,6 +1172,8 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 	'cite_error_references_no_backlink_label' => 'Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; di chiusura mancante per il marcatore &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'I tag <code>&lt;ref&gt;</code> esistono, ma non è stato trovato nessun tag <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'I tag <code>&lt;ref&gt;</code> esistono per un gruppo chiamato "$1", ma non è stato trovato nessun corrispondente tag <code>&lt;references group="$1"/&gt;</code>',
 );
 
 /** Japanese (日本語)

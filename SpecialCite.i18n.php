@@ -43,6 +43,16 @@ $messages['niu'] = array(
 	'cite_article_link' => 'Fakakite e tala nei',
 );
 
+/** Veps (Vepsan kel')
+ * @author Triple-ADHD-AS
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'cite' => 'Citiruind',
+	'cite_page' => 'Lehtpol’:',
+	'cite_submit' => 'Citiruida',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  * @author SPQRobin
@@ -955,6 +965,13 @@ $messages['ms'] = array(
  */
 $messages['mt'] = array(
 	'cite_page' => 'Paġna:',
+);
+
+/** Mirandese (Mirandés)
+ * @author Malafaya
+ */
+$messages['mwl'] = array(
+	'cite_page' => 'Páigina:',
 );
 
 /** Erzya (Эрзянь)

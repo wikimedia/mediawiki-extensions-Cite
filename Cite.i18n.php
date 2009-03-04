@@ -1184,22 +1184,22 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
  */
 $messages['ja'] = array(
 	'cite_desc' => '引用のためのタグ<nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
-	'cite_croak' => '引用タグ機能の重大なエラー; $1: $2',
-	'cite_error_key_str_invalid' => '内部エラー; $str と $key の両方または一方が無効。これはソフトウェアのバグです。',
-	'cite_error_stack_invalid_input' => '内部エラー; スタックキーが無効。これはソフトウェアのバグです。',
+	'cite_croak' => '引用タグ機能の重大なエラー。$1: $2',
+	'cite_error_key_str_invalid' => '内部エラー。$str と $key の両方または一方が無効。これはソフトウェアのバグです。',
+	'cite_error_stack_invalid_input' => '内部エラー。スタックキーが無効。これはソフトウェアのバグです。',
 	'cite_error' => '引用エラー: $1',
-	'cite_error_ref_numeric_key' => '無効な <code>&lt;ref&gt;</code> タグ: 名前に単純な数値は使用できません。',
-	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグ: 引用句の内容がない場合には名前 （<code>name</code> 属性）が必要です',
-	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグ: 無効な名前（多すぎる、もしくは誤った指定）',
-	'cite_error_ref_no_input' => '無効な <code>&lt;ref&gt;</code> タグ: 名前 （<code>name</code> 属性）がない場合には引用句の内容が必要です',
-	'cite_error_references_invalid_input' => '無効な <code>&lt;references&gt;</code> タグ: 内容のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
-	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ: 引数のあるタグは使用できません。 <code>&lt;references /&gt;</code> を用いてください。',
-	'cite_error_references_invalid_parameters_group' => '無効な <code>&lt;references&gt;</code> タグです。使用できるパラメータは "group" のみです。 <code>&lt;references /&gt;</code> または <code>&lt;references group="..." /&gt;</code> を使用してください。',
-	'cite_error_references_no_backlink_label' => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。',
-	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグ: <code>$1</code>という名前の引用句に対するテキストがありません。',
-	'cite_error_included_ref' => '&lt;ref&gt; タグに対応する &lt;/ref&gt; が不足しています。',
+	'cite_error_ref_numeric_key' => '無効な <code>&lt;ref&gt;</code> タグ。名前（<code>name</code> 属性）に単なる数値は使用できません。説明的なものにしてください',
+	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグ。引用句の内容がない場合には名前（<code>name</code> 属性）が必要です',
+	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグ。引数が不正（数が多すぎる、など）',
+	'cite_error_ref_no_input' => '無効な <code>&lt;ref&gt;</code> タグ。名前（<code>name</code> 属性）がない場合には引用句の内容が必要です',
+	'cite_error_references_invalid_input' => '無効な <code>&lt;references&gt;</code> タグ。内容をもつことはできません。<code>&lt;references /&gt;</code> を用いてください',
+	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ。引数は指定できません。<code>&lt;references /&gt;</code> を用いてください',
+	'cite_error_references_invalid_parameters_group' => '無効な <code>&lt;references&gt;</code> タグです。使用できるパラメータは "group" のみです。<code>&lt;references /&gt;</code> または <code>&lt;references group="..." /&gt;</code> を用いてください',
+	'cite_error_references_no_backlink_label' => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください',
+	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグ。「<code>$1</code>」という名前の引用句に対するテキストがありません',
+	'cite_error_included_ref' => '&lt;ref&gt; タグに対応する &lt;/ref&gt; が不足しています',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> タグがありますが、<code>&lt;references/&gt;</code> タグが見つかりません',
-	'cite_error_group_refs_without_references' => '"$1" という名前のグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つかりません',
+	'cite_error_group_refs_without_references' => '「$1」というグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つかりません',
 );
 
 /** Jutish (Jysk)
@@ -1860,6 +1860,14 @@ Foloseşte eticheta <code>&lt;references /&gt;</code>, sau <code>&lt;references 
 	'cite_error_references_no_text' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
 niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
 	'cite_error_included_ref' => 'Adaugă &lt;/ref&gt; eticheta a fost deschisă prin &lt;ref&gt;',
+);
+
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'cite_desc' => 'Aggiunge le tag <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> pe le citaziune',
+	'cite_error' => 'Cite errore: $1',
 );
 
 /** Russian (Русский)

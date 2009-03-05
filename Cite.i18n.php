@@ -1868,6 +1868,7 @@ niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
 $messages['roa-tara'] = array(
 	'cite_desc' => 'Aggiunge le tag <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> pe le citaziune',
 	'cite_error' => 'Cite errore: $1',
+	'cite_error_refs_without_references' => "'u tag <code>&lt;ref&gt;</code> esiste, ma non g'esiste 'u tag <code>&lt;references/&gt;</code>",
 );
 
 /** Russian (Русский)

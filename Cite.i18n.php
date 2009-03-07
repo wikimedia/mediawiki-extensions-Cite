@@ -553,10 +553,12 @@ ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 );
 
 /** Danish (Dansk)
+ * @author Byrial
  * @author Morten LJ
  */
 $messages['da'] = array(
-	'cite_croak' => 'Fodnoten døde: $1: $2',
+	'cite_desc' => 'Tilføjer <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-elementer til referencer.',
+	'cite_croak' => 'Fejl i fodnotesystemet; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern fejl: Ugyldig $str og/eller $key. Dette burde aldrig forekomme.',
 	'cite_error_stack_invalid_input' => 'Intern fejl: Ugyldig staknøgle. Dette burde aldrig forekomme.',
 	'cite_error' => 'Fodnotefejl: $1',
@@ -1644,7 +1646,7 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
  * @author Harald Khan
  */
 $messages['nn'] = array(
-	'cite_desc' => 'Legg til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referansar',
+	'cite_desc' => 'Legg til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-merke for referansar',
 	'cite_croak' => 'Feil i fotnotesystemet; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri skjedd.',
 	'cite_error_stack_invalid_input' => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri skjedd.',
@@ -1925,6 +1927,9 @@ $messages['sah'] = array(
 Маны <code>&lt;references /&gt;</code>, эбэтэр <code>&lt;references group="..." /&gt;</code> туһан.',
 	'cite_error_references_no_backlink_label' => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Сыыһа тиэк (тег) <code>&lt;ref&gt;</code>; хос быһаарыыларга <code>$1</code> тиэкис ыйыллыбатах',
+	'cite_error_included_ref' => 'Сабар бэлиэ суох эбит &lt;/ref&gt;',
+	'cite_error_refs_without_references' => 'Баар <code>&lt;ref&gt;</code> бэлиэҕэ сөп түбэһэр <code>&lt;references/&gt;</code> бэлиэ көстүбэтэ',
+	'cite_error_group_refs_without_references' => '"$1" бөлөх <code>&lt;ref&gt;</code> бэлиэтигэр сөп түбэһэр <code>&lt;references group="$1"/&gt;</code> бэлиэ көстүбэтэ',
 );
 
 /** Sicilian (Sicilianu)

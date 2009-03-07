@@ -291,13 +291,15 @@ $messages['cy'] = array(
 );
 
 /** Danish (Dansk)
+ * @author Byrial
  * @author Morten LJ
  */
 $messages['da'] = array(
+	'cite_article_desc' => 'Tilføjer en [[Special:Cite|specialside til citering]] og en henvisning i værktøjsmenuen',
 	'cite_article_link' => 'Citér denne artikel',
-	'cite' => 'Fodnote',
+	'cite' => 'Citér',
 	'cite_page' => 'Side:',
-	'cite_submit' => 'Fodnote',
+	'cite_submit' => 'Citér',
 );
 
 /** German (Deutsch) */

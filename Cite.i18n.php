@@ -1159,13 +1159,15 @@ $messages['it'] = array(
 	'cite_error_key_str_invalid' => 'Errore interno;
 $str e/o $key errati.
 Non dovrebbe mai verificarsi.',
-	'cite_error_stack_invalid_input' => 'Errore interno: chiave di stack errata',
-	'cite_error' => 'Errore nella funzione Cite $1',
+	'cite_error_stack_invalid_input' => 'Errore interno: 
+chiave di stack errata.
+Non dovrebbe mai verificarsi.',
+	'cite_error' => 'Errore nella funzione Cite: $1',
 	'cite_error_ref_numeric_key' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: il nome non può essere un numero intero. Usare un titolo esteso",
 	'cite_error_ref_no_key' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref vuoti non possono essere privi di nome",
 	'cite_error_ref_too_many_keys' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)",
 	'cite_error_ref_no_input' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref privi di nome non possono essere vuoti",
-	'cite_error_references_invalid_input' => "Errore nell'uso del marcatoree <code>&lt;references&gt;</code>: input non ammesso, usare il marcatore
+	'cite_error_references_invalid_input' => "Errore nell'uso del marcatore <code>&lt;references&gt;</code>: input non ammesso, usare il marcatore
 <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "Errore nell'uso del marcatore <code>&lt;references&gt;</code>: parametri non ammessi, usare il marcatore <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters_group' => 'Errore nell\'uso del marcatore <code>&lt;references&gt;</code>;
@@ -1174,8 +1176,8 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 	'cite_error_references_no_backlink_label' => 'Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; di chiusura mancante per il marcatore &lt;ref&gt;',
-	'cite_error_refs_without_references' => 'I tag <code>&lt;ref&gt;</code> esistono, ma non è stato trovato nessun tag <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'I tag <code>&lt;ref&gt;</code> esistono per un gruppo chiamato "$1", ma non è stato trovato nessun corrispondente tag <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> ma non è stato trovato alcun marcatore <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> per un gruppo chiamato "$1" ma non è stato trovato alcun marcatore <code>&lt;references group="$1"/&gt;</code> corrispondente',
 );
 
 /** Japanese (日本語)
@@ -1600,6 +1602,8 @@ $messages['nds'] = array(
 	'cite_error_references_no_backlink_label' => 'De verföögboren Tekens för de Lenken op Referenzen sünd all. Dat lett sik repareren, wenn in de Systemnaricht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mehr Tekens angeven warrt.',
 	'cite_error_references_no_text' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>; is keen Text för Refs mit den Naam <tt>$1</tt> angeven.',
 	'cite_error_included_ref' => 'Dor fehlt en tosluten &lt;/ref&gt;',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags gifft dat, is aver keen <code>&lt;references/&gt;</code>-Tag funnen worrn.',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags för de Grupp „$1“ gifft dat, is aver keen <code>&lt;references group=„$1“/&gt;</code>-Tag funnen worrn',
 );
 
 /** Dutch (Nederlands)

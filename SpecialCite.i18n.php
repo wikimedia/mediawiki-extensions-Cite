@@ -823,6 +823,13 @@ $messages['ksh'] = array(
 	'cite_submit' => 'Zittėere',
 );
 
+/** Cornish (Kernewek)
+ * @author Kw-Moon
+ */
+$messages['kw'] = array(
+	'cite_article_link' => 'Devynna an erthygel ma',
+);
+
 /** Latin (Latina)
  * @author SPQRobin
  * @author UV

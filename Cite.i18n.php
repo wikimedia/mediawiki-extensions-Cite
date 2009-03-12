@@ -1317,6 +1317,8 @@ $messages['ko'] = array(
 	'cite_error_key_str_invalid' => '내부 오류;
 $str 혹은 $key가 잘봇되었습니다.
 이 오류는 발생하지 않아야 합니다.',
+	'cite_error_stack_invalid_input' => '내부 오류; 스택 키가 잘못되었습니다.
+이 오류는 발생하지 말아야 합니다.',
 	'cite_error' => '인용 오류: $1',
 	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 이름은 숫자가 될 수 없습니다. 설명적인 이름을 사용하십시오.',

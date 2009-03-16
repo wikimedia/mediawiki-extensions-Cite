@@ -1565,6 +1565,7 @@ $messages['mr'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aviator
+ * @author Izzudin
  */
 $messages['ms'] = array(
 	'cite_desc' => 'Menambah tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk pemetikan',
@@ -1583,6 +1584,8 @@ Gunakan <code>&lt;references /&gt;</code> atau <code>&lt;references group="..." 
 	'cite_error_references_no_backlink_label' => 'Kehabisan label pautan balik tempahan. Sila tambah label dalam pesanan <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> tidak sah; teks bagi rujukan <code>$1</code> tidak disediakan',
 	'cite_error_included_ref' => 'Tag &lt;ref&gt; tidak ditutup dengan &lt;/ref&gt;',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> teg wujud, tetapi tiada teg <code>&lt;rujukan/&gt;</code> dijumpai',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> teg wujud untuk kumpulan "$1", tetapi tiada teg sepadan <code>&lt;references group="$1"/&gt;</code> dijumpai',
 );
 
 /** Low German (Plattdüütsch)

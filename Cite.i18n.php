@@ -293,13 +293,13 @@ $messages['be-tarask'] = array(
 Гэтага ніколі не павінна быць.',
 	'cite_error' => 'Памылка цытаваньня: $1',
 	'cite_error_ref_numeric_key' => 'Няслушны тэг <code>&lt;ref&gt;</code>;
-назва ня можа быць лічбавай. Карыстайцеся назвай апісаньня',
+назва ня можа быць проста лікам, ужывайце апісальную назву',
 	'cite_error_ref_no_key' => 'Няслушны тэг <code>&lt;ref&gt;</code>;
-пустыя тэгі <code>ref</code> павінныя мець назву',
+пустыя тэгі <code>ref</code> мусяць мець назву',
 	'cite_error_ref_too_many_keys' => 'Няслушны тэг <code>&lt;ref&gt;</code>;
 няслушныя назвы, ці іх было зашмат',
 	'cite_error_ref_no_input' => 'Няслушны тэг <code>&lt;ref&gt;</code>;
-тэг <code>&lt;ref&gt;</code> бяз назвы павінен утрымліваць зьмест',
+крыніцы бяз назваў мусяць мець зьмест',
 	'cite_error_references_invalid_input' => 'Няслушны тэг <code>&lt;references&gt;</code>;
 вывад не дазволены. Карыстайцеся <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Няслушны тэг <code>&lt;references&gt;</code>;

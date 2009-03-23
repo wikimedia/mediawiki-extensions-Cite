@@ -247,7 +247,7 @@ $aliases['tet'] = array(
 
 /** Tagalog (Tagalog) */
 $aliases['tl'] = array(
-	'Cite' => array( 'Tukuyin' ),
+	'Cite' => array( 'Sipiin' ),
 );
 
 /** Turkish (Türkçe) */

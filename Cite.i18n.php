@@ -38,7 +38,7 @@ no parameters are allowed.
 Use <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Invalid <code>&lt;references&gt;</code> tag;
 parameter "group" is allowed only.
-Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code>',
+Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="…" /&gt;</code>',
 	'cite_error_references_no_backlink_label'        => 'Ran out of custom backlink labels.
 Define more in the <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> message',
 	'cite_error_references_no_text'                  => 'Invalid <code>&lt;ref&gt;</code> tag;

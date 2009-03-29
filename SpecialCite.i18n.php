@@ -43,16 +43,6 @@ $messages['niu'] = array(
 	'cite_article_link' => 'Fakakite e tala nei',
 );
 
-/** Veps (Vepsan kel')
- * @author Triple-ADHD-AS
- * @author Игорь Бродский
- */
-$messages['vep'] = array(
-	'cite' => 'Citiruind',
-	'cite_page' => 'Lehtpol’:',
-	'cite_submit' => 'Citiruida',
-);
-
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  * @author SPQRobin
@@ -110,7 +100,7 @@ $messages['arn'] = array(
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'cite_article_desc' => 'بيضيف [[Special:Cite|استشهاد]] صفحة مخصوصة ولينك لصندوء أدوات',
+	'cite_article_desc' => 'بيضيف [[Special:Cite|مرجع]] صفحة مخصوصة ولينك لصندوء أدوات',
 	'cite_article_link' => 'استشهد بالصفحة دى',
 	'cite' => 'مرجع',
 	'cite_page' => 'الصفحه:',
@@ -1520,6 +1510,16 @@ $messages['vec'] = array(
 	'cite' => 'Citazion',
 	'cite_page' => 'Pagina da citar:',
 	'cite_submit' => 'Crea la citazion',
+);
+
+/** Veps (Vepsan kel')
+ * @author Triple-ADHD-AS
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'cite' => 'Citiruind',
+	'cite_page' => 'Lehtpol’:',
+	'cite_submit' => 'Citiruida',
 );
 
 /** Vietnamese (Tiếng Việt)

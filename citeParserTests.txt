@@ -239,7 +239,7 @@ refs with no content must have a name</strong>
 no input is allowed. Use <code>&lt;references /&gt;</code></strong>
 </p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag;
 parameter "group" is allowed only.
-Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code></strong>
+Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="…" /&gt;</code></strong>
 </p>
 <ol class="references"><li id="cite_note-0"><a href="#cite_ref-0" title="">↑</a> Also zero, but differently! (Normal ref)</li>
 <li id="cite_note-bar"><a href="#cite_ref-bar_0" title="">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;

@@ -1308,6 +1308,7 @@ $messages['kk-latn'] = array(
 
 /** Korean (한국어)
  * @author Ficell
+ * @author Ilovesabbath
  * @author Kwj2772
  * @author ToePeu
  */
@@ -1324,8 +1325,12 @@ $str 혹은 $key가 잘봇되었습니다.
 이름은 숫자가 될 수 없습니다. 설명적인 이름을 사용하십시오.',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 내용이 없는 주석은 이름이 있어야 합니다.',
+	'cite_error_ref_too_many_keys' => '잘못된 <code>&lt;ref&gt;</code> 태그 사용;
+예컨대 잘못된 주석 이름이 너무 많습니다.',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 이름이 없는 ref 태그는 반드시 내용이 있어야 합니다.',
+	'cite_error_references_invalid_input' => '잘못된 <code>&lt;references&gt;</code> 태그 사용;
+이 태그는 입력을 받지 않습니다. <code>&lt;references /&gt;</code> 태그를 써주세요.',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
 변수를 넣어서는 안 됩니다.
 <code>&lt;references /&gt;</code>를 이용하십시오.',

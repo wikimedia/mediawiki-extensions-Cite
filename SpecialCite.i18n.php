@@ -895,7 +895,7 @@ $messages['lv'] = array(
 	'cite_submit' => 'Parādīt atsauci',
 );
 
-/** Classical Chinese (文言) */
+/** Literary Chinese (文言) */
 $messages['lzh'] = array(
 	'cite_article_link' => '引文',
 	'cite' => '引文',
@@ -1444,7 +1444,7 @@ $messages['tn'] = array(
 	'cite_article_link' => 'Nopola mokwalo o',
 );
 
-/** Tonga (faka-Tonga) */
+/** Tonga (lea faka-Tonga) */
 $messages['to'] = array(
 	'cite_article_link' => 'Lau ki he kupú ni',
 	'cite' => 'Lau ki he',

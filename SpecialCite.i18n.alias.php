@@ -245,6 +245,11 @@ $aliases['tet'] = array(
 	'Cite' => array( 'Sita' ),
 );
 
+/** Thai (ไทย) */
+$aliases['th'] = array(
+	'Cite' => array( 'อ้างอิง' ),
+);
+
 /** Tagalog (Tagalog) */
 $aliases['tl'] = array(
 	'Cite' => array( 'Sipiin' ),

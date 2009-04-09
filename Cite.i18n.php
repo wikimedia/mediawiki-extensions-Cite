@@ -1843,6 +1843,42 @@ não foi fornecido texto para as refs chamadas <code>$1</code>',
 	'cite_error_group_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma marca <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada',
 );
 
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'cite_desc' => 'Pukyumanta willanapaq <nowiki><ref[ name=id]></nowiki> , <nowiki><references/></nowiki> unanchachakunatam yapan',
+	'cite_croak' => "''Cite'' nisqa mast'arinaqa manañam kanchu; $1: $2",
+	'cite_error_key_str_invalid' => 'Ukhu pantasqa;
+mana allin $str wan/icha $key.
+Kayqa ama hayk\'appas tukukunchu.',
+	'cite_error_stack_invalid_input' => "Ukhu pantasqa;
+tawqa llawiqa manam allinchu.
+Kayqa ama hayk'appas tukukunchu.",
+	'cite_error' => 'Pukyumanta willaypi pantasqa: $1',
+	'cite_error_ref_numeric_key' => "<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
+sutinqa ama yupaylla kachunchu. Ch'uyanchaq sutinta llamk'achiy",
+	'cite_error_ref_no_key' => "<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
+ch'usaq pukyu willana unanchachaqa sutiyuqmi kachun",
+	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
+sutinkunaqa manam allinchu, nisyu sutinchá',
+	'cite_error_ref_no_input' => "<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
+sutinnaq pukyu willana unanchachaqa ama ch'usaqchu kachun",
+	'cite_error_references_invalid_input' => "<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
+ama willa yaykuchiychu kachun. <code>&lt;references /&gt;</code> unanchachallata llamk'achiy",
+	'cite_error_references_invalid_parameters' => "<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
+ama kuskanachina tupuchu kachun. <code>&lt;references /&gt;</code> unanchachata llamk'achiy",
+	'cite_error_references_invalid_parameters_group' => '<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
+"group" nisqa kuskanachina tupulla kachun. <code>&lt;references /&gt;</code> icha <code>&lt;references group="…" /&gt;</code> unanchachata llamk\'achiy',
+	'cite_error_references_no_backlink_label' => "Manañam kanchu allichana yana t'inki unanchakuna.
+Astawan sut'ichay <nowiki>[[MediaWiki:Cite references link many format backlink labels|Pukyumanta willaykuna achka allichana yana t'inki unanchakunata t'inkin]]</nowiki> nisqa willaypi",
+	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
+<code>$1</code> nisqapaq pukyu qillqa manam kanchu',
+	'cite_error_included_ref' => "Kichaq &lt;ref&gt; unanchachapaq wichq'aq &lt;/ref&gt; unanchachaqa manam kanchu",
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> unanchacham kachkan, ichataq manam <code>&lt;references/&gt;</code> unanchachachu',
+	'cite_error_group_refs_without_references' => '"$1" sutiyuq huñupaq <code>&lt;ref&gt;</code> unanchacham kachkan, ichataq manam chay huñupaq qillqasqa <code>&lt;references/&gt;</code> unanchachachu',
+);
+
 /** Romanian (Română)
  * @author KlaudiuMihaila
  * @author Mihai

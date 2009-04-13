@@ -135,6 +135,11 @@ $aliases['id'] = array(
 	'Cite' => array( 'Kutip' ),
 );
 
+/** Italian (Italiano) */
+$aliases['it'] = array(
+	'Cite' => array( 'Cita' ),
+);
+
 /** Japanese (日本語) */
 $aliases['ja'] = array(
 	'Cite' => array( '引用' ),

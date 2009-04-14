@@ -1101,6 +1101,13 @@ $messages['pam'] = array(
 	'cite_submit' => 'Banggitan me',
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'cite_page' => 'Blatt:',
+);
+
 /** Pfälzisch (Pfälzisch)
  * @author SPS
  */

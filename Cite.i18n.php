@@ -645,7 +645,14 @@ za ref z mjenim <code>$1</code> njejo se tekst pódał',
  * @author Omnipaedista
  */
 $messages['el'] = array(
+	'cite_desc' => 'Προσθέτει τα <ref[ name="id"]> και <references/> για τις παραπομπές.',
 	'cite_croak' => 'Η παραπομπή οδηγεί σε αδιέξοδο; $1: $2',
+	'cite_error_key_str_invalid' => 'Εσωτερικό σφάλμα·
+μη έγκυρο $str και/ή $key.
+Αυτό δεν θα έπρεπε να συμβαίνει.',
+	'cite_error_stack_invalid_input' => 'Εσωτερικό σφάλμα·
+μη έγκυρο κλειδί στοίβας.
+Αυτό δεν θα έπρεπε να συμβαίνει.',
 	'cite_error' => 'Σφάλμα αναφοράς: $1',
 	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
 Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',

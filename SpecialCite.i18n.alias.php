@@ -122,7 +122,7 @@ $aliases['ht'] = array(
 
 /** Hungarian (Magyar) */
 $aliases['hu'] = array(
-	'Cite' => array( 'Irodalomjegyzék' ),
+	'Cite' => array( 'Hivatkozás', 'Irodalomjegyzék' ),
 );
 
 /** Interlingua (Interlingua) */

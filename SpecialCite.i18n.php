@@ -19,9 +19,11 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
  * @author Siebrand
+ * @author Tgr
  */
 $messages['qqq'] = array(
 	'cite_article_desc' => 'Extension description for cite. Do not translate or change links, and tag names.',
+	'cite_article_link' => 'Text of link in toolbox',
 	'cite' => '{{Identical|Cite}}',
 	'cite_page' => '{{Identical|Page}}',
 	'cite_submit' => '{{Identical|Cite}}',
@@ -610,13 +612,14 @@ $messages['ht'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Tgr
  */
 $messages['hu'] = array(
-	'cite_article_desc' => '[[Special:Cite|Irodalomjegyzék-bejegyzés készítése]] speciális lap és hivatkozás az eszközdobozba',
-	'cite_article_link' => 'A lap idézése',
-	'cite' => 'Irodalomjegyzék-bejegyzés készítése',
-	'cite_page' => 'Idézendő lap:',
-	'cite_submit' => 'Bejegyzés elkészítése',
+	'cite_article_desc' => '[[Special:Cite|Hivatkozás-készítő]] speciális lap és link az eszközdobozba',
+	'cite_article_link' => 'Hogyan hivatkozz erre a lapra',
+	'cite' => 'Hivatkozás',
+	'cite_page' => 'Lap neve:',
+	'cite_submit' => 'Mehet',
 );
 
 /** Armenian (Հայերեն)

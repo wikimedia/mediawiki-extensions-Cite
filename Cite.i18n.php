@@ -1739,7 +1739,7 @@ Utilizatz <code>&lt;references /&gt;</code>, o alara <code>&lt;references group=
 	'cite_error_references_no_backlink_label' => 'Execucion en defòra de las etiquetas personalizadas, definissetz mai dins lo messatge <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Balisa  <code>&lt;ref&gt;</code> incorrècta ;
 
-pas de tèxt per las referéncias nomenadas <code>$1</code>.',
+pas de tèxte per las referéncias nomenadas <code>$1</code>.',
 	'cite_error_included_ref' => 'Clausura &lt;/ref&gt; omesa per la balisa &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís, mas cap de balisa <code>&lt;references/&gt;</code> pas trobada.',
 	'cite_error_group_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís per un grop nomenat « $1 », mas cap de balisa <code>&lt;references group="$1"/&gt;</code> correspondenta pas trobada',

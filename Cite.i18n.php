@@ -1431,7 +1431,7 @@ Benotzt <code>&lt;references /&gt;</code>',
 nëmmen de Parameter "group" ass erlaabt.
 Benotzt <code>&lt;references /&gt;</code>, oder <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => "Ongëltegen <code>&lt;ref&gt;</code> Tag;
-et gouf keen Text uginn fir d'Referenzen mam Numm <code>$1</code>",
+et gouf keen Text uginn fir d'Referenze mam Numm <code>$1</code>",
 	'cite_error_included_ref' => 'Den Tag &lt;/ref&gt; feelt fir den Tag &lt;ref&gt; zouzemaachen',
 	'cite_error_refs_without_references' => 'Den Tag <code>&lt;ref&gt;</code> gëtt et, awer den Tag <code>&lt;references/&gt;</code> gouf net fonnt',
 	'cite_error_group_refs_without_references' => 'Den Tag <code>&lt;ref&gt;</code> gëtt et fir de Grupp "$1", awer den entspriechenden Tag <code>&lt;references group="$1"/&gt;</code> gouf net fonnt',

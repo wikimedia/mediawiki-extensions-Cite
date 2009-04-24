@@ -88,6 +88,11 @@ $aliases['fr'] = array(
 	'Cite' => array( 'Citer' ),
 );
 
+/** Franco-Provençal (Arpetan) */
+$aliases['frp'] = array(
+	'Cite' => array( 'Citar' ),
+);
+
 /** Galician (Galego) */
 $aliases['gl'] = array(
 	'Cite' => array( 'Cita' ),

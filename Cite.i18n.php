@@ -2387,8 +2387,8 @@ $messages['vi'] = array(
 	'cite_error_references_invalid_input' => 'Thẻ <code>&lt;references&gt;</code> sai; không được phép nhập nội dung cho thẻ, hãy dùng <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Thẻ <code>&lt;references&gt;</code> sai; không được có thông số, hãy dùng <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Thẻ <code>&lt;references&gt;</code> không hợp lệ;
-chỉ cho phép tham số "group".
-Hãy dùng <code>&lt;references /&gt;</code>, hoặc <code>&lt;references group="..." /&gt;</code>',
+chỉ cho phép tham số “group”.
+Hãy dùng <code>&lt;references /&gt;</code>, hoặc <code>&lt;references group="…" /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Đã dùng hết nhãn tham khảo chung.
 Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',

@@ -14,6 +14,7 @@ if (!defined('MEDIAWIKI')) die();
  */
 
 $wgExtensionCredits['specialpage'][] = array(
+	'path' => __FILE__,
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link', // kept for b/c

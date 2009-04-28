@@ -2094,6 +2094,7 @@ Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="...
 
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'cite_desc' => 'Додаје <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаке за цитирање.',
@@ -2110,6 +2111,9 @@ $messages['sr-ec'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Лоша ознака <code>&lt;references&gt;</code>; само је парамтера "group" дозвољен. Користи <code>&lt;references /&gt;</code> или <code>&lt;references group="..."&gt;</code>.',
 	'cite_error_references_no_backlink_label' => 'Нестале су посебне ознаке за задње везе. Одреди их више у поруци <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => 'Лоша ознака <code>&lt;ref&gt;</code>; нема текста за ref-ове под именом <code>$1</code>.',
+	'cite_error_included_ref' => 'Затвара &lt;/ref&gt; који недостаје &lt;ref&gt; тагу',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> таг постоји, али одговарајући <code>&lt;references/&gt;</code> таг није нађен',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> тагови постоје за групу под именом "$1", али није нађен одговарајући <code>&lt;references group="$1"/&gt;</code> таг',
 );
 
 /** Seeltersk (Seeltersk)

@@ -1492,6 +1492,7 @@ $messages['udm'] = array(
  * @author Jose77
  */
 $messages['ug-latn'] = array(
+	'cite_article_link' => 'Bu maqalini ishliting',
 	'cite_page' => 'Bet:',
 );
 

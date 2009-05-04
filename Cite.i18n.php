@@ -696,6 +696,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 
 /** Spanish (Español)
  * @author Baiji
+ * @author Crazymadlover
  * @author Drini
  * @author Muro de Aguas
  * @author Remember the dot
@@ -726,6 +727,8 @@ Use <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'El elemento <code>&lt;references&gt;</code> no es válido;
 sólo se permite el parámetro «group».
 Use <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Se quedó sin etiquetas de vínculos de retroceso personalizadas.
+Definir más en el mensaje <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
 pues no hay una referencia con texto llamada <code>$1</code>',
 	'cite_error_included_ref' => 'Código wiki para cierre &lt;/ref&gt; sin un código de apertura &lt;ref&gt; existente',
@@ -1785,6 +1788,7 @@ Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many f
 
 /** Portuguese (Português)
  * @author 555
+ * @author Crazymadlover
  * @author Malafaya
  * @author Waldir
  */
@@ -1806,7 +1810,7 @@ Isto nunca deveria acontecer.',
 	'cite_error_references_invalid_parameters_group' => 'Marca <code>&lt;references&gt;</code> inválida;
 só o parâmetro "group" é permitido.
 Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => "Etiquetas de backlink esgotadas. Defina mais na mensagem \"''cite_references_link_many_format_backlink_labels''\"",
+	'cite_error_references_no_backlink_label' => 'Etiquetas de backlink esgotadas. Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; de fecho em falta para a marca &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'existem tags <code>&lt;ref&gt;</code>, mas nenhuma tag <code>&lt;references/&gt;</code> foi encontrada',

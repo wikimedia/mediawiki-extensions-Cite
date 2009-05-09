@@ -916,7 +916,7 @@ $messages['mhr'] = array(
  * @author Misos
  */
 $messages['mk'] = array(
-	'cite_article_desc' => 'Додава специјална страница за [[Special:Cite|цитирање]] и врска кон алатникот.',
+	'cite_article_desc' => 'Додава специјална страница за [[Special:Cite|цитирање]] и врска кон алатникот',
 	'cite_article_link' => 'Цитирање на оваа страница',
 	'cite' => 'Цитат',
 	'cite_page' => 'Страница:',

@@ -656,6 +656,8 @@ $messages['el'] = array(
 	'cite_error' => 'Σφάλμα αναφοράς: $1',
 	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
 Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',
+	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά καμία ονόματι <code>&lt;references/&gt;</code> δεν βρέθηκε.',
+	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα ονόματι "$1", αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.',
 );
 
 /** Esperanto (Esperanto)
@@ -1494,7 +1496,7 @@ $messages['lv'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'cite_desc' => 'Додава <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> приврзоци, за наводи',
+	'cite_desc' => 'Додава <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> приврзоци, за цитирања',
 	'cite_croak' => 'Непостоечки цитат; $1: $2',
 	'cite_error_key_str_invalid' => 'Интерна грешка;
 погрешен $str и/или $key.

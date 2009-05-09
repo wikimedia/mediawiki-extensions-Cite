@@ -140,6 +140,11 @@ $aliases['id'] = array(
 	'Cite' => array( 'Kutip' ),
 );
 
+/** Ido (Ido) */
+$aliases['io'] = array(
+	'Cite' => array( 'Citar' ),
+);
+
 /** Italian (Italiano) */
 $aliases['it'] = array(
 	'Cite' => array( 'Cita' ),
@@ -153,6 +158,11 @@ $aliases['ja'] = array(
 /** Korean (한국어) */
 $aliases['ko'] = array(
 	'Cite' => array( '인용' ),
+);
+
+/** Ripoarisch (Ripoarisch) */
+$aliases['ksh'] = array(
+	'Cite' => array( 'Zitteere' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */

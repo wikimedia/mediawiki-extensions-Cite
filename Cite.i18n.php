@@ -656,6 +656,7 @@ $messages['el'] = array(
 	'cite_error' => 'Σφάλμα αναφοράς: $1',
 	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
 Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',
+	'cite_error_included_ref' => 'Υπολείπεται η κατάληξη &lt;/ref&gt; για την ετικέτα &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά καμία ονόματι <code>&lt;references/&gt;</code> δεν βρέθηκε.',
 	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα ονόματι "$1", αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.',
 );

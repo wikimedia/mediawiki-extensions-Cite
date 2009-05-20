@@ -1580,6 +1580,8 @@ $messages['wuu'] = array(
 $messages['yi'] = array(
 	'cite_article_link' => 'ציטירן דעם דאזיגן בלאט',
 	'cite' => 'ציטיר',
+	'cite_page' => 'בלאט:',
+	'cite_submit' => 'ציטירן',
 );
 
 /** Yue (粵語) */

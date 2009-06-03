@@ -533,6 +533,7 @@ $messages['gu'] = array(
  * @author MacTire02
  */
 $messages['gv'] = array(
+	'cite_article_desc' => 'Cur duillag [[Special:Cite|symney]] er lheh as kiangley kishtey greie',
 	'cite_article_link' => 'Symney yn duillag shoh',
 	'cite' => 'Symney',
 	'cite_page' => 'Duillag:',

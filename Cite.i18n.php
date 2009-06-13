@@ -1137,7 +1137,9 @@ nulle texto esseva fornite pro le refs nominate <code>$1</code>',
 $messages['id'] = array(
 	'cite_desc' => 'Menambahkan tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk kutipan',
 	'cite_croak' => 'Kegagalan pengutipan; $1: $2',
-	'cite_error_key_str_invalid' => 'Kesalahan internal; $str tak sah',
+	'cite_error_key_str_invalid' => 'Kesalahan internal;
+$str dan/atau $key tidak sah.
+Kesalahan ini seharusnya tidak terjadi.',
 	'cite_error_stack_invalid_input' => 'Kesalahan internal; kunci stack tak sah',
 	'cite_error' => 'Kesalahan pengutipan $1',
 	'cite_error_ref_numeric_key' => 'Kesalahan pemanggilan; diharapkan suatu kunci non-integer',

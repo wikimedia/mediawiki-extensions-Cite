@@ -589,12 +589,12 @@ $messages['de'] = array(
 	'cite_error_ref_no_input' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Namen muss einen Inhalt haben.',
 	'cite_error_references_invalid_input' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwende ausschließlich <tt><nowiki><references /></nowiki></tt>.',
 	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschließlich <tt><nowiki><references /></nowiki></tt>.',
-	'cite_error_references_invalid_parameters_group' => 'Ungültige <code>&lt;references&gt;</code>-Verwendung: Nur der Parameter „group“ ist erlaubt, verwende <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="..." /&gt;</tt>',
-	'cite_error_references_no_backlink_label' => 'Eine Referenz der Form <tt>&lt;ref name="..."/&gt;</tt> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
+	'cite_error_references_invalid_parameters_group' => 'Ungültige <code>&lt;references&gt;</code>-Verwendung: Nur der Parameter „group“ ist erlaubt, verwende <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="…" /&gt;</tt>',
+	'cite_error_references_no_backlink_label' => 'Eine Referenz der Form <tt>&lt;ref name="…" /&gt;</tt> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
 	'cite_error_references_no_text' => 'Ungültiger <tt>&lt;ref&gt;</tt>-Tag; es wurde kein Text für das Ref mit dem Namen <tt>$1</tt> angegeben.',
 	'cite_error_included_ref' => 'Es fehlt ein schließendes &lt;/ref&gt;',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existieren, jedoch wurde kein <code>&lt;references/&gt;</code>-Tag gefunden.',
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existieren für die Gruppe „$1“, jedoch wurde kein dazugehöriges <code>&lt;references group=„$1“/&gt;</code>-Tag gefunden',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existieren für die Gruppe „$1“, jedoch wurde kein dazugehöriges <code>&lt;references group="$1" /&gt;</code>-Tag gefunden',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))

@@ -212,7 +212,7 @@ $messages['bs'] = array(
 	'cite_article_desc' => 'Dodaje posebnu stranicu za [[Special:Cite|citiranje]] i link u alatnoj kutiji',
 	'cite_article_link' => 'Citiraj ovu stranicu',
 	'cite' => 'Citiranje',
-	'cite_page' => 'Članak:',
+	'cite_page' => 'Stranica:',
 	'cite_submit' => 'Citiraj',
 );
 

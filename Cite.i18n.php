@@ -511,7 +511,7 @@ Použijte <tt>&lt;references /&gt;</tt> nebo <tt>&lt;references group="..." /&gt
  * @author ОйЛ
  */
 $messages['cu'] = array(
-	'cite_references_link_many_format_backlink_labels' => 'а б в г д є ж ꙃ ꙁ и і к л м н о п р с т ф х ѡ ц ч ш щ ъ ꙑ ь ѣ ю ꙗ ѥ ѧ ѫ ѩ ѭ ѯ ѱ ѳ ѵ ѷ',
+	'cite_references_link_many_format_backlink_labels' => 'а б в г д є ж ꙃ ꙁ и і к л м н о п р с т ф х ѡ ц ч ш щ ъ ꙑ ь ѣ ю ꙗ ѥ ѧ ѫ ѩ ѭ ѯ ѱ ѳ ѵ ѷ аа аб ав аг ад ає аж аꙁ аꙃ аи аі ак ал ам ан ао ап ар ас ат аф ах аѡ ац ач аш ащ аъ аꙑ аь аѣ аю аꙗ аѥ аѧ аѫ аѩ аѭ аѯ аѱ аѳ аѵ аѷ',
 );
 
 /** Welsh (Cymraeg)
@@ -1472,6 +1472,7 @@ Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /
 
 /** Lithuanian (Lietuvių)
  * @author Homo
+ * @author Matasg
  */
 $messages['lt'] = array(
 	'cite_croak' => 'Cituoti nepavyko; $1: $2',
@@ -1484,7 +1485,8 @@ $messages['lt'] = array(
 	'cite_error_ref_no_input' => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be vardo turi turėti turinį',
 	'cite_error_references_invalid_input' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Baigėsi antraštės, nurodykite daugiau <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> sisteminiame tekste',
+	'cite_error_references_no_backlink_label' => 'Baigėsi antraštės.
+Nurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> sisteminiame tekste',
 );
 
 /** Latvian (Latviešu)

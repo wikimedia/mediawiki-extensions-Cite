@@ -120,6 +120,17 @@ $messages['ast'] = array(
 	'cite_submit' => 'Citar',
 );
 
+/** Bavarian (Boarisch)
+ * @author Man77
+ */
+$messages['bar'] = array(
+	'cite_article_desc' => "Eagänzt d'[[Special:Cite|Zitiahüif]]-Spezialseitn und an Link im Weakzeig-Kåstn",
+	'cite_article_link' => "d'Seitn zitian",
+	'cite' => 'Zitiahüif',
+	'cite_page' => 'Seitn:',
+	'cite_submit' => 'ãnzoang',
+);
+
 /** Samogitian (Žemaitėška)
  * @author Hugo.arg
  */

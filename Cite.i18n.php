@@ -1155,6 +1155,8 @@ Gunakan tag <code>&lt;references /&gt;</code>, atau <code>&lt;references group="
 Tambahkan lagi di pesan sistem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> tak valid; tak ditemukan teks dengan ref dengan nama <code>$1</code>',
 	'cite_error_included_ref' => 'Tag &lt;ref&gt; harus ditutup oleh &lt;/ref&gt;',
+	'cite_error_refs_without_references' => 'Ada tag <code>&lt;ref&gt;</code> ditemukan, tapi tidak ditemukan tag <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Ada tag <code>&lt;ref&gt;</code> untuk grup "$1", tapi tidak ditemukan tag <code>&lt;references group="$1"/&gt;</code> yang berkaitan',
 );
 
 /** Ido (Ido)

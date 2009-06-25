@@ -1371,7 +1371,7 @@ Dat sull nie optredde.',
 	'cite_error_stack_invalid_input' => 'Interne Fähler in <i lang="en">cite</i>:
 Der <i lang="en">stack</i>-Schlößel stemmp nit.
 Dat sull nie optredde.',
-	'cite_error' => 'Fähler in <i lang="en">cite</i> met Refenenze: $1',
+	'cite_error' => 'Fähler in <i lang="en">cite</i> met Referenze: $1',
 	'cite_error_ref_numeric_key' => 'Fähler en <i lang="en">cite</i>:
 Ene <code>&lt;ref&gt;</code>-Name kann kei Zahl sin.
 Nemm enne Tittel, dä jät säht.',

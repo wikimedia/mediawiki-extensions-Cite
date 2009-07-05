@@ -1326,6 +1326,13 @@ $messages['kk-latn'] = array(
 	'cite_error_references_no_backlink_label' => 'Qosımşa belgilerdiñ sanı bitti, odan äri köbirek <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> jüýe xabarında belgileñiz',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author វ័ណថារិទ្ធ
+ */
+$messages['km'] = array(
+	'cite_desc' => 'បន្ថែម ស្លាក <nowiki><ref[ name=id]></nowiki> និង <nowiki><references/></nowiki>​ សម្រាប់ការយោង​ឯកសារ​',
+);
+
 /** Korean (한국어)
  * @author Ficell
  * @author Ilovesabbath

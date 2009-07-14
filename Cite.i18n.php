@@ -1969,12 +1969,19 @@ $messages['ru'] = array(
 Неверный ключ стека.
 Это никогда не должно происходить.',
 	'cite_error' => 'Ошибка цитирования $1',
-	'cite_error_ref_numeric_key' => 'Неправильный вызов: ожидался нечисловой ключ',
-	'cite_error_ref_no_key' => 'Неправильный вызов: ключ не был указан',
-	'cite_error_ref_too_many_keys' => 'Неправильный вызов: неверные ключи, например было указано слишком много ключей или ключ был неправильным',
-	'cite_error_ref_no_input' => 'Неверный вызов: нет входных данных',
-	'cite_error_references_invalid_input' => 'Входные данные недействительны, так как не предполагаются',
-	'cite_error_references_invalid_parameters' => 'Переданы недействительные параметры; их вообще не предусмотрено.',
+	'cite_error_ref_numeric_key' => 'Неправильный тег <code>&lt;ref&gt;</code>;
+имя не может быть целым числом. Используйте описательное название',
+	'cite_error_ref_no_key' => 'Неправильный тег <code>&lt;ref&gt;</code>;
+элемент без содержания должен иметь имя.',
+	'cite_error_ref_too_many_keys' => 'Неправильный тег <code>&lt;ref&gt;</code>;
+ошибочные имена, возможно, слишком много',
+	'cite_error_ref_no_input' => 'Неправильный тег <code>&lt;ref&gt;</code>;
+элемент без имени должен иметь содержание',
+	'cite_error_references_invalid_input' => 'Неправильный тег <code>&lt;references&gt;</code>;
+входные данные не разрешены. Используйте <code>&lt;references /&gt;</code>.',
+	'cite_error_references_invalid_parameters' => 'Неправильный тег <code>&lt;references&gt;</code>;
+параметры не разрешены.
+Используйте <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Ошибочный тег <code>&lt;references&gt;</code>;
 можно использовать только параметр «group».
 Используйте <code>&lt;references /&gt;</code>, или <code>&lt;references group="..." /&gt;</code>',

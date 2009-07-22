@@ -245,6 +245,11 @@ $aliases['sa'] = array(
 	'Cite' => array( 'उद्धृत' ),
 );
 
+/** Slovak (Slovenčina) */
+$aliases['sk'] = array(
+	'Cite' => array( 'Citovať' ),
+);
+
 /** Albanian (Shqip) */
 $aliases['sq'] = array(
 	'Cite' => array( 'Citim' ),

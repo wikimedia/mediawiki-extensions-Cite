@@ -31,8 +31,6 @@ refs with no content must have a name',
 invalid names, e.g. too many',
 	'cite_error_ref_no_input'                        => 'Invalid <code>&lt;ref&gt;</code> tag;
 refs with no name must have content',
-	'cite_error_references_invalid_input'            => 'Invalid <code>&lt;references&gt;</code> tag;
-no input is allowed. Use <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters'       => 'Invalid <code>&lt;references&gt;</code> tag;
 no parameters are allowed.
 Use <code>&lt;references /&gt;</code>',
@@ -46,6 +44,11 @@ no text was provided for refs named <code>$1</code>',
 	'cite_error_included_ref'                        => 'Closing &lt;/ref&gt; missing for &lt;ref&gt; tag',
 	'cite_error_refs_without_references'             => '<code>&lt;ref&gt;</code> tags exist, but no <code>&lt;references/&gt;</code> tag was found',
 	'cite_error_group_refs_without_references'       => '<code>&lt;ref&gt;</code> tags exist for a group named "$1", but no corresponding <code>&lt;references group="$1"/&gt;</code> tag was found',
+	'cite_error_references_group_mismatch'           => '<code>&lt;ref&gt;</code> tag in <code>&lt;references&gt;</code> has conflicting group attribute "$1".',
+	'cite_error_references_missing_group'            => '<code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has group attribute "$1" which does not appear in prior text.',
+	'cite_error_references_missing_key'              => '<code>&lt;ref&gt;</code> tag with name "$1" defined in <code>&lt;references&gt;</code> is not used in prior text.',
+	'cite_error_references_no_key'                   => '<code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.',
+	'cite_error_empty_references_define'             => '<code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> with name "$1" has no content.',
 
 	/*
 	   Output formatting
@@ -89,7 +92,6 @@ $messages['qqq'] = array(
 	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.',
 	'cite_error_ref_too_many_keys' => 'Cite extension. Error message shown when ref tags has parameters other than name. Examples that cause this error are <code>&lt;ref name="name" notname="value" /&gt;</code> or <code>&lt;ref notname="value" &gt;input&lt;ref&gt;</code>',
 	'cite_error_ref_no_input' => 'Cite extension. Error message shown when ref tags without names have no content. An example that cause this error is <code>&lt;ref&gt;&lt;/ref&gt;</code>',
-	'cite_error_references_invalid_input' => 'Cite extension. Error message shown if input is used in the references tag. An example that will cause this error is <code>&lt;references&gt;Some input&lt;/references&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Cite extension. Error message shown when parmeters are used in the references tag. An example that cause this error is <code>&lt;references someparameter="value" /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Cite extension. Error message shown when unknown parameters are used in the references tag. An example that cause this error is <tt><nowiki><references someparameter="value" /></nowiki></tt>',
 	'cite_error_references_no_backlink_label' => 'Cite extension. Error message shown in the references tag when the same name is used for too many ref tags. Too many in this case is more than there are backlink labels defined in [[MediaWiki:Cite references link many format backlink labels]].

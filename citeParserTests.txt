@@ -222,8 +222,6 @@ Erroneous refs
 
 <ref name="blankwithnoreference" />
 
-<references>I'm a references with something to say!</references>
-
 <references name="quasit" />
 
 <references />
@@ -235,8 +233,6 @@ name cannot be a simple integer. Use a descriptive title</strong>
 refs with no content must have a name</strong>
 </p><p><sup id="cite_ref-bar_1-0" class="reference"><a href="#cite_note-bar-1">[2]</a></sup>
 </p><p><sup id="cite_ref-blankwithnoreference_2-0" class="reference"><a href="#cite_note-blankwithnoreference-2">[3]</a></sup>
-</p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag;
-no input is allowed. Use <code>&lt;references /&gt;</code></strong>
 </p><p><strong class="error">Cite error: Invalid <code>&lt;references&gt;</code> tag;
 parameter "group" is allowed only.
 Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code></strong>
@@ -288,3 +284,56 @@ AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="�
 <ol class="references"><li id="cite_note-1"><a href="#cite_ref-1">↑</a> note b</li></ol>
 
 !! end
+
+!! test
+<ref> defined in <references>
+!! input
+<ref name="foo"/>
+
+<references>
+<ref name="foo">BAR</ref>
+</references>
+!! result
+<p><sup id="cite_ref-foo_0-0" class="reference"><a href="#cite_note-foo-0">[1]</a></sup>
+</p>
+<ol class="references"><li id="cite_note-foo-0"><a href="#cite_ref-foo_0-0">↑</a> BAR</li></ol>
+
+!! end
+
+!! test
+<ref> defined in <references> called with #tag
+!! input
+<ref name="foo"/>
+
+{{#tag:references|
+<ref name="foo">BAR</ref>
+}}
+!! result
+<p><sup id="cite_ref-foo_0-0" class="reference"><a href="#cite_note-foo-0">[1]</a></sup>
+</p>
+<ol class="references"><li id="cite_note-foo-0"><a href="#cite_ref-foo_0-0">↑</a> BAR</li></ol>
+
+!! end
+
+!! test
+<ref> defined in <references> error conditions
+!! input
+<ref name="foo" group="2"/>
+
+<references group="2">
+<ref name="foo"/>
+<ref name="unused">BAR</ref>
+<ref name="foo" group="1">bad group</ref>
+<ref>BAR BAR</ref>
+</references>
+!! result
+<p><sup id="cite_ref-foo_0-0" class="reference"><a href="#cite_note-foo-0">[2 1]</a></sup>
+</p>
+<ol class="references"><li id="cite_note-foo"><a href="#cite_ref-foo_0">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>foo</code></strong></li></ol>
+<p><strong class="error">Cite error: <code>&lt;ref&gt;</code> tag with name "unused" defined in <code>&lt;references&gt;</code> is not used in prior text.</strong><br />
+<strong class="error">Cite error: <code>&lt;ref&gt;</code> tag in <code>&lt;references&gt;</code> has conflicting group attribute "1".</strong><br />
+<strong class="error">Cite error: <code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.</strong>
+</p>
+!! end
+

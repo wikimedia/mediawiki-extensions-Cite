@@ -302,8 +302,6 @@ $messages['be-tarask'] = array(
 няслушныя назвы, ці іх было зашмат',
 	'cite_error_ref_no_input' => 'Няслушны тэг <code>&lt;ref&gt;</code>;
 крыніцы бяз назваў мусяць мець зьмест',
-	'cite_error_references_invalid_input' => 'Няслушны тэг <code>&lt;references&gt;</code>;
-вывад не дазволены. Карыстайцеся <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Няслушны тэг <code>&lt;references&gt;</code>;
 недазволеныя парамэтры.
 Карыстайцеся <code>&lt;references /&gt;</code>',
@@ -317,6 +315,11 @@ $messages['be-tarask'] = array(
 	'cite_error_included_ref' => 'Няма закрываючага тэга  &lt;/ref&gt; пасьля адкрытага тэга &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Тэг <code>&lt;ref&gt;</code> існуе, але ня знойдзена тэга <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Тэг <code>&lt;ref&gt;</code> існуе для групы «$1», але адпаведнага тэга <code>&lt;references group="$1"/&gt;</code> ня знойдзена',
+	'cite_error_references_group_mismatch' => 'Тэг <code>&lt;ref&gt;</code> у <code>&lt;references&gt;</code> утрымлівае канфліктуючы атрыбут групы «$1».',
+	'cite_error_references_missing_group' => 'Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> утрымлівае атрыбут групы «$1», які раней не выкарыстоўваўся ў тэксьце.',
+	'cite_error_references_missing_key' => 'Тэг <code>&lt;ref&gt;</code> з назвай «$1» вызначаны ў <code>&lt;references&gt;</code> не выкарыстоўваўся ў папярэднім тэксьце.',
+	'cite_error_references_no_key' => 'Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> ня мае атрыбуту назвы.',
+	'cite_error_empty_references_define' => 'Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> з назвай «$1» ня мае зьместу.',
 );
 
 /** Bulgarian (Български)
@@ -796,7 +799,6 @@ $messages['fi'] = array(
 	'cite_error_ref_no_key' => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: sisällöttömille refeille pitää määrittää nimi.',
 	'cite_error_ref_too_many_keys' => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: virheelliset nimet, esim. liian monta',
 	'cite_error_ref_no_input' => 'Kelpaamaton <code>&lt;ref&gt;</code>-elementti: viitteillä ilman nimiä täytyy olla sisältöä',
-	'cite_error_references_invalid_input' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: sisällön lisääminen ei ole sallittu. Käytä elementtiä <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: parametrit eivät ole sallittuja. Käytä muotoa <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters_group' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: vain parametri ”group” on sallittu. Käytä tagia <code>&lt;references /&gt;</code> tai <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Määritetyt takaisinviittausnimikkeet loppuivat kesken.
@@ -805,6 +807,7 @@ Niitä voi määritellä lisää sivulla <nowiki>[[MediaWiki:Cite references lin
 viitettä <code>$1</code> ei löytynyt',
 	'cite_error_included_ref' => '&lt;ref&gt;-tägin sulkeva &lt;/ref&gt; puuttuu',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-elementti löytyy, mutta <code>&lt;references/&gt;</code>-elementtiä ei löydy',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-elementin nimeä ”$1”, johon viitataan elementissä <code>&lt;references&gt;</code> ei käytetä edeltävässä tekstissä.',
 );
 
 /** French (Français)
@@ -833,8 +836,6 @@ les références sans contenu doivent avoir un nom.',
 noms incorrects, par exemple trop nombreux.',
 	'cite_error_ref_no_input' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
 les références sans nom doivent avoir un contenu.',
-	'cite_error_references_invalid_input' => 'Balise <code>&lt;references&gt;</code> incorrecte ;
-aucune donnée n’est permise. Utilisez simplement <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters' => "Balise <code>&lt;references&gt;</code> incorrecte ;
 aucun paramètre n'est permis.
 Utilisez simplement <code>&lt;references /&gt;</code>.",
@@ -848,6 +849,11 @@ aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
 	'cite_error_included_ref' => 'Clôture <code>&lt;/ref&gt;</code> manquante pour la balise <code>&lt;ref&gt;</code>.',
 	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent, mais aucune balise <code>&lt;references/&gt;</code> n’a été trouvée.',
 	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent pour un groupe nommé « $1 », mais aucune balise <code>&lt;references group="$1"/&gt;</code> correspondante n’a été trouvée.',
+	'cite_error_references_group_mismatch' => "La balise <code>&lt;ref&gt;</code> dans <code>&lt;references&gt;</code> a l'attribut de groupe « $1 » qui entre en conflit avec celui de <code>&lt;references&gt;</code>.",
+	'cite_error_references_missing_group' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> a un groupé attribué « $1 » qui ne figure pas dans le texte précédent.',
+	'cite_error_references_missing_key' => 'La balise <code>&lt;ref&gt;</code> avec le nom « $1 » définie dans <code>&lt;references&gt;</code> n’est pas utilisé dans le texte précédent.',
+	'cite_error_references_no_key' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> n’a pas de nom d’attribut.',
+	'cite_error_empty_references_define' => 'La balise <code>&lt;ref&gt;</code> défini dans <code>&lt;references&gt;</code> avec le nom « $1 » n’a pas de contenu.',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
@@ -896,8 +902,6 @@ as referencias que non teñan contido deben ter un nome',
 nomes non válidos, por exemplo, demasiados',
 	'cite_error_ref_no_input' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
 as referencias que non teñan nome, deben ter contido',
-	'cite_error_references_invalid_input' => 'etiqueta <code>&lt;references&gt;</code> non válida;
-non se permite esa entrada. Use <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'etiqueta <code>&lt;references&gt;</code> non válida;
 non están permitidos eses parámetros.
 Use <code>&lt;references /&gt;</code>',
@@ -911,6 +915,11 @@ non se forneceu texto para as referencias de nome <code>$1</code>',
 	'cite_error_included_ref' => 'peche a etiqueta &lt;/ref&gt; que lle falta á outra etiqueta &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'as etiquetas <code>&lt;ref&gt;</code> existen, pero non se atopou ningunha etiqueta <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'as etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado "$1", pero non se atopou a etiqueta <code>&lt;references group="$1"/&gt;</code> correspondente',
+	'cite_error_references_group_mismatch' => 'A etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> ten un atributo de grupo conflitivo "$1".',
+	'cite_error_references_missing_group' => 'A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> ten un atributo de grupo "$1" que non aparece no texto anterior.',
+	'cite_error_references_missing_key' => 'A etiqueta <code>&lt;ref&gt;</code> co nome "$1" definida en <code>&lt;references&gt;</code> non se utiliza no texto anterior.',
+	'cite_error_references_no_key' => 'A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> non ten nome de atributo.',
+	'cite_error_empty_references_define' => 'A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> co nome "$1" non ten contido.',
 	'cite_reference_link_key_with_num' => '$1_$2',
 	'cite_reference_link_prefix' => 'cite_ref-',
 	'cite_references_link_prefix' => 'cite_note-',
@@ -1432,6 +1441,7 @@ Et wohr keine Tex aanjejovve för de
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
@@ -1452,19 +1462,17 @@ Referenzen ouni Inhalt mussen e Numm hunn',
 ongëlteg Nimm, z. Bsp. zevill',
 	'cite_error_ref_no_input' => "Ongëltege <code>&lt;ref&gt;</code> Tag;
 ''refs'' ouni Numm muss een Inhalt hun",
-	'cite_error_references_invalid_input' => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
-Keen Input ass erlaabt. Benotzt <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ongëltegen <code>&lt;references&gt;</code> Tag;
 et si keng Parameter erlaabt.
 Benotzt <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Ongëltege  <code>&lt;references&gt;</code> Tag;
 nëmmen de Parameter "group" ass erlaabt.
 Benotzt <code>&lt;references /&gt;</code>, oder <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_text' => "Ongëltegen <code>&lt;ref&gt;</code> Tag;
-et gouf keen Text uginn fir d'Referenze mam Numm <code>$1</code>",
+	'cite_error_references_no_text' => "Ongëlteg <code>&lt;ref&gt;</code> Markéierung;
+et gouf keen Text ugi fir d'Referenze mam Numm <code>$1</code>",
 	'cite_error_included_ref' => 'Den Tag &lt;/ref&gt; feelt fir den Tag &lt;ref&gt; zouzemaachen',
-	'cite_error_refs_without_references' => 'Den Tag <code>&lt;ref&gt;</code> gëtt et, awer den Tag <code>&lt;references/&gt;</code> gouf net fonnt',
-	'cite_error_group_refs_without_references' => 'Den Tag <code>&lt;ref&gt;</code> gëtt et fir de Grupp "$1", awer den entspriechenden Tag <code>&lt;references group="$1"/&gt;</code> gouf net fonnt',
+	'cite_error_refs_without_references' => "D'Markéierung <code>&lt;ref&gt;</code> gëtt et, awer d'Markéierung <code>&lt;references/&gt;</code> gouf net fonnt",
+	'cite_error_group_refs_without_references' => 'D\'Markéierung <code>&lt;ref&gt;</code> gëtt et fir d\'Grupp "$1", awer d\'entspriechend Markéierung <code>&lt;references group="$1"/&gt;</code> gouf net fonnt',
 );
 
 /** Limburgish (Limburgs)
@@ -1678,8 +1686,6 @@ refs zonder inhoud moeten een naam hebben',
 onjuiste namen, bijvoorbeeld te veel',
 	'cite_error_ref_no_input' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
 refs zonder naam moeten inhoud hebben',
-	'cite_error_references_invalid_input' => 'Onjuiste tag <code>&lt;references&gt;</code>;
-invoer is niet toegestaan, gebruik <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Onjuiste tag <code>&lt;references&gt;</code>;
 parameters zijn niet toegestaan.
 Gebruik <code>&lt;references /&gt;</code>',
@@ -1693,6 +1699,11 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_included_ref' => 'Het sluitteken &lt;/ref&gt; mist voor de tag &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'De tag <code>&lt;ref&gt;</code> bestaat, maar de tag <code>&lt;references/&gt;</code> is niet aangetroffen',
 	'cite_error_group_refs_without_references' => 'Er bestaat een tag <code>&lt;ref&gt;</code> voor de groep "$1", maar er is geen bijbehorende tag <code>&lt;references group="$1"/&gt;</code> aangetroffen',
+	'cite_error_references_group_mismatch' => 'De tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> conflicteert met groepseigenschap "$1".',
+	'cite_error_references_missing_group' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft de groepseigenschap "$1" niet niet eerder in te tekst voorkomt.',
+	'cite_error_references_missing_key' => 'De tag <code>&lt;ref&gt;</code> met de naam "$1" gedefiniteerd in <code>&lt;references&gt;</code> wordt niet eerder in de tekst gebruikt.',
+	'cite_error_references_no_key' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft geen eigenschapsnaam.',
+	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam "$1" heeft geen inhoud.',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -1761,7 +1772,6 @@ Aquò se deuriá pas jamai produsir.',
 	'cite_error_ref_no_key' => 'Ampèl invalid ; cap de clau pas especificada',
 	'cite_error_ref_too_many_keys' => 'Ampèl invalid ; claus invalidas, per exemple, tròp de claus especificadas o clau erronèa',
 	'cite_error_ref_no_input' => 'Ampèl invalid ; cap de dintrada pas especificada',
-	'cite_error_references_invalid_input' => 'Entrada invalida ; entrada esperada',
 	'cite_error_references_invalid_parameters' => 'Arguments invalids ; argument esperat',
 	'cite_error_references_invalid_parameters_group' => 'Balisa <code>&lt;references&gt;</code> incorrècta ;
 
@@ -1775,6 +1785,11 @@ pas de tèxte per las referéncias nomenadas <code>$1</code>.',
 	'cite_error_included_ref' => 'Clausura &lt;/ref&gt; omesa per la balisa &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís, mas cap de balisa <code>&lt;references/&gt;</code> pas trobada.',
 	'cite_error_group_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís per un grop nomenat « $1 », mas cap de balisa <code>&lt;references group="$1"/&gt;</code> correspondenta pas trobada',
+	'cite_error_references_group_mismatch' => "La balisa <code>&lt;ref&gt;</code> dins <code>&lt;references&gt;</code> a l'atribut de grop « $1 » que dintra en conflicte amb lo de <code>&lt;references&gt;</code>.",
+	'cite_error_references_missing_group' => 'La balisa <code>&lt;ref&gt;</code> definida dins <code>&lt;references&gt;</code> a un gropat atribuit « $1 » que figura pas dins lo tèxte precedent.',
+	'cite_error_references_missing_key' => 'La balisa <code>&lt;ref&gt;</code> amb lo nom « $1 » definida dins <code>&lt;references&gt;</code> es pas utilizada dins lo tèxte precedent.',
+	'cite_error_references_no_key' => 'La balisa <code>&lt;ref&gt;</code> definida dins <code>&lt;references&gt;</code> a pas de nom d’atribut.',
+	'cite_error_empty_references_define' => 'La balisa <code>&lt;ref&gt;</code> definida dins <code>&lt;references&gt;</code> amb lo nom « $1 » a pas de contengut.',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
@@ -1801,7 +1816,6 @@ To nigdy nie powinno się zdarzyć.',
 	'cite_error_ref_no_key' => 'Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.',
 	'cite_error_ref_too_many_keys' => 'Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.',
 	'cite_error_ref_no_input' => 'Błąd w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść',
-	'cite_error_references_invalid_input' => 'Błąd w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać treści w tym elemencie, użyj <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Błąd w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Nieprawidłowy znacznik <code>&lt;references&gt;</code>;
 dostępny jest wyłącznie parametr „group”.
@@ -1812,6 +1826,7 @@ Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many f
 	'cite_error_included_ref' => 'Brak znacznika zamykającego &lt;/ref&gt; po otwartym znaczniku &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code>, ale nie odnaleziono znacznika <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code> dla grupy o nazwie „$1”, ale nie odnaleziono odpowiedniego znacznika <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'Znacznik <code>&lt;ref&gt;</code> w <code>&lt;references&gt;</code> nie może mieć atrybutu grupy „$1”.',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
@@ -2022,16 +2037,22 @@ $messages['sah'] = array(
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> тиэк алҕаһа (Неправильный вызов): аата (күлүүһэ) ыйыллыбатах',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> тиэк алҕаһа (Неправильный вызов): аата сыыһа ыйыллыбыт, эбэтэр наһаа элбэх аат суруллубут',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> тиэк алҕастаах (Неверный вызов): иһинээҕитэ сыыһа',
-	'cite_error_references_invalid_input' => '<code>&lt;references&gt;</code> тиэк алҕаһа, иһигэр туох да суох буолуохтаах',
 	'cite_error_references_invalid_parameters' => 'Сыыһа параметрдар бэриллибиттэр; <code>&lt;references /&gt;</code> тиэккэ отой суох буолуохтаахтар',
 	'cite_error_references_invalid_parameters_group' => 'Сыыһалаах <code>&lt;references&gt;</code> тиэк;
 "group" эрэ парааматыры туһаныахха сөп.
 Маны <code>&lt;references /&gt;</code>, эбэтэр <code>&lt;references group="..." /&gt;</code> туһан.',
-	'cite_error_references_no_backlink_label' => 'Не хватает символов для возвратных гиперссылок; следует расширить системную переменную <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text' => 'Сыыһа тиэк (тег) <code>&lt;ref&gt;</code>; хос быһаарыыларга <code>$1</code> тиэкис ыйыллыбатах',
-	'cite_error_included_ref' => 'Сабар бэлиэ суох эбит &lt;/ref&gt;',
-	'cite_error_refs_without_references' => 'Баар <code>&lt;ref&gt;</code> бэлиэҕэ сөп түбэһэр <code>&lt;references/&gt;</code> бэлиэ көстүбэтэ',
-	'cite_error_group_refs_without_references' => '"$1" бөлөх <code>&lt;ref&gt;</code> бэлиэтигэр сөп түбэһэр <code>&lt;references group="$1"/&gt;</code> бэлиэ көстүбэтэ',
+	'cite_error_references_no_backlink_label' => 'Төннөрөр сигэлэргэ бэлиэлэрэ тиийбэттэр.
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> диэн систиэмэ этиитин кэҥэтэн биэрэххэ наада',
+	'cite_error_references_no_text' => 'Сыыһа <code>&lt;ref&gt;</code> тиэк (тег);
+<code>$1</code> диэн хос быһаарыыларга аналлаах тиэкис суох',
+	'cite_error_included_ref' => '&lt;/ref&gt; диэн сабар тиэк суох эбит',
+	'cite_error_refs_without_references' => 'Баар <code>&lt;ref&gt;</code> тиэккэ сөп түбэһэр <code>&lt;references/&gt;</code> тиэк көстүбэтэ',
+	'cite_error_group_refs_without_references' => '"$1" бөлөх <code>&lt;ref&gt;</code> тиэгигэр сөп түбэһэр <code>&lt;references group="$1"/&gt;</code> тиэк көстүбэтэ',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> туттуллар <code>&lt;ref&gt;</code> тиэк бэйэ бэйэлэрин кытта сөпсөспөт "$1" атрибуттаах бөлөхтөрдөөх',
+	'cite_error_references_missing_group' => 'Бу <code>&lt;references&gt;</code> туттар маннык <code>&lt;ref&gt;</code> тиэгэ бөлөх тиэкиһигэр урут көрсүллүбэтэх "$1" атрибуттаах.',
+	'cite_error_references_missing_key' => 'Бу <code>&lt;references&gt;</code> туттар маннык <code>&lt;ref&gt;</code> "$1" диэн тиэгэ бу иннинээҕи тиэкискэ туттуллубат эбит.',
+	'cite_error_references_no_key' => 'Бу <code>&lt;references&gt;</code> туттар <code>&lt;ref&gt;</code> тиэгэ аатын атрибута суох эбит.',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> туттар <code>&lt;ref&gt;</code> "$1" диэн ааттаах тиэгэ иһинээҕитэ суох эбит.',
 );
 
 /** Sicilian (Sicilianu)

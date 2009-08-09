@@ -594,8 +594,6 @@ rhaid i dagiau ref sydd heb gynnwys iddynt gael enw',
 enwau annilys; e.e. gormod ohonynt',
 	'cite_error_ref_no_input' => 'Tag <code>&lt;ref&gt;</code> annilys;
 rhaid i dagiau ref heb enw iddynt gynnwys rhywbeth',
-	'cite_error_references_invalid_input' => 'Tag <code>&lt;references&gt;</code> annilys;
-ni chaniateir mewnbwn. Defnyddiwch <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> annilys;
 ni chaniateir paramedrau.
 Defnyddiwch <code>&lt;references /&gt;</code>',
@@ -609,6 +607,7 @@ ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 	'cite_error_included_ref' => '&lt;/ref&gt; clo yn eisiau ar gyfer y tag &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol, ond dim tag <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol ar gyfer y grwp "$1", ond ni chafwyd tag <code>&lt;references/&gt;</code>',
+	'cite_error_empty_references_define' => 'Does dim byd yn y tag <code>&lt;ref&gt;</code> a\'r enw "$1" arno, sydd wedi ei ddiffinio oddi mewn i dagiau <code>&lt;references&gt;</code>.',
 );
 
 /** Danish (Dansk)
@@ -801,6 +800,13 @@ pues no hay una referencia con texto llamada <code>$1</code>',
 	'cite_error_included_ref' => 'Código wiki para cierre &lt;/ref&gt; sin un código de apertura &lt;ref&gt; existente',
 	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se encontró una etiqueta <code>&lt;references /&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado "$1", pero no se encontró una etiqueta <code>&lt;references group="$1"/&gt;</code>',
+);
+
+/** Estonian (Eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'cite_desc' => 'Lisab viitamiseks märgendid <nowiki><ref[ name=id]></nowiki> ja <nowiki><references/></nowiki>.',
 );
 
 /** Basque (Euskara) */
@@ -1004,6 +1010,7 @@ $messages['gsw'] = array(
 
 /** Hebrew (עברית)
  * @author Rotem Liss
+ * @author YaronSh
  */
 $messages['he'] = array(
 	'cite_desc' => 'הוספת תגיות <nowiki><ref[ name=id]></nowiki> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
@@ -1015,7 +1022,6 @@ $messages['he'] = array(
 	'cite_error_ref_no_key' => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא תוכן חייב להיות שם',
 	'cite_error_ref_too_many_keys' => 'תגית <code>&lt;ref&gt;</code> שגויה; שמות שגויים, למשל, רבים מדי',
 	'cite_error_ref_no_input' => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא שם חייב להיות תוכן',
-	'cite_error_references_invalid_input' => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן לכתוב תוכן, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן להשתמש בפרמטרים, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'תגית <code>&lt;references&gt;</code> שגויה;
 רק הפרמטר "group" מותר לשימוש.
@@ -1025,6 +1031,11 @@ $messages['he'] = array(
 	'cite_error_included_ref' => 'חסרה תגית &lt;/ref&gt; המתאימה לתגית &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'קיימות תגיות <code>&lt;ref&gt;</code>, אך לא נמצאה תגית <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'קיימות תגיות <code>&lt;ref&gt;</code> עבור קבוצה הנקראת "$1", אך לא נמצאה תגית <code>&lt;references group="$1"/&gt;</code> מתאימה',
+	'cite_error_references_group_mismatch' => 'לתגית <code>&lt;ref&gt;</code> תחת <code>&lt;references&gt;</code> יש מאפיין קבוצתי סותר "$1".',
+	'cite_error_references_missing_group' => 'לתגית <code>&lt;ref&gt;</code> המוגדרת תחת <code>&lt;references&gt;</code> ישנו מאפיין הקבוצה "$1" שאינו מופיע בטקסט הקודם.',
+	'cite_error_references_missing_key' => 'התגית <code>&lt;ref&gt;</code> בעלת השם "$1" המוגדרת תחת <code>&lt;references&gt;</code> אינה משמשת את הטקסט הקודם.',
+	'cite_error_references_no_key' => 'לתגית <code>&lt;ref&gt;</code> המוגדרת תחת <code>&lt;references&gt;</code> אין מאפיין name.',
+	'cite_error_empty_references_define' => 'התגית <code>&lt;ref&gt;</code> מוגדרת תחת <code>&lt;references&gt;</code> בשם "$1" אינה מכילה תוכן.',
 );
 
 /** Hindi (हिन्दी)
@@ -2224,6 +2235,7 @@ $messages['stq'] = array(
 	'cite_error_included_ref' => 'Der failt n sluutend &lt;/ref&gt;',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existierje, daach neen <code>&lt;references/&gt;</code>-Tag wuud fuunen.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existierje foar ju Gruppe „$1“, man neen deertou heerend <code>&lt;references group=„$1“/&gt;</code>-Tag wuud fuunen',
+	'cite_error_references_missing_group' => 'Dät <code>&lt;ref&gt;</code> Tag, as definierd in <code>&lt;references&gt;</code> häd dät Gruppenattribut "$1", dät nit in dän foaruutgungende Text foarkumt.',
 );
 
 /** Sundanese (Basa Sunda)

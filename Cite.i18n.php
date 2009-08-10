@@ -189,6 +189,7 @@ Faiga serbir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'cite_desc' => 'يضيف وسوم <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهادات',
@@ -208,8 +209,6 @@ $str و/أو $key غير صحيح.
 أسماء غير صحيحة، على سبيل المثال كثيرة جدا',
 	'cite_error_ref_no_input' => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
 المراجع غير ذات الاسم يجب أن تمتلك محتوى',
-	'cite_error_references_invalid_input' => 'وسم <code>&lt;references&gt;</code> غير صحيح؛
-لا مدخل مسموح به. استخدم <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'وسم <code>&lt;references&gt;</code> غير صحيح؛
 لا محددات مسموح بها.
 استخدم <code>&lt;references /&gt;</code>',
@@ -223,6 +222,8 @@ $str و/أو $key غير صحيح.
 	'cite_error_included_ref' => 'إغلاق &lt;/ref&gt; مفقود لوسم &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'وسم <code>&lt;ref&gt;</code> موجود، لكن لا وسم <code>&lt;references/&gt;</code> تم العثور عليه',
 	'cite_error_group_refs_without_references' => 'وسوم <code>&lt;ref&gt;</code> موجودة لمجموعة اسمها "$1"، لكن لا وسم <code>&lt;references group="$1"/&gt;</code> مماثل تم العثور عليه',
+	'cite_error_references_no_key' => 'الوسم <code>&lt;ref&gt;</code> المعرف في <code>&lt;references&gt;</code> ليس له خاصة اسم.',
+	'cite_error_empty_references_define' => 'الوسم <code>&lt;ref&gt;</code> المُعرّف في <code>&lt;references&gt;</code> بالاسم "$1" ليس له محتوى.',
 	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي أأ أب أت أث أج أح أخ أد أذ أر أز أس أش أص أض أط أظ أع أغ أف أق أك أل أم أن أه أو أي بأ بب بت بث بج بح بخ بد بذ بر بز بس بش بص بض بط بظ بع بغ بف بق بك بل بم بن به بو بي تأ تب تت تث تج تح تخ تد تذ تر تز تس تش تص تض تط تظ تع تغ تف تق تك تل تم تن ته تو تي ثأ ثب ثت ثث ثج ثح ثخ ثد ثذ ثر ثز ثس ثش ثص ثض ثط ثظ ثع ثغ ثف ثق ثك ثل ثم ثن ثه ثو ثي جأ جب جت جث جج جح جخ جد جذ جر جز جس جش جص جض جط جظ جع جغ جف جق جك جل جم جن جه جو جي حأ حب حت حث حج حح حخ حد حذ حر حز حس حش حص حض حط حظ حع حغ حف حق حك حل حم حن حه حو حي خأ خب خت خث خج خح خخ خد خذ خر خز خس خش خص خض خط خظ خع خغ خف خق خك خل خم خن خه خو خي دأ دب دت دث دج دح دخ دد دذ در دز دس دش دص دض دط دظ دع دغ دف دق دك دل دم دن ده دو دي ذأ ذب ذت ذث ذج ذح ذخ ذد ذذ ذر ذز ذس ذش ذص ذض ذط ذظ ذع ذغ ذف ذق ذك ذل ذم ذن ذه ذو ذي رأ رب رت رث رج رح رخ رد رذ رر رز رس رش رص رض رط رظ رع رغ رف رق رك رل رم رن ره رو ري زأ زب زت زث زج زح زخ زد زذ زر زز زس زش زص زض زط زظ زع زغ زف زق زك زل زم زن زه زو زي سأ سب ست سث سج سح سخ سد سذ سر سز سس سش سص سض سط سظ سع سغ سف سق سك سل سم سن سه سو سي شأ شب شت شث شج شح شخ شد شذ شر شز شس شش شص شض شط شظ شع شغ شف شق شك شل شم شن شه شو شي صأ صب صت صث صج صح صخ صد صذ صر صز صس صش صص صض صط صظ صع صغ صف صق صك صل صم صن صه صو صي ضأ ضب ضت ضث ضج ضح ضخ ضد ضذ ضر ضز ضس ضش ضص ضض ضط ضظ ضع ضغ ضف ضق ضك ضل ضم ضن ضه ضو ضي طأ طب طت طث طج طح طخ طد طذ طر طز طس طش طص طض طط طظ طع طغ طف طق طك طل طم طن طه طو طي ظأ ظب ظت ظث ظج ظح ظخ ظد ظذ ظر ظز ظس ظش ظص ظض ظط ظظ ظع ظغ ظف ظق ظك ظل ظم ظن ظه ظو ظي عأ عب عت عث عج عح عخ عد عذ عر عز عس عش عص عض عط عظ عع عغ عف عق عك عل عم عن عه عو عي غأ غب غت غث غج غح غخ غد غذ غر غز غس غش غص غض غط غظ غع غغ غف غق غك غل غم غن غه غو غي فأ فب فت فث فج فح فخ فد فذ فر فز فس فش فص فض فط فظ فع فغ فف فق فك فل فم فن فه فو في قأ قب قت قث قج قح قخ قد قذ قر قز قس قش قص قض قط قظ قع قغ قف قق قك قل قم قن قه قو قي كأ كب كت كث كج كح كخ كد كذ كر كز كس كش كص كض كط كظ كع كغ كف كق كك كل كم كن كه كو كي لأ لب لت لث لج لح لخ لد لذ لر لز لس لش لص لض لط لظ لع لغ لف لق لك لل لم لن له لو لي مأ مب مت مث مج مح مخ مد مذ مر مز مس مش مص مض مط مظ مع مغ مف مق مك مل مم من مه مو مي نأ نب نت نث نج نح نخ ند نذ نر نز نس نش نص نض نط نظ نع نغ نف نق نك نل نم نن نه نو ني هأ هب هت هث هج هح هخ هد هذ هر هز هس هش هص هض هط هظ هع هغ هف هق هك هل هم هن هه هو هي وأ وب وت وث وج وح وخ ود وذ ور وز وس وش وص وض وط وظ وع وغ وف وق وك ول وم ون وه وو وي يأ يب يت يث يج يح يخ يد يذ ير يز يس يش يص يض يط يظ يع يغ يف يق يك يل يم ين يه يو يي',
 );
 
@@ -1264,8 +1265,6 @@ Non dovrebbe mai verificarsi.',
 	'cite_error_ref_no_key' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref vuoti non possono essere privi di nome",
 	'cite_error_ref_too_many_keys' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)",
 	'cite_error_ref_no_input' => "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref privi di nome non possono essere vuoti",
-	'cite_error_references_invalid_input' => "Errore nell'uso del marcatore <code>&lt;references&gt;</code>: input non ammesso, usare il marcatore
-<code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "Errore nell'uso del marcatore <code>&lt;references&gt;</code>: parametri non ammessi, usare il marcatore <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters_group' => 'Errore nell\'uso del marcatore <code>&lt;references&gt;</code>;
 solo il parametro "group" è permesso.
@@ -1275,6 +1274,11 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 	'cite_error_included_ref' => '&lt;/ref&gt; di chiusura mancante per il marcatore &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> ma non è stato trovato alcun marcatore <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> per un gruppo chiamato "$1" ma non è stato trovato alcun marcatore <code>&lt;references group="$1"/&gt;</code> corrispondente',
+	'cite_error_references_group_mismatch' => 'Il tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> ha attributo gruppo "$1" in conflitto.',
+	'cite_error_references_missing_group' => 'Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> ha un attributo gruppo "$1" che non compare nel testo precedente.',
+	'cite_error_references_missing_key' => 'Il tag <code>&lt;ref&gt;</code> con nome "$1" definito in <code>&lt;references&gt;</code> non è usato nel testo precedente.',
+	'cite_error_references_no_key' => 'Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> non ha un attributo nome.',
+	'cite_error_empty_references_define' => 'Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> con nome "$1" non ha alcun contenuto.',
 );
 
 /** Japanese (日本語)
@@ -2213,6 +2217,28 @@ $messages['sr-ec'] = array(
 	'cite_error_included_ref' => 'Затвара &lt;/ref&gt; који недостаје &lt;ref&gt; тагу',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> таг постоји, али одговарајући <code>&lt;references/&gt;</code> таг није нађен',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> тагови постоје за групу под именом "$1", али није нађен одговарајући <code>&lt;references group="$1"/&gt;</code> таг',
+);
+
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'cite_desc' => 'Dodaje <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> oznake za citiranje.',
+	'cite_croak' => 'Dodatak za citiranje je umro; $1: $2.',
+	'cite_error_key_str_invalid' => 'Unutrašnja greška; loš $str i/ili $key. Ovo ne bi trebalo nikad da se desi.',
+	'cite_error_stack_invalid_input' => 'Unutrašnja greška; loš ključ steka. Ovo ne bi trebalo nikad da se desi.',
+	'cite_error' => 'Greška citata: $1',
+	'cite_error_ref_numeric_key' => 'Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; ime ne može biti jednostavni intedžer. Koristi opisni naslov.',
+	'cite_error_ref_no_key' => 'Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; ref-ovi bez sadržaja moraju imati ime.',
+	'cite_error_ref_too_many_keys' => 'Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; loša imena, odnosno mnogo njih.',
+	'cite_error_ref_no_input' => 'Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; ref-ovi bez imena moraju imati sadržaj.',
+	'cite_error_references_invalid_parameters' => 'Loša oznaka <code>&amp;lt;references&amp;gt;</code>; parametri nisu dozvoljeni. Koristi <code>&amp;lt;references /&amp;gt;</code>.',
+	'cite_error_references_invalid_parameters_group' => 'Loša oznaka <code>&amp;lt;references&amp;gt;</code>; samo je paramtera &quot;group&quot; dozvoljen. Koristi <code>&amp;lt;references /&amp;gt;</code> ili <code>&amp;lt;references group=&quot;...&quot;&amp;gt;</code>.',
+	'cite_error_references_no_backlink_label' => 'Nestale su posebne oznake za zadnje veze. Odredi ih više u poruci <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_references_no_text' => 'Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; nema teksta za ref-ove pod imenom <code>$1</code>.',
+	'cite_error_included_ref' => 'Zatvara &amp;lt;/ref&amp;gt; koji nedostaje &amp;lt;ref&amp;gt; tagu',
+	'cite_error_refs_without_references' => '<code>&amp;lt;ref&amp;gt;</code> tag postoji, ali odgovarajući <code>&amp;lt;references/&amp;gt;</code> tag nije nađen',
+	'cite_error_group_refs_without_references' => '<code>&amp;lt;ref&amp;gt;</code> tagovi postoje za grupu pod imenom &quot;$1&quot;, ali nije nađen odgovarajući <code>&amp;lt;references group=&quot;$1&quot;/&amp;gt;</code> tag',
 );
 
 /** Seeltersk (Seeltersk)

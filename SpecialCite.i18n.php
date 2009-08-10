@@ -1353,6 +1353,17 @@ $messages['sr-ec'] = array(
 	'cite_submit' => 'цитат',
 );
 
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'cite_article_desc' => 'Dodaje specijalnu stranu za [[Special:Cite|citiranje]] i vezu ka oruđima.',
+	'cite_article_link' => 'citiranje ove strane',
+	'cite' => 'citat',
+	'cite_page' => 'Strana:',
+	'cite_submit' => 'citat',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */

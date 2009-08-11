@@ -2229,7 +2229,7 @@ $messages['sr-ec'] = array(
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> тагови постоје за групу под именом "$1", али није нађен одговарајући <code>&lt;references group="$1"/&gt;</code> таг',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -2248,7 +2248,7 @@ $messages['sr-el'] = array(
 	'cite_error_references_no_text' => 'Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; nema teksta za ref-ove pod imenom <code>$1</code>.',
 	'cite_error_included_ref' => 'Zatvara &amp;lt;/ref&amp;gt; koji nedostaje &amp;lt;ref&amp;gt; tagu',
 	'cite_error_refs_without_references' => '<code>&amp;lt;ref&amp;gt;</code> tag postoji, ali odgovarajući <code>&amp;lt;references/&amp;gt;</code> tag nije nađen',
-	'cite_error_group_refs_without_references' => '<code>&amp;lt;ref&amp;gt;</code> tagovi postoje za grupu pod imenom &quot;$1&quot;, ali nije nađen odgovarajući <code>&amp;lt;references group=&quot;$1&quot;/&amp;gt;</code> tag',
+	'cite_error_group_refs_without_references' => '<code><ref></code> tagovi postoje za grupu pod imenom "$1", ali nije nađen odgovarajući <code><references group="$1"/></code> tag',
 );
 
 /** Seeltersk (Seeltersk)

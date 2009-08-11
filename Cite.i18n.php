@@ -222,6 +222,9 @@ $str و/أو $key غير صحيح.
 	'cite_error_included_ref' => 'إغلاق &lt;/ref&gt; مفقود لوسم &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'وسم <code>&lt;ref&gt;</code> موجود، لكن لا وسم <code>&lt;references/&gt;</code> تم العثور عليه',
 	'cite_error_group_refs_without_references' => 'وسوم <code>&lt;ref&gt;</code> موجودة لمجموعة اسمها "$1"، لكن لا وسم <code>&lt;references group="$1"/&gt;</code> مماثل تم العثور عليه',
+	'cite_error_references_group_mismatch' => 'الوسم <code>&lt;ref&gt;</code> في <code>&lt;references&gt;</code> فيه خاصية group متضاربة "$1".',
+	'cite_error_references_missing_group' => 'الوسم <code>&lt;ref&gt;</code> المُعرّف في <code>&lt;references&gt;</code> فيه خاصية group "$1" التي لا تظهر في النص السابق.',
+	'cite_error_references_missing_key' => 'الوسم <code>&lt;ref&gt;</code> ذو الاسم "$1" المُعرّف في <code>&lt;references&gt;</code> غير مستخدم في النص السابق.',
 	'cite_error_references_no_key' => 'الوسم <code>&lt;ref&gt;</code> المعرف في <code>&lt;references&gt;</code> ليس له خاصة اسم.',
 	'cite_error_empty_references_define' => 'الوسم <code>&lt;ref&gt;</code> المُعرّف في <code>&lt;references&gt;</code> بالاسم "$1" ليس له محتوى.',
 	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي أأ أب أت أث أج أح أخ أد أذ أر أز أس أش أص أض أط أظ أع أغ أف أق أك أل أم أن أه أو أي بأ بب بت بث بج بح بخ بد بذ بر بز بس بش بص بض بط بظ بع بغ بف بق بك بل بم بن به بو بي تأ تب تت تث تج تح تخ تد تذ تر تز تس تش تص تض تط تظ تع تغ تف تق تك تل تم تن ته تو تي ثأ ثب ثت ثث ثج ثح ثخ ثد ثذ ثر ثز ثس ثش ثص ثض ثط ثظ ثع ثغ ثف ثق ثك ثل ثم ثن ثه ثو ثي جأ جب جت جث جج جح جخ جد جذ جر جز جس جش جص جض جط جظ جع جغ جف جق جك جل جم جن جه جو جي حأ حب حت حث حج حح حخ حد حذ حر حز حس حش حص حض حط حظ حع حغ حف حق حك حل حم حن حه حو حي خأ خب خت خث خج خح خخ خد خذ خر خز خس خش خص خض خط خظ خع خغ خف خق خك خل خم خن خه خو خي دأ دب دت دث دج دح دخ دد دذ در دز دس دش دص دض دط دظ دع دغ دف دق دك دل دم دن ده دو دي ذأ ذب ذت ذث ذج ذح ذخ ذد ذذ ذر ذز ذس ذش ذص ذض ذط ذظ ذع ذغ ذف ذق ذك ذل ذم ذن ذه ذو ذي رأ رب رت رث رج رح رخ رد رذ رر رز رس رش رص رض رط رظ رع رغ رف رق رك رل رم رن ره رو ري زأ زب زت زث زج زح زخ زد زذ زر زز زس زش زص زض زط زظ زع زغ زف زق زك زل زم زن زه زو زي سأ سب ست سث سج سح سخ سد سذ سر سز سس سش سص سض سط سظ سع سغ سف سق سك سل سم سن سه سو سي شأ شب شت شث شج شح شخ شد شذ شر شز شس شش شص شض شط شظ شع شغ شف شق شك شل شم شن شه شو شي صأ صب صت صث صج صح صخ صد صذ صر صز صس صش صص صض صط صظ صع صغ صف صق صك صل صم صن صه صو صي ضأ ضب ضت ضث ضج ضح ضخ ضد ضذ ضر ضز ضس ضش ضص ضض ضط ضظ ضع ضغ ضف ضق ضك ضل ضم ضن ضه ضو ضي طأ طب طت طث طج طح طخ طد طذ طر طز طس طش طص طض طط طظ طع طغ طف طق طك طل طم طن طه طو طي ظأ ظب ظت ظث ظج ظح ظخ ظد ظذ ظر ظز ظس ظش ظص ظض ظط ظظ ظع ظغ ظف ظق ظك ظل ظم ظن ظه ظو ظي عأ عب عت عث عج عح عخ عد عذ عر عز عس عش عص عض عط عظ عع عغ عف عق عك عل عم عن عه عو عي غأ غب غت غث غج غح غخ غد غذ غر غز غس غش غص غض غط غظ غع غغ غف غق غك غل غم غن غه غو غي فأ فب فت فث فج فح فخ فد فذ فر فز فس فش فص فض فط فظ فع فغ فف فق فك فل فم فن فه فو في قأ قب قت قث قج قح قخ قد قذ قر قز قس قش قص قض قط قظ قع قغ قف قق قك قل قم قن قه قو قي كأ كب كت كث كج كح كخ كد كذ كر كز كس كش كص كض كط كظ كع كغ كف كق كك كل كم كن كه كو كي لأ لب لت لث لج لح لخ لد لذ لر لز لس لش لص لض لط لظ لع لغ لف لق لك لل لم لن له لو لي مأ مب مت مث مج مح مخ مد مذ مر مز مس مش مص مض مط مظ مع مغ مف مق مك مل مم من مه مو مي نأ نب نت نث نج نح نخ ند نذ نر نز نس نش نص نض نط نظ نع نغ نف نق نك نل نم نن نه نو ني هأ هب هت هث هج هح هخ هد هذ هر هز هس هش هص هض هط هظ هع هغ هف هق هك هل هم هن هه هو هي وأ وب وت وث وج وح وخ ود وذ ور وز وس وش وص وض وط وظ وع وغ وف وق وك ول وم ون وه وو وي يأ يب يت يث يج يح يخ يد يذ ير يز يس يش يص يض يط يظ يع يغ يف يق يك يل يم ين يه يو يي',
@@ -912,6 +915,8 @@ aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
 	'cite_error_references_missing_key' => 'La balise <code>&lt;ref&gt;</code> avec le nom « $1 » définie dans <code>&lt;references&gt;</code> n’est pas utilisé dans le texte précédent.',
 	'cite_error_references_no_key' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> n’a pas de nom d’attribut.',
 	'cite_error_empty_references_define' => 'La balise <code>&lt;ref&gt;</code> défini dans <code>&lt;references&gt;</code> avec le nom « $1 » n’a pas de contenu.',
+	'cite_references_link_many_sep' => ',&#32;',
+	'cite_references_link_many_and' => '&#32;et&#32;',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -1585,6 +1590,7 @@ $messages['lv'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  */
 $messages['mk'] = array(
@@ -1618,6 +1624,7 @@ $messages['mk'] = array(
 	'cite_error_included_ref' => 'Затворање на &lt;/ref&gt; недостасува за &lt;ref&gt; приврзок',
 	'cite_error_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> приврзоци, но нема <code>&lt;references/&gt;</code> приврзок',
 	'cite_error_group_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> приврзоци за група именувана како "$1", но нема соодветен <code>&lt;references group="$1"/&gt;</code> приврзок',
+	'cite_error_references_no_key' => 'ознака <code>&lt;ref&gt;</code> дефинирана во <code>&lt;referencesgt;</code> нема именски атрибут.',
 );
 
 /** Malayalam (മലയാളം)
@@ -1931,8 +1938,6 @@ refs sem conteúdo devem ter um nome',
 nomes inválidos (por exemplo, nome muito extenso)',
 	'cite_error_ref_no_input' => 'Marca <code>&lt;ref&gt;</code> inválida; 
 refs sem nome devem possuir conteúdo',
-	'cite_error_references_invalid_input' => 'Marca <code>&lt;references&gt;</code> inválida; 
-não é permitido dado de entrada. Use <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Marca <code>&lt;references&gt;</code> inválida; 
 não são permitidos parâmetros.
 Utilize <code>&lt;references /&gt;</code>',
@@ -1946,6 +1951,11 @@ não foi fornecido texto para as refs chamadas <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; de fechamento ausente para para a marca &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code>, mas nenhuma marca <code>&lt;references/&gt;</code> foi encontrada',
 	'cite_error_group_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma marca <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada',
+	'cite_error_references_group_mismatch' => 'marca <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> tem o atributo grupo "$1" conflitante.',
+	'cite_error_references_missing_group' => 'marca <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> tem atributo grupo "$1" que não aparece no texto anterior.',
+	'cite_error_references_missing_key' => 'marca <code>&lt;ref&gt;</code> com nome "$1" definida em <code>&lt;references&gt;</code> não foi utilizada no texto anterior.',
+	'cite_error_references_no_key' => 'marca <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> não tem atributo nome.',
+	'cite_error_empty_references_define' => 'marca <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> com nome "$1" não tem nenhum conteúdo.',
 );
 
 /** Quechua (Runa Simi)

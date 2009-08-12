@@ -719,11 +719,14 @@ $messages['el'] = array(
 μη έγκυρο κλειδί στοίβας.
 Αυτό δεν θα έπρεπε να συμβαίνει.',
 	'cite_error' => 'Σφάλμα αναφοράς: $1',
+	'cite_error_ref_no_key' => 'Άκυρη <code>&lt;ref&gt;</code> ετικέτα·
+παραπομπές χωρίς περιεχομένο πρέπει να έχουν ένα όνομα',
 	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
 Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',
 	'cite_error_included_ref' => 'Υπολείπεται η κατάληξη &lt;/ref&gt; για την ετικέτα &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά καμία ονόματι <code>&lt;references/&gt;</code> δεν βρέθηκε.',
 	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα ονόματι "$1", αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.',
+	'cite_error_references_group_mismatch' => 'Η ετικέτα <code>&lt;ref&gt;</code> στο <code>&lt;references&gt;</code> έρχεται σε σύγκρουση με το κατηγορούμενο "$1".',
 );
 
 /** Esperanto (Esperanto)
@@ -2034,7 +2037,29 @@ niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
  */
 $messages['roa-tara'] = array(
 	'cite_desc' => 'Aggiunge le tag <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> pe le citaziune',
+	'cite_error_key_str_invalid' => 'Errore inderne;
+invalide $str e/o $key.
+Quiste non g\'avessa succedere.',
+	'cite_error_stack_invalid_input' => "Errore inderne;
+stack key invalide.
+Quiste non g'avessa succedere.",
 	'cite_error' => 'Cite errore: $1',
+	'cite_error_ref_numeric_key' => "Tag <code>&lt;ref&gt;</code> invalide;
+'u nome non ge pò essere sole 'n'indere. Ause 'nu titele descrittive",
+	'cite_error_ref_no_key' => "Tag <code>&lt;ref&gt;</code> invalide;
+le referimende senza condenute onne tenè 'nu nome",
+	'cite_error_ref_too_many_keys' => 'Tag <code>&lt;ref&gt;</code> invalide;
+nome invalide, pe esembie troppe luènghe',
+	'cite_error_ref_no_input' => "Tag <code>&lt;ref&gt;</code> invalide;
+referimende senza nome onne tenè 'nu condenute",
+	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> invalide;
+non ge se pò mettere nisciune parametre.
+Ause <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> invalide;
+sulamende \'u parametre "group" pò essere ausate.
+Ause <code>&lt;references /&gt;</code> o <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> invalide;
+nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
 	'cite_error_refs_without_references' => "'u tag <code>&lt;ref&gt;</code> esiste, ma non g'esiste 'u tag <code>&lt;references/&gt;</code>",
 );
 

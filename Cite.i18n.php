@@ -1603,27 +1603,27 @@ $messages['mk'] = array(
 погрешен клуч за купот.
 Ова не треба никогаш да се појави.',
 	'cite_error' => 'Грешка во цитирање: $1.',
-	'cite_error_ref_numeric_key' => 'Погрешен <code>&lt;ref&gt;</code> приврзок;
+	'cite_error_ref_numeric_key' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
 името не може да биде број. Употребувајте описен наслов',
-	'cite_error_ref_no_key' => 'Погрешен <code>&lt;ref&gt;</code> приврзок;
+	'cite_error_ref_no_key' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
 навод без содржина мора да има име',
-	'cite_error_ref_too_many_keys' => 'Погрешен <code>&lt;ref&gt;</code> приврзок;
+	'cite_error_ref_too_many_keys' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
 грешни имиња, т.е. ги има многу',
-	'cite_error_ref_no_input' => 'Погрешен <code>&lt;ref&gt;</code> приврзок;
+	'cite_error_ref_no_input' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
 навод без име мора да има содржина',
-	'cite_error_references_invalid_parameters' => 'Погрешен <code>&lt;references&gt;</code> приврзок;
+	'cite_error_references_invalid_parameters' => 'Погрешна <code>&lt;references&gt;</code> ознака;
 не се допуштени параметри.
 Употребувајте <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Погрешен <code>&lt;references&gt;</code> приврзок;
+	'cite_error_references_invalid_parameters_group' => 'Погрешна <code>&lt;references&gt;</code> ознака;
 само параметарот "group" е допуштен.
 Употребувајте <code>&lt;references /&gt;</code>, или <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Недостаток на беклинк ознаки.
 Дефинирај повеќе во пораката <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_references_no_text' => 'Погрешен <code>&lt;ref&gt;</code> приврзок;
+	'cite_error_references_no_text' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
 нема текст за наводот означен како <code>$1</code>',
-	'cite_error_included_ref' => 'Затворање на &lt;/ref&gt; недостасува за &lt;ref&gt; приврзок',
-	'cite_error_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> приврзоци, но нема <code>&lt;references/&gt;</code> приврзок',
-	'cite_error_group_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> приврзоци за група именувана како "$1", но нема соодветен <code>&lt;references group="$1"/&gt;</code> приврзок',
+	'cite_error_included_ref' => 'Затворање на &lt;/ref&gt; недостасува за &lt;ref&gt; ознака',
+	'cite_error_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> ознаки, но нема <code>&lt;references/&gt;</code> ознака',
+	'cite_error_group_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> ознаки за група именувана како "$1", но нема соодветна <code>&lt;references group="$1"/&gt;</code> ознака',
 	'cite_error_references_no_key' => 'ознака <code>&lt;ref&gt;</code> дефинирана во <code>&lt;referencesgt;</code> нема именски атрибут.',
 );
 
@@ -2115,6 +2115,7 @@ $messages['sah'] = array(
 );
 
 /** Sicilian (Sicilianu)
+ * @author Melos
  * @author Santu
  */
 $messages['scn'] = array(
@@ -2134,6 +2135,13 @@ Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." 
 	'cite_error_references_no_backlink_label' => 'Etichetti di rimannata pirsunalizzati finuti, aumintari lu nùmmiru ntô missàggiu <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Marcaturi <code>&lt;ref&gt;</code> non vàlidu; non vinni nnicatu nuddu testu pô marcaturi <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; di chiusura mancanti pô marcaturi &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Sù prisenti dê marcatura <code>&lt;ref&gt;</code> ma nun fu attruvatu nissunu marcaturi <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Sù prisenti dê marcatura <code>&lt;ref&gt;</code> pi nu gruppu chiamatu "$1" ma nun fu truvatu nissunu marcaturi <code>&lt;references group="$1"/&gt;</code> currispunnenti',
+	'cite_error_references_group_mismatch' => 'Lu tag <code>&lt;ref&gt;</code> n <code>&lt;references&gt;</code> havi attribuiutu lu gruppu "$1" n conflittu.',
+	'cite_error_references_missing_group' => 'Lu tag <code>&lt;ref&gt;</code> difinutu n <code>&lt;references&gt;</code> havi n\'attributu gruppu "$1" ca nun cumpari ni lu testu pricidenti.',
+	'cite_error_references_missing_key' => 'Lu tag <code>&lt;ref&gt;</code> cu nomu "$1" difinutu n <code>&lt;references&gt;</code> nun è usatu nô testu pricidenti.',
+	'cite_error_references_no_key' => "Lu tag <code>&lt;ref&gt;</code> difinutu n <code>&lt;references&gt;</code> nun havi n'attributu nomu.",
+	'cite_error_empty_references_define' => 'Lu tag <code>&lt;ref&gt;</code> difinutu n <code>&lt;references&gt;</code> cu lu nomu "$1" nun havi alcun cuntinutu.',
 	'cite_reference_link_prefix' => 'muntuari ref',
 	'cite_references_link_prefix' => 'muntuari annutazzioni',
 );

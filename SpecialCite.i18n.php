@@ -480,9 +480,11 @@ $messages['fur'] = array(
 );
 
 /** Western Frisian (Frysk)
+ * @author SK-luuut
  * @author Snakesteuben
  */
 $messages['fy'] = array(
+	'cite_article_desc' => 'Foeget in [[Special:Cite|spesjale side]] om te sitearjen, lykas in ferwizing nei de helpmiddels, ta.',
 	'cite_article_link' => 'Sitearje dizze side',
 	'cite' => 'Sitearje',
 	'cite_page' => 'Side:',

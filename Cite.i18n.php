@@ -708,6 +708,7 @@ za ref z mjenim <code>$1</code> njejo se tekst pódał',
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Omnipaedista
+ * @author ZaDiak
  */
 $messages['el'] = array(
 	'cite_desc' => 'Προσθέτει τα <ref[ name="id"]> και <references/> για τις παραπομπές.',
@@ -719,14 +720,32 @@ $messages['el'] = array(
 μη έγκυρο κλειδί στοίβας.
 Αυτό δεν θα έπρεπε να συμβαίνει.',
 	'cite_error' => 'Σφάλμα αναφοράς: $1',
+	'cite_error_ref_numeric_key' => 'Μη έγκυρη <code>&lt;ref&gt;</code> ετικέτα·
+το όνομα δεν μπορεί να είναι ένας απλός ακέραιος. Χρησιμοποιήστε έναν περιγραφικό τίτλο',
 	'cite_error_ref_no_key' => 'Άκυρη <code>&lt;ref&gt;</code> ετικέτα·
 παραπομπές χωρίς περιεχομένο πρέπει να έχουν ένα όνομα',
+	'cite_error_ref_too_many_keys' => 'Μη έγκυρη <code>&lt;ref&gt;</code> ετικέτα;
+μη έγκυρα ονόματα, π.χ. πάρα πολλά',
+	'cite_error_ref_no_input' => 'Μη έγκυρη <code>&lt;ref&gt;</code> ετικέτα;
+οι παραπομπές χωρίς όνομα πρέπει να έχουν περιεχόμενο',
+	'cite_error_references_invalid_parameters' => 'Μη έγκυρη <code>&lt;references&gt;</code> ετικέτα;
+δεν επιτρέπονται παράμετροι.
+Χρησιμοποιήστε το <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Μη έγκυρη <code>&lt;references&gt;</code> ετικέτα;
+μόνο η παράμετρος "group" επιτρέπεται.
+Χρησιμοποιείστε το <code>&lt;references /&gt;</code>, ή το <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Εξαντλήθηκαν οι συνήθεις ετικέτες.
+Ορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
 Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',
 	'cite_error_included_ref' => 'Υπολείπεται η κατάληξη &lt;/ref&gt; για την ετικέτα &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά καμία ονόματι <code>&lt;references/&gt;</code> δεν βρέθηκε.',
 	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα ονόματι "$1", αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.',
 	'cite_error_references_group_mismatch' => 'Η ετικέτα <code>&lt;ref&gt;</code> στο <code>&lt;references&gt;</code> έρχεται σε σύγκρουση με το κατηγορούμενο "$1".',
+	'cite_error_references_missing_group' => 'Η <code>&lt;ref&gt;</code> ετικέτα που ορίζεται στο <code>&lt;references&gt;</code> έχει κατηγορούμενο ομάδας "$1" που δεν εμφανίζεται σε προηγούμενο κείμενο.',
+	'cite_error_references_missing_key' => 'Η <code>&lt;ref&gt;</code> ετικέτα με το όνομα "$1" που ορίζεται στο <code>&lt;references&gt;</code> δεν χρησιμοποιείται στο προηγούμενο κείμενο.',
+	'cite_error_references_no_key' => 'Η <code>&lt;ref&gt;</code> ετικέτα που ορίζεται στο <code>&lt;references&gt;</code> δεν έχει κατηγορούμενο ονόματος.',
+	'cite_error_empty_references_define' => 'Η <code>&lt;ref&gt;</code> ετικέτα που ορίζεται στο <code>&lt;references&gt;</code> με το όνομα "$1" δεν έχει καθόλου περιεχόμενο.',
 );
 
 /** Esperanto (Esperanto)
@@ -1597,7 +1616,7 @@ $messages['lv'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'cite_desc' => 'Додава <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> приврзоци, за цитирања',
+	'cite_desc' => 'Додава <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаки, за цитирања',
 	'cite_croak' => 'Непостоечки цитат; $1: $2',
 	'cite_error_key_str_invalid' => 'Интерна грешка;
 погрешен $str и/или $key.
@@ -2544,7 +2563,6 @@ $messages['vi'] = array(
 	'cite_error_ref_no_key' => 'Thẻ <code>&lt;ref&gt;</code> sai; thẻ ref không có nội dung thì phải có tên',
 	'cite_error_ref_too_many_keys' => 'Thẻ <code>&lt;ref&gt;</code> sai; thông số tên sai, như, nhiều thông số tên quá',
 	'cite_error_ref_no_input' => 'Mã <code>&lt;ref&gt;</code> sai; thẻ ref không có tên thì phải có nội dung',
-	'cite_error_references_invalid_input' => 'Thẻ <code>&lt;references&gt;</code> sai; không được phép nhập nội dung cho thẻ, hãy dùng <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Thẻ <code>&lt;references&gt;</code> sai; không được có thông số, hãy dùng <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Thẻ <code>&lt;references&gt;</code> không hợp lệ;
 chỉ cho phép tham số “group”.
@@ -2555,6 +2573,11 @@ Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite references li
 	'cite_error_included_ref' => 'Không có &lt;/ref&gt; để đóng thẻ &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code>, nhưng không tìm thấy thẻ <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code> với tên nhóm “$1”, nhưng không tìm thấy thẻ <code>&lt;references group="$1"/&gt;</code> tương ứng',
+	'cite_error_references_group_mismatch' => 'Thẻ <code>&lt;ref&gt;</code> trong <code>&lt;references&gt;</code> có thuộc tính nhóm mâu thuẫn “$1”.',
+	'cite_error_references_missing_group' => 'Thẻ <code>&lt;ref&gt;</code> được định nghĩa trong <code>&lt;references&gt;</code> có thuộc tính nhóm  “$1” không thấy xuất hiện trong văn bản phía trên.',
+	'cite_error_references_missing_key' => 'Thẻ <code>&lt;ref&gt;</code> có tên  “$1” được định nghĩa trong <code>&lt;references&gt;</code> không được đoạn văn bản trên sử dụng.',
+	'cite_error_references_no_key' => ' Thẻ <code>&lt;ref&gt;</code> được định nghĩa trong <code>&lt;references&gt;</code> không có thuộc tính name.',
+	'cite_error_empty_references_define' => 'Thẻ <code>&lt;ref&gt;</code> được định nghĩa trong <code>&lt;references&gt;</code> có tên “$1” không có nội dung.',
 );
 
 /** Volapük (Volapük)

@@ -1451,7 +1451,7 @@ $messages['ko'] = array(
 	'cite_desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 더합니다.',
 	'cite_croak' => '인용 오류; $1: $2',
 	'cite_error_key_str_invalid' => '내부 오류;
-$str 혹은 $key가 잘봇되었습니다.
+$str 혹은 $key가 잘못되었습니다.
 이 오류는 발생하지 않아야 합니다.',
 	'cite_error_stack_invalid_input' => '내부 오류; 스택 키가 잘못되었습니다.
 이 오류는 발생하지 말아야 합니다.',
@@ -1464,15 +1464,17 @@ $str 혹은 $key가 잘봇되었습니다.
 예컨대 잘못된 주석 이름이 너무 많습니다.',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 이름이 없는 ref 태그는 반드시 내용이 있어야 합니다.',
-	'cite_error_references_invalid_input' => '잘못된 <code>&lt;references&gt;</code> 태그 사용;
-이 태그는 입력을 받지 않습니다. <code>&lt;references /&gt;</code> 태그를 써주세요.',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
 변수를 넣어서는 안 됩니다.
 <code>&lt;references /&gt;</code>를 이용하십시오.',
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
 "group" 변수만 사용할 수 있습니다.
 <code>&lt;references /&gt;</code>나 <code>&lt;references group="..." /&gt;</code>만 이용하십시오.',
+	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다.
+<code>$1</code>라는 이름을 가진 주석에 대한 내용이 없습니다.',
+	'cite_error_included_ref' => '&lt;ref&gt; 태그를 닫는 &lt;/ref&gt; 태그가 없습니다.',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> 태그가 존재하지만, <code>&lt;references/&gt;</code> 태그가 없습니다.',
+	'cite_error_group_refs_without_references' => '"$1"이라는 이름을 가진 그룹에 대한 <code>&lt;ref&gt;</code> 태그가 존재하지만, 이에 대응하는 <code>&lt;references group="$1" /&gt;</code> 태그가 없습니다.',
 	'cite_references_link_many_format_backlink_labels' => '가 나 다 라 마 바 사 아 자 차 카 타 파 하 거 너 더 러 머 버 서 어 저 처 커 터 퍼 허 고 노 도 로 모 보 소 오 조 초 코 토 포 호 구 누 두 루 무 부 수 우 주 추 쿠 투 푸 후 그 느 드 르 므 브 스 으 즈 츠 크 트 프 흐 기 니 디 리 미 비 시 이 지 치 키 티 피 히',
 );
 
@@ -1646,7 +1648,11 @@ $messages['mk'] = array(
 	'cite_error_included_ref' => 'Затворање на &lt;/ref&gt; недостасува за &lt;ref&gt; ознака',
 	'cite_error_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> ознаки, но нема <code>&lt;references/&gt;</code> ознака',
 	'cite_error_group_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> ознаки за група именувана како "$1", но нема соодветна <code>&lt;references group="$1"/&gt;</code> ознака',
+	'cite_error_references_group_mismatch' => 'Ознакат <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротиставен групен атрибут „$1“.',
+	'cite_error_references_missing_group' => 'Ознаката <code>&lt;ref&gt;</code> дефинирана во <code>&lt;references&gt;</code> има групен атрибут „$1“ кој не се јавува во претходен текст.',
+	'cite_error_references_missing_key' => 'Ознаката <code>&lt;ref&gt;</code> со име „$1“ дефинирана во <code>&lt;references&gt;</code> не се користи во претходен текст.',
 	'cite_error_references_no_key' => 'ознака <code>&lt;ref&gt;</code> дефинирана во <code>&lt;referencesgt;</code> нема именски атрибут.',
+	'cite_error_empty_references_define' => 'Ознаката <code>&lt;ref&gt;</code> дефинирана во <code>&lt;references&gt;</code> со име „$1“ нема содржина.',
 );
 
 /** Malayalam (മലയാളം)
@@ -2336,6 +2342,7 @@ $messages['su'] = array(
 
 /** Swedish (Svenska)
  * @author Boivie
+ * @author Fluff
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
@@ -2350,7 +2357,6 @@ $messages['sv'] = array(
 	'cite_error_ref_no_key' => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan innehåll måste ha ett namn',
 	'cite_error_ref_too_many_keys' => "Ogiltig <code>&lt;ref&gt;</code>-tag; ogiltiga parametrar, den enda tillåtna parametern är 'name'",
 	'cite_error_ref_no_input' => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan namn måste ha innehåll',
-	'cite_error_references_invalid_input' => 'Ogiltig <code>&lt;references&gt;</code>-tag; inget innehåll är tillåtet, använd <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ogiltig <code>&lt;references&gt;</code>-tag; inga parametrar tillåts, använd <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Ogiltig <code>&lt;references&gt;</code>-tagg;
 "group"-parametern är endast tillåten.
@@ -2360,6 +2366,11 @@ Använd <code>&lt;references /&gt;</code>, eller <code>&lt;references group="...
 	'cite_error_included_ref' => 'Avslutande &lt;/ref&gt; saknas för &lt;ref&gt;-tagg',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-taggar finns, men ingen <code>&lt;references/&gt;</code>-tagg hittades',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-taggar finns för gruppnamnet "$1", men ingen motsvarande <code>&lt;references group="$1"/&gt;</code>-tagg hittades',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-tagg i <code>&lt;references&gt;</code> har ett motstridigt group-attribut "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code>-tagg definierad i  <code>&lt;references&gt;</code> har ett group-attribut "$1" som inte används innan i texten.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-tagg med namnet "$1", definierad i <code>&lt;references&gt;</code> används inte innan i texten.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code>-tagg definierad i <code>&lt;references&gt;</code> saknar name-attribut.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code>-tagg definierad i <code>&lt;ref&gt;</code> med namnet "$1" har inget innehåll.',
 );
 
 /** Telugu (తెలుగు)
@@ -2536,8 +2547,6 @@ Sta roba no la dovarìa mai capitar.',
 	'cite_error_ref_no_key' => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: i ref vodi no i pol no verghe un nome",
 	'cite_error_ref_too_many_keys' => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: nomi mìa validi (ad es. nùmaro massa elevà)",
 	'cite_error_ref_no_input' => "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: i ref che no gà un nome no i pol mìa èssar vodi",
-	'cite_error_references_invalid_input' => "Eror ne l'uso del marcator <code>&lt;references&gt;</code>: input mìa consentìo, dòpara el marcator
-<code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "Eror ne l'uso del marcator <code>&lt;references&gt;</code>: parametri mìa consentìi, dòpara el marcator <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> mìa valido;
 solo el parametro "group" el xe permesso.
@@ -2547,6 +2556,11 @@ Dòpara <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&
 	'cite_error_included_ref' => '&lt;/ref&gt; de chiusura mancante par el marcador &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Ghe xe un tag <code>&lt;ref&gt;</code>, ma no xe stà catà nissun tag <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Ghe xe un tag <code>&lt;ref&gt;</code> par un grupo che se ciama "$1", ma no xe stà catà nissun tag <code>&lt;references group="$1"/&gt;</code> che corisponda.',
+	'cite_error_references_group_mismatch' => 'El tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> el gà l\'atributo de grupo "$1" in conflito.',
+	'cite_error_references_missing_group' => 'El tag <code>&lt;ref&gt;</code> definìo in <code>&lt;references&gt;</code> el gà un atributo de grupo "$1" che no conpare mia nel testo precedente.',
+	'cite_error_references_missing_key' => 'El tag <code>&lt;ref&gt;</code> con nome "$1" definìo in <code>&lt;references&gt;</code> no\'l xe doparà nel testo precedente.',
+	'cite_error_references_no_key' => "El tag <code>&lt;ref&gt;</code> definìo in <code>&lt;references&gt;</code> no'l gà un atributo nome.",
+	'cite_error_empty_references_define' => 'El tag <code>&lt;ref&gt;</code> definìo in <code>&lt;references&gt;</code> con nome "$1" no\'l gà nissun contenuto.',
 );
 
 /** Vietnamese (Tiếng Việt)

@@ -547,6 +547,7 @@ no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
  * @author Li-sung
  * @author Matěj Grabovský
  * @author Mormegil
+ * @author Sp5uhe
  */
 $messages['cs'] = array(
 	'cite_desc' => 'Přidává značky <nowiki><ref[ name="id"]></nowiki> a&nbsp;<nowiki><references /></nowiki> na označení citací',
@@ -558,7 +559,6 @@ $messages['cs'] = array(
 	'cite_error_ref_no_key' => 'Chyba v tagu <code>&lt;ref&gt;</code>; prázdné citace musí obsahovat název',
 	'cite_error_ref_too_many_keys' => 'Chyba v tagu <code>&lt;ref&gt;</code>; chybné názvy, např. je jich příliš mnoho',
 	'cite_error_ref_no_input' => 'Chyba v tagu <code>&lt;ref&gt;</code>; citace bez názvu musí mít vlastní obsah',
-	'cite_error_references_invalid_input' => 'Chyba v tagu <code>&lt;references&gt;</code>; zde není dovolen vstup, použijte <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Chyba v tagu <code>&lt;references&gt;</code>;  zde není dovolen parametr, použijte <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Neplatná značka <tt>&lt;references&gt;</tt>;
 je povolen pouze parametr „group“.
@@ -568,6 +568,11 @@ Použijte <tt>&lt;references /&gt;</tt> nebo <tt>&lt;references group="..." /&gt
 	'cite_error_included_ref' => 'Chybí ukončovací &lt;/ref&gt; k&nbsp;tagu &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Nalezena značka <code>&lt;ref&gt;</code> bez příslušné značky <code>&lt;references/&gt;</code>.',
 	'cite_error_group_refs_without_references' => 'Nalezena značka <code>&lt;ref&gt;</code> pro skupinu „$1“ bez příslušné značky <code>&lt;references group="$1"/&gt;</code>.',
+	'cite_error_references_group_mismatch' => 'Značka <code>&lt;ref&gt;</code> uvnitř <code>&lt;references&gt;</code> má definovánu jinou skupinu „$1“.',
+	'cite_error_references_missing_group' => 'Značka <code>&lt;ref&gt;</code> uvnitř <code>&lt;references&gt;</code> používá skupinu „$1“, která se v předchozím textu neobjevuje.',
+	'cite_error_references_missing_key' => 'Na <code>&lt;ref&gt;</code> se jménem „$1“ definovaný uvnitř <code>&lt;references&gt;</code> nejsou v předchozím textu žádné odkazy.',
+	'cite_error_references_no_key' => 'U značky <code>&lt;ref&gt;</code> definované uvnitř <code>&lt;references&gt;</code> chybí atribut <code>name</code>.',
+	'cite_error_empty_references_define' => 'U značky <code>&lt;ref&gt;</code> s názvem „$1“ definované uvnitř <code>&lt;references&gt;</code> chybí obsah.',
 );
 
 /** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -954,10 +959,10 @@ $messages['frp'] = array(
 	'cite_error_ref_no_key' => 'Apèl envalido ; niona cllâf spècefiâ.',
 	'cite_error_ref_too_many_keys' => 'Apèl envalido ; cllâfs envalides, per ègzemplo, trop de cllâfs spècefiâs ou ben cllâf fôssa.',
 	'cite_error_ref_no_input' => 'Apèl envalido ; niona entrâ spècefiâ.',
-	'cite_error_references_invalid_input' => 'Entrâ envalida ; entrâ atendua.',
 	'cite_error_references_invalid_parameters' => 'Arguments envalidos ; argument atendu.',
 	'cite_error_references_no_backlink_label' => 'Ègzécucion en defôr de les ètiquètes pèrsonalisâs, dèfenésséd de ples dens lo mèssâjo <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text' => 'Nion tèxte endicâ por les refèrences siuventes : <code>$1</code>',
+	'cite_error_references_no_text' => 'Balisa <code>&lt;ref&gt;</code> fôssa ;
+nion tèxto at étâ balyê por les refèrences apelâs <code>$1</code>.',
 );
 
 /** Friulian (Furlan)
@@ -1912,6 +1917,10 @@ Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many f
 	'cite_error_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code>, ale nie odnaleziono znacznika <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code> dla grupy o nazwie „$1”, ale nie odnaleziono odpowiedniego znacznika <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Znacznik <code>&lt;ref&gt;</code> w <code>&lt;references&gt;</code> nie może mieć atrybutu grupy „$1”.',
+	'cite_error_references_missing_group' => 'Znacznik <code>&lt;ref&gt;</code> zdefiniowany w <code>&lt;references&gt;</code> ma atrybut grupowania „$1”, który nie występuje wcześniej w treści.',
+	'cite_error_references_missing_key' => 'Znacznik <code>&lt;ref&gt;</code> o nazwie „$1”, zdefiniowany w <code>&lt;references&gt;</code>, nie był użyty wcześniej w treści.',
+	'cite_error_references_no_key' => 'Znacznik <code>&lt;ref&gt;</code> zdefiniowany w <code>&lt;references&gt;</code> nie ma atrybutu <code>name</code>.',
+	'cite_error_empty_references_define' => 'Znacznik <code>&lt;ref&gt;</code> zdefiniowany w <code>&lt;references&gt;</code> o nazwie „$1” nie ma treści.',
 );
 
 /** Portuguese (Português)

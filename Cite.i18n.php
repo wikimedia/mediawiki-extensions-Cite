@@ -791,6 +791,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 );
 
 /** Spanish (Español)
+ * @author Antur
  * @author Baiji
  * @author Crazymadlover
  * @author Drini
@@ -817,7 +818,6 @@ las referencias sin contenido deben tener un nombre',
 nombres de parámetros no válidos',
 	'cite_error_ref_no_input' => 'Elemento <code>&lt;ref&gt;</code> no válido;
 referencias sin nombre deben tener contenido',
-	'cite_error_references_invalid_input' => 'Elemento <code>&lt;references&gt;</code> no válido. Usa sólo <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'El elemento <code>&lt;references&gt;</code> no es válido;
 no admite parámetros.
 Use <code>&lt;references /&gt;</code>',
@@ -831,6 +831,11 @@ pues no hay una referencia con texto llamada <code>$1</code>',
 	'cite_error_included_ref' => 'Código wiki para cierre &lt;/ref&gt; sin un código de apertura &lt;ref&gt; existente',
 	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se encontró una etiqueta <code>&lt;references /&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado "$1", pero no se encontró una etiqueta <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'el tag <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presenta el atributo de grupo en conflicto "$1".',
+	'cite_error_references_missing_group' => 'El tag <code>&lt;ref&gt;</code> definido en <code>&lt;references&gt;</code> incluye el atributo "$1" no declarado en el texto precedente.',
+	'cite_error_references_missing_key' => 'El tag <code>&lt;ref&gt;</code> con nombre "$1" definido en <code>&lt;references&gt;</code> no se utiliza en el texto precedente.',
+	'cite_error_references_no_key' => 'El tag <code>&lt;ref&gt;</code> definido en <code>&lt;references&gt;</code> no tiene nombre de atributo.',
+	'cite_error_empty_references_define' => 'El tag <code>&lt;ref&gt;</code> definido en <code>&lt;references&gt;</code> con nombre "$1" no tiene contenido.',
 );
 
 /** Estonian (Eesti)

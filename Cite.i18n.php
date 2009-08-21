@@ -1932,6 +1932,7 @@ Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many f
 /** Portuguese (Português)
  * @author 555
  * @author Crazymadlover
+ * @author Giro720
  * @author Malafaya
  * @author Waldir
  */
@@ -1947,8 +1948,6 @@ Isto nunca deveria acontecer.',
 	'cite_error_ref_no_key' => 'Código <code>&lt;ref&gt;</code> inválido; refs sem conteúdo devem ter um parâmetro de nome',
 	'cite_error_ref_too_many_keys' => 'Código <code>&lt;ref&gt;</code> inválido; nomes inválidos (por exemplo, nome muito extenso)',
 	'cite_error_ref_no_input' => 'Código <code>&lt;ref&gt;</code> inválido; refs sem parâmetro de nome devem possuir conteúdo a elas associado',
-	'cite_error_references_invalid_input' => 'Código <code>&lt;references&gt;</code> inválido; no input is allowed, use
-<code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Código <code>&lt;references&gt;</code> inválido; não são permitidos parâmetros. Utilize como <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Marca <code>&lt;references&gt;</code> inválida;
 só o parâmetro "group" é permitido.
@@ -1958,6 +1957,11 @@ Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;
 	'cite_error_included_ref' => '&lt;/ref&gt; de fecho em falta para a marca &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'existem tags <code>&lt;ref&gt;</code>, mas nenhuma tag <code>&lt;references/&gt;</code> foi encontrada',
 	'cite_error_group_refs_without_references' => 'existem tags <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma tag <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada',
+	'cite_error_references_group_mismatch' => 'A etiqueta <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> possui atributo de grupo "$1" conflitante.',
+	'cite_error_references_missing_group' => 'A etiqueta <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> possui atributo de grupo "$1" que não aparece no texto acima.',
+	'cite_error_references_missing_key' => 'A etiqueta <code>&lt;ref&gt;</code> com nome "$1" definida em <code>&lt;references&gt;</code> não é utilizada no texto acima.',
+	'cite_error_references_no_key' => 'A etiqueta <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> não possui atributo de nome.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> etiqueta definida em <code>&lt;references&gt;</code> com nome "$1" não possui conteúdo.',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -2498,8 +2502,6 @@ içeriksiz reflerin bir ismi olmalı',
 geçersiz isimler, ör. çok fazla',
 	'cite_error_ref_no_input' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
 isimsiz reflerin içeriği olmalı',
-	'cite_error_references_invalid_input' => 'Geçersiz <code>&lt;references&gt;</code> etiketi;
-girdiye izin verilmiyor. <code>&lt;references /&gt;</code> kullanın',
 	'cite_error_references_invalid_parameters' => 'Geçersiz <code>&lt;references&gt;</code> etiketi;
 parametrelere izin verilmiyor.
 <code>&lt;references /&gt;</code> kullanın',
@@ -2513,6 +2515,11 @@ sadece "group" parametresine izin verilir.
 	'cite_error_included_ref' => '&lt;ref&gt; etiketi için &lt;/ref&gt; kapanışı eksik',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> etiketleri var, ama <code>&lt;references/&gt;</code> etiketi bulunamadı',
 	'cite_error_group_refs_without_references' => '"$1" isimli grup için <code>&lt;ref&gt;</code> etiketleri mevcut, ancak karşılık gelen <code>&lt;references group="$1"/&gt;</code> etiketi bulunamadı',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>\'daki <code>&lt;ref&gt;</code> etiketinin çelişen "$1" grup özniteliği var.',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>\'da tanımlanan <code>&lt;ref&gt;</code> etiketinin önceki metinde olmayan "$1" grup özniteliği var.',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code>\'da tanımlanan "$1" adındaki <code>&lt;ref&gt;</code> etiketi önceki metinde kullanılmıyor.',
+	'cite_error_references_no_key' => "<code>&lt;references&gt;</code>'da tanımlanan <code>&lt;ref&gt;</code> etiketinin hiçbir ad özniteliği yok.",
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>\'da tanımlanan "$1" adlı <code>&lt;ref&gt;</code> etiketinin içeriği yok.',
 );
 
 /** Ukrainian (Українська)

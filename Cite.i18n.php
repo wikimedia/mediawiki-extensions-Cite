@@ -177,7 +177,6 @@ $messages['an'] = array(
 	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin de conteniu han de tener un nombre',
 	'cite_error_ref_too_many_keys' => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; nombres de parametros incorreutos.',
 	'cite_error_ref_no_input' => 'Etiqueta <code>&lt;ref&gt;</code> incorreuta; as referenzias sin nombre no han de tener conteniu',
-	'cite_error_references_invalid_input' => 'Etiqueta <code>&lt;references&gt;</code> incorreuta; no se premite emplegar input en a etiqueta, faiga serbir <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> incorreuta; no se premiten parametros, faiga serbir <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> no conforme;
 nomás se premite o parametro "group".
@@ -253,8 +252,6 @@ $str و/أو $key غلط.
 أسامى مش صحيحة، يعنى مثلا: كتير قوي',
 	'cite_error_ref_no_input' => 'تاج <code>&lt;ref&gt;</code> مش صحيح؛
 المراجع اللى من غير اسم لازم يكون ليها محتوى',
-	'cite_error_references_invalid_input' => 'مش صحيح <code>&lt;references&gt;</code> تاج;
-مافيش مدخل مسموح بيه. استخدم <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'مش صحيح <code>&lt;references&gt;</code> تاج;
 مافيش محددات مسموح بيها.
 استخدم <code>&lt;references /&gt;</code>',
@@ -315,8 +312,6 @@ $messages['bcc'] = array(
 نامعتبر نامان, په داب بازین',
 	'cite_error_ref_no_input' => 'نامعتبر <code>&lt;ref&gt;</code> تگ;
 مراجع بی نام بایدن محتوا داشته بنت',
-	'cite_error_references_invalid_input' => 'نامعتبر <code>&lt;references&gt;</code>تگ;
-هچ ورودی اجازت نهنت. استفاده کن  <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'نامعتبر <code>&lt;references&gt;</code>تگ;
 هچ پارامتری مجاز نهنت.
 استفاده کن چه <code>&lt;references /&gt;</code>',
@@ -392,8 +387,6 @@ $messages['bg'] = array(
 	'cite_error_ref_no_key' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без съдържание трябва да имат име",
 	'cite_error_ref_too_many_keys' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' грешка в името, например повече от едно име на етикета",
 	'cite_error_ref_no_input' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' етикетите без име трябва да имат съдържание",
-	'cite_error_references_invalid_input' => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' не е разрешен вход, използва се така: 
-<code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "'''Грешка в етикет <code>&lt;references&gt;</code>:''' използва се без параметри, така: <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters_group' => 'Невалиден етикет <code>&lt;references&gt;</code>;
 позволен е само параметър "group".
@@ -420,7 +413,6 @@ $messages['bn'] = array(
 	'cite_error_ref_no_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; বিষয়বস্তুহীন refসমূহের অবশ্যই নাম থাকতে হবে',
 	'cite_error_ref_too_many_keys' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; অবৈধ নাম (যেমন- সংখ্যাতিরিক্ত)',
 	'cite_error_ref_no_input' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নামবিহীন refসমূহের অবশ্যই বিষয়বস্তু থাকতে হবে',
-	'cite_error_references_invalid_input' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; কোন ইনপুট অনুমোদিত নয়, <code>&lt;references /&gt;</code> ব্যবহার করুন',
 	'cite_error_references_invalid_parameters' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; কোন প্যারামিটার অনুমোদিত নয়, <code>&lt;references /&gt;</code> ব্যবহার করুন',
 	'cite_error_references_no_backlink_label' => 'পছন্দমাফিক ব্যাকলিংক লেবেলের সংখ্যা ফুরিয়ে গেছে, <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> বার্তায় আরও সংজ্ঞায়িত করুন',
 	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের refগুলির জন্য কোন টেক্সট প্রদান করা হয়নি',
@@ -447,8 +439,6 @@ ret eo d'an daveennoù goullo kaout un anv",
 anv direizh, niver re uhel da skouer',
 	'cite_error_ref_no_input' => "Fazi implijout ar valizenn <code>&lt;ref&gt;</code> ;
 ret eo d'an daveennoù hep anv bezañ danvez enno",
-	'cite_error_references_invalid_input' => "Fazi implijout ar valizenn <code>&lt;ref&gt;</code> ;
-n'eo aotreet moned ebet. Grit gant ar valizenn <code>&lt;references /&gt;</code>",
 	'cite_error_references_invalid_parameters' => "Fazi implijout ar valizenn <code>&lt;ref&gt;</code> ;
 n'eo aotreet arventenn ebet.
 Grit gant ar valizenn <code>&lt;references /&gt;</code>",
@@ -525,8 +515,6 @@ les refs sense contingut han de tenir nom',
 empreu l\'estructura <code>&lt;ref name="Nom"&gt;</code>',
 	'cite_error_ref_no_input' => 'Etiqueta <code>&lt;ref&gt;</code> no vàlida; 
 les referències sense nom han de tenir contingut',
-	'cite_error_references_invalid_input' => 'Etiqueta <code>&lt;references&gt;</code> no vàlida;
-no es permet afegir text. Useu <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> no vàlida; 
 no es permeten paràmetres. 
 Useu <code>&lt;references /&gt;</code>',
@@ -633,7 +621,6 @@ $messages['da'] = array(
 	'cite_error_ref_no_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden indhold skal have et navn',
 	'cite_error_ref_too_many_keys' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldige navne, fx for mange',
 	'cite_error_ref_no_input' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden navn skal have indhold',
-	'cite_error_references_invalid_input' => 'Ugyldigt <code>&lt;references&gt;</code>-tag: Indhold ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'For mange <code>&lt;ref&gt;</code>-tags har det samme "name", tillad flere i beskeden <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
@@ -654,7 +641,6 @@ $messages['de'] = array(
 	'cite_error_ref_no_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',
 	'cite_error_ref_too_many_keys' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ ist ungültig oder zu lang.',
 	'cite_error_ref_no_input' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Namen muss einen Inhalt haben.',
-	'cite_error_references_invalid_input' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwende ausschließlich <tt><nowiki><references /></nowiki></tt>.',
 	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschließlich <tt><nowiki><references /></nowiki></tt>.',
 	'cite_error_references_invalid_parameters_group' => 'Ungültige <code>&lt;references&gt;</code>-Verwendung: Nur der Parameter „group“ ist erlaubt, verwende <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="…" /&gt;</tt>',
 	'cite_error_references_no_backlink_label' => 'Eine Referenz der Form <tt>&lt;ref name="…" /&gt;</tt> wird öfter benutzt als Buchstaben vorhanden sind. Ein Administrator muss <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> um weitere Buchstaben/Zeichen ergänzen.',
@@ -662,6 +648,11 @@ $messages['de'] = array(
 	'cite_error_included_ref' => 'Es fehlt ein schließendes &lt;/ref&gt;',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existieren, jedoch wurde kein <code>&lt;references /&gt;</code>-Tag gefunden.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existieren für die Gruppe „$1“, jedoch wurde kein dazugehöriges <code>&lt;references group="$1" /&gt;</code>-Tag gefunden',
+	'cite_error_references_group_mismatch' => 'Das <code>&lt;ref&gt;</code>-Tag in <code>&lt;references&gt;</code> hat das Konfliktgruppenattribut „$1“.',
+	'cite_error_references_missing_group' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag hat das Gruppenattribut „$1“, das nicht im vorausgehenden Text vorkommt.',
+	'cite_error_references_missing_key' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ wird im vorausgehenden Text nicht verwendet.',
+	'cite_error_references_no_key' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag hat kein Namensattribut.',
+	'cite_error_empty_references_define' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ weist keinen Inhalt auf.',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
@@ -669,7 +660,6 @@ $messages['de'] = array(
  */
 $messages['de-formal'] = array(
 	'cite_error_ref_numeric_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutzen Sie einen beschreibenden Namen.',
-	'cite_error_references_invalid_input' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es ist kein zusätzlicher Text erlaubt, verwenden Sie ausschließlich <tt><nowiki><references /></nowiki></tt>.',
 	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwenden Sie ausschließlich <tt><nowiki><references /></nowiki></tt>.',
 );
 
@@ -775,8 +765,6 @@ nomo ne povas esti simpla entjero. Uzu priskriban titolon.',
 nevalidaj nomoj (ekz-e: tro multaj)',
 	'cite_error_ref_no_input' => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
 ref-etikedoj sen nomo devas havi enhavojn.',
-	'cite_error_references_invalid_input' => 'Nevalida etikedo <code>&lt;references&gt;</code>;
-neniu enigo estas permesita. Uzu etikedon <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Nevalida etikedon <code>&lt;references&gt;</code>;
 parametro "group" nur estas permesita.
@@ -863,7 +851,6 @@ $messages['fa'] = array(
 	'cite_error_ref_no_key' => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون محتوا باید نام داشته باشند',
 	'cite_error_ref_too_many_keys' => 'برچسب <code><ref></code> غیرمجاز؛ نام‌های غیرمجاز یا بیش از اندازه',
 	'cite_error_ref_no_input' => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون نام باید محتوا داشته باشند',
-	'cite_error_references_invalid_input' => 'برچسب <code><references></code> غیرمجاز؛ ورود متن مجاز نیست، از <code><references /></code> استفاده کنید',
 	'cite_error_references_invalid_parameters' => 'برچسب <code><references></code> غیرمجاز؛ استفاده از پارامتر مجاز است. از <code><references /></code> استفاده کنید',
 	'cite_error_references_invalid_parameters_group' => 'برچسب <code>&lt;references&gt;</code> غیر مجاز؛ تنها پارامتر «group» قابل استفاده است.
 از <code>&lt;references /&gt;</code> یا <code>&lt;references group="..." /&gt;</code> استفاده کنید',
@@ -1036,7 +1023,6 @@ $messages['gsw'] = array(
 	'cite_error_ref_no_key' => 'Uugiltigi <tt>&lt;ref&gt;</tt>-Verwändig: „ref“ ohni Inhalt muess e Name haa.',
 	'cite_error_ref_too_many_keys' => 'Uugiltigi <tt>&lt;ref&gt;</tt>-Verwändig: „name“ isch uugiltig oder z lang.',
 	'cite_error_ref_no_input' => 'Uugiltigi <tt>&lt;ref&gt;</tt>-Verwändig: „ref“ ohni Name muess e Inhalt haa.',
-	'cite_error_references_invalid_input' => 'Uugiltigi <tt>&lt;references&gt;</tt>-Verwändig: S isch kei zuesätzlige Täxt erlaubt, verwänd usschließli <tt><nowiki><references /></nowiki></tt>.',
 	'cite_error_references_invalid_parameters' => 'Uugiltigi <tt>&lt;references&gt;</tt>-Verwändig: S sin kei zuesätzligi Parameter erlaubt, verwänd usschließli <tt><nowiki><references /></nowiki></tt>.',
 	'cite_error_references_invalid_parameters_group' => 'Uugiltigi <tt>&lt;references&gt;</tt>-Verwändig: Nume dr Parameter „group“ isch erlaubt, verwänd <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="..." /&gt;</tt>',
 	'cite_error_references_no_backlink_label' => 'E Referenz mit dr Form <tt>&lt;ref name="..."/&gt;</tt> wird meh brucht as es Buechstabe git. E Ammann muess  <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> go wyteri Buechstabe/Zeiche ergänze.',
@@ -1044,6 +1030,18 @@ $messages['gsw'] = array(
 	'cite_error_included_ref' => 'S fählt s schließend &lt;/ref&gt;',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-Tag git s, aber s isch kei <code>&lt;references/&gt;</code>-Tag gfunde wore.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tag git s fir d Grupp „$1“, aber s isch kei dezue gherig <code>&lt;references group=„$1“/&gt;</code>-Tag gfunde wore',
+	'cite_error_references_group_mismatch' => 'Im <code>&lt;ref&gt;</code>-Tag in <code>&lt;references&gt;</code> het s e problematischi Gruppe-Eigeschaft  „$1“.',
+	'cite_error_references_missing_group' => 'Im <code>&lt;ref&gt;</code>-Tag, wu definiert isch in <code>&lt;references&gt;</code>, het s e Gruppe-Eigeschaft „$1“, wu im obere Text nit vorchunnt.',
+	'cite_error_references_missing_key' => 'S <code>&lt;ref&gt;</code>-Tag mit em Name „$1“, wu definiert isch in <code>&lt;references&gt;</code> wird nit verwändet im obere Text.',
+	'cite_error_references_no_key' => 'S <code>&lt;ref&gt;</code>-Tag, wu definiert isch in <code>&lt;references&gt;</code>, het kei Name-Eigeschaft.',
+	'cite_error_empty_references_define' => 'Im <code>&lt;ref&gt;</code>-Tag, wu definiert isch in <code>&lt;references&gt;</code>, mit em Name „$1“ het s kei Inhalt.',
+);
+
+/** Gujarati (ગુજરાતી)
+ * @author Dsvyas
+ */
+$messages['gu'] = array(
+	'cite_references_link_many_format_backlink_labels' => '',
 );
 
 /** Hebrew (עברית)
@@ -1092,7 +1090,6 @@ $messages['hi'] = array(
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> गलत कोड; खाली संदर्भोंको नाम होना आवश्यक हैं',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> गलत कोड; गलत नाम, उदा. ढेर सारी',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> गलत कोड; नाम ना होने वाले संदर्भोंमें ज़ानकारी देना आवश्यक हैं',
-	'cite_error_references_invalid_input' => '<code>&lt;ref&gt;</code> गलत कोड; इनपुट नहीं कर सकतें। <code>&lt;references /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स नहीं दे सकते, <code>&lt;references /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> गलत कोड; सिर्फ पॅरॅमीटर का "ग्रुप" इस्तेमाल में लाया जा सकता हैं, <code>&lt;references /&gt;</code> या फिर <code>&lt;references group="..." /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_no_backlink_label' => 'तैयार किये हुए पीछे की कड़ियां देनेवाले नाम खतम हुए हैं, अधिक नाम <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> इस संदेश में बढायें',
@@ -1114,8 +1111,6 @@ $messages['hr'] = array(
 	'cite_error_ref_no_key' => 'Loša <code>&lt;ref&gt;</code> oznaka; ref-ovi bez sadržaja moraju imati naziv',
 	'cite_error_ref_too_many_keys' => 'Loša <code>&lt;ref&gt;</code> oznaka; loš naziv, npr. previše naziva',
 	'cite_error_ref_no_input' => 'Loša <code>&lt;ref&gt;</code> oznaka; ref-ovi bez imena moraju imati sadržaj',
-	'cite_error_references_invalid_input' => 'Loša <code>&lt;references&gt;</code> oznaka; nije dozvoljen unos, koristite
-<code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Loša <code>&lt;references&gt;</code> oznaka; parametri nisu dozvoljeni, koristite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Neispravna <code>&lt;references&gt;</code> oznaka;
 Dopuštena je samo opcija "group".
@@ -1173,7 +1168,6 @@ Sa pa te dwe janm rive',
 	'cite_error_ref_no_key' => 'Apèl sa pa bon : nou pa bay pyès kle',
 	'cite_error_ref_too_many_keys' => 'Apèl ou fè an pa bon ; kle yo pa bon, pa egzanp, nou bay twòp kle oubyen kle yo pa bon oubyen nou pa byen rantre yo nan sistèm an.',
 	'cite_error_ref_no_input' => 'Apèl ou fè an pa bon ; ou pa presize pyès antre',
-	'cite_error_references_invalid_input' => 'Sa ou antre a pa bon <code>&lt;references&gt;</code>; antre ki te dwe vini <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Agiman, paramèt sa yo pa bon ; agiman nou tap tann',
 	'cite_error_references_invalid_parameters_group' => 'Kòd sa pa bon <code>&lt;referans&gt;</code> ;
 
@@ -1199,8 +1193,6 @@ $messages['hu'] = array(
 	'cite_error_ref_no_key' => 'Érvénytelen <code>&lt;ref&gt;</code> tag; a tartalom nélküli ref-eknek kötelező nevet (name) adni',
 	'cite_error_ref_too_many_keys' => 'Érvénytelen <code>&lt;ref&gt;</code> tag; hibás nevek, pl. túl sok',
 	'cite_error_ref_no_input' => 'Érvénytelen <code>&lt;ref&gt;</code> tag; a név (name) nélküli ref-eknek adni kell valamilyen tartalmat',
-	'cite_error_references_invalid_input' => 'Érvénytelen <code>&lt;references&gt;</code> tag; nem lehet neki tartalmat adni, használd a
-<code>&lt;references /&gt;</code> formát',
 	'cite_error_references_invalid_parameters' => 'Érvénytelen <code>&lt;references&gt;</code> tag; nincsenek paraméterei, használd a <code>&lt;references /&gt;</code> formát',
 	'cite_error_references_invalid_parameters_group' => 'Érvénytelen <code>&lt;references&gt;</code> tag; csak a „group” attribútum használható. Használd a <code>&lt;references /&gt;</code>, vagy a <code>&lt;references group="..." /&gt;</code> formát.',
 	'cite_error_references_no_backlink_label' => 'Elfogytak a visszahivatkozásra használt címkék, adj meg többet a <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> üzenetben',
@@ -1231,8 +1223,6 @@ le refs sin contento debe haber un nomine',
 nomines invalide, p.ex. troppo de nomines',
 	'cite_error_ref_no_input' => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
 le refs sin nomine debe haber contento',
-	'cite_error_references_invalid_input' => 'Etiquetta <code>&lt;references&gt;</code> invalide;
-nulle entrata es permittite. Usa <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Etiquetta <code>&lt;references&gt;</code> invalide;
 nulle parametros es permittite.
 Usa <code>&lt;references /&gt;</code>',
@@ -1249,6 +1239,7 @@ nulle texto esseva fornite pro le refs nominate <code>$1</code>',
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author IvanLanin
  * @author Rex
  */
@@ -1258,23 +1249,37 @@ $messages['id'] = array(
 	'cite_error_key_str_invalid' => 'Kesalahan internal;
 $str dan/atau $key tidak sah.
 Kesalahan ini seharusnya tidak terjadi.',
-	'cite_error_stack_invalid_input' => 'Kesalahan internal; kunci stack tak sah',
-	'cite_error' => 'Kesalahan pengutipan $1',
-	'cite_error_ref_numeric_key' => 'Kesalahan pemanggilan; diharapkan suatu kunci non-integer',
-	'cite_error_ref_no_key' => 'Kesalahan pemanggilan; tidak ada kunci yang dispesifikasikan',
-	'cite_error_ref_too_many_keys' => 'Kesalahan pemanggilan; kunci tak sah, contohnya karena terlalu banyak atau tidak ada kunci yang dispesifikasikan',
-	'cite_error_ref_no_input' => 'Kesalahan pemanggilan; tidak ada masukan yang dispesifikasikan',
-	'cite_error_references_invalid_input' => 'Kesalahan masukan; seharusnya tidak ada',
-	'cite_error_references_invalid_parameters' => 'Paramater tak sah; seharusnya tidak ada',
-	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> tidak valid;
+	'cite_error_stack_invalid_input' => "Kesalahan internal; 
+kunci ''stack'' tak sah.
+Kesalahan ini seharusnya tidak terjadi.",
+	'cite_error' => 'Kesalahan pengutipan: $1',
+	'cite_error_ref_numeric_key' => 'Tag <code>&lt;ref&gt;</code> tidak sah; 
+nama tidak boleh intejer sederhana.
+Gunakan nama deskriptif',
+	'cite_error_ref_no_key' => 'Tag <code>&lt;ref&gt;</code> tidak sah;
+referensi tanpa isi harus memiliki nama',
+	'cite_error_ref_too_many_keys' => 'Tag <code>&lt;ref&gt;</code> tidak sah;
+nama tidak sah; misalnya, terlalu banyak',
+	'cite_error_ref_no_input' => 'Tag <code>&lt;ref&gt;</code> tidak sah;
+referensi tanpa nama harus memiliki isi',
+	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> tidak sah;
+parameter tidak diperbolehkan.
+Gunakan <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> tidak sah;
 hanya parameter "group" yang diizinkan.
-Gunakan tag <code>&lt;references /&gt;</code>, atau <code>&lt;references group="..." /&gt;</code>',
+Gunakan <code>&lt;references /&gt;</code>, atau <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Kehabisan label pralana balik tersuai.
 Tambahkan lagi di pesan sistem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> tak valid; tak ditemukan teks dengan ref dengan nama <code>$1</code>',
+	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> tidak sah; 
+tidak ditemukan teks untuk ref bernama <code>$1</code>',
 	'cite_error_included_ref' => 'Tag &lt;ref&gt; harus ditutup oleh &lt;/ref&gt;',
-	'cite_error_refs_without_references' => 'Ada tag <code>&lt;ref&gt;</code> ditemukan, tapi tidak ditemukan tag <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'Ada tag <code>&lt;ref&gt;</code> untuk grup "$1", tapi tidak ditemukan tag <code>&lt;references group="$1"/&gt;</code> yang berkaitan',
+	'cite_error_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemukan, tapi tag <code>&lt;references/&gt;</code> tidak ditemukan',
+	'cite_error_group_refs_without_references' => 'Ditemukan tag <code>&lt;ref&gt;</code> untuk kelompok bernama "$1", tapi tidak ditemukan tag <code>&lt;references group="$1"/&gt;</code> yang berkaitan',
+	'cite_error_references_group_mismatch' => 'Tag <code>&lt;ref&gt;</code> di <code>&lt;references&gt;</code> memiliki atribut kelompok yang bertentangan "$1".',
+	'cite_error_references_missing_group' => 'Tag <code>&lt;ref&gt;</code> yang didefinisikan di <code>&lt;references&gt;</code> memiliki atribut kelompok "$1" yang tidak ditampilkan di teks sebelumnya.',
+	'cite_error_references_missing_key' => 'Tag <code>&lt;ref&gt;</code> dengan nama "$1" yang didefinisikan di <code>&lt;references&gt;</code> tidak digunakan pada teks sebelumnya.',
+	'cite_error_references_no_key' => 'Tag <code>&lt;ref&gt;</code> yang didefinisikan di di <code>&lt;references&gt;</code> tidak memiliki nama atribut.',
+	'cite_error_empty_references_define' => 'Tag <code>&lt;ref&gt;</code> yang didefinisikan di di <code>&lt;references&gt;</code> dengan nama "$1" tidak memiliki isi.',
 );
 
 /** Ido (Ido)
@@ -1335,7 +1340,6 @@ $messages['ja'] = array(
 	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグ。引用句の内容がない場合には名前（<code>name</code> 属性）が必要です',
 	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグ。引数が不正（数が多すぎる、など）',
 	'cite_error_ref_no_input' => '無効な <code>&lt;ref&gt;</code> タグ。名前（<code>name</code> 属性）がない場合には引用句の内容が必要です',
-	'cite_error_references_invalid_input' => '無効な <code>&lt;references&gt;</code> タグ。内容をもつことはできません。<code>&lt;references /&gt;</code> を用いてください',
 	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ。引数は指定できません。<code>&lt;references /&gt;</code> を用いてください',
 	'cite_error_references_invalid_parameters_group' => '無効な <code>&lt;references&gt;</code> タグです。使用できるパラメータは "group" のみです。<code>&lt;references /&gt;</code> または <code>&lt;references group="..." /&gt;</code> を用いてください',
 	'cite_error_references_no_backlink_label' => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください',
@@ -1343,6 +1347,11 @@ $messages['ja'] = array(
 	'cite_error_included_ref' => '&lt;ref&gt; タグに対応する &lt;/ref&gt; が不足しています',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> タグがありますが、<code>&lt;references/&gt;</code> タグが見つかりません',
 	'cite_error_group_refs_without_references' => '「$1」というグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つかりません',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> の<code>&lt;ref&gt;</code> タグに重複するグループ用引数 "$1" が使用されています。',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグに使用されているグループ用引数 "$1" は先行するテキスト内に使用されていません。',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> で定義されている "name=$1" を持つ <code>&lt;ref&gt;</code> タグは先行するテキスト内で使用されていません。',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグには name 属性がありません。',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> で定義されている "name=$1" を持つ <code>&lt;ref&gt;</code> タグには中身がありません。',
 );
 
 /** Jutish (Jysk)
@@ -1357,7 +1366,6 @@ $messages['jut'] = array(
 	'cite_error_ref_no_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden indhold skal have et navn',
 	'cite_error_ref_too_many_keys' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldege navne, fx før mange',
 	'cite_error_ref_no_input' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden navn skal have indhold',
-	'cite_error_references_invalid_input' => 'Ugyldigt <code>&lt;references&gt;</code>-tag: Indhold ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'For mange <code>&lt;ref&gt;</code>-tags har det samme "name", tillad flere i beskeden <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
@@ -1385,8 +1393,6 @@ refs tanpa isi kudu duwé jeneng',
 jeneng-jenengé ora absah, contoné kakèhan',
 	'cite_error_ref_no_input' => 'Tag <code>&lt;ref&gt;</code> ora absah;
 refs tanpa jeneng kudu ana isiné',
-	'cite_error_references_invalid_input' => 'Tag <code>&lt;references&gt;</code> ora absah;
-input (panglebokan) ora diparengaké. Enggonen <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> ora absah;
 ora ana paramèter sing diidinaké.
 Gunakna <code>&lt;references /&gt;</code>',
@@ -1410,7 +1416,6 @@ $messages['kk-arab'] = array(
 	'cite_error_ref_no_key' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; ماعلۇماتسىز تٷسٸنٸكتەمەلەردە اتاۋ بولۋى قاجەت',
 	'cite_error_ref_too_many_keys' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; جارامسىز اتاۋلار, مىسالى, تىم كٶپ',
 	'cite_error_ref_no_input' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; اتاۋسىز تٷسٸنٸكتەمەلەردە ماعلۇماتى بولۋى قاجەت',
-	'cite_error_references_invalid_input' => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش كٸرٸس رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
 	'cite_error_references_invalid_parameters' => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش باپتار رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
 	'cite_error_references_no_backlink_label' => 'قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> جٷيە حابارىندا بەلگٸلەڭٸز',
 );
@@ -1425,7 +1430,6 @@ $messages['kk-cyrl'] = array(
 	'cite_error_ref_no_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; мағлұматсыз түсініктемелерде атау болуы қажет',
 	'cite_error_ref_too_many_keys' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; жарамсыз атаулар, мысалы, тым көп',
 	'cite_error_ref_no_input' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; атаусыз түсініктемелерде мағлұматы болуы қажет',
-	'cite_error_references_invalid_input' => 'Жарамсыз <code>&lt;references&gt;</code> белгіше; еш кіріс рұқсат етілмейді, былай <code>&lt;references /&gt;</code> қолданыңыз',
 	'cite_error_references_invalid_parameters' => 'Жарамсыз <code>&lt;references&gt;</code> белгіше; еш баптар рұқсат етілмейді, былай <code>&lt;references /&gt;</code> қолданыңыз',
 	'cite_error_references_no_backlink_label' => 'Қосымша белгілердің саны бітті, одан әрі көбірек <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> жүйе хабарында белгілеңіз',
 );
@@ -1440,7 +1444,6 @@ $messages['kk-latn'] = array(
 	'cite_error_ref_no_key' => 'Jaramsız <code>&lt;ref&gt;</code> belgişesi; mağlumatsız tüsiniktemelerde ataw bolwı qajet',
 	'cite_error_ref_too_many_keys' => 'Jaramsız <code>&lt;ref&gt;</code> belgişe; jaramsız atawlar, mısalı, tım köp',
 	'cite_error_ref_no_input' => 'Jaramsız <code>&lt;ref&gt;</code> belgişe; atawsız tüsiniktemelerde mağlumatı bolwı qajet',
-	'cite_error_references_invalid_input' => 'Jaramsız <code>&lt;references&gt;</code> belgişe; eş kiris ruqsat etilmeýdi, bılaý <code>&lt;references /&gt;</code> qoldanıñız',
 	'cite_error_references_invalid_parameters' => 'Jaramsız <code>&lt;references&gt;</code> belgişe; eş baptar ruqsat etilmeýdi, bılaý <code>&lt;references /&gt;</code> qoldanıñız',
 	'cite_error_references_no_backlink_label' => 'Qosımşa belgilerdiñ sanı bitti, odan äri köbirek <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> jüýe xabarında belgileñiz',
 );
@@ -1585,7 +1588,6 @@ $messages['li'] = array(
 	'cite_error_ref_no_key' => "Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger inhoud mótte 'ne naam höbbe",
 	'cite_error_ref_too_many_keys' => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; ónzjuuste name, beveurbeildj te väöl',
 	'cite_error_ref_no_input' => 'Ónzjuuste tag <code>&lt;ref&gt;</code>; refs zónger naam mótte inhoud höbbe',
-	'cite_error_references_invalid_input' => 'Ónzjuuste tag <code>&lt;references&gt;</code>; inveur is neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ónzjuuste tag <code>&lt;references&gt;</code>; paramaeters zeen neet toegestaon, gebroek <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Onjuuste tag <code>&lt;references&gt;</code>;
 allein de paramaeter "group" is toegestaon.
@@ -1610,7 +1612,6 @@ $messages['lt'] = array(
 	'cite_error_ref_no_key' => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be turinio turi turėti vardą',
 	'cite_error_ref_too_many_keys' => 'Neleistina <code>&lt;ref&gt;</code> gairė; neleistini vardai, pvz., per daug',
 	'cite_error_ref_no_input' => 'Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be vardo turi turėti turinį',
-	'cite_error_references_invalid_input' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleistina jokia įvestis, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Baigėsi antraštės.
 Nurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> sisteminiame tekste',
@@ -1685,8 +1686,6 @@ $messages['ml'] = array(
 അസാധുവായ പേരുകള്‍, ഉദാ: too many',
 	'cite_error_ref_no_input' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
 പേരില്ലാത്ത അവലംബത്തിനു ഉള്ളടക്കമുണ്ടായിരിക്കണം.',
-	'cite_error_references_invalid_input' => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
-റെഫറന്‍സ് ടാഗിനകത്ത് ടെക്സ്റ്റ് അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണു.',
 	'cite_error_references_invalid_parameters' => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
 റെഫറന്‍സ് ടാഗിനകത്ത് പരാമീററ്ററുകള്‍ അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണു.',
 	'cite_error_references_invalid_parameters_group' => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
@@ -1708,7 +1707,6 @@ $messages['mr'] = array(
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> चुकीचा कोड; रिकाम्या संदर्भांना नाव असणे गरजेचे आहे',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> चुकीचा कोड; चुकीची नावे, उदा. खूप सारी',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> चुकीचा कोड; निनावी संदर्भांमध्ये माहिती असणे गरजेचे आहे',
-	'cite_error_references_invalid_input' => '<code>&lt;references&gt;</code> चुकीचा कोड; माहिती देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स देता येत नाही, <code>&lt;references /&gt;</code> हा कोड वापरा',
 	'cite_error_references_invalid_parameters_group' => 'चुकीची <code>&lt;references&gt;</code> खूण; फक्त पॅरॅमीटर चा गट वापरता येईल, <code>&lt;references /&gt;</code> किंवा <code>&lt;references group="..." /&gt;</code> चा वापर करा',
 	'cite_error_references_no_backlink_label' => 'तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> या प्रणाली संदेशात लिहा',
@@ -1729,7 +1727,6 @@ $messages['ms'] = array(
 	'cite_error_ref_no_key' => 'Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa kandungan mestilah mempunyai nama',
 	'cite_error_ref_too_many_keys' => 'Tag <code>&lt;ref&gt;</code> tidak sah; nama-nama tidak sah, misalnya terlalu banyak',
 	'cite_error_ref_no_input' => "'Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa nama mestilah mempunyai kandungan",
-	'cite_error_references_invalid_input' => 'Tag <code>&lt;references&gt;</code> tidak sah; input tidak dibenarkan, gunakan <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> tidak sah; parameter tidak dibenarkan, gunakan <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> tidak sah; hanya parameter "group" dibenarkan.
 Gunakan <code>&lt;references /&gt;</code> atau <code>&lt;references group="..." /&gt;</code>',
@@ -1753,7 +1750,6 @@ $messages['nds'] = array(
 	'cite_error_ref_no_key' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: „ref“ ahn Inholt mutt en Naam hebben.',
 	'cite_error_ref_too_many_keys' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: ungüllige Naams, to’n Bispeel to veel.',
 	'cite_error_ref_no_input' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>: „ref“ ahn Naam mutt en Inholt hebben.',
-	'cite_error_references_invalid_input' => 'Ungülligen Tag <code>&lt;references&gt;</code>: Tosätzlichen Text is nich verlöövt, bruuk <tt>&lt;references /&gt;</tt>',
 	'cite_error_references_invalid_parameters' => 'Ungülligen Tag <code>&lt;references&gt;</code>: Parameters sünd nich verlöövt, bruuk <tt>&lt;references /&gt;</tt>',
 	'cite_error_references_invalid_parameters_group' => 'Ungülligen Tag <code>&lt;references&gt;</code>: Blot de Parameter „group“ is verlöövt, bruuk <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="..." /&gt;</tt>',
 	'cite_error_references_no_backlink_label' => 'De verföögboren Tekens för de Lenken op Referenzen sünd all. Dat lett sik repareren, wenn in de Systemnaricht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mehr Tekens angeven warrt.',
@@ -1843,7 +1839,6 @@ $messages['no'] = array(
 	'cite_error_ref_no_key' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten innhold må inneholde navn',
 	'cite_error_ref_too_many_keys' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; ugyldige navn, f.eks. for mange',
 	'cite_error_ref_no_input' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten navn må ha innhold',
-	'cite_error_references_invalid_input' => 'Ugyldig <code>&lt;references&gt;</code>-tagg: Innhold er ikke tillatt, bruk i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-kode; ingen parametere tillates, bruk <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Ugyldig <code>&lt;references&gt;</code>-tagg; kun parameteret «group» tillates. Bruk <code>&lt;references /&gt;</code> eller <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => "Gikk tom for egendefinerte tilbakelenketekster; definer flere i beskjeden «''cite_references_link_many_format_backlink_labels''»",
@@ -2026,8 +2021,6 @@ ch'usaq pukyu willana unanchachaqa sutiyuqmi kachun",
 sutinkunaqa manam allinchu, nisyu sutinchá',
 	'cite_error_ref_no_input' => "<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
 sutinnaq pukyu willana unanchachaqa ama ch'usaqchu kachun",
-	'cite_error_references_invalid_input' => "<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
-ama willa yaykuchiychu kachun. <code>&lt;references /&gt;</code> unanchachallata llamk'achiy",
 	'cite_error_references_invalid_parameters' => "<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
 ama kuskanachina tupuchu kachun. <code>&lt;references /&gt;</code> unanchachata llamk'achiy",
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
@@ -2063,8 +2056,6 @@ ref-urile fără conţinut trebuie să aibă un nume',
 nume invalid, ex. prea multe nume',
 	'cite_error_ref_no_input' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
 ref-urile fără nume trebuie să aibă conţinut',
-	'cite_error_references_invalid_input' => 'Etichetă <code>&lt;references&gt;</code> invalidă;
-nu sunt permise intrări. Foloseşte eticheta <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Etichetă <code>&lt;references&gt;</code> invalidă;
 parametrii nu sunt permişi.
 Foloseşte eticheta <code>&lt;references /&gt;</code>',
@@ -2282,7 +2273,7 @@ Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="...
 	'cite_error_empty_references_define' => 'Značka <code>&lt;ref&gt;</code> s definovaná v <code>&lt;references&gt;</code> s názvom „$1“ nemá žiaden obsah.',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Михајло Анђелковић
  */
@@ -2296,7 +2287,6 @@ $messages['sr-ec'] = array(
 	'cite_error_ref_no_key' => 'Лоша ознака <code>&lt;ref&gt;</code>; ref-ови без садржаја морају имати име.',
 	'cite_error_ref_too_many_keys' => 'Лоша ознака <code>&lt;ref&gt;</code>; лоша имена, односно много њих.',
 	'cite_error_ref_no_input' => 'Лоша ознака <code>&lt;ref&gt;</code>; ref-ови без имена морају имати садржај.',
-	'cite_error_references_invalid_input' => 'Лоша ознака <code>&lt;references&gt;</code>; улаз није дозвољен. Користи <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters' => 'Лоша ознака <code>&lt;references&gt;</code>; параметри нису дозвољени. Користи <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters_group' => 'Лоша ознака <code>&lt;references&gt;</code>; само је парамтера "group" дозвољен. Користи <code>&lt;references /&gt;</code> или <code>&lt;references group="..."&gt;</code>.',
 	'cite_error_references_no_backlink_label' => 'Нестале су посебне ознаке за задње везе. Одреди их више у поруци <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
@@ -2406,7 +2396,6 @@ $messages['te'] = array(
 	'cite_error_ref_no_key' => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; విషయం లేని ref లకు తప్పనిసరిగా పేరొకటుండాలి',
 	'cite_error_ref_too_many_keys' => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; తప్పు పేర్లు, ఉదాహరణకు మరీ ఎక్కువ',
 	'cite_error_ref_no_input' => 'సరైన <code>&lt;ref&gt;</code> ట్యాగు కాదు; పేరు లేని ref లలో తప్పనిసరిగా విషయం ఉండాలి',
-	'cite_error_references_invalid_input' => 'సరైన <code>&lt;references&gt;</code> ట్యాగు కాదు; ఇన్‌పుట్ కు అనుమతి లేదు, <code>&lt;references /&gt;</code> వాడండి.',
 	'cite_error_references_invalid_parameters' => 'సరైన <code>&lt;references&gt;</code> ట్యాగు కాదు; పారామీటర్లకు కు అనుమతి లేదు, ఈ లోపాన్ని కలుగజేసే ఒక ఉదాహరణ: <references someparameter="value" />',
 	'cite_error_references_no_backlink_label' => 'మీ స్వంత బ్యాక్‌లింకు లేబుళ్ళు అయిపోయాయి. <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> సందేశంలో మరిన్ని లేబుళ్ళను నిర్వచించుకోండి.',
 	'cite_error_references_no_text' => 'సరైన <code>&lt;ref&gt;</code> కాదు; <code>$1</code> అనే పేరుగల ref లకు పాఠ్యమేమీ ఇవ్వలేదు',
@@ -2425,8 +2414,6 @@ $messages['tg-cyrl'] = array(
 	'cite_error_ref_no_key' => 'Барчасби <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳо бидуни мӯҳтаво бояд ном дошта бошанд',
 	'cite_error_ref_too_many_keys' => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; номҳои ғайримиҷоз ё беш аз андоза',
 	'cite_error_ref_no_input' => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; ёдкардҳои бидуни ном бояд мӯҳтаво дошта бошанд',
-	'cite_error_references_invalid_input' => 'Барчасби <code>&lt;references&gt;</code> ғайримиҷоз; вуруди матн миҷоз нест, аз
-<code>&lt;references /&gt;</code> истифода кунед',
 	'cite_error_references_invalid_parameters' => 'Барчасби <code>&lt;references&gt;</code> ғайримиҷоз; истифода аз параметр миҷоз аст, аз  <code>&lt;references /&gt;</code> истифода кунед',
 	'cite_error_references_invalid_parameters_group' => 'Барчасби <code>&lt;references&gt;</code> номӯътабар;
 параметри "гурӯҳ" танҳо иҷозашуда аст.
@@ -2628,7 +2615,6 @@ $messages['vo'] = array(
 	'cite_error_ref_no_key' => 'Geb no lonöföl ela <code>&lt;ref&gt;</code>: els ref nen ninäd mutons labön nemi',
 	'cite_error_ref_too_many_keys' => 'El <code>&lt;ref&gt;</code> no lonöfon: labon nemis no lonöfikis, a. s. tumödikis',
 	'cite_error_ref_no_input' => 'El <code>&lt;ref&gt;</code> no lonöfon: els ref nen nem mutons labön ninädi',
-	'cite_error_references_invalid_input' => 'El <code>&lt;references&gt;</code> no lonöfon; gebolös eli <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'El <code>&lt;references&gt;</code> no lonöfon: paramets no padälons. Gebolös eli <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_text' => 'El <code>&lt;ref&gt;</code> no lonöfon: vödem nonik pegivon eles refs labü nem: <code>$1</code>',
 );
@@ -2648,8 +2634,6 @@ $messages['yi'] = array(
 אומגילטיגע נעמען, צ.ב. צו פֿיל',
 	'cite_error_ref_no_input' => 'אומגילטיגער <code>&lt;ref&gt;</code> טאַג;
 א רעפֿערענץ אָן א נאמען דארף האבן תוכן',
-	'cite_error_references_invalid_input' => 'אומגילטיגער <code>&lt;references&gt;</code> טאַג;
-נעמט נישט קיין תוכן. ניצט <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'אומגילטיגער <code>&lt;references&gt;</code> טאַג;
 קיין פאראמעטערס נישט ערלויבט. ניצט <code>&lt;references /&gt;</code>',
 	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&lt;references/&gt;</code> טאַג.",
@@ -2667,7 +2651,6 @@ $messages['yue'] = array(
 	'cite_error_ref_no_key' => '無效嘅呼叫; 未指定匙',
 	'cite_error_ref_too_many_keys' => '無效嘅呼叫; 無效嘅匙, 例如: 太多或者指定咗一個錯咗嘅匙',
 	'cite_error_ref_no_input' => '無效嘅呼叫; 未指定輸入',
-	'cite_error_references_invalid_input' => '無效嘅輸入; 唔需要有嘢',
 	'cite_error_references_invalid_parameters' => '無效嘅參數; 唔需要有嘢',
 	'cite_error_references_invalid_parameters_group' => '無效嘅<code>&lt;references&gt;</code>標籤；
 只容許 "group" 參數。
@@ -2691,7 +2674,6 @@ $messages['zh-hans'] = array(
 	'cite_error_ref_no_key' => '无效<code>&lt;ref&gt;</code>标签；未填内容的引用必须填写name属性',
 	'cite_error_ref_too_many_keys' => '无效<code>&lt;ref&gt;</code>标签；name属性非法，可能是内容过长',
 	'cite_error_ref_no_input' => '无效<code>&lt;ref&gt;</code>标签；未填name属性的引用必须填写内容',
-	'cite_error_references_invalid_input' => '无效<code>&lt;references&gt;</code>标签；不允许填写内容，请使用<code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => '无效<code>&lt;references&gt;</code>标签；不允许填写参数，请使用<code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => '无效<code>&lt;references&gt;</code>标签；只允许填写“group”参数，请使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => '自定义回链标签耗尽。请在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定义更多的标签',
@@ -2714,7 +2696,6 @@ $messages['zh-hant'] = array(
 	'cite_error_ref_no_key' => '無效<code>&lt;ref&gt;</code>標簽；未填內容的引用必須填寫name屬性',
 	'cite_error_ref_too_many_keys' => '無效<code>&lt;ref&gt;</code>標簽；name屬性非法，可能是內容過長',
 	'cite_error_ref_no_input' => '無效<code>&lt;ref&gt;</code>標簽；未填name屬性的引用必須填寫內容',
-	'cite_error_references_invalid_input' => '無效<code>&lt;references&gt;</code>標簽；不允许填寫內容，請使用<code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters' => '無效<code>&lt;references&gt;</code>標簽；不允许填寫參量，請使用<code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => '無效<code>&lt;references&gt;</code>標簽；只允许填寫「group」參量，請使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => '自定義回連標簽耗盡。請在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定義更多的標簽',

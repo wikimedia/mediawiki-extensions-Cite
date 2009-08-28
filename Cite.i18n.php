@@ -425,7 +425,7 @@ $messages['br'] = array(
 	'cite_desc' => 'Ouzhpennañ a ra ar balizennoù <nowiki><ref[ name=id]></nowiki> ha <nowiki><references/></nowiki>, evit an arroudoù.',
 	'cite_croak' => 'Arroud breinet ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Fazi diabarzh ;
-$str ha/pe alc\'hwez$ direizh.
+$str ha/pe key$ direizh.
 Ne zlefe ket c\'hoarvezout gwezh ebet.',
 	'cite_error_stack_invalid_input' => "Fazi diabarzh ;
 alc'hwez pil direizh.
@@ -831,6 +831,27 @@ pues no hay una referencia con texto llamada <code>$1</code>',
  */
 $messages['et'] = array(
 	'cite_desc' => 'Lisab viitamiseks märgendid <nowiki><ref[ name=id]></nowiki> ja <nowiki><references/></nowiki>.',
+	'cite_error' => 'Viitamistõrge: $1',
+	'cite_error_ref_numeric_key' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
+Nimi ei või numbriline olla. Kasuta kirjeldavat nime.',
+	'cite_error_ref_no_key' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
+Sisuta viitamismärgenditel peab nimi olema.',
+	'cite_error_ref_no_input' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
+Nimeta viitamismärgenditel peab sisu olema.',
+	'cite_error_references_invalid_parameters' => 'Vigane <code>&lt;references&gt;</code>-märgend.
+Parameetrid pole lubatud.
+Kasuta märgendit <code>&lt;references /&gt;</code>.',
+	'cite_error_references_invalid_parameters_group' => 'Vigane <code>&lt;references&gt;</code>-märgend.
+Lubatud on ainult parameeter "group".
+Kasuta märgendit <code>&lt;references /&gt;</code> või <code>&lt;references group="..." /&gt;</code>.',
+	'cite_error_references_no_text' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
+Viite nimega <code>$1</code> tekst puudub.',
+	'cite_error_included_ref' => 'Sulgemismärgend &lt;/ref&gt; puudub.',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-märgendid on olemas, aga <code>&lt;references/&gt;</code>-märgend puudub.',
+	'cite_error_group_refs_without_references' => 'Olemas on <code>&lt;ref&gt;</code>-märgend rühma "$1" jaoks, aga vastav <code>&lt;references group="$1"/&gt;</code>-märgend puudub.',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-märgendite vahel oleval <code>&lt;ref&gt;</code>-märgendil on vastukäiv parameetri "group" väärtus "$1".',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code>-märgendite vahel olevat <code>&lt;ref&gt;</code>-märgendit nimega "$1" ei kasutata eelnevas tekstis.',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-märgendite vahel oleval <code>&lt;ref&gt;</code>-märgendil nimega "$1" puudub sisu.',
 );
 
 /** Basque (Euskara) */
@@ -1536,6 +1557,10 @@ Et wohr keine Tex aanjejovve för de
 	'cite_error_references_missing_key' => 'Dä <code>&lt;ref&gt;</code> Befähl mem Naame „$1“, aanjejoove em Befähl <code>&lt;references&gt;</code>, es em Täx doför nit vörjekumme.',
 	'cite_error_references_no_key' => 'Dä <code>&lt;ref&gt;</code> Befähl, aanjejoove em Befähl <code>&lt;references&gt;</code>, hät kei Eijeschaff <code>name=</code> aanjejovve.',
 	'cite_error_empty_references_define' => 'Dä <code>&lt;ref&gt;</code> Befähl mem Naame „$1“, aanjejoove em Befähl <code>&lt;references&gt;</code> mem Name „$1“, hät keine Enhallt.',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link_prefix' => 'fohss_noht_betreck_',
+	'cite_references_link_prefix' => 'fohss_noht_nommer_',
+	'cite_references_link_many_and' => '&#32;',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

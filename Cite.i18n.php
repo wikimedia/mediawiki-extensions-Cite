@@ -1221,6 +1221,8 @@ $messages['hu'] = array(
 	'cite_error_included_ref' => 'Egy &lt;ref&gt; tag lezáró &lt;/ref&gt; része hiányzik',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-ek vannak a lapon, de nincsen <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-ek léteznek a(z) „$1” csoporthoz, de nincs hozzá <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'A <code>&lt;references&gt;</code> és a benne található <code>&lt;ref&gt;</code> tag csoport-attribútuma („$1”) nem egyezik meg.',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> tag lett lett definiálva egy olyan <code>&lt;references&gt;</code> tagben, amely csoport-attribútuma („$”) nem szerepel a szöveg korábbi részében.',
 );
 
 /** Interlingua (Interlingua)

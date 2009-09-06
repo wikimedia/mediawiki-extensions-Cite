@@ -728,9 +728,9 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'cite_article_desc' => '[[Special:Cite|引用情報のための特別ページ]]とツールボックスからのリンクを追加する',
 	'cite_article_link' => 'この項目を引用する',
-	'cite' => '{{SITENAME}}の項目を引用する',
+	'cite' => '引用',
 	'cite_page' => 'ページ:',
-	'cite_submit' => '引用する',
+	'cite_submit' => '引用',
 );
 
 /** Jutish (Jysk)

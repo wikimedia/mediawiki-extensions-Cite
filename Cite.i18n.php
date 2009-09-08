@@ -1202,6 +1202,7 @@ Nou pa bay pyès tèks pou referans nou nonmen yo <code>$1</code>',
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author KossuthRad
  */
 $messages['hu'] = array(
@@ -1222,7 +1223,10 @@ $messages['hu'] = array(
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-ek vannak a lapon, de nincsen <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-ek léteznek a(z) „$1” csoporthoz, de nincs hozzá <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'A <code>&lt;references&gt;</code> és a benne található <code>&lt;ref&gt;</code> tag csoport-attribútuma („$1”) nem egyezik meg.',
-	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> tag lett lett definiálva egy olyan <code>&lt;references&gt;</code> tagben, amely csoport-attribútuma („$”) nem szerepel a szöveg korábbi részében.',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> tag lett lett definiálva egy olyan <code>&lt;references&gt;</code> tagben, amely csoport-attribútuma („$1”) nem szerepel a szöveg korábbi részében.',
+	'cite_error_references_missing_key' => 'a <code>&lt;references&gt;</code> tagben definiált „$1” nevű <code>&lt;ref&gt;</code> tag nem szerepel a szöveg korábbi részében.',
+	'cite_error_references_no_key' => 'a <code>&lt;references&gt;</code> tagben definiált <code>&lt;ref&gt;</code> tagnek nincs név attribútuma.',
+	'cite_error_empty_references_define' => 'a <code>&lt;references&gt;</code> szakaszban definiált „$1” <code>&lt;ref&gt;</code> tagnek nincs tartalma.',
 );
 
 /** Interlingua (Interlingua)

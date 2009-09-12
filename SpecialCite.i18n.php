@@ -120,6 +120,13 @@ $messages['ast'] = array(
 	'cite_submit' => 'Citar',
 );
 
+/** Avaric (Авар)
+ * @author Amikeco
+ */
+$messages['av'] = array(
+	'cite_article_link' => 'Гьумер рехсезе',
+);
+
 /** Bavarian (Boarisch)
  * @author Man77
  */

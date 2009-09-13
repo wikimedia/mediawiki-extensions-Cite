@@ -1568,6 +1568,8 @@ $messages['vec'] = array(
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
+	'cite_article_desc' => 'Ližadab [[Special:Cite|citiruindan]] specialižen lehtpolen da kosketusen azegištos',
+	'cite_article_link' => "Citiruida necidä lehtpol't",
 	'cite' => 'Citiruind',
 	'cite_page' => 'Lehtpol’:',
 	'cite_submit' => 'Citiruida',

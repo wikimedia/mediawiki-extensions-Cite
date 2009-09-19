@@ -1656,6 +1656,20 @@ $messages['lv'] = array(
 	'cite_error' => 'Kļūda atsaucē: $1',
 );
 
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'cite_desc' => 'Mamnpy ny balizy <tt><nowiki><ref[ name="id"]></nowiki></tt> et <tt><nowiki><references/></nowiki></tt> ho an\'ny tsiahy.',
+	'cite_croak' => 'Tsiahy tsy miafana ; $1 : $2',
+	'cite_error_key_str_invalid' => 'Tsy fetezana ety anaty;
+Tsy mety $str na $key.
+Tokony tsy hitranga mihintsy ity tsy fetezana ity.',
+	'cite_error_stack_invalid_input' => 'Tsy fetezana ety anaty ;
+tsy mety ny stack key.
+Tokony tsy hitranga mihitsy ity tsy fetezana ity.',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  * @author Brest
@@ -2605,6 +2619,13 @@ Dòpara <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&
 	'cite_error_references_missing_key' => 'El tag <code>&lt;ref&gt;</code> con nome "$1" definìo in <code>&lt;references&gt;</code> no\'l xe doparà nel testo precedente.',
 	'cite_error_references_no_key' => "El tag <code>&lt;ref&gt;</code> definìo in <code>&lt;references&gt;</code> no'l gà un atributo nome.",
 	'cite_error_empty_references_define' => 'El tag <code>&lt;ref&gt;</code> definìo in <code>&lt;references&gt;</code> con nome "$1" no\'l gà nissun contenuto.',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'cite_error' => 'Citiruindan petuz: $1',
 );
 
 /** Vietnamese (Tiếng Việt)

@@ -9,7 +9,6 @@ if (!defined('MEDIAWIKI')) die();
  * @link http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php Documentation
  *
  * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
- * @author Ireas <ireas@rkrahl.de>
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
@@ -17,7 +16,7 @@ if (!defined('MEDIAWIKI')) die();
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'Cite',
-	'author' => 'Ævar Arnfjörð Bjarmason, Ireas',
+	'author' => 'Ævar Arnfjörð Bjarmason',
 	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link', // kept for b/c
 	'descriptionmsg' => 'cite_article_desc',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
@@ -47,7 +46,7 @@ function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 }
 
 /**
- * call the function that adds the cite link in the toolbar
+ * add the cite link to the toolbar
  */
 function wfSpecialCiteToolbox( &$skin ) {
 	if ( isset( $skin->data['nav_urls']['cite'] ) ) {

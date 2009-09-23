@@ -9,6 +9,7 @@ if (!defined('MEDIAWIKI')) die();
  * @link http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php Documentation
  *
  * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
+ * @author Ireas <ireas@rkrahl.de>
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
@@ -16,7 +17,7 @@ if (!defined('MEDIAWIKI')) die();
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'Cite',
-	'author' => 'Ævar Arnfjörð Bjarmason',
+	'author' => 'Ævar Arnfjörð Bjarmason, Ireas',
 	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link', // kept for b/c
 	'descriptionmsg' => 'cite_article_desc',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
@@ -35,27 +36,35 @@ $wgAutoloadClasses['SpecialCite'] = $dir . 'SpecialCite_body.php';
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 	wfLoadExtensionMessages( 'SpecialCite' );
-	if ( $skintemplate->mTitle->isContentPage() && $revid !== 0 )
+	// check whether we’re in the right namespace, the $revid has the correct type and is not empty 
+	// (what would mean that the current page doesn’t exist)
+	if ( $skintemplate->mTitle->isContentPage() && $revid !== 0 && !empty( $revid ) )
 		$nav_urls['cite'] = array(
-			'text' => wfMsg( 'cite_article_link' ),
-			'href' => $skintemplate->makeSpecialUrl( 'Cite', "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid" )
+			'args'   => "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid"
 		);
 
 	return true;
 }
 
+/**
+ * call the function that adds the cite link in the toolbar
+ */
 function wfSpecialCiteToolbox( &$skin ) {
-	wfLoadExtensionMessages( 'SpecialCite' );
-	if ( isset( $skin->data['nav_urls']['cite'] ) )
-		if ( $skin->data['nav_urls']['cite']['href'] == '' ) {
-			?><li id="t-iscite"><?php echo $skin->msg( 'cite_article_link' ); ?></li><?php
-		} else {
-			?><li id="t-cite"><?php
-				?><a href="<?php echo htmlspecialchars( $skin->data['nav_urls']['cite']['href'] ) ?>"><?php
-					echo $skin->msg( 'cite_article_link' );
-				?></a><?php
-			?></li><?php
-		}
+	if ( isset( $skin->data['nav_urls']['cite'] ) ) {
+		wfLoadExtensionMessages( 'SpecialCite' );
+		echo Xml::tags( 
+			'li', 
+			array( 'id' => 't-cite' ), 
+			$skin->skin->link(
+				SpecialPage::getTitleFor( 'Cite' ),
+				wfMsg( 'cite_article_link' ),
+				array(
+					'title' => wfMsg( 'cite_article_link_title' )
+				),
+				$skin->data['nav_urls']['cite']['args']
+			)
+		);
+	}
 
 	return true;
 }

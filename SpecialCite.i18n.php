@@ -577,6 +577,7 @@ $messages['haw'] = array(
 $messages['he'] = array(
 	'cite_article_desc' => 'הוספת דף מיוחד וקישור בתיבת הכלים ל[[Special:Cite|ציטוט]]',
 	'cite_article_link' => 'ציטוט דף זה',
+	'cite_article_link_title' => 'מידע כיצד לצטט דף זה',
 	'cite' => 'ציטוט',
 	'cite_page' => 'דף:',
 	'cite_submit' => 'ציטוט',

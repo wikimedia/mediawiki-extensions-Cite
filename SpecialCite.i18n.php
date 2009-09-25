@@ -648,11 +648,13 @@ $messages['ht'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Glanthor Reviol
  * @author Tgr
  */
 $messages['hu'] = array(
 	'cite_article_desc' => '[[Special:Cite|Hivatkozás-készítő]] speciális lap és link az eszközdobozba',
 	'cite_article_link' => 'Hogyan hivatkozz erre a lapra',
+	'cite_article_link_title' => 'Információk a lap idézésével kapcsolatban',
 	'cite' => 'Hivatkozás',
 	'cite_page' => 'Lap neve:',
 	'cite_submit' => 'Mehet',
@@ -1166,6 +1168,7 @@ $messages['pfl'] = array(
 $messages['pl'] = array(
 	'cite_article_desc' => 'Dodaje stronę specjalną i guzik w toolbarze edycyjnym do obsługi [[Special:Cite|cytowania]]',
 	'cite_article_link' => 'Odwołanie bibliograficzne',
+	'cite_article_link_title' => 'Informacja o tym jak należy cytować tę stronę',
 	'cite' => 'Cytowanie',
 	'cite_page' => 'Strona:',
 	'cite_submit' => 'stwórz wpis bibliograficzny',

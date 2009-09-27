@@ -220,6 +220,7 @@ $messages['bpy'] = array(
 $messages['br'] = array(
 	'cite_article_desc' => 'Ouzhpennañ a ra ur bajenn dibar [[Special:Cite|arroud]] hag ul liamm er voest ostilhoù',
 	'cite_article_link' => 'Menegiñ ar pennad-mañ',
+	'cite_article_link_title' => 'Titouroù war an doare da venegiñ ar bajenn-mañ',
 	'cite' => 'Menegiñ',
 	'cite_page' => 'Pajenn :',
 	'cite_submit' => 'Menegiñ',
@@ -683,11 +684,13 @@ $messages['ia'] = array(
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author IvanLanin
  */
 $messages['id'] = array(
 	'cite_article_desc' => 'Menambahkan halaman istimewa [[Special:Cite|kutipan]] dan pranala pada kotak peralatan',
-	'cite_article_link' => 'Kutip artikel ini',
+	'cite_article_link' => 'Kutip halaman ini',
+	'cite_article_link_title' => 'Informasi tentang bagaimana mengutip halaman ini',
 	'cite' => 'Kutip',
 	'cite_page' => 'Halaman:',
 	'cite_submit' => 'Kutip',
@@ -1119,6 +1122,7 @@ $messages['nso'] = array(
 $messages['oc'] = array(
 	'cite_article_desc' => "Apond una pagina especiala [[Special:Cite|citacion]] e un ligam dins la bóstia d'espleches",
 	'cite_article_link' => 'Citar aqueste article',
+	'cite_article_link_title' => 'Informacions sus cossí citar aquesta pagina',
 	'cite' => 'Citacion',
 	'cite_page' => 'Pagina :',
 	'cite_submit' => 'Citar',
@@ -1181,6 +1185,7 @@ $messages['pl'] = array(
 $messages['pms'] = array(
 	'cite_article_desc' => "A gionta na pàgina special [[Special:Cite|citassion]] e n'anliura dj'utiss",
 	'cite_article_link' => 'Sita sta pàgina-sì',
+	'cite_article_link_title' => 'Anformassion ëd com sité sta pàgina-sì.',
 	'cite' => 'Citassion',
 	'cite_page' => 'Pàgina da cité:',
 	'cite_submit' => 'Pronta la citassion',
@@ -1578,6 +1583,7 @@ $messages['ur'] = array(
 $messages['vec'] = array(
 	'cite_article_desc' => 'Zonta na pagina speciale par le [[Special:Cite|citazion]] e un colegamento nei strumenti',
 	'cite_article_link' => 'Cita sta pagina',
+	'cite_article_link_title' => 'Informassion su come citar sta pagina',
 	'cite' => 'Citazion',
 	'cite_page' => 'Pagina da citar:',
 	'cite_submit' => 'Crea la citazion',
@@ -1602,6 +1608,7 @@ $messages['vep'] = array(
 $messages['vi'] = array(
 	'cite_article_desc' => 'Thêm trang đặc biệt để [[Special:Cite|ghi chú bài]] và đặt liên kết đến nó trong thanh công cụ',
 	'cite_article_link' => 'Chú thích trang này',
+	'cite_article_link_title' => 'Hướng dẫn ghi chú trang này',
 	'cite' => 'Chú thích',
 	'cite_page' => 'Trang:',
 	'cite_submit' => 'Chú thích',

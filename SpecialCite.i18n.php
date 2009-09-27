@@ -376,6 +376,7 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Icvav
  * @author Jatrobat
  * @author Muro de Aguas
@@ -384,6 +385,7 @@ $messages['eo'] = array(
 $messages['es'] = array(
 	'cite_article_desc' => 'Añade una página especial para [[Special:Cite|citar la página]] y un enlace en la caja de herramientas.',
 	'cite_article_link' => 'Citar este artículo',
+	'cite_article_link_title' => 'Información de como citar esta página',
 	'cite' => 'Citar',
 	'cite_page' => 'Página:',
 	'cite_submit' => 'Citar',
@@ -884,6 +886,7 @@ $messages['la'] = array(
 $messages['lb'] = array(
 	'cite_article_desc' => "Setzt eng [[Special:Cite|Zitatioun op dëser Spezialsäit]] bäi an e Link an d'Geschiirkëscht",
 	'cite_article_link' => 'Dës Säit zitéieren',
+	'cite_article_link_title' => 'Informatioune wéi een dës Säit zitéiere kann',
 	'cite' => 'Zitéierhëllef',
 	'cite_page' => 'Säit:',
 	'cite_submit' => 'weisen',
@@ -1281,6 +1284,7 @@ $messages['roa-rup'] = array(
 $messages['roa-tara'] = array(
 	'cite_article_desc' => "Aggiunge 'na pàgena speciele de [[Special:Cite|citaziune]] e collegamende a scatele de le struminde",
 	'cite_article_link' => 'Cite sta pàgene',
+	'cite_article_link_title' => "'Mbormaziune sus a cumme se cite sta pàgene",
 	'cite' => 'Cite',
 	'cite_page' => 'Pàgene:',
 	'cite_submit' => 'Cite',

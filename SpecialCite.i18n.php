@@ -1082,12 +1082,14 @@ $messages['nl'] = array(
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+ * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
  */
 $messages['nn'] = array(
 	'cite_article_desc' => 'Legg til ei [[Special:Cite|siteringssida]] og lenkja i verktøy-menyen',
 	'cite_article_link' => 'Siter denne sida',
+	'cite_article_link_title' => 'Informasjon om korleis ein siterer denne sida',
 	'cite' => 'Siter',
 	'cite_page' => 'Side:',
 	'cite_submit' => 'Siter',

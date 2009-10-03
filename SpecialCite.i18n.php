@@ -680,6 +680,7 @@ $messages['hy'] = array(
 $messages['ia'] = array(
 	'cite_article_desc' => 'Adde un pagina special de [[Special:Cite|citation]] e un ligamine verso le instrumentario',
 	'cite_article_link' => 'Citar iste pagina',
+	'cite_article_link_title' => 'Informationes super como citar iste pagina',
 	'cite' => 'Citation',
 	'cite_page' => 'Pagina:',
 	'cite_submit' => 'Citar',

@@ -817,7 +817,7 @@ Use <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;<
 Definir más en el mensaje <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
 pues no hay una referencia con texto llamada <code>$1</code>',
-	'cite_error_included_ref' => 'Código wiki para cierre &lt;/ref&gt; sin un código de apertura &lt;ref&gt; existente',
+	'cite_error_included_ref' => 'Código de apertura &lt;ref&gt; sin su código de cierre &lt;/ref&gt;',
 	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se encontró una etiqueta <code>&lt;references /&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado "$1", pero no se encontró una etiqueta <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'el tag <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presenta el atributo de grupo en conflicto "$1".',

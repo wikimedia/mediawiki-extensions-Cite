@@ -1541,6 +1541,7 @@ $messages['to'] = array(
 $messages['tr'] = array(
 	'cite_article_desc' => '[[Special:Cite|Alıntı]] özel sayfa ve araç kutusu linkini ekler',
 	'cite_article_link' => 'Sayfayı kaynak göster',
+	'cite_article_link_title' => 'Bu sayfanın nasıl alıntı yapılacağı hakkında bilgi',
 	'cite' => 'Kaynak göster',
 	'cite_page' => 'Sayfa:',
 	'cite_submit' => 'Belirt',

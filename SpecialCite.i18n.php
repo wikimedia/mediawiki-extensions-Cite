@@ -862,11 +862,12 @@ $messages['ksh'] = array(
 	'cite_submit' => 'Zittėere',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
+ * @author Kernoweger
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'cite_article_link' => 'Devynna an erthygel ma',
+	'cite_article_link' => 'Devynna an erthygel-ma',
 );
 
 /** Latin (Latina)

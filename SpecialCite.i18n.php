@@ -301,6 +301,7 @@ $messages['cu'] = array(
 $messages['cy'] = array(
 	'cite_article_desc' => 'Yn ychwanegu tudalen arbennig ar gyfer [[Special:Cite|cyfeirio at erthygl]] a chyswllt bocs offer',
 	'cite_article_link' => 'Cyfeiriwch at yr erthygl hon',
+	'cite_article_link_title' => 'Gwybodaeth ar sut i gyfeirio at y dudalen hon',
 	'cite' => 'Cyfeirio at erthygl',
 	'cite_page' => 'Tudalen:',
 	'cite_submit' => 'Cyfeirio',

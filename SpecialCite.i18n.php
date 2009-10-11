@@ -359,6 +359,7 @@ $messages['ee'] = array(
 $messages['el'] = array(
 	'cite_article_desc' => 'Προσθέτει μία ειδική σελίδα [[Special:Cite|παραθέσεων]] καί έναν σύνδεσμο προς την εργαλειοθήκη',
 	'cite_article_link' => 'Αναφέρεται αυτή τη σελίδα',
+	'cite_article_link_title' => 'Πληροφορίες για το πως να παραπέμψετε σε αυτήν την σελίδα',
 	'cite' => 'Αναφορά',
 	'cite_page' => 'Σελίδα:',
 	'cite_submit' => 'Προσθήκη παραθέσεων',

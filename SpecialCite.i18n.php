@@ -329,9 +329,11 @@ $messages['de'] = array(
 	'cite_submit' => 'anzeigen',
 );
 
-/** Zazaki (Zazaki) */
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
 $messages['diq'] = array(
-	'cite_article_link' => 'Na pele çıme bımocne',
+	'cite_article_link' => 'Na pele çime bimocne',
 	'cite' => 'Çıme bımocne',
 );
 
@@ -1355,6 +1357,7 @@ $messages['si'] = array(
 $messages['sk'] = array(
 	'cite_article_desc' => 'Pridáva špeciálnu stránku [[Special:Cite|Citovať]] a odkaz v nástrojoch',
 	'cite_article_link' => 'Citovať túto stránku',
+	'cite_article_link_title' => 'Ako citovať túto stránku',
 	'cite' => 'Citovať',
 	'cite_page' => 'Stránka:',
 	'cite_submit' => 'Citovať',

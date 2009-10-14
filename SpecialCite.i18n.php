@@ -1441,11 +1441,13 @@ $messages['su'] = array(
 
 /** Swedish (Svenska)
  * @author Lejonel
+ * @author Per
  * @author Sannab
  */
 $messages['sv'] = array(
 	'cite_article_desc' => 'Lägger till en specialsida för [[Special:Cite|källhänvisning]] och en länk i verktygslådan',
 	'cite_article_link' => 'Citera denna artikel',
+	'cite_article_link_title' => 'Information om hur denna sida kan citeras',
 	'cite' => 'Citera',
 	'cite_page' => 'Sida:',
 	'cite_submit' => 'Citera',

@@ -663,6 +663,13 @@ $messages['de-formal'] = array(
 	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwenden Sie ausschließlich <tt><nowiki><references /></nowiki></tt>.',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'cite_error' => 'Ğeletê çime mucnayîşî: $1',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */

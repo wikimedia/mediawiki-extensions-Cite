@@ -667,6 +667,8 @@ $messages['de-formal'] = array(
  * @author Xoser
  */
 $messages['diq'] = array(
+	'cite_desc' => 'Qe çime mucnayîşî, etiketanê <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> de keno',
+	'cite_croak' => 'Çime nihebitiyeno; $1: $2',
 	'cite_error' => 'Ğeletê çime mucnayîşî: $1',
 );
 

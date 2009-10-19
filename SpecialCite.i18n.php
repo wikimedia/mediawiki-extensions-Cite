@@ -333,8 +333,12 @@ $messages['de'] = array(
  * @author Xoser
  */
 $messages['diq'] = array(
+	'cite_article_desc' => 'Yew pelê [[Special:Cite|citation]] u lînkê toolboxî de keno',
 	'cite_article_link' => 'Na pele çime bimocne',
+	'cite_article_link_title' => 'Enformasyon qe seni çime mucneno',
 	'cite' => 'Çıme bımocne',
+	'cite_page' => 'Pel:',
+	'cite_submit' => 'Çime',
 );
 
 /** Lower Sorbian (Dolnoserbski)

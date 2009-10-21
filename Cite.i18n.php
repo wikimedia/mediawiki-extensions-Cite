@@ -669,7 +669,14 @@ $messages['de-formal'] = array(
 $messages['diq'] = array(
 	'cite_desc' => 'Qe çime mucnayîşî, etiketanê <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> de keno',
 	'cite_croak' => 'Çime nihebitiyeno; $1: $2',
+	'cite_error_key_str_invalid' => 'Ğeletê dehilî
+$str raşt niyo u/ya zi $key.
+Ena gani nibi.',
+	'cite_error_stack_invalid_input' => 'Ğeletê dehilî
+Stack key raşt niyo.
+Ena gani nibi.',
 	'cite_error' => 'Ğeletê çime mucnayîşî: $1',
+	'cite_error_included_ref' => '&lt;/ref&gt kefilneno;  &lt;ref&gt vin kerdo; etiket',
 );
 
 /** Lower Sorbian (Dolnoserbski)

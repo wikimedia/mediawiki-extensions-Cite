@@ -82,10 +82,12 @@ $messages['an'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  */
 $messages['ar'] = array(
 	'cite_article_desc' => 'يضيف صفحة [[Special:Cite|استشهاد]] خاصة ووصلة صندوق أدوات',
 	'cite_article_link' => 'استشهد بهذه الصفحة',
+	'cite_article_link_title' => 'معلومات عن كيفية الاستشهاد بالصفحة',
 	'cite' => 'استشهاد',
 	'cite_page' => 'الصفحة:',
 	'cite_submit' => 'استشهاد',
@@ -970,23 +972,27 @@ $messages['mhr'] = array(
 );
 
 /** Macedonian (Македонски)
+ * @author Bjankuloski06
  * @author Brest
  * @author Misos
  */
 $messages['mk'] = array(
 	'cite_article_desc' => 'Додава специјална страница за [[Special:Cite|цитирање]] и врска кон алатникот',
 	'cite_article_link' => 'Цитирање на оваа страница',
+	'cite_article_link_title' => 'Информации како да ја цитирате оваа страница',
 	'cite' => 'Цитат',
 	'cite_page' => 'Страница:',
 	'cite_submit' => 'Цитат',
 );
 
 /** Malayalam (മലയാളം)
+ * @author Praveenp
  * @author Shijualex
  */
 $messages['ml'] = array(
 	'cite_article_desc' => '[[Special:Cite|സൈറ്റേഷന്‍]] എന്ന പ്രത്യേക താളും, പണി സഞ്ചി  കണ്ണിയും ചേര്‍ക്കുന്നു',
 	'cite_article_link' => 'ഈ താള്‍ ഉദ്ധരിക്കുക',
+	'cite_article_link_title' => 'ഈ താളിനെ എങ്ങിനെ അവലംബിതമാക്കാം എന്ന വിവരങ്ങൾ',
 	'cite' => 'ഉദ്ധരിക്കുക',
 	'cite_page' => 'താള്‍:',
 	'cite_submit' => 'ഉദ്ധരിക്കുക',

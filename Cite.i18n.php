@@ -664,6 +664,7 @@ $messages['de-formal'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Aspar
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -676,7 +677,32 @@ Ena gani nibi.',
 Stack key raşt niyo.
 Ena gani nibi.',
 	'cite_error' => 'Ğeletê çime mucnayîşî: $1',
+	'cite_error_ref_numeric_key' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
+Name nieşkeno biyo yew rekam. Çekuyan binuse',
+	'cite_error_ref_no_key' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
+Eka kontent çini yo, gani yew name biyo',
+	'cite_error_ref_too_many_keys' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
+name raşt niyo, e.g. zaf esto',
+	'cite_error_ref_no_input' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
+Eka name çini yo, gani kontent biyo',
+	'cite_error_references_invalid_parameters' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
+parametrayan ra destur çini yo.
+<code>&lt;references /&gt;</code> sero kar bike',
+	'cite_error_references_invalid_parameters_group' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
+parametrayan ra destur çini yo.
+<code>&lt;references /&gt;</code> sero kar bike, ya zi  <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Linkanê Custom backlinkî hin çini yo.
+Zerreyê mesajê <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>î de hewna tasvir bike',
+	'cite_error_references_no_text' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
+qe refs yew nuşte nidayiyo <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt kefilneno;  &lt;ref&gt vin kerdo; etiket',
+	'cite_error_refs_without_references' => 'etiketê <code>&lt;ref&gt;</code>î niesto, feqat  etiketê <code>&lt;references/&gt;</code>î nidiyo',
+	'cite_error_group_refs_without_references' => 'etiketê <code>&lt;ref&gt;</code>î niesto ser grupê $1î, feqat  etiketê <code>&lt;references/&gt;</code>î nidiyo',
+	'cite_error_references_group_mismatch' => 'etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de ser grupê "$1"î konflikt keno.',
+	'cite_error_references_missing_group' => 'etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevsir biyo ke ser grupê "$1"î ke verni de nieseno.',
+	'cite_error_references_missing_key' => 'etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevisr biyo ser name "$1"î verni de niesto.',
+	'cite_error_references_no_key' => 'etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevsir biyo name xo çini yo.',
+	'cite_error_empty_references_define' => 'etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevsir biyo "$1" kontent xo çini yo.',
 );
 
 /** Lower Sorbian (Dolnoserbski)

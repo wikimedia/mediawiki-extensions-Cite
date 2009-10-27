@@ -1076,6 +1076,16 @@ $messages['nds'] = array(
 	'cite_submit' => 'Ziteren',
 );
 
+/** Nedersaksisch (Nedersaksisch)
+ * @author Servien
+ */
+$messages['nds-nl'] = array(
+	'cite_article_link' => 'Disse pagina citeren',
+	'cite' => 'Citeerhulpe',
+	'cite_page' => 'Pagina:',
+	'cite_submit' => 'Citeren',
+);
+
 /** Nepali (नेपाली) */
 $messages['ne'] = array(
 	'cite_article_link' => 'लेख उद्दरण गर्नुहोस्',

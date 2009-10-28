@@ -93,6 +93,16 @@ $messages['ar'] = array(
 	'cite_submit' => 'استشهاد',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'cite_article_link' => 'ܡܣܗܕ ܥܠ ܗܕܐ ܦܐܬܐ',
+	'cite' => 'ܡܣܗܕ',
+	'cite_page' => 'ܦܐܬܐ:',
+	'cite_submit' => 'ܡܣܗܕ',
+);
+
 /** Araucanian (Mapudungun)
  * @author Remember the dot
  */

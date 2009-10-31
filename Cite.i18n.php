@@ -2042,6 +2042,35 @@ Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many f
 	'cite_error_empty_references_define' => 'Znacznik <code>&lt;ref&gt;</code> zdefiniowany w <code>&lt;references&gt;</code> o nazwie „$1” nie ma treści.',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'cite_desc' => 'A gionta ij tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, për sitassion',
+	'cite_croak' => 'Sitassion mòrta; $1: $2',
+	'cite_error_key_str_invalid' => 'Eror antern;
+$str e/o $key sbalià.
+A dovrìa pa mai capité.',
+	'cite_error_stack_invalid_input' => 'Eror antern;
+stack key pa bon-a.
+Sòn-sì a dovrìa pa mai capité.',
+	'cite_error' => 'Eror ëd sitassion: $1',
+	'cite_error_ref_numeric_key' => "Tag <code>&lt;ref&gt;</code> pa bon;
+ël nòm a peul pa esse n'antregh sempi. Dòvra un tìtol descritiv.",
+	'cite_error_ref_no_key' => "Tag <code>&lt;ref&gt;</code> pa bon;
+j'arferiment sensa contnù a deuvo avèj un nòm",
+	'cite_error_ref_too_many_keys' => 'Tag <code>&lt;ref&gt;</code> pa bon;
+nòm pa bon, për esempi tròpi',
+	'cite_error_ref_no_input' => "Tag <code>&lt;ref&gt;</code> pa bon;
+j'arferiment sensa nòm a deuvo avèj un contnù",
+	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> pa bon;
+pa gnun paràmetr përmëttù.
+Dòvra <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> pa bon;
+as peul mach dovresse ël paràmetr "group".
+Dòvra <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
+);
+
 /** Portuguese (Português)
  * @author 555
  * @author Crazymadlover

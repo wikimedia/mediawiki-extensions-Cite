@@ -2043,32 +2043,33 @@ Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many f
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'cite_desc' => 'A gionta ij tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, për sitassion',
+	'cite_desc' => 'A gionta le tichëtte <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, për sitassion',
 	'cite_croak' => 'Sitassion mòrta; $1: $2',
 	'cite_error_key_str_invalid' => 'Eror antern;
 $str e/o $key sbalià.
-A dovrìa pa mai capité.',
-	'cite_error_stack_invalid_input' => 'Eror antern;
-stack key pa bon-a.
-Sòn-sì a dovrìa pa mai capité.',
+Sòn a dovrìa mai capité.',
+	'cite_error_stack_invalid_input' => "Eror antern;
+ciav d'ambaronament pa bon-a.
+Sòn a dovrìa mai capité.",
 	'cite_error' => 'Eror ëd sitassion: $1',
-	'cite_error_ref_numeric_key' => "Tag <code>&lt;ref&gt;</code> pa bon;
-ël nòm a peul pa esse n'antregh sempi. Dòvra un tìtol descritiv.",
-	'cite_error_ref_no_key' => "Tag <code>&lt;ref&gt;</code> pa bon;
-j'arferiment sensa contnù a deuvo avèj un nòm",
-	'cite_error_ref_too_many_keys' => 'Tag <code>&lt;ref&gt;</code> pa bon;
+	'cite_error_ref_numeric_key' => "Tichëtta <code>&lt;ref&gt;</code> pa bon-a;
+ël nòm a peul pa esse n'antregh sempi. Deuvra un tìtol descritiv.",
+	'cite_error_ref_no_key' => "Tichëtta <code>&lt;ref&gt;</code> pa bon-a;
+j'arferiment sensa contnù a devo avèj un nòm",
+	'cite_error_ref_too_many_keys' => 'Tichëtta <code>&lt;ref&gt;</code> pa bon-a;
 nòm pa bon, për esempi tròpi',
-	'cite_error_ref_no_input' => "Tag <code>&lt;ref&gt;</code> pa bon;
-j'arferiment sensa nòm a deuvo avèj un contnù",
-	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> pa bon;
+	'cite_error_ref_no_input' => "Tichëtta <code>&lt;ref&gt;</code> pa bon-a;
+j'arferiment sensa nòm a devo avèj un contnù",
+	'cite_error_references_invalid_parameters' => "Tichëtta <code>&lt;references&gt;</code> pa bon-a;
 pa gnun paràmetr përmëttù.
-Dòvra <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> pa bon;
+Ch'a deuvra <code>&lt;references /&gt;</code>",
+	'cite_error_references_invalid_parameters_group' => 'Tichëtta <code>&lt;references&gt;</code> pa bon-a;
 as peul mach dovresse ël paràmetr "group".
-Dòvra <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
+Ch\'a deuvra <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
 );
 
 /** Portuguese (Português)

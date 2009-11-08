@@ -2072,13 +2072,13 @@ as peul mach dovresse ël paràmetr "group".
 Ch\'a deuvra <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Etichëtte ëd backlink përsonalisà esaurìe.
 Definiss-ne ëd pì ant ël messagi <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_references_no_text' => "Tag <code>&lt;ref&gt;</code> pa bon;
+	'cite_error_references_no_text' => "Tichëtta <code>&lt;ref&gt;</code> pa bon-a;
 pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
-	'cite_error_included_ref' => '&lt;/ref&gt; sarant nancant për ël tag &lt;ref&gt;',
-	'cite_error_refs_without_references' => "ël tag <code>&lt;ref&gt;</code> a esist, ma pa gnun tag <code>&lt;references/&gt;</code> a l'é stàit trovà",
-	'cite_error_group_refs_without_references' => 'Dij tag <code>&lt;ref&gt;</code> a esisto për na partìa ciamà "$1", ma pa gnun tag corespondent <code>&lt;references group="$1"/&gt;</code> a son ëstàit trovà',
-	'cite_error_references_group_mismatch' => 'ël tag <code>&lt;ref&gt;</code> an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" an conflit.',
-	'cite_error_references_missing_group' => 'ël tag <code>&lt;ref&gt;</code> definì an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" che a l\'era pa ant ël test prima.',
+	'cite_error_included_ref' => '&lt;/ref&gt; sarà mancant për la tichëtta &lt;ref&gt;',
+	'cite_error_refs_without_references' => "la tichëtta <code>&lt;ref&gt;</code> a esist, ma gnun-a tichëtta <code>&lt;references/&gt;</code> a l'é stàita trovà",
+	'cite_error_group_refs_without_references' => 'Dle tichëtte <code>&lt;ref&gt;</code> a esisto për na partìa ciamà "$1", ma gnun-a tichëtta corëspondenta <code>&lt;references group="$1"/&gt;</code> a l\'é stàita trovà',
+	'cite_error_references_group_mismatch' => 'La tichëtta <code>&lt;ref&gt;</code> an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" an conflit.',
+	'cite_error_references_missing_group' => 'La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" che a l\'era pa ant ël test prima.',
 	'cite_error_references_missing_key' => 'ël tag <code>&lt;ref&gt;</code> con nòm "$1" definì an <code>&lt;references&gt;</code> a l\'é pa dovrà ant ël test prima.',
 	'cite_error_references_no_key' => "ël tag <code>&lt;ref&gt;</code> definì an <code>&lt;references&gt;</code> a l'ha pa gnun atribut ëd nòm.",
 	'cite_error_empty_references_define' => 'ël tag <code>&lt;ref&gt;</code> definì an <code>&lt;references&gt;</code> con nòm "$1" a l\'ha pa gnun contnù.',

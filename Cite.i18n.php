@@ -2079,9 +2079,9 @@ pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
 	'cite_error_group_refs_without_references' => 'Dle tichëtte <code>&lt;ref&gt;</code> a esisto për na partìa ciamà "$1", ma gnun-a tichëtta corëspondenta <code>&lt;references group="$1"/&gt;</code> a l\'é stàita trovà',
 	'cite_error_references_group_mismatch' => 'La tichëtta <code>&lt;ref&gt;</code> an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" an conflit.',
 	'cite_error_references_missing_group' => 'La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" che a l\'era pa ant ël test prima.',
-	'cite_error_references_missing_key' => 'ël tag <code>&lt;ref&gt;</code> con nòm "$1" definì an <code>&lt;references&gt;</code> a l\'é pa dovrà ant ël test prima.',
-	'cite_error_references_no_key' => "ël tag <code>&lt;ref&gt;</code> definì an <code>&lt;references&gt;</code> a l'ha pa gnun atribut ëd nòm.",
-	'cite_error_empty_references_define' => 'ël tag <code>&lt;ref&gt;</code> definì an <code>&lt;references&gt;</code> con nòm "$1" a l\'ha pa gnun contnù.',
+	'cite_error_references_missing_key' => 'La tichëtta <code>&lt;ref&gt;</code> con nòm "$1" definìa an <code>&lt;references&gt;</code> a l\'é pa dovrà ant ël test prima.',
+	'cite_error_references_no_key' => "La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> a l'ha pa gnun atribut ëd nòm.",
+	'cite_error_empty_references_define' => 'La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> con nòm "$1" a l\'ha pa gnun contnù.',
 );
 
 /** Portuguese (Português)

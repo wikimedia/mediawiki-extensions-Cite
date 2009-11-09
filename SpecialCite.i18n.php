@@ -384,12 +384,14 @@ $messages['el'] = array(
 );
 
 /** Esperanto (Esperanto)
+ * @author Michawiki
  * @author Tlustulimu
  * @author Yekrats
  */
 $messages['eo'] = array(
 	'cite_article_desc' => 'Aldonas specialan paĝon por [[Special:Cite|citado]] kaj ligilo al ilaro',
 	'cite_article_link' => 'Citi ĉi tiun paĝon',
+	'cite_article_link_title' => 'Informoj pri tio, kiel oni citu ĉi tiun paĝon',
 	'cite' => 'Citado',
 	'cite_page' => 'Paĝo:',
 	'cite_submit' => 'Citi',
@@ -1609,10 +1611,12 @@ $messages['ug-latn'] = array(
 
 /** Ukrainian (Українська)
  * @author Ahonc
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
 	'cite_article_desc' => 'Додає спеціальну сторінку [[Special:Cite|цитування]] і посилання в інструментах',
 	'cite_article_link' => 'Цитувати сторінку',
+	'cite_article_link_title' => 'Інформація про те, як цитувати цю сторінку',
 	'cite' => 'Цитування',
 	'cite_page' => 'Сторінка:',
 	'cite_submit' => 'Процитувати',

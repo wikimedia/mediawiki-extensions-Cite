@@ -1430,10 +1430,12 @@ $messages['sq'] = array(
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'cite_article_desc' => 'Додаје специјалну страну за [[Special:Cite|цитирање]] и везу ка оруђима.',
 	'cite_article_link' => 'цитирање ове стране',
+	'cite_article_link_title' => 'Информације о томе како цитирати ову страну',
 	'cite' => 'цитат',
 	'cite_page' => 'Страна:',
 	'cite_submit' => 'цитат',

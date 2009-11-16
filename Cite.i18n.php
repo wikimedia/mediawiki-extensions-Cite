@@ -1369,6 +1369,7 @@ tidak ditemukan teks untuk ref bernama <code>$1</code>',
  * @author Malafaya
  */
 $messages['io'] = array(
+	'cite_croak' => 'Cite mortis; $1: $2',
 	'cite_error' => 'Citala eroro: $1',
 );
 
@@ -1797,6 +1798,7 @@ $messages['ml'] = array(
 	'cite_error_included_ref' => '&lt;ref&gt; റ്റാഗിനു &lt;/ref&gt; എന്ന അന്ത്യറ്റാഗ് നൽകിയിട്ടില്ല',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ നൽകിയിട്ടുണ്ട്, പക്ഷേ <code>&lt;references/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ "$1" സംഘത്തിൽ ഉണ്ട്, പക്ഷേ ബന്ധപ്പെട്ട <code>&lt;references group="$1"/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല',
+	'cite_error_empty_references_define' => ' <code>&lt;references&gt;</code> ആവശ്യത്തിനായി "$1" എന്ന പേരിൽ നിർ‌‌വചിക്കപ്പെട്ട <code>&lt;ref&gt;</code> റ്റാഗിന് ഉള്ളടക്കമൊന്നുമില്ല.',
 );
 
 /** Marathi (मराठी)

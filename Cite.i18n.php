@@ -2241,6 +2241,7 @@ niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
  */
 $messages['roa-tara'] = array(
 	'cite_desc' => 'Aggiunge le tag <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> pe le citaziune',
+	'cite_croak' => 'Cite muerte; $1: $2',
 	'cite_error_key_str_invalid' => 'Errore inderne;
 invalide $str e/o $key.
 Quiste non g\'avessa succedere.',

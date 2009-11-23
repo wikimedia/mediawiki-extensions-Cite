@@ -98,7 +98,7 @@ $messages['ar'] = array(
  */
 $messages['arc'] = array(
 	'cite_article_link' => 'ܡܣܗܕ ܥܠ ܗܕܐ ܦܐܬܐ',
-	'cite_article_link_title' => 'ܝܕܥܬ̈ܐ ܥܠ ܐܝܟܢܐ ܕܡܣܗܕ ܥܠ ܦܐܬܐ',
+	'cite_article_link_title' => 'ܝܕ̈ܥܬܐ ܥܠ ܐܝܟܢܐ ܕܡܣܗܕ ܥܠ ܦܐܬܐ',
 	'cite' => 'ܡܣܗܕ',
 	'cite_page' => 'ܦܐܬܐ:',
 	'cite_submit' => 'ܡܣܗܕ',

@@ -461,6 +461,7 @@ ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> balizennoù zo evit ur strollad anvet "$1", met n\'eus bet kavet balizenn <code>&lt;references group="$1"/&gt;</code> ebet o klotañ',
 	'cite_error_references_group_mismatch' => 'Gant ar valizenn <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> emañ an dezverk strollad trubuilhus "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> ar valizenn termenet e <code>&lt;references&gt;</code> eo dezhi un dezverk strollad "$1" na gaver ket en destenn a-raok.',
+	'cite_error_references_missing_key' => 'N\'eo ket bet implijet en destenn gent ar <code>&lt;ref&gt;</code> valizenn hec\'h anv "$1" termenet e <code>&lt;references&gt;</code>.',
 	'cite_error_references_no_key' => "<code>&lt;ref&gt;</code> ar valizenn termenet e <code>&lt;references&gt;</code> n'he deus dezverk anv ebet.",
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ar valiezenn termenet e <code>&lt;references&gt;</code> dezhi an anv a "$1" zo goullo.',
 );
@@ -2097,6 +2098,7 @@ pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
  * @author 555
  * @author Crazymadlover
  * @author Giro720
+ * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
  */
@@ -2116,7 +2118,8 @@ Isto nunca deveria acontecer.',
 	'cite_error_references_invalid_parameters_group' => 'Marca <code>&lt;references&gt;</code> inválida;
 só o parâmetro "group" é permitido.
 Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Etiquetas de backlink esgotadas. Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_backlink_label' => 'Esgotamento das legendas personalizadas para ligações de retorno.
+Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; de fecho em falta para a marca &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'existem tags <code>&lt;ref&gt;</code>, mas nenhuma tag <code>&lt;references/&gt;</code> foi encontrada',

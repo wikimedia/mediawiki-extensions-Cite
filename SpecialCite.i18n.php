@@ -808,11 +808,14 @@ $messages['jv'] = array(
 );
 
 /** Georgian (ქართული)
+ * @author BRUTE
  * @author Malafaya
  */
 $messages['ka'] = array(
 	'cite_article_link' => 'ამ გვერდის ციტირება',
+	'cite' => 'ციტირება',
 	'cite_page' => 'გვერდი:',
+	'cite_submit' => 'ციტირება',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */

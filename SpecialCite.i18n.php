@@ -1258,11 +1258,12 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'cite_article_desc' => 'Adiciona uma página especial de [[Special:Cite|citação]] & ligação da caixa de ferramentas',
+	'cite_article_desc' => '[[Special:Cite|Página especial]] que produz uma citação de qualquer outra página na wiki (em vários formatos) e adiciona uma ligação na caixa de ferramentas',
 	'cite_article_link' => 'Citar esta página',
 	'cite_article_link_title' => 'Informação sobre como citar esta página',
 	'cite' => 'Citar',

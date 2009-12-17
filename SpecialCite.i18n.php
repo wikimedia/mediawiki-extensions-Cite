@@ -842,6 +842,13 @@ $messages['kk-latn'] = array(
 	'cite_submit' => 'Däýeksöz al!',
 );
 
+/** Kalaallisut (Kalaallisut)
+ * @author Piivaat
+ */
+$messages['kl'] = array(
+	'cite_article_link' => 'Una qupperneq issuaruk',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer

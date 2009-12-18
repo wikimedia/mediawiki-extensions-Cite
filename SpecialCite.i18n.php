@@ -1147,10 +1147,12 @@ $messages['nn'] = array(
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'cite_article_desc' => 'Legger til en [[Special:Cite|siteringsside]] og lenke i verktøy-menyen',
 	'cite_article_link' => 'Siter denne siden',
+	'cite_article_link_title' => 'Informasjon om hvordan denne siden kan siteres',
 	'cite' => 'Siter',
 	'cite_page' => 'Side:',
 	'cite_submit' => 'Siter',

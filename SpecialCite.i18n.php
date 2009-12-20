@@ -867,11 +867,13 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Kwj2772
  * @author ToePeu
  */
 $messages['ko'] = array(
 	'cite_article_desc' => '[[Special:Cite|인용]] 특수문서와 도구상자 고리를 더함',
 	'cite_article_link' => '이 문서 인용하기',
+	'cite_article_link_title' => '이 문서를 인용하는 방법에 대한 정보',
 	'cite' => '인용',
 	'cite_page' => '문서:',
 	'cite_submit' => '인용',

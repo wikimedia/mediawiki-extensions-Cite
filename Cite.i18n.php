@@ -1806,6 +1806,10 @@ $messages['ml'] = array(
 	'cite_error_included_ref' => '&lt;ref&gt; റ്റാഗിനു &lt;/ref&gt; എന്ന അന്ത്യറ്റാഗ് നൽകിയിട്ടില്ല',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ നൽകിയിട്ടുണ്ട്, പക്ഷേ <code>&lt;references/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ "$1" സംഘത്തിൽ ഉണ്ട്, പക്ഷേ ബന്ധപ്പെട്ട <code>&lt;references group="$1"/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> റ്റാഗിലേയും <code>&lt;references&gt;</code> എന്നതിലേയും സംഘ ഘടകമായ "$1" ഒത്തുപോകുന്നില്ല.',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> റ്റാഗ് നിർവചിച്ചിട്ടുണ്ടെങ്കിലും <code>&lt;references&gt;</code> എന്നതിലുള്ള സംഘ ഘടകം "$1" ആദ്യ എഴുത്തിൽ കാണുന്നില്ല.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> റ്റാഗ് "$1" എന്ന പേരോടെ <code>&lt;references&gt;</code> എന്നതിൽ നിർവചിച്ചിട്ടുണ്ടെങ്കിലും ആദ്യ എഴുത്തിൽ ഉപയോഗിക്കുന്നില്ല.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> റ്റാഗ്  <code>&lt;references&gt;</code> എന്നതിൽ നിർവചിച്ചിട്ടുണ്ടെങ്കിലും നാമ ഘടകം നൽകിയിട്ടില്ല.',
 	'cite_error_empty_references_define' => ' <code>&lt;references&gt;</code> ആവശ്യത്തിനായി "$1" എന്ന പേരിൽ നിർ‌‌വചിക്കപ്പെട്ട <code>&lt;ref&gt;</code> റ്റാഗിന് ഉള്ളടക്കമൊന്നുമില്ല.',
 );
 

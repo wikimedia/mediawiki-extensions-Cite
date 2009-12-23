@@ -1569,6 +1569,13 @@ $messages['th'] = array(
 	'cite_submit' => 'อ้างอิง',
 );
 
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'cite_page' => 'Sahypa:',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */

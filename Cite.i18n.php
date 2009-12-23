@@ -1032,7 +1032,8 @@ $messages['frp'] = array(
 	'cite_error_ref_too_many_keys' => 'Apèl envalido ; cllâfs envalides, per ègzemplo, trop de cllâfs spècefiâs ou ben cllâf fôssa.',
 	'cite_error_ref_no_input' => 'Apèl envalido ; niona entrâ spècefiâ.',
 	'cite_error_references_invalid_parameters' => 'Arguments envalidos ; argument atendu.',
-	'cite_error_references_no_backlink_label' => 'Ègzécucion en defôr de les ètiquètes pèrsonalisâs, dèfenésséd de ples dens lo mèssâjo <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label' => 'Èpouesement de les ètiquètes de lims pèrsonalisâs.
+Dèfenésséd-nen un ples grant nombro dens lo mèssâjo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => 'Balisa <code>&lt;ref&gt;</code> fôssa ;
 nion tèxto at étâ balyê por les refèrences apelâs <code>$1</code>.',
 );

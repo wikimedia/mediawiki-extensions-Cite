@@ -1323,10 +1323,12 @@ $messages['rmy'] = array(
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'cite_article_desc' => 'Adaugă o pagină specială [[Special:Cite|citare]] şi o legătură cutie unelte',
 	'cite_article_link' => 'Citează acest articol',
+	'cite_article_link_title' => 'Informaţiile cu privire la modul de a cita această pagină',
 	'cite' => 'Citează',
 	'cite_page' => 'Pagină:',
 	'cite_submit' => 'Deschide informaţii',
@@ -1573,7 +1575,9 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'cite' => 'Sitirle',
 	'cite_page' => 'Sahypa:',
+	'cite_submit' => 'Sitirle',
 );
 
 /** Tagalog (Tagalog)

@@ -1575,6 +1575,9 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'cite_article_desc' => '[[Special:Cite|Sitirle]] ýörite sahypasyny we gural sandygy çykgydyny goşýar',
+	'cite_article_link' => 'Sahypany sitirle',
+	'cite_article_link_title' => 'Bu sahypany nähili sitirlemelidigi hakda maglumat',
 	'cite' => 'Sitirle',
 	'cite_page' => 'Sahypa:',
 	'cite_submit' => 'Sitirle',

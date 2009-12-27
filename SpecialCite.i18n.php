@@ -1460,11 +1460,13 @@ $messages['sr-ec'] = array(
 );
 
 /** Serbian Latin ekavian (Srpski (latinica))
+ * @author Liangent
  * @author Michaello
  */
 $messages['sr-el'] = array(
 	'cite_article_desc' => 'Dodaje specijalnu stranu za [[Special:Cite|citiranje]] i vezu ka oruđima.',
 	'cite_article_link' => 'citiranje ove strane',
+	'cite_article_link_title' => 'Informacije o tome kako citirati ovu stranu',
 	'cite' => 'citat',
 	'cite_page' => 'Strana:',
 	'cite_submit' => 'citat',
@@ -1558,6 +1560,17 @@ $messages['tg-cyrl'] = array(
 	'cite' => 'Ёд кардани ин мақола',
 	'cite_page' => 'Саҳифа:',
 	'cite_submit' => 'Ёд кардан',
+);
+
+/** Tajik (Latin) (Тоҷикӣ (Latin))
+ * @author Liangent
+ */
+$messages['tg-latn'] = array(
+	'cite_article_desc' => "Sahifai viƶae baroi [[Special:Cite|jodkard]] izofa mekunad va pajvande ba ça'bai abzor meafzojad",
+	'cite_article_link' => 'Jod kardani pajvandi in maqola',
+	'cite' => 'Jod kardani in maqola',
+	'cite_page' => 'Sahifa:',
+	'cite_submit' => 'Jod kardan',
 );
 
 /** Thai (ไทย)

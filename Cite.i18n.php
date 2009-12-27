@@ -2605,6 +2605,27 @@ $messages['tg-cyrl'] = array(
 	'cite_error_references_no_text' => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; матне барои ёдкардҳо бо номи <code>$1</code> ворид нашудааст',
 );
 
+/** Tajik (Latin) (Тоҷикӣ (Latin))
+ * @author Liangent
+ */
+$messages['tg-latn'] = array(
+	'cite_desc' => 'Barcasbhoi <nowiki><ref[ name=id]></nowiki> va <nowiki><references/></nowiki>  baroi jod kardan, izofa mekunad',
+	'cite_croak' => 'Jod kardan xarob şud; $1: $2',
+	'cite_error_key_str_invalid' => 'Xatoi doxilī; $str va/jo $key ƣajrimiçoz.  In xato nabojad hargiz rux dihad.',
+	'cite_error_stack_invalid_input' => 'Xatoi doxilī; klidi puşta ƣajrimiçoz.  In xato nabojad hargiz rux dihad.',
+	'cite_error' => 'Xatoi jodkard: $1',
+	'cite_error_ref_numeric_key' => 'Barcasbi <code>&lt;ref&gt;</code> ƣajrimiçoz; nom nametavonad jak adad boşad, unvoni vozehtarero istifoda kuned',
+	'cite_error_ref_no_key' => 'Barcasbi <code>&lt;ref&gt;</code> ƣajrimiçoz; jodkardho biduni mūhtavo bojad nom doşta boşand',
+	'cite_error_ref_too_many_keys' => 'Barcasbi  <code>&lt;ref&gt;</code> ƣajrimiçoz; nomhoi ƣajrimiçoz jo beş az andoza',
+	'cite_error_ref_no_input' => 'Barcasbi  <code>&lt;ref&gt;</code> ƣajrimiçoz; jodkardhoi biduni nom bojad mūhtavo doşta boşand',
+	'cite_error_references_invalid_parameters' => 'Barcasbi <code>&lt;references&gt;</code> ƣajrimiçoz; istifoda az parametr miçoz ast, az  <code>&lt;references /&gt;</code> istifoda kuned',
+	'cite_error_references_invalid_parameters_group' => 'Barcasbi <code>&lt;references&gt;</code> nomū\'tabar;
+parametri "gurūh" tanho içozaşuda ast.
+Barcasbi <code>&lt;references /&gt;</code> jo <code>&lt;references group="..." /&gt;</code> -ro istifoda bared',
+	'cite_error_references_no_backlink_label' => 'Barcasbhoi pajvand ba intiho rasid, mavoridi çadidro dar pajjom  <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> istifoda kuned',
+	'cite_error_references_no_text' => 'Barcasbi  <code>&lt;ref&gt;</code> ƣajrimiçoz; matne baroi jodkardho bo nomi <code>$1</code> vorid naşudaast',
+);
+
 /** Thai (ไทย)
  * @author Passawuth
  */

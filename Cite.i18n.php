@@ -833,6 +833,11 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 	'cite_error_included_ref' => 'Ferma &lt;/ref&gt; mankas por &lt;ref&gt; etikedon',
 	'cite_error_refs_without_references' => 'Etikedoj <code>&lt;ref&gt;</code> ekzistas, sed neniu etikedo <code>&lt;references/&gt;</code> estis trovita',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> etikedoj ekzistas por grupo nomita "$1", sed ne koresponda <code>&lt;references group="$1"/&gt;</code> etikedo estis trovita',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> etikedo en <code>&lt;references&gt;</code> havas konflikan grupatributon "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> havas grupatributon "$1" kiu ne aperas en antaŭa teksto.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> etikedo kun la nomo "$1" difinita en <code>&lt;references&gt;</code> ne estas uzata en antaŭa teksto.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> ne havas noman atributon.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> kun nomo "$1" ne havas enhavon.',
 );
 
 /** Spanish (Español)
@@ -966,7 +971,12 @@ Niitä voi määritellä lisää sivulla <nowiki>[[MediaWiki:Cite references lin
 viitettä <code>$1</code> ei löytynyt',
 	'cite_error_included_ref' => '&lt;ref&gt;-tägin sulkeva &lt;/ref&gt; puuttuu',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-elementti löytyy, mutta <code>&lt;references/&gt;</code>-elementtiä ei löydy',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-elementit löytyivät ryhmälle nimeltä ”$1”, mutta vastaavaa <code>&lt;references group="$1"/&gt;</code>-elementtiä ei löytynyt',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-elemetti <code>&lt;references&gt;</code>-elementin sisällä sisältää ristiriitaisen group-attribuutin ”$1”.',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>-elementissä määritetty <code>&lt;ref&gt;</code>-elementti sisältää group-attribuutin ”$1”, jota ei mainita aiemmassa tekstissä.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-elementin nimeä ”$1”, johon viitataan elementissä <code>&lt;references&gt;</code> ei käytetä edeltävässä tekstissä.',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä ei ole nimiattribuuttia.',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä nimellä ”$1” ei ole sisältöä.',
 );
 
 /** French (Français)
@@ -1668,6 +1678,8 @@ et gouf keen Text ugi fir d'Referenze mam Numm <code>$1</code>",
 	'cite_error_included_ref' => 'Den Tag &lt;/ref&gt; feelt fir den Tag &lt;ref&gt; zouzemaachen',
 	'cite_error_refs_without_references' => "D'Markéierung <code>&lt;ref&gt;</code> gëtt et, awer d'Markéierung <code>&lt;references/&gt;</code> gouf net fonnt",
 	'cite_error_group_refs_without_references' => 'D\'Markéierung <code>&lt;ref&gt;</code> gëtt et fir d\'Grupp "$1", awer d\'entspriechend Markéierung <code>&lt;references group="$1"/&gt;</code> gouf net fonnt',
+	'cite_error_references_group_mismatch' => 'Den <code>&lt;ref&gt;</code>-Tag an <code>&lt;references&gt;</code> huet den Attribut "$1" deen am Konflikt mat deem am <code>&lt;references&gt;</code> steet.',
+	'cite_error_references_missing_key' => 'Deen am <code>&lt;references&gt;</code> definierten <code>&lt;ref&gt;</code>-Tag mam Numm "$1" gëtt am Text virdrun net benotzt.',
 	'cite_error_references_no_key' => "D'Markéierung <code>&lt;ref&gt;</code> déi an <code>&lt;references&gt;</code> definéiert ass huet keng Nummeegeschaft.",
 	'cite_error_empty_references_define' => "D'Markéierung <code>&lt;ref&gt;</code> déi am <code>&lt;references&gt;</code> mat dem Numm  « $1 » definéiert ass, ass eidel.",
 );

@@ -461,10 +461,12 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Nike
+ * @author ZeiP
  */
 $messages['fi'] = array(
 	'cite_article_desc' => 'Lisää työkaluihin toimintosivun, joka neuvoo [[Special:Cite|viittaamaan]] oikeaoppisesti.',
 	'cite_article_link' => 'Viitetiedot',
+	'cite_article_link_title' => 'Tietoa tämän sivun lainaamisesta',
 	'cite' => 'Viitetiedot',
 	'cite_page' => 'Sivu:',
 	'cite_submit' => 'Viittaa',

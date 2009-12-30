@@ -200,10 +200,12 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (Български)
  * @author DCLXVI
+ * @author Turin
  */
 $messages['bg'] = array(
 	'cite_article_desc' => 'Добавя специална страница и препратка за [[Special:Cite|цитиране]]',
 	'cite_article_link' => 'Цитиране на страницата',
+	'cite_article_link_title' => 'Данни за начин на цитиране на тази страница',
 	'cite' => 'Цитиране',
 	'cite_page' => 'Страница:',
 	'cite_submit' => 'Цитиране',

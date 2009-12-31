@@ -510,6 +510,7 @@ $messages['fr'] = array(
 $messages['frp'] = array(
 	'cite_article_desc' => 'Apond una pâge spèciâla [[Special:Cite|citacion]] et un lim dens la bouèta d’outils.',
 	'cite_article_link' => 'Citar ceta pâge',
+	'cite_article_link_title' => 'Enformacions sur coment citar ceta pâge',
 	'cite' => 'Citacion',
 	'cite_page' => 'Pâge :',
 	'cite_submit' => 'Citar',

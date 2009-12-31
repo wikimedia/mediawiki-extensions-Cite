@@ -2651,6 +2651,7 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'cite_croak' => 'Sita ýitirildi; $1: $2',
 	'cite_error' => 'Sitirleme säwligi: $1',
 );
 

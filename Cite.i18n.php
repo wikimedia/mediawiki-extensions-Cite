@@ -671,11 +671,13 @@ $messages['de'] = array(
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
+ * @author Imre
  * @author Raimond Spekking
  */
 $messages['de-formal'] = array(
 	'cite_error_ref_numeric_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutzen Sie einen beschreibenden Namen.',
 	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwenden Sie ausschließlich <tt><nowiki><references /></nowiki></tt>.',
+	'cite_error_references_invalid_parameters_group' => 'Ungültige <code>&lt;references&gt;</code>-Verwendung: Nur der Parameter „group“ ist erlaubt, verwenden Sie <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="…" /&gt;</tt>',
 );
 
 /** Zazaki (Zazaki)
@@ -2652,7 +2654,34 @@ $messages['th'] = array(
  */
 $messages['tk'] = array(
 	'cite_croak' => 'Sita ýitirildi; $1: $2',
+	'cite_error_key_str_invalid' => 'Içerki säwlik;
+nädogry $str we/ýa-da $key.
+Bu asla bolmaly däl.',
+	'cite_error_stack_invalid_input' => 'Içerki säwlik;
+nädogry stek açary.
+Bu asla bolmaly däl.',
 	'cite_error' => 'Sitirleme säwligi: $1',
+	'cite_error_ref_numeric_key' => 'Nädogry <code>&lt;ref&gt;</code> tegi;
+at ýönekeý bir bitin san bolup bilmeýär. Düşündirişli at ulanyň',
+	'cite_error_ref_no_key' => 'Nädogry <code>&lt;ref&gt;</code> tegi;
+mazmunsyz refleriň ady bolmaly',
+	'cite_error_ref_too_many_keys' => 'Nädogry <code>&lt;ref&gt;</code> tegi;
+nädogry atlar, mes. aşa köp',
+	'cite_error_ref_no_input' => 'Nädogry <code>&lt;ref&gt;</code> tegi;
+atsyz refleriň mazmuny bolmalydyr',
+	'cite_error_references_invalid_parameters' => 'Nädogry <code>&lt;ref&gt;</code> tegi;
+hiç hili parametre rugsat berilmeýär.
+<code>&lt;references /&gt;</code> ulanyň',
+	'cite_error_references_no_text' => 'Nädogry <code>&lt;ref&gt;</code> tegi;
+<code>$1</code> atly refler üçin tekst görkezilmändir',
+	'cite_error_included_ref' => '&lt;ref&gt; tegi üçin &lt;/ref&gt; ýapylyşy kem',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> tegleri bar, emma <code>&lt;references/&gt;</code> tegi tapylmady',
+	'cite_error_group_refs_without_references' => '"$1" atly topar üçin <code>&lt;ref&gt;</code> tegleri bar, emma degişli code>&lt;references group="$1"/&gt;</code> tegi tapylmady',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-daky <code>&lt;ref&gt;</code> teginiň çaknyşýan "$1" topar aýratynlygy bar.',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>-da kesgitlenen <code>&lt;ref&gt;</code> teginiň öňki tekstde ýok "$1" topar aýratynlygy bar.',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code>-da kesgitlenen "$1" atly <code>&lt;ref&gt;</code> tegi öňki tekstde ulanylmaýar.',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code>-da kesgitlenen <code>&lt;ref&gt;</code> teginiň hiç hili at aýratynlygy ýok.',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-da kesgitlenen "$1" atly <code>&lt;ref&gt;</code> tegiň mazmuny ýok.',
 );
 
 /** Tagalog (Tagalog)

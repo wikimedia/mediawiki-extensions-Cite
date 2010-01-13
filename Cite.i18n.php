@@ -1662,7 +1662,7 @@ ongëltege ''stack''-Schlëssel.
 Dës sollt eigentlech guer net geschéien.",
 	'cite_error' => 'Zitéierfeeler: $1',
 	'cite_error_ref_numeric_key' => 'Ongëltegen <code>&lt;ref&gt;</code> Tag;
-De Numm ka keng einfach ganz Zuel sinn. Benotzt w.e.g. een Titel den eng Beschreiwung gëtt',
+Den Numm ka keng einfach ganz Zuel sinn. Benotzt w.e.g. een Titel den eng Beschreiwung gëtt',
 	'cite_error_ref_no_key' => 'Ongëltegen <code>&lt;ref&gt;</code> Tag;
 Referenzen ouni Inhalt mussen e Numm hunn',
 	'cite_error_ref_too_many_keys' => 'Ongëltege <code>&lt;ref&gt;</code> Tag;

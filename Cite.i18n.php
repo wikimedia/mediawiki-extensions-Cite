@@ -162,6 +162,8 @@ $messages['af'] = array(
 	'cite_desc' => 'Maak <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> etikette beskikbaar vir sitasie.',
 	'cite_croak' => 'Probleem met Cite; $1: $2',
 	'cite_error' => 'Citefout: $1',
+	'cite_error_ref_too_many_keys' => 'Ongeldig <code>&lt;ref&gt;</code>-etiket;
+ongeldige name, byvoorbeeld te veel',
 );
 
 /** Aragonese (Aragonés)

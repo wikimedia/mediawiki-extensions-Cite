@@ -1029,9 +1029,12 @@ $messages['ml'] = array(
 	'cite_submit' => 'ഉദ്ധരിക്കുക',
 );
 
-/** Mongolian (Монгол) */
+/** Mongolian (Монгол)
+ * @author Chinneeb
+ */
 $messages['mn'] = array(
 	'cite_article_link' => 'Энэ бичлэгийг эш татах',
+	'cite_page' => 'Хуудас:',
 );
 
 /** Marathi (मराठी)

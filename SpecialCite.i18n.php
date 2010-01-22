@@ -848,7 +848,7 @@ $messages['kk-latn'] = array(
 );
 
 /** Kalaallisut (Kalaallisut)
- * @author Piivaat
+ * @author Qaqqalik
  */
 $messages['kl'] = array(
 	'cite_article_link' => 'Una qupperneq issuaruk',

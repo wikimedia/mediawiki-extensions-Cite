@@ -1050,11 +1050,13 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Aurora
  * @author Aviator
  */
 $messages['ms'] = array(
 	'cite_article_desc' => 'Menambah laman khas dan pautan kotak alatan untuk [[Special:Cite|pemetikan]]',
 	'cite_article_link' => 'Petik laman ini',
+	'cite_article_link_title' => 'Maklumat tentang cara memetik laman ini',
 	'cite' => 'Petik',
 	'cite_page' => 'Laman:',
 	'cite_submit' => 'Petik',

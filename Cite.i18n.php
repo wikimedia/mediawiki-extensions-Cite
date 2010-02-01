@@ -850,6 +850,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
  * @author Crazymadlover
  * @author Drini
  * @author Locos epraix
+ * @author Manuelt15
  * @author McDutchie
  * @author Muro de Aguas
  * @author Remember the dot
@@ -860,7 +861,7 @@ $messages['es'] = array(
 	'cite_croak' => "La extensión ''Cite'' se murió; $1: $2",
 	'cite_error_key_str_invalid' => 'Error interno;
 $str y/o $key no válido.
-Esto nunca debe occurir.',
+Esto no debería ocurrir.',
 	'cite_error_stack_invalid_input' => 'Error interno;
 la clave de la pila no es válida.
 Esto nunca debe ocurrir.',

@@ -147,6 +147,7 @@ $messages['av'] = array(
 $messages['bar'] = array(
 	'cite_article_desc' => "Eagänzt d'[[Special:Cite|Zitiahüif]]-Spezialseitn und an Link im Weakzeig-Kåstn",
 	'cite_article_link' => "d'Seitn zitian",
+	'cite_article_link_title' => 'Hinweis, wia de Seitn itiad wean kinad',
 	'cite' => 'Zitiahüif',
 	'cite_page' => 'Seitn:',
 	'cite_submit' => 'ãnzoang',

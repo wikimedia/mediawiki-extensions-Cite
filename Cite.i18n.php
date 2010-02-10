@@ -1739,11 +1739,13 @@ Nurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink
 );
 
 /** Latvian (Latviešu)
+ * @author Marozols
  * @author Xil
  */
 $messages['lv'] = array(
 	'cite_desc' => 'Pievieno <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> tagus, atsaucēm',
 	'cite_error' => 'Kļūda atsaucē: $1',
+	'cite_error_refs_without_references' => 'atrasta <code>&lt;ref&gt;</code> iezīme, bet nav nevienas <code>&lt;references/&gt;</code> iezīmes',
 );
 
 /** Malagasy (Malagasy)

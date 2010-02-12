@@ -431,11 +431,13 @@ $messages['et'] = array(
 );
 
 /** Basque (Euskara)
+ * @author An13sa
  * @author Theklan
  */
 $messages['eu'] = array(
 	'cite_article_desc' => '[[Special:Cite|Aipatu]] orrialde berezia gehitzen du tresna-kutxaren loturetan',
 	'cite_article_link' => 'Orrialde hau aipatu',
+	'cite_article_link_title' => 'Orrialde nola aipatzeko informazioa',
 	'cite' => 'Aipamenak',
 	'cite_page' => 'Orrialdea:',
 	'cite_submit' => 'Aipatu',

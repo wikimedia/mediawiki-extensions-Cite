@@ -922,8 +922,12 @@ Viite nimega <code>$1</code> tekst puudub.',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-märgendite vahel oleval <code>&lt;ref&gt;</code>-märgendil nimega "$1" puudub sisu.',
 );
 
-/** Basque (Euskara) */
+/** Basque (Euskara)
+ * @author An13sa
+ */
 $messages['eu'] = array(
+	'cite_desc' => '<nowiki><ref[ name=id]></nowiki> eta <nowiki><references/></nowiki> etiketak gehitzen ditu, aipuentzako',
+	'cite_croak' => 'Hildako aipua; $1: $2',
 	'cite_error' => 'Aipamen errorea: $1',
 );
 
@@ -2944,6 +2948,7 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author Liangent
  * @author Philip
  */
 $messages['zh-hans'] = array(
@@ -2963,9 +2968,11 @@ $messages['zh-hans'] = array(
 	'cite_error_included_ref' => '没有找到与&lt;/ref&gt;对应的&lt;ref&gt;标签',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>标签存在，但没有找到<code>&lt;references/&gt;</code>标签',
 	'cite_error_group_refs_without_references' => '组名为“$1”的<code>&lt;ref&gt;</code>标签存在，但没有找到相应的<code>&lt;references group="$1"/&gt;</code>标签',
+	'cite_error_references_missing_key' => '在<code>&lt;references&gt;</code>中以“$1”名字定义的<code>&lt;ref&gt;</code>标签没有在先前的文字中使用。',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Liangent
  * @author Philip
  */
 $messages['zh-hant'] = array(
@@ -2985,5 +2992,6 @@ $messages['zh-hant'] = array(
 	'cite_error_included_ref' => '沒有找到與&lt;/ref&gt;對應的&lt;ref&gt;標簽',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>標簽存在，但沒有找到<code>&lt;references/&gt;</code>標簽',
 	'cite_error_group_refs_without_references' => '組名為「$1」的<code>&lt;ref&gt;</code>標簽存在，但沒有找到相應的<code>&lt;references group="$1"/&gt;</code>標簽',
+	'cite_error_references_missing_key' => '在<code>&lt;references&gt;</code>中以“$1”名字定義的<code>&lt;ref&gt;</code>標籤沒有在先前的文字中使用。',
 );
 

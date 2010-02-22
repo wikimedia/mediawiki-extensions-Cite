@@ -17,7 +17,6 @@ $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
-	'description' => 'adds a [[Special:Cite|citation]] special page & toolbox link', // kept for b/c
 	'descriptionmsg' => 'cite_article_desc',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
 );

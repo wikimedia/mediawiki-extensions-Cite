@@ -26,7 +26,6 @@ $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
-	'description' => 'Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations', // kept for b/c
 	'descriptionmsg' => 'cite_desc',
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );

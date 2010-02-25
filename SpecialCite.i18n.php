@@ -53,6 +53,7 @@ $messages['niu'] = array(
 $messages['af'] = array(
 	'cite_article_desc' => "Maak 'n [[Special:Cite|spesiale bladsy vir sitasie]], en 'n skakel daarna in hulpmiddels beskikbaar",
 	'cite_article_link' => 'Haal dié blad aan',
+	'cite_article_link_title' => 'Inligting oor hoe u hierdie bladsy kan citeer',
 	'cite' => 'Aanhaling',
 	'cite_page' => 'Bladsy:',
 	'cite_submit' => 'Aanhaling',
@@ -1757,8 +1758,10 @@ $messages['wuu'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
+	'cite_article_desc' => 'לייגט צו א [[Special:Cite|ציטיר]] באַזונדערן בלאַט און געצייגקאַסן לינק',
 	'cite_article_link' => 'ציטירן דעם דאזיגן בלאט',
-	'cite' => 'ציטיר',
+	'cite_article_link_title' => 'אינפֿאָרמאַציע ווי אַזוי צו ציטירן דעם בלאַט',
+	'cite' => 'ציטירן',
 	'cite_page' => 'בלאט:',
 	'cite_submit' => 'ציטירן',
 );

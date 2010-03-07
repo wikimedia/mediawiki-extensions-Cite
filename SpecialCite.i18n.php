@@ -106,10 +106,16 @@ $messages['arc'] = array(
 );
 
 /** Araucanian (Mapudungun)
+ * @author Kaniw
  * @author Remember the dot
  */
 $messages['arn'] = array(
-	'cite_page' => 'Pakina:',
+	'cite_article_desc' => 'Yomvmi kiñe wicu aztapvl ñi [[Special:Cite|konvmpan]] mew ka jasun kvzawpeyvm mew',
+	'cite_article_link' => 'Konvmpape faci xoy',
+	'cite_article_link_title' => 'Cumley konvmpageay faci xoy',
+	'cite' => 'Konvmpan',
+	'cite_page' => 'Aztapvl:',
+	'cite_submit' => 'Konvmpan',
 );
 
 /** Egyptian Spoken Arabic (مصرى)

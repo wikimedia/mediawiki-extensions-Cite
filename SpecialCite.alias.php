@@ -167,7 +167,7 @@ $aliases['ko'] = array(
 	'Cite' => array( '인용' ),
 );
 
-/** Ripoarisch (Ripoarisch) */
+/** Colognian (Ripoarisch) */
 $aliases['ksh'] = array(
 	'Cite' => array( 'Zitteere' ),
 );

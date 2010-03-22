@@ -1372,6 +1372,7 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (Русский)
+ * @author Huuchin
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -1758,6 +1759,13 @@ $messages['wuu'] = array(
 	'cite' => '引用',
 	'cite_page' => '页面:',
 	'cite_submit' => '引用',
+);
+
+/** Kalmyk (Хальмг)
+ * @author Huuchin
+ */
+$messages['xal'] = array(
+	'cite_article_link' => 'Тер халхиг эшллх',
 );
 
 /** Yiddish (ייִדיש)

@@ -2482,6 +2482,16 @@ Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="...
 	'cite_error_empty_references_define' => 'Značka <code>&lt;ref&gt;</code> s definovaná v <code>&lt;references&gt;</code> s názvom „$1“ nemá žiaden obsah.',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'cite_desc' => 'Doda etiketi <nowiki><ref[ name=id]></nowiki> in <nowiki><references/></nowiki> za navajanje',
+	'cite_croak' => 'Hreščeča navedba; $1: $2',
+	'cite_error' => 'Napaka pri navajanju: $1',
+	'cite_error_included_ref' => 'Zaključek &lt;/ref&gt; manjka za etiketi &lt;ref&gt;',
+);
+
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Михајло Анђелковић

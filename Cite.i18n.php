@@ -2489,7 +2489,7 @@ $messages['sl'] = array(
 	'cite_desc' => 'Doda etiketi <nowiki><ref[ name=id]></nowiki> in <nowiki><references/></nowiki> za navajanje',
 	'cite_croak' => 'Hreščeča navedba; $1: $2',
 	'cite_error' => 'Napaka pri navajanju: $1',
-	'cite_error_included_ref' => 'Zaključek &lt;/ref&gt; manjka za etiketi &lt;ref&gt;',
+	'cite_error_included_ref' => 'Zaključek &lt;/ref&gt; manjka za etiketo &lt;ref&gt;',
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))

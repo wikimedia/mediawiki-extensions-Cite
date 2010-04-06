@@ -2153,7 +2153,7 @@ Isto nunca deveria acontecer.',
 	'cite_error_references_invalid_parameters_group' => 'Marca <code>&lt;references&gt;</code> inválida;
 só o parâmetro "group" é permitido.
 Use <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Esgotamento das legendas personalizadas para ligações de retorno.
+	'cite_error_references_no_backlink_label' => 'Esgotamento das legendas personalizadas para backlinks.
 Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; de fecho em falta para a marca &lt;ref&gt;',

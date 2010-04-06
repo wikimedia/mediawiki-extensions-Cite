@@ -776,11 +776,13 @@ $messages['is'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author BrokenArrow
  */
 $messages['it'] = array(
 	'cite_article_desc' => 'Aggiunge una pagina speciale per le [[Special:Cite|citazioni]] e un collegamento negli strumenti',
 	'cite_article_link' => 'Cita questa pagina',
+	'cite_article_link_title' => 'Informazioni su come citare questa pagina',
 	'cite' => 'Citazione',
 	'cite_page' => 'Pagina da citare:',
 	'cite_submit' => 'Crea la citazione',
@@ -1294,7 +1296,7 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'cite_article_desc' => '[[Special:Cite|Página especial]] que produz uma citação de qualquer outra página na wiki (em vários formatos) e adiciona uma ligação na caixa de ferramentas',
+	'cite_article_desc' => '[[Special:Cite|Página especial]] que produz uma citação de qualquer outra página na wiki (em vários formatos) e adiciona um link na barra de ferramentas',
 	'cite_article_link' => 'Citar esta página',
 	'cite_article_link_title' => 'Informação sobre como citar esta página',
 	'cite' => 'Citar',

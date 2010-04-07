@@ -812,15 +812,15 @@ $messages['eo'] = array(
 	'cite_desc' => 'Aldonas etikedojn <nowiki><ref[ name=id]></nowiki> kaj <nowiki><references/></nowiki> por citaĵoj',
 	'cite_croak' => 'Cito mortis; $1: $2',
 	'cite_error_key_str_invalid' => 'Interna eraro;
-nevalida $str kaj/aŭ $key.
+malvalida $str kaj/aŭ $key.
 Ĉi tio neniam okazos.',
 	'cite_error_stack_invalid_input' => 'Interna eraro;
-nevalida staka ŝlosilo.
+malvalida staka ŝlosilo.
 Ĉi tio verŝajne neniam okazus.',
 	'cite_error' => 'Citaĵa eraro: $1',
-	'cite_error_ref_numeric_key' => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
+	'cite_error_ref_numeric_key' => 'Malvalida etikedo <code>&lt;ref&gt;</code>;
 nomo ne povas esti simpla entjero. Uzu priskriban titolon.',
-	'cite_error_ref_no_key' => "Nevalida etikedo <code>&lt;ref&gt;</code>;
+	'cite_error_ref_no_key' => "Malvalida etikedo <code>&lt;ref&gt;</code>;
 ''ref'' kun nenia enhava nomo devas havi nomon",
 	'cite_error_ref_too_many_keys' => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
 nevalidaj nomoj (ekz-e: tro multaj)',
@@ -1813,27 +1813,27 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'cite_desc' => 'അവലംബം ചേര്‍ക്കുവാന്‍ ഉപയോഗിക്കാനുള്ള <nowiki><ref[ name=id]></nowiki>, <nowiki><references/></nowiki> എന്നീ ടാഗുകള്‍ ചേര്‍ക്കുന്നു',
+	'cite_desc' => 'അവലംബം ചേർക്കുവാൻ ഉപയോഗിക്കാനുള്ള <nowiki><ref[ name=id]></nowiki>, <nowiki><references/></nowiki> എന്നീ ടാഗുകൾ ചേർക്കുന്നു',
 	'cite_croak' => 'സൈറ്റ് ചത്തിരിക്കുന്നു; $1: $2',
 	'cite_error_key_str_invalid' => 'ആന്തരിക പിഴവ്; 
-അസാധുവായ $str അല്ലെങ്കില്‍ $key.
-ഇതു ഒരിക്കലും സംഭവിക്കാന്‍ പാടില്ലായിരുന്നു.',
-	'cite_error_stack_invalid_input' => 'ആന്തരിക പിഴവ്; അസാധുവായ സ്റ്റാക് കീ. ഇതു ഒരിക്കലും സംഭവിക്കാന്‍ പാടില്ലായിരുന്നു.',
-	'cite_error' => 'ഉദ്ധരിച്ചതില്‍ പിഴവ്: $1',
+അസാധുവായ $str അല്ലെങ്കിൽ $key.
+ഇതു ഒരിക്കലും സംഭവിക്കാൻ പാടില്ലായിരുന്നു.',
+	'cite_error_stack_invalid_input' => 'ആന്തരിക പിഴവ്; അസാധുവായ സ്റ്റാക് കീ. ഇതു ഒരിക്കലും സംഭവിക്കാൻ പാടില്ലായിരുന്നു.',
+	'cite_error' => 'ഉദ്ധരിച്ചതിൽ പിഴവ്: $1',
 	'cite_error_ref_numeric_key' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
-നാമത്തില്‍ സംഖ്യ മാത്രമായി അനുവദനീയമല്ല. എന്തെങ്കിലും ലഘുവിവരണം ഉപയോഗിക്കുക.',
+നാമത്തിൽ സംഖ്യ മാത്രമായി അനുവദനീയമല്ല. എന്തെങ്കിലും ലഘുവിവരണം ഉപയോഗിക്കുക.',
 	'cite_error_ref_no_key' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
 ഉള്ളടക്കമൊന്നുമില്ലാത്ത അവലംബത്തിനും ഒരു പേരു വേണം.',
 	'cite_error_ref_too_many_keys' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
-അസാധുവായ പേരുകള്‍, ഉദാ: too many',
+അസാധുവായ പേരുകൾ, ഉദാ: too many',
 	'cite_error_ref_no_input' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
 പേരില്ലാത്ത അവലംബത്തിനു ഉള്ളടക്കമുണ്ടായിരിക്കണം.',
 	'cite_error_references_invalid_parameters' => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
-റെഫറന്‍സ് ടാഗിനകത്ത് പരാമീററ്ററുകള്‍ അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണു.',
+റെഫറൻസ് ടാഗിനകത്ത് പരാമീററ്ററുകൾ അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണു.',
 	'cite_error_references_invalid_parameters_group' => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
-റെഫറന്‍സ് ടാഗിനകത്ത് "group" പരാമീറ്റര്‍ മാത്രമേ അനുവദനീമായുള്ളൂ. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code>, അല്ലെങ്കില്‍ <code>&lt;references group="..." /&gt;</code> ചെയ്യാവുന്നതാണു.',
+റെഫറൻസ് ടാഗിനകത്ത് "group" പരാമീറ്റർ മാത്രമേ അനുവദനീമായുള്ളൂ. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code>, അല്ലെങ്കിൽ <code>&lt;references group="..." /&gt;</code> ചെയ്യാവുന്നതാണു.',
 	'cite_error_references_no_text' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
-<code>$1</code> എന്ന അവലംബങ്ങള്‍ക്ക് ടെക്സ്റ്റ് ഒന്നും കൊടുത്തിട്ടില്ല.',
+<code>$1</code> എന്ന അവലംബങ്ങൾക്ക് ടെക്സ്റ്റ് ഒന്നും കൊടുത്തിട്ടില്ല.',
 	'cite_error_included_ref' => '&lt;ref&gt; റ്റാഗിനു &lt;/ref&gt; എന്ന അന്ത്യറ്റാഗ് നൽകിയിട്ടില്ല',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ നൽകിയിട്ടുണ്ട്, പക്ഷേ <code>&lt;references/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ "$1" സംഘത്തിൽ ഉണ്ട്, പക്ഷേ ബന്ധപ്പെട്ട <code>&lt;references group="$1"/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല',

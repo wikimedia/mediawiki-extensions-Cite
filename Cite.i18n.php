@@ -1145,12 +1145,13 @@ $messages['gu'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author Rotem Liss
  * @author Rotemliss
  * @author YaronSh
  */
 $messages['he'] = array(
-	'cite_desc' => 'הוספת תגיות <nowiki><ref[ name=id]></nowiki> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
+	'cite_desc' => 'הוספת תגיות <span dir="ltr"><nowiki><ref[ name=id]></nowiki></span> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
 	'cite_croak' => 'בהערה יש שגיאה; $1: $2',
 	'cite_error_key_str_invalid' => 'שגיאה פנימית; $str ו/או $key שגויים. זהו באג בתוכנה.',
 	'cite_error_stack_invalid_input' => 'שגיאה פנימית; מפתח שגוי במחסנית. זהו באג בתוכנה.',

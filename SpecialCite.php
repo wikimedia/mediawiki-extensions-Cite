@@ -1,5 +1,5 @@
 <?php
-if (!defined('MEDIAWIKI')) die();
+if ( !defined( 'MEDIAWIKI' ) ) die();
 /**
  * A special page extension that adds a special page that generates citations
  * for pages.
@@ -21,7 +21,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
 );
 
-$dir = dirname(__FILE__) . '/';
+$dir = dirname( __FILE__ ) . '/';
 # Internationalisation file
 $wgExtensionMessagesFiles['SpecialCite'] = $dir . 'SpecialCite.i18n.php';
 $wgExtensionAliasesFiles['SpecialCite'] = $dir . 'SpecialCite.alias.php';
@@ -50,9 +50,9 @@ function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 function wfSpecialCiteToolbox( &$skin ) {
 	if ( isset( $skin->data['nav_urls']['cite'] ) ) {
 		wfLoadExtensionMessages( 'SpecialCite' );
-		echo Xml::tags( 
-			'li', 
-			array( 'id' => 't-cite' ), 
+		echo Xml::tags(
+			'li',
+			array( 'id' => 't-cite' ),
 			$skin->skin->link(
 				SpecialPage::getTitleFor( 'Cite' ),
 				wfMsg( 'cite_article_link' ),

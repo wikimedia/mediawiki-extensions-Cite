@@ -1,5 +1,5 @@
 <?php
-if (!defined('MEDIAWIKI')) die();
+if ( !defined( 'MEDIAWIKI' ) ) die();
 
 global $wgContLang, $wgContLanguageCode, $wgCiteDefaultText;
 
@@ -115,7 +115,7 @@ class CiteOutput {
 		$wgHooks['ParserGetVariableValueTs'][] = array( $this, 'timestamp' );
 
 		$msg = wfMsgForContentNoTrans( 'cite_text' );
-		if( $msg == '' ) {
+		if ( $msg == '' ) {
 			$msg = $wgCiteDefaultText;
 		}
 		$this->mArticle->fetchContent( $this->mId, false );

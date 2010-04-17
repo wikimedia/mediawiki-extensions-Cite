@@ -34,12 +34,12 @@ $wgExtensionMessagesFiles['Cite'] = dirname( __FILE__ ) . "/Cite.i18n.php";
 $wgAutoloadClasses['Cite'] = dirname( __FILE__ ) . "/Cite_body.php";
 $wgSpecialPageGroups['Cite'] = 'pagetools';
 
-define( 'CITE_DEFAULT_GROUP', '');
+define( 'CITE_DEFAULT_GROUP', '' );
 /**
  * The emergency shut-off switch.  Override in local settings to disable
  * groups; or remove all references from this file to enable unconditionally
  */
-$wgAllowCiteGroups = true; 
+$wgAllowCiteGroups = true;
 
 /**
  * An emergency optimisation measure for caching cite <references /> output.

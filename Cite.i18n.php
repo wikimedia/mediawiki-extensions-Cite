@@ -8,7 +8,7 @@
 $messages = array();
 
 $messages['en'] = array(
-	'cite_desc'                      => 'Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
+	'cite-desc'                      => 'Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
 	/*
 		Debug and errors
 	*/
@@ -86,7 +86,7 @@ no text was provided for refs named <code>$1</code>',
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'cite_desc' => 'Extension description for cite. Shown in [[Special:Version]]. Do not translate or change tag names.',
+	'cite-desc' => 'Extension description for cite. Shown in [[Special:Version]]. Do not translate or change tag names.',
 	'cite_error_key_str_invalid' => '<tt>$str</tt> and <tt>$key</tt> are literals, and refers to who knows which variables the code uses.',
 	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
@@ -159,7 +159,7 @@ The <code>$1</code> parameter contains the name of the unused reference (in the 
  * @author Naudefj
  */
 $messages['af'] = array(
-	'cite_desc' => 'Maak <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> etikette beskikbaar vir sitasie.',
+	'cite-desc' => 'Maak <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> etikette beskikbaar vir sitasie.',
 	'cite_croak' => 'Probleem met Cite; $1: $2',
 	'cite_error' => 'Citefout: $1',
 	'cite_error_ref_too_many_keys' => 'Ongeldig <code>&lt;ref&gt;</code>-etiket;
@@ -170,7 +170,7 @@ ongeldige name, byvoorbeeld te veel',
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'cite_desc' => 'Adibe as etiquetas <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> ta fer zitas',
+	'cite-desc' => 'Adibe as etiquetas <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> ta fer zitas',
 	'cite_croak' => 'Zita corrompita; $1: $2',
 	'cite_error_key_str_invalid' => 'Error interna; $str y/u $key no conforme(s). Isto no abría d\'escaizer nunca.',
 	'cite_error_stack_invalid_input' => "Error interna; clau de pila no conforme. Isto no abría d'escaizer nunca.",
@@ -193,7 +193,7 @@ Faiga serbir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..
  * @author OsamaK
  */
 $messages['ar'] = array(
-	'cite_desc' => 'يضيف وسوم <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهادات',
+	'cite-desc' => 'يضيف وسوم <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهادات',
 	'cite_croak' => 'الاستشهاد مات؛ $1: $2',
 	'cite_error_key_str_invalid' => 'خطأ داخلي؛
 $str و/أو $key غير صحيح.
@@ -244,7 +244,7 @@ $messages['arc'] = array(
  * @author Ramsis II
  */
 $messages['arz'] = array(
-	'cite_desc' => 'بيضيف التاجز <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهاد',
+	'cite-desc' => 'بيضيف التاجز <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> ، للاستشهاد',
 	'cite_croak' => 'المرجع مات; $1: $2',
 	'cite_error_key_str_invalid' => 'غلط داخلى؛
 $str و/أو $key غلط.
@@ -281,7 +281,7 @@ $str و/أو $key غلط.
  * @author Esbardu
  */
 $messages['ast'] = array(
-	'cite_desc' => 'Añade les etiquetes <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> pa les cites',
+	'cite-desc' => 'Añade les etiquetes <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> pa les cites',
 	'cite_croak' => 'Cita corrompida; $1: $2',
 	'cite_error_key_str_invalid' => 'Error internu; $str y/o $key non válidos.  Esto nun habría asoceder nunca.',
 	'cite_error_stack_invalid_input' => 'Error internu; clave de pila non válida. Esto nun habría asoceder nunca.',
@@ -304,7 +304,7 @@ Defini más nel mensaxe <nowiki>[[MediaWiki:Cite references link many format bac
  * @author Mostafadaneshvar
  */
 $messages['bcc'] = array(
-	'cite_desc' => 'اضفافه کنت<nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> تگ, په ارجاع دهگ',
+	'cite-desc' => 'اضفافه کنت<nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> تگ, په ارجاع دهگ',
 	'cite_croak' => 'ذکر منبع چه بن رپت; $1: $2',
 	'cite_error_key_str_invalid' => 'حطا درونی ;
 نامعتبرین $str و/یا  $key.
@@ -344,7 +344,7 @@ $messages['bcc'] = array(
  * @author Red Winged Duck
  */
 $messages['be-tarask'] = array(
-	'cite_desc' => 'Дадае тэгі <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для зносак',
+	'cite-desc' => 'Дадае тэгі <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для зносак',
 	'cite_croak' => 'Няўдалае цытаваньне; $1: $2',
 	'cite_error_key_str_invalid' => 'Унутраная памылка;
 няслушны $str і/ці $key.
@@ -387,7 +387,7 @@ $messages['be-tarask'] = array(
  * @author Spiritia
  */
 $messages['bg'] = array(
-	'cite_desc' => 'Добавя етикетите <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, подходящи за цитиране',
+	'cite-desc' => 'Добавя етикетите <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, подходящи за цитиране',
 	'cite_croak' => 'Цитиращата система се срути; $1: $2',
 	'cite_error_key_str_invalid' => 'Вътрешна грешка: невалиден параметър $str и/или $key.  Това не би трябвало да се случва никога.',
 	'cite_error_stack_invalid_input' => "'''Вътрешна грешка:''' невалиден ключ на стека. Това не би трябвало да се случва никога.",
@@ -413,7 +413,7 @@ $messages['bg'] = array(
  * @author Zaheen
  */
 $messages['bn'] = array(
-	'cite_desc' => 'উদ্ধৃতির জন্য <nowiki><ref[ name=id]></nowiki> এবং <nowiki><references/></nowiki> ট্যাগসমূহ যোগ করুন',
+	'cite-desc' => 'উদ্ধৃতির জন্য <nowiki><ref[ name=id]></nowiki> এবং <nowiki><references/></nowiki> ট্যাগসমূহ যোগ করুন',
 	'cite_croak' => 'উদ্ধৃতি ক্রোক করা হয়েছে; $1: $2',
 	'cite_error_key_str_invalid' => 'আভ্যন্তরীন ত্রুটি; অবৈধ $str এবং/অথবা $key। এটা কখনই ঘটা উচিত নয়।',
 	'cite_error_stack_invalid_input' => 'আভ্যন্তরীন ত্রুটি; অবৈধ স্ট্যাক কি। এটা কখনই ঘটা উচিত নয়।',
@@ -431,7 +431,7 @@ $messages['bn'] = array(
  * @author Fulup
  */
 $messages['br'] = array(
-	'cite_desc' => 'Ouzhpennañ a ra ar balizennoù <nowiki><ref[ name=id]></nowiki> ha <nowiki><references/></nowiki>, evit an arroudoù.',
+	'cite-desc' => 'Ouzhpennañ a ra ar balizennoù <nowiki><ref[ name=id]></nowiki> ha <nowiki><references/></nowiki>, evit an arroudoù.',
 	'cite_croak' => 'Arroud breinet ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Fazi diabarzh ;
 $str ha/pe key$ direizh.
@@ -472,7 +472,7 @@ ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
  * @author CERminator
  */
 $messages['bs'] = array(
-	'cite_desc' => 'Dodaje oznake <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> za citiranje',
+	'cite-desc' => 'Dodaje oznake <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> za citiranje',
 	'cite_croak' => 'Citiranje neuspješno; $1: $2',
 	'cite_error_key_str_invalid' => 'Unutrašnja greška;
 nevaljan $str i/ili $key.
@@ -515,7 +515,7 @@ nije naveden tekst za reference sa imenom <code>$1</code>',
  * @author Vriullop
  */
 $messages['ca'] = array(
-	'cite_desc' => 'Afegeix les etiquetes <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki>, per a cites',
+	'cite-desc' => 'Afegeix les etiquetes <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki>, per a cites',
 	'cite_croak' => 'Cita corrompuda; $1: $2',
 	'cite_error_key_str_invalid' => 'Error intern;
 els valors $str i/o $key no valen.
@@ -555,7 +555,7 @@ no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
  * @author Sp5uhe
  */
 $messages['cs'] = array(
-	'cite_desc' => 'Přidává značky <nowiki><ref[ name="id"]></nowiki> a&nbsp;<nowiki><references /></nowiki> na označení citací',
+	'cite-desc' => 'Přidává značky <nowiki><ref[ name="id"]></nowiki> a&nbsp;<nowiki><references /></nowiki> na označení citací',
 	'cite_croak' => 'Nefunkční citace; $1: $2',
 	'cite_error_key_str_invalid' => 'Vnitřní chyba; neplatný $str nebo $key. Toto by nikdy nemělo nastat.',
 	'cite_error_stack_invalid_input' => 'Vnitřní chyba; neplatný klíč zásobníku',
@@ -591,7 +591,7 @@ $messages['cu'] = array(
  * @author Lloffiwr
  */
 $messages['cy'] = array(
-	'cite_desc' => 'Yn ychwanegu tagiau <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki>, ar gyfer cyfeiriadau',
+	'cite-desc' => 'Yn ychwanegu tagiau <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki>, ar gyfer cyfeiriadau',
 	'cite_croak' => 'Cyfeirio at farwolaeth; $1: $2',
 	'cite_error_key_str_invalid' => 'Gwall mewnol;
 $str a/neu $key annilys.
@@ -629,7 +629,7 @@ ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
  * @author Morten LJ
  */
 $messages['da'] = array(
-	'cite_desc' => 'Tilføjer <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-elementer til referencer.',
+	'cite-desc' => 'Tilføjer <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-elementer til referencer.',
 	'cite_croak' => 'Fejl i fodnotesystemet; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern fejl: Ugyldig $str og/eller $key. Dette burde aldrig forekomme.',
 	'cite_error_stack_invalid_input' => 'Intern fejl: Ugyldig staknøgle. Dette burde aldrig forekomme.',
@@ -649,7 +649,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'cite_desc' => 'Ergänzt für Quellennachweise die <tt><nowiki><ref[ name=id]></nowiki></tt> und <tt><nowiki><references /></nowiki></tt>-Tags',
+	'cite-desc' => 'Ergänzt für Quellennachweise die <tt><nowiki><ref[ name=id]></nowiki></tt> und <tt><nowiki><references /></nowiki></tt>-Tags',
 	'cite_croak' => 'Fehler im Referenz-System. $1: $2',
 	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
 	'cite_error_stack_invalid_input' => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',
@@ -687,7 +687,7 @@ $messages['de-formal'] = array(
  * @author Xoser
  */
 $messages['diq'] = array(
-	'cite_desc' => 'Qe çime mucnayîşî, etiketanê <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> de keno',
+	'cite-desc' => 'Qe çime mucnayîşî, etiketanê <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> de keno',
 	'cite_croak' => 'Çime nihebitiyeno; $1: $2',
 	'cite_error_key_str_invalid' => 'Ğeletê dehilî
 $str raşt niyo u/ya zi $key.
@@ -728,7 +728,7 @@ qe refs yew nuşte nidayiyo <code>$1</code>',
  * @author Michawiki
  */
 $messages['dsb'] = array(
-	'cite_desc' => 'Pśidawa toflicce <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> za pódaśa zrědłow',
+	'cite-desc' => 'Pśidawa toflicce <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> za pódaśa zrědłow',
 	'cite_croak' => 'Zmólka w referencnem systemje. $1: $2',
 	'cite_error_key_str_invalid' => 'Interna zmólka: njpłaśiwy $str a/abo $key. To njaměło se staś.',
 	'cite_error_stack_invalid_input' => 'Interna zmólka: njepłaśiwy stackowy kluc. To njaměło se staś.',
@@ -767,7 +767,7 @@ za ref z mjenim <code>$1</code> njejo se tekst pódał',
  * @author ZaDiak
  */
 $messages['el'] = array(
-	'cite_desc' => 'Προσθέτει τα <ref[ name="id"]> και <references/> για τις παραπομπές.',
+	'cite-desc' => 'Προσθέτει τα <ref[ name="id"]> και <references/> για τις παραπομπές.',
 	'cite_croak' => 'Η παραπομπή οδηγεί σε αδιέξοδο; $1: $2',
 	'cite_error_key_str_invalid' => 'Εσωτερικό σφάλμα·
 μη έγκυρο $str και/ή $key.
@@ -809,7 +809,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
-	'cite_desc' => 'Aldonas etikedojn <nowiki><ref[ name=id]></nowiki> kaj <nowiki><references/></nowiki> por citaĵoj',
+	'cite-desc' => 'Aldonas etikedojn <nowiki><ref[ name=id]></nowiki> kaj <nowiki><references/></nowiki> por citaĵoj',
 	'cite_croak' => 'Cito mortis; $1: $2',
 	'cite_error_key_str_invalid' => 'Interna eraro;
 malvalida $str kaj/aŭ $key.
@@ -857,7 +857,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
  * @author Sanbec
  */
 $messages['es'] = array(
-	'cite_desc' => 'Añade las etiquietas <nowiki><ref[ name=id]> y <references /></nowiki> para utilizar notas al pie.',
+	'cite-desc' => 'Añade las etiquietas <nowiki><ref[ name=id]> y <references /></nowiki> para utilizar notas al pie.',
 	'cite_croak' => "La extensión ''Cite'' se murió; $1: $2",
 	'cite_error_key_str_invalid' => 'Error interno;
 $str y/o $key no válido.
@@ -898,7 +898,7 @@ pues no hay una referencia con texto llamada <code>$1</code>',
  * @author Pikne
  */
 $messages['et'] = array(
-	'cite_desc' => 'Lisab viitamiseks märgendid <nowiki><ref[ name=id]></nowiki> ja <nowiki><references/></nowiki>.',
+	'cite-desc' => 'Lisab viitamiseks märgendid <nowiki><ref[ name=id]></nowiki> ja <nowiki><references/></nowiki>.',
 	'cite_error' => 'Viitamistõrge: $1',
 	'cite_error_ref_numeric_key' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
 Nimi ei või numbriline olla. Kasuta kirjeldavat nime.',
@@ -926,7 +926,7 @@ Viite nimega <code>$1</code> tekst puudub.',
  * @author An13sa
  */
 $messages['eu'] = array(
-	'cite_desc' => '<nowiki><ref[ name=id]></nowiki> eta <nowiki><references/></nowiki> etiketak gehitzen ditu, aipuentzako',
+	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> eta <nowiki><references/></nowiki> etiketak gehitzen ditu, aipuentzako',
 	'cite_croak' => 'Hildako aipua; $1: $2',
 	'cite_error' => 'Aipamen errorea: $1',
 );
@@ -935,7 +935,7 @@ $messages['eu'] = array(
  * @author Huji
  */
 $messages['fa'] = array(
-	'cite_desc' => 'برچسب‌های <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> را برای یادکرد اضافه می‌کند',
+	'cite-desc' => 'برچسب‌های <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> را برای یادکرد اضافه می‌کند',
 	'cite_croak' => 'یادکرد خراب شد؛ $1: $2',
 	'cite_error_key_str_invalid' => 'خطای داخلی؛ $str و/یا $key غیر مجاز. این خطا نباید هرگز رخ دهد.',
 	'cite_error_stack_invalid_input' => 'خطای داخلی؛ کلید پشته غیرمجاز.  این خطا نباید هرگز رخ دهد.',
@@ -963,7 +963,7 @@ $messages['fa'] = array(
  * @author Tarmo
  */
 $messages['fi'] = array(
-	'cite_desc' => 'Tarjoaa <nowiki><ref[ name=id]></nowiki>- ja <nowiki><references/></nowiki>-elementit viittauksien tekemiseen.',
+	'cite-desc' => 'Tarjoaa <nowiki><ref[ name=id]></nowiki>- ja <nowiki><references/></nowiki>-elementit viittauksien tekemiseen.',
 	'cite_croak' => 'Virhe viittausjärjestelmässä: $1: $2',
 	'cite_error_key_str_invalid' => 'Sisäinen virhe: kelpaamaton $str ja/tai $key.',
 	'cite_error_stack_invalid_input' => 'Sisäinen virhe: kelpaamaton pinoavain.',
@@ -998,7 +998,7 @@ viitettä <code>$1</code> ei löytynyt',
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'cite_desc' => 'Ajoute les balises <tt><nowiki><ref[ name="id"]></nowiki></tt> et <tt><nowiki><references/></nowiki></tt> pour les citations.',
+	'cite-desc' => 'Ajoute les balises <tt><nowiki><ref[ name="id"]></nowiki></tt> et <tt><nowiki><references/></nowiki></tt> pour les citations.',
 	'cite_croak' => 'Citation en impasse ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Erreur interne ;
 $str ou $key invalides.
@@ -1041,7 +1041,7 @@ aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'cite_desc' => 'Apond les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, por les citacions.',
+	'cite-desc' => 'Apond les balises <nowiki><ref[ name=id]></nowiki> et <nowiki><references/></nowiki>, por les citacions.',
 	'cite_croak' => 'Citacion corrompua ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Èrror de dedens ; $str atendua.',
 	'cite_error_stack_invalid_input' => 'Èrror de dedens ; cllâf de pila envalida.',
@@ -1070,7 +1070,7 @@ $messages['fur'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'cite_desc' => 'Engade <nowiki><ref[ nome=id]></nowiki> e etiquetas <nowiki><references/></nowiki>, para notas',
+	'cite-desc' => 'Engade <nowiki><ref[ nome=id]></nowiki> e etiquetas <nowiki><references/></nowiki>, para notas',
 	'cite_croak' => 'Cita morta; $1: $2',
 	'cite_error_key_str_invalid' => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
 	'cite_error_stack_invalid_input' => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
@@ -1114,7 +1114,7 @@ $messages['grc'] = array(
  * @author Als-Holder
  */
 $messages['gsw'] = array(
-	'cite_desc' => 'Ergänzt fir Quällenochwyys d <tt><nowiki><ref[ name=id]></nowiki></tt> un d <tt><nowiki><references /></nowiki></tt>-Tag',
+	'cite-desc' => 'Ergänzt fir Quällenochwyys d <tt><nowiki><ref[ name=id]></nowiki></tt> un d <tt><nowiki><references /></nowiki></tt>-Tag',
 	'cite_croak' => 'Fähler im Referenz-Syschtem. $1: $2',
 	'cite_error_key_str_invalid' => 'Intärne Fähler: uugiltige $str un/oder $key. Des sott eigetli gar nit chenne gschäh.',
 	'cite_error_stack_invalid_input' => 'Intärne Fähler: uugiltige „name“-stack. Des sott eigetli gar nit chenne gschäh.',
@@ -1151,7 +1151,7 @@ $messages['gu'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'cite_desc' => 'הוספת תגיות <span dir="ltr"><nowiki><ref[ name=id]></nowiki></span> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
+	'cite-desc' => 'הוספת תגיות <span dir="ltr"><nowiki><ref[ name=id]></nowiki></span> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
 	'cite_croak' => 'בהערה יש שגיאה; $1: $2',
 	'cite_error_key_str_invalid' => 'שגיאה פנימית; $str ו/או $key שגויים. זהו באג בתוכנה.',
 	'cite_error_stack_invalid_input' => 'שגיאה פנימית; מפתח שגוי במחסנית. זהו באג בתוכנה.',
@@ -1180,7 +1180,7 @@ $messages['he'] = array(
  * @author Kaustubh
  */
 $messages['hi'] = array(
-	'cite_desc' => '<nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> यह दो संदर्भ देनेके लिये इस्तेमालमें आने वाले शब्द बढाये जायेंगे।',
+	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> यह दो संदर्भ देनेके लिये इस्तेमालमें आने वाले शब्द बढाये जायेंगे।',
 	'cite_croak' => 'संदर्भ दे नहीं पाये; $1: $2',
 	'cite_error_key_str_invalid' => 'आंतर्गत गलती;
 गलत $str या/और $key।
@@ -1203,7 +1203,7 @@ $messages['hi'] = array(
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'cite_desc' => 'Dodaje <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> oznake, za citiranje',
+	'cite-desc' => 'Dodaje <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> oznake, za citiranje',
 	'cite_croak' => 'Nevaljan citat; $1: $2',
 	'cite_error_key_str_invalid' => 'Unutrašnja greška: loš $str i/ili $key. Ovo se nikada ne bi smjelo dogoditi.',
 	'cite_error_stack_invalid_input' => 'Unutrašnja greška; loš ključ stacka.  Ovo se nikada ne bi smjelo dogoditi.',
@@ -1227,7 +1227,7 @@ Koristite <code>&lt;references /&gt;</code>, ili <code>&lt;references group="...
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'cite_desc' => 'Přidawa taflički <nowiki><ref[ name=id]></nowiki> a <nowiki><references /></nowiki> za žórłowe podaća',
+	'cite-desc' => 'Přidawa taflički <nowiki><ref[ name=id]></nowiki> a <nowiki><references /></nowiki> za žórłowe podaća',
 	'cite_croak' => 'Zmylk w referencnym systemje; $1: $2',
 	'cite_error_key_str_invalid' => 'Interny zmylk: njepłaćiwy $str a/abo $key. To njeměło ženje wustupić.',
 	'cite_error_stack_invalid_input' => 'Interny zmylk; njepłaćiwy kluč staploweho składa. To njeměło ženje wustupić.',
@@ -1257,7 +1257,7 @@ Definuj wjace w powěsći <nowiki>[[MediaWiki:Cite references link many format b
  * @author Masterches
  */
 $messages['ht'] = array(
-	'cite_desc' => 'Ajoute baliz sa yo <nowiki><ref[ name=id]></nowiki> epi <nowiki><referans/></nowiki>, pou sitasyon yo.',
+	'cite-desc' => 'Ajoute baliz sa yo <nowiki><ref[ name=id]></nowiki> epi <nowiki><referans/></nowiki>, pou sitasyon yo.',
 	'cite_croak' => 'Sitasyon sa pa bon ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Erè nan sistèm an : $str te dwèt parèt.
 Erè sa pat janm dwèt rive.',
@@ -1286,7 +1286,7 @@ Nou pa bay pyès tèks pou referans nou nonmen yo <code>$1</code>',
  * @author KossuthRad
  */
 $messages['hu'] = array(
-	'cite_desc' => 'Lehetővé teszi idézések létrehozását <nowiki><ref[ name=id]></nowiki> és <nowiki><references/></nowiki> tagek segítségével',
+	'cite-desc' => 'Lehetővé teszi idézések létrehozását <nowiki><ref[ name=id]></nowiki> és <nowiki><references/></nowiki> tagek segítségével',
 	'cite_croak' => 'Sikertelen forráshivatkozás; $1: $2',
 	'cite_error_key_str_invalid' => 'Belső hiba; érvénytelen $str és/vagy $key. Ennek soha nem kellene előfordulnia.',
 	'cite_error_stack_invalid_input' => 'Belső hiba; érvénytelen kulcs. Ennek soha nem kellene előfordulnia.',
@@ -1314,7 +1314,7 @@ $messages['hu'] = array(
  * @author McDutchie
  */
 $messages['ia'] = array(
-	'cite_desc' => 'Adde etiquettas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, pro citationes',
+	'cite-desc' => 'Adde etiquettas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, pro citationes',
 	'cite_croak' => 'Citation corrumpite; $1: $2',
 	'cite_error_key_str_invalid' => 'Error interne;
 clave $str e/o $key invalide.
@@ -1357,7 +1357,7 @@ nulle texto esseva fornite pro le refs nominate <code>$1</code>',
  * @author Rex
  */
 $messages['id'] = array(
-	'cite_desc' => 'Menambahkan tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk kutipan',
+	'cite-desc' => 'Menambahkan tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk kutipan',
 	'cite_croak' => 'Kegagalan pengutipan; $1: $2',
 	'cite_error_key_str_invalid' => 'Kesalahan internal;
 $str dan/atau $key tidak sah.
@@ -1409,7 +1409,7 @@ $messages['io'] = array(
  * @author Pietrodn
  */
 $messages['it'] = array(
-	'cite_desc' => 'Aggiunge i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> per gestire le citazioni',
+	'cite-desc' => 'Aggiunge i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> per gestire le citazioni',
 	'cite_croak' => 'Errore nella citazione: $1: $2',
 	'cite_error_key_str_invalid' => 'Errore interno;
 $str e/o $key errati.
@@ -1445,7 +1445,7 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'cite_desc' => '引用のためのタグ<nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
+	'cite-desc' => '引用のためのタグ<nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
 	'cite_croak' => '引用タグ機能の重大なエラー。$1: $2',
 	'cite_error_key_str_invalid' => '内部エラー。$str と $key の両方または一方が無効。これはソフトウェアのバグです。',
 	'cite_error_stack_invalid_input' => '内部エラー。スタックキーが無効。これはソフトウェアのバグです。',
@@ -1490,7 +1490,7 @@ $messages['jut'] = array(
  * @author Pras
  */
 $messages['jv'] = array(
-	'cite_desc' => 'Nambahaké tag <nowiki><ref[ name=id]></nowiki> lan <nowiki><references/></nowiki> kanggo kutipan (sitat)',
+	'cite-desc' => 'Nambahaké tag <nowiki><ref[ name=id]></nowiki> lan <nowiki><references/></nowiki> kanggo kutipan (sitat)',
 	'cite_croak' => 'Sitaté (pangutipané) gagal; $1: $2',
 	'cite_error_key_str_invalid' => 'Kaluputan jero;
 $str lan/utawa $key ora absah.
@@ -1566,7 +1566,7 @@ $messages['kk-latn'] = array(
  * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
-	'cite_desc' => 'បន្ថែម ស្លាក <nowiki><ref[ name=id]></nowiki> និង <nowiki><references/></nowiki>​ សម្រាប់ការយោង​ឯកសារ​',
+	'cite-desc' => 'បន្ថែម ស្លាក <nowiki><ref[ name=id]></nowiki> និង <nowiki><references/></nowiki>​ សម្រាប់ការយោង​ឯកសារ​',
 );
 
 /** Korean (한국어)
@@ -1576,7 +1576,7 @@ $messages['km'] = array(
  * @author ToePeu
  */
 $messages['ko'] = array(
-	'cite_desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 더합니다.',
+	'cite-desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 더합니다.',
 	'cite_croak' => '인용 오류; $1: $2',
 	'cite_error_key_str_invalid' => '내부 오류;
 $str 혹은 $key가 잘못되었습니다.
@@ -1614,7 +1614,7 @@ $str 혹은 $key가 잘못되었습니다.
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'cite_desc' => 'Erlaub Quelle un Referenze met <tt><nowiki><ref[ name="id"]></nowiki></tt> un <tt><nowiki><references /></nowiki></tt> aanzejevve.',
+	'cite-desc' => 'Erlaub Quelle un Referenze met <tt><nowiki><ref[ name="id"]></nowiki></tt> un <tt><nowiki><references /></nowiki></tt> aanzejevve.',
 	'cite_croak' => 'Fääler met Refenenze. $1: $2',
 	'cite_error_key_str_invalid' => 'Interne Fähler in <i lang="en">cite</i>:
 <code>$str</code> udder <code>$key</code> stemme nit.
@@ -1665,7 +1665,7 @@ Et wohr keine Tex aanjejovve för de
  * @author Robby
  */
 $messages['lb'] = array(
-	'cite_desc' => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
+	'cite-desc' => 'Setzt <nowiki><ref[ name=id]></nowiki> an <nowiki><references/></nowiki> Taggen derbäi, fir Zitatiounen.',
 	'cite_croak' => 'Feeler am Referenz-System. $1 : $2',
 	'cite_error_key_str_invalid' => 'Interne Feeler;
 net valabele $str an/oder $key.
@@ -1705,7 +1705,7 @@ et gouf keen Text ugi fir d'Referenze mam Numm <code>$1</code>",
  * @author Pahles
  */
 $messages['li'] = array(
-	'cite_desc' => 'Voeg <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe veur citate',
+	'cite-desc' => 'Voeg <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe veur citate',
 	'cite_croak' => 'Perbleem mit Citere; $1: $2',
 	'cite_error_key_str_invalid' => 'Interne fout; ónzjuuste $str en/of $key.  Dit zów noeaits mótte veurkómme.',
 	'cite_error_stack_invalid_input' => 'Interne fout; ónzjuuste stacksleutel.  Dit zów noeaits mótte veurkómme.',
@@ -1748,7 +1748,7 @@ Nurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink
  * @author Xil
  */
 $messages['lv'] = array(
-	'cite_desc' => 'Pievieno <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> tagus, atsaucēm',
+	'cite-desc' => 'Pievieno <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> tagus, atsaucēm',
 	'cite_error' => 'Kļūda atsaucē: $1',
 	'cite_error_refs_without_references' => 'atrasta <code>&lt;ref&gt;</code> iezīme, bet nav nevienas <code>&lt;references/&gt;</code> iezīmes',
 );
@@ -1757,7 +1757,7 @@ $messages['lv'] = array(
  * @author Jagwar
  */
 $messages['mg'] = array(
-	'cite_desc' => 'Mamnpy ny balizy <tt><nowiki><ref[ name="id"]></nowiki></tt> et <tt><nowiki><references/></nowiki></tt> ho an\'ny tsiahy.',
+	'cite-desc' => 'Mamnpy ny balizy <tt><nowiki><ref[ name="id"]></nowiki></tt> et <tt><nowiki><references/></nowiki></tt> ho an\'ny tsiahy.',
 	'cite_croak' => 'Tsiahy tsy miafana ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Tsy fetezana ety anaty;
 Tsy mety $str na $key.
@@ -1772,7 +1772,7 @@ Tokony tsy hitranga mihitsy ity tsy fetezana ity.',
  * @author Brest
  */
 $messages['mk'] = array(
-	'cite_desc' => 'Додава <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаки, за цитирања',
+	'cite-desc' => 'Додава <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаки, за цитирања',
 	'cite_croak' => 'Непостоечки цитат; $1: $2',
 	'cite_error_key_str_invalid' => 'Интерна грешка;
 погрешен $str и/или $key.
@@ -1814,7 +1814,7 @@ $messages['mk'] = array(
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'cite_desc' => 'അവലംബം ചേർക്കുവാൻ ഉപയോഗിക്കാനുള്ള <nowiki><ref[ name=id]></nowiki>, <nowiki><references/></nowiki> എന്നീ ടാഗുകൾ ചേർക്കുന്നു',
+	'cite-desc' => 'അവലംബം ചേർക്കുവാൻ ഉപയോഗിക്കാനുള്ള <nowiki><ref[ name=id]></nowiki>, <nowiki><references/></nowiki> എന്നീ ടാഗുകൾ ചേർക്കുന്നു',
 	'cite_croak' => 'സൈറ്റ് ചത്തിരിക്കുന്നു; $1: $2',
 	'cite_error_key_str_invalid' => 'ആന്തരിക പിഴവ്; 
 അസാധുവായ $str അല്ലെങ്കിൽ $key.
@@ -1849,7 +1849,7 @@ $messages['ml'] = array(
  * @author Kaustubh
  */
 $messages['mr'] = array(
-	'cite_desc' => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
+	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
 	'cite_croak' => 'संदर्भ देता आला नाही; $1: $2',
 	'cite_error_key_str_invalid' => 'अंतर्गत त्रुटी; चुकीचे $str आणि/किंवा $key. असे कधीही घडले नाही पाहिजे.',
 	'cite_error_stack_invalid_input' => 'अंतर्गत त्रुटी; चुकीची स्टॅक चावी. असे कधीही घडले नाही पाहिजे.',
@@ -1869,7 +1869,7 @@ $messages['mr'] = array(
  * @author Izzudin
  */
 $messages['ms'] = array(
-	'cite_desc' => 'Menambah tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk pemetikan',
+	'cite-desc' => 'Menambah tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk pemetikan',
 	'cite_croak' => 'Ralat maut petik; $1: $2',
 	'cite_error_key_str_invalid' => 'Ralat dalaman; str dan/atau $key tidak sah.',
 	'cite_error_stack_invalid_input' => 'Ralat dalaman; kunci tindanan tidak sah.',
@@ -1892,7 +1892,7 @@ Gunakan <code>&lt;references /&gt;</code> atau <code>&lt;references group="..." 
  * @author Slomox
  */
 $messages['nds'] = array(
-	'cite_desc' => 'Föögt <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags för Zitaten to',
+	'cite-desc' => 'Föögt <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags för Zitaten to',
 	'cite_croak' => 'Fehler bi de Referenzen. $1: $2',
 	'cite_error_key_str_invalid' => 'Internen Fehler: ungülligen $str un/oder $key. Dat schull egentlich nie vörkamen.',
 	'cite_error_stack_invalid_input' => 'Internen Fehler: ungülligen Stack-Slötel. Dat schull egentlich nie vörkamen.',
@@ -1922,7 +1922,7 @@ $messages['nds-nl'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'cite_desc' => 'Voegt <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe voor citaten',
+	'cite-desc' => 'Voegt <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe voor citaten',
 	'cite_croak' => 'Probleem met Cite; $1: $2',
 	'cite_error_key_str_invalid' => 'Interne fout;
 onjuiste $str and/of $key.
@@ -1965,7 +1965,7 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
  * @author Harald Khan
  */
 $messages['nn'] = array(
-	'cite_desc' => 'Legg til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-merke for referansar',
+	'cite-desc' => 'Legg til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-merke for referansar',
 	'cite_croak' => 'Feil i fotnotesystemet; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri skjedd.',
 	'cite_error_stack_invalid_input' => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri skjedd.',
@@ -1989,7 +1989,7 @@ Definer fleire i meldinga <nowiki>[[MediaWiki:Cite references link many format b
  * @author Laaknor
  */
 $messages['no'] = array(
-	'cite_desc' => 'Legger til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referanser',
+	'cite-desc' => 'Legger til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referanser',
 	'cite_croak' => 'Sitering døde; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri forekomme.',
 	'cite_error_stack_invalid_input' => 'Intern feil; ugyldig stakknøkkel. Dette burde aldri forekomme.',
@@ -2017,7 +2017,7 @@ $messages['no'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'cite_desc' => 'Apond las balisas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, per las citacions.',
+	'cite-desc' => 'Apond las balisas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, per las citacions.',
 	'cite_croak' => 'Citacion corrompuda ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Error intèrna ; 
 $str o $key incorrèctes.
@@ -2060,7 +2060,7 @@ $messages['pag'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'cite_desc' => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
+	'cite-desc' => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
 	'cite_croak' => 'Cytowanie nieudane; $1: $2',
 	'cite_error_key_str_invalid' => 'Błąd wewnętrzny;
 nieprawidłowy $str i/lub $key.
@@ -2093,7 +2093,7 @@ Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many f
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'cite_desc' => 'A gionta le tichëtte <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, për sitassion',
+	'cite-desc' => 'A gionta le tichëtte <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki>, për sitassion',
 	'cite_croak' => 'Sitassion mòrta; $1: $2',
 	'cite_error_key_str_invalid' => 'Eror antern;
 $str e/o $key sbalià.
@@ -2139,7 +2139,7 @@ pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
  * @author Waldir
  */
 $messages['pt'] = array(
-	'cite_desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
+	'cite-desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
 	'cite_croak' => 'Citação com problemas; $1: $2',
 	'cite_error_key_str_invalid' => 'Erro interno;
 $str e/ou $key inválido.
@@ -2171,7 +2171,7 @@ Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format bac
  * @author Eduardo.mps
  */
 $messages['pt-br'] = array(
-	'cite_desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
+	'cite-desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
 	'cite_croak' => 'Citação com problemas; $1: $2',
 	'cite_error_key_str_invalid' => 'Erro interno;
 $str e/ou $key inválido.
@@ -2212,7 +2212,7 @@ não foi fornecido texto para as refs chamadas <code>$1</code>',
  * @author AlimanRuna
  */
 $messages['qu'] = array(
-	'cite_desc' => 'Pukyumanta willanapaq <nowiki><ref[ name=id]></nowiki> , <nowiki><references/></nowiki> unanchachakunatam yapan',
+	'cite-desc' => 'Pukyumanta willanapaq <nowiki><ref[ name=id]></nowiki> , <nowiki><references/></nowiki> unanchachakunatam yapan',
 	'cite_croak' => "''Cite'' nisqa mast'arinaqa manañam kanchu; $1: $2",
 	'cite_error_key_str_invalid' => 'Ukhu pantasqa;
 mana allin $str wan/icha $key.
@@ -2247,7 +2247,7 @@ Astawan sut'ichay <nowiki>[[MediaWiki:Cite references link many format backlink 
  * @author Mihai
  */
 $messages['ro'] = array(
-	'cite_desc' => 'Adaugă etichete <nowiki><ref[ name=id]></nowiki> şi <nowiki><references/></nowiki>, pentru citări',
+	'cite-desc' => 'Adaugă etichete <nowiki><ref[ name=id]></nowiki> şi <nowiki><references/></nowiki>, pentru citări',
 	'cite_croak' => 'Citare coruptă; $1 : $2',
 	'cite_error_key_str_invalid' => 'Eroare internă;
 $str invalid sau/şi $key.
@@ -2279,7 +2279,7 @@ niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'cite_desc' => 'Aggiunge le tag <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> pe le citaziune',
+	'cite-desc' => 'Aggiunge le tag <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> pe le citaziune',
 	'cite_croak' => 'Cite muerte; $1: $2',
 	'cite_error_key_str_invalid' => 'Errore inderne;
 invalide $str e/o $key.
@@ -2316,7 +2316,7 @@ nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'cite_desc' => 'Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок',
+	'cite-desc' => 'Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок',
 	'cite_croak' => 'Цитата сдохла; $1: $2',
 	'cite_error_key_str_invalid' => 'Внутренняя ошибка;
 ошибочное значение $str или $key.
@@ -2357,7 +2357,7 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
-	'cite_desc' => 'Хос быһаарыы <nowiki><ref[ name=id]></nowiki> уонна <nowiki><references/></nowiki> тиэктэрин эбэр',
+	'cite-desc' => 'Хос быһаарыы <nowiki><ref[ name=id]></nowiki> уонна <nowiki><references/></nowiki> тиэктэрин эбэр',
 	'cite_croak' => 'Быһа тардыы суох буолбут (Цитата сдохла); $1: $2',
 	'cite_error_key_str_invalid' => 'Иһинээҕи сыыһа: $str уонна/эбэтэр $key сыыһалар.',
 	'cite_error_stack_invalid_input' => 'Иһинээҕи сыыһа: stack key сыыһалаах',
@@ -2389,7 +2389,7 @@ $messages['sah'] = array(
  * @author Santu
  */
 $messages['scn'] = array(
-	'cite_desc' => 'Junci li tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> pi gistiri li citazzioni',
+	'cite-desc' => 'Junci li tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> pi gistiri li citazzioni',
 	'cite_croak' => 'Sbàgghiu nnâ citazzioni: $1: $2',
 	'cite_error_key_str_invalid' => 'Sbàgghiu nternu: $str sbagghiatu',
 	'cite_error_stack_invalid_input' => 'Sbàgghiu nternu: chiavi di stack sbagghiata',
@@ -2420,7 +2420,7 @@ Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." 
  * @author නන්දිමිතුරු
  */
 $messages['si'] = array(
-	'cite_desc' => 'උපහරණයන් සඳහා, <nowiki><ref[ name=id]></nowiki> සහ <nowiki><references/></nowiki> ටැගයන්, එකතු කරයි',
+	'cite-desc' => 'උපහරණයන් සඳහා, <nowiki><ref[ name=id]></nowiki> සහ <nowiki><references/></nowiki> ටැගයන්, එකතු කරයි',
 	'cite_croak' => 'උපන්‍යාසය නිරුද්ධවිය; $1: $2',
 	'cite_error_key_str_invalid' => 'අභ්‍යන්තර දෝෂය;
 අනීතික  $str සහ/හෝ $key.
@@ -2456,7 +2456,7 @@ $messages['si'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
-	'cite_desc' => 'Pridáva značky <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> pre citácie',
+	'cite-desc' => 'Pridáva značky <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki> pre citácie',
 	'cite_croak' => 'Citát je už neaktuálny; $1: $2',
 	'cite_error_key_str_invalid' => 'Vnútorná chyba;
 neplatný $str a/alebo $key.
@@ -2487,7 +2487,7 @@ Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="...
  * @author Dbc334
  */
 $messages['sl'] = array(
-	'cite_desc' => 'Doda etiketi <nowiki><ref[ name=id]></nowiki> in <nowiki><references/></nowiki> za navajanje',
+	'cite-desc' => 'Doda etiketi <nowiki><ref[ name=id]></nowiki> in <nowiki><references/></nowiki> za navajanje',
 	'cite_croak' => 'Hreščeča navedba; $1: $2',
 	'cite_error' => 'Napaka pri navajanju: $1',
 	'cite_error_included_ref' => 'Zaključek &lt;/ref&gt; manjka za etiketo &lt;ref&gt;',
@@ -2499,7 +2499,7 @@ $messages['sl'] = array(
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'cite_desc' => 'Додаје <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаке за цитирање.',
+	'cite-desc' => 'Додаје <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаке за цитирање.',
 	'cite_croak' => 'Додатак за цитирање је умро; $1: $2.',
 	'cite_error_key_str_invalid' => 'Унутрашња грешка; лош $str и/или $key. Ово не би требало никад да се деси.',
 	'cite_error_stack_invalid_input' => 'Унутрашња грешка; лош кључ стека. Ово не би требало никад да се деси.',
@@ -2521,7 +2521,7 @@ $messages['sr-ec'] = array(
  * @author Michaello
  */
 $messages['sr-el'] = array(
-	'cite_desc' => 'Dodaje <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> oznake za citiranje.',
+	'cite-desc' => 'Dodaje <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> oznake za citiranje.',
 	'cite_croak' => 'Dodatak za citiranje je umro; $1: $2.',
 	'cite_error_key_str_invalid' => 'Unutrašnja greška; loš $str i/ili $key. Ovo ne bi trebalo nikad da se desi.',
 	'cite_error_stack_invalid_input' => 'Unutrašnja greška; loš ključ steka. Ovo ne bi trebalo nikad da se desi.',
@@ -2543,7 +2543,7 @@ $messages['sr-el'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
-	'cite_desc' => 'Föiget foar Wällenätterwiese do <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags tou',
+	'cite-desc' => 'Föiget foar Wällenätterwiese do <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags tou',
 	'cite_croak' => 'Failer in dät Referenz-System. $1: $2',
 	'cite_error_key_str_invalid' => 'Internen Failer: uungultigen $str un/of $key. Dit schuul eegentelk goar nit passierje konne.',
 	'cite_error_stack_invalid_input' => 'Internen Failer: uungultigen „name“-stack. Dit schuul eegentelk goarnit passierje konne.',
@@ -2570,7 +2570,7 @@ $messages['stq'] = array(
  * @author Kandar
  */
 $messages['su'] = array(
-	'cite_desc' => 'Nambahkeun tag <nowiki><ref[ name=id]></nowiki> jeung <nowiki><references/></nowiki>, pikeun cutatan',
+	'cite-desc' => 'Nambahkeun tag <nowiki><ref[ name=id]></nowiki> jeung <nowiki><references/></nowiki>, pikeun cutatan',
 	'cite_error_key_str_invalid' => 'Kasalahan internal; salah $str jeung/atawa $key. Kuduna mah teu kieu.',
 );
 
@@ -2582,7 +2582,7 @@ $messages['su'] = array(
  * @author Najami
  */
 $messages['sv'] = array(
-	'cite_desc' => 'Lägger till taggarna <nowiki><ref[ name=id]></nowiki> och <nowiki><references/></nowiki> för referenser till källor',
+	'cite-desc' => 'Lägger till taggarna <nowiki><ref[ name=id]></nowiki> och <nowiki><references/></nowiki> för referenser till källor',
 	'cite_croak' => 'Fel i fotnotssystemet; $1: $2',
 	'cite_error_key_str_invalid' => 'Internt fel; $str eller $key är ogiltiga.  Det här borde aldrig hända.',
 	'cite_error_stack_invalid_input' => 'Internt fel; ogiltig nyckel i stacken.  Det här borde aldrig hända.',
@@ -2612,7 +2612,7 @@ Använd <code>&lt;references /&gt;</code>, eller <code>&lt;references group="...
  * @author Veeven
  */
 $messages['te'] = array(
-	'cite_desc' => 'ఉదహరింపులకు <nowiki><ref[ name=id]></nowiki> మరియు <nowiki><references/></nowiki> టాగులను చేర్చుతుంది',
+	'cite-desc' => 'ఉదహరింపులకు <nowiki><ref[ name=id]></nowiki> మరియు <nowiki><references/></nowiki> టాగులను చేర్చుతుంది',
 	'cite_croak' => 'ఉదహరింపు చచ్చింది; $1: $2',
 	'cite_error_key_str_invalid' => 'అంతర్గత పొరపాటు: తప్పుడు $str మరియు/లేదా $key. ఇది ఎప్పుడూ జరగకూడదు.',
 	'cite_error_stack_invalid_input' => 'అంతర్గత పొరపాటు: తప్పుడు స్టాక్ కీ. ఇది ఎప్పుడూ జరగకూడదు.',
@@ -2630,7 +2630,7 @@ $messages['te'] = array(
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
-	'cite_desc' => 'Барчасбҳои <nowiki><ref[ name=id]></nowiki> ва <nowiki><references/></nowiki>  барои ёд кардан, изофа мекунад',
+	'cite-desc' => 'Барчасбҳои <nowiki><ref[ name=id]></nowiki> ва <nowiki><references/></nowiki>  барои ёд кардан, изофа мекунад',
 	'cite_croak' => 'Ёд кардан хароб шуд; $1: $2',
 	'cite_error_key_str_invalid' => 'Хатои дохилӣ; $str ва/ё $key ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
 	'cite_error_stack_invalid_input' => 'Хатои дохилӣ; клиди пушта ғайримиҷоз.  Ин хато набояд ҳаргиз рух диҳад.',
@@ -2651,7 +2651,7 @@ $messages['tg-cyrl'] = array(
  * @author Liangent
  */
 $messages['tg-latn'] = array(
-	'cite_desc' => 'Barcasbhoi <nowiki><ref[ name=id]></nowiki> va <nowiki><references/></nowiki>  baroi jod kardan, izofa mekunad',
+	'cite-desc' => 'Barcasbhoi <nowiki><ref[ name=id]></nowiki> va <nowiki><references/></nowiki>  baroi jod kardan, izofa mekunad',
 	'cite_croak' => 'Jod kardan xarob şud; $1: $2',
 	'cite_error_key_str_invalid' => 'Xatoi doxilī; $str va/jo $key ƣajrimiçoz.  In xato nabojad hargiz rux dihad.',
 	'cite_error_stack_invalid_input' => 'Xatoi doxilī; klidi puşta ƣajrimiçoz.  In xato nabojad hargiz rux dihad.',
@@ -2672,7 +2672,7 @@ Barcasbi <code>&lt;references /&gt;</code> jo <code>&lt;references group="..." /
  * @author Passawuth
  */
 $messages['th'] = array(
-	'cite_desc' => 'ใส่ <nowiki><ref[ name=id]></nowiki> และ <nowiki><references /></nowiki> สำหรับการอ้างอิง',
+	'cite-desc' => 'ใส่ <nowiki><ref[ name=id]></nowiki> และ <nowiki><references /></nowiki> สำหรับการอ้างอิง',
 	'cite_croak' => 'แหล่งอ้างอิงเสีย; $1: $2',
 	'cite_error' => 'อ้างอิงผิดพลาด: $1',
 );
@@ -2716,7 +2716,7 @@ hiç hili parametre rugsat berilmeýär.
  * @author AnakngAraw
  */
 $messages['tl'] = array(
-	'cite_desc' => 'Nagdaragdag ng mga tatak na <nowiki><ref[ name=id]></nowiki> at <nowiki><references/></nowiki>, para sa mga pagtukoy',
+	'cite-desc' => 'Nagdaragdag ng mga tatak na <nowiki><ref[ name=id]></nowiki> at <nowiki><references/></nowiki>, para sa mga pagtukoy',
 	'cite_croak' => 'Nawalan ng buhay ang pagtukoy; $1: $2',
 	'cite_error_key_str_invalid' => 'Panloob na kamalian;
 hindi tanggap na $str at/o $key.
@@ -2753,7 +2753,7 @@ walang tekstong ibinigay para sa mga sangguniang (''ref'') pinangalanang <code>$
  * @author Runningfridgesrule
  */
 $messages['tr'] = array(
-	'cite_desc' => 'Alıntılar için, <nowiki><ref[ name=id]></nowiki> ve <nowiki><references/></nowiki> etiketlerini ekler',
+	'cite-desc' => 'Alıntılar için, <nowiki><ref[ name=id]></nowiki> ve <nowiki><references/></nowiki> etiketlerini ekler',
 	'cite_croak' => 'Alıntı kaybedildi; $1: $2',
 	'cite_error_key_str_invalid' => 'Dahili hata;
 geçersiz $str ve/ya da $key.
@@ -2797,7 +2797,7 @@ sadece "group" parametresine izin verilir.
  * @author Prima klasy4na
  */
 $messages['uk'] = array(
-	'cite_desc' => 'Додає теги <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для виносок',
+	'cite-desc' => 'Додає теги <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для виносок',
 	'cite_croak' => 'Цитата померла; $1: $2',
 	'cite_error_key_str_invalid' => 'Внутрішня помилка:
 неправильний $str і/або $key.',
@@ -2836,7 +2836,7 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'cite_desc' => 'Zonta i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> par gestir le citazion',
+	'cite-desc' => 'Zonta i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> par gestir le citazion',
 	'cite_croak' => 'Eror ne la citazion: $1: $2',
 	'cite_error_key_str_invalid' => 'Eror interno: $str e/o $key sbaglià. Sta roba qua no la dovarìa mai capitar.',
 	'cite_error_stack_invalid_input' => 'Eror interno;
@@ -2875,7 +2875,7 @@ $messages['vep'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'cite_desc' => 'Thêm các thẻ <nowiki><ref[ name=id]></nowiki> và <nowiki><references/></nowiki> để ghi chú thích hoặc nguồn tham khảo',
+	'cite-desc' => 'Thêm các thẻ <nowiki><ref[ name=id]></nowiki> và <nowiki><references/></nowiki> để ghi chú thích hoặc nguồn tham khảo',
 	'cite_croak' => 'Chú thích bị hỏng; $1: $2',
 	'cite_error_key_str_invalid' => 'Lỗi nội bộ; $str và/hoặc $key không hợp lệ. Điều này không bao giờ nên xảy ra.',
 	'cite_error_stack_invalid_input' => 'Lỗi nội bộ; khóa xác định chồng bị sai.  Đáng ra không bao giờ xảy ra điều này.',
@@ -2921,7 +2921,7 @@ $messages['vo'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
-	'cite_desc' => 'לייגט צו <nowiki><ref[ name=id]></nowiki> און <nowiki><references/></nowiki> טאַגן, פֿאר ציטירונגען (אין הערות)',
+	'cite-desc' => 'לייגט צו <nowiki><ref[ name=id]></nowiki> און <nowiki><references/></nowiki> טאַגן, פֿאר ציטירונגען (אין הערות)',
 	'cite_croak' => 'טעות אין ציטירונג; $1: $2',
 	'cite_error' => 'ציטירן גרײַז: $1',
 	'cite_error_ref_numeric_key' => 'גרײַזיגער <code>&lt;ref&gt;</code> טאַג;
@@ -2946,7 +2946,7 @@ $messages['yi'] = array(
 
 /** Yue (粵語) */
 $messages['yue'] = array(
-	'cite_desc' => '加 <nowiki><ref[ name=id]></nowiki> 同 <nowiki><references/></nowiki> 標籤用響引用度',
+	'cite-desc' => '加 <nowiki><ref[ name=id]></nowiki> 同 <nowiki><references/></nowiki> 標籤用響引用度',
 	'cite_croak' => '引用阻塞咗; $1: $2',
 	'cite_error_key_str_invalid' => '內部錯誤; 無效嘅 $str',
 	'cite_error_stack_invalid_input' => '內部錯誤; 無效嘅堆疊匙',
@@ -2970,7 +2970,7 @@ $messages['yue'] = array(
  * @author Philip
  */
 $messages['zh-hans'] = array(
-	'cite_desc' => '增加用于引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>标签',
+	'cite-desc' => '增加用于引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>标签',
 	'cite_croak' => '引用失效；$1：$2',
 	'cite_error_key_str_invalid' => '内部错误；不应出现的非法$str和／或$key。',
 	'cite_error_stack_invalid_input' => '内部错误；不应出现的非法堆栈键值。',
@@ -2994,7 +2994,7 @@ $messages['zh-hans'] = array(
  * @author Philip
  */
 $messages['zh-hant'] = array(
-	'cite_desc' => '增加用於引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>標簽',
+	'cite-desc' => '增加用於引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>標簽',
 	'cite_croak' => '引用失效；$1：$2',
 	'cite_error_key_str_invalid' => '內部錯誤；不應出現的非法$str和／或$key。',
 	'cite_error_stack_invalid_input' => '內部錯誤；不應出現的非法堆疊鍵值。',

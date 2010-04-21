@@ -954,6 +954,17 @@ $messages['lfn'] = array(
 	'cite_page' => 'Paje:',
 );
 
+/** Ganda (Luganda)
+ * @author Kizito
+ */
+$messages['lg'] = array(
+	'cite_article_link' => 'Juliriza olupapula luno',
+	'cite_article_link_title' => "Amagezi agakwata ku ngeri ey'okujuliriz'olupapula luno",
+	'cite' => 'Juliriza',
+	'cite_page' => 'Lupapula:',
+	'cite_submit' => 'Kakasa okujuliriza',
+);
+
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
  * @author Pahles

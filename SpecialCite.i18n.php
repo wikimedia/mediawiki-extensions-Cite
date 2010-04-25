@@ -903,7 +903,7 @@ $messages['krj'] = array(
 	'cite_page' => 'Pahina:',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -915,7 +915,7 @@ $messages['ksh'] = array(
 	'cite_submit' => 'Zittėere',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (Kernewek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -1337,7 +1337,7 @@ $messages['qu'] = array(
 	'cite_submit' => 'Qillqamanta willay',
 );
 
-/** Rhaeto-Romance (Rumantsch) */
+/** Romansh (Rumantsch) */
 $messages['rm'] = array(
 	'cite_page' => 'Pagina:',
 );
@@ -1795,7 +1795,7 @@ $messages['yi'] = array(
 	'cite_submit' => 'ציטירן',
 );
 
-/** Yue (粵語) */
+/** Cantonese (粵語) */
 $messages['yue'] = array(
 	'cite_article_desc' => '加一個[[Special:Cite|引用]]特別頁同埋一個工具箱連結',
 	'cite_article_link' => '引用呢篇文',

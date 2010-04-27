@@ -959,11 +959,11 @@ $messages['lfn'] = array(
  * @author Kizito
  */
 $messages['lg'] = array(
-	'cite_article_link' => 'Juliriza olupapula luno',
-	'tooltip-cite-article' => "Amagezi agakwata ku ngeri ey'okujuliriz'olupapula luno",
-	'cite' => 'Juliriza',
+	'cite_article_link' => 'Juliza olupapula luno',
+	'tooltip-cite-article' => "Amagezi agakwata ku ngeri ey'okujuliz'olupapula luno",
+	'cite' => 'Juliza',
 	'cite_page' => 'Lupapula:',
-	'cite_submit' => 'Kakasa okujuliriza',
+	'cite_submit' => 'Kakasa okujuliza',
 );
 
 /** Limburgish (Limburgs)

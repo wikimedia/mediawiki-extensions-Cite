@@ -433,7 +433,7 @@ $messages['et'] = array(
 	'cite_article_desc' => 'Lisab [[Special:Cite|tsiteerimise]] erilehekülje ja lingi külgmenüü tööriistakasti.',
 	'cite_article_link' => 'Tsiteeri seda artiklit',
 	'tooltip-cite-article' => 'Teave tsiteerimisviiside kohta',
-	'cite' => 'Tsiteeri',
+	'cite' => 'Tsiteerimine',
 	'cite_page' => 'Leht:',
 	'cite_submit' => 'Tsiteeri',
 );

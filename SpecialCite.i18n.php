@@ -1140,7 +1140,9 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
+	'cite_article_desc' => 'Voeg een [[Special:Cite|speciale pagina]] toe um te citeren, en een verwiezing dernaor in de hulpmiddels',
 	'cite_article_link' => 'Disse pagina citeren',
+	'tooltip-cite-article' => 'Infermasie over ho of da-j disse pagina kunnen citeren',
 	'cite' => 'Citeerhulpe',
 	'cite_page' => 'Pagina:',
 	'cite_submit' => 'Citeren',

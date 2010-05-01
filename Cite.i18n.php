@@ -1520,6 +1520,28 @@ ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 	'cite_error_included_ref' => 'Tag &lt;ref&gt; kudu ditutup déning &lt;/ref&gt;',
 );
 
+/** Georgian (ქართული)
+ * @author გიორგიმელა
+ */
+$messages['ka'] = array(
+	'cite-desc' => 'ამატებს <nowiki><ref[ name=id]></nowiki> და <nowiki><references/></nowiki> ტეგებს სქოლიოსთვის',
+	'cite_croak' => 'ციტატა მოკვადა; $1: $2',
+	'cite_error_key_str_invalid' => 'შიდა შეცდომა
+არასწორი $str და/ან $key
+ასეთი არასდროს არ უნდა განმეორდეს',
+	'cite_error_stack_invalid_input' => 'შიდა შეცდომა.
+სტეკის არასწორი გასაღები.
+ეს არ უნდა განმეორდეს.',
+	'cite_error' => 'ციტირების შეცდომა $1',
+	'cite_error_ref_numeric_key' => 'არასწორი ტეგი <code>&lt;ref&gt;</code> tag;
+სახელმიარ უნდა შეიცავდეს ციფრებს.',
+	'cite_error_ref_no_key' => 'არასწორი ტეგი <code>&lt;ref&gt;</code>;
+ელემენტი უნდა შეიცავდეს სახელს.',
+	'cite_error_ref_too_many_keys' => 'არასწორი ტეგი <code>&lt;ref&gt;</code>;
+არასწორი სახელები, ძალიან ბევრი.',
+	'cite_error_ref_no_input' => 'არასწორი ტეგი <ref>; ელემენტი უნდა შეიცავდეს შინაარს.',
+);
+
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'cite_croak' => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2',

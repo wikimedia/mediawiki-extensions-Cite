@@ -354,12 +354,13 @@ $messages['de'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
 	'cite_article_desc' => 'Yew pelê [[Special:Cite|citation]] u lînkê toolboxî de keno',
 	'cite_article_link' => 'Na pele çime bimocne',
-	'tooltip-cite-article' => 'Enformasyon qe seni çime mucneno',
+	'tooltip-cite-article' => 'Melumato ke ena pele çıtewr iqtıbas keno',
 	'cite' => 'Çıme bımocne',
 	'cite_page' => 'Pel:',
 	'cite_submit' => 'Çime',
@@ -828,9 +829,12 @@ $messages['jv'] = array(
 /** Georgian (ქართული)
  * @author BRUTE
  * @author Malafaya
+ * @author გიორგიმელა
  */
 $messages['ka'] = array(
+	'cite_article_desc' => 'ამატებს [[Special:Cite|ციტირების]] სპეციალურ გვერდს ხელსაწყოებში',
 	'cite_article_link' => 'ამ გვერდის ციტირება',
+	'tooltip-cite-article' => 'ინფორმაცია ამ გვერდის ციტირების შესახებ',
 	'cite' => 'ციტირება',
 	'cite_page' => 'გვერდი:',
 	'cite_submit' => 'ციტირება',

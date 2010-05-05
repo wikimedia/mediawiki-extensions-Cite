@@ -47,6 +47,13 @@ $messages['niu'] = array(
 	'cite_article_link' => 'Fakakite e tala nei',
 );
 
+/** Achinese (Acèh)
+ * @author Si Gam Acèh
+ */
+$messages['ace'] = array(
+	'cite_article_link' => 'Cok ôn nyoë',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  * @author SPQRobin

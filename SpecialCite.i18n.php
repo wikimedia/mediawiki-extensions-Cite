@@ -908,6 +908,14 @@ $messages['ko'] = array(
 	'cite_submit' => '인용',
 );
 
+/** Karachay-Balkar (Къарачай-Малкъар)
+ * @author Iltever
+ */
+$messages['krc'] = array(
+	'cite_article_link' => 'Бетни цитата эт',
+	'cite' => 'Цитата этиу',
+);
+
 /** Kinaray-a (Kinaray-a)
  * @author Jose77
  */
@@ -1309,6 +1317,7 @@ $messages['pnt'] = array(
  */
 $messages['ps'] = array(
 	'cite_article_link' => 'د همدې ليکنې درک',
+	'tooltip-cite-article' => 'د دې مخ د درک لګولو مالومات',
 	'cite' => 'درک',
 	'cite_page' => 'مخ:',
 	'cite_submit' => 'درک لګول',

@@ -1340,10 +1340,12 @@ $messages['pt'] = array(
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Carla404
+ * @author Giro720
  */
 $messages['pt-br'] = array(
 	'cite_article_desc' => 'Adiciona uma página especial de [[Special:Cite|citação]] e link para a caixa de ferramentas',
 	'cite_article_link' => 'Citar esta página',
+	'tooltip-cite-article' => 'Informação sobre como citar esta página',
 	'cite' => 'Citar',
 	'cite_page' => 'Página:',
 	'cite_submit' => 'Citar',

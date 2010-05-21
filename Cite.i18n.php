@@ -1396,6 +1396,13 @@ tidak ditemukan teks untuk ref bernama <code>$1</code>',
 	'cite_error_empty_references_define' => 'Tag <code>&lt;ref&gt;</code> yang didefinisikan di di <code>&lt;references&gt;</code> dengan nama "$1" tidak memiliki isi.',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'cite-desc' => 'Tikwá <nowiki><ref[ áhà=id]></nowiki> and <nowiki><references/></nowiki> ndö, maka ntabi okwu',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  */

@@ -38,9 +38,9 @@ Use <code>&lt;references /&gt;</code>',
 parameter "group" is allowed only.
 Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label'        => 'Ran out of custom backlink labels.
-Define more in the <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> message',
-	'cite_error_no_link_label_group'        => 'Ran out of custom link labels for group \'$1\'.
-Define more in the <nowiki>[[MediaWiki:$2]]</nowiki> message',
+Define more in the <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> message.',
+	'cite_error_no_link_label_group'        => 'Ran out of custom link labels for group "$1".
+Define more in the <nowiki>[[MediaWiki:$2]]</nowiki> message.',
 	'cite_error_references_no_text'                  => 'Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>$1</code>',
 	'cite_error_included_ref'                        => 'Closing &lt;/ref&gt; missing for &lt;ref&gt; tag',

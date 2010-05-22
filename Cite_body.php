@@ -80,6 +80,14 @@ class Cite {
 	 * @var array
 	 */
 	var $mBacklinkLabels;
+
+
+	/**
+	 * The links to use per group, in order.
+	 *
+	 * @var array
+	 */
+	var $mLinkLabels = array();
 	
 	/**
 	 * @var object
@@ -632,7 +640,7 @@ class Cite {
 		// Named references with >1 occurrences
 		else {
 			$links = array();
-// for group handling, we have an extra key here.
+		// for group handling, we have an extra key here.
 			for ( $i = 0; $i <= $val['count']; ++$i ) {
 				$links[] = wfMsgForContentNoTrans(
 						'cite_references_link_many_format',
@@ -697,6 +705,36 @@ class Cite {
 	}
 
 	/**
+	 * Generate a custom format link for a group given an offset, e.g.
+	 * the second <ref group="foo"> is b if $this->mLinkLabels["foo"] = 
+	 * array( 'a', 'b', 'c', ...). 
+	 * Return an error if the offset > the # of array items
+	 *
+	 * @param int $offset The offset
+	 * @param string $group The group name
+	 * @param string $label The text to use if there's no message for them.
+	 *
+	 * @return string
+	 */
+	function getLinkLabel( $offset, $group, $label) {
+		$message = "cite_link_label_group-$group";
+		if ( !isset( $this->mLinkLabels[$group] ) ) {
+			$this->genLinkLabels($group, $message);
+		}
+		if ($this->mLinkLabels[$group] === false) {
+			// Use normal representation, ie. "$group 1", "$group 2"...
+			return $label;
+		}
+		
+		if ( isset( $this->mLinkLabels[$group][$offset - 1] ) ) {
+			return $this->mLinkLabels[$group][$offset - 1];
+		} else {
+			// Feed me!
+			return $this->error( 'cite_error_no_link_label_group', $group, $message );
+		}
+	}
+
+	/**
 	 * Return an id for use in wikitext output based on a key and
 	 * optionally the number of it, used in <references>, not <ref>
 	 * (since otherwise it would link to itself)
@@ -750,13 +788,16 @@ class Cite {
 	 */
 	function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
 		global $wgContLang;
+		$label = is_null( $label ) ? ++$this->mGroupCnt[$group] : $label;
+		
 		return
 			$this->parse(
 				wfMsgForContentNoTrans(
 					'cite_reference_link',
 					$this->refKey( $key, $count ),
 					$this->referencesKey( $key . $subkey ),
-					( ( $group == CITE_DEFAULT_GROUP ) ? '':"$group " ) . $wgContLang->formatNum( is_null( $label ) ? ++$this->mGroupCnt[$group] : $label )
+					$this->getLinkLabel( $label, $group, 
+						( ( $group == CITE_DEFAULT_GROUP ) ? '':"$group " ) . $wgContLang->formatNum( $label ) )
 				)
 			);
 	}
@@ -845,12 +886,28 @@ class Cite {
 	/**
 	 * Generate the labels to pass to the
 	 * 'cite_references_link_many_format' message, the format is an
-	 * arbitary number of tokens separated by [\t\n ]
+	 * arbitrary number of tokens separated by [\t\n ]
 	 */
 	function genBacklinkLabels() {
 		wfProfileIn( __METHOD__ );
 		$text = wfMsgForContentNoTrans( 'cite_references_link_many_format_backlink_labels' );
 		$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
+		wfProfileOut( __METHOD__ );
+	}
+
+	/**
+	 * Generate the labels to pass to the
+	 * 'cite_reference_link' message instead of numbers, the format is an
+	 * arbitrary number of tokens separated by [\t\n ]
+	 */
+	function genLinkLabels($group, $message) {
+		global $wgMessageCache;
+		
+		wfProfileIn( __METHOD__ );
+		$text = false;
+		if (is_object($wgMessageCache))
+			$text = $wgMessageCache->get( $message, true, false );
+		$this->mLinkLabels[$group] = ($text == '') ? false : preg_split( '#[\n\t ]#', $text );
 		wfProfileOut( __METHOD__ );
 	}
 

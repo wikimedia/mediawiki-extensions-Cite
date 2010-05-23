@@ -1106,10 +1106,13 @@ $messages['ms'] = array(
 );
 
 /** Maltese (Malti)
+ * @author Chrisportelli
  * @author Giangian15
  */
 $messages['mt'] = array(
+	'cite' => 'Iċċita',
 	'cite_page' => 'Paġna:',
+	'cite_submit' => 'Iċċita',
 );
 
 /** Mirandese (Mirandés)
@@ -1664,6 +1667,7 @@ $messages['tk'] = array(
 $messages['tl'] = array(
 	'cite_article_desc' => 'Nagdaragdag ng isang natatanging pahinang [[Special:Cite|pampagtutukoy]] at kawing sa kahon (lalagyan) ng kagamitan',
 	'cite_article_link' => 'Tukuyin ang pahinang ito',
+	'tooltip-cite-article' => 'Kabatiran kung paano tutukuyin ang pahinang ito',
 	'cite' => 'Tukuyin',
 	'cite_page' => 'Pahina:',
 	'cite_submit' => 'Tukuyin',

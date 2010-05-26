@@ -152,7 +152,6 @@ class Cite {
 	 * @return string
 	 */
 	function ref( $str, $argv, $parser ) {
-		wfLoadExtensionMessages( 'Cite' );
 		if ( $this->mInCite ) {
 			return htmlspecialchars( "<ref>$str</ref>" );
 		} else {
@@ -453,7 +452,6 @@ class Cite {
 	 * @return string
 	 */
 	function references( $str, $argv, $parser ) {
-		wfLoadExtensionMessages( 'Cite' );
 		if ( $this->mInCite || $this->mInReferences ) {
 			if ( is_null( $str ) ) {
 				return htmlspecialchars( "<references/>" );

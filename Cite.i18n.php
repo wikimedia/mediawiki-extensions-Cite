@@ -686,12 +686,15 @@ Definiere weitere unter Systemtext <nowiki>[[MediaWiki:$2]]</nowiki>.',
 
 /** German (formal address) (Deutsch (Sie-Form))
  * @author Imre
+ * @author Kghbln
  * @author Raimond Spekking
  */
 $messages['de-formal'] = array(
 	'cite_error_ref_numeric_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutzen Sie einen beschreibenden Namen.',
 	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwenden Sie ausschließlich <tt><nowiki><references /></nowiki></tt>.',
 	'cite_error_references_invalid_parameters_group' => 'Ungültige <code>&lt;references&gt;</code>-Verwendung: Nur der Parameter „group“ ist erlaubt, verwenden Sie <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="…" /&gt;</tt>',
+	'cite_error_no_link_label_group' => 'Es sind für Gruppe „$1“ keine benutzerdefinierte Linkbezeichnungen mehr verfügbar.
+Definieren Sie weitere unter Systemtext <nowiki>[[MediaWiki:$2]]</nowiki>.',
 );
 
 /** Zazaki (Zazaki)

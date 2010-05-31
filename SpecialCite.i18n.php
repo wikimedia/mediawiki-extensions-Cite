@@ -1110,9 +1110,12 @@ $messages['ms'] = array(
  * @author Giangian15
  */
 $messages['mt'] = array(
-	'cite' => 'Iċċita',
+	'cite_article_desc' => 'Iżżid paġna speċjali għaċ-[[Special:Cite|ċitazzjonijiet]] u ħolqa mal-istrumenti',
+	'cite_article_link' => 'Iċċita din il-paġna',
+	'tooltip-cite-article' => 'Informazzjoni fuq kif tiċċita din il-paġna',
+	'cite' => 'Ċitazzjoni',
 	'cite_page' => 'Paġna:',
-	'cite_submit' => 'Iċċita',
+	'cite_submit' => 'Oħloq ċitazzjoni',
 );
 
 /** Mirandese (Mirandés)

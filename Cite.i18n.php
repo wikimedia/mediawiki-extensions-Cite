@@ -980,6 +980,7 @@ $messages['fa'] = array(
  * @author Agony
  * @author Crt
  * @author Nike
+ * @author Silvonen
  * @author Str4nd
  * @author Tarmo
  */
@@ -1002,7 +1003,7 @@ viitettä <code>$1</code> ei löytynyt',
 	'cite_error_included_ref' => '&lt;ref&gt;-elementin sulkeva &lt;/ref&gt;-elementti puuttuu',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-elementti löytyy, mutta <code>&lt;references/&gt;</code>-elementtiä ei löydy',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-elementit löytyivät ryhmälle nimeltä ”$1”, mutta vastaavaa <code>&lt;references group="$1"/&gt;</code>-elementtiä ei löytynyt',
-	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-elemetti <code>&lt;references&gt;</code>-elementin sisällä sisältää ristiriitaisen ryhmämääritteen ”$1”.',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-elementti <code>&lt;references&gt;</code>-elementin sisällä sisältää ristiriitaisen ryhmämääritteen ”$1”.',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>-elementissä määritetty <code>&lt;ref&gt;</code>-elementti sisältää ryhmämääritteen ”$1”, jota ei mainita aiemmassa tekstissä.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-elementin nimeä ”$1”, johon viitataan elementissä <code>&lt;references&gt;</code> ei käytetä edeltävässä tekstissä.',
 	'cite_error_references_no_key' => '<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä ei ole nimimääritettä.',

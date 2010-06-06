@@ -4,7 +4,8 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * A special page extension that adds a special page that generates citations
  * for pages.
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  *
  * @link http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php Documentation
  *

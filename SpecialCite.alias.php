@@ -2,7 +2,8 @@
 /**
  * Aliases for Special:Cite
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  */
 
 $aliases = array();

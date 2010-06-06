@@ -5,7 +5,8 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * A parser extension that adds two tags, <ref> and <references> for adding
  * citations to pages
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  *
  * @link http://www.mediawiki.org/wiki/Extension:Cite/Cite.php Documentation
  *

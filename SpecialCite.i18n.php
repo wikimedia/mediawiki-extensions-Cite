@@ -2,7 +2,8 @@
 /**
  * Internationalisation file for Cite special page extension.
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
 */
 
 $messages = array();

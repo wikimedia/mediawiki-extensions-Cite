@@ -4,7 +4,7 @@
  * A parser extension that adds two tags, <ref> and <references> for adding
  * citations to pages
  *
- * @addtogroup Extensions
+ * @ingroup Extensions
  *
  * @link http://www.mediawiki.org/wiki/Extension:Cite/Cite.php Documentation
  * @link http://www.w3.org/TR/html4/struct/text.html#edef-CITE <cite> definition in HTML

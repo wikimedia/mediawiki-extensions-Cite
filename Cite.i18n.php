@@ -2,8 +2,9 @@
 /**
  * Internationalisation file for Cite extension.
  *
- * @addtogroup Extensions
-*/
+ * @file
+ * @ingroup Extensions
+ */
 
 $messages = array();
 

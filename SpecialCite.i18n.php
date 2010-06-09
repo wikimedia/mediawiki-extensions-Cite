@@ -83,11 +83,11 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'cite_article_desc' => 'Adibe un binclo y una pachina espezial de [[Special:Cite|zita]]',
-	'cite_article_link' => 'Zitar ista pachina',
-	'cite' => 'Zitar',
+	'cite_article_desc' => 'Adibe un vinclo y una pachina especial de [[Special:Cite|cita]]',
+	'cite_article_link' => 'Citar ista pachina',
+	'cite' => 'Citar',
 	'cite_page' => 'Pachina:',
-	'cite_submit' => 'Zitar',
+	'cite_submit' => 'Citar',
 );
 
 /** Arabic (العربية)

@@ -1385,6 +1385,7 @@ nulle texto esseva fornite pro le refs nominate <code>$1</code>',
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Irwangatot
  * @author IvanLanin
  * @author Rex
  */
@@ -1415,6 +1416,8 @@ hanya parameter "group" yang diizinkan.
 Gunakan <code>&lt;references /&gt;</code>, atau <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Kehabisan label pralana balik tersuai.
 Tambahkan lagi di pesan sistem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Pranala  kustom label untuk kelompok "$1" habis.
+Tambahkan ketentuan dalam pesan <nowiki> [[MediaWiki:$2]] </nowiki> .',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> tidak sah; 
 tidak ditemukan teks untuk ref bernama <code>$1</code>',
 	'cite_error_included_ref' => 'Tag &lt;ref&gt; harus ditutup oleh &lt;/ref&gt;',

@@ -504,6 +504,8 @@ dozvoljen je samo parametar "group".
 Koristite <code>&lt;references /&gt;</code> ili <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Ponestalo je prilagođenih naslova backlinkova.
 Definirajte ih još u <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> poruci',
+	'cite_error_no_link_label_group' => 'Nedovoljan broj proizvoljnih naslova linkova za grupu "$1".
+Definišite više putem poruke <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
 nije naveden tekst za reference sa imenom <code>$1</code>',
 	'cite_error_included_ref' => 'Nedostaje oznaka za zatvaranje &lt;/ref&gt; nakon &lt;ref&gt;',
@@ -2879,6 +2881,8 @@ sadece "group" parametresine izin verilir.
 <code>&lt;references /&gt;</code>, ya da <code>&lt;references group="..." /&gt;</code> kullanın',
 	'cite_error_references_no_backlink_label' => 'Özel geribağlantı etiketleri kalmadı.
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mesajında daha fazla tanımlayın',
+	'cite_error_no_link_label_group' => '"$1" grubu için özel bağlantı etiketleri bitti.
+<nowiki>[[MediaWiki:$2]]</nowiki> mesajında daha fazla tanımlayın.',
 	'cite_error_references_no_text' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
 <code>$1</code> isimli refler için metin temin edilmemiş',
 	'cite_error_included_ref' => '&lt;ref&gt; etiketi için &lt;/ref&gt; kapanışı eksik',

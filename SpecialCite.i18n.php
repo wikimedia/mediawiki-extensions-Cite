@@ -1323,7 +1323,7 @@ $messages['pnt'] = array(
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'cite_article_link' => 'د همدې ليکنې درک',
+	'cite_article_link' => 'د دې مخ درک',
 	'tooltip-cite-article' => 'د دې مخ د درک لګولو مالومات',
 	'cite' => 'درک',
 	'cite_page' => 'مخ:',

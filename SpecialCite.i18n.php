@@ -1364,6 +1364,7 @@ $messages['pt-br'] = array(
 $messages['qu'] = array(
 	'cite_article_desc' => "[[Special:Cite|Pukyumanta willanapaq]] sapaq p'anqatam llamk'ana t'asrapi t'inkitapas yapan",
 	'cite_article_link' => 'Kay qillqamanta willay',
+	'tooltip-cite-article' => "Ima hinam kay p'anqamanta willay",
 	'cite' => 'Qillqamanta willay',
 	'cite_page' => "P'anqa:",
 	'cite_submit' => 'Qillqamanta willay',

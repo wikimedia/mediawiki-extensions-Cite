@@ -1430,6 +1430,14 @@ $messages['ru'] = array(
 	'cite_submit' => 'Процитировать',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'cite' => 'Цітованя',
+	'cite_page' => 'Сторінка:',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */

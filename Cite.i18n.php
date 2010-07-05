@@ -730,6 +730,8 @@ parametrayan ra destur çini yo.
 <code>&lt;references /&gt;</code> sero kar bike, ya zi  <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Linkanê Custom backlinkî hin çini yo.
 Zerreyê mesajê <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>î de hewna tasvir bike',
+	'cite_error_no_link_label_group' => 'Eka etiketinê linkê şexsi ser ena grubi "$1" ciniyo.
+Zerre mesajê <nowiki>[[MediaWiki:$2]]</nowiki> de zafyer qise bike.',
 	'cite_error_references_no_text' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
 qe refs yew nuşte nidayiyo <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt kefilneno;  &lt;ref&gt vin kerdo; etiket',

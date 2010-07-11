@@ -787,6 +787,7 @@ za ref z mjenim <code>$1</code> njejo se tekst pódał',
  * @author Consta
  * @author Omnipaedista
  * @author ZaDiak
+ * @author Απεργός
  */
 $messages['el'] = array(
 	'cite-desc' => 'Προσθέτει τα <ref[ name="id"]> και <references/> για τις παραπομπές.',
@@ -812,13 +813,15 @@ $messages['el'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Μη έγκυρη <code>&lt;references&gt;</code> ετικέτα;
 μόνο η παράμετρος "group" επιτρέπεται.
 Χρησιμοποιείστε το <code>&lt;references /&gt;</code>, ή το <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Εξαντλήθηκαν οι συνήθεις ετικέτες.
-Ορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_backlink_label' => 'Εξαντλήθηκαν οι ειδικές ετικέτες συνδέσμων προς το κείμενο.
+Καθορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Εξαντλήθηκαν οι ειδικές ετικέτες συνδέσμων για την ομάδα «$1».
+Καθορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:$2]]</nowiki>',
 	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
 Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',
 	'cite_error_included_ref' => 'Υπολείπεται η κατάληξη &lt;/ref&gt; για την ετικέτα &lt;ref&gt;',
-	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά καμία ονόματι <code>&lt;references/&gt;</code> δεν βρέθηκε.',
-	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα ονόματι "$1", αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.',
+	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά καμία ετικέτα <code>&lt;references/&gt;</code> δεν βρέθηκε.',
+	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα με το όνομα «$1», αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.',
 	'cite_error_references_group_mismatch' => 'Η ετικέτα <code>&lt;ref&gt;</code> στο <code>&lt;references&gt;</code> έρχεται σε σύγκρουση με το κατηγορούμενο "$1".',
 	'cite_error_references_missing_group' => 'Η <code>&lt;ref&gt;</code> ετικέτα που ορίζεται στο <code>&lt;references&gt;</code> έχει κατηγορούμενο ομάδας "$1" που δεν εμφανίζεται σε προηγούμενο κείμενο.',
 	'cite_error_references_missing_key' => 'Η <code>&lt;ref&gt;</code> ετικέτα με το όνομα "$1" που ορίζεται στο <code>&lt;references&gt;</code> δεν χρησιμοποιείται στο προηγούμενο κείμενο.',

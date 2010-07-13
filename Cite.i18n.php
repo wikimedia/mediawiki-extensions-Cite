@@ -1453,6 +1453,7 @@ $messages['io'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author BrokenArrow
  * @author Darth Kule
  * @author Pietrodn
@@ -1476,6 +1477,7 @@ Non dovrebbe mai verificarsi.',
 solo il parametro "group" è permesso.
 Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Etichette esaurite per collegamenti personalizzati del gruppo "$1", aumentarne il numero nel messaggio <nowiki>[[MediaWiki:$2]]</nowiki>',
 	'cite_error_references_no_text' => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; di chiusura mancante per il marcatore &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> ma non è stato trovato alcun marcatore <code>&lt;references/&gt;</code>',

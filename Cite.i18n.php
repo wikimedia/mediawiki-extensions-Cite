@@ -600,6 +600,7 @@ $messages['cu'] = array(
 
 /** Welsh (Cymraeg)
  * @author Lloffiwr
+ * @author Xxglennxx
  */
 $messages['cy'] = array(
 	'cite-desc' => 'Yn ychwanegu tagiau <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki>, ar gyfer cyfeiriadau',
@@ -627,11 +628,17 @@ dim ond y paramedr "group" a ganiateir.
 Defnyddiwch <code>&lt;references /&gt;</code>, neu <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Dim rhagor o labeli ôl-gyswllt ar gael.
 Diffiniwch ragor ohonynt yn y neges <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Wedi rhedeg allan o labeli dolenni unigryw ar gyfer grŵp "$1".
+Rhagor o wybodaeth yn y neges <nowiki>[[MediaWiki:$2]]</nowiki>',
 	'cite_error_references_no_text' => "Tag <code>&lt;ref&gt;</code> annilys;
 ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 	'cite_error_included_ref' => '&lt;/ref&gt; clo yn eisiau ar gyfer y tag &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol, ond dim tag <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol ar gyfer y grwp "$1", ond ni chafwyd tag <code>&lt;references/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'Mae gan y tag <code>&lt;ref&gt;</code> yn y <code>&lt;references&gt;</code> briodoledd grŵp anghyson "$1".',
+	'cite_error_references_missing_group' => 'Mae gan y tag <code>&lt;ref&gt;</code> a ddiffinir yn y <code>&lt;references&gt;</code> briodoledd grŵp "$1" sydd ddim yn ymddangos o fewn y testun blaenorol.',
+	'cite_error_references_missing_key' => 'Ni ddefnyddir y tag <code>&lt;ref&gt;</code> o\'r enw "$1" a ddiffinir yn y <code>&lt;references&gt;</code> yn y testun blaenorol.',
+	'cite_error_references_no_key' => 'Nid oes dim enw priodoledd gan y tag <code>&lt;ref&gt;</code> a ddiffinir yn <code>&lt;references&gt;</code>',
 	'cite_error_empty_references_define' => 'Does dim byd yn y tag <code>&lt;ref&gt;</code> a\'r enw "$1" arno, sydd wedi ei ddiffinio oddi mewn i dagiau <code>&lt;references&gt;</code>.',
 );
 

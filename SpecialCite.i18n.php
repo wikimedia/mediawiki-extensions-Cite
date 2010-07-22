@@ -1856,10 +1856,13 @@ $messages['zh-hans'] = array(
 	'cite_submit' => '引用',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Frankou
+ */
 $messages['zh-hant'] = array(
 	'cite_article_desc' => '增加[[Special:Cite|引用]]特殊頁面以及工具箱連結',
 	'cite_article_link' => '引用此文',
+	'tooltip-cite-article' => '關於如何引用此頁的資訊',
 	'cite' => '引用文章',
 	'cite_page' => '頁面：',
 	'cite_submit' => '引用',

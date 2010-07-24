@@ -110,7 +110,7 @@ class CiteOutput {
 	}
 
 	function execute() {
-		global $wgOut, $wgUser, $wgParser, $wgHooks, $wgCiteDefaultText;
+		global $wgOut, $wgParser, $wgHooks, $wgCiteDefaultText;
 
 		$wgHooks['ParserGetVariableValueTs'][] = array( $this, 'timestamp' );
 

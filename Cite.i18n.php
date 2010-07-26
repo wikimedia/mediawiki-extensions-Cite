@@ -1449,6 +1449,7 @@ tidak ditemukan teks untuk ref bernama <code>$1</code>',
  */
 $messages['ig'] = array(
 	'cite-desc' => 'Tikwá <nowiki><ref[ áhà=id]></nowiki> and <nowiki><references/></nowiki> ndö, maka ntabi okwu',
+	'cite_croak' => 'Nchápụ nwụrụ; $1: $2',
 );
 
 /** Ido (Ido)

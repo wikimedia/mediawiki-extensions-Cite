@@ -755,6 +755,17 @@ $messages['ie'] = array(
 	'cite_page' => 'Págine:',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'cite_article_link' => 'Chápu ihe na ihüa',
+	'tooltip-cite-article' => 'Ùmà màkà otụ ha shi ạ chápụ ihe na ihüa',
+	'cite' => 'Nchápụ',
+	'cite_page' => 'Ihü:',
+	'cite_submit' => 'Nchápụ',
+);
+
 /** Iloko (Ilokano) */
 $messages['ilo'] = array(
 	'cite_article_link' => 'Dakamaten ti articulo',

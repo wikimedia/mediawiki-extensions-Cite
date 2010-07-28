@@ -2915,6 +2915,7 @@ sadece "group" parametresine izin verilir.
  * @author Ahonc
  * @author NickK
  * @author Prima klasy4na
+ * @author Ytsukeng Fyvaprol
  */
 $messages['uk'] = array(
 	'cite-desc' => 'Додає теги <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для виносок',
@@ -2938,6 +2939,8 @@ $messages['uk'] = array(
 Використовуйте <code>&lt;references /&gt;</code> або <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Недостатньо символів для зворотних гіперпосилань.
 Потрібно розширити системну змінну <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Закінчилися позначки користувальницьких посилань для групи "$1".
+Визначте додаткові в повідомленні <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Неправильний виклик <code>&lt;ref&gt;</code>:
 для виносок <code>$1</code> не вказаний текст',
 	'cite_error_included_ref' => 'Відсутній тег &lt;/ref&gt; за наявності тега &lt;ref&gt;',

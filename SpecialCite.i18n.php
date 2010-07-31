@@ -759,11 +759,12 @@ $messages['ie'] = array(
  * @author Ukabia
  */
 $messages['ig'] = array(
-	'cite_article_link' => 'Chápu ihe na ihüa',
-	'tooltip-cite-article' => 'Ùmà màkà otụ ha shi ạ chápụ ihe na ihüa',
-	'cite' => 'Nchápụ',
+	'cite_article_desc' => 'Nè tí [[Special:Cite|ndéputà]] ihü kárírí na jikodo ngwa orü',
+	'cite_article_link' => 'Députà ihüa',
+	'tooltip-cite-article' => 'Ùmà màkà otụ ha shi députà ihe na ihüa',
+	'cite' => 'Ndéputà',
 	'cite_page' => 'Ihü:',
-	'cite_submit' => 'Nchápụ',
+	'cite_submit' => 'Ndéputà',
 );
 
 /** Iloko (Ilokano) */

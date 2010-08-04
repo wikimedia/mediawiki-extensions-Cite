@@ -1730,6 +1730,8 @@ Nemm eifach <code>&lt;references /&gt;</code> udder <code>&lt;references group="
 	'cite_error_references_no_backlink_label' => 'Fähler en <i lang="en">cite</i>:
 Nit jenoch Name för retuur-Lengks.
 Donn mieh en dä Sigg <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> enndrare.',
+	'cite_error_no_link_label_group' => 'För de Jruppe „$1“ senn er kein Bezeichnunge för Links mieh doh.
+Donn op <nowiki>[[MediaWiki:$2]]</nowiki> noch e paa dobei.',
 	'cite_error_references_no_text' => 'Fähler en <i lang="en">cite</i>:
 Et wohr keine Tex aanjejovve för de
 <code>&lt;ref&gt;</code>s met dämm Name „<code>$1</code>“.',

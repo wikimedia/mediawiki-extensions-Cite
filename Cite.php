@@ -17,11 +17,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
-if ( defined( 'MW_SUPPORTS_PARSERFIRSTCALLINIT' ) ) {
-	$wgHooks['ParserFirstCallInit'][] = 'wfCite';
-} else {
-	$wgExtensionFunctions[] = 'wfCite';
-}
+$wgHooks['ParserFirstCallInit'][] = 'wfCite';
 
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
@@ -53,4 +49,3 @@ function wfCite() {
 }
 
 /**#@-*/
-

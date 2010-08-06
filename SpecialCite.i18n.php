@@ -625,6 +625,11 @@ $messages['gv'] = array(
 	'cite_submit' => 'Symney',
 );
 
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'cite_page' => 'Shafi:',
+);
+
 /** Hawaiian (Hawai`i)
  * @author Singularity
  */

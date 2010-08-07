@@ -2607,11 +2607,12 @@ $messages['sl'] = array(
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
+ * @author Rancher
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'cite-desc' => 'Додаје <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаке за цитирање.',
-	'cite_croak' => 'Додатак за цитирање је умро; $1: $2.',
+	'cite_croak' => 'Додатак за цитирање је неисправан; $1: $2.',
 	'cite_error_key_str_invalid' => 'Унутрашња грешка; лош $str и/или $key. Ово не би требало никад да се деси.',
 	'cite_error_stack_invalid_input' => 'Унутрашња грешка; лош кључ стека. Ово не би требало никад да се деси.',
 	'cite_error' => 'Грешка цитата: $1',

@@ -1934,7 +1934,7 @@ $messages['ml'] = array(
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> റ്റാഗ് നിർവചിച്ചിട്ടുണ്ടെങ്കിലും <code>&lt;references&gt;</code> എന്നതിലുള്ള സംഘ ഘടകം "$1" ആദ്യ എഴുത്തിൽ കാണുന്നില്ല.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> റ്റാഗ് "$1" എന്ന പേരോടെ <code>&lt;references&gt;</code> എന്നതിൽ നിർവചിച്ചിട്ടുണ്ടെങ്കിലും ആദ്യ എഴുത്തിൽ ഉപയോഗിക്കുന്നില്ല.',
 	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> റ്റാഗ്  <code>&lt;references&gt;</code> എന്നതിൽ നിർവചിച്ചിട്ടുണ്ടെങ്കിലും നാമ ഘടകം നൽകിയിട്ടില്ല.',
-	'cite_error_empty_references_define' => ' <code>&lt;references&gt;</code> ആവശ്യത്തിനായി "$1" എന്ന പേരിൽ നിർ‌‌വചിക്കപ്പെട്ട <code>&lt;ref&gt;</code> റ്റാഗിന് ഉള്ളടക്കമൊന്നുമില്ല.',
+	'cite_error_empty_references_define' => ' <code>&lt;references&gt;</code> ആവശ്യത്തിനായി "$1" എന്ന പേരിൽ നിർ‌വചിക്കപ്പെട്ട <code>&lt;ref&gt;</code> റ്റാഗിന് ഉള്ളടക്കമൊന്നുമില്ല.',
 );
 
 /** Marathi (मराठी)

@@ -299,6 +299,7 @@ class Cite {
 
 		if ( $cnt > 2 )
 			// There should only be one key and one group
+			// FIXME : this looks inconsistent, it should probably return a tuple 
 			return false;
 		else if ( $cnt >= 1 ) {
 			if ( isset( $argv['name'] ) ) {

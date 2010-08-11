@@ -1085,9 +1085,11 @@ $messages['frp'] = array(
 	'cite_error_stack_invalid_input' => 'Èrror de dedens ; cllâf de pila envalida.',
 	'cite_error' => 'Èrror de citacion $1',
 	'cite_error_ref_numeric_key' => 'Apèl envalido ; cllâf pas entègrâla atendua.',
-	'cite_error_ref_no_key' => 'Apèl envalido ; niona cllâf spècefiâ.',
+	'cite_error_ref_no_key' => 'Balisa <code>&lt;ref&gt;</code> fôssa ;
+les refèrences sen contegnu dêvont avêr un nom.',
 	'cite_error_ref_too_many_keys' => 'Apèl envalido ; cllâfs envalides, per ègzemplo, trop de cllâfs spècefiâs ou ben cllâf fôssa.',
-	'cite_error_ref_no_input' => 'Apèl envalido ; niona entrâ spècefiâ.',
+	'cite_error_ref_no_input' => 'Balisa <code>&lt;ref&gt;</code> fôssa ;
+les refèrences sen nom dêvont avêr un contegnu.',
 	'cite_error_references_invalid_parameters' => 'Arguments envalidos ; argument atendu.',
 	'cite_error_references_no_backlink_label' => 'Èpouesement de les ètiquètes de lims pèrsonalisâs.
 Dèfenésséd-nen un ples grant nombro dens lo mèssâjo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',

@@ -167,7 +167,7 @@ class Cite {
 		$this->mParser = $parser;
 		
 		# The key here is the "name" attribute.
-		list( $key, $group ) = $this->refArg( $argv );
+		list( $key, $group, $follow ) = $this->refArg( $argv );
 		
 		# Split these into groups.
 		if ( $group === null ) {
@@ -238,7 +238,7 @@ class Cite {
 			return $this->error( 'cite_error_ref_no_key' );
 		}
 		
-		if ( preg_match( '/^[0-9]+$/', $key ) ) {
+		if ( preg_match( '/^[0-9]+$/', $key ) || preg_match( '/^[0-9]+$/', $follow ) ) {
 			# Numeric names mess up the resulting id's, potentially produ-
 			# cing duplicate id's in the XHTML.  The Right Thing To Do
 			# would be to mangle them, but it's not really high-priority
@@ -274,7 +274,7 @@ class Cite {
 			# we'll figure that out later.  Likewise it's definitely valid
 			# if there's any content, regardless of key.
 
-			return $this->stack( $str, $key, $group, $argv );
+			return $this->stack( $str, $key, $group, $follow, $argv );
 		}
 
 		# Not clear how we could get here, but something is probably
@@ -284,6 +284,10 @@ class Cite {
 
 	/**
 	 * Parse the arguments to the <ref> tag
+	 * 
+	 *  "name" : Key of the reference.
+	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
+	 *  "follow" : If the current reference is the continuation of another, key of that reference.
 	 *
 	 * @static
 	 *
@@ -296,16 +300,26 @@ class Cite {
 		$cnt = count( $argv );
 		$group = null;
 		$key = null;
+		$follow = null;
 
 		if ( $cnt > 2 )
-			// There should only be one key and one group
+			// There should only be one key or follow parameter, and one group parameter
 			// FIXME : this looks inconsistent, it should probably return a tuple 
 			return false;
 		else if ( $cnt >= 1 ) {
+			if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
+				return array( false, false, false );
+			}
 			if ( isset( $argv['name'] ) ) {
 				// Key given.
 				$key = Sanitizer::escapeId( $argv['name'], 'noninitial' );
 				unset( $argv['name'] );
+				--$cnt;
+			}
+			if ( isset( $argv['follow'] ) ) {
+				// Follow given.
+				$follow = Sanitizer::escapeId( $argv['follow'], 'noninitial' );
+				unset( $argv['follow'] );
 				--$cnt;
 			}
 			if ( isset( $argv['group'] ) ) {
@@ -317,14 +331,14 @@ class Cite {
 			}
 
 			if ( $cnt == 0 )
-				return array ( $key, $group );
+				return array ( $key, $group, $follow );
 			else
 				// Invalid key
-				return array( false, false );
+				return array( false, false, false );
 		}
 		else
 			// No key
-			return array( null, $group );
+			return array( null, $group, false );
 	}
 
 	/**
@@ -334,12 +348,33 @@ class Cite {
 	 * @param mixed $key Argument to the <ref> tag as returned by $this->refArg()
 	 * @return string 
 	 */
-	function stack( $str, $key = null, $group, $call ) {
+	function stack( $str, $key = null, $group, $follow, $call ) {
 		if ( ! isset( $this->mRefs[$group] ) )
 			$this->mRefs[$group] = array();
 		if ( ! isset( $this->mGroupCnt[$group] ) )
 			$this->mGroupCnt[$group] = 0;
 
+		if ( $follow != null ) {
+			if ( isset( $this->mRefs[$group][$follow] ) && is_array( $this->mRefs[$group][$follow] ) ) {
+				// add text to the note that is being followed
+				$this->mRefs[$group][$follow]['text'] = $this->mRefs[$group][$follow]['text'] . ' '. $str;
+			} else {
+				// insert part of note at the beginning of the group
+				for( $k=0 ; $k< count( $this->mRefs[$group] ) ; $k++) {
+					if( $this->mRefs[$group][$k]['follow'] == null ) break;
+				}
+				array_splice( $this->mRefs[$group], $k, 0, 
+					       array( array( 'count' => - 1, 
+						      'text' => $str, 
+						      'key' => ++$this->mOutCnt , 
+						      'follow' => $follow) ) );
+				array_splice( $this->mRefCallStack, $k, 0, 
+					       array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
+				$this->mInCnt++; 
+			}
+			// return an empty string : this is not a reference
+			return '';
+		}
 		if ( $key === null ) {
 			// No key
 			// $this->mRefs[$group][] = $str;
@@ -607,6 +642,13 @@ class Cite {
 					$this->referencesKey( $key ),
 					$this->refKey( $key ),
 					$val
+				);
+		else if ( $val['follow'] ) 
+			return
+				wfMsgForContentNoTrans(
+					'cite_references_no_link',
+					$this->referencesKey( $val['follow'] ),
+					$val['text']
 				);
 		else if ( $val['text'] == '' ) return
 				wfMsgForContentNoTrans(

@@ -472,10 +472,12 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Huji
+ * @author Wayiran
  */
 $messages['fa'] = array(
 	'cite_article_desc' => 'صفحهٔ ویژه‌ای برای [[Special:Cite|یادکرد]] اضافه می‌کند و پیوندی به جعبه ابزار می‌افزاید',
 	'cite_article_link' => 'یادکرد پیوند این مقاله',
+	'tooltip-cite-article' => 'اطلاعات در خصوص چگونگی یادکرد این صفحه',
 	'cite' => 'یادکرد این مقاله',
 	'cite_page' => 'صفحه:',
 	'cite_submit' => 'یادکرد',

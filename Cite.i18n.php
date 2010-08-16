@@ -2100,7 +2100,8 @@ $messages['no'] = array(
 	'cite_error_ref_no_input' => 'Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten navn må ha innhold',
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-kode; ingen parametere tillates, bruk <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Ugyldig <code>&lt;references&gt;</code>-tagg; kun parameteret «group» tillates. Bruk <code>&lt;references /&gt;</code> eller <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => "Gikk tom for egendefinerte tilbakelenketekster; definer flere i beskjeden «''cite_references_link_many_format_backlink_labels''»",
+	'cite_error_references_no_backlink_label' => 'Gikk tom for egendefinerte tilbakelenketekster.
+Definer flere i beskjeden <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_no_link_label_group' => 'Gikk tom for egendefinerte lenkemerker for gruppen «$1».
 Definér fler i <nowiki>[[MediaWiki:$2]]</nowiki>-beskjeden.',
 	'cite_error_references_no_text' => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>',

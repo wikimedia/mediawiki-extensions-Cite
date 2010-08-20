@@ -271,12 +271,14 @@ $messages['bs'] = array(
 );
 
 /** Catalan (Català)
+ * @author Davidpar
  * @author SMP
  * @author Toniher
  */
 $messages['ca'] = array(
 	'cite_article_desc' => 'Afegeix un enllaç i una pàgina especial de [[Special:Cite|citació]]',
 	'cite_article_link' => 'Cita aquesta pàgina',
+	'tooltip-cite-article' => 'Informació sobre com citar aquesta pàgina.',
 	'cite' => 'Citeu',
 	'cite_page' => 'Pàgina:',
 	'cite_submit' => 'Cita',

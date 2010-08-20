@@ -521,6 +521,7 @@ nije naveden tekst za reference sa imenom <code>$1</code>',
 );
 
 /** Catalan (Català)
+ * @author Davidpar
  * @author Jordi Roqué
  * @author SMP
  * @author Vriullop
@@ -551,11 +552,18 @@ Useu <code>&lt;references /&gt;</code>',
 Useu <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => "Hi ha massa etiquetes personalitzades.
 Se'n poden definir més a <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
+	'cite_error_no_link_label_group' => 'No hi ha etiquetes vincle personalitzat per al grup "$1".
+Defineix més al missatge <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Etiqueta <code>&lt;ref&gt;</code> no vàlida;
 no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
 	'cite_error_included_ref' => 'Es tanca el &lt;/ref&gt; que manca per una etiqueta &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Hi ha etiquetes <code>&lt;ref&gt;</code> però no cap etiqueta <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Existeixen etiquetes <code>&lt;ref&gt;</code> pel grup «$1» però no l\'etiqueta <code>&lt;references group="$1"/&gt;</code> corresponent',
+	'cite_error_references_group_mismatch' => 'L\'etiqueta <code>&lt;ref&gt;</code> a <code>&lt;references&gt;</code> té un conflicte amb l\'atribut de grup "$1".',
+	'cite_error_references_missing_group' => 'L\'etiqueta <code>&lt;ref&gt;</code> definida a <code>&lt;references&gt;</code> té l\'atribut de grup "$1" que no apareix en el text anterior.',
+	'cite_error_references_missing_key' => 'L\'etiqueta <code>&lt;ref&gt;</code> amb el nom "$1" definida a <code>&lt;references&gt;</code> no s\'utilitza en el text anterior.',
+	'cite_error_references_no_key' => "L'etiqueta <code>&lt;ref&gt;</code> definida a <code>&lt;references&gt;</code> no té cap atribut de nom.",
+	'cite_error_empty_references_define' => 'L\'etiqueta <code>&lt;ref&gt;</code> definida a <code>&lt;references&gt;</code> amb el nom "$1" no té contingut.',
 );
 
 /** Czech (Česky)

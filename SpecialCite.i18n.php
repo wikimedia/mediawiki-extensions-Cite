@@ -1516,7 +1516,7 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'cite_article_desc' => 'Doda [[Special:Cite|posebno stran za navedbo vira]] in povezavo v orodno vrstico',
-	'cite_article_link' => 'Navedi to stran',
+	'cite_article_link' => 'Navedba strani',
 	'tooltip-cite-article' => 'Informacije o tem, kako navajati to stran',
 	'cite' => 'Navedi',
 	'cite_page' => 'Stran:',

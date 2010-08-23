@@ -643,7 +643,7 @@ class Cite {
 					$this->refKey( $key ),
 					$val
 				);
-		else if ( $val['follow'] ) 
+		else if ( isset( $val['follow'] ) ) 
 			return
 				wfMsgForContentNoTrans(
 					'cite_references_no_link',

@@ -674,11 +674,13 @@ $messages['hil'] = array(
 
 /** Croatian (Hrvatski)
  * @author Dalibor Bosits
+ * @author Excaliboor
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
 	'cite_article_desc' => 'Dodaje posebnu stranicu za [[Special:Cite|citiranje]] i link u okvir za alate',
 	'cite_article_link' => 'Citiraj ovaj članak',
+	'tooltip-cite-article' => 'Informacije o tome kako citirati ovu stranicu',
 	'cite' => 'Citiranje',
 	'cite_page' => 'Stranica:',
 	'cite_submit' => 'Citiraj',

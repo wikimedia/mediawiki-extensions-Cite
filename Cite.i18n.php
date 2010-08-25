@@ -1828,7 +1828,7 @@ $messages['li'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Onjuuste tag <code>&lt;references&gt;</code>;
 allein de paramaeter "group" is toegestaon.
 Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => "'t Aantal besjikbare backlinklabels is opgebroek. Gaef meer labels op in 't berich <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>",
+	'cite_error_references_no_backlink_label' => "'t Aantal besjikbare backlinklabels is opgebroek. Gaef meer labels op in 't berich <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
 	'cite_error_references_no_text' => "Ónzjuuste tag <code>&lt;ref&gt;</code>; d'r is gein teks opgegaeve veur refs mit de naam <code>$1</code>",
 	'cite_error_included_ref' => 'Gein sjloetteike &lt;/ref&gt; veur de tag &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'De tag <code>&lt;ref&gt;</code> besteit al, meh de tag <code>&lt;references/&gt;</code> is neet aangetróffe',

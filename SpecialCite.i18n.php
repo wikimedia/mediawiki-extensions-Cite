@@ -1016,6 +1016,7 @@ $messages['lg'] = array(
 $messages['li'] = array(
 	'cite_article_desc' => "Voog 'n [[Special:Cite|speciaal pagina óm te citere]] toe en 'ne link derhaer in de gereidsjapskis",
 	'cite_article_link' => 'Citeer dees pagina',
+	'tooltip-cite-article' => 'Informatie euver wie se dees pazjena kins citere',
 	'cite' => 'Citere',
 	'cite_page' => 'Pagina:',
 	'cite_submit' => 'Citere',

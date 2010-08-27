@@ -88,9 +88,10 @@ no text was provided for refs named <code>$1</code>',
  * @author Raimond Spekking
  * @author Raymond
  * @author Siebrand
+ * @author The Evil IP address
  */
 $messages['qqq'] = array(
-	'cite-desc' => 'Extension description for cite. Shown in [[Special:Version]]. Do not translate or change tag names.',
+	'cite-desc' => '{{desc}}',
 	'cite_error_key_str_invalid' => '<tt>$str</tt> and <tt>$key</tt> are literals, and refers to who knows which variables the code uses.',
 	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
@@ -151,7 +152,6 @@ The <code>$1</code> parameter contains the name of the unused reference (in the 
 	'cite_references_link_prefix' => '{{optional}}',
 	'cite_references_link_suffix' => '{{optional}}',
 	'cite_reference_link' => '{{optional}}',
-	'cite_references_no_link' => '{{optional}}',
 	'cite_references_link_one' => '{{optional}}',
 	'cite_references_link_many' => '{{optional}}',
 	'cite_references_link_many_format' => '{{optional}}',
@@ -676,10 +676,11 @@ $messages['da'] = array(
  * @author Kghbln
  * @author Metalhead64
  * @author Raimond Spekking
+ * @author The Evil IP address
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'cite-desc' => 'Ergänzt für Quellennachweise die <tt><nowiki><ref[ name=id]></nowiki></tt> und <tt><nowiki><references /></nowiki></tt>-Tags',
+	'cite-desc' => 'Ergänzt die <nowiki><ref[ name=id]></nowiki> und <nowiki><references /></nowiki>-Tags für Quellennachweise',
 	'cite_croak' => 'Fehler im Referenz-System. $1: $2',
 	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
 	'cite_error_stack_invalid_input' => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',
@@ -1050,10 +1051,11 @@ viitettä <code>$1</code> ei löytynyt',
  * @author IAlex
  * @author McDutchie
  * @author Sherbrooke
+ * @author The Evil IP address
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'cite-desc' => 'Ajoute les balises <tt><nowiki><ref[ name="id"]></nowiki></tt> et <tt><nowiki><references/></nowiki></tt> pour les citations.',
+	'cite-desc' => 'Ajoute les balises <nowiki><ref[ name="id"]></nowiki> et <nowiki><references/></nowiki> pour les citations.',
 	'cite_croak' => 'Citation en impasse ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Erreur interne ;
 $str ou $key invalides.
@@ -1173,9 +1175,10 @@ $messages['grc'] = array(
 
 /** Swiss German (Alemannisch)
  * @author Als-Holder
+ * @author The Evil IP address
  */
 $messages['gsw'] = array(
-	'cite-desc' => 'Ergänzt fir Quällenochwyys d <tt><nowiki><ref[ name=id]></nowiki></tt> un d <tt><nowiki><references /></nowiki></tt>-Tag',
+	'cite-desc' => 'Ergänzt d <nowiki><ref[ name=id]></nowiki> un d <nowiki><references /></nowiki>-Tag fir Quällenochwyys',
 	'cite_croak' => 'Fähler im Referenz-Syschtem. $1: $2',
 	'cite_error_key_str_invalid' => 'Intärne Fähler: uugiltige $str un/oder $key. Des sott eigetli gar nit chenne gschäh.',
 	'cite_error_stack_invalid_input' => 'Intärne Fähler: uugiltige „name“-stack. Des sott eigetli gar nit chenne gschäh.',
@@ -1720,9 +1723,10 @@ $str 혹은 $key가 잘못되었습니다.
 
 /** Colognian (Ripoarisch)
  * @author Purodha
+ * @author The Evil IP address
  */
 $messages['ksh'] = array(
-	'cite-desc' => 'Erlaub Quelle un Referenze met <tt><nowiki><ref[ name="id"]></nowiki></tt> un <tt><nowiki><references /></nowiki></tt> aanzejevve.',
+	'cite-desc' => 'Erlaub Quelle un Referenze met <nowiki><ref[ name="id"]></nowiki> un <nowiki><references /></nowiki> aanzejevve.',
 	'cite_croak' => 'Fääler met Refenenze. $1: $2',
 	'cite_error_key_str_invalid' => 'Interne Fähler in <i lang="en">cite</i>:
 <code>$str</code> udder <code>$key</code> stemme nit.

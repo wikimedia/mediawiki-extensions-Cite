@@ -1746,6 +1746,13 @@ $messages['ts'] = array(
 	'cite_page' => 'Tluka:',
 );
 
+/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+ * @author Ильнар
+ */
+$messages['tt-cyrl'] = array(
+	'cite_article_link' => 'Бу битне күчермәләү',
+);
+
 /** Udmurt (Удмурт)
  * @author ОйЛ
  */

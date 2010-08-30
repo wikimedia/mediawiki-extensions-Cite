@@ -138,7 +138,7 @@ class Cite {
 	/**
 	 * Constructor
 	 */
-	function Cite() {
+	function __construct() {
 		$this->setHooks();
 	}
 

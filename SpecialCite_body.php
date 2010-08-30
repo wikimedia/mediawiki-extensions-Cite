@@ -9,7 +9,7 @@ $file = file_exists( "${dir}cite_text-$code" ) ? "${dir}cite_text-$code" : "${di
 $wgCiteDefaultText = file_get_contents( $file );
 
 class SpecialCite extends SpecialPage {
-	function SpecialCite() {
+	function __construct() {
 		parent::SpecialPage( 'Cite' );
 	}
 
@@ -48,7 +48,7 @@ class SpecialCite extends SpecialPage {
 class CiteForm {
 	var $mTitle;
 
-	function CiteForm( &$title ) {
+	function __construct( &$title ) {
 		$this->mTitle =& $title;
 	}
 
@@ -94,7 +94,7 @@ class CiteOutput {
 	var $mTitle, $mArticle, $mId;
 	var $mParser, $mParserOptions;
 
-	function CiteOutput( &$title, &$article, $id ) {
+	function __construct( &$title, &$article, $id ) {
 		global $wgHooks, $wgParser;
 
 		$this->mTitle =& $title;

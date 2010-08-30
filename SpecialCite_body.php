@@ -10,7 +10,7 @@ $wgCiteDefaultText = file_get_contents( $file );
 
 class SpecialCite extends SpecialPage {
 	function __construct() {
-		parent::SpecialPage( 'Cite' );
+		parent::__construct( 'Cite' );
 	}
 
 	function execute( $par ) {

@@ -773,7 +773,7 @@ class Cite {
 			return $this->mLinkLabels[$group][$offset - 1];
 		} else {
 			// Feed me!
-			return $this->error( 'cite_error_no_link_label_group', $group, $message );
+			return $this->error( 'cite_error_no_link_label_group', array( $group, $message ) );
 		}
 	}
 

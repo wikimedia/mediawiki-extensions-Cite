@@ -1413,13 +1413,14 @@ $messages['rmy'] = array(
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'cite_article_desc' => 'Adaugă o pagină specială [[Special:Cite|citare]] și o legătură cutie unelte',
 	'cite_article_link' => 'Citează acest articol',
-	'tooltip-cite-article' => 'Informațiile cu privire la modul de a cita această pagină',
-	'cite' => 'Citează',
+	'tooltip-cite-article' => 'Informații cu privire la modul de citare a acestei pagini',
+	'cite' => 'Citare',
 	'cite_page' => 'Pagină:',
 	'cite_submit' => 'Deschide informații',
 );
@@ -1608,6 +1609,11 @@ $messages['sv'] = array(
 	'cite' => 'Citera',
 	'cite_page' => 'Sida:',
 	'cite_submit' => 'Citera',
+);
+
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'cite_page' => 'Ukurasa:',
 );
 
 /** Silesian (Ślůnski)

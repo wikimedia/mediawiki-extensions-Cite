@@ -964,7 +964,7 @@ $messages['ksh'] = array(
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'cite_article_link' => 'Devynna an erthygel-ma',
+	'cite_article_link' => 'Devydna an erthygel-ma',
 );
 
 /** Latin (Latina)

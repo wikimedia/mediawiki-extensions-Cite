@@ -198,9 +198,16 @@ $messages['bcl'] = array(
 	'cite_submit' => 'Sambiton',
 );
 
-/** Belarusian (Беларуская) */
+/** Belarusian (Беларуская)
+ * @author Хомелка
+ */
 $messages['be'] = array(
-	'cite_article_link' => 'Цытаваць гэты артыкул',
+	'cite_article_desc' => 'Дадае [[Special:Cite|цытату]] адмысловых старонак і спасылку панэлі інструментаў',
+	'cite_article_link' => 'Цытаваць гэту старонку',
+	'tooltip-cite-article' => 'Інфармацыя пра тое, як цытаваць гэтую старонку',
+	'cite' => 'Спаслацца',
+	'cite_page' => 'Старонка:',
+	'cite_submit' => 'Спаслацца',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))

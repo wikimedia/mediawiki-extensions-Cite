@@ -1283,10 +1283,17 @@ $messages['hr'] = array(
 Dopuštena je samo opcija "group".
 Koristite <code>&lt;references /&gt;</code>, ili <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Potrošene sve posebne oznake za poveznice unatrag, definirajte više u poruci <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Nedovoljan broj proizvoljnih naslova poveznica za grupu "$1".
+Definirajte više putem poruke <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Nije zadan tekst za izvor <code>$1</code>',
 	'cite_error_included_ref' => 'Nedostaje zatvarajući &lt;/ref&gt; za &lt;ref&gt; oznaku',
 	'cite_error_refs_without_references' => 'oznake <code>&lt;ref&gt;</code> postoje, ali oznaka <code>&lt;references/&gt;</code> nije pronađena',
 	'cite_error_group_refs_without_references' => 'oznake <code>&lt;ref&gt;</code> postoje za skupinu imenovanom "$1", ali nema pripadajuće oznake <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> oznaka u <code>&lt;references&gt;</code> ima konfliktni grupni atribut  "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> oznaka definirana u <code>&lt;references&gt;</code> ima grupni atribut "$1" koji se ne pojavljuje u ranijem tekstu.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> oznaka s imenom "$1" definirana u <code>&lt;references&gt;</code> nije prethodno rabljena u tekstu.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> oznaka definirana u <code>&lt;references&gt;</code> nema parametar "name" (ime).',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> oznaka definirana u <code>&lt;references&gt;</code> s imenom "$1" nema sadržaja.',
 );
 
 /** Upper Sorbian (Hornjoserbsce)

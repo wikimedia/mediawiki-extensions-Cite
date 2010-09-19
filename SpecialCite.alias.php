@@ -6,8 +6,6 @@
  * @ingroup Extensions
  */
 
-$specialPageAliases = array();
-
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'Cite' => array( 'Cite' ),

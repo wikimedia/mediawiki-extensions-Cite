@@ -1112,10 +1112,15 @@ les refèrences sen contegnu dêvont avêr un nom.',
 	'cite_error_ref_no_input' => 'Balisa <code>&lt;ref&gt;</code> fôssa ;
 les refèrences sen nom dêvont avêr un contegnu.',
 	'cite_error_references_invalid_parameters' => 'Arguments envalidos ; argument atendu.',
+	'cite_error_references_invalid_parameters_group' => 'Balisa <code>&lt;references&gt;</code> fôssa ;
+solament lo paramètre « tropa » est ôtorisâ.
+Utilisâd <code>&lt;references /&gt;</code>, ou ben <code>&lt;references group="..." /&gt;</code>.',
 	'cite_error_references_no_backlink_label' => 'Èpouesement de les ètiquètes de lims pèrsonalisâs.
 Dèfenésséd-nen un ples grant nombro dens lo mèssâjo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => 'Balisa <code>&lt;ref&gt;</code> fôssa ;
 nion tèxto at étâ balyê por les refèrences apelâs <code>$1</code>.',
+	'cite_error_included_ref' => 'Cllotura &lt;/ref&gt; manquenta por la balisa &lt;ref&gt;.',
+	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> ègzistont, mas niona balisa <code>&lt;references/&gt;</code> at étâ trovâ.',
 );
 
 /** Friulian (Furlan)

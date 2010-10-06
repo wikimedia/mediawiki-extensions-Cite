@@ -919,11 +919,13 @@ $messages['km'] = array(
 );
 
 /** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
  * @author Shushruth
  */
 $messages['kn'] = array(
 	'cite_article_link' => 'ಈ ಪುಟವನ್ನು ಉಲ್ಲೇಖಿಸಿ',
 	'cite' => 'ಉಲ್ಲೇಖಿಸಿ',
+	'cite_page' => 'ಪುಟ:',
 );
 
 /** Korean (한국어)

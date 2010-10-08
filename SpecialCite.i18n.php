@@ -1478,6 +1478,7 @@ $messages['rue'] = array(
 $messages['sah'] = array(
 	'cite_article_desc' => 'Аналлаах [[Special:Cite|быһа тардыы]] сирэйин уонна үнүстүрүмүөннэргэ ыйынньык эбэн биэрэр',
 	'cite_article_link' => 'Сирэйи цитируйдааһын',
+	'tooltip-cite-article' => 'Бу сирэйи хайдах цитируйдуур туһунан',
 	'cite' => 'Цитата',
 	'cite_page' => 'Сирэй:',
 	'cite_submit' => 'Цитаата',

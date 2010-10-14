@@ -875,6 +875,8 @@ parametro "group" nur estas permesita.
 Uzu etikedon <code>&lt;references /&gt;</code>, aŭ <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Neniom plu memfaritaj retroligaj etikedoj.
 Difinu pliajn en la mesaĝo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_no_link_label_group' => 'Mankas proprajn ligilajn etikedojn por grupo "$1".
+Difinu pliajn en la <nowiki>[[MediaWiki:$2]]</nowiki> mesaĝo.',
 	'cite_error_references_no_text' => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
 neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 	'cite_error_included_ref' => 'Ferma &lt;/ref&gt; mankas por &lt;ref&gt; etikedon',

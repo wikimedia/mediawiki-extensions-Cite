@@ -1887,6 +1887,13 @@ $messages['yi'] = array(
 	'cite_submit' => 'ציטירן',
 );
 
+/** Yoruba (Yorùbá)
+ * @author Demmy
+ */
+$messages['yo'] = array(
+	'cite_page' => 'Ojúewé:',
+);
+
 /** Cantonese (粵語) */
 $messages['yue'] = array(
 	'cite_article_desc' => '加一個[[Special:Cite|引用]]特別頁同埋一個工具箱連結',

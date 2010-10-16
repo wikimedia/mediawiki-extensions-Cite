@@ -166,7 +166,18 @@ The <code>$1</code> parameter contains the name of the unused reference (in the 
 $messages['af'] = array(
 	'cite-desc' => 'Maak <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> etikette beskikbaar vir sitasie.',
 	'cite_croak' => 'Probleem met Cite; $1: $2',
+	'cite_error_key_str_invalid' => 'Interne fout;
+ongeldige $str en/of $key.
+Dit behoort nie te gebeur nie.',
+	'cite_error_stack_invalid_input' => 'Interne fout;
+ongeldige "stack key".
+Dit behoort nie te gebeur nie.',
 	'cite_error' => 'Citefout: $1',
+	'cite_error_ref_numeric_key' => "Ongeldige etiket <code>&lt;ref&gt;</code>;
+die naam kan nie 'n eenvoudige heelgetal wees nie.
+Gebruik 'n beskrywende titel",
+	'cite_error_ref_no_key' => 'Ongeldige etiket <code>&lt;ref&gt;</code>;
+"refs" sonder inhoud moet \'n naam hê',
 	'cite_error_ref_too_many_keys' => 'Ongeldig <code>&lt;ref&gt;</code>-etiket;
 ongeldige name, byvoorbeeld te veel',
 );
@@ -1016,6 +1027,7 @@ $messages['fa'] = array(
  * @author Agony
  * @author Crt
  * @author Nike
+ * @author Olli
  * @author Silvonen
  * @author Str4nd
  * @author Tarmo
@@ -1034,6 +1046,8 @@ $messages['fi'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Kelpaamaton <code>&lt;references&gt;</code>-elementti: vain parametri ”group” on sallittu. Käytä muotoa <code>&lt;references /&gt;</code> tai <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Määritetyt takaisinviittausnimikkeet loppuivat kesken.
 Niitä voi määritellä lisää sivulla <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_no_link_label_group' => 'Mukautettujen linkkien määrä loppui ryhmässä "$1".
+Määritä lisää viestissä <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Virheellinen <code>&lt;ref&gt;</code>-elementti;
 viitettä <code>$1</code> ei löytynyt',
 	'cite_error_included_ref' => '&lt;ref&gt;-elementin sulkeva &lt;/ref&gt;-elementti puuttuu',

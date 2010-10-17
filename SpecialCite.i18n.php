@@ -1468,8 +1468,10 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'cite_article_link' => 'Цітовати сторінку',
 	'cite' => 'Цітованя',
 	'cite_page' => 'Сторінка:',
+	'cite_submit' => 'Цітовати',
 );
 
 /** Yakut (Саха тыла)

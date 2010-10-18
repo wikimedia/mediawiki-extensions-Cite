@@ -157,6 +157,16 @@ $messages['av'] = array(
 	'cite_article_link' => 'Гьумер рехсезе',
 );
 
+/** Bashkir (Башҡорт)
+ * @author Haqmar
+ */
+$messages['ba'] = array(
+	'cite_article_link' => 'Биттән өҙөмтә яһарға',
+	'cite' => 'Өҙөмтәләү',
+	'cite_page' => 'Бит:',
+	'cite_submit' => 'Өҙөмтәләргә',
+);
+
 /** Bavarian (Boarisch)
  * @author Man77
  */
@@ -1468,7 +1478,9 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'cite_article_desc' => 'Придасть шпеціалну сторінку [[Special:Cite|Цітації]] і одказ в понуцї інштрументів',
 	'cite_article_link' => 'Цітовати сторінку',
+	'tooltip-cite-article' => 'Інформації о тім, як цітовати тоту сторінку',
 	'cite' => 'Цітованя',
 	'cite_page' => 'Сторінка:',
 	'cite_submit' => 'Цітовати',

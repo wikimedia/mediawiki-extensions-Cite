@@ -2681,6 +2681,8 @@ Toto by sa nemalo nikdy stať.',
 je povolený iba parameter „group“.
 Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Minuli sa generované návestia spätných odkazov, definujte viac v správe <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Vyčerpané prispôsobené označenia odkazov pre skupinu „$1“.
+Definujte ďalšie v správe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Neplatná značka <code>&lt;ref&gt;</code>; nebol zadaný text pre referencie s názvom <code>$1</code>',
 	'cite_error_included_ref' => 'Chýba zakončenie značky &lt;ref&gt; (&lt;/ref&gt;)',
 	'cite_error_refs_without_references' => 'Značky <code>&lt;ref&gt;</code> sú prítomné, ale nebola nájdená žiadna značka <code>&lt;references/&gt;</code>',
@@ -2701,9 +2703,18 @@ $messages['sl'] = array(
 	'cite_error_key_str_invalid' => 'Notranja napaka;
 neveljaven $str in/ali $key.
 To se ne bi nikoli smelo zgoditi.',
+	'cite_error_stack_invalid_input' => 'Notranja napaka;
+neveljavni skladovni ključ.
+To se ne bi nikoli smelo zgoditi.',
 	'cite_error' => 'Napaka pri navajanju: $1',
+	'cite_error_ref_numeric_key' => 'Neveljavna oznaka <code>&lt;ref&gt;</code>;
+ime ne more biti samo število. Uporabite opisni naslov',
+	'cite_error_ref_no_key' => 'Neveljavna oznaka <code>&lt;ref&gt;</code>;
+sklici brez vsebine morajo imeti ime',
 	'cite_error_ref_too_many_keys' => 'Neveljavna etiketa <code>&lt;ref&gt;</code>;
 neveljavna imena, npr. preveč',
+	'cite_error_ref_no_input' => 'Neveljavna oznaka <code>&lt;ref&gt;</code>;
+sklici brez imena morajo imeti vsebino',
 	'cite_error_references_invalid_parameters' => 'Neveljavna etiketa <code>&lt;references&gt;</code>;
 parametri niso dovoljeni.
 Uporabite <code>&lt;references /&gt;</code>',

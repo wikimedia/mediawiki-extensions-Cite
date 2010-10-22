@@ -2721,11 +2721,18 @@ Uporabite <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Neveljavna etiketa <code>&lt;references&gt;</code>;
 dovoljen je samo parameter »group«.
 Uporabite <code>&lt;references /&gt;</code> ali <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Zmanjkalo je oznak za povratne povezave.
+Določite jih več v sporočilu <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_no_link_label_group' => 'Zmanjkalo je oznak povezav po meri za skupino »$1«.
 Določite jih več v sporočilu <nowiki>[[MediaWiki:$2]]</nowiki>.',
+	'cite_error_references_no_text' => 'Neveljavna oznaka <code>&lt;ref&gt;</code>;
+sklici imenovani <code>$1</code> nimajo določenega besedila',
 	'cite_error_included_ref' => 'Zaključek &lt;/ref&gt; manjka za etiketo &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Etiketa <code>&lt;ref&gt;</code> obstaja, vendar etiketa <code>&lt;references/&gt;</code> ni bila najdena',
 	'cite_error_group_refs_without_references' => 'Etiketa <code>&lt;ref&gt;</code> obstaja za skupino imenovano »$1«, vendar ustrezna etiketa <code>&lt;references group="$1"/&gt;</code> ni bila najdena',
+	'cite_error_references_group_mismatch' => 'Oznaka <code>&lt;ref&gt;</code> v <code>&lt;references&gt;</code> ima atribut nasprotujoče si skupine »$1«.',
+	'cite_error_references_missing_group' => 'Oznaka <code>&lt;ref&gt;</code>, opredeljena v <code>&lt;references&gt;</code>, ima atribut skupine »$1«, ki se ne pojavi v predhodnem besedilu.',
+	'cite_error_references_missing_key' => 'Oznaka <code>&lt;ref&gt;</code> z imenom »$1«, opredeljena v <code>&lt;references&gt;</code>, ni uporabljena v predhodnem besedilu.',
 	'cite_error_references_no_key' => 'Etiketa <code>&lt;ref&gt;</code>, določena v <code>&lt;references&gt;</code>, nima lastnosti »name«.',
 	'cite_error_empty_references_define' => 'Etiketa <code>&lt;ref&gt;</code>, določena v <code>&lt;references&gt;</code> z imenom »$1«, nima vsebine.',
 	'cite_references_link_one' => "<li id=\"\$1\">'''[[#\$2|^]]''' \$3</li>",

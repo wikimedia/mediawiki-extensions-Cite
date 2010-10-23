@@ -182,7 +182,7 @@ $messages['bar'] = array(
 /** Samogitian (Žemaitėška)
  * @author Hugo.arg
  */
-$messages['bat-smg'] = array(
+$messages['sgs'] = array(
 	'cite' => 'Citoutė',
 	'cite_page' => 'Poslapis:',
 );

@@ -319,6 +319,49 @@ Defini más nel mensaxe <nowiki>[[MediaWiki:Cite references link many format bac
 	'cite_error_included_ref' => 'Falta &lt;/ref&gt; pa la etiqueta &lt;ref&gt;',
 );
 
+/** Bashkir (Башҡорт)
+ * @author Assele
+ */
+$messages['ba'] = array(
+	'cite-desc' => 'Төшөрмәләр өсөн <nowiki><ref[ name=id]></nowiki> һәм <nowiki><references/></nowiki> билдәләрен өҫтәй',
+	'cite_croak' => 'Өҙөмтә юғалған; $1: $2',
+	'cite_error_key_str_invalid' => 'Эске хата;
+$str һәм/йәки $key дөрөҫ түгел.
+Был бер ҡасан да булырға тейеш түгел.',
+	'cite_error_stack_invalid_input' => 'Эске хата;
+Стек асҡысы дөрөҫ түгел.
+Был бер ҡасан да булырға тейеш түгел.',
+	'cite_error' => 'Өҙөмтә хатаһы: $1',
+	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;
+исем бөтөн һан була алмай. Тасуирларлыҡ исем ҡулланығыҙ.',
+	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;
+эстәлекһеҙ төшөрмәнең исеме булырға тейеш.',
+	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;
+исемдәр дөрөҫ түгел, бәлки, бигерәк күп',
+	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;
+исемһеҙ төшөрмәнең эстәлеге булырға тейеш.',
+	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> билдәһе дөрөҫ түгел;
+параметрҙар рөхсәт ителмәй.
+<code>&lt;references /&gt;</code> ҡулланығыҙ.',
+	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> билдәһе дөрөҫ түгел;
+"group" параметры ғына рөхсәт ителә.
+<code>&lt;references /&gt;</code> йәки <code>&lt;references group="..." /&gt;</code> ҡулланығыҙ.',
+	'cite_error_references_no_backlink_label' => 'Кире ҡайтарыу һылтанмалары өсөн хәрефтәр етмәй.
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> система хәбәрен киңәйтергә кәрәк.',
+	'cite_error_no_link_label_group' => '"$1" төркөмө өсөн ҡулланыусы һылтанмалары етмәй.
+[[MediaWiki:$2]] система хәбәрендә күберәк билдәләгеҙ.',
+	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;
+<code>$1</code> төшөрмәләре өсөн текст юҡ',
+	'cite_error_included_ref' => '&lt;ref&gt; билдәһе өсөн &lt;/ref&gt; ябыу билдәһе юҡ',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> билдәһе бар, code>&lt;references/&gt;</code> әммә билдәһе юҡ',
+	'cite_error_group_refs_without_references' => '"$1" төркөмө өсөн <code>&lt;ref&gt;</code> билдәһе бар, әммә <code>&lt;references group="$1"/&gt;</code> билдәһе юҡ',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> билдәһенең <code>&lt;ref&gt;</code> билдәһендә "$1" төркөмө атрибуты ҡаршылыҡтар тыуҙыра.',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> билдәһенең <code>&lt;ref&gt;</code> билдәһендә "$1" төркөмө атрибуты үрҙәге текста осрамай.',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> билдәһенең "$1" исемле <code>&lt;ref&gt;</code> билдәһе үрҙәге текста ҡулланылмай.',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> билдәһенең <code>&lt;ref&gt;</code> билдәһендә исем атрибуты юҡ.',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> билдәһенең "$1" исемле <code>&lt;ref&gt;</code> билдәһенең эстәлеге юҡ.',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */

@@ -158,10 +158,13 @@ $messages['av'] = array(
 );
 
 /** Bashkir (Башҡорт)
+ * @author Assele
  * @author Haqmar
  */
 $messages['ba'] = array(
+	'cite_article_desc' => '[[Special:Cite|Өҙөмтә яһау]] махсус битен һәм ҡоралдарҙа һылтанма өҫтәй',
 	'cite_article_link' => 'Биттән өҙөмтә яһарға',
+	'tooltip-cite-article' => 'Был битте нисек өҙөмтәләргә кәрәклеге тураһында мәғлүмәт',
 	'cite' => 'Өҙөмтәләү',
 	'cite_page' => 'Бит:',
 	'cite_submit' => 'Өҙөмтәләргә',
@@ -177,14 +180,6 @@ $messages['bar'] = array(
 	'cite' => 'Zitiahüif',
 	'cite_page' => 'Seitn:',
 	'cite_submit' => 'ãnzoang',
-);
-
-/** Samogitian (Žemaitėška)
- * @author Hugo.arg
- */
-$messages['sgs'] = array(
-	'cite' => 'Citoutė',
-	'cite_page' => 'Poslapis:',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -1136,6 +1131,13 @@ $messages['mr'] = array(
 	'cite_submit' => 'उधृत करा',
 );
 
+/** Hill Mari (Кырык мары)
+ * @author Amdf
+ */
+$messages['mrj'] = array(
+	'cite_article_link' => 'Ӹлӹшташӹм цитируяш',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Aurora
  * @author Aviator
@@ -1512,6 +1514,14 @@ $messages['scn'] = array(
 /** Sindhi (سنڌي) */
 $messages['sd'] = array(
 	'cite' => 'حواليو',
+);
+
+/** Samogitian (Žemaitėška)
+ * @author Hugo.arg
+ */
+$messages['sgs'] = array(
+	'cite' => 'Citoutė',
+	'cite_page' => 'Poslapis:',
 );
 
 /** Sinhala (සිංහල)

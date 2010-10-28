@@ -172,14 +172,15 @@ $messages['ba'] = array(
 
 /** Bavarian (Boarisch)
  * @author Man77
+ * @author Mucalexx
  */
 $messages['bar'] = array(
-	'cite_article_desc' => "Eagänzt d'[[Special:Cite|Zitiahüif]]-Spezialseitn und an Link im Weakzeig-Kåstn",
-	'cite_article_link' => "d'Seitn zitian",
-	'tooltip-cite-article' => 'Hinweis, wia de Seitn itiad wean kinad',
-	'cite' => 'Zitiahüif',
-	'cite_page' => 'Seitn:',
-	'cite_submit' => 'ãnzoang',
+	'cite_article_desc' => "Ergenzt d'[[Special:Cite|Zitirhuyf]]-Speziaalseiten und an Link im Werkzeig-Kosten",
+	'cite_article_link' => "d'Seiten zitirn",
+	'tooltip-cite-article' => "Hijweis, wia d'Seiten zitird wern kå",
+	'cite' => 'Zitirhuyf',
+	'cite_page' => 'Seiten:',
+	'cite_submit' => 'åzoang',
 );
 
 /** Southern Balochi (بلوچی مکرانی)

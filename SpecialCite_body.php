@@ -15,7 +15,6 @@ class SpecialCite extends SpecialPage {
 
 	function execute( $par ) {
 		global $wgRequest, $wgUseTidy;
-		wfLoadExtensionMessages( 'SpecialCite' );
 
 		// Having tidy on causes whitespace and <pre> tags to
 		// be generated around the output of the CiteOutput

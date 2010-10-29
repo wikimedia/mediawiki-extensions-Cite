@@ -34,7 +34,6 @@ $wgSpecialPages['Cite'] = 'SpecialCite';
 $wgAutoloadClasses['SpecialCite'] = $dir . 'SpecialCite_body.php';
 
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
-	wfLoadExtensionMessages( 'SpecialCite' );
 	// check whether we’re in the right namespace, the $revid has the correct type and is not empty 
 	// (what would mean that the current page doesn’t exist)
 	if ( $skintemplate->mTitle->isContentPage() && $revid !== 0 && !empty( $revid ) )
@@ -52,7 +51,6 @@ function wfSpecialCiteToolbox( &$skin ) {
 global $wgUser;
 
 	if ( isset( $skin->data['nav_urls']['cite'] ) ) {
-		wfLoadExtensionMessages( 'SpecialCite' );
 		echo Html::rawElement(
 			'li',
 			array( 'id' => 't-cite' ),

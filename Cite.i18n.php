@@ -536,6 +536,7 @@ ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
 
 /** Bosnian (Bosanski)
  * @author CERminator
+ * @author Reedy
  */
 $messages['bs'] = array(
 	'cite-desc' => 'Dodaje oznake <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> za citiranje',
@@ -558,7 +559,7 @@ reference bez naziva moraju imati sadržaj',
 	'cite_error_references_invalid_parameters' => 'Nevaljana oznaka <code>&lt;references&gt;</code>;
 nisu dozvoljeni parametri.
 Koristite <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Nevaljana oznaka <code>&lt;references&gt;</code;
+	'cite_error_references_invalid_parameters_group' => 'Nevaljana oznaka <code>&lt;references&gt;</code>
 dozvoljen je samo parametar "group".
 Koristite <code>&lt;references /&gt;</code> ili <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Ponestalo je prilagođenih naslova backlinkova.

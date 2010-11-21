@@ -1992,8 +1992,8 @@ $messages['mk'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Погрешна <code>&lt;references&gt;</code> ознака;
 само параметарот "group" е допуштен.
 Употребувајте <code>&lt;references /&gt;</code>, или <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Недостаток на беклинк ознаки.
-Дефинирај повеќе во пораката <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_backlink_label' => 'Нема доволно натписи за повратни врски.
+Определете уште натписи во <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_no_link_label_group' => 'Се потрошија називите на прилагодените врски за групата „$1“.
 Определете уште во пораката <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
@@ -2002,10 +2002,10 @@ $messages['mk'] = array(
 	'cite_error_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> ознаки, но нема <code>&lt;references/&gt;</code> ознака',
 	'cite_error_group_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> ознаки за група именувана како "$1", но нема соодветна <code>&lt;references group="$1"/&gt;</code> ознака',
 	'cite_error_references_group_mismatch' => 'Ознакат <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротиставен групен атрибут „$1“.',
-	'cite_error_references_missing_group' => 'Ознаката <code>&lt;ref&gt;</code> дефинирана во <code>&lt;references&gt;</code> има групен атрибут „$1“ кој не се јавува во претходен текст.',
-	'cite_error_references_missing_key' => 'Ознаката <code>&lt;ref&gt;</code> со име „$1“ дефинирана во <code>&lt;references&gt;</code> не се користи во претходен текст.',
-	'cite_error_references_no_key' => 'ознака <code>&lt;ref&gt;</code> дефинирана во <code>&lt;referencesgt;</code> нема именски атрибут.',
-	'cite_error_empty_references_define' => 'Ознаката <code>&lt;ref&gt;</code> дефинирана во <code>&lt;references&gt;</code> со име „$1“ нема содржина.',
+	'cite_error_references_missing_group' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;references&gt;</code> има групен атрибут „$1“ кој не се јавува во претходен текст.',
+	'cite_error_references_missing_key' => 'Ознаката <code>&lt;ref&gt;</code> со име „$1“ определена во <code>&lt;references&gt;</code> не се користи во претходен текст.',
+	'cite_error_references_no_key' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;referencesgt;</code> нема именски атрибут.',
+	'cite_error_empty_references_define' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;references&gt;</code> со име „$1“ нема содржина.',
 );
 
 /** Malayalam (മലയാളം)

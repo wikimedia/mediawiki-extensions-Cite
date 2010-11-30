@@ -1922,10 +1922,12 @@ Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Garas
  * @author Homo
  * @author Matasg
  */
 $messages['lt'] = array(
+	'cite-desc' => 'Prideda <nowiki><ref[ name=id]></nowiki> ir <nowiki><references/></nowiki> žymes citavimui',
 	'cite_croak' => 'Cituoti nepavyko; $1: $2',
 	'cite_error_key_str_invalid' => 'Vidinė klaida; neleistinas $str',
 	'cite_error_stack_invalid_input' => 'Vidinė klaida; neleistinas steko raktas',
@@ -1937,6 +1939,7 @@ $messages['lt'] = array(
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Baigėsi antraštės.
 Nurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> sisteminiame tekste',
+	'cite_error_included_ref' => 'Trūksta uždaromojo &lt;/ref&gt; žymei &lt;ref&gt;',
 );
 
 /** Latvian (Latviešu)

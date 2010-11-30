@@ -1057,7 +1057,9 @@ $messages['lo'] = array(
  * @author Garas
  */
 $messages['lt'] = array(
+	'cite_article_desc' => 'Prideda [[Special:Cite|citavimo]] specialųjį puslapį ir įrankių juostos nuorodą',
 	'cite_article_link' => 'Cituoti šį puslapį',
+	'tooltip-cite-article' => 'Informacija kaip cituoti šį puslapį',
 	'cite' => 'Cituoti',
 	'cite_page' => 'Puslapis:',
 	'cite_submit' => 'Cituoti',

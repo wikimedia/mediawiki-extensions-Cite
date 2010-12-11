@@ -312,6 +312,13 @@ $messages['ceb'] = array(
 	'cite' => 'Kutloa',
 );
 
+/** Sorani (کوردی)
+ * @author Asoxor
+ */
+$messages['ckb'] = array(
+	'cite_page' => 'پەڕە:',
+);
+
 /** Corsican (Corsu) */
 $messages['co'] = array(
 	'cite_article_link' => 'Cità issu articulu',

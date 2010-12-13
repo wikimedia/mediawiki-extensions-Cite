@@ -3282,6 +3282,7 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
  * @author Liangent
+ * @author PhiLiP
  * @author Philip
  */
 $messages['zh-hans'] = array(
@@ -3296,12 +3297,17 @@ $messages['zh-hans'] = array(
 	'cite_error_ref_no_input' => '无效<code>&lt;ref&gt;</code>标签；未填name属性的引用必须填写内容',
 	'cite_error_references_invalid_parameters' => '无效<code>&lt;references&gt;</code>标签；不允许填写参数，请使用<code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => '无效<code>&lt;references&gt;</code>标签；只允许填写“group”参数，请使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => '自定义回链标签耗尽。请在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定义更多的标签',
+	'cite_error_references_no_backlink_label' => '自定义回链标签耗尽，请在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定义更多的标签。',
+	'cite_error_no_link_label_group' => '组“$1”的自定义链接标签耗尽，请在<nowiki>[[MediaWiki:$2]]</nowiki>中定义更多的标签。',
 	'cite_error_references_no_text' => '无效<code>&lt;ref&gt;</code>标签；未为name属性为<code>$1</code>的引用提供文字',
 	'cite_error_included_ref' => '没有找到与&lt;/ref&gt;对应的&lt;ref&gt;标签',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>标签存在，但没有找到<code>&lt;references/&gt;</code>标签',
 	'cite_error_group_refs_without_references' => '组名为“$1”的<code>&lt;ref&gt;</code>标签存在，但没有找到相应的<code>&lt;references group="$1"/&gt;</code>标签',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>的<code>&lt;ref&gt;</code>标记带有冲突的组（group）属性“$1”。',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>标记带有未在前文中出现的组（group）属性“$1”。',
 	'cite_error_references_missing_key' => '在<code>&lt;references&gt;</code>中以“$1”名字定义的<code>&lt;ref&gt;</code>标签没有在先前的文字中使用。',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>没有给出名称（name）属性。',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>的名称（name）“$1”为空。',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

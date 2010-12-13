@@ -112,7 +112,7 @@ Templating<ref>Text<!--comment--></ref>
 </p>
 <ul class="gallery">
 		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
-			<div class="thumb" style="padding: 66px 0; width: 150px;"><div style="margin-left: auto; margin-right: auto; width: 120px;"><a href="/wiki/File:Foobar.jpg" class="image"><img alt="Foobar.jpg" src="http://example.com/images/3/3a/Foobar.jpg" width="120" height="14" /></a></div></div>
+			<div class="thumb" style="width: 150px; height: 150px;"><div style="margin:68px auto;"><a href="/wiki/File:Foobar.jpg" class="image"><img alt="Foobar.jpg" src="http://example.com/images/3/3a/Foobar.jpg" width="120" height="14" /></a></div></div>
 			<div class="gallerytext">
 			</div>
 		</div></li>

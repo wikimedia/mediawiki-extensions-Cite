@@ -2678,6 +2678,7 @@ Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." 
 );
 
 /** Sinhala (සිංහල)
+ * @author Thameera123
  * @author නන්දිමිතුරු
  */
 $messages['si'] = array(
@@ -2706,9 +2707,13 @@ $messages['si'] = array(
 <code>&lt;references /&gt;</code>, හෝ <code>&lt;references group="..." /&gt;</code> භාවිත කරන්න',
 	'cite_error_references_no_backlink_label' => 'උපයෝග්‍ය පසුසබැඳුම් ලේබල අවසාන විය.
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> පණිවුඩයෙහි තවත් ඒවා අර්ථදක්වන්න',
+	'cite_error_no_link_label_group' => '"$1" කණ්ඩායම සඳහා අභිමත සබැඳි ලේබල අවසන් විය. 
+<nowiki>[[MediaWiki:$2]]</nowiki> පණිවුඩයේ තවත් වැඩිපුර සඳහන් කරන්න.',
 	'cite_error_references_no_text' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
 <code>$1</code> නමැති ආශ්‍රේයන් සඳහා කිසිදු පෙළක් සපයා නොතිබුණි',
 	'cite_error_included_ref' => '&lt;ref&gt; ටැගය සොයාගත නොහැකි බැවින් &lt;/ref&gt; වසා දමමින්',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ටැග පැවතුණත්, <code>&lt;references/&gt;</code> ටැග සොයාගත නොහැකි විය.',
+	'cite_error_group_refs_without_references' => '"$1" නම් කණ්ඩායම සඳහා <code>&lt;ref&gt;</code> ටැග පැවතුණත්, ඊට අදාළ <code>&lt;references group="$1"/&gt;</code> ටැග සොයාගත නොහැකි විය.',
 	'cite_reference_link_prefix' => 'උපන්‍යාස_යොමුව-',
 	'cite_references_link_prefix' => 'උපන්‍යාස_සටහන-',
 );

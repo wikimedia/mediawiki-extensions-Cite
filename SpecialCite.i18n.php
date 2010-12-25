@@ -253,6 +253,14 @@ $messages['bn'] = array(
 	'cite_submit' => 'উদ্ধৃত করো',
 );
 
+/** Tibetan (བོད་ཡིག)
+ * @author Freeyak
+ */
+$messages['bo'] = array(
+	'cite' => '',
+	'cite_page' => 'ཤོག་ངོས།',
+);
+
 /** Bishnupria Manipuri (ইমার ঠার/বিষ্ণুপ্রিয়া মণিপুরী) */
 $messages['bpy'] = array(
 	'cite_article_link' => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',

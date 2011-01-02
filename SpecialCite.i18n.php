@@ -372,10 +372,12 @@ $messages['cy'] = array(
 /** Danish (Dansk)
  * @author Byrial
  * @author Morten LJ
+ * @author Peter Alberti
  */
 $messages['da'] = array(
 	'cite_article_desc' => 'Tilføjer en [[Special:Cite|specialside til citering]] og en henvisning i værktøjsmenuen',
 	'cite_article_link' => 'Citér denne artikel',
+	'tooltip-cite-article' => 'Information om, hvordan man kan citere denne side',
 	'cite' => 'Citér',
 	'cite_page' => 'Side:',
 	'cite_submit' => 'Citér',

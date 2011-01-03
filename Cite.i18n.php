@@ -2678,6 +2678,7 @@ Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." 
 );
 
 /** Sinhala (සිංහල)
+ * @author Budhajeewa
  * @author Thameera123
  * @author නන්දිමිතුරු
  */
@@ -2714,6 +2715,11 @@ $messages['si'] = array(
 	'cite_error_included_ref' => '&lt;ref&gt; ටැගය සොයාගත නොහැකි බැවින් &lt;/ref&gt; වසා දමමින්',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ටැග පැවතුණත්, <code>&lt;references/&gt;</code> ටැග සොයාගත නොහැකි විය.',
 	'cite_error_group_refs_without_references' => '"$1" නම් කණ්ඩායම සඳහා <code>&lt;ref&gt;</code> ටැග පැවතුණත්, ඊට අදාළ <code>&lt;references group="$1"/&gt;</code> ටැග සොයාගත නොහැකි විය.',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> හි <code>&lt;ref&gt;</code> නම් ටැගය "$1" යන පරස්පර සමූහ ගුණාංග දරයි.',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> හි <code>&lt;ref&gt;</code> ටැගය පෙර පෙළෙහි නොතිබූ "$1" නම් සමූහ ගුණාංගයක් දරයි.',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> හි "$1" නමැති <code>&lt;ref&gt;</code> ටැගය පෙර පෙළෙහි භාවිතා වූයේ නැත.',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> හි <code>&lt;ref&gt;</code> ටැගයට නමක් ආදේශකොට නැත.',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> හි "$1" නමැති <code>&lt;ref&gt;</code> ටැගයට අන්තර්ගතයක් නැත.',
 	'cite_reference_link_prefix' => 'උපන්‍යාස_යොමුව-',
 	'cite_references_link_prefix' => 'උපන්‍යාස_සටහන-',
 );

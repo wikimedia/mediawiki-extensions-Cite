@@ -1546,11 +1546,13 @@ $messages['sgs'] = array(
 );
 
 /** Sinhala (සිංහල)
+ * @author Budhajeewa
  * @author නන්දිමිතුරු
  */
 $messages['si'] = array(
 	'cite_article_desc' => '[[Special:Cite|උපහරණ]] විශේෂ පිටුවක් හා මෙවලම්ගොන්න සබැඳියක් එක්කරයි',
 	'cite_article_link' => 'මෙම පිටුව උපන්‍යාස කරන්න',
+	'tooltip-cite-article' => 'මෙම පිටුව උපුටා දක්වන්නේ කෙසේද යන්න පිළිබඳ තොරතුරු.',
 	'cite' => 'උපන්‍යාසය',
 	'cite_page' => 'පිටුව:',
 	'cite_submit' => 'උපන්‍යාසය',

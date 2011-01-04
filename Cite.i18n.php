@@ -1402,30 +1402,37 @@ Definuj dalše w zdźělence <nowiki>[[MediaWiki:$2]]</nowiki>.',
 );
 
 /** Haitian (Kreyòl ayisyen)
+ * @author Boukman
  * @author Masterches
  */
 $messages['ht'] = array(
 	'cite-desc' => 'Ajoute baliz sa yo <nowiki><ref[ name=id]></nowiki> epi <nowiki><referans/></nowiki>, pou sitasyon yo.',
 	'cite_croak' => 'Sitasyon sa pa bon ; $1 : $2',
-	'cite_error_key_str_invalid' => 'Erè nan sistèm an : $str te dwèt parèt.
-Erè sa pat janm dwèt rive.',
+	'cite_error_key_str_invalid' => 'Erè nan sistèm an;
+$str epi/oubyen $key pa valab.
+Erè sa pa ta janm dwe rive.',
 	'cite_error_stack_invalid_input' => 'Erè nan sistèm an ; 
-kle pil an pa bon ditou.
-Sa pa te dwe janm rive',
+kle pil an pa valab.
+Sa pa ta janm dwe rive.',
 	'cite_error' => 'Erè nan sitasyon : $1',
-	'cite_error_ref_numeric_key' => 'Apèl ou fè an pa bon ; se kle ki pa entegral, ki pat long nou tap tann',
-	'cite_error_ref_no_key' => 'Apèl sa pa bon : nou pa bay pyès kle',
-	'cite_error_ref_too_many_keys' => 'Apèl ou fè an pa bon ; kle yo pa bon, pa egzanp, nou bay twòp kle oubyen kle yo pa bon oubyen nou pa byen rantre yo nan sistèm an.',
-	'cite_error_ref_no_input' => 'Apèl ou fè an pa bon ; ou pa presize pyès antre',
-	'cite_error_references_invalid_parameters' => 'Agiman, paramèt sa yo pa bon ; agiman nou tap tann',
-	'cite_error_references_invalid_parameters_group' => 'Kòd sa pa bon <code>&lt;referans&gt;</code> ;
-
-sèl paramèt ki otorize se « group » (gwoup).
-
-Itilize <code>&lt;references /&gt;</code>, oubyen <code>&lt;references group="..." /&gt;</code> pito.',
-	'cite_error_references_no_backlink_label' => 'Pa genyen etikèt, labèl pèsonalize ankò, presize yon nonm, yon kantite ki ta pli gran pase sa ou te bay pli bonè nan mesaj ou an <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
-	'cite_error_references_no_text' => 'Baliz <code>&lt;ref&gt;</code> sa pa bon;
-Nou pa bay pyès tèks pou referans nou nonmen yo <code>$1</code>',
+	'cite_error_ref_numeric_key' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
+non pa kapab yon nonm antye.  Itilize yon tit ki dekri bagay la.',
+	'cite_error_ref_no_key' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
+referans ki pa genyen anyen ladan l dwe gen yon non',
+	'cite_error_ref_too_many_keys' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
+non yo pa bon (pa ekzanp, genyen trop)',
+	'cite_error_ref_no_input' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
+referans ki pa gen non dwe gen kontni nan yo',
+	'cite_error_references_invalid_parameters' => 'Etikèt <code>&lt;references&gt;</code> pa valab;
+pa gendwa mete paramèt.
+Itilize <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Etikèt <code>&lt;referans&gt;</code> pa valab;
+se paramèt "group" sèlman ki otorize.
+Itilize <code>&lt;references /&gt;</code>, oubyen <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Pa genyen etikèt pèsonalize ankò.
+Presize yon kantite ki pli gran nan mesaj <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_references_no_text' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
+Nou pa bay pyès tèks pou referans ki rele <code>$1</code>',
 );
 
 /** Hungarian (Magyar)

@@ -1416,7 +1416,7 @@ kle pil an pa valab.
 Sa pa ta janm dwe rive.',
 	'cite_error' => 'Erè nan sitasyon : $1',
 	'cite_error_ref_numeric_key' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
-non pa kapab yon nonm antye.  Itilize yon tit ki dekri bagay la.',
+non pa kapab yon nimewo.  Itilize yon tit ki dekri bagay la.',
 	'cite_error_ref_no_key' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
 referans ki pa genyen anyen ladan l dwe gen yon non',
 	'cite_error_ref_too_many_keys' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
@@ -1430,7 +1430,7 @@ Itilize <code>&lt;references /&gt;</code>',
 se paramèt "group" sèlman ki otorize.
 Itilize <code>&lt;references /&gt;</code>, oubyen <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Pa genyen etikèt pèsonalize ankò.
-Presize yon kantite ki pli gran nan mesaj <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+Presize yon kantite ki pi gwo nan mesaj <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Etikèt <code>&lt;ref&gt;</code> pa valab;
 Nou pa bay pyès tèks pou referans ki rele <code>$1</code>',
 );

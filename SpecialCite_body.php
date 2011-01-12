@@ -52,17 +52,16 @@ class CiteForm {
 	}
 
 	function execute() {
-		global $wgOut, $wgTitle;
+		global $wgOut, $wgScript;
 
 		$wgOut->addHTML(
-			Xml::element( 'form',
+			Xml::openElement( 'form',
 				array(
 					'id' => 'specialcite',
 					'method' => 'get',
-					'action' => $wgTitle->escapeLocalUrl()
-				),
-				null
-			) .
+					'action' => $wgScript
+				) ) .
+				Html::hidden( 'title', SpecialPage::getTitleFor( 'Cite' )->getPrefixedDBkey() ) .
 				Xml::openElement( 'label' ) .
 					wfMsgHtml( 'cite_page' ) . ' ' .
 					Xml::element( 'input',
@@ -91,7 +90,7 @@ class CiteForm {
 
 class CiteOutput {
 	var $mTitle, $mArticle, $mId;
-	var $mParser, $mParserOptions;
+	var $mParser, $mParserOptions, $mSpTitle;
 
 	function __construct( &$title, &$article, $id ) {
 		global $wgHooks, $wgParser;
@@ -131,12 +130,11 @@ class CiteOutput {
 
 	function genParser() {
 		$this->mParser = new Parser;
+		$this->mSpTitle = SpecialPage::getTitleFor( 'Cite' );
 	}
 
 	function CiteParse( $in, $argv ) {
-		global $wgTitle;
-
-		$ret = $this->mParser->parse( $in, $wgTitle, $this->mParserOptions, false );
+		$ret = $this->mParser->parse( $in, $this->mSpTitle, $this->mParserOptions, false );
 
 		return $ret->getText();
 	}

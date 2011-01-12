@@ -313,6 +313,13 @@ $messages['cdo'] = array(
 	'cite_submit' => 'Īng-ê̤ṳng',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'cite' => 'Далийнадош',
+);
+
 /** Cebuano (Cebuano)
  * @author Abastillas
  */

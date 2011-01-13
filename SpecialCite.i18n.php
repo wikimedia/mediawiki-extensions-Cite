@@ -1611,9 +1611,10 @@ $messages['sq'] = array(
 	'cite_submit' => 'Citoje',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Sasa Stefanovic
+ * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -1621,20 +1622,21 @@ $messages['sr-ec'] = array(
 	'cite_article_link' => 'цитирање ове стране',
 	'tooltip-cite-article' => 'Информације о томе како цитирати ову страну',
 	'cite' => 'цитат',
-	'cite_page' => 'Страна:',
+	'cite_page' => 'Страница:',
 	'cite_submit' => 'цитат',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Liangent
  * @author Michaello
+ * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
 	'cite_article_desc' => 'Dodaje specijalnu stranu za [[Special:Cite|citiranje]] i vezu ka oruđima.',
 	'cite_article_link' => 'citiranje ove strane',
 	'tooltip-cite-article' => 'Informacije o tome kako citirati ovu stranu',
 	'cite' => 'citat',
-	'cite_page' => 'Strana:',
+	'cite_page' => 'Stranica:',
 	'cite_submit' => 'citat',
 );
 

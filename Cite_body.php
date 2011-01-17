@@ -942,12 +942,11 @@ class Cite {
 	 * arbitrary number of tokens separated by [\t\n ]
 	 */
 	function genLinkLabels($group, $message) {
-		global $wgMessageCache;
-		
 		wfProfileIn( __METHOD__ );
 		$text = false;
-		if (is_object($wgMessageCache))
-			$text = $wgMessageCache->get( $message, true, false );
+		$msg = wfMessage( $message )->inContentLanguage();
+		if ( $msg->exists() )
+			$text = $msg->plain();
 		$this->mLinkLabels[$group] = ($text == '') ? false : preg_split( '#[\n\t ]#', $text );
 		wfProfileOut( __METHOD__ );
 	}

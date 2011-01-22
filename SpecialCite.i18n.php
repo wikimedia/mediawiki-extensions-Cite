@@ -999,6 +999,13 @@ $messages['ksh'] = array(
 	'cite_submit' => 'Zittėere',
 );
 
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'cite_page' => 'Rûpel:',
+);
+
 /** Cornish (Kernewek)
  * @author Kernoweger
  * @author Kw-Moon

@@ -157,7 +157,7 @@ $messages['av'] = array(
 	'cite_article_link' => 'Гьумер рехсезе',
 );
 
-/** Bashkir (Башҡорт)
+/** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar
  */
@@ -216,7 +216,7 @@ $messages['be'] = array(
 	'cite_submit' => 'Спаслацца',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
@@ -1006,7 +1006,7 @@ $messages['ku-latn'] = array(
 	'cite_page' => 'Rûpel:',
 );
 
-/** Cornish (Kernewek)
+/** Cornish (Kernowek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -1359,7 +1359,7 @@ $messages['pdc'] = array(
 	'cite_page' => 'Blatt:',
 );
 
-/** Pfälzisch (Pfälzisch)
+/** Pälzisch (Pälzisch)
  * @author SPS
  */
 $messages['pfl'] = array(

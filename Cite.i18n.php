@@ -1694,6 +1694,7 @@ ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 );
 
 /** Georgian (ქართული)
+ * @author Dawid Deutschland
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
@@ -1713,6 +1714,9 @@ $messages['ka'] = array(
 	'cite_error_ref_too_many_keys' => 'არასწორი ტეგი <code>&lt;ref&gt;</code>;
 არასწორი სახელები, ძალიან ბევრი.',
 	'cite_error_ref_no_input' => 'არასწორი ტეგი <ref>; ელემენტი უნდა შეიცავდეს შინაარს.',
+	'cite_error_references_invalid_parameters_group' => 'არასწორი<code>&lt;references&gt;</code> გამოყენება: 
+დაშვებულია მხოლო პარამეტრი „group“-ის გამოყენება.
+გამოიყენე <tt>&lt;references /&gt;</tt> ან <tt>&lt;references group="…" /&gt;</tt>',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */

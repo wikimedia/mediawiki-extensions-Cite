@@ -1983,39 +1983,39 @@ Tokony tsy hitranga mihitsy ity tsy fetezana ity.',
  * @author Brest
  */
 $messages['mk'] = array(
-	'cite-desc' => 'Додава <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> ознаки, за цитирања',
-	'cite_croak' => 'Непостоечки цитат; $1: $2',
-	'cite_error_key_str_invalid' => 'Интерна грешка;
-погрешен $str и/или $key.
-Ова не треба никогаш да се појави.',
-	'cite_error_stack_invalid_input' => 'Интерна грешка;
+	'cite-desc' => 'Додава ознаки <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, за цитирања',
+	'cite_croak' => 'Цитатот се урна; $1: $2',
+	'cite_error_key_str_invalid' => 'Внатрешна грешка;
+погрешна вредност на $str и/или $key.
+Ова никогаш не треба да се случува.',
+	'cite_error_stack_invalid_input' => 'Внатрешна грешка;
 погрешен клуч за купот.
-Ова не треба никогаш да се појави.',
-	'cite_error' => 'Грешка во цитирање: $1.',
-	'cite_error_ref_numeric_key' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
-името не може да биде број. Употребувајте описен наслов',
-	'cite_error_ref_no_key' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
-навод без содржина мора да има име',
-	'cite_error_ref_too_many_keys' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
-грешни имиња, т.е. ги има многу',
-	'cite_error_ref_no_input' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
-навод без име мора да има содржина',
-	'cite_error_references_invalid_parameters' => 'Погрешна <code>&lt;references&gt;</code> ознака;
-не се допуштени параметри.
-Употребувајте <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Погрешна <code>&lt;references&gt;</code> ознака;
-само параметарот "group" е допуштен.
-Употребувајте <code>&lt;references /&gt;</code>, или <code>&lt;references group="..." /&gt;</code>',
+Ова никогаш не треба да се случува.',
+	'cite_error' => 'Грешка при цитирањето: $1.',
+	'cite_error_ref_numeric_key' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
+името не може да биде број. Употребете описен наслов',
+	'cite_error_ref_no_key' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
+наводите без содржина мора да имаат име',
+	'cite_error_ref_too_many_keys' => 'Погрешна ознака<code>&lt;ref&gt;</code>;
+погрешни имиња, т.е. ги има премногу',
+	'cite_error_ref_no_input' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
+наводите без име мораат да имаат содржина',
+	'cite_error_references_invalid_parameters' => 'Погрешна ознака<code>&lt;references&gt;</code>;
+употребата на параметри не е дозволена.
+Употребете <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Погрешна ознака <code>&lt;references&gt;</code>;
+допуштен само параметарот „group“.
+Употребете <code>&lt;references /&gt;</code> или <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Нема доволно натписи за повратни врски.
 Определете уште натписи во <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_no_link_label_group' => 'Се потрошија називите на прилагодените врски за групата „$1“.
+	'cite_error_no_link_label_group' => 'Се потрошија натписите на прилагодените врски за групата „$1“.
 Определете уште во пораката <nowiki>[[MediaWiki:$2]]</nowiki>.',
-	'cite_error_references_no_text' => 'Погрешна <code>&lt;ref&gt;</code> ознака;
-нема текст за наводот означен како <code>$1</code>',
-	'cite_error_included_ref' => 'Затворање на &lt;/ref&gt; недостасува за &lt;ref&gt; ознака',
-	'cite_error_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> ознаки, но нема <code>&lt;references/&gt;</code> ознака',
-	'cite_error_group_refs_without_references' => 'Постојат <code>&lt;ref&gt;</code> ознаки за група именувана како "$1", но нема соодветна <code>&lt;references group="$1"/&gt;</code> ознака',
-	'cite_error_references_group_mismatch' => 'Ознакат <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротиставен групен атрибут „$1“.',
+	'cite_error_references_no_text' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
+нема зададено текст за наводите по име <code>$1</code>',
+	'cite_error_included_ref' => 'На ознаката &lt;ref&gt; ѝ недостасува ознака за затворање &lt;/ref&gt',
+	'cite_error_refs_without_references' => 'Има ознаки <code>&lt;ref&gt;</code>, но најдов ознака <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Има ознаки <code>&lt;ref&gt;</code> за група именувана како „$1“, но нема соодветна ознака <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'Ознаката <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротиставен групен атрибут „$1“.',
 	'cite_error_references_missing_group' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;references&gt;</code> има групен атрибут „$1“ кој не се јавува во претходен текст.',
 	'cite_error_references_missing_key' => 'Ознаката <code>&lt;ref&gt;</code> со име „$1“ определена во <code>&lt;references&gt;</code> не се користи во претходен текст.',
 	'cite_error_references_no_key' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;referencesgt;</code> нема именски атрибут.',

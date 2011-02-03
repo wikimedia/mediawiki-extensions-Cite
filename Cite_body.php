@@ -633,31 +633,30 @@ class Cite {
 	 */
 	function referencesFormatEntry( $key, $val ) {
 		// Anonymous reference
-		if ( ! is_array( $val ) )
-			return
-				wfMsgForContentNoTrans(
+		if ( !is_array( $val ) ) {
+			return wfMsgForContentNoTrans(
 					'cite_references_link_one',
 					$this->referencesKey( $key ),
 					$this->refKey( $key ),
 					$val
 				);
-		else if ( isset( $val['follow'] ) ) 
-			return
-				wfMsgForContentNoTrans(
+		} else if ( isset( $val['follow'] ) ) {
+			return wfMsgForContentNoTrans(
 					'cite_references_no_link',
 					$this->referencesKey( $val['follow'] ),
 					$val['text']
 				);
-		else if ( $val['text'] == '' ) return
-				wfMsgForContentNoTrans(
-					'cite_references_link_one',
-					$this->referencesKey( $key ),
-					$this->refKey( $key, $val['count'] ),
-					$this->error( 'cite_error_references_no_text', $key )
-				);
-		if ( $val['count'] < 0 )
-			return
-				wfMsgForContentNoTrans(
+		} else if ( $val['text'] == '' ) {
+			return wfMsgForContentNoTrans(
+						'cite_references_link_one',
+						$this->referencesKey( $key ),
+						$this->refKey( $key, $val['count'] ),
+						$this->error( 'cite_error_references_no_text', $key )
+					);
+		}
+
+		if ( $val['count'] < 0 ) {
+			return wfMsgForContentNoTrans(
 					'cite_references_link_one',
 					$this->referencesKey( $val['key'] ),
 					# $this->refKey( $val['key'], $val['count'] ),
@@ -665,13 +664,12 @@ class Cite {
 
 					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
 				);
-		// Standalone named reference, I want to format this like an
-		// anonymous reference because displaying "1. 1.1 Ref text" is
-		// overkill and users frequently use named references when they
-		// don't need them for convenience
-		else if ( $val['count'] === 0 )
-			return
-				wfMsgForContentNoTrans(
+			// Standalone named reference, I want to format this like an
+			// anonymous reference because displaying "1. 1.1 Ref text" is
+			// overkill and users frequently use named references when they
+			// don't need them for convenience
+		} else if ( $val['count'] === 0 ) {
+			return wfMsgForContentNoTrans(
 					'cite_references_link_one',
 					$this->referencesKey( $key . "-" . $val['key'] ),
 					# $this->refKey( $key, $val['count'] ),
@@ -679,9 +677,9 @@ class Cite {
 					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
 				);
 		// Named references with >1 occurrences
-		else {
+		} else {
 			$links = array();
-		// for group handling, we have an extra key here.
+			// for group handling, we have an extra key here.
 			for ( $i = 0; $i <= $val['count']; ++$i ) {
 				$links[] = wfMsgForContentNoTrans(
 						'cite_references_link_many_format',
@@ -693,8 +691,7 @@ class Cite {
 
 			$list = $this->listToText( $links );
 
-			return
-				wfMsgForContentNoTrans( 'cite_references_link_many',
+			return wfMsgForContentNoTrans( 'cite_references_link_many',
 					$this->referencesKey( $key . "-" . $val['key'] ),
 					$list,
 					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )

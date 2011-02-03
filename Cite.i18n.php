@@ -2816,10 +2816,37 @@ sklici imenovani <code>$1</code> nimajo določenega besedila',
 
 /** Albanian (Shqip)
  * @author Mikullovci11
+ * @author Olsi
  */
 $messages['sq'] = array(
+	'cite-desc' => 'Shton etiketa <nowiki><ref[ name=id]></nowiki> dhe <nowiki><references/></nowiki> për citime',
 	'cite_croak' => 'Gabim në sistem; $1: $2',
+	'cite_error_key_str_invalid' => 'Gabim i brendshëm;
+$str dhe/ose $key i pavlefshëm
+Kjo nuk duhet të ndodhë kurrë.',
+	'cite_error_stack_invalid_input' => 'Gabim i brendshëm;
+stack key i pavlefshëm
+Kjo nuk duhet të ndodhë kurrë.',
 	'cite_error' => 'Gabim referencash: $1',
+	'cite_error_ref_numeric_key' => 'Etiketë <code>&lt;ref&gt;</code> e pavlefshme;
+emri nuk mund të jetë një numër i plotë i thjeshtë. Përdorni një titull përshkrues',
+	'cite_error_ref_no_key' => 'Etiketë <code>&lt;ref&gt;</code> e pavlefshme;
+refs pa përmbajtje duhet të kenë një emër',
+	'cite_error_ref_too_many_keys' => 'Etiketë <code>&lt;ref&gt;</code> e pavlefshme;
+emra të pavlefshëm, p.sh. shumë',
+	'cite_error_ref_no_input' => 'Etiketë <code>&lt;ref&gt;</code> e pavlefshme;
+refs pa emër duhet të kenë përmbajtje',
+	'cite_error_references_invalid_parameters' => 'Etiketë <code>&lt;references&gt;</code> e pavlefshme;
+asnjë parametër nuk lejohet.
+Përdorni <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Etiketë <code>&lt;references&gt;</code> e pavlefshme;
+vetëm parametri "group" lejohet.
+Përdorni <code>&lt;references /&gt;</code>, ose <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text' => 'Etiketë <code>&lt;ref&gt;</code> e pavlefshme;
+asnjë tekst nuk u dha për refs e quajtura <code>$1</code>',
+	'cite_error_included_ref' => 'Duke mbyllur &lt;/ref&gt; mungon për etiketën &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Etiketat <code>&lt;ref&gt;</code> ekzistojnë, por nuk u gjet etiketa <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Etiketat <code>&lt;ref&gt;</code> ekzistojnë për një grup të quajtur "$1", por nuk u gjet etiketa korresponduese <code>&lt;references group="$1"/&gt;</code>',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)

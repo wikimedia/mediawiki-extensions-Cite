@@ -1465,6 +1465,7 @@ $messages['rmy'] = array(
 );
 
 /** Romanian (Română)
+ * @author Danutz
  * @author Emily
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -1474,7 +1475,7 @@ $messages['rmy'] = array(
  */
 $messages['ro'] = array(
 	'cite_article_desc' => 'Adaugă o pagină specială [[Special:Cite|citare]] și o legătură cutie unelte',
-	'cite_article_link' => 'Citează acest articol',
+	'cite_article_link' => 'Citați acest articol',
 	'tooltip-cite-article' => 'Informații cu privire la modul de citare a acestei pagini',
 	'cite' => 'Citare',
 	'cite_page' => 'Pagină:',
@@ -1758,11 +1759,13 @@ $messages['tg-latn'] = array(
 );
 
 /** Thai (ไทย)
+ * @author Octahedron80
  * @author Passawuth
  */
 $messages['th'] = array(
 	'cite_article_desc' => 'เพิ่มหน้า[[Special:Cite|อ้างอิง]]พิเศษและลิงก์บนกล่องเครื่องมือ',
 	'cite_article_link' => 'อ้างอิงหน้านี้',
+	'tooltip-cite-article' => 'ข้อมูลเกี่ยวกับวิธีการอ้างอิงหน้านี้',
 	'cite' => 'อ้างอิง',
 	'cite_page' => 'หน้า:',
 	'cite_submit' => 'อ้างอิง',

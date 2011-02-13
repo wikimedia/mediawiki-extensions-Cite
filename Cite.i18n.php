@@ -2014,7 +2014,7 @@ $messages['mk'] = array(
 	'cite_error_references_no_text' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
 нема зададено текст за наводите по име <code>$1</code>',
 	'cite_error_included_ref' => 'На ознаката &lt;ref&gt; ѝ недостасува ознака за затворање &lt;/ref&gt',
-	'cite_error_refs_without_references' => 'Има ознаки <code>&lt;ref&gt;</code>, но најдов ознака <code>&lt;references/&gt;</code>',
+	'cite_error_refs_without_references' => 'Има ознаки <code>&lt;ref&gt;</code>, но не ја најдов потребната ознака <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Има ознаки <code>&lt;ref&gt;</code> за група именувана како „$1“, но нема соодветна ознака <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Ознаката <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротиставен групен атрибут „$1“.',
 	'cite_error_references_missing_group' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;references&gt;</code> има групен атрибут „$1“ кој не се јавува во претходен текст.',

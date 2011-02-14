@@ -2843,11 +2843,20 @@ Përdorni <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Etiketë <code>&lt;references&gt;</code> e pavlefshme;
 vetëm parametri "group" lejohet.
 Përdorni <code>&lt;references /&gt;</code>, ose <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Nga ran të etiketave backlink me porosi. 
+Percaktoni më shumë në <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mesazh.',
+	'cite_error_no_link_label_group' => 'Nga ran e etiketave lidhje me porosi për grupin "$1". 
+Percaktoni më shumë në <nowiki> [[MediaWiki:$2]] </nowiki> mesazh.',
 	'cite_error_references_no_text' => 'Etiketë <code>&lt;ref&gt;</code> e pavlefshme;
 asnjë tekst nuk u dha për refs e quajtura <code>$1</code>',
 	'cite_error_included_ref' => 'Duke mbyllur &lt;/ref&gt; mungon për etiketën &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'Etiketat <code>&lt;ref&gt;</code> ekzistojnë, por nuk u gjet etiketa <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Etiketat <code>&lt;ref&gt;</code> ekzistojnë për një grup të quajtur "$1", por nuk u gjet etiketa korresponduese <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tag in <code>&lt;references&gt;</code> has conflicting group attribute "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> etiketa e përcaktuar në <code>&lt;referenca&gt;</code> ka atribut grup "$1" që nuk duket në tekstin paraprak.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> etiketa me emrin "$1" e percaktuar ne <code>&lt;referenca&gt;</code> nuk është përdorur në tekst paraprak.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> etiketa e përcaktuar në <code>&lt;referenca&gt;</code> nuk ka ndonjë atribut emër.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> etiketa e përcaktuar në <code>&lt;referenca&gt;</code> me emrin "$1" nuk ka përmbajtje.',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)

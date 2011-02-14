@@ -1611,9 +1611,13 @@ $messages['sn'] = array(
 	'cite_article_link' => 'Ita cite nyaya iyi',
 );
 
-/** Albanian (Shqip) */
+/** Albanian (Shqip)
+ * @author Olsi
+ */
 $messages['sq'] = array(
+	'cite_article_desc' => 'Shton një faqe speciale [[Special:Cite|citimi]] dhe një lidhje veglash.',
 	'cite_article_link' => 'Cito artikullin',
+	'tooltip-cite-article' => 'Informacion mbi mënyrën e citimit të kësaj faqeje',
 	'cite' => 'Citate',
 	'cite_page' => 'Faqja:',
 	'cite_submit' => 'Citoje',

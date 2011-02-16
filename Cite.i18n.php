@@ -353,7 +353,7 @@ $str һәм/йәки $key дөрөҫ түгел.
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;
 <code>$1</code> төшөрмәләре өсөн текст юҡ',
 	'cite_error_included_ref' => '&lt;ref&gt; билдәһе өсөн &lt;/ref&gt; ябыу билдәһе юҡ',
-	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> билдәһе бар, code>&lt;references/&gt;</code> әммә билдәһе юҡ',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> билдәһе бар, әммә <code>&lt;references/&gt;</code> билдәһе юҡ',
 	'cite_error_group_refs_without_references' => '"$1" төркөмө өсөн <code>&lt;ref&gt;</code> билдәһе бар, әммә <code>&lt;references group="$1"/&gt;</code> билдәһе юҡ',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> билдәһенең <code>&lt;ref&gt;</code> билдәһендә "$1" төркөмө атрибуты ҡаршылыҡтар тыуҙыра.',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> билдәһенең <code>&lt;ref&gt;</code> билдәһендә "$1" төркөмө атрибуты үрҙәге текста осрамай.',

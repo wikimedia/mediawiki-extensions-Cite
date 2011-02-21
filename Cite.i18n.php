@@ -3317,7 +3317,7 @@ $messages['yi'] = array(
 	'cite_error_references_invalid_parameters' => 'אומגילטיגער <code>&lt;references&gt;</code> טאַג;
 קיין פאראמעטערס נישט ערלויבט. ניצט <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_text' => 'אומגילטיגער <code>&lt;ref&gt;</code> טאַג;
-קיין טעקסט נישט געשריבן פֿאַר רעפֿערענצן מיטן נאמן <code>$1</code>',
+קיין טעקסט נישט געשריבן פֿאַר רעפֿערענצן מיטן נאָמען <code>$1</code>',
 	'cite_error_included_ref' => 'פֿעלט א שליסנדיגער &lt;/ref&gt; פֿאַר &lt;ref&gt; טאַג',
 	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&lt;references/&gt;</code> טאַג.",
 	'cite_error_group_refs_without_references' => 'ס\'זענען דא <code>&lt;ref&gt;</code> טאַגן פֿאַר א גרופע וואס הייסט "$1", אבער מ\'האט נישט געטראפֿן קיין אַנטקעגענעם  <code>&lt;references group="$1"/&gt;</code> טאַג.',

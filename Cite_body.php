@@ -21,7 +21,7 @@ class Cite {
 	/**#@+
 	 * @access private
 	 */
-	
+
 	/**
 	 * Datastructure representing <ref> input, in the format of:
 	 * <code>
@@ -54,7 +54,7 @@ class Cite {
 	 * @var array
 	 **/
 	var $mRefs = array();
-	
+
 	/**
 	 * Count for user displayed output (ref[1], ref[2], ...)
 	 *
@@ -88,16 +88,16 @@ class Cite {
 	 * @var array
 	 */
 	var $mLinkLabels = array();
-	
+
 	/**
 	 * @var object
 	 */
 	var $mParser;
-	
+
 	/**
 	 * True when a <ref> tag is being processed.
 	 * Used to avoid infinite recursion
-	 * 
+	 *
 	 * @var boolean
 	 */
 	var $mInCite = false;
@@ -105,30 +105,30 @@ class Cite {
 	/**
 	 * True when a <references> tag is being processed.
 	 * Used to detect the use of <references> to define refs
-	 * 
+	 *
 	 * @var boolean
 	 */
 	var $mInReferences = false;
 
 	/**
 	 * Error stack used when defining refs in <references>
-	 * 
+	 *
 	 * @var array
 	 */
 	var $mReferencesErrors = array();
 
 	/**
 	 * Group used when in <references> block
-	 * 
+	 *
 	 * @var string
 	 */
 	var $mReferencesGroup = '';
 
 	/**
-	 * <ref> call stack 
+	 * <ref> call stack
 	 * Used to cleanup out of sequence ref calls created by #tag
 	 * See description of function rollbackRef.
-	 * 
+	 *
 	 * @var array
 	 */
 	var $mRefCallStack = array();
@@ -164,10 +164,10 @@ class Cite {
 
 	function guardedRef( $str, $argv, $parser, $default_group = CITE_DEFAULT_GROUP ) {
 		$this->mParser = $parser;
-		
+
 		# The key here is the "name" attribute.
 		list( $key, $group, $follow ) = $this->refArg( $argv );
-		
+
 		# Split these into groups.
 		if ( $group === null ) {
 			if ( $this->mInReferences ) {
@@ -176,8 +176,8 @@ class Cite {
 				$group = $default_group;
 			}
 		}
-		
-		# This section deals with constructions of the form 
+
+		# This section deals with constructions of the form
 		#
 		# <references>
 		# <ref name="foo"> BAR </ref>
@@ -224,7 +224,7 @@ class Cite {
 				$str = null;
 			}
 		}
-				
+
 		if ( $key === false ) {
 			# TODO: Comment this case; what does this condition mean?
 			$this->mRefCallStack[] = false;
@@ -236,7 +236,7 @@ class Cite {
 			$this->mRefCallStack[] = false;
 			return $this->error( 'cite_error_ref_no_key' );
 		}
-		
+
 		if ( preg_match( '/^[0-9]+$/', $key ) || preg_match( '/^[0-9]+$/', $follow ) ) {
 			# Numeric names mess up the resulting id's, potentially produ-
 			# cing duplicate id's in the XHTML.  The Right Thing To Do
@@ -283,7 +283,7 @@ class Cite {
 
 	/**
 	 * Parse the arguments to the <ref> tag
-	 * 
+	 *
 	 *  "name" : Key of the reference.
 	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
 	 *  "follow" : If the current reference is the continuation of another, key of that reference.
@@ -301,11 +301,11 @@ class Cite {
 		$key = null;
 		$follow = null;
 
-		if ( $cnt > 2 )
+		if ( $cnt > 2 ) {
 			// There should only be one key or follow parameter, and one group parameter
-			// FIXME : this looks inconsistent, it should probably return a tuple 
+			// FIXME : this looks inconsistent, it should probably return a tuple
 			return false;
-		else if ( $cnt >= 1 ) {
+		} elseif ( $cnt >= 1 ) {
 			if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
 				return array( false, false, false );
 			}
@@ -322,22 +322,26 @@ class Cite {
 				--$cnt;
 			}
 			if ( isset( $argv['group'] ) ) {
-				if ( ! $wgAllowCiteGroups ) return array( false ); // remove when groups are fully tested.
+				if ( !$wgAllowCiteGroups ) {
+					// remove when groups are fully tested.
+					return array( false );
+				}
 				// Group given.
 				$group = $argv['group'];
 				unset( $argv['group'] );
 				--$cnt;
 			}
 
-			if ( $cnt == 0 )
+			if ( $cnt == 0 ) {
 				return array ( $key, $group, $follow );
-			else
+			} else {
 				// Invalid key
 				return array( false, false, false );
-		}
-		else
+			}
+		} else {
 			// No key
 			return array( null, $group, false );
+		}
 	}
 
 	/**
@@ -345,31 +349,35 @@ class Cite {
 	 *
 	 * @param string $str Input from the <ref> tag
 	 * @param mixed $key Argument to the <ref> tag as returned by $this->refArg()
-	 * @return string 
+	 * @return string
 	 */
 	function stack( $str, $key = null, $group, $follow, $call ) {
-		if ( ! isset( $this->mRefs[$group] ) )
+		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = array();
-		if ( ! isset( $this->mGroupCnt[$group] ) )
+		}
+		if ( !isset( $this->mGroupCnt[$group] ) ) {
 			$this->mGroupCnt[$group] = 0;
+		}
 
 		if ( $follow != null ) {
 			if ( isset( $this->mRefs[$group][$follow] ) && is_array( $this->mRefs[$group][$follow] ) ) {
 				// add text to the note that is being followed
-				$this->mRefs[$group][$follow]['text'] = $this->mRefs[$group][$follow]['text'] . ' '. $str;
+				$this->mRefs[$group][$follow]['text'] = $this->mRefs[$group][$follow]['text'] . ' ' . $str;
 			} else {
 				// insert part of note at the beginning of the group
-				for( $k=0 ; $k< count( $this->mRefs[$group] ) ; $k++) {
-					if( $this->mRefs[$group][$k]['follow'] == null ) break;
+				for ( $k = 0 ; $k < count( $this->mRefs[$group] ) ; $k++ ) {
+					if ( $this->mRefs[$group][$k]['follow'] == null ) {
+						break;
+					}
 				}
-				array_splice( $this->mRefs[$group], $k, 0, 
-					       array( array( 'count' => - 1, 
-						      'text' => $str, 
-						      'key' => ++$this->mOutCnt , 
-						      'follow' => $follow) ) );
-				array_splice( $this->mRefCallStack, $k, 0, 
+				array_splice( $this->mRefs[$group], $k, 0,
+					       array( array( 'count' => - 1,
+						      'text' => $str,
+						      'key' => ++$this->mOutCnt ,
+						      'follow' => $follow ) ) );
+				array_splice( $this->mRefCallStack, $k, 0,
 					       array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
-				$this->mInCnt++; 
+				$this->mInCnt++;
 			}
 			// return an empty string : this is not a reference
 			return '';
@@ -381,10 +389,10 @@ class Cite {
 			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
 
 			return $this->linkRef( $group, $this->mInCnt++ );
-		} else if ( is_string( $key ) ) {
+		} elseif ( is_string( $key ) ) {
 			// Valid key
-			if ( ! isset( $this->mRefs[$group][$key] ) || ! is_array( $this->mRefs[$group][$key] ) ) {
-				// First occurance
+			if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
+				// First occurrence
 				$this->mRefs[$group][$key] = array(
 					'text' => $str,
 					'count' => 0,
@@ -420,19 +428,19 @@ class Cite {
 						$this->mRefs[$group][$key]['key'] . "-" . ++$this->mRefs[$group][$key]['count'],
 						$this->mRefs[$group][$key]['number'],
 						"-" . $this->mRefs[$group][$key]['key']
-					); }
-		}
-
-		else
+					);
+			}
+		} else {
 			$this->croak( 'cite_error_stack_invalid_input', serialize( array( $key, $str ) ) );
+		}
 	}
-	
+
 	/**
 	 * Partially undoes the effect of calls to stack()
-	 * 
+	 *
 	 * Called by guardedReferences()
 	 *
-	 * The option to define <ref> within <references> makes the 
+	 * The option to define <ref> within <references> makes the
 	 * behavior of <ref> context dependent.  This is normally fine
 	 * but certain operations (especially #tag) lead to out-of-order
 	 * parser evaluation with the <ref> tags being processed before
@@ -444,7 +452,9 @@ class Cite {
 	 * corrupting certain links.
 	 */
 	function rollbackRef( $type, $key, $group, $index ) {
-		if ( !isset( $this->mRefs[$group] ) ) { return; }
+		if ( !isset( $this->mRefs[$group] ) ) {
+			return;
+		}
 
 		if ( $key === null ) {
 			foreach ( $this->mRefs[$group] as $k => $v ) {
@@ -456,11 +466,17 @@ class Cite {
 		}
 
 		# Sanity checks that specified element exists.
-		if ( $key === null ) { return; }
-		if ( !isset( $this->mRefs[$group][$key] ) ) { return; }
-		if ( $this->mRefs[$group][$key]['key'] != $index ) { return; }
+		if ( $key === null ) {
+			return;
+		}
+		if ( !isset( $this->mRefs[$group][$key] ) ) {
+			return;
+		}
+		if ( $this->mRefs[$group][$key]['key'] != $index ) {
+			return;
+		}
 
-		switch( $type ) {
+		switch ( $type ) {
 		case 'new':
 			# Rollback the addition of new elements to the stack.
 			unset( $this->mRefs[$group][$key] );
@@ -506,22 +522,24 @@ class Cite {
 		global $wgAllowCiteGroups;
 
 		$this->mParser = $parser;
-		
+
 		if ( isset( $argv['group'] ) and $wgAllowCiteGroups ) {
 			$group = $argv['group'];
 			unset ( $argv['group'] );
 		}
-		
+
 		if ( strval( $str ) !== '' ) {
 			$this->mReferencesGroup = $group;
-			
+
 			# Detect whether we were sent already rendered <ref>s
 			# Mostly a side effect of using #tag to call references
 			$count = substr_count( $str, $parser->uniqPrefix() . "-ref-" );
 			for ( $i = 1; $i <= $count; $i++ ) {
-				if ( count( $this->mRefCallStack ) < 1 ) break;
+				if ( count( $this->mRefCallStack ) < 1 ) {
+					break;
+				}
 
-				# The following assumes that the parsed <ref>s sent within 
+				# The following assumes that the parsed <ref>s sent within
 				# the <references> block were the most recent calls to
 				# <ref>.  This assumption is true for all known use cases,
 				# but not strictly enforced by the parser.  It is possible
@@ -533,7 +551,7 @@ class Cite {
 					list( $type, $ref_argv, $ref_str,
 						$ref_key, $ref_group, $ref_index ) = $call;
 
-					# Undo effects of calling <ref> while unaware of containing <references> 
+					# Undo effects of calling <ref> while unaware of containing <references>
 					$this->rollbackRef( $type, $ref_key, $ref_group, $ref_index );
 
 					# Rerun <ref> call now that mInReferences is set.
@@ -548,14 +566,16 @@ class Cite {
 			$this->mRefCallStack = array();
 		}
 
-		if ( count( $argv ) && $wgAllowCiteGroups )
+		if ( count( $argv ) && $wgAllowCiteGroups ) {
 			return $this->error( 'cite_error_references_invalid_parameters_group' );
-		elseif ( count( $argv ) )
+		} elseif ( count( $argv ) ) {
 			return $this->error( 'cite_error_references_invalid_parameters' );
-		else {
+		} else {
 			$s = $this->referencesFormat( $group );
-			if ( $parser->getOptions()->getIsSectionPreview() ) return $s;
-			
+			if ( $parser->getOptions()->getIsSectionPreview() ) {
+				return $s;
+			}
+
 			# Append errors generated while processing <references>
 			if ( count( $this->mReferencesErrors ) > 0 ) {
 				$s .= "\n" . implode( "<br />\n", $this->mReferencesErrors );
@@ -571,15 +591,17 @@ class Cite {
 	 * @return string XHTML ready for output
 	 */
 	function referencesFormat( $group ) {
-		if ( ( count( $this->mRefs ) == 0 ) or ( empty( $this->mRefs[$group] ) ) )
+		if ( ( count( $this->mRefs ) == 0 ) or ( empty( $this->mRefs[$group] ) ) ) {
 			return '';
-		
+		}
+
 		wfProfileIn( __METHOD__ );
 		wfProfileIn( __METHOD__ . '-entries' );
 		$ent = array();
-		foreach ( $this->mRefs[$group] as $k => $v )
+		foreach ( $this->mRefs[$group] as $k => $v ) {
 			$ent[] = $this->referencesFormatEntry( $k, $v );
-		
+		}
+
 		$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
 		$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
 		$content = implode( "\n", $ent );
@@ -590,36 +612,36 @@ class Cite {
 		$cacheKey = wfMemcKey( 'citeref', md5( $parserInput ), $this->mParser->Title()->getArticleID() );
 
 		wfProfileOut( __METHOD__ . '-entries' );
-		
+
 		global $wgCiteCacheReferences;
 		if ( $wgCiteCacheReferences ) {
 			wfProfileIn( __METHOD__ . '-cache-get' );
 			$data = $wgMemc->get( $cacheKey );
 			wfProfileOut( __METHOD__ . '-cache-get' );
 		}
-		
+
 		if ( empty( $data ) ) {
 			wfProfileIn( __METHOD__ . '-parse' );
-			
+
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 			$ret = rtrim( $this->parse( $parserInput ), "\n" );
-			
+
 			if ( $wgCiteCacheReferences ) {
 				$serData = $this->mParser->serialiseHalfParsedText( $ret );
 				$wgMemc->set( $cacheKey, $serData, 86400 );
 			}
-			
+
 			wfProfileOut( __METHOD__ . '-parse' );
 		} else {
 			$ret = $this->mParser->unserialiseHalfParsedText( $data );
 		}
 
 		wfProfileOut( __METHOD__ );
-		
+
 		// done, clean up so we can reuse the group
-		unset ( $this->mRefs[$group] );
+		unset( $this->mRefs[$group] );
 		unset( $this->mGroupCnt[$group] );
-			
+
 		return $ret;
 	}
 
@@ -640,13 +662,13 @@ class Cite {
 					$this->refKey( $key ),
 					$val
 				);
-		} else if ( isset( $val['follow'] ) ) {
+		} elseif ( isset( $val['follow'] ) ) {
 			return wfMsgForContentNoTrans(
 					'cite_references_no_link',
 					$this->referencesKey( $val['follow'] ),
 					$val['text']
 				);
-		} else if ( $val['text'] == '' ) {
+		} elseif ( $val['text'] == '' ) {
 			return wfMsgForContentNoTrans(
 						'cite_references_link_one',
 						$this->referencesKey( $key ),
@@ -668,7 +690,7 @@ class Cite {
 			// anonymous reference because displaying "1. 1.1 Ref text" is
 			// overkill and users frequently use named references when they
 			// don't need them for convenience
-		} else if ( $val['count'] === 0 ) {
+		} elseif ( $val['count'] === 0 ) {
 			return wfMsgForContentNoTrans(
 					'cite_references_link_one',
 					$this->referencesKey( $key . "-" . $val['key'] ),
@@ -744,8 +766,8 @@ class Cite {
 
 	/**
 	 * Generate a custom format link for a group given an offset, e.g.
-	 * the second <ref group="foo"> is b if $this->mLinkLabels["foo"] = 
-	 * array( 'a', 'b', 'c', ...). 
+	 * the second <ref group="foo"> is b if $this->mLinkLabels["foo"] =
+	 * array( 'a', 'b', 'c', ...).
 	 * Return an error if the offset > the # of array items
 	 *
 	 * @param int $offset The offset
@@ -754,16 +776,16 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function getLinkLabel( $offset, $group, $label) {
+	function getLinkLabel( $offset, $group, $label ) {
 		$message = "cite_link_label_group-$group";
 		if ( !isset( $this->mLinkLabels[$group] ) ) {
-			$this->genLinkLabels($group, $message);
+			$this->genLinkLabels( $group, $message );
 		}
-		if ($this->mLinkLabels[$group] === false) {
+		if ( $this->mLinkLabels[$group] === false ) {
 			// Use normal representation, ie. "$group 1", "$group 2"...
 			return $label;
 		}
-		
+
 		if ( isset( $this->mLinkLabels[$group][$offset - 1] ) ) {
 			return $this->mLinkLabels[$group][$offset - 1];
 		} else {
@@ -786,10 +808,11 @@ class Cite {
 	function refKey( $key, $num = null ) {
 		$prefix = wfMsgForContent( 'cite_reference_link_prefix' );
 		$suffix = wfMsgForContent( 'cite_reference_link_suffix' );
-		if ( isset( $num ) )
+		if ( isset( $num ) ) {
 			$key = wfMsgForContentNoTrans( 'cite_reference_link_key_with_num', $key, $num );
-		
-		return $prefix . $key . $suffix;
+		}
+
+		return "$prefix$key$suffix";
 	}
 
 	/**
@@ -806,10 +829,11 @@ class Cite {
 	function referencesKey( $key, $num = null ) {
 		$prefix = wfMsgForContent( 'cite_references_link_prefix' );
 		$suffix = wfMsgForContent( 'cite_references_link_suffix' );
-		if ( isset( $num ) )
+		if ( isset( $num ) ) {
 			$key = wfMsgForContentNoTrans( 'cite_reference_link_key_with_num', $key, $num );
-		
-		return $prefix . $key . $suffix;
+		}
+
+		return "$prefix$key$suffix";
 	}
 
 	/**
@@ -827,14 +851,14 @@ class Cite {
 	function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
 		global $wgContLang;
 		$label = is_null( $label ) ? ++$this->mGroupCnt[$group] : $label;
-		
+
 		return
 			$this->parse(
 				wfMsgForContentNoTrans(
 					'cite_reference_link',
 					$this->refKey( $key, $count ),
 					$this->referencesKey( $key . $subkey ),
-					$this->getLinkLabel( $label, $group, 
+					$this->getLinkLabel( $label, $group,
 						( ( $group == CITE_DEFAULT_GROUP ) ? '':"$group " ) . $wgContLang->formatNum( $label ) )
 				)
 			);
@@ -858,10 +882,10 @@ class Cite {
 		$sep = wfMsgForContentNoTrans( 'cite_references_link_many_sep' );
 		$and = wfMsgForContentNoTrans( 'cite_references_link_many_and' );
 
-		if ( $cnt == 1 )
+		if ( $cnt == 1 ) {
 			// Enforce always returning a string
 			return (string)$arr[0];
-		else {
+		} else {
 			$t = array_slice( $arr, 0, $cnt - 1 );
 			return implode( $sep, $t ) . $and . $arr[$cnt - 1];
 		}
@@ -893,7 +917,7 @@ class Cite {
 				false
 			);
 			$text = $ret->getText();
-			
+
 			return $this->fixTidy( $text );
 		}
 	}
@@ -910,13 +934,13 @@ class Cite {
 	function fixTidy( $text ) {
 		global $wgUseTidy;
 
-		if ( ! $wgUseTidy )
+		if ( !$wgUseTidy ) {
 			return $text;
-		else {
+		} else {
 			$text = preg_replace( '~^<p>\s*~', '', $text );
 			$text = preg_replace( '~\s*</p>\s*~', '', $text );
 			$text = preg_replace( '~\n$~', '', $text );
-			
+
 			return $text;
 		}
 	}
@@ -938,13 +962,14 @@ class Cite {
 	 * 'cite_reference_link' message instead of numbers, the format is an
 	 * arbitrary number of tokens separated by [\t\n ]
 	 */
-	function genLinkLabels($group, $message) {
+	function genLinkLabels( $group, $message ) {
 		wfProfileIn( __METHOD__ );
 		$text = false;
 		$msg = wfMessage( $message )->inContentLanguage();
-		if ( $msg->exists() )
+		if ( $msg->exists() ) {
 			$text = $msg->plain();
-		$this->mLinkLabels[$group] = ($text == '') ? false : preg_split( '#[\n\t ]#', $text );
+		}
+		$this->mLinkLabels[$group] = ( $text == '' ) ? false : preg_split( '#[\n\t ]#', $text );
 		wfProfileOut( __METHOD__ );
 	}
 
@@ -955,9 +980,10 @@ class Cite {
 	function clearState() {
 		# Don't clear state when we're in the middle of parsing
 		# a <ref> tag
-		if ( $this->mInCite || $this->mInReferences )
+		if ( $this->mInCite || $this->mInReferences ) {
 			return true;
- 
+		}
+
 		$this->mGroupCnt = array();
 		$this->mOutCnt = - 1;
 		$this->mInCnt = 0;
@@ -969,14 +995,18 @@ class Cite {
 	}
 
 	/**
-	 * Called at the end of page processing to append an error if refs were 
+	 * Called at the end of page processing to append an error if refs were
 	 * used without a references tag.
 	 */
 	function checkRefsNoReferences( &$parser, &$text ) {
-		if ( $parser->getOptions()->getIsSectionPreview() ) return true;
+		if ( $parser->getOptions()->getIsSectionPreview() ) {
+			return true;
+		}
 
 		foreach ( $this->mRefs as $group => $refs ) {
-			if ( count( $refs ) == 0 ) continue;
+			if ( count( $refs ) == 0 ) {
+				continue;
+			}
 			$text .= "\n<br />";
 			if ( $group == CITE_DEFAULT_GROUP ) {
 				$text .= $this->error( 'cite_error_refs_without_references' );

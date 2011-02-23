@@ -614,26 +614,27 @@ class Cite {
 		wfProfileOut( __METHOD__ . '-entries' );
 
 		global $wgCiteCacheReferences;
+		$data = false;
 		if ( $wgCiteCacheReferences ) {
 			wfProfileIn( __METHOD__ . '-cache-get' );
 			$data = $wgMemc->get( $cacheKey );
 			wfProfileOut( __METHOD__ . '-cache-get' );
 		}
 
-		if ( empty( $data ) ) {
+		if ( !$data || !$this->mParser->isValidHalfParsedData( $data ) ) {
 			wfProfileIn( __METHOD__ . '-parse' );
 
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 			$ret = rtrim( $this->parse( $parserInput ), "\n" );
 
 			if ( $wgCiteCacheReferences ) {
-				$serData = $this->mParser->serialiseHalfParsedText( $ret );
+				$serData = $this->mParser->serializeHalfParsedText( $ret );
 				$wgMemc->set( $cacheKey, $serData, 86400 );
 			}
 
 			wfProfileOut( __METHOD__ . '-parse' );
 		} else {
-			$ret = $this->mParser->unserialiseHalfParsedText( $data );
+			$ret = $this->mParser->unserializeHalfParsedText( $data );
 		}
 
 		wfProfileOut( __METHOD__ );

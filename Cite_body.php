@@ -371,12 +371,12 @@ class Cite {
 					}
 				}
 				array_splice( $this->mRefs[$group], $k, 0,
-					       array( array( 'count' => - 1,
-						      'text' => $str,
-						      'key' => ++$this->mOutCnt ,
-						      'follow' => $follow ) ) );
+						   array( array( 'count' => - 1,
+							  'text' => $str,
+							  'key' => ++$this->mOutCnt ,
+							  'follow' => $follow ) ) );
 				array_splice( $this->mRefCallStack, $k, 0,
-					       array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
+						   array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
 				$this->mInCnt++;
 			}
 			// return an empty string : this is not a reference

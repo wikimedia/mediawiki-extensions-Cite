@@ -2467,8 +2467,8 @@ sutinnaq pukyu willana unanchachaqa ama ch'usaqchu kachun",
 ama kuskanachina tupuchu kachun. <code>&lt;references /&gt;</code> unanchachata llamk'achiy",
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
 "group" nisqa kuskanachina tupulla kachun. <code>&lt;references /&gt;</code> icha <code>&lt;references group="..." /&gt;</code> unanchachata llamk\'achiy',
-	'cite_error_references_no_backlink_label' => "Manañam kanchu allichana yana t'inki unanchakuna.
-Astawan sut'ichay <nowiki>[[MediaWiki:Cite references link many format backlink labels|Pukyumanta willaykuna achka allichana yana t'inki unanchakunata t'inkin]]</nowiki> nisqa willaypi",
+	'cite_error_references_no_backlink_label' => "Manañam kanchu allichana kutimuy t'inki unanchakuna.
+Astawan sut'ichay <nowiki>[[MediaWiki:Cite references link many format backlink labels|Pukyumanta willaykuna achka allichana kutimuy t'inki unanchakunata t'inkin]]</nowiki> nisqa willaypi",
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
 <code>$1</code> nisqapaq pukyu qillqa manam kanchu',
 	'cite_error_included_ref' => "Kichaq &lt;ref&gt; unanchachapaq wichq'aq &lt;/ref&gt; unanchachaqa manam kanchu",

@@ -621,7 +621,7 @@ class Cite {
 			wfProfileOut( __METHOD__ . '-cache-get' );
 		}
 
-		if ( !$data || !$this->mParser->isValidHalfParsedData( $data ) ) {
+		if ( !$data || !$this->mParser->isValidHalfParsedText( $data ) ) {
 			wfProfileIn( __METHOD__ . '-parse' );
 
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar

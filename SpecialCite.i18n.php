@@ -1903,12 +1903,12 @@ $messages['vep'] = array(
  * @author Vinhtantran
  */
 $messages['vi'] = array(
-	'cite_article_desc' => 'Thêm trang đặc biệt để [[Special:Cite|ghi chú bài]] và đặt liên kết đến nó trong thanh công cụ',
-	'cite_article_link' => 'Chú thích trang này',
-	'tooltip-cite-article' => 'Hướng dẫn ghi chú trang này',
-	'cite' => 'Chú thích',
+	'cite_article_desc' => 'Thêm trang đặc biệt để [[Special:Cite|trích dẫn bài viết]] và đặt liên kết trong thanh công cụ',
+	'cite_article_link' => 'Trích dẫn trang này',
+	'tooltip-cite-article' => 'Hướng dẫn cách trích dẫn trang này',
+	'cite' => 'Trích dẫn',
 	'cite_page' => 'Trang:',
-	'cite_submit' => 'Chú thích',
+	'cite_submit' => 'Trích dẫn',
 );
 
 /** Volapük (Volapük)

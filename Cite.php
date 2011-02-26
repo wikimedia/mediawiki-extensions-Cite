@@ -43,9 +43,13 @@ $wgAllowCiteGroups = true;
  */
 $wgCiteCacheReferences = false;
 
-function wfCite() {
-	new Cite;
-	return true;
+/**
+ * Performs the hook registration.
+ * Note that several extensions (and even core!) try to detect if Cite is 
+ * installed by looking for wfCite().
+ */
+function wfCite( $parser ) {
+	return Cite::setHooks( $parser );
 }
 
 /**#@-*/

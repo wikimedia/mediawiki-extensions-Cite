@@ -45,7 +45,7 @@ class Cite {
 	 * </code>
 	 *
 	 * This works because:
-	 * * PHP's datastructures are guarenteed to be returned in the
+	 * * PHP's datastructures are guaranteed to be returned in the
 	 *   order that things are inserted into them (unless you mess
 	 *   with that)
 	 * * User supplied keys can't be integers, therefore avoiding
@@ -133,14 +133,10 @@ class Cite {
 	 */
 	var $mRefCallStack = array();
 
-	/**#@-*/
-
 	/**
-	 * Constructor
+	 * Variable holding the singleton.
 	 */
-	function __construct() {
-		$this->setHooks();
-	}
+	static protected $instance = null;
 
 	/**#@+ @access private */
 
@@ -1021,14 +1017,19 @@ class Cite {
 	/**
 	 * Initialize the parser hooks
 	 */
-	function setHooks() {
-		global $wgParser, $wgHooks;
+	static function setHooks( $parser ) {
+		global $wgHooks;
 
-		$wgParser->setHook( 'ref' , array( &$this, 'ref' ) );
-		$wgParser->setHook( 'references' , array( &$this, 'references' ) );
+		if ( !self::$instance ) {
+			self::$instance = new self();
 
-		$wgHooks['ParserClearState'][] = array( &$this, 'clearState' );
-		$wgHooks['ParserBeforeTidy'][] = array( &$this, 'checkRefsNoReferences' );
+			$wgHooks['ParserClearState'][] = array( self::$instance, 'clearState' );
+			$wgHooks['ParserBeforeTidy'][] = array( self::$instance, 'checkRefsNoReferences' );
+		}
+		$parser->setHook( 'ref' , array( self::$instance, 'ref' ) );
+		$parser->setHook( 'references' , array( self::$instance, 'references' ) );
+
+		return true;
 	}
 
 	/**

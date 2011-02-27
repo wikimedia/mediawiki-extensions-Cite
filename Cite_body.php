@@ -1019,7 +1019,7 @@ class Cite {
 	 * page should be reparsed, so we return false in that case.
 	 */
 	function checkAnyRefs( &$output ) {
-		return ( empty( $this->mRefs ) );
+		return ( count( $this->mRefs ) <= 0 );
 	}
 
 	/**

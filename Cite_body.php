@@ -1013,6 +1013,14 @@ class Cite {
 		}
 		return true;
 	}
+	
+	/**
+	 * Hook for the InlineEditor extension. If any reference is in the text, the entire
+	 * page should be reparsed, so we return false in that case.
+	 */
+	function checkAnyRefs( &$output ) {
+		return ( empty( $this->mRefs ) );
+	}
 
 	/**
 	 * Initialize the parser hooks
@@ -1025,6 +1033,7 @@ class Cite {
 
 			$wgHooks['ParserClearState'][] = array( self::$instance, 'clearState' );
 			$wgHooks['ParserBeforeTidy'][] = array( self::$instance, 'checkRefsNoReferences' );
+			$wgHooks['InlineEditorPartialAfterParse'][] = array( self::$instance, 'checkAnyRefs' );
 		}
 		$parser->setHook( 'ref' , array( self::$instance, 'ref' ) );
 		$parser->setHook( 'references' , array( self::$instance, 'references' ) );

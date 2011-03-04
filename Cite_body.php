@@ -71,6 +71,12 @@ class Cite {
 	 * @var int
 	 */
 	var $mInCnt = 0;
+	
+	/**
+	 * Counter to track the total number of (useful) calls to either the
+	 * ref or references tag hook
+	 */
+	var $mCallCnt = 0;
 
 	/**
 	 * The backlinks, in order, to pass as $3 to
@@ -151,6 +157,7 @@ class Cite {
 		if ( $this->mInCite ) {
 			return htmlspecialchars( "<ref>$str</ref>" );
 		} else {
+			$this->mCallCnt++;
 			$this->mInCite = true;
 			$ret = $this->guardedRef( $str, $argv, $parser );
 			$this->mInCite = false;
@@ -507,6 +514,7 @@ class Cite {
 				return htmlspecialchars( "<references>$str</references>" );
 			}
 		} else {
+			$this->mCallCnt++;
 			$this->mInReferences = true;
 			$ret = $this->guardedReferences( $str, $argv, $parser );
 			$this->mInReferences = false;
@@ -984,6 +992,7 @@ class Cite {
 		$this->mGroupCnt = array();
 		$this->mOutCnt = - 1;
 		$this->mInCnt = 0;
+		$this->mCallCnt = 0;
 		$this->mRefs = array();
 		$this->mReferencesErrors = array();
 		$this->mRefCallStack = array();
@@ -1015,11 +1024,11 @@ class Cite {
 	}
 	
 	/**
-	 * Hook for the InlineEditor extension. If any reference is in the text, the entire
+	 * Hook for the InlineEditor extension. If any ref or reference reference tag is in the text, the entire
 	 * page should be reparsed, so we return false in that case.
 	 */
-	function checkAnyRefs( &$output ) {
-		return ( count( $this->mRefs ) <= 0 );
+	function checkAnyCalls( &$output ) {
+		return ( $this->mCallCnt <= 0 );
 	}
 
 	/**
@@ -1033,7 +1042,7 @@ class Cite {
 
 			$wgHooks['ParserClearState'][] = array( self::$instance, 'clearState' );
 			$wgHooks['ParserBeforeTidy'][] = array( self::$instance, 'checkRefsNoReferences' );
-			$wgHooks['InlineEditorPartialAfterParse'][] = array( self::$instance, 'checkAnyRefs' );
+			$wgHooks['InlineEditorPartialAfterParse'][] = array( self::$instance, 'checkAnyCalls' );
 		}
 		$parser->setHook( 'ref' , array( self::$instance, 'ref' ) );
 		$parser->setHook( 'references' , array( self::$instance, 'references' ) );

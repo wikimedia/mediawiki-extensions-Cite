@@ -739,9 +739,9 @@ $messages['da'] = array(
  */
 $messages['de'] = array(
 	'cite-desc' => 'Ergänzt die <nowiki><ref[ name=id]></nowiki> und <nowiki><references /></nowiki>-Tags für Quellennachweise',
-	'cite_croak' => 'Fehler im Referenz-System. $1: $2',
-	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte eigentlich gar nicht passieren können.',
-	'cite_error_stack_invalid_input' => 'Interner Fehler: ungültiger „name“-stack. Dies sollte eigentlich gar nicht passieren können.',
+	'cite_croak' => 'Fehler im Referenzsystem. $1: $2',
+	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/ oder $key. Dies sollte nicht passieren.',
+	'cite_error_stack_invalid_input' => 'Interner Fehler: ungültiger Schlüssel für den Stack. Dies sollte nicht passieren.',
 	'cite_error' => 'Referenz-Fehler: $1',
 	'cite_error_ref_numeric_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
 	'cite_error_ref_no_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „ref“ ohne Inhalt muss einen Namen haben.',
@@ -2911,10 +2911,10 @@ $messages['sr-el'] = array(
 $messages['stq'] = array(
 	'cite-desc' => 'Föiget foar Wällenätterwiese do <nowiki><ref[ name=id]></nowiki> un <nowiki><references/></nowiki> Tags tou',
 	'cite_croak' => 'Failer in dät Referenz-System. $1: $2',
-	'cite_error_key_str_invalid' => 'Internen Failer: uungultigen $str un/of $key. Dit schuul eegentelk goar nit passierje konne.',
-	'cite_error_stack_invalid_input' => 'Internen Failer: uungultigen „name“-stack. Dit schuul eegentelk goarnit passierje konne.',
+	'cite_error_key_str_invalid' => 'Internen Failer: uungultigen $str un/of $key. Dit skuul eegentelk goar nit passierje konne.',
+	'cite_error_stack_invalid_input' => 'Internen Failer: uungultigen „name“-stack. Dit skuul eegentelk goarnit passierje konne.',
 	'cite_error' => 'Referenz-Failer $1',
-	'cite_error_ref_numeric_key' => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ duur naan scheenen Taalenwäid weese, benutsje n beschrieuwenden Noome.',
+	'cite_error_ref_numeric_key' => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ duur naan skeenen Taalenwäid weese, benutsje n beskrieuwenden Noome.',
 	'cite_error_ref_no_key' => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Inhoold mout n Noome hääbe.',
 	'cite_error_ref_too_many_keys' => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „name“ is uungultich of tou loang.',
 	'cite_error_ref_no_input' => 'Uungultige <code><nowiki><ref></nowiki></code>-Ferweendenge: „ref“ sunner Noome mout n Inhoold hääbe.',

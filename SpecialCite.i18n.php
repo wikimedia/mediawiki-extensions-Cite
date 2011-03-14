@@ -390,9 +390,11 @@ $messages['da'] = array(
 	'cite_submit' => 'Citér',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Kghbln
+ */
 $messages['de'] = array(
-	'cite_article_desc' => '[[Special:Cite|Zitierhilfe]]-Spezialseite und einen Link im Kasten Werkzeuge',
+	'cite_article_desc' => 'Ergänzt eine [[Special:Cite|Spezialseite]] als Zitierhilfe sowie einen zugehörigen Link im Bereich Werkzeuge',
 	'cite_article_link' => 'Seite zitieren',
 	'tooltip-cite-article' => 'Hinweis, wie diese Seite zitiert werden kann',
 	'cite' => 'Zitierhilfe',

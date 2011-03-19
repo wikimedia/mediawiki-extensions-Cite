@@ -714,6 +714,7 @@ ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
  * @author Byrial
  * @author Emilkris33
  * @author Morten LJ
+ * @author Peter Alberti
  */
 $messages['da'] = array(
 	'cite-desc' => 'Tilføjer <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-elementer til referencer.',
@@ -728,6 +729,8 @@ $messages['da'] = array(
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Løb tør for backlink etiketter. Definer mere i <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> beskeden',
 	'cite_error_references_no_text' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
+	'cite_error_included_ref' => 'Afsluttende &lt;/ref&gt; mangler for &lt;ref&gt;-tag',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-tags findes, men ingen <code>&lt;references/&gt;</code>-tag blev fundet',
 );
 
 /** German (Deutsch)

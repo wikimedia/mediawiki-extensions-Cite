@@ -141,10 +141,12 @@ $messages['arz'] = array(
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
 	'cite_article_desc' => 'Añade una páxina especial de [[Special:Cite|cites]] y un enllaz a la caxa de ferramientes',
 	'cite_article_link' => 'Citar esta páxina',
+	'tooltip-cite-article' => 'Información tocante a cómo citar esta páxina',
 	'cite' => 'Citar',
 	'cite_page' => 'Páxina:',
 	'cite_submit' => 'Citar',

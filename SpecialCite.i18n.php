@@ -1629,12 +1629,13 @@ $messages['sq'] = array(
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
+ * @author Rancher
  * @author Sasa Stefanovic
  * @author Жељко Тодоровић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'cite_article_desc' => 'Додаје специјалну страну за [[Special:Cite|цитирање]] и везу ка оруђима.',
+	'cite_article_desc' => 'Додаје посебну страницу за [[Special:Cite|цитирање]] и везу с алаткама',
 	'cite_article_link' => 'цитирање ове стране',
 	'tooltip-cite-article' => 'Информације о томе како цитирати ову страну',
 	'cite' => 'цитат',

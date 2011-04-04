@@ -36,7 +36,7 @@ $wgAutoloadClasses['SpecialCite'] = $dir . 'SpecialCite_body.php';
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 	// check whether we’re in the right namespace, the $revid has the correct type and is not empty 
 	// (what would mean that the current page doesn’t exist)
-	if ( $skintemplate->mTitle->isContentPage() && $revid !== 0 && !empty( $revid ) )
+	if ( $skintemplate->getTitle()->isContentPage() && $revid !== 0 && !empty( $revid ) )
 		$nav_urls['cite'] = array(
 			'args'   => "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid"
 		);

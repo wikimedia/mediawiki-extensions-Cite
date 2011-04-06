@@ -741,7 +741,7 @@ $messages['da'] = array(
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'cite-desc' => 'Ergänzt die <nowiki><ref[ name=id]></nowiki> und <nowiki><references /></nowiki>-Tags für Quellennachweise',
+	'cite-desc' => 'Ergänzt die Tags <code><nowiki><ref[&nbsp;name=id]></nowiki></code> und <code><nowiki><references&nbsp;/></nowiki></code> für die Referenzierung',
 	'cite_croak' => 'Fehler im Referenzsystem. $1: $2',
 	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/ oder $key. Dies sollte nicht passieren.',
 	'cite_error_stack_invalid_input' => 'Interner Fehler: ungültiger Schlüssel für den Stack. Dies sollte nicht passieren.',

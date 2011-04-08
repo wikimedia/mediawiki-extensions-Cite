@@ -333,7 +333,11 @@ $messages['ceb'] = array(
  * @author Asoxor
  */
 $messages['ckb'] = array(
+	'cite_article_link' => 'ئەم پەڕە بکە بە ژێدەر',
+	'tooltip-cite-article' => 'زانیاری سەبارەت بە چۆنیەتیی بە ژێدەر کردنی ئەم پەڕە',
+	'cite' => 'بیکە بە ژێدەر',
 	'cite_page' => 'پەڕە:',
+	'cite_submit' => 'بیکە بە ژێدەر',
 );
 
 /** Corsican (Corsu) */

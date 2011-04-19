@@ -3189,7 +3189,7 @@ $messages['uk'] = array(
 	'cite_error_ref_no_key' => 'Неправильний виклик <code>&lt;ref&gt;</code>:
 порожній тег <code>ref</code> повинен мати параметр name.',
 	'cite_error_ref_too_many_keys' => 'Неправильний виклик <code>&lt;ref&gt;</code>:
-вказані неправильні значення <code>name</code> або вказано багато прамаетрів',
+вказані неправильні значення <code>name</code> або вказано забагато параметрів',
 	'cite_error_ref_no_input' => 'Неправильний виклик <code>&lt;ref&gt;</code>:
 тег <code>ref</code> без назви повинен мати вхідні дані',
 	'cite_error_references_invalid_parameters' => 'Неправильний тег <code>&lt;references&gt;</code>:

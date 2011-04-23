@@ -159,6 +159,13 @@ $messages['av'] = array(
 	'cite_article_link' => 'Гьумер рехсезе',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'cite_page' => 'Səhifə:',
+);
+
 /** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar

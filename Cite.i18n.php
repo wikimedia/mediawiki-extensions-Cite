@@ -2543,6 +2543,12 @@ Ause <code>&lt;references /&gt;</code> o <code>&lt;references group="..." /&gt;<
 nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
 	'cite_error_included_ref' => "Stè 'u tag &lt;/ref&gt; ma manghe &lt;ref&gt;",
 	'cite_error_refs_without_references' => "'u tag <code>&lt;ref&gt;</code> esiste, ma non g'esiste 'u tag <code>&lt;references/&gt;</code>",
+	'cite_error_group_refs_without_references' => '\'U tag <code>&lt;ref&gt;</code> esiste pu gruppe nomenate "$1", ma non ge corresponne a \'u tag acchiate <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => "'U tag <code>&lt;ref&gt;</code> tag jndr'à <code>&lt;references&gt;</code> tène conflitte cu l'attribbute d'u gruppe \"\$1\".",
+	'cite_error_references_missing_group' => "'U tag <code>&lt;ref&gt;</code> definite jndr'à <code>&lt;references&gt;</code> ave attribbute de gruppe \"\$1\" 'u quale non ge jesse jndr'à 'u teste prengepàle.",
+	'cite_error_references_missing_key' => "'U tag <code>&lt;ref&gt;</code> cu 'u nome \"\$1\" definite jndr'à <code>&lt;references&gt;</code> non g'avene ausate jndr'à 'u teste prengepàle.",
+	'cite_error_references_no_key' => "'U tag <code>&lt;ref&gt;</code> definite jndr'à <code>&lt;references&gt;</code> non ge tène 'nu nome d'attrebbute.",
+	'cite_error_empty_references_define' => '\'U tag <code>&lt;ref&gt;</code> definite jndr\'à <code>&lt;references&gt;</code> cu \'u nome "$1" non ge tène condenute.',
 );
 
 /** Russian (Русский)

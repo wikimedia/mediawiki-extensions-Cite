@@ -163,7 +163,9 @@ $messages['av'] = array(
  * @author Cekli829
  */
 $messages['az'] = array(
+	'cite' => 'Sayt',
 	'cite_page' => 'Səhifə:',
+	'cite_submit' => 'Sayt',
 );
 
 /** Bashkir (Башҡортса)

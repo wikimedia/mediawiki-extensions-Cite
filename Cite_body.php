@@ -234,7 +234,7 @@ class Cite {
 			return $this->error( 'cite_error_ref_too_many_keys' );
 		}
 
-		if ( $str === null and $key === null ) {
+		if ( $str === null && $key === null ) {
 			# Something like <ref />; this makes no sense.
 			$this->mRefCallStack[] = false;
 			return $this->error( 'cite_error_ref_no_key' );
@@ -269,7 +269,7 @@ class Cite {
 			return $this->error( 'cite_error_included_ref' );
 		}
 
-		if ( is_string( $key ) or is_string( $str ) ) {
+		if ( is_string( $key ) || is_string( $str ) ) {
 			# We don't care about the content: if the key exists, the ref
 			# is presumptively valid.  Either it stores a new ref, or re-
 			# fers to an existing one.  If it refers to a nonexistent ref,
@@ -527,7 +527,7 @@ class Cite {
 
 		$this->mParser = $parser;
 
-		if ( isset( $argv['group'] ) and $wgAllowCiteGroups ) {
+		if ( isset( $argv['group'] ) && $wgAllowCiteGroups ) {
 			$group = $argv['group'];
 			unset ( $argv['group'] );
 		}
@@ -595,7 +595,7 @@ class Cite {
 	 * @return string XHTML ready for output
 	 */
 	function referencesFormat( $group ) {
-		if ( ( count( $this->mRefs ) == 0 ) or ( empty( $this->mRefs[$group] ) ) ) {
+		if ( ( count( $this->mRefs ) == 0 ) || ( empty( $this->mRefs[$group] ) ) ) {
 			return '';
 		}
 

@@ -1,6 +1,7 @@
 <?php
 if ( !defined( 'MEDIAWIKI' ) ) die();
 
+global $wgContLang, $wgContLanguageCode, $wgCiteDefaultText;
 $dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR;
 $code = $wgContLang->lc( $wgContLanguageCode );
 $file = file_exists( "${dir}cite_text-$code" ) ? "${dir}cite_text-$code" : "${dir}cite_text";

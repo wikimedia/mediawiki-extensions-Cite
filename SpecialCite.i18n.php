@@ -1346,6 +1346,14 @@ $messages['oc'] = array(
 	'cite_submit' => 'Citar',
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Psubhashish
+ */
+$messages['or'] = array(
+	'cite_article_link' => 'ଏହି ପୃଷ୍ଠାଟିରେ ପ୍ରମାଣ ଯୋଡ଼ିବେ',
+	'cite_page' => 'ପୃଷ୍ଠା:',
+);
+
 /** Ossetic (Иронау)
  * @author Amikeco
  */

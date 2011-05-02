@@ -375,7 +375,7 @@ $messages['cs'] = array(
  * @author ОйЛ
  */
 $messages['cu'] = array(
-	'cite_article_link' => 'привєдє́ниѥ члѣ́на словє́съ',
+	'cite_article_link' => 'привєдєниѥ члѣна словєсъ',
 	'cite_page' => 'страни́ца :',
 );
 

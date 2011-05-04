@@ -376,7 +376,7 @@ $messages['cs'] = array(
  */
 $messages['cu'] = array(
 	'cite_article_link' => 'привєдєниѥ члѣна словєсъ',
-	'cite_page' => 'страни́ца :',
+	'cite_page' => 'страница :',
 );
 
 /** Welsh (Cymraeg)

@@ -133,6 +133,11 @@ $specialPageAliases['hsb'] = array(
 	'Cite' => array( 'Citowanska_pomoc' ),
 );
 
+/** 湘语 (湘语) */
+$specialPageAliases['hsn'] = array(
+	'Cite' => array( '建脚注' ),
+);
+
 /** Haitian (Kreyòl ayisyen) */
 $specialPageAliases['ht'] = array(
 	'Cite' => array( 'Site' ),
@@ -331,6 +336,11 @@ $specialPageAliases['tr'] = array(
 /** Vèneto (Vèneto) */
 $specialPageAliases['vec'] = array(
 	'Cite' => array( 'Cita' ),
+);
+
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'Cite' => array( 'Ghi_chú' ),
 );
 
 /** Yiddish (ייִדיש) */

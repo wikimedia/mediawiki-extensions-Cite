@@ -982,10 +982,11 @@ class Cite {
 	 * Gets run when Parser::clearState() gets run, since we don't
 	 * want the counts to transcend pages and other instances
 	 */
-	function clearState() {
+	function clearState( $parser ) {
+		global $wgParser;
 		# Don't clear state when we're in the middle of parsing
-		# a <ref> tag
-		if ( $this->mInCite || $this->mInReferences ) {
+		# a <ref> tag or parsing messages
+		if ( $this->mInCite || $this->mInReferences ||  $parser !== $wgParser ) {
 			return true;
 		}
 

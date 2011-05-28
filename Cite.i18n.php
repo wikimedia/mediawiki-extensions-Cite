@@ -741,11 +741,22 @@ $messages['da'] = array(
 	'cite_error_ref_no_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden indhold skal have et navn',
 	'cite_error_ref_too_many_keys' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldige navne, fx for mange',
 	'cite_error_ref_no_input' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden navn skal have indhold',
-	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Løb tør for backlink etiketter. Definer mere i <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> beskeden',
+	'cite_error_references_invalid_parameters' => 'Ugyldigt <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Ugyldigt <code>&lt;references&gt;</code>-tag; den eneste tilladte parameter er "group".
+Brug <code>&lt;references /&gt;</code> eller <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Løb tør for backlink-etiketter.
+Definer flere i beskeden <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_no_link_label_group' => 'Løb tør for tilpassede linketiketter til gruppen "$1".
+Definer flere i beskeden <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
 	'cite_error_included_ref' => 'Afsluttende &lt;/ref&gt; mangler for &lt;ref&gt;-tag',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-tags findes, men ingen <code>&lt;references/&gt;</code>-tag blev fundet',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-tags eksisterer for en gruppe betegnet "$1", men der blev ikke fundet et tilsvarende <code>&lt;references group="$1"/&gt;</code>-tag',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-tag inden i <code>&lt;references&gt;</code> har modstridende gruppe-attribut "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code>-tag defineret inden i <code>&lt;references&gt;</code> har gruppe-attributten "$1", som ikke anvendes i den ovenstående tekst.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-tag med navn "$1" defineret inden i <code>&lt;references&gt;</code> anvendes ikke i den ovenstående tekst.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code>-tag defineret inden i <code>&lt;references&gt;</code> har ikke en navne-attribut.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code>-tag defineret inden i <code>&lt;references&gt;</code> med navnet "$1" har ikke noget indhold.',
 );
 
 /** German (Deutsch)

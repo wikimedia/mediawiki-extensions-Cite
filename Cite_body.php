@@ -87,7 +87,6 @@ class Cite {
 	 */
 	var $mBacklinkLabels;
 
-
 	/**
 	 * The links to use per group, in order.
 	 *
@@ -96,7 +95,7 @@ class Cite {
 	var $mLinkLabels = array();
 
 	/**
-	 * @var object
+	 * @var Parser
 	 */
 	var $mParser;
 
@@ -141,6 +140,7 @@ class Cite {
 
 	/**
 	 * Variable holding the singleton.
+	 * @var Cite
 	 */
 	static protected $instance = null;
 
@@ -149,8 +149,10 @@ class Cite {
 	/**
 	 * Callback function for <ref>
 	 *
-	 * @param string $str Input
-	 * @param array $argv Arguments
+	 * @param $str string Input
+	 * @param $argv array Arguments
+	 * @param $parser Parser
+	 *
 	 * @return string
 	 */
 	function ref( $str, $argv, $parser ) {
@@ -165,6 +167,13 @@ class Cite {
 		}
 	}
 
+	/**
+	 * @param $str string Input
+	 * @param $argv array Arguments
+	 * @param $parser Parser
+	 * @param $default_group string
+	 * @return string
+	 */
 	function guardedRef( $str, $argv, $parser, $default_group = CITE_DEFAULT_GROUP ) {
 		$this->mParser = $parser;
 
@@ -291,9 +300,8 @@ class Cite {
 	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
 	 *  "follow" : If the current reference is the continuation of another, key of that reference.
 	 *
-	 * @static
 	 *
-	 * @param array $argv The argument vector
+	 * @param $argv array The argument vector
 	 * @return mixed false on invalid input, a string on valid
 	 *               input and null on no input
 	 */
@@ -350,8 +358,12 @@ class Cite {
 	/**
 	 * Populate $this->mRefs based on input and arguments to <ref>
 	 *
-	 * @param string $str Input from the <ref> tag
-	 * @param mixed $key Argument to the <ref> tag as returned by $this->refArg()
+	 * @param $str string Input from the <ref> tag
+	 * @param $key mixed Argument to the <ref> tag as returned by $this->refArg()
+	 * @param $group
+	 * @param $follow
+	 * @param $call
+	 *
 	 * @return string
 	 */
 	function stack( $str, $key = null, $group, $follow, $call ) {
@@ -453,6 +465,11 @@ class Cite {
 	 * This function is not a total rollback since some internal
 	 * counters remain incremented.  Doing so prevents accidentally
 	 * corrupting certain links.
+	 *
+	 * @param $type
+	 * @param $key
+	 * @param $group
+	 * @param $index
 	 */
 	function rollbackRef( $type, $key, $group, $index ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
@@ -502,8 +519,10 @@ class Cite {
 	/**
 	 * Callback function for <references>
 	 *
-	 * @param string $str Input
-	 * @param array $argv Arguments
+	 * @param $str string Input
+	 * @param $argv array Arguments
+	 * @param $parser Parser
+	 *
 	 * @return string
 	 */
 	function references( $str, $argv, $parser ) {
@@ -522,6 +541,13 @@ class Cite {
 		}
 	}
 
+	/**
+	 * @param $str string
+	 * @param $argv array
+	 * @param $parser Parser
+	 * @param $group string
+	 * @return string
+	 */
 	function guardedReferences( $str, $argv, $parser, $group = CITE_DEFAULT_GROUP ) {
 		global $wgAllowCiteGroups;
 
@@ -591,7 +617,9 @@ class Cite {
 
 	/**
 	 * Make output to be returned from the references() function
-	 *
+	 * 
+	 * @param $group
+	 * 
 	 * @return string XHTML ready for output
 	 */
 	function referencesFormat( $group ) {
@@ -845,12 +873,15 @@ class Cite {
 	 * Generate a link (<sup ...) for the <ref> element from a key
 	 * and return XHTML ready for output
 	 *
-	 * @param string $key The key for the link
-	 * @param int $count The index of the key, used for distinguishing
+	 * @param $group
+	 * @param $key string The key for the link
+	 * @param $count int The index of the key, used for distinguishing
 	 *                   multiple occurances of the same key
-	 * @param int $label The label to use for the link, I want to
+	 * @param $label int The label to use for the link, I want to
 	 *                   use the same label for all occourances of
 	 *                   the same named reference.
+	 * @param $subkey string
+	 *
 	 * @return string
 	 */
 	function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
@@ -864,7 +895,7 @@ class Cite {
 					$this->refKey( $key, $count ),
 					$this->referencesKey( $key . $subkey ),
 					$this->getLinkLabel( $label, $group,
-						( ( $group == CITE_DEFAULT_GROUP ) ? '':"$group " ) . $wgContLang->formatNum( $label ) )
+						( ( $group == CITE_DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
 				)
 			);
 	}
@@ -966,6 +997,9 @@ class Cite {
 	 * Generate the labels to pass to the
 	 * 'cite_reference_link' message instead of numbers, the format is an
 	 * arbitrary number of tokens separated by [\t\n ]
+	 *
+	 * @param $group
+	 * @param $message
 	 */
 	function genLinkLabels( $group, $message ) {
 		wfProfileIn( __METHOD__ );
@@ -981,6 +1015,10 @@ class Cite {
 	/**
 	 * Gets run when Parser::clearState() gets run, since we don't
 	 * want the counts to transcend pages and other instances
+	 *
+	 * @param $parser Parser
+	 *
+	 * @return bool
 	 */
 	function clearState( $parser ) {
 		global $wgParser;
@@ -1004,6 +1042,11 @@ class Cite {
 	/**
 	 * Called at the end of page processing to append an error if refs were
 	 * used without a references tag.
+	 *
+	 * @param $parser Parser
+	 * @param $text string
+	 *
+	 * @return bool
 	 */
 	function checkRefsNoReferences( &$parser, &$text ) {
 		if ( $parser->getOptions()->getIsSectionPreview() ) {
@@ -1027,6 +1070,10 @@ class Cite {
 	/**
 	 * Hook for the InlineEditor extension. If any ref or reference reference tag is in the text, the entire
 	 * page should be reparsed, so we return false in that case.
+	 *
+	 * @param $output
+	 * 
+	 * @return bool
 	 */
 	function checkAnyCalls( &$output ) {
 		return ( $this->mCallCnt <= 0 );
@@ -1034,6 +1081,10 @@ class Cite {
 
 	/**
 	 * Initialize the parser hooks
+	 *
+	 * @param $parser Parser
+	 *
+	 * @return bool
 	 */
 	static function setHooks( $parser ) {
 		global $wgHooks;

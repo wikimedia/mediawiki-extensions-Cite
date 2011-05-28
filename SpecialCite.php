@@ -33,6 +33,13 @@ $wgHooks['SkinTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';
 $wgSpecialPages['Cite'] = 'SpecialCite';
 $wgAutoloadClasses['SpecialCite'] = $dir . 'SpecialCite_body.php';
 
+/**
+ * @param $skintemplate SkinTemplate
+ * @param $nav_urls
+ * @param $oldid
+ * @param $revid
+ * @return bool
+ */
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 	// check whether we’re in the right namespace, the $revid has the correct type and is not empty 
 	// (what would mean that the current page doesn’t exist)
@@ -46,9 +53,13 @@ function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
 
 /**
  * add the cite link to the toolbar
+ *
+ * @param $skin Skin
+ *
+ * @return bool
  */
 function wfSpecialCiteToolbox( &$skin ) {
-global $wgUser;
+	global $wgUser;
 
 	if ( isset( $skin->data['nav_urls']['cite'] ) ) {
 		echo Html::rawElement(

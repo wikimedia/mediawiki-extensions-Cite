@@ -47,6 +47,10 @@ $wgCiteCacheReferences = false;
  * Performs the hook registration.
  * Note that several extensions (and even core!) try to detect if Cite is 
  * installed by looking for wfCite().
+ *
+ * @param $parser Parser
+ *
+ * @return bool
  */
 function wfCite( $parser ) {
 	return Cite::setHooks( $parser );

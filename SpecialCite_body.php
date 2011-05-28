@@ -32,9 +32,9 @@ class SpecialCite extends SpecialPage {
 		}
 		$cform = new CiteForm( $title );
 
-		if ( !$title || ! $article->exists() )
+		if ( !$title || ! $article->exists() ) {
 			$cform->execute();
-		else {
+		} else {
 			$cform->execute();
 
 			$cout = new CiteOutput( $title, $article, $id );
@@ -44,6 +44,10 @@ class SpecialCite extends SpecialPage {
 }
 
 class CiteForm {
+
+	/**
+	 * @var Title
+	 */
 	var $mTitle;
 
 	function __construct( &$title ) {
@@ -88,8 +92,30 @@ class CiteForm {
 }
 
 class CiteOutput {
-	var $mTitle, $mArticle, $mId;
-	var $mParser, $mParserOptions, $mSpTitle;
+
+	/**
+	 * @var Title
+	 */
+	var $mTitle;
+
+	/**
+	 * @var Article
+	 */
+	var $mArticle;
+
+	var $mId;
+
+	/**
+	 * @var Parser
+	 */
+	var $mParser;
+
+	/**
+	 * @var ParserOptions
+	 */
+	var $mParserOptions;
+
+	var $mSpTitle;
 
 	function __construct( &$title, &$article, $id ) {
 		global $wgHooks, $wgParser;
@@ -138,11 +164,14 @@ class CiteOutput {
 		return $ret->getText();
 	}
 
-	function varCache() { return false; }
+	function varCache() {
+		return false;
+	}
 
 	function timestamp( &$parser, &$ts ) {
-		if ( isset( $parser->mTagHooks['citation'] ) )
+		if ( isset( $parser->mTagHooks['citation'] ) ) {
 			$ts = wfTimestamp( TS_UNIX, $this->mArticle->getTimestamp() );
+		}
 
 		return true;
 	}

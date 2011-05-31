@@ -139,10 +139,10 @@ class Cite {
 	var $mRefCallStack = array();
 
 	/**
-	 * Variable holding the singleton.
-	 * @var Cite
+	 * Did we install us into $wgHooks yet?
+	 * @var Boolean
 	 */
-	static protected $instance = null;
+	static protected $hooksInstalled = false;
 
 	/**#@+ @access private */
 
@@ -1021,10 +1021,13 @@ class Cite {
 	 * @return bool
 	 */
 	function clearState( $parser ) {
-		global $wgParser;
+		if ( $parser->extCite !== $this ) {
+			return $parser->extCite->clearState( $parser );
+		}
+		
 		# Don't clear state when we're in the middle of parsing
 		# a <ref> tag or parsing messages
-		if ( $this->mInCite || $this->mInReferences ||  $parser !== $wgParser ) {
+		if ( $this->mInCite || $this->mInReferences ) {
 			return true;
 		}
 
@@ -1049,6 +1052,10 @@ class Cite {
 	 * @return bool
 	 */
 	function checkRefsNoReferences( &$parser, &$text ) {
+		if ( $parser->extCite !== $this ) {
+			return $parser->extCite->checkRefsNoReferences( $parser, $text );
+		}
+		
 		if ( $parser->getOptions()->getIsSectionPreview() ) {
 			return true;
 		}
@@ -1076,7 +1083,9 @@ class Cite {
 	 * @return bool
 	 */
 	function checkAnyCalls( &$output ) {
-		return ( $this->mCallCnt <= 0 );
+		global $wgParser;
+		/* InlineEditor always uses $wgParser */
+		return ( $wgParser->extCite->mCallCnt <= 0 );
 	}
 
 	/**
@@ -1089,15 +1098,16 @@ class Cite {
 	static function setHooks( $parser ) {
 		global $wgHooks;
 
-		if ( !self::$instance ) {
-			self::$instance = new self();
-
-			$wgHooks['ParserClearState'][] = array( self::$instance, 'clearState' );
-			$wgHooks['ParserBeforeTidy'][] = array( self::$instance, 'checkRefsNoReferences' );
-			$wgHooks['InlineEditorPartialAfterParse'][] = array( self::$instance, 'checkAnyCalls' );
+		$parser->extCite = new self();
+		
+		if ( !Cite::$hooksInstalled ) {
+			$wgHooks['ParserClearState'][] = array( $parser->extCite, 'clearState' );
+			$wgHooks['ParserBeforeTidy'][] = array( $parser->extCite, 'checkRefsNoReferences' );
+			$wgHooks['InlineEditorPartialAfterParse'][] = array( $parser->extCite, 'checkAnyCalls' );
+			Cite::$hooksInstalled = true;
 		}
-		$parser->setHook( 'ref' , array( self::$instance, 'ref' ) );
-		$parser->setHook( 'references' , array( self::$instance, 'references' ) );
+		$parser->setHook( 'ref' , array( $parser->extCite, 'ref' ) );
+		$parser->setHook( 'references' , array( $parser->extCite, 'references' ) );
 
 		return true;
 	}

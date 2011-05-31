@@ -1026,7 +1026,7 @@ class Cite {
 		}
 		
 		# Don't clear state when we're in the middle of parsing
-		# a <ref> tag or parsing messages
+		# a <ref> tag
 		if ( $this->mInCite || $this->mInReferences ) {
 			return true;
 		}

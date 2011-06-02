@@ -1508,7 +1508,7 @@ $messages['ro'] = array(
 );
 
 /** Aromanian (Armãneashce) */
-$messages['roa-rup'] = array(
+$messages['rup'] = array(
 	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
 );
 

@@ -1507,11 +1507,6 @@ $messages['ro'] = array(
 	'cite_submit' => 'Deschide informații',
 );
 
-/** Aromanian (Armãneashce) */
-$messages['rup'] = array(
-	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
-);
-
 /** Tarandíne (Tarandíne)
  * @author Joetaras
  */
@@ -1547,6 +1542,11 @@ $messages['rue'] = array(
 	'cite' => 'Цітованя',
 	'cite_page' => 'Сторінка:',
 	'cite_submit' => 'Цітовати',
+);
+
+/** Aromanian (Armãneashce) */
+$messages['rup'] = array(
+	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
 );
 
 /** Yakut (Саха тыла)

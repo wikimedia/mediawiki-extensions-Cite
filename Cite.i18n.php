@@ -208,6 +208,7 @@ Faiga servir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..
 );
 
 /** Arabic (العربية)
+ * @author Aiman titi
  * @author Meno25
  * @author OsamaK
  */
@@ -237,6 +238,9 @@ $str و/أو $key غير صحيح.
 استخدم <code>&lt;references /&gt;</code>، أو <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'نفدت علامات الوصلات الراجعة المخصصة.
 عرف المزيد في رسالة <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'تم الإنتهاء من تسمية الارتباطات المخصصة لمجموعة "$1".
+
+للحصول على تعريف أكثر أنظر هذه <nowiki>[[MediaWiki:$2]]</nowiki> الرسالة.',
 	'cite_error_references_no_text' => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
 لا نص تم توفيره للمراجع المسماة <code>$1</code>',
 	'cite_error_included_ref' => 'إغلاق &lt;/ref&gt; مفقود لوسم &lt;ref&gt;',

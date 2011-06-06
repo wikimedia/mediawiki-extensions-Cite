@@ -1152,18 +1152,19 @@ viitettä <code>$1</code> ei löytynyt',
  * @author McDutchie
  * @author Sherbrooke
  * @author The Evil IP address
+ * @author Trizek
  * @author Verdy p
  */
 $messages['fr'] = array(
-	'cite-desc' => 'Ajoute les balises <nowiki><ref[ name="id"]></nowiki> et <nowiki><references/></nowiki> pour les citations.',
-	'cite_croak' => 'Citation en impasse ; $1 : $2',
+	'cite-desc' => 'Ajoute les balises <nowiki><ref[ name="id"]></nowiki> et <nowiki><references/></nowiki> pour les références et notes de bas de page.',
+	'cite_croak' => 'Référence en impasse ; $1 : $2',
 	'cite_error_key_str_invalid' => 'Erreur interne ;
 $str ou $key invalides.
 Ceci ne devrait jamais se produire.',
 	'cite_error_stack_invalid_input' => 'Erreur interne ;
 clé de pile invalide.
 Ceci ne devrait jamais se produire.',
-	'cite_error' => 'Erreur de citation : $1',
+	'cite_error' => 'Erreur de référence : $1',
 	'cite_error_ref_numeric_key' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
 le nom ne peut être un entier simple. Utilisez un titre descriptif.',
 	'cite_error_ref_no_key' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;

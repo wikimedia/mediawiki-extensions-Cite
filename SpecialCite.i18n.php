@@ -1032,10 +1032,12 @@ $messages['kw'] = array(
 );
 
 /** Latin (Latina)
+ * @author MissPetticoats
  * @author SPQRobin
  * @author UV
  */
 $messages['la'] = array(
+	'cite_article_desc' => ' Addet [[Special:Cite|citation]] specialem paginam et arcam instrumenti',
 	'cite_article_link' => 'Hanc paginam citare',
 	'cite' => 'Paginam citare',
 	'cite_page' => 'Pagina:',

@@ -1987,6 +1987,7 @@ $messages['lt'] = array(
 	'cite_error_references_no_backlink_label' => 'Baigėsi antraštės.
 Nurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> sisteminiame tekste',
 	'cite_error_included_ref' => 'Trūksta uždaromojo &lt;/ref&gt; žymei &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'puslapyje egzistuoja žyma <code>&lt;ref&gt;</code>, tačiau žymos <code>&lt;references/&gt;</code> nėra rasta',
 );
 
 /** Latvian (Latviešu)

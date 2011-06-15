@@ -1029,6 +1029,7 @@ $messages['ku-latn'] = array(
  */
 $messages['kw'] = array(
 	'cite_article_link' => 'Devydna an erthygel-ma',
+	'cite' => 'Devydna',
 );
 
 /** Latin (Latina)

@@ -414,7 +414,7 @@ $messages['de'] = array(
 	'tooltip-cite-article' => 'Hinweis, wie diese Seite zitiert werden kann',
 	'cite' => 'Zitierhilfe',
 	'cite_page' => 'Seite:',
-	'cite_submit' => 'anzeigen',
+	'cite_submit' => 'zitieren',
 );
 
 /** Zazaki (Zazaki)

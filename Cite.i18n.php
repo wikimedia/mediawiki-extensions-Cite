@@ -2435,11 +2435,11 @@ Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_included_ref' => '&lt;/ref&gt; de fecho em falta, para o elemento &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'existem tags <code>&lt;ref&gt;</code>, mas nenhuma tag <code>&lt;references/&gt;</code> foi encontrada',
 	'cite_error_group_refs_without_references' => 'existem tags <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma tag <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada',
-	'cite_error_references_group_mismatch' => 'A etiqueta <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> possui atributo de grupo "$1" conflitante.',
-	'cite_error_references_missing_group' => 'A etiqueta <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> possui atributo de grupo "$1" que não aparece no texto acima.',
+	'cite_error_references_group_mismatch' => 'O elemento <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> tem o atributo de grupo "$1", que está em conflito com o de <code>&lt;references&gt;</code>.',
+	'cite_error_references_missing_group' => 'O elemento <code>&lt;ref&gt;</code> definido em <code>&lt;references&gt;</code> tem o atributo de grupo "$1", que não aparece no texto anterior.',
 	'cite_error_references_missing_key' => 'A etiqueta <code>&lt;ref&gt;</code> com nome "$1" definida em <code>&lt;references&gt;</code> não é utilizada no texto acima.',
-	'cite_error_references_no_key' => 'A etiqueta <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> não possui atributo de nome.',
-	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> etiqueta definida em <code>&lt;references&gt;</code> com nome "$1" não possui conteúdo.',
+	'cite_error_references_no_key' => 'O elemento <code>&lt;ref&gt;</code> definido em <code>&lt;references&gt;</code> não tem um atributo de nome.',
+	'cite_error_empty_references_define' => 'O elemento <code>&lt;ref&gt;</code> definido em <code>&lt;references&gt;</code> com o nome "$1" não tem conteúdo.',
 );
 
 /** Brazilian Portuguese (Português do Brasil)

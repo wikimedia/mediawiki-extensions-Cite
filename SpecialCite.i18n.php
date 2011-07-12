@@ -1525,6 +1525,7 @@ $messages['roa-tara'] = array(
 /** Russian (Русский)
  * @author Huuchin
  * @author Александр Сигачёв
+ * @author Ильнар
  */
 $messages['ru'] = array(
 	'cite_article_desc' => 'Добавляет служебную страницу [[Special:Cite|цитирования]] и ссылку в инструментах',
@@ -1866,7 +1867,12 @@ $messages['ts'] = array(
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
+	'cite_article_desc' => 'Махсус [[Special:Cite|күчермәләү]] битен һәм җиһазларга сылтамалар өсти',
 	'cite_article_link' => 'Бу битне күчермәләү',
+	'tooltip-cite-article' => 'Бу битне ничек күчермәләү турындагы мәгълүмат',
+	'cite' => 'Күчермәләү',
+	'cite_page' => 'Бит:',
+	'cite_submit' => 'Күчермәләү',
 );
 
 /** Udmurt (Удмурт)

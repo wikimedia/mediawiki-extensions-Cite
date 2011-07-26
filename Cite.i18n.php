@@ -2176,8 +2176,8 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'cite_croak' => "Fout in 't referentiesysteem; $1: $2",
-	'cite_error' => 'Citeerfout: $1',
+	'cite_croak' => 'Fout in t referentiesysteem; $1: $2',
+	'cite_error' => 'Siteerfout: $1',
 );
 
 /** Dutch (Nederlands)

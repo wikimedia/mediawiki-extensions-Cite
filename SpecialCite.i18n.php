@@ -1266,12 +1266,12 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'cite_article_desc' => 'Voeg een [[Special:Cite|speciale pagina]] toe um te citeren, en een verwiezing dernaor in de hulpmiddels',
-	'cite_article_link' => 'Disse pagina citeren',
-	'tooltip-cite-article' => 'Infermasie over ho of da-j disse pagina kunnen citeren',
-	'cite' => 'Citeerhulpe',
+	'cite_article_desc' => 'Zet een [[Special:Cite|spesiale pagina]] derbie um te siteren, en een verwiezing dernaor in de hulpmiddels',
+	'cite_article_link' => 'Disse pagina siteren',
+	'tooltip-cite-article' => "Informasie over ho of da'j disse pagina kunnen siteren",
+	'cite' => 'Siteerhulpe',
 	'cite_page' => 'Pagina:',
-	'cite_submit' => 'Citeren',
+	'cite_submit' => 'Siteren',
 );
 
 /** Nepali (नेपाली) */

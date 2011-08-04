@@ -1266,7 +1266,7 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'cite_article_desc' => 'Zet een [[Special:Cite|spesiale pagina]] derbie um te siteren, en een verwiezing dernaor in de hulpmiddels',
+	'cite_article_desc' => 'Zet n [[Special:Cite|spesiale pagina]] derbie um te siteren, en n verwiezing dernaor in de hulpmiddels',
 	'cite_article_link' => 'Disse pagina siteren',
 	'tooltip-cite-article' => "Informasie over ho of da'j disse pagina kunnen siteren",
 	'cite' => 'Siteerhulpe',

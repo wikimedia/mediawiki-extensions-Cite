@@ -1095,7 +1095,7 @@ $messages['fa'] = array(
 	'cite_error_references_no_backlink_label' => 'برچسب‌های پیوند به انتها رسید.
 موارد جدیدی را در پیام <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> تعریف کنید',
 	'cite_error_no_link_label_group' => 'از برچسب‌های پیوند سفارشی برای گروه «$1» خارج شد.
-در پیغام <nowiki>[[MediaWiki:$2]]</nowiki> بیش‌تر تعریف کنید.',
+در پیغام <nowiki>[[MediaWiki:$2]]</nowiki> بیشتر تعریف کنید.',
 	'cite_error_references_no_text' => 'برچسب <code><ref></code> غیرمجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
 	'cite_error_included_ref' => 'برچسب تمام کنندهٔ &lt;/ref&gt; بدون برچسب &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'برچسب <code>&lt;ref&gt;</code> وجود دارد اما برچسب <code>&lt;references/&gt;</code> پیدا نشد',

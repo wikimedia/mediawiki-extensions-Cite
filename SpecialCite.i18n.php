@@ -21,12 +21,14 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
+ * @author Lloffiwr
  * @author Siebrand
  * @author Tgr
  */
 $messages['qqq'] = array(
 	'cite_article_desc' => 'Extension description for cite. Do not translate or change links, and tag names.',
 	'cite_article_link' => 'Text of link in toolbox',
+	'tooltip-cite-article' => 'Tooltip',
 	'cite' => '{{Identical|Cite}}',
 	'cite_page' => '{{Identical|Page}}',
 	'cite_submit' => '{{Identical|Cite}}',
@@ -186,10 +188,10 @@ $messages['ba'] = array(
  * @author Mucalexx
  */
 $messages['bar'] = array(
-	'cite_article_desc' => "Ergenzt d'[[Special:Cite|Zitirhuyf]]-Speziaalseiten und an Link im Werkzeig-Kosten",
-	'cite_article_link' => "d'Seiten zitirn",
-	'tooltip-cite-article' => "Hijweis, wia d'Seiten zitird wern kå",
-	'cite' => 'Zitirhuyf',
+	'cite_article_desc' => "Ergänzd d' [[Special:Cite|Zitirhüf]]-Speziaalseiten und an Link im Werkzeigkosten",
+	'cite_article_link' => "d' Seiten zitirn",
+	'tooltip-cite-article' => 'Hihweis, wia dé Seiten zitird wern kå',
+	'cite' => 'Zitirhüf',
 	'cite_page' => 'Seiten:',
 	'cite_submit' => 'åzoang',
 );
@@ -1357,7 +1359,7 @@ $messages['or'] = array(
 	'cite_page' => 'ପୃଷ୍ଠା:',
 );
 
-/** Ossetic (Иронау)
+/** Ossetic (Ирон)
  * @author Amikeco
  */
 $messages['os'] = array(
@@ -1553,7 +1555,7 @@ $messages['rup'] = array(
 	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -1719,9 +1721,15 @@ $messages['sv'] = array(
 	'cite_submit' => 'Citera',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ * @author Lloffiwr
+ */
 $messages['sw'] = array(
+	'cite_article_link' => 'Taja ukurasa huu',
+	'tooltip-cite-article' => 'Taarifa juu ya njia ya kutaja ukurasa huu',
+	'cite' => 'Taja',
 	'cite_page' => 'Ukurasa:',
+	'cite_submit' => 'Taja',
 );
 
 /** Silesian (Ślůnski)
@@ -1835,7 +1843,7 @@ $messages['tn'] = array(
 	'cite_article_link' => 'Nopola mokwalo o',
 );
 
-/** Tonga (lea faka-Tonga) */
+/** Tongan (lea faka-Tonga) */
 $messages['to'] = array(
 	'cite_article_link' => 'Lau ki he kupú ni',
 	'cite' => 'Lau ki he',

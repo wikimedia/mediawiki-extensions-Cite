@@ -1422,6 +1422,16 @@ $messages['pms'] = array(
 	'cite_submit' => 'Pronta la citassion',
 );
 
+/** Western Punjabi (پنجابی)
+ * @author Khalid Mahmood
+ */
+$messages['pnb'] = array(
+	'cite_article_link' => 'ایس صفے دا اتہ پتہ دیو',
+	'cite' => 'اتہ پتہ',
+	'cite_page' => 'صفہ:',
+	'cite_submit' => 'اتہ پتہ',
+);
+
 /** Pontic (Ποντιακά)
  * @author Sinopeus
  */

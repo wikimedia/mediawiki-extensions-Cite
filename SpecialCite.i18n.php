@@ -2027,12 +2027,14 @@ $messages['yue'] = array(
 	'cite_submit' => '引用',
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Xiaomingyan
+ */
 $messages['zh-hans'] = array(
 	'cite_article_desc' => '增加[[Special:Cite|引用]]特殊页面以及工具箱链接',
 	'cite_article_link' => '引用此文',
 	'tooltip-cite-article' => '关于如何引用此页的资讯',
-	'cite' => '引用文章',
+	'cite' => '引用页面',
 	'cite_page' => '页面：',
 	'cite_submit' => '引用',
 );

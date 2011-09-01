@@ -3005,7 +3005,8 @@ $messages['sv'] = array(
 	'cite_error' => 'Referensfel: $1',
 	'cite_error_ref_numeric_key' => "Ogiltig <code>&lt;ref&gt;</code>-tag; parametern 'name' kan inte vara ett tal, använd ett beskrivande namn",
 	'cite_error_ref_no_key' => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan innehåll måste ha ett namn',
-	'cite_error_ref_too_many_keys' => "Ogiltig <code>&lt;ref&gt;</code>-tag; ogiltiga parametrar, den enda tillåtna parametern är 'name'",
+	'cite_error_ref_too_many_keys' => 'Ogiltig <code>&lt;ref&gt;</code>-tagg;
+ogiltiga namn, t.ex. för många',
 	'cite_error_ref_no_input' => 'Ogiltig <code>&lt;ref&gt;</code>-tag; referenser utan namn måste ha innehåll',
 	'cite_error_references_invalid_parameters' => 'Ogiltig <code>&lt;references&gt;</code>-tag; inga parametrar tillåts, använd <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Ogiltig <code>&lt;references&gt;</code>-tagg;

@@ -2521,8 +2521,10 @@ Astawan sut'ichay <nowiki>[[MediaWiki:Cite references link many format backlink 
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Minisarm
  */
 $messages['ro'] = array(
 	'cite-desc' => 'Adaugă etichete <nowiki><ref[ name=id]></nowiki> și <nowiki><references/></nowiki>, pentru citări',
@@ -2551,6 +2553,13 @@ Folosește eticheta <code>&lt;references /&gt;</code>, sau <code>&lt;references 
 	'cite_error_references_no_text' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
 niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
 	'cite_error_included_ref' => 'Adaugă &lt;/ref&gt; eticheta a fost deschisă prin &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Etichete <code>&lt;ref&gt;</code> există, dar nu s-a găsit nicio etichetă <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Etichete <code>&lt;ref&gt;</code> există pentru un grup numit „$1”, dar nu și o etichetă <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'Eticheta <code>&lt;ref&gt;</code> din <code>&lt;references&gt;</code> are atributul de grup „$1” care a intrat în conflict.',
+	'cite_error_references_missing_group' => 'Eticheta <code>&lt;ref&gt;</code> definită în <code>&lt;references&gt;</code> are atributul de grup „$1” care nu apare în textul anterior.',
+	'cite_error_references_missing_key' => 'Eticheta <code>&lt;ref&gt;</code> cu numele „$1” definită în <code>&lt;references&gt;</code> nu este utilizată în textul anterior.',
+	'cite_error_references_no_key' => 'Eticheta <code>&lt;ref&gt;</code> definită în <code>&lt;references&gt;</code> nu are atributul nume.',
+	'cite_error_empty_references_define' => 'Eticheta <code>&lt;ref&gt;</code> definită în <code>&lt;references&gt;</code> cu numele „$1” nu are conținut.',
 );
 
 /** Tarandíne (Tarandíne)

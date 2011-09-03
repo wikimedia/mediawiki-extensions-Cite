@@ -82,6 +82,7 @@ no text was provided for refs named <code>$1</code>',
 
 /** Message documentation (Message documentation)
  * @author Dani
+ * @author LPfi
  * @author Lejonel
  * @author Mormegil
  * @author Nike
@@ -97,7 +98,7 @@ $messages['qqq'] = array(
 	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
 	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.',
-	'cite_error_ref_too_many_keys' => 'Cite extension. Error message shown when ref tags has parameters other than name. Examples that cause this error are <code>&lt;ref name="name" notname="value" /&gt;</code> or <code>&lt;ref notname="value" &gt;input&lt;ref&gt;</code>',
+	'cite_error_ref_too_many_keys' => 'Cite extension. Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code>&lt;ref name="name" notname="value" /&gt;</code> or <code>&lt;ref notname="value" &gt;input&lt;ref&gt;</code>',
 	'cite_error_ref_no_input' => 'Cite extension. Error message shown when ref tags without names have no content. An example that cause this error is <code>&lt;ref&gt;&lt;/ref&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Cite extension. Error message shown when parmeters are used in the references tag. An example that cause this error is <code>&lt;references someparameter="value" /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Cite extension. Error message shown when unknown parameters are used in the references tag. An example that cause this error is <tt><nowiki><references someparameter="value" /></nowiki></tt>',
@@ -1218,10 +1219,18 @@ solament lo paramètre « tropa » est ôtorisâ.
 Utilisâd <code>&lt;references /&gt;</code>, ou ben <code>&lt;references group="..." /&gt;</code>.',
 	'cite_error_references_no_backlink_label' => 'Èpouesement de les ètiquètes de lims pèrsonalisâs.
 Dèfenésséd-nen un ples grant nombro dens lo mèssâjo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_no_link_label_group' => 'Més d’ètiquètes de lims pèrsonalisâs por la tropa « $1 ».
+Dèfenésséd-nen més dens lo mèssâjo <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Balisa <code>&lt;ref&gt;</code> fôssa ;
 nion tèxto at étâ balyê por les refèrences apelâs <code>$1</code>.',
 	'cite_error_included_ref' => 'Cllotura &lt;/ref&gt; manquenta por la balisa &lt;ref&gt;.',
 	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> ègzistont, mas niona balisa <code>&lt;references/&gt;</code> at étâ trovâ.',
+	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> ègzistont por una tropa apelâ « $1 », mas niona balisa <code>&lt;references group="$1"/&gt;</code> que corrèspond at étâ trovâ.',
+	'cite_error_references_group_mismatch' => 'La balisa <code>&lt;ref&gt;</code> dens <code>&lt;references&gt;</code> at l’atribut de tropa « $1 » qu’entre en conflit avouéc celi de <code>&lt;references&gt;</code>.',
+	'cite_error_references_missing_group' => 'La balisa <code>&lt;ref&gt;</code> dèfenia dens <code>&lt;references&gt;</code> at l’atribut de tropa « $1 » que figure pas dens cél tèxto.',
+	'cite_error_references_missing_key' => 'La balisa <code>&lt;ref&gt;</code> avouéc lo nom « $1 » dèfenia dens <code>&lt;references&gt;</code> est pas utilisâ dens cél tèxto.',
+	'cite_error_references_no_key' => 'La balisa <code>&lt;ref&gt;</code> dèfenia dens <code>&lt;references&gt;</code> at gins d’atribut de nom.',
+	'cite_error_empty_references_define' => 'La balisa <code>&lt;ref&gt;</code> dèfenia dens <code>&lt;references&gt;</code> avouéc lo nom « $1 » at gins de contegnu.',
 );
 
 /** Friulian (Furlan)

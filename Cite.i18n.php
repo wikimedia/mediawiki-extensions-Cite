@@ -3236,6 +3236,13 @@ sadece "group" parametresine izin verilir.
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>\'da tanımlanan "$1" adlı <code>&lt;ref&gt;</code> etiketinin içeriği yok.',
 );
 
+/** Tatar (Cyrillic script) (Татарча)
+ * @author Timming
+ */
+$messages['tt-cyrl'] = array(
+	'cite_error' => 'Өземтә китерү хатасы: $1',
+);
+
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc

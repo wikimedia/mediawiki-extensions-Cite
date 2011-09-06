@@ -1231,6 +1231,8 @@ nion tèxto at étâ balyê por les refèrences apelâs <code>$1</code>.',
 	'cite_error_references_missing_key' => 'La balisa <code>&lt;ref&gt;</code> avouéc lo nom « $1 » dèfenia dens <code>&lt;references&gt;</code> est pas utilisâ dens cél tèxto.',
 	'cite_error_references_no_key' => 'La balisa <code>&lt;ref&gt;</code> dèfenia dens <code>&lt;references&gt;</code> at gins d’atribut de nom.',
 	'cite_error_empty_references_define' => 'La balisa <code>&lt;ref&gt;</code> dèfenia dens <code>&lt;references&gt;</code> avouéc lo nom « $1 » at gins de contegnu.',
+	'cite_references_link_many_sep' => ',&#32;',
+	'cite_references_link_many_and' => '&#32;et&#32;',
 );
 
 /** Friulian (Furlan)

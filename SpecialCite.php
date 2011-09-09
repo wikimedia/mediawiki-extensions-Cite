@@ -59,17 +59,15 @@ function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
  * @return bool
  */
 function wfSpecialCiteToolbox( &$skin ) {
-	global $wgUser;
-
 	if ( isset( $skin->data['nav_urls']['cite'] ) ) {
 		echo Html::rawElement(
 			'li',
 			array( 'id' => 't-cite' ),
-			$skin->skin->link(
+			Linker::link(
 				SpecialPage::getTitleFor( 'Cite' ),
 				wfMsg( 'cite_article_link' ),
 				# Used message keys: 'tooltip-cite-article', 'accesskey-cite-article'
-				$wgUser->getSkin()->tooltipAndAccessKeyAttribs( 'cite-article' ),
+				Linker::tooltipAndAccessKeyAttribs( 'cite-article' ),
 				$skin->data['nav_urls']['cite']['args']
 			)
 		);

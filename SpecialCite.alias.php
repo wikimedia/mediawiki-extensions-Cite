@@ -235,7 +235,7 @@ $specialPageAliases['nds'] = array(
 
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
-	'Cite' => array( 'Citeerhulpe' ),
+	'Cite' => array( 'Siteerhulpe' ),
 );
 
 /** Dutch (Nederlands) */
@@ -346,6 +346,11 @@ $specialPageAliases['vi'] = array(
 /** Yiddish (ייִדיש) */
 $specialPageAliases['yi'] = array(
 	'Cite' => array( 'ציטירן' ),
+);
+
+/** Cantonese (粵語) */
+$specialPageAliases['yue'] = array(
+	'Cite' => array( '引用' ),
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */

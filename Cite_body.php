@@ -71,7 +71,7 @@ class Cite {
 	 * @var int
 	 */
 	var $mInCnt = 0;
-	
+
 	/**
 	 * Counter to track the total number of (useful) calls to either the
 	 * ref or references tag hook
@@ -617,9 +617,9 @@ class Cite {
 
 	/**
 	 * Make output to be returned from the references() function
-	 * 
+	 *
 	 * @param $group
-	 * 
+	 *
 	 * @return string XHTML ready for output
 	 */
 	function referencesFormat( $group ) {
@@ -1020,11 +1020,11 @@ class Cite {
 	 *
 	 * @return bool
 	 */
-	function clearState( $parser ) {
+	function clearState( &$parser ) {
 		if ( $parser->extCite !== $this ) {
 			return $parser->extCite->clearState( $parser );
 		}
-		
+
 		# Don't clear state when we're in the middle of parsing
 		# a <ref> tag
 		if ( $this->mInCite || $this->mInReferences ) {
@@ -1055,7 +1055,7 @@ class Cite {
 		if ( $parser->extCite !== $this ) {
 			return $parser->extCite->checkRefsNoReferences( $parser, $text );
 		}
-		
+
 		if ( $parser->getOptions()->getIsSectionPreview() ) {
 			return true;
 		}
@@ -1073,13 +1073,13 @@ class Cite {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Hook for the InlineEditor extension. If any ref or reference reference tag is in the text, the entire
 	 * page should be reparsed, so we return false in that case.
 	 *
 	 * @param $output
-	 * 
+	 *
 	 * @return bool
 	 */
 	function checkAnyCalls( &$output ) {
@@ -1099,7 +1099,7 @@ class Cite {
 		global $wgHooks;
 
 		$parser->extCite = new self();
-		
+
 		if ( !Cite::$hooksInstalled ) {
 			$wgHooks['ParserClearState'][] = array( $parser->extCite, 'clearState' );
 			$wgHooks['ParserBeforeTidy'][] = array( $parser->extCite, 'checkRefsNoReferences' );

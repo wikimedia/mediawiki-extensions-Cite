@@ -2328,6 +2328,33 @@ pas de tèxte per las referéncias nomenadas <code>$1</code>.',
 	'cite_error_empty_references_define' => 'La balisa <code>&lt;ref&gt;</code> definida dins <code>&lt;references&gt;</code> amb lo nom « $1 » a pas de contengut.',
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Psubhashish
+ */
+$messages['or'] = array(
+	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> ଓ <nowiki><references/></nowiki> ଟାଗସବୁ ଆଧାର ନିମନ୍ତେ ଏଠାରେ ଯୋଡ଼ିଥାଏ ।',
+	'cite_croak' => 'ଆଧାରଟି ଏବେ ଅଚଳ; $1: $2',
+	'cite_error_key_str_invalid' => 'ଭିତରର ଅସୁବିଧା;
+ଅବୈଧ $str ତଥା/କିମ୍ବା $key ।
+ଏହା ଆଉ କେବେ ଘଟିବ ଅନୁଚିତ ।',
+	'cite_error_stack_invalid_input' => 'ଭିତରର ଅସୁବିଧା;
+ଅବୈଧ କି (key) ଗଦା ।
+ଏହା ଆଉ କେବେ ଘଟିବ ଅନୁଚିତ ।',
+	'cite_error' => 'ଆଧାର ଭୁଲ: $1',
+	'cite_error_ref_numeric_key' => 'ଅବୈଧ <code>&lt;ref&gt;</code> tag;
+ନାମାଟି କେବେ ହେଲେଁ ଏକ ସଂଖ୍ୟା ହୋଇପାରିବ ନାହିଁ । ଏକ ବର୍ଣ୍ଣନାମୂଳକ ନାମ ଦିଅନ୍ତୁ ।',
+	'cite_error_ref_no_key' => 'ଅବୈଧ <code>&lt;ref&gt;</code> ଚିହ୍ନ;
+କୌଣସି ବି ବିଷୟବସ୍ତୁ ନଥିବା ଆଧାରର ଏକ ନାମ ଥିବା ଲୋଡ଼ା',
+	'cite_error_ref_too_many_keys' => 'ଅବୈଧ <code>&lt;ref&gt;</code> ଚିହ୍ନ;
+ଭୁଲ ନାମ, ଯଥା: ଖୁବ ଅଧିକ',
+	'cite_error_ref_no_input' => 'ଅବୈଧ <code>&lt;ref&gt;</code> ଚିହ୍ନ;
+କୌଣସି ବି ନାମ ନଥିବା ଆଧାରର କିଛି ବିଷୟବସ୍ତୁ  ଥିବା ଲୋଡ଼ା',
+	'cite_error_included_ref' => '&lt;/ref&gt କୁ ବନ୍ଦ କରୁଅଛୁ; &lt;ref&gt ନାହିଁ; ଚିହ୍ନ',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ଚିହ୍ନ ରହିଅଛି, କିନ୍ତୁ <code>&lt;references/&gt;</code> ଚିହ୍ନଟି ମିଳିଲା ନାହିଁ',
+	'cite_error_group_refs_without_references' => '"$1" ଗୋଠ ପାଇଁ <code>&lt;ref&gt;</code> ଚିହ୍ନ ସବୁ ରହିଅଛି, କିନ୍ତୁ କୌଣସି ବି <code>&lt;references group="$1"/&gt;</code> ଚିହ୍ନ ମିଳିଲା ନାହିଁ',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt ରେ <code>&lt;ref&gt;</code> ଚିହ୍ନ;</code> ର ଅସୁବିଧାଜନକ ଗୋଠ ବିଶେଷତା "$1" ।',
+);
+
 /** Pangasinan (Pangasinan) */
 $messages['pag'] = array(
 	'cite_error' => 'Bitlaen so error $1; $2',

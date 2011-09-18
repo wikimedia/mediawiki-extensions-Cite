@@ -1355,8 +1355,12 @@ $messages['oc'] = array(
  * @author Psubhashish
  */
 $messages['or'] = array(
+	'cite_article_desc' => 'ଏକ [[Special:Cite|ଆଧାର]] ବିଶେଷ ପୃଷ୍ଠା ଓ ଉପକରଣ ପେଡ଼ିର ଲିଙ୍କ ଯୋଡ଼ିଥାଏ',
 	'cite_article_link' => 'ଏହି ପୃଷ୍ଠାଟିରେ ପ୍ରମାଣ ଯୋଡ଼ିବେ',
+	'tooltip-cite-article' => 'ଏକ ଆଧାର ଦେବା ଉପରେ ଅଧିକ ବିବରଣୀ',
+	'cite' => 'ଆଧାର ଦେବେ',
 	'cite_page' => 'ପୃଷ୍ଠା:',
+	'cite_submit' => 'ଆଧାର ଦେବେ',
 );
 
 /** Ossetic (Ирон)

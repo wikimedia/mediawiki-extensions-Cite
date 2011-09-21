@@ -2349,6 +2349,9 @@ $messages['or'] = array(
 ଭୁଲ ନାମ, ଯଥା: ଖୁବ ଅଧିକ',
 	'cite_error_ref_no_input' => 'ଅବୈଧ <code>&lt;ref&gt;</code> ଚିହ୍ନ;
 କୌଣସି ବି ନାମ ନଥିବା ଆଧାରର କିଛି ବିଷୟବସ୍ତୁ  ଥିବା ଲୋଡ଼ା',
+	'cite_error_references_invalid_parameters' => 'ଅଚଳ <code>&lt;references&gt;</code> ଚିହ୍ନ;
+କୌଣସିଟି ପାରାମିଟର ଅନୁମୋଦିତ ନୁହେଁ ।
+<code>&lt;references /&gt;</code> ବ୍ୟବହାର କରନ୍ତୁ ।',
 	'cite_error_included_ref' => '&lt;/ref&gt କୁ ବନ୍ଦ କରୁଅଛୁ; &lt;ref&gt ନାହିଁ; ଚିହ୍ନ',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ଚିହ୍ନ ରହିଅଛି, କିନ୍ତୁ <code>&lt;references/&gt;</code> ଚିହ୍ନଟି ମିଳିଲା ନାହିଁ',
 	'cite_error_group_refs_without_references' => '"$1" ଗୋଠ ପାଇଁ <code>&lt;ref&gt;</code> ଚିହ୍ନ ସବୁ ରହିଅଛି, କିନ୍ତୁ କୌଣସି ବି <code>&lt;references group="$1"/&gt;</code> ଚିହ୍ନ ମିଳିଲା ନାହିଁ',

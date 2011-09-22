@@ -2352,10 +2352,23 @@ $messages['or'] = array(
 	'cite_error_references_invalid_parameters' => 'ଅଚଳ <code>&lt;references&gt;</code> ଚିହ୍ନ;
 କୌଣସିଟି ପାରାମିଟର ଅନୁମୋଦିତ ନୁହେଁ ।
 <code>&lt;references /&gt;</code> ବ୍ୟବହାର କରନ୍ତୁ ।',
+	'cite_error_references_invalid_parameters_group' => 'ଅଚଳ <code>&lt;references&gt;</code> ଚିହ୍ନ;
+"group" ପାରାମିଟରଟି କେବଳ ଅନୁମୋଦିତ ।
+<code>&lt;references /&gt;</code>, କିମ୍ବା <code>&lt;references group="..." /&gt;</code> ବ୍ୟବହାର କରନ୍ତୁ',
+	'cite_error_references_no_backlink_label' => 'ନିଜ ପସନ୍ଦର ବ୍ୟାକଲିଙ୍କ ଚିହ୍ନ ସବୁ ସରିଗଲା ।
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>ସୂଚନାରେ ଅଧିକ ଦେଖନ୍ତୁ ।',
+	'cite_error_no_link_label_group' => '"$1" ଗୋଠ ଲାଗି ନିଜ ପସନ୍ଦର ବ୍ୟାକଲିଙ୍କ ଚିହ୍ନ ସବୁ ସରିଗଲା ।
+<nowiki>[[MediaWiki:$2]]</nowiki>ସୂଚନାରେ ଅଧିକ ଚିହ୍ନିତ କରନ୍ତୁ ।',
+	'cite_error_references_no_text' => 'ଅଚଳ <code>&lt;ref&gt;</code> ଚିହ୍ନ;
+<code>$1</code> ନାମରେ ଥିବା ଆଧାର ଭିତରେ କିଛି ଲେଖା ନାହିଁ ।',
 	'cite_error_included_ref' => '&lt;/ref&gt କୁ ବନ୍ଦ କରୁଅଛୁ; &lt;ref&gt ନାହିଁ; ଚିହ୍ନ',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ଚିହ୍ନ ରହିଅଛି, କିନ୍ତୁ <code>&lt;references/&gt;</code> ଚିହ୍ନଟି ମିଳିଲା ନାହିଁ',
 	'cite_error_group_refs_without_references' => '"$1" ଗୋଠ ପାଇଁ <code>&lt;ref&gt;</code> ଚିହ୍ନ ସବୁ ରହିଅଛି, କିନ୍ତୁ କୌଣସି ବି <code>&lt;references group="$1"/&gt;</code> ଚିହ୍ନ ମିଳିଲା ନାହିଁ',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt ରେ <code>&lt;ref&gt;</code> ଚିହ୍ନ;</code> ର ଅସୁବିଧାଜନକ ଗୋଠ ବିଶେଷତା "$1" ।',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>ରେ ଦିଆଯାଇଥିବା <code>&lt;ref&gt;</code> ଚିହ୍ନରେ "$1" ଗୋଠ ପାଇଁ ଚିହ୍ନ ଅଛି ଯାହାକି ଦରକାରୀ ଲେଖାରେ ଆସୁନାହିଁ ।',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code>ରେ ଦିଆଯାଇଥିବା "$1" ନାମ ସହ ଥିବା <code>&lt;ref&gt;</code> ଚିହ୍ନ ଦରକାରୀ ଲେଖାରେ ବ୍ୟବହାର ହୋଇନାହିଁ ।',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code>ରେ ଦିଆଯାଇଥିବା <code>&lt;ref&gt;</code> ଚିହ୍ନରେ କିଛି ଆଟ୍ରିବୁଟ ନାହିଁ ।',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>ରେ ଦିଆଯାଇଥିବା "$1" ନାମ ସହ ଥିବା <code>&lt;ref&gt;</code> ଚିହ୍ନରେ କିଛି ଲେଖା ନାହିଁ ।',
 );
 
 /** Pangasinan (Pangasinan) */

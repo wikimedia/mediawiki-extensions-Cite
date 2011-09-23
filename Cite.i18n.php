@@ -1973,10 +1973,17 @@ $messages['li'] = array(
 allein de paramaeter "group" is toegestaon.
 Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => "'t Aantal besjikbare backlinklabels is opgebroek. Gaef meer labels op in 't berich <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
+	'cite_error_no_link_label_group' => '\'t Aantal aangepasde verwiezingslabels veure groep "$1" is oetgepöt.
+Doe kans d\'r mier insjtelle in \'t sysyeemberich <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Ónzjuuste tag <code>&lt;ref&gt;</code>; d'r is gein teks opgegaeve veur refs mit de naam <code>$1</code>",
 	'cite_error_included_ref' => 'Gein sjloetteike &lt;/ref&gt; veur de tag &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'De tag <code>&lt;ref&gt;</code> besteit al, meh de tag <code>&lt;references/&gt;</code> is neet aangetróffe',
 	'cite_error_group_refs_without_references' => 'd\'r Besteit \'ne tag <code>&lt;ref&gt;</code> veure groep "$1", meh d\'r is geine bebehuuerendje tag <code>&lt;references group="$1"/&gt;</code> gevónje',
+	'cite_error_references_group_mismatch' => 'De tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> conflicteert mit groepseigesjap "$1".',
+	'cite_error_references_missing_group' => 'De tag <code>&lt;ref&gt;</code> dae is gedefinieerd in <code>&lt;references&gt;</code> haet de groepseigesjap "$1" neet ierder in de tekst veurkump.',
+	'cite_error_references_missing_key' => 'De tag <code>&lt;ref&gt;</code> mit de naam "$1" gedefiniteerd in <code>&lt;references&gt;</code> weurt neet ierder in de teks gebroek.',
+	'cite_error_references_no_key' => 'De tag <code>&lt;ref&gt;</code> dae is gedefinieerd in <code>&lt;references&gt;</code> haet geine eigesjapsnaam.',
+	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> dae is gedefinieerd in <code>&lt;references&gt;</code> mit de naam "$1" haet geinen inhawd.',
 );
 
 /** Lithuanian (Lietuvių)

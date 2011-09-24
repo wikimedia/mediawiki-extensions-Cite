@@ -774,7 +774,7 @@ Definer flere i beskeden <nowiki>[[MediaWiki:$2]]</nowiki>.',
 $messages['de'] = array(
 	'cite-desc' => 'Ergänzt die Tags <code><nowiki><ref[&nbsp;name=id]></nowiki></code> und <code><nowiki><references&nbsp;/></nowiki></code> für die Referenzierung',
 	'cite_croak' => 'Fehler im Referenzsystem. $1: $2',
-	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/ oder $key. Dies sollte nicht passieren.',
+	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte nicht passieren.',
 	'cite_error_stack_invalid_input' => 'Interner Fehler: ungültiger Schlüssel für den Stack. Dies sollte nicht passieren.',
 	'cite_error' => 'Referenzfehler: $1',
 	'cite_error_ref_numeric_key' => 'Ungültige <tt>&lt;ref&gt;</tt>-Verwendung: „name“ darf kein reiner Zahlenwert sein, benutze einen beschreibenden Namen.',
@@ -2462,6 +2462,20 @@ pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
 	'cite_error_references_missing_key' => 'La tichëtta <code>&lt;ref&gt;</code> con nòm "$1" definìa an <code>&lt;references&gt;</code> a l\'é pa dovrà ant ël test prima.',
 	'cite_error_references_no_key' => "La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> a l'ha pa gnun atribut ëd nòm.",
 	'cite_error_empty_references_define' => 'La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> con nòm "$1" a l\'ha pa gnun contnù.',
+);
+
+/** Western Punjabi (پنجابی)
+ * @author Khalid Mahmood
+ */
+$messages['pnb'] = array(
+	'cite_croak' => 'سائیٹ ڈائیڈ؛ $1: $2',
+	'cite_error_key_str_invalid' => 'اندرونی غلطی:
+ناں منی جان والی $وٹد تے/یا $چابی۔
+اے کدے نئیں ہونا چآغیدا۔',
+	'cite_error_stack_invalid_input' => 'اندرلی غلطی؛
+ناں منی جان والی سٹیک چابی۔
+اے کدے نئیں ہونا چائیدا',
+	'cite_error' => 'سائیٹ غلطی:$1',
 );
 
 /** Portuguese (Português)

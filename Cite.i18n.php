@@ -2468,6 +2468,7 @@ pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
  * @author Khalid Mahmood
  */
 $messages['pnb'] = array(
+	'cite-desc' => 'جوڑو <nowiki><ref[ name=id]></nowiki> تے <nowiki><references/></nowiki> ٹیگ اتے پتے لئی۔',
 	'cite_croak' => 'سائیٹ ڈائیڈ؛ $1: $2',
 	'cite_error_key_str_invalid' => 'اندرونی غلطی:
 ناں منی جان والی $وٹد تے/یا $چابی۔
@@ -2476,6 +2477,34 @@ $messages['pnb'] = array(
 ناں منی جان والی سٹیک چابی۔
 اے کدے نئیں ہونا چائیدا',
 	'cite_error' => 'سائیٹ غلطی:$1',
+	'cite_error_ref_numeric_key' => 'ناں منیا جان والا <code>&lt;ref&gt;</code> ٹیگ؛
+ناں اک سادہ انٹیجر نئیں ہوسکدا۔ کوئی ہور دسن والا سرناواں دسو۔',
+	'cite_error_ref_no_key' => 'ناں منیا جان والا <code>&lt;ref&gt;</code> ٹیگ؛
+اتے پتے جیدے چ کوئی شے ناں ہووے لازمی ناں ہووے۔',
+	'cite_error_ref_too_many_keys' => 'ناں منیا جان والا <code>&lt;ref&gt;</code> ٹیگ؛
+ناں منے جان والے ناں',
+	'cite_error_ref_no_input' => 'ناں منیا جان والا <code>&lt;ref&gt;</code> ٹیگ؛
+اتے پتے جیدے چ کوئی شے ناں ہووے لازمی ناں ہووے۔',
+	'cite_error_references_invalid_parameters' => 'ناں منیا جان والا <code>&lt;references&gt;</code> ٹیگ؛
+کسے پیرامیٹر دی اجازت نئیں۔
+<code>&lt;references /&gt;</code> ورتو',
+	'cite_error_references_invalid_parameters_group' => 'ناں منیا جان والا <code>&lt;references&gt;</code> ٹیگ؛
+پیرامیٹر گروپ دی اجازت صرف۔
+ورتو <code>&lt;references /&gt;</code>، یا <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'کسٹم پچھلے جزڑ نئیں رۓ۔
+ہور دسو <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> سنیعے چ۔',
+	'cite_error_no_link_label_group' => '"$1" ٹولی لئی کسٹم لیبل جوڑ مک گۓ۔
+ہور دسو <nowiki>[[MediaWiki:$2]]</nowiki> سنیعے چ۔',
+	'cite_error_references_no_text' => 'ناں منیا جان والا <code>&lt;ref&gt;</code> ٹیگ
+کوئی لکھت نئیں دتی گئی اتے پتے <code>$1</code> لئی۔',
+	'cite_error_included_ref' => 'بند کردا &lt;/ref&gt ؛ &lt;ref&gt دا کعاٹا ٹیک',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ٹیگ ہیگے نیں، پر کوئی <code>&lt;references/&gt;</code> ٹیگ ناں لبیا۔',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> ٹیگ اک ٹولی جیدا ناں "$1" اے ہیگے نیں، پر کوئی <code>&lt;references group="$1"/&gt;</code> ٹیگ ناں لبیا۔',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> ٹیگ ان  <code>&lt;references&gt;</code> دے رپھڑی اٹریبیوٹ "$1"۔',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> ٹیگ دسیا گیا <code>&lt;references&gt;</code> دے ٹولی اٹریبیوٹ "$1" جیہڑے  پہلی لکھت چ ناں دسے۔',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> ٹیگ ناں نال "$1" <code>&lt;references&gt;</code> چ دسیا گیا پہلی کسے لکھت چ نئیں ورتیا گیا۔',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> ٹیگ دسیا گیا <code>&lt;references&gt;</code> چ دا کوئی ناں اٹریبیوٹ نئیں۔',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ٹیگ دسیا گیا <code>&lt;references&gt;</code> چ "$1" ناں نال، ایدے چ کج نئیں۔',
 );
 
 /** Portuguese (Português)

@@ -1430,7 +1430,9 @@ $messages['pms'] = array(
  * @author Khalid Mahmood
  */
 $messages['pnb'] = array(
+	'cite_article_desc' => 'جوڑدا اے اک [[خاص:اتہ پتہ|اتہ پتہ]] خاص صفہ تے اوزار ڈبہ جوڑ۔',
 	'cite_article_link' => 'ایس صفے دا اتہ پتہ دیو',
+	'tooltip-cite-article' => 'ایس صفے دا کنج اتہ پتہ دیوو دی دس۔',
 	'cite' => 'اتہ پتہ',
 	'cite_page' => 'صفہ:',
 	'cite_submit' => 'اتہ پتہ',

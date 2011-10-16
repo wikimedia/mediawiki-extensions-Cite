@@ -1253,29 +1253,29 @@ $messages['gl'] = array(
 	'cite_error_key_str_invalid' => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
 	'cite_error_stack_invalid_input' => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
 	'cite_error' => 'Erro no código da cita: $1',
-	'cite_error_ref_numeric_key' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
+	'cite_error_ref_numeric_key' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;
 o nome non pode ser un simple entero: use un título descritivo',
-	'cite_error_ref_no_key' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
+	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;
 as referencias que non teñan contido deben ter un nome',
-	'cite_error_ref_too_many_keys' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
+	'cite_error_ref_too_many_keys' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;
 nomes non válidos, por exemplo, demasiados',
-	'cite_error_ref_no_input' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
+	'cite_error_ref_no_input' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;
 as referencias que non teñan nome, deben ter contido',
-	'cite_error_references_invalid_parameters' => 'etiqueta <code>&lt;references&gt;</code> non válida;
+	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> non válida;
 non están permitidos eses parámetros.
 Use <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'etiqueta <code>&lt;references&gt;</code> non válida;
+	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> non válida;
 só está permitido o parámetro "group" ("grupo").
 Use <code>&lt;references /&gt;</code> ou <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'As etiquetas personalizadas esgotáronse.
 Defina máis na mensaxe <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_no_link_label_group' => 'As etiquetas personalizadas esgotáronse para o grupo "$1".
 Defina máis na mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.',
-	'cite_error_references_no_text' => 'etiqueta <code>&lt;ref&gt;</code> non válida;
+	'cite_error_references_no_text' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;
 non se forneceu texto para as referencias de nome <code>$1</code>',
-	'cite_error_included_ref' => 'peche a etiqueta &lt;/ref&gt; que lle falta á outra etiqueta &lt;ref&gt;',
-	'cite_error_refs_without_references' => 'as etiquetas <code>&lt;ref&gt;</code> existen, pero non se atopou ningunha etiqueta <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'as etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado "$1", pero non se atopou a etiqueta <code>&lt;references group="$1"/&gt;</code> correspondente',
+	'cite_error_included_ref' => 'Peche a etiqueta &lt;/ref&gt; que lle falta á outra etiqueta &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen, pero non se atopou ningunha etiqueta <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado "$1", pero non se atopou a etiqueta <code>&lt;references group="$1"/&gt;</code> correspondente',
 	'cite_error_references_group_mismatch' => 'A etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> ten un atributo de grupo conflitivo "$1".',
 	'cite_error_references_missing_group' => 'A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> ten un atributo de grupo "$1" que non aparece no texto anterior.',
 	'cite_error_references_missing_key' => 'A etiqueta <code>&lt;ref&gt;</code> co nome "$1" definida en <code>&lt;references&gt;</code> non se utiliza no texto anterior.',

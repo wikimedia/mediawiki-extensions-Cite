@@ -561,10 +561,11 @@ $messages['fj'] = array(
 );
 
 /** Faroese (Føroyskt)
+ * @author Diupwijk
  * @author Spacebirdy
  */
 $messages['fo'] = array(
-	'cite_article_link' => 'Sitera hesa greinina',
+	'cite_article_link' => 'Sitera hesa síðuna',
 	'cite' => 'Sitera',
 	'cite_page' => 'Síða:',
 	'cite_submit' => 'Sitera',

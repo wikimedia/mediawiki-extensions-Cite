@@ -303,6 +303,7 @@ $str و/أو $key غلط.
 
 /** Asturian (Asturianu)
  * @author Esbardu
+ * @author Xuacu
  */
 $messages['ast'] = array(
 	'cite-desc' => 'Añade les etiquetes <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> pa les cites',
@@ -320,8 +321,17 @@ namái se permite\'l parámetru "group".
 Usa <code>&lt;references /&gt;</code>, o bien <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Etiquetes personalizaes agotaes.
 Defini más nel mensaxe <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Nun queden más etiquetes d\'enllaz personalizáu pal grupu "$1".
+Define más nel mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nun se conseñó testu pa les referencies nomaes <code>$1</code>',
 	'cite_error_included_ref' => 'Falta &lt;/ref&gt; pa la etiqueta &lt;ref&gt;',
+	'cite_error_refs_without_references' => "Les etiquetes <code>&lt;ref&gt;</code> esisten, pero nun s'alcontró denguna etiqueta <code>&lt;references/&gt;</code>",
+	'cite_error_group_refs_without_references' => 'Les etiquetes <code>&lt;ref&gt;</code> esisten pa un grupu llamáu "$1", pero nun s\'alcontró la etiqueta <code>&lt;references group="$1"/&gt;</code> correspondiente',
+	'cite_error_references_group_mismatch' => 'La etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> tien un conflictu col atributu de grupu "$1".',
+	'cite_error_references_missing_group' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> tien l\'atributu de grupu "$1" que nun apaez nel testu anterior.',
+	'cite_error_references_missing_key' => 'La etiqueta <code>&lt;ref&gt;</code> col nome "$1" definida en <code>&lt;references&gt;</code> nun s\'utiliza nel testu anterior.',
+	'cite_error_references_no_key' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> nun tien dengún atributu de nome.',
+	'cite_error_empty_references_define' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> col nome "$1" nun tien conteníu.',
 );
 
 /** Azerbaijani (Azərbaycanca)

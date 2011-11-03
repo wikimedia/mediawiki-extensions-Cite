@@ -968,12 +968,12 @@ malvalida staka ŝlosilo.
 nomo ne povas esti simpla entjero. Uzu priskriban titolon.',
 	'cite_error_ref_no_key' => "Malvalida etikedo <code>&lt;ref&gt;</code>;
 ''ref'' kun nenia enhava nomo devas havi nomon",
-	'cite_error_ref_too_many_keys' => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
-nevalidaj nomoj (ekz-e: tro multaj)',
-	'cite_error_ref_no_input' => 'Nevalida etikedo <code>&lt;ref&gt;</code>;
+	'cite_error_ref_too_many_keys' => 'Malvalida etikedo <code>&lt;ref&gt;</code>;
+malvalidaj nomoj (ekz-e: tro multaj)',
+	'cite_error_ref_no_input' => 'Malvalida etikedo <code>&lt;ref&gt;</code>;
 ref-etikedoj sen nomo devas havi enhavojn.',
 	'cite_error_references_invalid_parameters' => 'Nevalida etikedo <code>&lt;references&gt;</code>; neniuj parametroj estas permesitaj, uzu <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Nevalida etikedon <code>&lt;references&gt;</code>;
+	'cite_error_references_invalid_parameters_group' => 'Malvalida etikedon <code>&lt;references&gt;</code>;
 parametro "group" nur estas permesita.
 Uzu etikedon <code>&lt;references /&gt;</code>, aŭ <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Neniom plu memfaritaj retroligaj etikedoj.

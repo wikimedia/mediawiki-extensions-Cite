@@ -48,7 +48,7 @@ $wgCiteCacheReferences = false;
 
 /**
  * Performs the hook registration.
- * Note that several extensions (and even core!) try to detect if Cite is 
+ * Note that several extensions (and even core!) try to detect if Cite is
  * installed by looking for wfCite().
  *
  * @param $parser Parser
@@ -80,13 +80,10 @@ $wgResourceModules['jquery.tooltip'] = $citeResourceTemplate + array(
 	'position' => 'bottom',
 );
 
-function wfCiteBeforePageDisplay() {
-	global $wgOut;
-	
-	$wgOut->addModules( 'ext.cite' );
-	
+function wfCiteBeforePageDisplay( $out, &$sk ) {
+	$out->addModules( 'ext.cite' );
+
 	return true;
 }
-
 
 /**#@-*/

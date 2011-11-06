@@ -18,6 +18,8 @@ if ( ! defined( 'MEDIAWIKI' ) )
  */
 
 $wgHooks['ParserFirstCallInit'][] = 'wfCite';
+$wgHooks['BeforePageDisplay'][] = 'wfCiteBeforePageDisplay';
+
 
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
@@ -56,5 +58,35 @@ $wgCiteCacheReferences = false;
 function wfCite( $parser ) {
 	return Cite::setHooks( $parser );
 }
+
+// Resources
+$citeResourceTemplate = array(
+	'localBasePath' => dirname(__FILE__) . '/modules',
+	'remoteExtPath' => 'Cite/modules'
+);
+
+$wgResourceModules['ext.cite'] = $citeResourceTemplate + array(
+	'styles' => array(),
+	'scripts' => 'ext.cite/ext.cite.js',
+	'position' => 'bottom',
+	'dependencies' => array(
+		'jquery.tooltip',
+	),
+);
+
+$wgResourceModules['jquery.tooltip'] = $citeResourceTemplate + array(
+	'styles' => 'jquery.tooltip/jquery.tooltip.css',
+	'scripts' => 'jquery.tooltip/jquery.tooltip.js',
+	'position' => 'bottom',
+);
+
+function wfCiteBeforePageDisplay() {
+	global $wgOut;
+	
+	$wgOut->addModules( 'ext.cite' );
+	
+	return true;
+}
+
 
 /**#@-*/

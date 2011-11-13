@@ -23,21 +23,15 @@ class SpecialCite extends SpecialPage {
 		$this->setHeaders();
 		$this->outputHeader();
 
-		$page = isset( $par ) ? $par : $wgRequest->getText( 'page' );
-		$id = $wgRequest->getInt( 'id' );
-
+		$page = $par !== null ? $par : $wgRequest->getText( 'page' );
 		$title = Title::newFromText( $page );
-		if ( $title ) {
-			$article = new Article( $title );
-		}
+
 		$cform = new CiteForm( $title );
+		$cform->execute();
 
-		if ( !$title || ! $article->exists() ) {
-			$cform->execute();
-		} else {
-			$cform->execute();
-
-			$cout = new CiteOutput( $title, $article, $id );
+		if ( $title && $title->exists() ) {
+			$id = $wgRequest->getInt( 'id' );
+			$cout = new CiteOutput( $title, $id );
 			$cout->execute();
 		}
 	}
@@ -117,11 +111,11 @@ class CiteOutput {
 
 	var $mSpTitle;
 
-	function __construct( &$title, &$article, $id ) {
+	function __construct( $title, $id ) {
 		global $wgHooks, $wgParser;
 
-		$this->mTitle =& $title;
-		$this->mArticle =& $article;
+		$this->mTitle = $title;
+		$this->mArticle = new Article( $title );
 		$this->mId = $id;
 
 		$wgHooks['ParserGetVariableValueVarCache'][] = array( $this, 'varCache' );
@@ -141,8 +135,7 @@ class CiteOutput {
 		if ( $msg == '' ) {
 			$msg = $wgCiteDefaultText;
 		}
-		$this->mArticle->fetchContent( $this->mId, false );
-		$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->mArticle->getRevIdFetched() );
+		$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->getRevId() );
 		$wgOut->addHTML( $ret->getText() );
 	}
 
@@ -174,5 +167,13 @@ class CiteOutput {
 		}
 
 		return true;
+	}
+
+	function getRevId() {
+		if ( $this->mId ) {
+			return $this->mId;
+		} else {
+			return $this->mTitle->getLatestRevID();
+		}
 	}
 }

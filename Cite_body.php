@@ -706,7 +706,7 @@ class Cite {
 						'cite_references_link_one',
 						$this->referencesKey( $key ),
 						$this->refKey( $key, $val['count'] ),
-						$this->error( 'cite_error_references_no_text', $key )
+						$this->error( 'cite_error_references_no_text', $key, false )
 					);
 		}
 
@@ -717,7 +717,7 @@ class Cite {
 					# $this->refKey( $val['key'], $val['count'] ),
 					$this->refKey( $val['key'] ),
 
-					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
+					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key, false ) )
 				);
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is
@@ -729,7 +729,7 @@ class Cite {
 					$this->referencesKey( $key . "-" . $val['key'] ),
 					# $this->refKey( $key, $val['count'] ),
 					$this->refKey( $key, $val['key'] . "-" . $val['count'] ),
-					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
+					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key, false ) )
 				);
 		// Named references with >1 occurrences
 		} else {
@@ -749,7 +749,7 @@ class Cite {
 			return wfMsgForContentNoTrans( 'cite_references_link_many',
 					$this->referencesKey( $key . "-" . $val['key'] ),
 					$list,
-					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
+					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key, false ) )
 				);
 		}
 	}
@@ -793,7 +793,7 @@ class Cite {
 			return $this->mBacklinkLabels[$offset];
 		} else {
 			// Feed me!
-			return $this->error( 'cite_error_references_no_backlink_label' );
+			return $this->error( 'cite_error_references_no_backlink_label', null, false );
 		}
 	}
 
@@ -823,7 +823,7 @@ class Cite {
 			return $this->mLinkLabels[$group][$offset - 1];
 		} else {
 			// Feed me!
-			return $this->error( 'cite_error_no_link_label_group', array( $group, $message ) );
+			return $this->error( 'cite_error_no_link_label_group', array( $group, $message ), false );
 		}
 	}
 
@@ -1065,11 +1065,14 @@ class Cite {
 				continue;
 			}
 			$text .= "\n<br />";
+			# Use separate parser from MessageCache to avoid it missing
+			# replaceLinkHolders() when run from ParserBeforeTidy.
 			if ( $group == CITE_DEFAULT_GROUP ) {
-				$text .= $this->error( 'cite_error_refs_without_references' );
+				$msg = $this->error( 'cite_error_refs_without_references', null, false );
 			} else {
-				$text .= $this->error( 'cite_error_group_refs_without_references', htmlspecialchars( $group ) );
+				$msg = $this->error( 'cite_error_group_refs_without_references', htmlspecialchars( $group ), false );			
 			}
+			$text .= MessageCache::singleton()->parse( $msg, $parser->getTitle(), false )->getText();
 		}
 		return true;
 	}
@@ -1117,18 +1120,20 @@ class Cite {
 	 *
 	 * @param string $key   Message name for the error
 	 * @param string $param Parameter to pass to the message
-	 * @return string XHTML ready for output
+	 * @param boolean $parse Whether to parse the message
+	 * @return string XHTML or wikitext ready for output
 	 */
-	function error( $key, $param = null ) {
+	function error( $key, $param = null, $parse = true ) {
 		# We rely on the fact that PHP is okay with passing unused argu-
 		# ments to functions.  If $1 is not used in the message, wfMsg will
 		# just ignore the extra parameter.
-		return
-			$this->parse(
-				'<strong class="error">' .
-				wfMsgNoTrans( 'cite_error', wfMsgNoTrans( $key, $param ) ) .
-				'</strong>'
-			);
+		$ret = '<strong class="error">' .
+			wfMsgNoTrans( 'cite_error', wfMsgNoTrans( $key, $param ) ) .
+			'</strong>';
+		if ( $parse ) {
+			$ret = $this->parse( $ret );
+		}
+		return $ret;
 	}
 
 	/**

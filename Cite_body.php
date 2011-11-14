@@ -693,13 +693,13 @@ class Cite {
 					'cite_references_link_one',
 					$this->referencesKey( $key ),
 					$this->refKey( $key ),
-					$val
+					rtrim( $val, "\n" ) . "\n"
 				);
 		} elseif ( isset( $val['follow'] ) ) {
 			return wfMsgForContentNoTrans(
 					'cite_references_no_link',
 					$this->referencesKey( $val['follow'] ),
-					$val['text']
+					rtrim( $val['text'], "\n" ) . "\n"
 				);
 		} elseif ( $val['text'] == '' ) {
 			return wfMsgForContentNoTrans(
@@ -717,7 +717,7 @@ class Cite {
 					# $this->refKey( $val['key'], $val['count'] ),
 					$this->refKey( $val['key'] ),
 
-					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
+					( $val['text'] != '' ? rtrim( $val['text'], "\n" ) . "\n" : $this->error( 'cite_error_references_no_text', $key ) )
 				);
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is
@@ -729,7 +729,7 @@ class Cite {
 					$this->referencesKey( $key . "-" . $val['key'] ),
 					# $this->refKey( $key, $val['count'] ),
 					$this->refKey( $key, $val['key'] . "-" . $val['count'] ),
-					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
+					( $val['text'] != '' ? rtrim( $val['text'], "\n" ) . "\n" : $this->error( 'cite_error_references_no_text', $key ) )
 				);
 		// Named references with >1 occurrences
 		} else {
@@ -749,7 +749,7 @@ class Cite {
 			return wfMsgForContentNoTrans( 'cite_references_link_many',
 					$this->referencesKey( $key . "-" . $val['key'] ),
 					$list,
-					( $val['text'] != '' ? $val['text'] : $this->error( 'cite_error_references_no_text', $key ) )
+					( $val['text'] != '' ? rtrim( $val['text'], "\n" ) . "\n" : $this->error( 'cite_error_references_no_text', $key ) )
 				);
 		}
 	}

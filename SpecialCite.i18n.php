@@ -1239,11 +1239,13 @@ $messages['myv'] = array(
 
 /** Nahuatl (Nāhuatl)
  * @author Fluence
+ * @author Ricardo gs
  */
 $messages['nah'] = array(
 	'cite_article_link' => 'Tlahtoa inīn tlahcuilōltechcopa',
-	'cite' => 'Tlahtoa',
+	'cite' => 'Titēnōtzaz',
 	'cite_page' => 'Zāzanilli:',
+	'cite_submit' => 'Titēnōtzaz',
 );
 
 /** Min Nan Chinese (Bân-lâm-gú) */
@@ -1431,7 +1433,7 @@ $messages['pms'] = array(
  * @author Khalid Mahmood
  */
 $messages['pnb'] = array(
-	'cite_article_desc' => 'جوڑدا اے اک [[خاص:اتہ پتہ|اتہ پتہ]] خاص صفہ تے اوزار ڈبہ جوڑ۔',
+	'cite_article_desc' => 'جوڑدا اے اک [[Special:Cite|اتہ پتہ]] خاص صفہ تے اوزار ڈبہ جوڑ۔',
 	'cite_article_link' => 'ایس صفے دا اتہ پتہ دیو',
 	'tooltip-cite-article' => 'ایس صفے دا کنج اتہ پتہ دیوو دی دس۔',
 	'cite' => 'اتہ پتہ',
@@ -1671,7 +1673,7 @@ $messages['sq'] = array(
 	'cite_submit' => 'Citoje',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -1680,7 +1682,7 @@ $messages['sq'] = array(
  */
 $messages['sr-ec'] = array(
 	'cite_article_desc' => 'Додаје посебну страницу за [[Special:Cite|цитирање]] и везу с алаткама',
-	'cite_article_link' => 'цитирање ове стране',
+	'cite_article_link' => 'Цитирање странице',
 	'tooltip-cite-article' => 'Информације о томе како цитирати ову страну',
 	'cite' => 'цитат',
 	'cite_page' => 'Страница:',

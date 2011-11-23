@@ -836,12 +836,16 @@ $messages['ig'] = array(
 	'cite_submit' => 'Ndéputà',
 );
 
-/** Iloko (Ilokano) */
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
 $messages['ilo'] = array(
-	'cite_article_link' => 'Dakamaten ti articulo',
+	'cite_article_desc' => 'Nayunan na ti [[Special:Cite|dakamat]] a naiduma a panid ken panilpo iti ramramit',
+	'cite_article_link' => 'Dakamaten daytoy nga panid',
+	'tooltip-cite-article' => 'Informasyon no kasanu ti pinagdakamat daytoy a panid',
 	'cite' => 'Dakamaten',
 	'cite_page' => 'Panid:',
-	'cite_submit' => 'Idakamat',
+	'cite_submit' => 'Dakamaten',
 );
 
 /** Ido (Ido)
@@ -937,7 +941,7 @@ $messages['kk-arab'] = array(
 	'cite_submit' => 'دايەكسوز ال!',
 );
 
-/** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite' => 'Дәйексөз алу',
@@ -945,7 +949,7 @@ $messages['kk-cyrl'] = array(
 	'cite_submit' => 'Дәйексөз ал!',
 );
 
-/** Kazakh (Latin) (Қазақша (Latin)) */
+/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'cite_article_link' => 'Betten däýeksoz alw',
 	'cite' => 'Däýeksöz alw',
@@ -1019,7 +1023,7 @@ $messages['ksh'] = array(
 	'cite_submit' => 'Zittėere',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -1689,7 +1693,7 @@ $messages['sr-ec'] = array(
 	'cite_submit' => 'цитат',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪Srpski (latinica)‬)
  * @author Liangent
  * @author Michaello
  * @author Жељко Тодоровић
@@ -1798,7 +1802,7 @@ $messages['tet'] = array(
 	'cite_submit' => 'Sita',
 );
 
-/** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
+/** Tajik (Cyrillic script) (Тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1809,7 +1813,7 @@ $messages['tg-cyrl'] = array(
 	'cite_submit' => 'Ёд кардан',
 );
 
-/** Tajik (Latin) (Тоҷикӣ (Latin))
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1890,7 +1894,7 @@ $messages['ts'] = array(
 	'cite_page' => 'Tluka:',
 );
 
-/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+/** Tatar (Cyrillic script) (Татарча)
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
@@ -1909,7 +1913,7 @@ $messages['udm'] = array(
 	'cite_article_link' => 'Кызьы со статьяез цитировать кароно',
 );
 
-/** Uighur (Latin) (ئۇيغۇرچە / Uyghurche‎ (Latin))
+/** Uyghur (Latin script) (Uyghurche‎)
  * @author Jose77
  */
 $messages['ug-latn'] = array(

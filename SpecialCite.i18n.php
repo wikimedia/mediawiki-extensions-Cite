@@ -24,9 +24,10 @@ $messages['en'] = array(
  * @author Lloffiwr
  * @author Siebrand
  * @author Tgr
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'cite_article_desc' => 'Extension description for cite. Do not translate or change links, and tag names.',
+	'cite_article_desc' => '{{desc}}',
 	'cite_article_link' => 'Text of link in toolbox',
 	'tooltip-cite-article' => 'Tooltip',
 	'cite' => '{{Identical|Cite}}',

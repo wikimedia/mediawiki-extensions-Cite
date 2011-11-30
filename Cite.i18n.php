@@ -1089,6 +1089,7 @@ $messages['eu'] = array(
  * @author Ebraminio
  * @author Huji
  * @author Wayiran
+ * @author ZxxZxxZ
  */
 $messages['fa'] = array(
 	'cite-desc' => 'برچسب‌های <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> را برای یادکرد اضافه می‌کند',
@@ -1116,6 +1117,8 @@ $messages['fa'] = array(
 	'cite_error_references_missing_key' => 'پرچسپ <code>&lt;ref&gt;</code> که با نام «$1» درون <code>&lt;references&gt;</code> تعریف شده، در متن قبل از آن استفاده نشده‌است.',
 	'cite_error_references_no_key' => 'برچسپ <code>&lt;ref&gt;</code> درون <code>&lt;references&gt;</code> صفت نام را ندارد.',
 	'cite_error_empty_references_define' => 'برچسپ <code>&lt;ref&gt;</code> تعریف شده درون <code>&lt;references&gt;</code> با نام «$1» محتوایی ندارد.',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link_prefix' => 'cite_ref-',
 );
 
 /** Finnish (Suomi)
@@ -2145,6 +2148,7 @@ $messages['mr'] = array(
 	'cite_error_references_invalid_parameters_group' => 'चुकीची <code>&lt;references&gt;</code> खूण; फक्त पॅरॅमीटर चा गट वापरता येईल, <code>&lt;references /&gt;</code> किंवा <code>&lt;references group="..." /&gt;</code> चा वापर करा',
 	'cite_error_references_no_backlink_label' => 'तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> या प्रणाली संदेशात लिहा',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
+	'cite_error_included_ref' => '&lt;ref&gt; ला ब्ंद करणारा &lt;/ref&gt; टॅग गायब आहे.',
 	'cite_error_refs_without_references' => 'पानामधे <code>&lt;ref&gt;</code> (संदर्भ) आहे, परंतु <code>&lt;references/&gt;</code> (<nowiki>{{संदर्भयादी}}<nowiki />) सापडले नाही. <nowiki>{{संदर्भयादी}}<nowiki /> असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.',
 );
 

@@ -1347,31 +1347,43 @@ $messages['gu'] = array(
  * @author YaronSh
  */
 $messages['he'] = array(
-	'cite-desc' => 'הוספת תגיות <span dir="ltr"><nowiki><ref[ name=id]></nowiki></span> ו־<nowiki><references/></nowiki> עבור הערות שוליים',
-	'cite_croak' => 'בהערה יש שגיאה; $1: $2',
-	'cite_error_key_str_invalid' => 'שגיאה פנימית; $str ו/או $key שגויים. זהו באג בתוכנה.',
-	'cite_error_stack_invalid_input' => 'שגיאה פנימית; מפתח שגוי במחסנית. זהו באג בתוכנה.',
+	'cite-desc' => 'הוספת תגי <span dir="ltr"><nowiki><ref[ name=id]></nowiki></span> ו־<span dir="ltr"><nowiki><references/></nowiki></span> עבור הערות שוליים',
+	'cite_croak' => 'ההרחבה Cite קרסה; $1: $2',
+	'cite_error_key_str_invalid' => 'שגיאה פנימית;
+ערך לא תקין של <span dir="ltr">$str</span> ו/או <span dir="ltr">$key</span>.
+זה לא אמור לקרות לעולם.',
+	'cite_error_stack_invalid_input' => 'שגיאה פנימית;
+מפתח מחסנית לא תקין.
+זה לא אמור לקרות לעולם.',
 	'cite_error' => 'שגיאת ציטוט: $1',
-	'cite_error_ref_numeric_key' => 'תגית <code>&lt;ref&gt;</code> שגויה; שם לא יכול להיות מספר פשוט, יש להשתמש בכותרת תיאורית',
-	'cite_error_ref_no_key' => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא תוכן חייב להיות שם',
-	'cite_error_ref_too_many_keys' => 'תגית <code>&lt;ref&gt;</code> שגויה; שמות שגויים, למשל, רבים מדי',
-	'cite_error_ref_no_input' => 'תגית <code>&lt;ref&gt;</code> שגויה; להערות שוליים ללא שם חייב להיות תוכן',
-	'cite_error_references_invalid_parameters' => 'תגית <code>&lt;references&gt;</code> שגויה; לא ניתן להשתמש בפרמטרים, יש להשתמש בקוד <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'תגית <code>&lt;references&gt;</code> שגויה;
+	'cite_error_ref_numeric_key' => 'תג <code>&lt;ref&gt;</code> לא תקין;
+שם (name) לא יכול להיות מספר שלם פשוט. יש להשתמש בכותרת תיאורית',
+	'cite_error_ref_no_key' => 'תג <code>&lt;ref&gt;</code> לא תקין;
+להערות שוליים ללא תוכן חייב להיות שם (name)',
+	'cite_error_ref_too_many_keys' => 'תג <code>&lt;ref&gt;</code> לא תקין;
+שמות שגויים, למשל, רבים מדי',
+	'cite_error_ref_no_input' => 'תג <code>&lt;ref&gt;</code> לא תקין;
+להערות שוליים ללא שם חייב להיות תוכן',
+	'cite_error_references_invalid_parameters' => 'תג <code>&lt;references&gt;</code> לא תקין;
+לא ניתן להשתמש בפרמטרים.
+יש להשתמש בקוד <code dir="ltr">&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'תג <code>&lt;references&gt;</code> לא תקין;
 רק הפרמטר "group" מותר לשימוש.
-אנא השתמשו בקוד <code>&lt;references /&gt;</code>, או בקוד <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'נגמרו תוויות הקישורים המותאמים אישית, אנא הגדירו נוספים בהודעת המערכת <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_no_link_label_group' => 'תוויות הקישורים המותאמים אישית לקבוצה "$1" אזלו.
+אנא השתמשו בקוד <code dir="ltr">&lt;references /&gt;</code>, או בקוד <code dir="ltr">&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'אזלו תוויות הקישורים המותאמות אישית.
+אנא הגדירו עוד תוויות בהודעת המערכת <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_no_link_label_group' => 'אזלו תוויות קישורים מותאמות אישית לקבוצה "$1".
 הגדירו עוד תוויות בהודעת המערכת <nowiki>[[MediaWiki:$2]]</nowiki>.',
-	'cite_error_references_no_text' => 'תגית <code>&lt;ref&gt;</code> שגויה; לא נכתב טקסט עבור הערת השוליים בשם <code>$1</code>',
-	'cite_error_included_ref' => 'חסרה תגית &lt;/ref&gt; המתאימה לתגית &lt;ref&gt;',
-	'cite_error_refs_without_references' => 'קיימות תגיות <code>&lt;ref&gt;</code>, אך לא נמצאה תגית <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'קיימות תגיות <code>&lt;ref&gt;</code> עבור קבוצה הנקראת "$1", אך לא נמצאה תגית <code>&lt;references group="$1"/&gt;</code> מתאימה',
-	'cite_error_references_group_mismatch' => 'לתגית <code>&lt;ref&gt;</code> המוגדרת בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה סותר, "$1".',
-	'cite_error_references_missing_group' => 'לתגית <code>&lt;ref&gt;</code> המוגדרת בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה "$1", שאינו מופיע בטקסט שלפניה.',
-	'cite_error_references_missing_key' => 'התגית <code>&lt;ref&gt;</code> בשם "$1" המוגדרת בתוך <code>&lt;references&gt;</code> אינה נמצאת בשימוש בטקסט שלפניה.',
-	'cite_error_references_no_key' => 'לתגית <code>&lt;ref&gt;</code> המוגדרת בתוך <code>&lt;references&gt;</code> אין מאפיין name.',
-	'cite_error_empty_references_define' => 'התגית <code>&lt;ref&gt;</code> בשם "$1" המוגדרת בתוך <code>&lt;references&gt;</code> אינה מכילה תוכן.',
+	'cite_error_references_no_text' => 'תג <code>&lt;ref&gt;</code> לא תקין;
+לא נכתב טקסט עבור הערות השוליים בשם <code>$1</code>',
+	'cite_error_included_ref' => 'חסר תג &lt;/ref&gt; סוגר שמתאים לתג &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code>, אך לא נמצא תג <code dir="ltr">&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code> עבור קבוצה בשם "$1", אך לא נמצא תג <code dir="ltr">&lt;references group="$1"/&gt;</code> מתאים',
+	'cite_error_references_group_mismatch' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה (group) סותר, "$1".',
+	'cite_error_references_missing_group' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה (group) בעל הערך "$1", שאינו מופיע בטקסט שלפניו.',
+	'cite_error_references_missing_key' => 'התג <code>&lt;ref&gt;</code> בשם "$1" המוגדר בתוך <code>&lt;references&gt;</code> אינו נמצא בשימוש בטקסט שלפניו.',
+	'cite_error_references_no_key' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> אין מאפיין שם (name).',
+	'cite_error_empty_references_define' => 'התג <code>&lt;ref&gt;</code> בעל השם "$1" המוגדר בתוך <code>&lt;references&gt;</code> אינו מכיל תוכן.',
 );
 
 /** Hindi (हिन्दी)

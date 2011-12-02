@@ -80,6 +80,11 @@ $wgResourceModules['jquery.tooltip'] = $citeResourceTemplate + array(
 	'position' => 'bottom',
 );
 
+/**
+ * @param $out OutputPage
+ * @param $sk Skin
+ * @return bool
+ */
 function wfCiteBeforePageDisplay( $out, &$sk ) {
 	$out->addModules( 'ext.cite' );
 

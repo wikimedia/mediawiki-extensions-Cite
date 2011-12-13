@@ -1954,13 +1954,14 @@ $messages['vec'] = array(
 	'cite_submit' => 'Crea la citazion',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Triple-ADHD-AS
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
 	'cite_article_desc' => 'Ližadab [[Special:Cite|citiruindan]] specialižen lehtpolen da kosketusen azegištos',
 	'cite_article_link' => "Citiruida necidä lehtpol't",
+	'tooltip-cite-article' => "Informacii siš, kut pidab citiruida necidä lehtpol't.",
 	'cite' => 'Citiruind',
 	'cite_page' => 'Lehtpol’:',
 	'cite_submit' => 'Citiruida',

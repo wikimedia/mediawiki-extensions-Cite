@@ -373,3 +373,19 @@ Wikipedia rocks!<ref group="klingon">Proceeds of Rockology, vol. XXI</ref>
 </li></ol>
 
 !! end
+
+!! test
+Bug 31374 regression check: nested strip items
+!! input
+{{#tag:ref|note<ref>reference</ref>|group=Note}}
+<references group=Note />
+<references />
+!! result
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[Note 1]</a></sup>
+</p>
+<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1">↑</a> note<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
+</li></ol>
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> reference
+</li></ol>
+
+!! end

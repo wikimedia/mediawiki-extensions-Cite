@@ -19,7 +19,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'Cite',
 	'author' => 'Ævar Arnfjörð Bjarmason',
 	'descriptionmsg' => 'cite_article_desc',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
+	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
 );
 
 $dir = dirname( __FILE__ ) . '/';

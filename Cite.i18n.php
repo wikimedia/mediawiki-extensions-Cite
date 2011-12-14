@@ -782,7 +782,7 @@ Definer flere i beskeden <nowiki>[[MediaWiki:$2]]</nowiki>.',
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'cite-desc' => 'Ergänzt die Tags <code><nowiki><ref[&nbsp;name=id]></nowiki></code> und <code><nowiki><references&nbsp;/></nowiki></code> für die Referenzierung',
+	'cite-desc' => 'Ergänzt die Tags <code><nowiki><ref[&nbsp;name=id]></nowiki></code> und <code><nowiki><references&nbsp;/></nowiki></code> für die Referenzierung von Wikiseiten',
 	'cite_croak' => 'Fehler im Referenzsystem. $1: $2',
 	'cite_error_key_str_invalid' => 'Interner Fehler: ungültiger $str und/oder $key. Dies sollte nicht passieren.',
 	'cite_error_stack_invalid_input' => 'Interner Fehler: ungültiger Schlüssel für den Stack. Dies sollte nicht passieren.',
@@ -1634,6 +1634,21 @@ tidak ditemukan teks untuk ref bernama <code>$1</code>',
 $messages['ig'] = array(
 	'cite-desc' => 'Tikwá <nowiki><ref[ áhà=id]></nowiki> and <nowiki><references/></nowiki> ndö, maka ntabi okwu',
 	'cite_croak' => 'Nchápụ nwụrụ; $1: $2',
+);
+
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'cite-desc' => 'Agnayon ti <nowiki><ref[ name=id]></nowiki> ken <nowiki><references/></nowiki> tags, para kadagiti pagdakamat',
+	'cite_croak' => 'Natay ti dakamat; $1: $2',
+	'cite_error_key_str_invalid' => 'Akin-uneg a biddut;
+imbalido $str ken/ wenno $tulbek.
+Daytoy ket saan kuman a napasamak.',
+	'cite_error_stack_invalid_input' => 'Akin-uneg a biddut;
+imbalido a tuon a tulbek.
+Daytoy ket saan kuman a napasamak.',
+	'cite_error' => 'Biddut ti dakamat: $1',
 );
 
 /** Ido (Ido)

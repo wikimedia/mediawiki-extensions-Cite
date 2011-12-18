@@ -25,7 +25,7 @@ $wgExtensionCredits['specialpage'][] = array(
 $dir = dirname( __FILE__ ) . '/';
 # Internationalisation file
 $wgExtensionMessagesFiles['SpecialCite'] = $dir . 'SpecialCite.i18n.php';
-$wgExtensionAliasesFiles['SpecialCite'] = $dir . 'SpecialCite.alias.php';
+$wgExtensionMessagesFiles['SpecialCiteAliases'] = $dir . 'SpecialCite.alias.php';
 
 $wgHooks['SkinTemplateBuildNavUrlsNav_urlsAfterPermalink'][] = 'wfSpecialCiteNav';
 $wgHooks['SkinTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';

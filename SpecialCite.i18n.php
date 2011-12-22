@@ -1185,10 +1185,12 @@ $messages['mn'] = array(
 /** Marathi (मराठी)
  * @author Kaustubh
  * @author Mahitgar
+ * @author V.narsikar
  */
 $messages['mr'] = array(
 	'cite_article_desc' => 'एक विशेष [[Special:Cite|बाह्यदुवे]] देणारे पान व टूलबॉक्सची लिंक तयार करा',
 	'cite_article_link' => 'हे पान उधृत करा',
+	'tooltip-cite-article' => 'हे पृष्ठ बघण्यासाठीची माहिती',
 	'cite' => 'उधृत करा',
 	'cite_page' => 'पान',
 	'cite_submit' => 'उधृत करा',

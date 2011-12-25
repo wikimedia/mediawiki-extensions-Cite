@@ -2316,7 +2316,7 @@ Definer fleire i meldinga <nowiki>[[MediaWiki:Cite references link many format b
  * @author Jon Harald Søby
  * @author Laaknor
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'cite-desc' => 'Legger til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referanser',
 	'cite_croak' => 'Sitering døde; $1: $2',
 	'cite_error_key_str_invalid' => 'Intern feil: Ugyldig $str og/eller $key. Dette burde aldri forekomme.',

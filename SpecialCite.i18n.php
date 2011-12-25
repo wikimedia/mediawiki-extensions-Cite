@@ -1325,7 +1325,7 @@ $messages['nn'] = array(
  * @author Jon Harald Søby
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'cite_article_desc' => 'Legger til en [[Special:Cite|siteringsside]] og lenke i verktøy-menyen',
 	'cite_article_link' => 'Siter denne siden',
 	'tooltip-cite-article' => 'Informasjon om hvordan denne siden kan siteres',

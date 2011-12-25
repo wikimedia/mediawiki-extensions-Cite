@@ -80,7 +80,7 @@ $specialPageAliases['eo'] = array(
 
 /** Spanish (Español) */
 $specialPageAliases['es'] = array(
-	'Cite' => array( 'Citar', 'Cita' ),
+	'Cite' => array( 'Citar' ),
 );
 
 /** Estonian (Eesti) */
@@ -110,7 +110,7 @@ $specialPageAliases['frp'] = array(
 
 /** Galician (Galego) */
 $specialPageAliases['gl'] = array(
-	'Cite' => array( 'Cita' ),
+	'Cite' => array( 'Cita', 'Citar' ),
 );
 
 /** Swiss German (Alemannisch) */
@@ -228,6 +228,11 @@ $specialPageAliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),
 );
 
+/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+$specialPageAliases['nb'] = array(
+	'Cite' => array( 'Siteringshjelp' ),
+);
+
 /** Low German (Plattdüütsch) */
 $specialPageAliases['nds'] = array(
 	'Cite' => array( 'Ziteerhelp' ),
@@ -246,11 +251,6 @@ $specialPageAliases['nl'] = array(
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
 $specialPageAliases['nn'] = array(
 	'Cite' => array( 'Siter' ),
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$specialPageAliases['nb'] = array(
-	'Cite' => array( 'Siteringshjelp' ),
 );
 
 /** Occitan (Occitan) */
@@ -283,7 +283,7 @@ $specialPageAliases['ro'] = array(
 	'Cite' => array( 'Citează' ),
 );
 
-/** Sanskrit (संस्कृत) */
+/** Sanskrit (संस्कृतम्) */
 $specialPageAliases['sa'] = array(
 	'Cite' => array( 'उद्धृत' ),
 );
@@ -362,8 +362,3 @@ $specialPageAliases['zh-hans'] = array(
 $specialPageAliases['zh-hant'] = array(
 	'Cite' => array( '引用' ),
 );
-
-/**
- * For backwards compatibility with MediaWiki 1.15 and earlier.
- */
-$aliases =& $specialPageAliases;

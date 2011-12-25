@@ -1263,6 +1263,19 @@ $messages['nan'] = array(
 	'cite_submit' => 'Ín-iōng',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'cite_article_desc' => 'Legger til en [[Special:Cite|siteringsside]] og lenke i verktøy-menyen',
+	'cite_article_link' => 'Siter denne siden',
+	'tooltip-cite-article' => 'Informasjon om hvordan denne siden kan siteres',
+	'cite' => 'Siter',
+	'cite_page' => 'Side:',
+	'cite_submit' => 'Siter',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -1316,19 +1329,6 @@ $messages['nn'] = array(
 	'cite_article_desc' => 'Legg til ei [[Special:Cite|siteringssida]] og lenkja i verktøy-menyen',
 	'cite_article_link' => 'Siter denne sida',
 	'tooltip-cite-article' => 'Informasjon om korleis ein siterer denne sida',
-	'cite' => 'Siter',
-	'cite_page' => 'Side:',
-	'cite_submit' => 'Siter',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'cite_article_desc' => 'Legger til en [[Special:Cite|siteringsside]] og lenke i verktøy-menyen',
-	'cite_article_link' => 'Siter denne siden',
-	'tooltip-cite-article' => 'Informasjon om hvordan denne siden kan siteres',
 	'cite' => 'Siter',
 	'cite_page' => 'Side:',
 	'cite_submit' => 'Siter',

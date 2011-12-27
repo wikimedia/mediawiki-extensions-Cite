@@ -1387,6 +1387,7 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  */
 $messages['hi'] = array(
@@ -1405,6 +1406,8 @@ $messages['hi'] = array(
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> गलत कोड; सिर्फ पॅरॅमीटर का "ग्रुप" इस्तेमाल में लाया जा सकता हैं, <code>&lt;references /&gt;</code> या फिर <code>&lt;references group="..." /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_no_backlink_label' => 'तैयार किये हुए पीछे की कड़ियां देनेवाले नाम खतम हुए हैं, अधिक नाम <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> इस संदेश में बढायें',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> गलत कोड; <code>$1</code> नामके संदर्भमें ज़ानकारी नहीं हैं',
+	'cite_error_included_ref' => 'समाप्ती &lt;/ref&gt; &lt;ref&gt; टैग लापता',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>टैग मौजूद हैं, किन्तु कोई <code>&lt;references/&gt;</code>टैग नहीं मिला',
 );
 
 /** Croatian (Hrvatski)
@@ -2549,6 +2552,13 @@ $messages['pnb'] = array(
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> ٹیگ ناں نال "$1" <code>&lt;references&gt;</code> چ دسیا گیا پہلی کسے لکھت چ نئیں ورتیا گیا۔',
 	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> ٹیگ دسیا گیا <code>&lt;references&gt;</code> چ دا کوئی ناں اٹریبیوٹ نئیں۔',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ٹیگ دسیا گیا <code>&lt;references&gt;</code> چ "$1" ناں نال، ایدے چ کج نئیں۔',
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'cite_error' => 'د درک ستونزه: $1',
 );
 
 /** Portuguese (Português)

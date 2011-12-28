@@ -1652,6 +1652,34 @@ Daytoy ket saan kuman a napasamak.',
 imbalido a tuon a tulbek.
 Daytoy ket saan kuman a napasamak.',
 	'cite_error' => 'Biddut ti dakamat: $1',
+	'cite_error_ref_numeric_key' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
+ti nagan ket saan a mabalina a nalaka a sibubukel. Agusar ti agipalpalawag a titulo',
+	'cite_error_ref_no_key' => 'Imbalido a  <code>&lt;ref&gt;</code> nga etiketa;
+dagita ref nga awan nagyan na ket masapul a nanaganan',
+	'cite_error_ref_too_many_keys' => 'Imbalido a  <code>&lt;ref&gt;</code> nga etiketa;
+imbalido a nag-nagan, a kas adu unay',
+	'cite_error_ref_no_input' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
+dagiti ref nga awan ti nagan na ket masapul nga addaan ti nagyan',
+	'cite_error_references_invalid_parameters' => 'Imbalido<code>&lt;references&gt;</code> nga etiketa
+awan dagiti parametro a maipalubos.
+Usaren ti <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Imbalido a <code>&lt;references&gt;</code> nga etiketa;
+parametro a "bunggoy" ket ti maipalubos laeng.
+Usaren ti<code>&lt;references /&gt;</code>, wenno<code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Naibusan kadagiti nagrunaan a likud ti panilpo nga etiketa.
+Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> a mensahe',
+	'cite_error_no_link_label_group' => 'Naibusan ti nangruna a panilpo nga etiketa para iti bunggoy ti "$1".
+Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:$2]]</nowiki> a mensahe.',
+	'cite_error_references_no_text' => 'Imbalido a <code>&lt;ref&gt;</code> nag etiketa;
+awan ti ti teksto a naited para dagitiref a nanaganan <code>$1</code>',
+	'cite_error_included_ref' => 'Irikrikep ti &lt;/ref&gt; napukaw para iti &lt;ref&gt; nga etiketa',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> nga dagiti etiketa ket addaan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> a dagiti etiketa para iti bunggoy a nainaganan "$1", ngem awan ti kapadpada a <code>&lt;references group="$1"/&gt;</code> anga etiketa a nabirukan',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> etiketa iday <code>&lt;references&gt;</code> ket addan ti nagsungat a gupit ti bunggoy "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> ti etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti bunggoy "$1" a saan nga agparang iti napalabas a teksto.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> ti etiketa nga addaan ti nagan "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a teksto.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> ti etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ti etiketa a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyan na.',
 );
 
 /** Ido (Ido)

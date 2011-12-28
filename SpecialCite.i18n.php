@@ -841,9 +841,9 @@ $messages['ig'] = array(
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'cite_article_desc' => 'Nayunan na ti [[Special:Cite|dakamat]] a naiduma a panid ken panilpo iti ramramit',
-	'cite_article_link' => 'Dakamaten daytoy nga panid',
-	'tooltip-cite-article' => 'Informasyon no kasanu ti pinagdakamat daytoy a panid',
+	'cite_article_desc' => 'Nayunan na ti [[Special:Cite|dakamat]] a naiparuna a panid ken panilpo iti ramramit',
+	'cite_article_link' => 'Dakamaten daytoy a panid',
+	'tooltip-cite-article' => 'Pakaammo no kasanu ti pinagdakamat daytoy a panid',
 	'cite' => 'Dakamaten',
 	'cite_page' => 'Panid:',
 	'cite_submit' => 'Dakamaten',

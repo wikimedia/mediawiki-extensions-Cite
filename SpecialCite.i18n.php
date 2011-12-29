@@ -714,11 +714,13 @@ $messages['he'] = array(
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  */
 $messages['hi'] = array(
 	'cite_article_desc' => 'एक विशेष [[Special:Cite|बाह्यकड़ियां]] देनेवाला पन्ना और टूलबॉक्सका लिंक बनाईयें',
 	'cite_article_link' => 'इस पन्ने को उद्घृत करें',
+	'tooltip-cite-article' => 'तथ्य कैसे इस पृष्ठ में संदर्भ जोड़ें',
 	'cite' => 'उद्घॄत करें',
 	'cite_page' => 'पन्ना:',
 	'cite_submit' => 'उद्घृत करें',
@@ -841,7 +843,7 @@ $messages['ig'] = array(
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'cite_article_desc' => 'Nayunan na ti [[Special:Cite|dakamat]] a naiparuna a panid ken panilpo iti ramramit',
+	'cite_article_desc' => 'Nayunan na ti [[Special:Cite|dakamat]] ti naipangpangruna a panid ken panilpo iti ramramit',
 	'cite_article_link' => 'Dakamaten daytoy a panid',
 	'tooltip-cite-article' => 'Pakaammo no kasanu ti pinagdakamat daytoy a panid',
 	'cite' => 'Dakamaten',

@@ -1408,6 +1408,9 @@ $messages['hi'] = array(
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> गलत कोड; <code>$1</code> नामके संदर्भमें ज़ानकारी नहीं हैं',
 	'cite_error_included_ref' => 'समाप्ती &lt;/ref&gt; &lt;ref&gt; टैग लापता',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>टैग मौजूद हैं, किन्तु कोई <code>&lt;references/&gt;</code>टैग नहीं मिला',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> टैग इन <code>&lt;references&gt;</code> दल की विशेषता में संघर्ष "$1"।',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> टैग में परिभाषित <code>&lt;references&gt;</code> कोई नाम विशेषता नहीं ।',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> टैग में परिभाषित <code>&lt;references&gt;</code> नाम सहित "$1" कोई सामग्री नहीं ।',
 );
 
 /** Croatian (Hrvatski)
@@ -1643,7 +1646,7 @@ $messages['ig'] = array(
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'cite-desc' => 'Agnayon ti <nowiki><ref[ name=id]></nowiki> ken <nowiki><references/></nowiki> tags, para kadagiti pagdakamat',
+	'cite-desc' => 'Agnayon ti <nowiki><ref[ name=id]></nowiki> ken <nowiki><references/></nowiki> nga etiketa, para kadagiti pagdakamat',
 	'cite_croak' => 'Natay ti dakamat; $1: $2',
 	'cite_error_key_str_invalid' => 'Akin-uneg a biddut;
 imbalido $str ken/ wenno $tulbek.
@@ -1653,33 +1656,33 @@ imbalido a tuon a tulbek.
 Daytoy ket saan kuman a napasamak.',
 	'cite_error' => 'Biddut ti dakamat: $1',
 	'cite_error_ref_numeric_key' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
-ti nagan ket saan a mabalina a nalaka a sibubukel. Agusar ti agipalpalawag a titulo',
+ti nagan ket saan a mabalin a nalaka a sibubukel. Agusar ti agipalpalawag a titulo',
 	'cite_error_ref_no_key' => 'Imbalido a  <code>&lt;ref&gt;</code> nga etiketa;
-dagita ref nga awan nagyan na ket masapul a nanaganan',
+dagita ref nga awan nagyan na ket masapul a managanan',
 	'cite_error_ref_too_many_keys' => 'Imbalido a  <code>&lt;ref&gt;</code> nga etiketa;
 imbalido a nag-nagan, a kas adu unay',
 	'cite_error_ref_no_input' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
 dagiti ref nga awan ti nagan na ket masapul nga addaan ti nagyan',
-	'cite_error_references_invalid_parameters' => 'Imbalido<code>&lt;references&gt;</code> nga etiketa
+	'cite_error_references_invalid_parameters' => 'Imbalido a <code>&lt;references&gt;</code> nga etiketa
 awan dagiti parametro a maipalubos.
 Usaren ti <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Imbalido a <code>&lt;references&gt;</code> nga etiketa;
 parametro a "bunggoy" ket ti maipalubos laeng.
-Usaren ti<code>&lt;references /&gt;</code>, wenno<code>&lt;references group="..." /&gt;</code>',
+Usaren ti <code>&lt;references /&gt;</code> , wenno<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Naibusan kadagiti nagrunaan a likud ti panilpo nga etiketa.
 Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> a mensahe',
 	'cite_error_no_link_label_group' => 'Naibusan ti nangruna a panilpo nga etiketa para iti bunggoy ti "$1".
 Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:$2]]</nowiki> a mensahe.',
-	'cite_error_references_no_text' => 'Imbalido a <code>&lt;ref&gt;</code> nag etiketa;
-awan ti ti teksto a naited para dagitiref a nanaganan <code>$1</code>',
+	'cite_error_references_no_text' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
+awan ti teksto a naited para dagiti ref a nanaganan <code>$1</code>',
 	'cite_error_included_ref' => 'Irikrikep ti &lt;/ref&gt; napukaw para iti &lt;ref&gt; nga etiketa',
-	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> nga dagiti etiketa ket addaan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> a dagiti etiketa para iti bunggoy a nainaganan "$1", ngem awan ti kapadpada a <code>&lt;references group="$1"/&gt;</code> anga etiketa a nabirukan',
-	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> etiketa iday <code>&lt;references&gt;</code> ket addan ti nagsungat a gupit ti bunggoy "$1".',
-	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> ti etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti bunggoy "$1" a saan nga agparang iti napalabas a teksto.',
-	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> ti etiketa nga addaan ti nagan "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a teksto.',
-	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> ti etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.',
-	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ti etiketa a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyan na.',
+	'cite_error_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa ket addaan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
+	'cite_error_group_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa para iti bunggoy a nainaganan "$1", ngem awan ti kapadpada a <code>&lt;references group="$1"/&gt;</code> nga etiketa a nabirukan',
+	'cite_error_references_group_mismatch' => 'Ti <code>&lt;ref&gt;</code> nga etiketa iday <code>&lt;references&gt;</code> ket addan ti nagsungat a gupit ti bunggoy "$1".',
+	'cite_error_references_missing_group' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti bunggoy "$1" a saan nga agparang iti napalabas a teksto.',
+	'cite_error_references_missing_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa nga addaan ti nagan "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a teksto.',
+	'cite_error_references_no_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.',
+	'cite_error_empty_references_define' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyan na.',
 );
 
 /** Ido (Ido)
@@ -3249,6 +3252,19 @@ Definera fler i <nowiki>[[MediaWiki:$2]]</nowiki>-meddelandet.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-tagg med namnet "$1", definierad i <code>&lt;references&gt;</code> används inte innan i texten.',
 	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code>-tagg definierad i <code>&lt;references&gt;</code> saknar name-attribut.',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code>-tagg definierad i <code>&lt;ref&gt;</code> med namnet "$1" har inget innehåll.',
+);
+
+/** Tamil (தமிழ்)
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'cite-desc' => 'சேர்க்கிறது <nowiki><ref[ name=id]></nowiki>மற்றும் <nowiki><references/></nowiki> குறிச்சொற்கள், மேற்கோள்களுக்காக',
+	'cite_error_key_str_invalid' => 'உள் பிழை;
+ செல்லாத $ எழுத்துச்சரம் மற்றும்/அல்லது $  விசை.
+இது  ஒருபோதும் ஏற்பட கூடாது..',
+	'cite_error_stack_invalid_input' => 'உள் பிழை;
+செல்லாத அடுக்கு விசை.
+இது  ஒருபோதும் ஏற்பட கூடாது..',
 );
 
 /** Telugu (తెలుగు)

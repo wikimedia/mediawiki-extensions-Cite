@@ -1158,6 +1158,15 @@ viitettä <code>$1</code> ei löytynyt',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä nimellä ”$1” ei ole sisältöä.',
 );
 
+/** Faroese (Føroyskt)
+ * @author EileenSanda
+ */
+$messages['fo'] = array(
+	'cite-desc' => 'Leggur afturat <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki> lyklaorð, fyri ávísingar',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> lyklaorð eru til, men onki <code>&lt;references/&gt;</code> lyklaorð (tag) varð funnið',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> lyklaorð (tags) eru til fyri ein bólk sum eitur "$1", men onki tilsvarandi <code>&lt;references group="$1"/&gt;</code> lyklaorð varð funnið',
+);
+
 /** French (Français)
  * @author Cedric31
  * @author Crochet.david
@@ -1408,7 +1417,10 @@ $messages['hi'] = array(
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> गलत कोड; <code>$1</code> नामके संदर्भमें ज़ानकारी नहीं हैं',
 	'cite_error_included_ref' => 'समाप्ती &lt;/ref&gt; &lt;ref&gt; टैग लापता',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>टैग मौजूद हैं, किन्तु कोई <code>&lt;references/&gt;</code>टैग नहीं मिला',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> टैग मौजूद है एक दल के लिए इस नाम "$1" से, कीनतु कोई अनुरूप <code>&lt;references group="$1"/&gt;</code> टैग नहीं मिला',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> टैग इन <code>&lt;references&gt;</code> दल की विशेषता में संघर्ष "$1"।',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> टैग परिभाषित <code>&lt;references&gt;</code> में दलकी विशेषता है "$1" जो पूर्व लेख में दिखाई नहीं दिया ।',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> टैग इस नाम "$1" सहित परिभाषित <code>&lt;references&gt;</code> पूर्व लेख में उपयोग नहीं हुई ।',
 	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> टैग में परिभाषित <code>&lt;references&gt;</code> कोई नाम विशेषता नहीं ।',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> टैग में परिभाषित <code>&lt;references&gt;</code> नाम सहित "$1" कोई सामग्री नहीं ।',
 );

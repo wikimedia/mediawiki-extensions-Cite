@@ -1583,6 +1583,15 @@ $messages['rup'] = array(
 	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
 );
 
+/** Sanskrit (संस्कृतम्)
+ * @author Ansumang
+ */
+$messages['sa'] = array(
+	'cite' => 'उदाहरति',
+	'cite_page' => 'पृष्ठ:',
+	'cite_submit' => 'उदाहरति',
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */

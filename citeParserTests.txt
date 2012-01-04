@@ -23,7 +23,7 @@ Wikipedia rocks!<ref>Proceeds of Rockology, vol. XXI</ref>
 !! result
 <p>Wikipedia rocks!<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> Proceeds of Rockology, vol. XXI
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">Proceeds of Rockology, vol. XXI</span>
 </li></ol>
 
 !! end
@@ -45,7 +45,7 @@ Templating<ref>{{simple template}}</ref>
 !! result
 <p>Templating<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> A <i>simple</i> template.
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">A <i>simple</i> template.</span>
 </li></ol>
 
 !! end
@@ -59,7 +59,7 @@ Templating<ref><nowiki>{{simple template}}</nowiki></ref>
 !! result
 <p>Templating<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> {{simple template}}
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">{{simple template}}</span>
 </li></ol>
 
 !! end
@@ -98,7 +98,7 @@ Templating<ref>Text<!--comment--></ref>
 !! result
 <p>Templating<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> Text
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">Text</span>
 </li></ol>
 
 !! end
@@ -121,7 +121,7 @@ Templating<ref>Text<!--comment--></ref>
 			</div>
 		</div></li>
 </ul>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> one
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">one</span>
 </li></ol>
 
 !! end
@@ -157,7 +157,7 @@ Blank ref followed by ref with content
 <p><sup id="cite_ref-blank_0-0" class="reference"><a href="#cite_note-blank-0">[1]</a></sup>
 </p><p><sup id="cite_ref-blank_0-1" class="reference"><a href="#cite_note-blank-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1">1.1</a></sup> content
+<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1">1.1</a></sup> <span class="reference-text">content</span>
 </li></ol>
 
 !! end
@@ -174,7 +174,7 @@ Regression: non-blank ref "0" followed by ref with content
 <p><sup id="cite_ref-blank_0-0" class="reference"><a href="#cite_note-blank-0">[1]</a></sup>
 </p><p><sup id="cite_ref-blank_0-1" class="reference"><a href="#cite_note-blank-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1">1.1</a></sup> 0
+<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1">1.1</a></sup> <span class="reference-text">0</span>
 </li></ol>
 
 !! end
@@ -191,7 +191,7 @@ Regression sanity check: non-blank ref "1" followed by ref with content
 <p><sup id="cite_ref-blank_0-0" class="reference"><a href="#cite_note-blank-0">[1]</a></sup>
 </p><p><sup id="cite_ref-blank_0-1" class="reference"><a href="#cite_note-blank-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1">1.1</a></sup> 1
+<ol class="references"><li id="cite_note-blank-0">↑ <sup><a href="#cite_ref-blank_0-0">1.0</a></sup> <sup><a href="#cite_ref-blank_0-1">1.1</a></sup> <span class="reference-text">1</span>
 </li></ol>
 
 !! end
@@ -209,11 +209,11 @@ Ref names containing a number
 <sup id="cite_ref-123test_1-0" class="reference"><a href="#cite_note-123test-1">[2]</a></sup>
 <sup id="cite_ref-test123_2-0" class="reference"><a href="#cite_note-test123-2">[3]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-test123test-0"><a href="#cite_ref-test123test_0-0">↑</a> One
+<ol class="references"><li id="cite_note-test123test-0"><a href="#cite_ref-test123test_0-0">↑</a> <span class="reference-text">One</span>
 </li>
-<li id="cite_note-123test-1"><a href="#cite_ref-123test_1-0">↑</a> Two
+<li id="cite_note-123test-1"><a href="#cite_ref-123test_1-0">↑</a> <span class="reference-text">Two</span>
 </li>
-<li id="cite_note-test123-2"><a href="#cite_ref-test123_2-0">↑</a> Three
+<li id="cite_note-test123-2"><a href="#cite_ref-test123_2-0">↑</a> <span class="reference-text">Three</span>
 </li></ol>
 
 !! end
@@ -246,7 +246,7 @@ refs with no content must have a name</strong>
 parameter "group" is allowed only.
 Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code></strong>
 </p>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> Also zero, but differently! (Normal ref)
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">Also zero, but differently! (Normal ref)</span>
 </li>
 <li id="cite_note-bar"><a href="#cite_ref-bar_0">↑</a> <strong class="error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>bar</code></strong></li>
@@ -268,9 +268,9 @@ Wikipedia rocks!<ref group=note>Proceeds of Rockology, vol. XXI</ref>
 <p>Wikipedia rocks!<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
 Wikipedia rocks!<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[note 1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> Proceeds of Rockology, vol. XXI
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">Proceeds of Rockology, vol. XXI</span>
 </li></ol>
-<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1">↑</a> Proceeds of Rockology, vol. XXI
+<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1">↑</a> <span class="reference-text">Proceeds of Rockology, vol. XXI</span>
 </li></ol>
 
 !! end
@@ -289,13 +289,13 @@ AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="�
 </p>
 <dl><dt>refs
 </dt></dl>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> ref a
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">ref a</span>
 </li>
-<li id="cite_note-2"><a href="#cite_ref-2">↑</a> ref c
+<li id="cite_note-2"><a href="#cite_ref-2">↑</a> <span class="reference-text">ref c</span>
 </li></ol>
 <dl><dt>notes
 </dt></dl>
-<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1">↑</a> note b
+<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1">↑</a> <span class="reference-text">note b</span>
 </li></ol>
 
 !! end
@@ -311,7 +311,7 @@ AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="�
 !! result
 <p><sup id="cite_ref-foo_0-0" class="reference"><a href="#cite_note-foo-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-foo-0"><a href="#cite_ref-foo_0-0">↑</a> BAR
+<ol class="references"><li id="cite_note-foo-0"><a href="#cite_ref-foo_0-0">↑</a> <span class="reference-text">BAR</span>
 </li></ol>
 
 !! end
@@ -327,7 +327,7 @@ AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="�
 !! result
 <p><sup id="cite_ref-foo_0-0" class="reference"><a href="#cite_note-foo-0">[1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-foo-0"><a href="#cite_ref-foo_0-0">↑</a> BAR
+<ol class="references"><li id="cite_note-foo-0"><a href="#cite_ref-foo_0-0">↑</a> <span class="reference-text">BAR</span>
 </li></ol>
 
 !! end
@@ -369,7 +369,7 @@ Wikipedia rocks!<ref group="klingon">Proceeds of Rockology, vol. XXI</ref>
 !! result
 <p>Wikipedia rocks!<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[wa']</a></sup>
 </p>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> Proceeds of Rockology, vol. XXI
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">Proceeds of Rockology, vol. XXI</span>
 </li></ol>
 
 !! end
@@ -383,9 +383,9 @@ Bug 31374 regression check: nested strip items
 !! result
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[Note 1]</a></sup>
 </p>
-<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1">↑</a> note<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
+<ol class="references"><li id="cite_note-1"><a href="#cite_ref-1">↑</a> <span class="reference-text">note<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup></span>
 </li></ol>
-<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> reference
+<ol class="references"><li id="cite_note-0"><a href="#cite_ref-0">↑</a> <span class="reference-text">reference</span>
 </li></ol>
 
 !! end

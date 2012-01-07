@@ -2206,6 +2206,7 @@ $messages['ml'] = array(
 /** Marathi (मराठी)
  * @author Kaajawa
  * @author Kaustubh
+ * @author Mahitgar
  */
 $messages['mr'] = array(
 	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
@@ -2221,9 +2222,13 @@ $messages['mr'] = array(
 <code>&lt;references /&gt;</code> असा कोड वापरा',
 	'cite_error_references_invalid_parameters_group' => 'चुकीची <code>&lt;references&gt;</code> खूण; फक्त पॅरॅमीटर चा गट वापरता येईल, <code>&lt;references /&gt;</code> किंवा <code>&lt;references group="..." /&gt;</code> चा वापर करा',
 	'cite_error_references_no_backlink_label' => 'तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> या प्रणाली संदेशात लिहा',
+	'cite_error_no_link_label_group' => '"$1" करिता नमूदकेलेल्या कस्टम लिंक खूणा संपल्या .
+<nowiki>[[MediaWiki:$2]]</nowiki> संदेशात अधिक खूणा नमूद करा',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
 	'cite_error_included_ref' => '&lt;ref&gt; ला बंद करणारी &lt;/ref&gt; ही खूण गायब आहे.',
 	'cite_error_refs_without_references' => 'पानामधे <code>&lt;ref&gt;</code> (संदर्भ) आहे, परंतु <code>&lt;references/&gt;</code> (<nowiki>{{संदर्भयादी}}<nowiki />) सापडले नाही. <nowiki>{{संदर्भयादी}}<nowiki /> असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.',
+	'cite_error_group_refs_without_references' => '"$1" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>  चिन्हे उपलब्ध आहेत, पण संबंधीत <code>&lt;references group="$1"/&gt;</code>  खूण मिळाली नाही.',
+	'cite_error_references_group_mismatch' => 'tag in <code>&lt;references&gt;</code>मधील <code>&lt;ref&gt;</code>  खूणांना खटका उडणारे  group attribute "$1" आहे.',
 );
 
 /** Malay (Bahasa Melayu)

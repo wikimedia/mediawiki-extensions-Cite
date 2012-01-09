@@ -88,6 +88,7 @@ $messages['am'] = array(
 $messages['an'] = array(
 	'cite_article_desc' => 'Adibe un vinclo y una pachina especial de [[Special:Cite|cita]]',
 	'cite_article_link' => 'Citar ista pachina',
+	'tooltip-cite-article' => 'Información de como citar ista pachina',
 	'cite' => 'Citar',
 	'cite_page' => 'Pachina:',
 	'cite_submit' => 'Citar',

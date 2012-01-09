@@ -204,8 +204,17 @@ $messages['an'] = array(
 nomás se premite o parametro "group".
 Faiga servir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Ya no quedan etiquetas backlink presonalizatas, defina más en o mensache <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'S\'han acorau as etiquetas de vinclos personalizaus ta o grupo "$1".
+Defina-ne mas en o mensache <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; no ha escrito garra testo t'as referencias nombratas <code>$1</code>",
 	'cite_error_included_ref' => 'Zarrando &lt;/ref&gt; falta una etiqueta &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se trobó garra etiqueta <code>&lt;references /&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> ta un grupo clamau "$1", pero no se trobó garra etiqueta <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'O tag <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presienta l\'atributo de grupo en conflicto "$1".',
+	'cite_error_references_missing_group' => 'O tag <code>&lt;ref&gt;</code> definiu en <code>&lt;references&gt;</code> incluye l\'atributo "$1" no declarau en o texto precedente.',
+	'cite_error_references_missing_key' => 'O tag <code>&lt;ref&gt;</code> con nombre "$1" definiu en <code>&lt;references&gt;</code> no s\'emplega en o texto precedente.',
+	'cite_error_references_no_key' => 'O tag <code>&lt;ref&gt;</code> definiu en <code>&lt;references&gt;</code> no tiene garra atributo de nombre.',
+	'cite_error_empty_references_define' => 'O tag <code>&lt;ref&gt;</code> definiu en <code>&lt;references&gt;</code> con nombre "$1" no tiene garra conteniu.',
 );
 
 /** Arabic (العربية)

@@ -2825,19 +2825,20 @@ nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
  * @author Ahonc
  * @author Dim Grits
  * @author Ferrer
+ * @author KPu3uC B Poccuu
  * @author Kaganer
  * @author Kalan
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'cite-desc' => 'Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок',
-	'cite_croak' => 'Цитата сдохла; $1: $2',
-	'cite_error_key_str_invalid' => 'Внутренняя ошибка;
-ошибочное значение $str или $key.
-Подобного никогда не должно происходить.',
+	'cite_croak' => 'Цитата умерла; $1: $2',
+	'cite_error_key_str_invalid' => "Внутренняя ошибка;
+ошибочное значение '''\$str''' или '''\$key'''.
+Подобное не должно происходить.",
 	'cite_error_stack_invalid_input' => 'Внутренняя ошибка.
 Неверный ключ стека.
-Подобного никогда не должно происходить.',
+Подобное не должно происходить.',
 	'cite_error' => 'Ошибка цитирования $1',
 	'cite_error_ref_numeric_key' => 'Неправильный тег <code>&lt;ref&gt;</code>;
 имя не может быть целым числом. Используйте описательное название',
@@ -2850,9 +2851,9 @@ $messages['ru'] = array(
 	'cite_error_references_invalid_parameters' => 'Неправильный тег <code>&lt;references&gt;</code>;
 параметры не разрешены.
 Используйте <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Ошибочный тег <code>&lt;references&gt;</code>;
-можно использовать только параметр «group».
-Используйте <code>&lt;references /&gt;</code>, или <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => "Ошибочный тег <code>&lt;references&gt;</code>;
+можно использовать только параметр <code>'''group'''</code>.
+Используйте <code>&lt;references /&gt;</code> или <code>&lt;references group=\"…\" /&gt;</code>",
 	'cite_error_references_no_backlink_label' => 'Не хватает символов для возвратных гиперссылок.
 Следует расширить системное сообщение <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_no_link_label_group' => 'Закончились отметки пользовательских ссылок для группы «$1».

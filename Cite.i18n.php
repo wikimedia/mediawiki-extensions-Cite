@@ -317,8 +317,12 @@ $str و/أو $key غلط.
 $messages['ast'] = array(
 	'cite-desc' => 'Añade les etiquetes <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> pa les cites',
 	'cite_croak' => 'Cita corrompida; $1: $2',
-	'cite_error_key_str_invalid' => 'Error internu; $str y/o $key non válidos.  Esto nun habría asoceder nunca.',
-	'cite_error_stack_invalid_input' => 'Error internu; clave de pila non válida. Esto nun habría asoceder nunca.',
+	'cite_error_key_str_invalid' => 'Error internu;
+$str y/o $key inválidos.
+Esto nun tendría d\'asoceder nunca.',
+	'cite_error_stack_invalid_input' => "Error internu;
+clave de pila inválida.
+Esto nun tendría d'asoceder nunca.",
 	'cite_error' => 'Error de cita: $1',
 	'cite_error_ref_numeric_key' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; el nome nun pue ser un enteru simple, usa un títulu descriptivu',
 	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; les referencies ensin conteníu han tener un nome',

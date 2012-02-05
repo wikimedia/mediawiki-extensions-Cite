@@ -1357,8 +1357,12 @@ Definier meh unter Systemnochricht <nowiki>[[MediaWiki:$2]]</nowiki>.',
 
 /** Gujarati (ગુજરાતી)
  * @author Dsvyas
+ * @author KartikMistry
  */
 $messages['gu'] = array(
+	'cite_error_stack_invalid_input' => 'આંતરિક ક્ષતિ;
+અયોગ્ય સ્ટેક કળ.
+આ ક્યારેય થવું ન જોઈએ.',
 	'cite_references_link_many_format_backlink_labels' => '',
 );
 

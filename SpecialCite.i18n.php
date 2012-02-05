@@ -673,9 +673,14 @@ $messages['gsw'] = array(
 	'cite_submit' => 'aazeige',
 );
 
-/** Gujarati (ગુજરાતી) */
+/** Gujarati (ગુજરાતી)
+ * @author Sushant savla
+ */
 $messages['gu'] = array(
+	'cite_article_link' => 'આ પાનું ટાંકો',
+	'cite' => 'ટાંકો',
 	'cite_page' => 'પાનું:',
+	'cite_submit' => 'ટાંકો',
 );
 
 /** Manx (Gaelg)

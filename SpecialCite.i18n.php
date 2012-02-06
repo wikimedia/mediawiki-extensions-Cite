@@ -674,10 +674,12 @@ $messages['gsw'] = array(
 );
 
 /** Gujarati (ગુજરાતી)
+ * @author KartikMistry
  * @author Sushant savla
  */
 $messages['gu'] = array(
 	'cite_article_link' => 'આ પાનું ટાંકો',
+	'tooltip-cite-article' => 'આ પાનાંને સમર્થન કઈ રીતે આપવું તેની માહિતી',
 	'cite' => 'ટાંકો',
 	'cite_page' => 'પાનું:',
 	'cite_submit' => 'ટાંકો',

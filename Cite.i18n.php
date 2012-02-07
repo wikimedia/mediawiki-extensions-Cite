@@ -1361,6 +1361,10 @@ Definier meh unter Systemnochricht <nowiki>[[MediaWiki:$2]]</nowiki>.',
  * @author Sushant savla
  */
 $messages['gu'] = array(
+	'cite_croak' => 'સમર્થન ભાંગી ગયું; $1: $2',
+	'cite_error_key_str_invalid' => 'આંતરિક ક્ષતિ;
+અયોગ્ય $str અને/અથવા $key.
+આ ક્યારેય થવું ન જોઈએ.',
 	'cite_error_stack_invalid_input' => 'આંતરિક ક્ષતિ;
 અયોગ્ય સ્ટેક કળ.
 આ ક્યારેય થવું ન જોઈએ.',

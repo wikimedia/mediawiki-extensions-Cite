@@ -678,6 +678,7 @@ $messages['gsw'] = array(
  * @author Sushant savla
  */
 $messages['gu'] = array(
+	'cite_article_desc' => '[[Special:Cite|સંદર્ભ]] ખાસ પાનું અને ટૂલબોક્સ કડી ઉમેરે છે',
 	'cite_article_link' => 'આ પાનું ટાંકો',
 	'tooltip-cite-article' => 'આ પાનાંને સમર્થન કઈ રીતે આપવું તેની માહિતી',
 	'cite' => 'ટાંકો',

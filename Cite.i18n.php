@@ -1361,6 +1361,7 @@ Definier meh unter Systemnochricht <nowiki>[[MediaWiki:$2]]</nowiki>.',
  * @author Sushant savla
  */
 $messages['gu'] = array(
+	'cite-desc' => 'અવતરણો માટે <nowiki><ref[ name=id]></nowiki> અને <nowiki><references/></nowiki> ટેગ ઉમેરે છે',
 	'cite_croak' => 'અવતરણ ભાંગી ગયું; $1: $2',
 	'cite_error_key_str_invalid' => 'આંતરિક ક્ષતિ;
 અયોગ્ય $str અને/અથવા $key.
@@ -1369,10 +1370,26 @@ $messages['gu'] = array(
 અયોગ્ય સ્ટેક કળ.
 આ ક્યારેય થવું ન જોઈએ.',
 	'cite_error' => 'તૃટી ટાંકો: $1',
+	'cite_error_ref_numeric_key' => 'અમાન્ય <code>&lt;ref&gt;</code> ટેગ;
+નામ માત્ર સરળ રાશિ ન હોઈ શકે, વિસ્તૃત શીર્ષક આપો',
+	'cite_error_ref_no_key' => 'અમાન્ય <code>&lt;ref&gt;</code> ટેગ;
+નામ વગરના refs ને કાંઈક નામ તો હોવું જ જોઈએ',
 	'cite_error_ref_too_many_keys' => 'અમાન્ય <code>&lt;ref&gt;</code> ચકતી;
 અમાન્ય નામો , દા.ત. ઘણાં બધાં',
 	'cite_error_ref_no_input' => 'અમાન્ય <code>&lt;ref&gt;</code> ટેગ;
 નામ વગરના refs માં કાંઈક સામગ્રી હોવી જોઈએ',
+	'cite_error_references_invalid_parameters' => 'અમાન્ય<code>&lt;references&gt;</code> ટેગ;
+કોઈ પણ પરિમાણની પરવાનગિ નથી.
+<code>&lt;references /&gt;</code> વાપરો',
+	'cite_error_references_invalid_parameters_group' => 'અમાન્ય <code>&lt;references&gt;</code> ટેગ;
+માત્ર "group" પરિમાણની પરવાનગિ છે.
+<code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code> વાપરો',
+	'cite_error_references_no_text' => 'અમાન્ય <code>&lt;ref&gt;</code> ટેગ;
+<code>$1</code>નામના સંદર્ભ માટે કોઈ પણ લેખન અપાયું નથી',
+	'cite_error_included_ref' => 'બંધ કરે છે &lt;/ref&gt; ખૂટતું &lt;ref&gt; ટેગ',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ટેગ અસ્તિત્વમાં છે, પણ <code>&lt;references/&gt;</code> ઍવો કોઈ ટેગ ન મળ્યો.',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>માં વ્યાખ્યાયીત <code>&lt;ref&gt;</code> ટેગનો સમૂહ ગુણ "$1" છે જે પહેલાંની પહેલાંના લેખનમાં નથી.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ટેગની વ્યાખ્યા <code>&lt;references&gt;</code> માં "$1" નામે છે તેને કોઈ content નથી.',
 	'cite_references_link_many_format_backlink_labels' => '',
 );
 
@@ -1718,8 +1735,8 @@ awan ti teksto a naited para dagiti ref a nanaganan <code>$1</code>',
 	'cite_error_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa ket addaan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
 	'cite_error_group_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa para iti bunggoy a nainaganan "$1", ngem awan ti kapadpada a <code>&lt;references group="$1"/&gt;</code> nga etiketa a nabirukan',
 	'cite_error_references_group_mismatch' => 'Ti <code>&lt;ref&gt;</code> nga etiketa iday <code>&lt;references&gt;</code> ket addan ti nagsungat a gupit ti bunggoy "$1".',
-	'cite_error_references_missing_group' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti bunggoy "$1" a saan nga agparang iti napalabas a teksto.',
-	'cite_error_references_missing_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa nga addaan ti nagan "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a teksto.',
+	'cite_error_references_missing_group' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti bunggoy "$1" a saan nga agparang iti napalabas a testo.',
+	'cite_error_references_missing_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa nga addaan ti nagan "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a testo.',
 	'cite_error_references_no_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.',
 	'cite_error_empty_references_define' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyan na.',
 );

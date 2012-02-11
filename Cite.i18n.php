@@ -1389,6 +1389,7 @@ $messages['gu'] = array(
 	'cite_error_group_refs_without_references' => ' "$1" નામના સમૂહમાં <code>&lt;ref&gt;</code> ટેગ વિહરમાન છે, પણ તેને અનુરૂપ <code>&lt;references group="$1"/&gt;</code> ટેગ ન મળ્યો.',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> ટેગને  <code>&lt;references&gt;</code> માં આ વિરોધાભાસી લક્ષણ છે : "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>માં વ્યાખ્યાયીત <code>&lt;ref&gt;</code> ટેગનો સમૂહ ગુણ "$1" છે જે પહેલાંની પહેલાંના લેખનમાં નથી.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> ટેગની વ્યાખ્યા <code>&lt;references&gt;</code> ને કોઈ નામકરણ નથી.',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ટેગની વ્યાખ્યા <code>&lt;references&gt;</code> માં "$1" નામે છે તેને કોઈ content નથી.',
 	'cite_references_link_many_format_backlink_labels' => '',
 );

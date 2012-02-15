@@ -980,10 +980,14 @@ $messages['kl'] = array(
 /** Khmer (ភាសាខ្មែរ)
  * @author Chhorran
  * @author Lovekhmer
+ * @author គីមស៊្រុន
  */
 $messages['km'] = array(
 	'cite_article_link' => 'ប្រភពនៃទំព័រនេះ',
+	'tooltip-cite-article' => 'ព័ត៌មានអំពីការយោងមកអត្ថបទនេះ',
+	'cite' => 'ការយោង',
 	'cite_page' => 'ទំព័រ ៖',
+	'cite_submit' => 'ដាក់ការយោង',
 );
 
 /** Kannada (ಕನ್ನಡ)

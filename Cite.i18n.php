@@ -10,6 +10,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'cite-desc'                      => 'Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations',
+	'cite-summary'                   => '', # do not translate or duplicate this message to other languages
 	/*
 		Debug and errors
 	*/

@@ -32,6 +32,7 @@ $messages['qqq'] = array(
 	'cite_article_link' => 'Text of link in toolbox',
 	'tooltip-cite-article' => 'Tooltip',
 	'cite' => '{{Identical|Cite}}',
+	'cite-summary' => '{{notranslate}}',
 	'cite_page' => '{{Identical|Page}}',
 	'cite_submit' => '{{Identical|Cite}}',
 );

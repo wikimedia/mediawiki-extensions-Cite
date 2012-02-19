@@ -14,6 +14,7 @@ $messages['en'] = array(
 	'tooltip-cite-article'    => 'Information on how to cite this page',
 	'accesskey-cite-article'  => '', # Do not translate this
 	'cite'                    => 'Cite',
+	'cite-summary'            => '', # Do not translate this
 	'cite_page'               => 'Page:',
 	'cite_submit'             => 'Cite',
 	'cite_text'               => '', # Do not translate this

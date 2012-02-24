@@ -1061,6 +1061,12 @@ pues no hay una referencia con texto llamada <code>$1</code>',
  */
 $messages['et'] = array(
 	'cite-desc' => 'Lisab viitamiseks märgendid <nowiki><ref[ name=id]></nowiki> ja <nowiki><references/></nowiki>.',
+	'cite_error_key_str_invalid' => 'Sisetõrge;
+vigane $str ja/või $key.
+Seda ei tohiks esineda.',
+	'cite_error_stack_invalid_input' => 'Sisetõrge;
+vigane pinuvõti.
+Seda ei tohiks esineda.',
 	'cite_error' => 'Viitamistõrge: $1',
 	'cite_error_ref_numeric_key' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
 Nimi ei või numbriline olla. Kasuta kirjeldavat nime.',
@@ -1076,6 +1082,10 @@ Kasuta märgendit <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters_group' => 'Vigane <code>&lt;references&gt;</code>-märgend.
 Lubatud on ainult parameeter "group".
 Kasuta märgendit <code>&lt;references /&gt;</code> või <code>&lt;references group="..." /&gt;</code>.',
+	'cite_error_references_no_backlink_label' => 'Kohandatud tagasilinkide sildid said otsa.
+Lisa neid sõnumisse <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_no_link_label_group' => 'Rühma "$1" kohandatud linkide sildid said otsa.
+Lisa neid sõnumisse <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
 Viite nimega <code>$1</code> tekst puudub.',
 	'cite_error_included_ref' => 'Sulgemismärgend &lt;/ref&gt; puudub.',
@@ -1084,6 +1094,7 @@ Viite nimega <code>$1</code> tekst puudub.',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-märgendite vahel oleval <code>&lt;ref&gt;</code>-märgendil on vastukäiv parameetri "group" väärtus "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>-märgendis kirjeldatud <code>&lt;ref&gt;</code>-märgendil on rühmatunnus "$1", mis puudub eelnevas tekstis.',
 	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code>-märgendite vahel olevat <code>&lt;ref&gt;</code>-märgendit nimega "$1" ei kasutata eelnevas tekstis.',
+	'cite_error_references_no_key' => "<code>&lt;references&gt;</code>-märgendite vahel määratletud <code>&lt;ref&gt;</code>-märgendil puudub ''name''-atribuut.",
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-märgendite vahel oleval <code>&lt;ref&gt;</code>-märgendil nimega "$1" puudub sisu.',
 );
 
@@ -1736,7 +1747,7 @@ Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:Cite references link many format b
 	'cite_error_no_link_label_group' => 'Naibusan ti nangruna a panilpo nga etiketa para iti bunggoy ti "$1".
 Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:$2]]</nowiki> a mensahe.',
 	'cite_error_references_no_text' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
-awan ti teksto a naited para dagiti ref a nanaganan <code>$1</code>',
+awan ti testo a naited para dagiti ref a nanaganan <code>$1</code>',
 	'cite_error_included_ref' => 'Irikrikep ti &lt;/ref&gt; napukaw para iti &lt;ref&gt; nga etiketa',
 	'cite_error_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa ket addaan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
 	'cite_error_group_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa para iti bunggoy a nainaganan "$1", ngem awan ti kapadpada a <code>&lt;references group="$1"/&gt;</code> nga etiketa a nabirukan',

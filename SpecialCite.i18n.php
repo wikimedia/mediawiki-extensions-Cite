@@ -956,8 +956,11 @@ $messages['kk-arab'] = array(
 	'cite_submit' => 'دايەكسوز ال!',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬)
+ * @author Kaztrans
+ */
 $messages['kk-cyrl'] = array(
+	'cite_article_desc' => '[[Special:Cite|Дәйексөз]] арнайы бетін және құрал сілтемесін қосады',
 	'cite_article_link' => 'Беттен дәйексоз алу',
 	'cite' => 'Дәйексөз алу',
 	'cite_page' => 'Бет атауы:',

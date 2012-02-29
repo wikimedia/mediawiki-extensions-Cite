@@ -1061,6 +1061,7 @@ pues no hay una referencia con texto llamada <code>$1</code>',
  */
 $messages['et'] = array(
 	'cite-desc' => 'Lisab viitamiseks märgendid <nowiki><ref[ name=id]></nowiki> ja <nowiki><references/></nowiki>.',
+	'cite_croak' => 'Viide ütles üles; $1: $2',
 	'cite_error_key_str_invalid' => 'Sisetõrge;
 vigane $str ja/või $key.
 Seda ei tohiks esineda.',

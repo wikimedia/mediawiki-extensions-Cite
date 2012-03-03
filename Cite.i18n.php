@@ -1388,12 +1388,12 @@ $messages['gu'] = array(
 અમાન્ય નામો , દા.ત. ઘણાં બધાં',
 	'cite_error_ref_no_input' => 'અમાન્ય <code>&lt;ref&gt;</code> ટેગ;
 નામ વગરના refs માં કાંઈક સામગ્રી હોવી જોઈએ',
-	'cite_error_references_invalid_parameters' => 'અમાન્ય<code>&lt;references&gt;</code> ટેગ;
-કોઈ પણ પરિમાણની પરવાનગિ નથી.
+	'cite_error_references_invalid_parameters' => 'અમાન્ય <code>&lt;references&gt;</code> ટેગ;
+કોઈ પણ પરિમાણની પરવાનગી નથી.
 <code>&lt;references /&gt;</code> વાપરો',
 	'cite_error_references_invalid_parameters_group' => 'અમાન્ય <code>&lt;references&gt;</code> ટેગ;
-માત્ર "group" પરિમાણની પરવાનગિ છે.
-<code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code> વાપરો',
+માત્ર "group" પરિમાણની પરવાનગી છે.
+<code>&lt;references /&gt;</code> કે <code>&lt;references group="..." /&gt;</code> વાપરો',
 	'cite_error_references_no_backlink_label' => 'કસ્ટમ બેકલિંક લેબલ ખલાસ થઈ ગયાં.
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> સંદેશામાં વહારે લેબલ બનાવો..',
 	'cite_error_no_link_label_group' => '"$1" સમૂહ માટે કસ્ટમ બેકલિંક લેબલ ખલાસ થઈ ગયાં.

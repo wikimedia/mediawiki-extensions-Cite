@@ -1460,9 +1460,10 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> यह दो संदर्भ देनेके लिये इस्तेमालमें आने वाले शब्द बढाये जायेंगे।',
+	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> टैग जोड़ता है, उद्धरणों के लिये।',
 	'cite_croak' => 'संदर्भ दे नहीं पाये; $1: $2',
 	'cite_error_key_str_invalid' => 'आंतर्गत गलती;
 गलत $str या/और $key।
@@ -1476,6 +1477,8 @@ $messages['hi'] = array(
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स नहीं दे सकते, <code>&lt;references /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> गलत कोड; सिर्फ पॅरॅमीटर का "ग्रुप" इस्तेमाल में लाया जा सकता हैं, <code>&lt;references /&gt;</code> या फिर <code>&lt;references group="..." /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_no_backlink_label' => 'तैयार किये हुए पीछे की कड़ियां देनेवाले नाम खतम हुए हैं, अधिक नाम <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> इस संदेश में बढायें',
+	'cite_error_no_link_label_group' => '"$1" संदर्भ समूह के लिये विशिष्ट लिंक लेबल कम पड़ गए।
+<nowiki>[[MediaWiki:$2]]</nowiki> सन्देश में और लेबल परिभाषित करें।',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> गलत कोड; <code>$1</code> नामके संदर्भमें ज़ानकारी नहीं हैं',
 	'cite_error_included_ref' => 'समाप्ती &lt;/ref&gt; &lt;ref&gt; टैग लापता',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>टैग मौजूद हैं, किन्तु कोई <code>&lt;references/&gt;</code>टैग नहीं मिला',

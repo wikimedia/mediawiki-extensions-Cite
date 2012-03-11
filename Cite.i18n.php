@@ -3342,6 +3342,7 @@ Definera fler i <nowiki>[[MediaWiki:$2]]</nowiki>-meddelandet.',
 
 /** Tamil (தமிழ்)
  * @author Shanmugamp7
+ * @author செல்வா
  */
 $messages['ta'] = array(
 	'cite-desc' => 'சேர்க்கிறது <nowiki><ref[ name=id]></nowiki>மற்றும் <nowiki><references/></nowiki> குறிச்சொற்கள், மேற்கோள்களுக்காக',
@@ -3351,6 +3352,7 @@ $messages['ta'] = array(
 	'cite_error_stack_invalid_input' => 'உள் பிழை;
 செல்லாத அடுக்கு விசை.
 இது  ஒருபோதும் ஏற்பட கூடாது..',
+	'cite_error' => 'பிழை காட்டு: $1',
 );
 
 /** Telugu (తెలుగు)

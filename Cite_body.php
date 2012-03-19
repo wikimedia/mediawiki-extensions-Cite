@@ -510,7 +510,7 @@ class Cite {
 			$this->mRefs[$group][$key]['text'] = null;
 			# continue without break
 		case 'increment':
-			# Rollback increase in named ref occurences.
+			# Rollback increase in named ref occurrences.
 			$this->mRefs[$group][$key]['count']--;
 			break;
 		}
@@ -890,7 +890,7 @@ class Cite {
 	 * @param $group
 	 * @param $key string The key for the link
 	 * @param $count int The index of the key, used for distinguishing
-	 *                   multiple occurances of the same key
+	 *                   multiple occurrences of the same key
 	 * @param $label int The label to use for the link, I want to
 	 *                   use the same label for all occourances of
 	 *                   the same named reference.

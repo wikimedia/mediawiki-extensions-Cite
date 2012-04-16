@@ -1425,11 +1425,13 @@ $messages['pdc'] = array(
 );
 
 /** Pälzisch (Pälzisch)
+ * @author Manuae
  * @author SPS
  */
 $messages['pfl'] = array(
+	'cite_article_link' => 'Die Said zidiere',
 	'cite' => 'Hilf zum Zidiere',
-	'cite_submit' => 'Schbeichere',
+	'cite_submit' => 'Schbaischere',
 );
 
 /** Polish (Polski)
@@ -1986,14 +1988,14 @@ $messages['vec'] = array(
 	'cite_submit' => 'Crea la citazion',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Triple-ADHD-AS
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
 	'cite_article_desc' => 'Ližadab [[Special:Cite|citiruindan]] specialižen lehtpolen da kosketusen azegištos',
-	'cite_article_link' => "Citiruida necidä lehtpol't",
-	'tooltip-cite-article' => "Informacii siš, kut pidab citiruida necidä lehtpol't.",
+	'cite_article_link' => "Citiruida nece lehtpol'",
+	'tooltip-cite-article' => "Informacii siš, kut pidab citiruida nece lehtpol'.",
 	'cite' => 'Citiruind',
 	'cite_page' => 'Lehtpol’:',
 	'cite_submit' => 'Citiruida',

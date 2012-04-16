@@ -1928,6 +1928,7 @@ ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 );
 
 /** Georgian (ქართული)
+ * @author David1010
  * @author Dawid Deutschland
  * @author გიორგიმელა
  */
@@ -1948,9 +1949,26 @@ $messages['ka'] = array(
 	'cite_error_ref_too_many_keys' => 'არასწორი ტეგი <code>&lt;ref&gt;</code>;
 არასწორი სახელები, ძალიან ბევრი.',
 	'cite_error_ref_no_input' => 'არასწორი ტეგი <ref>; ელემენტი უნდა შეიცავდეს შინაარს.',
+	'cite_error_references_invalid_parameters' => 'არასწორი ტეგი <code>&lt;references&gt;</code>;
+პარამეტრები არ არის დაშვებული.
+გამოიყენეთ <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'არასწორი<code>&lt;references&gt;</code> გამოყენება: 
 დაშვებულია მხოლო პარამეტრი „group“-ის გამოყენება.
 გამოიყენე <tt>&lt;references /&gt;</tt> ან <tt>&lt;references group="…" /&gt;</tt>',
+	'cite_error_references_no_backlink_label' => 'არ არის საკმარისი სიმბოლო მზარდი ჰიპერბმულებისათვის.
+საჭიროა გააფართოვოთ სისტემური შეტყობინება <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'მომხმარებელთა ბმულების მონიშვნები ჯგუფისათვის „$1“ დასრულდა.
+განსაზღვრეთ დამატებითები შეტყობინებაში <nowiki>[[MediaWiki:$2]]</nowiki>.',
+	'cite_error_references_no_text' => 'არასწორი ტეგი <code>&lt;ref&gt;</code>;
+სქოლიოსათვის <code>$1</code> არ არის მითითებული ტექსტი',
+	'cite_error_included_ref' => 'დამხურავი ტეგი &lt;/ref&gt; დაკარგულია',
+	'cite_error_refs_without_references' => 'არსებული ტეგისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'ჯგუფი „$1“ არსებული ტეგებისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'ტეგს <code>&lt;ref&gt;</code> <code>&lt;references&gt;</code>-ში გააჩნია ატრიბუტთა კონფლიქტური ჯგუფები „$1“.',
+	'cite_error_references_missing_group' => 'ტეგს <code>&lt;ref&gt;</code>, განმარტებულს <code>&lt;references&gt;</code>-ში, გააჩნია ჯგუფის ატრიბუტი „$1“, რომელიც ადრეულ ტექსტში არ მოიხსენიება.',
+	'cite_error_references_missing_key' => 'ტეგი <code>&lt;ref&gt;</code> სახელად „$1“, გარკვეული <code>&lt;references&gt;</code>-ში, არ გამოიყენება წინა ტექსტში.',
+	'cite_error_references_no_key' => 'ტეგს <code>&lt;ref&gt;</code>, გარკვეულს <code>&lt;references&gt;</code>-ში, სახელის ატრიბუტი არ გააჩნია.',
+	'cite_error_empty_references_define' => 'ტეგს <code>&lt;ref&gt;</code>, გარკვეულს <code>&lt;references&gt;</code>-ში, სახელით „$1“ არ გააჩნია შინაარსი.',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */

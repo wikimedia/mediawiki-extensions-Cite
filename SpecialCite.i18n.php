@@ -1529,8 +1529,11 @@ $messages['qu'] = array(
 	'cite_submit' => 'Qillqamanta willay',
 );
 
-/** Romansh (Rumantsch) */
+/** Romansh (Rumantsch)
+ * @author Kazu89
+ */
 $messages['rm'] = array(
+	'cite_article_link' => 'Citar questa pagina',
 	'cite_page' => 'Pagina:',
 );
 

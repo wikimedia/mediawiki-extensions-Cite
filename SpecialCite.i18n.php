@@ -902,11 +902,12 @@ $messages['it'] = array(
  * @author Aotake
  * @author Fryed-peach
  * @author JtFuruhata
+ * @author Shirayuki
  * @author Suisui
  */
 $messages['ja'] = array(
-	'cite_article_desc' => '[[Special:Cite|引用情報のための特別ページ]]とツールボックスからのリンクを追加する',
-	'cite_article_link' => 'この項目を引用する',
+	'cite_article_desc' => '[[Special:Cite|引用情報]]の特別ページとツールボックスのリンクを追加',
+	'cite_article_link' => 'この項目を引用',
 	'tooltip-cite-article' => 'このページの引用の仕方',
 	'cite' => '引用',
 	'cite_page' => 'ページ:',

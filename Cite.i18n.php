@@ -2328,6 +2328,13 @@ $messages['ml'] = array(
 	'cite_error_empty_references_define' => ' <code>&lt;references&gt;</code> ആവശ്യത്തിനായി "$1" എന്ന പേരിൽ നിർ‌വചിക്കപ്പെട്ട <code>&lt;ref&gt;</code> റ്റാഗിന് ഉള്ളടക്കമൊന്നുമില്ല.',
 );
 
+/** Mongolian (Монгол)
+ * @author Chinneeb
+ */
+$messages['mn'] = array(
+	'cite_error' => 'Иш татахад гарсан алдаа: $1',
+);
+
 /** Marathi (मराठी)
  * @author Kaajawa
  * @author Kaustubh

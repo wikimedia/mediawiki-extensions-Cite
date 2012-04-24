@@ -1200,8 +1200,10 @@ $messages['ml'] = array(
  * @author Chinneeb
  */
 $messages['mn'] = array(
-	'cite_article_link' => 'Энэ бичлэгийг эш татах',
+	'cite_article_link' => 'Энэ хуудаснаас иш татах',
+	'cite' => 'Иш татах',
 	'cite_page' => 'Хуудас:',
+	'cite_submit' => 'Иш татах',
 );
 
 /** Marathi (मराठी)

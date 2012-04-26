@@ -1,12 +1,6 @@
 <?php
 if ( !defined( 'MEDIAWIKI' ) ) die();
 
-global $wgContLang, $wgContLanguageCode, $wgCiteDefaultText;
-$dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR;
-$code = $wgContLang->lc( $wgContLanguageCode );
-$file = file_exists( "${dir}cite_text-$code" ) ? "${dir}cite_text-$code" : "${dir}cite_text";
-$wgCiteDefaultText = file_get_contents( $file );
-
 class SpecialCite extends SpecialPage {
 	function __construct() {
 		parent::__construct( 'Cite' );
@@ -127,15 +121,26 @@ class CiteOutput {
 	}
 
 	function execute() {
-		global $wgOut, $wgParser, $wgHooks, $wgCiteDefaultText;
+		global $wgOut, $wgParser, $wgHooks;
 
 		$wgHooks['ParserGetVariableValueTs'][] = array( $this, 'timestamp' );
 
 		$msg = wfMsgForContentNoTrans( 'cite_text' );
 		if ( $msg == '' ) {
-			$msg = $wgCiteDefaultText;
+			# With MediaWiki 1.20 the plain text files were deleted and the text moved into SpecialCite.i18n.php
+			# This code is kept for b/c in case an installation has its own file "cite_text-xx"
+			# for a previously not supported language.
+			global $wgContLang, $wgContLanguageCode;
+			$dir = dirname( __FILE__ ) . DIRECTORY_SEPARATOR;
+			$code = $wgContLang->lc( $wgContLanguageCode );
+			if ( file_exists( "${dir}cite_text-$code" ) ) {
+				$msg = file_get_contents( "${dir}cite_text-$code" );
+			} elseif( file_exists( "${dir}cite_text" ) ){
+				$msg = file_get_contents( "${dir}cite_text" );
+			}
 		}
 		$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->getRevId() );
+		$wgOut->addModules( 'ext.specialcite' );
 		$wgOut->addHTML( $ret->getText() );
 	}
 

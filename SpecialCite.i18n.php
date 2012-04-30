@@ -1806,12 +1806,13 @@ $messages['szl'] = array(
 );
 
 /** Tamil (தமிழ்)
+ * @author Shanmugamp7
  * @author TRYPPN
  * @author Trengarasu
  */
 $messages['ta'] = array(
 	'cite_article_desc' => 'கருவிப் பெட்டியில் [[Special:Cite|மேற்கோள்]] காடுவதற்கான இணைப்பை ஏற்படுத்துகிறது',
-	'cite_article_link' => 'இப்பக்க்த்தை மேற்கோள் காட்டு',
+	'cite_article_link' => 'இப்பக்கத்தை மேற்கோள் காட்டு',
 	'tooltip-cite-article' => 'இப்பக்கத்தை எப்படி மேற்கோளாகக் காட்டுவது என்பது பற்றிய விவரம்',
 	'cite' => 'மேற்கோள் காட்டு',
 	'cite_page' => 'பக்கம்:',

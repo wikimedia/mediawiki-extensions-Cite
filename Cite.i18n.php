@@ -2788,6 +2788,7 @@ Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
+ * @author 555
  */
 $messages['pt-br'] = array(
 	'cite-desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
@@ -2804,7 +2805,7 @@ o nome não pode ser um número. Utilize um título descritivo',
 	'cite_error_ref_no_key' => 'Marca <code>&lt;ref&gt;</code> inválida; 
 refs sem conteúdo devem ter um nome',
 	'cite_error_ref_too_many_keys' => 'Marca <code>&lt;ref&gt;</code> inválida; 
-nomes inválidos (por exemplo, nome muito extenso)',
+nomes inválidos (por exemplo, muito extenso)',
 	'cite_error_ref_no_input' => 'Marca <code>&lt;ref&gt;</code> inválida; 
 refs sem nome devem possuir conteúdo',
 	'cite_error_references_invalid_parameters' => 'Marca <code>&lt;references&gt;</code> inválida; 

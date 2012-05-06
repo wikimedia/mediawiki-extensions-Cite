@@ -962,7 +962,7 @@ $messages['kk-arab'] = array(
  */
 $messages['kk-cyrl'] = array(
 	'cite_article_desc' => '[[Special:Cite|Дәйексөз]] арнайы бетін және құрал сілтемесін қосады',
-	'cite_article_link' => 'Беттен дәйексоз алу',
+	'cite_article_link' => 'Беттен дәйексөз алу',
 	'cite' => 'Дәйексөз алу',
 	'cite_page' => 'Бет атауы:',
 	'cite_submit' => 'Дәйексөз ал!',

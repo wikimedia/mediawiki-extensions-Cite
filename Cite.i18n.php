@@ -2786,9 +2786,9 @@ Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
+ * @author 555
  * @author Eduardo.mps
  * @author Giro720
- * @author 555
  */
 $messages['pt-br'] = array(
 	'cite-desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',

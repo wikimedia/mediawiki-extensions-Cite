@@ -145,6 +145,15 @@ $messages['arz'] = array(
 	'cite_submit' => 'مرجع',
 );
 
+/** Assamese (অসমীয়া)
+ * @author Bishnu Saikia
+ */
+$messages['as'] = array(
+	'cite' => '↓উদ্ধৃত',
+	'cite_page' => 'পৃষ্ঠা:',
+	'cite_submit' => '↓উদ্ধৃত',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  * @author Xuacu
@@ -663,11 +672,12 @@ $messages['grc'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  * @author Strommops
  */
 $messages['gsw'] = array(
-	'cite_article_desc' => 'Ergänzt d [[Special:Cite|Zitierhilf]]-Spezialsyte un e Gleich im Chaschte Wärchzyyg',
+	'cite_article_desc' => 'Ergänzt d [[Special:Cite|Zitierhilf]]-Spezialsyte un e Link im Chaschte Wärchzyyg',
 	'cite_article_link' => 'Die Site zitiere',
 	'tooltip-cite-article' => 'Informatione driber, wie mer die Syte cha zitiere',
 	'cite' => 'Zitierhilf',
@@ -1086,6 +1096,15 @@ $messages['lb'] = array(
 	'cite' => 'Zitéierhëllef',
 	'cite_page' => 'Säit:',
 	'cite_submit' => 'weisen',
+);
+
+/** Lezghian (Лезги)
+ * @author Migraghvi
+ */
+$messages['lez'] = array(
+	'cite' => 'Цитата гъин',
+	'cite_page' => 'Ччин:',
+	'cite_submit' => 'Цитата гъин',
 );
 
 /** Lingua Franca Nova (Lingua Franca Nova)
@@ -1728,7 +1747,7 @@ $messages['sq'] = array(
  */
 $messages['sr-ec'] = array(
 	'cite_article_desc' => 'Додаје посебну страницу за [[Special:Cite|цитирање]] и везу с алаткама',
-	'cite_article_link' => 'Цитирање странице',
+	'cite_article_link' => 'Библиографски подаци',
 	'tooltip-cite-article' => 'Информације о томе како цитирати ову страну',
 	'cite' => 'цитат',
 	'cite_page' => 'Страница:',
@@ -1856,7 +1875,7 @@ $messages['tg-cyrl'] = array(
 	'cite_submit' => 'Ёд кардан',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -1902,6 +1921,13 @@ $messages['tl'] = array(
 	'cite' => 'Tukuyin',
 	'cite_page' => 'Pahina:',
 	'cite_submit' => 'Tukuyin',
+);
+
+/** Толышә зывон (Толышә зывон)
+ * @author Гусейн
+ */
+$messages['tly'] = array(
+	'cite_page' => 'Сәһифә:',
 );
 
 /** Tswana (Setswana) */
@@ -1956,7 +1982,7 @@ $messages['udm'] = array(
 	'cite_article_link' => 'Кызьы со статьяез цитировать кароно',
 );
 
-/** Uyghur (Latin script) (Uyghurche‎)
+/** Uyghur (Latin script) (Uyghurche)
  * @author Jose77
  */
 $messages['ug-latn'] = array(

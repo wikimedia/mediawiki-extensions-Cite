@@ -1219,22 +1219,22 @@ les références sans contenu doivent avoir un nom.',
 noms incorrects, par exemple trop nombreux.',
 	'cite_error_ref_no_input' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
 les références sans nom doivent avoir un contenu.',
-	'cite_error_references_invalid_parameters' => "Balise <code>&lt;references&gt;</code> incorrecte ;
-aucun paramètre n'est permis.
-Utilisez simplement <code>&lt;references /&gt;</code>.",
+	'cite_error_references_invalid_parameters' => 'Balise <code>&lt;references&gt;</code> incorrecte ;
+aucun paramètre n’est permis.
+Utilisez simplement <code>&lt;references /&gt;</code>.',
 	'cite_error_references_invalid_parameters_group' => 'Balise <code>&lt;references&gt;</code> incorrecte ;
 seul l’attribut « group » est autorisé.
 Utilisez <code>&lt;references /&gt;</code>, ou bien <code>&lt;references group="..." /&gt;</code>.',
 	'cite_error_references_no_backlink_label' => 'Épuisement des étiquettes de liens personnalisées.
 Définissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
-	'cite_error_no_link_label_group' => "Plus d'étiquettes de liens personnalisées pour le groupe « $1 ».
-Définissez-en plus dans le message <nowiki>[[MediaWiki:$2]]</nowiki>.",
+	'cite_error_no_link_label_group' => 'Plus d’étiquettes de liens personnalisées pour le groupe « $1 ».
+Définissez-en plus dans le message <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Balise <code>&lt;ref&gt;</code> incorrecte ;
 aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
 	'cite_error_included_ref' => 'Clôture <code>&lt;/ref&gt;</code> manquante pour la balise <code>&lt;ref&gt;</code>.',
 	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent, mais aucune balise <code>&lt;references/&gt;</code> n’a été trouvée.',
 	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent pour un groupe nommé « $1 », mais aucune balise <code>&lt;references group="$1"/&gt;</code> correspondante n’a été trouvée.',
-	'cite_error_references_group_mismatch' => "La balise <code>&lt;ref&gt;</code> dans <code>&lt;references&gt;</code> a l'attribut de groupe « $1 » qui entre en conflit avec celui de <code>&lt;references&gt;</code>.",
+	'cite_error_references_group_mismatch' => 'La balise <code>&lt;ref&gt;</code> dans <code>&lt;references&gt;</code> a l’attribut de groupe « $1 » qui entre en conflit avec celui de <code>&lt;references&gt;</code>.',
 	'cite_error_references_missing_group' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> a un groupé attribué « $1 » qui ne figure pas dans le texte précédent.',
 	'cite_error_references_missing_key' => 'La balise <code>&lt;ref&gt;</code> avec le nom « $1 » définie dans <code>&lt;references&gt;</code> n’est pas utilisé dans le texte précédent.',
 	'cite_error_references_no_key' => "La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> n’a pas d'attribut de nom.",
@@ -2513,6 +2513,7 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Frokor
  * @author Harald Khan
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'cite-desc' => 'Legg til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-merke for referansar',
@@ -3461,7 +3462,7 @@ $messages['tg-cyrl'] = array(
 	'cite_error_references_no_text' => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; матне барои ёдкардҳо бо номи <code>$1</code> ворид нашудааст',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3705,7 +3706,7 @@ Dòpara <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&
 	'cite_error_empty_references_define' => 'El tag <code>&lt;ref&gt;</code> definìo in <code>&lt;references&gt;</code> con nome "$1" no\'l gà nissun contenuto.',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

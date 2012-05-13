@@ -2491,7 +2491,7 @@ refs zonder naam moeten inhoud hebben',
 	'cite_error_references_invalid_parameters' => 'Onjuiste tag <code>&lt;references&gt;</code>;
 parameters zijn niet toegestaan.
 Gebruik <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Onjuiste tag <code>&lt;references&gt;</code>;
+	'cite_error_references_invalid_parameters_group' => 'Ongeldige tag <code>&lt;references&gt;</code>;
 alleen de parameter "group" is toegestaan.
 Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Het aantal beschikbare backlinklabels is opgebruikt.

@@ -33,6 +33,18 @@ $wgHooks['SkinTemplateToolboxEnd'][] = 'wfSpecialCiteToolbox';
 $wgSpecialPages['Cite'] = 'SpecialCite';
 $wgAutoloadClasses['SpecialCite'] = $dir . 'SpecialCite_body.php';
 
+// Resources
+$citeResourceTemplate = array(
+	'localBasePath' => dirname(__FILE__) . '/modules',
+	'remoteExtPath' => 'Cite/modules'
+);
+
+$wgResourceModules['ext.specialcite'] = $citeResourceTemplate + array(
+	'styles' => 'ext.specialcite/ext.specialcite.css',
+	'scripts' => array(),
+	'position' => 'bottom',
+);
+
 /**
  * @param $skintemplate SkinTemplate
  * @param $nav_urls

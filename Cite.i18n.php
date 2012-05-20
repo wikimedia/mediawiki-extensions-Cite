@@ -515,6 +515,7 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Nasir8891
  * @author Zaheen
  */
 $messages['bn'] = array(
@@ -528,8 +529,18 @@ $messages['bn'] = array(
 	'cite_error_ref_too_many_keys' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; অবৈধ নাম (যেমন- সংখ্যাতিরিক্ত)',
 	'cite_error_ref_no_input' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নামবিহীন refসমূহের অবশ্যই বিষয়বস্তু থাকতে হবে',
 	'cite_error_references_invalid_parameters' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; কোন প্যারামিটার অনুমোদিত নয়, <code>&lt;references /&gt;</code> ব্যবহার করুন',
-	'cite_error_references_no_backlink_label' => 'পছন্দমাফিক ব্যাকলিংক লেবেলের সংখ্যা ফুরিয়ে গেছে, <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> বার্তায় আরও সংজ্ঞায়িত করুন',
+	'cite_error_references_invalid_parameters_group' => 'ত্রুটিপূর্ণ <code>&lt;references&gt;</code> ট্যাগ;
+কেবলমাত্র "group" প্যারামিটার ব্যবহার কর যাবে।
+<code>&lt;references /&gt;</code>, অথবা <code>&lt;references group="..." /&gt;</code> ব্যবহার করুন',
+	'cite_error_references_no_backlink_label' => 'পছন্দমাফিক ব্যাকলিংক লেবেলের সংখ্যা ফুরিয়ে গেছে।
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> বার্তায় আরও সংজ্ঞায়িত করুন',
+	'cite_error_no_link_label_group' => 'গ্রুপ "$1" এর জন্য কাস্টম লিংক ব্যবহারের সীমানা পেরিয়েছে।
+<nowiki>[[MediaWiki:$2]]</nowiki> বার্তায় আরও সজ্ঞায়িত করুন।',
 	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের refগুলির জন্য কোন টেক্সট প্রদান করা হয়নি',
+	'cite_error_included_ref' => '&lt;ref&gt; ট্যাগের ক্ষেত্রে &lt;/ref&gt; ট্যাগ যোগ করা হয়নি',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু কোনো <code>&lt;references/&gt;</code> ট্যাগ নেই',
+	'cite_error_group_refs_without_references' => '"$1" নামের গ্রুপের <code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু এর জন্য <code>&lt;references group="$1"/&gt;</code> ট্যাগ দেয়া হয়নি',
+	'cite_error_references_group_mismatch' => '"$1" গ্রুপের ক্ষেত্রে <code>&lt;ref&gt;</code> ট্যাগ <code>&lt;references&gt;</code> ট্যাগের অংশে ব্যবহারে সমস্যা সৃষ্টি হয়েছে।',
 );
 
 /** Breton (Brezhoneg)
@@ -2294,7 +2305,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'cite-desc' => 'അവലംബം ചേർക്കുവാൻ ഉപയോഗിക്കാനുള്ള <nowiki><ref[ name=id]></nowiki>, <nowiki><references/></nowiki> എന്നീ ടാഗുകൾ ചേർക്കുന്നു',
-	'cite_croak' => 'സൈറ്റ് ചത്തിരിക്കുന്നു; $1: $2',
+	'cite_croak' => 'സൈറ്റ് ലഭ്യമല്ല; $1: $2',
 	'cite_error_key_str_invalid' => 'ആന്തരിക പിഴവ്; 
 അസാധുവായ $str അല്ലെങ്കിൽ $key.
 ഇതു ഒരിക്കലും സംഭവിക്കാൻ പാടില്ലായിരുന്നു.',
@@ -2309,9 +2320,9 @@ $messages['ml'] = array(
 	'cite_error_ref_no_input' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
 പേരില്ലാത്ത അവലംബത്തിനു ഉള്ളടക്കമുണ്ടായിരിക്കണം.',
 	'cite_error_references_invalid_parameters' => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
-റെഫറൻസ് ടാഗിനകത്ത് പരാമീററ്ററുകൾ അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണു.',
+റെഫറൻസ് ടാഗിനകത്ത് ചരങ്ങൾ അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണ്.',
 	'cite_error_references_invalid_parameters_group' => 'അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;
-റെഫറൻസ് ടാഗിനകത്ത് "group" പരാമീറ്റർ മാത്രമേ അനുവദനീമായുള്ളൂ. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code>, അല്ലെങ്കിൽ <code>&lt;references group="..." /&gt;</code> ചെയ്യാവുന്നതാണു.',
+റെഫറൻസ് ടാഗിനകത്ത് "group" ചരം മാത്രമേ അനുവദനീമായുള്ളൂ. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code>, അല്ലെങ്കിൽ <code>&lt;references group="..." /&gt;</code> ചെയ്യാവുന്നതാണ്.',
 	'cite_error_references_no_backlink_label' => 'പിൻകണ്ണികൾക്കായി നൽകുന്ന ഇച്ഛാനുസരണ കുറികൾ തീർന്നുപോയിരിക്കുന്നു.
 കൂടുതൽ [[MediaWiki:Cite references link many format backlink labels]] സന്ദേശത്തിൽ നിർവചിക്കുക.',
 	'cite_error_no_link_label_group' => '"$1" സംഘത്തിലെ കണ്ണികൾക്കായി നൽകുന്ന ഇച്ഛാനുസരണ കുറികൾ തീർന്നുപോയിരിക്കുന്നു.

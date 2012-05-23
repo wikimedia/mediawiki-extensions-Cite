@@ -33,6 +33,11 @@ $specialPageAliases['bg'] = array(
 	'Cite' => array( 'Цитиране' ),
 );
 
+/** Banjar (Bahasa Banjar) */
+$specialPageAliases['bjn'] = array(
+	'Cite' => array( 'Juhut' ),
+);
+
 /** Breton (Brezhoneg) */
 $specialPageAliases['br'] = array(
 	'Cite' => array( 'Menegiñ' ),
@@ -60,7 +65,7 @@ $specialPageAliases['da'] = array(
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
-	'Cite' => array( 'Zitierhilfe' ),
+	'Cite' => array( 'Zitierhilfe', 'Zitieren' ),
 );
 
 /** Lower Sorbian (Dolnoserbski) */
@@ -188,6 +193,11 @@ $specialPageAliases['ksh'] = array(
 	'Cite' => array( 'Zitteere' ),
 );
 
+/** Cornish (Kernowek) */
+$specialPageAliases['kw'] = array(
+	'Cite' => array( 'Devydna' ),
+);
+
 /** Ladino (Ladino) */
 $specialPageAliases['lad'] = array(
 	'Cite' => array( 'MostrarManaderos' ),
@@ -196,6 +206,11 @@ $specialPageAliases['lad'] = array(
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'Cite' => array( 'Zitéierhellëf' ),
+);
+
+/** Literary Chinese (文言) */
+$specialPageAliases['lzh'] = array(
+	'Cite' => array( '引文' ),
 );
 
 /** Macedonian (Македонски) */
@@ -281,6 +296,11 @@ $specialPageAliases['pt-br'] = array(
 /** Romanian (Română) */
 $specialPageAliases['ro'] = array(
 	'Cite' => array( 'Citează' ),
+);
+
+/** Russian (Русский) */
+$specialPageAliases['ru'] = array(
+	'Cite' => array( 'Цитата' ),
 );
 
 /** Sanskrit (संस्कृतम्) */

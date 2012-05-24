@@ -673,50 +673,65 @@ $messages['de'] = array(
 	'cite' => 'Zitierhilfe',
 	'cite_page' => 'Seite:',
 	'cite_submit' => 'zitieren',
-	'cite_text' => '__NOTOC__
-<div class="mw-specialcite-bibliographic">
-Diese Seite dient ausschließlich als Hilfe zum \'\'\'korrekten Zitieren von Daten, einzelnen Sätzen oder kürzeren Abschnitten\'\'\' aus {{SITENAME}} im Rahmen des Zitatrechts.
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
 
-\'\'\'Wichtig:\'\'\' Zur Übernahme umfangreicher Absätze oder kompletter Seiten müssen die [[{{MediaWiki:Copyrightpage}}|Lizenzbestimmungen]] eingehalten werden.
-</div>
+== Bibliografische Angaben für {{FULLPAGENAME}} ==
 
-<div class="mw-specialcite-bibliographic">
-== Bibliografische Angaben für „[[{{FULLPAGENAME}}]]“ ==
 * Seitentitel: {{FULLPAGENAME}}
-* Herausgeber: {{SITENAME}}, {{MediaWiki:Sitesubtitle}}. 
-* Autor(en): siehe [{{canonicalurl:{{FULLPAGENAME}}|action=history}} Versionsgeschichte]
-* Datum der letzten Bearbeitung: {{LOCALDAY}}. {{LOCALMONTHNAME}} {{LOCALYEAR}}, {{LOCALTIME}}
-* Versions-ID der Seite: {{REVISIONID}}
-* Permanentlink: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
-* Datum des Abrufs: <citation>{{LOCALDAY}}. {{LOCALMONTHNAME}} {{LOCALYEAR}}, {{LOCALTIME}}</citation>
-</div>
+* Autor(en): {{SITENAME}}-Bearbeiter
+* Herausgeber: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Zeitpunkt der letzten Bearbeitung: {{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC
+* Datum des Abrufs: <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC</citation>
+* Permanente URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Versionskennung: {{REVISIONID}}
 
-<div class="plainlinks mw-specialcite-styles">
-==Zitatangabe zum Kopieren==
-Seite \'\'{{FULLPAGENAME}}.\'\' In: {{SITENAME}}, {{MediaWiki:Sitesubtitle}}. Bearbeitungsstand: {{LOCALDAY}}. {{LOCALMONTHNAME}} {{LOCALYEAR}}, {{LOCALTIME}}. URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (Abgerufen: <citation>{{LOCALDAY}}. {{LOCALMONTHNAME}} {{LOCALYEAR}}, {{LOCALTIME}}</citation>)
 </div>
+<div class=\"plainlinks mw-specialcite-styles\">
 
-<div class="plainlinks mw-specialcite-styles">
-== BibTeX-Eintrag ==
+== Zitatstile für {{FULLPAGENAME}} ==
+
+=== [[APA-Stil]] ===
+{{FULLPAGENAME}}. ({{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Abgerufen am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> von {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[MLA-Stil]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA-Stil]] ===
+{{SITENAME}}-Bearbeiter, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [abgerufen am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[Chicago-Stil]] ===
+{{SITENAME}}-Bearbeiter, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (abgerufen am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
+
+=== [[CBE/CSE-Stil]] ===
+{{SITENAME}}-Bearbeiter. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC [zitiert am <citation>{{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}</citation>]. Verfügbar unter:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook-Stil]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (abgerufen am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
+
+=== [[BibTeX]]-Eintrag ===
 
   @misc{ wiki:xxx,
-    author = "{{SITENAME}}",
-    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{MediaWiki:Sitesubtitle}}",
-    year = "{{LOCALYEAR}}",
-    url = "{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}",
-    note = "[Online; Stand <citation>{{LOCALDAY}}. {{LOCALMONTHNAME}} {{LOCALYEAR}}</citation>]"
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[Online; abgerufen am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]\"
   }
 
-Bei Benutzung der LaTeX-Paketes „url“ (<tt>\\usepackage{url}</tt> im Bereich der Einleitung), welches eine schöner formatierte Internetadresse ausgibt, oder „hyperref“ (<tt>\\usepackage{hyperref}</tt>, nur bei Erzeugung von PDF-Dokumenten), welches diese zusätzlich noch verlinkt, kann die folgende Ausgabe genommen werden:
+Bei Benutzung der [[LaTeX]]-Moduls „url“ (<code>\\usepackage{url}</code> im Bereich der Einleitung), welches eine schöner formatierte Internetadresse ausgibt, kann die folgende Ausgabe genommen werden:
 
   @misc{ wiki:xxx,
-    author = "{{SITENAME}}",
-    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{MediaWiki:Sitesubtitle}}",
-    year = "{{LOCALYEAR}}",
-    url = "\'\'\'\\url{\'\'\'{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\'\'\'}\'\'\'",
-    note = "[Online; Stand <citation>{{LOCALDAY}}. {{LOCALMONTHNAME}} {{LOCALYEAR}}</citation>]"
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[Online; abgerufen am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]\"
   }
-</div><!--closing div for "plainlinks"-->',
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Zazaki (Zazaki)
@@ -903,6 +918,7 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Linnea
  * @author Nike
  * @author ZeiP
  */
@@ -1117,9 +1133,68 @@ $messages['gl'] = array(
 	'cite_article_desc' => 'Engade unha páxina especial de [[Special:Cite|citas]] e unha ligazón na caixa de ferramentas',
 	'cite_article_link' => 'Citar esta páxina',
 	'tooltip-cite-article' => 'Información sobre como citar esta páxina',
-	'cite' => 'Citar un artigo',
+	'cite' => 'Citar',
 	'cite_page' => 'Páxina:',
 	'cite_submit' => 'Citar',
+	'cite_text' => '__NOTOC__
+<div class="mw-specialcite-bibliographic">
+
+== Detalles bibliográficos de "{{FULLPAGENAME}}" ==
+
+* Nome da páxina: {{FULLPAGENAME}}
+* Autor: Colaboradores de {{SITENAME}}
+* Editor: \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'.
+* Data da última revisión: {{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}} ás {{CURRENTTIME}} UTC
+* Data da consulta: <citation>{{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}} ás {{CURRENTTIME}} UTC</citation>
+* Enderezo URL permanente: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* ID da versión da páxina: {{REVISIONID}}
+
+</div>
+<div class="plainlinks mw-specialcite-styles">
+
+== Modelos de referencia bibliográfica de "{{FULLPAGENAME}}" ==
+
+=== [[APA style|Estilo APA]] ===
+{{FULLPAGENAME}}. ({{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}}). \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'. Consultado o <citation>{{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}} ás {{CURRENTTIME}}</citation> en {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[The MLA style manual|Estilo MLA]] ===
+"{{FULLPAGENAME}}." \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'. {{CURRENTDAY}} de {{CURRENTMONTHABBREV}} de {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} de {{CURRENTMONTHABBREV}} de {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|Estilo MHRA]] ===
+Colaboradores de {{SITENAME}}, \'{{FULLPAGENAME}}\', \'\'{{SITENAME}}, {{int:sitesubtitle}},\'\' {{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [consultado o <citation>{{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|Estilo Chicago]] ===
+Colaboradores de {{SITENAME}}, "{{FULLPAGENAME}}," \'\'{{SITENAME}}, {{int:sitesubtitle}},\'\' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (consultado o <citation>{{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|Estilo CBE/CSE]] ===
+Colaboradores de {{SITENAME}}. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTDAY}} de {{CURRENTMONTHABBREV}} de {{CURRENTYEAR}}, {{CURRENTTIME}} UTC [citado o <citation>{{CURRENTDAY}} de {{CURRENTMONTHABBREV}} de {{CURRENTYEAR}}</citation>]. Dispoñible en:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Estilo Bluebook]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (última visita o <citation>{{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}}</citation>).
+
+=== Entrada [[BibTeX]] ===
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}",
+    note = "[En liña; consultado o <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]"
+  }
+
+Ao empregar o paquete "url" do [[LaTeX]] (<code>\\usepackage{url}</code> nalgunha parte do preámbulo), que tende a mostrar os enderezos web nun formato moito máis agradable, poida que prefira o seguinte:
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "\'\'\'\\url{\'\'\'{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\'\'\'}\'\'\'",
+    note = "[En liña; consultado o <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]"
+  }
+
+
+</div> <!--etiqueta "div" de peche para os "plainlinks" abertos-->',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)

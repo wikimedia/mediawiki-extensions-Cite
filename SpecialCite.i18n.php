@@ -735,6 +735,7 @@ Bei Benutzung der [[LaTeX]]-Moduls „url“ (<code>\\usepackage{url}</code> im 
 );
 
 /** Zazaki (Zazaki)
+ * @author Erdemaslancan
  * @author Mirzali
  * @author Xoser
  */
@@ -745,6 +746,66 @@ $messages['diq'] = array(
 	'cite' => 'Çıme bımocne',
 	'cite_page' => 'Pel:',
 	'cite_submit' => 'Çime',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Bibliyografiya teferruatan dê {{FULLPAGENAME}} ==
+
+* nameyê pela: {{FULLPAGENAME}}
+* Nuskar: iştıraxkarê {{SITENAME}}
+* Vılakar: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Revizyonê demi: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Serkerdışê demi: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* Ancıyayışê URL de cı: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Versiyonê ID'ya pela: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== terzê istasyon de {{FULLPAGENAME}} ==
+
+=== [[APA style]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. ancıyayo <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> from {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[The MLA style manual|terzê MLA]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|Terzê MHRA]] ===
+iştırazkarê {{SITENAME}} , '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [zerre <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|terzê Chicago]] ===
+iştırazkarê {{SITENAME}}, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|terzê CBE/CSE]] ===
+{{SITENAME}} İştıraxkari. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [sitedo <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Ancnayışê cı:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|terzê Bluebooki]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (tewr peyên<citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== Dekewê [[BibTeX]] ===
+
+  @misc{ wiki:xxx,
+    nuskar = \"{{SITENAME}}\",
+    sername = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    serre = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    not = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+  @misc{ wiki:xxx,
+    nuskar = \"{{SITENAME}}\",
+    sername = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    serre = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    not = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -1757,6 +1818,7 @@ Quando si usa il pacchetto [[LaTeX]] per url (<code>\\usepackage{url}</code> da 
  * @author JtFuruhata
  * @author Shirayuki
  * @author Suisui
+ * @author Whym
  */
 $messages['ja'] = array(
 	'cite_article_desc' => '[[Special:Cite|引用情報]]の特別ページとツールボックスのリンクを追加',
@@ -1781,10 +1843,7 @@ $messages['ja'] = array(
 </div>
 <div class="plainlinks mw-specialcite-styles">
 
-== 各種方式による「{{FULLPAGENAME}}」の引用の仕方 ==
-
-=== [[科学技術情報流通技術基準|SIST02方式]] ===
-{{SITENAME}}への寄稿者ら. “{{FULLPAGENAME}}”. {{SITENAME}}, {{int:sitesubtitle}}. {{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}. {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}, (参照 <citation>{{CURRENTYEAR}}-{{CURRENTMONTH}}-{{CURRENTDAY}}</citation>).
+== 各種方式による「{{FULLPAGENAME}}」の書誌表示 ==
 
 === [[APA方式]] ===
 {{FULLPAGENAME}}. ({{CURRENTYEAR}}年{{CURRENTMONTHNAME}}{{CURRENTDAY}}日{{CURRENTTIME}}). \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'. <citation>{{CURRENTYEAR}}年{{CURRENTMONTHNAME}}{{CURRENTDAY}}日{{CURRENTTIME}}</citation> {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} にて閲覧.
@@ -1815,7 +1874,7 @@ $messages['ja'] = array(
     note = "[オンライン; 閲覧日時 <citation>{{CURRENTYEAR}}-{{CURRENTDAY}}-{{CURRENTMONTH}}</citation>]"
   }
 
-ウェブアドレスを見た目良く整形するために[[LaTeX]]パッケージ url を用いる場合（プリアンブルのどこかに<code>\\usepackage{url}</code>がある場合）は、下記の方が良いかもしれません：
+URIの体裁を整えるために[[LaTeX]]の url パッケージを用いる (プリアンブルのどこかに <code>\\usepackage{url}</code> と書く) 場合は、次のようにしたほうがいいかもしれません。
 
   @misc{ wiki:xxx,
     author = "{{SITENAME}}",
@@ -2233,6 +2292,65 @@ $messages['li'] = array(
 	'cite' => 'Citere',
 	'cite_page' => 'Pagina:',
 	'cite_submit' => 'Citere',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Bibliografische gegaeves veur {{FULLPAGENAME}} ==
+
+* Paginanaam: {{FULLPAGENAME}}
+* Sjriever: {{SITENAME}}-biedragers
+* Oetgaever: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Tiedstip lèste versie: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Tiedstip geraodplieëgd: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* Permanente URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Paginaversienómmer: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== Citaatstiel veur {{FULLPAGENAME}} ==
+
+=== [[APA style|APA-stiel]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Geraodplieëg op <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> van {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[The MLA style manual|MLA-stiel]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|MHRA-stiel]] ===
+{{SITENAME}}-biedragers, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [geraodplieëg <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|Chicagostiel]] ===
+{{SITENAME}}-biedragers, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (geraodplieëg <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|CBE/CSE-stiel]] ===
+{{SITENAME}}-biedragers. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cetaot van <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Besjikbaar op:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Bluebookstiel]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (geraodplieëg op <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[BibTeX]]-gegaeves ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[Online; geraadpleegd <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+'t Volgendje kan de veurkäör höbben es de [[LaTeX]]-moduul \"url\" wuuertj gebroek (<code>\\usepackage{url}</code> örges in de inleiding), die webadresse sjónder opgemaak:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[Online; geraadpleegd <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Lumbaart (Lumbaart)

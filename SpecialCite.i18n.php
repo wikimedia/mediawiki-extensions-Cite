@@ -2269,6 +2269,65 @@ $messages['ksh'] = array(
 	'cite' => 'Zittiere',
 	'cite_page' => 'Sigk:',
 	'cite_submit' => 'Zittėere',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== De biblejojraafesche Aanjabe för di Sigg „{{FULLPAGENAME}}“ ==
+
+* Siggetittel: {{FULLPAGENAME}}
+* Schriever: Beärbeider {{GRAMMAR:Genitive|{{SITENAME}}}}
+* Rußjävver: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Et läz jändert aam: {{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}} öm {{CURRENTTIME}} Uhr (UTC)
+* Affjeroofe aam: <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}} öm {{CURRENTTIME}} Uhr (UTC)</citation>
+* URL met Beschtand: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Version: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== De Zitatstile för di Sigg „{{FULLPAGENAME}}“ ==
+
+=== Noh dä [[APA iehre Schtil|APA iehren Schtil]] ===
+{{FULLPAGENAME}}. ({{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Affjeroofe aam <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> vun {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== Noh de [[MLA style manual|MLA iehrem Schtil-Handbooch]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== Nohm [[MHRA Style Guide|MHRA Schtil-Föhrer]] ===
+Beärbeider {{GRAMMAR:Genitive|{{SITENAME}}}}, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [affjeroofe aam <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== Nohm [[Chicago Manual of Style|Chicago-Schtil-Handbooch]] ===
+Beärbeider {{GRAMMAR:Genitive|{{SITENAME}}}}, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (affjeroofe aam <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
+
+=== Nohm Schtil vum [[Council of Science Editors|Rood vun de wesseschafflije Schriever (CBE/CSE)]] ===
+Beärbeider {{GRAMMAR:Genitive|{{SITENAME}}}}. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC [zitteerd aam <citation>{{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}</citation>]. Affroofbaa onger:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== Nohm Schtil vum [[Bluebook]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (affjeroofe aam <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
+
+=== Als ene [[BibTeX]]-Endraach ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[Online; affjeroofe aam <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]\"
+  }
+
+Dat [[LaTeX]]-Modul „url“ määd_en schönere Internet-Addräß. 
+Wam_mer <code>\\usepackage{url}</code> em Einleidongsberett hät, kam_mer dat heh nämme:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[Online; affjeroofe aam <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]\"
+  }
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Kurdish (Latin script) (‪Kurdî (latînî)‬)

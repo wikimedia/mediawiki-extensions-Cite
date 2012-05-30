@@ -939,6 +939,65 @@ $messages['et'] = array(
 	'cite' => 'Tsiteerimine',
 	'cite_page' => 'Leht:',
 	'cite_submit' => 'Tsiteeri',
+	'cite_text' => '__NOTOC__
+<div class="mw-specialcite-bibliographic">
+
+== Lehekülje "{{FULLPAGENAME}}" bibliograafilised andmed ==
+
+* Lehekülje pealkiri: {{FULLPAGENAME}}
+* Autor: {{GRAMMAR:genitive|{{SITENAME}}}} kaastöölised
+* Väljaandja: \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'.
+* Viimane redaktsioon: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Vaadatud: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* Püsilink: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Lehekülje versiooninumber: {{REVISIONID}}
+
+</div>
+<div class="plainlinks mw-specialcite-styles">
+
+== Viitamisstiilid lehekülje "{{FULLPAGENAME}}" jaoks ==
+
+=== APA stiil ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'. Vaadatud: <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>, aadressil {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== MLA stiil ===
+"{{FULLPAGENAME}}." \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== MHRA stiil ===
+{{GRAMMAR:genitive|{{SITENAME}}}} kaastöölised, \'{{FULLPAGENAME}}\', \'\'{{SITENAME}}, {{int:sitesubtitle}},\'\' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [vaadatud: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== Chicago stiil ===
+{{GRAMMAR:genitive|{{SITENAME}}}} kaastöölised, "{{FULLPAGENAME}}," \'\'{{SITENAME}}, {{int:sitesubtitle}},\'\' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (vaadatud: <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== CBE/CSE stiil ===
+{{GRAMMAR:genitive|{{SITENAME}}}}. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [vaadatud: <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Kättesaadav aadressil:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== Bluebooki stiil ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (viimati vaadatud: <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== BibTeX-i sissekanne ===
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}",
+    note = "[Võrgus; vaadatud: <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]"
+  }
+
+Kui kasutada LaTeX-i url-i (<code>\\usepackage{url}</code> kuskil lehekülje alguses), mis vormindab sageli võrguaadressi ilusamini, võib eelistatavamaks osutuda järgmine kood:
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "\'\'\'\\url{\'\'\'{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\'\'\'}\'\'\'",
+    note = "[Võrgus; vaadatud: <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]"
+  }
+
+
+</div> <!--closing div for "plainlinks"-->',
 );
 
 /** Basque (Euskara)
@@ -3655,6 +3714,7 @@ $messages['sv'] = array(
 
 /** Swahili (Kiswahili)
  * @author Lloffiwr
+ * @author Stephenwanjau
  */
 $messages['sw'] = array(
 	'cite_article_link' => 'Taja ukurasa huu',

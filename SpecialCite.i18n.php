@@ -323,8 +323,10 @@ $messages['arz'] = array(
 
 /** Assamese (অসমীয়া)
  * @author Bishnu Saikia
+ * @author Gitartha.bordoloi
  */
 $messages['as'] = array(
+	'tooltip-cite-article' => 'এই পৃষ্ঠাখনৰ উদ্ধৃতি দিয়াৰ বিষয়ে তথ্য',
 	'cite' => '↓উদ্ধৃত',
 	'cite_page' => 'পৃষ্ঠা:',
 	'cite_submit' => '↓উদ্ধৃত',

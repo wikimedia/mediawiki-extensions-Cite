@@ -326,6 +326,8 @@ $messages['arz'] = array(
  * @author Gitartha.bordoloi
  */
 $messages['as'] = array(
+	'cite_article_desc' => 'এখন [[Special:Cite|উদ্ধৃতি]] পৃষ্ঠা আৰু এটা টুলবক্স লিংক যোগ কৰে',
+	'cite_article_link' => 'এই পৃষ্ঠাৰ উদ্ধৃতি দিয়ক',
 	'tooltip-cite-article' => 'এই পৃষ্ঠাখনৰ উদ্ধৃতি দিয়াৰ বিষয়ে তথ্য',
 	'cite' => '↓উদ্ধৃত',
 	'cite_page' => 'পৃষ্ঠা:',

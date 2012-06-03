@@ -856,7 +856,7 @@ $messages['eo'] = array(
 	'cite_submit' => 'Citi',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Crazymadlover
  * @author Icvav
@@ -932,7 +932,7 @@ Cuando se utiliza la dirección URL de empaquetamiento [[LaTeX]] (<code>\\usepac
 </div> <!--cerrando div para \"plainlinks\"-->",
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Pikne
  * @author WikedKentaur
  */
@@ -1129,7 +1129,7 @@ $messages['fo'] = array(
 	'cite_submit' => 'Sitera',
 );
 
-/** French (Français)
+/** French (français)
  * @author DavidL
  * @author Grondin
  * @author Hégésippe Cormier
@@ -3334,7 +3334,7 @@ $messages['roa-tara'] = array(
 	'cite_submit' => 'Cite',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Huuchin
  * @author Kaganer
  * @author Александр Сигачёв

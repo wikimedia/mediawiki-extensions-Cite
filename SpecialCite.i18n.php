@@ -1347,6 +1347,65 @@ $messages['gsw'] = array(
 	'cite' => 'Zitierhilf',
 	'cite_page' => 'Syte:',
 	'cite_submit' => 'aazeige',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Bibliografischi Aagabe für {{FULLPAGENAME}} ==
+
+* Sytetitel: {{FULLPAGENAME}}
+* Autor(e): {{SITENAME}}-Bearbeiter
+* Herussgeber: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Zitpunkt vo de letschte Bearbeitig: {{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC
+* Abruefdatum: <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC</citation>
+* Permanenti URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Versionsschlüssel: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== Zitatstil für {{FULLPAGENAME}} ==
+
+=== [[APA-Stil]] ===
+{{FULLPAGENAME}}. ({{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Abgruefe am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> vo {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[MLA-Stil]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA-Stil]] ===
+{{SITENAME}}-Bearbeiter, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [abgruefe am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[Chicago-Stil]] ===
+{{SITENAME}}-Bearbeiter, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (abgruefe am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
+
+=== [[CBE/CSE-Stil]] ===
+{{SITENAME}}-Bearbeiter. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC [zitiert am <citation>{{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}</citation>]. Verfiegbar unter:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook-Stil]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (abgruefe am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
+
+=== [[BibTeX]]-Yytrag ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[Online; abgruefe am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]\"
+  }
+
+Wänn de s [[LaTeX]]-Modul „url“ (<code>\\usepackage{url}</code> im Bereich vo de Yyleitig) bruuchsch, wo e schöner formatierti Internetadress ussegit, cha die Ussgab, wo folgt, gno werde:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[Online; abgruefe am <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Gujarati (ગુજરાતી)

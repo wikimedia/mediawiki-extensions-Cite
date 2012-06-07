@@ -1945,11 +1945,11 @@ Quando si usa il pacchetto [[LaTeX]] per url (<code>\\usepackage{url}</code> da 
  * @author Whym
  */
 $messages['ja'] = array(
-	'cite_article_desc' => '[[Special:Cite|引用情報]]の特別ページとツールボックスのリンクを追加',
+	'cite_article_desc' => '[[Special:Cite|引用情報]]の特別ページとツールボックスのリンクを追加する',
 	'cite_article_link' => 'この項目を引用',
 	'tooltip-cite-article' => 'このページの引用の仕方',
 	'cite' => '引用',
-	'cite_page' => 'ページ:',
+	'cite_page' => 'ページ：',
 	'cite_submit' => '引用',
 	'cite_text' => '__NOTOC__
 <div class="mw-specialcite-bibliographic">

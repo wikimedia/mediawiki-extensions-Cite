@@ -236,7 +236,7 @@ $messages['arc'] = array(
 	'cite_submit' => 'ܡܣܗܕ',
 );
 
-/** Araucanian (Mapudungun)
+/** Araucanian (mapudungun)
  * @author Kaniw
  * @author Remember the dot
  */
@@ -334,7 +334,7 @@ $messages['as'] = array(
 	'cite_submit' => '↓উদ্ধৃত',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -354,7 +354,7 @@ $messages['av'] = array(
 	'cite_article_link' => 'Гьумер рехсезе',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  */
 $messages['az'] = array(
@@ -410,7 +410,7 @@ $messages['bcl'] = array(
 	'cite_submit' => 'Sambiton',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Хомелка
  */
 $messages['be'] = array(
@@ -434,7 +434,7 @@ $messages['be-tarask'] = array(
 	'cite_submit' => 'Цытаваць',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  * @author Turin
  */
@@ -467,13 +467,13 @@ $messages['bo'] = array(
 	'cite_page' => 'ཤོག་ངོས།',
 );
 
-/** Bishnupria Manipuri (ইমার ঠার/বিষ্ণুপ্রিয়া মণিপুরী) */
+/** Bishnupria Manipuri (বিষ্ণুপ্রিয়া মণিপুরী) */
 $messages['bpy'] = array(
 	'cite_article_link' => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite' => 'উদ্ধৃত করেদে',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -485,7 +485,7 @@ $messages['br'] = array(
 	'cite_submit' => 'Menegiñ',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -497,7 +497,7 @@ $messages['bs'] = array(
 	'cite_submit' => 'Citiraj',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Davidpar
  * @author SMP
  * @author Toniher
@@ -533,7 +533,7 @@ $messages['ceb'] = array(
 	'cite' => 'Kutloa',
 );
 
-/** Sorani (کوردی)
+/** Sorani Kurdish (کوردی)
  * @author Asoxor
  */
 $messages['ckb'] = array(
@@ -544,14 +544,14 @@ $messages['ckb'] = array(
 	'cite_submit' => 'بیکە بە ژێدەر',
 );
 
-/** Corsican (Corsu) */
+/** Corsican (corsu) */
 $messages['co'] = array(
 	'cite_article_link' => 'Cità issu articulu',
 	'cite' => 'Cità',
 	'cite_page' => 'Pagina:',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Beren
  * @author Li-sung
  * @author Martin Kozák
@@ -653,7 +653,7 @@ $messages['cy'] = array(
 	'cite_submit' => 'Cyfeirio',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Byrial
  * @author Morten LJ
  * @author Peter Alberti
@@ -824,7 +824,7 @@ $messages['dsb'] = array(
 	'cite_submit' => 'pokazaś',
 );
 
-/** Ewe (Eʋegbe) */
+/** Ewe (eʋegbe) */
 $messages['ee'] = array(
 	'cite_page' => 'Nuŋɔŋlɔ:',
 );
@@ -1004,7 +1004,7 @@ Kui kasutada LaTeX-i url-i (<code>\\usepackage{url}</code> kuskil lehekülje alg
 </div> <!--closing div for "plainlinks"-->',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Theklan
  * @author Xabier Armendaritz
@@ -1018,7 +1018,7 @@ $messages['eu'] = array(
 	'cite_submit' => 'Aipatu',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -1041,7 +1041,7 @@ $messages['fa'] = array(
 	'cite_submit' => 'یادکرد',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Linnea
  * @author Nike
  * @author ZeiP
@@ -1118,7 +1118,7 @@ $messages['fj'] = array(
 	'cite_article_link' => 'Vola dau vaqarai',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author Diupwijk
  * @author Spacebirdy
  */
@@ -1204,7 +1204,7 @@ Si vous utilisez le package URL dans [[LaTeX]] (<code>\\usepackage{url}</code> q
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -1216,7 +1216,7 @@ $messages['frp'] = array(
 	'cite_submit' => 'Citar',
 );
 
-/** Friulian (Furlan)
+/** Friulian (furlan)
  * @author Klenje
  * @author MF-Warburg
  */
@@ -1538,7 +1538,7 @@ $messages['hil'] = array(
 	'cite_article_link' => 'Tumuron ining artikulo',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Excaliboor
  * @author SpeedyGonsales
@@ -1575,7 +1575,7 @@ $messages['ht'] = array(
 	'cite_submit' => 'Site',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Glanthor Reviol
  * @author Tgr
@@ -1665,7 +1665,7 @@ $messages['hy'] = array(
 	'cite_submit' => 'Քաղվածել',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author Malafaya
  * @author McDutchie
  */
@@ -1851,7 +1851,7 @@ $messages['io'] = array(
 	'cite_submit' => 'Citar',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author S.Örvarr.S
  * @author לערי ריינהארט
  */
@@ -1863,7 +1863,7 @@ $messages['is'] = array(
 	'cite_text' => '*** [[ignored messages]]',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author BrokenArrow
  * @author Ximo17
@@ -2012,7 +2012,7 @@ URIの体裁を整えるために[[LaTeX]]の url パッケージを用いる (�
 </div> <!--closing div for "plainlinks"-->',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  */
 $messages['jut'] = array(
@@ -2263,7 +2263,7 @@ $messages['kk-latn'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Kalaallisut (Kalaallisut)
+/** Kalaallisut (kalaallisut)
  * @author Qaqqalik
  */
 $messages['kl'] = array(
@@ -2462,7 +2462,7 @@ $messages['ku-latn'] = array(
 	'cite_page' => 'Rûpel:',
 );
 
-/** Cornish (Kernowek)
+/** Cornish (kernowek)
  * @author Kernoweger
  * @author Kw-Moon
  */
@@ -2596,7 +2596,7 @@ $messages['li'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Lumbaart (Lumbaart)
+/** lumbaart (lumbaart)
  * @author Dakrismeno
  */
 $messages['lmo'] = array(
@@ -2611,7 +2611,7 @@ $messages['lo'] = array(
 	'cite_page' => 'ໜ້າ:',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Garas
  */
 $messages['lt'] = array(
@@ -2682,7 +2682,7 @@ Kai naudojate LaTeX paketą ''url'' (<code>\\usepackage{url}</code> kur nors pra
 </div>",
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author Xil
  */
 $messages['lv'] = array(
@@ -2705,7 +2705,7 @@ $messages['mhr'] = array(
 	'cite_page' => 'Лаштык:',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  * @author Misos
@@ -2790,7 +2790,7 @@ $messages['ml'] = array(
 	'cite_submit' => 'ഉദ്ധരിക്കുക',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -3057,7 +3057,7 @@ Het volgende kan de voorkeur hebben als de [[LaTeX]]-module \"url\" wordt gebrui
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -3087,7 +3087,7 @@ $messages['nso'] = array(
 	'cite_page' => 'Letlakala:',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -3197,7 +3197,7 @@ $messages['pfl'] = array(
 	'cite_submit' => 'Schbaischere',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -3252,7 +3252,7 @@ $messages['ps'] = array(
 	'cite_submit' => 'درک لګول',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Hamilton Abreu
  * @author Lijealso
@@ -3267,7 +3267,7 @@ $messages['pt'] = array(
 	'cite_submit' => 'Citar',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Carla404
  * @author Giro720
  */
@@ -3292,7 +3292,7 @@ $messages['qu'] = array(
 	'cite_submit' => 'Qillqamanta willay',
 );
 
-/** Romansh (Rumantsch)
+/** Romansh (rumantsch)
  * @author Kazu89
  */
 $messages['rm'] = array(
@@ -3309,7 +3309,7 @@ $messages['rmy'] = array(
 	'cite_submit' => 'Ja',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Danutz
  * @author Emily
  * @author Firilacroco
@@ -3381,7 +3381,7 @@ Când se folosește în pachetul [[LaTeX]] expresia url (<code>\\usepackage{url}
 </div> <!--closing \"Citation styles\" div-->",
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -3504,7 +3504,7 @@ $messages['sa'] = array(
 	'cite_submit' => 'उदाहरति',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -3516,7 +3516,7 @@ $messages['sah'] = array(
 	'cite_submit' => 'Цитаата',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Santu
  */
 $messages['scn'] = array(
@@ -3553,7 +3553,7 @@ $messages['si'] = array(
 	'cite_submit' => 'උපන්‍යාසය',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  * @author Martin Kozák
  */
@@ -3617,7 +3617,7 @@ Pri použití balíka url v [[LaTeX]]e (<code>\\usepackage{url}</code> niekde v 
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  * @author Smihael
  */
@@ -3642,7 +3642,7 @@ $messages['sn'] = array(
 	'cite_article_link' => 'Ita cite nyaya iyi',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Olsi
  */
 $messages['sq'] = array(
@@ -3708,7 +3708,7 @@ When using the [[LaTeX]] package url (<code>\\usepackage{url}</code> somewhere i
 </div><!--closing div for \"plainlinks\"-->",
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -3724,7 +3724,7 @@ $messages['sr-ec'] = array(
 	'cite_submit' => 'цитат',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Liangent
  * @author Michaello
  * @author Жељко Тодоровић
@@ -3761,7 +3761,7 @@ $messages['su'] = array(
 	'cite_submit' => 'Cutat',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Lejonel
  * @author Per
  * @author Sannab
@@ -3823,7 +3823,7 @@ $messages['te'] = array(
 	'cite_submit' => 'ఉదహరించు',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
@@ -3835,7 +3835,7 @@ $messages['tet'] = array(
 	'cite_submit' => 'Sita',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -3846,7 +3846,7 @@ $messages['tg-cyrl'] = array(
 	'cite_submit' => 'Ёд кардан',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3894,7 +3894,7 @@ $messages['tl'] = array(
 	'cite_submit' => 'Tukuyin',
 );
 
-/** Толышә зывон (Толышә зывон)
+/** толышә зывон (толышә зывон)
  * @author Гусейн
  */
 $messages['tly'] = array(
@@ -4004,7 +4004,7 @@ $messages['ts'] = array(
 	'cite_page' => 'Tluka:',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
@@ -4031,7 +4031,7 @@ $messages['ug-latn'] = array(
 	'cite_page' => 'Bet:',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Ahonc
  * @author Prima klasy4na
  */
@@ -4051,7 +4051,7 @@ $messages['ur'] = array(
 	'cite_page' => 'صفحہ:',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -4160,7 +4160,7 @@ $messages['vo'] = array(
 	'cite_submit' => 'Saitön',
 );
 
-/** Walloon (Walon)
+/** Walloon (walon)
  * @author Srtxg
  */
 $messages['wa'] = array(
@@ -4210,7 +4210,7 @@ $messages['yue'] = array(
 	'cite_submit' => '引用',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
@@ -4283,7 +4283,7 @@ $messages['zh-hans'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Frankou
  */
 $messages['zh-hant'] = array(

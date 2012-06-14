@@ -353,7 +353,7 @@ $messages['as'] = array(
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>ত দিয়া "$1" নামৰ <code>&lt;ref&gt;</code> টেগৰ কোনো সমল নাই।',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -390,7 +390,7 @@ Define más nel mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_empty_references_define' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> col nome "$1" nun tien conteníu.',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Vago
  */
 $messages['az'] = array(
@@ -529,7 +529,7 @@ $messages['be-tarask'] = array(
 	'cite_error_empty_references_define' => 'Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> з назвай «$1» ня мае зьместу.',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  * @author Spiritia
@@ -586,7 +586,7 @@ $messages['bn'] = array(
 	'cite_error_references_group_mismatch' => '"$1" গ্রুপের ক্ষেত্রে <code>&lt;ref&gt;</code> ট্যাগ <code>&lt;references&gt;</code> ট্যাগের অংশে ব্যবহারে সমস্যা সৃষ্টি হয়েছে।',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -629,7 +629,7 @@ ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ar valiezenn termenet e <code>&lt;references&gt;</code> dezhi an anv a "$1" zo goullo.',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  * @author Reedy
  */
@@ -673,7 +673,7 @@ nije naveden tekst za reference sa imenom <code>$1</code>',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> oznaka definisana u <code>&lt;references&gt;</code> sa imenom "$1" nema nikakvog sadržaja.',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Davidpar
  * @author Jordi Roqué
  * @author SMP
@@ -719,7 +719,7 @@ no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
 	'cite_error_empty_references_define' => 'L\'etiqueta <code>&lt;ref&gt;</code> definida a <code>&lt;references&gt;</code> amb el nom "$1" no té contingut.',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Li-sung
  * @author Matěj Grabovský
@@ -805,7 +805,7 @@ ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 	'cite_error_empty_references_define' => 'Does dim byd yn y tag <code>&lt;ref&gt;</code> a\'r enw "$1" arno, sydd wedi ei ddiffinio oddi mewn i dagiau <code>&lt;references&gt;</code>.',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Byrial
  * @author Emilkris33
  * @author Morten LJ
@@ -1057,7 +1057,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> kun nomo "$1" ne havas enhavon.',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Antur
  * @author Baiji
  * @author Crazymadlover
@@ -1110,7 +1110,7 @@ pues no hay una referencia con texto llamada <code>$1</code>',
 	'cite_error_empty_references_define' => 'El tag <code>&lt;ref&gt;</code> definido en <code>&lt;references&gt;</code> con nombre "$1" no tiene contenido.',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Pikne
  */
 $messages['et'] = array(
@@ -1153,7 +1153,7 @@ Viite nimega <code>$1</code> tekst puudub.',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-märgendite vahel oleval <code>&lt;ref&gt;</code>-märgendil nimega "$1" puudub sisu.',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  */
 $messages['eu'] = array(
@@ -1198,7 +1198,7 @@ $messages['fa'] = array(
 	'cite_reference_link_prefix' => 'cite_ref-',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Agony
  * @author Crt
  * @author Nike
@@ -1235,7 +1235,7 @@ viitettä <code>$1</code> ei löytynyt',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä nimellä ”$1” ei ole sisältöä.',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author EileenSanda
  */
 $messages['fo'] = array(
@@ -1244,7 +1244,7 @@ $messages['fo'] = array(
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> lyklaorð (tags) eru til fyri ein bólk sum eitur "$1", men onki tilsvarandi <code>&lt;references group="$1"/&gt;</code> lyklaorð varð funnið',
 );
 
-/** French (Français)
+/** French (français)
  * @author Cedric31
  * @author Crochet.david
  * @author Grondin
@@ -1297,7 +1297,7 @@ aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
 	'cite_references_link_many_and' => '&#32;et&#32;',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -1334,7 +1334,7 @@ nion tèxto at étâ balyê por les refèrences apelâs <code>$1</code>.',
 	'cite_references_link_many_and' => '&#32;et&#32;',
 );
 
-/** Friulian (Furlan)
+/** Friulian (furlan)
  * @author Klenje
  */
 $messages['fur'] = array(
@@ -1544,7 +1544,7 @@ $messages['hi'] = array(
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> टैग में परिभाषित <code>&lt;references&gt;</code> नाम सहित "$1" कोई सामग्री नहीं ।',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
  * @author SpeedyGonsales
@@ -1643,7 +1643,7 @@ Presize yon kantite ki pi gwo nan mesaj <nowiki>[[MediaWiki:Cite references link
 Nou pa bay pyès tèks pou referans ki rele <code>$1</code>',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Glanthor Reviol
  * @author KossuthRad
@@ -1675,7 +1675,7 @@ Adj meg többet a <nowiki>[[MediaWiki:$2]]</nowiki> lapon.',
 	'cite_references_link_many' => '<li id="$1"><span class="mw-cite-backlink">^ $2</span> $3</li>',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -1824,7 +1824,7 @@ $messages['io'] = array(
 	'cite_error' => 'Citala eroro: $1',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Snævar
  */
 $messages['is'] = array(
@@ -1861,7 +1861,7 @@ tilgreindu texta fyrir tilvísun með nafnið <code>$1</code>',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> tag skilgreint í <code>&lt;references&gt;</code> með nafnið "$1" hefur ekkert innihald.',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author BrokenArrow
  * @author Darth Kule
@@ -1930,7 +1930,7 @@ $messages['ja'] = array(
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> で定義されている "name=$1" を持つ <code>&lt;ref&gt;</code> タグには中身がありません。',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  */
 $messages['jut'] = array(
@@ -2251,7 +2251,7 @@ Doe kans d\'r mier insjtelle in \'t sysyeemberich <nowiki>[[MediaWiki:$2]]</nowi
 	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> dae is gedefinieerd in <code>&lt;references&gt;</code> mit de naam "$1" haet geinen inhawd.',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Garas
  * @author Homo
  * @author Matasg
@@ -2273,7 +2273,7 @@ Nurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink
 	'cite_error_refs_without_references' => 'puslapyje egzistuoja žyma <code>&lt;ref&gt;</code>, tačiau žymos <code>&lt;references/&gt;</code> nėra rasta',
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author GreenZeb
  * @author Marozols
  * @author Xil
@@ -2298,7 +2298,7 @@ tsy mety ny stack key.
 Tokony tsy hitranga mihitsy ity tsy fetezana ity.',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -2384,7 +2384,7 @@ $messages['ml'] = array(
 	'cite_references_link_prefix' => 'ഉദ്ധരിണി_കുറിപ്പ്-',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -2564,7 +2564,7 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam "$1" heeft geen inhoud.',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Frokor
  * @author Harald Khan
  * @author Njardarlogar
@@ -2589,7 +2589,7 @@ Definer fleire i meldinga <nowiki>[[MediaWiki:Cite references link many format b
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-merke finst for gruppenamnet «$1», men inkje samsvarande <code>&lt;references group="$1"/&gt;</code>-merke vart funne',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -2672,7 +2672,7 @@ $messages['pag'] = array(
 	'cite_error' => 'Bitlaen so error $1; $2',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Derbeth
  * @author Holek
  * @author Leinad
@@ -2803,7 +2803,7 @@ $messages['ps'] = array(
 	'cite_error' => 'د درک ستونزه: $1',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Crazymadlover
  * @author Giro720
@@ -2842,7 +2842,7 @@ Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_empty_references_define' => 'O elemento <code>&lt;ref&gt;</code> definido em <code>&lt;references&gt;</code> com o nome "$1" não tem conteúdo.',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author 555
  * @author Eduardo.mps
  * @author Giro720
@@ -2921,7 +2921,7 @@ Astawan sut'ichay <nowiki>[[MediaWiki:Cite references link many format backlink 
 	'cite_error_group_refs_without_references' => '"$1" sutiyuq huñupaq <code>&lt;ref&gt;</code> unanchacham kachkan, ichataq manam chay huñupaq qillqasqa <code>&lt;references/&gt;</code> unanchachachu',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
@@ -2963,7 +2963,7 @@ niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
 	'cite_error_empty_references_define' => 'Eticheta <code>&lt;ref&gt;</code> definită în <code>&lt;references&gt;</code> cu numele „$1” nu are conținut.',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -3002,7 +3002,7 @@ nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
 	'cite_error_empty_references_define' => '\'U tag <code>&lt;ref&gt;</code> definite jndr\'à <code>&lt;references&gt;</code> cu \'u nome "$1" non ge tène condenute.',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ahonc
  * @author Dim Grits
  * @author Ferrer
@@ -3093,7 +3093,7 @@ $messages['rue'] = array(
 	'cite_error_empty_references_define' => 'У значкы <code>&lt;ref&gt;</code> з назвов „$1“ дефінованой внутрї <code>&lt;references&gt;</code> хыбить обсяг.',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -3126,7 +3126,7 @@ $messages['sah'] = array(
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> туттар <code>&lt;ref&gt;</code> "$1" диэн ааттаах тиэгэ иһинээҕитэ суох эбит.',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Melos
  * @author Santu
  */
@@ -3205,7 +3205,7 @@ $messages['si'] = array(
 	'cite_references_link_prefix' => 'උපන්‍යාස_සටහන-',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -3238,7 +3238,7 @@ Definujte ďalšie v správe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_empty_references_define' => 'Značka <code>&lt;ref&gt;</code> s definovaná v <code>&lt;references&gt;</code> s názvom „$1“ nemá žiaden obsah.',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -3284,7 +3284,7 @@ sklici imenovani <code>$1</code> nimajo določenega besedila',
 	'cite_references_link_many_format_backlink_labels' => 'a b c č d e f g h i j k l m n o p r s š t u v z ž a aa ab ac ač ad ae af ag ah ai aj ak al am an ao ap ar as aš at au av az až b ba bb bc bč bd be bf bg bh bi bj bk bl bm bn bo bp br bs bš bt bu bv bz bž c ca cb cc cč cd ce cf cg ch ci cj ck cl cm cn co cp cr cs cš ct cu cv cz cž č ča čb čc čč čd če čf čg čh či čj čk čl čm čn čo čp čr čs čš čt ču čv čz čž d da db dc dč dd de df dg dh di dj dk dl dm dn do dp dr ds dš dt du dv dz dž e ea eb ec eč ed ee ef eg eh ei ej ek el em en eo ep er es eš et eu ev ez ež f fa fb fc fč fd fe ff fg fh fi fj fk fl fm fn fo fp fr fs fš ft fu fv fz fž g ga gb gc gč gd ge gf gg gh gi gj gk gl gm gn go gp gr gs gš gt gu gv gz gž h ha hb hc hč hd he hf hg hh hi hj hk hl hm hn ho hp hr hs hš ht hu hv hz hž i ia ib ic ič id ie if ig ih ii ij ik il im in io ip ir is iš it iu iv iz iž j ja jb jc jč jd je jf jg jh ji jj jk jl jm jn jo jp jr js jš jt ju jv jz jž k ka kb kc kč kd ke kf kg kh ki kj kk kl km kn ko kp kr ks kš kt ku kv kz kž l la lb lc lč ld le lf lg lh li lj lk ll lm ln lo lp lr ls lš lt lu lv lz lž m ma mb mc mč md me mf mg mh mi mj mk ml mm mn mo mp mr ms mš mt mu mv mz mž n na nb nc nč nd ne nf ng nh ni nj nk nl nm nn no np nr ns nš nt nu nv nz nž o oa ob oc oč od oe of og oh oi oj ok ol om on oo op or os oš ot ou ov oz ož p pa pb pc pč pd pe pf pg ph pi pj pk pl pm pn po pp pr ps pš pt pu pv pz pž r ra rb rc rč rd re rf rg rh ri rj rk rl rm rn ro rp rr rs rš rt ru rv rz rž s sa sb sc sč sd se sf sg sh si sj sk sl sm sn so sp sr ss sš st su sv sz sž š ša šb šc šč šd še šf šg šh ši šj šk šl šm šn šo šp šr šs šš št šu šv šz šž t ta tb tc tč td te tf tg th ti tj tk tl tm tn to tp tr ts tš tt tu tv tz tž u ua ub uc uč ud ue uf ug uh ui uj uk ul um un uo up ur us uš ut uu uv uz už v va vb vc vč vd ve vf vg vh vi vj vk vl vm vn vo vp vr vs vš vt vu vv vz vž z za zb zc zč zd ze zf zg zh zi zj zk zl zm zn zo zp zr zs zš zt zu zv zz zž ž ža žb žc žč žd že žf žg žh ži žj žk žl žm žn žo žp žr žs žš žt žu žv žz žž',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Mikullovci11
  * @author Olsi
  */
@@ -3328,7 +3328,7 @@ asnjë tekst nuk u dha për refs e quajtura <code>$1</code>',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> etiketa e përcaktuar në <code>&lt;referenca&gt;</code> me emrin "$1" nuk ka përmbajtje.',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Rancher
  * @author Михајло Анђелковић
@@ -3360,7 +3360,7 @@ $messages['sr-ec'] = array(
 	'cite_references_link_many_and' => '&#32;',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -3425,7 +3425,7 @@ $messages['su'] = array(
 	'cite_error_key_str_invalid' => 'Kasalahan internal; salah $str jeung/atawa $key. Kuduna mah teu kieu.',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Fluff
  * @author Lejonel
@@ -3495,7 +3495,7 @@ $messages['te'] = array(
 	'cite_error_references_no_text' => 'సరైన <code>&lt;ref&gt;</code> కాదు; <code>$1</code> అనే పేరుగల ref లకు పాఠ్యమేమీ ఇవ్వలేదు',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -3516,7 +3516,7 @@ $messages['tg-cyrl'] = array(
 	'cite_error_references_no_text' => 'Барчасби  <code>&lt;ref&gt;</code> ғайримиҷоз; матне барои ёдкардҳо бо номи <code>$1</code> ворид нашудааст',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3668,14 +3668,14 @@ sadece "group" parametresine izin verilir.
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>\'da tanımlanan "$1" adlı <code>&lt;ref&gt;</code> etiketinin içeriği yok.',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Timming
  */
 $messages['tt-cyrl'] = array(
 	'cite_error' => 'Өземтә китерү хатасы: $1',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Ahonc
  * @author Dim Grits
@@ -3728,7 +3728,7 @@ $messages['uk'] = array(
 	'cite_references_link_many_and' => '&#32;',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -3865,7 +3865,7 @@ $messages['yue'] = array(
 無文字提供於名為<code>$1</code>嘅參照',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Gaoxuewei
  * @author Liangent
  * @author PhiLiP
@@ -3896,7 +3896,7 @@ $messages['zh-hans'] = array(
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>的名称（name）“$1”为空。',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Liangent
  * @author Mark85296341
  * @author Philip

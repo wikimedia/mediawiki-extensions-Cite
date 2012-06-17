@@ -100,6 +100,14 @@ class Cite {
 	var $mParser;
 
 	/**
+	 * True when the ParserAfterParse hook has been called.
+	 * Used to avoid doing anything in ParserBeforeTidy.
+	 *
+	 * @var boolean
+	 */
+	var $mHaveAfterParse = false;
+
+	/**
 	 * True when a <ref> tag is being processed.
 	 * Used to avoid infinite recursion
 	 *
@@ -1060,14 +1068,21 @@ class Cite {
 	 * Called at the end of page processing to append an error if refs were
 	 * used without a references tag.
 	 *
+	 * @param $afterParse bool  true if called from the ParserAfterParse hook
 	 * @param $parser Parser
 	 * @param $text string
 	 *
 	 * @return bool
 	 */
-	function checkRefsNoReferences( &$parser, &$text ) {
+	function checkRefsNoReferences( $afterParse, &$parser, &$text ) {
 		if ( $parser->extCite !== $this ) {
-			return $parser->extCite->checkRefsNoReferences( $parser, $text );
+			return $parser->extCite->checkRefsNoReferences( $afterParse, $parser, $text );
+		}
+
+		if ( $afterParse ) {
+			$this->mHaveAfterParse = true;
+		} elseif ( $this->mHaveAfterParse ) {
+			return true;
 		}
 
 		if ( $parser->getOptions()->getIsSectionPreview() ) {
@@ -1116,7 +1131,8 @@ class Cite {
 
 		if ( !Cite::$hooksInstalled ) {
 			$wgHooks['ParserClearState'][] = array( $parser->extCite, 'clearState' );
-			$wgHooks['ParserBeforeTidy'][] = array( $parser->extCite, 'checkRefsNoReferences' );
+			$wgHooks['ParserAfterParse'][] = array( $parser->extCite, 'checkRefsNoReferences', true );
+			$wgHooks['ParserBeforeTidy'][] = array( $parser->extCite, 'checkRefsNoReferences', false );
 			$wgHooks['InlineEditorPartialAfterParse'][] = array( $parser->extCite, 'checkAnyCalls' );
 			Cite::$hooksInstalled = true;
 		}

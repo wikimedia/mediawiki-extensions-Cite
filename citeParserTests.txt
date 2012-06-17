@@ -10,8 +10,8 @@ Simple <ref>, no <references/>
 Wikipedia rocks!<ref>Proceeds of Rockology, vol. XXI</ref>
 !! result
 <p>Wikipedia rocks!<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
-</p>
 <br /><strong class="error">Cite error: <code>&lt;ref&gt;</code> tags exist, but no <code>&lt;references/&gt;</code> tag was found</strong>
+</p>
 !! end
 
 !! test
@@ -132,8 +132,8 @@ Templating<ref>Text<!--comment--></ref>
 {{REVISIONID}}<ref>elite</ref>
 !! result
 <p>1337<sup id="cite_ref-0" class="reference"><a href="#cite_note-0">[1]</a></sup>
-</p>
 <br /><strong class="error">Cite error: <code>&lt;ref&gt;</code> tags exist, but no <code>&lt;references/&gt;</code> tag was found</strong>
+</p>
 !! end
 
 !! test

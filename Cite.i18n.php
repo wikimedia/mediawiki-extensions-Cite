@@ -1908,16 +1908,27 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 $messages['ja'] = array(
 	'cite-desc' => '引用のためのタグ<nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
 	'cite_croak' => '引用タグ機能の重大なエラー。$1: $2',
-	'cite_error_key_str_invalid' => '内部エラー。$str と $key の両方または一方が無効。これはソフトウェアのバグです。',
+	'cite_error_key_str_invalid' => '内部エラー：
+$str と $key の両方または一方が無効。
+これはソフトウェアのバグです。',
 	'cite_error_stack_invalid_input' => '内部エラー。スタックキーが無効。これはソフトウェアのバグです。',
 	'cite_error' => '引用エラー：$1',
-	'cite_error_ref_numeric_key' => '無効な <code>&lt;ref&gt;</code> タグ。名前(<code>name</code> 属性)に単なる数値は使用できません。説明的なものにしてください',
-	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグ。引用句の内容がない場合には名前(<code>name</code> 属性)が必要です',
-	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグ。引数が不正(数が多すぎる、など)',
-	'cite_error_ref_no_input' => '無効な <code>&lt;ref&gt;</code> タグ。名前(<code>name</code> 属性)がない場合には引用句の内容が必要です',
-	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ。引数は指定できません。<code>&lt;references /&gt;</code> を用いてください',
-	'cite_error_references_invalid_parameters_group' => '無効な <code>&lt;references&gt;</code> タグです。使用できるパラメータは "group" のみです。<code>&lt;references /&gt;</code> または <code>&lt;references group="..." /&gt;</code> を用いてください',
-	'cite_error_references_no_backlink_label' => 'バックリンクラベルが使用できる個数を超えました。<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください',
+	'cite_error_ref_numeric_key' => '無効な <code>&lt;ref&gt;</code> タグ：
+名前(<code>name</code> 属性)に単なる数値は使用できません。説明的なものにしてください',
+	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグ：
+引用句の内容がない場合には名前(<code>name</code> 属性)が必要です',
+	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグ：
+名前が無効(数が多すぎる、など)',
+	'cite_error_ref_no_input' => '無効な <code>&lt;ref&gt;</code> タグ：
+名前(<code>name</code> 属性)がない場合には引用句の内容が必要です',
+	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ：
+引数は指定できません。
+<code>&lt;references /&gt;</code> を使用してください',
+	'cite_error_references_invalid_parameters_group' => '無効な <code>&lt;references&gt;</code> タグ：
+使用できるパラメータは "group" のみです。
+<code>&lt;references /&gt;</code> または <code>&lt;references group="..." /&gt;</code> を使用してください',
+	'cite_error_references_no_backlink_label' => 'バックリンクラベルが使用できる個数を超えました。
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。',
 	'cite_error_no_link_label_group' => 'グループ「$1」用のカスタム リンク ラベルを使い果たしました。<nowiki>[[MediaWiki:$2]]</nowiki> メッセージを編集してラベルの定義を増やしてください。',
 	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグ。「<code>$1</code>」という名前の引用句に対するテキストがありません',
 	'cite_error_included_ref' => '&lt;ref&gt; タグに対応する &lt;/ref&gt; が不足しています',

@@ -1832,7 +1832,7 @@ $messages['ig'] = array(
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'cite_article_desc' => 'Nayunan na ti [[Special:Cite|dakamat]] ti naipangpangruna a panid ken panilpo iti ramramit',
+	'cite_article_desc' => 'Agnayon ti [[Special:Cite|dakamat]] ti naipangpangruna a panid ken panilpo ti ramramit',
 	'cite_article_link' => 'Dakamaten daytoy a panid',
 	'tooltip-cite-article' => 'Pakaammo no kasanu ti panagdakamat daytoy a panid',
 	'cite' => 'Dakamaten',

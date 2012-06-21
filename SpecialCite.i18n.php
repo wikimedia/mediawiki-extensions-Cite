@@ -2682,6 +2682,18 @@ Kai naudojate LaTeX paketą ''url'' (<code>\\usepackage{url}</code> kur nors pra
 </div>",
 );
 
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'cite_article_desc' => '[[Special:Cite|Ràwnna]] phêk vohbîk leh hmanrawbawm zawmna belhna',
+	'cite_article_link' => 'Ràwnna',
+	'tooltip-cite-article' => 'Hë phêk ràwnna chungchanga kaihhruaina',
+	'cite' => 'Ràwnna',
+	'cite_page' => 'Phêk:',
+	'cite_submit' => 'Ràwnna:',
+);
+
 /** Latvian (latviešu)
  * @author Xil
  */

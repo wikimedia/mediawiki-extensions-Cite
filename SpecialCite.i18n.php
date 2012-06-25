@@ -4355,6 +4355,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (‪中文（繁體）‬)
  * @author Frankou
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'cite_article_desc' => '增加[[Special:Cite|引用]]特殊頁面以及工具箱連結',
@@ -4380,9 +4381,6 @@ $messages['zh-hant'] = array(
 <div class=\"plainlinks mw-specialcite-styles\">
 
 == {{FULLPAGENAME}}的參考文獻格式 ==
-
-=== GB7714格式 ===
-{{SITENAME}}編者．{{FULLPAGENAME}}[G/OL]．{{SITENAME}}，{{int:sitesubtitle}}，{{CURRENTYEAR}}年{{CURRENTMONTH}}月{{CURRENTDAY}}日{{CURRENTTIME}}［<citation>{{CURRENTYEAR}}年{{CURRENTMONTH}}月{{CURRENTDAY}}日{{CURRENTTIME}}</citation>］．{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}．
 
 === APA格式 ===
 {{FULLPAGENAME}}．（{{CURRENTYEAR}}年{{CURRENTMONTH}}月{{CURRENTDAY}}日）．''{{SITENAME}}，{{int:sitesubtitle}}''．於<citation>{{CURRENTYEAR}}年{{CURRENTMONTH}}月{{CURRENTDAY}}日{{CURRENTTIME}}</citation>查閲自{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}．

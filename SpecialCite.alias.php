@@ -23,6 +23,11 @@ $specialPageAliases['arz'] = array(
 	'Cite' => array( 'استشهاد' ),
 );
 
+/** Assamese (অসমীয়া) */
+$specialPageAliases['as'] = array(
+	'Cite' => array( 'উদ্ধৃতি' ),
+);
+
 /** Bikol Central (Bikol Central) */
 $specialPageAliases['bcl'] = array(
 	'Cite' => array( 'Sambitón' ),
@@ -73,7 +78,7 @@ $specialPageAliases['diq'] = array(
 	'Cite' => array( 'Sita' ),
 );
 
-/** Lower Sorbian (Dolnoserbski) */
+/** Lower Sorbian (dolnoserbski) */
 $specialPageAliases['dsb'] = array(
 	'Cite' => array( 'Citěrowańska_pomoc' ),
 );
@@ -118,7 +123,7 @@ $specialPageAliases['frp'] = array(
 	'Cite' => array( 'Citar' ),
 );
 
-/** Galician (Galego) */
+/** Galician (galego) */
 $specialPageAliases['gl'] = array(
 	'Cite' => array( 'Cita', 'Citar' ),
 );
@@ -138,7 +143,7 @@ $specialPageAliases['hr'] = array(
 	'Cite' => array( 'Citiraj' ),
 );
 
-/** Upper Sorbian (Hornjoserbsce) */
+/** Upper Sorbian (hornjoserbsce) */
 $specialPageAliases['hsb'] = array(
 	'Cite' => array( 'Citowanska_pomoc' ),
 );

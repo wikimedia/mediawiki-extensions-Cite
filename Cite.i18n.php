@@ -186,7 +186,7 @@ Gebruik 'n beskrywende titel",
 ongeldige name, byvoorbeeld te veel',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -484,7 +484,7 @@ $messages['bcc'] = array(
 	'cite_references_link_many_and' => 'و',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -754,7 +754,7 @@ Zvyšte jejich počet ve zprávě <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_empty_references_define' => 'U značky <code>&lt;ref&gt;</code> s názvem „$1“ definované uvnitř <code>&lt;references&gt;</code> chybí obsah.',
 );
 
-/** Church Slavic (Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
@@ -929,7 +929,7 @@ qe refs yew nuşte nidayiyo <code>$1</code>',
 	'cite_error_empty_references_define' => 'etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevsir biyo "$1" kontent xo çini yo.',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -1341,7 +1341,7 @@ $messages['fur'] = array(
 	'cite_error' => 'Erôr te funzion Cite: $1',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  * @author Xosé
@@ -1577,7 +1577,7 @@ Definirajte više putem poruke <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> oznaka definirana u <code>&lt;references&gt;</code> s imenom "$1" nema sadržaja.',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -3069,7 +3069,7 @@ $messages['ru'] = array(
 	'cite_references_link_many_and' => '&#32;',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(

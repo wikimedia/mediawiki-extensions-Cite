@@ -1420,6 +1420,7 @@ Definier meh unter Systemnochricht <nowiki>[[MediaWiki:$2]]</nowiki>.',
 );
 
 /** Gujarati (ગુજરાતી)
+ * @author Ashok modhvadia
  * @author Dsvyas
  * @author KartikMistry
  * @author Sushant savla
@@ -1433,7 +1434,7 @@ $messages['gu'] = array(
 	'cite_error_stack_invalid_input' => 'આંતરિક ક્ષતિ;
 અયોગ્ય સ્ટેક કળ.
 આ ક્યારેય થવું ન જોઈએ.',
-	'cite_error' => 'તૃટી ટાંકો: $1',
+	'cite_error' => 'સંદર્ભ ત્રુટિ: $1',
 	'cite_error_ref_numeric_key' => 'અમાન્ય <code>&lt;ref&gt;</code> ટેગ;
 નામ માત્ર સરળ રાશિ ન હોઈ શકે, વિસ્તૃત શીર્ષક આપો',
 	'cite_error_ref_no_key' => 'અમાન્ય <code>&lt;ref&gt;</code> ટેગ;

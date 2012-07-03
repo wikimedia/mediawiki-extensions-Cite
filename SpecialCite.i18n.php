@@ -3636,8 +3636,7 @@ $messages['sk'] = array(
 	'cite_page' => 'Stránka:',
 	'cite_submit' => 'Citovať',
 	'cite_text' => "__NOTOC__
-
-<div style=\"border: 1px solid grey; background: #E6E8FA; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;\">
+<div class=\"mw-specialcite-bibliographic\">
 
 == Bibliografické podrobnosti pre článok {{FULLPAGENAME}} ==
 * Názov stránky: {{FULLPAGENAME}}
@@ -3648,7 +3647,7 @@ $messages['sk'] = array(
 * Permanentný odkaz: {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
 * ID verzie stránky: {{REVISIONID}}
 </div>
-<div class=\"plainlinks\" style=\"border: 1px solid grey; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;\">
+<div class=\"plainlinks mw-specialcite-styles\">
 
 == Štýly citácie pre článok {{FULLPAGENAME}} ==
 === [[:en:APA style|štýl APA]] ===

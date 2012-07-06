@@ -312,6 +312,7 @@ $str و/أو $key غلط.
 
 /** Assamese (অসমীয়া)
  * @author Gitartha.bordoloi
+ * @author Reedy
  */
 $messages['as'] = array(
 	'cite-desc' => 'উদ্ধৃতিৰ বাবে <nowiki><ref[ name=id]></nowiki> আৰু <nowiki><references/></nowiki> টেগ্‌সমূহ যোগ কৰে',
@@ -344,7 +345,7 @@ $messages['as'] = array(
 	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> টেগ;
 <code>$1</code> নামৰ refৰ বাবে কোনো পাঠ্য প্ৰদান কৰা হোৱা নাই',
 	'cite_error_included_ref' => '&lt;/ref&gt বন্ধ কৰা হৈছে; &lt;ref&gt; টেগৰ বাবে পোৱা নাই',
-	'cite_error_refs_without_references' => "<code>&lt;ref&gt;</code> টেগ্‌সমূহ আছে, কিন্তু কোনো <code>&lt;references/&gt;</code টেগ্‌ পোৱা নগ'ল",
+	'cite_error_refs_without_references' => "<code>&lt;ref&gt;</code> টেগ্‌সমূহ আছে, কিন্তু কোনো <code>&lt;references/&gt;</code> টেগ্‌ পোৱা নগ'ল",
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> টেগ্‌সমূহ "$1" নামৰ এটা গোটৰ বাবে আছে, কিন্তু তাৰ <code>&lt;references group="$1"/&gt;</code> টেগ্‌ পোৱা নগ\'ল',
 	'cite_error_references_group_mismatch' => '"$1" গোটৰ ক্ষেত্ৰত <code>&lt;references&gt;</code>ৰ <code>&lt;ref&gt;</code> টেগ্‌ ব্যৱহাৰত সমস্যা হৈছে।',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>ত দিয়া <code>&lt;ref&gt;</code> টেগৰ "$1" গোট এট্ট্ৰিবিউট আছে, যিটো পূৰ্বৰ পাঠ্যত ওলোৱা নাই।',

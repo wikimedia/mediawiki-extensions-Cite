@@ -1091,6 +1091,7 @@ $messages['ext'] = array(
  * @author Huji
  * @author Reza1615
  * @author Wayiran
+ * @author ZxxZxxZ
  */
 $messages['fa'] = array(
 	'cite_article_desc' => 'صفحهٔ ویژه‌ای برای [[Special:Cite|یادکرد]] اضافه می‌کند و پیوندی به جعبه ابزار می‌افزاید',
@@ -1136,135 +1137,24 @@ $messages['fa'] = array(
 === [[w:en:Bluebook|شیوهٔ Bluebook]] ===
 {{FULLPAGENAME}}، {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (آخرین بازدید در <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
 
-__NOTOC__
-<div class=\"mw-specialcite-bibliographic\">
-
-== اطلاعات کتاب‌شناسی برای {{FULLPAGENAME}} ==
-
-* نام صفحه: {{FULLPAGENAME}}
-* نویسنده: مشارکت‌کنندگان {{SITENAME}}
-* ناشر: ''{{SITENAME}}، {{int:sitesubtitle}}''.
-* تاریخ آخرین نسخه: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
-* تاریخ بازبینی: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
-* نشانی پایدار: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
-* شناسهٔ نسخهٔ صفحه: {{REVISIONID}}
-
-</div>
-<div class=\"plainlinks mw-specialcite-styles\">
-
-== شیوه‌های یادکرد برای {{FULLPAGENAME}} ==
-
-=== [[شیوه APA|شیوهٔ APA]] ===
-{{FULLPAGENAME}}. ({{CURRENTYEAR}}، {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}، {{int:sitesubtitle}}''. Retrieved <citation>{{CURRENTTIME}}، {{CURRENTMONTHNAME}} {{CURRENTDAY}}، {{CURRENTYEAR}}</citation> از {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
-
-=== [[شیوه ام‌ال‌آ|شیوهٔ MLA]] ===
-«{{FULLPAGENAME}}». ''{{SITENAME}}، {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}، {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}، {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt؛.
-
-=== [[شیوه MHRA|شیوهٔ MHRA]] ===
-مشارکت‌کنندگان {{SITENAME}}، «{{FULLPAGENAME}}»، ''{{SITENAME}}، {{int:sitesubtitle}}،'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}، {{CURRENTTIME}} UTC، &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
-
-=== [[شیوه‌نامه شیکاگو|شیوهٔ شیکاگو]] ===
-مشارکت‌کنندگان {{SITENAME}}، «{{FULLPAGENAME}}»، ''{{SITENAME}}، {{int:sitesubtitle}}،'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (بازیابی‌شده در <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
-
-=== [[Council of Science Editors|شیوهٔ CBE/CSE]] ===
-مشارکت‌کنندگان {{SITENAME}}. {{FULLPAGENAME}} [اینترنت]. {{SITENAME}}، {{int:sitesubtitle}}؛ {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}، {{CURRENTTIME}} UTC [یادکردشده در <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. قابل دسترسی از:
-{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
-
-=== [[w:en:Bluebook|شیوهٔ Bluebook]] ===
-{{FULLPAGENAME}}، {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (آخرین بازدید در <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
-
-__NOTOC__
-<div class=\"mw-specialcite-bibliographic\">
-
-== اطلاعات کتاب‌شناسی برای {{FULLPAGENAME}} ==
-
-* نام صفحه: {{FULLPAGENAME}}
-* نویسنده: مشارکت‌کنندگان {{SITENAME}}
-* ناشر: ''{{SITENAME}}، {{int:sitesubtitle}}''.
-* تاریخ آخرین نسخه: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
-* تاریخ بازبینی: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
-* نشانی پایدار: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
-* شناسهٔ نسخهٔ صفحه: {{REVISIONID}}
-
-</div>
-<div class=\"plainlinks mw-specialcite-styles\">
-
-== شیوه‌های یادکرد برای {{FULLPAGENAME}} ==
-
-=== [[شیوه APA|شیوهٔ APA]] ===
-{{FULLPAGENAME}}. ({{CURRENTYEAR}}، {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}، {{int:sitesubtitle}}''. Retrieved <citation>{{CURRENTTIME}}، {{CURRENTMONTHNAME}} {{CURRENTDAY}}، {{CURRENTYEAR}}</citation> از {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
-
-=== [[شیوه ام‌ال‌آ|شیوهٔ MLA]] ===
-«{{FULLPAGENAME}}». ''{{SITENAME}}، {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}، {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}، {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt؛.
-
-=== [[شیوه MHRA|شیوهٔ MHRA]] ===
-مشارکت‌کنندگان {{SITENAME}}، «{{FULLPAGENAME}}»، ''{{SITENAME}}، {{int:sitesubtitle}}،'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}، {{CURRENTTIME}} UTC، &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
-
-=== [[شیوه‌نامه شیکاگو|شیوهٔ شیکاگو]] ===
-مشارکت‌کنندگان {{SITENAME}}، «{{FULLPAGENAME}}»، ''{{SITENAME}}، {{int:sitesubtitle}}،'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (بازیابی‌شده در <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
-
-=== [[Council of Science Editors|شیوهٔ CBE/CSE]] ===
-مشارکت‌کنندگان {{SITENAME}}. {{FULLPAGENAME}} [اینترنت]. {{SITENAME}}، {{int:sitesubtitle}}؛ {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}، {{CURRENTTIME}} UTC [یادکردشده در <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. قابل دسترسی از:
-{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
-
-=== [[w:en:Bluebook|شیوهٔ Bluebook]] ===
-{{FULLPAGENAME}}، {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (آخرین بازدید در <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
-
-__NOTOC__
-<div class=\"mw-specialcite-bibliographic\">
-
-== اطلاعات کتاب‌شناسی برای {{FULLPAGENAME}} ==
-
-* نام صفحه: {{FULLPAGENAME}}
-* نویسنده: مشارکت‌کنندگان {{SITENAME}}
-* ناشر: ''{{SITENAME}}، {{int:sitesubtitle}}''.
-* تاریخ آخرین نسخه: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
-* تاریخ بازبینی: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
-* نشانی پایدار: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
-* شناسهٔ نسخهٔ صفحه: {{REVISIONID}}
-
-</div>
-<div class=\"plainlinks mw-specialcite-styles\">
-
-== شیوه‌های یادکرد برای {{FULLPAGENAME}} ==
-
-=== [[شیوه APA|شیوهٔ APA]] ===
-{{FULLPAGENAME}}. ({{CURRENTYEAR}}، {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}، {{int:sitesubtitle}}''. Retrieved <citation>{{CURRENTTIME}}، {{CURRENTMONTHNAME}} {{CURRENTDAY}}، {{CURRENTYEAR}}</citation> از {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
-
-=== [[شیوه ام‌ال‌آ|شیوهٔ MLA]] ===
-«{{FULLPAGENAME}}». ''{{SITENAME}}، {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}، {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}، {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt؛.
-
-=== [[شیوه MHRA|شیوهٔ MHRA]] ===
-مشارکت‌کنندگان {{SITENAME}}، «{{FULLPAGENAME}}»، ''{{SITENAME}}، {{int:sitesubtitle}}،'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}، {{CURRENTTIME}} UTC، &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
-
-=== [[شیوه‌نامه شیکاگو|شیوهٔ شیکاگو]] ===
-مشارکت‌کنندگان {{SITENAME}}، «{{FULLPAGENAME}}»، ''{{SITENAME}}، {{int:sitesubtitle}}،'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (بازیابی‌شده در <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
-
-=== [[Council of Science Editors|شیوهٔ CBE/CSE]] ===
-مشارکت‌کنندگان {{SITENAME}}. {{FULLPAGENAME}} [اینترنت]. {{SITENAME}}، {{int:sitesubtitle}}؛ {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}، {{CURRENTTIME}} UTC [یادکردشده در <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. قابل دسترسی از:
-{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
-
-=== [[w:en:Bluebook|شیوهٔ Bluebook]] ===
-{{FULLPAGENAME}}، {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (آخرین بازدید در <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
-
 === [[BibTeX]] ===
 
   @misc{ wiki:xxx,
-    author = \"{{SITENAME}}\",
-    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
-    year = \"{{CURRENTYEAR}}\",
-    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
-    note = \"[برخط؛ بازبینی‌شده در <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+   note = \"[برخط؛ بازبینی‌شده در <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
   }
 
 در زمان استفاده از بستهٔ  [[LaTeX]]  نشانی (<code>\\usepackage{url}</code> جایی در پیوند پایدار) که برای ارائه فرمت‌های وبی طراحی شده‌است، شاید به صورت زیر مطلوب باشد:
 
   @misc{ wiki:xxx,
-    author = \"{{SITENAME}}\",
-    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
-    year = \"{{CURRENTYEAR}}\",
-    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
-    note = \"[برخط؛ بازبینی‌شده در <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+   note = \"[برخط؛ بازبینی‌شده در <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
   }
 
 

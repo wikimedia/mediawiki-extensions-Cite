@@ -2979,6 +2979,62 @@ $messages['ml'] = array(
 	'cite' => 'ഉദ്ധരിക്കുക',
 	'cite_page' => 'താൾ:',
 	'cite_submit' => 'ഉദ്ധരിക്കുക',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== {{FULLPAGENAME}} താളിന്റെ ഗ്രന്ഥസൂചി വിവരണം ==
+
+* താളിന്റെ തലക്കെട്ട്: {{FULLPAGENAME}}
+* എഴുതിയത്: {{SITENAME}} ലേഖകർ
+* പ്രസിദ്ധീകരിച്ചത്: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* അവസാനത്തെ നാൾപ്പതിപ്പിന്റെ തീയതി: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* ശേഖരിച്ച് തീയതി: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* സ്ഥിരം യു.ആർ.എൽ.: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* താളിന്റെ പതിപ്പിന്റെ ഐ.ഡി.: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== {{FULLPAGENAME}} താളിനുള്ള അവലംബ ശൈലികൾ ==
+=== [[:w:en:APA style|എ.പി.എ. ശൈലി]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''.  {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} താളിൽ നിന്നും, <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> -നു ശേഖരിച്ചത്.
+
+=== [[:w:en:The MLA style manual|എം.എൽ.എ. ശൈലി]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} യു.റ്റി.സി.. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[:w:en:MHRA Style Guide|എം.എച്ച്.ആർ.എ. ശൈലി]] ===
+{{SITENAME}} ലേഖകർ, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} യൂ.റ്റി.സി., &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [എടുത്ത തീയതി:  <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[:w:en:The Chicago Manual of Style|ഷിക്കാഗോ ശൈലി]] ===
+{{SITENAME}} ലേഖകർ, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (എടുത്ത തീയതി: <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[:w:en:Council of Science Editors|സി.ബി.ഇ./സി.എസ്.ഇ. ശൈലി]] ===
+{{SITENAME}} ലേഖകർ. {{FULLPAGENAME}} [ഇന്റർനെറ്റ്]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} യു.റ്റി.സി. [അവലംബിച്ച തീയതി: <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. ലഭിച്ചത്:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[:w:en:Bluebook|ബ്ലൂബുക്ക് ശൈലി]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (അവസാനം പരിശോധിച്ചത് <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[:w:en:BibTeX|ബിബ്ടെക്സ്]] രീതി ===
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+   note = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+[[:w:en:LaTeX|ലാറ്റക്സ്]] പാക്കേജ് യൂ.ആർ.എൽ. ഉപയോഗിക്കുകയാണെങ്കിൽ (പീഠികയിൽ <code>\\usepackage{url}</code> എന്ന് നൽകി), കൂടുതൽ മനോഹരമായി വെബ് വിലാസം നൽകാറുണ്ട്, താഴെക്കൊടുക്കുന്ന രീതി ഉപയോഗിക്കാൻ താത്പര്യപ്പെടുന്നു:
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+   note = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Mongolian (монгол)

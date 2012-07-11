@@ -406,7 +406,7 @@ $messages['ast'] = array(
 	'cite_submit' => 'Citar',
 );
 
-/** Avaric (Авар)
+/** Avaric (авар)
  * @author Amikeco
  */
 $messages['av'] = array(
@@ -422,7 +422,7 @@ $messages['az'] = array(
 	'cite_submit' => 'Sayt',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
  */
@@ -637,7 +637,7 @@ $messages['cdo'] = array(
 	'cite_submit' => 'Īng-ê̤ṳng',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -2297,7 +2297,7 @@ $messages['kk-arab'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬)
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬)
  * @author Kaztrans
  */
 $messages['kk-cyrl'] = array(
@@ -2371,7 +2371,7 @@ $messages['kk-cyrl'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'cite_article_link' => 'Betten däýeksoz alw',
 	'cite' => 'Däýeksöz alw',
@@ -2545,7 +2545,7 @@ $messages['ko'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Karachay-Balkar (Къарачай-Малкъар)
+/** Karachay-Balkar (къарачай-малкъар)
  * @author Iltever
  */
 $messages['krc'] = array(
@@ -2676,7 +2676,7 @@ $messages['lb'] = array(
 	'cite_submit' => 'weisen',
 );
 
-/** Lezghian (Лезги)
+/** Lezghian (лезги)
  * @author Migraghvi
  */
 $messages['lez'] = array(
@@ -2889,7 +2889,7 @@ $messages['lzh'] = array(
 	'cite' => '引文',
 );
 
-/** Eastern Mari (Олык Марий)
+/** Eastern Mari (олык марий)
  * @author Сай
  */
 $messages['mhr'] = array(
@@ -3061,7 +3061,7 @@ $messages['mr'] = array(
 	'cite_submit' => 'उधृत करा',
 );
 
-/** Hill Mari (Кырык мары)
+/** Hill Mari (кырык мары)
  * @author Amdf
  */
 $messages['mrj'] = array(
@@ -3161,7 +3161,7 @@ $messages['mwl'] = array(
 	'cite_page' => 'Páigina:',
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Amdf
  * @author Botuzhaleny-sodamo
  */
@@ -3188,8 +3188,7 @@ $messages['nan'] = array(
 	'cite_submit' => 'Ín-iōng',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -3199,6 +3198,80 @@ $messages['nb'] = array(
 	'cite' => 'Siter',
 	'cite_page' => 'Side:',
 	'cite_submit' => 'Siter',
+	'cite_text' => "__NOTOC__
+<div style=\"width: 90%; text-align: center; font-size: 85%; margin: 10px auto;\">Innhold:  [[#APA-stil|APA]] | [[#MLA-stil|MLA]] | [[#MHRA-stil|MHRA]] | [[#Chicago-stil|Chicago]] | [[#CBE/CSE-stil|CSE]] | [[#Bluebook-stil|Bluebook]] | [[#BibTeX|BibTeX]]</div>
+<div style=\"border: 1px solid grey; background: #E6E8FA; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;\">
+
+==Bibliografiske detaljer for «[[{{PAGENAME}}|{{FULLPAGENAME}}]]»==
+
+* Sidenavn: [[{{PAGENAME}}|{{FULLPAGENAME}}]]
+* Forfatter: Wikipedia-brukere
+* Utgiver: ''{{SITENAME}}, {{MediaWiki:Sitesubtitle}}''. 
+* Dato for forrige revisjon: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Dato sitert: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* Permanent lenke: {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Revisjons-ID: {{REVISIONID}}
+
+<!--Please remember to check for the exact syntax to suit your needs. For more detailed advice, see '''[[Wikipedia:Citing Wikipedia|Citing Wikipedia]]'''.-->
+
+</div>
+<div class=\"plainlinks\" style=\"border: 1px solid grey; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;\"> 
+
+== Siteringsstiler for «[[{{PAGENAME}}|{{FULLPAGENAME}}]]»==
+
+=== [[:en:APA style|APA-stil]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{MediaWiki:Sitesubtitle}}''. Hentet <citation>{{CURRENTTIME}}, {{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTDAY}} {{CURRENTYEAR}}</citation> fra {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+
+
+=== [[:en:The MLA style manual|MLA-stil]] ===
+«{{FULLPAGENAME}}». ''{{SITENAME}}, {{MediaWiki:Sitesubtitle}}''. {{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}}. {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+
+
+=== [[:en:MHRA Style Guide|MHRA-stil]] ===
+Wikipedia-brukere, «{{FULLPAGENAME}}»,  ''{{SITENAME}}, {{MediaWiki:Sitesubtitle}},'' {{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [besøkt <citation>{{CURRENTDAY}}. {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+
+
+=== [[:en:The Chicago Manual of Style|Chicago-stil]] ===
+Wikipedia-brukere, «{{FULLPAGENAME}}»,  ''{{SITENAME}}, {{MediaWiki:Sitesubtitle}},'' {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (besøkt <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+
+
+=== [[:en:Council of Science Editors|CBE/CSE-stil]] ===
+Wikipedia-brukere. {{FULLPAGENAME}} [internett].  {{SITENAME}}, {{MediaWiki:Sitesubtitle}};  {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [sitert <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Tilgjengelig fra: 
+{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+
+
+=== [[:en:Bluebook|Bluebook-stil]] ===
+{{FULLPAGENAME}}, {{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (sist besøkt <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+
+
+=== [[:en:BibTeX|BibTeX]] ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{MediaWiki:Sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[På internett; besøkt <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+Om man bruker [[:en:LaTeX|LaTeX]]' pakke-URL (<code>\\usepackage{url}</code> et sted i begynnelsen) som pleier å gi mye finere formaterte internettadresser, kan følgende være foretrukket:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{MediaWiki:Sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{fullurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[På internett; besøkt <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing \"Citation styles\" div-->",
 );
 
 /** Low German (Plattdüütsch)
@@ -4320,7 +4393,7 @@ $messages['tt-cyrl'] = array(
 	'cite_submit' => 'Күчермәләү',
 );
 
-/** Udmurt (Удмурт)
+/** Udmurt (удмурт)
  * @author ОйЛ
  */
 $messages['udm'] = array(
@@ -4367,7 +4440,7 @@ $messages['vec'] = array(
 	'cite_submit' => 'Crea la citazion',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Triple-ADHD-AS
  * @author Игорь Бродский
  */
@@ -4479,7 +4552,7 @@ $messages['wuu'] = array(
 	'cite_submit' => '引用',
 );
 
-/** Kalmyk (Хальмг)
+/** Kalmyk (хальмг)
  * @author Huuchin
  */
 $messages['xal'] = array(

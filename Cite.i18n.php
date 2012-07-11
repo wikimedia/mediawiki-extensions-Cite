@@ -404,7 +404,7 @@ $messages['az'] = array(
 	'cite_references_link_many_and' => '&#32;',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  */
 $messages['ba'] = array(
@@ -2053,7 +2053,7 @@ $messages['kk-arab'] = array(
 	'cite_error_references_no_backlink_label' => 'قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> جٷيە حابارىندا بەلگٸلەڭٸز',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬)
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬)
  * @author Kaztrans
  */
 $messages['kk-cyrl'] = array(
@@ -2071,7 +2071,7 @@ $messages['kk-cyrl'] = array(
 	'cite_references_link_many' => '<li id="$1"><span class="mw-cite-backlink">↑ $2</span> $3</li>',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'cite_croak' => 'Däýeksöz alw sätsiz bitti; $1: $2',
 	'cite_error_key_str_invalid' => 'İşki qate; jaramsız $str',
@@ -2469,9 +2469,8 @@ Tentukan lagi dalam mesej <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_empty_references_define' => 'Tag <code>&lt;ref&gt;</code> yang ditentukan dalam <code>&lt;references&gt;</code> dengan nama "$1" tiada kandungan.',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Audun
- * @author Jon Harald Søby
  * @author Laaknor
  */
 $messages['nb'] = array(
@@ -3773,7 +3772,7 @@ Dòpara <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&
 	'cite_error_empty_references_define' => 'El tag <code>&lt;ref&gt;</code> definìo in <code>&lt;references&gt;</code> con nome "$1" no\'l gà nissun contenuto.',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

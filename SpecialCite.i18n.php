@@ -110,6 +110,13 @@ $messages['niu'] = array(
 	'cite_article_link' => 'Fakakite e tala nei',
 );
 
+/** Ṫuroyo (Ṫuroyo)
+ * @author Ariyo
+ */
+$messages['tru'] = array(
+	'cite_page' => 'Faṭo:',
+);
+
 /** Achinese (Acèh)
  * @author Si Gam Acèh
  */

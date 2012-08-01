@@ -884,7 +884,7 @@ __NOTOC__
 == Bibliyografiya teferruatan dê {{FULLPAGENAME}} ==
 
 * nameyê pela: {{FULLPAGENAME}}
-* Nuskar: iştıraxkarê {{SITENAME}}
+* Nuskar: iştıraqkarê {{SITENAME}}
 * Vılakar: ''{{SITENAME}}, {{int:sitesubtitle}}''.
 * Revizyonê demi: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
 * Serkerdışê demi: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
@@ -3296,11 +3296,11 @@ $messages['nds'] = array(
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'cite_article_desc' => 'Zet n [[Special:Cite|spesiale pagina]] derbie um te siteren, en n verwiezing dernaor in de hulpmiddels',
-	'cite_article_link' => 'Disse pagina siteren',
-	'tooltip-cite-article' => "Informasie over ho of da'j disse pagina kunnen siteren",
+	'cite_article_desc' => 'Zet n [[Special:Cite|spesiale zied]] derbie um te siteren, en n verwiezing dernaor in de hulpmiddels',
+	'cite_article_link' => 'Disse zied siteren',
+	'tooltip-cite-article' => "Informasie over hoe of da'j disse zied siteren kunnen",
 	'cite' => 'Siteerhulpe',
-	'cite_page' => 'Pagina:',
+	'cite_page' => 'Zied:',
 	'cite_submit' => 'Siteren',
 );
 
@@ -3824,8 +3824,11 @@ $messages['rup'] = array(
 
 /** Sanskrit (संस्कृतम्)
  * @author Ansumang
+ * @author Shubha
  */
 $messages['sa'] = array(
+	'cite_article_link' => 'अस्य पृष्ठस्य उल्लेखः क्रियताम्',
+	'tooltip-cite-article' => 'अस्य पृष्ठस्य उल्लेखः कथमिति विवरणम्',
 	'cite' => 'उदाहरति',
 	'cite_page' => 'पृष्ठ:',
 	'cite_submit' => 'उदाहरति',

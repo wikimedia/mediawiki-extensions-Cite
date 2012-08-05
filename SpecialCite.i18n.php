@@ -870,7 +870,7 @@ Bei Benutzung der [[LaTeX]]-Moduls „url“ (<code>\\usepackage{url}</code> im 
  */
 $messages['diq'] = array(
 	'cite_article_desc' => 'Yew pelê [[Special:Cite|citation]] u lînkê toolboxî de keno',
-	'cite_article_link' => 'Na pele çime bimocne',
+	'cite_article_link' => 'Na peler çıme bimocne',
 	'tooltip-cite-article' => 'Melumato ke ena pele çıtewr iqtıbas keno',
 	'cite' => 'Çıme bımocne',
 	'cite_page' => 'Pel:',

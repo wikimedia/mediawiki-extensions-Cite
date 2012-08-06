@@ -3150,6 +3150,10 @@ Adds<nowiki><ref[ name=id]></nowiki> तथा<nowiki><references/></nowiki> उ
 अमान्यं नाम, उदा. अत्यधिकम्',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> दोषपूर्णा शृङ्खला; 
 रिक्ताधाराः अपि सनामकः भवेयुः ।',
+	'cite_error_references_no_text' => 'अमान्या <code>&lt;ref&gt;</code> शृङ्खला;
+<code>$1</code> इत्यस्य आधारः अज्ञातः',
+	'cite_error_included_ref' => 'समाप्तिः &lt;/ref&gt; &lt;ref&gt; शृङ्खला लुप्ता',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>शृङ्खला विद्यते, किन्तु <code>&lt;references/&gt;</code> शृङ्खला न प्राप्ता',
 );
 
 /** Sakha (саха тыла)

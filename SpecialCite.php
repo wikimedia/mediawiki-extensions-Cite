@@ -53,11 +53,12 @@ $wgResourceModules['ext.specialcite'] = $citeResourceTemplate + array(
  * @return bool
  */
 function wfSpecialCiteNav( &$skintemplate, &$nav_urls, &$oldid, &$revid ) {
-	// check whether we’re in the right namespace, the $revid has the correct type and is not empty 
+	// check whether we’re in the right namespace, the $revid has the correct type and is not empty
 	// (what would mean that the current page doesn’t exist)
-	if ( $skintemplate->getTitle()->isContentPage() && $revid !== 0 && !empty( $revid ) )
+	$title = $skintemplate->getTitle();
+	if ( $title->isContentPage() && $revid !== 0 && !empty( $revid ) )
 		$nav_urls['cite'] = array(
-			'args'   => "page=" . wfUrlencode( "{$skintemplate->thispage}" ) . "&id=$revid"
+			'args' => array( 'page' => $title->getPrefixedDBkey(), 'id' => $revid )
 		);
 
 	return true;

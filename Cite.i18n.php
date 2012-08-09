@@ -1129,7 +1129,7 @@ pues no hay una referencia con texto llamada <code>$1</code>',
  * @author Pikne
  */
 $messages['et'] = array(
-	'cite-desc' => 'Lisab viitamiseks märgendid <nowiki><ref[ name=id]></nowiki> ja <nowiki><references/></nowiki>.',
+	'cite-desc' => 'Lisab viitamiseks sildid <nowiki><ref[ name=id]></nowiki> ja <nowiki><references/></nowiki>.',
 	'cite_croak' => 'Viide ütles üles; $1: $2',
 	'cite_error_key_str_invalid' => 'Sisetõrge;
 vigane $str ja/või $key.
@@ -1138,34 +1138,34 @@ Seda ei tohiks esineda.',
 vigane pinuvõti.
 Seda ei tohiks esineda.',
 	'cite_error' => 'Viitamistõrge: $1',
-	'cite_error_ref_numeric_key' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
-Nimi ei või numbriline olla. Kasuta kirjeldavat nime.',
-	'cite_error_ref_no_key' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
-Sisuta viitamismärgenditel peab nimi olema.',
-	'cite_error_ref_too_many_keys' => 'Vigane <code>&lt;ref&gt;</code>-märgend;
+	'cite_error_ref_numeric_key' => 'Vigane <code>&lt;ref&gt;</code>-silt.
+Nimi ei või olla numbriline. Kasuta kirjeldavat nime.',
+	'cite_error_ref_no_key' => 'Vigane <code>&lt;ref&gt;</code>-silt.
+Sisuta viitamissiltidel peab olema nimi.',
+	'cite_error_ref_too_many_keys' => 'Vigane <code>&lt;ref&gt;</code>-silt;
 "name" on vigane või liiga pikk.',
-	'cite_error_ref_no_input' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
-Nimeta viitamismärgenditel peab sisu olema.',
-	'cite_error_references_invalid_parameters' => 'Vigane <code>&lt;references&gt;</code>-märgend.
+	'cite_error_ref_no_input' => 'Vigane <code>&lt;ref&gt;</code>-silt.
+Nimeta viitamissiltidel peab olema sisu.',
+	'cite_error_references_invalid_parameters' => 'Vigane <code>&lt;references&gt;</code>-silt.
 Parameetrid pole lubatud.
-Kasuta märgendit <code>&lt;references /&gt;</code>.',
-	'cite_error_references_invalid_parameters_group' => 'Vigane <code>&lt;references&gt;</code>-märgend.
+Kasuta silti <code>&lt;references /&gt;</code>.',
+	'cite_error_references_invalid_parameters_group' => 'Vigane <code>&lt;references&gt;</code>-silt.
 Lubatud on ainult parameeter "group".
-Kasuta märgendit <code>&lt;references /&gt;</code> või <code>&lt;references group="..." /&gt;</code>.',
+Kasuta silti <code>&lt;references /&gt;</code> või <code>&lt;references group="..." /&gt;</code>.',
 	'cite_error_references_no_backlink_label' => 'Kohandatud tagasilinkide sildid said otsa.
 Lisa neid sõnumisse <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_no_link_label_group' => 'Rühma "$1" kohandatud linkide sildid said otsa.
 Lisa neid sõnumisse <nowiki>[[MediaWiki:$2]]</nowiki>.',
-	'cite_error_references_no_text' => 'Vigane <code>&lt;ref&gt;</code>-märgend.
+	'cite_error_references_no_text' => 'Vigane <code>&lt;ref&gt;</code>-silt.
 Viite nimega <code>$1</code> tekst puudub.',
 	'cite_error_included_ref' => 'Sulgemismärgend &lt;/ref&gt; puudub.',
-	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-märgendid on olemas, aga <code>&lt;references/&gt;</code>-märgend puudub.',
-	'cite_error_group_refs_without_references' => 'Olemas on <code>&lt;ref&gt;</code>-märgend rühma "$1" jaoks, aga vastav <code>&lt;references group="$1"/&gt;</code>-märgend puudub.',
-	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-märgendite vahel oleval <code>&lt;ref&gt;</code>-märgendil on vastukäiv parameetri "group" väärtus "$1".',
-	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>-märgendis kirjeldatud <code>&lt;ref&gt;</code>-märgendil on rühmatunnus "$1", mis puudub eelnevas tekstis.',
-	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code>-märgendite vahel olevat <code>&lt;ref&gt;</code>-märgendit nimega "$1" ei kasutata eelnevas tekstis.',
-	'cite_error_references_no_key' => "<code>&lt;references&gt;</code>-märgendite vahel määratletud <code>&lt;ref&gt;</code>-märgendil puudub ''name''-atribuut.",
-	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-märgendite vahel oleval <code>&lt;ref&gt;</code>-märgendil nimega "$1" puudub sisu.',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-sildid on olemas, aga <code>&lt;references/&gt;</code>-silt puudub.',
+	'cite_error_group_refs_without_references' => 'Olemas on <code>&lt;ref&gt;</code>-silt rühma "$1" jaoks, aga vastav <code>&lt;references group="$1"/&gt;</code>-silt puudub.',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-siltide vahel oleval <code>&lt;ref&gt;</code>-sildil on vastukäiv parameetri "group" väärtus "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>-sildis kirjeldatud <code>&lt;ref&gt;</code>-sildil on rühmatunnus "$1", mis puudub eelnevas tekstis.',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code>-siltide vahel olevat <code>&lt;ref&gt;</code>-silti nimega "$1" ei kasutata eelnevas tekstis.',
+	'cite_error_references_no_key' => "<code>&lt;references&gt;</code>-siltide vahel määratletud <code>&lt;ref&gt;</code>-sildil puudub ''name''-atribuut.",
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>-siltide vahel oleval <code>&lt;ref&gt;</code>-sildil nimega "$1" puudub sisu.',
 );
 
 /** Basque (euskara)
@@ -2490,6 +2490,27 @@ Tentukan lagi dalam mesej <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_missing_key' => 'Tag <code>&lt;ref&gt;</code> dengan nama "$1" yang ditentukan dalam <code>&lt;references&gt;</code> tidak digunakan dalam teks sebelumnya.',
 	'cite_error_references_no_key' => 'Tag <code>&lt;ref&gt;</code> yang ditentukan dalam <code>&lt;references&gt;</code> tiada atribut nama.',
 	'cite_error_empty_references_define' => 'Tag <code>&lt;ref&gt;</code> yang ditentukan dalam <code>&lt;references&gt;</code> dengan nama "$1" tiada kandungan.',
+);
+
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'cite-desc' => "Iżżid it-''tags'' <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> għaċ-ċitazzjonijiet",
+	'cite_croak' => 'Żball fiċ-ċitazzjoni; $1: $2',
+	'cite_error_key_str_invalid' => 'Żball intern;
+$str u/jew $key invalidi.
+Dan qatt m\'għandu jseħħ.',
+	'cite_error_stack_invalid_input' => "Żball intern;
+''stack key'' invalida.
+Dan qatt m'għandu jseħħ.",
+	'cite_error' => 'Żball fiċ-ċitazzjoni: $1',
+	'cite_error_ref_numeric_key' => "''Tag'' <code>&lt;ref&gt;</code> invalida;
+l-isem ma jistax ikun numru sħiħ sempliċi. Uża titlu deskrittiv",
+	'cite_error_ref_no_key' => "''Tag'' <code>&lt;ref&gt;</code> invalida;
+refs mingħajr kontenut għandhom ikollhom isem",
+	'cite_error_ref_too_many_keys' => "''Tag'' <code>&lt;ref&gt;</code> invalida;
+ismijiet invalidi, e.ż. numru wisq kbir",
 );
 
 /** Norwegian Bokmål (‪norsk (bokmål)‬)

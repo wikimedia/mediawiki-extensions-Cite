@@ -3874,6 +3874,73 @@ $messages['rue'] = array(
 	'cite' => 'Цітованя',
 	'cite_page' => 'Сторінка:',
 	'cite_submit' => 'Цітовати',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Бібліоґрафічны детайлы к сторінцї {{FULLPAGENAME}} ==
+
+* Назва сторінкы: {{FULLPAGENAME}}
+* Автор: Приспівателї {{grammar:2sg|{{SITENAME}}}}
+* Выдаватель: ''{{MediaWiki:Sitesubtitle}}''.
+* Датум остатнёй управы: {{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}, {{CURRENTTIME}} UTC
+* Датум перевзятя: <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}, {{CURRENTTIME}} UTC</citation>
+* Тырвалый одказ: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Ідентіфікація ревізії сторінкы: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== Способы цітованя сторінкы {{FULLPAGENAME}} ==
+
+=== ISO 690-2 (1)===
+Приспівателї {{grammar:2sg|{{SITENAME}}}},'' {{FULLPAGENAME}}'' [online],  {{int:sitesubtitle}}, c{{CURRENTYEAR}}, 
+Датум остатнёй ревізії {{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}, {{CURRENTTIME}} UTC, 
+[цітоване <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation>]
+&lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; 
+
+=== ISO 690-2 (2)===
+''{{int:sitesubtitle}}: {{FULLPAGENAME}}''  [online]. c{{CURRENTYEAR}} [цітоване <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation>]. Доступный з WWW: &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; 
+
+=== APA ===
+{{FULLPAGENAME}}. ({{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}). ''{{int:sitesubtitle}}''. Здобыто <citation>{{CURRENTTIME}}, {{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation> з {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== MLA ===
+„{{FULLPAGENAME}}.“ ''{{int:sitesubtitle}}''. {{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== MHRA ===
+Приспівателї {{grammar:2sg|{{SITENAME}}}}, '{{FULLPAGENAME}}',  ''{{int:sitesubtitle}},'' {{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [здобыто <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation>]
+
+=== Chicago ===
+Приспівателї {{grammar:2sg|{{SITENAME}}}}, „{{FULLPAGENAME}},“  ''{{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (здобыто <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation>).
+
+=== CBE/CSE ===
+Приспівателї {{grammar:2sg|{{SITENAME}}}}. {{FULLPAGENAME}} [Internet].  {{int:sitesubtitle}};  {{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}},   {{CURRENTTIME}} UTC [cited <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation>].  Доступне на: 
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== Bluebook ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (остатнїм разом навщівлено <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation>).
+
+=== [[BibTeX]] ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[Online; навщівлено <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation>]\"
+  }
+
+Під час хоснованя [[LaTeX]]-ового пакунка url (даґде на початку документа є написано <code>\\usepackage{url}</code>), котрый дакус лїпше форматує вебовы адресы, можете преферовати наступну верзію:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[Online; навщівлено <citation>{{CURRENTDAY}}.&nbsp;{{CURRENTMONTH}}.&nbsp;{{CURRENTYEAR}}</citation>]\"
+  }
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Aromanian (Armãneashce) */
@@ -4657,6 +4724,7 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文（简体）‬)
+ * @author Hzy980512
  * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(

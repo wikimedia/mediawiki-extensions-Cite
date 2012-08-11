@@ -1550,13 +1550,15 @@ $messages['hi'] = array(
 	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> गलत कोड; नाम यह पूर्णांकी संख्या नहीं हो सकता, कृपया माहितीपूर्ण शीर्षक दें',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> गलत कोड; खाली संदर्भोंको नाम होना आवश्यक हैं',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> गलत कोड; गलत नाम, उदा. ढेर सारी',
-	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> गलत कोड; नाम ना होने वाले संदर्भोंमें ज़ानकारी देना आवश्यक हैं',
+	'cite_error_ref_no_input' => 'अमान्य <code>&lt;ref&gt;</code> टैग;
+नाम रहित संदर्भों में जानकारी देना आवश्यक है',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स नहीं दे सकते, <code>&lt;references /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> गलत कोड; सिर्फ पॅरॅमीटर का "ग्रुप" इस्तेमाल में लाया जा सकता हैं, <code>&lt;references /&gt;</code> या फिर <code>&lt;references group="..." /&gt;</code> का इस्तेमाल करें',
 	'cite_error_references_no_backlink_label' => 'तैयार किये हुए पीछे की कड़ियां देनेवाले नाम खतम हुए हैं, अधिक नाम <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> इस संदेश में बढायें',
 	'cite_error_no_link_label_group' => '"$1" संदर्भ समूह के लिये विशिष्ट लिंक लेबल कम पड़ गए।
 <nowiki>[[MediaWiki:$2]]</nowiki> सन्देश में और लेबल परिभाषित करें।',
-	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> गलत कोड; <code>$1</code> नामके संदर्भमें ज़ानकारी नहीं हैं',
+	'cite_error_references_no_text' => 'अमान्य <code>&lt;ref&gt;</code> टैग;
+<code>$1</code> नामक संदर्भ की जानकारी नहीं है',
 	'cite_error_included_ref' => 'समाप्ती &lt;/ref&gt; &lt;ref&gt; टैग लापता',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>टैग मौजूद हैं, किन्तु कोई <code>&lt;references/&gt;</code>टैग नहीं मिला',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> टैग मौजूद है एक दल के लिए इस नाम "$1" से, कीनतु कोई अनुरूप <code>&lt;references group="$1"/&gt;</code> टैग नहीं मिला',

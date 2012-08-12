@@ -1835,6 +1835,13 @@ $messages['hi'] = array(
 	'cite_submit' => 'उद्घृत करें',
 );
 
+/** Fiji Hindi (Latin script) (Fiji Hindi)
+ * @author Karthi.dr
+ */
+$messages['hif-latn'] = array(
+	'cite_page' => 'Panna:',
+);
+
 /** Hiligaynon (Ilonggo)
  * @author Jose77
  */
@@ -2328,6 +2335,7 @@ $messages['jut'] = array(
 
 /** Javanese (Basa Jawa)
  * @author Meursault2004
+ * @author NoiX180
  */
 $messages['jv'] = array(
 	'cite_article_desc' => 'Nambahaké kaca astaméwa [[Special:Cite|sitat (kutipan)]] lan pranala ing kothak piranti',
@@ -2335,6 +2343,65 @@ $messages['jv'] = array(
 	'cite' => 'Kutip (sitir)',
 	'cite_page' => 'Kaca:',
 	'cite_submit' => 'Kutip (sitir)',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Rincian bibliograpi kanggo {{FULLPAGENAME}} ==
+
+* Jeneng kaca: {{FULLPAGENAME}}
+* Panganggit: {{SITENAME}} kontributor
+* Panyithak: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Tanggal rèvisi pungkasan: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Tanggal njupuk: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* URL permanèn: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* ID Vèrsi Kaca: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== Gagrag kutipan kanggo {{FULLPAGENAME}} ==
+
+=== [[APA style|Gagrag APA]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Dijupuk <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> saka {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[The MLA style manual|Gagrag MLA]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|Gagrag MHRA]] ===
+{{SITENAME}} kontributor, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [diaksès <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|Gagrag Chicago]] ===
+{{SITENAME}} kontributor, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (diaksès <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|Gagrag CBE/CSE]] ===
+{{SITENAME}} kontributor. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [dikutip <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Sumadhiya saka:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Gagrag Bluebook]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (ditekani pungkasan <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>).
+
+=== Isi [[BibTeX]] ===
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+   note = \"[Online; diaksès <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+Yèn nganggo url pakèt [[LaTeX]] (<code>\\usepackage{url}</code> ngendi waé nèng pambuka) sing bakal ndadèkaké alamat wèb sing dipormat dadi luwih èndah, sing ngisor iki disaranaké:
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+   note = \"[Online; diaksès <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Georgian (ქართული)

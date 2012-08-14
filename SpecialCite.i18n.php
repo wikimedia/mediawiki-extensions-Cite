@@ -3405,6 +3405,65 @@ $messages['mt'] = array(
 	'cite' => 'Ċitazzjoni',
 	'cite_page' => 'Paġna:',
 	'cite_submit' => 'Oħloq ċitazzjoni',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Dettalji biblijografiċi għal {{FULLPAGENAME}} ==
+
+* Titlu tal-paġna: {{FULLPAGENAME}}
+* Awtur: kontributuri ta' {{SITENAME}}
+* Editur: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Data tal-aħħar modifika: {{CURRENTDAY}} ta' {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Data tal-konsultazzjoni tal-paġna: <citation>{{CURRENTDAY}} ta' {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* URL permanenti: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* ID tal-verżjoni tal-paġna: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== Stili ta' ċitazzjoni għal {{FULLPAGENAME}} ==
+
+=== [[APA style|Stil APA]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Aċċessat fil-<citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> minn {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[The MLA style manual|Stil MLA]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} ta' {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|Stil MHRA]] ===
+Kontributuri ta' {{SITENAME}}, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} ta' {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [aċċessat fil-<citation>{{CURRENTDAY}} ta' {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|Stil Chicago]] ===
+Kontributuri ta' {{SITENAME}}, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (aċċessat f'<citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|Stil CBE/CSE]] ===
+Kontributuri ta' {{SITENAME}}. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [iċċitat fl-<citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Disponibbli fuq:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Stil Bluebook]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (l-aħħar viżta f'<citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== Daħla [[BibTeX]] ===
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+   note = \"[Online; aċċessat fil-<citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+Meta tuża l-pakkett [[LaTeX]] għall-url (<code>\\usepackage{url}</code> f'kwalunkwe parti fil-preambolu) li ġeneralment tagħti indirizzi elettroniċi ifformattjati aħjar, huwa ppreferut li jintuża l-kodiċi segwenti:
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+   note = \"[Online; aċċessat fil<citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Mirandese (Mirandés)
@@ -3783,6 +3842,7 @@ $messages['pl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Bèrto 'd Sèra
  * @author Dragonòt
  */
@@ -3798,56 +3858,56 @@ $messages['pms'] = array(
 
 == Detaj bibliogràfich për {{FULLPAGENAME}} ==
 
-* Nòm pagina: {{FULLPAGENAME}}
+* Nòm ëd la pàgina: {{FULLPAGENAME}}
 * Autor: contributor ëd {{SITENAME}}
-* Publicador: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Editor: ''{{SITENAME}}, {{int:sitesubtitle}}''.
 * Data ëd l'ùltima revision: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
 * Date ëd sitassion: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
-* URL permanenta: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
-* ID dla Vërsion ëd Pagina: {{REVISIONID}}
+* Adrëssa an sl'aragnà përmanenta: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Identificativ dla version ëd la pàgina: {{REVISIONID}}
 
 </div>
 <div class=\"plainlinks mw-specialcite-styles\">
 
 == Stil ëd sitassion për {{FULLPAGENAME}} ==
 
-=== [[APA style]] ===
+=== [[stil APA]] ===
 {{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Sità <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> da {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[The MLA style manual|MLA style]] ===
+=== [[The MLA style manual|stil MLA]] ===
 \"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
 
-=== [[MHRA Style Guide|MHRA style]] ===
+=== [[MHRA Style Guide|stil MHRA]] ===
 {{SITENAME}} contributor, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
 
-=== [[The Chicago Manual of Style|Chicago style]] ===
+=== [[The Chicago Manual of Style|stil Chicago]] ===
 {{SITENAME}} contributor, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (sità <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-=== [[Council of Science Editors|CBE/CSE style]] ===
+=== [[Council of Science Editors|stil CBE/CSE]] ===
 {{SITENAME}} contributor. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Disponìbil da:
 {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[Bluebook|Bluebook style]] ===
+=== [[Bluebook|stil Bluebook]] ===
 {{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (ùltima vìsita <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-=== [[BibTeX]] entry ===
+=== Vos [[BibTeX]] ===
 
   @misc{ wiki:xxx,
-   autor = \"{{SITENAME}}\",
-   tìtol = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
-   ann = \"{{CURRENTYEAR}}\",
-   anliura = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
-   nòta = \"[An linia; trovà <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+   note = \"[An linia; trovà <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
   }
 
-Quand as dòvra ël l'anliura dël prodot [[LaTeX]] (<code>\\usepackage{url}</code> da cheiche part ant ël preàmbol) che a tira a dé dj'adrësse dla Ragnà formatà motobin pi bele, la manera sota a peul esse preferìa:
+Quand as deuvra la liura al compless [[LaTeX]] (<code>\\usepackage{url}</code> da chèiche part ant l'achit) che a dovrìa dé dj'adrësse dla Ragnà formatà motobin mej, la manera sì-sota a peul esse preferìa:
 
   @misc{ wiki:xxx,
-   autor = \"{{SITENAME}}\",
-   tìtol = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
-   ann = \"{{CURRENTYEAR}}\",
-   anliura = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
-   nòta = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+   note = \"[An linia; trovà <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
   }
 
 
@@ -4258,6 +4318,7 @@ $messages['rup'] = array(
  * @author Shubha
  */
 $messages['sa'] = array(
+	'cite_article_desc' => '[[Special:Cite|बाह्याधारैः]] युक्तं किञ्चन विशेषपृष्ठम् उपकरणपेटिकानुबन्धं च योजयति',
 	'cite_article_link' => 'अस्य पृष्ठस्य उल्लेखः क्रियताम्',
 	'tooltip-cite-article' => 'अस्य पृष्ठस्य उल्लेखः कथमिति विवरणम्',
 	'cite' => 'उदाहरति',

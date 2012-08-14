@@ -1883,13 +1883,13 @@ Notaðu <code>&lt;references /&gt;</code> eða <code>&lt;references group="..." 
 	'cite_error_references_no_text' => 'Villa í <code>&lt;ref&gt;</code> tag;
 tilgreindu texta fyrir tilvísun með nafnið <code>$1</code>',
 	'cite_error_included_ref' => 'Loka þarf tilvísunni með &lt;/ref&gt; tagi',
-	'cite_error_refs_without_references' => '<code>&lt;references/&gt;</code> tag vantar, en <code>&lt;ref&gt;</code> tög fundust',
+	'cite_error_refs_without_references' => 'Bæta þarf <code>&lt;references/&gt;</code> við',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> tag er til fyrir hóp tilvísana undir nafninu "$1", en ekkert sambærilegt <code>&lt;references group="$1"/&gt;</code> tag fannst',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tag í <code>&lt;references&gt;</code> stangast á við hópa eigindið "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> tag skilgreint í <code>&lt;references&gt;</code> hefur hópa eigindið "$1" sem birtist ekki í textanum á undan.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> tag með nafnið "$1" og er skilgreint í <code>&lt;references&gt;</code> er ekki notað í textanum á undan.',
 	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> tag skilgreint í <code>&lt;references&gt;</code> hefur engin nafna eigindi.',
-	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> tag skilgreint í <code>&lt;references&gt;</code> með nafnið "$1" hefur ekkert innihald.',
+	'cite_error_empty_references_define' => 'Bæta þarf innihaldi við tilvísun með nafnið "$1".',
 );
 
 /** Italian (italiano)
@@ -2522,6 +2522,10 @@ l-isem ma jistax ikun numru sħiħ sempliċi. Uża titlu deskrittiv",
 refs mingħajr kontenut għandhom ikollhom isem",
 	'cite_error_ref_too_many_keys' => "''Tag'' <code>&lt;ref&gt;</code> invalida;
 ismijiet invalidi, e.ż. numru wisq kbir",
+	'cite_error_ref_no_input' => 'Żball fl-użu tat-tikketta <code>&lt;ref&gt;</code>; refs mingħajr isem ma jistgħux ikunu vojta',
+	'cite_error_references_invalid_parameters' => 'Żball fl-użu tat-tikketta <code>&lt;references&gt;</code>; il-parametri mhumiex permessi. Uża <code>&lt;references /&gt;</code>',
+	'cite_error_included_ref' => '&lt;/ref&gt; tal-għeluq hija nieqsa għat-tikketta &lt;ref&gt;',
+	'cite_error_refs_without_references' => 'It-tikketti <code>&lt;ref&gt;</code> jeżistu, imma l-ebda tikketta <code>&lt;references/&gt;</code> ma nstabet',
 );
 
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
@@ -3182,10 +3186,17 @@ Adds<nowiki><ref[ name=id]></nowiki> तथा<nowiki><references/></nowiki> उ
 अमान्यं नाम, उदा. अत्यधिकम्',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> दोषपूर्णा शृङ्खला; 
 रिक्ताधाराः अपि सनामकः भवेयुः ।',
+	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> असिद्धाङ्कनम्; परिमितिः निर्देष्टुम् अशक्या, <code>&lt;references /&gt;</code> उपयुज्यताम्',
 	'cite_error_references_no_text' => 'अमान्या <code>&lt;ref&gt;</code> शृङ्खला;
 <code>$1</code> इत्यस्य आधारः अज्ञातः',
 	'cite_error_included_ref' => 'समाप्तिः &lt;/ref&gt; &lt;ref&gt; शृङ्खला लुप्ता',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>शृङ्खला विद्यते, किन्तु <code>&lt;references/&gt;</code> शृङ्खला न प्राप्ता',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> "$1" नामकस्य गणस्य अङ्कनं विद्यते, कीन्तु किमपि अनुरूपं <code>&lt;references group="$1"/&gt;</code> अङ्कनं न प्राप्तम्',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> टैग इन <code>&lt;references&gt;</code>सङ्घर्षगणलक्षणं "$1" विद्यते ।',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> अङ्कनपरिभाषिते <code>&lt;references&gt;</code> एतस्मिन् गणस्य विशेषः "$1" यश्च पूर्वलेखे न दृष्टम् ।',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> अङ्कनं "$1" नाम्ना सह परिभाषितम् <code>&lt;references&gt;</code> पूर्वलेखे उपयोगाय न जातम् ।',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code>अङ्कने परिभाषितं <code>&lt;references&gt;</code> किमपि नामलक्षणं न विद्यते ।',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> अङ्कने परिभाषितं <code>&lt;references&gt;</code>  "$1" नामिका कापि सामग्री न विद्यते ।',
 );
 
 /** Sakha (саха тыла)

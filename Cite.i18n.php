@@ -3187,6 +3187,9 @@ Adds<nowiki><ref[ name=id]></nowiki> तथा<nowiki><references/></nowiki> उ
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> दोषपूर्णा शृङ्खला; 
 रिक्ताधाराः अपि सनामकः भवेयुः ।',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> असिद्धाङ्कनम्; परिमितिः निर्देष्टुम् अशक्या, <code>&lt;references /&gt;</code> उपयुज्यताम्',
+	'cite_error_references_invalid_parameters_group' => "<code>&lt;references&gt;</code> अयुक्तकूटप्रणाली;
+परिमिति''गणः'' एव अनुमतः ।
+<code>&lt;references /&gt;</code> अथवा <code>&lt;references group=\"...\" /&gt;</code> उपयुज्यताम् ।",
 	'cite_error_references_no_text' => 'अमान्या <code>&lt;ref&gt;</code> शृङ्खला;
 <code>$1</code> इत्यस्य आधारः अज्ञातः',
 	'cite_error_included_ref' => 'समाप्तिः &lt;/ref&gt; &lt;ref&gt; शृङ्खला लुप्ता',

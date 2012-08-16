@@ -2022,11 +2022,16 @@ namung paramèter "group" sing diolèhaké.
 Gunakna <code>&lt;references /&gt;</code>, utawa <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Kentèkan label pranala balik.
 Tambahna ing pesenan sistém <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Labèl pranala umum kanggo klompok "$1" entèk.
+Tambahaké katemton nèng layang <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> ora absah; 
 ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 	'cite_error_included_ref' => 'Tag &lt;ref&gt; kudu ditutup déning &lt;/ref&gt;',
 	'cite_error_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemokaké, nanging tag <code>&lt;references/&gt;</code> ora ditemokaké',
 	'cite_error_group_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemokaké kanggo paguyuban ajeneng "$1", nanging tag <code>&lt;references group="$1"/&gt;</code> sing ana kaitané ora ditemokaké',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tandha <code>&lt;references&gt;</code> nduwèni atribut klompok sing marai konflik "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> tag sing didhèfinisikaké <code>&lt;references&gt;</code> nduwèni atribut klompok "$1" sing ora njedhul sing tèks sakdurungé.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> tag sing didhefinisikaké mawa jeneng "$1" <code>&lt;references&gt;</code> ora dianggo nèng tèks sakdurungé.',
 );
 
 /** Georgian (ქართული)
@@ -2507,7 +2512,7 @@ Tentukan lagi dalam mesej <nowiki>[[MediaWiki:$2]]</nowiki>.',
  * @author Chrisportelli
  */
 $messages['mt'] = array(
-	'cite-desc' => "Iżżid it-''tags'' <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> għaċ-ċitazzjonijiet",
+	'cite-desc' => 'Iżżid it-tikketti <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> għaċ-ċitazzjonijiet',
 	'cite_croak' => 'Żball fiċ-ċitazzjoni; $1: $2',
 	'cite_error_key_str_invalid' => 'Żball intern;
 $str u/jew $key invalidi.
@@ -2516,16 +2521,27 @@ Dan qatt m\'għandu jseħħ.',
 ''stack key'' invalida.
 Dan qatt m'għandu jseħħ.",
 	'cite_error' => 'Żball fiċ-ċitazzjoni: $1',
-	'cite_error_ref_numeric_key' => "''Tag'' <code>&lt;ref&gt;</code> invalida;
-l-isem ma jistax ikun numru sħiħ sempliċi. Uża titlu deskrittiv",
-	'cite_error_ref_no_key' => "''Tag'' <code>&lt;ref&gt;</code> invalida;
-refs mingħajr kontenut għandhom ikollhom isem",
-	'cite_error_ref_too_many_keys' => "''Tag'' <code>&lt;ref&gt;</code> invalida;
-ismijiet invalidi, e.ż. numru wisq kbir",
+	'cite_error_ref_numeric_key' => 'Tikketta <code>&lt;ref&gt;</code> invalida;
+l-isem ma jistax ikun numru sħiħ sempliċi. Uża titlu deskrittiv',
+	'cite_error_ref_no_key' => 'Tikketta <code>&lt;ref&gt;</code> invalida;
+refs mingħajr kontenut għandhom ikollhom isem',
+	'cite_error_ref_too_many_keys' => 'Tikketta <code>&lt;ref&gt;</code> invalida;
+ismijiet invalidi, e.ż. numru wisq kbir',
 	'cite_error_ref_no_input' => 'Żball fl-użu tat-tikketta <code>&lt;ref&gt;</code>; refs mingħajr isem ma jistgħux ikunu vojta',
 	'cite_error_references_invalid_parameters' => 'Żball fl-użu tat-tikketta <code>&lt;references&gt;</code>; il-parametri mhumiex permessi. Uża <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Tikketta <code>&lt;references&gt;</code> invalida;
+il-paramettru "group" biss huwa permess.
+Uża <code>&lt;references /&gt;</code> jew <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text' => 'Tikketta <code>&lt;ref&gt;</code> invalida;
+l-ebda test ma ngħata għar-refs bl-isem <code>$1</code>',
 	'cite_error_included_ref' => '&lt;/ref&gt; tal-għeluq hija nieqsa għat-tikketta &lt;ref&gt;',
 	'cite_error_refs_without_references' => 'It-tikketti <code>&lt;ref&gt;</code> jeżistu, imma l-ebda tikketta <code>&lt;references/&gt;</code> ma nstabet',
+	'cite_error_group_refs_without_references' => 'It-tikketti <code>&lt;ref&gt;</code> jeżistu għal grupp bl-isem "$1" imma l-ebda tikketta <code>&lt;references group="$1"/&gt;</code> rispettiva ma nstabet',
+	'cite_error_references_group_mismatch' => 'It-tikketta <code>&lt;ref&gt;</code> f\'<code>&lt;references&gt;</code> għandha l-attribut tal-grupp "$1" f\'kunflitt.',
+	'cite_error_references_missing_group' => 'It-tikketta <code>&lt;ref&gt;</code> definita f\'<code>&lt;references&gt;</code> għandha l-attribut tal-grupp "$1" li ma jidhirx fit-test preċedenti.',
+	'cite_error_references_missing_key' => 'It-tikketta <code>&lt;ref&gt;</code> bl-isem "$1" definita f\'<code>&lt;references&gt;</code> mhix użata fit-test preċedenti.',
+	'cite_error_references_no_key' => "It-tikketta <code>&lt;ref&gt;</code> definita f'<code>&lt;references&gt;</code> m'għandiex l-attribut tal-isem.",
+	'cite_error_empty_references_define' => 'It-tikketta <code>&lt;ref&gt;</code> definita f\'<code>&lt;references&gt;</code> bl-isem "$1" m\'għandha l-ebda kontenut.',
 );
 
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
@@ -3190,6 +3206,8 @@ Adds<nowiki><ref[ name=id]></nowiki> तथा<nowiki><references/></nowiki> उ
 	'cite_error_references_invalid_parameters_group' => "<code>&lt;references&gt;</code> अयुक्तकूटप्रणाली;
 परिमिति''गणः'' एव अनुमतः ।
 <code>&lt;references /&gt;</code> अथवा <code>&lt;references group=\"...\" /&gt;</code> उपयुज्यताम् ।",
+	'cite_error_references_no_backlink_label' => 'सिद्धानि पूर्वतनसम्पर्कशीर्षकाणि नष्टानि ।
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> इत्यस्मिन् सन्देशे अधिकविवरणं योज्यताम् ।',
 	'cite_error_references_no_text' => 'अमान्या <code>&lt;ref&gt;</code> शृङ्खला;
 <code>$1</code> इत्यस्य आधारः अज्ञातः',
 	'cite_error_included_ref' => 'समाप्तिः &lt;/ref&gt; &lt;ref&gt; शृङ्खला लुप्ता',

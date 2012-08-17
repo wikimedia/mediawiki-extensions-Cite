@@ -3208,6 +3208,8 @@ Adds<nowiki><ref[ name=id]></nowiki> तथा<nowiki><references/></nowiki> उ
 <code>&lt;references /&gt;</code> अथवा <code>&lt;references group=\"...\" /&gt;</code> उपयुज्यताम् ।",
 	'cite_error_references_no_backlink_label' => 'सिद्धानि पूर्वतनसम्पर्कशीर्षकाणि नष्टानि ।
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> इत्यस्मिन् सन्देशे अधिकविवरणं योज्यताम् ।',
+	'cite_error_no_link_label_group' => '"$1" आधारसमूहस्य कस्टं-सम्पर्क-लेबेल् न्यूनानि जातानि ।
+<nowiki>[[MediaWiki:$2]]</nowiki> सन्देशे अधिकं निर्वचनं दीयताम् ।',
 	'cite_error_references_no_text' => 'अमान्या <code>&lt;ref&gt;</code> शृङ्खला;
 <code>$1</code> इत्यस्य आधारः अज्ञातः',
 	'cite_error_included_ref' => 'समाप्तिः &lt;/ref&gt; &lt;ref&gt; शृङ्खला लुप्ता',

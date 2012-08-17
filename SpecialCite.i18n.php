@@ -2729,9 +2729,10 @@ $messages['kn'] = array(
  * @author Kwj2772
  * @author ToePeu
  * @author 관인생략
+ * @author 아라
  */
 $messages['ko'] = array(
-	'cite_article_desc' => '[[Special:Cite|인용]] 특수문서와 도구상자 고리를 더함',
+	'cite_article_desc' => '[[Special:Cite|인용]] 특수 문서와 도구모음 링크를 추가함',
 	'cite_article_link' => '이 문서 인용하기',
 	'tooltip-cite-article' => '이 문서를 인용하는 방법에 대한 정보',
 	'cite' => '인용',
@@ -4383,6 +4384,65 @@ $messages['sa'] = array(
 	'cite' => 'उदाहरति',
 	'cite_page' => 'पृष्ठ:',
 	'cite_submit' => 'उदाहरति',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== {{FULLPAGENAME}} इत्यस्य आधारग्नन्थविवरणम् ==
+
+* पृष्ठनाम : {{FULLPAGENAME}}
+* लेखकः: {{SITENAME}} योगदातारः
+* प्रकाशकः: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* अन्तिमावृत्तेः दिनाङ्कः: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* पुनः प्राप्तस्य दिनाङ्कः: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* शाश्वतं URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* पृष्ठावृत्तेः  ID: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== {{FULLPAGENAME}}इत्यस्य आधारविन्यासाः ==
+
+=== [[APA style]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Retrieved <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> from {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[The MLA style manual|MLA style]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|MHRA style]] ===
+{{SITENAME}} contributors, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|Chicago style]] ===
+{{SITENAME}} contributors, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|CBE/CSE style]] ===
+{{SITENAME}} contributors. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Available from:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Bluebook style]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (last visited <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[BibTeX]] प्रवेशः ===
+
+  @misc{ wiki:xxx,
+    ग्रन्थकर्ता = \"{{SITENAME}}\",
+   शीर्षकम् = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   वर्षम् = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    टिप्पणी = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+[[LaTeX]] अस्य उपयोगावसरे package url (<code>\\usepackage{url}</code> somewhere in the preamble) यच्च समीचीनतया प्रारूपितान् जालसङ्केतान् यच्छति, अधोनिर्दिष्टम् एष्टुं शक्यम्:
+
+  @misc{ wiki:xxx,
+    ग्रन्थकर्ता = \"{{SITENAME}}\",
+    शीर्षकम् = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    वर्षम् = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    टिप्पणी = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Sakha (саха тыла)

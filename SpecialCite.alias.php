@@ -100,7 +100,7 @@ $specialPageAliases['es'] = array(
 
 /** Estonian (eesti) */
 $specialPageAliases['et'] = array(
-	'Cite' => array( 'Tsiteeri' ),
+	'Cite' => array( 'Tsiteerimine' ),
 );
 
 /** Persian (فارسی) */

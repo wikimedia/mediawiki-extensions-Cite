@@ -3156,12 +3156,12 @@ $messages['mhr'] = array(
  * @author Misos
  */
 $messages['mk'] = array(
-	'cite_article_desc' => 'Додава специјална страница за [[Special:Cite|цитирање]] и врска кон алатникот',
-	'cite_article_link' => 'Цитирање на страницава',
+	'cite_article_desc' => 'Додава специјална страница за [[Special:Cite|наведување]] и врска кон алатникот',
+	'cite_article_link' => 'Наведи ја страницава',
 	'tooltip-cite-article' => 'Информации како да ја цитирате оваа страница',
 	'cite' => 'Цитат',
 	'cite_page' => 'Страница:',
-	'cite_submit' => 'Цитат',
+	'cite_submit' => 'Наведи',
 	'cite_text' => "__NOTOC__
 <div class=\"mw-specialcite-bibliographic\">
 

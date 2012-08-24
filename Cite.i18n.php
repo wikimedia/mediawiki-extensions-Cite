@@ -2356,7 +2356,7 @@ Tokony tsy hitranga mihitsy ity tsy fetezana ity.',
  */
 $messages['mk'] = array(
 	'cite-desc' => 'Додава ознаки <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, за цитирања',
-	'cite_croak' => 'Цитатот се урна; $1: $2',
+	'cite_croak' => 'Наводот се урна; $1: $2',
 	'cite_error_key_str_invalid' => 'Внатрешна грешка;
 погрешна вредност на $str и/или $key.
 Ова никогаш не треба да се случува.',

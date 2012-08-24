@@ -225,7 +225,7 @@ $specialPageAliases['lzh'] = array(
 
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
-	'Cite' => array( 'Цитат' ),
+	'Cite' => array( 'Навод' ),
 );
 
 /** Malayalam (മലയാളം) */

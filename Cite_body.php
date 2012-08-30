@@ -642,8 +642,8 @@ class Cite {
 			$ent[] = $this->referencesFormatEntry( $k, $v );
 		}
 
-		$prefix = wfMsgForContentNoTrans( 'cite_references_prefix' );
-		$suffix = wfMsgForContentNoTrans( 'cite_references_suffix' );
+		$prefix = wfMessage( 'cite_references_prefix' )->inContentLanguage()->plain();
+		$suffix = wfMessage( 'cite_references_suffix' )->inContentLanguage()->plain();
 		$content = implode( "\n", $ent );
 
 		// Let's try to cache it.
@@ -697,69 +697,69 @@ class Cite {
 	function referencesFormatEntry( $key, $val ) {
 		// Anonymous reference
 		if ( !is_array( $val ) ) {
-			return wfMsgForContentNoTrans(
+			return wfMessage(
 					'cite_references_link_one',
 					$this->referencesKey( $key ),
 					$this->refKey( $key ),
 					$this->referenceText( $key, $val )
-				);
+				)->inContentLanguage()->plain();
 		}
 		$text = $this->referenceText( $key, $val['text'] );
 		if ( isset( $val['follow'] ) ) {
-			return wfMsgForContentNoTrans(
+			return wfMessage(
 					'cite_references_no_link',
 					$this->referencesKey( $val['follow'] ),
 					$text
-				);
+				)->inContentLanguage()->plain();
 		} elseif ( $val['text'] == '' ) {
-			return wfMsgForContentNoTrans(
+			return wfMessage(
 						'cite_references_link_one',
 						$this->referencesKey( $key ),
 						$this->refKey( $key, $val['count'] ),
 						$text
-					);
+					)->inContentLanguage()->plain();
 		}
 
 		if ( $val['count'] < 0 ) {
-			return wfMsgForContentNoTrans(
+			return wfMessage(
 					'cite_references_link_one',
 					$this->referencesKey( $val['key'] ),
 					# $this->refKey( $val['key'], $val['count'] ),
 					$this->refKey( $val['key'] ),
 					$text
-				);
+				)->inContentLanguage()->plain();
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is
 			// overkill and users frequently use named references when they
 			// don't need them for convenience
 		} elseif ( $val['count'] === 0 ) {
-			return wfMsgForContentNoTrans(
+			return wfMessage(
 					'cite_references_link_one',
 					$this->referencesKey( $key . "-" . $val['key'] ),
 					# $this->refKey( $key, $val['count'] ),
 					$this->refKey( $key, $val['key'] . "-" . $val['count'] ),
 					$text
-				);
+				)->inContentLanguage()->plain();
 		// Named references with >1 occurrences
 		} else {
 			$links = array();
 			// for group handling, we have an extra key here.
 			for ( $i = 0; $i <= $val['count']; ++$i ) {
-				$links[] = wfMsgForContentNoTrans(
+				$links[] = wfMessage(
 						'cite_references_link_many_format',
 						$this->refKey( $key, $val['key'] . "-$i" ),
 						$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
 						$this->referencesFormatEntryAlternateBacklinkLabel( $i )
-				);
+				)->inContentLanguage()->plain();
 			}
 
 			$list = $this->listToText( $links );
 
-			return wfMsgForContentNoTrans( 'cite_references_link_many',
+			return wfMessage( 'cite_references_link_many',
 					$this->referencesKey( $key . "-" . $val['key'] ),
 					$list,
 					$text
-				);
+				)->inContentLanguage()->plain();
 		}
 	}
 
@@ -861,10 +861,11 @@ class Cite {
 	 * @return string A key for use in wikitext
 	 */
 	function refKey( $key, $num = null ) {
-		$prefix = wfMsgForContent( 'cite_reference_link_prefix' );
-		$suffix = wfMsgForContent( 'cite_reference_link_suffix' );
+		$prefix = wfMessage( 'cite_reference_link_prefix' )->inContentLanguage()->text();
+		$suffix = wfMessage( 'cite_reference_link_suffix' )->inContentLanguage()->text();
 		if ( isset( $num ) ) {
-			$key = wfMsgForContentNoTrans( 'cite_reference_link_key_with_num', $key, $num );
+			$key = wfMessage( 'cite_reference_link_key_with_num', $key, $num )
+				->inContentLanguage()->plain();
 		}
 
 		return "$prefix$key$suffix";
@@ -882,10 +883,11 @@ class Cite {
 	 * @return string A key for use in wikitext
 	 */
 	function referencesKey( $key, $num = null ) {
-		$prefix = wfMsgForContent( 'cite_references_link_prefix' );
-		$suffix = wfMsgForContent( 'cite_references_link_suffix' );
+		$prefix = wfMessage( 'cite_references_link_prefix' )->inContentLanguage()->text();
+		$suffix = wfMessage( 'cite_references_link_suffix' )->inContentLanguage()->text();
 		if ( isset( $num ) ) {
-			$key = wfMsgForContentNoTrans( 'cite_reference_link_key_with_num', $key, $num );
+			$key = wfMessage( 'cite_reference_link_key_with_num', $key, $num )
+				->inContentLanguage()->plain();
 		}
 
 		return "$prefix$key$suffix";
@@ -912,13 +914,13 @@ class Cite {
 
 		return
 			$this->parse(
-				wfMsgForContentNoTrans(
+				wfMessage(
 					'cite_reference_link',
 					$this->refKey( $key, $count ),
 					$this->referencesKey( $key . $subkey ),
 					$this->getLinkLabel( $label, $group,
 						( ( $group == CITE_DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
-				)
+				)->inContentLanguage()->plain()
 			);
 	}
 
@@ -937,8 +939,8 @@ class Cite {
 	function listToText( $arr ) {
 		$cnt = count( $arr );
 
-		$sep = wfMsgForContentNoTrans( 'cite_references_link_many_sep' );
-		$and = wfMsgForContentNoTrans( 'cite_references_link_many_and' );
+		$sep = wfMessage( 'cite_references_link_many_sep' )->inContentLanguage()->plain();
+		$and = wfMessage( 'cite_references_link_many_and' )->inContentLanguage()->plain();
 
 		if ( $cnt == 1 ) {
 			// Enforce always returning a string
@@ -1010,7 +1012,8 @@ class Cite {
 	 */
 	function genBacklinkLabels() {
 		wfProfileIn( __METHOD__ );
-		$text = wfMsgForContentNoTrans( 'cite_references_link_many_format_backlink_labels' );
+		$text = wfMessage( 'cite_references_link_many_format_backlink_labels' )
+			->inContentLanguage()->plain();
 		$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
 		wfProfileOut( __METHOD__ );
 	}
@@ -1152,10 +1155,10 @@ class Cite {
 	 */
 	function error( $key, $param = null, $parse = 'parse' ) {
 		# We rely on the fact that PHP is okay with passing unused argu-
-		# ments to functions.  If $1 is not used in the message, wfMsg will
+		# ments to functions.  If $1 is not used in the message, wfMessage will
 		# just ignore the extra parameter.
 		$ret = '<strong class="error">' .
-			wfMsgNoTrans( 'cite_error', wfMsgNoTrans( $key, $param ) ) .
+			wfMessage( 'cite_error', wfMessage( $key, $param )->plain() )->plain() .
 			'</strong>';
 		if ( $parse == 'parse' ) {
 			$ret = $this->parse( $ret );
@@ -1171,7 +1174,8 @@ class Cite {
 	 * @param string $data Serialized error data
 	 */
 	function croak( $error, $data ) {
-		wfDebugDieBacktrace( wfMsgForContent( 'cite_croak', $this->error( $error ), $data ) );
+		wfDebugDieBacktrace( wfMessage( 'cite_croak', $this->error( $error ), $data )
+			->inContentLanguage()->text() );
 	}
 
 	/**#@-*/

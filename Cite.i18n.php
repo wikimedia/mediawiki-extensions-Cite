@@ -94,21 +94,21 @@ no text was provided for refs named <code>$1</code>',
  */
 $messages['qqq'] = array(
 	'cite-desc' => '{{desc}}',
-	'cite_error_key_str_invalid' => '<tt>$str</tt> and <tt>$key</tt> are literals, and refers to who knows which variables the code uses.',
+	'cite_error_key_str_invalid' => '<code>$str</code> and <code>$key</code> are literals, and refer to who knows which variables the code uses.',
 	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
 	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.',
 	'cite_error_ref_too_many_keys' => 'Cite extension. Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code>&lt;ref name="name" notname="value" /&gt;</code> or <code>&lt;ref notname="value" &gt;input&lt;ref&gt;</code>',
 	'cite_error_ref_no_input' => 'Cite extension. Error message shown when ref tags without names have no content. An example that cause this error is <code>&lt;ref&gt;&lt;/ref&gt;</code>',
 	'cite_error_references_invalid_parameters' => 'Cite extension. Error message shown when parmeters are used in the references tag. An example that cause this error is <code>&lt;references someparameter="value" /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Cite extension. Error message shown when unknown parameters are used in the references tag. An example that cause this error is <tt><nowiki><references someparameter="value" /></nowiki></tt>',
+	'cite_error_references_invalid_parameters_group' => 'Cite extension. Error message shown when unknown parameters are used in the references tag. An example that cause this error is <samp><nowiki><references someparameter="value" /></nowiki></samp>',
 	'cite_error_references_no_backlink_label' => 'Cite extension. Error message shown in the references tag when the same name is used for too many ref tags. Too many in this case is more than there are backlink labels defined in [[MediaWiki:Cite references link many format backlink labels]].
 
 It is not possible to make a clickable link to this message. "nowiki" is mandatory around [[MediaWiki:Cite references link many format backlink labels]].',
 	'cite_error_no_link_label_group' => "*'''$1''' is the name of a reference group.
-*'''$2''' is <tt>cite_link_label_group-<i>groupname</i></tt>.",
+*'''$2''' is <code>cite_link_label_group-<i>groupname</i></code>.",
 	'cite_error_references_no_text' => 'Cite extension. This error occurs when the tag <code>&lt;ref name="something" /&gt;</code> is used with the name-option specified and no other tag specifies a cite-text for this name.',
-	'cite_error_included_ref' => 'Error message shown if the <tt>&lt;ref&gt;</tt> tag is unbalanced, that means a <tt>&lt;ref&gt;</tt> is not followed by a <tt>&lt;/ref&gt;</tt>',
+	'cite_error_included_ref' => 'Error message shown if the <code>&lt;ref&gt;</code> tag is unbalanced, that means a <code>&lt;ref&gt;</code> is not followed by a <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Error message shown when doing something like
 
 <pre>

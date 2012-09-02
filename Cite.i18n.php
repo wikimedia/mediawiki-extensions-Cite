@@ -1375,13 +1375,13 @@ $messages['gag'] = array(
  * @author Xosé
  */
 $messages['gl'] = array(
-	'cite-desc' => 'Engade <nowiki><ref[ nome=id]></nowiki> e etiquetas <nowiki><references/></nowiki>, para notas',
+	'cite-desc' => 'Engade as etiquetas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para as citas',
 	'cite_croak' => 'Cita morta; $1: $2',
 	'cite_error_key_str_invalid' => 'Erro interno; $str e/ou $key inválidos. Isto non debera ocorrer.',
 	'cite_error_stack_invalid_input' => 'Erro interno; stack key inválido. Isto non debera ocorrer.',
 	'cite_error' => 'Erro no código da cita: $1',
 	'cite_error_ref_numeric_key' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;
-o nome non pode ser un simple entero: use un título descritivo',
+o nome non pode ser un simple número enteiro. Use un título descritivo',
 	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;
 as referencias que non teñan contido deben ter un nome',
 	'cite_error_ref_too_many_keys' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;

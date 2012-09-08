@@ -214,7 +214,7 @@ Faiga servir <code>&lt;references /&gt;</code>, u <code>&lt;references group="..
 	'cite_error_no_link_label_group' => 'S\'han acorau as etiquetas de vinclos personalizaus ta o grupo "$1".
 Defina-ne mas en o mensache <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Etiqueta <code>&lt;ref&gt;</code> incorreuta; no ha escrito garra testo t'as referencias nombratas <code>$1</code>",
-	'cite_error_included_ref' => 'Zarrando &lt;/ref&gt; falta una etiqueta &lt;ref&gt;',
+	'cite_error_included_ref' => 'Zarrando <code>&lt;/ref&gt;</code> falta una etiqueta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se trobó garra etiqueta <code>&lt;references /&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> ta un grupo clamau "$1", pero no se trobó garra etiqueta <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'O tag <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presienta l\'atributo de grupo en conflicto "$1".',
@@ -260,7 +260,7 @@ $str و/أو $key غير صحيح.
 للحصول على تعريف أكثر أنظر هذه <nowiki>[[MediaWiki:$2]]</nowiki> الرسالة.',
 	'cite_error_references_no_text' => 'وسم <code>&lt;ref&gt;</code> غير صحيح؛
 لا نص تم توفيره للمراجع المسماة <code>$1</code>',
-	'cite_error_included_ref' => 'إغلاق &lt;/ref&gt; مفقود لوسم &lt;ref&gt;',
+	'cite_error_included_ref' => 'إغلاق <code>&lt;/ref&gt;</code> مفقود لوسم <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'وسم <code>&lt;ref&gt;</code> موجود، لكن لا وسم <code>&lt;references/&gt;</code> تم العثور عليه',
 	'cite_error_group_refs_without_references' => 'وسوم <code>&lt;ref&gt;</code> موجودة لمجموعة اسمها "$1"، لكن لا وسم <code>&lt;references group="$1"/&gt;</code> مماثل تم العثور عليه',
 	'cite_error_references_group_mismatch' => 'الوسم <code>&lt;ref&gt;</code> في <code>&lt;references&gt;</code> فيه خاصية group متضاربة "$1".',
@@ -311,7 +311,7 @@ $str و/أو $key غلط.
 عرف اكتر فى رسالة <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'مش صحيح <code>&lt;ref&gt;</code> تاج;
 مافيش نص متوافر فى المراجع اللى اسمها<code>$1</code>',
-	'cite_error_included_ref' => 'إغلاق &lt;/ref&gt; مفقود لوسم &lt;ref&gt;',
+	'cite_error_included_ref' => 'إغلاق <code>&lt;/ref&gt;</code> مفقود لوسم <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> التاجز موجوده, بس مافيش <code>&lt;references/&gt;</code> تاجز اتلقت',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> فى تاجز موجوده لمجموعه اسمها "$1", بس مافيش مقابلها تاجز <code>&lt;references group="$1"/&gt;</code> اتلقت',
 	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى أأ أب أت أث أج أح أخ أد أذ أر أز أس أش أص أض أط أظ أع أغ أف أق أك أل أم أن أه أو أى بأ بب بت بث بج بح بخ بد بذ بر بز بس بش بص بض بط بظ بع بغ بف بق بك بل بم بن به بو بى تأ تب تت تث تج تح تخ تد تذ تر تز تس تش تص تض تط تظ تع تغ تف تق تك تل تم تن ته تو تى ثأ ثب ثت ثث ثج ثح ثخ ثد ثذ ثر ثز ثس ثش ثص ثض ثط ثظ ثع ثغ ثف ثق ثك ثل ثم ثن ثه ثو ثى جأ جب جت جث جج جح جخ جد جذ جر جز جس جش جص جض جط جظ جع جغ جف جق جك جل جم جن جه جو جى حأ حب حت حث حج حح حخ حد حذ حر حز حس حش حص حض حط حظ حع حغ حف حق حك حل حم حن حه حو حى خأ خب خت خث خج خح خخ خد خذ خر خز خس خش خص خض خط خظ خع خغ خف خق خك خل خم خن خه خو خى دأ دب دت دث دج دح دخ دد دذ در دز دس دش دص دض دط دظ دع دغ دف دق دك دل دم دن ده دو دى ذأ ذب ذت ذث ذج ذح ذخ ذد ذذ ذر ذز ذس ذش ذص ذض ذط ذظ ذع ذغ ذف ذق ذك ذل ذم ذن ذه ذو ذى رأ رب رت رث رج رح رخ رد رذ رر رز رس رش رص رض رط رظ رع رغ رف رق رك رل رم رن ره رو رى زأ زب زت زث زج زح زخ زد زذ زر زز زس زش زص زض زط زظ زع زغ زف زق زك زل زم زن زه زو زى سأ سب ست سث سج سح سخ سد سذ سر سز سس سش سص سض سط سظ سع سغ سف سق سك سل سم سن سه سو سى شأ شب شت شث شج شح شخ شد شذ شر شز شس شش شص شض شط شظ شع شغ شف شق شك شل شم شن شه شو شى صأ صب صت صث صج صح صخ صد صذ صر صز صس صش صص صض صط صظ صع صغ صف صق صك صل صم صن صه صو صى ضأ ضب ضت ضث ضج ضح ضخ ضد ضذ ضر ضز ضس ضش ضص ضض ضط ضظ ضع ضغ ضف ضق ضك ضل ضم ضن ضه ضو ضى طأ طب طت طث طج طح طخ طد طذ طر طز طس طش طص طض طط طظ طع طغ طف طق طك طل طم طن طه طو طى ظأ ظب ظت ظث ظج ظح ظخ ظد ظذ ظر ظز ظس ظش ظص ظض ظط ظظ ظع ظغ ظف ظق ظك ظل ظم ظن ظه ظو ظى عأ عب عت عث عج عح عخ عد عذ عر عز عس عش عص عض عط عظ عع عغ عف عق عك عل عم عن عه عو عى غأ غب غت غث غج غح غخ غد غذ غر غز غس غش غص غض غط غظ غع غغ غف غق غك غل غم غن غه غو غى فأ فب فت فث فج فح فخ فد فذ فر فز فس فش فص فض فط فظ فع فغ فف فق فك فل فم فن فه فو فى قأ قب قت قث قج قح قخ قد قذ قر قز قس قش قص قض قط قظ قع قغ قف قق قك قل قم قن قه قو قى كأ كب كت كث كج كح كخ كد كذ كر كز كس كش كص كض كط كظ كع كغ كف كق كك كل كم كن كه كو كى لأ لب لت لث لج لح لخ لد لذ لر لز لس لش لص لض لط لظ لع لغ لف لق لك لل لم لن له لو لى مأ مب مت مث مج مح مخ مد مذ مر مز مس مش مص مض مط مظ مع مغ مف مق مك مل مم من مه مو مى نأ نب نت نث نج نح نخ ند نذ نر نز نس نش نص نض نط نظ نع نغ نف نق نك نل نم نن نه نو نى هأ هب هت هث هج هح هخ هد هذ هر هز هس هش هص هض هط هظ هع هغ هف هق هك هل هم هن هه هو هى وأ وب وت وث وج وح وخ ود وذ ور وز وس وش وص وض وط وظ وع وغ وف وق وك ول وم ون وه وو وى يأ يب يت يث يج يح يخ يد يذ ير يز يس يش يص يض يط يظ يع يغ يف يق يك يل يم ين يه يو يى',
@@ -351,7 +351,7 @@ $messages['as'] = array(
 <nowiki>[[MediaWiki:$2]]</nowiki> বাৰ্তাত আৰু সংজ্ঞা দিয়ক।',
 	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> টেগ;
 <code>$1</code> নামৰ refৰ বাবে কোনো পাঠ্য প্ৰদান কৰা হোৱা নাই',
-	'cite_error_included_ref' => '&lt;/ref&gt বন্ধ কৰা হৈছে; &lt;ref&gt; টেগৰ বাবে পোৱা নাই',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> বন্ধ কৰা হৈছে; <code>&lt;ref&gt;</code> টেগৰ বাবে পোৱা নাই',
 	'cite_error_refs_without_references' => "<code>&lt;ref&gt;</code> টেগ্‌সমূহ আছে, কিন্তু কোনো <code>&lt;references/&gt;</code> টেগ্‌ পোৱা নগ'ল",
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> টেগ্‌সমূহ "$1" নামৰ এটা গোটৰ বাবে আছে, কিন্তু তাৰ <code>&lt;references group="$1"/&gt;</code> টেগ্‌ পোৱা নগ\'ল',
 	'cite_error_references_group_mismatch' => '"$1" গোটৰ ক্ষেত্ৰত <code>&lt;references&gt;</code>ৰ <code>&lt;ref&gt;</code> টেগ্‌ ব্যৱহাৰত সমস্যা হৈছে।',
@@ -388,7 +388,7 @@ Defini más nel mensaxe <nowiki>[[MediaWiki:Cite references link many format bac
 	'cite_error_no_link_label_group' => 'Nun queden más etiquetes d\'enllaz personalizáu pal grupu "$1".
 Define más nel mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nun se conseñó testu pa les referencies nomaes <code>$1</code>',
-	'cite_error_included_ref' => 'Falta &lt;/ref&gt; pa la etiqueta &lt;ref&gt;',
+	'cite_error_included_ref' => 'Falta <code>&lt;/ref&gt;</code> pa la etiqueta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "Les etiquetes <code>&lt;ref&gt;</code> esisten, pero nun s'alcontró denguna etiqueta <code>&lt;references/&gt;</code>",
 	'cite_error_group_refs_without_references' => 'Les etiquetes <code>&lt;ref&gt;</code> esisten pa un grupu llamáu "$1", pero nun s\'alcontró la etiqueta <code>&lt;references group="$1"/&gt;</code> correspondiente',
 	'cite_error_references_group_mismatch' => 'La etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> tien un conflictu col atributu de grupu "$1".',
@@ -444,7 +444,7 @@ $str һәм/йәки $key дөрөҫ түгел.
 [[MediaWiki:$2]] система хәбәрендә күберәк билдәләгеҙ.',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;
 <code>$1</code> төшөрмәләре өсөн текст юҡ',
-	'cite_error_included_ref' => '&lt;ref&gt; билдәһе өсөн &lt;/ref&gt; ябыу билдәһе юҡ',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> билдәһе өсөн <code>&lt;/ref&gt;</code> ябыу билдәһе юҡ',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> билдәһе бар, әммә <code>&lt;references/&gt;</code> билдәһе юҡ',
 	'cite_error_group_refs_without_references' => '"$1" төркөмө өсөн <code>&lt;ref&gt;</code> билдәһе бар, әммә <code>&lt;references group="$1"/&gt;</code> билдәһе юҡ',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> билдәһенең <code>&lt;ref&gt;</code> билдәһендә "$1" төркөмө атрибуты ҡаршылыҡтар тыуҙыра.',
@@ -527,7 +527,7 @@ $messages['be-tarask'] = array(
 Вызначыце болей у паведамленьні <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Няслушны тэг <code>&lt;ref&gt;</code>;
 няма тэксту ў назьве зносак <code>$1</code>',
-	'cite_error_included_ref' => 'Няма закрываючага тэга  &lt;/ref&gt; пасьля адкрытага тэга &lt;ref&gt;',
+	'cite_error_included_ref' => 'Няма закрываючага тэга  <code>&lt;/ref&gt;</code> пасьля адкрытага тэга <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Тэг <code>&lt;ref&gt;</code> існуе, але ня знойдзена тэга <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Тэг <code>&lt;ref&gt;</code> існуе для групы «$1», але адпаведнага тэга <code>&lt;references group="$1"/&gt;</code> ня знойдзена',
 	'cite_error_references_group_mismatch' => 'Тэг <code>&lt;ref&gt;</code> у <code>&lt;references&gt;</code> утрымлівае канфліктуючы атрыбут групы «$1».',
@@ -559,7 +559,7 @@ $messages['bg'] = array(
 	'cite_error_references_no_backlink_label' => 'Изчерпани са специалните етикети за обратна референция.
 Още етикети могат да се дефинират в системното съобщение <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => "'''Грешка в етикет <code>&lt;ref&gt;</code>:''' не е подаден текст за бележките на име <code>$1</code>",
-	'cite_error_included_ref' => 'Липсва затварящ етикет &lt;/ref&gt; след отварящия етикет &lt;ref&gt;',
+	'cite_error_included_ref' => 'Липсва затварящ етикет <code>&lt;/ref&gt;</code> след отварящия етикет <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Присъстват етикети <code>&lt;ref&gt;</code>; липсва етикет <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Присъстват етикети <code>&lt;ref&gt;</code> за групата "$1"; но липсва съответният етикет <code>&lt;references group="$1"/&gt;</code>',
 );
@@ -588,7 +588,7 @@ $messages['bn'] = array(
 	'cite_error_no_link_label_group' => 'গ্রুপ "$1" এর জন্য কাস্টম লিংক ব্যবহারের সীমানা পেরিয়েছে।
 <nowiki>[[MediaWiki:$2]]</nowiki> বার্তায় আরও সজ্ঞায়িত করুন।',
 	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের refগুলির জন্য কোন টেক্সট প্রদান করা হয়নি',
-	'cite_error_included_ref' => '&lt;ref&gt; ট্যাগের ক্ষেত্রে &lt;/ref&gt; ট্যাগ যোগ করা হয়নি',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ট্যাগের ক্ষেত্রে <code>&lt;/ref&gt;</code> ট্যাগ যোগ করা হয়নি',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু কোনো <code>&lt;references/&gt;</code> ট্যাগ নেই',
 	'cite_error_group_refs_without_references' => '"$1" নামের গ্রুপের <code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু এর জন্য <code>&lt;references group="$1"/&gt;</code> ট্যাগ দেয়া হয়নি',
 	'cite_error_references_group_mismatch' => '"$1" গ্রুপের ক্ষেত্রে <code>&lt;ref&gt;</code> ট্যাগ <code>&lt;references&gt;</code> ট্যাগের অংশে ব্যবহারে সমস্যা সৃষ্টি হয়েছে।',
@@ -627,7 +627,7 @@ Spisait un niver brasoc'h anezho er gemennadenn <nowiki>[[MediaWiki:Cite referen
 Termenit re all e kemennadenn <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Balizenn <code>&lt;ref&gt;</code> direizh ;
 ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
-	'cite_error_included_ref' => 'Kod digeriñ &lt;/ref&gt; hep kod serriñ &lt;ref&gt;',
+	'cite_error_included_ref' => 'Kod digeriñ <code>&lt;/ref&gt;</code> hep kod serriñ <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "<code>&lt;ref&gt;</code> balizennoù zo, met n'eus bet kavet balizenn <code>&lt;references/&gt;</code> ebet",
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> balizennoù zo evit ur strollad anvet "$1", met n\'eus bet kavet balizenn <code>&lt;references group="$1"/&gt;</code> ebet o klotañ',
 	'cite_error_references_group_mismatch' => 'Gant ar valizenn <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> emañ an dezverk strollad trubuilhus "$1".',
@@ -671,7 +671,7 @@ Definirajte ih još u <nowiki>[[MediaWiki:Cite references link many format backl
 Definišite više putem poruke <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Nevaljana oznaka <code>&lt;ref&gt;</code>;
 nije naveden tekst za reference sa imenom <code>$1</code>',
-	'cite_error_included_ref' => 'Nedostaje oznaka za zatvaranje &lt;/ref&gt; nakon &lt;ref&gt;',
+	'cite_error_included_ref' => 'Nedostaje oznaka za zatvaranje <code>&lt;/ref&gt;</code> nakon <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> oznake postoje, ali oznaka <code>&lt;references/&gt;</code> nije pronađena',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> oznake postoje za grupu pod imenom "$1", ali nije pronađena pripadajuća oznaka <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> oznaka u <code>&lt;references&gt;</code> ima atribut grupe konflikta "$1".',
@@ -717,7 +717,7 @@ Se'n poden definir més a <nowiki>[[MediaWiki:Cite references link many format b
 Defineix més al missatge <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Etiqueta <code>&lt;ref&gt;</code> no vàlida;
 no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
-	'cite_error_included_ref' => 'Es tanca el &lt;/ref&gt; que manca per una etiqueta &lt;ref&gt;',
+	'cite_error_included_ref' => 'Es tanca el <code>&lt;/ref&gt;</code> que manca per una etiqueta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Hi ha etiquetes <code>&lt;ref&gt;</code> però no cap etiqueta <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Existeixen etiquetes <code>&lt;ref&gt;</code> pel grup «$1» però no l\'etiqueta <code>&lt;references group="$1"/&gt;</code> corresponent',
 	'cite_error_references_group_mismatch' => 'L\'etiqueta <code>&lt;ref&gt;</code> a <code>&lt;references&gt;</code> té un conflicte amb l\'atribut de grup "$1".',
@@ -752,7 +752,7 @@ Použijte <tt>&lt;references /&gt;</tt> nebo <tt>&lt;references group="..." /&gt
 	'cite_error_no_link_label_group' => 'Došly definované značky pro skupinu „$1“.
 Zvyšte jejich počet ve zprávě <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Chyba v tagu <code>&lt;ref&gt;</code>; citaci označené <code>$1</code> není určen žádný text',
-	'cite_error_included_ref' => 'Chybí ukončovací &lt;/ref&gt; k&nbsp;tagu &lt;ref&gt;',
+	'cite_error_included_ref' => 'Chybí ukončovací <code>&lt;/ref&gt;</code> k&nbsp;tagu <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Nalezena značka <code>&lt;ref&gt;</code> bez příslušné značky <code>&lt;references/&gt;</code>.',
 	'cite_error_group_refs_without_references' => 'Nalezena značka <code>&lt;ref&gt;</code> pro skupinu „$1“ bez příslušné značky <code>&lt;references group="$1"/&gt;</code>.',
 	'cite_error_references_group_mismatch' => 'Značka <code>&lt;ref&gt;</code> uvnitř <code>&lt;references&gt;</code> má definovánu jinou skupinu „$1“.',
@@ -803,7 +803,7 @@ Diffiniwch ragor ohonynt yn y neges <nowiki>[[MediaWiki:Cite references link man
 Gallwch ddiffinio rhagor ohonynt yn y neges <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Tag <code>&lt;ref&gt;</code> annilys;
 ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
-	'cite_error_included_ref' => '&lt;/ref&gt; clo yn eisiau ar gyfer y tag &lt;ref&gt;',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> clo yn eisiau ar gyfer y tag <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol, ond dim tag <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol ar gyfer y grwp "$1", ond ni chafwyd tag <code>&lt;references/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Mae gan y tag <code>&lt;ref&gt;</code> oddi mewn i <code>&lt;references&gt;</code> briodoledd grŵp anghyson "$1".',
@@ -837,7 +837,7 @@ Definer flere i beskeden <nowiki>[[MediaWiki:Cite references link many format ba
 	'cite_error_no_link_label_group' => 'Løb tør for tilpassede linketiketter til gruppen "$1".
 Definer flere i beskeden <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
-	'cite_error_included_ref' => 'Afsluttende &lt;/ref&gt; mangler for &lt;ref&gt;-tag',
+	'cite_error_included_ref' => 'Afsluttende <code>&lt;/ref&gt;</code> mangler for <code>&lt;ref&gt;</code>-tag',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-tags findes, men ingen <code>&lt;references/&gt;</code>-tag blev fundet',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-tags eksisterer for en gruppe betegnet "$1", men der blev ikke fundet et tilsvarende <code>&lt;references group="$1"/&gt;</code>-tag',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-tag inden i <code>&lt;references&gt;</code> har modstridende gruppe-attribut "$1".',
@@ -870,7 +870,7 @@ $messages['de'] = array(
 	'cite_error_no_link_label_group' => 'Für die Gruppe „$1“ sind keine benutzerdefinierten Linkbezeichnungen mehr verfügbar.
 Ein Administrator muss weitere mit der Systemnachricht <nowiki>[[MediaWiki:$2]]</nowiki> festlegen.',
 	'cite_error_references_no_text' => 'Es ist ein ungültiger <code>&lt;ref&gt;</code>-Tag vorhanden: Für die Referenz namens <code>$1</code> wurde kein Text angegeben.',
-	'cite_error_included_ref' => 'Für ein &lt;ref&gt;-Tag fehlt ein schließendes &lt;/ref&gt;-Tag.',
+	'cite_error_included_ref' => 'Für ein <code>&lt;ref&gt;</code>-Tag fehlt ein schließendes <code>&lt;/ref&gt;</code>-Tag.',
 	'cite_error_refs_without_references' => 'Es sind <code>&lt;ref&gt;</code>-Tags vorhanden, jedoch wurde kein <code>&lt;references /&gt;</code>-Tag gefunden.',
 	'cite_error_group_refs_without_references' => 'Es sind <code>&lt;ref&gt;</code>-Tags für die Gruppe „$1“ vorhanden, jedoch wurde kein dazugehöriges <code>&lt;references group="$1" /&gt;</code>-Tag gefunden.',
 	'cite_error_references_group_mismatch' => 'Das <code>&lt;ref&gt;</code>-Tag in <code>&lt;references&gt;</code> enthält das kollidierende Attribut „$1“.',
@@ -928,7 +928,7 @@ Zerreyê mesajê <nowiki>[[MediaWiki:Cite references link many format backlink l
 Zerre mesajê <nowiki>[[MediaWiki:$2]]</nowiki> de zafyer qise bike.',
 	'cite_error_references_no_text' => 'Etiket <code>&lt;ref&gt;</code> ke raşt niyo;
 qe refs yew nuşte nidayiyo <code>$1</code>',
-	'cite_error_included_ref' => '&lt;/ref&gt kefilneno;  &lt;ref&gt vin kerdo; etiket',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code>Qandê etiketi <code>&lt;/ref&gt;</code> racnayış kemiyo',
 	'cite_error_refs_without_references' => 'etiketê <code>&lt;ref&gt;</code>î niesto, feqat  etiketê <code>&lt;references/&gt;</code>î nidiyo',
 	'cite_error_group_refs_without_references' => 'etiketê <code>&lt;ref&gt;</code>î niesto ser grupê $1î, feqat  etiketê <code>&lt;references/&gt;</code>î nidiyo',
 	'cite_error_references_group_mismatch' => 'etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de ser grupê "$1"î konflikt keno.',
@@ -977,7 +977,7 @@ Definěruj dalšne w powěsći <nowiki>[[MediaWiki:Cite references link many for
 Definěruj dalšne w powěsći <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Njepłaśiwa toflicka <code>&lt;ref&gt;</code>;
 za ref z mjenim <code>$1</code> njejo se tekst pódał',
-	'cite_error_included_ref' => 'Kóńceca toflicka &lt;/ref&gt; felujo za toflicku &lt;ref&gt;',
+	'cite_error_included_ref' => 'Kóńceca toflicka <code>&lt;/ref&gt;</code> felujo za toflicku <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Toflicki <code>&lt;ref&gt;</code> eksistěruju, ale toflicka <code>&lt;references/&gt;</code> njejo se namakała',
 	'cite_error_group_refs_without_references' => 'Toflicki <code>&lt;ref&gt;</code> eksistěruju za kupku z mjenim "$1", ale wótpowědujuca toflicka <code>&lt;references group="$1"/&gt;</code> njejo se namakała',
 	'cite_error_references_group_mismatch' => 'Toflicka <code>&lt;ref&gt;</code> w <code>&lt;references&gt;</code> jo ze kupkowym atributom "$1" w konflikśe.',
@@ -1023,7 +1023,7 @@ $messages['el'] = array(
 Καθορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:$2]]</nowiki>',
 	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
 Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',
-	'cite_error_included_ref' => 'Υπολείπεται η κατάληξη &lt;/ref&gt; για την ετικέτα &lt;ref&gt;',
+	'cite_error_included_ref' => 'Υπολείπεται η κατάληξη <code>&lt;/ref&gt;</code> για την ετικέτα <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά καμία ετικέτα <code>&lt;references/&gt;</code> δεν βρέθηκε.',
 	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα με το όνομα «$1», αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.',
 	'cite_error_references_group_mismatch' => 'Η ετικέτα <code>&lt;ref&gt;</code> στο <code>&lt;references&gt;</code> έρχεται σε σύγκρουση με το κατηγορούμενο "$1".',
@@ -1066,7 +1066,7 @@ Difinu pliajn en la mesaĝo <nowiki>[[MediaWiki:Cite references link many format
 Difinu pliajn en la <nowiki>[[MediaWiki:$2]]</nowiki> mesaĝo.',
 	'cite_error_references_no_text' => 'Nevalida <code>&lt;ref&gt;</code> etikedo;
 neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
-	'cite_error_included_ref' => 'Ferma &lt;/ref&gt; mankas por &lt;ref&gt;-etikedo',
+	'cite_error_included_ref' => 'Ferma <code>&lt;/ref&gt;</code> mankas por <code>&lt;ref&gt;</code>-etikedo',
 	'cite_error_refs_without_references' => 'Etikedoj <code>&lt;ref&gt;</code> ekzistas, sed neniu etikedo <code>&lt;references/&gt;</code> estis trovita',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> etikedoj ekzistas por grupo nomita "$1", sed ne koresponda <code>&lt;references group="$1"/&gt;</code> etikedo estis trovita',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> etikedo en <code>&lt;references&gt;</code> havas konflikan grupatributon "$1".',
@@ -1120,7 +1120,7 @@ Definir más en el mensaje <nowiki>[[MediaWiki:Cite references link many format 
 Define más en el mensaje <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
 pues no hay una referencia con texto llamada <code>$1</code>',
-	'cite_error_included_ref' => 'Código de apertura &lt;ref&gt; sin su código de cierre &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Código de apertura <code>&lt;ref&gt;</code> sin su código de cierre <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se encontró una etiqueta <code>&lt;references /&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado "$1", pero no se encontró una etiqueta <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'el tag <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presenta el atributo de grupo en conflicto "$1".',
@@ -1164,7 +1164,7 @@ Lisa neid sõnumisse <nowiki>[[MediaWiki:Cite references link many format backli
 Lisa neid sõnumisse <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Vigane <code>&lt;ref&gt;</code>-silt.
 Viite nimega <code>$1</code> tekst puudub.',
-	'cite_error_included_ref' => 'Sulgemismärgend &lt;/ref&gt; puudub.',
+	'cite_error_included_ref' => 'Sulgemismärgend <code>&lt;/ref&gt;</code> puudub.',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-sildid on olemas, aga <code>&lt;references/&gt;</code>-silt puudub.',
 	'cite_error_group_refs_without_references' => 'Olemas on <code>&lt;ref&gt;</code>-silt rühma "$1" jaoks, aga vastav <code>&lt;references group="$1"/&gt;</code>-silt puudub.',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-siltide vahel oleval <code>&lt;ref&gt;</code>-sildil on vastukäiv parameetri "group" väärtus "$1".',
@@ -1207,7 +1207,7 @@ $messages['fa'] = array(
 	'cite_error_no_link_label_group' => 'از برچسب‌های پیوند سفارشی برای گروه «$1» خارج شد.
 در پیغام <nowiki>[[MediaWiki:$2]]</nowiki> بیشتر تعریف کنید.',
 	'cite_error_references_no_text' => 'برچسب <code><ref></code> غیرمجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
-	'cite_error_included_ref' => 'برچسب تمام کنندهٔ &lt;/ref&gt; بدون برچسب &lt;ref&gt;',
+	'cite_error_included_ref' => 'برچسب تمام کنندهٔ <code>&lt;/ref&gt;</code> بدون برچسب <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'برچسب <code>&lt;ref&gt;</code> وجود دارد اما برچسب <code>&lt;references/&gt;</code> پیدا نشد',
 	'cite_error_group_refs_without_references' => 'برچسب <code>&lt;ref&gt;</code> برای گروهی به نام «$1» وجود دارد، اما برچسب <code>&lt;references group="$1"/&gt;</code> متناظر پیدا نشد',
 	'cite_error_references_group_mismatch' => 'برچسپ <code>&lt;ref&gt;</code> درون <code>&lt;references&gt;</code> در تضاد با ویژگی‌های گروه «$1» است.',
@@ -1246,7 +1246,7 @@ Niitä voi määritellä lisää sivulla <nowiki>[[MediaWiki:Cite references lin
 Määritä niitä lisää viestissä <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Virheellinen <code>&lt;ref&gt;</code>-elementti;
 viitettä <code>$1</code> ei löytynyt',
-	'cite_error_included_ref' => '&lt;ref&gt;-elementin sulkeva &lt;/ref&gt;-elementti puuttuu',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code>-elementin sulkeva <code>&lt;/ref&gt;</code>-elementti puuttuu',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-elementti löytyy, mutta <code>&lt;references/&gt;</code>-elementtiä ei löydy',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-elementit löytyivät ryhmälle nimeltä ”$1”, mutta vastaavaa <code>&lt;references group="$1"/&gt;</code>-elementtiä ei löytynyt',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-elementti <code>&lt;references&gt;</code>-elementin sisällä sisältää ristiriitaisen ryhmämääritteen ”$1”.',
@@ -1343,7 +1343,7 @@ Dèfenésséd-nen un ples grant nombro dens lo mèssâjo <nowiki>[[MediaWiki:Cit
 Dèfenésséd-nen més dens lo mèssâjo <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Balisa <code>&lt;ref&gt;</code> fôssa ;
 nion tèxto at étâ balyê por les refèrences apelâs <code>$1</code>.',
-	'cite_error_included_ref' => 'Cllotura &lt;/ref&gt; manquenta por la balisa &lt;ref&gt;.',
+	'cite_error_included_ref' => 'Cllotura <code>&lt;/ref&gt;</code> manquenta por la balisa <code>&lt;ref&gt;</code>.',
 	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> ègzistont, mas niona balisa <code>&lt;references/&gt;</code> at étâ trovâ.',
 	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> ègzistont por una tropa apelâ « $1 », mas niona balisa <code>&lt;references group="$1"/&gt;</code> que corrèspond at étâ trovâ.',
 	'cite_error_references_group_mismatch' => 'La balisa <code>&lt;ref&gt;</code> dens <code>&lt;references&gt;</code> at l’atribut de tropa « $1 » qu’entre en conflit avouéc celi de <code>&lt;references&gt;</code>.',
@@ -1400,7 +1400,7 @@ Defina máis na mensaxe <nowiki>[[MediaWiki:Cite references link many format bac
 Defina máis na mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Etiqueta <code>&lt;ref&gt;</code> non válida;
 non se forneceu texto para as referencias de nome <code>$1</code>',
-	'cite_error_included_ref' => 'Peche a etiqueta &lt;/ref&gt; que lle falta á outra etiqueta &lt;ref&gt;',
+	'cite_error_included_ref' => 'Peche a etiqueta <code>&lt;/ref&gt;</code> que lle falta á outra etiqueta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen, pero non se atopou ningunha etiqueta <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado "$1", pero non se atopou a etiqueta <code>&lt;references group="$1"/&gt;</code> correspondente',
 	'cite_error_references_group_mismatch' => 'A etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> ten un atributo de grupo conflitivo "$1".',
@@ -1437,7 +1437,7 @@ $messages['gsw'] = array(
 	'cite_error_no_link_label_group' => 'Fir d Gruppe „$1“ sin kei benutzerdefinierti Linkbezeichnige me verfiegbar.
 Definier meh unter Systemnochricht <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Uugiltige <tt>&lt;ref&gt;</tt>-Tag; s isch kei Täxt fir s Ref mit em Name <tt>$1</tt> aagee wore.',
-	'cite_error_included_ref' => 'S fählt s schließend &lt;/ref&gt;',
+	'cite_error_included_ref' => 'S fählt s schließend <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-Tag git s, aber s isch kei <code>&lt;references/&gt;</code>-Tag gfunde wore.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tag git s fir d Grupp „$1“, aber s isch kei dezue gherig <code>&lt;references group=„$1“/&gt;</code>-Tag gfunde wore',
 	'cite_error_references_group_mismatch' => 'Im <code>&lt;ref&gt;</code>-Tag in <code>&lt;references&gt;</code> het s e problematischi Gruppe-Eigeschaft  „$1“.',
@@ -1483,7 +1483,7 @@ $messages['gu'] = array(
 <nowiki>[[MediaWiki:$2]]</nowiki> સંદેશામાં વહારે લેબલ બનાવો..',
 	'cite_error_references_no_text' => 'અમાન્ય <code>&lt;ref&gt;</code> ટેગ;
 <code>$1</code>નામના સંદર્ભ માટે કોઈ પણ લેખન અપાયું નથી',
-	'cite_error_included_ref' => '&lt;ref&gt; ટેગને બંધ કરતું &lt;/ref&gt; ખૂટે છે',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ટેગને બંધ કરતું <code>&lt;/ref&gt;</code> ખૂટે છે',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ટેગ અસ્તિત્વમાં છે, પણ <code>&lt;references/&gt;</code> ઍવો કોઈ ટેગ ન મળ્યો.',
 	'cite_error_group_refs_without_references' => ' "$1" નામના સમૂહમાં <code>&lt;ref&gt;</code> ટેગ વિહરમાન છે, પણ તેને અનુરૂપ <code>&lt;references group="$1"/&gt;</code> ટેગ ન મળ્યો.',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> ટેગને  <code>&lt;references&gt;</code> માં આ વિરોધાભાસી લક્ષણ છે : "$1".',
@@ -1530,7 +1530,7 @@ $messages['he'] = array(
 הגדירו עוד תוויות בהודעת המערכת <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'תג <code>&lt;ref&gt;</code> לא תקין;
 לא נכתב טקסט עבור הערות השוליים בשם <code>$1</code>',
-	'cite_error_included_ref' => 'חסר תג &lt;/ref&gt; סוגר שמתאים לתג &lt;ref&gt;',
+	'cite_error_included_ref' => 'חסר תג <code>&lt;/ref&gt;</code> סוגר שמתאים לתג <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code>, אך לא נמצא תג <code dir="ltr">&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code> עבור קבוצה בשם "$1", אך לא נמצא תג <code dir="ltr">&lt;references group="$1"/&gt;</code> מתאים',
 	'cite_error_references_group_mismatch' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה (group) סותר, "$1".',
@@ -1565,7 +1565,7 @@ $messages['hi'] = array(
 <nowiki>[[MediaWiki:$2]]</nowiki> सन्देश में और लेबल परिभाषित करें।',
 	'cite_error_references_no_text' => 'अमान्य <code>&lt;ref&gt;</code> टैग;
 <code>$1</code> नामक संदर्भ की जानकारी नहीं है',
-	'cite_error_included_ref' => 'समाप्ती &lt;/ref&gt; &lt;ref&gt; टैग लापता',
+	'cite_error_included_ref' => 'समाप्ती <code>&lt;/ref&gt;</code> <code>&lt;ref&gt;</code> टैग लापता',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>टैग मौजूद हैं, किन्तु कोई <code>&lt;references/&gt;</code>टैग नहीं मिला',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> टैग मौजूद है एक दल के लिए इस नाम "$1" से, कीनतु कोई अनुरूप <code>&lt;references group="$1"/&gt;</code> टैग नहीं मिला',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> टैग इन <code>&lt;references&gt;</code> दल की विशेषता में संघर्ष "$1"।',
@@ -1598,7 +1598,7 @@ Koristite <code>&lt;references /&gt;</code>, ili <code>&lt;references group="...
 	'cite_error_no_link_label_group' => 'Nedovoljan broj proizvoljnih naslova poveznica za grupu "$1".
 Definirajte više putem poruke <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Nije zadan tekst za izvor <code>$1</code>',
-	'cite_error_included_ref' => 'Nedostaje zatvarajući &lt;/ref&gt; za &lt;ref&gt; oznaku',
+	'cite_error_included_ref' => 'Nedostaje zatvarajući <code>&lt;/ref&gt;</code> za <code>&lt;ref&gt;</code> oznaku',
 	'cite_error_refs_without_references' => 'oznake <code>&lt;ref&gt;</code> postoje, ali oznaka <code>&lt;references/&gt;</code> nije pronađena',
 	'cite_error_group_refs_without_references' => 'oznake <code>&lt;ref&gt;</code> postoje za skupinu imenovanom "$1", ali nema pripadajuće oznake <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> oznaka u <code>&lt;references&gt;</code> ima konfliktni grupni atribut  "$1".',
@@ -1630,7 +1630,7 @@ Definuj wjace w powěsći <nowiki>[[MediaWiki:Cite references link many format b
 	'cite_error_no_link_label_group' => 'Swójske wotkazowe etikety za skupinu "$1" hižo njejsu.
 Definuj dalše w zdźělence <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Njepłaćiwa referenca formy <code>&lt;ref&gt;</code>; žadyn tekst za referency z mjenom  <code>$1</code> podaty.',
-	'cite_error_included_ref' => 'Kónčny &lt;/ref&gt; za tafličku &lt;ref&gt; faluje',
+	'cite_error_included_ref' => 'Kónčny <code>&lt;/ref&gt;</code> za tafličku <code>&lt;ref&gt;</code> faluje',
 	'cite_error_refs_without_references' => 'Taflički <code>&lt;ref&gt;</code> ekistuja, ale žana taflička code>&lt;references/&gt;</code> je so namakała',
 	'cite_error_group_refs_without_references' => 'Taflički <code>&lt;ref&gt;</code> eksistuja za skupinu z mjenom "$1", ale njeje so wotpowědowaca taflička <code>&lt;references group="$1"/&gt;</code> namakała',
 	'cite_error_references_group_mismatch' => 'Taflička <code>&lt;ref&gt;</code> w <code>&lt;references&gt;</code> je ze skupinskim atributom "$1" w konflikće.',
@@ -1695,7 +1695,7 @@ $messages['hu'] = array(
 	'cite_error_no_link_label_group' => 'Nincs több egyedi címke a következő csoport számára: „$1”.
 Adj meg többet a <nowiki>[[MediaWiki:$2]]</nowiki> lapon.',
 	'cite_error_references_no_text' => 'Érvénytelen <code>&lt;ref&gt;</code> tag; nincs megadva szöveg a(z) <code>$1</code> nevű ref-eknek',
-	'cite_error_included_ref' => 'Egy &lt;ref&gt; tag lezáró &lt;/ref&gt; része hiányzik',
+	'cite_error_included_ref' => 'Egy <code>&lt;ref&gt;</code> tag lezáró <code>&lt;/ref&gt;</code> része hiányzik',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-ek vannak a lapon, de nincsen <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-ek léteznek a(z) „$1” csoporthoz, de nincs hozzá <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'A <code>&lt;references&gt;</code> és a benne található <code>&lt;ref&gt;</code> tag csoport-attribútuma („$1”) nem egyezik meg.',
@@ -1739,7 +1739,7 @@ Defini plus in le message <nowiki>[[MediaWiki:Cite references link many format b
 Defini plus de istes in le message <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Etiquetta <code>&lt;ref&gt;</code> invalide;
 nulle texto esseva fornite pro le refs nominate <code>$1</code>',
-	'cite_error_included_ref' => 'Le clausura &lt;/ref&gt; manca pro le etiquetta &lt;ref&gt;',
+	'cite_error_included_ref' => 'Le clausura <code>&lt;/ref&gt;</code> manca pro le etiquetta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Il existe etiquettas <code>&lt;ref&gt;</code>, ma nulle etiquetta <code>&lt;references/&gt;</code> ha essite trovate',
 	'cite_error_group_refs_without_references' => 'Il existe etiquettas <code>&lt;ref&gt;</code> pro un gruppo nominate "$1", ma nulle etiquetta <code>&lt;references group="$1"/&gt;</code> correspondente ha essite trovate',
 	'cite_error_references_group_mismatch' => 'Le etiquetta <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> ha un attributo de gruppo "$1" confligente.',
@@ -1786,7 +1786,7 @@ Tambahkan lagi di pesan sistem <nowiki>[[MediaWiki:Cite references link many for
 Tambahkan ketentuan dalam pesan <nowiki> [[MediaWiki:$2]] </nowiki> .',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> tidak sah; 
 tidak ditemukan teks untuk ref bernama <code>$1</code>',
-	'cite_error_included_ref' => 'Tag &lt;ref&gt; harus ditutup oleh &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Tag <code>&lt;ref&gt;</code> harus ditutup oleh <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemukan, tapi tag <code>&lt;references/&gt;</code> tidak ditemukan',
 	'cite_error_group_refs_without_references' => 'Ditemukan tag <code>&lt;ref&gt;</code> untuk kelompok bernama "$1", tapi tidak ditemukan tag <code>&lt;references group="$1"/&gt;</code> yang berkaitan',
 	'cite_error_references_group_mismatch' => 'Tag <code>&lt;ref&gt;</code> di <code>&lt;references&gt;</code> memiliki atribut kelompok yang bertentangan "$1".',
@@ -1837,7 +1837,7 @@ Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:Cite references link many format b
 Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:$2]]</nowiki> a mensahe.',
 	'cite_error_references_no_text' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
 awan ti testo a naited para dagiti ref a nanaganan <code>$1</code>',
-	'cite_error_included_ref' => 'Irikrikep ti &lt;/ref&gt; napukaw para iti &lt;ref&gt; nga etiketa',
+	'cite_error_included_ref' => 'Irikrikep ti <code>&lt;/ref&gt;</code> napukaw para iti <code>&lt;ref&gt;</code> nga etiketa',
 	'cite_error_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa ket addaan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
 	'cite_error_group_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa para iti bunggoy a nainaganan "$1", ngem awan ti kapadpada a <code>&lt;references group="$1"/&gt;</code> nga etiketa a nabirukan',
 	'cite_error_references_group_mismatch' => 'Ti <code>&lt;ref&gt;</code> nga etiketa iday <code>&lt;references&gt;</code> ket addan ti nagsungat a gupit ti bunggoy "$1".',
@@ -1882,7 +1882,7 @@ aðeins einn stiki er leyfður, "group"
 Notaðu <code>&lt;references /&gt;</code> eða <code>&lt;references group="..." /&gt;</code> í staðinn.',
 	'cite_error_references_no_text' => 'Villa í <code>&lt;ref&gt;</code> tag;
 tilgreindu texta fyrir tilvísun með nafnið <code>$1</code>',
-	'cite_error_included_ref' => 'Loka þarf tilvísunni með &lt;/ref&gt; tagi',
+	'cite_error_included_ref' => 'Loka þarf tilvísunni með <code>&lt;/ref&gt;</code> tagi',
 	'cite_error_refs_without_references' => 'Bæta þarf <code>&lt;references/&gt;</code> við',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> tag er til fyrir hóp tilvísana undir nafninu "$1", en ekkert sambærilegt <code>&lt;references group="$1"/&gt;</code> tag fannst',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tag í <code>&lt;references&gt;</code> stangast á við hópa eigindið "$1".',
@@ -1920,7 +1920,7 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 	'cite_error_references_no_backlink_label' => 'Etichette di rimando personalizzate esaurite, aumentarne il numero nel messaggio <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_no_link_label_group' => 'Etichette esaurite per collegamenti personalizzati del gruppo "$1", aumentarne il numero nel messaggio <nowiki>[[MediaWiki:$2]]</nowiki>',
 	'cite_error_references_no_text' => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
-	'cite_error_included_ref' => '&lt;/ref&gt; di chiusura mancante per il marcatore &lt;ref&gt;',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> di chiusura mancante per il marcatore <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> ma non è stato trovato alcun marcatore <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> per un gruppo chiamato "$1" ma non è stato trovato alcun marcatore <code>&lt;references group="$1"/&gt;</code> corrispondente',
 	'cite_error_references_group_mismatch' => 'Il tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> ha attributo gruppo "$1" in conflitto.',
@@ -1964,7 +1964,7 @@ $str と $key の両方または一方が無効。
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。',
 	'cite_error_no_link_label_group' => 'グループ「$1」用のカスタム リンク ラベルを使い果たしました。<nowiki>[[MediaWiki:$2]]</nowiki> メッセージを編集してラベルの定義を増やしてください。',
 	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグ。「<code>$1</code>」という名前の引用句に対するテキストがありません',
-	'cite_error_included_ref' => '&lt;ref&gt; タグに対応する &lt;/ref&gt; が不足しています',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> タグに対応する <code>&lt;/ref&gt;</code> が不足しています',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> タグがありますが、<code>&lt;references/&gt;</code> タグが見つかりません',
 	'cite_error_group_refs_without_references' => '「$1」というグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つかりません',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> の<code>&lt;ref&gt;</code> タグに重複するグループ用引数 "$1" が使用されています。',
@@ -2026,7 +2026,7 @@ Tambahna ing pesenan sistém <nowiki>[[MediaWiki:Cite references link many forma
 Tambahaké katemton nèng layang <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> ora absah; 
 ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
-	'cite_error_included_ref' => 'Tag &lt;ref&gt; kudu ditutup déning &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Tag <code>&lt;ref&gt;</code> kudu ditutup déning <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemokaké, nanging tag <code>&lt;references/&gt;</code> ora ditemokaké',
 	'cite_error_group_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemokaké kanggo paguyuban ajeneng "$1", nanging tag <code>&lt;references group="$1"/&gt;</code> sing ana kaitané ora ditemokaké',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tandha <code>&lt;references&gt;</code> nduwèni atribut klompok sing marai konflik "$1".',
@@ -2068,7 +2068,7 @@ $messages['ka'] = array(
 განსაზღვრეთ დამატებითები შეტყობინებაში <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'არასწორი ტეგი <code>&lt;ref&gt;</code>;
 სქოლიოსათვის <code>$1</code> არ არის მითითებული ტექსტი',
-	'cite_error_included_ref' => 'დამხურავი ტეგი &lt;/ref&gt; დაკარგულია',
+	'cite_error_included_ref' => 'დამხურავი ტეგი <code>&lt;/ref&gt;</code> დაკარგულია',
 	'cite_error_refs_without_references' => 'არსებული ტეგისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'ჯგუფი „$1“ არსებული ტეგებისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'ტეგს <code>&lt;ref&gt;</code> <code>&lt;references&gt;</code>-ში გააჩნია ატრიბუტთა კონფლიქტური ჯგუფები „$1“.',
@@ -2167,7 +2167,7 @@ $str 혹은 $key가 잘못되었습니다.
 <nowiki>[[MediaWiki:$2]]</nowiki> 메시지에 더 많은 레이블을 정의해주십시오.',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다.
 <code>$1</code>라는 이름을 가진 주석에 대한 내용이 없습니다.',
-	'cite_error_included_ref' => '&lt;ref&gt; 태그를 닫는 &lt;/ref&gt; 태그가 없습니다.',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> 태그를 닫는 <code>&lt;/ref&gt;</code> 태그가 없습니다.',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> 태그가 존재하지만, <code>&lt;references/&gt;</code> 태그가 없습니다.',
 	'cite_error_group_refs_without_references' => '"$1"이라는 이름을 가진 그룹에 대한 <code>&lt;ref&gt;</code> 태그가 존재하지만, 이에 대응하는 <code>&lt;references group="$1" /&gt;</code> 태그가 없습니다.',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> 안에 있는 <code>&lt;ref&gt;</code> 태그의 그룹 속성 "$1"이 충돌됩니다.',
@@ -2217,7 +2217,7 @@ Donn op <nowiki>[[MediaWiki:$2]]</nowiki> noch e paa dobei.',
 	'cite_error_references_no_text' => 'Fähler en <i lang="en">cite</i>:
 Et wohr keine Tex aanjejovve för de
 <code>&lt;ref&gt;</code>s met dämm Name „<code>$1</code>“.',
-	'cite_error_included_ref' => 'Hee för dat &lt;ref&gt; ham_mer kei zopaß &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Hee för dat <code>&lt;ref&gt;</code> ham_mer kei zopaß <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Et sinn_er <code>&lt;ref&gt;</code>-Befähle en dä Sigg, ävver mer han keine <code>&lt;references/&gt;</code>-Befähl jefunge.',
 	'cite_error_group_refs_without_references' => 'Et sinn_er <code>&lt;ref&gt;</code>-Befähle för de jrop „$1“ en hee dä Sigg, ävver mer han keine <code>&lt;references group="$1"/&gt;</code>-Befähl jefunge.',
 	'cite_error_references_group_mismatch' => 'Dä <code>&lt;ref&gt;</code> Befähl en <code>&lt;references&gt;</code> hät en widerschpröschlesche Jroppe-Eijeschaff „$1“.',
@@ -2261,7 +2261,7 @@ nëmmen de Parameter "group" ass erlaabt.
 Benotzt <code>&lt;references /&gt;</code>, oder <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => "Ongëlteg <code>&lt;ref&gt;</code> Markéierung;
 et gouf keen Text ugi fir d'Referenze mam Numm <code>$1</code>",
-	'cite_error_included_ref' => 'Den Tag &lt;/ref&gt; feelt fir den Tag &lt;ref&gt; zouzemaachen',
+	'cite_error_included_ref' => 'Den Tag <code>&lt;/ref&gt;</code> feelt fir den Tag <code>&lt;ref&gt;</code> zouzemaachen',
 	'cite_error_refs_without_references' => "D'Markéierung <code>&lt;ref&gt;</code> gëtt et, awer d'Markéierung <code>&lt;references/&gt;</code> gouf net fonnt",
 	'cite_error_group_refs_without_references' => 'D\'Markéierung <code>&lt;ref&gt;</code> gëtt et fir d\'Grupp "$1", awer d\'entspriechend Markéierung <code>&lt;references group="$1"/&gt;</code> gouf net fonnt',
 	'cite_error_references_group_mismatch' => 'Den <code>&lt;ref&gt;</code>-Tag an <code>&lt;references&gt;</code> huet den Attribut "$1" deen am Konflikt mat deem am <code>&lt;references&gt;</code> steet.',
@@ -2293,7 +2293,7 @@ Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /
 	'cite_error_no_link_label_group' => '\'t Aantal aangepasde verwiezingslabels veure groep "$1" is oetgepöt.
 Doe kans d\'r mier insjtelle in \'t sysyeemberich <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Ónzjuuste tag <code>&lt;ref&gt;</code>; d'r is gein teks opgegaeve veur refs mit de naam <code>$1</code>",
-	'cite_error_included_ref' => 'Gein sjloetteike &lt;/ref&gt; veur de tag &lt;ref&gt;',
+	'cite_error_included_ref' => 'Gein sjloetteike <code>&lt;/ref&gt;</code> veur de tag <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'De tag <code>&lt;ref&gt;</code> besteit al, meh de tag <code>&lt;references/&gt;</code> is neet aangetróffe',
 	'cite_error_group_refs_without_references' => 'd\'r Besteit \'ne tag <code>&lt;ref&gt;</code> veure groep "$1", meh d\'r is geine bebehuuerendje tag <code>&lt;references group="$1"/&gt;</code> gevónje',
 	'cite_error_references_group_mismatch' => 'De tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> conflicteert mit groepseigesjap "$1".',
@@ -2321,7 +2321,7 @@ $messages['lt'] = array(
 	'cite_error_references_invalid_parameters' => 'Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Baigėsi antraštės.
 Nurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> sisteminiame tekste',
-	'cite_error_included_ref' => 'Trūksta uždaromojo &lt;/ref&gt; žymei &lt;ref&gt;',
+	'cite_error_included_ref' => 'Trūksta uždaromojo <code>&lt;/ref&gt;</code> žymei <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'puslapyje egzistuoja žyma <code>&lt;ref&gt;</code>, tačiau žymos <code>&lt;references/&gt;</code> nėra rasta',
 );
 
@@ -2384,7 +2384,7 @@ $messages['mk'] = array(
 Определете уште во пораката <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
 нема зададено текст за наводите по име <code>$1</code>',
-	'cite_error_included_ref' => 'На ознаката &lt;ref&gt; ѝ недостасува ознака за затворање &lt;/ref&gt',
+	'cite_error_included_ref' => 'На ознаката <code>&lt;ref&gt;</code> ѝ недостасува ознака за затворање &lt;/ref&gt',
 	'cite_error_refs_without_references' => 'Статијата има ознаки <code>&lt;ref&gt;</code>, но не ја најдов потребната ознака <code>&#123;&#123;наводи&#125;&#125;</code> (или <code>&lt;references/&gt;</code>)',
 	'cite_error_group_refs_without_references' => 'Има ознаки <code>&lt;ref&gt;</code> за група именувана како „$1“, но нема соодветна ознака <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Ознаката <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротиставен групен атрибут „$1“.',
@@ -2424,7 +2424,7 @@ $messages['ml'] = array(
 കൂടുതൽ <nowiki>[[MediaWiki:$2]]</nowiki> സന്ദേശത്തിൽ നിർവചിക്കുക.',
 	'cite_error_references_no_text' => 'അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;
 <code>$1</code> എന്ന അവലംബങ്ങൾക്ക് ടെക്സ്റ്റ് ഒന്നും കൊടുത്തിട്ടില്ല.',
-	'cite_error_included_ref' => '&lt;ref&gt; റ്റാഗിനു &lt;/ref&gt; എന്ന അന്ത്യറ്റാഗ് നൽകിയിട്ടില്ല',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> റ്റാഗിനു <code>&lt;/ref&gt;</code> എന്ന അന്ത്യറ്റാഗ് നൽകിയിട്ടില്ല',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ നൽകിയിട്ടുണ്ട്, പക്ഷേ <code>&lt;references/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ "$1" സംഘത്തിൽ ഉണ്ട്, പക്ഷേ ബന്ധപ്പെട്ട <code>&lt;references group="$1"/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> റ്റാഗിലേയും <code>&lt;references&gt;</code> എന്നതിലേയും സംഘ ഘടകമായ "$1" ഒത്തുപോകുന്നില്ല.',
@@ -2466,7 +2466,7 @@ $messages['mr'] = array(
 	'cite_error_no_link_label_group' => '"$1" करिता नमूदकेलेल्या कस्टम लिंक खूणा संपल्या .
 <nowiki>[[MediaWiki:$2]]</nowiki> संदेशात अधिक खूणा नमूद करा',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
-	'cite_error_included_ref' => '&lt;ref&gt; ला बंद करणारी &lt;/ref&gt; ही खूण गायब आहे.',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ला बंद करणारी <code>&lt;/ref&gt;</code> ही खूण गायब आहे.',
 	'cite_error_refs_without_references' => 'पानामधे <code>&lt;ref&gt;</code> (संदर्भ) आहे, परंतु <code>&lt;references/&gt;</code> (<nowiki>{{संदर्भयादी}}<nowiki />) सापडले नाही. <nowiki>{{संदर्भयादी}}<nowiki /> असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.',
 	'cite_error_group_refs_without_references' => '"$1" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>  चिन्हे उपलब्ध आहेत, पण संबंधीत <code>&lt;references group="$1"/&gt;</code>  खूण मिळाली नाही.',
 	'cite_error_references_group_mismatch' => 'tag in <code>&lt;references&gt;</code>मधील <code>&lt;ref&gt;</code>  खूणांना खटका उडणारे  group attribute "$1" आहे.',
@@ -2498,7 +2498,7 @@ Gunakan <code>&lt;references /&gt;</code> atau <code>&lt;references group="..." 
 	'cite_error_no_link_label_group' => 'Kehabisan label pautan tempahan untuk kumpulan "$1".
 Tentukan lagi dalam mesej <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> tidak sah; teks bagi rujukan <code>$1</code> tidak disediakan',
-	'cite_error_included_ref' => 'Tag &lt;ref&gt; tidak ditutup dengan &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Tag <code>&lt;ref&gt;</code> tidak ditutup dengan <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ada tetapi tag <code>&lt;references/&gt;</code> tidak disertakan',
 	'cite_error_group_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> untuk kumpulan "$1" ada tetapi tag <code>&lt;references group="$1"/&gt;</code> yang sepadan tidak disertakan',
 	'cite_error_references_group_mismatch' => 'Tag <code>&lt;ref&gt;</code> dalam <code>&lt;references&gt;</code> mempunyai atribut kumpulan yang bercanggah, "$1".',
@@ -2534,7 +2534,7 @@ il-paramettru "group" biss huwa permess.
 Uża <code>&lt;references /&gt;</code> jew <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => 'Tikketta <code>&lt;ref&gt;</code> invalida;
 l-ebda test ma ngħata għar-refs bl-isem <code>$1</code>',
-	'cite_error_included_ref' => '&lt;/ref&gt; tal-għeluq hija nieqsa għat-tikketta &lt;ref&gt;',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> tal-għeluq hija nieqsa għat-tikketta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'It-tikketti <code>&lt;ref&gt;</code> jeżistu, imma l-ebda tikketta <code>&lt;references/&gt;</code> ma nstabet',
 	'cite_error_group_refs_without_references' => 'It-tikketti <code>&lt;ref&gt;</code> jeżistu għal grupp bl-isem "$1" imma l-ebda tikketta <code>&lt;references group="$1"/&gt;</code> rispettiva ma nstabet',
 	'cite_error_references_group_mismatch' => 'It-tikketta <code>&lt;ref&gt;</code> f\'<code>&lt;references&gt;</code> għandha l-attribut tal-grupp "$1" f\'kunflitt.',
@@ -2565,7 +2565,7 @@ Definer flere i beskjeden <nowiki>[[MediaWiki:Cite references link many format b
 	'cite_error_no_link_label_group' => 'Gikk tom for egendefinerte lenkemerker for gruppen «$1».
 Definér fler i <nowiki>[[MediaWiki:$2]]</nowiki>-beskjeden.',
 	'cite_error_references_no_text' => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>',
-	'cite_error_included_ref' => 'Avsluttende &lt;/ref&gt;-tagg mangler for &lt;ref&gt;',
+	'cite_error_included_ref' => 'Avsluttende <code>&lt;/ref&gt;</code>-tagg mangler for <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-merker finnes, men ingen <code>&lt;references/&gt;</code>-merke funnet',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-merke finnes for gruppenavnet «$1», men ingen <code>&lt;references group="$1"/&gt;</code>-merking ble funnet',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-tagg i <code>&lt;references&gt;</code> har motstridig attributt «$1».',
@@ -2593,7 +2593,7 @@ $messages['nds'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Ungülligen Tag <code>&lt;references&gt;</code>: Blot de Parameter „group“ is verlöövt, bruuk <tt>&lt;references /&gt;</tt> oder <tt>&lt;references group="..." /&gt;</tt>',
 	'cite_error_references_no_backlink_label' => 'De verföögboren Tekens för de Lenken op Referenzen sünd all. Dat lett sik repareren, wenn in de Systemnaricht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mehr Tekens angeven warrt.',
 	'cite_error_references_no_text' => 'Ungülligen Tag <tt>&lt;ref&gt;</tt>; is keen Text för Refs mit den Naam <tt>$1</tt> angeven.',
-	'cite_error_included_ref' => 'Dor fehlt en tosluten &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Dor fehlt en tosluten <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags gifft dat, is aver keen <code>&lt;references/&gt;</code>-Tag funnen worrn.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags för de Grupp „$1“ gifft dat, is aver keen <code>&lt;references group=„$1“/&gt;</code>-Tag funnen worrn',
 );
@@ -2641,7 +2641,7 @@ Geef meer labels op in het bericht <nowiki>[[MediaWiki:Cite references link many
 U kunt er meer instellen in het systeembericht <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
 er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
-	'cite_error_included_ref' => 'Na het label &lt;ref&gt; ontbreekt het afsluitende label &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Na het label <code>&lt;ref&gt;</code> ontbreekt het afsluitende label <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'De tag <code>&lt;ref&gt;</code> bestaat, maar de tag <code>&lt;references/&gt;</code> is niet aangetroffen',
 	'cite_error_group_refs_without_references' => 'Er bestaat een tag <code>&lt;ref&gt;</code> voor de groep "$1", maar er is geen bijbehorende tag <code>&lt;references group="$1"/&gt;</code> aangetroffen',
 	'cite_error_references_group_mismatch' => 'De tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> conflicteert met groepseigenschap "$1".',
@@ -2671,7 +2671,7 @@ $messages['nn'] = array(
 	'cite_error_references_no_backlink_label' => 'Gjekk tom for eigendefinerte tilbakelenketekstar.
 Definer fleire i meldinga <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Ugyldig <code>&lt;ref&gt;</code>-merke; ingen tekst vart gjeven for referansen med namnet <code>$1</code>',
-	'cite_error_included_ref' => 'Avsluttande &lt;/ref&gt;-tagg manglar for &lt;ref&gt;',
+	'cite_error_included_ref' => 'Avsluttande <code>&lt;/ref&gt;</code>-tagg manglar for <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-merke finst, men eit <code>&lt;references/&gt;</code>-merke finst ikkje',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-merke finst for gruppenamnet «$1», men inkje samsvarande <code>&lt;references group="$1"/&gt;</code>-merke vart funne',
 );
@@ -2701,7 +2701,7 @@ Utilizatz <code>&lt;references /&gt;</code>, o alara <code>&lt;references group=
 	'cite_error_references_no_text' => 'Balisa  <code>&lt;ref&gt;</code> incorrècta ;
 
 pas de tèxte per las referéncias nomenadas <code>$1</code>.',
-	'cite_error_included_ref' => 'Clausura &lt;/ref&gt; omesa per la balisa &lt;ref&gt;',
+	'cite_error_included_ref' => 'Clausura <code>&lt;/ref&gt;</code> omesa per la balisa <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís, mas cap de balisa <code>&lt;references/&gt;</code> pas trobada.',
 	'cite_error_group_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís per un grop nomenat « $1 », mas cap de balisa <code>&lt;references group="$1"/&gt;</code> correspondenta pas trobada',
 	'cite_error_references_group_mismatch' => "La balisa <code>&lt;ref&gt;</code> dins <code>&lt;references&gt;</code> a l'atribut de grop « $1 » que dintra en conflicte amb lo de <code>&lt;references&gt;</code>.",
@@ -2744,7 +2744,7 @@ $messages['or'] = array(
 <nowiki>[[MediaWiki:$2]]</nowiki>ସୂଚନାରେ ଅଧିକ ଚିହ୍ନିତ କରନ୍ତୁ ।',
 	'cite_error_references_no_text' => 'ଅଚଳ <code>&lt;ref&gt;</code> ଚିହ୍ନ;
 <code>$1</code> ନାମରେ ଥିବା ଆଧାର ଭିତରେ କିଛି ଲେଖା ନାହିଁ ।',
-	'cite_error_included_ref' => '&lt;/ref&gt କୁ ବନ୍ଦ କରୁଅଛୁ; &lt;ref&gt ନାହିଁ; ଚିହ୍ନ',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> କୁ ବନ୍ଦ କରୁଅଛୁ; <code>&lt;ref&gt;</code> ନାହିଁ; ଚିହ୍ନ',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ଚିହ୍ନ ରହିଅଛି, କିନ୍ତୁ <code>&lt;references/&gt;</code> ଚିହ୍ନଟି ମିଳିଲା ନାହିଁ',
 	'cite_error_group_refs_without_references' => '"$1" ଗୋଠ ପାଇଁ <code>&lt;ref&gt;</code> ଚିହ୍ନ ସବୁ ରହିଅଛି, କିନ୍ତୁ କୌଣସି ବି <code>&lt;references group="$1"/&gt;</code> ଚିହ୍ନ ମିଳିଲା ନାହିଁ',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt ରେ <code>&lt;ref&gt;</code> ଚିହ୍ନ;</code> ର ଅସୁବିଧାଜନକ ଗୋଠ ବିଶେଷତା "$1" ।',
@@ -2786,7 +2786,7 @@ Zadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many f
 	'cite_error_no_link_label_group' => 'Zabrakło niestandardowych etykiet linków dla grupy „$1“.
 Zdefiniuj ich większą liczbę w komunikacie <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Błąd w składni elementu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
-	'cite_error_included_ref' => 'Brak znacznika zamykającego &lt;/ref&gt; po otwartym znaczniku &lt;ref&gt;',
+	'cite_error_included_ref' => 'Brak znacznika zamykającego <code>&lt;/ref&gt;</code> po otwartym znaczniku <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code>, ale nie odnaleziono znacznika <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code> dla grupy o nazwie „$1”, ale nie odnaleziono odpowiedniego znacznika <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Znacznik <code>&lt;ref&gt;</code> w <code>&lt;references&gt;</code> nie może mieć atrybutu grupy „$1”.',
@@ -2830,7 +2830,7 @@ Definiss-ne ëd pì ant ël messagi <nowiki>[[MediaWiki:Cite references link man
 Definissne ëd pi ant ël mëssagi <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Tichëtta <code>&lt;ref&gt;</code> pa bon-a;
 pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
-	'cite_error_included_ref' => '&lt;/ref&gt; sarà mancant për la tichëtta &lt;ref&gt;',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> sarà mancant për la tichëtta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "la tichëtta <code>&lt;ref&gt;</code> a esist, ma gnun-a tichëtta <code>&lt;references/&gt;</code> a l'é stàita trovà",
 	'cite_error_group_refs_without_references' => 'Dle tichëtte <code>&lt;ref&gt;</code> a esisto për na partìa ciamà "$1", ma gnun-a tichëtta corëspondenta <code>&lt;references group="$1"/&gt;</code> a l\'é stàita trovà',
 	'cite_error_references_group_mismatch' => 'La tichëtta <code>&lt;ref&gt;</code> an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" an conflit.',
@@ -2919,7 +2919,7 @@ Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format bac
 	'cite_error_no_link_label_group' => 'Esgotamento das legendas personalizadas para links, no grupo "$1".
 Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as refs chamadas <code>$1</code>',
-	'cite_error_included_ref' => '&lt;/ref&gt; de fecho em falta, para o elemento &lt;ref&gt;',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> de fecho em falta, para o elemento <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'existem tags <code>&lt;ref&gt;</code>, mas nenhuma tag <code>&lt;references/&gt;</code> foi encontrada',
 	'cite_error_group_refs_without_references' => 'existem tags <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma tag <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada',
 	'cite_error_references_group_mismatch' => 'O elemento <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> tem o atributo de grupo "$1", que está em conflito com o de <code>&lt;references&gt;</code>.',
@@ -2964,7 +2964,7 @@ Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format bac
 Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Marca <code>&lt;ref&gt;</code> inválida; 
 não foi fornecido texto para as refs chamadas <code>$1</code>',
-	'cite_error_included_ref' => '&lt;/ref&gt; de fechamento ausente para para a marca &lt;ref&gt;',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> de fechamento ausente para para a marca <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code>, mas nenhuma marca <code>&lt;references/&gt;</code> foi encontrada',
 	'cite_error_group_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma marca <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada',
 	'cite_error_references_group_mismatch' => 'marca <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> tem o atributo grupo "$1" conflitante.',
@@ -3003,7 +3003,7 @@ ama kuskanachina tupuchu kachun. <code>&lt;references /&gt;</code> unanchachata 
 Astawan sut'ichay <nowiki>[[MediaWiki:Cite references link many format backlink labels|Pukyumanta willaykuna achka allichana kutimuy t'inki unanchakunata t'inkin]]</nowiki> nisqa willaypi",
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> unanchachaqa manam allinchu;
 <code>$1</code> nisqapaq pukyu qillqa manam kanchu',
-	'cite_error_included_ref' => "Kichaq &lt;ref&gt; unanchachapaq wichq'aq &lt;/ref&gt; unanchachaqa manam kanchu",
+	'cite_error_included_ref' => "Kichaq <code>&lt;ref&gt;</code> unanchachapaq wichq'aq <code>&lt;/ref&gt;</code> unanchachaqa manam kanchu",
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> unanchacham kachkan, ichataq manam <code>&lt;references/&gt;</code> unanchachachu',
 	'cite_error_group_refs_without_references' => '"$1" sutiyuq huñupaq <code>&lt;ref&gt;</code> unanchacham kachkan, ichataq manam chay huñupaq qillqasqa <code>&lt;references/&gt;</code> unanchachachu',
 );
@@ -3040,7 +3040,7 @@ doar parametrul „grup” este permis.
 Folosește eticheta <code>&lt;references /&gt;</code>, sau <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => 'Etichetă <code>&lt;ref&gt;</code> invalidă;
 niciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>',
-	'cite_error_included_ref' => 'Adaugă &lt;/ref&gt; eticheta a fost deschisă prin &lt;ref&gt;',
+	'cite_error_included_ref' => 'Eticheta de închidere <code>&lt;/ref&gt;</code> lipsește pentru eticheta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Etichete <code>&lt;ref&gt;</code> există, dar nu s-a găsit nicio etichetă <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Etichete <code>&lt;ref&gt;</code> există pentru un grup numit „$1”, dar nu și o etichetă <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Eticheta <code>&lt;ref&gt;</code> din <code>&lt;references&gt;</code> are atributul de grup „$1” care a intrat în conflict.',
@@ -3079,7 +3079,7 @@ sulamende \'u parametre "group" pò essere ausate.
 Ause <code>&lt;references /&gt;</code> o <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> invalide;
 nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
-	'cite_error_included_ref' => "Stè 'u tag &lt;/ref&gt; ma manghe &lt;ref&gt;",
+	'cite_error_included_ref' => "Stè 'u tag <code>&lt;/ref&gt;</code> ma manghe <code>&lt;ref&gt;</code>",
 	'cite_error_refs_without_references' => "'u tag <code>&lt;ref&gt;</code> esiste, ma non g'esiste 'u tag <code>&lt;references/&gt;</code>",
 	'cite_error_group_refs_without_references' => '\'U tag <code>&lt;ref&gt;</code> esiste pu gruppe nomenate "$1", ma non ge corresponne a \'u tag acchiate <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => "'U tag <code>&lt;ref&gt;</code> tag jndr'à <code>&lt;references&gt;</code> tène conflitte cu l'attribbute d'u gruppe \"\$1\".",
@@ -3127,7 +3127,7 @@ $messages['ru'] = array(
 	'cite_error_no_link_label_group' => 'Закончились отметки пользовательских ссылок для группы «$1».
 Определите дополнительные в сообщении <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст',
-	'cite_error_included_ref' => 'Отсутствует закрывающий тег &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Отсутствует закрывающий тег <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Для существующего тега <code>&lt;ref&gt;</code> не найдено соответствующего тега <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Для существующих тегов <code>&lt;ref&gt;</code> группы «$1» не найдено соответствующего тега <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> имеет конфликтующие группы атрибутов «$1».',
@@ -3170,7 +3170,7 @@ $messages['rue'] = array(
 	'cite_error_no_link_label_group' => 'Дішли дефінованы значкы про ґрупу „$1“.
 Звыште їх чісло у повідомлїню <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Хыба в таґу <code>&lt;ref&gt;</code>; цітації означеной <code>$1</code> не є доданый жаден текст',
-	'cite_error_included_ref' => 'Хыбить закінчіня &lt;/ref&gt; k&nbsp;таґу &lt;ref&gt;',
+	'cite_error_included_ref' => 'Хыбить закінчіня <code>&lt;/ref&gt;</code> k&nbsp;таґу <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Найджена значка <code>&lt;ref&gt;</code> без одповідной значкы <code>&lt;references/&gt;</code>.',
 	'cite_error_group_refs_without_references' => 'Найджена значка <code>&lt;ref&gt;</code> про ґрупу „$1“ без одповідной значкы <code>&lt;references group="$1"/&gt;</code>.',
 	'cite_error_references_group_mismatch' => 'Значка <code>&lt;ref&gt;</code> внутрї <code>&lt;references&gt;</code> має дефіновану іншу ґрупу „$1“.',
@@ -3212,7 +3212,7 @@ Adds<nowiki><ref[ name=id]></nowiki> तथा<nowiki><references/></nowiki> उ
 <nowiki>[[MediaWiki:$2]]</nowiki> सन्देशे अधिकं निर्वचनं दीयताम् ।',
 	'cite_error_references_no_text' => 'अमान्या <code>&lt;ref&gt;</code> शृङ्खला;
 <code>$1</code> इत्यस्य आधारः अज्ञातः',
-	'cite_error_included_ref' => 'समाप्तिः &lt;/ref&gt; &lt;ref&gt; शृङ्खला लुप्ता',
+	'cite_error_included_ref' => 'समाप्तिः <code>&lt;/ref&gt;</code> <code>&lt;ref&gt;</code> शृङ्खला लुप्ता',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>शृङ्खला विद्यते, किन्तु <code>&lt;references/&gt;</code> शृङ्खला न प्राप्ता',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> "$1" नामकस्य गणस्य अङ्कनं विद्यते, कीन्तु किमपि अनुरूपं <code>&lt;references group="$1"/&gt;</code> अङ्कनं न प्राप्तम्',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> टैग इन <code>&lt;references&gt;</code>सङ्घर्षगणलक्षणं "$1" विद्यते ।',
@@ -3245,7 +3245,7 @@ $messages['sah'] = array(
 Эбии манна <nowiki>[[MediaWiki:$2]]</nowiki> оҥор.',
 	'cite_error_references_no_text' => 'Сыыһа <code>&lt;ref&gt;</code> тиэк (тег);
 <code>$1</code> диэн хос быһаарыыларга аналлаах тиэкис суох',
-	'cite_error_included_ref' => '&lt;/ref&gt; диэн сабар тиэк суох эбит',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> диэн сабар тиэк суох эбит',
 	'cite_error_refs_without_references' => 'Баар <code>&lt;ref&gt;</code> тиэккэ сөп түбэһэр <code>&lt;references/&gt;</code> тиэк көстүбэтэ',
 	'cite_error_group_refs_without_references' => '"$1" бөлөх <code>&lt;ref&gt;</code> тиэгигэр сөп түбэһэр <code>&lt;references group="$1"/&gt;</code> тиэк көстүбэтэ',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> туттуллар <code>&lt;ref&gt;</code> тиэк бэйэ бэйэлэрин кытта сөпсөспөт "$1" атрибуттаах бөлөхтөрдөөх',
@@ -3275,7 +3275,7 @@ sulu lu paràmitru "group" è pirmittutu.
 Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Etichetti di rimannata pirsunalizzati finuti, aumintari lu nùmmiru ntô missàggiu <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_references_no_text' => 'Marcaturi <code>&lt;ref&gt;</code> non vàlidu; non vinni nnicatu nuddu testu pô marcaturi <code>$1</code>',
-	'cite_error_included_ref' => '&lt;/ref&gt; di chiusura mancanti pô marcaturi &lt;ref&gt;',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> di chiusura mancanti pô marcaturi <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Sù prisenti dê marcatura <code>&lt;ref&gt;</code> ma nun fu attruvatu nissunu marcaturi <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Sù prisenti dê marcatura <code>&lt;ref&gt;</code> pi nu gruppu chiamatu "$1" ma nun fu truvatu nissunu marcaturi <code>&lt;references group="$1"/&gt;</code> currispunnenti',
 	'cite_error_references_group_mismatch' => 'Lu tag <code>&lt;ref&gt;</code> n <code>&lt;references&gt;</code> havi attribuiutu lu gruppu "$1" n conflittu.',
@@ -3322,7 +3322,7 @@ $messages['si'] = array(
 <nowiki>[[MediaWiki:$2]]</nowiki> පණිවුඩයේ තවත් වැඩිපුර සඳහන් කරන්න.',
 	'cite_error_references_no_text' => 'අනීතික <code>&lt;ref&gt;</code> ටැගය;
 <code>$1</code> නමැති ආශ්‍රේයන් සඳහා කිසිදු පෙළක් සපයා නොතිබුණි',
-	'cite_error_included_ref' => '&lt;ref&gt; ටැගය සොයාගත නොහැකි බැවින් &lt;/ref&gt; වසා දමමින්',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ටැගය සොයාගත නොහැකි බැවින් <code>&lt;/ref&gt;</code> වසා දමමින්',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ටැග පැවතුණත්, <code>&lt;references/&gt;</code> ටැග සොයාගත නොහැකි විය.',
 	'cite_error_group_refs_without_references' => '"$1" නම් කණ්ඩායම සඳහා <code>&lt;ref&gt;</code> ටැග පැවතුණත්, ඊට අදාළ <code>&lt;references group="$1"/&gt;</code> ටැග සොයාගත නොහැකි විය.',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> හි <code>&lt;ref&gt;</code> නම් ටැගය "$1" යන පරස්පර සමූහ ගුණාංග දරයි.',
@@ -3357,7 +3357,7 @@ Použite <code>&lt;references /&gt;</code> alebo <code>&lt;references group="...
 	'cite_error_no_link_label_group' => 'Vyčerpané prispôsobené označenia odkazov pre skupinu „$1“.
 Definujte ďalšie v správe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Neplatná značka <code>&lt;ref&gt;</code>; nebol zadaný text pre referencie s názvom <code>$1</code>',
-	'cite_error_included_ref' => 'Chýba zakončenie značky &lt;ref&gt; (&lt;/ref&gt;)',
+	'cite_error_included_ref' => 'Chýba zakončenie značky <code>&lt;ref&gt;</code> (<code>&lt;/ref&gt;</code>)',
 	'cite_error_refs_without_references' => 'Značky <code>&lt;ref&gt;</code> sú prítomné, ale nebola nájdená žiadna značka <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Značky <code>&lt;ref&gt;</code> pre skupinu „$1“ sú prítomné, ale nebola nájdená zodpovedajúca značka  <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Značka <code>&lt;ref&gt;</code> v <code>&lt;references&gt;</code> má konfliktný atribút skupiny „$1“.',
@@ -3400,7 +3400,7 @@ Določite jih več v sporočilu <nowiki>[[MediaWiki:Cite references link many fo
 Določite jih več v sporočilu <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Neveljavna oznaka <code>&lt;ref&gt;</code>;
 sklici imenovani <code>$1</code> nimajo določenega besedila',
-	'cite_error_included_ref' => 'Zaključek &lt;/ref&gt; manjka za etiketo &lt;ref&gt;',
+	'cite_error_included_ref' => 'Zaključek <code>&lt;/ref&gt;</code> manjka za etiketo <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Etiketa <code>&lt;ref&gt;</code> obstaja, vendar etiketa <code>&lt;references/&gt;</code> ni bila najdena',
 	'cite_error_group_refs_without_references' => 'Etiketa <code>&lt;ref&gt;</code> obstaja za skupino imenovano »$1«, vendar ustrezna etiketa <code>&lt;references group="$1"/&gt;</code> ni bila najdena',
 	'cite_error_references_group_mismatch' => 'Oznaka <code>&lt;ref&gt;</code> v <code>&lt;references&gt;</code> ima atribut nasprotujoče si skupine »$1«.',
@@ -3447,7 +3447,7 @@ Percaktoni më shumë në <nowiki>[[MediaWiki:Cite references link many format b
 Percaktoni më shumë në <nowiki> [[MediaWiki:$2]] </nowiki> mesazh.',
 	'cite_error_references_no_text' => 'Etiketë <code>&lt;ref&gt;</code> e pavlefshme;
 asnjë tekst nuk u dha për refs e quajtura <code>$1</code>',
-	'cite_error_included_ref' => 'Duke mbyllur &lt;/ref&gt; mungon për etiketën &lt;ref&gt;',
+	'cite_error_included_ref' => 'Duke mbyllur <code>&lt;/ref&gt;</code> mungon për etiketën <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Etiketat <code>&lt;ref&gt;</code> ekzistojnë, por nuk u gjet etiketa <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Etiketat <code>&lt;ref&gt;</code> ekzistojnë për një grup të quajtur "$1", por nuk u gjet etiketa korresponduese <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tag in <code>&lt;references&gt;</code> has conflicting group attribute "$1".',
@@ -3476,7 +3476,7 @@ $messages['sr-ec'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Лоша ознака <code>&lt;references&gt;</code>; само је парамтера "group" дозвољен. Користи <code>&lt;references /&gt;</code> или <code>&lt;references group="..."&gt;</code>.',
 	'cite_error_references_no_backlink_label' => 'Нестале су посебне ознаке за задње везе. Одреди их више у поруци <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => 'Лоша ознака <code>&lt;ref&gt;</code>; нема текста за ref-ове под именом <code>$1</code>.',
-	'cite_error_included_ref' => 'Затвара &lt;/ref&gt; који недостаје &lt;ref&gt; тагу',
+	'cite_error_included_ref' => 'Затвара <code>&lt;/ref&gt;</code> који недостаје <code>&lt;ref&gt;</code> тагу',
 	'cite_error_refs_without_references' => 'Чланак има ознаке <code>&lt;ref&gt;</code>, али није пронађена потребна ознака <code>&#123;&#123;наводи&#125;&#125;</code> (или <code>&lt;references/&gt;</code>)',
 	'cite_error_group_refs_without_references' => 'Постоје ознаке <code>&lt;ref&gt;</code> за групу с именом „$1“, али нема одговарајуће ознаке <code>&lt;references group="$1"/&gt;</code>',
 	'cite_reference_link_key_with_num' => '$1_$2',
@@ -3508,7 +3508,7 @@ $messages['sr-el'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Loša oznaka <code>&amp;lt;references&amp;gt;</code>; samo je paramtera &quot;group&quot; dozvoljen. Koristi <code>&amp;lt;references /&amp;gt;</code> ili <code>&amp;lt;references group=&quot;...&quot;&amp;gt;</code>.',
 	'cite_error_references_no_backlink_label' => 'Nestale su posebne oznake za zadnje veze. Odredi ih više u poruci <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_references_no_text' => 'Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; nema teksta za ref-ove pod imenom <code>$1</code>.',
-	'cite_error_included_ref' => 'Zatvara &amp;lt;/ref&amp;gt; koji nedostaje &amp;lt;ref&amp;gt; tagu',
+	'cite_error_included_ref' => 'Zatvara <code>&lt;/ref&gt;</code> koji nedostaje <code>&lt;ref&gt;</code> tagu',
 	'cite_error_refs_without_references' => '<code>&amp;lt;ref&amp;gt;</code> tag postoji, ali odgovarajući <code>&amp;lt;references/&amp;gt;</code> tag nije nađen',
 	'cite_error_group_refs_without_references' => '<code><ref></code> tagovi postoje za grupu pod imenom "$1", ali nije nađen odgovarajući <code><references group="$1"/></code> tag',
 	'cite_reference_link_key_with_num' => '$1_$2',
@@ -3538,7 +3538,7 @@ $messages['stq'] = array(
 	'cite_error_references_invalid_parameters_group' => 'Ungultige <code>&lt;references&gt;</code>-Ferweendenge: Bloot die Parameter „group“ is ferlööwed, ferweend <tt>&lt;references /&gt;</tt> of <tt>&lt;references group="..." /&gt;</tt>',
 	'cite_error_references_no_backlink_label' => 'Ne Referenz fon ju Foarm <code><nowiki><ref name="..."/></nowiki></code> wäd oafter benutsed as Bouksteeuwen deer sunt. N Administrator mout <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> uum wiedere Bouksteeuwen/Teekene ferfulständigje.',
 	'cite_error_references_no_text' => 'Uungultigen <code>&lt;ref&gt;</code>-Tag; der wuude naan Text foar dät Ref mäd dän Noome <code>$1</code> anroat.',
-	'cite_error_included_ref' => 'Der failt n sluutend &lt;/ref&gt;',
+	'cite_error_included_ref' => 'Der failt n sluutend <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existierje, daach neen <code>&lt;references/&gt;</code>-Tag wuud fuunen.',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags existierje foar ju Gruppe „$1“, man neen deertou heerend <code>&lt;references group=„$1“/&gt;</code>-Tag wuud fuunen',
 	'cite_error_references_group_mismatch' => 'Dät <code>&lt;ref&gt;</code>-Tag in <code>&lt;references&gt;</code> häd dät Konfliktgruppenattribut „$1“.',
@@ -3582,7 +3582,7 @@ Använd <code>&lt;references /&gt;</code>, eller <code>&lt;references group="...
 	'cite_error_no_link_label_group' => 'Anpassade länketiketter för gruppen "$1" tog slut.
 Definera fler i <nowiki>[[MediaWiki:$2]]</nowiki>-meddelandet.',
 	'cite_error_references_no_text' => 'Ogiltig <code>&lt;ref&gt;</code>-tag; ingen text har angivits för referensen med namnet <code>$1</code>',
-	'cite_error_included_ref' => 'Avslutande &lt;/ref&gt; saknas för &lt;ref&gt;-tagg',
+	'cite_error_included_ref' => 'Avslutande <code>&lt;/ref&gt;</code> saknas för <code>&lt;ref&gt;</code>-tagg',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-taggar finns, men ingen <code>&lt;references/&gt;</code>-tagg hittades',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-taggar finns för gruppnamnet "$1", men ingen motsvarande <code>&lt;references group="$1"/&gt;</code>-tagg hittades',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-tagg i <code>&lt;references&gt;</code> har ett motstridigt group-attribut "$1".',
@@ -3702,7 +3702,7 @@ hiç hili parametre rugsat berilmeýär.
 <code>&lt;references /&gt;</code> ulanyň',
 	'cite_error_references_no_text' => 'Nädogry <code>&lt;ref&gt;</code> tegi;
 <code>$1</code> atly refler üçin tekst görkezilmändir',
-	'cite_error_included_ref' => '&lt;ref&gt; tegi üçin &lt;/ref&gt; ýapylyşy kem',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> tegi üçin <code>&lt;/ref&gt;</code> ýapylyşy kem',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> tegleri bar, emma <code>&lt;references/&gt;</code> tegi tapylmady',
 	'cite_error_group_refs_without_references' => '"$1" atly topar üçin <code>&lt;ref&gt;</code> tegleri bar, emma degişli code>&lt;references group="$1"/&gt;</code> tegi tapylmady',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-daky <code>&lt;ref&gt;</code> teginiň çaknyşýan "$1" topar aýratynlygy bar.',
@@ -3745,7 +3745,7 @@ Dagdagan pa ng pakahulugan sa loob ng mensaheng <nowiki>[[MediaWiki:Cite referen
 Magbigay ng marami pang kahulugan sa loob ng mensaheng <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;
 walang tekstong ibinigay para sa mga sangguniang (''ref'') pinangalanang <code>$1</code>",
-	'cite_error_included_ref' => 'Naawawala ang pansarang &lt;/ref&gt; na para sa tatak na &lt;ref&gt;',
+	'cite_error_included_ref' => 'Naawawala ang pansarang <code>&lt;/ref&gt;</code> na para sa tatak na <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Umiiral na ang mga tatak na <code>&lt;ref&gt;</code>, subalit walang natagpuang tatak na <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Umiiral na ang tatak na <code>&lt;ref&gt;</code> para sa pangkat na pinangalanang "$1", subalit walang natagpuang katumbas na tatak na <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'May hindi nagbabanggaang katangiang pampangkat na "$1" ang <code>&lt;ref&gt;</code> tatak na nasa <code>&lt;references&gt;</code>.',
@@ -3809,7 +3809,7 @@ sadece "group" parametresine izin verilir.
 <nowiki>[[MediaWiki:$2]]</nowiki> mesajında daha fazla tanımlayın.',
 	'cite_error_references_no_text' => 'Geçersiz <code>&lt;ref&gt;</code> etiketi;
 <code>$1</code> isimli refler için metin temin edilmemiş',
-	'cite_error_included_ref' => '&lt;ref&gt; etiketi için &lt;/ref&gt; kapanışı eksik',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> etiketi için <code>&lt;/ref&gt;</code> kapanışı eksik',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> etiketleri var, ama <code>&lt;references/&gt;</code> etiketi bulunamadı',
 	'cite_error_group_refs_without_references' => '"$1" isimli grup için <code>&lt;ref&gt;</code> etiketleri mevcut, ancak karşılık gelen <code>&lt;references group="$1"/&gt;</code> etiketi bulunamadı',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>\'daki <code>&lt;ref&gt;</code> etiketinin çelişen "$1" grup özniteliği var.',
@@ -3861,7 +3861,7 @@ $messages['uk'] = array(
 Визначте додаткові в повідомленні <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Неправильний виклик <code>&lt;ref&gt;</code>:
 для виносок <code>$1</code> не вказаний текст',
-	'cite_error_included_ref' => 'Відсутній тег &lt;/ref&gt; за наявності тега &lt;ref&gt;',
+	'cite_error_included_ref' => 'Відсутній тег <code>&lt;/ref&gt;</code> за наявності тега <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "<span style='color: red'>Для існуючого тегу <code>&lt;ref&gt;</code> не знайдено відповідного тегу <code>&lt;references/&gt;</code></span>",
 	'cite_error_group_refs_without_references' => 'Для існуючих тегів <code>&lt;ref&gt;</code> групи під назвою "$1" не знайдено відповідного тегу <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> має конфліктуючий атрибут групи "$1".',
@@ -3902,7 +3902,7 @@ Dòpara <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&
 	'cite_error_references_no_backlink_label' => 'Etichete de rimando personalizàe esaurìe, auménteghen el nùmaro nel messagio <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_no_link_label_group' => 'Etichete esaurìe par colegamenti personalizà del grupo "$1", aumentarne el numaro nel messajo <nowiki>[[MediaWiki:$2]]</nowiki>',
 	'cite_error_references_no_text' => 'Marcator <code>&lt;ref&gt;</code> mìa valido; no xe stà indicà nissun testo par el marcator <code>$1</code>',
-	'cite_error_included_ref' => '&lt;/ref&gt; de chiusura mancante par el marcador &lt;ref&gt;',
+	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> de chiusura mancante par el marcador <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Ghe xe un tag <code>&lt;ref&gt;</code>, ma no xe stà catà nissun tag <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Ghe xe un tag <code>&lt;ref&gt;</code> par un grupo che se ciama "$1", ma no xe stà catà nissun tag <code>&lt;references group="$1"/&gt;</code> che corisponda.',
 	'cite_error_references_group_mismatch' => 'El tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> el gà l\'atributo de grupo "$1" in conflito.',
@@ -3941,7 +3941,7 @@ Hãy dùng <code>&lt;references /&gt;</code>, hoặc <code>&lt;references group=
 Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
 	'cite_error_no_link_label_group' => 'Thiếu nhãn liên kết tùy biến cho nhóm “$1”. Hãy định rõ thêm nhãn trong thông báo <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
-	'cite_error_included_ref' => 'Không có &lt;/ref&gt; để đóng thẻ &lt;ref&gt;',
+	'cite_error_included_ref' => 'Không có <code>&lt;/ref&gt;</code> để đóng thẻ <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code>, nhưng không tìm thấy thẻ <code>&lt;references/&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code> với tên nhóm “$1”, nhưng không tìm thấy thẻ <code>&lt;references group="$1"/&gt;</code> tương ứng',
 	'cite_error_references_group_mismatch' => 'Thẻ <code>&lt;ref&gt;</code> trong <code>&lt;references&gt;</code> có thuộc tính nhóm mâu thuẫn “$1”.',
@@ -3987,7 +3987,7 @@ $messages['yi'] = array(
 קיין פאראמעטערס נישט ערלויבט. ניצט <code>&lt;references /&gt;</code>',
 	'cite_error_references_no_text' => 'אומגילטיגער <code>&lt;ref&gt;</code> טאַג;
 קיין טעקסט נישט געשריבן פֿאַר רעפֿערענצן מיטן נאָמען <code>$1</code>',
-	'cite_error_included_ref' => 'פֿעלט א שליסנדיגער &lt;/ref&gt; פֿאַר &lt;ref&gt; טאַג',
+	'cite_error_included_ref' => 'פֿעלט א שליסנדיגער <code>&lt;/ref&gt;</code> פֿאַר <code>&lt;ref&gt;</code> טאַג',
 	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&lt;references/&gt;</code> טאַג.",
 	'cite_error_group_refs_without_references' => 'ס\'זענען דא <code>&lt;ref&gt;</code> טאַגן פֿאַר א גרופע וואס הייסט "$1", אבער מ\'האט נישט געטראפֿן קיין אַנטקעגענעם  <code>&lt;references group="$1"/&gt;</code> טאַג.',
 	'cite_error_references_group_mismatch' => 'דער <code>&lt;ref&gt;</code> טאג אין <code>&lt;references&gt;</code> האט א גרופע אייגנקייט וואס איז סותר "$1".',
@@ -4038,7 +4038,7 @@ $messages['zh-hans'] = array(
 	'cite_error_references_no_backlink_label' => '自定义回链标签耗尽，请在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定义更多的标签。',
 	'cite_error_no_link_label_group' => '组“$1”的自定义链接标签耗尽，请在<nowiki>[[MediaWiki:$2]]</nowiki>中定义更多的标签。',
 	'cite_error_references_no_text' => '无效<code>&lt;ref&gt;</code>标签；未为name属性为<code>$1</code>的引用提供文字',
-	'cite_error_included_ref' => '没有找到与&lt;/ref&gt;对应的&lt;ref&gt;标签',
+	'cite_error_included_ref' => '没有找到与<code>&lt;/ref&gt;</code>对应的<code>&lt;ref&gt;</code>标签',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>标签存在，但没有找到<code>&lt;references/&gt;</code>标签',
 	'cite_error_group_refs_without_references' => '组名为“$1”的<code>&lt;ref&gt;</code>标签存在，但没有找到相应的<code>&lt;references group="$1"/&gt;</code>标签',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>的<code>&lt;ref&gt;</code>标记带有冲突的组（group）属性“$1”。',
@@ -4068,7 +4068,7 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_backlink_label' => '自訂回連標籤耗盡。請在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定義更多的標籤',
 	'cite_error_no_link_label_group' => '群組「$1」的自訂標籤標籤耗盡，請在<nowiki>[[MediaWiki:$2]]</nowiki>中定義更多的標籤。',
 	'cite_error_references_no_text' => '無效<code>&lt;ref&gt;</code>標籤；未為name屬性為<code>$1</code>的引用提供文字',
-	'cite_error_included_ref' => '沒有找到與&lt;/ref&gt;對應的&lt;ref&gt;標籤',
+	'cite_error_included_ref' => '沒有找到與<code>&lt;/ref&gt;</code>對應的<code>&lt;ref&gt;</code>標籤',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>標籤存在，但沒有找到<code>&lt;references/&gt;</code>標籤',
 	'cite_error_group_refs_without_references' => '組名為「$1」的<code>&lt;ref&gt;</code>標籤存在，但沒有找到相應的<code>&lt;references group="$1"/&gt;</code>標籤',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>的<code>&lt;ref&gt;</code>標記帶有衝突的群組（group）屬性「$1」。',

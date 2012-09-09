@@ -1964,7 +1964,7 @@ $str と $key の両方または一方が無効。
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。',
 	'cite_error_no_link_label_group' => 'グループ「$1」用のカスタム リンク ラベルを使い果たしました。<nowiki>[[MediaWiki:$2]]</nowiki> メッセージを編集してラベルの定義を増やしてください。',
 	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグ。「<code>$1</code>」という名前の引用句に対するテキストがありません',
-	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> タグに対応する <code>&lt;/ref&gt;</code> が不足しています',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> タグに対応する <code>&lt;/ref&gt;</code> タグが不足しています',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> タグがありますが、<code>&lt;references/&gt;</code> タグが見つかりません',
 	'cite_error_group_refs_without_references' => '「$1」というグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つかりません',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> の<code>&lt;ref&gt;</code> タグに重複するグループ用引数 "$1" が使用されています。',

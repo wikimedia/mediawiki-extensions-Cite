@@ -2830,7 +2830,7 @@ Definiss-ne ëd pì ant ël messagi <nowiki>[[MediaWiki:Cite references link man
 Definissne ëd pi ant ël mëssagi <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => "Tichëtta <code>&lt;ref&gt;</code> pa bon-a;
 pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
-	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> sarà mancant për la tichëtta <code>&lt;ref&gt;</code>',
+	'cite_error_included_ref' => 'Saradura <code>&lt;/ref&gt;</code> mancanta për la tichëtta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "la tichëtta <code>&lt;ref&gt;</code> a esist, ma gnun-a tichëtta <code>&lt;references/&gt;</code> a l'é stàita trovà",
 	'cite_error_group_refs_without_references' => 'Dle tichëtte <code>&lt;ref&gt;</code> a esisto për na partìa ciamà "$1", ma gnun-a tichëtta corëspondenta <code>&lt;references group="$1"/&gt;</code> a l\'é stàita trovà',
 	'cite_error_references_group_mismatch' => 'La tichëtta <code>&lt;ref&gt;</code> an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" an conflit.',

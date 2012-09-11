@@ -2026,7 +2026,7 @@ Tambahna ing pesenan sistém <nowiki>[[MediaWiki:Cite references link many forma
 Tambahaké katemton nèng layang <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> ora absah; 
 ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
-	'cite_error_included_ref' => 'Tag <code>&lt;ref&gt;</code> kudu ditutup déning <code>&lt;/ref&gt;</code>',
+	'cite_error_included_ref' => 'Panutupan <code>&lt;/ref&gt;</code> kélangan tag <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemokaké, nanging tag <code>&lt;references/&gt;</code> ora ditemokaké',
 	'cite_error_group_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemokaké kanggo paguyuban ajeneng "$1", nanging tag <code>&lt;references group="$1"/&gt;</code> sing ana kaitané ora ditemokaké',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tandha <code>&lt;references&gt;</code> nduwèni atribut klompok sing marai konflik "$1".',

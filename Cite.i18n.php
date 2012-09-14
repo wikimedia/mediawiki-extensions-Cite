@@ -1578,14 +1578,15 @@ $messages['hi'] = array(
 /** Croatian (hrvatski)
  * @author Dalibor Bosits
  * @author Dnik
+ * @author Roberta F.
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
 	'cite-desc' => 'Dodaje <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> oznake, za citiranje',
 	'cite_croak' => 'Nevaljan citat; $1: $2',
-	'cite_error_key_str_invalid' => 'Unutrašnja greška: loš $str i/ili $key. Ovo se nikada ne bi smjelo dogoditi.',
-	'cite_error_stack_invalid_input' => 'Unutrašnja greška; loš ključ stacka.  Ovo se nikada ne bi smjelo dogoditi.',
-	'cite_error' => 'Greška u citiranju: $1',
+	'cite_error_key_str_invalid' => 'Unutarnja pogrješka: loš $str i/ili $key. Ovo se nikada ne bi smjelo dogoditi.',
+	'cite_error_stack_invalid_input' => 'Unutarnja pogrješka; loš ključ stacka.  Ovo se nikada ne bi smjelo dogoditi.',
+	'cite_error' => 'Pogrješka u citiranju: $1',
 	'cite_error_ref_numeric_key' => 'Loša <code>&lt;ref&gt;</code> oznaka; naziv ne smije biti jednostavni broj, koristite opisni naziv',
 	'cite_error_ref_no_key' => 'Loša <code>&lt;ref&gt;</code> oznaka; ref-ovi bez sadržaja moraju imati naziv',
 	'cite_error_ref_too_many_keys' => 'Loša <code>&lt;ref&gt;</code> oznaka; loš naziv, npr. previše naziva',

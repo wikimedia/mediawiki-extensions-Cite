@@ -1940,39 +1940,43 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
  * @author Shirayuki
  */
 $messages['ja'] = array(
-	'cite-desc' => '引用のためのタグ<nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
-	'cite_croak' => '引用タグ機能の重大なエラー。$1: $2',
-	'cite_error_key_str_invalid' => '内部エラー：
-$str と $key の両方または一方が無効。
+	'cite-desc' => '引用のためのタグ <nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
+	'cite_croak' => '引用機能の重大なエラーです。$1: $2',
+	'cite_error_key_str_invalid' => '内部エラーです。
+$str と $key の両方または一方が無効です。
 これはソフトウェアのバグです。',
-	'cite_error_stack_invalid_input' => '内部エラー。スタックキーが無効。これはソフトウェアのバグです。',
-	'cite_error' => '引用エラー：$1',
-	'cite_error_ref_numeric_key' => '無効な <code>&lt;ref&gt;</code> タグ：
-名前(<code>name</code> 属性)に単なる数値は使用できません。説明的なものにしてください',
-	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグ：
-引用句の内容がない場合には名前(<code>name</code> 属性)が必要です',
-	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグ：
-名前が無効(数が多すぎる、など)',
-	'cite_error_ref_no_input' => '無効な <code>&lt;ref&gt;</code> タグ：
-名前(<code>name</code> 属性)がない場合には引用句の内容が必要です',
-	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグ：
+	'cite_error_stack_invalid_input' => '内部エラーです。
+スタック キーが無効です。
+これはソフトウェアのバグです。',
+	'cite_error' => '引用エラー: $1',
+	'cite_error_ref_numeric_key' => '無効な <code>&lt;ref&gt;</code> タグです。
+名前 (name 属性) に単なる整数は使用できません。説明的なものにしてください',
+	'cite_error_ref_no_key' => '無効な <code>&lt;ref&gt;</code> タグです。
+引用句の内容がない場合は名前 (name 属性) が必要です',
+	'cite_error_ref_too_many_keys' => '無効な <code>&lt;ref&gt;</code> タグです。
+名前 (name 属性) が無効です (数が多すぎる、など)',
+	'cite_error_ref_no_input' => '無効な <code>&lt;ref&gt;</code> タグです。
+名前 (name 属性) がない場合は引用句の内容が必要です',
+	'cite_error_references_invalid_parameters' => '無効な <code>&lt;references&gt;</code> タグです。
 引数は指定できません。
 <code>&lt;references /&gt;</code> を使用してください',
-	'cite_error_references_invalid_parameters_group' => '無効な <code>&lt;references&gt;</code> タグ：
-使用できるパラメータは "group" のみです。
+	'cite_error_references_invalid_parameters_group' => '無効な <code>&lt;references&gt;</code> タグです。
+使用できる引数は「group」のみです。
 <code>&lt;references /&gt;</code> または <code>&lt;references group="..." /&gt;</code> を使用してください',
-	'cite_error_references_no_backlink_label' => 'バックリンクラベルが使用できる個数を超えました。
+	'cite_error_references_no_backlink_label' => 'カスタム バックリンク ラベルを使い果たしました。
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。',
-	'cite_error_no_link_label_group' => 'グループ「$1」用のカスタム リンク ラベルを使い果たしました。<nowiki>[[MediaWiki:$2]]</nowiki> メッセージを編集してラベルの定義を増やしてください。',
-	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグ。「<code>$1</code>」という名前の引用句に対するテキストがありません',
+	'cite_error_no_link_label_group' => 'グループ「$1」用のカスタム リンク ラベルを使い果たしました。
+<nowiki>[[MediaWiki:$2]]</nowiki> メッセージを編集してラベルの定義を増やしてください。',
+	'cite_error_references_no_text' => '無効な <code>&lt;ref&gt;</code> タグです。
+「<code>$1</code>」という名前の引用句に対するテキストが指定されていません',
 	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> タグに対応する <code>&lt;/ref&gt;</code> タグが不足しています',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> タグがありますが、<code>&lt;references/&gt;</code> タグが見つかりません',
-	'cite_error_group_refs_without_references' => '「$1」というグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つかりません',
-	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> の<code>&lt;ref&gt;</code> タグに重複するグループ用引数 "$1" が使用されています。',
-	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグに使用されているグループ用引数 "$1" は先行するテキスト内に使用されていません。',
-	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> で定義されている "name=$1" を持つ <code>&lt;ref&gt;</code> タグは先行するテキスト内で使用されていません。',
-	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグには name 属性がありません。',
-	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> で定義されている "name=$1" を持つ <code>&lt;ref&gt;</code> タグには中身がありません。',
+	'cite_error_group_refs_without_references' => '「$1」という名前のグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つかりません',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> の <code>&lt;ref&gt;</code> タグで、group 属性「$1」が重複しています。',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグに、先行するテキスト内で使用されていない group 属性「$1」があります。',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグ (name="$1") は、先行するテキスト内で使用されていません。',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグに name 属性がありません。',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグ (name="$1") に内容がありません。',
 );
 
 /** Jutish (jysk)

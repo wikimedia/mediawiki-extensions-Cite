@@ -253,7 +253,7 @@ $specialPageAliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $specialPageAliases['nb'] = array(
 	'Cite' => array( 'Siteringshjelp' ),
 );
@@ -273,7 +273,7 @@ $specialPageAliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬) */
+/** Norwegian Nynorsk (norsk (nynorsk)‎) */
 $specialPageAliases['nn'] = array(
 	'Cite' => array( 'Siter' ),
 );
@@ -383,12 +383,12 @@ $specialPageAliases['yue'] = array(
 	'Cite' => array( '引用' ),
 );
 
-/** Simplified Chinese (‪中文（简体）‬) */
+/** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'Cite' => array( '引用' ),
 );
 
-/** Traditional Chinese (‪中文（繁體）‬) */
+/** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
 	'Cite' => array( '引用' ),
 );

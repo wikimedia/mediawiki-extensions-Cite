@@ -3838,6 +3838,7 @@ $messages['tt-cyrl'] = array(
  * @author AS
  * @author Ahonc
  * @author Dim Grits
+ * @author DixonD
  * @author NickK
  * @author Prima klasy4na
  * @author Ytsukeng Fyvaprol
@@ -3869,7 +3870,7 @@ $messages['uk'] = array(
 	'cite_error_references_no_text' => 'Неправильний виклик <code>&lt;ref&gt;</code>:
 для виносок <code>$1</code> не вказаний текст',
 	'cite_error_included_ref' => 'Відсутній тег <code>&lt;/ref&gt;</code> за наявності тега <code>&lt;ref&gt;</code>',
-	'cite_error_refs_without_references' => "<span style='color: red'>Для існуючого тегу <code>&lt;ref&gt;</code> не знайдено відповідного тегу <code>&lt;references/&gt;</code></span>",
+	'cite_error_refs_without_references' => "<span style='color: red'>Для наявного тегу <code>&lt;ref&gt;</code> не знайдено відповідного тегу <code>&lt;references/&gt;</code></span>",
 	'cite_error_group_refs_without_references' => 'Для існуючих тегів <code>&lt;ref&gt;</code> групи під назвою "$1" не знайдено відповідного тегу <code>&lt;references group="$1"/&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> має конфліктуючий атрибут групи "$1".',
 	'cite_error_references_missing_group' => 'Тег <code>&lt;ref&gt;</code>, заданий в <code>&lt;references&gt;</code>, має атрибут групи "$1", який не фігурує в попередньому тексті.',

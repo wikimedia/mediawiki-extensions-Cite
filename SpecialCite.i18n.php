@@ -302,7 +302,7 @@ When using the [[LaTeX]] package url (<code>\\usepackage{url}</code> somewhere i
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Araucanian (mapudungun)
+/** Mapuche (mapudungun)
  * @author Kaniw
  * @author Remember the dot
  */
@@ -1857,7 +1857,7 @@ $messages['gv'] = array(
 	'cite_submit' => 'Symney',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'cite_page' => 'Shafi:',
 );
@@ -2658,7 +2658,7 @@ $messages['ka'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'cite_article_link' => 'بەتتەن دايەكسوز الۋ',
 	'cite' => 'دايەكسوز الۋ',
@@ -2729,7 +2729,7 @@ $messages['kk-arab'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬)
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
  * @author Kaztrans
  */
 $messages['kk-cyrl'] = array(
@@ -2803,7 +2803,7 @@ $messages['kk-cyrl'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'cite_article_link' => 'Betten däýeksoz alw',
 	'cite' => 'Däýeksöz alw',
@@ -3064,7 +3064,7 @@ Wam_mer <code>\\usepackage{url}</code> em Einleidongsberett hät, kam_mer dat he
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  * @author Ghybu
  */
@@ -3680,7 +3680,7 @@ $messages['nan'] = array(
 	'cite_submit' => 'Ín-iōng',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -3869,7 +3869,7 @@ Het volgende kan de voorkeur hebben als de [[LaTeX]]-module \"url\" wordt gebrui
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -4827,7 +4827,7 @@ When using the [[LaTeX]] package url (<code>\\usepackage{url}</code> somewhere i
 </div><!--closing div for \"plainlinks\"-->",
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Millosh
  * @author Rancher
  * @author Sasa Stefanovic
@@ -4843,7 +4843,7 @@ $messages['sr-ec'] = array(
 	'cite_submit' => 'цитат',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Liangent
  * @author Michaello
  * @author Жељко Тодоровић
@@ -5387,7 +5387,7 @@ $messages['yue'] = array(
 	'cite_submit' => '引用',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Hzy980512
  * @author Xiaomingyan
  */
@@ -5461,7 +5461,7 @@ $messages['zh-hans'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Frankou
  * @author Waihorace
  */

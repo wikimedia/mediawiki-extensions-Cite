@@ -492,7 +492,7 @@ $messages['bcc'] = array(
 	'cite_references_link_many_and' => 'و',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
@@ -880,7 +880,15 @@ Ein Administrator muss weitere mit der Systemnachricht <nowiki>[[MediaWiki:$2]]<
 	'cite_error_empty_references_define' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ weist keinen Inhalt auf.',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** Swiss High German (Schweizer Hochdeutsch)
+ * @author Geitost
+ */
+$messages['de-ch'] = array(
+	'cite_error_references_invalid_parameters' => 'Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschliesslich <tt><nowiki><references /></nowiki></tt>.',
+	'cite_error_included_ref' => 'Es fehlt ein schliessendes <code>&lt;/ref&gt;</code>',
+);
+
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Imre
  * @author Kghbln
  * @author Raimond Spekking
@@ -2083,7 +2091,7 @@ $messages['ka'] = array(
 	'cite_error_empty_references_define' => 'ტეგს <code>&lt;ref&gt;</code>, გარკვეულს <code>&lt;references&gt;</code>-ში, სახელით „$1“ არ გააჩნია შინაარსი.',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'cite_croak' => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2',
 	'cite_error_key_str_invalid' => 'ٸشكٸ قاتە; جارامسىز $str',
@@ -2097,7 +2105,7 @@ $messages['kk-arab'] = array(
 	'cite_error_references_no_backlink_label' => 'قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> جٷيە حابارىندا بەلگٸلەڭٸز',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬)
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
  * @author Kaztrans
  */
 $messages['kk-cyrl'] = array(
@@ -2115,7 +2123,7 @@ $messages['kk-cyrl'] = array(
 	'cite_references_link_many' => '<li id="$1"><span class="mw-cite-backlink">↑ $2</span> $3</li>',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'cite_croak' => 'Däýeksöz alw sätsiz bitti; $1: $2',
 	'cite_error_key_str_invalid' => 'İşki qate; jaramsız $str',
@@ -2549,7 +2557,7 @@ l-ebda test ma ngħata għar-refs bl-isem <code>$1</code>',
 	'cite_error_empty_references_define' => 'It-tikketta <code>&lt;ref&gt;</code> definita f\'<code>&lt;references&gt;</code> bl-isem "$1" m\'għandha l-ebda kontenut.',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Audun
  * @author Laaknor
  */
@@ -2656,7 +2664,7 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam "$1" heeft geen inhoud.',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Frokor
  * @author Harald Khan
  * @author Njardarlogar
@@ -3462,7 +3470,7 @@ asnjë tekst nuk u dha për refs e quajtura <code>$1</code>',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> etiketa e përcaktuar në <code>&lt;referenca&gt;</code> me emrin "$1" nuk ka përmbajtje.',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Millosh
  * @author Rancher
  * @author Михајло Анђелковић
@@ -4025,7 +4033,7 @@ $messages['yue'] = array(
 無文字提供於名為<code>$1</code>嘅參照',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Gaoxuewei
  * @author Liangent
  * @author PhiLiP
@@ -4056,7 +4064,7 @@ $messages['zh-hans'] = array(
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>的名称（name）“$1”为空。',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Liangent
  * @author Mark85296341
  * @author Philip

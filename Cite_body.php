@@ -64,15 +64,6 @@ class Cite {
 	var $mGroupCnt = array();
 
 	/**
-	 * Internal counter for anonymous references, separate from
-	 * $mOutCnt because anonymous references won't increment it,
-	 * but will incremement $mOutCnt
-	 *
-	 * @var int
-	 */
-	var $mInCnt = 0;
-
-	/**
 	 * Counter to track the total number of (useful) calls to either the
 	 * ref or references tag hook
 	 */
@@ -400,7 +391,6 @@ class Cite {
 							  'follow' => $follow ) ) );
 				array_splice( $this->mRefCallStack, $k, 0,
 						   array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
-				$this->mInCnt++;
 			}
 			// return an empty string : this is not a reference
 			return '';
@@ -411,7 +401,7 @@ class Cite {
 			$this->mRefs[$group][] = array( 'count' => - 1, 'text' => $str, 'key' => ++$this->mOutCnt );
 			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
 
-			return $this->linkRef( $group, $this->mInCnt++ );
+			return $this->linkRef( $group, $this->mOutCnt );
 		} elseif ( is_string( $key ) ) {
 			// Valid key
 			if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
@@ -424,7 +414,6 @@ class Cite {
 				);
 				$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
 
-				$this->mInCnt++;
 				return
 					$this->linkRef(
 						$group,
@@ -1057,8 +1046,7 @@ class Cite {
 		}
 
 		$this->mGroupCnt = array();
-		$this->mOutCnt = - 1;
-		$this->mInCnt = 0;
+		$this->mOutCnt = 0;
 		$this->mCallCnt = 0;
 		$this->mRefs = array();
 		$this->mReferencesErrors = array();

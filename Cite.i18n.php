@@ -897,8 +897,6 @@ $messages['de-formal'] = array(
 	'cite_error_ref_numeric_key' => 'Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „name“ darf kein reiner Zahlenwert sein. Benutzen Sie einen beschreibenden Namen.',
 	'cite_error_references_invalid_parameters' => 'Ungültige Verwendung von <code>&lt;references&gt;</code>: Es sind keine Parameter möglich. Verwenden Sie ausschließlich <code><nowiki><references /></nowiki></code>.',
 	'cite_error_references_invalid_parameters_group' => 'Ungültige Verwendung von <code>&lt;references&gt;</code>: Nur der Parameter „group“ ist möglich. Verwenden Sie entweder <code>&lt;references /&gt;</code> oder <code>&lt;references group="…" /&gt;</code>.',
-	'cite_error_no_link_label_group' => 'Es sind für Gruppe „$1“ keine benutzerdefinierte Linkbezeichnungen mehr verfügbar.
-Definieren Sie weitere unter Systemtext <nowiki>[[MediaWiki:$2]]</nowiki>.',
 );
 
 /** Zazaki (Zazaki)

@@ -91,6 +91,7 @@ no text was provided for refs named <code>$1</code>',
  * @author Raymond
  * @author Siebrand
  * @author The Evil IP address
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'cite-desc' => '{{desc}}',
@@ -156,19 +157,15 @@ The <code>$1</code> parameter contains the name of the unused reference (in the 
 	'cite_references_link_prefix' => '{{optional}}',
 	'cite_references_link_suffix' => '{{optional}}',
 	'cite_reference_link' => '{{optional}}',
+	'cite_references_no_link' => '{{notranslate}}',
 	'cite_references_link_one' => '{{optional}}',
 	'cite_references_link_many' => '{{optional}}',
 	'cite_references_link_many_format' => '{{optional}}',
 	'cite_references_link_many_format_backlink_labels' => '{{Optional}}',
 	'cite_references_link_many_sep' => '{{optional}}',
 	'cite_references_link_many_and' => '{{optional}}',
-);
-
-/** Tati (Tati)
- * @author Erdemaslancan
- */
-$messages['ttt'] = array(
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
+	'cite_references_prefix' => '{{notranslate}}',
+	'cite_references_suffix' => '{{notranslate}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -487,7 +484,7 @@ $messages['bcc'] = array(
 په نام ارجاع هچ متنی دهگ نه بیته <code>$1</code>',
 	'cite_reference_link_prefix' => 'هل_مرج-',
 	'cite_references_link_prefix' => 'ذکرـیادداشت-',
-	'cite_references_link_many_format_backlink_labels' => 'ا ب پ ت ج چ خ د ر ز س ش غ ف ک ل م ن و ه ی',
+	'cite_references_link_many_format_backlink_labels' => 'ا ب پ ت ج چ خ د ر ز س ش غ ف ک ل م ن و ه ی', # Fuzzy
 	'cite_references_link_many_sep' => 'س',
 	'cite_references_link_many_and' => 'و',
 );
@@ -897,8 +894,6 @@ $messages['de-formal'] = array(
 	'cite_error_ref_numeric_key' => 'Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „name“ darf kein reiner Zahlenwert sein. Benutzen Sie einen beschreibenden Namen.',
 	'cite_error_references_invalid_parameters' => 'Ungültige Verwendung von <code>&lt;references&gt;</code>: Es sind keine Parameter möglich. Verwenden Sie ausschließlich <code><nowiki><references /></nowiki></code>.',
 	'cite_error_references_invalid_parameters_group' => 'Ungültige Verwendung von <code>&lt;references&gt;</code>: Nur der Parameter „group“ ist möglich. Verwenden Sie entweder <code>&lt;references /&gt;</code> oder <code>&lt;references group="…" /&gt;</code>.',
-	'cite_error_no_link_label_group' => 'Es sind für Gruppe „$1“ keine benutzerdefinierte Linkbezeichnungen mehr verfügbar.
-Definieren Sie weitere unter Systemtext <nowiki>[[MediaWiki:$2]]</nowiki>.',
 );
 
 /** Zazaki (Zazaki)
@@ -2000,7 +1995,7 @@ $messages['jut'] = array(
 	'cite_error_ref_too_many_keys' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldege navne, fx før mange',
 	'cite_error_ref_no_input' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden navn skal have indhold',
 	'cite_error_references_invalid_parameters' => 'Ugyldig <code>&lt;references&gt;</code>-tag: Parametre er ikke tilladt, brug i stedet <code>&lt;references /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'For mange <code>&lt;ref&gt;</code>-tags har det samme "name", tillad flere i beskeden <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>',
+	'cite_error_references_no_backlink_label' => 'For mange <code>&lt;ref&gt;</code>-tags har det samme "name", tillad flere i beskeden <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki>', # Fuzzy
 	'cite_error_references_no_text' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
 );
 
@@ -2091,10 +2086,11 @@ $messages['ka'] = array(
 	'cite_error_empty_references_define' => 'ტეგს <code>&lt;ref&gt;</code>, გარკვეულს <code>&lt;references&gt;</code>-ში, სახელით „$1“ არ გააჩნია შინაარსი.',
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'cite_croak' => 'دٵيەكسٶز الۋ سٵتسٸز بٸتتٸ; $1: $2',
-	'cite_error_key_str_invalid' => 'ٸشكٸ قاتە; جارامسىز $str',
+	'cite_error_key_str_invalid' => 'ٸشكٸ قاتە; جارامسىز $str', # Fuzzy
 	'cite_error_stack_invalid_input' => 'ٸشكٸ قاتە; جارامسىز ستەك كٸلتٸ',
 	'cite_error' => 'دٵيەكسٶز الۋ $1 قاتەسٸ',
 	'cite_error_ref_numeric_key' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشەسٸ; اتاۋ كٵدٸمگٸ بٷتٸن سان بولۋى مٷمكٸن ەمەس, سيپپاتاۋىش اتاۋ قولدانىڭىز',
@@ -2102,7 +2098,7 @@ $messages['kk-arab'] = array(
 	'cite_error_ref_too_many_keys' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; جارامسىز اتاۋلار, مىسالى, تىم كٶپ',
 	'cite_error_ref_no_input' => 'جارامسىز <code>&lt;ref&gt;</code> بەلگٸشە; اتاۋسىز تٷسٸنٸكتەمەلەردە ماعلۇماتى بولۋى قاجەت',
 	'cite_error_references_invalid_parameters' => 'جارامسىز <code>&lt;references&gt;</code> بەلگٸشە; ەش باپتار رۇقسات ەتٸلمەيدٸ, بىلاي <code>&lt;references /&gt;</code> قولدانىڭىز',
-	'cite_error_references_no_backlink_label' => 'قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> جٷيە حابارىندا بەلگٸلەڭٸز',
+	'cite_error_references_no_backlink_label' => 'قوسىمشا بەلگٸلەردٸڭ سانى بٸتتٸ, ودان ٵرٸ كٶبٸرەك <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> جٷيە حابارىندا بەلگٸلەڭٸز', # Fuzzy
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
@@ -2110,7 +2106,7 @@ $messages['kk-arab'] = array(
  */
 $messages['kk-cyrl'] = array(
 	'cite_croak' => 'Дәйексөз алу сәтсіз бітті; $1: $2',
-	'cite_error_key_str_invalid' => 'Ішкі қате; жарамсыз $str',
+	'cite_error_key_str_invalid' => 'Ішкі қате; жарамсыз $str', # Fuzzy
 	'cite_error_stack_invalid_input' => 'Ішкі қате; жарамсыз стек кілті',
 	'cite_error' => 'Дәйексөз алу $1 қатесі',
 	'cite_error_ref_numeric_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; атау кәдімгі бүтін сан болуы мүмкін емес, сиппатауыш атау қолданыңыз',
@@ -2118,15 +2114,16 @@ $messages['kk-cyrl'] = array(
 	'cite_error_ref_too_many_keys' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; жарамсыз атаулар, мысалы, тым көп',
 	'cite_error_ref_no_input' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; атаусыз түсініктемелерде мағлұматы болуы қажет',
 	'cite_error_references_invalid_parameters' => 'Жарамсыз <code>&lt;references&gt;</code> белгіше; еш баптар рұқсат етілмейді, былай <code>&lt;references /&gt;</code> қолданыңыз',
-	'cite_error_references_no_backlink_label' => 'Қосымша белгілердің саны бітті, одан әрі көбірек <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> жүйе хабарында белгілеңіз',
+	'cite_error_references_no_backlink_label' => 'Қосымша белгілердің саны бітті, одан әрі көбірек <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> жүйе хабарында белгілеңіз', # Fuzzy
 	'cite_references_link_one' => '<li id="$1"><span class="mw-cite-backlink">[[#$2|↑]]</span> $3</li>',
 	'cite_references_link_many' => '<li id="$1"><span class="mw-cite-backlink">↑ $2</span> $3</li>',
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'cite_croak' => 'Däýeksöz alw sätsiz bitti; $1: $2',
-	'cite_error_key_str_invalid' => 'İşki qate; jaramsız $str',
+	'cite_error_key_str_invalid' => 'İşki qate; jaramsız $str', # Fuzzy
 	'cite_error_stack_invalid_input' => 'İşki qate; jaramsız stek kilti',
 	'cite_error' => 'Däýeksöz alw $1 qatesi',
 	'cite_error_ref_numeric_key' => 'Jaramsız <code>&lt;ref&gt;</code> belgişesi; ataw kädimgi bütin san bolwı mümkin emes, sïppatawış ataw qoldanıñız',
@@ -2134,7 +2131,7 @@ $messages['kk-latn'] = array(
 	'cite_error_ref_too_many_keys' => 'Jaramsız <code>&lt;ref&gt;</code> belgişe; jaramsız atawlar, mısalı, tım köp',
 	'cite_error_ref_no_input' => 'Jaramsız <code>&lt;ref&gt;</code> belgişe; atawsız tüsiniktemelerde mağlumatı bolwı qajet',
 	'cite_error_references_invalid_parameters' => 'Jaramsız <code>&lt;references&gt;</code> belgişe; eş baptar ruqsat etilmeýdi, bılaý <code>&lt;references /&gt;</code> qoldanıñız',
-	'cite_error_references_no_backlink_label' => 'Qosımşa belgilerdiñ sanı bitti, odan äri köbirek <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> jüýe xabarında belgileñiz',
+	'cite_error_references_no_backlink_label' => 'Qosımşa belgilerdiñ sanı bitti, odan äri köbirek <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> jüýe xabarında belgileñiz', # Fuzzy
 );
 
 /** Khmer (ភាសាខ្មែរ)
@@ -2242,6 +2239,8 @@ Et wohr keine Tex aanjejovve för de
 	'cite_reference_link_prefix' => 'fohss_noht_betreck_',
 	'cite_references_link_prefix' => 'fohss_noht_nommer_',
 	'cite_references_link_many_and' => '&#32;',
+	'cite_references_prefix' => '<ol class="references">',
+	'cite_references_suffix' => '</ol>',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -2767,9 +2766,10 @@ $messages['or'] = array(
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>ରେ ଦିଆଯାଇଥିବା "$1" ନାମ ସହ ଥିବା <code>&lt;ref&gt;</code> ଚିହ୍ନରେ କିଛି ଲେଖା ନାହିଁ ।',
 );
 
-/** Pangasinan (Pangasinan) */
+/** Pangasinan (Pangasinan)
+ */
 $messages['pag'] = array(
-	'cite_error' => 'Bitlaen so error $1; $2',
+	'cite_error' => 'Bitlaen so error $1; $2', # Fuzzy
 );
 
 /** Polish (polski)
@@ -2886,7 +2886,7 @@ $messages['pnb'] = array(
 ہور دسو <nowiki>[[MediaWiki:$2]]</nowiki> سنیعے چ۔',
 	'cite_error_references_no_text' => 'ناں منیا جان والا <code>&lt;ref&gt;</code> ٹیگ
 کوئی لکھت نئیں دتی گئی اتے پتے <code>$1</code> لئی۔',
-	'cite_error_included_ref' => 'بند کردا &lt;/ref&gt ؛ &lt;ref&gt دا کعاٹا ٹیک',
+	'cite_error_included_ref' => 'بند کردا &lt;/ref&gt ؛ &lt;ref&gt دا کعاٹا ٹیک', # Fuzzy
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ٹیگ ہیگے نیں، پر کوئی <code>&lt;references/&gt;</code> ٹیگ ناں لبیا۔',
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> ٹیگ اک ٹولی جیدا ناں "$1" اے ہیگے نیں، پر کوئی <code>&lt;references group="$1"/&gt;</code> ٹیگ ناں لبیا۔',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> ٹیگ ان  <code>&lt;references&gt;</code> دے رپھڑی اٹریبیوٹ "$1"۔',
@@ -2904,12 +2904,12 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Crazymadlover
  * @author Giro720
  * @author Hamilton Abreu
  * @author Malafaya
  * @author Waldir
+ * @author 555
  */
 $messages['pt'] = array(
 	'cite-desc' => 'Adiciona elementos <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para uso em citações',
@@ -2943,9 +2943,9 @@ Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
 );
 
 /** Brazilian Portuguese (português do Brasil)
- * @author 555
  * @author Eduardo.mps
  * @author Giro720
+ * @author 555
  */
 $messages['pt-br'] = array(
 	'cite-desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
@@ -3298,6 +3298,8 @@ Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." 
 	'cite_error_empty_references_define' => 'Lu tag <code>&lt;ref&gt;</code> difinutu n <code>&lt;references&gt;</code> cu lu nomu "$1" nun havi alcun cuntinutu.',
 	'cite_reference_link_prefix' => 'muntuari ref',
 	'cite_references_link_prefix' => 'muntuari annutazzioni',
+	'cite_references_prefix' => '<ol class="references">',
+	'cite_references_suffix' => '</ol',
 );
 
 /** Sinhala (සිංහල)
@@ -3842,6 +3844,13 @@ $messages['tt-cyrl'] = array(
 	'cite_error' => 'Өземтә китерү хатасы: $1',
 );
 
+/** Tati (Tati)
+ * @author Erdemaslancan
+ */
+$messages['ttt'] = array(
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
+);
+
 /** Ukrainian (українська)
  * @author AS
  * @author Ahonc
@@ -4013,11 +4022,12 @@ $messages['yi'] = array(
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> טאַג דעפֿינירט אין <code>&lt;references&gt;</code> מיט נאָמען "$1" האט נישט קיין אינהאַלט.',
 );
 
-/** Cantonese (粵語) */
+/** Cantonese (粵語)
+ */
 $messages['yue'] = array(
 	'cite-desc' => '加 <nowiki><ref[ name=id]></nowiki> 同 <nowiki><references/></nowiki> 標籤用響引用度',
 	'cite_croak' => '引用阻塞咗; $1: $2',
-	'cite_error_key_str_invalid' => '內部錯誤; 無效嘅 $str',
+	'cite_error_key_str_invalid' => '內部錯誤; 無效嘅 $str', # Fuzzy
 	'cite_error_stack_invalid_input' => '內部錯誤; 無效嘅堆疊匙',
 	'cite_error' => '引用錯誤 $1',
 	'cite_error_ref_numeric_key' => '無效嘅呼叫; 需要一個非整數嘅匙',
@@ -4028,7 +4038,7 @@ $messages['yue'] = array(
 	'cite_error_references_invalid_parameters_group' => '無效嘅<code>&lt;references&gt;</code>標籤；
 只容許 "group" 參數。
 用<code>&lt;references /&gt;</code>，或<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => '用晒啲自定返回標籤, 響 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 信息再整多啲',
+	'cite_error_references_no_backlink_label' => '用晒啲自定返回標籤, 響 <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> 信息再整多啲', # Fuzzy
 	'cite_error_references_no_text' => '無效嘅<code>&lt;ref&gt;</code>標籤；
 無文字提供於名為<code>$1</code>嘅參照',
 );
@@ -4093,4 +4103,3 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_key' => '<code>&lt;references&gt;</code>中定義的<code>&lt;ref&gt;</code>沒有給出名稱（name）屬性。',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>中定義的<code>&lt;ref&gt;</code>的名稱（name）「$1」為空。',
 );
-

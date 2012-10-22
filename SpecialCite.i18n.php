@@ -89,32 +89,11 @@ $messages['qqq'] = array(
 	'cite_article_desc' => '{{desc}}',
 	'cite_article_link' => 'Text of link in toolbox',
 	'tooltip-cite-article' => 'Tooltip',
+	'accesskey-cite-article' => '{{doc-accesskey}}',
 	'cite' => '{{Identical|Cite}}',
+	'cite-summary' => '{{notranslate}}',
 	'cite_page' => '{{Identical|Page}}',
 	'cite_submit' => '{{Identical|Cite}}',
-);
-
-/** Säggssch (Säggssch)
- * @author Thogo
- */
-$messages['sxu'] = array(
-	'cite_article_link' => 'Zidier dän ardiggl hier',
-	'cite' => 'Zidierhilfe',
-	'cite_submit' => 'Zidierhilfe',
-);
-
-/** Niuean (ko e vagahau Niuē)
- * @author Jose77
- */
-$messages['niu'] = array(
-	'cite_article_link' => 'Fakakite e tala nei',
-);
-
-/** Turoyo (Ṫuroyo)
- * @author Ariyo
- */
-$messages['tru'] = array(
-	'cite_page' => 'Faṭo:',
 );
 
 /** Achinese (Acèh)
@@ -384,7 +363,7 @@ $messages['arz'] = array(
   }
 
 
-</div> <!--closing div for \"plainlinks\"-->",
+</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
 /** Assamese (অসমীয়া)
@@ -588,7 +567,7 @@ $messages['bcc'] = array(
  * @author Filipinayzd
  */
 $messages['bcl'] = array(
-	'cite_article_link' => 'Sambiton an artikulong ini',
+	'cite_article_link' => 'Sambiton an artikulong ini', # Fuzzy
 	'cite' => 'Sambiton',
 	'cite_page' => 'Pahina:',
 	'cite_submit' => 'Sambiton',
@@ -711,7 +690,8 @@ $messages['bo'] = array(
 	'cite_page' => 'ཤོག་ངོས།',
 );
 
-/** Bishnupria Manipuri (বিষ্ণুপ্রিয়া মণিপুরী) */
+/** Bishnupria Manipuri (বিষ্ণুপ্রিয়া মণিপুরী)
+ */
 $messages['bpy'] = array(
 	'cite_article_link' => 'নিবন্ধ এহানরে উদ্ধৃত করেদে',
 	'cite' => 'উদ্ধৃত করেদে',
@@ -874,7 +854,8 @@ Si empreu el paquet url per a [[LaTeX]] (<code>\\usepackage{url}</code> en algun
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
+/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄)
+ */
 $messages['cdo'] = array(
 	'cite_article_link' => 'Īng-ê̤ṳng cī piĕng ùng-ciŏng',
 	'cite' => 'Īng-ê̤ṳng',
@@ -907,9 +888,10 @@ $messages['ckb'] = array(
 	'cite_submit' => 'بیکە بە ژێدەر',
 );
 
-/** Corsican (corsu) */
+/** Corsican (corsu)
+ */
 $messages['co'] = array(
-	'cite_article_link' => 'Cità issu articulu',
+	'cite_article_link' => 'Cità issu articulu', # Fuzzy
 	'cite' => 'Cità',
 	'cite_page' => 'Pagina:',
 );
@@ -1187,7 +1169,8 @@ $messages['dsb'] = array(
 	'cite_submit' => 'pokazaś',
 );
 
-/** Ewe (eʋegbe) */
+/** Ewe (eʋegbe)
+ */
 $messages['ee'] = array(
 	'cite_page' => 'Nuŋɔŋlɔ:',
 );
@@ -1444,7 +1427,7 @@ $messages['eu'] = array(
  * @author Better
  */
 $messages['ext'] = array(
-	'cite_article_link' => 'Almiental esti artículu',
+	'cite_article_link' => 'Almiental esti artículu', # Fuzzy
 	'cite' => 'Almiental',
 	'cite_page' => 'Páhina:',
 	'cite_submit' => 'Almiental',
@@ -1596,9 +1579,10 @@ Käytettäessä [[LaTeX]]-pakettia url, (<code>\\usepackage{url}</code> jossain 
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Fijian (Na Vosa Vakaviti) */
+/** Fijian (Na Vosa Vakaviti)
+ */
 $messages['fj'] = array(
-	'cite_article_link' => 'Vola dau vaqarai',
+	'cite_article_link' => 'Vola dau vaqarai', # Fuzzy
 );
 
 /** Faroese (føroyskt)
@@ -1916,7 +1900,8 @@ $messages['gv'] = array(
 	'cite_submit' => 'Symney',
 );
 
-/** Hausa (Hausa) */
+/** Hausa (Hausa)
+ */
 $messages['ha'] = array(
 	'cite_page' => 'Shafi:',
 );
@@ -1925,7 +1910,7 @@ $messages['ha'] = array(
  * @author Singularity
  */
 $messages['haw'] = array(
-	'cite_article_link' => "E ho'ōia i kēia mea",
+	'cite_article_link' => "E ho'ōia i kēia mea", # Fuzzy
 	'cite_page' => '‘Ao‘ao:',
 );
 
@@ -2201,14 +2186,14 @@ Az <code>url</code> nevű [[LaTeX]] csomag használata esetén (<code>\\usepacka
     note = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
   }
 
-</div> <!--closing \"Citation styles\" div-->",
+</div> <!--closing \"Citation styles\" div-->", # Fuzzy
 );
 
 /** Armenian (Հայերեն)
  * @author Teak
  */
 $messages['hy'] = array(
-	'cite_article_link' => 'Քաղվածել հոդվածը',
+	'cite_article_link' => 'Քաղվածել հոդվածը', # Fuzzy
 	'cite' => 'Քաղվածում',
 	'cite_page' => 'Էջ.',
 	'cite_submit' => 'Քաղվածել',
@@ -2355,7 +2340,7 @@ Saat menggunakan url paket [[LaTeX]] (<code>\\usepackage{url}</code> di manapun 
   }
 
 
-</div> <!--closing div for \"plainlinks\"-->",
+</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
 /** Interlingue (Interlingue)
@@ -2409,7 +2394,7 @@ $messages['is'] = array(
 	'cite' => 'Vitna í síðu',
 	'cite_page' => 'Síða:',
 	'cite_submit' => 'Vitna í',
-	'cite_text' => '*** [[ignored messages]]',
+	'cite_text' => '*** [[ignored messages]]', # Fuzzy
 );
 
 /** Italian (italiano)
@@ -2717,7 +2702,8 @@ $messages['ka'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'cite_article_link' => 'بەتتەن دايەكسوز الۋ',
 	'cite' => 'دايەكسوز الۋ',
@@ -2785,7 +2771,7 @@ $messages['kk-arab'] = array(
   }
 
 
-</div> <!--closing div for \"plainlinks\"-->",
+</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
@@ -2859,10 +2845,11 @@ $messages['kk-cyrl'] = array(
   }
 
 
-</div> <!--closing div for \"plainlinks\"-->",
+</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'cite_article_link' => 'Betten däýeksoz alw',
 	'cite' => 'Däýeksöz alw',
@@ -2930,7 +2917,7 @@ $messages['kk-latn'] = array(
   }
 
 
-</div> <!--closing div for \"plainlinks\"-->",
+</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
 /** Kalaallisut (kalaallisut)
@@ -3148,7 +3135,7 @@ $messages['kw'] = array(
  * @author UV
  */
 $messages['la'] = array(
-	'cite_article_desc' => ' Addet [[Special:Cite|citation]] specialem paginam et arcam instrumenti',
+	'cite_article_desc' => ' Addet [[Special:Cite|citation]] specialem paginam et arcam instrumenti', # Fuzzy
 	'cite_article_link' => 'Hanc paginam citare',
 	'cite' => 'Paginam citare',
 	'cite_page' => 'Pagina:',
@@ -3275,7 +3262,8 @@ $messages['lmo'] = array(
 	'cite' => 'Cita una vus',
 );
 
-/** Lao (ລາວ) */
+/** Lao (ລາວ)
+ */
 $messages['lo'] = array(
 	'cite_article_link' => 'ອ້າງອີງບົດຄວາມນີ້',
 	'cite' => 'ອ້າງອີງ',
@@ -3350,7 +3338,7 @@ Kai naudojate LaTeX paketą ''url'' (<code>\\usepackage{url}</code> kur nors pra
   }
 
 
-</div>",
+</div>", # Fuzzy
 );
 
 /** Lushai (Mizo ţawng)
@@ -3375,7 +3363,8 @@ $messages['lv'] = array(
 	'cite_submit' => 'Parādīt atsauci',
 );
 
-/** Literary Chinese (文言) */
+/** Literary Chinese (文言)
+ */
 $messages['lzh'] = array(
 	'cite_article_link' => '引文',
 	'cite' => '引文',
@@ -3731,7 +3720,8 @@ $messages['nah'] = array(
 	'cite_submit' => 'Titēnōtzaz',
 );
 
-/** Min Nan Chinese (Bân-lâm-gú) */
+/** Min Nan Chinese (Bân-lâm-gú)
+ */
 $messages['nan'] = array(
 	'cite_article_link' => 'Ín-iōng chit phiⁿ bûn-chiuⁿ',
 	'cite' => 'Ín-iōng',
@@ -3822,7 +3812,7 @@ Om man bruker [[:en:LaTeX|LaTeX]]' pakke-URL (<code>\\usepackage{url}</code> et 
   }
 
 
-</div> <!--closing \"Citation styles\" div-->",
+</div> <!--closing \"Citation styles\" div-->", # Fuzzy
 );
 
 /** Low German (Plattdüütsch)
@@ -3848,11 +3838,19 @@ $messages['nds-nl'] = array(
 	'cite_submit' => 'Siteren',
 );
 
-/** Nepali (नेपाली) */
+/** Nepali (नेपाली)
+ */
 $messages['ne'] = array(
 	'cite_article_link' => 'लेख उद्दरण गर्नुहोस्',
 	'cite' => 'उद्दरण गर्नु',
 	'cite_page' => 'पृष्ठ:',
+);
+
+/** Niuean (ko e vagahau Niuē)
+ * @author Jose77
+ */
+$messages['niu'] = array(
+	'cite_article_link' => 'Fakakite e tala nei',
 );
 
 /** Dutch (Nederlands)
@@ -4013,7 +4011,7 @@ Quand utilisatz lo modul url jos [[LaTeX]] (<code>\\usepackage{url}</code> endac
  url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
  note = \"[En linha; Pagina disponibla lo <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\" }
 
-</div> <!--closing div for \"plainlinks\"-->",
+</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
 /** Oriya (ଓଡ଼ିଆ)
@@ -4035,7 +4033,8 @@ $messages['os'] = array(
 	'cite_page' => 'Фарс:',
 );
 
-/** Pangasinan (Pangasinan) */
+/** Pangasinan (Pangasinan)
+ */
 $messages['pag'] = array(
 	'cite_article_link' => 'Bitlaen yan article',
 	'cite' => 'Bitlaen',
@@ -4043,7 +4042,8 @@ $messages['pag'] = array(
 	'cite_submit' => 'Bitlaen',
 );
 
-/** Pampanga (Kapampangan) */
+/** Pampanga (Kapampangan)
+ */
 $messages['pam'] = array(
 	'cite_article_link' => 'Banggitan ya ing articulung ini',
 	'cite' => 'Banggitan ya',
@@ -4243,10 +4243,10 @@ When using the [[LaTeX]] package url (<code>\\usepackage{url}</code> somewhere i
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
+ * @author 555
  */
 $messages['pt'] = array(
 	'cite_article_desc' => '[[Special:Cite|Página especial]] que produz uma citação de qualquer outra página na wiki (em vários formatos) e adiciona um link na barra de ferramentas',
@@ -4294,7 +4294,7 @@ $messages['rm'] = array(
  * @author Desiphral
  */
 $messages['rmy'] = array(
-	'cite_article_link' => 'Prinjardo phandipen ko lekh',
+	'cite_article_link' => 'Prinjardo phandipen ko lekh', # Fuzzy
 	'cite' => 'Kana trebul phandipen',
 	'cite_submit' => 'Ja',
 );
@@ -4606,9 +4606,10 @@ $messages['rue'] = array(
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Aromanian (Armãneashce) */
+/** Aromanian (Armãneashce)
+ */
 $messages['rup'] = array(
-	'cite_article_link' => 'Bagã articlu aistu ca tsitat',
+	'cite_article_link' => 'Bagã articlu aistu ca tsitat', # Fuzzy
 );
 
 /** Sanskrit (संस्कृतम्)
@@ -4706,7 +4707,8 @@ $messages['scn'] = array(
 	'cite_submit' => 'Cria la cosa di muntuari',
 );
 
-/** Sindhi (سنڌي) */
+/** Sindhi (سنڌي)
+ */
 $messages['sd'] = array(
 	'cite' => 'حواليو',
 );
@@ -4812,12 +4814,13 @@ $messages['sl'] = array(
  * @author M.M.S.
  */
 $messages['sma'] = array(
-	'cite_page' => 'Bielie:',
+	'cite_page' => 'Bielie:', # Fuzzy
 );
 
-/** Shona (chiShona) */
+/** Shona (chiShona)
+ */
 $messages['sn'] = array(
-	'cite_article_link' => 'Ita cite nyaya iyi',
+	'cite_article_link' => 'Ita cite nyaya iyi', # Fuzzy
 );
 
 /** Albanian (shqip)
@@ -4883,7 +4886,7 @@ When using the [[LaTeX]] package url (<code>\\usepackage{url}</code> somewhere i
 	url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
 	note = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
 }
-</div><!--closing div for \"plainlinks\"-->",
+</div><!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
@@ -4963,6 +4966,15 @@ $messages['sw'] = array(
 	'cite' => 'Taja',
 	'cite_page' => 'Ukurasa:',
 	'cite_submit' => 'Taja',
+);
+
+/** Säggssch (Säggssch)
+ * @author Thogo
+ */
+$messages['sxu'] = array(
+	'cite_article_link' => 'Zidier dän ardiggl hier', # Fuzzy
+	'cite' => 'Zidierhilfe',
+	'cite_submit' => 'Zidierhilfe',
 );
 
 /** Silesian (ślůnski)
@@ -5137,14 +5149,16 @@ $messages['tly'] = array(
 	'cite_page' => 'Сәһифә:',
 );
 
-/** Tswana (Setswana) */
+/** Tswana (Setswana)
+ */
 $messages['tn'] = array(
-	'cite_article_link' => 'Nopola mokwalo o',
+	'cite_article_link' => 'Nopola mokwalo o', # Fuzzy
 );
 
-/** Tongan (lea faka-Tonga) */
+/** Tongan (lea faka-Tonga)
+ */
 $messages['to'] = array(
-	'cite_article_link' => 'Lau ki he kupú ni',
+	'cite_article_link' => 'Lau ki he kupú ni', # Fuzzy
 	'cite' => 'Lau ki he',
 );
 
@@ -5230,7 +5244,14 @@ When using the [[LaTeX]] package url (<code>\\usepackage{url}</code> somewhere i
 <noinclude>
 [[de:MediaWiki:Cite_text]]
 [[en:MediaWiki:Cite text]]
-</noinclude>",
+</noinclude>", # Fuzzy
+);
+
+/** Turoyo (Ṫuroyo)
+ * @author Ariyo
+ */
+$messages['tru'] = array(
+	'cite_page' => 'Faṭo:',
 );
 
 /** Tsonga (Xitsonga)
@@ -5280,7 +5301,8 @@ $messages['uk'] = array(
 	'cite_submit' => 'Процитувати',
 );
 
-/** Urdu (اردو) */
+/** Urdu (اردو)
+ */
 $messages['ur'] = array(
 	'cite_article_link' => 'مضمون کا حوالہ دیں',
 	'cite' => 'حوالہ',
@@ -5403,7 +5425,8 @@ $messages['wa'] = array(
 	'cite_page' => 'Pådje:',
 );
 
-/** Wu (吴语) */
+/** Wu (吴语)
+ */
 $messages['wuu'] = array(
 	'cite_article_link' => '引用该篇文章',
 	'cite' => '引用',
@@ -5437,7 +5460,8 @@ $messages['yo'] = array(
 	'cite_page' => 'Ojúewé:',
 );
 
-/** Cantonese (粵語) */
+/** Cantonese (粵語)
+ */
 $messages['yue'] = array(
 	'cite_article_desc' => '加一個[[Special:Cite|引用]]特別頁同埋一個工具箱連結',
 	'cite_article_link' => '引用呢篇文',
@@ -5590,4 +5614,3 @@ $messages['zh-hant'] = array(
 
 </div> <!--closing div for \"plainlinks\"-->",
 );
-

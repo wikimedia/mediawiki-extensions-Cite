@@ -1089,68 +1089,68 @@ Bei Benutzung der [[LaTeX]]-Moduls „url“ (<code>\\usepackage{url}</code> im 
  * @author Xoser
  */
 $messages['diq'] = array(
-	'cite_article_desc' => 'Yew pelê [[Special:Cite|citation]] u lînkê toolboxî de keno',
-	'cite_article_link' => 'Na peler çıme bimocne',
-	'tooltip-cite-article' => 'Melumato ke ena pele çıtewr iqtıbas keno',
-	'cite' => 'Çıme bımocne',
-	'cite_page' => 'Per:',
-	'cite_submit' => 'Çime',
+	'cite_article_desc' => 'Pela xısusiye u gıreyê qutiya hacetan [[Special:Cite|citation]] ilawe keno.',
+	'cite_article_link' => 'Na pele bia xo viri',
+	'tooltip-cite-article' => 'Melumato ke ena pele çıtewri iqtıbas keno',
+	'cite' => 'Bia xo viri',
+	'cite_page' => 'Pele:',
+	'cite_submit' => 'Bia xo viri',
 	'cite_text' => "__NOTOC__
 <div class=\"mw-specialcite-bibliographic\">
 
 __NOTOC__
 <div class=\"mw-specialcite-bibliographic\">
 
-== Bibliyografiya teferruatan dê {{FULLPAGENAME}} ==
+== Bibliyografiya teferruatanê {{FULLPAGENAME}} ==
 
-* nameyê pela: {{FULLPAGENAME}}
-* Nuskar: iştıraqkarê {{SITENAME}}
-* Vılakar: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Nameyê pele: {{FULLPAGENAME}}
+* Nuskar: İştıraqkerê {{SITENAME}}
+* Vılaker: ''{{SITENAME}}, {{int:sitesubtitle}}''.
 * Revizyonê demi: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
 * Serkerdışê demi: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
-* Ancıyayışê URL de cı: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
-* Versiyonê ID'ya pela: {{REVISIONID}}
+* Ancıyayışê URLê cı: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Verziyonê kamiya pela: {{REVISIONID}}
 
 </div>
 <div class=\"plainlinks mw-specialcite-styles\">
 
-== terzê istasyon de {{FULLPAGENAME}} ==
+== Terzê istasyonê {{FULLPAGENAME}} ==
 
 === [[APA style]] ===
 {{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. ancıyayo <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> from {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[The MLA style manual|terzê MLA]] ===
+=== [[The MLA style manual|Terzê MLA]] ===
 \"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
 
 === [[MHRA Style Guide|Terzê MHRA]] ===
 iştırazkarê {{SITENAME}} , '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [zerre <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
 
-=== [[The Chicago Manual of Style|terzê Chicago]] ===
+=== [[The Chicago Manual of Style|Terzê Şikagoy]] ===
 iştırazkarê {{SITENAME}}, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-=== [[Council of Science Editors|terzê CBE/CSE]] ===
-{{SITENAME}} İştıraxkari. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [sitedo <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Ancnayışê cı:
+=== [[Council of Science Editors|Terzê CBE/CSE]] ===
+{{SITENAME}} İştıraxkari. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [sitedo <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Ancıyayışê cı:
 {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[Bluebook|terzê Bluebooki]] ===
+=== [[Bluebook|Terzê Bluebooki]] ===
 {{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (tewr peyên<citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-=== Dekewê [[BibTeX]] ===
+=== Cı kewê [[BibTeX]] ===
 
   @misc{ wiki:xxx,
-    nuskar = \"{{SITENAME}}\",
-    sername = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
-    serre = \"{{CURRENTYEAR}}\",
-    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
-    not = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+    Nuskar = \"{{SITENAME}}\",
+    Sername = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    Serre = \"{{CURRENTYEAR}}\",
+    Url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    Not = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
   }
 
   @misc{ wiki:xxx,
-    nuskar = \"{{SITENAME}}\",
-    sername = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
-    serre = \"{{CURRENTYEAR}}\",
-    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
-    not = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+    Nuskar = \"{{SITENAME}}\",
+    Sername = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    Serre = \"{{CURRENTYEAR}}\",
+    Url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    Not = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
   }
 
 

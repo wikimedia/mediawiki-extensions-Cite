@@ -5309,6 +5309,13 @@ $messages['ur'] = array(
 	'cite_page' => 'صفحہ:',
 );
 
+/** Uzbek (oʻzbekcha)
+ * @author CoderSI
+ */
+$messages['uz'] = array(
+	'cite_article_link' => 'Sahifadan matn parchasi ajratish',
+);
+
 /** vèneto (vèneto)
  * @author Candalua
  */

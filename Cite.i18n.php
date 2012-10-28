@@ -2239,8 +2239,6 @@ Et wohr keine Tex aanjejovve för de
 	'cite_reference_link_prefix' => 'fohss_noht_betreck_',
 	'cite_references_link_prefix' => 'fohss_noht_nommer_',
 	'cite_references_link_many_and' => '&#32;',
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol>',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -3298,8 +3296,6 @@ Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." 
 	'cite_error_empty_references_define' => 'Lu tag <code>&lt;ref&gt;</code> difinutu n <code>&lt;references&gt;</code> cu lu nomu "$1" nun havi alcun cuntinutu.',
 	'cite_reference_link_prefix' => 'muntuari ref',
 	'cite_references_link_prefix' => 'muntuari annutazzioni',
-	'cite_references_prefix' => '<ol class="references">',
-	'cite_references_suffix' => '</ol',
 );
 
 /** Sinhala (සිංහල)
@@ -3999,6 +3995,9 @@ $messages['vo'] = array(
 $messages['yi'] = array(
 	'cite-desc' => 'לייגט צו <nowiki><ref[ name=id]></nowiki> און <nowiki><references/></nowiki> טאַגן, פֿאר ציטירונגען (אין הערות)',
 	'cite_croak' => 'טעות אין ציטירונג; $1: $2',
+	'cite_error_key_str_invalid' => 'אינערלעכער גרייז;
+אומגילטיקער $str און/אדער $key.
+דאס זאל נישט פאסירן.',
 	'cite_error' => 'ציטירן גרײַז: $1',
 	'cite_error_ref_numeric_key' => 'גרײַזיגער <code>&lt;ref&gt;</code> טאַג;
 נאמען טאר נישט זײַן קיין פשוטער נומער. ניצט א באשרײַבדיק קעפל',

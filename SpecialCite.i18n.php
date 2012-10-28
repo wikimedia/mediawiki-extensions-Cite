@@ -3341,7 +3341,7 @@ Kai naudojate LaTeX paketą ''url'' (<code>\\usepackage{url}</code> kur nors pra
 </div>", # Fuzzy
 );
 
-/** Lushai (Mizo ţawng)
+/** Mizo (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(

@@ -635,8 +635,10 @@ class Cite {
 		$suffix = wfMessage( 'cite_references_suffix' )->inContentLanguage()->plain();
 		$content = implode( "\n", $ent );
 
+		// Prepare the parser input. We add new lines between the pieces to avoid a confused tidy (bug 13073)
+		$parserInput = $prefix . "\n" . $content . "\n" . $suffix;
+
 		// Let's try to cache it.
-		$parserInput = $prefix . $content . $suffix;
 		global $wgMemc;
 		$cacheKey = wfMemcKey( 'citeref', md5( $parserInput ), $this->mParser->Title()->getArticleID() );
 

@@ -5274,6 +5274,13 @@ $messages['tt-cyrl'] = array(
 	'cite_submit' => 'Күчермәләү',
 );
 
+/** Central Atlas Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)
+ * @author Tifinaghes
+ */
+$messages['tzm'] = array(
+	'cite_page' => 'ⵜⴰⵙⵏⴰ:',
+);
+
 /** Udmurt (удмурт)
  * @author ОйЛ
  */

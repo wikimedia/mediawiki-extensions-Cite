@@ -53,6 +53,11 @@ $specialPageAliases['bs'] = array(
 	'Cite' => array( 'Citiraj' ),
 );
 
+/** буряад (буряад) */
+$specialPageAliases['bxr'] = array(
+	'Cite' => array( 'Сайт' ),
+);
+
 /** Catalan (català) */
 $specialPageAliases['ca'] = array(
 	'Cite' => array( 'Citau', 'Citeu' ),

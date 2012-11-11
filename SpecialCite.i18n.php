@@ -81,12 +81,13 @@ When using the [[LaTeX]] package url (<code>\usepackage{url}</code> somewhere in
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
  * @author Lloffiwr
+ * @author Shirayuki
  * @author Siebrand
  * @author Tgr
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'cite_article_desc' => '{{desc}}',
+	'cite_article_desc' => '{{desc|name=Special Cite|url=http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php}}',
 	'cite_article_link' => 'Text of link in toolbox',
 	'tooltip-cite-article' => 'Tooltip',
 	'accesskey-cite-article' => '{{doc-accesskey}}',

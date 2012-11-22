@@ -323,6 +323,11 @@ $specialPageAliases['sa'] = array(
 	'Cite' => array( 'उद्धृत' ),
 );
 
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'Cite' => array( 'Cita' ),
+);
+
 /** Slovak (slovenčina) */
 $specialPageAliases['sk'] = array(
 	'Cite' => array( 'Citovať' ),

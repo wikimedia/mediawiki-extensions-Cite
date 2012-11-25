@@ -2618,6 +2618,7 @@ $messages['nds-nl'] = array(
 
 /** Dutch (Nederlands)
  * @author Niels
+ * @author Romaine
  * @author Siebrand
  */
 $messages['nl'] = array(
@@ -2656,7 +2657,7 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_group_refs_without_references' => 'Er bestaat een tag <code>&lt;ref&gt;</code> voor de groep "$1", maar er is geen bijbehorende tag <code>&lt;references group="$1"/&gt;</code> aangetroffen',
 	'cite_error_references_group_mismatch' => 'De tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> conflicteert met groepseigenschap "$1".',
 	'cite_error_references_missing_group' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft de groepseigenschap "$1" niet niet eerder in te tekst voorkomt.',
-	'cite_error_references_missing_key' => 'De tag <code>&lt;ref&gt;</code> met de naam "$1" gedefiniteerd in <code>&lt;references&gt;</code> wordt niet eerder in de tekst gebruikt.',
+	'cite_error_references_missing_key' => 'De tag <code>&lt;ref&gt;</code> met de naam "$1" gedefinieerd in <code>&lt;references&gt;</code> wordt niet eerder in de tekst gebruikt.',
 	'cite_error_references_no_key' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft geen eigenschapsnaam.',
 	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam "$1" heeft geen inhoud.',
 );

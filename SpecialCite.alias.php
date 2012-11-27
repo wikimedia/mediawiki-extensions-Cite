@@ -268,7 +268,7 @@ $specialPageAliases['nds'] = array(
 	'Cite' => array( 'Ziteerhelp' ),
 );
 
-/** Nedersaksisch (Nedersaksisch) */
+/** Nedersaksies (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'Cite' => array( 'Siteerhulpe' ),
 );

@@ -210,7 +210,7 @@ $specialPageAliases['ksh'] = array(
 
 /** Cornish (kernowek) */
 $specialPageAliases['kw'] = array(
-	'Cite' => array( 'Devydna' ),
+	'Cite' => array( 'Devynna' ),
 );
 
 /** Ladino (Ladino) */

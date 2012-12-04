@@ -1418,7 +1418,7 @@ Kui kasutada LaTeX-i url-i (<code>\\usepackage{url}</code> kuskil lehekülje alg
  */
 $messages['eu'] = array(
 	'cite_article_desc' => '[[Special:Cite|Aipatu]] orrialde berezia gehitzen du tresna-kutxaren loturetan',
-	'cite_article_link' => 'Orrialde hau aipatu',
+	'cite_article_link' => 'Aipatu orri hau',
 	'tooltip-cite-article' => 'Orri honen aipua egiteko moduari buruzko informazioa',
 	'cite' => 'Aipamenak',
 	'cite_page' => 'Orrialdea:',

@@ -408,6 +408,21 @@ $messages['az'] = array(
 	'cite_references_link_many_and' => '&#32;',
 );
 
+/** South Azerbaijani (تورکجه)
+ * @author Amir a57
+ */
+$messages['azb'] = array(
+	'cite-desc' => 'گؤتورمه‌لر اوچون، <nowiki><ref[ name=id]></nowiki> ve <nowiki><references/></nowiki> ائلئمئنت‌لری‌نین علاوه‌لر',
+	'cite_croak' => 'سیتات کایبئدیلدی؛ $1: $2',
+	'cite_error_key_str_invalid' => 'داخی‌لی ختا؛
+اعتبارسیز $ کوچ و / یا دا $ کئی.
+بو اصلا اولماما‌لی.',
+	'cite_error_stack_invalid_input' => 'داخی‌لی ختا؛
+اعتبارسیز ایستاجک آچاری.
+بو اصلا اولماما‌لی.',
+	'cite_error' => 'قایناق خطاسی $1',
+);
+
 /** Bashkir (башҡортса)
  * @author Assele
  */

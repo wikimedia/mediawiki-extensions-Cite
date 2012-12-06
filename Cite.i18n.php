@@ -2256,6 +2256,14 @@ Et wohr keine Tex aanjejovve för de
 	'cite_references_link_many_and' => '&#32;',
 );
 
+/** Cornish (kernowek)
+ * @author Kernoweger
+ */
+$messages['kw'] = array(
+	'cite_error' => 'Gwall devynna: $1',
+	'cite_error_refs_without_references' => 'Yma tagys <code>&lt;ref&gt;</code>, mes ny veu kevys tag <code>&lt;references/&gt;</code>',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby

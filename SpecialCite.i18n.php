@@ -3127,8 +3127,11 @@ $messages['ku-latn'] = array(
  * @author Kw-Moon
  */
 $messages['kw'] = array(
-	'cite_article_link' => 'Devydna an erthygel-ma',
-	'cite' => 'Devydna',
+	'cite_article_link' => 'Devynna an erthygel-ma',
+	'tooltip-cite-article' => 'Kedhlow war fatel devynna an folen-ma',
+	'cite' => 'Devynna',
+	'cite_page' => 'Folen:',
+	'cite_submit' => 'Devynna',
 );
 
 /** Latin (Latina)

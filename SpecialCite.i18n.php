@@ -527,6 +527,15 @@ $messages['az'] = array(
 	'cite_submit' => 'Sayt',
 );
 
+/** South Azerbaijani (تورکجه)
+ * @author Amir a57
+ */
+$messages['azb'] = array(
+	'cite' => 'سایت',
+	'cite_page' => 'صحیفه:',
+	'cite_submit' => 'سایت',
+);
+
 /** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar

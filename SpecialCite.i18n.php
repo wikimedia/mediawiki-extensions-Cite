@@ -4065,6 +4065,13 @@ $messages['pam'] = array(
 	'cite_submit' => 'Banggitan me',
 );
 
+/** Picard (Picard)
+ * @author Geoleplubo
+ */
+$messages['pcd'] = array(
+	'cite_article_link' => 'Citer chol pache',
+);
+
 /** Deitsch (Deitsch)
  * @author Xqt
  */

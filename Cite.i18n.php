@@ -315,6 +315,7 @@ $str و/أو $key غلط.
 );
 
 /** Assamese (অসমীয়া)
+ * @author Bishnu Saikia
  * @author Gitartha.bordoloi
  * @author Reedy
  */
@@ -349,7 +350,7 @@ $messages['as'] = array(
 	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> টেগ;
 <code>$1</code> নামৰ refৰ বাবে কোনো পাঠ্য প্ৰদান কৰা হোৱা নাই',
 	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> বন্ধ কৰা হৈছে; <code>&lt;ref&gt;</code> টেগৰ বাবে পোৱা নাই',
-	'cite_error_refs_without_references' => "<code>&lt;ref&gt;</code> টেগ্‌সমূহ আছে, কিন্তু কোনো <code>&lt;references/&gt;</code> টেগ্‌ পোৱা নগ'ল",
+	'cite_error_refs_without_references' => "<code>&lt;ref&gt;</code> টেগ্‌সমূহ আছে, কিন্তু কোনো <code>&lt;references/&gt;</code> বা <code>&#123;&#123;Reflist&#125;&#125;</code> টেগ্‌ পোৱা নগ'ল। অনুগ্ৰহ কৰি প্ৰবন্ধৰ শেষ অংশত ওপৰোক্ত টেগ্‌ যোগ দিয়ক।",
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> টেগ্‌সমূহ "$1" নামৰ এটা গোটৰ বাবে আছে, কিন্তু তাৰ <code>&lt;references group="$1"/&gt;</code> টেগ্‌ পোৱা নগ\'ল',
 	'cite_error_references_group_mismatch' => '"$1" গোটৰ ক্ষেত্ৰত <code>&lt;references&gt;</code>ৰ <code>&lt;ref&gt;</code> টেগ্‌ ব্যৱহাৰত সমস্যা হৈছে।',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>ত দিয়া <code>&lt;ref&gt;</code> টেগৰ "$1" গোট এট্ট্ৰিবিউট আছে, যিটো পূৰ্বৰ পাঠ্যত ওলোৱা নাই।',

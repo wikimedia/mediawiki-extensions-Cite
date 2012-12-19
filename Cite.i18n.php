@@ -89,12 +89,13 @@ no text was provided for refs named <code>$1</code>',
  * @author Purodha
  * @author Raimond Spekking
  * @author Raymond
+ * @author Shirayuki
  * @author Siebrand
  * @author The Evil IP address
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'cite-desc' => '{{desc}}',
+	'cite-desc' => '{{desc|name=Cite|url=http://www.mediawiki.org/wiki/Extension:Cite}}',
 	'cite_error_key_str_invalid' => '<code>$str</code> and <code>$key</code> are literals, and refer to who knows which variables the code uses.',
 	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',

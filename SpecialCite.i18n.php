@@ -601,7 +601,7 @@ $messages['be'] = array(
  */
 $messages['be-tarask'] = array(
 	'cite_article_desc' => 'Дадае спэцыяльную старонку [[Special:Cite|цытаваньня]] і спасылку ў інструмэнтах',
-	'cite_article_link' => 'Цытаваць гэтую старонку',
+	'cite_article_link' => 'Цытаваць старонку',
 	'tooltip-cite-article' => 'Інфармацыя пра тое, як цытатаваць гэтую старонку',
 	'cite' => 'Цытаваньне',
 	'cite_page' => 'Старонка:',

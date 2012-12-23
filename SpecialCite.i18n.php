@@ -2284,6 +2284,7 @@ Quando usar le URL de pacchetto [[LaTeX]] (<code>\\usepackage{url}</code> in qua
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Farras
  * @author IvanLanin
  */
 $messages['id'] = array(
@@ -2294,7 +2295,7 @@ $messages['id'] = array(
 	'cite_page' => 'Halaman:',
 	'cite_submit' => 'Kutip',
 	'cite_text' => "__NOTOC__
-<div style=\"border: 1px solid grey; background: #E6E8FA; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;\">
+<div class=\"mw-specialcite-bibliographic\">
 
 == Rincian bibliografis untuk {{FULLPAGENAME}} ==
 
@@ -2311,23 +2312,23 @@ $messages['id'] = array(
 
 == Format pengutipan untuk {{FULLPAGENAME}} ==
 
-=== [[Format APA]] ===
+=== [[Gaya APA|Format APA]] ===
 {{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Diakses pada <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> dari {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[Format MLA]] ===
+=== [[Manual gaya MLA|Format MLA]] ===
 \"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
 
-=== [[Format MHRA]] ===
+=== [[MHRA Style Guide|Format MHRA]] ===
 Para kontributor {{SITENAME}}, '{{FULLPAGENAME}}',  ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [diakses pada <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
 
-=== [[Format Chicago]] ===
+=== [[The Chicago Manual of Style|Format Chicago]] ===
 Para kontributor {{SITENAME}}, \"{{FULLPAGENAME}},\"  ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (diakses pada <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-=== [[Format CBE/CSE]] ===
+=== [[Council of Science Editors|Format CBE/CSE]] ===
 Para kontributor {{SITENAME}}. {{FULLPAGENAME}} [Internet].  {{SITENAME}}, {{int:sitesubtitle}};  {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}},   {{CURRENTTIME}} UTC [dikutip pada <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>].  Tersedia dari: 
 {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[Format Bluebook]] ===
+=== [[Bluebook|Format Bluebook]] ===
 {{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (terakhir dikunjungi pada <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
 === Entri [[BibTeX]] ===
@@ -2351,7 +2352,7 @@ Saat menggunakan url paket [[LaTeX]] (<code>\\usepackage{url}</code> di manapun 
   }
 
 
-</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Interlingue (Interlingue)

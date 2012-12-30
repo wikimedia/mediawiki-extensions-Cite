@@ -88,9 +88,23 @@ When using the [[LaTeX]] package url (<code>\usepackage{url}</code> somewhere in
  */
 $messages['qqq'] = array(
 	'cite_article_desc' => '{{desc|name=Special Cite|url=http://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php}}',
-	'cite_article_link' => 'Text of link in toolbox',
-	'tooltip-cite-article' => 'Tooltip',
-	'accesskey-cite-article' => '{{doc-accesskey}}',
+	'cite_article_link' => 'Text of link in toolbox
+
+See also:
+* {{msg-mw|Cite article link}}
+* {{msg-mw|Accesskey-cite-article}}
+* {{msg-mw|Tooltip-cite-article}}',
+	'tooltip-cite-article' => 'Used as tooltip for the link {{msg-mw|Cite article link}}.
+
+See also:
+* {{msg-mw|Cite article link}}
+* {{msg-mw|Accesskey-cite-article}}
+* {{msg-mw|Tooltip-cite-article}}',
+	'accesskey-cite-article' => '{{doc-accesskey}}
+See also:
+* {{msg-mw|Cite article link}}
+* {{msg-mw|Accesskey-cite-article}}
+* {{msg-mw|Tooltip-cite-article}}',
 	'cite' => '{{Identical|Cite}}',
 	'cite-summary' => '{{notranslate}}',
 	'cite_page' => '{{Identical|Page}}',

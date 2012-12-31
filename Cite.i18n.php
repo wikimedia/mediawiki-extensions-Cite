@@ -2673,7 +2673,7 @@ alleen de parameter "group" is toegestaan.
 Gebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Het aantal beschikbare backlinklabels is opgebruikt.
 Geef meer labels op in het bericht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_no_link_label_group' => 'Het aantal aangepaste verwijzinglabels voor de group "$1" is uitgeput.
+	'cite_error_no_link_label_group' => 'Het aantal aangepaste koppelinglabels voor de group "$1" is uitgeput.
 U kunt er meer instellen in het systeembericht <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
 er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
@@ -3880,6 +3880,13 @@ $messages['tzm'] = array(
 	'cite_reference_link_prefix' => 'cite_ref-',
 	'cite_references_link_many_sep' => '&#32;',
 	'cite_references_link_many_and' => '&#32;',
+);
+
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'cite_reference_link_key_with_num' => '$1_$2',
 );
 
 /** Ukrainian (українська)

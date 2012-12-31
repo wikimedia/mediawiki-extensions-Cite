@@ -3888,7 +3888,7 @@ $messages['niu'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'cite_article_desc' => 'Voegt een [[Special:Cite|speciale pagina]] toe om te citeren, en een verwijzing ernaar in de hulpmiddelen',
+	'cite_article_desc' => 'Voegt een [[Special:Cite|speciale pagina]] toe om te citeren, en een koppeling ernaar in de hulpmiddelen',
 	'cite_article_link' => 'Deze pagina citeren',
 	'tooltip-cite-article' => 'Informatie over hoe u deze pagina kunt citeren',
 	'cite' => 'Citeren',
@@ -5381,6 +5381,13 @@ $messages['tzm'] = array(
  */
 $messages['udm'] = array(
 	'cite_article_link' => 'Кызьы со статьяез цитировать кароно',
+);
+
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'cite_page' => 'بەت:',
 );
 
 /** Uyghur (Latin script) (Uyghurche)

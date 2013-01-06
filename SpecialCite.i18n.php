@@ -1024,6 +1024,7 @@ $messages['cy'] = array(
 
 /** Danish (dansk)
  * @author Byrial
+ * @author Christian List
  * @author Morten LJ
  * @author Peter Alberti
  */
@@ -1034,6 +1035,65 @@ $messages['da'] = array(
 	'cite' => 'Citér',
 	'cite_page' => 'Side:',
 	'cite_submit' => 'Citér',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+ == Bibliografiske oplysninger for {{FULLPAGENAME}} ==
+
+ * Sidenavn: {{FULLPAGENAME}}
+ * Forfatter: {{SITENAME}} bidragydere
+ * Udgiver: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+ * Dato for seneste revision: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+ * Datoen hentet: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+ * Permanent URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+ * Side versions-ID: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+ == Typografier til citat af {{FULLPAGENAME}} ==
+
+ === [[APA typografi]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Hentet <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> fra {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+ === [[The MLA stil manual|MLA typografi]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt; {{canonicalurl: {{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+ === [[MHRA stil Guide|MHRA typografi]] ===
+{{SITENAME}} bidragydere, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt; {{canonicalurl: {{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [hentet <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+ === [[Chicago manualen om Style|Chicago typografi]] ===
+{{SITENAME}} bidragydere, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (hentet <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+ === [[Rådet for videnskabsredaktører|CBE/CSE typografi]] ===
+{{SITENAME}} bidragydere. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [citeret <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Tilgængelig fra:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+ === [[Bluebook|Bluebook typografi]] ===
+{{FULLPAGENAME}}, {{canonicalurl: {{FULLPAGENAME}}|oldid={{REVISIONID}}}} (senest besøgt <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+ === [[BibTeX]] indlæg ===
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+   note = \"[Online; hentet <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+Når du bruger [[LaTeX]] pakkens URL-adressen (<code>\\usepackage{url}</code> et sted i præamblen) som har tendens til at give meget mere pænt formaterede webadresser, kan følgende være at foretrække:
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+   note = \"[Online; hentet <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** German (Deutsch)

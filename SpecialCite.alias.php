@@ -373,6 +373,11 @@ $specialPageAliases['tr'] = array(
 	'Cite' => array( 'KaynakGöster' ),
 );
 
+/** Urdu (اردو) */
+$specialPageAliases['ur'] = array(
+	'Cite' => array( 'حوالہ' ),
+);
+
 /** vèneto (vèneto) */
 $specialPageAliases['vec'] = array(
 	'Cite' => array( 'Cita' ),

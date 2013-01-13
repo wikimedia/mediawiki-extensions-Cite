@@ -543,8 +543,12 @@ $messages['az'] = array(
 
 /** South Azerbaijani (تورکجه)
  * @author Amir a57
+ * @author Mousa
  */
 $messages['azb'] = array(
+	'cite_article_desc' => 'بیر اؤزل [[Special:Cite|آلینتی]] صحیفه‌سی و آراج-قوتوسو باغلانتی‌سی آرتیرار',
+	'cite_article_link' => 'بو صحیفه‌دن آلینتی گؤتور',
+	'tooltip-cite-article' => 'بو صحیفه‌دن نئجه آلینتی گؤتورمک اوچون بیلگیلر',
 	'cite' => 'سایت',
 	'cite_page' => 'صحیفه:',
 	'cite_submit' => 'سایت',

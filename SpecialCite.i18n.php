@@ -552,6 +552,65 @@ $messages['azb'] = array(
 	'cite' => 'سایت',
 	'cite_page' => 'صحیفه:',
 	'cite_submit' => 'سایت',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== {{FULLPAGENAME}} اوچون قایناق‌جالیق بیلگیلری ==
+
+* صحیفه آدی: {{FULLPAGENAME}}
+* یارادیجی: {{SITENAME}} ایستیفاده‌چیلری
+* نشر ائدن: ''{{SITENAME}}، {{int:sitesubtitle}}''.
+* سون نوسخه‌نین تاریخی: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* گؤتورن تاریخ: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* قالیجی آدرس: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* صحیفه نوسخه بلیردنی: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== {{FULLPAGENAME}} اوچون آلینتی بیچیملری ==
+
+=== [[APA بیچیمی]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Retrieved <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> from {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[MLA بیچیم بیلگیلری|MLA بیچیمی]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA بیچیم رهبرلیگی|MHRA بیچیمی]] ===
+{{SITENAME}} contributors, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[شیکاگو بیچیم بیلگیلری|شیکاگو بیچیمی]] ===
+{{SITENAME}} contributors, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[بیلگی شوراسی یازارلاری|CBE/CSE بیچیمی]] ===
+{{SITENAME}} contributors. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Available from:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Bluebook بیچیمی]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (last visited <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[BibTeX]] بیچیمی ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+[[لتک]] یوآر‌اِل بسته‌سینی ایشلدن‌ده (<code>\\usepackage{url}</code> باشلیق ایچینده) کی داها گؤزل بیچیملنمیش اینترنت آدرسلری وئرر، بو آشاغیداکی ترجیح وئریلیر:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Bashkir (башҡортса)

@@ -4167,6 +4167,7 @@ Quand utilisatz lo modul url jos [[LaTeX]] (<code>\\usepackage{url}</code> endac
 );
 
 /** Oriya (ଓଡ଼ିଆ)
+ * @author Jnanaranjan Sahu
  * @author Psubhashish
  */
 $messages['or'] = array(
@@ -4176,6 +4177,65 @@ $messages['or'] = array(
 	'cite' => 'ଆଧାର ଦେବେ',
 	'cite_page' => 'ପୃଷ୍ଠା:',
 	'cite_submit' => 'ଆଧାର ଦେବେ',
+	'cite_text' => '__NOTOC__
+<div class="mw-specialcite-bibliographic">
+
+== {{FULLPAGENAME}}ର ଅଧାରଗତ ବିବରଣୀ ==
+
+
+*ପୃଷ୍ଠାନାମ:
+*ଲେଖକ:
+*ପ୍ରକାଶକ:
+*ଶେଷଥର ପୁନରାବୃତିର ତାରିଖ:
+*ବ୍ୟବହାର କରାଯାଇଥିବା ତାରିଖ:
+*ସ୍ଥାୟୀ URL:
+*ପୃଷ୍ଠା ସଂସ୍କରଣ ID:
+
+</div>
+<div class="plainlinks mw-specialcite-styles">
+
+== {{FULLPAGENAME}}ର ସଜାଣି ପଦ୍ଧତି ==
+
+=== [[APA style]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'. Retrieved <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> from {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+
+=== [[The MLA style manual|MLA ଶୈଳୀ]] ===
+"{{FULLPAGENAME}}." \'\'{{SITENAME}}, {{int:sitesubtitle}}\'\'. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|MHRA ଶୈଳୀ]] ===
+
+{{SITENAME}} contributors, \'{{FULLPAGENAME}}\', \'\'{{SITENAME}}, {{int:sitesubtitle}},\'\' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+=== [[The Chicago Manual of Style|ଚିକାଗୋ ଶୈଳୀ]] ===
+{{SITENAME}} contributors, "{{FULLPAGENAME}}," \'\'{{SITENAME}}, {{int:sitesubtitle}},\'\' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|CBE/CSE ଶୈଳୀ]] ===
+{{SITENAME}} contributors. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Available from:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Bluebook ଶୈଳୀ]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (last visited <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[BibTeX]] ଦାଖଲ ===
+
+  @misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}",
+    note = "[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]"
+  }
+
+[[LaTeX]] ପ୍ୟାକେଜ url (<code>\\usepackage{url}</code> somewhere in the preamble) ଯାହାକି ଆହୁରି ଅଧିକ ସୁନ୍ଦରଭାବେ ସଜାଯାଇଥିବା ୱେବଠିକଣାକୁ ଯୋଡିଥାଏ ତାକୁ ବ୍ୟବହାର କରିବାବେଳେ, ନିମ୍ନଲିଖିତକୁ ନଜରକୁ ଅଣାଯାଇପାରେ:
+@misc{ wiki:xxx,
+    author = "{{SITENAME}}",
+    title = "{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}",
+    year = "{{CURRENTYEAR}}",
+    url = "\'\'\'\\url{\'\'\'{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\'\'\'}\'\'\'",
+    note = "[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]"
+  }
+
+
+</div> <!--closing div for "plainlinks"-->',
 );
 
 /** Ossetic (Ирон)
@@ -5524,6 +5584,7 @@ $messages['ug-latn'] = array(
 /** Ukrainian (українська)
  * @author Ahonc
  * @author Prima klasy4na
+ * @author Ата
  */
 $messages['uk'] = array(
 	'cite_article_desc' => 'Додає спеціальну сторінку [[Special:Cite|цитування]] і посилання в інструментах',
@@ -5532,6 +5593,65 @@ $messages['uk'] = array(
 	'cite' => 'Цитування',
 	'cite_page' => 'Сторінка:',
 	'cite_submit' => 'Процитувати',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Бібліографічні дані статті {{FULLPAGENAME}} ==
+
+* Назва: {{FULLPAGENAME}}
+* Автор: {{SITENAME}} contributors
+* Опубліковано: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Дата останньої зміни: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Дата цитування: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* Постійне посилання: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* ID версії сторінки: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== Варіанти оформлення посилань на {{FULLPAGENAME}} ==
+
+=== [[Стиль APA]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Цитовано <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> з {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[The MLA style manual|Стиль MLA]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|Стиль MHRA]] ===
+Дописувачі {{SITENAME}}, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [цитовано <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|Стиль Chicago]] ===
+Дописувачі {{SITENAME}}, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (цитовано <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|Стиль CBE/CSE]] ===
+Дописувачі {{SITENAME}}. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Доступно з:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Стиль Bluebook]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (останній перегляд <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== Запис [[BibTeX]] ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[Онлайн; цитовано <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+При використанні [[LaTeX]]-пакета url (<code>\\usepackage{url}</code> у преамбулі), який тяжіє до кращого форматування веб-адрес, мабуть, краще буде вказати таке:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[Онлайн; цитовано <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Urdu (اردو)

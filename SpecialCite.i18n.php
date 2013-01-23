@@ -4124,46 +4124,58 @@ $messages['oc'] = array(
 == Informacions bibliograficas sus {{FULLPAGENAME}} == 
 * Nom de la pagina : {{FULLPAGENAME}} 
 * Autors : {{canonicalurl:{{FULLPAGENAME}}|action=history}} 
-* Editor : {{SITENAME}} 
-* Darrièra revision : {{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}} a {{CURRENTTIME}} UTC 
-* Pagina consultada lo : <citation>{{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}} a {{CURRENTTIME}} UTC</citation> 
-* Ligam vèrs la version citada : {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} 
-* Numerò de version : {{REVISIONID}} </div> 
+* Editor : {{SITENAME}}, {{int:sitesubtitle}}''.
+* Darrièra revision : {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Recuperat : <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* URL permanenta : {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Identificant d'aquesta version : {{REVISIONID}}
+
+</div>
 <div class=\"plainlinks mw-specialcite-styles\">
 
-== Cossí citar la pagina {{FULLPAGENAME}} ==
-=== [[APA style]] === 
-{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Pagina consultada lo <citation>{{CURRENTTIME}}, de {{CURRENTMONTHNAME}}  {{CURRENTDAY}}, de {{CURRENTYEAR}}</citation> a partir de {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}. 
+== Estils de citacions per {{FULLPAGENAME}} ==
 
-=== [[The MLA style manual|MLA style]] === 
-\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;. 
+=== [[Estil APA]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Retrieved <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> dempuèi {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[MHRA Style Guide|MHRA style]] === 
-Contributors a {{SITENAME}}, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [Pagina consultada lo <citation>{{CURRENTDAY}} de {{CURRENTMONTHNAME}} de {{CURRENTYEAR}}</citation>]
+=== [[Estil MLA]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
 
-=== [[The Chicago Manual of Style|Chicago style]] === Contributors a {{SITENAME}}, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (Pagina consultada lo <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, de {{CURRENTYEAR}}</citation>).
+=== [[Estil MHRA]] ===
+{{SITENAME}} contributors, '{{FULLPAGENAME}}',  ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accedit lo <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
 
-=== [[Council of Science Editors|CBE/CSE style]] === Contributors a {{SITENAME}}. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, a {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Disponible a l'adreça: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+=== [[Estil Chicago]] ===
+Contributeurs de {{SITENAME}}, \"{{FULLPAGENAME}},\"  ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accedit lo <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-=== [[Bluebook|Bluebook style]] === {{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (Pagina consultada lo <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, de {{CURRENTYEAR}}</citation>). 
+=== [[Estil CBE/CSE]] ===
+{{SITENAME}} contributors. {{FULLPAGENAME}} [Internet].  {{SITENAME}}, {{int:sitesubtitle}};  {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}},  {{CURRENTTIME}} UTC [citat lo <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>].  Disponible sus : 
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
-=== [[BibTeX]] === 
-@misc{ wiki:xxx, 
- author = \"{{SITENAME}}\",
- title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
- year = \"{{CURRENTYEAR}}\",
- url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
- note = \"[En linha; Pagina disponibla lo <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\" }
+=== [[Estil Bluebook]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (visitat lo <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
-Quand utilisatz lo modul url jos [[LaTeX]] (<code>\\usepackage{url}</code> endacòm dins lo preambul) qu'amelhora l'afichatge de las adreças internet, utilisatz de preferéncia aqueste format: 
+=== Entrada [[BibTeX]] ===
 
-@misc{ wiki:xxx, author = \"{{SITENAME}}\",
- title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
- year = \"{{CURRENTYEAR}}\",
- url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
- note = \"[En linha; Pagina disponibla lo <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\" }
+@misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+   note = \"[En linha ; accedit lo <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
 
-</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
+Se utilizatz lo package URL dins [[LaTeX]] (<code>\\usepackage{url}</code> endacòm dins lo preambul), que balha d'adreças web melhor formatadas, utilizatz lo format seguent :
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+   note = \"[En linha ; accedit lo <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Oriya (ଓଡ଼ିଆ)

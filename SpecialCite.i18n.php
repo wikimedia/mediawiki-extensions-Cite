@@ -2681,7 +2681,7 @@ $messages['ja'] = array(
     note = "[オンライン; 閲覧日時 <citation>{{CURRENTYEAR}}-{{CURRENTDAY}}-{{CURRENTMONTH}}</citation>]"
   }
 
-URIの体裁を整えるために[[LaTeX]]の url パッケージを用いる (プリアンブルのどこかに <code>\\usepackage{url}</code> と書く) 場合は、次のようにしたほうがいいかもしれません。
+URIの体裁を整えるために[[LaTeX]]の url パッケージを用いる (プリアンブルのどこかに <code>\\usepackage{url}</code> と書く) 場合は、以下のようにした方がいいかもしれません。
 
   @misc{ wiki:xxx,
     author = "{{SITENAME}}",

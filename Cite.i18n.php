@@ -2633,7 +2633,7 @@ $messages['nds'] = array(
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags för de Grupp „$1“ gifft dat, is aver keen <code>&lt;references group=„$1“/&gt;</code>-Tag funnen worrn',
 );
 
-/** Nedersaksisch (Nedersaksisch)
+/** Nedersaksies (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(

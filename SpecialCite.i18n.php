@@ -3978,7 +3978,7 @@ $messages['nds'] = array(
 	'cite_submit' => 'Ziteren',
 );
 
-/** Nedersaksisch (Nedersaksisch)
+/** Nedersaksies (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(

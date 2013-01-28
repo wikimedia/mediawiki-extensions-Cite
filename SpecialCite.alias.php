@@ -268,7 +268,7 @@ $specialPageAliases['nds'] = array(
 	'Cite' => array( 'Ziteerhelp' ),
 );
 
-/** Nedersaksies (Nedersaksies) */
+/** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'Cite' => array( 'Siteerhulpe' ),
 );

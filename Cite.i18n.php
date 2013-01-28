@@ -2101,6 +2101,13 @@ $messages['ka'] = array(
 	'cite_error_references_missing_key' => 'ტეგი <code>&lt;ref&gt;</code> სახელად „$1“, გარკვეული <code>&lt;references&gt;</code>-ში, არ გამოიყენება წინა ტექსტში.',
 	'cite_error_references_no_key' => 'ტეგს <code>&lt;ref&gt;</code>, გარკვეულს <code>&lt;references&gt;</code>-ში, სახელის ატრიბუტი არ გააჩნია.',
 	'cite_error_empty_references_define' => 'ტეგს <code>&lt;ref&gt;</code>, გარკვეულს <code>&lt;references&gt;</code>-ში, სახელით „$1“ არ გააჩნია შინაარსი.',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+	'cite_references_link_one' => '<li id="$1"><span class="mw-cite-backlink">[[#$2|↑]]</span> $3</li>',
+	'cite_references_link_many' => '<li id="$1"><span class="mw-cite-backlink">↑ $2</span> $3</li>',
+	'cite_references_link_many_format' => '<sup>[[#$1|$2]]</sup>',
+	'cite_references_link_many_sep' => '&#32;',
+	'cite_references_link_many_and' => '&#32;',
 );
 
 /** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)

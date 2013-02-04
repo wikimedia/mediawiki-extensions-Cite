@@ -3121,6 +3121,10 @@ Ause <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> invalide;
 sulamende \'u parametre "group" pò essere ausate.
 Ause <code>&lt;references /&gt;</code> o <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => "Le etichette personalizzate pe le collegaminde de rrete onne spicciate.
+Definiscene otre jndr'à 'u messàgge <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.",
+	'cite_error_no_link_label_group' => 'Le etichette personalizzate de le collegaminde pu gruppe "$1" onne spicciate.
+Definiscene otre jndr\'à \'u messàgge <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> invalide;
 nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
 	'cite_error_included_ref' => "Stè 'u tag <code>&lt;/ref&gt;</code> ma manghe <code>&lt;ref&gt;</code>",

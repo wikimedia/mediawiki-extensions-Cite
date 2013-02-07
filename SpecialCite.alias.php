@@ -258,7 +258,7 @@ $specialPageAliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎) */
+/** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = array(
 	'Cite' => array( 'Siteringshjelp' ),
 );
@@ -278,7 +278,7 @@ $specialPageAliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎) */
+/** Norwegian Nynorsk (norsk nynorsk) */
 $specialPageAliases['nn'] = array(
 	'Cite' => array( 'Siter' ),
 );

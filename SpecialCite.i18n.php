@@ -3529,6 +3529,13 @@ $messages['mhr'] = array(
 	'cite_page' => 'Лаштык:',
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'cite_article_link' => 'Kutip laman ko',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest

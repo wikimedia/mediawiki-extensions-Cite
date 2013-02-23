@@ -258,7 +258,7 @@ $specialPageAliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎) */
+/** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = array(
 	'Cite' => array( 'Siteringshjelp' ),
 );
@@ -268,7 +268,7 @@ $specialPageAliases['nds'] = array(
 	'Cite' => array( 'Ziteerhelp' ),
 );
 
-/** Nedersaksies (Nedersaksies) */
+/** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'Cite' => array( 'Siteerhulpe' ),
 );
@@ -278,7 +278,7 @@ $specialPageAliases['nl'] = array(
 	'Cite' => array( 'Citeren' ),
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎) */
+/** Norwegian Nynorsk (norsk nynorsk) */
 $specialPageAliases['nn'] = array(
 	'Cite' => array( 'Siter' ),
 );

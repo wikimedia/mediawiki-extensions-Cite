@@ -177,7 +177,7 @@ class Cite {
 		$this->mParser = $parser;
 
 		# The key here is the "name" attribute.
-		list( $key, $group, $follow ) = $this->refArg( $argv );
+		list( $key, $group, $follow, $page ) = $this->refArg( $argv );
 
 		# Split these into groups.
 		if ( $group === null ) {
@@ -284,7 +284,7 @@ class Cite {
 			# we'll figure that out later.  Likewise it's definitely valid
 			# if there's any content, regardless of key.
 
-			return $this->stack( $str, $key, $group, $follow, $argv );
+			return $this->stack( $str, $key, $group, $follow, $page, $argv );
 		}
 
 		# Not clear how we could get here, but something is probably
@@ -298,7 +298,7 @@ class Cite {
 	 *  "name" : Key of the reference.
 	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
 	 *  "follow" : If the current reference is the continuation of another, key of that reference.
-	 *
+	 *  "page" : Page for a certain citation
 	 *
 	 * @param $argv array The argument vector
 	 * @return mixed false on invalid input, a string on valid
@@ -310,14 +310,15 @@ class Cite {
 		$group = null;
 		$key = null;
 		$follow = null;
+		$page = null;
 
-		if ( $cnt > 2 ) {
+		if ( $cnt > 3 ) {
 			// There should only be one key or follow parameter, and one group parameter
 			// FIXME : this looks inconsistent, it should probably return a tuple
 			return false;
 		} elseif ( $cnt >= 1 ) {
 			if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
-				return array( false, false, false );
+				return array( false, false, false, false );
 			}
 			if ( isset( $argv['name'] ) ) {
 				// Key given.
@@ -329,6 +330,12 @@ class Cite {
 				// Follow given.
 				$follow = Sanitizer::escapeId( $argv['follow'], 'noninitial' );
 				unset( $argv['follow'] );
+				--$cnt;
+			}
+			if ( isset( $argv['page'] ) ) {
+				// Follow given.
+				$page = Sanitizer::escapeId( $argv['page'], 'noninitial' );
+				unset( $argv['page'] );
 				--$cnt;
 			}
 			if ( isset( $argv['group'] ) ) {
@@ -343,14 +350,14 @@ class Cite {
 			}
 
 			if ( $cnt == 0 ) {
-				return array ( $key, $group, $follow );
+				return array ( $key, $group, $follow, $page );
 			} else {
 				// Invalid key
-				return array( false, false, false );
+				return array( false, false, false, false );
 			}
 		} else {
 			// No key
-			return array( null, $group, false );
+			return array( null, $group, false, false );
 		}
 	}
 
@@ -365,7 +372,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function stack( $str, $key = null, $group, $follow, $call ) {
+	function stack( $str, $key = null, $group, $follow, $page, $call ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = array();
 		}
@@ -401,7 +408,7 @@ class Cite {
 			$this->mRefs[$group][] = array( 'count' => - 1, 'text' => $str, 'key' => ++$this->mOutCnt );
 			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
 
-			return $this->linkRef( $group, $this->mOutCnt );
+			return $this->linkRef( $group, $this->mOutCnt, $page );
 		} elseif ( is_string( $key ) ) {
 			// Valid key
 			if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
@@ -418,6 +425,7 @@ class Cite {
 					$this->linkRef(
 						$group,
 						$key,
+						$page,
 						$this->mRefs[$group][$key]['key'] . "-" . $this->mRefs[$group][$key]['count'],
 						$this->mRefs[$group][$key]['number'],
 						"-" . $this->mRefs[$group][$key]['key']
@@ -437,6 +445,7 @@ class Cite {
 					$this->linkRef(
 						$group,
 						$key,
+						$page,
 						$this->mRefs[$group][$key]['key'] . "-" . ++$this->mRefs[$group][$key]['count'],
 						$this->mRefs[$group][$key]['number'],
 						"-" . $this->mRefs[$group][$key]['key']
@@ -899,10 +908,12 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
+	function linkRef( $group, $key, $page, $count = null, $label = null, $subkey = '' ) {
 		global $wgContLang;
 		$label = is_null( $label ) ? ++$this->mGroupCnt[$group] : $label;
-
+		if ($page != null) {
+			$page = ':'.$page;
+		}
 		return
 			$this->parse(
 				wfMessage(
@@ -910,7 +921,8 @@ class Cite {
 					$this->refKey( $key, $count ),
 					$this->referencesKey( $key . $subkey ),
 					$this->getLinkLabel( $label, $group,
-						( ( $group == CITE_DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
+						( ( $group == CITE_DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) ),
+					$page
 				)->inContentLanguage()->plain()
 			);
 	}

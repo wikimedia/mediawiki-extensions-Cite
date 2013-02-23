@@ -2665,7 +2665,7 @@ $messages['ja'] = array(
 {{SITENAME}}への寄稿者ら, "{{FULLPAGENAME}}," \'\'{{SITENAME}}, {{int:sitesubtitle}},\'\' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (<citation>{{CURRENTYEAR}}年{{CURRENTMONTHABBREV}}{{CURRENTDAY}}日</citation>閲覧).
 
 === [[Council of Science Editors|CBE/CSE方式]] ===
-{{SITENAME}}への寄稿者ら. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}}年{{CURRENTMONTHABBREV}}{{CURRENTDAY}}日{{CURRENTTIME}} (UTC) [<citation>{{CURRENTYEAR}}年{{CURRENTMONTHABBREV}}{{CURRENTDAY}}日</citation>現在で引用]. 入手元：
+{{SITENAME}}への寄稿者ら. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}}年{{CURRENTMONTHABBREV}}{{CURRENTDAY}}日{{CURRENTTIME}} (UTC) [<citation>{{CURRENTYEAR}}年{{CURRENTMONTHABBREV}}{{CURRENTDAY}}日</citation>現在で引用]. 入手元:
 {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
 === [[Bluebook|Bluebook方式]] ===
@@ -3533,7 +3533,83 @@ $messages['mhr'] = array(
  * @author Iwan Novirion
  */
 $messages['min'] = array(
+	'cite_article_desc' => 'Manambahan laman istimewa [[Special:Cite|kutipan]] jo pautan pado kotak pakakeh',
 	'cite_article_link' => 'Kutip laman ko',
+	'tooltip-cite-article' => 'Informasi caro mangutip laman ko',
+	'cite' => 'Kutip',
+	'cite_page' => 'Laman:',
+	'cite_submit' => 'Kutip',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Rincian bibliografi untuak {{FULLPAGENAME}} ==
+
+* Namo laman: {{FULLPAGENAME}} 
+* Pangarang: Para kontributor {{SITENAME}}
+* Panerbit: ''{{SITENAME}}, {{int:sitesubtitle}}''. 
+* Tanggal revisi tarakhia: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC
+* Tanggal akses: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC
+* Pautan parmanen: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Kontributor utamo: [http://vs.aka-online.de/cgi-bin/wppagehiststat.pl?lang=min.wikipedia&page={{urlencode:{{FULLPAGENAME}}}} Sajarah revisi]
+* ID versi laman: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks\" style=\"border: 1px solid grey; width: 90%; padding: 15px 30px 15px 30px; margin: 10px auto;\">
+
+== Format kutipan untuak {{FULLPAGENAME}} ==
+
+=== [[:en:APA style|Format APA]] ===
+{{FULLPAGENAME}}. ({{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}). Pado ''{{SITENAME}}, {{int:sitesubtitle}}''. Diakses pukua {{#time:H:i, j F Y}}, dari {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[:en:The MLA Style Manual|Format MLA]] ===
+Kontributor {{SITENAME}}. \"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{MediaWiki:Sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. Situs, {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[:en:MHRA Style Guide|Format MHRA]] ===
+Kontributor {{SITENAME}}, '{{FULLPAGENAME}}',  ''{{SITENAME}}, {{MediaWiki:Sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [diakses {{#time:j F Y}}]
+
+=== [[:en:The Chicago Manual of Style|Format Chicago]] ===
+Kontributor {{SITENAME}}, \"{{FULLPAGENAME}},\"  ''{{SITENAME}}, {{MediaWiki:Sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (diakses {{#time:j F Y}}).
+
+=== [[:en:Council of Science Editors|Format CBE/CSE]] ===
+Kontributor {{SITENAME}}. {{FULLPAGENAME}} [Internet].  {{SITENAME}}, {{MediaWiki:Sitesubtitle}};  {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}},   {{CURRENTTIME}} UTC [dikutip pado {{#time:j M Y}}].  Tasadio dari: 
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[:en:Bluebook|Format Bluebook]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (tarakhia dikunjuangi pado {{#time:j M Y}}).
+
+=== [[:en:Bluebook#Citation_to_Wikipedia|Bluebook: Harvard JOLT style]] ===
+{{SITENAME}}, ''{{FULLPAGENAME}}'', {{canonicalurl:{{FULLPAGENAME}}}} (opsi deskripsi disiko) (pado {{#time:j M Y, H:i}} GMT).
+
+=== [[:en:American Medical Association|AMA]] style ===
+Kontributor {{SITENAME}}. {{FULLPAGENAME}}. {{SITENAME}}, {{MediaWiki:Sitesubtitle}}. {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. Tasadio pado: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}. Diakses {{#time:j F Y}}.
+
+=== Entri [[:en:BibTeX|BibTeX]] ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{MediaWiki:Sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    note = \"[Daring; diakses {{#time:j-F-Y}}]\"
+  }
+
+Bilo manggunoan paket url [[:en:LaTeX|LaTeX]] (<code>\\usepackage{url}</code> di manopun di bagian pambukak) nan biasonyo manghasilkan alamaik-alamaik web nan diformat labiah rancak, caro ko labiah disarankan:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{MediaWiki:Sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    note = \"[Daring; diakses {{#time:j-F-Y}}]\"
+  }
+
+=== Laman rundiang Wikipedia ===
+;Markah: <nowiki>[[</nowiki>{{FULLPAGENAME}}<nowiki>]]</nowiki> (<nowiki>[</nowiki>{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} versi ko<nowiki>]</nowiki>)
+
+;Hasil: [{{canonicalurl:{{FULLPAGENAME}}}} {{FULLPAGENAME}}] ([{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} versi ko])
+
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Macedonian (македонски)

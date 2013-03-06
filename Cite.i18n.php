@@ -4080,8 +4080,8 @@ $messages['vi'] = array(
 chỉ cho phép tham số “group”.
 Hãy dùng <code>&lt;references /&gt;</code>, hoặc <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Đã dùng hết nhãn tham khảo chung.
-Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_no_link_label_group' => 'Thiếu nhãn liên kết tùy biến cho nhóm “$1”. Hãy định rõ thêm nhãn trong thông báo <nowiki>[[MediaWiki:$2]]</nowiki>.',
+Hãy định nghĩa thêm ở thông điệp <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Thiếu nhãn liên kết tùy biến cho nhóm “$1”. Hãy định rõ thêm nhãn trong thông điệp <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 	'cite_error_included_ref' => 'Không có <code>&lt;/ref&gt;</code> để đóng thẻ <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code>, nhưng không tìm thấy thẻ <code>&lt;references/&gt;</code>',

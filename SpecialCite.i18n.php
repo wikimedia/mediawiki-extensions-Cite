@@ -966,9 +966,10 @@ $messages['ceb'] = array(
 
 /** Sorani Kurdish (کوردی)
  * @author Asoxor
+ * @author Calak
  */
 $messages['ckb'] = array(
-	'cite_article_link' => 'ئەم پەڕە بکە بە ژێدەر',
+	'cite_article_link' => 'ئەم پەڕەیە بکە بە ژێدەر',
 	'tooltip-cite-article' => 'زانیاری سەبارەت بە چۆنیەتیی بە ژێدەر کردنی ئەم پەڕە',
 	'cite' => 'بیکە بە ژێدەر',
 	'cite_page' => 'پەڕە:',

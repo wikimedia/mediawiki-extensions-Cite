@@ -96,7 +96,15 @@ no text was provided for refs named <code>$1</code>',
  */
 $messages['qqq'] = array(
 	'cite-desc' => '{{desc|name=Cite|url=http://www.mediawiki.org/wiki/Extension:Cite}}',
-	'cite_error_key_str_invalid' => '<code>$str</code> and <code>$key</code> are literals, and refer to who knows which variables the code uses.',
+	'cite_croak' => 'Used as an error message. Parameters:
+* $1 - error message. any one of the following messages:
+** {{msg-mw|Cite_error_key_str_invalid}}
+** {{msg-mw|Cite_error_stack_invalid_input}}
+* $2 - serialized error data',
+	'cite_error_key_str_invalid' => 'Used as <code>$1</code> in {{msg-mw|Cite croak}}.
+
+<code>$str</code> and <code>$key</code> are literals, and refer to who knows which variables the code uses.',
+	'cite_error_stack_invalid_input' => 'Used as <code>$1</code> in {{msg-mw|Cite croak}}.',
 	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
 	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.',
@@ -111,6 +119,13 @@ It is not possible to make a clickable link to this message. "nowiki" is mandato
 *'''$2''' is <code>cite_link_label_group-<i>groupname</i></code>.",
 	'cite_error_references_no_text' => 'Cite extension. This error occurs when the tag <code>&lt;ref name="something" /&gt;</code> is used with the name-option specified and no other tag specifies a cite-text for this name.',
 	'cite_error_included_ref' => 'Error message shown if the <code>&lt;ref&gt;</code> tag is unbalanced, that means a <code>&lt;ref&gt;</code> is not followed by a <code>&lt;/ref&gt;</code>',
+	'cite_error_refs_without_references' => 'See also:
+* {{msg-mw|Cite error group refs without references}}',
+	'cite_error_group_refs_without_references' => 'Parameters:
+* $1 - the group name
+
+If the group $1 is default group, instead of this message, the following message will be used:
+* {{msg-mw|Cite error refs without references}}',
 	'cite_error_references_group_mismatch' => 'Error message shown when doing something like
 
 <pre>
@@ -1964,7 +1979,7 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
  */
 $messages['ja'] = array(
 	'cite-desc' => '引用のためのタグ <nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
-	'cite_croak' => '引用機能の重大なエラーです。$1: $2',
+	'cite_croak' => '引用機能のエラー。$1: $2',
 	'cite_error_key_str_invalid' => '内部エラーです。
 $str と $key の両方または一方が無効です。
 これはソフトウェアのバグです。',

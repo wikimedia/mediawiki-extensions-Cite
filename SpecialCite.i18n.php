@@ -105,7 +105,8 @@ See also:
 * {{msg-mw|Cite article link}}
 * {{msg-mw|Accesskey-cite-article}}
 * {{msg-mw|Tooltip-cite-article}}',
-	'cite' => '{{Identical|Cite}}',
+	'cite' => '{{doc-special|Cite|unlisted=1}}
+{{Identical|Cite}}',
 	'cite-summary' => '{{notranslate}}',
 	'cite_page' => '{{Identical|Page}}',
 	'cite_submit' => '{{Identical|Cite}}',

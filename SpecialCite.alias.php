@@ -23,7 +23,7 @@ $specialPageAliases['arz'] = array(
 	'Cite' => array( 'استشهاد' ),
 );
 
-/** Assamese (অসমীয়া) */
+/** Assamese (অসমীয়া) */
 $specialPageAliases['as'] = array(
 	'Cite' => array( 'উদ্ধৃতি' ),
 );

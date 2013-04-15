@@ -1200,7 +1200,7 @@ Lisa neid sõnumisse <nowiki>[[MediaWiki:Cite references link many format backli
 Lisa neid sõnumisse <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Vigane <code>&lt;ref&gt;</code>-silt.
 Viite nimega <code>$1</code> tekst puudub.',
-	'cite_error_included_ref' => 'Sulgemismärgend <code>&lt;/ref&gt;</code> puudub.',
+	'cite_error_included_ref' => 'Sulgemissilt <code>&lt;/ref&gt;</code> puudub.',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-sildid on olemas, aga <code>&lt;references/&gt;</code>-silt puudub.',
 	'cite_error_group_refs_without_references' => 'Olemas on <code>&lt;ref&gt;</code>-silt rühma "$1" jaoks, aga vastav <code>&lt;references group="$1"/&gt;</code>-silt puudub.',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-siltide vahel oleval <code>&lt;ref&gt;</code>-sildil on vastukäiv parameetri "group" väärtus "$1".',

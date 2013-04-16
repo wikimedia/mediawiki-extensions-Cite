@@ -3802,12 +3802,40 @@ Barcasbi <code>&lt;references /&gt;</code> jo <code>&lt;references group="..." /
 );
 
 /** Thai (ไทย)
+ * @author Horus
  * @author Passawuth
  */
 $messages['th'] = array(
 	'cite-desc' => 'ใส่ <nowiki><ref[ name=id]></nowiki> และ <nowiki><references /></nowiki> สำหรับการอ้างอิง',
 	'cite_croak' => 'แหล่งอ้างอิงเสีย; $1: $2',
+	'cite_error_key_str_invalid' => 'ข้อผิดพลาดภายใน
+$str และ/หรือ $key ไม่ถูกต้อง
+ซึ่งไม่ควรเกิดขึ้น',
+	'cite_error_stack_invalid_input' => 'ข้อผิดพลาดภายใน
+กุญแจกองซ้อนไม่ถูกต้อง
+ซึ่งไม่ควรเกิดขึ้น',
 	'cite_error' => 'อ้างอิงผิดพลาด: $1',
+	'cite_error_ref_numeric_key' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+ชื่อไม่สามารถเป็นจำนวนเต็มอย่างง่าย ใช้ชื่อเรื่องที่พรรณนา',
+	'cite_error_ref_no_key' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+อ้างอิงที่ไม่มีเนื้อหาต้องมีชื่อ',
+	'cite_error_ref_too_many_keys' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+ชื่อไม่ถูกต้อง เช่น มากเกินไป',
+	'cite_error_ref_no_input' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+อ้างอิงที่ไม่มีชื่อต้องมีเนื้อหา',
+	'cite_error_references_invalid_parameters' => 'ป้ายระบุ <code>&lt;references&gt;</code> ไม่ถูกต้อง
+ไม่อนุญาตให้มีพารามิเตอร์
+ให้ใช้ <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'ป้ายระบุ <code>&lt;references&gt;</code> ไม่ถูกต้อง
+อนุญาตเฉพาะพารามิเตอร์ "group"
+ให้ใช้ <code>&lt;references /&gt;</code> หรือ <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+ไม่มีข้อความใดให้ไว้สำหรับอ้างอิงชื่อ <code>$1</code>',
+	'cite_error_included_ref' => 'ไม่มีการปิด <code>&lt;/ref&gt;</code> สำหรับ <code>&lt;ref&gt;</code>',
+	'cite_error_refs_without_references' => 'มีป้ายระบุ <code>&lt;ref&gt;</code> อยู่ แต่ไม่พบป้ายระบุ <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'มีป้ายระบุ <code>&lt;ref&gt;</code> สำหรับกลุ่มชื่อ "$1" แต่ไม่พบป้ายระบุ <code>&lt;references group="$1"/&gt;</code> ที่สอดคล้องกัน',
+	'cite_error_references_missing_key' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ชื่อ "$1" มีนิยามใน  <code>&lt;references&gt;</code> แต่ไม่ถูกใช้ในข้อความก่อนหน้านี้',
+	'cite_error_empty_references_define' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ที่นิยามใน <code>&lt;references&gt;</code> ด้วยชื่อ "$1" ไม่มีเนื้อหา',
 );
 
 /** Turkmen (Türkmençe)

@@ -1072,6 +1072,10 @@ class Cite {
 		$parser->extCite = clone $this;
 		$parser->setHook( 'ref' , array( $parser->extCite, 'ref' ) );
 		$parser->setHook( 'references' , array( $parser->extCite, 'references' ) );
+
+		// Clear the state, making sure it will actually work.
+		$parser->extCite->mInCite = false;
+		$parser->extCite->mInReferences = false;
 		$parser->extCite->clearState( $parser );
 
 		return true;

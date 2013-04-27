@@ -96,7 +96,15 @@ no text was provided for refs named <code>$1</code>',
  */
 $messages['qqq'] = array(
 	'cite-desc' => '{{desc|name=Cite|url=http://www.mediawiki.org/wiki/Extension:Cite}}',
-	'cite_error_key_str_invalid' => '<code>$str</code> and <code>$key</code> are literals, and refer to who knows which variables the code uses.',
+	'cite_croak' => 'Used as an error message. Parameters:
+* $1 - error message. any one of the following messages:
+** {{msg-mw|Cite_error_key_str_invalid}}
+** {{msg-mw|Cite_error_stack_invalid_input}}
+* $2 - serialized error data',
+	'cite_error_key_str_invalid' => 'Used as <code>$1</code> in {{msg-mw|Cite croak}}.
+
+<code>$str</code> and <code>$key</code> are literals, and refer to who knows which variables the code uses.',
+	'cite_error_stack_invalid_input' => 'Used as <code>$1</code> in {{msg-mw|Cite croak}}.',
 	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
 	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.',
@@ -111,6 +119,13 @@ It is not possible to make a clickable link to this message. "nowiki" is mandato
 *'''$2''' is <code>cite_link_label_group-<i>groupname</i></code>.",
 	'cite_error_references_no_text' => 'Cite extension. This error occurs when the tag <code>&lt;ref name="something" /&gt;</code> is used with the name-option specified and no other tag specifies a cite-text for this name.',
 	'cite_error_included_ref' => 'Error message shown if the <code>&lt;ref&gt;</code> tag is unbalanced, that means a <code>&lt;ref&gt;</code> is not followed by a <code>&lt;/ref&gt;</code>',
+	'cite_error_refs_without_references' => 'See also:
+* {{msg-mw|Cite error group refs without references}}',
+	'cite_error_group_refs_without_references' => 'Parameters:
+* $1 - the group name
+
+If the group $1 is default group, instead of this message, the following message will be used:
+* {{msg-mw|Cite error refs without references}}',
 	'cite_error_references_group_mismatch' => 'Error message shown when doing something like
 
 <pre>
@@ -1102,6 +1117,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
  * @author Crazymadlover
  * @author Drini
  * @author Erdemaslancan
+ * @author Gustronico
  * @author Locos epraix
  * @author Manuelt15
  * @author McDutchie
@@ -1114,40 +1130,40 @@ $messages['es'] = array(
 	'cite-desc' => 'Añade las etiquietas <nowiki><ref[ name=id]> y <references /></nowiki> para utilizar notas al pie.',
 	'cite_croak' => "La extensión ''Cite'' se murió; $1: $2",
 	'cite_error_key_str_invalid' => 'Error interno;
-$str y/o $key no válido.
+$str o $key no válidos.
 Esto no debería ocurrir.',
 	'cite_error_stack_invalid_input' => 'Error interno;
 la clave de la pila no es válida.
 Esto nunca debe ocurrir.',
 	'cite_error' => 'Error en la cita: $1',
-	'cite_error_ref_numeric_key' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
-el nombre no puede ser un número entero simple. Use un título descriptivo',
-	'cite_error_ref_no_key' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
+	'cite_error_ref_numeric_key' => 'Etiqueta <code>&lt;ref&gt;</code> no válida;
+el nombre no puede ser un número entero. Use un título descriptivo',
+	'cite_error_ref_no_key' => 'Etiqueta <code>&lt;ref&gt;</code> no válida;
 las referencias sin contenido deben tener un nombre',
-	'cite_error_ref_too_many_keys' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
-nombres de parámetros no válidos',
-	'cite_error_ref_no_input' => 'Elemento <code>&lt;ref&gt;</code> no válido;
-referencias sin nombre deben tener contenido',
-	'cite_error_references_invalid_parameters' => 'El elemento <code>&lt;references&gt;</code> no es válido;
-no admite parámetros.
+	'cite_error_ref_too_many_keys' => 'Etiqueta <code>&lt;ref&gt;</code> inválida;
+contiene parámetros no reconocidos',
+	'cite_error_ref_no_input' => 'Etiqueta <code>&lt;ref&gt;</code> no válida;
+las referencias sin nombre deben tener contenido',
+	'cite_error_references_invalid_parameters' => 'Etiqueta <code>&lt;references&gt;</code> no válida;
+no se admiten parámetros.
 Use <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'El elemento <code>&lt;references&gt;</code> no es válido;
+	'cite_error_references_invalid_parameters_group' => 'Etiqueta <code>&lt;references&gt;</code> no válida;
 sólo se permite el parámetro «group».
 Use <code>&lt;references /&gt;</code>, o <code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Se quedó sin etiquetas de vínculos de retroceso personalizadas.
-Definir más en el mensaje <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_no_link_label_group' => 'Se han acabado las etiquetas de vínculos personalizados para el grupo "$1".
+	'cite_error_references_no_backlink_label' => 'Se han acabado las etiquetas personalizadas de vínculos de retroceso.
+Define más en <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
+	'cite_error_no_link_label_group' => 'Se han acabado las etiquetas personalizadas para vínculos del grupo "$1".
 Define más en el mensaje <nowiki>[[MediaWiki:$2]]</nowiki>.',
-	'cite_error_references_no_text' => 'El elemento <code>&lt;ref&gt;</code> no es válido;
-pues no hay una referencia con texto llamada <code>$1</code>',
-	'cite_error_included_ref' => 'Código de apertura <code>&lt;ref&gt;</code> sin su código de cierre <code>&lt;/ref&gt;</code>',
+	'cite_error_references_no_text' => 'Etiqueta <code>&lt;ref&gt;</code> inválida;
+no se ha definido el contenido de las referencias llamadas <code>$1</code>',
+	'cite_error_included_ref' => 'Etiqueta de apertura <code>&lt;ref&gt;</code> sin su correspondiente cierre <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se encontró una etiqueta <code>&lt;references /&gt;</code>',
 	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado "$1", pero no se encontró una etiqueta <code>&lt;references group="$1"/&gt;</code>',
-	'cite_error_references_group_mismatch' => 'el tag <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presenta el atributo de grupo en conflicto "$1".',
-	'cite_error_references_missing_group' => 'El tag <code>&lt;ref&gt;</code> definido en <code>&lt;references&gt;</code> incluye el atributo "$1" no declarado en el texto precedente.',
-	'cite_error_references_missing_key' => 'El tag <code>&lt;ref&gt;</code> con nombre "$1" definido en <code>&lt;references&gt;</code> no se utiliza en el texto precedente.',
-	'cite_error_references_no_key' => 'El tag <code>&lt;ref&gt;</code> definido en <code>&lt;references&gt;</code> no tiene atributo de nombre.',
-	'cite_error_empty_references_define' => 'El tag <code>&lt;ref&gt;</code> definido en <code>&lt;references&gt;</code> con nombre "$1" no tiene contenido.',
+	'cite_error_references_group_mismatch' => 'La etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presenta el atributo de grupo "$1" en conflicto.',
+	'cite_error_references_missing_group' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> pertenece al grupo "$1" no declarado en el texto precedente.',
+	'cite_error_references_missing_key' => 'La etiqueta <code>&lt;ref&gt;</code> con nombre "$1" definida en <code>&lt;references&gt;</code> no se utiliza en el texto precedente.',
+	'cite_error_references_no_key' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> no tiene atributo de nombre.',
+	'cite_error_empty_references_define' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> con nombre "$1" no tiene contenido.',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
@@ -1184,7 +1200,7 @@ Lisa neid sõnumisse <nowiki>[[MediaWiki:Cite references link many format backli
 Lisa neid sõnumisse <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Vigane <code>&lt;ref&gt;</code>-silt.
 Viite nimega <code>$1</code> tekst puudub.',
-	'cite_error_included_ref' => 'Sulgemismärgend <code>&lt;/ref&gt;</code> puudub.',
+	'cite_error_included_ref' => 'Sulgemissilt <code>&lt;/ref&gt;</code> puudub.',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-sildid on olemas, aga <code>&lt;references/&gt;</code>-silt puudub.',
 	'cite_error_group_refs_without_references' => 'Olemas on <code>&lt;ref&gt;</code>-silt rühma "$1" jaoks, aga vastav <code>&lt;references group="$1"/&gt;</code>-silt puudub.',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-siltide vahel oleval <code>&lt;ref&gt;</code>-sildil on vastukäiv parameetri "group" väärtus "$1".',
@@ -1811,7 +1827,7 @@ tidak ditemukan teks untuk ref bernama <code>$1</code>',
 	'cite_error_included_ref' => 'Tag <code>&lt;ref&gt;</code> harus ditutup oleh <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ditemukan, tapi tag <code>&lt;references/&gt;</code> tidak ditemukan',
 	'cite_error_group_refs_without_references' => 'Ditemukan tag <code>&lt;ref&gt;</code> untuk kelompok bernama "$1", tapi tidak ditemukan tag <code>&lt;references group="$1"/&gt;</code> yang berkaitan',
-	'cite_error_references_group_mismatch' => 'Tag <code>&lt;ref&gt;</code> di <code>&lt;references&gt;</code> memiliki atribut kelompok yang bertentangan "$1".',
+	'cite_error_references_group_mismatch' => 'Tag <code>&lt;ref&gt;</code> di <code>&lt;references&gt;</code> ada atribut kelompok "$1" yang konflik.',
 	'cite_error_references_missing_group' => 'Tag <code>&lt;ref&gt;</code> yang didefinisikan di <code>&lt;references&gt;</code> memiliki atribut kelompok "$1" yang tidak ditampilkan di teks sebelumnya.',
 	'cite_error_references_missing_key' => 'Tag <code>&lt;ref&gt;</code> dengan nama "$1" yang didefinisikan di <code>&lt;references&gt;</code> tidak digunakan pada teks sebelumnya.',
 	'cite_error_references_no_key' => 'Tag <code>&lt;ref&gt;</code> yang didefinisikan di di <code>&lt;references&gt;</code> tidak memiliki nama atribut.',
@@ -1951,7 +1967,6 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 	'cite_error_references_missing_key' => 'Il tag <code>&lt;ref&gt;</code> con nome "$1" definito in <code>&lt;references&gt;</code> non è usato nel testo precedente.',
 	'cite_error_references_no_key' => 'Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> non ha un attributo nome.',
 	'cite_error_empty_references_define' => 'Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> con nome "$1" non ha alcun contenuto.',
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
 /** Japanese (日本語)
@@ -1963,7 +1978,7 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
  */
 $messages['ja'] = array(
 	'cite-desc' => '引用のためのタグ <nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する',
-	'cite_croak' => '引用機能の重大なエラーです。$1: $2',
+	'cite_croak' => '引用機能のエラー。$1: $2',
 	'cite_error_key_str_invalid' => '内部エラーです。
 $str と $key の両方または一方が無効です。
 これはソフトウェアのバグです。',
@@ -2019,6 +2034,7 @@ $messages['jut'] = array(
 );
 
 /** Javanese (Basa Jawa)
+ * @author Iwan Novirion
  * @author Meursault2004
  * @author NoiX180
  * @author Pras
@@ -2059,6 +2075,16 @@ ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tandha <code>&lt;references&gt;</code> nduwèni atribut klompok sing marai konflik "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> tag sing didhèfinisikaké <code>&lt;references&gt;</code> nduwèni atribut klompok "$1" sing ora njedhul sing tèks sakdurungé.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> tag sing didhefinisikaké mawa jeneng "$1" <code>&lt;references&gt;</code> ora dianggo nèng tèks sakdurungé.',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link_prefix' => 'cite_ref-',
+	'cite_references_link_prefix' => 'cite_note-',
+	'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
+	'cite_references_link_one' => '<li id="$1">\'\'\'<span class="mw-cite-backlink">[[#$2|^]]</span>\'\'\' $3</li>',
+	'cite_references_link_many' => '<li id="$1"><span class="mw-cite-backlink">\'\'\'^\'\'\' $2</span> $3</li>',
+	'cite_references_link_many_format' => "<sup>[[#$1|'''''$2''''']]</sup>",
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
+	'cite_references_link_many_sep' => '&#32;',
+	'cite_references_link_many_and' => '&#32;',
 );
 
 /** Georgian (ქართული)
@@ -2398,9 +2424,54 @@ Tokony tsy hitranga mihitsy ity tsy fetezana ity.',
  * @author Iwan Novirion
  */
 $messages['min'] = array(
+	'cite-desc' => 'Manambahkan tag <nowiki><ref[ name=id]></nowiki> jo <nowiki><references/></nowiki> untuak kutipan',
+	'cite_croak' => 'Pautan mati; $1: $2',
+	'cite_error_key_str_invalid' => 'Kasalahan internal;
+$str jo/atau $key indak sah.
+Kasalahan ko sabananyo indak buliah tajadi.',
+	'cite_error_stack_invalid_input' => 'Kasalahan internal;
+kunci "stack" indak sah.
+Kasalahan ko sabananyo indak buliah tajadi.',
+	'cite_error' => 'Kutipan rusak: $1',
+	'cite_error_ref_numeric_key' => 'Tag <code>&lt;ref&gt;</code> indak sah;
+parameter indak buliah angko atau/hurup sadarano.
+Gunoan namo nan deskriptif',
+	'cite_error_ref_no_key' => 'Tag <code>&lt;ref&gt;</code> indak sah;
+rujuakan kosong harus ado namo',
+	'cite_error_ref_too_many_keys' => 'Tag <code>&lt;ref&gt;</code> indak sah;
+parameter indak sah; mis. talampau panjang',
+	'cite_error_ref_no_input' => 'Tag <code>&lt;ref&gt;</code> indak sah;
+rujuakan indak banamo harus ado isi',
+	'cite_error_references_invalid_parameters' => 'Tag <code>&lt;references&gt;</code> indak sah;
+indak buliah ado parameter.
+Gunoan <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Tag <code>&lt;references&gt;</code> indak sah;
+parameter "group" sajo nan buliah.
+Gunoan <code>&lt;references /&gt;</code>, atau <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Label pautan baliak habih.
+Cubo tambahkan di <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Label pautan untuak grup "$1" habih.
+Tantukan labiah lanjuik dalam <nowiki>[[MediaWiki:$2]]</nowiki>.',
+	'cite_error_references_no_text' => 'Tag <code>&lt;ref&gt;</code> indak sah; 
+indak ado teks untuak ref banamo <code>$1</code>',
+	'cite_error_included_ref' => 'Tag <code>&lt;ref&gt;</code> harus ditutuik jo <code>&lt;/ref&gt;</code>',
+	'cite_error_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ado, tapi <code>&lt;references/&gt;</code> indak ado',
+	'cite_error_group_refs_without_references' => 'Tag <code>&lt;ref&gt;</code> ado untuak grup banamo "$1", tapi indak ado <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_references_group_mismatch' => 'Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> ado namo grup "$1" nan konflik.',
+	'cite_error_references_missing_group' => 'Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> indak ado namo grup "$1".',
+	'cite_error_references_missing_key' => 'Tag <code>&lt;ref&gt;</code> jo namo "$1" pado <code>&lt;references&gt;</code> indak ado.',
+	'cite_error_references_no_key' => 'Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> indak ado aprameter namo.',
+	'cite_error_empty_references_define' => 'Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> nan banamo "$1" indak ado isi.',
+	'cite_reference_link_key_with_num' => '$1_$2',
+	'cite_reference_link_prefix' => 'cite_ref-',
+	'cite_references_link_prefix' => 'cite_note-',
+	'cite_reference_link' => '<sup id="$1" class="reference">[[#$2|<nowiki>[</nowiki>$3<nowiki>]</nowiki>]]</sup>',
 	'cite_references_link_one' => '<li id="$1">\'\'\'<span class="mw-cite-backlink">[[#$2|^]]</span>\'\'\' $3</li>',
 	'cite_references_link_many' => '<li id="$1"><span class="mw-cite-backlink">\'\'\'^\'\'\' $2</span> $3</li>',
+	'cite_references_link_many_format' => "<sup>[[#$1|'''''$2''''']]</sup>",
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
+	'cite_references_link_many_sep' => '&#32;',
+	'cite_references_link_many_and' => '&#32;',
 );
 
 /** Macedonian (македонски)
@@ -3730,12 +3801,40 @@ Barcasbi <code>&lt;references /&gt;</code> jo <code>&lt;references group="..." /
 );
 
 /** Thai (ไทย)
+ * @author Horus
  * @author Passawuth
  */
 $messages['th'] = array(
 	'cite-desc' => 'ใส่ <nowiki><ref[ name=id]></nowiki> และ <nowiki><references /></nowiki> สำหรับการอ้างอิง',
 	'cite_croak' => 'แหล่งอ้างอิงเสีย; $1: $2',
+	'cite_error_key_str_invalid' => 'ข้อผิดพลาดภายใน
+$str และ/หรือ $key ไม่ถูกต้อง
+ซึ่งไม่ควรเกิดขึ้น',
+	'cite_error_stack_invalid_input' => 'ข้อผิดพลาดภายใน
+กุญแจกองซ้อนไม่ถูกต้อง
+ซึ่งไม่ควรเกิดขึ้น',
 	'cite_error' => 'อ้างอิงผิดพลาด: $1',
+	'cite_error_ref_numeric_key' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+ชื่อไม่สามารถเป็นจำนวนเต็มอย่างง่าย ใช้ชื่อเรื่องที่พรรณนา',
+	'cite_error_ref_no_key' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+อ้างอิงที่ไม่มีเนื้อหาต้องมีชื่อ',
+	'cite_error_ref_too_many_keys' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+ชื่อไม่ถูกต้อง เช่น มากเกินไป',
+	'cite_error_ref_no_input' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+อ้างอิงที่ไม่มีชื่อต้องมีเนื้อหา',
+	'cite_error_references_invalid_parameters' => 'ป้ายระบุ <code>&lt;references&gt;</code> ไม่ถูกต้อง
+ไม่อนุญาตให้มีพารามิเตอร์
+ให้ใช้ <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'ป้ายระบุ <code>&lt;references&gt;</code> ไม่ถูกต้อง
+อนุญาตเฉพาะพารามิเตอร์ "group"
+ให้ใช้ <code>&lt;references /&gt;</code> หรือ <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_text' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง
+ไม่มีข้อความใดให้ไว้สำหรับอ้างอิงชื่อ <code>$1</code>',
+	'cite_error_included_ref' => 'ไม่มีการปิด <code>&lt;/ref&gt;</code> สำหรับ <code>&lt;ref&gt;</code>',
+	'cite_error_refs_without_references' => 'มีป้ายระบุ <code>&lt;ref&gt;</code> อยู่ แต่ไม่พบป้ายระบุ <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'มีป้ายระบุ <code>&lt;ref&gt;</code> สำหรับกลุ่มชื่อ "$1" แต่ไม่พบป้ายระบุ <code>&lt;references group="$1"/&gt;</code> ที่สอดคล้องกัน',
+	'cite_error_references_missing_key' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ชื่อ "$1" มีนิยามใน  <code>&lt;references&gt;</code> แต่ไม่ถูกใช้ในข้อความก่อนหน้านี้',
+	'cite_error_empty_references_define' => 'ป้ายระบุ <code>&lt;ref&gt;</code> ที่นิยามใน <code>&lt;references&gt;</code> ด้วยชื่อ "$1" ไม่มีเนื้อหา',
 );
 
 /** Turkmen (Türkmençe)
@@ -4023,8 +4122,8 @@ $messages['vi'] = array(
 chỉ cho phép tham số “group”.
 Hãy dùng <code>&lt;references /&gt;</code>, hoặc <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Đã dùng hết nhãn tham khảo chung.
-Hãy định nghĩa thêm ở thông báo <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_no_link_label_group' => 'Thiếu nhãn liên kết tùy biến cho nhóm “$1”. Hãy định rõ thêm nhãn trong thông báo <nowiki>[[MediaWiki:$2]]</nowiki>.',
+Hãy định nghĩa thêm ở thông điệp <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Thiếu nhãn liên kết tùy biến cho nhóm “$1”. Hãy định rõ thêm nhãn trong thông điệp <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 	'cite_error_included_ref' => 'Không có <code>&lt;/ref&gt;</code> để đóng thẻ <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code>, nhưng không tìm thấy thẻ <code>&lt;references/&gt;</code>',

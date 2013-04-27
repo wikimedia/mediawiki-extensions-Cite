@@ -17,7 +17,8 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'Cite',
-	'author' => 'Ævar Arnfjörð Bjarmason',
+	'author' => array('Ævar Arnfjörð Bjarmason','[http://www.daschmedia.de DaSch]'),
+	'version' => 'wecowi-mod-0.1',
 	'descriptionmsg' => 'cite_article_desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Special:Cite.php'
 );

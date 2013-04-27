@@ -24,7 +24,8 @@ $wgHooks['BeforePageDisplay'][] = 'wfCiteBeforePageDisplay';
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Cite',
-	'author' => 'Ævar Arnfjörð Bjarmason',
+	'author' => array('Ævar Arnfjörð Bjarmason','[http://www.daschmedia.de DaSch]'),
+	'version' => 'wecowi-mod-0.1',
 	'descriptionmsg' => 'cite-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );

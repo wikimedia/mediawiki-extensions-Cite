@@ -4213,6 +4213,7 @@ $messages['yue'] = array(
  * @author Liangent
  * @author PhiLiP
  * @author Philip
+ * @author 乌拉跨氪
  */
 $messages['zh-hans'] = array(
 	'cite-desc' => '增加用于引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>标签',
@@ -4228,7 +4229,7 @@ $messages['zh-hans'] = array(
 	'cite_error_references_invalid_parameters_group' => '无效<code>&lt;references&gt;</code>标签；只允许填写“group”参数，请使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => '自定义回链标签耗尽，请在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定义更多的标签。',
 	'cite_error_no_link_label_group' => '组“$1”的自定义链接标签耗尽，请在<nowiki>[[MediaWiki:$2]]</nowiki>中定义更多的标签。',
-	'cite_error_references_no_text' => '无效<code>&lt;ref&gt;</code>标签；未为name属性为<code>$1</code>的引用提供文字',
+	'cite_error_references_no_text' => '无效<code>&lt;ref&gt;</code>标签；未给name属性为<code>$1</code>的引用提供文字',
 	'cite_error_included_ref' => '没有找到与<code>&lt;/ref&gt;</code>对应的<code>&lt;ref&gt;</code>标签',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>标签存在，但没有找到<code>&lt;references/&gt;</code>标签',
 	'cite_error_group_refs_without_references' => '组名为“$1”的<code>&lt;ref&gt;</code>标签存在，但没有找到相应的<code>&lt;references group="$1"/&gt;</code>标签',
@@ -4243,6 +4244,7 @@ $messages['zh-hans'] = array(
  * @author Liangent
  * @author Mark85296341
  * @author Philip
+ * @author 乌拉跨氪
  */
 $messages['zh-hant'] = array(
 	'cite-desc' => '增加用於引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>標籤',
@@ -4258,7 +4260,7 @@ $messages['zh-hant'] = array(
 	'cite_error_references_invalid_parameters_group' => '無效<code>&lt;references&gt;</code>標籤；只允許填寫「group」參數，請使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => '自訂回連標籤耗盡。請在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定義更多的標籤',
 	'cite_error_no_link_label_group' => '群組「$1」的自訂標籤標籤耗盡，請在<nowiki>[[MediaWiki:$2]]</nowiki>中定義更多的標籤。',
-	'cite_error_references_no_text' => '無效<code>&lt;ref&gt;</code>標籤；未為name屬性為<code>$1</code>的引用提供文字',
+	'cite_error_references_no_text' => '無效<code>&lt;ref&gt;</code>標籤；未給name屬性為<code>$1</code>的引用提供文字',
 	'cite_error_included_ref' => '沒有找到與<code>&lt;/ref&gt;</code>對應的<code>&lt;ref&gt;</code>標籤',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>標籤存在，但沒有找到<code>&lt;references/&gt;</code>標籤',
 	'cite_error_group_refs_without_references' => '組名為「$1」的<code>&lt;ref&gt;</code>標籤存在，但沒有找到相應的<code>&lt;references group="$1"/&gt;</code>標籤',

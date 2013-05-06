@@ -1306,6 +1306,7 @@ $messages['fo'] = array(
  * @author Crochet.david
  * @author Grondin
  * @author IAlex
+ * @author Kropotkine 113
  * @author McDutchie
  * @author Sherbrooke
  * @author The Evil IP address
@@ -1346,7 +1347,7 @@ aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
 	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent, mais aucune balise <code>&lt;references/&gt;</code> n’a été trouvée.',
 	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent pour un groupe nommé « $1 », mais aucune balise <code>&lt;references group="$1"/&gt;</code> correspondante n’a été trouvée.',
 	'cite_error_references_group_mismatch' => 'La balise <code>&lt;ref&gt;</code> dans <code>&lt;references&gt;</code> a l’attribut de groupe « $1 » qui entre en conflit avec celui de <code>&lt;references&gt;</code>.',
-	'cite_error_references_missing_group' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> a un groupé attribué « $1 » qui ne figure pas dans le texte précédent.',
+	'cite_error_references_missing_group' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> a un groupe attribué « $1 » qui ne figure pas dans le texte précédent.',
 	'cite_error_references_missing_key' => 'La balise <code>&lt;ref&gt;</code> avec le nom « $1 » définie dans <code>&lt;references&gt;</code> n’est pas utilisé dans le texte précédent.',
 	'cite_error_references_no_key' => "La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> n’a pas d'attribut de nom.",
 	'cite_error_empty_references_define' => 'La balise <code>&lt;ref&gt;</code> défini dans <code>&lt;references&gt;</code> avec le nom « $1 » n’a pas de contenu.',
@@ -3021,6 +3022,7 @@ $messages['ps'] = array(
  * @author Giro720
  * @author Hamilton Abreu
  * @author Malafaya
+ * @author Opraco
  * @author Waldir
  * @author 555
  */
@@ -3031,7 +3033,7 @@ $messages['pt'] = array(
 $str e/ou $key inválido.
 Isto nunca deveria acontecer.',
 	'cite_error_stack_invalid_input' => 'Erro interno; chave fixa inválida',
-	'cite_error' => 'Erro de citação $1',
+	'cite_error' => 'Erro de citação: $1',
 	'cite_error_ref_numeric_key' => 'Código <code>&lt;ref&gt;</code> inválido; o nome não pode ser um número. Utilize um nome descritivo',
 	'cite_error_ref_no_key' => 'Código <code>&lt;ref&gt;</code> inválido; refs sem conteúdo devem ter um parâmetro de nome',
 	'cite_error_ref_too_many_keys' => 'Código <code>&lt;ref&gt;</code> inválido; nomes inválidos (por exemplo, nome muito extenso)',

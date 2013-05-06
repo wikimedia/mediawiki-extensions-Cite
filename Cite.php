@@ -88,7 +88,7 @@ $wgResourceModules['jquery.tooltip'] = $citeResourceTemplate + array(
 /* Add RTL fix for the cite <sup> elements */
 $wgResourceModules['ext.rtlcite'] = $citeResourceTemplate + array(
 	'styles' => 'ext.rtlcite/ext.rtlcite.css',
-	'position' => 'bottom',
+	'position' => 'top',
 );
 
 /**
@@ -104,7 +104,7 @@ function wfCiteBeforePageDisplay( $out, &$sk ) {
 	}
 
 	/* RTL support quick-fix module */
-	$out->addModules( 'ext.rtlcite' );
+	$out->addModuleStyles( 'ext.rtlcite' );
 	return true;
 }
 

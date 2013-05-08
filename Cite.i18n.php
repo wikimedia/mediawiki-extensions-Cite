@@ -2488,7 +2488,7 @@ $messages['mk'] = array(
 	'cite_error_stack_invalid_input' => 'Внатрешна грешка;
 погрешен клуч за купот.
 Ова никогаш не треба да се случува.',
-	'cite_error' => 'Грешка при цитирањето: $1.',
+	'cite_error' => 'Грешка во наводот: $1.',
 	'cite_error_ref_numeric_key' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
 името не може да биде број. Употребете описен наслов',
 	'cite_error_ref_no_key' => 'Погрешна ознака <code>&lt;ref&gt;</code>;

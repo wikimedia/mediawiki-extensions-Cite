@@ -953,8 +953,10 @@ $messages['cdo'] = array(
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
+	'cite_article_link' => 'АгӀонах лаьцна дешнаш дало',
 	'cite' => 'Далийнадош',
 );
 

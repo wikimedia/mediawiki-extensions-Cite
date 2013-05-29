@@ -594,6 +594,7 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Bellayet
  * @author Nasir8891
  * @author Zaheen
@@ -605,9 +606,9 @@ $messages['bn'] = array(
 	'cite_error_stack_invalid_input' => 'আভ্যন্তরীন ত্রুটি; অবৈধ স্ট্যাক কি। এটা কখনই ঘটা উচিত নয়।',
 	'cite_error' => 'উদ্ধৃতি ত্রুটি: $1',
 	'cite_error_ref_numeric_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নাম কোন সরল পূর্ণসংখ্যা হতে পারবেনা, একটি বিবরণমূলক শিরোনাম ব্যবহার করুন',
-	'cite_error_ref_no_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; বিষয়বস্তুহীন refসমূহের অবশ্যই নাম থাকতে হবে',
+	'cite_error_ref_no_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; বিষয়বস্তুহীন ref সমূহের অবশ্যই নাম থাকতে হবে',
 	'cite_error_ref_too_many_keys' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; অবৈধ নাম (যেমন- সংখ্যাতিরিক্ত)',
-	'cite_error_ref_no_input' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নামবিহীন refসমূহের অবশ্যই বিষয়বস্তু থাকতে হবে',
+	'cite_error_ref_no_input' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নামবিহীন ref সমূহের অবশ্যই বিষয়বস্তু থাকতে হবে',
 	'cite_error_references_invalid_parameters' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; কোন প্যারামিটার অনুমোদিত নয়, <code>&lt;references /&gt;</code> ব্যবহার করুন',
 	'cite_error_references_invalid_parameters_group' => 'ত্রুটিপূর্ণ <code>&lt;references&gt;</code> ট্যাগ;
 কেবলমাত্র "group" প্যারামিটার ব্যবহার কর যাবে।
@@ -616,7 +617,7 @@ $messages['bn'] = array(
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> বার্তায় আরও সংজ্ঞায়িত করুন',
 	'cite_error_no_link_label_group' => 'গ্রুপ "$1" এর জন্য কাস্টম লিংক ব্যবহারের সীমানা পেরিয়েছে।
 <nowiki>[[MediaWiki:$2]]</nowiki> বার্তায় আরও সজ্ঞায়িত করুন।',
-	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের refগুলির জন্য কোন টেক্সট প্রদান করা হয়নি',
+	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের ref গুলির জন্য কোন টেক্সট প্রদান করা হয়নি',
 	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ট্যাগের ক্ষেত্রে <code>&lt;/ref&gt;</code> ট্যাগ যোগ করা হয়নি',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু কোনো <code>&lt;references/&gt;</code> ট্যাগ নেই',
 	'cite_error_group_refs_without_references' => '"$1" নামের গ্রুপের <code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু এর জন্য <code>&lt;references group="$1"/&gt;</code> ট্যাগ দেয়া হয়নি',

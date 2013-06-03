@@ -4181,7 +4181,7 @@ $messages['yi'] = array(
 	'cite_error_references_no_text' => 'אומגילטיגער <code>&lt;ref&gt;</code> טאַג;
 קיין טעקסט נישט געשריבן פֿאַר רעפֿערענצן מיטן נאָמען <code>$1</code>',
 	'cite_error_included_ref' => 'פֿעלט א שליסנדיגער <code>&lt;/ref&gt;</code> פֿאַר <code>&lt;ref&gt;</code> טאַג',
-	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&lt;references/&gt;</code> טאַג.",
+	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&#123;&#123;רעפליסטע&#125;&#125;</code> מוסטער און נישט קיין <code>&lt;references/&gt;</code> טאַג.",
 	'cite_error_group_refs_without_references' => 'ס\'זענען דא <code>&lt;ref&gt;</code> טאַגן פֿאַר א גרופע וואס הייסט "$1", אבער מ\'האט נישט געטראפֿן קיין אַנטקעגענעם  <code>&lt;references group="$1"/&gt;</code> טאַג.',
 	'cite_error_references_group_mismatch' => 'דער <code>&lt;ref&gt;</code> טאג אין <code>&lt;references&gt;</code> האט א גרופע אייגנקייט וואס איז סותר "$1".',
 	'cite_error_references_missing_group' => 'דער <code>&lt;ref&gt;</code> טאג דעפינעירט אין <code>&lt;references&gt;</code> האט גרופע אייגנקייט "$1" וואס באווייזט זיך נישט אין פריערדיקן טעקסט.',

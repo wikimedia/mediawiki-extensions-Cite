@@ -958,6 +958,7 @@ $messages['cdo'] = array(
 $messages['ce'] = array(
 	'cite_article_link' => 'АгӀонах лаьцна дешнаш дало',
 	'cite' => 'Далийнадош',
+	'cite_page' => 'АгӀо:',
 );
 
 /** Cebuano (Cebuano)

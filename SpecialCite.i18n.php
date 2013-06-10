@@ -957,6 +957,7 @@ $messages['cdo'] = array(
  */
 $messages['ce'] = array(
 	'cite_article_link' => 'АгӀонах лаьцна дешнаш дало',
+	'tooltip-cite-article' => 'ХӀара бу хаам агӀонах лаьцна дешнаш муха дало деза гойтуш',
 	'cite' => 'Далийнадош',
 	'cite_page' => 'АгӀо:',
 );
@@ -3277,10 +3278,11 @@ $messages['ku-latn'] = array(
 /** Cornish (kernowek)
  * @author Kernoweger
  * @author Kw-Moon
+ * @author Nrowe
  */
 $messages['kw'] = array(
 	'cite_article_link' => 'Devynna an erthygel-ma',
-	'tooltip-cite-article' => 'Kedhlow war fatel devynna an folen-ma',
+	'tooltip-cite-article' => 'Kedhlow war fatel dhevynnir an folen-ma',
 	'cite' => 'Devynna',
 	'cite_page' => 'Folen:',
 	'cite_submit' => 'Devynna',

@@ -382,7 +382,7 @@ $messages['arz'] = array(
 </div> <!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
-/** Assamese (অসমীয়া)
+/** Assamese (অসমীয়া)
  * @author Bishnu Saikia
  * @author Gitartha.bordoloi
  */
@@ -953,9 +953,13 @@ $messages['cdo'] = array(
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
+	'cite_article_link' => 'АгӀонах лаьцна дешнаш дало',
+	'tooltip-cite-article' => 'ХӀара бу хаам агӀонах лаьцна дешнаш муха дало деза гойтуш',
 	'cite' => 'Далийнадош',
+	'cite_page' => 'АгӀо:',
 );
 
 /** Cebuano (Cebuano)
@@ -3274,10 +3278,11 @@ $messages['ku-latn'] = array(
 /** Cornish (kernowek)
  * @author Kernoweger
  * @author Kw-Moon
+ * @author Nrowe
  */
 $messages['kw'] = array(
 	'cite_article_link' => 'Devynna an erthygel-ma',
-	'tooltip-cite-article' => 'Kedhlow war fatel devynna an folen-ma',
+	'tooltip-cite-article' => 'Kedhlow war fatel dhevynnir an folen-ma',
 	'cite' => 'Devynna',
 	'cite_page' => 'Folen:',
 	'cite_submit' => 'Devynna',
@@ -3966,7 +3971,7 @@ $messages['nan'] = array(
 	'cite_submit' => 'Ín-iōng',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -4063,7 +4068,7 @@ $messages['nds'] = array(
 	'cite_submit' => 'Ziteren',
 );
 
-/** Nedersaksies (Nedersaksies)
+/** Low Saxon (Netherlands) (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
@@ -4163,7 +4168,7 @@ Het volgende kan de voorkeur hebben als de [[LaTeX]]-module \"url\" wordt gebrui
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Gunnernett
  * @author Harald Khan
  * @author Jon Harald Søby
@@ -4263,7 +4268,7 @@ Se utilizatz lo package URL dins [[LaTeX]] (<code>\\usepackage{url}</code> endac
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Jnanaranjan Sahu
  * @author Psubhashish
  */

@@ -330,7 +330,7 @@ $str و/أو $key غلط.
 	'cite_references_link_many_format_backlink_labels' => 'أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى أأ أب أت أث أج أح أخ أد أذ أر أز أس أش أص أض أط أظ أع أغ أف أق أك أل أم أن أه أو أى بأ بب بت بث بج بح بخ بد بذ بر بز بس بش بص بض بط بظ بع بغ بف بق بك بل بم بن به بو بى تأ تب تت تث تج تح تخ تد تذ تر تز تس تش تص تض تط تظ تع تغ تف تق تك تل تم تن ته تو تى ثأ ثب ثت ثث ثج ثح ثخ ثد ثذ ثر ثز ثس ثش ثص ثض ثط ثظ ثع ثغ ثف ثق ثك ثل ثم ثن ثه ثو ثى جأ جب جت جث جج جح جخ جد جذ جر جز جس جش جص جض جط جظ جع جغ جف جق جك جل جم جن جه جو جى حأ حب حت حث حج حح حخ حد حذ حر حز حس حش حص حض حط حظ حع حغ حف حق حك حل حم حن حه حو حى خأ خب خت خث خج خح خخ خد خذ خر خز خس خش خص خض خط خظ خع خغ خف خق خك خل خم خن خه خو خى دأ دب دت دث دج دح دخ دد دذ در دز دس دش دص دض دط دظ دع دغ دف دق دك دل دم دن ده دو دى ذأ ذب ذت ذث ذج ذح ذخ ذد ذذ ذر ذز ذس ذش ذص ذض ذط ذظ ذع ذغ ذف ذق ذك ذل ذم ذن ذه ذو ذى رأ رب رت رث رج رح رخ رد رذ رر رز رس رش رص رض رط رظ رع رغ رف رق رك رل رم رن ره رو رى زأ زب زت زث زج زح زخ زد زذ زر زز زس زش زص زض زط زظ زع زغ زف زق زك زل زم زن زه زو زى سأ سب ست سث سج سح سخ سد سذ سر سز سس سش سص سض سط سظ سع سغ سف سق سك سل سم سن سه سو سى شأ شب شت شث شج شح شخ شد شذ شر شز شس شش شص شض شط شظ شع شغ شف شق شك شل شم شن شه شو شى صأ صب صت صث صج صح صخ صد صذ صر صز صس صش صص صض صط صظ صع صغ صف صق صك صل صم صن صه صو صى ضأ ضب ضت ضث ضج ضح ضخ ضد ضذ ضر ضز ضس ضش ضص ضض ضط ضظ ضع ضغ ضف ضق ضك ضل ضم ضن ضه ضو ضى طأ طب طت طث طج طح طخ طد طذ طر طز طس طش طص طض طط طظ طع طغ طف طق طك طل طم طن طه طو طى ظأ ظب ظت ظث ظج ظح ظخ ظد ظذ ظر ظز ظس ظش ظص ظض ظط ظظ ظع ظغ ظف ظق ظك ظل ظم ظن ظه ظو ظى عأ عب عت عث عج عح عخ عد عذ عر عز عس عش عص عض عط عظ عع عغ عف عق عك عل عم عن عه عو عى غأ غب غت غث غج غح غخ غد غذ غر غز غس غش غص غض غط غظ غع غغ غف غق غك غل غم غن غه غو غى فأ فب فت فث فج فح فخ فد فذ فر فز فس فش فص فض فط فظ فع فغ فف فق فك فل فم فن فه فو فى قأ قب قت قث قج قح قخ قد قذ قر قز قس قش قص قض قط قظ قع قغ قف قق قك قل قم قن قه قو قى كأ كب كت كث كج كح كخ كد كذ كر كز كس كش كص كض كط كظ كع كغ كف كق كك كل كم كن كه كو كى لأ لب لت لث لج لح لخ لد لذ لر لز لس لش لص لض لط لظ لع لغ لف لق لك لل لم لن له لو لى مأ مب مت مث مج مح مخ مد مذ مر مز مس مش مص مض مط مظ مع مغ مف مق مك مل مم من مه مو مى نأ نب نت نث نج نح نخ ند نذ نر نز نس نش نص نض نط نظ نع نغ نف نق نك نل نم نن نه نو نى هأ هب هت هث هج هح هخ هد هذ هر هز هس هش هص هض هط هظ هع هغ هف هق هك هل هم هن هه هو هى وأ وب وت وث وج وح وخ ود وذ ور وز وس وش وص وض وط وظ وع وغ وف وق وك ول وم ون وه وو وى يأ يب يت يث يج يح يخ يد يذ ير يز يس يش يص يض يط يظ يع يغ يف يق يك يل يم ين يه يو يى',
 );
 
-/** Assamese (অসমীয়া)
+/** Assamese (অসমীয়া)
  * @author Bishnu Saikia
  * @author Gitartha.bordoloi
  * @author Reedy
@@ -594,6 +594,7 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Bellayet
  * @author Nasir8891
  * @author Zaheen
@@ -605,9 +606,9 @@ $messages['bn'] = array(
 	'cite_error_stack_invalid_input' => 'আভ্যন্তরীন ত্রুটি; অবৈধ স্ট্যাক কি। এটা কখনই ঘটা উচিত নয়।',
 	'cite_error' => 'উদ্ধৃতি ত্রুটি: $1',
 	'cite_error_ref_numeric_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নাম কোন সরল পূর্ণসংখ্যা হতে পারবেনা, একটি বিবরণমূলক শিরোনাম ব্যবহার করুন',
-	'cite_error_ref_no_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; বিষয়বস্তুহীন refসমূহের অবশ্যই নাম থাকতে হবে',
+	'cite_error_ref_no_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; বিষয়বস্তুহীন ref সমূহের অবশ্যই নাম থাকতে হবে',
 	'cite_error_ref_too_many_keys' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; অবৈধ নাম (যেমন- সংখ্যাতিরিক্ত)',
-	'cite_error_ref_no_input' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নামবিহীন refসমূহের অবশ্যই বিষয়বস্তু থাকতে হবে',
+	'cite_error_ref_no_input' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নামবিহীন ref সমূহের অবশ্যই বিষয়বস্তু থাকতে হবে',
 	'cite_error_references_invalid_parameters' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; কোন প্যারামিটার অনুমোদিত নয়, <code>&lt;references /&gt;</code> ব্যবহার করুন',
 	'cite_error_references_invalid_parameters_group' => 'ত্রুটিপূর্ণ <code>&lt;references&gt;</code> ট্যাগ;
 কেবলমাত্র "group" প্যারামিটার ব্যবহার কর যাবে।
@@ -616,7 +617,7 @@ $messages['bn'] = array(
 <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> বার্তায় আরও সংজ্ঞায়িত করুন',
 	'cite_error_no_link_label_group' => 'গ্রুপ "$1" এর জন্য কাস্টম লিংক ব্যবহারের সীমানা পেরিয়েছে।
 <nowiki>[[MediaWiki:$2]]</nowiki> বার্তায় আরও সজ্ঞায়িত করুন।',
-	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের refগুলির জন্য কোন টেক্সট প্রদান করা হয়নি',
+	'cite_error_references_no_text' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের ref গুলির জন্য কোন টেক্সট প্রদান করা হয়নি',
 	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ট্যাগের ক্ষেত্রে <code>&lt;/ref&gt;</code> ট্যাগ যোগ করা হয়নি',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু কোনো <code>&lt;references/&gt;</code> ট্যাগ নেই',
 	'cite_error_group_refs_without_references' => '"$1" নামের গ্রুপের <code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু এর জন্য <code>&lt;references group="$1"/&gt;</code> ট্যাগ দেয়া হয়নি',
@@ -1306,6 +1307,7 @@ $messages['fo'] = array(
  * @author Crochet.david
  * @author Grondin
  * @author IAlex
+ * @author Kropotkine 113
  * @author McDutchie
  * @author Sherbrooke
  * @author The Evil IP address
@@ -1346,7 +1348,7 @@ aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
 	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent, mais aucune balise <code>&lt;references/&gt;</code> n’a été trouvée.',
 	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent pour un groupe nommé « $1 », mais aucune balise <code>&lt;references group="$1"/&gt;</code> correspondante n’a été trouvée.',
 	'cite_error_references_group_mismatch' => 'La balise <code>&lt;ref&gt;</code> dans <code>&lt;references&gt;</code> a l’attribut de groupe « $1 » qui entre en conflit avec celui de <code>&lt;references&gt;</code>.',
-	'cite_error_references_missing_group' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> a un groupé attribué « $1 » qui ne figure pas dans le texte précédent.',
+	'cite_error_references_missing_group' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> a un groupe attribué « $1 » qui ne figure pas dans le texte précédent.',
 	'cite_error_references_missing_key' => 'La balise <code>&lt;ref&gt;</code> avec le nom « $1 » définie dans <code>&lt;references&gt;</code> n’est pas utilisé dans le texte précédent.',
 	'cite_error_references_no_key' => "La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> n’a pas d'attribut de nom.",
 	'cite_error_empty_references_define' => 'La balise <code>&lt;ref&gt;</code> défini dans <code>&lt;references&gt;</code> avec le nom « $1 » n’a pas de contenu.',
@@ -2295,10 +2297,11 @@ Et wohr keine Tex aanjejovve för de
 
 /** Cornish (kernowek)
  * @author Kernoweger
+ * @author Nrowe
  */
 $messages['kw'] = array(
 	'cite_error' => 'Gwall devynna: $1',
-	'cite_error_refs_without_references' => 'Yma tagys <code>&lt;ref&gt;</code>, mes ny veu kevys tag <code>&lt;references/&gt;</code>',
+	'cite_error_refs_without_references' => 'Yma tagys <code>&lt;ref&gt;</code>, mes ny gavas tag <code>&lt;references/&gt;</code>',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -2487,7 +2490,7 @@ $messages['mk'] = array(
 	'cite_error_stack_invalid_input' => 'Внатрешна грешка;
 погрешен клуч за купот.
 Ова никогаш не треба да се случува.',
-	'cite_error' => 'Грешка при цитирањето: $1.',
+	'cite_error' => 'Грешка во наводот: $1.',
 	'cite_error_ref_numeric_key' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
 името не може да биде број. Употребете описен наслов',
 	'cite_error_ref_no_key' => 'Погрешна ознака <code>&lt;ref&gt;</code>;
@@ -2668,7 +2671,7 @@ l-ebda test ma ngħata għar-refs bl-isem <code>$1</code>',
 	'cite_error_empty_references_define' => 'It-tikketta <code>&lt;ref&gt;</code> definita f\'<code>&lt;references&gt;</code> bl-isem "$1" m\'għandha l-ebda kontenut.',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Audun
  * @author Laaknor
  */
@@ -2722,7 +2725,7 @@ $messages['nds'] = array(
 	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-Tags för de Grupp „$1“ gifft dat, is aver keen <code>&lt;references group=„$1“/&gt;</code>-Tag funnen worrn',
 );
 
-/** Nedersaksies (Nedersaksies)
+/** Low Saxon (Netherlands) (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
@@ -2776,7 +2779,7 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam "$1" heeft geen inhoud.',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Frokor
  * @author Harald Khan
  * @author Njardarlogar
@@ -2836,7 +2839,7 @@ pas de tèxte per las referéncias nomenadas <code>$1</code>.',
 	'cite_error_empty_references_define' => 'La balisa <code>&lt;ref&gt;</code> definida dins <code>&lt;references&gt;</code> amb lo nom « $1 » a pas de contengut.',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Psubhashish
  */
 $messages['or'] = array(
@@ -3021,6 +3024,7 @@ $messages['ps'] = array(
  * @author Giro720
  * @author Hamilton Abreu
  * @author Malafaya
+ * @author Opraco
  * @author Waldir
  * @author 555
  */
@@ -3031,7 +3035,7 @@ $messages['pt'] = array(
 $str e/ou $key inválido.
 Isto nunca deveria acontecer.',
 	'cite_error_stack_invalid_input' => 'Erro interno; chave fixa inválida',
-	'cite_error' => 'Erro de citação $1',
+	'cite_error' => 'Erro de citação: $1',
 	'cite_error_ref_numeric_key' => 'Código <code>&lt;ref&gt;</code> inválido; o nome não pode ser um número. Utilize um nome descritivo',
 	'cite_error_ref_no_key' => 'Código <code>&lt;ref&gt;</code> inválido; refs sem conteúdo devem ter um parâmetro de nome',
 	'cite_error_ref_too_many_keys' => 'Código <code>&lt;ref&gt;</code> inválido; nomes inválidos (por exemplo, nome muito extenso)',
@@ -3386,6 +3390,7 @@ $messages['sah'] = array(
 );
 
 /** Sicilian (sicilianu)
+ * @author Markos90
  * @author Melos
  * @author Santu
  */
@@ -3415,6 +3420,10 @@ Usari <code>&lt;references /&gt;</code> oppuru <code>&lt;references group="..." 
 	'cite_error_empty_references_define' => 'Lu tag <code>&lt;ref&gt;</code> difinutu n <code>&lt;references&gt;</code> cu lu nomu "$1" nun havi alcun cuntinutu.',
 	'cite_reference_link_prefix' => 'muntuari ref',
 	'cite_references_link_prefix' => 'muntuari annutazzioni',
+	'cite_references_link_one' => "<li id=\"\$1\">[[#\$2|'''^''']] \$3</li>",
+	'cite_references_link_many' => "<li id=\"\$1\">'''^''' \$2 \$3</li>",
+	'cite_references_link_many_format' => "<sup>''[[#$1|$3]]''</sup>", # Fuzzy
+	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
 );
 
 /** Sinhala (සිංහල)
@@ -4178,7 +4187,7 @@ $messages['yi'] = array(
 	'cite_error_references_no_text' => 'אומגילטיגער <code>&lt;ref&gt;</code> טאַג;
 קיין טעקסט נישט געשריבן פֿאַר רעפֿערענצן מיטן נאָמען <code>$1</code>',
 	'cite_error_included_ref' => 'פֿעלט א שליסנדיגער <code>&lt;/ref&gt;</code> פֿאַר <code>&lt;ref&gt;</code> טאַג',
-	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&lt;references/&gt;</code> טאַג.",
+	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&#123;&#123;רעפליסטע&#125;&#125;</code> מוסטער און נישט קיין <code>&lt;references/&gt;</code> טאַג.",
 	'cite_error_group_refs_without_references' => 'ס\'זענען דא <code>&lt;ref&gt;</code> טאַגן פֿאַר א גרופע וואס הייסט "$1", אבער מ\'האט נישט געטראפֿן קיין אַנטקעגענעם  <code>&lt;references group="$1"/&gt;</code> טאַג.',
 	'cite_error_references_group_mismatch' => 'דער <code>&lt;ref&gt;</code> טאג אין <code>&lt;references&gt;</code> האט א גרופע אייגנקייט וואס איז סותר "$1".',
 	'cite_error_references_missing_group' => 'דער <code>&lt;ref&gt;</code> טאג דעפינעירט אין <code>&lt;references&gt;</code> האט גרופע אייגנקייט "$1" וואס באווייזט זיך נישט אין פריערדיקן טעקסט.',
@@ -4213,6 +4222,7 @@ $messages['yue'] = array(
  * @author Liangent
  * @author PhiLiP
  * @author Philip
+ * @author 乌拉跨氪
  */
 $messages['zh-hans'] = array(
 	'cite-desc' => '增加用于引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>标签',
@@ -4228,7 +4238,7 @@ $messages['zh-hans'] = array(
 	'cite_error_references_invalid_parameters_group' => '无效<code>&lt;references&gt;</code>标签；只允许填写“group”参数，请使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => '自定义回链标签耗尽，请在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定义更多的标签。',
 	'cite_error_no_link_label_group' => '组“$1”的自定义链接标签耗尽，请在<nowiki>[[MediaWiki:$2]]</nowiki>中定义更多的标签。',
-	'cite_error_references_no_text' => '无效<code>&lt;ref&gt;</code>标签；未为name属性为<code>$1</code>的引用提供文字',
+	'cite_error_references_no_text' => '无效<code>&lt;ref&gt;</code>标签；未给name属性为<code>$1</code>的引用提供文字',
 	'cite_error_included_ref' => '没有找到与<code>&lt;/ref&gt;</code>对应的<code>&lt;ref&gt;</code>标签',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>标签存在，但没有找到<code>&lt;references/&gt;</code>标签',
 	'cite_error_group_refs_without_references' => '组名为“$1”的<code>&lt;ref&gt;</code>标签存在，但没有找到相应的<code>&lt;references group="$1"/&gt;</code>标签',
@@ -4243,6 +4253,7 @@ $messages['zh-hans'] = array(
  * @author Liangent
  * @author Mark85296341
  * @author Philip
+ * @author 乌拉跨氪
  */
 $messages['zh-hant'] = array(
 	'cite-desc' => '增加用於引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>標籤',
@@ -4258,7 +4269,7 @@ $messages['zh-hant'] = array(
 	'cite_error_references_invalid_parameters_group' => '無效<code>&lt;references&gt;</code>標籤；只允許填寫「group」參數，請使用<code>&lt;references /&gt;</code>或<code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => '自訂回連標籤耗盡。請在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定義更多的標籤',
 	'cite_error_no_link_label_group' => '群組「$1」的自訂標籤標籤耗盡，請在<nowiki>[[MediaWiki:$2]]</nowiki>中定義更多的標籤。',
-	'cite_error_references_no_text' => '無效<code>&lt;ref&gt;</code>標籤；未為name屬性為<code>$1</code>的引用提供文字',
+	'cite_error_references_no_text' => '無效<code>&lt;ref&gt;</code>標籤；未給name屬性為<code>$1</code>的引用提供文字',
 	'cite_error_included_ref' => '沒有找到與<code>&lt;/ref&gt;</code>對應的<code>&lt;ref&gt;</code>標籤',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>標籤存在，但沒有找到<code>&lt;references/&gt;</code>標籤',
 	'cite_error_group_refs_without_references' => '組名為「$1」的<code>&lt;ref&gt;</code>標籤存在，但沒有找到相應的<code>&lt;references group="$1"/&gt;</code>標籤',

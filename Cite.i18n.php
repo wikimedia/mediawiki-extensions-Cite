@@ -521,6 +521,31 @@ $messages['bcc'] = array(
 	'cite_references_link_many_and' => 'و',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'cite-desc' => 'Minadugang nin <nowiki><ref[ name=id]></nowiki> asin <nowiki><references/></nowiki> na mga tatak, para sa mga toltolan',
+	'cite_croak' => 'An panoltol nagadan; $1:$2',
+	'cite_error_key_str_invalid' => 'Panlaog na kasalaan;
+Imbalidong $str asin/o $key.
+Ini dae dapat nangyari.',
+	'cite_error_stack_invalid_input' => 'Panlaog na kasalaan;
+imbalidong susi nin bulto.
+Ini dae dapat nangyari.',
+	'cite_error' => 'Sambiton an kasalaan: $1',
+	'cite_error_ref_numeric_key' => 'Imbalido an <code>&lt;ref&gt;</code> tatak; an pangaran dae puwede na magin sarong simplehon na bilog na numero. Maggamit nin sarong deskriptibong titulo',
+	'cite_error_ref_no_key' => 'Imbalido an <code>&lt;ref&gt;</code> tatak; an mga toltolan na mayong kalamnan dapat magkaigwa nin pangaran',
+	'cite_error_ref_too_many_keys' => 'Imbalido an <code>&lt;ref&gt;</code> tatak; imbalidong mga pangaran, e.g. grabe kadakol',
+	'cite_error_ref_no_input' => 'Imbalido an <code>&lt;ref&gt;</code> tatak; an mga toltolan na mayong pangaran dapat magkaigwa nin kalamnan',
+	'cite_error_references_invalid_parameters' => 'Imbalido an <code>&lt;references&gt;</code> tatak; mayong mga parametro an pinagtutugot. Maggamit nin <code>&lt;mga toltolan /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Imbalido an <code>&lt;references&gt;</code> tatak; an parametrong "grupo" sana an pinagtutugot. Maggamit nin <code>&lt;mga toltolan /&gt;</code>, o <code>&lt;mga toltolang grupo="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Naubusan nin pankostumbreng sugpon-panlikod na kamarkahan.
+Pakahulugan nin dagdag tabi an <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mensahe.',
+	'cite_error_no_link_label_group' => 'Naubusan nin pankostumbreng sugpon nin mga kamarkahan para sa grupo "$1".
+Pakahulugan nin dagdag tabi an <nowiki>[[MediaWiki:$2]]</nowiki> mensahe.',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by

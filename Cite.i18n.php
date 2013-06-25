@@ -544,6 +544,15 @@ Ini dae dapat nangyari.',
 Pakahulugan nin dagdag tabi an <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mensahe.',
 	'cite_error_no_link_label_group' => 'Naubusan nin pankostumbreng sugpon nin mga kamarkahan para sa grupo "$1".
 Pakahulugan nin dagdag tabi an <nowiki>[[MediaWiki:$2]]</nowiki> mensahe.',
+	'cite_error_references_no_text' => 'Imbalidong <code>&lt;ref&gt;</code> tatak; mayong teksto na ipinagtao para sa reperensiya na pinagngaranan na <code>$1</code>',
+	'cite_error_included_ref' => 'Ipinagsasara <code>&lt;/ref&gt;</code> nawawara para sa <code>&lt;ref&gt;</code> na tatak',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> mga tatak eksistido na, alagad mayo nin <code>&lt;references/&gt;</code> na tatak an nanagboan',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> na mga tatak na eksisitido na para sa sarong grupo na pinagngaranan na "$1", alagad mayong kinasungkoan na <code>&lt;references group="$1"/&gt;</code> tatak an nanagboan',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tatak sa laog na <code>&lt;references&gt;</code> igwa nin pangrupong kumplikto sa hitsurahon na "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> tatak na pinagkahulugan sa <code>&lt;references&gt;</code> igwa nin pangrupong hitsurahon na "$1" na dae ipinapahiling sa nakaaging teksto.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> tatak na igwang pangaran na "$1" na pinagkahulugan sa <code>&lt;references&gt;</code> na dae pinaggagamit sa nakaaging teksto.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> tatak na pinagkahulugan sa <code>&lt;references&gt;</code> na mayo nin hitsurahon sa pangaran.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> tatak na pinagkahulugan sa <code>&lt;references&gt;</code> na igwang pangaran na "$1" na mayo tabing kalamnan.',
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)

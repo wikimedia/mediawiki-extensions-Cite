@@ -653,12 +653,61 @@ $messages['bcc'] = array(
 
 /** Bikol Central (Bikol Central)
  * @author Filipinayzd
+ * @author Geopoet
  */
 $messages['bcl'] = array(
-	'cite_article_link' => 'Sambiton an artikulong ini', # Fuzzy
+	'cite_article_desc' => 'Nagdudugang nin sarong [[Special:Cite|citation]] espesyal na pahina asin kasugpunan sa palindông kahon',
+	'cite_article_link' => 'Isambit ining pahina',
+	'tooltip-cite-article' => 'Impormasyon kun paanuhon na sambiton ining pahina',
 	'cite' => 'Sambiton',
 	'cite_page' => 'Pahina:',
 	'cite_submit' => 'Sambiton',
+	'cite_text' => "__NOTOC__ 
+<div class=\"mw-specialcite-bibliographic\"> 
+
+== Bibliograpikong mga detalye para sa {{FULLPAGENAME}} == 
+* Pangaran kan pahina: {{FULLPAGENAME}} 
+* Awtor: {{SITENAME}} mga paraambag 
+* Publikador: ''{{SITENAME}}, {{int:sitesubtitle}}''. 
+* Petsa kan huring pagliwat: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC 
+* Petsa kan pagbawi: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation> 
+* Permanenteng URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} 
+* ID kan Bersyon kan Pahina: {{REVISIONID}} 
+
+</div> 
+<div class=\"plainlinks mw-specialcite-styles\"> 
+
+== Pagsambit na mga istilo para sa {{FULLPAGENAME}} == 
+
+=== [[Istilong APA]] === 
+
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Pinagbawi <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> gikan sa {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}. 
+
+=== [[An MLA Manwal na Istilo|Istilong MLA]] === \"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;. 
+
+=== [[MHRA Giya sa Istilo|Istilo sa MHRA]] === 
+{{SITENAME}} mga paraambag, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>] 
+
+=== [[An Chicago Manwal na Istilo|Istilo sa Chicago]] === 
+{{SITENAME}} mga paraambag, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>). 
+
+=== [[Konseho kan mga Paraliwat sa Siyensiya|CBE/CSE style]] === 
+{{SITENAME}} mga paraambag. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Yaon gikan sa : {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}. 
+
+=== [[Librong Asul|Istilo sa Librong Asul]] === 
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (last visited <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>). 
+
+=== [[BibTeX]] entrada === 
+
+@misc{ wiki:xxx, awtor = \"{{SITENAME}}\", titulo = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\", taon = \"{{CURRENTYEAR}}\", url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\", tandai = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\" }
+
+Kunsoarin na ginagamit an [[Latex]] pampaketeng url (<code>\\usepackage{url}</code> yason sa parte kan prayambulo) na tantong minatao nin mas marhayon na kadagdagan sa pormat kan mga estada sa web, an minasunod mapupuwedeng pagpipilian: 
+
+@misc{ wiki:xxx, 
+awtor = \"{{SITENAME}}\", titulo = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\", taon = \"{{CURRENTYEAR}}\", url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\", tandaan = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\" 
+} 
+
+</div> <!--closing div for \"plainlinks\"-->",
 );
 
 /** Belarusian (беларуская)

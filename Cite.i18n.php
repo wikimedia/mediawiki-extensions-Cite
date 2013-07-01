@@ -2245,9 +2245,10 @@ $messages['km'] = array(
  * @author Ilovesabbath
  * @author Kwj2772
  * @author ToePeu
+ * @author 아라
  */
 $messages['ko'] = array(
-	'cite-desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 더합니다.',
+	'cite-desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 추가합니다',
 	'cite_croak' => '인용 오류; $1: $2',
 	'cite_error_key_str_invalid' => '내부 오류;
 $str 혹은 $key가 잘못되었습니다.

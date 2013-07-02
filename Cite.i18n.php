@@ -521,6 +521,40 @@ $messages['bcc'] = array(
 	'cite_references_link_many_and' => 'و',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'cite-desc' => 'Minadugang nin <nowiki><ref[ name=id]></nowiki> asin <nowiki><references/></nowiki> na mga tatak, para sa mga toltolan',
+	'cite_croak' => 'An panoltol nagadan; $1:$2',
+	'cite_error_key_str_invalid' => 'Panlaog na kasalaan;
+Imbalidong $str asin/o $key.
+Ini dae dapat nangyari.',
+	'cite_error_stack_invalid_input' => 'Panlaog na kasalaan;
+imbalidong susi nin bulto.
+Ini dae dapat nangyari.',
+	'cite_error' => 'Sambiton an kasalaan: $1',
+	'cite_error_ref_numeric_key' => 'Imbalido an <code>&lt;ref&gt;</code> tatak; an pangaran dae puwede na magin sarong simplehon na bilog na numero. Maggamit nin sarong deskriptibong titulo',
+	'cite_error_ref_no_key' => 'Imbalido an <code>&lt;ref&gt;</code> tatak; an mga toltolan na mayong kalamnan dapat magkaigwa nin pangaran',
+	'cite_error_ref_too_many_keys' => 'Imbalido an <code>&lt;ref&gt;</code> tatak; imbalidong mga pangaran, e.g. grabe kadakol',
+	'cite_error_ref_no_input' => 'Imbalido an <code>&lt;ref&gt;</code> tatak; an mga toltolan na mayong pangaran dapat magkaigwa nin kalamnan',
+	'cite_error_references_invalid_parameters' => 'Imbalido an <code>&lt;references&gt;</code> tatak; mayong mga parametro an pinagtutugot. Maggamit nin <code>&lt;mga toltolan /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Imbalido an <code>&lt;references&gt;</code> tatak; an parametrong "grupo" sana an pinagtutugot. Maggamit nin <code>&lt;mga toltolan /&gt;</code>, o <code>&lt;mga toltolang grupo="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Naubusan nin pankostumbreng sugpon-panlikod na kamarkahan.
+Pakahulugan nin dagdag tabi an <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mensahe.',
+	'cite_error_no_link_label_group' => 'Naubusan nin pankostumbreng sugpon nin mga kamarkahan para sa grupo "$1".
+Pakahulugan nin dagdag tabi an <nowiki>[[MediaWiki:$2]]</nowiki> mensahe.',
+	'cite_error_references_no_text' => 'Imbalidong <code>&lt;ref&gt;</code> tatak; mayong teksto na ipinagtao para sa reperensiya na pinagngaranan na <code>$1</code>',
+	'cite_error_included_ref' => 'Ipinagsasara <code>&lt;/ref&gt;</code> nawawara para sa <code>&lt;ref&gt;</code> na tatak',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> mga tatak eksistido na, alagad mayo nin <code>&lt;references/&gt;</code> na tatak an nanagboan',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> na mga tatak na eksisitido na para sa sarong grupo na pinagngaranan na "$1", alagad mayong kinasungkoan na <code>&lt;references group="$1"/&gt;</code> tatak an nanagboan',
+	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> tatak sa laog na <code>&lt;references&gt;</code> igwa nin pangrupong kumplikto sa hitsurahon na "$1".',
+	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> tatak na pinagkahulugan sa <code>&lt;references&gt;</code> igwa nin pangrupong hitsurahon na "$1" na dae ipinapahiling sa nakaaging teksto.',
+	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> tatak na igwang pangaran na "$1" na pinagkahulugan sa <code>&lt;references&gt;</code> na dae pinaggagamit sa nakaaging teksto.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> tatak na pinagkahulugan sa <code>&lt;references&gt;</code> na mayo nin hitsurahon sa pangaran.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> tatak na pinagkahulugan sa <code>&lt;references&gt;</code> na igwang pangaran na "$1" na mayo tabing kalamnan.',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
@@ -755,6 +789,16 @@ no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
 	'cite_error_references_missing_key' => 'L\'etiqueta <code>&lt;ref&gt;</code> amb el nom "$1" definida a <code>&lt;references&gt;</code> no s\'utilitza en el text anterior.',
 	'cite_error_references_no_key' => "L'etiqueta <code>&lt;ref&gt;</code> definida a <code>&lt;references&gt;</code> no té cap atribut de nom.",
 	'cite_error_empty_references_define' => 'L\'etiqueta <code>&lt;ref&gt;</code> definida a <code>&lt;references&gt;</code> amb el nom "$1" no té contingut.',
+);
+
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'cite_error' => 'ГӀалат дешнаш далорна $1',
+	'cite_error_references_no_text' => 'Тег <code>&lt;ref&gt;</code> нийса яц; тIетовжаран <code>$1</code> йоза яздина дац',
+	'cite_error_refs_without_references' => 'Йолуш йолу тегаца <code>&lt;ref&gt;</code> йогӀуш йолу тег <code>&lt;references/&gt;</code> ца карийна',
+	'cite_error_group_refs_without_references' => 'Группан «$1» йолуш йолу тегашца <code>&lt;ref&gt;</code> йогӀуш йолу тег <code>&lt;references group="$1"/&gt;</code> ца карийна',
 );
 
 /** Czech (česky)
@@ -2201,9 +2245,10 @@ $messages['km'] = array(
  * @author Ilovesabbath
  * @author Kwj2772
  * @author ToePeu
+ * @author 아라
  */
 $messages['ko'] = array(
-	'cite-desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 더합니다.',
+	'cite-desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 추가합니다',
 	'cite_croak' => '인용 오류; $1: $2',
 	'cite_error_key_str_invalid' => '내부 오류;
 $str 혹은 $key가 잘못되었습니다.

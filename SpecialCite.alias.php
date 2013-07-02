@@ -63,6 +63,11 @@ $specialPageAliases['ca'] = array(
 	'Cite' => array( 'Citau', 'Citeu' ),
 );
 
+/** Chechen (нохчийн) */
+$specialPageAliases['ce'] = array(
+	'Cite' => array( 'Дош' ),
+);
+
 /** Czech (česky) */
 $specialPageAliases['cs'] = array(
 	'Cite' => array( 'Citovat' ),

@@ -1613,7 +1613,7 @@ $messages['he'] = array(
 	'cite_error_references_no_text' => 'תג <code>&lt;ref&gt;</code> לא תקין;
 לא נכתב טקסט עבור הערות השוליים בשם <code>$1</code>',
 	'cite_error_included_ref' => 'חסר תג <code>&lt;/ref&gt;</code> סוגר שמתאים לתג <code>&lt;ref&gt;</code>',
-	'cite_error_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code>, אך לא נמצא תג <code dir="ltr">&lt;references/&gt;</code>',
+	'cite_error_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code>, אך לא נמצא תג <code dir="ltr">&lt;/references&gt;</code>',
 	'cite_error_group_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code> עבור קבוצה בשם "$1", אך לא נמצא תג <code dir="ltr">&lt;references group="$1"/&gt;</code> מתאים',
 	'cite_error_references_group_mismatch' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה (group) סותר, "$1".',
 	'cite_error_references_missing_group' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה (group) בעל הערך "$1", שאינו מופיע בטקסט שלפניו.',

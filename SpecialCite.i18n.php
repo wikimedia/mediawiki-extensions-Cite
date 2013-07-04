@@ -4251,7 +4251,7 @@ $messages['nso'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'cite_article_desc' => "Apond una pagina especiala [[Special:Cite|citacion]] e un ligam dins la bóstia d'espleches",
+	'cite_article_desc' => "Apond una pagina especiala [[Special:Cite|citacion]] e un ligam dins la bóstia d'aisinas",
 	'cite_article_link' => 'Citar aqueste article',
 	'tooltip-cite-article' => 'Informacions sus cossí citar aquesta pagina',
 	'cite' => 'Citacion',

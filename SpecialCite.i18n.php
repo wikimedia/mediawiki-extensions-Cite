@@ -992,12 +992,13 @@ Si empreu el paquet url per a [[LaTeX]] (<code>\\usepackage{url}</code> en algun
 );
 
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄)
+ * @author Yejianfei
  */
 $messages['cdo'] = array(
-	'cite_article_link' => 'Īng-ê̤ṳng cī piĕng ùng-ciŏng',
-	'cite' => 'Īng-ê̤ṳng',
-	'cite_page' => 'Hiĕk-miêng:',
-	'cite_submit' => 'Īng-ê̤ṳng',
+	'cite_article_link' => '標記茲蜀頁',
+	'cite' => '標記',
+	'cite_page' => '頁面',
+	'cite_submit' => '標記',
 );
 
 /** Chechen (нохчийн)

@@ -804,6 +804,7 @@ $messages['ce'] = array(
 /** Czech (česky)
  * @author Danny B.
  * @author Li-sung
+ * @author Littledogboy
  * @author Matěj Grabovský
  * @author Mormegil
  * @author Sp5uhe
@@ -813,7 +814,7 @@ $messages['cs'] = array(
 	'cite_croak' => 'Nefunkční citace; $1: $2',
 	'cite_error_key_str_invalid' => 'Vnitřní chyba; neplatný $str nebo $key. Toto by nikdy nemělo nastat.',
 	'cite_error_stack_invalid_input' => 'Vnitřní chyba; neplatný klíč zásobníku',
-	'cite_error' => 'Chybná citace $1',
+	'cite_error' => 'Chybná citace: $1',
 	'cite_error_ref_numeric_key' => 'Chyba v tagu <code>&lt;ref&gt;</code>; názvem nesmí být prosté číslo, použijte popisné označení',
 	'cite_error_ref_no_key' => 'Chyba v tagu <code>&lt;ref&gt;</code>; prázdné citace musí obsahovat název',
 	'cite_error_ref_too_many_keys' => 'Chyba v tagu <code>&lt;ref&gt;</code>; chybné názvy, např. je jich příliš mnoho',

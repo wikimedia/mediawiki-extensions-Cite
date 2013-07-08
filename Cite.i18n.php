@@ -634,10 +634,10 @@ $messages['bg'] = array(
  * @author Zaheen
  */
 $messages['bn'] = array(
-	'cite-desc' => 'উদ্ধৃতির জন্য <nowiki><ref[ name=id]></nowiki> এবং <nowiki><references/></nowiki> ট্যাগসমূহ যোগ করুন',
+	'cite-desc' => 'উদ্ধৃতির জন্য, <nowiki><ref[ name=id]></nowiki> এবং <nowiki><references/></nowiki> ট্যাগসমূহ যোগ করুন',
 	'cite_croak' => 'উদ্ধৃতি ক্রোক করা হয়েছে; $1: $2',
 	'cite_error_key_str_invalid' => 'আভ্যন্তরীন ত্রুটি; অবৈধ $str এবং/অথবা $key। এটা কখনই ঘটা উচিত নয়।',
-	'cite_error_stack_invalid_input' => 'আভ্যন্তরীন ত্রুটি; অবৈধ স্ট্যাক কি। এটা কখনই ঘটা উচিত নয়।',
+	'cite_error_stack_invalid_input' => 'আভ্যন্তরীন ত্রুটি; অবৈধ স্ট্যাক কী। এটা কখনই ঘটা উচিত নয়।',
 	'cite_error' => 'উদ্ধৃতি ত্রুটি: $1',
 	'cite_error_ref_numeric_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নাম কোন সরল পূর্ণসংখ্যা হতে পারবেনা, একটি বিবরণমূলক শিরোনাম ব্যবহার করুন',
 	'cite_error_ref_no_key' => 'অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; বিষয়বস্তুহীন ref সমূহের অবশ্যই নাম থাকতে হবে',

@@ -1172,7 +1172,7 @@ class Cite {
 		# We rely on the fact that PHP is okay with passing unused argu-
 		# ments to functions.  If $1 is not used in the message, wfMessage will
 		# just ignore the extra parameter.
-		$ret = '<strong class="error">' .
+		$ret = '<strong class="error mw-ext-cite-error">' .
 			wfMessage( 'cite_error', wfMessage( $key, $param )->plain() )->plain() .
 			'</strong>';
 		if ( $parse == 'parse' ) {

@@ -1010,6 +1010,7 @@ $messages['ce'] = array(
 	'tooltip-cite-article' => 'ХӀара бу хаам агӀонах лаьцна дешнаш муха дало деза гойтуш',
 	'cite' => 'Далийнадош',
 	'cite_page' => 'АгӀо:',
+	'cite_submit' => 'Даладе дош',
 );
 
 /** Cebuano (Cebuano)

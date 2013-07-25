@@ -3235,6 +3235,7 @@ $messages['ko'] = array(
  */
 $messages['krc'] = array(
 	'cite_article_link' => 'Бетни цитата эт',
+	'tooltip-cite-article' => 'Бу бетни къалай цитата этерге керек болгъаныны юсюнден информация',
 	'cite' => 'Цитата этиу',
 );
 

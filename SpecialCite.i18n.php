@@ -2395,6 +2395,7 @@ Az <code>url</code> nevű [[LaTeX]] csomag használata esetén (<code>\\usepacka
 );
 
 /** Armenian (Հայերեն)
+ * @author Chaojoker
  * @author Teak
  */
 $messages['hy'] = array(
@@ -2402,6 +2403,65 @@ $messages['hy'] = array(
 	'cite' => 'Քաղվածում',
 	'cite_page' => 'Էջ.',
 	'cite_submit' => 'Քաղվածել',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== {{FULLPAGENAME}} էջի մատենագրական մանրամասներ ==
+
+* Էջանուն՝ {{FULLPAGENAME}}
+* Հեղինակ՝ {{SITENAME}} contributors
+* Հրատարակիչ՝ ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Վերջինն վերանայման թիվ՝ {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} ՀԿԺ
+* Վերստացման թիվ՝ <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} ՀԿԺ</citation>
+* Մշտական հասցե՝ {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* Էջի վարկածի թիվ՝ {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== {{FULLPAGENAME}} էջի մեջբերման ոճեր ==
+
+=== [[APA style]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}})։ ''{{SITENAME}}, {{int:sitesubtitle}}''։ Վերստացված է՝ <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}} թվին՝</citation> {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}-ից։
+
+=== [[The MLA style manual|MLA style]] ===
+\"{{FULLPAGENAME}}։\" ''{{SITENAME}}, {{int:sitesubtitle}}''։ {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} ՀԿԺ։ <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;։
+
+=== [[MHRA Style Guide|MHRA style]] ===
+{{SITENAME}} կայքի ներդնողներ, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} ՀԿԺ, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [վերստացված է՝ <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|Chicago style]] ===
+{{SITENAME}} կայքի ներդնողներ, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (վերստացված է՝ <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>)։
+
+=== [[Council of Science Editors|CBE/CSE style]] ===
+{{SITENAME}} կայքի ներդնողներ։ {{FULLPAGENAME}} [Համացանց]։ {{SITENAME}}, {{int:sitesubtitle}}․ {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} ՀԿԺ [մեջբերած՝ <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]։ Հասանելի է՝
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}։
+
+=== [[Bluebook|Bluebook style]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (վերջին այցելություն՝ <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>)։
+
+=== [[BibTeX]] entry ===
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+   note = \"[Առցանց․ վերստացված է՝ <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+[[ԼաՏեԽ]] փաթեթային հասցեն (<code>\\usepackage{url}</code> օգտագործելիս, որը շատ ավելի գեղեցկորեն ոճավորված է ցուցադրում կայքերի հասցեները, կարելի է հետևյալը նախընտրել՝
+
+  @misc{ wiki:xxx,
+   author = \"{{SITENAME}}\",
+   title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+   year = \"{{CURRENTYEAR}}\",
+   url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+   note = \"[Առցանց․ վերստացված է՝ <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->", # Fuzzy
 );
 
 /** Interlingua (interlingua)

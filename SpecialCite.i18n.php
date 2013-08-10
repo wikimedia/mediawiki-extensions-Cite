@@ -3641,6 +3641,13 @@ $messages['lzh'] = array(
 	'cite' => '引文',
 );
 
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'cite_article_link' => 'Hitanisa ity pejy ity',
+);
+
 /** Eastern Mari (олык марий)
  * @author Сай
  */

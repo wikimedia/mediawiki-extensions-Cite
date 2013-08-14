@@ -98,8 +98,8 @@ $messages['qqq'] = array(
 	'cite-desc' => '{{desc|name=Cite|url=http://www.mediawiki.org/wiki/Extension:Cite}}',
 	'cite_croak' => 'Used as an error message. Parameters:
 * $1 - error message. any one of the following messages:
-** {{msg-mw|Cite_error_key_str_invalid}}
-** {{msg-mw|Cite_error_stack_invalid_input}}
+** {{msg-mw|Cite error key str invalid}}
+** {{msg-mw|Cite error stack invalid input}}
 * $2 - serialized error data',
 	'cite_error_key_str_invalid' => 'Used as <code>$1</code> in {{msg-mw|Cite croak}}.
 

@@ -28,10 +28,10 @@ $wgExtensionCredits['parserhook'][] = array(
 	'descriptionmsg' => 'cite-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );
-$wgParserTestFiles[] = dirname( __FILE__ ) . "/citeParserTests.txt";
-$wgParserTestFiles[] = dirname( __FILE__ ) . "/citeCatTreeParserTests.txt";
-$wgExtensionMessagesFiles['Cite'] = dirname( __FILE__ ) . "/Cite.i18n.php";
-$wgAutoloadClasses['Cite'] = dirname( __FILE__ ) . "/Cite_body.php";
+$wgParserTestFiles[] = __DIR__ . "/citeParserTests.txt";
+$wgParserTestFiles[] = __DIR__ . "/citeCatTreeParserTests.txt";
+$wgExtensionMessagesFiles['Cite'] = __DIR__ . "/Cite.i18n.php";
+$wgAutoloadClasses['Cite'] = __DIR__ . "/Cite_body.php";
 $wgSpecialPageGroups['Cite'] = 'pagetools';
 
 define( 'CITE_DEFAULT_GROUP', '' );
@@ -66,13 +66,12 @@ function wfCite( $parser ) {
 
 // Resources
 $citeResourceTemplate = array(
-	'localBasePath' => dirname(__FILE__) . '/modules',
+	'localBasePath' => __DIR__ . '/modules',
 	'remoteExtPath' => 'Cite/modules'
 );
 
-$wgResourceModules['ext.cite'] = $citeResourceTemplate + array(
-	'styles' => array(),
-	'scripts' => 'ext.cite/ext.cite.js',
+$wgResourceModules['ext.cite.popups'] = $citeResourceTemplate + array(
+	'scripts' => 'ext.cite.popups.js',
 	'position' => 'bottom',
 	'dependencies' => array(
 		'jquery.tooltip',
@@ -87,7 +86,7 @@ $wgResourceModules['jquery.tooltip'] = $citeResourceTemplate + array(
 
 /* Add RTL fix for the cite <sup> elements */
 $wgResourceModules['ext.rtlcite'] = $citeResourceTemplate + array(
-	'styles' => 'ext.rtlcite/ext.rtlcite.css',
+	'styles' => 'ext.rtlcite.css',
 	'position' => 'top',
 );
 
@@ -100,7 +99,7 @@ function wfCiteBeforePageDisplay( $out, &$sk ) {
 	global $wgCiteEnablePopups;
 
 	if ( $wgCiteEnablePopups ) {
-		$out->addModules( 'ext.cite' );
+		$out->addModules( 'ext.cite.popups' );
 	}
 
 	/* RTL support quick-fix module */

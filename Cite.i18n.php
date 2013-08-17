@@ -947,7 +947,7 @@ Ein Administrator muss weitere mit der Systemnachricht <nowiki>[[MediaWiki:$2]]<
 	'cite_error_references_no_text' => 'Es ist ein ungültiger <code>&lt;ref&gt;</code>-Tag vorhanden: Für die Referenz namens <code>$1</code> wurde kein Text angegeben.',
 	'cite_error_included_ref' => 'Für ein <code>&lt;ref&gt;</code>-Tag fehlt ein schließendes <code>&lt;/ref&gt;</code>-Tag.',
 	'cite_error_refs_without_references' => 'Es sind <code>&lt;ref&gt;</code>-Tags vorhanden, jedoch wurde kein <code>&lt;references /&gt;</code>-Tag gefunden.',
-	'cite_error_group_refs_without_references' => 'Es sind <code>&lt;ref&gt;</code>-Tags für die Gruppe „$1“ vorhanden, jedoch wurde kein dazugehöriges <code>&lt;references group="$1" /&gt;</code>-Tag gefunden.',
+	'cite_error_group_refs_without_references' => 'Es sind <code>&lt;ref&gt;</code>-Tags für die Gruppe „$1“ vorhanden, jedoch wurde kein dazugehöriges <code>&lt;references group="$1" /&gt;</code>-Tag gefunden oder ein schließendes <code>&lt;/ref&gt;</code> fehlt.',
 	'cite_error_references_group_mismatch' => 'Das <code>&lt;ref&gt;</code>-Tag in <code>&lt;references&gt;</code> enthält das kollidierende Attribut „$1“.',
 	'cite_error_references_missing_group' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag hat das Gruppenattribut „$1“, das nicht im vorausgehenden Text verwendet wird.',
 	'cite_error_references_missing_key' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ wird im vorausgehenden Text nicht verwendet.',
@@ -1615,7 +1615,7 @@ $messages['he'] = array(
 לא נכתב טקסט עבור הערות השוליים בשם <code>$1</code>',
 	'cite_error_included_ref' => 'חסר תג <code>&lt;/ref&gt;</code> סוגר שמתאים לתג <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code>, אך לא נמצא תג <code dir="ltr">&lt;/references&gt;</code>',
-	'cite_error_group_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code> עבור קבוצה בשם "$1", אך לא נמצא תג <code dir="ltr">&lt;references group="$1"/&gt;</code> מתאים',
+	'cite_error_group_refs_without_references' => 'קיימים תגי <code>&lt;ref&gt;</code> עבור קבוצה בשם "$1", אך לא נמצא תג <code dir="ltr">&lt;references group="$1"/&gt;</code> מתאים, או שחסר <code dir="ltr">&lt;/ref&gt;</code> סוגר',
 	'cite_error_references_group_mismatch' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה (group) סותר, "$1".',
 	'cite_error_references_missing_group' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> יש מאפיין קבוצה (group) בעל הערך "$1", שאינו מופיע בטקסט שלפניו.',
 	'cite_error_references_missing_key' => 'התג <code>&lt;ref&gt;</code> בשם "$1" המוגדר בתוך <code>&lt;references&gt;</code> אינו נמצא בשימוש בטקסט שלפניו.',
@@ -2055,7 +2055,7 @@ $str と $key の両方または一方が無効です。
 「<code>$1</code>」という名前の引用句に対するテキストが指定されていません',
 	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> タグに対応する <code>&lt;/ref&gt;</code> タグが不足しています',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> タグがありますが、<code>&lt;references/&gt;</code> タグが見つかりません',
-	'cite_error_group_refs_without_references' => '「$1」という名前のグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つかりません',
+	'cite_error_group_refs_without_references' => '「$1」という名前のグループの <code>&lt;ref&gt;</code> タグがありますが、対応する <code>&lt;references group="$1"/&gt;</code> タグが見つからない、または閉じる <code>&lt;/ref&gt;</code> タグがありません',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> の <code>&lt;ref&gt;</code> タグで、group 属性「$1」が重複しています。',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグに、先行するテキスト内で使用されていない group 属性「$1」があります。',
 	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグ (name="$1") は、先行するテキスト内で使用されていません。',
@@ -2249,41 +2249,42 @@ $messages['km'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'cite-desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki>태그를 추가합니다',
+	'cite-desc' => '인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki> 태그를 추가합니다',
 	'cite_croak' => '인용 오류; $1: $2',
 	'cite_error_key_str_invalid' => '내부 오류;
 $str 혹은 $key가 잘못되었습니다.
 이 오류는 발생하지 않아야 합니다.',
-	'cite_error_stack_invalid_input' => '내부 오류; 스택 키가 잘못되었습니다.
-이 오류는 발생하지 말아야 합니다.',
+	'cite_error_stack_invalid_input' => '내부 오류;
+스택 키가 잘못되었습니다.
+이 오류는 발생하지 않아야 합니다.',
 	'cite_error' => '인용 오류: $1',
 	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
-이름은 숫자가 될 수 없습니다. 설명적인 이름을 사용하십시오.',
+이름은 숫자가 될 수 없습니다. 설명적인 이름을 사용하세요',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
-내용이 없는 주석은 이름이 있어야 합니다.',
-	'cite_error_ref_too_many_keys' => '잘못된 <code>&lt;ref&gt;</code> 태그 사용;
-예컨대 잘못된 주석 이름이 너무 많습니다.',
+내용이 없는 주석은 이름이 있어야 합니다',
+	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
+예컨대 잘못된 주석 이름이 너무 많습니다',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
-이름이 없는 ref 태그는 반드시 내용이 있어야 합니다.',
+이름이 없는 ref 태그는 반드시 내용이 있어야 합니다',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
-변수를 넣어서는 안 됩니다.
-<code>&lt;references /&gt;</code>를 이용하십시오.',
+변수를 넣으면 안됩니다.
+<code>&lt;references /&gt;</code>를 사용하세요',
 	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
 "group" 변수만 사용할 수 있습니다.
-<code>&lt;references /&gt;</code>나 <code>&lt;references group="..." /&gt;</code>만 이용하십시오.',
-	'cite_error_references_no_backlink_label' => '역링크 라벨이 부족합니다.
-<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>에 더 많은 라벨을 추가하십시오.',
-	'cite_error_no_link_label_group' => '그룹 "$1"에 대해 링크 레이블이 모두 떨어졌습니다.
-<nowiki>[[MediaWiki:$2]]</nowiki> 메시지에 더 많은 레이블을 정의해주십시오.',
-	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다.
-<code>$1</code>라는 이름을 가진 주석에 대한 내용이 없습니다.',
-	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> 태그를 닫는 <code>&lt;/ref&gt;</code> 태그가 없습니다.',
-	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> 태그가 존재하지만, <code>&lt;references/&gt;</code> 태그가 없습니다.',
-	'cite_error_group_refs_without_references' => '"$1"이라는 이름을 가진 그룹에 대한 <code>&lt;ref&gt;</code> 태그가 존재하지만, 이에 대응하는 <code>&lt;references group="$1" /&gt;</code> 태그가 없습니다.',
-	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> 안에 있는 <code>&lt;ref&gt;</code> 태그의 그룹 속성 "$1"이 충돌됩니다.',
-	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> 안의 <code>&lt;ref&gt;</code> 태그가 이전에 존재하지 않는 그룹 속성 "$1"을 갖고 있습니다.',
+<code>&lt;references /&gt;</code>나 <code>&lt;references group="..." /&gt;</code>를 사용하세요',
+	'cite_error_references_no_backlink_label' => '사용자 지정 백링크 라벨이 바닥이 났습니다.
+<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>메시지에 더 정의하세요.',
+	'cite_error_no_link_label_group' => '"$1" 그룹에 대해 사용자 지정 링크 레이블이 바닥이 났습니다.
+<nowiki>[[MediaWiki:$2]]</nowiki> 메시지에 더 정의하세요.',
+	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
+<code>$1</code>라는 이름을 가진 주석에 제공한 텍스트가 없습니다',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> 태그를 닫는 <code>&lt;/ref&gt;</code> 태그가 없습니다',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> 태그가 존재하지만, <code>&lt;references/&gt;</code> 태그가 없습니다',
+	'cite_error_group_refs_without_references' => '"$1"이라는 이름을 가진 그룹에 대한 <code>&lt;ref&gt;</code> 태그가 존재하지만, 이에 대응하는 <code>&lt;references group="$1" /&gt;</code> 태그가 없거나, 태그를 닫는 <code>&lt;/ref&gt;</code> 태그가 없습니다',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> 안에 있는 <code>&lt;ref&gt;</code> 태그에서 "$1" 그룹 특성이 충돌됩니다.',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> 안에 정의된 <code>&lt;ref&gt;</code> 태그에 이전 텍스트에 없는 "$1" 그룹 특성이 있습니다.',
 	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> 안에 정의된 "$1"이라는 이름을 가진 <code>&lt;ref&gt;</code> 태그가 위에서 사용되고 있지 않습니다.',
-	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> 안의 <code>&lt;ref&gt;</code> 태그에 이름이 없습니다.',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> 안에 정의된 <code>&lt;ref&gt;</code> 태그에 이름 특성이 없습니다.',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> 태그 안에 정의된 "$1"이라는 이름을 가진 <code>&lt;ref&gt;</code> 태그에 내용이 없습니다.',
 	'cite_references_link_many_format_backlink_labels' => '가 나 다 라 마 바 사 아 자 차 카 타 파 하 거 너 더 러 머 버 서 어 저 처 커 터 퍼 허 고 노 도 로 모 보 소 오 조 초 코 토 포 호 구 누 두 루 무 부 수 우 주 추 쿠 투 푸 후 그 느 드 르 므 브 스 으 즈 츠 크 트 프 흐 기 니 디 리 미 비 시 이 지 치 키 티 피 히',
 );
@@ -2382,7 +2383,7 @@ Benotzt <code>&lt;references /&gt;</code>, oder <code>&lt;references group="..."
 et gouf keen Text ugi fir d'Referenze mam Numm <code>$1</code>",
 	'cite_error_included_ref' => 'Den Tag <code>&lt;/ref&gt;</code> feelt fir den Tag <code>&lt;ref&gt;</code> zouzemaachen',
 	'cite_error_refs_without_references' => "D'Markéierung <code>&lt;ref&gt;</code> gëtt et, awer d'Markéierung <code>&lt;references/&gt;</code> gouf net fonnt",
-	'cite_error_group_refs_without_references' => 'D\'Markéierung <code>&lt;ref&gt;</code> gëtt et fir d\'Grupp "$1", awer d\'entspriechend Markéierung <code>&lt;references group="$1"/&gt;</code> gouf net fonnt',
+	'cite_error_group_refs_without_references' => 'D\'Markéierung <code>&lt;ref&gt;</code> gëtt et fir d\'Grupp "$1", awer d\'entspriechend Markéierung <code>&lt;references group="$1"/&gt;</code> gouf net fonnt oder een <code>&lt;/ref&gt;</code> feelt',
 	'cite_error_references_group_mismatch' => 'Den <code>&lt;ref&gt;</code>-Tag an <code>&lt;references&gt;</code> huet den Attribut "$1" deen am Konflikt mat deem am <code>&lt;references&gt;</code> steet.',
 	'cite_error_references_missing_group' => 'Deen am <code>&lt;references&gt;</code> definéierten <code>&lt;ref&gt;</code>-Tag huet en Attribut "$1" deen am Text virdrun net dran ass.',
 	'cite_error_references_missing_key' => 'Deen am <code>&lt;references&gt;</code> definéierten <code>&lt;ref&gt;</code>-Tag mam Numm "$1" gëtt am Text virdrun net benotzt.',

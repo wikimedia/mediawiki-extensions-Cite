@@ -559,6 +559,7 @@ Pakahulugan nin dagdag tabi an <nowiki>[[MediaWiki:$2]]</nowiki> mensahe.',
  * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'cite-desc' => 'Дадае тэгі <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для зносак',
@@ -592,7 +593,7 @@ $messages['be-tarask'] = array(
 няма тэксту ў назьве зносак <code>$1</code>',
 	'cite_error_included_ref' => 'Няма закрываючага тэга  <code>&lt;/ref&gt;</code> пасьля адкрытага тэга <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Тэг <code>&lt;ref&gt;</code> існуе, але ня знойдзена тэга <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'Тэг <code>&lt;ref&gt;</code> існуе для групы «$1», але адпаведнага тэга <code>&lt;references group="$1"/&gt;</code> ня знойдзена',
+	'cite_error_group_refs_without_references' => 'Тэг <code>&lt;ref&gt;</code> існуе для групы «$1», але адпаведнага тэга <code>&lt;references group="$1"/&gt;</code> ня знойдзена. Магчыма, адсутнічае фінальны тэг <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Тэг <code>&lt;ref&gt;</code> у <code>&lt;references&gt;</code> утрымлівае канфліктуючы атрыбут групы «$1».',
 	'cite_error_references_missing_group' => 'Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> утрымлівае атрыбут групы «$1», які раней не выкарыстоўваўся ў тэксьце.',
 	'cite_error_references_missing_key' => 'Тэг <code>&lt;ref&gt;</code> з назвай «$1» вызначаны ў <code>&lt;references&gt;</code> не выкарыстоўваўся ў папярэднім тэксьце.',
@@ -880,7 +881,7 @@ Gallwch ddiffinio rhagor ohonynt yn y neges <nowiki>[[MediaWiki:$2]]</nowiki>.',
 ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> clo yn eisiau ar gyfer y tag <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol, ond dim tag <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol ar gyfer y grwp "$1", ond ni chafwyd tag <code>&lt;references/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Mae tagiau <code>&lt;ref&gt;</code> yn bresennol ar gyfer y grwp "$1", ond ni chafwyd tag <code>&lt;references/&gt;</code>, ynteu roedd <code>&lt;/ref&gt;</code> terfynol yn eisiau.',
 	'cite_error_references_group_mismatch' => 'Mae gan y tag <code>&lt;ref&gt;</code> oddi mewn i <code>&lt;references&gt;</code> briodoledd grŵp anghyson "$1".',
 	'cite_error_references_missing_group' => 'Mae gan y tag <code>&lt;ref&gt;</code> a ddiffinir yn <code>&lt;references&gt;</code> briodoledd grŵp "$1" nag ydyw\'n cael ei ddefnyddio yn y testun cynt.',
 	'cite_error_references_missing_key' => 'Ni ddefnyddir y tag <code>&lt;ref&gt;</code> o\'r enw "$1", a ddiffinir yn <code>&lt;references&gt;</code>, yn y testun blaenorol.',
@@ -2263,7 +2264,7 @@ $str 혹은 $key가 잘못되었습니다.
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 내용이 없는 주석은 이름이 있어야 합니다',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
-예컨대 잘못된 주석 이름이 너무 많습니다',
+예를 들어 잘못된 주석 이름이 너무 많습니다',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 이름이 없는 ref 태그는 반드시 내용이 있어야 합니다',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;
@@ -2560,7 +2561,7 @@ $messages['mk'] = array(
 нема зададено текст за наводите по име <code>$1</code>',
 	'cite_error_included_ref' => 'На ознаката <code>&lt;ref&gt;</code> ѝ недостасува ознака за затворање &lt;/ref&gt',
 	'cite_error_refs_without_references' => 'Статијата има ознаки <code>&lt;ref&gt;</code>, но не ја најдов потребната ознака <code>&#123;&#123;наводи&#125;&#125;</code> (или <code>&lt;references/&gt;</code>)',
-	'cite_error_group_refs_without_references' => 'Има ознаки <code>&lt;ref&gt;</code> за група именувана како „$1“, но нема соодветна ознака <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Има ознаки <code>&lt;ref&gt;</code> за група именувана како „$1“, но нема соодветна ознака <code>&lt;references group="$1"/&gt;</code>, или пак недостасува завршно <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Ознаката <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротиставен групен атрибут „$1“.',
 	'cite_error_references_missing_group' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;references&gt;</code> има групен атрибут „$1“ кој не се јавува во претходен текст.',
 	'cite_error_references_missing_key' => 'Ознаката <code>&lt;ref&gt;</code> со име „$1“ определена во <code>&lt;references&gt;</code> не се користи во претходен текст.',

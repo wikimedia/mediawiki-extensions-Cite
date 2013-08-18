@@ -3223,7 +3223,7 @@ $messages['kn'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'cite_article_desc' => '[[Special:Cite|인용]] 특수 문서와 도구모음 링크를 추가함',
+	'cite_article_desc' => '[[Special:Cite|인용]] 특수 문서와 도구모음 링크를 추가합니다',
 	'cite_article_link' => '이 문서 인용하기',
 	'tooltip-cite-article' => '이 문서를 인용하는 방법에 대한 정보',
 	'cite' => '인용',

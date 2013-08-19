@@ -830,7 +830,7 @@ Zvyšte jejich počet ve zprávě <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Chyba v tagu <code>&lt;ref&gt;</code>; citaci označené <code>$1</code> není určen žádný text',
 	'cite_error_included_ref' => 'Chybí ukončovací <code>&lt;/ref&gt;</code> k&nbsp;tagu <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Nalezena značka <code>&lt;ref&gt;</code> bez příslušné značky <code>&lt;references/&gt;</code>.',
-	'cite_error_group_refs_without_references' => 'Nalezena značka <code>&lt;ref&gt;</code> pro skupinu „$1“ bez příslušné značky <code>&lt;references group="$1"/&gt;</code>.',
+	'cite_error_group_refs_without_references' => 'Nalezena značka <code>&lt;ref&gt;</code> pro skupinu „$1“, ale neexistuje příslušná značka <code>&lt;references group="$1"/&gt;</code> nebo chybí zavírací <code>&lt;/ref&gt;</code>.',
 	'cite_error_references_group_mismatch' => 'Značka <code>&lt;ref&gt;</code> uvnitř <code>&lt;references&gt;</code> má definovánu jinou skupinu „$1“.',
 	'cite_error_references_missing_group' => 'Značka <code>&lt;ref&gt;</code> uvnitř <code>&lt;references&gt;</code> používá skupinu „$1“, která se v předchozím textu neobjevuje.',
 	'cite_error_references_missing_key' => 'Na <code>&lt;ref&gt;</code> se jménem „$1“ definovaný uvnitř <code>&lt;references&gt;</code> nejsou v předchozím textu žádné odkazy.',
@@ -1351,6 +1351,7 @@ $messages['fo'] = array(
 /** French (français)
  * @author Cedric31
  * @author Crochet.david
+ * @author Gomoko
  * @author Grondin
  * @author IAlex
  * @author Kropotkine 113
@@ -1392,7 +1393,7 @@ Définissez-en plus dans le message <nowiki>[[MediaWiki:$2]]</nowiki>.',
 aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
 	'cite_error_included_ref' => 'Clôture <code>&lt;/ref&gt;</code> manquante pour la balise <code>&lt;ref&gt;</code>.',
 	'cite_error_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent, mais aucune balise <code>&lt;references/&gt;</code> n’a été trouvée.',
-	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent pour un groupe nommé « $1 », mais aucune balise <code>&lt;references group="$1"/&gt;</code> correspondante n’a été trouvée.',
+	'cite_error_group_refs_without_references' => 'Des balises <code>&lt;ref&gt;</code> existent pour un groupe nommé « $1 », mais aucune balise <code>&lt;references group="$1"/&gt;</code> correspondante n’a été trouvée, ou bien une valise fermante <code>&lt;/ref&gt;</code> manque.',
 	'cite_error_references_group_mismatch' => 'La balise <code>&lt;ref&gt;</code> dans <code>&lt;references&gt;</code> a l’attribut de groupe « $1 » qui entre en conflit avec celui de <code>&lt;references&gt;</code>.',
 	'cite_error_references_missing_group' => 'La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> a un groupe attribué « $1 » qui ne figure pas dans le texte précédent.',
 	'cite_error_references_missing_key' => 'La balise <code>&lt;ref&gt;</code> avec le nom « $1 » définie dans <code>&lt;references&gt;</code> n’est pas utilisé dans le texte précédent.',
@@ -4232,11 +4233,14 @@ $messages['yi'] = array(
 א רעפֿערענץ אָן א נאמען דארף האבן תוכן',
 	'cite_error_references_invalid_parameters' => 'אומגילטיגער <code>&lt;references&gt;</code> טאַג;
 קיין פאראמעטערס נישט ערלויבט. ניצט <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'אומגילטיקער <code>&lt;references&gt;</code> טאג;
+נאר דער פאראמעטער "group" איז ערלויבט.
+ניצט <code>&lt;references /&gt;</code>, אדער <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_text' => 'אומגילטיגער <code>&lt;ref&gt;</code> טאַג;
 קיין טעקסט נישט געשריבן פֿאַר רעפֿערענצן מיטן נאָמען <code>$1</code>',
 	'cite_error_included_ref' => 'פֿעלט א שליסנדיגער <code>&lt;/ref&gt;</code> פֿאַר <code>&lt;ref&gt;</code> טאַג',
 	'cite_error_refs_without_references' => "ס'זענען דא <code>&lt;ref&gt;</code> טאַגן, אבער מ'האט נישט געטראפֿן קיין <code>&#123;&#123;רעפליסטע&#125;&#125;</code> מוסטער און נישט קיין <code>&lt;references/&gt;</code> טאַג.",
-	'cite_error_group_refs_without_references' => 'ס\'זענען דא <code>&lt;ref&gt;</code> טאַגן פֿאַר א גרופע וואס הייסט "$1", אבער מ\'האט נישט געטראפֿן קיין אַנטקעגענעם  <code>&lt;references group="$1"/&gt;</code> טאַג.',
+	'cite_error_group_refs_without_references' => 'ס\'זענען דא <code>&lt;ref&gt;</code> טאַגן פֿאַר א גרופע וואס הייסט "$1", אבער מ\'האט נישט געטראפֿן קיין אַנטקעגענעם  <code>&lt;references group="$1"/&gt;</code> טאַג, אדער א שליסנדיקער <code>&lt;/ref&gt;</code> פֿעלט.',
 	'cite_error_references_group_mismatch' => 'דער <code>&lt;ref&gt;</code> טאג אין <code>&lt;references&gt;</code> האט א גרופע אייגנקייט וואס איז סותר "$1".',
 	'cite_error_references_missing_group' => 'דער <code>&lt;ref&gt;</code> טאג דעפינעירט אין <code>&lt;references&gt;</code> האט גרופע אייגנקייט "$1" וואס באווייזט זיך נישט אין פריערדיקן טעקסט.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> טאַג מיטן נאָמען "$1" דעפֿינירט אין<code>&lt;references&gt;</code> נישט געניצט אין פֿריערדיקן טעקסט.',

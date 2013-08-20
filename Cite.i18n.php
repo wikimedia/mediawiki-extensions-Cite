@@ -2010,7 +2010,7 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 	'cite_error_references_no_text' => 'Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>',
 	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> di chiusura mancante per il marcatore <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> ma non è stato trovato alcun marcatore <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> per un gruppo chiamato "$1" ma non è stato trovato alcun marcatore <code>&lt;references group="$1"/&gt;</code> corrispondente',
+	'cite_error_group_refs_without_references' => 'Sono presenti dei marcatori <code>&lt;ref&gt;</code> per un gruppo chiamato "$1" ma non è stato trovato alcun marcatore <code>&lt;references group="$1"/&gt;</code> corrispondente, o manca la chiusura <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Il tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> ha attributo gruppo "$1" in conflitto.',
 	'cite_error_references_missing_group' => 'Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> ha un attributo gruppo "$1" che non compare nel testo precedente.',
 	'cite_error_references_missing_key' => 'Il tag <code>&lt;ref&gt;</code> con nome "$1" definito in <code>&lt;references&gt;</code> non è usato nel testo precedente.',
@@ -2624,6 +2624,7 @@ $messages['mn'] = array(
  * @author Kaustubh
  * @author Mahitgar
  * @author Rahuldeshmukh101
+ * @author V.narsikar
  */
 $messages['mr'] = array(
 	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
@@ -2644,7 +2645,7 @@ $messages['mr'] = array(
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
 	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ला बंद करणारी <code>&lt;/ref&gt;</code> ही खूण गायब आहे.',
 	'cite_error_refs_without_references' => 'पानामधे <code>&lt;ref&gt;</code> (संदर्भ) आहे, परंतु <code>&lt;references/&gt;</code> (<nowiki>{{संदर्भयादी}}<nowiki />) सापडले नाही. <nowiki>{{संदर्भयादी}}<nowiki /> असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.',
-	'cite_error_group_refs_without_references' => '"$1" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>  चिन्हे उपलब्ध आहेत, पण संबंधीत <code>&lt;references group="$1"/&gt;</code>  खूण मिळाली नाही.',
+	'cite_error_group_refs_without_references' => '"$1" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>खूणपताका उपलब्ध आहेत, पण संबंधीत <code>&lt;references group="$1"/&gt;</code>  खूण मिळाली नाही.',
 	'cite_error_references_group_mismatch' => 'tag in <code>&lt;references&gt;</code>मधील <code>&lt;ref&gt;</code>  खूणांना खटका उडणारे  group attribute "$1" आहे.',
 	'cite_error_references_missing_group' => 'गट "$1" मधील <code>&lt;ref&gt;</code> ट्याग   <code>&lt;references&gt;</code> ह्या पूर्वी वापल्या गेलेले नाही',
 	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> ह्या मध्ये सांगितलेला  <code>&lt;ref&gt;</code>  "$1" ह्या नावाचा  ट्याग ह्या पूर्वी वापरण्यात आलेला नाही.',
@@ -4076,6 +4077,7 @@ $messages['ug-arab'] = array(
  * @author NickK
  * @author Prima klasy4na
  * @author Ytsukeng Fyvaprol
+ * @author Ата
  */
 $messages['uk'] = array(
 	'cite-desc' => 'Додає теги <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для виносок',
@@ -4105,7 +4107,7 @@ $messages['uk'] = array(
 для виносок <code>$1</code> не вказаний текст',
 	'cite_error_included_ref' => 'Відсутній тег <code>&lt;/ref&gt;</code> за наявності тега <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "<span style='color: red'>Для наявного тегу <code>&lt;ref&gt;</code> не знайдено відповідного тегу <code>&lt;references/&gt;</code></span>",
-	'cite_error_group_refs_without_references' => 'Для існуючих тегів <code>&lt;ref&gt;</code> групи під назвою "$1" не знайдено відповідного тегу <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Теги <code>&lt;ref&gt;</code> існують для групи під назвою «$1», але не знайдено відповідного тегу <code>&lt;references group="$1"/&gt;</code>, або ж бракує закриваючого <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> має конфліктуючий атрибут групи "$1".',
 	'cite_error_references_missing_group' => 'Тег <code>&lt;ref&gt;</code>, заданий в <code>&lt;references&gt;</code>, має атрибут групи "$1", який не фігурує в попередньому тексті.',
 	'cite_error_references_missing_key' => 'Тег <code>&lt;ref&gt;</code> з назвою "$1", визначений у <code>&lt;references&gt;</code>, не використовується в попередньому тексті.',

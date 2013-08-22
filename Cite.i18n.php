@@ -1249,7 +1249,7 @@ Lisa neid sõnumisse <nowiki>[[MediaWiki:$2]]</nowiki>.',
 Viite nimega <code>$1</code> tekst puudub.',
 	'cite_error_included_ref' => 'Sulgemissilt <code>&lt;/ref&gt;</code> puudub.',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-sildid on olemas, aga <code>&lt;references/&gt;</code>-silt puudub.',
-	'cite_error_group_refs_without_references' => 'Olemas on <code>&lt;ref&gt;</code>-silt rühma "$1" jaoks, aga vastav <code>&lt;references group="$1"/&gt;</code>-silt puudub.',
+	'cite_error_group_refs_without_references' => 'Olemas on <code>&lt;ref&gt;</code>-silt rühma "$1" jaoks, aga puudub vastav silt <code>&lt;references group="$1"/&gt;</code> või lõpusilt <code>&lt;/ref&gt;</code>.',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>-siltide vahel oleval <code>&lt;ref&gt;</code>-sildil on vastukäiv parameetri "group" väärtus "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>-sildis kirjeldatud <code>&lt;ref&gt;</code>-sildil on rühmatunnus "$1", mis puudub eelnevas tekstis.',
 	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code>-siltide vahel olevat <code>&lt;ref&gt;</code>-silti nimega "$1" ei kasutata eelnevas tekstis.',
@@ -1345,7 +1345,7 @@ viitettä <code>$1</code> ei löytynyt',
 $messages['fo'] = array(
 	'cite-desc' => 'Leggur afturat <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki> lyklaorð, fyri ávísingar',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> lyklaorð eru til, men onki <code>&lt;references/&gt;</code> lyklaorð (tag) varð funnið',
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> lyklaorð (tags) eru til fyri ein bólk sum eitur "$1", men onki tilsvarandi <code>&lt;references group="$1"/&gt;</code> lyklaorð varð funnið',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> lyklaorð (tags) eru til fyri ein bólk sum eitur "$1", men onki tilsvarandi <code>&lt;references group="$1"/&gt;</code> lyklaorð varð funnið, ella manglar ein lukkandi <code>&lt;/ref&gt;</code>',
 );
 
 /** French (français)
@@ -3753,6 +3753,7 @@ $messages['su'] = array(
  * @author Lejonel
  * @author M.M.S.
  * @author Najami
+ * @author Skalman
  */
 $messages['sv'] = array(
 	'cite-desc' => 'Lägger till taggarna <nowiki><ref[ name=id]></nowiki> och <nowiki><references/></nowiki> för referenser till källor',
@@ -3775,7 +3776,7 @@ Definera fler i <nowiki>[[MediaWiki:$2]]</nowiki>-meddelandet.',
 	'cite_error_references_no_text' => 'Ogiltig <code>&lt;ref&gt;</code>-tag; ingen text har angivits för referensen med namnet <code>$1</code>',
 	'cite_error_included_ref' => 'Avslutande <code>&lt;/ref&gt;</code> saknas för <code>&lt;ref&gt;</code>-tagg',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-taggar finns, men ingen <code>&lt;references/&gt;</code>-tagg hittades',
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-taggar finns för gruppnamnet "$1", men ingen motsvarande <code>&lt;references group="$1"/&gt;</code>-tagg hittades',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-taggar finns för gruppnamnet "$1", men ingen motsvarande <code>&lt;references group="$1"/&gt;</code>-tagg hittades, eller så saknas en avslutande <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-tagg i <code>&lt;references&gt;</code> har ett motstridigt group-attribut "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code>-tagg definierad i  <code>&lt;references&gt;</code> har ett group-attribut "$1" som inte används innan i texten.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-tagg med namnet "$1", definierad i <code>&lt;references&gt;</code> används inte innan i texten.',

@@ -117,7 +117,10 @@ $messages['qqq'] = array(
 It is not possible to make a clickable link to this message. "nowiki" is mandatory around [[MediaWiki:Cite references link many format backlink labels]].',
 	'cite_error_no_link_label_group' => "*'''$1''' is the name of a reference group.
 *'''$2''' is <code>cite_link_label_group-<i>groupname</i></code>.",
-	'cite_error_references_no_text' => 'Cite extension. This error occurs when the tag <code>&lt;ref name="something" /&gt;</code> is used with the name-option specified and no other tag specifies a cite-text for this name.',
+	'cite_error_references_no_text' => 'Cite extension. This error occurs when the tag <code>&lt;ref name="something" /&gt;</code> is used with the name-option specified and no other tag specifies a cite-text for this name.
+
+Parameters:
+* $1 - key of the ref',
 	'cite_error_included_ref' => 'Error message shown if the <code>&lt;ref&gt;</code> tag is unbalanced, that means a <code>&lt;ref&gt;</code> is not followed by a <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'See also:
 * {{msg-mw|Cite error group refs without references}}',
@@ -167,16 +170,38 @@ The <code>$1</code> parameter contains the name of the unused reference (in the 
 </pre>
 
 <code>$1</code> contains the <code>name</code> of the erroneous <code>&lt;ref&gt;</code> (in the above example, “foo”).',
-	'cite_reference_link_key_with_num' => '{{optional}}',
+	'cite_reference_link_key_with_num' => '{{optional}}
+Parameters:
+* $1 - the key
+* $2 - the number of the key',
 	'cite_reference_link_prefix' => '{{optional}}',
 	'cite_reference_link_suffix' => '{{optional}}',
 	'cite_references_link_prefix' => '{{optional}}',
 	'cite_references_link_suffix' => '{{optional}}',
-	'cite_reference_link' => '{{optional}}',
-	'cite_references_no_link' => '{{notranslate}}',
-	'cite_references_link_one' => '{{optional}}',
-	'cite_references_link_many' => '{{optional}}',
-	'cite_references_link_many_format' => '{{optional}}',
+	'cite_reference_link' => '{{optional}}
+Parameters:
+* $1 - ref key
+* $2 - references key
+* $3 - link label',
+	'cite_references_no_link' => '{{notranslate}}
+Parameters:
+* $1 - references key
+* $2 - reference text',
+	'cite_references_link_one' => '{{optional}}
+Parameters:
+* $1 - references key
+* $2 - ref key
+* $3 - reference text',
+	'cite_references_link_many' => '{{optional}}
+Parameters:
+* $1 - references key
+* $2 - list of links
+* $3 - reference text',
+	'cite_references_link_many_format' => '{{optional}}
+Parameters:
+* $1 - ref key
+* $2 - ...
+* $3 - (Unused)...',
 	'cite_references_link_many_format_backlink_labels' => '{{Optional}}',
 	'cite_references_link_many_sep' => '{{optional}}',
 	'cite_references_link_many_and' => '{{optional}}',
@@ -404,7 +429,7 @@ Define más nel mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Etiqueta <code>&lt;ref&gt;</code> non válida; nun se conseñó testu pa les referencies nomaes <code>$1</code>',
 	'cite_error_included_ref' => 'Falta <code>&lt;/ref&gt;</code> pa la etiqueta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "Les etiquetes <code>&lt;ref&gt;</code> esisten, pero nun s'alcontró denguna etiqueta <code>&lt;references/&gt;</code>",
-	'cite_error_group_refs_without_references' => 'Les etiquetes <code>&lt;ref&gt;</code> esisten pa un grupu llamáu "$1", pero nun s\'alcontró la etiqueta <code>&lt;references group="$1"/&gt;</code> correspondiente',
+	'cite_error_group_refs_without_references' => 'Les etiquetes <code>&lt;ref&gt;</code> esisten pa un grupu llamáu "$1", pero nun s\'alcontró la etiqueta <code>&lt;references group="$1"/&gt;</code> correspondiente, o falta un cierre <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'La etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> tien un conflictu col atributu de grupu "$1".',
 	'cite_error_references_missing_group' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> tien l\'atributu de grupu "$1" que nun apaez nel testu anterior.',
 	'cite_error_references_missing_key' => 'La etiqueta <code>&lt;ref&gt;</code> col nome "$1" definida en <code>&lt;references&gt;</code> nun s\'utiliza nel testu anterior.',

@@ -3234,13 +3234,13 @@ $messages['ko'] = array(
 
 == {{FULLPAGENAME}}의 출처 정보 ==
 
-* 문서 제목: {{FULLPAGENAME}}
-* 저자: {{SITENAME}} contributors
-* 출판사: ''{{SITENAME}}, {{int:sitesubtitle}}''.
-* 최신 버전의 날짜: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* 문서 이름: {{FULLPAGENAME}}
+* 저자: {{SITENAME}} 기여자
+* 발행처: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* 최신 판의 날짜: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
 * 확인한 날짜: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
-* URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
-* 페이지 버전 ID: {{REVISIONID}}
+* 고유 URL: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* 문서 판 ID: {{REVISIONID}}
 
 </div>
 <div class=\"plainlinks mw-specialcite-styles\">
@@ -3256,7 +3256,7 @@ $messages['ko'] = array(
 === [[MHRA 스타일]] ===
 {{SITENAME}} contributors, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
 
-=== [[시카고 스타일|시카고 스타일]] ===
+=== [[시카고 스타일]] ===
 {{SITENAME}} contributors, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
 
 === [[Council of Science Editors|CBE/CSE 스타일]] ===

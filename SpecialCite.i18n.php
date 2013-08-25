@@ -3251,7 +3251,7 @@ $messages['ko'] = array(
 {{FULLPAGENAME}}. ({{CURRENTYEAR}}년 {{CURRENTMONTHNAME}} {{CURRENTDAY}}일). ''{{SITENAME}}, {{int:sitesubtitle}}''. <citation>{{CURRENTYEAR}}년 {{CURRENTMONTHNAME}} {{CURRENTDAY}}일, {{CURRENTTIME}}</citation>에 확인 {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} 에서 찾아볼 수 있음.
 
 === [[MLA 양식]] ===
-\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTYEAR}}년 {{CURRENTMONTHABBREV}} {{CURRENTDAY}}일, {{CURRENTTIME}} UTC. <citation>{{CURRENTYEAR}}년 {{CURRENTMONTHABBREV}} {{CURRENTDAY}}일, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
 
 === [[MHRA 양식]] ===
 {{SITENAME}} 기여자, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTYEAR}}년 {{CURRENTMONTHNAME}} {{CURRENTDAY}}일, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [<citation>{{CURRENTYEAR}}년 {{CURRENTMONTHNAME}} {{CURRENTDAY}}일</citation>에 접근]
@@ -3260,7 +3260,7 @@ $messages['ko'] = array(
 {{SITENAME}} 기여자, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (<citation>{{CURRENTYEAR}}년 {{CURRENTMONTHNAME}} {{CURRENTDAY}}일</citation>에 접근).
 
 === [[Council of Science Editors|CBE/CSE 양식]] ===
-{{SITENAME}} 기여자. {{FULLPAGENAME}} [인터넷]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}}년 {{CURRENTMONTHABBREV}} {{CURRENTDAY}}일, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}}년 {{CURRENTMONTHABBREV}} {{CURRENTDAY}}일</citation>]. 다음에서 찾아볼 수 있음:
+{{SITENAME}} 기여자. {{FULLPAGENAME}} [인터넷]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [<citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>에 인용]. 다음에서 찾아볼 수 있음:
 {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
 
 === [[블루북|블루북 양식]] ===
@@ -3273,7 +3273,7 @@ $messages['ko'] = array(
     title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
     year = \"{{CURRENTYEAR}}\",
     url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
-    note = \"[온라인; 접근한 날짜 <citation>{{CURRENTYEAR}}년-{{CURRENTMONTH}}월-{{CURRENTDAY}}일</citation>]\"
+    note = \"[온라인; 접근한 날짜 <citation>{{CURRENTYEAR}}년-{{CURRENTMONTHNAME}}-{{CURRENTDAY}}일</citation>]\"
   }
 
 [[LaTeX]] 패키지 URL (프리앰블의 어딘가에 <code>\\usepackage{url}</code>)을 사용하면 더 정돈된 형식의 웹 주소를 얻을 수 있습니다. 다음과 같은 방법을 선호합니다:
@@ -3283,7 +3283,7 @@ $messages['ko'] = array(
     title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
     year = \"{{CURRENTYEAR}}\",
     url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
-    note = \"[온라인; 접근한 날짜 <citation>{{CURRENTYEAR}}년-{{CURRENTMONTH}}월-{{CURRENTDAY}}일</citation>]\"
+    note = \"[온라인; 접근한 날짜 <citation>{{CURRENTYEAR}}년-{{CURRENTMONTHNAME}}-{{CURRENTDAY}}일</citation>]\"
   }
 
 

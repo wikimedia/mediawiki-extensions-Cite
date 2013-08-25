@@ -1924,40 +1924,40 @@ $messages['ilo'] = array(
 	'cite-desc' => 'Agnayon ti <nowiki><ref[ name=id]></nowiki> ken <nowiki><references/></nowiki> nga etiketa, para kadagiti pagdakamat',
 	'cite_croak' => 'Natay ti dakamat; $1: $2',
 	'cite_error_key_str_invalid' => 'Akin-uneg a biddut;
-imbalido $str ken/ wenno $tulbek.
-Daytoy ket saan kuman a napasamak.',
+imbalido a $str ken/wenno $tulbek.
+Daytoy ket nasken a saan koman a mapasamak.',
 	'cite_error_stack_invalid_input' => 'Akin-uneg a biddut;
 imbalido a tuon a tulbek.
-Daytoy ket saan kuman a napasamak.',
+Daytoy ket nasken a saan koman a mapasamak.',
 	'cite_error' => 'Biddut ti dakamat: $1',
 	'cite_error_ref_numeric_key' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
 ti nagan ket saan a mabalin a nalaka a sibubukel. Agusar ti agipalpalawag a titulo',
 	'cite_error_ref_no_key' => 'Imbalido a  <code>&lt;ref&gt;</code> nga etiketa;
-dagita ref nga awan nagyan na ket masapul a managanan',
+dagita ref nga awan nagyanna ket masapul a managanan',
 	'cite_error_ref_too_many_keys' => 'Imbalido a  <code>&lt;ref&gt;</code> nga etiketa;
 imbalido a nag-nagan, a kas adu unay',
 	'cite_error_ref_no_input' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
-dagiti ref nga awan ti nagan na ket masapul nga addaan ti nagyan',
+dagiti ref nga awan ti naganna ket masapul nga addaan ti nagyan',
 	'cite_error_references_invalid_parameters' => 'Imbalido a <code>&lt;references&gt;</code> nga etiketa
 awan dagiti parametro a maipalubos.
 Usaren ti <code>&lt;references /&gt;</code>',
 	'cite_error_references_invalid_parameters_group' => 'Imbalido a <code>&lt;references&gt;</code> nga etiketa;
-parametro a "bunggoy" ket ti maipalubos laeng.
+parametro a "grupo" ket ti maipalubos laeng.
 Usaren ti <code>&lt;references /&gt;</code> , wenno<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Naibusan kadagiti nagrunaan a likud ti panilpo nga etiketa.
+	'cite_error_references_no_backlink_label' => 'Naibusan kadagiti nagrunaan a likud ti silpo nga etiketa.
 Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> a mensahe',
-	'cite_error_no_link_label_group' => 'Naibusan ti nangruna a panilpo nga etiketa para iti bunggoy ti "$1".
+	'cite_error_no_link_label_group' => 'Naibusan ti nangruna a silpo nga etiketa para iti grupo ti "$1".
 Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:$2]]</nowiki> a mensahe.',
 	'cite_error_references_no_text' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
 awan ti testo a naited para dagiti ref a nanaganan <code>$1</code>',
 	'cite_error_included_ref' => 'Irikrikep ti <code>&lt;/ref&gt;</code> napukaw para iti <code>&lt;ref&gt;</code> nga etiketa',
-	'cite_error_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa ket addaan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
-	'cite_error_group_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa para iti bunggoy a nainaganan "$1", ngem awan ti kapadpada a <code>&lt;references group="$1"/&gt;</code> nga etiketa a nabirukan',
-	'cite_error_references_group_mismatch' => 'Ti <code>&lt;ref&gt;</code> nga etiketa iday <code>&lt;references&gt;</code> ket addan ti nagsungat a gupit ti bunggoy "$1".',
-	'cite_error_references_missing_group' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti bunggoy "$1" a saan nga agparang iti napalabas a testo.',
-	'cite_error_references_missing_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa nga addaan ti nagan "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a testo.',
+	'cite_error_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa ket addan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
+	'cite_error_group_refs_without_references' => 'Adda dagiti <code>&lt;ref&gt;</code> para iti grupo a nanaganan ti "$1", ngem awan ti kapada a <code>&lt;references group="$1"/&gt;</code> nga etiketa ti nabirukan, wenno pangrikep a <code>&lt;/ref&gt;</code> ket awan',
+	'cite_error_references_group_mismatch' => 'Ti <code>&lt;ref&gt;</code> nga etiketa iday <code>&lt;references&gt;</code> ket addan ti nagsungat a gupit ti grupo "$1".',
+	'cite_error_references_missing_group' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti grupo ti "$1" a saan nga agparang iti napalabas a testo.',
+	'cite_error_references_missing_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa nga addaan ti nagan ti "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a testo.',
 	'cite_error_references_no_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.',
-	'cite_error_empty_references_define' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyan na.',
+	'cite_error_empty_references_define' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyanna.',
 );
 
 /** Ido (Ido)
@@ -2748,6 +2748,7 @@ l-ebda test ma ngħata għar-refs bl-isem <code>$1</code>',
 
 /** Norwegian Bokmål (norsk bokmål)
  * @author Audun
+ * @author Danmichaelo
  * @author Laaknor
  */
 $messages['nb'] = array(
@@ -2769,7 +2770,7 @@ Definér fler i <nowiki>[[MediaWiki:$2]]</nowiki>-beskjeden.',
 	'cite_error_references_no_text' => 'Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>',
 	'cite_error_included_ref' => 'Avsluttende <code>&lt;/ref&gt;</code>-tagg mangler for <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-merker finnes, men ingen <code>&lt;references/&gt;</code>-merke funnet',
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-merke finnes for gruppenavnet «$1», men ingen <code>&lt;references group="$1"/&gt;</code>-merking ble funnet',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-merker finnes for gruppenavnet «$1», men ingen <code>&lt;references group="$1"/&gt;</code>-merking ble funnet, eller det mangler et avsluttende <code>&lt;/ref&gt;</code>-merke.',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-tagg i <code>&lt;references&gt;</code> har motstridig attributt «$1».',
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code>-tagg definert i <code>&lt;references&gt;</code> har gruppeattributtet «$1» som ikke forekommer i teksten.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-taggen med navnet «$1» definert i <code>&lt;references&gt;</code> brukes ikke i teksten.',

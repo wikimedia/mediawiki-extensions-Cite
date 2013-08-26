@@ -1512,7 +1512,7 @@ Defina máis na mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 non se forneceu texto para as referencias de nome <code>$1</code>',
 	'cite_error_included_ref' => 'Peche a etiqueta <code>&lt;/ref&gt;</code> que lle falta á outra etiqueta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen, pero non se atopou ningunha etiqueta <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado "$1", pero non se atopou a etiqueta <code>&lt;references group="$1"/&gt;</code> correspondente',
+	'cite_error_group_refs_without_references' => 'As etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado "$1", pero non se atopou a etiqueta <code>&lt;references group="$1"/&gt;</code> correspondente ou falta unha etiqueta <code>&lt;/ref&gt;</code> de peche',
 	'cite_error_references_group_mismatch' => 'A etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> ten un atributo de grupo conflitivo "$1".',
 	'cite_error_references_missing_group' => 'A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> ten un atributo de grupo "$1" que non aparece no texto anterior.',
 	'cite_error_references_missing_key' => 'A etiqueta <code>&lt;ref&gt;</code> co nome "$1" definida en <code>&lt;references&gt;</code> non se utiliza no texto anterior.',
@@ -2627,7 +2627,7 @@ $messages['ml'] = array(
 <code>$1</code> എന്ന അവലംബങ്ങൾക്ക് ടെക്സ്റ്റ് ഒന്നും കൊടുത്തിട്ടില്ല.',
 	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> റ്റാഗിനു <code>&lt;/ref&gt;</code> എന്ന അന്ത്യറ്റാഗ് നൽകിയിട്ടില്ല',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ നൽകിയിട്ടുണ്ട്, പക്ഷേ <code>&lt;references/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല.',
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ "$1" സംഘത്തിൽ ഉണ്ട്, പക്ഷേ ബന്ധപ്പെട്ട <code>&lt;references group="$1"/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> റ്റാഗുകൾ "$1" സംഘത്തിൽ ഉണ്ട്, പക്ഷേ ബന്ധപ്പെട്ട <code>&lt;references group="$1"/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല അല്ലെങ്കിൽ അടയ്ക്കാനുള്ള <code>&lt;/ref&gt;</code> നൽകിയിട്ടില്ല',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> റ്റാഗിലേയും <code>&lt;references&gt;</code> എന്നതിലേയും സംഘ ഘടകമായ "$1" ഒത്തുപോകുന്നില്ല.',
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> റ്റാഗ് നിർവചിച്ചിട്ടുണ്ടെങ്കിലും <code>&lt;references&gt;</code> എന്നതിലുള്ള സംഘ ഘടകം "$1" ആദ്യ എഴുത്തിൽ കാണുന്നില്ല.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> റ്റാഗ് "$1" എന്ന പേരോടെ <code>&lt;references&gt;</code> എന്നതിൽ നിർവചിച്ചിട്ടുണ്ടെങ്കിലും ആദ്യ എഴുത്തിൽ ഉപയോഗിക്കുന്നില്ല.',
@@ -3617,7 +3617,7 @@ Določite jih več v sporočilu <nowiki>[[MediaWiki:$2]]</nowiki>.',
 sklici imenovani <code>$1</code> nimajo določenega besedila',
 	'cite_error_included_ref' => 'Zaključek <code>&lt;/ref&gt;</code> manjka za etiketo <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Obstajajo etikete <code>&lt;ref&gt;</code>, vendar etikete <code>&lt;references/&gt;</code> ni bilo mogoče najti',
-	'cite_error_group_refs_without_references' => 'Obstajajo etikete <code>&lt;ref&gt;</code> za skupino, imenovano »$1«, vendar ustrezne etikete <code>&lt;references group="$1"/&gt;</code> ni bilo mogoče najti',
+	'cite_error_group_refs_without_references' => 'Obstajajo etikete <code>&lt;ref&gt;</code> za skupino, imenovano »$1«, vendar ustrezne etikete <code>&lt;references group="$1"/&gt;</code> ni bilo mogoče najti ali pa manjka zaključni <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Oznaka <code>&lt;ref&gt;</code> v <code>&lt;references&gt;</code> ima atribut nasprotujoče si skupine »$1«.',
 	'cite_error_references_missing_group' => 'Oznaka <code>&lt;ref&gt;</code>, opredeljena v <code>&lt;references&gt;</code>, ima atribut skupine »$1«, ki se ne pojavi v predhodnem besedilu.',
 	'cite_error_references_missing_key' => 'Oznaka <code>&lt;ref&gt;</code> z imenom »$1«, opredeljena v <code>&lt;references&gt;</code>, ni uporabljena v predhodnem besedilu.',
@@ -4303,6 +4303,7 @@ $messages['yue'] = array(
  * @author Liangent
  * @author PhiLiP
  * @author Philip
+ * @author TianyinLee
  * @author 乌拉跨氪
  */
 $messages['zh-hans'] = array(
@@ -4322,7 +4323,7 @@ $messages['zh-hans'] = array(
 	'cite_error_references_no_text' => '无效<code>&lt;ref&gt;</code>标签；未给name属性为<code>$1</code>的引用提供文字',
 	'cite_error_included_ref' => '没有找到与<code>&lt;/ref&gt;</code>对应的<code>&lt;ref&gt;</code>标签',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>标签存在，但没有找到<code>&lt;references/&gt;</code>标签',
-	'cite_error_group_refs_without_references' => '组名为“$1”的<code>&lt;ref&gt;</code>标签存在，但没有找到相应的<code>&lt;references group="$1"/&gt;</code>标签',
+	'cite_error_group_refs_without_references' => '组名为“$1”的<code>&lt;ref&gt;</code>标签存在，但没有找到相应的<code>&lt;references group="$1"/&gt;</code>标签，或结尾的<code>&lt;/ref&gt;</code>标签丢失',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>的<code>&lt;ref&gt;</code>标记带有冲突的组（group）属性“$1”。',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>标记带有未在前文中出现的组（group）属性“$1”。',
 	'cite_error_references_missing_key' => '在<code>&lt;references&gt;</code>中以“$1”名字定义的<code>&lt;ref&gt;</code>标签没有在先前的文字中使用。',

@@ -4214,7 +4214,7 @@ Hãy định nghĩa thêm ở thông điệp <nowiki>[[MediaWiki:Cite references
 	'cite_error_references_no_text' => 'Thẻ <code>&lt;ref&gt;</code> sai; không có nội dung trong thẻ ref có tên <code>$1</code>',
 	'cite_error_included_ref' => 'Không có <code>&lt;/ref&gt;</code> để đóng thẻ <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code>, nhưng không tìm thấy thẻ <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'Tồn tại thẻ <code>&lt;ref&gt;</code> với tên nhóm “$1”, nhưng không tìm thấy thẻ <code>&lt;references group="$1"/&gt;</code> tương ứng',
+	'cite_error_group_refs_without_references' => 'Đã tìm thấy thẻ <code>&lt;ref&gt;</code> với tên nhóm “$1”, nhưng không tìm thấy thẻ tương ứng <code>&lt;references group="$1"/&gt;</code> tương ứng, hoặc thẻ đóng <code>&lt;/ref&gt;</code> bị thiếu',
 	'cite_error_references_group_mismatch' => 'Thẻ <code>&lt;ref&gt;</code> trong <code>&lt;references&gt;</code> có thuộc tính nhóm mâu thuẫn “$1”.',
 	'cite_error_references_missing_group' => 'Thẻ <code>&lt;ref&gt;</code> được định nghĩa trong <code>&lt;references&gt;</code> có thuộc tính nhóm  “$1” không thấy xuất hiện trong văn bản phía trên.',
 	'cite_error_references_missing_key' => 'Thẻ <code>&lt;ref&gt;</code> có tên  “$1” được định nghĩa trong <code>&lt;references&gt;</code> không được đoạn văn bản trên sử dụng.',

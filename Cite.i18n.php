@@ -105,7 +105,12 @@ $messages['qqq'] = array(
 
 <code>$str</code> and <code>$key</code> are literals, and refer to who knows which variables the code uses.',
 	'cite_error_stack_invalid_input' => 'Used as <code>$1</code> in {{msg-mw|Cite croak}}.',
-	'cite_error' => 'Cite extension. This is used when there are errors in ref or references tags. The parameter $1 is an error message.',
+	'cite_error' => 'Cite extension.
+
+Used when there are errors in ref or references tags.
+
+Parameters:
+* $1 - an error message',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
 	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.',
 	'cite_error_ref_too_many_keys' => 'Cite extension. Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code>&lt;ref name="name" notname="value" /&gt;</code> or <code>&lt;ref notname="value" &gt;input&lt;ref&gt;</code>',

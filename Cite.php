@@ -24,7 +24,7 @@ $wgHooks['BeforePageDisplay'][] = 'wfCiteBeforePageDisplay';
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Cite',
-	'author' => 'Ævar Arnfjörð Bjarmason',
+	'author' => array( 'Ævar Arnfjörð Bjarmason', 'Marius Hoch' ),
 	'descriptionmsg' => 'cite-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );
@@ -70,6 +70,15 @@ $citeResourceTemplate = array(
 	'remoteExtPath' => 'Cite/modules'
 );
 
+$wgResourceModules['ext.cite'] = $citeResourceTemplate + array(
+	'scripts' => 'ext.cite.js',
+	'styles' => 'ext.cite.css',
+	'messages' => array(
+		'cite_references_link_accessibility_label',
+		'cite_references_link_many_accessibility_label',
+	),
+);
+
 $wgResourceModules['ext.cite.popups'] = $citeResourceTemplate + array(
 	'scripts' => 'ext.cite.popups.js',
 	'position' => 'bottom',
@@ -98,6 +107,7 @@ $wgResourceModules['ext.rtlcite'] = $citeResourceTemplate + array(
 function wfCiteBeforePageDisplay( $out, &$sk ) {
 	global $wgCiteEnablePopups;
 
+	$out->addModules( 'ext.cite' );
 	if ( $wgCiteEnablePopups ) {
 		$out->addModules( 'ext.cite.popups' );
 	}

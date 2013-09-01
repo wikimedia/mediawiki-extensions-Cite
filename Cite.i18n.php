@@ -213,10 +213,8 @@ Parameters:
 	'cite_references_link_many_sep' => '{{optional}}',
 	'cite_references_link_many_and' => '{{optional}}',
 	'cite_references_link_accessibility_label' => 'Text for screen readers to describe the jump to citation link ("↑").',
-	'cite_references_link_many_accessibility_label' =>
-'Text for screen readers to describe the jump to citation links (a b c ...) for citations which are used in multiple places.
+	'cite_references_link_many_accessibility_label' => 'Text for screen readers to describe the jump to citation links (a b c ...) for citations which are used in multiple places.
 This is going to be prepended to the first link, the following ones will just be read by screen readers as they are visible.',
-
 	'cite_references_prefix' => '{{notranslate}}',
 	'cite_references_suffix' => '{{notranslate}}',
 );
@@ -1864,7 +1862,7 @@ Defini plus de istes in le message <nowiki>[[MediaWiki:$2]]</nowiki>.',
 nulle texto esseva fornite pro le refs nominate <code>$1</code>',
 	'cite_error_included_ref' => 'Le clausura <code>&lt;/ref&gt;</code> manca pro le etiquetta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Il existe etiquettas <code>&lt;ref&gt;</code>, ma nulle etiquetta <code>&lt;references/&gt;</code> ha essite trovate',
-	'cite_error_group_refs_without_references' => 'Il existe etiquettas <code>&lt;ref&gt;</code> pro un gruppo nominate "$1", ma nulle etiquetta <code>&lt;references group="$1"/&gt;</code> correspondente ha essite trovate',
+	'cite_error_group_refs_without_references' => 'Il existe etiquettas <code>&lt;ref&gt;</code>  pro un gruppo con nomine "$1", ma nulle etiquetta <code>&lt;references group="$1"/&gt;</code> correspondente ha essite trovate, o un etiquetta de termination <code>&lt;/ref&gt;</code> manca.',
 	'cite_error_references_group_mismatch' => 'Le etiquetta <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> ha un attributo de gruppo "$1" confligente.',
 	'cite_error_references_missing_group' => 'Le etiquetta <code>&lt;ref&gt;</code> definite in <code>&lt;references&gt;</code> ha un attributo de gruppo "$1" que non appare in le texto precedente.',
 	'cite_error_references_missing_key' => 'Le etiquetta <code>&lt;ref&gt;</code> con nomine "$1" definite in <code>&lt;references&gt;</code> non es usate in le texto precedente.',

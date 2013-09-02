@@ -212,9 +212,16 @@ Parameters:
 	'cite_references_link_many_format_backlink_labels' => '{{Optional}}',
 	'cite_references_link_many_sep' => '{{optional}}',
 	'cite_references_link_many_and' => '{{optional}}',
-	'cite_references_link_accessibility_label' => 'Text for screen readers to describe the jump to citation link ("↑").',
+	'cite_references_link_accessibility_label' => 'Text for screen readers to describe the jump to citation link ("↑").
+
+See also:
+* {{msg-mw|Cite references link many accessibility label}} - if the citation is used multiple times',
 	'cite_references_link_many_accessibility_label' => 'Text for screen readers to describe the jump to citation links (a b c ...) for citations which are used in multiple places.
-This is going to be prepended to the first link, the following ones will just be read by screen readers as they are visible.',
+
+This is going to be prepended to the first link, the following ones will just be read by screen readers as they are visible.
+
+See also:
+* {{msg-mw|Cite references link accessibility label}} - if the citation is used one time',
 	'cite_references_prefix' => '{{notranslate}}',
 	'cite_references_suffix' => '{{notranslate}}',
 );
@@ -989,6 +996,8 @@ Ein Administrator muss weitere mit der Systemnachricht <nowiki>[[MediaWiki:$2]]<
 	'cite_error_references_missing_key' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ wird im vorausgehenden Text nicht verwendet.',
 	'cite_error_references_no_key' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag hat kein Namensattribut.',
 	'cite_error_empty_references_define' => 'Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ weist keinen Inhalt auf.',
+	'cite_references_link_accessibility_label' => 'Hochspringen',
+	'cite_references_link_many_accessibility_label' => 'Hochspringen nach:',
 );
 
 /** Swiss High German (Schweizer Hochdeutsch)
@@ -1107,47 +1116,48 @@ za ref z mjenim <code>$1</code> njejo se tekst pódał',
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Omnipaedista
+ * @author Protnet
  * @author ZaDiak
  * @author Απεργός
  */
 $messages['el'] = array(
-	'cite-desc' => 'Προσθέτει τα <ref[ name="id"]> και <references/> για τις παραπομπές.',
-	'cite_croak' => 'Η παραπομπή οδηγεί σε αδιέξοδο; $1: $2',
+	'cite-desc' => 'Προσθέτει τις ετικέτες <nowiki><ref[ name=id]></nowiki> και <nowiki><references/></nowiki>, για παραπομπές.',
+	'cite_croak' => 'Νεκρή παραπομπή&middot; $1: $2',
 	'cite_error_key_str_invalid' => 'Εσωτερικό σφάλμα·
-μη έγκυρο $str και/ή $key.
-Αυτό δεν θα έπρεπε να συμβαίνει.',
+μη έγκυρο $str ή/και $key.
+Αυτό δεν θα έπρεπε να συμβεί.',
 	'cite_error_stack_invalid_input' => 'Εσωτερικό σφάλμα·
 μη έγκυρο κλειδί στοίβας.
-Αυτό δεν θα έπρεπε να συμβαίνει.',
-	'cite_error' => 'Σφάλμα αναφοράς: $1',
-	'cite_error_ref_numeric_key' => 'Μη έγκυρη <code>&lt;ref&gt;</code> ετικέτα·
-το όνομα δεν μπορεί να είναι ένας απλός ακέραιος. Χρησιμοποιήστε έναν περιγραφικό τίτλο',
-	'cite_error_ref_no_key' => 'Άκυρη <code>&lt;ref&gt;</code> ετικέτα·
-παραπομπές χωρίς περιεχομένο πρέπει να έχουν ένα όνομα',
-	'cite_error_ref_too_many_keys' => 'Μη έγκυρη <code>&lt;ref&gt;</code> ετικέτα;
+Αυτό δεν θα έπρεπε να συμβεί.',
+	'cite_error' => 'Σφάλμα παραπομπής: $1',
+	'cite_error_ref_numeric_key' => 'Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>·
+το όνομα δεν μπορεί να είναι απλός ακέραιος. Χρησιμοποιήστε έναν περιγραφικό τίτλο',
+	'cite_error_ref_no_key' => 'Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>·
+παραπομπές χωρίς περιεχόμενο πρέπει να έχουν όνομα',
+	'cite_error_ref_too_many_keys' => 'Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>·
 μη έγκυρα ονόματα, π.χ. πάρα πολλά',
-	'cite_error_ref_no_input' => 'Μη έγκυρη <code>&lt;ref&gt;</code> ετικέτα;
+	'cite_error_ref_no_input' => 'Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>·
 οι παραπομπές χωρίς όνομα πρέπει να έχουν περιεχόμενο',
-	'cite_error_references_invalid_parameters' => 'Μη έγκυρη <code>&lt;references&gt;</code> ετικέτα;
+	'cite_error_references_invalid_parameters' => 'Μη έγκυρη ετικέτα <code>&lt;references&gt;</code>·
 δεν επιτρέπονται παράμετροι.
-Χρησιμοποιήστε το <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Μη έγκυρη <code>&lt;references&gt;</code> ετικέτα;
-μόνο η παράμετρος "group" επιτρέπεται.
-Χρησιμοποιείστε το <code>&lt;references /&gt;</code>, ή το <code>&lt;references group="..." /&gt;</code>',
+Χρησιμοποιήστε <code>&lt;references /&gt;</code>',
+	'cite_error_references_invalid_parameters_group' => 'Μη έγκυρη ετικέτα <code>&lt;references&gt;</code>·
+μόνο η παράμετρος «group» επιτρέπεται.
+Χρησιμοποιείστε <code>&lt;references /&gt;</code>, ή <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Εξαντλήθηκαν οι ειδικές ετικέτες συνδέσμων προς το κείμενο.
-Καθορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+Καθορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.',
 	'cite_error_no_link_label_group' => 'Εξαντλήθηκαν οι ειδικές ετικέτες συνδέσμων για την ομάδα «$1».
-Καθορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:$2]]</nowiki>',
-	'cite_error_references_no_text' => 'Άκυρο <code>&lt;ref&gt;</code> tag.
-Δεν δίνεται κείμενο για αναφορές με το όνομα <code>$1</code>',
-	'cite_error_included_ref' => 'Υπολείπεται η κατάληξη <code>&lt;/ref&gt;</code> για την ετικέτα <code>&lt;ref&gt;</code>',
-	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά καμία ετικέτα <code>&lt;references/&gt;</code> δεν βρέθηκε.',
-	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα με το όνομα «$1», αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.',
-	'cite_error_references_group_mismatch' => 'Η ετικέτα <code>&lt;ref&gt;</code> στο <code>&lt;references&gt;</code> έρχεται σε σύγκρουση με το κατηγορούμενο "$1".',
-	'cite_error_references_missing_group' => 'Η <code>&lt;ref&gt;</code> ετικέτα που ορίζεται στο <code>&lt;references&gt;</code> έχει κατηγορούμενο ομάδας "$1" που δεν εμφανίζεται σε προηγούμενο κείμενο.',
-	'cite_error_references_missing_key' => 'Η <code>&lt;ref&gt;</code> ετικέτα με το όνομα "$1" που ορίζεται στο <code>&lt;references&gt;</code> δεν χρησιμοποιείται στο προηγούμενο κείμενο.',
-	'cite_error_references_no_key' => 'Η <code>&lt;ref&gt;</code> ετικέτα που ορίζεται στο <code>&lt;references&gt;</code> δεν έχει κατηγορούμενο ονόματος.',
-	'cite_error_empty_references_define' => 'Η <code>&lt;ref&gt;</code> ετικέτα που ορίζεται στο <code>&lt;references&gt;</code> με το όνομα "$1" δεν έχει καθόλου περιεχόμενο.',
+Καθορισμός περισσότερων στο μήνυμα <nowiki>[[MediaWiki:$2]]</nowiki>.',
+	'cite_error_references_no_text' => 'Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>·
+δεν δίνεται κείμενο για παραπομπές με όνομα <code>$1</code>',
+	'cite_error_included_ref' => 'Λείπει η ετικέτα κλεισίματος <code>&lt;/ref&gt;</code> για την ετικέτα <code>&lt;ref&gt;</code>',
+	'cite_error_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code>, αλλά δεν βρέθηκε ετικέτα <code>&lt;references/&gt;</code>.',
+	'cite_error_group_refs_without_references' => 'Υπάρχουν ετικέτες <code>&lt;ref&gt;</code> για μία ομάδα με το όνομα «$1», αλλά καμία αντίστοιχη ετικέτα <code>&lt;references group="$1"/&gt;</code> δεν βρέθηκε.', # Fuzzy
+	'cite_error_references_group_mismatch' => 'Η ετικέτα <code>&lt;ref&gt;</code> μέσα στο <code>&lt;references&gt;</code> έρχεται σε σύγκρουση με το χαρακτηριστικό ομαδοποίησης «$1».',
+	'cite_error_references_missing_group' => 'Η ετικέτα <code>&lt;ref&gt;</code> που ορίζεται μέσα στο <code>&lt;references&gt;</code> έχει χαρακτηριστικό ομαδοποίησης «$1» που δεν εμφανίζεται σε προηγούμενο κείμενο.',
+	'cite_error_references_missing_key' => 'Η ετικέτα <code>&lt;ref&gt;</code> με όνομα «$1» που ορίζεται μέσα στο <code>&lt;references&gt;</code> δεν χρησιμοποιείται σε προηγούμενο κείμενο.',
+	'cite_error_references_no_key' => 'Η ετικέτα <code>&lt;ref&gt;</code> που ορίζεται μέσα στο <code>&lt;references&gt;</code> δεν έχει χαρακτηριστικό ονόματος.',
+	'cite_error_empty_references_define' => 'Η ετικέτα <code>&lt;ref&gt;</code> που ορίζεται μέσα στο <code>&lt;references&gt;</code> με όνομα «$1» δεν έχει καθόλου περιεχόμενο.',
 );
 
 /** Esperanto (Esperanto)
@@ -1528,6 +1538,8 @@ non se forneceu texto para as referencias de nome <code>$1</code>',
 	'cite_error_references_missing_key' => 'A etiqueta <code>&lt;ref&gt;</code> co nome "$1" definida en <code>&lt;references&gt;</code> non se utiliza no texto anterior.',
 	'cite_error_references_no_key' => 'A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> non ten nome de atributo.',
 	'cite_error_empty_references_define' => 'A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> co nome "$1" non ten contido.',
+	'cite_references_link_accessibility_label' => 'Saltar a',
+	'cite_references_link_many_accessibility_label' => 'Saltar a:',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -2917,7 +2929,7 @@ Utilizatz <code>&lt;references /&gt;</code>, o alara <code>&lt;references group=
 pas de tèxte per las referéncias nomenadas <code>$1</code>.',
 	'cite_error_included_ref' => 'Clausura <code>&lt;/ref&gt;</code> omesa per la balisa <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís, mas cap de balisa <code>&lt;references/&gt;</code> pas trobada.',
-	'cite_error_group_refs_without_references' => 'La balisa <code>&lt;ref&gt;</code> existís per un grop nomenat « $1 », mas cap de balisa <code>&lt;references group="$1"/&gt;</code> correspondenta pas trobada',
+	'cite_error_group_refs_without_references' => 'De balisas <code>&lt;ref&gt;</code> existisson per un grop nomenat « $1 », mas cap de balisa <code>&lt;references group="$1"/&gt;</code> correspondenta es pas estada trobada, o alara una valisa tampanta <code>&lt;/ref&gt;</code> manca.',
 	'cite_error_references_group_mismatch' => "La balisa <code>&lt;ref&gt;</code> dins <code>&lt;references&gt;</code> a l'atribut de grop « $1 » que dintra en conflicte amb lo de <code>&lt;references&gt;</code>.",
 	'cite_error_references_missing_group' => 'La balisa <code>&lt;ref&gt;</code> definida dins <code>&lt;references&gt;</code> a un gropat atribuit « $1 » que figura pas dins lo tèxte precedent.',
 	'cite_error_references_missing_key' => 'La balisa <code>&lt;ref&gt;</code> amb lo nom « $1 » definida dins <code>&lt;references&gt;</code> es pas utilizada dins lo tèxte precedent.',
@@ -3301,12 +3313,14 @@ Definiscene otre jndr\'à \'u messàgge <nowiki>[[MediaWiki:$2]]</nowiki>.',
 nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
 	'cite_error_included_ref' => "Stè 'u tag <code>&lt;/ref&gt;</code> ma manghe <code>&lt;ref&gt;</code>",
 	'cite_error_refs_without_references' => "'u tag <code>&lt;ref&gt;</code> esiste, ma non g'esiste 'u tag <code>&lt;references/&gt;</code>",
-	'cite_error_group_refs_without_references' => '\'U tag <code>&lt;ref&gt;</code> esiste pu gruppe nomenate "$1", ma non ge corresponne a \'u tag acchiate <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_group_refs_without_references' => '\'U tag <code>&lt;ref&gt;</code> esiste pu gruppe nomenate "$1", ma non ge corresponne a \'u tag acchiate <code>&lt;references group="$1"/&gt;</code>, o \'nu tag de chiusure <code>&lt;/ref&gt;</code> manghe',
 	'cite_error_references_group_mismatch' => "'U tag <code>&lt;ref&gt;</code> tag jndr'à <code>&lt;references&gt;</code> tène conflitte cu l'attribbute d'u gruppe \"\$1\".",
 	'cite_error_references_missing_group' => "'U tag <code>&lt;ref&gt;</code> definite jndr'à <code>&lt;references&gt;</code> ave attribbute de gruppe \"\$1\" 'u quale non ge jesse jndr'à 'u teste prengepàle.",
 	'cite_error_references_missing_key' => "'U tag <code>&lt;ref&gt;</code> cu 'u nome \"\$1\" definite jndr'à <code>&lt;references&gt;</code> non g'avene ausate jndr'à 'u teste prengepàle.",
 	'cite_error_references_no_key' => "'U tag <code>&lt;ref&gt;</code> definite jndr'à <code>&lt;references&gt;</code> non ge tène 'nu nome d'attrebbute.",
 	'cite_error_empty_references_define' => '\'U tag <code>&lt;ref&gt;</code> definite jndr\'à <code>&lt;references&gt;</code> cu \'u nome "$1" non ge tène condenute.',
+	'cite_references_link_accessibility_label' => 'Zumbe sus',
+	'cite_references_link_many_accessibility_label' => 'Zumbe sus a:',
 );
 
 /** Russian (русский)
@@ -4109,6 +4123,7 @@ $messages['ug-arab'] = array(
 /** Ukrainian (українська)
  * @author AS
  * @author Ahonc
+ * @author Andriykopanytsia
  * @author Dim Grits
  * @author DixonD
  * @author NickK
@@ -4159,6 +4174,8 @@ $messages['uk'] = array(
 	'cite_references_link_many_format_backlink_labels' => 'а б в г д е ж и к л м н п р с т у ф х ц ш щ ю я аа аб ав аг ад ае аж аи ак ал ам ан ап ар ас ат ау аф ах ац аш ащ аю ая ба бб бв бг бд бе бж би бк бл бм бн бп бр бс бт бу бф бх бц бш бщ бю бя ва вб вв вг вд ве вж ви вк вл вм вн вп вр вс вт ву вф вх вц вш вщ вю вя га гб гв гг гд ге гж ги гк гл гм гн гп гр гс гт гу гф гх гц гш гщ гю гя да дб дв дг дд де дж ди дк дл дм дн дп др дс дт ду дф дх дц дш дщ дю дя еа еб ев ег ед ее еж еи ек ел ем ен еп ер ес ет еу еф ех ец еш ещ ею ея жа жб жв жг жд же жж жи жк жл жм жн жп жр жс жт жу жф жх жц жш жщ жю жя иа иб ив иг ид ие иж ии ик ил им ин ип ир ис ит иу иф их иц иш ищ ию ия ка кб кв кг кд ке кж ки кк кл км кн кп кр кс кт ку кф кх кц кш кщ кю кя ла лб лв лг лд ле лж ли лк лл лм лн лп лр лс лт лу лф лх лц лш лщ лю ля ма мб мв мг мд ме мж ми мк мл мм мн мп мр мс мт му мф мх мц мш мщ мю мя на нб нв нг нд не нж ни нк нл нм нн нп нр нс нт ну нф нх нц нш нщ ню ня па пб пв пг пд пе пж пи пк пл пм пн пп пр пс пт пу пф пх пц пш пщ пю пя ра рб рв рг рд ре рж ри рк рл рм рн рп рр рс рт ру рф рх рц рш рщ рю ря са сб св сг сд се сж си ск сл см сн сп ср сс ст су сф сх сц сш сщ сю ся та тб тв тг тд те тж ти тк тл тм тн тп тр тс тт ту тф тх тц тш тщ тю тя уа уб ув уг уд уе уж уи ук ул ум ун уп ур ус ут уу уф ух уц уш ущ ую уя фа фб фв фг фд фе фж фи фк фл фм фн фп фр фс фт фу фф фх фц фш фщ фю фя ха хб хв хг хд хе хж хи хк хл хм хн хп хр хс хт ху хф хх хц хш хщ хю хя ца цб цв цг цд це цж ци цк цл цм цн цп цр цс цт цу цф цх цц цш цщ цю ця ша шб шв шг шд ше шж ши шк шл шм шн шп шр шс шт шу шф шх шц шш шщ шю шя ща щб щв щг щд ще щж щи щк щл щм щн щп щр щс щт щу щф щх щц щш щщ щю щя юа юб юв юг юд юе юж юи юк юл юм юн юп юр юс ют юу юф юх юц юш ющ юю юя яа яб яв яг яд яе яж яи як ял ям ян яп яр яс ят яу яф ях яц яш ящ яю яя',
 	'cite_references_link_many_sep' => '&#32;',
 	'cite_references_link_many_and' => '&#32;',
+	'cite_references_link_accessibility_label' => 'Вгору',
+	'cite_references_link_many_accessibility_label' => 'Перейти до:',
 );
 
 /** vèneto (vèneto)

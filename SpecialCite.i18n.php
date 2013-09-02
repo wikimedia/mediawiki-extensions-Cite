@@ -1383,9 +1383,10 @@ $messages['ee'] = array(
  * @author Consta
  * @author Glavkos
  * @author Omnipaedista
+ * @author Protnet
  */
 $messages['el'] = array(
-	'cite_article_desc' => 'Προσθέτει μία ειδική σελίδα [[Special:Cite|παραθέσεων]] καί έναν σύνδεσμο προς την εργαλειοθήκη',
+	'cite_article_desc' => 'Προσθέτει μία ειδική σελίδα [[Special:Cite|παραθέσεων]] και έναν σύνδεσμο προς την εργαλειοθήκη',
 	'cite_article_link' => 'Παραθέστε αυτή τη σελίδα',
 	'tooltip-cite-article' => 'Πληροφορίες για το πως να παραπέμψετε σε αυτήν την σελίδα',
 	'cite' => 'Αναφορά',

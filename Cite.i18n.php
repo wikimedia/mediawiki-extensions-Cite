@@ -2032,6 +2032,7 @@ tilgreindu texta fyrir tilvísun með nafnið <code>$1</code>',
  * @author BrokenArrow
  * @author Darth Kule
  * @author Erdemaslancan
+ * @author Gianfranco
  * @author Pietrodn
  */
 $messages['it'] = array(
@@ -2063,6 +2064,8 @@ Usare <code>&lt;references /&gt;</code> oppure <code>&lt;references group="..." 
 	'cite_error_references_missing_key' => 'Il tag <code>&lt;ref&gt;</code> con nome "$1" definito in <code>&lt;references&gt;</code> non è usato nel testo precedente.',
 	'cite_error_references_no_key' => 'Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> non ha un attributo nome.',
 	'cite_error_empty_references_define' => 'Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> con nome "$1" non ha alcun contenuto.',
+	'cite_references_link_accessibility_label' => 'Salta',
+	'cite_references_link_many_accessibility_label' => 'Salta a:',
 );
 
 /** Japanese (日本語)
@@ -2336,6 +2339,8 @@ $str 혹은 $key가 잘못되었습니다.
 	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> 안에 정의된 <code>&lt;ref&gt;</code> 태그에 이름 특성이 없습니다.',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> 태그 안에 정의된 "$1"이라는 이름을 가진 <code>&lt;ref&gt;</code> 태그에 내용이 없습니다.',
 	'cite_references_link_many_format_backlink_labels' => '가 나 다 라 마 바 사 아 자 차 카 타 파 하 거 너 더 러 머 버 서 어 저 처 커 터 퍼 허 고 노 도 로 모 보 소 오 조 초 코 토 포 호 구 누 두 루 무 부 수 우 주 추 쿠 투 푸 후 그 느 드 르 므 브 스 으 즈 츠 크 트 프 흐 기 니 디 리 미 비 시 이 지 치 키 티 피 히',
+	'cite_references_link_accessibility_label' => '이동',
+	'cite_references_link_many_accessibility_label' => '이동:',
 );
 
 /** Colognian (Ripoarisch)
@@ -2615,6 +2620,8 @@ $messages['mk'] = array(
 	'cite_error_references_missing_key' => 'Ознаката <code>&lt;ref&gt;</code> со име „$1“ определена во <code>&lt;references&gt;</code> не се користи во претходен текст.',
 	'cite_error_references_no_key' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;referencesgt;</code> нема именски атрибут.',
 	'cite_error_empty_references_define' => 'Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;references&gt;</code> со име „$1“ нема содржина.',
+	'cite_references_link_accessibility_label' => 'Следно',
+	'cite_references_link_many_accessibility_label' => 'Отиди кај:',
 );
 
 /** Malayalam (മലയാളം)

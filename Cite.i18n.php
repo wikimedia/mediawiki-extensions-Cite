@@ -452,6 +452,8 @@ Define más nel mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_missing_key' => 'La etiqueta <code>&lt;ref&gt;</code> col nome "$1" definida en <code>&lt;references&gt;</code> nun s\'utiliza nel testu anterior.',
 	'cite_error_references_no_key' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> nun tien dengún atributu de nome.',
 	'cite_error_empty_references_define' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> col nome "$1" nun tien conteníu.',
+	'cite_references_link_accessibility_label' => 'Saltar arriba',
+	'cite_references_link_many_accessibility_label' => 'Saltar a:',
 );
 
 /** Azerbaijani (azərbaycanca)
@@ -1880,6 +1882,8 @@ nulle texto esseva fornite pro le refs nominate <code>$1</code>',
 	'cite_error_references_missing_key' => 'Le etiquetta <code>&lt;ref&gt;</code> con nomine "$1" definite in <code>&lt;references&gt;</code> non es usate in le texto precedente.',
 	'cite_error_references_no_key' => 'Le etiquetta <code>&lt;ref&gt;</code> definite in <code>&lt;references&gt;</code> non ha un attributo de nomine.',
 	'cite_error_empty_references_define' => 'Le etiquetta <code>&lt;ref&gt;</code> definite in <code>&lt;references&gt;</code> con nomine "$1" ha nulle contento.',
+	'cite_references_link_accessibility_label' => 'Retornar',
+	'cite_references_link_many_accessibility_label' => 'Retornar a:',
 );
 
 /** Indonesian (Bahasa Indonesia)

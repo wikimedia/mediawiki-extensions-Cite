@@ -704,6 +704,7 @@ $messages['bn'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Fulup
  */
 $messages['br'] = array(
@@ -738,12 +739,14 @@ Termenit re all e kemennadenn <nowiki>[[MediaWiki:$2]]</nowiki>.',
 ne oa bet lakaet tamm testenn ebet evit ar valizenn <code>$1</code>',
 	'cite_error_included_ref' => 'Kod digeriñ <code>&lt;/ref&gt;</code> hep kod serriñ <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "<code>&lt;ref&gt;</code> balizennoù zo, met n'eus bet kavet balizenn <code>&lt;references/&gt;</code> ebet",
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> balizennoù zo evit ur strollad anvet "$1", met n\'eus bet kavet balizenn <code>&lt;references group="$1"/&gt;</code> ebet o klotañ',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> balizennoù zo evit ur strollad anvet "$1", met n\'eus bet kavet balizenn <code>&lt;references group="$1"/&gt;</code> ebet o klotañ', # Fuzzy
 	'cite_error_references_group_mismatch' => 'Gant ar valizenn <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> emañ an dezverk strollad trubuilhus "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> ar valizenn termenet e <code>&lt;references&gt;</code> eo dezhi un dezverk strollad "$1" na gaver ket en destenn a-raok.',
 	'cite_error_references_missing_key' => 'N\'eo ket bet implijet en destenn gent ar <code>&lt;ref&gt;</code> valizenn hec\'h anv "$1" termenet e <code>&lt;references&gt;</code>.',
 	'cite_error_references_no_key' => "<code>&lt;ref&gt;</code> ar valizenn termenet e <code>&lt;references&gt;</code> n'he deus dezverk anv ebet.",
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ar valiezenn termenet e <code>&lt;references&gt;</code> dezhi an anv a "$1" zo goullo.',
+	'cite_references_link_accessibility_label' => 'Lammat',
+	'cite_references_link_many_accessibility_label' => 'Lammat da :',
 );
 
 /** Bosnian (bosanski)
@@ -3417,7 +3420,7 @@ $messages['rue'] = array(
 	'cite_error_references_no_text' => 'Хыба в таґу <code>&lt;ref&gt;</code>; цітації означеной <code>$1</code> не є доданый жаден текст',
 	'cite_error_included_ref' => 'Хыбить закінчіня <code>&lt;/ref&gt;</code> k&nbsp;таґу <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Найджена значка <code>&lt;ref&gt;</code> без одповідной значкы <code>&lt;references/&gt;</code>.',
-	'cite_error_group_refs_without_references' => 'Найджена значка <code>&lt;ref&gt;</code> про ґрупу „$1“ без одповідной значкы <code>&lt;references group="$1"/&gt;</code>.',
+	'cite_error_group_refs_without_references' => 'Найдена значка <code>&lt;ref&gt;</code> про ґрупу „$1“, але не існує приналежна значка <code>&lt;references group="$1"/&gt;</code> або хыбить заперачій <code>&lt;/ref&gt;</code>.',
 	'cite_error_references_group_mismatch' => 'Значка <code>&lt;ref&gt;</code> внутрї <code>&lt;references&gt;</code> має дефіновану іншу ґрупу „$1“.',
 	'cite_error_references_missing_group' => 'Значка <code>&lt;ref&gt;</code> внутрї <code>&lt;references&gt;</code> хоснує ґрупу „$1“, котра ся в попереднїм текстї не обявує.',
 	'cite_error_references_missing_key' => 'На <code>&lt;ref&gt;</code> з іменом „$1“ дефінованый внутрї <code>&lt;references&gt;</code> не суть в попереднїм текстї жадны одказы.',

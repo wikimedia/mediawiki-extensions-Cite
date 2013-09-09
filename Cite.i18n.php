@@ -883,6 +883,8 @@ Zvyšte jejich počet ve zprávě <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_missing_key' => 'Na <code>&lt;ref&gt;</code> se jménem „$1“ definovaný uvnitř <code>&lt;references&gt;</code> nejsou v předchozím textu žádné odkazy.',
 	'cite_error_references_no_key' => 'U značky <code>&lt;ref&gt;</code> definované uvnitř <code>&lt;references&gt;</code> chybí atribut <code>name</code>.',
 	'cite_error_empty_references_define' => 'U značky <code>&lt;ref&gt;</code> s názvem „$1“ definované uvnitř <code>&lt;references&gt;</code> chybí obsah.',
+	'cite_references_link_accessibility_label' => 'Skočit nahoru',
+	'cite_references_link_many_accessibility_label' => 'Skočit nahoru k:',
 );
 
 /** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
@@ -2324,7 +2326,7 @@ $str 혹은 $key가 잘못되었습니다.
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 내용이 없는 주석은 이름이 있어야 합니다',
 	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
-예를 들어 잘못된 주석 이름이 너무 많습니다',
+잘못된 이름입니다, 너무 많은 등',
 	'cite_error_ref_no_input' => '<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;
 이름이 없는 ref 태그는 반드시 내용이 있어야 합니다',
 	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> 태그가 잘못되었습니다;

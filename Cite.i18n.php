@@ -4352,6 +4352,7 @@ $messages['yue'] = array(
  * @author PhiLiP
  * @author Philip
  * @author TianyinLee
+ * @author Zhuyifei1999
  * @author 乌拉跨氪
  */
 $messages['zh-hans'] = array(
@@ -4377,6 +4378,8 @@ $messages['zh-hans'] = array(
 	'cite_error_references_missing_key' => '在<code>&lt;references&gt;</code>中以“$1”名字定义的<code>&lt;ref&gt;</code>标签没有在先前的文字中使用。',
 	'cite_error_references_no_key' => '<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>没有给出名称（name）属性。',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>的名称（name）“$1”为空。',
+	'cite_references_link_accessibility_label' => '跳转',
+	'cite_references_link_many_accessibility_label' => '跳转到：',
 );
 
 /** Traditional Chinese (中文（繁體）‎)

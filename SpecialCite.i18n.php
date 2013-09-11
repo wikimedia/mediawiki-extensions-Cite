@@ -110,6 +110,7 @@ See also:
 	'cite-summary' => '{{notranslate}}',
 	'cite_page' => '{{Identical|Page}}',
 	'cite_submit' => '{{Identical|Cite}}',
+	'cite_text' => 'Refers to {{msg-mw|Sitesubtitle}}.',
 );
 
 /** Achinese (Acèh)

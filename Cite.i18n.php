@@ -1455,6 +1455,8 @@ aucun texte n’a été fourni pour les références nommées <code>$1</code>.',
 	'cite_error_empty_references_define' => 'La balise <code>&lt;ref&gt;</code> défini dans <code>&lt;references&gt;</code> avec le nom « $1 » n’a pas de contenu.',
 	'cite_references_link_many_sep' => ',&#32;',
 	'cite_references_link_many_and' => '&#32;et&#32;',
+	'cite_references_link_accessibility_label' => 'Aller',
+	'cite_references_link_many_accessibility_label' => 'Aller à :',
 );
 
 /** Franco-Provençal (arpetan)
@@ -2454,6 +2456,8 @@ et gouf keen Text ugi fir d'Referenze mam Numm <code>$1</code>",
 	'cite_error_references_missing_key' => 'Deen am <code>&lt;references&gt;</code> definéierten <code>&lt;ref&gt;</code>-Tag mam Numm "$1" gëtt am Text virdrun net benotzt.',
 	'cite_error_references_no_key' => "D'Markéierung <code>&lt;ref&gt;</code> déi an <code>&lt;references&gt;</code> definéiert ass huet keng Nummeegeschaft.",
 	'cite_error_empty_references_define' => "D'Markéierung <code>&lt;ref&gt;</code> déi am <code>&lt;references&gt;</code> mat dem Numm  « $1 » definéiert ass, ass eidel.",
+	'cite_references_link_accessibility_label' => 'No uewe sprangen',
+	'cite_references_link_many_accessibility_label' => 'Eropsprangen op:',
 );
 
 /** Limburgish (Limburgs)

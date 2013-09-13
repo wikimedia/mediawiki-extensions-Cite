@@ -643,6 +643,8 @@ $messages['be-tarask'] = array(
 	'cite_error_references_missing_key' => 'Тэг <code>&lt;ref&gt;</code> з назвай «$1» вызначаны ў <code>&lt;references&gt;</code> не выкарыстоўваўся ў папярэднім тэксьце.',
 	'cite_error_references_no_key' => 'Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> ня мае атрыбуту назвы.',
 	'cite_error_empty_references_define' => 'Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> з назвай «$1» ня мае зьместу.',
+	'cite_references_link_accessibility_label' => 'Угару',
+	'cite_references_link_many_accessibility_label' => 'Угару да:',
 );
 
 /** Bulgarian (български)
@@ -1993,6 +1995,8 @@ awan ti testo a naited para dagiti ref a nanaganan <code>$1</code>',
 	'cite_error_references_missing_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa nga addaan ti nagan ti "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a testo.',
 	'cite_error_references_no_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.',
 	'cite_error_empty_references_define' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyanna.',
+	'cite_references_link_accessibility_label' => 'Lumagto ti ngato',
+	'cite_references_link_many_accessibility_label' => 'Lumagto ti ngato iti:',
 );
 
 /** Ido (Ido)

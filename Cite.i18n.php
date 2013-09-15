@@ -113,22 +113,22 @@ Used when there are errors in ref or references tags.
 
 Parameters:
 * $1 - an error message',
-	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name="123" /&gt;</code> or <code>&lt;ref name="456"&gt;input&lt;/ref&gt;</code>',
-	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.',
-	'cite_error_ref_too_many_keys' => 'Cite extension. Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code>&lt;ref name="name" notname="value" /&gt;</code> or <code>&lt;ref notname="value" &gt;input&lt;ref&gt;</code>',
-	'cite_error_ref_no_input' => 'Cite extension. Error message shown when ref tags without names have no content. An example that cause this error is <code>&lt;ref&gt;&lt;/ref&gt;</code>',
-	'cite_error_references_invalid_parameters' => 'Cite extension. Error message shown when parmeters are used in the references tag. An example that cause this error is <code>&lt;references someparameter="value" /&gt;</code>',
+	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code><nowiki><ref name="123" /></nowiki></code> or <code><nowiki><ref name="456">input</ref></nowiki></code>',
+	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code><nowiki><ref/></nowiki></code>) are used without a name.',
+	'cite_error_ref_too_many_keys' => 'Cite extension. Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code><nowiki><ref name="name" notname="value" /></nowiki></code> or <code><nowiki><ref notname="value" >input<ref></nowiki></code>',
+	'cite_error_ref_no_input' => 'Cite extension. Error message shown when ref tags without names have no content. An example that cause this error is <code><nowiki><ref></ref></nowiki></code>',
+	'cite_error_references_invalid_parameters' => 'Cite extension. Error message shown when parmeters are used in the references tag. An example that cause this error is <code><nowiki><references someparameter="value" /></nowiki></code>',
 	'cite_error_references_invalid_parameters_group' => 'Cite extension. Error message shown when unknown parameters are used in the references tag. An example that cause this error is <samp><nowiki><references someparameter="value" /></nowiki></samp>',
 	'cite_error_references_no_backlink_label' => 'Cite extension. Error message shown in the references tag when the same name is used for too many ref tags. Too many in this case is more than there are backlink labels defined in [[MediaWiki:Cite references link many format backlink labels]].
 
 It is not possible to make a clickable link to this message. "nowiki" is mandatory around [[MediaWiki:Cite references link many format backlink labels]].',
 	'cite_error_no_link_label_group' => "*'''$1''' is the name of a reference group.
 *'''$2''' is <code>cite_link_label_group-<i>groupname</i></code>.",
-	'cite_error_references_no_text' => 'Cite extension. This error occurs when the tag <code>&lt;ref name="something" /&gt;</code> is used with the name-option specified and no other tag specifies a cite-text for this name.
+	'cite_error_references_no_text' => 'Cite extension. This error occurs when the tag <code><nowiki><ref name="something" /></nowiki></code> is used with the name-option specified and no other tag specifies a cite-text for this name.
 
 Parameters:
 * $1 - key of the ref',
-	'cite_error_included_ref' => 'Error message shown if the <code>&lt;ref&gt;</code> tag is unbalanced, that means a <code>&lt;ref&gt;</code> is not followed by a <code>&lt;/ref&gt;</code>',
+	'cite_error_included_ref' => 'Error message shown if the <code><nowiki><ref></nowiki></code> tag is unbalanced, that means a <code><nowiki><ref></nowiki></code> is not followed by a <code><nowiki></ref></nowiki></code>',
 	'cite_error_refs_without_references' => 'See also:
 * {{msg-mw|Cite error group refs without references}}',
 	'cite_error_group_refs_without_references' => 'Parameters:
@@ -137,46 +137,43 @@ Parameters:
 If the group $1 is default group, instead of this message, the following message will be used:
 * {{msg-mw|Cite error refs without references}}',
 	'cite_error_references_group_mismatch' => 'Error message shown when doing something like
-
 <pre>
 <references group="foo">
 <ref group="bar">...</ref>
 </references>
 </pre>
-
-The <code>$1</code> is the value of the <code>group</code> attribute on the inner <code>&lt;ref&gt;</code> (in the example above, “bar”).',
+Parameters:
+* $1 - the value of the <code>group</code> attribute on the inner <code><nowiki><ref></nowiki></code> (in the example above, “bar”)',
 	'cite_error_references_missing_group' => 'Error message shown when doing something like
-
 <pre>
 <references group="foo">
 <ref>...</ref>
 </references>
 </pre>
+and there are no <code><nowiki><ref></nowiki></code> tags in the page text which would use <code>group="foo"</code>.
 
-and there are no <code>&lt;ref&gt;</code> tags in the page text which would use <code>group="foo"</code>.
-
-The <code>$1</code> is the name of the unused <code>group</code> (in the example above, “foo”).',
+Parameters:
+* $1 - the name of the unused <code>group</code> (in the example above, “foo”)',
 	'cite_error_references_missing_key' => 'Error message shown when using something like
-
 <pre>
 <references>
 <ref name="refname">...</ref>
 </references>
 </pre>
+and the reference <code><nowiki><ref name="refname" /></nowiki></code> is not used anywhere in the page text.
 
-and the reference <code>&lt;ref name="refname" /&gt;</code> is not used anywhere in the page text.
-
-The <code>$1</code> parameter contains the name of the unused reference (in the example above, “refname”).',
-	'cite_error_references_no_key' => 'Error message shown when a <code>&lt;ref&gt;</code> inside <code>&lt;references&gt;</code> does not have a <code>name</code> attribute.',
-	'cite_error_empty_references_define' => 'Error message shown when there is a <code><ref></code> inside <code><references></code>, but it does not have any content, e.g.
-
+Parameters:
+* $1 - the name of the unused reference (in the example above, “refname”)',
+	'cite_error_references_no_key' => 'Error message shown when a <code><nowiki><ref></nowiki></code> inside <code><nowiki><references></nowiki></code> does not have a <code>name</code> attribute.',
+	'cite_error_empty_references_define' => 'Error message shown when there is a <code><nowiki><ref></nowiki></code> inside <code><nowiki><references></nowiki></code>, but it does not have any content, e.g.
 <pre>
 <references>
 <ref name="foo" />
 </references>
 </pre>
 
-<code>$1</code> contains the <code>name</code> of the erroneous <code>&lt;ref&gt;</code> (in the above example, “foo”).',
+Parameters:
+* $1 - the <code><nowiki>name</nowiki></code> of the erroneous <code><nowiki><ref></nowiki></code> (in the above example, “foo”)',
 	'cite_reference_link_key_with_num' => '{{optional}}
 Parameters:
 * $1 - the key

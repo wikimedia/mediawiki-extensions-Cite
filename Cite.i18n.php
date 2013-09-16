@@ -114,7 +114,7 @@ Used when there are errors in ref or references tags.
 Parameters:
 * $1 - an error message',
 	'cite_error_ref_numeric_key' => 'Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code><nowiki><ref name="123" /></nowiki></code> or <code><nowiki><ref name="456">input</ref></nowiki></code>',
-	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code><nowiki><ref/></nowiki></code>) are used without a name.',
+	'cite_error_ref_no_key' => 'Cite extension. Error message shown when ref tags without any content (that is <code><nowiki><ref /></nowiki></code>) are used without a name.',
 	'cite_error_ref_too_many_keys' => 'Cite extension. Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code><nowiki><ref name="name" notname="value" /></nowiki></code> or <code><nowiki><ref notname="value" >input<ref></nowiki></code>',
 	'cite_error_ref_no_input' => 'Cite extension. Error message shown when ref tags without names have no content. An example that cause this error is <code><nowiki><ref></ref></nowiki></code>',
 	'cite_error_references_invalid_parameters' => 'Cite extension. Error message shown when parmeters are used in the references tag. An example that cause this error is <code><nowiki><references someparameter="value" /></nowiki></code>',
@@ -1689,32 +1689,44 @@ $messages['he'] = array(
  */
 $messages['hi'] = array(
 	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> टैग जोड़ता है, उद्धरणों के लिये।',
-	'cite_croak' => 'संदर्भ दे नहीं पाये; $1: $2',
-	'cite_error_key_str_invalid' => 'आंतर्गत गलती;
-गलत $str या/और $key।
-ऐसा होना नहीं चाहियें।',
-	'cite_error_stack_invalid_input' => 'आंतर्गत गलती; गलत स्टॅक की। ऐसा होना नहीं चाहियें।',
-	'cite_error' => 'गलती उद्घृत करें: $1',
-	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> गलत कोड; नाम यह पूर्णांकी संख्या नहीं हो सकता, कृपया माहितीपूर्ण शीर्षक दें',
-	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> गलत कोड; खाली संदर्भोंको नाम होना आवश्यक हैं',
-	'cite_error_ref_too_many_keys' => '<code>&lt;ref&gt;</code> गलत कोड; गलत नाम, उदा. ढेर सारी',
+	'cite_croak' => 'संदर्भ नहीं दे पाये; $1: $2',
+	'cite_error_key_str_invalid' => 'आतंरिक त्रुटि;
+अमान्य $str या/और $key।
+ऐसा कभी नहीं होना चाहिये।',
+	'cite_error_stack_invalid_input' => 'आतंरिक त्रुटि;
+अमान्य स्टैक चाबी।
+ऐसा कभी नहीं होना चाहिये।',
+	'cite_error' => 'सन्दर्भ त्रुटि: $1',
+	'cite_error_ref_numeric_key' => 'अमान्य <code>&lt;ref&gt;</code> टैग;
+नाम साधारण संख्या (integer) नहीं हो सकता, कृपया विस्तृत शीर्षक दें।',
+	'cite_error_ref_no_key' => 'अमान्य <code>&lt;ref&gt;</code> टैग;
+खाली संदर्भों का नाम होना आवश्यक है',
+	'cite_error_ref_too_many_keys' => 'अमान्य <code>&lt;ref&gt;</code> टैग;
+(संभवतः कई) अमान्य नाम',
 	'cite_error_ref_no_input' => 'अमान्य <code>&lt;ref&gt;</code> टैग;
 नाम रहित संदर्भों में जानकारी देना आवश्यक है',
-	'cite_error_references_invalid_parameters' => '<code>&lt;references&gt;</code> चुकीचा कोड; पॅरॅमीटर्स नहीं दे सकते, <code>&lt;references /&gt;</code> का इस्तेमाल करें',
-	'cite_error_references_invalid_parameters_group' => '<code>&lt;references&gt;</code> गलत कोड; सिर्फ पॅरॅमीटर का "ग्रुप" इस्तेमाल में लाया जा सकता हैं, <code>&lt;references /&gt;</code> या फिर <code>&lt;references group="..." /&gt;</code> का इस्तेमाल करें',
-	'cite_error_references_no_backlink_label' => 'तैयार किये हुए पीछे की कड़ियां देनेवाले नाम खतम हुए हैं, अधिक नाम <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> इस संदेश में बढायें',
-	'cite_error_no_link_label_group' => '"$1" संदर्भ समूह के लिये विशिष्ट लिंक लेबल कम पड़ गए।
-<nowiki>[[MediaWiki:$2]]</nowiki> सन्देश में और लेबल परिभाषित करें।',
+	'cite_error_references_invalid_parameters' => 'अमान्य <code>&lt;references&gt;</code> टैग;
+प्राचल (पैरामीटर) स्वीकृत नहीं हैं।
+<code>&lt;references /&gt;</code> का प्रयोग करें।',
+	'cite_error_references_invalid_parameters_group' => 'अमान्य <code>&lt;references&gt;</code> टैग;
+सिर्फ़ "group" प्राचल (पैरामीटर) स्वीकृत है।
+<code>&lt;references /&gt;</code> या <code>&lt;references group="..." /&gt;</code> का प्रयोग करें।',
+	'cite_error_references_no_backlink_label' => 'पृष्ठ पाठ की कड़ियाँ देने वाले विशिष्ट नाम खतम हो गये।
+अधिक नाम <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> संदेश में जोड़ें।',
+	'cite_error_no_link_label_group' => '"$1" संदर्भ समूह के लिये कड़ियों के विशिष्ट नाम कम पड़ गए।
+<nowiki>[[MediaWiki:$2]]</nowiki> सन्देश में और नाम परिभाषित करें।',
 	'cite_error_references_no_text' => 'अमान्य <code>&lt;ref&gt;</code> टैग;
 <code>$1</code> नामक संदर्भ की जानकारी नहीं है',
-	'cite_error_included_ref' => 'समाप्ती <code>&lt;/ref&gt;</code> <code>&lt;ref&gt;</code> टैग लापता',
-	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>टैग मौजूद हैं, किन्तु कोई <code>&lt;references/&gt;</code>टैग नहीं मिला',
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code> टैग मौजूद है एक दल के लिए इस नाम "$1" से, कीनतु कोई अनुरूप <code>&lt;references group="$1"/&gt;</code> टैग नहीं मिला',
-	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code> टैग इन <code>&lt;references&gt;</code> दल की विशेषता में संघर्ष "$1"।',
-	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code> टैग परिभाषित <code>&lt;references&gt;</code> में दलकी विशेषता है "$1" जो पूर्व लेख में दिखाई नहीं दिया ।',
-	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> टैग इस नाम "$1" सहित परिभाषित <code>&lt;references&gt;</code> पूर्व लेख में उपयोग नहीं हुई ।',
-	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> टैग में परिभाषित <code>&lt;references&gt;</code> कोई नाम विशेषता नहीं ।',
-	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> टैग में परिभाषित <code>&lt;references&gt;</code> नाम सहित "$1" कोई सामग्री नहीं ।',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> टैग के लिए समाप्ति <code>&lt;/ref&gt;</code> टैग नहीं मिला',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> टैग मौजूद हैं, किन्तु कोई <code>&lt;references/&gt;</code> टैग नहीं मिला',
+	'cite_error_group_refs_without_references' => '"$1" नामक सन्दर्भ-समूह के लिए <code>&lt;ref&gt;</code> टैग मौजूद हैं, परन्तु समूह के लिए कोई <code>&lt;references group="$1"/&gt;</code> टैग नहीं मिला। यह भी संभव है कि कोई समाप्ति <code>&lt;/ref&gt;</code> टैग गायब है।',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code> में <code>&lt;ref&gt;</code> टैग के लिए group प्राचल (पैरामीटर) में अंतर्विरोधी जानकारी "$1" मौजूद है।',
+	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code> में परिभाषित <code>&lt;ref&gt;</code> टैग में group प्राचल (पैरामीटर) "$1" दिया है जो उससे पहले पृष्ठ के पाठ में मौजूद नहीं है।',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> में "$1" नाम के साथ परिभाषित <code>&lt;ref&gt;</code> टैग उससे पहले के पाठ में प्रयुक्त नहीं है।',
+	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> टैग में परिभाषित <code>&lt;ref&gt;</code> टैग का कोई नाम नहीं है।',
+	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> टैग में परिभाषित "$1" नामक <code>&lt;ref&gt;</code> टैग में कोई सामग्री नहीं है।',
+	'cite_references_link_accessibility_label' => 'वापिस ऊपर जायें',
+	'cite_references_link_many_accessibility_label' => 'इस तक वापिस ऊपर जायें:',
 );
 
 /** Croatian (hrvatski)

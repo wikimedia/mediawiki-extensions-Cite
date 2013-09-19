@@ -596,6 +596,8 @@ Pakahulugan nin dagdag tabi an <nowiki>[[MediaWiki:$2]]</nowiki> mensahe.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code> tatak na igwang pangaran na "$1" na pinagkahulugan sa <code>&lt;references&gt;</code> na dae pinaggagamit sa nakaaging teksto.',
 	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> tatak na pinagkahulugan sa <code>&lt;references&gt;</code> na mayo nin hitsurahon sa pangaran.',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> tatak na pinagkahulugan sa <code>&lt;references&gt;</code> na igwang pangaran na "$1" na mayo tabing kalamnan.',
+	'cite_references_link_accessibility_label' => 'Lukso paitaas',
+	'cite_references_link_many_accessibility_label' => 'Lukso paitaas paduman sa:',
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)

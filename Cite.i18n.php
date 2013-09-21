@@ -1684,6 +1684,8 @@ $messages['he'] = array(
 	'cite_error_references_missing_key' => 'התג <code>&lt;ref&gt;</code> בשם "$1" המוגדר בתוך <code>&lt;references&gt;</code> אינו נמצא בשימוש בטקסט שלפניו.',
 	'cite_error_references_no_key' => 'לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> אין מאפיין שם (name).',
 	'cite_error_empty_references_define' => 'התג <code>&lt;ref&gt;</code> בעל השם "$1" המוגדר בתוך <code>&lt;references&gt;</code> אינו מכיל תוכן.',
+	'cite_references_link_accessibility_label' => 'לקפוץ מעלה',
+	'cite_references_link_many_accessibility_label' => 'לקפוץ מעלה אל:',
 );
 
 /** Hindi (हिन्दी)

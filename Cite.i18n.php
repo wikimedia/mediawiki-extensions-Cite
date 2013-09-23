@@ -3372,6 +3372,7 @@ nisciune teste ere previste pe le referimende nnomenate <code>$1</code>',
  * @author KPu3uC B Poccuu
  * @author Kaganer
  * @author Kalan
+ * @author Okras
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -3405,7 +3406,7 @@ $messages['ru'] = array(
 	'cite_error_references_no_text' => 'Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст',
 	'cite_error_included_ref' => 'Отсутствует закрывающий тег <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Для существующего тега <code>&lt;ref&gt;</code> не найдено соответствующего тега <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'Для существующих тегов <code>&lt;ref&gt;</code> группы «$1» не найдено соответствующего тега <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'Для существующих тегов <code>&lt;ref&gt;</code> группы «$1» не найдено соответствующего тега <code>&lt;references group="$1"/&gt;</code> или пропущен закрывающий тег <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> имеет конфликтующие группы атрибутов «$1».',
 	'cite_error_references_missing_group' => 'Тег <code>&lt;ref&gt;</code>, определённый в <code>&lt;references&gt;</code>, имеет атрибут группы «$1», который не упоминается в тексте ранее.',
 	'cite_error_references_missing_key' => 'Тег <code>&lt;ref&gt;</code> с именем «$1», определённый в <code>&lt;references&gt;</code>, не используется в предшествующем тексте.',

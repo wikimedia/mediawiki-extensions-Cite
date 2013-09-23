@@ -2255,14 +2255,15 @@ $messages['he'] = array(
 /** Hindi (हिन्दी)
  * @author Ansumang
  * @author Kaustubh
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'cite_article_desc' => 'एक विशेष [[Special:Cite|बाह्यकड़ियां]] देनेवाला पन्ना और टूलबॉक्सका लिंक बनाईयें',
-	'cite_article_link' => 'इस पन्ने को उद्घृत करें',
-	'tooltip-cite-article' => 'तथ्य कैसे इस पृष्ठ में संदर्भ जोड़ें',
-	'cite' => 'उद्घॄत करें',
-	'cite_page' => 'पन्ना:',
-	'cite_submit' => 'उद्घृत करें',
+	'cite_article_desc' => '[[Special:Cite|सन्दर्भ]] देने वाला एक विशेष पृष्ठ और टूलबॉक्स कड़ी जोड़ता है',
+	'cite_article_link' => 'इस पन्ने को उद्धृत करें',
+	'tooltip-cite-article' => 'इस पृष्ठ को उद्धृत करने के लिये जानकारी',
+	'cite' => 'उद्धृत करें',
+	'cite_page' => 'पृष्ठ:',
+	'cite_submit' => 'उद्धृत करें',
 );
 
 /** Fiji Hindi (Latin script) (Fiji Hindi)

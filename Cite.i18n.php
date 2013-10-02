@@ -2205,20 +2205,14 @@ ora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>',
 /** Georgian (ქართული)
  * @author David1010
  * @author Dawid Deutschland
+ * @author Nodar Kherkheulidze
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
 	'cite-desc' => 'ამატებს <nowiki><ref[ name=id]></nowiki> და <nowiki><references/></nowiki> ტეგებს სქოლიოსთვის',
-	'cite_croak' => 'ციტატა მოკვადა; $1: $2',
-	'cite_error_key_str_invalid' => 'შიდა შეცდომა
-არასწორი $str და/ან $key
-ასეთი არასდროს არ უნდა განმეორდეს',
-	'cite_error_stack_invalid_input' => 'შიდა შეცდომა.
-სტეკის არასწორი გასაღები.
-ეს არ უნდა განმეორდეს.',
 	'cite_error' => 'ციტირების შეცდომა $1',
-	'cite_error_ref_numeric_key' => 'არასწორი ტეგი <code>&lt;ref&gt;</code> tag;
-სახელმიარ უნდა შეიცავდეს ციფრებს.',
+	'cite_error_ref_numeric_key' => 'არასწორი <code>&lt;ref&gt;</code> ტეგი;
+სახელი არ უნდა შეიცავდეს ციფრებს. გამოიყენეთ აღწერილობითი სახელწოდება.',
 	'cite_error_ref_no_key' => 'არასწორი ტეგი <code>&lt;ref&gt;</code>;
 ელემენტი უნდა შეიცავდეს სახელს.',
 	'cite_error_ref_too_many_keys' => 'არასწორი ტეგი <code>&lt;ref&gt;</code>;
@@ -2238,7 +2232,7 @@ $messages['ka'] = array(
 სქოლიოსათვის <code>$1</code> არ არის მითითებული ტექსტი',
 	'cite_error_included_ref' => 'დამხურავი ტეგი <code>&lt;/ref&gt;</code> დაკარგულია',
 	'cite_error_refs_without_references' => 'არსებული ტეგისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'ჯგუფი „$1“ არსებული ტეგებისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references group="$1"/&gt;</code>',
+	'cite_error_group_refs_without_references' => 'ჯგუფი „$1“ არსებული ტეგებისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references group="$1"/&gt;</code>', # Fuzzy
 	'cite_error_references_group_mismatch' => 'ტეგს <code>&lt;ref&gt;</code> <code>&lt;references&gt;</code>-ში გააჩნია ატრიბუტთა კონფლიქტური ჯგუფები „$1“.',
 	'cite_error_references_missing_group' => 'ტეგს <code>&lt;ref&gt;</code>, განმარტებულს <code>&lt;references&gt;</code>-ში, გააჩნია ჯგუფის ატრიბუტი „$1“, რომელიც ადრეულ ტექსტში არ მოიხსენიება.',
 	'cite_error_references_missing_key' => 'ტეგი <code>&lt;ref&gt;</code> სახელად „$1“, გარკვეული <code>&lt;references&gt;</code>-ში, არ გამოიყენება წინა ტექსტში.',

@@ -4863,7 +4863,7 @@ $messages['ps'] = array(
 	'tooltip-cite-article' => 'د دې مخ د درک لګولو مالومات',
 	'cite' => 'درک',
 	'cite_page' => 'مخ:',
-	'cite_submit' => 'درک لګول',
+	'cite_submit' => 'درک لگول',
 	'cite_text' => "__NOTOC__
 <div class=\"mw-specialcite-bibliographic\">
 

@@ -935,15 +935,13 @@ ni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 
 /** Danish (dansk)
  * @author Byrial
+ * @author Christian List
  * @author Emilkris33
  * @author Morten LJ
  * @author Peter Alberti
  */
 $messages['da'] = array(
 	'cite-desc' => 'Tilføjer <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-elementer til referencer.',
-	'cite_croak' => 'Fejl i fodnotesystemet; $1: $2',
-	'cite_error_key_str_invalid' => 'Intern fejl: Ugyldig $str og/eller $key. Dette burde aldrig forekomme.',
-	'cite_error_stack_invalid_input' => 'Intern fejl: Ugyldig staknøgle. Dette burde aldrig forekomme.',
 	'cite_error' => 'Fodnotefejl: $1',
 	'cite_error_ref_numeric_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag; "name" kan ikke være et simpelt heltal, brug en beskrivende titel',
 	'cite_error_ref_no_key' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Et <code>&lt;ref&gt;</code>-tag uden indhold skal have et navn',
@@ -959,12 +957,14 @@ Definer flere i beskeden <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Ugyldigt <code>&lt;ref&gt;</code>-tag: Der er ikke specificeret nogen fodnotetekst til navnet <code>$1</code>',
 	'cite_error_included_ref' => 'Afsluttende <code>&lt;/ref&gt;</code> mangler for <code>&lt;ref&gt;</code>-tag',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>-tags findes, men ingen <code>&lt;references/&gt;</code>-tag blev fundet',
-	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-tags eksisterer for en gruppe betegnet "$1", men der blev ikke fundet et tilsvarende <code>&lt;references group="$1"/&gt;</code>-tag',
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>-tags eksisterer for en gruppe betegnet "$1", men der blev ikke fundet et tilsvarende <code>&lt;references group="$1"/&gt;</code>-tag, eller et afsluttende <code>&lt;/ref&gt;</code>-tag mangler',
 	'cite_error_references_group_mismatch' => '<code>&lt;ref&gt;</code>-tag inden i <code>&lt;references&gt;</code> har modstridende gruppe-attribut "$1".',
 	'cite_error_references_missing_group' => '<code>&lt;ref&gt;</code>-tag defineret inden i <code>&lt;references&gt;</code> har gruppe-attributten "$1", som ikke anvendes i den ovenstående tekst.',
 	'cite_error_references_missing_key' => '<code>&lt;ref&gt;</code>-tag med navn "$1" defineret inden i <code>&lt;references&gt;</code> anvendes ikke i den ovenstående tekst.',
 	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code>-tag defineret inden i <code>&lt;references&gt;</code> har ikke en navne-attribut.',
 	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code>-tag defineret inden i <code>&lt;references&gt;</code> med navnet "$1" har ikke noget indhold.',
+	'cite_references_link_accessibility_label' => 'Hoppe op',
+	'cite_references_link_many_accessibility_label' => 'Hoppe op til:',
 );
 
 /** German (Deutsch)
@@ -3184,13 +3184,6 @@ Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
  */
 $messages['pt-br'] = array(
 	'cite-desc' => 'Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações',
-	'cite_croak' => 'Citação com problemas; $1: $2',
-	'cite_error_key_str_invalid' => 'Erro interno;
-$str e/ou $key inválido.
-Isto nunca deveria acontecer.',
-	'cite_error_stack_invalid_input' => 'Erro interno;
-chave fixa inválida.
-Isto nunca deveria ocorrer.',
 	'cite_error' => 'Erro de citação: $1',
 	'cite_error_ref_numeric_key' => 'Marca <code>&lt;ref&gt;</code> inválida; 
 o nome não pode ser um número. Utilize um título descritivo',
@@ -3208,18 +3201,20 @@ só o parâmetro "group" é permitido.
 Utilize <code>&lt;references /&gt;</code>, ou <code>&lt;references group="..." /&gt;</code>',
 	'cite_error_references_no_backlink_label' => 'Etiquetas de backlink esgotadas. 
 Defina mais na mensagem <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
-	'cite_error_no_link_label_group' => 'Esgotamento das legendas personalizadas para links, no grupo "$1".
+	'cite_error_no_link_label_group' => 'Etiquetas personalizadas para links, no grupo "$1", esgotadas.
 Defina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Marca <code>&lt;ref&gt;</code> inválida; 
 não foi fornecido texto para as refs chamadas <code>$1</code>',
 	'cite_error_included_ref' => '<code>&lt;/ref&gt;</code> de fechamento ausente para para a marca <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code>, mas nenhuma marca <code>&lt;references/&gt;</code> foi encontrada',
-	'cite_error_group_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma marca <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada, ou uma marca de fechamento <code>&lt;/ref&gt;</code> está faltando',
-	'cite_error_references_group_mismatch' => 'marca <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> tem o atributo grupo "$1" conflitante.',
-	'cite_error_references_missing_group' => 'marca <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> tem atributo grupo "$1" que não aparece no texto anterior.',
-	'cite_error_references_missing_key' => 'marca <code>&lt;ref&gt;</code> com nome "$1" definida em <code>&lt;references&gt;</code> não foi utilizada no texto anterior.',
-	'cite_error_references_no_key' => 'marca <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> não tem atributo nome.',
-	'cite_error_empty_references_define' => 'marca <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> com nome "$1" não tem nenhum conteúdo.',
+	'cite_error_group_refs_without_references' => 'existem marcas <code>&lt;ref&gt;</code> para um grupo chamado "$1", mas nenhuma marca <code>&lt;references group="$1"/&gt;</code> correspondente foi encontrada (ou uma marca de fechamento <code>&lt;/ref&gt;</code> está faltando)',
+	'cite_error_references_group_mismatch' => 'marca <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> está com o atributo de grupo "$1" conflitante.',
+	'cite_error_references_missing_group' => 'marca <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> está com atributo de grupo "$1" que não aparece no texto anterior.',
+	'cite_error_references_missing_key' => 'marca <code>&lt;ref&gt;</code> com nome "$1", definida em <code>&lt;references&gt;</code>, não foi utilizada no texto anterior.',
+	'cite_error_references_no_key' => 'marca <code>&lt;ref&gt;</code>, definida em <code>&lt;references&gt;</code>, não tem atributo de nome.',
+	'cite_error_empty_references_define' => 'marca <code>&lt;ref&gt;</code>, definida em <code>&lt;references&gt;</code>, com nome "$1", não tem nenhum conteúdo.',
+	'cite_references_link_accessibility_label' => 'Ir para cima',
+	'cite_references_link_many_accessibility_label' => 'Ir para:',
 );
 
 /** Quechua (Runa Simi)
@@ -4381,15 +4376,13 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Liangent
+ * @author Liuxinyu970226
  * @author Mark85296341
  * @author Philip
  * @author 乌拉跨氪
  */
 $messages['zh-hant'] = array(
 	'cite-desc' => '增加用於引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>標籤',
-	'cite_croak' => '引用失效；$1：$2',
-	'cite_error_key_str_invalid' => '內部錯誤；不應出現的非法$str和／或$key。',
-	'cite_error_stack_invalid_input' => '內部錯誤；不應出現的非法堆疊鍵值。',
 	'cite_error' => '引用錯誤：$1',
 	'cite_error_ref_numeric_key' => '無效<code>&lt;ref&gt;</code>標籤；name屬性不能是單一的數字，請使用可辨識的標題',
 	'cite_error_ref_no_key' => '無效<code>&lt;ref&gt;</code>標籤；未填內容的引用必須填寫name屬性',
@@ -4402,10 +4395,12 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_text' => '無效<code>&lt;ref&gt;</code>標籤；未給name屬性為<code>$1</code>的引用提供文字',
 	'cite_error_included_ref' => '沒有找到與<code>&lt;/ref&gt;</code>對應的<code>&lt;ref&gt;</code>標籤',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>標籤存在，但沒有找到<code>&lt;references/&gt;</code>標籤',
-	'cite_error_group_refs_without_references' => '組名為「$1」的<code>&lt;ref&gt;</code>標籤存在，但沒有找到相應的<code>&lt;references group="$1"/&gt;</code>標籤',
+	'cite_error_group_refs_without_references' => '組名為「$1」的<code>&lt;ref&gt;</code>標籤存在，但沒有找到相應的<code>&lt;references group="$1"/&gt;</code>標籤', # Fuzzy
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>的<code>&lt;ref&gt;</code>標記帶有衝突的群組（group）屬性「$1」。',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>中定義的<code>&lt;ref&gt;</code>標記帶有未在前文中出現的群組（group）屬性「$1」。',
 	'cite_error_references_missing_key' => '在<code>&lt;references&gt;</code>中以“$1”名字定義的<code>&lt;ref&gt;</code>標籤沒有在先前的文字中使用。',
 	'cite_error_references_no_key' => '<code>&lt;references&gt;</code>中定義的<code>&lt;ref&gt;</code>沒有給出名稱（name）屬性。',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code>中定義的<code>&lt;ref&gt;</code>的名稱（name）「$1」為空。',
+	'cite_references_link_accessibility_label' => '跳轉',
+	'cite_references_link_many_accessibility_label' => '跳轉至：',
 );

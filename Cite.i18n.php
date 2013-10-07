@@ -2857,13 +2857,6 @@ $messages['nds-nl'] = array(
  */
 $messages['nl'] = array(
 	'cite-desc' => 'Voegt <nowiki><ref[ name=id]></nowiki> en <nowiki><references/></nowiki> tags toe voor citaten',
-	'cite_croak' => 'Probleem met Cite; $1: $2',
-	'cite_error_key_str_invalid' => 'Interne fout;
-onjuiste $str and/of $key.
-Dit zou niet voor moeten komen.',
-	'cite_error_stack_invalid_input' => 'Interne fout;
-onjuiste stacksleutel.
-Dit zou niet voor moeten komen.',
 	'cite_error' => 'Citefout: $1',
 	'cite_error_ref_numeric_key' => 'Onjuiste tag <code>&lt;ref&gt;</code>;
 de naam kan geen eenvoudige integer zijn.
@@ -2888,7 +2881,7 @@ U kunt er meer instellen in het systeembericht <nowiki>[[MediaWiki:$2]]</nowiki>
 er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_included_ref' => 'Na het label <code>&lt;ref&gt;</code> ontbreekt het afsluitende label <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'De tag <code>&lt;ref&gt;</code> bestaat, maar de tag <code>&lt;references/&gt;</code> is niet aangetroffen',
-	'cite_error_group_refs_without_references' => 'Er bestaat een tag <code>&lt;ref&gt;</code> voor de groep "$1", maar er is geen bijbehorende tag <code>&lt;references group="$1"/&gt;</code> aangetroffen',
+	'cite_error_group_refs_without_references' => 'Er bestaat een tag <code>&lt;ref&gt;</code> voor de groep "$1", maar er is geen bijbehorende tag <code>&lt;references group="$1"/&gt;</code>  aangetroffen of een afsluitende  <code>&lt;/ref&gt;</code> is niet aanwezig.',
 	'cite_error_references_group_mismatch' => 'De tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> conflicteert met groepseigenschap "$1".',
 	'cite_error_references_missing_group' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft de groepseigenschap "$1" niet niet eerder in te tekst voorkomt.',
 	'cite_error_references_missing_key' => 'De tag <code>&lt;ref&gt;</code> met de naam "$1" gedefinieerd in <code>&lt;references&gt;</code> wordt niet eerder in de tekst gebruikt.',

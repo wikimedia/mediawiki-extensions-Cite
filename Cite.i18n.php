@@ -2643,6 +2643,7 @@ $messages['pag'] = array(
  * @author Holek
  * @author Leinad
  * @author Sp5uhe
+ * @author Woytecr
  */
 $messages['pl'] = array(
 	'cite-desc' => 'Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów',
@@ -2662,12 +2663,14 @@ Zdefiniuj ich większą liczbę w komunikacie <nowiki>[[MediaWiki:$2]]</nowiki>.
 	'cite_error_references_no_text' => 'Błąd w składni elementu <code>&lt;ref&gt;</code>. Brak tekstu w przypisie o nazwie <code>$1</code>',
 	'cite_error_included_ref' => 'Brak znacznika zamykającego <code>&lt;/ref&gt;</code> po otwartym znaczniku <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code>, ale nie odnaleziono znacznika <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code> dla grupy o nazwie „$1”, ale nie odnaleziono odpowiedniego znacznika <code>&lt;references group="$1"/&gt;</code>', # Fuzzy
+	'cite_error_group_refs_without_references' => 'Istnieje znacznik <code>&lt;ref&gt;</code> dla grupy o nazwie „$1”, ale nie odnaleziono odpowiedniego znacznika <code>&lt;references group="$1"/&gt;</code>, lub brakuje znacznika zamykającego <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'Znacznik <code>&lt;ref&gt;</code> w <code>&lt;references&gt;</code> nie może mieć atrybutu grupy „$1”.',
 	'cite_error_references_missing_group' => 'Znacznik <code>&lt;ref&gt;</code> zdefiniowany w <code>&lt;references&gt;</code> ma atrybut grupowania „$1”, który nie występuje wcześniej w treści.',
 	'cite_error_references_missing_key' => 'Znacznik <code>&lt;ref&gt;</code> o nazwie „$1”, zdefiniowany w <code>&lt;references&gt;</code>, nie był użyty wcześniej w treści.',
 	'cite_error_references_no_key' => 'Znacznik <code>&lt;ref&gt;</code> zdefiniowany w <code>&lt;references&gt;</code> nie ma atrybutu <code>name</code>.',
 	'cite_error_empty_references_define' => 'Znacznik <code>&lt;ref&gt;</code> zdefiniowany w <code>&lt;references&gt;</code> o nazwie „$1” nie ma treści.',
+	'cite_references_link_accessibility_label' => 'Skocz do góry',
+	'cite_references_link_many_accessibility_label' => 'Skocz do:',
 );
 
 /** Piedmontese (Piemontèis)

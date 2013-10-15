@@ -3725,6 +3725,13 @@ $messages['lo'] = array(
 	'cite_page' => 'ໜ້າ:',
 );
 
+/** لوری (لوری)
+ * @author Mogoeilor
+ */
+$messages['lrc'] = array(
+	'cite_page' => 'بلگه',
+);
+
 /** Lithuanian (lietuvių)
  * @author Garas
  */

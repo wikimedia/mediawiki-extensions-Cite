@@ -1173,7 +1173,7 @@ class Cite {
 		# ments to functions.  If $1 is not used in the message, wfMessage will
 		# just ignore the extra parameter.
 		$ret = '<strong class="error mw-ext-cite-error">' .
-			wfMessage( 'cite_error', wfMessage( $key, $param )->plain() )->plain() .
+			wfMessage( 'cite_error', wfMessage( $key, $param )->inContentLanguage()->plain() )->inContentLanguage()->plain() .
 			'</strong>';
 		if ( $parse == 'parse' ) {
 			$ret = $this->parse( $ret );

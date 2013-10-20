@@ -731,6 +731,8 @@ $messages['ce'] = array(
 	'cite_error_references_no_text' => 'Тег <code>&lt;ref&gt;</code> нийса яц; тIетовжаран <code>$1</code> йоза яздина дац',
 	'cite_error_refs_without_references' => 'Йолуш йолу тегаца <code>&lt;ref&gt;</code> йогӀуш йолу тег <code>&lt;references/&gt;</code> ца карийна',
 	'cite_error_group_refs_without_references' => 'Группан «$1» йолуш йолу тегашца <code>&lt;ref&gt;</code> йогӀуш йолу тег <code>&lt;references group="$1"/&gt;</code> ца карийна', # Fuzzy
+	'cite_references_link_accessibility_label' => 'Дехьа гӀо',
+	'cite_references_link_many_accessibility_label' => 'Дехьа гӀо:',
 );
 
 /** Czech (česky)

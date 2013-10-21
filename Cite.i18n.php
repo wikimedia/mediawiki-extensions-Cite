@@ -1166,18 +1166,18 @@ $messages['eu'] = array(
 $messages['fa'] = array(
 	'cite-desc' => 'برچسب‌های <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> را برای یادکرد اضافه می‌کند',
 	'cite_error' => 'خطای یادکرد: $1',
-	'cite_error_ref_numeric_key' => 'برچسب <code><ref></code> غیرمجاز؛ نام نمی‌تواند یک عدد باشد. عنوان واضح‌تری را برگزینید',
-	'cite_error_ref_no_key' => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون محتوا باید نام داشته باشند',
-	'cite_error_ref_too_many_keys' => 'برچسب <code><ref></code> غیرمجاز؛ نام‌های غیرمجاز یا بیش از اندازه',
-	'cite_error_ref_no_input' => 'برچسب <code><ref></code> غیرمجاز؛ یادکردهای بدون نام باید محتوا داشته باشند',
-	'cite_error_references_invalid_parameters' => 'برچسب <code><references></code> غیرمجاز؛ استفاده از پارامتر مجاز است. از <code><references /></code> استفاده کنید',
+	'cite_error_ref_numeric_key' => 'برچسب <code><ref></code> نامجاز؛ نام نمی‌تواند یک عدد باشد. عنوان واضح‌تری را برگزینید',
+	'cite_error_ref_no_key' => 'برچسب <code><ref></code> نامجاز؛ یادکردهای بدون محتوا باید نام داشته باشند',
+	'cite_error_ref_too_many_keys' => 'برچسب <code><ref></code> نامجاز؛ نام‌های نامجاز یا بیش از اندازه',
+	'cite_error_ref_no_input' => 'برچسب <code><ref></code> نامجاز؛ یادکردهای بدون نام باید محتوا داشته باشند',
+	'cite_error_references_invalid_parameters' => 'برچسب <code><references></code> نامجاز؛ استفاده از پارامتر مجاز است. از <code><references /></code> استفاده کنید',
 	'cite_error_references_invalid_parameters_group' => 'برچسب <code>&lt;references&gt;</code> غیر مجاز؛ تنها پارامتر «group» قابل استفاده است.
 از <code>&lt;references /&gt;</code> یا <code>&lt;references group="..." /&gt;</code> استفاده کنید',
 	'cite_error_references_no_backlink_label' => 'برچسب‌های پیوند به انتها رسید.
 موارد جدیدی را در پیغام <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> تعریف کنید',
 	'cite_error_no_link_label_group' => 'از برچسب‌های پیوند سفارشی برای گروه «$1» خارج شد.
 در پیغام <nowiki>[[MediaWiki:$2]]</nowiki> بیشتر تعریف کنید.',
-	'cite_error_references_no_text' => 'برچسب <code><ref></code> غیرمجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
+	'cite_error_references_no_text' => 'برچسب <code><ref></code> نامجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
 	'cite_error_included_ref' => 'برچسب تمام کنندهٔ <code>&lt;/ref&gt;</code> بدون برچسب <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'برچسب <code>&lt;ref&gt;</code> وجود دارد اما برچسب <code>&lt;references/&gt;</code> پیدا نشد',
 	'cite_error_group_refs_without_references' => 'برچسب <code>&lt;ref&gt;</code> برای گروهی به نام «$1» وجود دارد، اما برچسب <code>&lt;references group="$1"/&gt;</code> متناظر پیدا نشد', # Fuzzy
@@ -2704,12 +2704,14 @@ Definissne ëd pi ant ël mëssagi <nowiki>[[MediaWiki:$2]]</nowiki>.',
 pa gnun test a l'é stàit dàit për l'arferiment ciamà <code>$1</code>",
 	'cite_error_included_ref' => 'Saradura <code>&lt;/ref&gt;</code> mancanta për la tichëtta <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => "la tichëtta <code>&lt;ref&gt;</code> a esist, ma gnun-a tichëtta <code>&lt;references/&gt;</code> a l'é stàita trovà",
-	'cite_error_group_refs_without_references' => 'Dle tichëtte <code>&lt;ref&gt;</code> a esisto për na partìa ciamà "$1", ma gnun-a tichëtta corëspondenta <code>&lt;references group="$1"/&gt;</code> a l\'é stàita trovà', # Fuzzy
+	'cite_error_group_refs_without_references' => 'Dle tichëtte <code>&lt;ref&gt;</code> a esisto për na partìa ciamà «$1», ma gnun-a tichëtta corëspondenta <code>&lt;references group="$1"/&gt;</code> a l\'é stàita trovà opura a-i manca un delimitator final <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'La tichëtta <code>&lt;ref&gt;</code> an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" an conflit.',
 	'cite_error_references_missing_group' => 'La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> a l\'ha n\'atribut ëd partìa "$1" che a l\'era pa ant ël test prima.',
 	'cite_error_references_missing_key' => 'La tichëtta <code>&lt;ref&gt;</code> con nòm "$1" definìa an <code>&lt;references&gt;</code> a l\'é pa dovrà ant ël test prima.',
 	'cite_error_references_no_key' => "La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> a l'ha pa gnun atribut ëd nòm.",
 	'cite_error_empty_references_define' => 'La tichëtta <code>&lt;ref&gt;</code> definìa an <code>&lt;references&gt;</code> con nòm "$1" a l\'ha pa gnun contnù.',
+	'cite_references_link_accessibility_label' => 'Andé',
+	'cite_references_link_many_accessibility_label' => 'Sauté a:',
 );
 
 /** Western Punjabi (پنجابی)

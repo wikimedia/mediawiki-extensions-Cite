@@ -1171,7 +1171,7 @@ $messages['fa'] = array(
 	'cite_error_ref_too_many_keys' => 'برچسب <code><ref></code> نامجاز؛ نام‌های نامجاز یا بیش از اندازه',
 	'cite_error_ref_no_input' => 'برچسب <code><ref></code> نامجاز؛ یادکردهای بدون نام باید محتوا داشته باشند',
 	'cite_error_references_invalid_parameters' => 'برچسب <code><references></code> نامجاز؛ استفاده از پارامتر مجاز است. از <code><references /></code> استفاده کنید',
-	'cite_error_references_invalid_parameters_group' => 'برچسب <code>&lt;references&gt;</code> غیر مجاز؛ تنها پارامتر «group» قابل استفاده است.
+	'cite_error_references_invalid_parameters_group' => 'برچسب <code>&lt;references&gt;</code> نامجاز؛ تنها پارامتر «group» قابل استفاده است.
 از <code>&lt;references /&gt;</code> یا <code>&lt;references group="..." /&gt;</code> استفاده کنید',
 	'cite_error_references_no_backlink_label' => 'برچسب‌های پیوند به انتها رسید.
 موارد جدیدی را در پیغام <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> تعریف کنید',
@@ -2857,7 +2857,9 @@ Astawan sut'ichay <nowiki>[[MediaWiki:Cite references link many format backlink 
 <code>$1</code> nisqapaq pukyu qillqa manam kanchu',
 	'cite_error_included_ref' => "Kichaq <code>&lt;ref&gt;</code> unanchachapaq wichq'aq <code>&lt;/ref&gt;</code> unanchachaqa manam kanchu",
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> unanchacham kachkan, ichataq manam <code>&lt;references/&gt;</code> unanchachachu',
-	'cite_error_group_refs_without_references' => '"$1" sutiyuq huñupaq <code>&lt;ref&gt;</code> unanchacham kachkan, ichataq manam chay huñupaq qillqasqa <code>&lt;references/&gt;</code> unanchachachu', # Fuzzy
+	'cite_error_group_refs_without_references' => '"$1" sutiyuq huñupaq <code>&lt;ref&gt;</code> unanchacham kachkan, ichataq manam chay huñupaq qillqasqa <code>&lt;references group="$1"/&gt;</code> unanchacha manam tarisqachu, icha wichq\'aq <code>&lt;/ref&gt;</code> unanchacha manam kanchu',
+	'cite_references_link_accessibility_label' => "Hawaman t'iskuy",
+	'cite_references_link_many_accessibility_label' => "Hawaman t'iskuspa kayman riy:",
 );
 
 /** Romanian (română)
@@ -3865,7 +3867,7 @@ $messages['zh-hant'] = array(
 	'cite_error_references_no_text' => '無效<code>&lt;ref&gt;</code>標籤；未給name屬性為<code>$1</code>的引用提供文字',
 	'cite_error_included_ref' => '沒有找到與<code>&lt;/ref&gt;</code>對應的<code>&lt;ref&gt;</code>標籤',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code>標籤存在，但沒有找到<code>&lt;references/&gt;</code>標籤',
-	'cite_error_group_refs_without_references' => '組名為「$1」的<code>&lt;ref&gt;</code>標籤存在，但沒有找到相應的<code>&lt;references group="$1"/&gt;</code>標籤', # Fuzzy
+	'cite_error_group_refs_without_references' => '<code>&lt;ref&gt;</code>標籤命名之一「$1」已存在，但未能找到對應標籤<code>&lt;references group="$1"/&gt;</code>，或者關閉<code>&lt;/ref&gt;</code>後丟失',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>的<code>&lt;ref&gt;</code>標記帶有衝突的群組（group）屬性「$1」。',
 	'cite_error_references_missing_group' => '<code>&lt;references&gt;</code>中定義的<code>&lt;ref&gt;</code>標記帶有未在前文中出現的群組（group）屬性「$1」。',
 	'cite_error_references_missing_key' => '在<code>&lt;references&gt;</code>中以“$1”名字定義的<code>&lt;ref&gt;</code>標籤沒有在先前的文字中使用。',

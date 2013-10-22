@@ -6366,7 +6366,7 @@ $messages['yue'] = array(
  * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
-	'cite_article_desc' => '增加[[Special:Cite|引用]]特殊页面以及工具箱链接',
+	'cite_article_desc' => '添加[[Special:Cite|引用]]特殊页面和工具箱链接',
 	'cite_article_link' => '引用本页',
 	'tooltip-cite-article' => '关于如何引用本页的信息',
 	'cite' => '引用页面',

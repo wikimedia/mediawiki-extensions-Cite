@@ -2370,7 +2370,7 @@ $messages['mn'] = array(
  * @author V.narsikar
  */
 $messages['mr'] = array(
-	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द वाढविले जातील.',
+	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द जोडल्या जातील.',
 	'cite_error' => 'त्रूटी उधृत करा: $1',
 	'cite_error_ref_numeric_key' => '<code>&lt;ref&gt;</code> चुकीचा कोड; नाव हे पूर्णांकी संख्या असू शकत नाही, कृपया माहितीपूर्ण शीर्षक द्या',
 	'cite_error_ref_no_key' => '<code>&lt;ref&gt;</code> चुकीचा कोड; रिकाम्या संदर्भांना नाव असणे गरजेचे आहे',
@@ -2387,10 +2387,12 @@ $messages['mr'] = array(
 	'cite_error_refs_without_references' => 'पानामधे <code>&lt;ref&gt;</code> (संदर्भ) आहे, परंतु <code>&lt;references/&gt;</code> (<nowiki>{{संदर्भयादी}}<nowiki />) सापडले नाही. <nowiki>{{संदर्भयादी}}<nowiki /> असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.',
 	'cite_error_group_refs_without_references' => '"$1" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>खूणपताका उपलब्ध आहेत, पण संबंधीत <code>&lt;references group="$1"/&gt;</code>  खूण मिळाली नाही.',
 	'cite_error_references_group_mismatch' => 'tag in <code>&lt;references&gt;</code>मधील <code>&lt;ref&gt;</code>  खूणांना खटका उडणारे  group attribute "$1" आहे.',
-	'cite_error_references_missing_group' => 'गट "$1" मधील <code>&lt;ref&gt;</code> ट्याग   <code>&lt;references&gt;</code> ह्या पूर्वी वापल्या गेलेले नाही',
-	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> ह्या मध्ये सांगितलेला  <code>&lt;ref&gt;</code>  "$1" ह्या नावाचा  ट्याग ह्या पूर्वी वापरण्यात आलेला नाही.',
-	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> ट्याग मध्ये विशारद गोष्टींना <code>&lt;references&gt;</code> ला नाम गुणधर्म नाहीत',
-	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> ट्याग मध्ये विशारद गोष्टीं <code>&lt;references&gt;</code> ज्या  "$1" ह्या नावाने संबोधल्या आहेत त्यात माहिती नाही',
+	'cite_error_references_missing_group' => 'गट "$1" मधील <code>&lt;ref&gt;</code> टॅग <code>&lt;references&gt;</code> ह्या पूर्वी वापल्या गेलेले नाही',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> ह्या मध्ये सांगितलेला  <code>&lt;ref&gt;</code>  "$1" ह्या नावाचा  टॅग  ह्या पूर्वी वापरण्यात आलेला नाही.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> टॅग मध्ये विशारद गोष्टींना <code>&lt;references&gt;</code> ला नाम गुणधर्म नाहीत',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> टॅग मध्ये विशारद गोष्टीं <code>&lt;references&gt;</code> ज्या  "$1" ह्या नावाने संबोधल्या आहेत त्यात माहिती नाही.',
+	'cite_references_link_accessibility_label' => 'वर उडी मारा',
+	'cite_references_link_many_accessibility_label' => 'ला वर उडी मारा:',
 );
 
 /** Malay (Bahasa Melayu)

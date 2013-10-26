@@ -1180,7 +1180,7 @@ $messages['fa'] = array(
 	'cite_error_references_no_text' => 'برچسب <code><ref></code> نامجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است',
 	'cite_error_included_ref' => 'برچسب تمام کنندهٔ <code>&lt;/ref&gt;</code> بدون برچسب <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'برچسب <code>&lt;ref&gt;</code> وجود دارد اما برچسب <code>&lt;references/&gt;</code> پیدا نشد',
-	'cite_error_group_refs_without_references' => 'برچسب <code>&lt;ref&gt;</code> برای گروهی به نام «$1» وجود دارد، اما برچسب <code>&lt;references group="$1"/&gt;</code> متناظر پیدا نشد', # Fuzzy
+	'cite_error_group_refs_without_references' => 'برچسب <code>&lt;ref&gt;</code> برای گروهی به نام «$1» وجود دارد، اما برچسب متناظر با <code>&lt;references group="$1"/&gt;</code> یافت نشد یا <code>&lt;/ref&gt;</code> بسته جا گذاشته شده‌است.',
 	'cite_error_references_group_mismatch' => 'برچسپ <code>&lt;ref&gt;</code> درون <code>&lt;references&gt;</code> در تضاد با ویژگی‌های گروه «$1» است.',
 	'cite_error_references_missing_group' => 'برچسپ <code>&lt;ref&gt;</code> در <code>&lt;references&gt;</code> تعریف شده، ویژگی‌های گروهی «$1» را دارد که درون متن قبل از آن ظاهر نمی‌شود.',
 	'cite_error_references_missing_key' => 'پرچسپ <code>&lt;ref&gt;</code> که با نام «$1» درون <code>&lt;references&gt;</code> تعریف شده، در متن قبل از آن استفاده نشده‌است.',
@@ -1188,6 +1188,8 @@ $messages['fa'] = array(
 	'cite_error_empty_references_define' => 'برچسپ <code>&lt;ref&gt;</code> تعریف شده درون <code>&lt;references&gt;</code> با نام «$1» محتوایی ندارد.',
 	'cite_reference_link_key_with_num' => '$1_$2',
 	'cite_reference_link_prefix' => 'cite_ref-',
+	'cite_references_link_accessibility_label' => 'پرش به بالا',
+	'cite_references_link_many_accessibility_label' => 'پرش به بالا به:',
 );
 
 /** Finnish (suomi)
@@ -2383,10 +2385,10 @@ $messages['mr'] = array(
 	'cite_error_no_link_label_group' => '"$1" करिता नमूदकेलेल्या कस्टम लिंक खूणा संपल्या .
 <nowiki>[[MediaWiki:$2]]</nowiki> संदेशात अधिक खूणा नमूद करा',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
-	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ला बंद करणारी <code>&lt;/ref&gt;</code> ही खूण गायब आहे.',
-	'cite_error_refs_without_references' => 'पानामधे <code>&lt;ref&gt;</code> (संदर्भ) आहे, परंतु <code>&lt;references/&gt;</code> (<nowiki>{{संदर्भयादी}}<nowiki />) सापडले नाही. <nowiki>{{संदर्भयादी}}<nowiki /> असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ला बंद करणारी <code>&lt;/ref&gt;</code> ही खूणपताका गायब आहे.',
+	'cite_error_refs_without_references' => 'पानामधे <code>&lt;ref&gt;</code>खूणपताका(संदर्भ)आहे, परंतु <code>&lt;references/&gt;</code> (<nowiki>{{संदर्भयादी}}<nowiki />) सापडली नाही. <nowiki>{{संदर्भयादी}}<nowiki />हा साचा असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.',
 	'cite_error_group_refs_without_references' => '"$1" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>खूणपताका उपलब्ध आहेत, पण संबंधीत <code>&lt;references group="$1"/&gt;</code>  खूण मिळाली नाही.',
-	'cite_error_references_group_mismatch' => 'tag in <code>&lt;references&gt;</code>मधील <code>&lt;ref&gt;</code>  खूणांना खटका उडणारे  group attribute "$1" आहे.',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>मधील खूणपताकेस<code>&lt;ref&gt;</code> खूणांना खटका उडणारे  group attribute "$1" आहे.',
 	'cite_error_references_missing_group' => 'गट "$1" मधील <code>&lt;ref&gt;</code> टॅग <code>&lt;references&gt;</code> ह्या पूर्वी वापल्या गेलेले नाही',
 	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> ह्या मध्ये सांगितलेला  <code>&lt;ref&gt;</code>  "$1" ह्या नावाचा  टॅग  ह्या पूर्वी वापरण्यात आलेला नाही.',
 	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> टॅग मध्ये विशारद गोष्टींना <code>&lt;references&gt;</code> ला नाम गुणधर्म नाहीत',

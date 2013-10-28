@@ -2600,6 +2600,8 @@ pas de tèxte per las referéncias nomenadas <code>$1</code>.',
 	'cite_error_references_missing_key' => 'La balisa <code>&lt;ref&gt;</code> amb lo nom « $1 » definida dins <code>&lt;references&gt;</code> es pas utilizada dins lo tèxte precedent.',
 	'cite_error_references_no_key' => 'La balisa <code>&lt;ref&gt;</code> definida dins <code>&lt;references&gt;</code> a pas de nom d’atribut.',
 	'cite_error_empty_references_define' => 'La balisa <code>&lt;ref&gt;</code> definida dins <code>&lt;references&gt;</code> amb lo nom « $1 » a pas de contengut.',
+	'cite_references_link_accessibility_label' => 'Anar',
+	'cite_references_link_many_accessibility_label' => 'Anar a :',
 );
 
 /** Oriya (ଓଡ଼ିଆ)

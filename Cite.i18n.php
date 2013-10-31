@@ -2512,6 +2512,7 @@ $messages['nds-nl'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Flightmare
  * @author Niels
  * @author Romaine
  * @author Siebrand
@@ -2548,6 +2549,8 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_references_missing_key' => 'De tag <code>&lt;ref&gt;</code> met de naam "$1" gedefinieerd in <code>&lt;references&gt;</code> wordt niet eerder in de tekst gebruikt.',
 	'cite_error_references_no_key' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft geen eigenschapsnaam.',
 	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam "$1" heeft geen inhoud.',
+	'cite_references_link_accessibility_label' => 'Spring omhoog',
+	'cite_references_link_many_accessibility_label' => 'Spring omhoog naar:',
 );
 
 /** Norwegian Nynorsk (norsk nynorsk)

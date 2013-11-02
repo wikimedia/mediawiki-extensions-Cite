@@ -1880,6 +1880,8 @@ $messages['ja'] = array(
 	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグ (name="$1") は、先行するテキスト内で使用されていません。',
 	'cite_error_references_no_key' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグに name 属性がありません。',
 	'cite_error_empty_references_define' => '<code>&lt;references&gt;</code> で定義されている <code>&lt;ref&gt;</code> タグ (name="$1") に内容がありません。',
+	'cite_references_link_accessibility_label' => '元の位置に戻る',
+	'cite_references_link_many_accessibility_label' => '以下の位置に戻る:',
 );
 
 /** Jutish (jysk)

@@ -5598,11 +5598,12 @@ $messages['sr-ec'] = array(
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Liangent
  * @author Michaello
+ * @author Milicevic01
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
 	'cite_article_desc' => 'Dodaje specijalnu stranu za [[Special:Cite|citiranje]] i vezu ka oruđima.',
-	'cite_article_link' => 'citiranje ove strane',
+	'cite_article_link' => 'Bibliografski podaci',
 	'tooltip-cite-article' => 'Informacije o tome kako citirati ovu stranu',
 	'cite' => 'citat',
 	'cite_page' => 'Stranica:',

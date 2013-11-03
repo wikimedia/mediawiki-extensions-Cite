@@ -3600,9 +3600,10 @@ $messages['la'] = array(
 /** Luxembourgish (Lëtzebuergesch)
  * @author Kaffi
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
-	'cite_article_desc' => "Setzt eng [[Special:Cite|Zitatioun op dëser Spezialsäit]] bäi an e Link an d'Geschiirkëscht",
+	'cite_article_desc' => "Setzt eng [[Special:Cite|Zitatioun op dëser Spezialsäit]] bei an e Link an d'Geschiirkëscht",
 	'cite_article_link' => 'Dës Säit zitéieren',
 	'tooltip-cite-article' => 'Informatioune wéi een dës Säit zitéiere kann',
 	'cite' => 'Zitéierhëllef',

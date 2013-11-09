@@ -2357,6 +2357,8 @@ $messages['ml'] = array(
 	'cite_error_empty_references_define' => ' <code>&lt;references&gt;</code> ആവശ്യത്തിനായി "$1" എന്ന പേരിൽ നിർ‌വചിക്കപ്പെട്ട <code>&lt;ref&gt;</code> റ്റാഗിന് ഉള്ളടക്കമൊന്നുമില്ല.',
 	'cite_reference_link_prefix' => 'ഉദ്ധരിണി_അവലംബം-',
 	'cite_references_link_prefix' => 'ഉദ്ധരിണി_കുറിപ്പ്-',
+	'cite_references_link_accessibility_label' => 'മുകളിലേയ്ക്ക്',
+	'cite_references_link_many_accessibility_label' => 'മുകളിൽ ഇവിടേയ്ക്ക്:',
 );
 
 /** Mongolian (монгол)

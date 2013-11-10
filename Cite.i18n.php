@@ -1975,7 +1975,7 @@ $messages['ka'] = array(
 სქოლიოსათვის <code>$1</code> არ არის მითითებული ტექსტი',
 	'cite_error_included_ref' => 'დამხურავი ტეგი <code>&lt;/ref&gt;</code> დაკარგულია',
 	'cite_error_refs_without_references' => 'არსებული ტეგისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references/&gt;</code>',
-	'cite_error_group_refs_without_references' => 'ჯგუფი „$1“ არსებული ტეგებისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references group="$1"/&gt;</code>', # Fuzzy
+	'cite_error_group_refs_without_references' => 'ჯგუფი „$1“ არსებული ტეგებისათვის <code>&lt;ref&gt;</code> ვერ მოიძებნა შესაბამისი ტეგი <code>&lt;references group="$1"/&gt;</code>, ან გამოტოვებულია დამხურავი ტეგი <code>&lt;/ref&gt;</code>',
 	'cite_error_references_group_mismatch' => 'ტეგს <code>&lt;ref&gt;</code> <code>&lt;references&gt;</code>-ში გააჩნია ატრიბუტთა კონფლიქტური ჯგუფები „$1“.',
 	'cite_error_references_missing_group' => 'ტეგს <code>&lt;ref&gt;</code>, განმარტებულს <code>&lt;references&gt;</code>-ში, გააჩნია ჯგუფის ატრიბუტი „$1“, რომელიც ადრეულ ტექსტში არ მოიხსენიება.',
 	'cite_error_references_missing_key' => 'ტეგი <code>&lt;ref&gt;</code> სახელად „$1“, გარკვეული <code>&lt;references&gt;</code>-ში, არ გამოიყენება წინა ტექსტში.',

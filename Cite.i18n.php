@@ -1736,38 +1736,38 @@ $messages['ig'] = array(
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'cite-desc' => 'Agnayon ti <nowiki><ref[ name=id]></nowiki> ken <nowiki><references/></nowiki> nga etiketa, para kadagiti pagdakamat',
+	'cite-desc' => 'Agnayon kadagiti etiketa ti <nowiki><ref[ name=id]></nowiki> ken <nowiki><references/></nowiki>, para kadagit panagdakamat',
 	'cite_error' => 'Biddut ti dakamat: $1',
-	'cite_error_ref_numeric_key' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
-ti nagan ket saan a mabalin a nalaka a sibubukel. Agusar ti agipalpalawag a titulo',
-	'cite_error_ref_no_key' => 'Imbalido a  <code>&lt;ref&gt;</code> nga etiketa;
-dagita ref nga awan nagyanna ket masapul a managanan',
-	'cite_error_ref_too_many_keys' => 'Imbalido a  <code>&lt;ref&gt;</code> nga etiketa;
+	'cite_error_ref_numeric_key' => 'Imbalido ti etiketa ti <code>&lt;ref&gt;</code>;
+ti nagan ket saan a mabalin a nalaka a sibubukel. Agusar ti makaipalawag a titulo',
+	'cite_error_ref_no_key' => 'Imbalido nga etiketa ti  <code>&lt;ref&gt;</code> ;
+dagita ref nga awan nagyanna ket masapul nga adda naganna',
+	'cite_error_ref_too_many_keys' => 'Imbalido nga etiketa ti <code>&lt;ref&gt;</code> ;
 imbalido a nag-nagan, a kas adu unay',
-	'cite_error_ref_no_input' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
+	'cite_error_ref_no_input' => 'Imbalido nga etiketa ti <code>&lt;ref&gt;</code> ;
 dagiti ref nga awan ti naganna ket masapul nga addaan ti nagyan',
-	'cite_error_references_invalid_parameters' => 'Imbalido a <code>&lt;references&gt;</code> nga etiketa
-awan dagiti parametro a maipalubos.
+	'cite_error_references_invalid_parameters' => 'Imbalido nga etiketa ti <code>&lt;references&gt;</code>;
+saan a maipalubos dagiti parametro.
 Usaren ti <code>&lt;references /&gt;</code>',
-	'cite_error_references_invalid_parameters_group' => 'Imbalido a <code>&lt;references&gt;</code> nga etiketa;
-parametro a "grupo" ket ti maipalubos laeng.
+	'cite_error_references_invalid_parameters_group' => 'Imbalido nga etiketa ti <code>&lt;references&gt;</code> ;
+maipalubos laeng ti parametro ti "grupo" .
 Usaren ti <code>&lt;references /&gt;</code> , wenno<code>&lt;references group="..." /&gt;</code>',
-	'cite_error_references_no_backlink_label' => 'Naibusan kadagiti nagrunaan a likud ti silpo nga etiketa.
-Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> a mensahe',
-	'cite_error_no_link_label_group' => 'Naibusan ti nangruna a silpo nga etiketa para iti grupo ti "$1".
-Ipalawag pay ti adu idiay <nowiki>[[MediaWiki:$2]]</nowiki> a mensahe.',
-	'cite_error_references_no_text' => 'Imbalido a <code>&lt;ref&gt;</code> nga etiketa;
-awan ti testo a naited para dagiti ref a nanaganan <code>$1</code>',
-	'cite_error_included_ref' => 'Irikrikep ti <code>&lt;/ref&gt;</code> napukaw para iti <code>&lt;ref&gt;</code> nga etiketa',
-	'cite_error_refs_without_references' => 'Ti <code>&lt;ref&gt;</code> nga etiketa ket addan, ngem awan ti <code>&lt;references/&gt;</code> nga etiketa a nabirukan',
-	'cite_error_group_refs_without_references' => 'Adda dagiti <code>&lt;ref&gt;</code> para iti grupo a nanaganan ti "$1", ngem awan ti kapada a <code>&lt;references group="$1"/&gt;</code> nga etiketa ti nabirukan, wenno pangrikep a <code>&lt;/ref&gt;</code> ket awan',
-	'cite_error_references_group_mismatch' => 'Ti <code>&lt;ref&gt;</code> nga etiketa iday <code>&lt;references&gt;</code> ket addan ti nagsungat a gupit ti grupo "$1".',
-	'cite_error_references_missing_group' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti grupo ti "$1" a saan nga agparang iti napalabas a testo.',
-	'cite_error_references_missing_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa nga addaan ti nagan ti "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a testo.',
-	'cite_error_references_no_key' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.',
-	'cite_error_empty_references_define' => 'Ti <code>&lt;ref&gt;</code> nga etiketa a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyanna.',
-	'cite_references_link_accessibility_label' => 'Lumagto ti ngato',
-	'cite_references_link_many_accessibility_label' => 'Lumagto ti ngato iti:',
+	'cite_error_references_no_backlink_label' => 'Naibusan kadagiti etiketa ti naisangayan a silpo ti likud.
+Ipalawag pay ti adu idiay mensahe ti <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>',
+	'cite_error_no_link_label_group' => 'Naibusan kadagiti etiketa ti nangruna a silpo para iti grupo ti "$1".
+Ipalawag pay ti adu idiay mensahe ti <nowiki>[[MediaWiki:$2]]</nowiki> .',
+	'cite_error_references_no_text' => 'Imbalido nga etiketa ti <code>&lt;ref&gt;</code> ;
+awan ti testo a naited para kadagiti ref a nanaganan <code>$1</code>',
+	'cite_error_included_ref' => 'Irikepen ti <code>&lt;/ref&gt;</code> napukaw para iti etiketa ti <code>&lt;ref&gt;</code>',
+	'cite_error_refs_without_references' => 'Ti etiketa ti <code>&lt;ref&gt;</code> ket addan, ngem awan ti etiketa ti <code>&lt;references/&gt;</code> a nabirukan',
+	'cite_error_group_refs_without_references' => 'Adda dagiti etiketa ti <code>&lt;ref&gt;</code> para iti grupo a nanaganan ti "$1", ngem awan ti kapada nga etiketa ti <code>&lt;references group="$1"/&gt;</code> a nabirukan, wenno awan ti pangrikep ti <code>&lt;/ref&gt;</code>',
+	'cite_error_references_group_mismatch' => 'Ti etiketa ti <code>&lt;ref&gt;</code> iday <code>&lt;references&gt;</code> ket addan ti kasinnungat a gupit ti grupo ti "$1".',
+	'cite_error_references_missing_group' => 'Ti etiketa ti <code>&lt;ref&gt;</code> a naipalawag idiay <code>&lt;references&gt;</code> ket addaan ti gupit ti grupo ti "$1" a saan nga agparang iti napalabas a testo.',
+	'cite_error_references_missing_key' => 'Ti etiketa ti <code>&lt;ref&gt;</code> nga addaan ti nagan ti "$1" a naipalawag idiay <code>&lt;references&gt;</code> ket saan a nausar iti napalabas a testo.',
+	'cite_error_references_no_key' => 'Ti etiketa ti <code>&lt;ref&gt;</code> a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.',
+	'cite_error_empty_references_define' => 'Ti etiketa ti <code>&lt;ref&gt;</code> a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a "$1" ket awan ti nagyanna.',
+	'cite_references_link_accessibility_label' => 'Mapan iti ngato',
+	'cite_references_link_many_accessibility_label' => 'Mapan aginggana iti:',
 );
 
 /** Ido (Ido)
@@ -2553,8 +2553,8 @@ er is geen tekst opgegeven voor refs met de naam <code>$1</code>',
 	'cite_error_references_missing_key' => 'De tag <code>&lt;ref&gt;</code> met de naam "$1" gedefinieerd in <code>&lt;references&gt;</code> wordt niet eerder in de tekst gebruikt.',
 	'cite_error_references_no_key' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft geen eigenschapsnaam.',
 	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam "$1" heeft geen inhoud.',
-	'cite_references_link_accessibility_label' => 'Spring omhoog',
-	'cite_references_link_many_accessibility_label' => 'Spring omhoog naar:',
+	'cite_references_link_accessibility_label' => 'Omhoog',
+	'cite_references_link_many_accessibility_label' => 'Omhoog naar:',
 );
 
 /** Norwegian Nynorsk (norsk nynorsk)

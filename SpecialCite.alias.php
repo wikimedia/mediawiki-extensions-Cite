@@ -5,6 +5,7 @@
  * @file
  * @ingroup Extensions
  */
+// @codingStandardsIgnoreFile
 
 $specialPageAliases = array();
 
@@ -63,12 +64,17 @@ $specialPageAliases['ca'] = array(
 	'Cite' => array( 'Citau', 'Citeu' ),
 );
 
+/** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
+$specialPageAliases['cdo'] = array(
+	'Cite' => array( '註' ),
+);
+
 /** Chechen (нохчийн) */
 $specialPageAliases['ce'] = array(
 	'Cite' => array( 'Дош' ),
 );
 
-/** Czech (česky) */
+/** Czech (čeština) */
 $specialPageAliases['cs'] = array(
 	'Cite' => array( 'Citovat' ),
 );

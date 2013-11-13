@@ -3402,12 +3402,14 @@ Definera fler i <nowiki>[[MediaWiki:$2]]</nowiki>-meddelandet.',
 );
 
 /** Tamil (தமிழ்)
+ * @author Jayarathina
  * @author Shanmugamp7
  * @author செல்வா
  */
 $messages['ta'] = array(
 	'cite-desc' => 'சேர்க்கிறது <nowiki><ref[ name=id]></nowiki>மற்றும் <nowiki><references/></nowiki> குறிச்சொற்கள், மேற்கோள்களுக்காக',
 	'cite_error' => 'பிழை காட்டு: $1',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> குறிச்சொல் உள்ளது, ஆனால் <code>&lt;references/&gt;</code> குறிச்சொல் காணப்படவில்லை',
 );
 
 /** Telugu (తెలుగు)

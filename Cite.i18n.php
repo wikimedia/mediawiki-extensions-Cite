@@ -1736,7 +1736,7 @@ $messages['ig'] = array(
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'cite-desc' => 'Agnayon kadagiti etiketa ti <nowiki><ref[ name=id]></nowiki> ken <nowiki><references/></nowiki>, para kadagit panagdakamat',
+	'cite-desc' => 'Aginayon kadagiti etiketa ti <nowiki><ref[ name=id]></nowiki> ken <nowiki><references/></nowiki>, para kadagiti panagdakamat',
 	'cite_error' => 'Biddut ti dakamat: $1',
 	'cite_error_ref_numeric_key' => 'Imbalido ti etiketa ti <code>&lt;ref&gt;</code>;
 ti nagan ket saan a mabalin a nalaka a sibubukel. Agusar ti makaipalawag a titulo',

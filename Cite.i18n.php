@@ -1071,6 +1071,7 @@ neniu teksto estis donita por ref-oj nomataj <code>$1</code>',
  * @author Drini
  * @author Erdemaslancan
  * @author Gustronico
+ * @author Ihojose
  * @author Locos epraix
  * @author Manuelt15
  * @author McDutchie
@@ -1111,6 +1112,8 @@ no se ha definido el contenido de las referencias llamadas <code>$1</code>',
 	'cite_error_references_no_key' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> no tiene atributo de nombre.',
 	'cite_error_empty_references_define' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> con nombre "$1" no tiene contenido.',
 	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
+	'cite_references_link_accessibility_label' => 'Saltar',
+	'cite_references_link_many_accessibility_label' => 'Ir a:',
 );
 
 /** Estonian (eesti)
@@ -2390,7 +2393,8 @@ $messages['mr'] = array(
 <nowiki>[[MediaWiki:$2]]</nowiki> संदेशात अधिक खूणा नमूद करा',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
 	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ला बंद करणारी <code>&lt;/ref&gt;</code> ही खूणपताका गायब आहे.',
-	'cite_error_refs_without_references' => 'पानामधे <code>&lt;ref&gt;</code>खूणपताका(संदर्भ)आहे, परंतु <code>&lt;references/&gt;</code> (<nowiki>{{संदर्भयादी}}<nowiki />) सापडली नाही. <nowiki>{{संदर्भयादी}}<nowiki />हा साचा असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.',
+	'cite_error_refs_without_references' => "या पानामधे \"<code>&lt;ref&gt;</code>\" हि खूणपताका(संदर्भटॅग) आहे, परंतु <code>&lt;references/&gt;</code> अथवा <code> <nowiki>{{</nowiki>
+</code>संदर्भयादी<code><nowiki>}}</nowiki></code> या  पैकी एकही  सापडले नाही.''' या पानात \"<code><nowiki>{{</nowiki></code>संदर्भयादी<code><nowiki>}}</nowiki></code>\" हा साचा कॉपीपेस्ट करावा''' ''कारण, <code><nowiki>{{</nowiki></code>संदर्भयादी<code><nowiki>}}</nowiki></code> हा साचा असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.''",
 	'cite_error_group_refs_without_references' => '"$1" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>खूणपताका उपलब्ध आहेत, पण संबंधीत <code>&lt;references group="$1"/&gt;</code>  खूण मिळाली नाही.',
 	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>मधील खूणपताकेस<code>&lt;ref&gt;</code> खूणांना खटका उडणारे  group attribute "$1" आहे.',
 	'cite_error_references_missing_group' => 'गट "$1" मधील <code>&lt;ref&gt;</code> टॅग <code>&lt;references&gt;</code> ह्या पूर्वी वापल्या गेलेले नाही',
@@ -3409,6 +3413,8 @@ Definera fler i <nowiki>[[MediaWiki:$2]]</nowiki>-meddelandet.',
 $messages['ta'] = array(
 	'cite-desc' => 'சேர்க்கிறது <nowiki><ref[ name=id]></nowiki>மற்றும் <nowiki><references/></nowiki> குறிச்சொற்கள், மேற்கோள்களுக்காக',
 	'cite_error' => 'பிழை காட்டு: $1',
+	'cite_error_references_no_text' => 'செல்லாத <code>&lt;ref&gt;</code> குறிச்சொல்;
+<code>$1</code> என்னும் பெயரில் உள்ள ref குறிச்சொல்லுக்கு உரையேதும் வழங்கப்படவில்லை',
 	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> குறிச்சொல் உள்ளது, ஆனால் <code>&lt;references/&gt;</code> குறிச்சொல் காணப்படவில்லை',
 );
 

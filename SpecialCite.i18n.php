@@ -3803,7 +3803,9 @@ $messages['lo'] = array(
  * @author Mogoeilor
  */
 $messages['lrc'] = array(
+	'cite' => 'جاگه',
 	'cite_page' => 'بلگه',
+	'cite_submit' => 'جاگه',
 );
 
 /** Lithuanian (lietuvių)

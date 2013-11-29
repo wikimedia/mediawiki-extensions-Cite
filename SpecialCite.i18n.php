@@ -3803,6 +3803,7 @@ $messages['lo'] = array(
  * @author Mogoeilor
  */
 $messages['lrc'] = array(
+	'cite_article_link' => 'جاگه ای بلگه',
 	'cite' => 'جاگه',
 	'cite_page' => 'بلگه',
 	'cite_submit' => 'جاگه',

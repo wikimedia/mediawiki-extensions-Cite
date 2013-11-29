@@ -1106,7 +1106,7 @@ Define más en el mensaje <nowiki>[[MediaWiki:$2]]</nowiki>.',
 no se ha definido el contenido de las referencias llamadas <code>$1</code>',
 	'cite_error_included_ref' => 'Etiqueta de apertura <code>&lt;ref&gt;</code> sin su correspondiente cierre <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code>, pero no se encontró una etiqueta <code>&lt;references /&gt;</code>',
-	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado "$1", pero no se encontró una etiqueta <code>&lt;references group="$1"/&gt;</code>', # Fuzzy
+	'cite_error_group_refs_without_references' => 'Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado «$1», pero no se encontró la etiqueta <code>&lt;references group="$1"/&gt;</code> correspondiente, o falta la etiqueta <code>&lt;/ref&gt;</code> de cierre',
 	'cite_error_references_group_mismatch' => 'La etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presenta el atributo de grupo "$1" en conflicto.',
 	'cite_error_references_missing_group' => 'La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> pertenece al grupo "$1" no declarado en el texto precedente.',
 	'cite_error_references_missing_key' => 'La etiqueta <code>&lt;ref&gt;</code> con nombre "$1" definida en <code>&lt;references&gt;</code> no se utiliza en el texto precedente.',
@@ -2201,6 +2201,15 @@ Doe kans d\'r mier insjtelle in \'t sysyeemberich <nowiki>[[MediaWiki:$2]]</nowi
 	'cite_error_references_missing_key' => 'De tag <code>&lt;ref&gt;</code> mit de naam "$1" gedefiniteerd in <code>&lt;references&gt;</code> weurt neet ierder in de teks gebroek.',
 	'cite_error_references_no_key' => 'De tag <code>&lt;ref&gt;</code> dae is gedefinieerd in <code>&lt;references&gt;</code> haet geine eigesjapsnaam.',
 	'cite_error_empty_references_define' => 'De tag <code>&lt;ref&gt;</code> dae is gedefinieerd in <code>&lt;references&gt;</code> mit de naam "$1" haet geinen inhawd.',
+);
+
+/** لوری (لوری)
+ * @author Mogoeilor
+ */
+$messages['lrc'] = array(
+	'cite_error' => 'خطا جاگه:$1',
+	'cite_references_link_accessibility_label' => 'بالا پرسن',
+	'cite_references_link_many_accessibility_label' => 'پرستن د',
 );
 
 /** Lithuanian (lietuvių)

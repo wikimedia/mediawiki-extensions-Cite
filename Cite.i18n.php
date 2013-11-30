@@ -980,12 +980,14 @@ Definěruj dalšne w powěsći <nowiki>[[MediaWiki:$2]]</nowiki>.',
 za ref z mjenim <code>$1</code> njejo se tekst pódał',
 	'cite_error_included_ref' => 'Kóńceca toflicka <code>&lt;/ref&gt;</code> felujo za toflicku <code>&lt;ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Toflicki <code>&lt;ref&gt;</code> eksistěruju, ale toflicka <code>&lt;references/&gt;</code> njejo se namakała',
-	'cite_error_group_refs_without_references' => 'Toflicki <code>&lt;ref&gt;</code> eksistěruju za kupku z mjenim "$1", ale wótpowědujuca toflicka <code>&lt;references group="$1"/&gt;</code> njejo se namakała', # Fuzzy
+	'cite_error_group_refs_without_references' => 'Toflicki <code>&lt;ref&gt;</code> eksistěruju za kupku z mjenim "$1", ale wótpowědujuca toflicka <code>&lt;references group="$1"/&gt;</code> njejo se namakała abo zacynjacy <code>&lt;/ref&gt;</code> felujo',
 	'cite_error_references_group_mismatch' => 'Toflicka <code>&lt;ref&gt;</code> w <code>&lt;references&gt;</code> jo ze kupkowym atributom "$1" w konflikśe.',
 	'cite_error_references_missing_group' => 'Toflicka <code>&lt;ref&gt;</code>, kótaraž jo w <code>&lt;references&gt;</code> definěrowana, ma kupkowy atribut "$1", kótaryž njepokazujo se w pjerwjejšnem teksće.',
 	'cite_error_references_missing_key' => 'Toflicka <code>&lt;ref&gt;</code> z mjenim "$1", kótaraž jo w <code>&lt;references&gt;</code> definěrowana, njewužywa se w pjerwjejšnem teksće.',
 	'cite_error_references_no_key' => 'Toflicka <code>&lt;ref&gt;</code>, kótaraž jo w <code>&lt;references&gt;</code> definěrowana, njama mjenjowy atribut.',
 	'cite_error_empty_references_define' => 'Toflicka <code>&lt;ref&gt;</code>, kótaraž jo w <code>&lt;references&gt;</code> z mjenim "$1" definěrowana, njama wopśimjeśe.',
+	'cite_references_link_accessibility_label' => 'Górjej skócyś',
+	'cite_references_link_many_accessibility_label' => 'Górjej skócys do:',
 );
 
 /** Greek (Ελληνικά)
@@ -1585,12 +1587,14 @@ Definuj dalše w zdźělence <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_error_references_no_text' => 'Njepłaćiwa referenca formy <code>&lt;ref&gt;</code>; žadyn tekst za referency z mjenom  <code>$1</code> podaty.',
 	'cite_error_included_ref' => 'Kónčny <code>&lt;/ref&gt;</code> za tafličku <code>&lt;ref&gt;</code> faluje',
 	'cite_error_refs_without_references' => 'Taflički <code>&lt;ref&gt;</code> ekistuja, ale žana taflička code>&lt;references/&gt;</code> je so namakała',
-	'cite_error_group_refs_without_references' => 'Taflički <code>&lt;ref&gt;</code> eksistuja za skupinu z mjenom "$1", ale njeje so wotpowědowaca taflička <code>&lt;references group="$1"/&gt;</code> namakała', # Fuzzy
+	'cite_error_group_refs_without_references' => 'Taflički <code>&lt;ref&gt;</code> eksistuja za skupinu z mjenom "$1", ale njeje so wotpowědowaca taflička <code>&lt;references group="$1"/&gt;</code> namakała abo začinjacy <code>&lt;/ref&gt;</code> faluje',
 	'cite_error_references_group_mismatch' => 'Taflička <code>&lt;ref&gt;</code> w <code>&lt;references&gt;</code> je ze skupinskim atributom "$1" w konflikće.',
 	'cite_error_references_missing_group' => 'Taflička <code>&lt;ref&gt;</code>, kotraž je w <code>&lt;references&gt;</code> definowana, ma skupinski atribut "$1", kotryž so w prjedawšim teksće njejewi.',
 	'cite_error_references_missing_key' => 'Taflička <code>&lt;ref&gt;</code> z mjenom "$1", kotraž je w <code>&lt;references&gt;</code> definowana, so w prjedawšim teksće njewužiwa.',
 	'cite_error_references_no_key' => 'Taflička <code>&lt;ref&gt;</code>, kotraž je w <code>&lt;references&gt;</code> definowana, mjenowy atribut nima.',
 	'cite_error_empty_references_define' => 'Taflička <code>&lt;ref&gt;</code>, kotraž je w <code>&lt;references&gt;</code> z mjenom "$1" definowana, wobsah nima.',
+	'cite_references_link_accessibility_label' => 'Horje skočić',
+	'cite_references_link_many_accessibility_label' => 'Horje skočić do:',
 );
 
 /** Haitian (Kreyòl ayisyen)
@@ -2403,14 +2407,14 @@ $messages['mr'] = array(
 <nowiki>[[MediaWiki:$2]]</nowiki> संदेशात अधिक खूणा नमूद करा',
 	'cite_error_references_no_text' => '<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही',
 	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> ला बंद करणारी <code>&lt;/ref&gt;</code> ही खूणपताका गायब आहे.',
-	'cite_error_refs_without_references' => "या पानामधे \"<code>&lt;ref&gt;</code>\" हि खूणपताका(संदर्भटॅग) आहे, परंतु <code>&lt;references/&gt;</code> अथवा <code> <nowiki>{{</nowiki>
-</code>संदर्भयादी<code><nowiki>}}</nowiki></code> या  पैकी एकही  सापडले नाही.''' या पानात \"<code><nowiki>{{</nowiki></code>संदर्भयादी<code><nowiki>}}</nowiki></code>\" हा साचा कॉपीपेस्ट करावा''' ''कारण, <code><nowiki>{{</nowiki></code>संदर्भयादी<code><nowiki>}}</nowiki></code> हा साचा असल्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.''",
+	'cite_error_refs_without_references' => "या पानामधे \"<code>&lt;ref&gt;</code>\" ही खूणपताका(संदर्भटॅग) आहे, परंतु <code>&lt;references/&gt;</code> अथवा <code> <nowiki>{{</nowiki>
+</code>संदर्भयादी<code><nowiki>}}</nowiki></code>या  पैकी एकही  लावण्यात आलेले नाही.''' या पानात \"<code><nowiki>{{</nowiki></code>संदर्भयादी<code><nowiki>}}</nowiki></code>\" हा साचा कॉपीपेस्ट करावा''' ''कारण,त्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.''",
 	'cite_error_group_refs_without_references' => '"$1" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>खूणपताका उपलब्ध आहेत, पण संबंधीत <code>&lt;references group="$1"/&gt;</code>  खूण मिळाली नाही.',
-	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>मधील खूणपताकेस<code>&lt;ref&gt;</code> खूणांना खटका उडणारे  group attribute "$1" आहे.',
-	'cite_error_references_missing_group' => 'गट "$1" मधील <code>&lt;ref&gt;</code> टॅग <code>&lt;references&gt;</code> ह्या पूर्वी वापल्या गेलेले नाही',
-	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> ह्या मध्ये सांगितलेला  <code>&lt;ref&gt;</code>  "$1" ह्या नावाचा  टॅग  ह्या पूर्वी वापरण्यात आलेला नाही.',
-	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code> टॅग मध्ये विशारद गोष्टींना <code>&lt;references&gt;</code> ला नाम गुणधर्म नाहीत',
-	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code> टॅग मध्ये विशारद गोष्टीं <code>&lt;references&gt;</code> ज्या  "$1" ह्या नावाने संबोधल्या आहेत त्यात माहिती नाही.',
+	'cite_error_references_group_mismatch' => '<code>&lt;references&gt;</code>मधील खूणपताकेस<code>&lt;ref&gt;</code> खूणांशी विसंवाद असणारे  group attribute "$1" आहे.',
+	'cite_error_references_missing_group' => 'गट "$1" मधील <code>&lt;ref&gt;</code> खूणपताका <code>&lt;references&gt;</code> ह्या पूर्वी वापल्या गेलेल्या नाहीत.',
+	'cite_error_references_missing_key' => '<code>&lt;references&gt;</code> ह्या मध्ये टाकलेला <code>&lt;ref&gt;</code>  "$1" ह्या नावाची खूणपताका  ह्या पूर्वी वापरण्यात आलेली नाही.',
+	'cite_error_references_no_key' => '<code>&lt;ref&gt;</code>खूणपताकेत नमूद गोष्टींना <code>&lt;references&gt;</code> ला नाम-गुणधर्म नाहीत.',
+	'cite_error_empty_references_define' => '<code>&lt;ref&gt;</code>खूणपताकेत नमूद गोष्टींना, <code>&lt;references&gt;</code> ज्या  "$1" ह्या नावाने संबोधल्या आहेत, त्यात माहिती नाही.',
 	'cite_references_link_accessibility_label' => 'वर उडी मारा',
 	'cite_references_link_many_accessibility_label' => 'ला वर उडी मारा:',
 );

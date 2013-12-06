@@ -151,10 +151,11 @@ class Cite {
 	 * @param $str string Input
 	 * @param $argv array Arguments
 	 * @param $parser Parser
+	 * @param $frame PPFrame
 	 *
 	 * @return string
 	 */
-	function ref( $str, $argv, $parser ) {
+	function ref( $str, $argv, $parser, $frame ) {
 		global $wgCiteEnablePopups;
 		if ( $this->mInCite ) {
 			return htmlspecialchars( "<ref>$str</ref>" );
@@ -169,6 +170,9 @@ class Cite {
 				$parserOutput->addModules( 'ext.cite.popups' );
 			}
 			$parserOutput->addModuleStyles( 'ext.rtlcite' );
+			if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
+				$frame->setVolatile();
+			}
 			return $ret;
 		}
 	}
@@ -526,10 +530,11 @@ class Cite {
 	 * @param $str string Input
 	 * @param $argv array Arguments
 	 * @param $parser Parser
+	 * @param $frame PPFrame
 	 *
 	 * @return string
 	 */
-	function references( $str, $argv, $parser ) {
+	function references( $str, $argv, $parser, $frame ) {
 		if ( $this->mInCite || $this->mInReferences ) {
 			if ( is_null( $str ) ) {
 				return htmlspecialchars( "<references/>" );
@@ -541,6 +546,9 @@ class Cite {
 			$this->mInReferences = true;
 			$ret = $this->guardedReferences( $str, $argv, $parser );
 			$this->mInReferences = false;
+			if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
+				$frame->setVolatile();
+			}
 			return $ret;
 		}
 	}

@@ -1048,7 +1048,7 @@ $messages['co'] = array(
 	'cite_page' => 'Pagina:',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Beren
  * @author Li-sung
  * @author Martin Kozák
@@ -1130,7 +1130,7 @@ Při použití [[LaTeX]]ového balíčku url (někde na začátku dokumentu je u
 </div> <!--closing div for \"plainlinks\"-->",
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(

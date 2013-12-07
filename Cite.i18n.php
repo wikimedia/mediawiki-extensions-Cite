@@ -735,7 +735,7 @@ $messages['ce'] = array(
 	'cite_references_link_many_accessibility_label' => 'Дехьа гӀо:',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Danny B.
  * @author Li-sung
  * @author Littledogboy
@@ -770,7 +770,7 @@ Zvyšte jejich počet ve zprávě <nowiki>[[MediaWiki:$2]]</nowiki>.',
 	'cite_references_link_many_accessibility_label' => 'Skočit nahoru k:',
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(

@@ -3670,6 +3670,13 @@ $messages['la'] = array(
 	'cite_submit' => 'Citare',
 );
 
+/** Ladino (Ladino)
+ * @author Menachem.Moreira
+ */
+$messages['lad'] = array(
+	'cite_page' => 'Pajina:',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Kaffi
  * @author Robby

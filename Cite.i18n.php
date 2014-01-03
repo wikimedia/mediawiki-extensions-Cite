@@ -727,6 +727,7 @@ no s'ha proporcionat text per les refs amb l'etiqueta <code>$1</code>",
  * @author Умар
  */
 $messages['ce'] = array(
+	'cite-desc' => '<nowiki><ref[ name=id]></nowiki> а <nowiki><references/></nowiki> тегаш тӀетовжорашан тӀетуху',
 	'cite_error' => 'ГӀалат дешнаш далорна $1',
 	'cite_error_references_no_text' => 'Тег <code>&lt;ref&gt;</code> нийса яц; тIетовжаран <code>$1</code> йоза яздина дац',
 	'cite_error_refs_without_references' => 'Йолуш йолу тегаца <code>&lt;ref&gt;</code> йогӀуш йолу тег <code>&lt;references/&gt;</code> ца карийна',

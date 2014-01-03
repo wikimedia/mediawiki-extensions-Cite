@@ -1014,6 +1014,7 @@ $messages['cdo'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'cite_article_desc' => 'ГӀирсан тӀе туху [[Special:Cite|дешнаш дало]] белхан агӀо а хьажораг а',
 	'cite_article_link' => 'АгӀонах лаьцна дешнаш дало',
 	'tooltip-cite-article' => 'ХӀара бу хаам агӀонах лаьцна дешнаш муха дало деза гойтуш',
 	'cite' => 'Далийнадош',

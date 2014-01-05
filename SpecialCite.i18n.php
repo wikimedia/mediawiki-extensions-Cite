@@ -2061,6 +2061,13 @@ $messages['ga'] = array(
 	'cite_submit' => 'Luaigh',
 );
 
+/** Scottish Gaelic (Gàidhlig)
+ * @author Akerbeltz
+ */
+$messages['gd'] = array(
+	'cite_article_link' => 'Thoir iomradh air an duilleag seo',
+);
+
 /** Galician (galego)
  * @author Toliño
  * @author Xosé

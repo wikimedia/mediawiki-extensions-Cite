@@ -2215,9 +2215,11 @@ Doe kans d\'r mier insjtelle in \'t sysyeemberich <nowiki>[[MediaWiki:$2]]</nowi
 );
 
 /** لوری (لوری)
+ * @author Bonevarluri
  * @author Mogoeilor
  */
 $messages['lrc'] = array(
+	'cite-desc' => ' <nowiki><ref[ name=id]></nowiki> و <nowiki><سرچشمه یا/></nowiki> tags,و تگیا نه د گوتنیا اضاف بکید',
 	'cite_error' => 'خطا جاگه:$1',
 	'cite_references_link_accessibility_label' => 'بالا پرسن',
 	'cite_references_link_many_accessibility_label' => 'پرستن د',

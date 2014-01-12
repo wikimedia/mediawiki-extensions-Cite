@@ -3815,10 +3815,12 @@ $messages['lo'] = array(
 );
 
 /** لوری (لوری)
+ * @author Bonevarluri
  * @author Mogoeilor
  */
 $messages['lrc'] = array(
 	'cite_article_link' => 'جاگه ای بلگه',
+	'tooltip-cite-article' => 'دونسمنیا چه جور دای بلگه جاگر بوئه',
 	'cite' => 'جاگه',
 	'cite_page' => 'بلگه',
 	'cite_submit' => 'جاگه',

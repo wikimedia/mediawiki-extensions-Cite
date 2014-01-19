@@ -5505,6 +5505,13 @@ $messages['sgs'] = array(
 	'cite_page' => 'Poslapis:',
 );
 
+/** Serbo-Croatian (srpskohrvatski / српскохрватски)
+ * @author Kolega2357
+ */
+$messages['sh'] = array(
+	'cite_submit' => 'Citiraj - Цитирај',
+);
+
 /** Sinhala (සිංහල)
  * @author Budhajeewa
  * @author නන්දිමිතුරු
@@ -5683,7 +5690,7 @@ When using the [[LaTeX]] package url (<code>\\usepackage{url}</code> somewhere i
  */
 $messages['sr-ec'] = array(
 	'cite_article_desc' => 'Додаје посебну страницу за [[Special:Cite|цитирање]] и везу с алаткама',
-	'cite_article_link' => 'Библиографски подаци',
+	'cite_article_link' => 'Цитирај ову страницу',
 	'tooltip-cite-article' => 'Информације о томе како цитирати ову страну',
 	'cite' => 'Цитирање',
 	'cite_page' => 'Страница:',
@@ -5757,7 +5764,7 @@ $messages['sr-ec'] = array(
  */
 $messages['sr-el'] = array(
 	'cite_article_desc' => 'Dodaje specijalnu stranu za [[Special:Cite|citiranje]] i vezu ka oruđima.',
-	'cite_article_link' => 'Bibliografski podaci',
+	'cite_article_link' => 'Citiraj ovu stranicu',
 	'tooltip-cite-article' => 'Informacije o tome kako citirati ovu stranu',
 	'cite' => 'Citiranje',
 	'cite_page' => 'Stranica:',

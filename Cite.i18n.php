@@ -2018,18 +2018,38 @@ $messages['kk-arab'] = array(
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ * @author Arystanbek
  * @author Kaztrans
  */
 $messages['kk-cyrl'] = array(
-	'cite_error' => 'Дәйексөз алу $1 қатесі',
-	'cite_error_ref_numeric_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; атау кәдімгі бүтін сан болуы мүмкін емес, сиппатауыш атау қолданыңыз',
-	'cite_error_ref_no_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі; мағлұматсыз түсініктемелерде атау болуы қажет',
-	'cite_error_ref_too_many_keys' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; жарамсыз атаулар, мысалы, тым көп',
-	'cite_error_ref_no_input' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; атаусыз түсініктемелерде мағлұматы болуы қажет',
-	'cite_error_references_invalid_parameters' => 'Жарамсыз <code>&lt;references&gt;</code> белгіше; еш баптар рұқсат етілмейді, былай <code>&lt;references /&gt;</code> қолданыңыз',
-	'cite_error_references_no_backlink_label' => 'Қосымша белгілердің саны бітті, одан әрі көбірек <nowiki>[[MediaWiki:Cite_references_link_many_format_backlink_labels]]</nowiki> жүйе хабарында белгілеңіз', # Fuzzy
+	'cite-desc' => 'Сілтемелер үшін <nowiki><ref[ name=id]></nowiki> және <nowiki><references/></nowiki> белгішелерін қолданыңыз',
+	'cite_error' => 'Дереккөз алу қатесі: $1',
+	'cite_error_ref_numeric_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі;
+атау кәдімгі бүтін сан болуы мүмкін емес. Сипатауыш атау қолданыңыз',
+	'cite_error_ref_no_key' => 'Жарамсыз <code>&lt;ref&gt;</code> белгішесі;
+мағлұматсыз дерекөздерде атау болуы қажет',
+	'cite_error_ref_too_many_keys' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше; 
+жарамсыз атаулар, мысалы, тым көп',
+	'cite_error_ref_no_input' => 'Жарамсыз <code>&lt;ref&gt;</code> белгіше;
+атаусыз дереккөздерде мағлұматы болуы қажет',
+	'cite_error_references_invalid_parameters' => 'Жарамсыз <code>&lt;references&gt;</code> белгіше;
+еш параметр рұқсат етілмейді, 
+былай <code>&lt;references /&gt;</code> қолданыңыз',
+	'cite_error_references_invalid_parameters_group' => 'Жарамсыз <code>&lt;references&gt;</code> тегі;
+тек "group" параметрін рұқсат етеді.
+Келесідей қолданыңыз: <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code>',
+	'cite_error_references_no_backlink_label' => 'Өзгертпелі белгілердің саны бітті, одан әрі көбірек <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> жүйе хабарында белгілеңіз',
+	'cite_error_no_link_label_group' => '"$1" тобы үшін өзгертпелі сілтеме белгілері бітті.
+Define more in the <nowiki>[[MediaWiki:$2]]</nowiki> message.',
+	'cite_error_references_no_text' => 'Жарамсыз <code>&lt;ref&gt;</code> тегі;
+no text was provided for refs named <code>$1</code>',
+	'cite_error_included_ref' => '<code>&lt;ref&gt;</code> тегін <code>&lt;/ref&gt;</code> тегімен жабуды қажет етеді',
+	'cite_error_refs_without_references' => '<code>&lt;ref&gt;</code> тегі бар, бірақ <code>&lt;references/&gt;</code> тегі табылмады',
+	'cite_error_group_refs_without_references' => '"$1" деп аталған дереккөз тобында <code>&lt;ref&gt;</code> тегі бар, бірақ тиісті <code>&lt;references group="$1"/&gt;</code> тегі табылмады, немесе <code>&lt;/ref&gt;</code> жабу тегін қажет етеді',
 	'cite_references_link_one' => '<li id="$1"><span class="mw-cite-backlink">[[#$2|↑]]</span> $3</li>',
 	'cite_references_link_many' => '<li id="$1"><span class="mw-cite-backlink">↑ $2</span> $3</li>',
+	'cite_references_link_accessibility_label' => 'Жоғарыға көтеріліңіз',
+	'cite_references_link_many_accessibility_label' => 'Мынаған өту:',
 );
 
 /** Kazakh (Latin script) (qazaqşa (latın)‎)

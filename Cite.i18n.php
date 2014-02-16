@@ -2155,7 +2155,7 @@ Et wohr keine Tex aanjejovve för de
 <code>&lt;ref&gt;</code>s met dämm Name „<code>$1</code>“.',
 	'cite_error_included_ref' => 'Hee för dat <code>&lt;ref&gt;</code> ham_mer kei zopaß <code>&lt;/ref&gt;</code>',
 	'cite_error_refs_without_references' => 'Et sinn_er <code>&lt;ref&gt;</code>-Befähle en dä Sigg, ävver mer han keine <code>&lt;references/&gt;</code>-Befähl jefunge.',
-	'cite_error_group_refs_without_references' => 'Et sinn_er <code>&lt;ref&gt;</code>-Befähle för de jrop „$1“ en hee dä Sigg, ävver mer han keine <code>&lt;references group="$1"/&gt;</code>-Befähl jefunge.', # Fuzzy
+	'cite_error_group_refs_without_references' => 'Et sinn_er <code>&lt;ref&gt;</code>-Befähle för de Jrop „$1“ en heh dä Sigg, ävver mer han keine <code>&lt;references group="$1"/&gt;</code>-Befähl jefonge, udder dä Befähl <code>&lt;/ref&gt;</code> zom zohmaache es nit doh.',
 	'cite_error_references_group_mismatch' => 'Dä <code>&lt;ref&gt;</code> Befähl en <code>&lt;references&gt;</code> hät en widerschpröschlesche Jroppe-Eijeschaff „$1“.',
 	'cite_error_references_missing_group' => 'Dä <code>&lt;ref&gt;</code> Befähl, aanjejoove em Befähl <code>&lt;references&gt;</code>, hät en Jroppe-Eijeschaff „$1“, di ävver em Täx doför nit vörjekumme es.',
 	'cite_error_references_missing_key' => 'Dä <code>&lt;ref&gt;</code> Befähl mem Naame „$1“, aanjejoove em Befähl <code>&lt;references&gt;</code>, es em Täx doför nit vörjekumme.',
@@ -2165,6 +2165,8 @@ Et wohr keine Tex aanjejovve för de
 	'cite_reference_link_prefix' => 'fohss_noht_betreck_',
 	'cite_references_link_prefix' => 'fohss_noht_nommer_',
 	'cite_references_link_many_and' => '&#32;',
+	'cite_references_link_accessibility_label' => 'Jangk noh bovve',
+	'cite_references_link_many_accessibility_label' => 'Jangk noh bovve op:',
 );
 
 /** Cornish (kernowek)

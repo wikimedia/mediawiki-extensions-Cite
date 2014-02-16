@@ -1286,9 +1286,10 @@ Når du bruger [[LaTeX]] pakkens URL-adressen (<code>\\usepackage{url}</code> et
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Purodha
  */
 $messages['de'] = array(
-	'cite_article_desc' => 'Ergänzt eine [[Special:Cite|Spezialseite]] als Zitierhilfe sowie einen zugehörigen Link im Bereich Werkzeuge',
+	'cite_article_desc' => 'Erweitert das Wiki um eine [[Special:Cite|Spezialseite]] als Zitierhilfe sowie einen Link darauf im Bereich Werkzeuge',
 	'cite_article_link' => 'Seite zitieren',
 	'tooltip-cite-article' => 'Hinweis, wie diese Seite zitiert werden kann',
 	'cite' => 'Zitierhilfe',

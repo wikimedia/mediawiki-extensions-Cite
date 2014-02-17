@@ -5510,6 +5510,9 @@ $messages['sgs'] = array(
  * @author Kolega2357
  */
 $messages['sh'] = array(
+	'cite_article_link' => 'Citiraj ovaj članak',
+	'cite' => 'Citiraj',
+	'cite_page' => 'Stranica:',
 	'cite_submit' => 'Citiraj - Цитирај',
 );
 

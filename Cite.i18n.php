@@ -863,7 +863,7 @@ Definer flere i beskeden <nowiki>[[MediaWiki:$2]]</nowiki>.',
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'cite-desc' => 'Bietet die Befehle <code><nowiki><ref[&nbsp;name=id]></nowiki></code> und <code><nowiki><references&nbsp;/></nowiki></code> für Referenzierungen in Wikiseiten',
+	'cite-desc' => 'Ergänzt die Tags <code><nowiki><ref[&nbsp;name=id]></nowiki></code> und <code><nowiki><references&nbsp;/></nowiki></code> für Referenzierungen in Wikiseiten',
 	'cite_error' => 'Referenzfehler: $1',
 	'cite_error_ref_numeric_key' => 'Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „name“ darf kein reiner Zahlenwert sein. Benutze einen beschreibenden Namen.',
 	'cite_error_ref_no_key' => 'Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „ref“ ohne Inhalt muss einen Namen haben.',

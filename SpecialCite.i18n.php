@@ -4080,7 +4080,7 @@ $messages['mk'] = array(
     title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
     year = \"{{CURRENTYEAR}}\",
     url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
-    note = \"[на интернет; пристапено на <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+    note = \"[семрежно; пристапено на <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
   }
 Кога користите [[LaTeX]], спакувајте ја URL-адресата (<code>\\usepackage{url}</code> некаде во преамбулата), при што се добиваат многу поубаво горматирани адреси. Се претпочитаат следниве:
 

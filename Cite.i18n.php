@@ -3497,6 +3497,7 @@ $messages['te'] = array(
 	'cite_error_references_no_backlink_label' => 'మీ స్వంత బ్యాక్‌లింకు లేబుళ్ళు అయిపోయాయి. <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> సందేశంలో మరిన్ని లేబుళ్ళను నిర్వచించుకోండి.',
 	'cite_error_references_no_text' => 'సరైన <code>&lt;ref&gt;</code> కాదు; <code>$1</code> అనే పేరుగల ref లకు పాఠ్యమేమీ ఇవ్వలేదు',
 	'cite_references_link_accessibility_label' => 'పైకి దూకు',
+	'cite_references_link_many_accessibility_label' => 'ఇక్కడికి దుముకు:',
 );
 
 /** Tajik (Cyrillic script) (тоҷикӣ)

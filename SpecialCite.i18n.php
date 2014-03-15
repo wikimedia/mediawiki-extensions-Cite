@@ -5676,6 +5676,77 @@ $messages['sn'] = array(
 	'cite_article_link' => 'Ita cite nyaya iyi', # Fuzzy
 );
 
+/** Somali (Soomaaliga)
+ * @author Abshirdheere
+ */
+$messages['so'] = array(
+	'cite_article_desc' => 'Ku dar bogga [[Special:Cite|xigashada]] gaar ahaan bogga qalabka shaqada',
+	'cite_article_link' => 'Boggaan soo xigo',
+	'tooltip-cite-article' => 'Macluumaad ku saabsan habka soo xigashada ee bogga',
+	'cite' => 'Soo xigasho',
+	'cite_page' => 'Bogga:',
+	'cite_submit' => 'Soo xigasho',
+	'cite_text' => "__NOTOC__
+<div class=\"mw-specialcite-bibliographic\">
+
+== Faahfaahin ku saabsan raadraaca ee {{FULLPAGENAME}} ==
+
+* Magaca bogga: {{FULLPAGENAME}}
+* Qoraha: {{SITENAME}} contributors
+* Faafiyaha: ''{{SITENAME}}, {{int:sitesubtitle}}''.
+* Date of last revision: {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC
+* Tariikhdii ugu dambaysay ee dib u eegista: <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}} {{CURRENTTIME}} UTC</citation>
+* URL joogta ah: {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}
+* ID nuqulka bogga: {{REVISIONID}}
+
+</div>
+<div class=\"plainlinks mw-specialcite-styles\">
+
+== Citation styles for {{FULLPAGENAME}} ==
+
+=== [[Hannaanka xigashada]] ===
+{{FULLPAGENAME}}. ({{CURRENTYEAR}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}). ''{{SITENAME}}, {{int:sitesubtitle}}''. Retrieved <citation>{{CURRENTTIME}}, {{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation> from {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[The MLA style manual|MLA style]] ===
+\"{{FULLPAGENAME}}.\" ''{{SITENAME}}, {{int:sitesubtitle}}''. {{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC. <citation>{{CURRENTDAY}} {{CURRENTMONTHABBREV}} {{CURRENTYEAR}}, {{CURRENTTIME}}</citation> &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt;.
+
+=== [[MHRA Style Guide|MHRA style]] ===
+{{SITENAME}} contributors, '{{FULLPAGENAME}}', ''{{SITENAME}}, {{int:sitesubtitle}},'' {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}, {{CURRENTTIME}} UTC, &lt;{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}&gt; [accessed <citation>{{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}</citation>]
+
+=== [[The Chicago Manual of Style|Chicago style]] ===
+{{SITENAME}} contributors, \"{{FULLPAGENAME}},\" ''{{SITENAME}}, {{int:sitesubtitle}},'' {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (accessed <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[Council of Science Editors|CBE/CSE style]] ===
+{{SITENAME}} contributors. {{FULLPAGENAME}} [Internet]. {{SITENAME}}, {{int:sitesubtitle}}; {{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}, {{CURRENTTIME}} UTC [cited <citation>{{CURRENTYEAR}} {{CURRENTMONTHABBREV}} {{CURRENTDAY}}</citation>]. Available from:
+{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}.
+
+=== [[Bluebook|Bluebook style]] ===
+{{FULLPAGENAME}}, {{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}} (last visited <citation>{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}</citation>).
+
+=== [[BibTeX]] entry ===
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}\",
+    Fiira gaar ah = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+Markaad adeegsanayso [[LaTeX]] package url (<code>\\usepackage{url}</code> meel kastaba) kaasoo samayn kara siinta canaawiin web lagu kabay si wanaagsan, kan xiga waxaa laga yaabaa in uu ka wanaagsanaado:
+
+  @misc{ wiki:xxx,
+    author = \"{{SITENAME}}\",
+    title = \"{{FULLPAGENAME}} --- {{SITENAME}}{,} {{int:sitesubtitle}}\",
+    year = \"{{CURRENTYEAR}}\",
+    url = \"'''\\url{'''{{canonicalurl:{{FULLPAGENAME}}|oldid={{REVISIONID}}}}'''}'''\",
+    Fiira gaar ah = \"[Online; accessed <citation>{{CURRENTDAY}}-{{CURRENTMONTHNAME}}-{{CURRENTYEAR}}</citation>]\"
+  }
+
+
+</div> <!--closing div for \"plainlinks\"-->",
+);
+
 /** Albanian (shqip)
  * @author Olsi
  */

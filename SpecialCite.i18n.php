@@ -925,6 +925,13 @@ $messages['bs'] = array(
 	'cite_submit' => 'Citiraj',
 );
 
+/** буряад (буряад)
+ * @author Elvonudinium
+ */
+$messages['bxr'] = array(
+	'cite_article_link' => 'Энэ хуудаһаһаа эшэ татаха',
+);
+
 /** Catalan (català)
  * @author Davidpar
  * @author SMP

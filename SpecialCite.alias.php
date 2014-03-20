@@ -264,7 +264,7 @@ $specialPageAliases['mt'] = array(
 	'Cite' => array( 'Iċċita' ),
 );
 
-/** Nahuatl (Nāhuatl) */
+/** Nāhuatl (Nāhuatl) */
 $specialPageAliases['nah'] = array(
 	'Cite' => array( 'Tlahtoa', 'Citar' ),
 );

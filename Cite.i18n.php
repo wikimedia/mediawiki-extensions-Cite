@@ -3836,7 +3836,36 @@ Hãy định nghĩa thêm ở thông điệp <nowiki>[[MediaWiki:Cite references
 	'cite_error_references_missing_key' => 'Thẻ <code>&lt;ref&gt;</code> có tên  “$1” được định nghĩa trong <code>&lt;references&gt;</code> không được đoạn văn bản trên sử dụng.',
 	'cite_error_references_no_key' => ' Thẻ <code>&lt;ref&gt;</code> được định nghĩa trong <code>&lt;references&gt;</code> không có thuộc tính name.',
 	'cite_error_empty_references_define' => 'Thẻ <code>&lt;ref&gt;</code> được định nghĩa trong <code>&lt;references&gt;</code> có tên “$1” không có nội dung.',
-	'cite_references_link_many_format_backlink_labels' => 'a b c d e f g h i j k l m n o p q r s t u v w x y z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz',
+	'cite_references_link_many_format_backlink_labels' => 'a ă â b c d đ e ê g h i k l m n o ô ơ p q r s t u ư v x y
+aa aă aâ ab ac ad ađ ae aê ag ah ai ak al am an ao aô aơ ap aq ar as at au aư av ax ay
+ăa ăă ăâ ăb ăc ăd ăđ ăe ăê ăg ăh ăi ăk ăl ăm ăn ăo ăô ăơ ăp ăq ăr ăs ăt ău ăư ăv ăx ăy
+âa âă ââ âb âc âd âđ âe âê âg âh âi âk âl âm ân âo âô âơ âp âq âr âs ât âu âư âv âx ây
+ba bă bâ bb bc bd bđ be bê bg bh bi bk bl bm bn bo bô bơ bp bq br bs bt bu bư bv bx by
+ca că câ cb cc cd cđ ce cê cg ch ci ck cl cm cn co cô cơ cp cq cr cs ct cu cư cv cx cy
+da dă dâ db dc dd dđ de dê dg dh di dk dl dm dn do dô dơ dp dq dr ds dt du dư dv dx dy
+đa đă đâ đb đc đd đđ đe đê đg đh đi đk đl đm đn đo đô đơ đp đq đr đs đt đu đư đv đx đy
+ea eă eâ eb ec ed eđ ee eê eg eh ei ek el em en eo eô eơ ep eq er es et eu eư ev ex ey
+êa êă êâ êb êc êd êđ êe êê êg êh êi êk êl êm ên êo êô êơ êp êq êr ês êt êu êư êv êx êy
+ga gă gâ gb gc gd gđ ge gê gg gh gi gk gl gm gn go gô gơ gp gq gr gs gt gu gư gv gx gy
+ha hă hâ hb hc hd hđ he hê hg hh hi hk hl hm hn ho hô hơ hp hq hr hs ht hu hư hv hx hy
+ia iă iâ ib ic id iđ ie iê ig ih ii ik il im in io iô iơ ip iq ir is it iu iư iv ix iy
+ka kă kâ kb kc kd kđ ke kê kg kh ki kk kl km kn ko kô kơ kp kq kr ks kt ku kư kv kx ky
+la lă lâ lb lc ld lđ le lê lg lh li lk ll lm ln lo lô lơ lp lq lr ls lt lu lư lv lx ly
+ma mă mâ mb mc md mđ me mê mg mh mi mk ml mm mn mo mô mơ mp mq mr ms mt mu mư mv mx my
+na nă nâ nb nc nd nđ ne nê ng nh ni nk nl nm nn no nô nơ np nq nr ns nt nu nư nv nx ny
+oa oă oâ ob oc od ođ oe oê og oh oi ok ol om on oo oô oơ op oq or os ot ou oư ov ox oy
+ôa ôă ôâ ôb ôc ôd ôđ ôe ôê ôg ôh ôi ôk ôl ôm ôn ôo ôô ôơ ôp ôq ôr ôs ôt ôu ôư ôv ôx ôy
+ơa ơă ơâ ơb ơc ơd ơđ ơe ơê ơg ơh ơi ơk ơl ơm ơn ơo ơô ơơ ơp ơq ơr ơs ơt ơu ơư ơv ơx ơy
+pa pă pâ pb pc pd pđ pe pê pg ph pi pk pl pm pn po pô pơ pp pq pr ps pt pu pư pv px py
+qa qă qâ qb qc qd qđ qe qê qg qh qi qk ql qm qn qo qô qơ qp qq qr qs qt qu qư qv qx qy
+ra ră râ rb rc rd rđ re rê rg rh ri rk rl rm rn ro rô rơ rp rq rr rs rt ru rư rv rx ry
+sa să sâ sb sc sd sđ se sê sg sh si sk sl sm sn so sô sơ sp sq sr ss st su sư sv sx sy
+ta tă tâ tb tc td tđ te tê tg th ti tk tl tm tn to tô tơ tp tq tr ts tt tu tư tv tx ty
+ua uă uâ ub uc ud uđ ue uê ug uh ui uk ul um un uo uô uơ up uq ur us ut uu uư uv ux uy
+ưa ưă ưâ ưb ưc ưd ưđ ưe ưê ưg ưh ưi ưk ưl ưm ưn ưo ưô ươ ưp ưq ưr ưs ưt ưu ưư ưv ưx ưy
+va vă vâ vb vc vd vđ ve vê vg vh vi vk vl vm vn vo vô vơ vp vq vr vs vt vu vư vv vx vy
+xa xă xâ xb xc xd xđ xe xê xg xh xi xk xl xm xn xo xô xơ xp xq xr xs xt xu xư xv xx xy
+ya yă yâ yb yc yd yđ ye yê yg yh yi yk yl ym yn yo yô yơ yp yq yr ys yt yu yư yv yx yy',
 	'cite_references_link_accessibility_label' => 'Nhảy lên',
 	'cite_references_link_many_accessibility_label' => 'Nhảy lên tới:',
 );

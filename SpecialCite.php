@@ -24,6 +24,7 @@ $wgExtensionCredits['specialpage'][] = array(
 
 $dir = __DIR__ . '/';
 # Internationalisation file
+$wgMessagesDirs['SpecialCite'] = __DIR__ . '/i18n/special';
 $wgExtensionMessagesFiles['SpecialCite'] = $dir . 'SpecialCite.i18n.php';
 $wgExtensionMessagesFiles['SpecialCiteAliases'] = $dir . 'SpecialCite.alias.php';
 

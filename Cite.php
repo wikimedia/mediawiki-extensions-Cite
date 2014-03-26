@@ -26,7 +26,9 @@ $wgExtensionCredits['parserhook'][] = array(
 	'descriptionmsg' => 'cite-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
 );
+
 $wgParserTestFiles[] = __DIR__ . "/citeParserTests.txt";
+$wgMessagesDirs['Cite'] = __DIR__ . '/i18n/core';
 $wgExtensionMessagesFiles['Cite'] = __DIR__ . "/Cite.i18n.php";
 $wgAutoloadClasses['Cite'] = __DIR__ . "/Cite_body.php";
 $wgSpecialPageGroups['Cite'] = 'pagetools';

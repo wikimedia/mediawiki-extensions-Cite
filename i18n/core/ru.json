@@ -8,11 +8,12 @@
             "Kaganer",
             "Kalan",
             "Okras",
-            "Александр Сигачёв"
+            "Александр Сигачёв",
+            "Iltever"
         ]
     },
     "cite-desc": "Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок",
-    "cite_error": "Ошибка цитирования $1",
+    "cite_error": "Цитата этиуде халат: $1",
     "cite_error_ref_numeric_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nимя не может быть целым числом. Используйте описательное название",
     "cite_error_ref_no_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nэлемент без содержания должен иметь имя.",
     "cite_error_ref_too_many_keys": "Неправильный тег <code>&lt;ref&gt;</code>;\nошибочные имена, возможно, слишком много",
@@ -23,7 +24,7 @@
     "cite_error_no_link_label_group": "Закончились отметки пользовательских ссылок для группы «$1».\nОпределите дополнительные в сообщении <nowiki>[[MediaWiki:$2]]</nowiki>.",
     "cite_error_references_no_text": "Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст",
     "cite_error_included_ref": "Отсутствует закрывающий тег <code>&lt;/ref&gt;</code>",
-    "cite_error_refs_without_references": "Для существующего тега <code>&lt;ref&gt;</code> не найдено соответствующего тега <code>&lt;references/&gt;</code>",
+    "cite_error_refs_without_references": "бар болгъан <code>&lt;ref&gt;</code> тегге керекли <code>&lt;references/&gt;</code> тег джокъду",
     "cite_error_group_refs_without_references": "Для существующих тегов <code>&lt;ref&gt;</code> группы «$1» не найдено соответствующего тега <code>&lt;references group=\"$1\"/&gt;</code> или пропущен закрывающий тег <code>&lt;/ref&gt;</code>",
     "cite_error_references_group_mismatch": "Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> имеет конфликтующие группы атрибутов «$1».",
     "cite_error_references_missing_group": "Тег <code>&lt;ref&gt;</code>, определённый в <code>&lt;references&gt;</code>, имеет атрибут группы «$1», который не упоминается в тексте ранее.",

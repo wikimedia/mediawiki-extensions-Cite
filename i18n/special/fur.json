@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Klenje",
-            "MF-Warburg"
-        ]
-    },
-    "cite_article_link": "Cite cheste vôs",
-    "cite": "Citazion",
-    "cite_page": "Pagjine:",
-    "cite_submit": "Cree la citazion"
+	"@metadata": {
+		"authors": [
+			"Klenje",
+			"MF-Warburg"
+		]
+	},
+	"cite_article_link": "Cite cheste vôs",
+	"cite": "Citazion",
+	"cite_page": "Pagjine:",
+	"cite_submit": "Cree la citazion"
 }

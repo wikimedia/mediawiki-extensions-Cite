@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Geitost"
-        ]
-    },
-    "cite_error_references_invalid_parameters": "Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschliesslich <tt><nowiki><references /></nowiki></tt>.",
-    "cite_error_included_ref": "Es fehlt ein schliessendes <code>&lt;/ref&gt;</code>"
+	"@metadata": {
+		"authors": [
+			"Geitost"
+		]
+	},
+	"cite_error_references_invalid_parameters": "Ungültige <tt>&lt;references&gt;</tt>-Verwendung: Es sind keine zusätzlichen Parameter erlaubt, verwende ausschliesslich <tt><nowiki><references /></nowiki></tt>.",
+	"cite_error_included_ref": "Es fehlt ein schliessendes <code>&lt;/ref&gt;</code>"
 }

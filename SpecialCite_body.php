@@ -137,7 +137,13 @@ class CiteOutput {
 		}
 		$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->getRevId() );
 		$wgOut->addModules( 'ext.specialcite' );
-		$wgOut->addHTML( $ret->getText() );
+
+		# Introduced in 1.24
+		if( method_exists( $wgOut, 'addParserOutputContent' ) ) {
+			$wgOut->addParserOutputContent( $ret );
+		} else {
+			$wgOut->addHTML( $ret->getText() );
+		}
 	}
 
 	function genParserOptions() {

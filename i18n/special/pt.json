@@ -4,10 +4,11 @@
 			"Hamilton Abreu",
 			"Lijealso",
 			"Malafaya",
-			"555"
+			"555",
+			"Vitorvicentevalente"
 		]
 	},
-	"cite_article_desc": "[[Special:Cite|Página especial]] que produz uma citação de qualquer outra página na wiki (em vários formatos) e adiciona um link na barra de ferramentas",
+	"cite_article_desc": "[[Special:Cite|Página especial]] que produz uma citação de qualquer outra página na wiki (em vários formatos) e adiciona uma ligação na barra de ferramentas",
 	"cite_article_link": "Citar esta página",
 	"tooltip-cite-article": "Informação sobre como citar esta página",
 	"cite": "Citar",

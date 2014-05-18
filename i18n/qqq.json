@@ -52,5 +52,7 @@
 	"cite_references_link_accessibility_label": "Text for screen readers to describe the jump to citation link (\"↑\").\n\nSee also:\n* {{msg-mw|Cite references link many accessibility label}} - if the citation is used multiple times",
 	"cite_references_link_many_accessibility_label": "Text for screen readers to describe the jump to citation links (a b c ...) for citations which are used in multiple places.\n\nThis is going to be prepended to the first link, the following ones will just be read by screen readers as they are visible.\n\nSee also:\n* {{msg-mw|Cite references link accessibility label}} - if the citation is used one time",
 	"cite_references_prefix": "{{notranslate}}",
-	"cite_references_suffix": "{{notranslate}}"
+	"cite_references_suffix": "{{notranslate}}",
+	"cite_warning":  "Cite extension.\n\nUsed when there are warnings about ref or references tags (less severe than errors).\n\nParameters:\n* $1 - a warning message",
+	"cite_warning_sectionpreview_no_text": "Cite extension. This warning occurs when the tag <code><nowiki><ref name=\"something\" /></nowiki></code> is used with the name-option specified but the definition for this named ref is outside of the currently being previewed section, or not defined at all.\n\nParameters:\n* $1 - key of the ref"
 }

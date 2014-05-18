@@ -1073,6 +1073,8 @@ class Cite {
 	 * section, if refs were used without a main references tag. If there are references
 	 * in a custom group, and there is no references tag for it, show an error
 	 * message for that group.
+	 * If we are processing a section preview, this adds the missing
+	 * references tags and does not add the errors.
 	 *
 	 * @param $afterParse bool  true if called from the ParserAfterParse hook
 	 * @param $parser Parser
@@ -1094,15 +1096,12 @@ class Cite {
 			return true;
 		}
 
-		if ( $parser->getOptions()->getIsSectionPreview() ) {
-			return true;
-		}
-
+		$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		foreach ( $this->mRefs as $group => $refs ) {
 			if ( !$refs ) {
 				continue;
 			}
-			if ( $group === self::DEFAULT_GROUP ) {
+			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
 				$text .= $this->referencesFormat( $group, '', '' );
 			} else {
 				$text .= "\n<br />" .
@@ -1162,6 +1161,16 @@ class Cite {
 	 * @return string XHTML or wikitext ready for output
 	 */
 	function error( $key, $param = null, $parse = 'parse' ) {
+		$decreaseToWarning = false;
+		if (
+			$this->mParser->getOptions()->getIsSectionPreview() &&
+			$key === 'cite_error_references_no_text'
+		) {
+			// ref may be defined somewhere else on the page so use distinct message
+			// and be less intrusive than in a real error
+			$key = 'cite_warning_sectionpreview_no_text';
+			$decreaseToWarning = true;
+		}
 		# We rely on the fact that PHP is okay with passing unused argu-
 		# ments to functions.  If $1 is not used in the message, wfMessage will
 		# just ignore the extra parameter.
@@ -1169,15 +1178,19 @@ class Cite {
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();
 		$msg = wfMessage(
-			'cite_error',
+			$decreaseToWarning ? 'cite_warning' : 'cite_error',
 			wfMessage( $key, $param )->inLanguage( $lang )->plain()
 		)
 			->inLanguage( $lang )
 			->plain();
 
-		$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );
+		if ( $decreaseToWarning ) {
+			$ret = '<span class="warning mw-ext-cite-warning">' . $msg . '</span>';
+		} else {
+			$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 
-		$ret = '<strong class="error mw-ext-cite-error">' . $msg . '</strong>';
+			$ret = '<strong class="error mw-ext-cite-error">' . $msg . '</strong>';
+		}
 
 		if ( $parse === 'parse' ) {
 			$ret = $this->mParser->recursiveTagParse( $ret );

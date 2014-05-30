@@ -7,7 +7,8 @@
 			"Philip",
 			"TianyinLee",
 			"Zhuyifei1999",
-			"乌拉跨氪"
+			"乌拉跨氪",
+			"Mywood"
 		]
 	},
 	"cite-desc": "增加用于引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>标签",
@@ -30,5 +31,5 @@
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>没有给出名称（name）属性。",
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>的名称（name）“$1”为空。",
 	"cite_references_link_accessibility_label": "跳转",
-	"cite_references_link_many_accessibility_label": "跳转到："
+	"cite_references_link_many_accessibility_label": "跳转至："
 }

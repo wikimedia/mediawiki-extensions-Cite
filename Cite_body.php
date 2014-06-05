@@ -671,7 +671,7 @@ class Cite {
 			wfProfileIn( __METHOD__ . '-parse' );
 
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
-			$ret = rtrim( $this->parse( $parserInput ), "\n" );
+			$ret = rtrim( $this->mParser->recursiveTagParse( $parserInput ), "\n" );
 
 			if ( $wgCiteCacheReferences ) {
 				$serData = $this->mParser->serializeHalfParsedText( $ret );
@@ -919,7 +919,7 @@ class Cite {
 		$label = is_null( $label ) ? ++$this->mGroupCnt[$group] : $label;
 
 		return
-			$this->parse(
+			$this->mParser->recursiveTagParse(
 				wfMessage(
 					'cite_reference_link',
 					$this->refKey( $key, $count ),
@@ -954,60 +954,6 @@ class Cite {
 		} else {
 			$t = array_slice( $arr, 0, $cnt - 1 );
 			return implode( $sep, $t ) . $and . $arr[$cnt - 1];
-		}
-	}
-
-	/**
-	 * Parse a given fragment and fix up Tidy's trail of blood on
-	 * it...
-	 *
-	 * @param string $in The text to parse
-	 * @return string The parsed text
-	 */
-	function parse( $in ) {
-		if ( method_exists( $this->mParser, 'recursiveTagParse' ) ) {
-			// New fast method
-			return $this->mParser->recursiveTagParse( $in );
-		} else {
-			// Old method
-			$ret = $this->mParser->parse(
-				$in,
-				$this->mParser->mTitle,
-				$this->mParser->mOptions,
-				// Avoid whitespace buildup
-				false,
-				// Important, otherwise $this->clearState()
-				// would get run every time <ref> or
-				// <references> is called, fucking the whole
-				// thing up.
-				false
-			);
-			$text = $ret->getText();
-
-			return $this->fixTidy( $text );
-		}
-	}
-
-	/**
-	 * Tidy treats all input as a block, it will e.g. wrap most
-	 * input in <p> if it isn't already, fix that and return the fixed text
-	 *
-	 * @static
-	 *
-	 * @param string $text The text to fix
-	 * @return string The fixed text
-	 */
-	function fixTidy( $text ) {
-		global $wgUseTidy;
-
-		if ( !$wgUseTidy ) {
-			return $text;
-		} else {
-			$text = preg_replace( '~^<p>\s*~', '', $text );
-			$text = preg_replace( '~\s*</p>\s*~', '', $text );
-			$text = preg_replace( '~\n$~', '', $text );
-
-			return $text;
 		}
 	}
 
@@ -1191,7 +1137,7 @@ class Cite {
 			wfMessage( 'cite_error', wfMessage( $key, $param )->inContentLanguage()->plain() )->inContentLanguage()->plain() .
 			'</strong>';
 		if ( $parse == 'parse' ) {
-			$ret = $this->parse( $ret );
+			$ret = $this->mParser->recursiveTagParse( $ret );
 		}
 		return $ret;
 	}

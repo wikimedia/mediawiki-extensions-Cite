@@ -22,5 +22,7 @@
 	"cite_error_references_missing_group": "<code>&lt;references&gt;</code>-sildis kirjeldatud <code>&lt;ref&gt;</code>-sildil on rühmatunnus \"$1\", mis puudub eelnevas tekstis.",
 	"cite_error_references_missing_key": "<code>&lt;references&gt;</code>-siltide vahel olevat <code>&lt;ref&gt;</code>-silti nimega \"$1\" ei kasutata eelnevas tekstis.",
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>-siltide vahel määratletud <code>&lt;ref&gt;</code>-sildil puudub ''name''-atribuut.",
-	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>-siltide vahel oleval <code>&lt;ref&gt;</code>-sildil nimega \"$1\" puudub sisu."
+	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>-siltide vahel oleval <code>&lt;ref&gt;</code>-sildil nimega \"$1\" puudub sisu.",
+	"cite_references_link_accessibility_label": "Siirdu üles",
+	"cite_references_link_many_accessibility_label": "Siirdu üles asukohta:"
 }

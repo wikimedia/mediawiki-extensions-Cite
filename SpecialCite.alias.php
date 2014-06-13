@@ -354,6 +354,11 @@ $specialPageAliases['sq'] = array(
 	'Cite' => array( 'Citim' ),
 );
 
+/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
+$specialPageAliases['sr-ec'] = array(
+	'Cite' => array( 'Цитирај' ),
+);
+
 /** Swedish (svenska) */
 $specialPageAliases['sv'] = array(
 	'Cite' => array( 'Citera' ),

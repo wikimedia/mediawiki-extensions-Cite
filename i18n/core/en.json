@@ -14,7 +14,6 @@
     "cite_error_no_link_label_group": "Ran out of custom link labels for group \"$1\".\nDefine more in the <nowiki>[[MediaWiki:$2]]</nowiki> message.",
     "cite_error_references_no_text": "Invalid <code>&lt;ref&gt;</code> tag;\nno text was provided for refs named <code>$1</code>",
     "cite_error_included_ref": "Closing <code>&lt;/ref&gt;</code> missing for <code>&lt;ref&gt;</code> tag",
-    "cite_error_refs_without_references": "<code>&lt;ref&gt;</code> tags exist, but no <code>&lt;references/&gt;</code> tag was found",
     "cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code> tags exist for a group named \"$1\", but no corresponding <code>&lt;references group=\"$1\"/&gt;</code> tag was found, or a closing <code>&lt;/ref&gt;</code> is missing",
     "cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> tag in <code>&lt;references&gt;</code> has conflicting group attribute \"$1\".",
     "cite_error_references_missing_group": "<code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has group attribute \"$1\" which does not appear in prior text.",

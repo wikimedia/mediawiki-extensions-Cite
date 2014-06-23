@@ -79,7 +79,7 @@ function wfSpecialCiteToolbox( &$skin ) {
 			array( 'id' => 't-cite' ),
 			Linker::link(
 				SpecialPage::getTitleFor( 'Cite' ),
-				wfMessage( 'cite_article_link' )->text(), // @todo Should be escaped()?
+				$skin->msg( 'cite_article_link' )->escaped(),
 				# Used message keys: 'tooltip-cite-article', 'accesskey-cite-article'
 				Linker::tooltipAndAccessKeyAttribs( 'cite-article' ),
 				$skin->data['nav_urls']['cite']['args']

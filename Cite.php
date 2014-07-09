@@ -22,9 +22,16 @@ $wgHooks['ParserFirstCallInit'][] = 'wfCite';
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'Cite',
-	'author' => array( 'Ævar Arnfjörð Bjarmason', 'Marius Hoch' ),
+	'author' => array(
+		'Ævar Arnfjörð Bjarmason',
+		'Andrew Garrett',
+		'Brion Vibber',
+		'Marius Hoch',
+		'Steve Sanbeg'
+	),
 	'descriptionmsg' => 'cite-desc',
-	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Cite.php'
+	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Cite.php',
+	'license-name' => 'GPLv2',
 );
 
 $wgParserTestFiles[] = __DIR__ . "/citeParserTests.txt";

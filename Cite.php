@@ -46,11 +46,6 @@ $wgAllowCiteGroups = true;
 $wgCiteCacheReferences = false;
 
 /**
- * Enables experimental popups
- */
-$wgCiteEnablePopups = false;
-
-/**
  * Performs the hook registration.
  * Note that several extensions (and even core!) try to detect if Cite is
  * installed by looking for wfCite().
@@ -76,20 +71,6 @@ $wgResourceModules['ext.cite'] = $citeResourceTemplate + array(
 		'cite_references_link_accessibility_label',
 		'cite_references_link_many_accessibility_label',
 	),
-);
-
-$wgResourceModules['ext.cite.popups'] = $citeResourceTemplate + array(
-	'scripts' => 'ext.cite.popups.js',
-	'position' => 'bottom',
-	'dependencies' => array(
-		'jquery.tooltip',
-	),
-);
-
-$wgResourceModules['jquery.tooltip'] = $citeResourceTemplate + array(
-	'styles' => 'jquery.tooltip/jquery.tooltip.css',
-	'scripts' => 'jquery.tooltip/jquery.tooltip.js',
-	'position' => 'bottom',
 );
 
 /* Add RTL fix for the cite <sup> elements */

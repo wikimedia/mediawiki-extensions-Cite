@@ -4,7 +4,8 @@
 			"Ebraminio",
 			"Huji",
 			"Wayiran",
-			"ZxxZxxZ"
+			"ZxxZxxZ",
+			"Reza1615"
 		]
 	},
 	"cite-desc": "برچسب‌های <nowiki><ref[ name=id]></nowiki> و <nowiki><references/></nowiki> را برای یادکرد اضافه می‌کند",
@@ -19,7 +20,6 @@
 	"cite_error_no_link_label_group": "از برچسب‌های پیوند سفارشی برای گروه «$1» خارج شد.\nدر پیغام <nowiki>[[MediaWiki:$2]]</nowiki> بیشتر تعریف کنید.",
 	"cite_error_references_no_text": "برچسب <code><ref></code> نامجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است",
 	"cite_error_included_ref": "برچسب تمام کنندهٔ <code>&lt;/ref&gt;</code> بدون برچسب <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "برچسب <code>&lt;ref&gt;</code> وجود دارد اما برچسب <code>&lt;references/&gt;</code> پیدا نشد",
 	"cite_error_group_refs_without_references": "برچسب <code>&lt;ref&gt;</code> برای گروهی به نام «$1» وجود دارد، اما برچسب متناظر با <code>&lt;references group=\"$1\"/&gt;</code> یافت نشد یا <code>&lt;/ref&gt;</code> بسته جا گذاشته شده‌است.",
 	"cite_error_references_group_mismatch": "برچسپ <code>&lt;ref&gt;</code> درون <code>&lt;references&gt;</code> در تضاد با ویژگی‌های گروه «$1» است.",
 	"cite_error_references_missing_group": "برچسپ <code>&lt;ref&gt;</code> در <code>&lt;references&gt;</code> تعریف شده، ویژگی‌های گروهی «$1» را دارد که درون متن قبل از آن ظاهر نمی‌شود.",
@@ -29,5 +29,6 @@
 	"cite_reference_link_key_with_num": "$1_$2",
 	"cite_reference_link_prefix": "cite_ref-",
 	"cite_references_link_accessibility_label": "پرش به بالا",
-	"cite_references_link_many_accessibility_label": "پرش به بالا به:"
+	"cite_references_link_many_accessibility_label": "پرش به بالا به:",
+	"cite_error_refs_without_references_category-desc": "این صفحه دارای <code><nowiki><ref></nowiki></code> است که به صورت گروهی تعریف نشده‌اند، ولی برچسب <code><nowiki><references /></nowiki></code> ندارد."
 }

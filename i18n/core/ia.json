@@ -16,7 +16,6 @@
 	"cite_error_no_link_label_group": "Exhauriva le etiquettas de ligamine personalisabile pro le gruppo \"$1\".\nDefini plus de istes in le message <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Etiquetta <code>&lt;ref&gt;</code> invalide;\nnulle texto esseva fornite pro le refs nominate <code>$1</code>",
 	"cite_error_included_ref": "Le clausura <code>&lt;/ref&gt;</code> manca pro le etiquetta <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Il existe etiquettas <code>&lt;ref&gt;</code>, ma nulle etiquetta <code>&lt;references/&gt;</code> ha essite trovate",
 	"cite_error_group_refs_without_references": "Il existe etiquettas <code>&lt;ref&gt;</code>  pro un gruppo con nomine \"$1\", ma nulle etiquetta <code>&lt;references group=\"$1\"/&gt;</code> correspondente ha essite trovate, o un etiquetta de termination <code>&lt;/ref&gt;</code> manca.",
 	"cite_error_references_group_mismatch": "Le etiquetta <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> ha un attributo de gruppo \"$1\" confligente.",
 	"cite_error_references_missing_group": "Le etiquetta <code>&lt;ref&gt;</code> definite in <code>&lt;references&gt;</code> ha un attributo de gruppo \"$1\" que non appare in le texto precedente.",
@@ -24,5 +23,6 @@
 	"cite_error_references_no_key": "Le etiquetta <code>&lt;ref&gt;</code> definite in <code>&lt;references&gt;</code> non ha un attributo de nomine.",
 	"cite_error_empty_references_define": "Le etiquetta <code>&lt;ref&gt;</code> definite in <code>&lt;references&gt;</code> con nomine \"$1\" ha nulle contento.",
 	"cite_references_link_accessibility_label": "Retornar",
-	"cite_references_link_many_accessibility_label": "Retornar a:"
+	"cite_references_link_many_accessibility_label": "Retornar a:",
+	"cite_error_refs_without_references_category-desc": "Le pagina defini <code><nowiki><ref></nowiki></code>erentias sin gruppo specific, ma non ha un etiquetta <code><nowiki><references /></nowiki></code> explicite."
 }

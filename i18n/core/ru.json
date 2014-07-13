@@ -25,7 +25,6 @@
 	"cite_error_no_link_label_group": "Закончились отметки пользовательских ссылок для группы «$1».\nОпределите дополнительные в сообщении <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст",
 	"cite_error_included_ref": "Отсутствует закрывающий тег <code>&lt;/ref&gt;</code>",
-	"cite_error_refs_without_references": "Для существующего тега <code>&lt;ref&gt;</code> не найдено соответствующего тега <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "Для существующих тегов <code>&lt;ref&gt;</code> группы «$1» не найдено соответствующего тега <code>&lt;references group=\"$1\"/&gt;</code> или пропущен закрывающий тег <code>&lt;/ref&gt;</code>",
 	"cite_error_references_group_mismatch": "Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> имеет конфликтующие группы атрибутов «$1».",
 	"cite_error_references_missing_group": "Тег <code>&lt;ref&gt;</code>, определённый в <code>&lt;references&gt;</code>, имеет атрибут группы «$1», который не упоминается в тексте ранее.",
@@ -41,5 +40,6 @@
 	"cite_references_link_many_sep": "&#32;",
 	"cite_references_link_many_and": "&#32;",
 	"cite_references_link_accessibility_label": "Перейти",
-	"cite_references_link_many_accessibility_label": "Перейти к:"
+	"cite_references_link_many_accessibility_label": "Перейти к:",
+	"cite_error_refs_without_references_category-desc": "На странице есть теги <code><nowiki><ref></nowiki></code>, не относящиеся к определённой группы, но на ней нет явного указания тега <code><nowiki><references /></nowiki></code>."
 }

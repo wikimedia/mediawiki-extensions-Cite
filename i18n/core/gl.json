@@ -18,7 +18,6 @@
 	"cite_error_no_link_label_group": "As etiquetas personalizadas esgotáronse para o grupo \"$1\".\nDefina máis na mensaxe <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Etiqueta <code>&lt;ref&gt;</code> non válida;\nnon se forneceu texto para as referencias de nome <code>$1</code>",
 	"cite_error_included_ref": "Peche a etiqueta <code>&lt;/ref&gt;</code> que lle falta á outra etiqueta <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "As etiquetas <code>&lt;ref&gt;</code> existen, pero non se atopou ningunha etiqueta <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "As etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado \"$1\", pero non se atopou a etiqueta <code>&lt;references group=\"$1\"/&gt;</code> correspondente ou falta unha etiqueta <code>&lt;/ref&gt;</code> de peche",
 	"cite_error_references_group_mismatch": "A etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> ten un atributo de grupo conflitivo \"$1\".",
 	"cite_error_references_missing_group": "A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> ten un atributo de grupo \"$1\" que non aparece no texto anterior.",
@@ -26,5 +25,6 @@
 	"cite_error_references_no_key": "A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> non ten nome de atributo.",
 	"cite_error_empty_references_define": "A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> co nome \"$1\" non ten contido.",
 	"cite_references_link_accessibility_label": "Saltar a",
-	"cite_references_link_many_accessibility_label": "Saltar a:"
+	"cite_references_link_many_accessibility_label": "Saltar a:",
+	"cite_error_refs_without_references_category-desc": "A páxina ten definidas <code><nowiki><ref></nowiki></code> sen ningún grupo específico, pero non conta cunha etiqueta <code><nowiki><references /></nowiki></code> explícita."
 }

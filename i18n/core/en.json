@@ -36,7 +36,5 @@
     "cite_references_link_accessibility_label": "Jump up",
     "cite_references_link_many_accessibility_label": "Jump up to:",
     "cite_references_prefix": "<ol class=\"references\">",
-    "cite_references_suffix": "</ol>",
-    "cite_error_refs_without_references_category": "-",
-    "cite_error_refs_without_references_category-desc": "The page has <code><nowiki><ref></nowiki></code>s defined with no specific group, but it has no explicit <code><nowiki><references /></nowiki></code> tag."
+    "cite_references_suffix": "</ol>"
 }

@@ -49,7 +49,5 @@
 	"cite_references_link_accessibility_label": "Text for screen readers to describe the jump to citation link (\"↑\").\n\nSee also:\n* {{msg-mw|Cite references link many accessibility label}} - if the citation is used multiple times",
 	"cite_references_link_many_accessibility_label": "Text for screen readers to describe the jump to citation links (a b c ...) for citations which are used in multiple places.\n\nThis is going to be prepended to the first link, the following ones will just be read by screen readers as they are visible.\n\nSee also:\n* {{msg-mw|Cite references link accessibility label}} - if the citation is used one time",
 	"cite_references_prefix": "{{notranslate}}",
-	"cite_references_suffix": "{{notranslate}}",
-	"cite_error_refs_without_references_category": "Name of [[mw:Special:MyLanguage/Help:Tracking categories|tracking category]] where pages that have <code><nowiki><ref></nowiki></code>s but not <code><nowiki><references /></nowiki></code> are listed.",
-	"cite_error_refs_without_references_category-desc": "Automatically-included <code><nowiki><references /></nowiki></code> description. Shown on [[Special:TrackingCategories]]."
+	"cite_references_suffix": "{{notranslate}}"
 }

@@ -33,8 +33,6 @@ $wgExtensionMessagesFiles['Cite'] = __DIR__ . "/Cite.i18n.php";
 $wgAutoloadClasses['Cite'] = __DIR__ . "/Cite_body.php";
 $wgSpecialPageGroups['Cite'] = 'pagetools';
 
-$wgTrackingCategories[] = 'cite_error_refs_without_references_category';
-
 define( 'CITE_DEFAULT_GROUP', '' );
 /**
  * The emergency shut-off switch.  Override in local settings to disable

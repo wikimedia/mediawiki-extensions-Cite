@@ -15,7 +15,7 @@ if ( !function_exists( 'wfJsonI18nShim857dcab70cc9660a' ) ) {
 	function wfJsonI18nShim857dcab70cc9660a( $cache, $code, &$cachedData ) {
 		$codeSequence = array_merge( array( $code ), $cachedData['fallbackSequence'] );
 		foreach ( $codeSequence as $csCode ) {
-			$fileName = dirname( __FILE__ ) . "/i18n/core/$csCode.json";
+			$fileName = dirname( __FILE__ ) . "/i18n/$csCode.json";
 			if ( is_readable( $fileName ) ) {
 				$data = FormatJson::decode( file_get_contents( $fileName ), true );
 				foreach ( array_keys( $data ) as $key ) {

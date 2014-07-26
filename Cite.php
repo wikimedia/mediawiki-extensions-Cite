@@ -8,7 +8,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * @file
  * @ingroup Extensions
  *
- * @link http://www.mediawiki.org/wiki/Extension:Cite/Cite.php Documentation
+ * @link http://www.mediawiki.org/wiki/Extension:Cite Documentation
  *
  * @bug 4579
  *
@@ -30,15 +30,14 @@ $wgExtensionCredits['parserhook'][] = array(
 		'Steve Sanbeg'
 	),
 	'descriptionmsg' => 'cite-desc',
-	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite/Cite.php',
 	'license-name' => 'GPLv2',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite'
 );
 
 $wgParserTestFiles[] = __DIR__ . "/citeParserTests.txt";
-$wgMessagesDirs['Cite'] = __DIR__ . '/i18n/core';
+$wgMessagesDirs['Cite'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Cite'] = __DIR__ . "/Cite.i18n.php";
 $wgAutoloadClasses['Cite'] = __DIR__ . "/Cite_body.php";
-$wgSpecialPageGroups['Cite'] = 'pagetools';
 
 define( 'CITE_DEFAULT_GROUP', '' );
 /**

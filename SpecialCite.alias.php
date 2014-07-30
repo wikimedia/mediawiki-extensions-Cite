@@ -299,6 +299,11 @@ $specialPageAliases['oc'] = array(
 	'Cite' => array( 'Citar' ),
 );
 
+/** Punjabi (ਪੰਜਾਬੀ) */
+$specialPageAliases['pa'] = array(
+	'Cite' => array( 'ਹਵਾਲਾ' ),
+);
+
 /** Polish (polski) */
 $specialPageAliases['pl'] = array(
 	'Cite' => array( 'Cytuj' ),

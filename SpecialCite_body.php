@@ -34,7 +34,7 @@ class CiteForm {
 	/**
 	 * @var Title
 	 */
-	var $mTitle;
+	public $mTitle;
 
 	function __construct( &$title ) {
 		$this->mTitle =& $title;
@@ -80,26 +80,26 @@ class CiteOutput {
 	/**
 	 * @var Title
 	 */
-	var $mTitle;
+	public $mTitle;
 
 	/**
 	 * @var Article
 	 */
-	var $mArticle;
+	public $mArticle;
 
-	var $mId;
+	public $mId;
 
 	/**
 	 * @var Parser
 	 */
-	var $mParser;
+	public $mParser;
 
 	/**
 	 * @var ParserOptions
 	 */
-	var $mParserOptions;
+	public $mParserOptions;
 
-	var $mSpTitle;
+	public $mSpTitle;
 
 	function __construct( $title, $id ) {
 		global $wgHooks, $wgParser;

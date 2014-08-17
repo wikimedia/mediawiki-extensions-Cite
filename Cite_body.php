@@ -53,21 +53,21 @@ class Cite {
 	 *
 	 * @var array
 	 **/
-	var $mRefs = array();
+	public $mRefs = array();
 
 	/**
 	 * Count for user displayed output (ref[1], ref[2], ...)
 	 *
 	 * @var int
 	 */
-	var $mOutCnt = 0;
-	var $mGroupCnt = array();
+	public $mOutCnt = 0;
+	public $mGroupCnt = array();
 
 	/**
 	 * Counter to track the total number of (useful) calls to either the
 	 * ref or references tag hook
 	 */
-	var $mCallCnt = 0;
+	public $mCallCnt = 0;
 
 	/**
 	 * The backlinks, in order, to pass as $3 to
@@ -76,19 +76,19 @@ class Cite {
 	 *
 	 * @var array
 	 */
-	var $mBacklinkLabels;
+	public $mBacklinkLabels;
 
 	/**
 	 * The links to use per group, in order.
 	 *
 	 * @var array
 	 */
-	var $mLinkLabels = array();
+	public $mLinkLabels = array();
 
 	/**
 	 * @var Parser
 	 */
-	var $mParser;
+	public $mParser;
 
 	/**
 	 * True when the ParserAfterParse hook has been called.
@@ -96,7 +96,7 @@ class Cite {
 	 *
 	 * @var boolean
 	 */
-	var $mHaveAfterParse = false;
+	public $mHaveAfterParse = false;
 
 	/**
 	 * True when a <ref> tag is being processed.
@@ -104,7 +104,7 @@ class Cite {
 	 *
 	 * @var boolean
 	 */
-	var $mInCite = false;
+	public $mInCite = false;
 
 	/**
 	 * True when a <references> tag is being processed.
@@ -112,21 +112,21 @@ class Cite {
 	 *
 	 * @var boolean
 	 */
-	var $mInReferences = false;
+	public $mInReferences = false;
 
 	/**
 	 * Error stack used when defining refs in <references>
 	 *
 	 * @var array
 	 */
-	var $mReferencesErrors = array();
+	public $mReferencesErrors = array();
 
 	/**
 	 * Group used when in <references> block
 	 *
 	 * @var string
 	 */
-	var $mReferencesGroup = '';
+	public $mReferencesGroup = '';
 
 	/**
 	 * <ref> call stack
@@ -135,7 +135,7 @@ class Cite {
 	 *
 	 * @var array
 	 */
-	var $mRefCallStack = array();
+	public $mRefCallStack = array();
 
 	/**
 	 * Did we install us into $wgHooks yet?

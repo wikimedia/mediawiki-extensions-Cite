@@ -28,6 +28,5 @@
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code> 中定義的<code>&lt;ref&gt;</code> 沒有設定 name 屬性。",
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code> 中定義的 <code>&lt;ref&gt;</code> 的 name 屬性 \"$1\" 沒有任何內容。",
 	"cite_references_link_accessibility_label": "移至",
-	"cite_references_link_many_accessibility_label": "移至：",
-	"cite_error_refs_without_references_category-desc": "頁面已定義　<code><nowiki><ref></nowiki></code> 且未指定群組，但未明確定義 <code><nowiki><references /></nowiki></code> 標籤。"
+	"cite_references_link_many_accessibility_label": "移至："
 }

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sp5uhe"
+			"Sp5uhe",
+			"Tar Lócesilion"
 		]
 	},
 	"cite_article_desc": "Dodaje stronę specjalną i guzik w toolbarze edycyjnym do obsługi [[Special:Cite|cytowania]]",
@@ -9,5 +10,5 @@
 	"tooltip-cite-article": "Informacja o tym jak należy cytować tę stronę",
 	"cite": "Bibliografia",
 	"cite_page": "Strona:",
-	"cite_submit": "stwórz wpis bibliograficzny"
+	"cite_submit": "stwórz przypis bibliograficzny"
 }

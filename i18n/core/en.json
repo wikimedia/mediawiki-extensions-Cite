@@ -1,6 +1,18 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Siebrand Mazeland",
+			"Robert Rohde",
+			"Tim Starling",
+			"Raimond Spekking",
+			"Alex Zariv",
+			"Federico Leva",
+			"Rotem Liss",
+			"Steve Sanbeg",
+			"Marius Hoch",
+			"Brion Vibber",
+			"Ævar Arnfjörð Bjarmason"
+		]
 	},
 	"cite-desc": "Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations",
 	"cite_error": "Cite error: $1",

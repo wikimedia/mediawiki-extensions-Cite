@@ -123,7 +123,8 @@ class CiteOutput {
 
 		$msg = wfMessage( 'cite_text' )->inContentLanguage()->plain();
 		if ( $msg == '' ) {
-			# With MediaWiki 1.20 the plain text files were deleted and the text moved into SpecialCite.i18n.php
+			# With MediaWiki 1.20 the plain text files were deleted
+			# and the text moved into SpecialCite.i18n.php.
 			# This code is kept for b/c in case an installation has its own file "cite_text-xx"
 			# for a previously not supported language.
 			global $wgContLang, $wgContLanguageCode;
@@ -135,7 +136,9 @@ class CiteOutput {
 				$msg = file_get_contents( "${dir}cite_text" );
 			}
 		}
-		$ret = $wgParser->parse( $msg, $this->mTitle, $this->mParserOptions, false, true, $this->getRevId() );
+		$ret = $wgParser->parse(
+			$msg, $this->mTitle, $this->mParserOptions, false, true, $this->getRevId()
+		);
 		$wgOut->addModules( 'ext.specialcite' );
 
 		# Introduced in 1.24

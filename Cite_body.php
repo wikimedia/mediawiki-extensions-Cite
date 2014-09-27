@@ -386,18 +386,19 @@ class Cite {
 				$this->mRefs[$group][$follow]['text'] = $this->mRefs[$group][$follow]['text'] . ' ' . $str;
 			} else {
 				// insert part of note at the beginning of the group
-				for ( $k = 0 ; $k < count( $this->mRefs[$group] ) ; $k++ ) {
+				$groupsCount = count( $this->mRefs[$group] );
+				for ( $k = 0; $k < $groupsCount; $k++ ) {
 					if ( $this->mRefs[$group][$k]['follow'] == null ) {
 						break;
 					}
 				}
 				array_splice( $this->mRefs[$group], $k, 0,
-						   array( array( 'count' => - 1,
-							  'text' => $str,
-							  'key' => ++$this->mOutCnt ,
-							  'follow' => $follow ) ) );
+					array( array( 'count' => - 1,
+						'text' => $str,
+						'key' => ++$this->mOutCnt ,
+						'follow' => $follow ) ) );
 				array_splice( $this->mRefCallStack, $k, 0,
-						   array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
+					array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
 			}
 			// return an empty string : this is not a reference
 			return '';
@@ -646,7 +647,8 @@ class Cite {
 		$suffix = wfMessage( 'cite_references_suffix' )->inContentLanguage()->plain();
 		$content = implode( "\n", $ent );
 
-		// Prepare the parser input. We add new lines between the pieces to avoid a confused tidy (bug 13073)
+		// Prepare the parser input.
+		// We add new lines between the pieces to avoid a confused tidy (bug 13073).
 		$parserInput = $prefix . "\n" . $content . "\n" . $suffix;
 
 		// Let's try to cache it.
@@ -1027,8 +1029,8 @@ class Cite {
 		}
 
 		$parser->extCite = clone $this;
-		$parser->setHook( 'ref' , array( $parser->extCite, 'ref' ) );
-		$parser->setHook( 'references' , array( $parser->extCite, 'references' ) );
+		$parser->setHook( 'ref', array( $parser->extCite, 'ref' ) );
+		$parser->setHook( 'references', array( $parser->extCite, 'references' ) );
 
 		// Clear the state, making sure it will actually work.
 		$parser->extCite->mInCite = false;
@@ -1070,15 +1072,17 @@ class Cite {
 			if ( $group == CITE_DEFAULT_GROUP ) {
 				$text .= $this->referencesFormat( $group, '', '' );
 			} else {
-				$text .= "\n<br />" . $this->error( 'cite_error_group_refs_without_references', htmlspecialchars( $group ) );
+				$text .= "\n<br />" .
+					$this->error( 'cite_error_group_refs_without_references', htmlspecialchars( $group ) );
 			}
 		}
 		return true;
 	}
 
 	/**
-	 * Hook for the InlineEditor extension. If any ref or reference reference tag is in the text, the entire
-	 * page should be reparsed, so we return false in that case.
+	 * Hook for the InlineEditor extension.
+	 * If any ref or reference reference tag is in the text,
+	 * the entire page should be reparsed, so we return false in that case.
 	 *
 	 * @param $output
 	 *
@@ -1110,8 +1114,8 @@ class Cite {
 			$wgHooks['InlineEditorPartialAfterParse'][] = array( $parser->extCite, 'checkAnyCalls' );
 			Cite::$hooksInstalled = true;
 		}
-		$parser->setHook( 'ref' , array( $parser->extCite, 'ref' ) );
-		$parser->setHook( 'references' , array( $parser->extCite, 'references' ) );
+		$parser->setHook( 'ref', array( $parser->extCite, 'ref' ) );
+		$parser->setHook( 'references', array( $parser->extCite, 'references' ) );
 
 		return true;
 	}
@@ -1128,12 +1132,16 @@ class Cite {
 		# We rely on the fact that PHP is okay with passing unused argu-
 		# ments to functions.  If $1 is not used in the message, wfMessage will
 		# just ignore the extra parameter.
-		$ret = '<strong class="error mw-ext-cite-error">' .
-			wfMessage( 'cite_error', wfMessage( $key, $param )->inContentLanguage()->plain() )->inContentLanguage()->plain() .
-			'</strong>';
+		$msg = wfMessage( 'cite_error', wfMessage( $key, $param )->inContentLanguage()->plain() )
+			->inContentLanguage()
+			->plain();
+
+		$ret = '<strong class="error mw-ext-cite-error">' . $msg . '</strong>';
+
 		if ( $parse == 'parse' ) {
 			$ret = $this->mParser->recursiveTagParse( $ret );
 		}
+
 		return $ret;
 	}
 

@@ -988,7 +988,7 @@ class Cite {
 		if ( $msg->exists() ) {
 			$text = $msg->plain();
 		}
-		$this->mLinkLabels[$group] = ( $text == '' ) ? false : preg_split( '#[\n\t ]#', $text );
+		$this->mLinkLabels[$group] = ( !$text ) ? false : preg_split( '#[\n\t ]#', $text );
 		wfProfileOut( __METHOD__ );
 	}
 

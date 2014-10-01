@@ -158,19 +158,24 @@ class Cite {
 	function ref( $str, $argv, $parser, $frame ) {
 		if ( $this->mInCite ) {
 			return htmlspecialchars( "<ref>$str</ref>" );
-		} else {
-			$this->mCallCnt++;
-			$this->mInCite = true;
-			$ret = $this->guardedRef( $str, $argv, $parser );
-			$this->mInCite = false;
-			$parserOutput = $parser->getOutput();
-			$parserOutput->addModules( 'ext.cite' );
-			$parserOutput->addModuleStyles( 'ext.rtlcite' );
-			if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
-				$frame->setVolatile();
-			}
-			return $ret;
 		}
+
+		$this->mCallCnt++;
+		$this->mInCite = true;
+
+		$ret = $this->guardedRef( $str, $argv, $parser );
+
+		$this->mInCite = false;
+
+		$parserOutput = $parser->getOutput();
+		$parserOutput->addModules( 'ext.cite' );
+		$parserOutput->addModuleStyles( 'ext.rtlcite' );
+
+		if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
+			$frame->setVolatile();
+		}
+
+		return $ret;
 	}
 
 	/**

@@ -779,7 +779,7 @@ class Cite {
 	 * @return String
 	 */
 	function referenceText( $key, $text ) {
-		if ( $text == '' ) {
+		if ( !isset( $text ) || $text === '' ) {
 			return $this->error( 'cite_error_references_no_text', $key, 'noparse' );
 		}
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";

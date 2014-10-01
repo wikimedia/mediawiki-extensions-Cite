@@ -720,7 +720,7 @@ class Cite {
 					$this->referencesKey( $val['follow'] ),
 					$text
 				)->inContentLanguage()->plain();
-		} elseif ( $val['text'] == '' ) {
+		} elseif ( !isset( $val['text'] ) ) {
 			return wfMessage(
 						'cite_references_link_one',
 						$this->referencesKey( $key ),

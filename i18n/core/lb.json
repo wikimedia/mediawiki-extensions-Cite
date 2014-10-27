@@ -15,7 +15,6 @@
 	"cite_error_references_invalid_parameters_group": "Ongëltege  <code>&lt;references&gt;</code> Tag;\nnëmmen de Parameter \"group\" ass erlaabt.\nBenotzt <code>&lt;references /&gt;</code>, oder <code>&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_text": "Ongëlteg <code>&lt;ref&gt;</code> Markéierung;\net gouf keen Text ugi fir d'Referenze mam Numm <code>$1</code>",
 	"cite_error_included_ref": "Den Tag <code>&lt;/ref&gt;</code> feelt fir den Tag <code>&lt;ref&gt;</code> zouzemaachen",
-	"cite_error_refs_without_references": "D'Markéierung <code>&lt;ref&gt;</code> gëtt et, awer d'Markéierung <code>&lt;references/&gt;</code> gouf net fonnt",
 	"cite_error_group_refs_without_references": "D'Markéierung <code>&lt;ref&gt;</code> gëtt et fir d'Grupp \"$1\", awer d'entspriechend Markéierung <code>&lt;references group=\"$1\"/&gt;</code> gouf net fonnt oder een <code>&lt;/ref&gt;</code> feelt",
 	"cite_error_references_group_mismatch": "Den <code>&lt;ref&gt;</code>-Tag an <code>&lt;references&gt;</code> huet den Attribut \"$1\" deen am Konflikt mat deem am <code>&lt;references&gt;</code> steet.",
 	"cite_error_references_missing_group": "Deen am <code>&lt;references&gt;</code> definéierten <code>&lt;ref&gt;</code>-Tag huet en Attribut \"$1\" deen am Text virdrun net dran ass.",

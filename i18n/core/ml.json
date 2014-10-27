@@ -17,7 +17,6 @@
 	"cite_error_no_link_label_group": "\"$1\" സംഘത്തിലെ കണ്ണികൾക്കായി നൽകുന്ന ഇച്ഛാനുസരണ കുറികൾ തീർന്നുപോയിരിക്കുന്നു.\nകൂടുതൽ <nowiki>[[MediaWiki:$2]]</nowiki> സന്ദേശത്തിൽ നിർവചിക്കുക.",
 	"cite_error_references_no_text": "അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;\n<code>$1</code> എന്ന അവലംബങ്ങൾക്ക് ടെക്സ്റ്റ് ഒന്നും കൊടുത്തിട്ടില്ല.",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> റ്റാഗിനു <code>&lt;/ref&gt;</code> എന്ന അന്ത്യറ്റാഗ് നൽകിയിട്ടില്ല",
-	"cite_error_refs_without_references": "<code>&lt;ref&gt;</code> റ്റാഗുകൾ നൽകിയിട്ടുണ്ട്, പക്ഷേ <code>&lt;references/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല.",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code> റ്റാഗുകൾ \"$1\" സംഘത്തിൽ ഉണ്ട്, പക്ഷേ ബന്ധപ്പെട്ട <code>&lt;references group=\"$1\"/&gt;</code> റ്റാഗ് കണ്ടെത്താനായില്ല അല്ലെങ്കിൽ അടയ്ക്കാനുള്ള <code>&lt;/ref&gt;</code> നൽകിയിട്ടില്ല",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> റ്റാഗിലേയും <code>&lt;references&gt;</code> എന്നതിലേയും സംഘ ഘടകമായ \"$1\" ഒത്തുപോകുന്നില്ല.",
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> റ്റാഗ് നിർവചിച്ചിട്ടുണ്ടെങ്കിലും <code>&lt;references&gt;</code> എന്നതിലുള്ള സംഘ ഘടകം \"$1\" ആദ്യ എഴുത്തിൽ കാണുന്നില്ല.",

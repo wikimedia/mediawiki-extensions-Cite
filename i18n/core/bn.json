@@ -19,7 +19,6 @@
 	"cite_error_no_link_label_group": "গ্রুপ \"$1\" এর জন্য কাস্টম লিংক ব্যবহারের সীমানা পেরিয়েছে।\n<nowiki>[[MediaWiki:$2]]</nowiki> বার্তায় আরও সজ্ঞায়িত করুন।",
 	"cite_error_references_no_text": "অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের ref গুলির জন্য কোন টেক্সট প্রদান করা হয়নি",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> ট্যাগের ক্ষেত্রে <code>&lt;/ref&gt;</code> ট্যাগ যোগ করা হয়নি",
-	"cite_error_refs_without_references": "<code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু কোনো <code>&lt;references/&gt;</code> ট্যাগ নেই",
 	"cite_error_group_refs_without_references": "\"$1\" নামের গ্রুপের <code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু এর জন্য <code>&lt;references group=\"$1\"/&gt;</code> ট্যাগ দেয়া হয়নি",
 	"cite_error_references_group_mismatch": "\"$1\" গ্রুপের ক্ষেত্রে <code>&lt;ref&gt;</code> ট্যাগ <code>&lt;references&gt;</code> ট্যাগের অংশে ব্যবহারে সমস্যা সৃষ্টি হয়েছে।"
 }

@@ -20,7 +20,6 @@
 	"cite_error_no_link_label_group": "\"$1\" करिता नमूदकेलेल्या कस्टम लिंक खूणा संपल्या .\n<nowiki>[[MediaWiki:$2]]</nowiki> संदेशात अधिक खूणा नमूद करा",
 	"cite_error_references_no_text": "<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> ला बंद करणारी <code>&lt;/ref&gt;</code> ही खूणपताका गायब आहे.",
-	"cite_error_refs_without_references": "या पानामधे \"<code>&lt;ref&gt;</code>\" ही खूणपताका(संदर्भटॅग) आहे, परंतु <code>&lt;references/&gt;</code> अथवा <code> <nowiki>{{</nowiki>\n</code>संदर्भयादी<code><nowiki>}}</nowiki></code>या  पैकी एकही  लावण्यात आलेले नाही.''' या पानात \"<code><nowiki>{{</nowiki></code>संदर्भयादी<code><nowiki>}}</nowiki></code>\" हा साचा कॉपीपेस्ट करावा''' ''कारण,त्याशिवाय पानाच्या तळाशी संदर्भांचे तपशील दिसणार नाहीत.''",
 	"cite_error_group_refs_without_references": "\"$1\" नावाच्या गटाकरिता <code>&lt;ref&gt;</code>खूणपताका उपलब्ध आहेत, पण संबंधीत <code>&lt;references group=\"$1\"/&gt;</code>  खूण मिळाली नाही.",
 	"cite_error_references_group_mismatch": "<code>&lt;references&gt;</code>मधील खूणपताकेस<code>&lt;ref&gt;</code> खूणांशी विसंवाद असणारे  group attribute \"$1\" आहे.",
 	"cite_error_references_missing_group": "गट \"$1\" मधील <code>&lt;ref&gt;</code> खूणपताका <code>&lt;references&gt;</code> ह्या पूर्वी वापल्या गेलेल्या नाहीत.",

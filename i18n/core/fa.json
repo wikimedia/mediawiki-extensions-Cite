@@ -29,6 +29,5 @@
 	"cite_reference_link_key_with_num": "$1_$2",
 	"cite_reference_link_prefix": "cite_ref-",
 	"cite_references_link_accessibility_label": "پرش به بالا",
-	"cite_references_link_many_accessibility_label": "پرش به بالا به:",
-	"cite_error_refs_without_references_category-desc": "این صفحه دارای <code><nowiki><ref></nowiki></code> است که به صورت گروهی تعریف نشده‌اند، ولی برچسب <code><nowiki><references /></nowiki></code> ندارد."
+	"cite_references_link_many_accessibility_label": "پرش به بالا به:"
 }

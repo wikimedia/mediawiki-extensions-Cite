@@ -18,7 +18,6 @@
 	"cite_error_no_link_label_group": "Nincs több egyedi címke a következő csoport számára: „$1”.\nAdj meg többet a <nowiki>[[MediaWiki:$2]]</nowiki> lapon.",
 	"cite_error_references_no_text": "Érvénytelen <code>&lt;ref&gt;</code> tag; nincs megadva szöveg a(z) <code>$1</code> nevű ref-eknek",
 	"cite_error_included_ref": "Egy <code>&lt;ref&gt;</code> tag lezáró <code>&lt;/ref&gt;</code> része hiányzik",
-	"cite_error_refs_without_references": "<code>&lt;ref&gt;</code>-ek vannak a lapon, de nincsen <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code>-ek léteznek a(z) „$1” csoporthoz, de nincs hozzá <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "A <code>&lt;references&gt;</code> és a benne található <code>&lt;ref&gt;</code> tag csoport-attribútuma („$1”) nem egyezik meg.",
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> tag lett lett definiálva egy olyan <code>&lt;references&gt;</code> tagben, amely csoport-attribútuma („$1”) nem szerepel a szöveg korábbi részében.",

@@ -24,7 +24,6 @@
 	"cite_error_no_link_label_group": "Закінчилися позначки користувальницьких посилань для групи \"$1\".\nВизначте додаткові в повідомленні <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Неправильний виклик <code>&lt;ref&gt;</code>:\nдля виносок <code>$1</code> не вказаний текст",
 	"cite_error_included_ref": "Відсутній тег <code>&lt;/ref&gt;</code> за наявності тега <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "<span style='color: red'>Для наявного тегу <code>&lt;ref&gt;</code> не знайдено відповідного тегу <code>&lt;references/&gt;</code></span>",
 	"cite_error_group_refs_without_references": "Теги <code>&lt;ref&gt;</code> існують для групи під назвою «$1», але не знайдено відповідного тегу <code>&lt;references group=\"$1\"/&gt;</code>, або ж бракує закриваючого <code>&lt;/ref&gt;</code>",
 	"cite_error_references_group_mismatch": "Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> має конфліктуючий атрибут групи \"$1\".",
 	"cite_error_references_missing_group": "Тег <code>&lt;ref&gt;</code>, заданий в <code>&lt;references&gt;</code>, має атрибут групи \"$1\", який не фігурує в попередньому тексті.",

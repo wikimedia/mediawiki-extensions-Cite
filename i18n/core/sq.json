@@ -17,7 +17,6 @@
 	"cite_error_no_link_label_group": "Nga ran e etiketave lidhje me porosi për grupin \"$1\". \nPercaktoni më shumë në <nowiki> [[MediaWiki:$2]] </nowiki> mesazh.",
 	"cite_error_references_no_text": "Etiketë <code>&lt;ref&gt;</code> e pavlefshme;\nasnjë tekst nuk u dha për refs e quajtura <code>$1</code>",
 	"cite_error_included_ref": "Duke mbyllur <code>&lt;/ref&gt;</code> mungon për etiketën <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Etiketat <code>&lt;ref&gt;</code> ekzistojnë, por nuk u gjet etiketa <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "Etiketat <code>&lt;ref&gt;</code> ekzistojnë për një grup të quajtur \"$1\", por nuk u gjet etiketa korresponduese <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> tag in <code>&lt;references&gt;</code> has conflicting group attribute \"$1\".",
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> etiketa e përcaktuar në <code>&lt;referenca&gt;</code> ka atribut grup \"$1\" që nuk duket në tekstin paraprak.",

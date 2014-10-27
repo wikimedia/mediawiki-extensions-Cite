@@ -18,7 +18,6 @@
 	"cite_error_no_link_label_group": "Gikk tom for egendefinerte lenkemerker for gruppen «$1».\nDefinér fler i <nowiki>[[MediaWiki:$2]]</nowiki>-beskjeden.",
 	"cite_error_references_no_text": "Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>",
 	"cite_error_included_ref": "Avsluttende <code>&lt;/ref&gt;</code>-tagg mangler for <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "<code>&lt;ref&gt;</code>-merker finnes, men ingen <code>&lt;references/&gt;</code>-merke funnet",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code>-merker finnes for gruppenavnet «$1», men ingen <code>&lt;references group=\"$1\"/&gt;</code>-merking ble funnet, eller det mangler et avsluttende <code>&lt;/ref&gt;</code>-merke.",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code>-tagg i <code>&lt;references&gt;</code> har motstridig attributt «$1».",
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code>-tagg definert i <code>&lt;references&gt;</code> har gruppeattributtet «$1» som ikke forekommer i teksten.",

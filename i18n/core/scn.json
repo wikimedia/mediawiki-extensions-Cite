@@ -17,7 +17,6 @@
 	"cite_error_references_no_backlink_label": "Etichetti di rimannata pirsunalizzati finuti, aumintari lu nùmmiru ntô missàggiu <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
 	"cite_error_references_no_text": "Marcaturi <code>&lt;ref&gt;</code> non vàlidu; non vinni nnicatu nuddu testu pô marcaturi <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> di chiusura mancanti pô marcaturi <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Sù prisenti dê marcatura <code>&lt;ref&gt;</code> ma nun fu attruvatu nissunu marcaturi <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "Sù prisenti dê marcatura <code>&lt;ref&gt;</code> pi nu gruppu chiamatu \"$1\" ma nun fu truvatu nissunu marcaturi <code>&lt;references group=\"$1\"/&gt;</code> currispunnenti",
 	"cite_error_references_group_mismatch": "Lu tag <code>&lt;ref&gt;</code> n <code>&lt;references&gt;</code> havi attribuiutu lu gruppu \"$1\" n conflittu.",
 	"cite_error_references_missing_group": "Lu tag <code>&lt;ref&gt;</code> difinutu n <code>&lt;references&gt;</code> havi n'attributu gruppu \"$1\" ca nun cumpari ni lu testu pricidenti.",

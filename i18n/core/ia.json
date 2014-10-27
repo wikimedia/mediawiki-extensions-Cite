@@ -23,6 +23,5 @@
 	"cite_error_references_no_key": "Le etiquetta <code>&lt;ref&gt;</code> definite in <code>&lt;references&gt;</code> non ha un attributo de nomine.",
 	"cite_error_empty_references_define": "Le etiquetta <code>&lt;ref&gt;</code> definite in <code>&lt;references&gt;</code> con nomine \"$1\" ha nulle contento.",
 	"cite_references_link_accessibility_label": "Retornar",
-	"cite_references_link_many_accessibility_label": "Retornar a:",
-	"cite_error_refs_without_references_category-desc": "Le pagina defini <code><nowiki><ref></nowiki></code>erentias sin gruppo specific, ma non ha un etiquetta <code><nowiki><references /></nowiki></code> explicite."
+	"cite_references_link_many_accessibility_label": "Retornar a:"
 }

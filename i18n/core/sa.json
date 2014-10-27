@@ -16,7 +16,6 @@
 	"cite_error_no_link_label_group": "\"$1\" आधारसमूहस्य कस्टं-सम्पर्क-लेबेल् न्यूनानि जातानि ।\n<nowiki>[[MediaWiki:$2]]</nowiki> सन्देशे अधिकं निर्वचनं दीयताम् ।",
 	"cite_error_references_no_text": "अमान्या <code>&lt;ref&gt;</code> शृङ्खला;\n<code>$1</code> इत्यस्य आधारः अज्ञातः",
 	"cite_error_included_ref": "समाप्तिः <code>&lt;/ref&gt;</code> <code>&lt;ref&gt;</code> शृङ्खला लुप्ता",
-	"cite_error_refs_without_references": "<code>&lt;ref&gt;</code>शृङ्खला विद्यते, किन्तु <code>&lt;references/&gt;</code> शृङ्खला न प्राप्ता",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code> \"$1\" नामकस्य गणस्य अङ्कनं विद्यते, कीन्तु किमपि अनुरूपं <code>&lt;references group=\"$1\"/&gt;</code> अङ्कनं न प्राप्तम्",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> टैग इन <code>&lt;references&gt;</code>सङ्घर्षगणलक्षणं \"$1\" विद्यते ।",
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> अङ्कनपरिभाषिते <code>&lt;references&gt;</code> एतस्मिन् गणस्य विशेषः \"$1\" यश्च पूर्वलेखे न दृष्टम् ।",

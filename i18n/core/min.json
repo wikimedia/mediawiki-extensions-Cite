@@ -16,7 +16,6 @@
 	"cite_error_no_link_label_group": "Label pautan untuak grup \"$1\" habih.\nTantukan labiah lanjuik dalam <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Tag <code>&lt;ref&gt;</code> indak sah; \nindak ado teks untuak ref banamo <code>$1</code>",
 	"cite_error_included_ref": "Tag <code>&lt;ref&gt;</code> harus ditutuik jo <code>&lt;/ref&gt;</code>",
-	"cite_error_refs_without_references": "Tag <code>&lt;ref&gt;</code> ado, tapi <code>&lt;references/&gt;</code> indak ado",
 	"cite_error_group_refs_without_references": "Tag <code>&lt;ref&gt;</code> ado untuak grup banamo \"$1\", tapi indak ado <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> ado namo grup \"$1\" nan konflik.",
 	"cite_error_references_missing_group": "Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> indak ado namo grup \"$1\".",

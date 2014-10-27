@@ -29,6 +29,5 @@
 	"cite_error_references_no_key": "Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag hat kein Namensattribut.",
 	"cite_error_empty_references_define": "Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ weist keinen Inhalt auf.",
 	"cite_references_link_accessibility_label": "Hochspringen",
-	"cite_references_link_many_accessibility_label": "Hochspringen nach:",
-	"cite_error_refs_without_references_category-desc": "Die Seite hat mindestens ein definiertes <code><nowiki><ref></nowiki></code> ohne einer bestimmten Gruppe, hat jedoch kein ausdrückliches <code><nowiki><references /></nowiki></code>-Tag."
+	"cite_references_link_many_accessibility_label": "Hochspringen nach:"
 }

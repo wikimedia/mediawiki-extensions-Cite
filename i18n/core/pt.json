@@ -30,6 +30,5 @@
 	"cite_error_references_no_key": "O elemento <code>&lt;ref&gt;</code> definido em <code>&lt;references&gt;</code> não tem um atributo de nome.",
 	"cite_error_empty_references_define": "O elemento <code>&lt;ref&gt;</code> definido em <code>&lt;references&gt;</code> com o nome \"$1\" não tem conteúdo.",
 	"cite_references_link_accessibility_label": "Ir para cima",
-	"cite_references_link_many_accessibility_label": "Ir para:",
-	"cite_error_refs_without_references_category-desc": "Esta página possui marcas <code><nowiki><ref></nowiki></code>, mas falta adicionar o código <code><nowiki><references /></nowiki></code>."
+	"cite_references_link_many_accessibility_label": "Ir para:"
 }

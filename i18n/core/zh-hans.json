@@ -32,6 +32,5 @@
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>没有给出名称（name）属性。",
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>中定义的<code>&lt;ref&gt;</code>的名称（name）“$1”为空。",
 	"cite_references_link_accessibility_label": "跳转",
-	"cite_references_link_many_accessibility_label": "跳转至：",
-	"cite_error_refs_without_references_category-desc": "页面有未具体定义的<code><nowiki><ref></nowiki></code>组，但它没有明确<code><nowiki><references /></nowiki></code>标签。"
+	"cite_references_link_many_accessibility_label": "跳转至："
 }

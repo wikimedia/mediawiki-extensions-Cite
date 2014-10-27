@@ -16,7 +16,6 @@
 	"cite_error_no_link_label_group": "Naubusan ng mga tatak ng pasadyang kawing para sa pangkat na \"$1\".\nMagbigay ng marami pang kahulugan sa loob ng mensaheng <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Hindi tanggap ang tatak na <code>&lt;ref&gt;</code>;\nwalang tekstong ibinigay para sa mga sangguniang (''ref'') pinangalanang <code>$1</code>",
 	"cite_error_included_ref": "Naawawala ang pansarang <code>&lt;/ref&gt;</code> na para sa tatak na <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Umiiral na ang mga tatak na <code>&lt;ref&gt;</code>, subalit walang natagpuang tatak na <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "Umiiral na ang tatak na <code>&lt;ref&gt;</code> para sa pangkat na pinangalanang \"$1\", subalit walang natagpuang katumbas na tatak na <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "May hindi nagbabanggaang katangiang pampangkat na \"$1\" ang <code>&lt;ref&gt;</code> tatak na nasa <code>&lt;references&gt;</code>.",
 	"cite_error_references_missing_group": "Ang tatak na <code>&lt;ref&gt;</code> na binigyang kahulugan sa <code>&lt;references&gt;</code> ay may katangiang pampangkat na \"$1\" na hindi lumilitawa sa naunang teksto.",

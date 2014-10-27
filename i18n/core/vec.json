@@ -16,7 +16,6 @@
 	"cite_error_no_link_label_group": "Etichete esaurìe par colegamenti personalizà del grupo \"$1\", aumentarne el numaro nel messajo <nowiki>[[MediaWiki:$2]]</nowiki>",
 	"cite_error_references_no_text": "Marcator <code>&lt;ref&gt;</code> mìa valido; no xe stà indicà nissun testo par el marcator <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> de chiusura mancante par el marcador <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Ghe xe un tag <code>&lt;ref&gt;</code>, ma no xe stà catà nissun tag <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "Ghe xe un tag <code>&lt;ref&gt;</code> par un grupo che se ciama \"$1\", ma no xe stà catà nissun tag <code>&lt;references group=\"$1\"/&gt;</code> che corisponda.",
 	"cite_error_references_group_mismatch": "El tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> el gà l'atributo de grupo \"$1\" in conflito.",
 	"cite_error_references_missing_group": "El tag <code>&lt;ref&gt;</code> definìo in <code>&lt;references&gt;</code> el gà un atributo de grupo \"$1\" che no conpare mia nel testo precedente.",

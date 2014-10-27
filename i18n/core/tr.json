@@ -18,7 +18,6 @@
 	"cite_error_no_link_label_group": "\"$1\" grubu için özel bağlantı etiketleri bitti.\n<nowiki>[[MediaWiki:$2]]</nowiki> mesajında daha fazla tanımlayın.",
 	"cite_error_references_no_text": "Geçersiz <code>&lt;ref&gt;</code> etiketi;\n<code>$1</code> isimli refler için metin temin edilmemiş",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> etiketi için <code>&lt;/ref&gt;</code> kapanışı eksik",
-	"cite_error_refs_without_references": "<code>&lt;ref&gt;</code> etiketleri var, ama <code>&lt;references/&gt;</code> etiketi bulunamadı",
 	"cite_error_group_refs_without_references": "\"$1\" isimli grup için <code>&lt;ref&gt;</code> etiketleri mevcut, ancak karşılık gelen <code>&lt;references group=\"$1\"/&gt;</code> etiketi bulunamadı",
 	"cite_error_references_group_mismatch": "<code>&lt;references&gt;</code>'daki <code>&lt;ref&gt;</code> etiketinin çelişen \"$1\" grup özniteliği var.",
 	"cite_error_references_missing_group": "<code>&lt;references&gt;</code>'da tanımlanan <code>&lt;ref&gt;</code> etiketinin önceki metinde olmayan \"$1\" grup özniteliği var.",

@@ -16,7 +16,6 @@
 	"cite_error_no_link_label_group": "Дішли дефінованы значкы про ґрупу „$1“.\nЗвыште їх чісло у повідомлїню <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Хыба в таґу <code>&lt;ref&gt;</code>; цітації означеной <code>$1</code> не є доданый жаден текст",
 	"cite_error_included_ref": "Хыбить закінчіня <code>&lt;/ref&gt;</code> k&nbsp;таґу <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Найджена значка <code>&lt;ref&gt;</code> без одповідной значкы <code>&lt;references/&gt;</code>.",
 	"cite_error_group_refs_without_references": "Найдена значка <code>&lt;ref&gt;</code> про ґрупу „$1“, але не існує приналежна значка <code>&lt;references group=\"$1\"/&gt;</code> або хыбить заперачій <code>&lt;/ref&gt;</code>.",
 	"cite_error_references_group_mismatch": "Значка <code>&lt;ref&gt;</code> внутрї <code>&lt;references&gt;</code> має дефіновану іншу ґрупу „$1“.",
 	"cite_error_references_missing_group": "Значка <code>&lt;ref&gt;</code> внутрї <code>&lt;references&gt;</code> хоснує ґрупу „$1“, котра ся в попереднїм текстї не обявує.",

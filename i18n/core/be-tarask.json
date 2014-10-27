@@ -19,7 +19,6 @@
 	"cite_error_no_link_label_group": "Скончыліся нестандартныя меткі спасылак для групы «$1».\nВызначыце болей у паведамленьні <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Няслушны тэг <code>&lt;ref&gt;</code>;\nняма тэксту ў назьве зносак <code>$1</code>",
 	"cite_error_included_ref": "Няма закрываючага тэга  <code>&lt;/ref&gt;</code> пасьля адкрытага тэга <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Тэг <code>&lt;ref&gt;</code> існуе, але ня знойдзена тэга <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "Тэг <code>&lt;ref&gt;</code> існуе для групы «$1», але адпаведнага тэга <code>&lt;references group=\"$1\"/&gt;</code> ня знойдзена. Магчыма, адсутнічае фінальны тэг <code>&lt;/ref&gt;</code>",
 	"cite_error_references_group_mismatch": "Тэг <code>&lt;ref&gt;</code> у <code>&lt;references&gt;</code> утрымлівае канфліктуючы атрыбут групы «$1».",
 	"cite_error_references_missing_group": "Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> утрымлівае атрыбут групы «$1», які раней не выкарыстоўваўся ў тэксьце.",

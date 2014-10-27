@@ -31,7 +31,6 @@
 	"cite_error_no_link_label_group": "Se han acabado las etiquetas personalizadas para vínculos del grupo \"$1\".\nDefine más en el mensaje <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Etiqueta <code>&lt;ref&gt;</code> inválida;\nno se ha definido el contenido de las referencias llamadas <code>$1</code>",
 	"cite_error_included_ref": "Etiqueta de apertura <code>&lt;ref&gt;</code> sin su correspondiente cierre <code>&lt;/ref&gt;</code>",
-	"cite_error_refs_without_references": "Existen etiquetas <code>&lt;ref&gt;</code>, pero no se encontró una etiqueta <code>&lt;references /&gt;</code>",
 	"cite_error_group_refs_without_references": "Existen etiquetas <code>&lt;ref&gt;</code> para un grupo llamado «$1», pero no se encontró la etiqueta <code>&lt;references group=\"$1\"/&gt;</code> correspondiente, o falta la etiqueta <code>&lt;/ref&gt;</code> de cierre",
 	"cite_error_references_group_mismatch": "La etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> presenta el atributo de grupo \"$1\" en conflicto.",
 	"cite_error_references_missing_group": "La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> pertenece al grupo \"$1\" no declarado en el texto precedente.",

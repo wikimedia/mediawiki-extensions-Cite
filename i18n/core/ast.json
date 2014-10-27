@@ -24,6 +24,5 @@
 	"cite_error_references_no_key": "La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> nun tien dengún atributu de nome.",
 	"cite_error_empty_references_define": "La etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> col nome \"$1\" nun tien conteníu.",
 	"cite_references_link_accessibility_label": "Saltar arriba",
-	"cite_references_link_many_accessibility_label": "Saltar a:",
-	"cite_error_refs_without_references_category-desc": "La páxina tien definíes <code><nowiki><ref></nowiki></code>s sin nengún grupu específicu, pero nun tien una etiqueta <code><nowiki><references /></nowiki></code> esplícita."
+	"cite_references_link_many_accessibility_label": "Saltar a:"
 }

@@ -16,7 +16,6 @@
 	"cite_error_no_link_label_group": "Zmanjkalo je oznak povezav po meri za skupino »$1«.\nDoločite jih več v sporočilu <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Neveljavna oznaka <code>&lt;ref&gt;</code>;\nsklici imenovani <code>$1</code> nimajo določenega besedila",
 	"cite_error_included_ref": "Zaključek <code>&lt;/ref&gt;</code> manjka za etiketo <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Obstajajo etikete <code>&lt;ref&gt;</code>, vendar etikete <code>&lt;references/&gt;</code> ni bilo mogoče najti",
 	"cite_error_group_refs_without_references": "Obstajajo etikete <code>&lt;ref&gt;</code> za skupino, imenovano »$1«, vendar ustrezne etikete <code>&lt;references group=\"$1\"/&gt;</code> ni bilo mogoče najti ali pa manjka zaključni <code>&lt;/ref&gt;</code>",
 	"cite_error_references_group_mismatch": "Oznaka <code>&lt;ref&gt;</code> v <code>&lt;references&gt;</code> ima atribut nasprotujoče si skupine »$1«.",
 	"cite_error_references_missing_group": "Oznaka <code>&lt;ref&gt;</code>, opredeljena v <code>&lt;references&gt;</code>, ima atribut skupine »$1«, ki se ne pojavi v predhodnem besedilu.",

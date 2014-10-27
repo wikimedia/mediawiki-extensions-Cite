@@ -29,6 +29,5 @@
 	"cite_error_references_no_key": "Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> non ha un attributo nome.",
 	"cite_error_empty_references_define": "Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> con nome \"$1\" non ha alcun contenuto.",
 	"cite_references_link_accessibility_label": "Salta",
-	"cite_references_link_many_accessibility_label": "Salta a:",
-	"cite_error_refs_without_references_category-desc": "La pagina ha un <code><nowiki><ref></nowiki></code> definito senza alcun gruppo specificato, ma non c'è alcun tag esplicito <code><nowiki><references /></nowiki></code>."
+	"cite_references_link_many_accessibility_label": "Salta a:"
 }

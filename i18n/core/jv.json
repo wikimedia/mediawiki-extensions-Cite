@@ -20,7 +20,6 @@
 	"cite_error_no_link_label_group": "Labèl pranala umum kanggo klompok \"$1\" entèk.\nTambahaké katemton nèng layang <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Tag <code>&lt;ref&gt;</code> ora absah; \nora ditemokaké tèks kanggo ref mawa jeneng <code>$1</code>",
 	"cite_error_included_ref": "Panutupan <code>&lt;/ref&gt;</code> kélangan tag <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Tag <code>&lt;ref&gt;</code> ditemokaké, nanging tag <code>&lt;references/&gt;</code> ora ditemokaké",
 	"cite_error_group_refs_without_references": "Tag <code>&lt;ref&gt;</code> ditemokaké kanggo paguyuban ajeneng \"$1\", nanging tag <code>&lt;references group=\"$1\"/&gt;</code> sing ana kaitané ora ditemokaké, utawa tag panutup <code>&lt;/ref&gt;</code> ora diwénéhi",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> tandha <code>&lt;references&gt;</code> nduwèni atribut klompok sing marai konflik \"$1\".",
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> tag sing didhèfinisikaké <code>&lt;references&gt;</code> nduwèni atribut klompok \"$1\" sing ora njedhul sing tèks sakdurungé.",

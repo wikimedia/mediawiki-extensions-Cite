@@ -25,6 +25,5 @@
 	"cite_error_references_no_key": "A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> non ten nome de atributo.",
 	"cite_error_empty_references_define": "A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> co nome \"$1\" non ten contido.",
 	"cite_references_link_accessibility_label": "Saltar a",
-	"cite_references_link_many_accessibility_label": "Saltar a:",
-	"cite_error_refs_without_references_category-desc": "A páxina ten definidas <code><nowiki><ref></nowiki></code> sen ningún grupo específico, pero non conta cunha etiqueta <code><nowiki><references /></nowiki></code> explícita."
+	"cite_references_link_many_accessibility_label": "Saltar a:"
 }

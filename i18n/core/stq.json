@@ -15,7 +15,6 @@
 	"cite_error_references_no_backlink_label": "Ne Referenz fon ju Foarm <code><nowiki><ref name=\"...\"/></nowiki></code> wäd oafter benutsed as Bouksteeuwen deer sunt. N Administrator mout <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> uum wiedere Bouksteeuwen/Teekene ferfulständigje.",
 	"cite_error_references_no_text": "Uungultigen <code>&lt;ref&gt;</code>-Tag; der wuude naan Text foar dät Ref mäd dän Noome <code>$1</code> anroat.",
 	"cite_error_included_ref": "Der failt n sluutend <code>&lt;/ref&gt;</code>",
-	"cite_error_refs_without_references": "<code>&lt;ref&gt;</code>-Tags existierje, daach neen <code>&lt;references/&gt;</code>-Tag wuud fuunen.",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code>-Tags existierje foar ju Gruppe „$1“, man neen deertou heerend <code>&lt;references group=„$1“/&gt;</code>-Tag wuud fuunen",
 	"cite_error_references_group_mismatch": "Dät <code>&lt;ref&gt;</code>-Tag in <code>&lt;references&gt;</code> häd dät Konfliktgruppenattribut „$1“.",
 	"cite_error_references_missing_group": "Dät <code>&lt;ref&gt;</code> Tag, as definierd in <code>&lt;references&gt;</code> häd dät Gruppenattribut \"$1\", dät nit in dän foaruutgungende Text foarkumt.",

@@ -19,7 +19,6 @@
 	"cite_error_no_link_label_group": "Het aantal aangepaste koppelinglabels voor de group \"$1\" is uitgeput.\nU kunt er meer instellen in het systeembericht <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Onjuiste tag <code>&lt;ref&gt;</code>;\ner is geen tekst opgegeven voor refs met de naam <code>$1</code>",
 	"cite_error_included_ref": "Na het label <code>&lt;ref&gt;</code> ontbreekt het afsluitende label <code>&lt;/ref&gt;</code>",
-	"cite_error_refs_without_references": "De tag <code>&lt;ref&gt;</code> bestaat, maar de tag <code>&lt;references/&gt;</code> is niet aangetroffen",
 	"cite_error_group_refs_without_references": "Er bestaat een tag <code>&lt;ref&gt;</code> voor de groep \"$1\", maar er is geen bijbehorende tag <code>&lt;references group=\"$1\"/&gt;</code>  aangetroffen of een afsluitende  <code>&lt;/ref&gt;</code> is niet aanwezig.",
 	"cite_error_references_group_mismatch": "De tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> conflicteert met groepseigenschap \"$1\".",
 	"cite_error_references_missing_group": "De tag <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft de groepseigenschap \"$1\" niet niet eerder in te tekst voorkomt.",

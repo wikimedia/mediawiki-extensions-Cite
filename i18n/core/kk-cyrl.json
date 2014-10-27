@@ -17,7 +17,6 @@
 	"cite_error_no_link_label_group": "\"$1\" тобы үшін өзгертпелі сілтеме белгілері бітті.\nDefine more in the <nowiki>[[MediaWiki:$2]]</nowiki> message.",
 	"cite_error_references_no_text": "Жарамсыз <code>&lt;ref&gt;</code> тегі;\nno text was provided for refs named <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> тегін <code>&lt;/ref&gt;</code> тегімен жабуды қажет етеді",
-	"cite_error_refs_without_references": "<code>&lt;ref&gt;</code> тегі бар, бірақ <code>&lt;references/&gt;</code> тегі табылмады",
 	"cite_error_group_refs_without_references": "\"$1\" деп аталған дереккөз тобында <code>&lt;ref&gt;</code> тегі бар, бірақ тиісті <code>&lt;references group=\"$1\"/&gt;</code> тегі табылмады, немесе <code>&lt;/ref&gt;</code> жабу тегін қажет етеді",
 	"cite_references_link_one": "<li id=\"$1\"><span class=\"mw-cite-backlink\">[[#$2|↑]]</span> $3</li>",
 	"cite_references_link_many": "<li id=\"$1\"><span class=\"mw-cite-backlink\">↑ $2</span> $3</li>",

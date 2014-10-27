@@ -23,6 +23,5 @@
 	"cite_error_references_no_key": "Ti etiketa ti <code>&lt;ref&gt;</code> a naipalawag idiay <code>&lt;references&gt;</code> ket awan ti nainagan a gupit.",
 	"cite_error_empty_references_define": "Ti etiketa ti <code>&lt;ref&gt;</code> a naipalawag idiay <code>&lt;references&gt;</code> nga addaan ti nagan a \"$1\" ket awan ti nagyanna.",
 	"cite_references_link_accessibility_label": "Mapan iti ngato",
-	"cite_references_link_many_accessibility_label": "Mapan aginggana iti:",
-	"cite_error_refs_without_references_category-desc": "Ti panid ket addaan kadagiti <code><nowiki><ref></nowiki></code> a naipalawag nga awan ti naisangayan a grupo, ngem awan ti nalawag nga etiketa ti <code><nowiki><references /></nowiki></code>."
+	"cite_references_link_many_accessibility_label": "Mapan aginggana iti:"
 }

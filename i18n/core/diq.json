@@ -19,7 +19,6 @@
 	"cite_error_no_link_label_group": "Eka etiketinê linkê şexsi ser ena grubi \"$1\" ciniyo.\nZerre mesajê <nowiki>[[MediaWiki:$2]]</nowiki> de zafyer qise bike.",
 	"cite_error_references_no_text": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nqe refs yew nuşte nidayiyo <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code>Qandê etiketi <code>&lt;/ref&gt;</code> racnayış kemiyo",
-	"cite_error_refs_without_references": "etiketê <code>&lt;ref&gt;</code>î niesto, feqat  etiketê <code>&lt;references/&gt;</code>î nidiyo",
 	"cite_error_group_refs_without_references": "etiketé <code>&lt;ref&gt;</code>i niesto ser grubé $1'i, feqat  etiketé <code>&lt;references/&gt;</code>dé \"$1\"/&gt;nidiyo",
 	"cite_error_references_group_mismatch": "etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de ser grupê \"$1\"î konflikt keno.",
 	"cite_error_references_missing_group": "etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevsir biyo ke ser grupê \"$1\"î ke verni de nieseno.",

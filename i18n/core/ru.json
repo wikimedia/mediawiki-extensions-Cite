@@ -40,6 +40,5 @@
 	"cite_references_link_many_sep": "&#32;",
 	"cite_references_link_many_and": "&#32;",
 	"cite_references_link_accessibility_label": "Перейти",
-	"cite_references_link_many_accessibility_label": "Перейти к:",
-	"cite_error_refs_without_references_category-desc": "На странице есть теги <code><nowiki><ref></nowiki></code>, не относящиеся к определённой группы, но на ней нет явного указания тега <code><nowiki><references /></nowiki></code>."
+	"cite_references_link_many_accessibility_label": "Перейти к:"
 }

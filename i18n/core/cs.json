@@ -28,6 +28,5 @@
 	"cite_error_references_no_key": "U značky <code>&lt;ref&gt;</code> definované uvnitř <code>&lt;references&gt;</code> chybí atribut <code>name</code>.",
 	"cite_error_empty_references_define": "U značky <code>&lt;ref&gt;</code> s názvem „$1“ definované uvnitř <code>&lt;references&gt;</code> chybí obsah.",
 	"cite_references_link_accessibility_label": "Skočit nahoru",
-	"cite_references_link_many_accessibility_label": "Skočit nahoru k:",
-	"cite_error_refs_without_references_category-desc": "Tato stránka obsahuje značky <code><nowiki><ref></nowiki></code> bez určené skupiny, ale neobsahuje značku <code><nowiki><references /></nowiki></code>."
+	"cite_references_link_many_accessibility_label": "Skočit nahoru k:"
 }

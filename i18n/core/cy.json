@@ -17,7 +17,6 @@
 	"cite_error_no_link_label_group": "Wedi rhedeg allan o labeli dolenni unigryw ar gyfer y grŵp \"$1\".\nGallwch ddiffinio rhagor ohonynt yn y neges <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Tag <code>&lt;ref&gt;</code> annilys;\nni osodwyd unrhyw destun ar gyfer y 'ref' <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> clo yn eisiau ar gyfer y tag <code>&lt;ref&gt;</code>",
-	"cite_error_refs_without_references": "Mae tagiau <code>&lt;ref&gt;</code> yn bresennol, ond dim tag <code>&lt;references/&gt;</code>",
 	"cite_error_group_refs_without_references": "Mae tagiau <code>&lt;ref&gt;</code> yn bresennol ar gyfer y grwp \"$1\", ond ni chafwyd tag <code>&lt;references/&gt;</code>, ynteu roedd <code>&lt;/ref&gt;</code> terfynol yn eisiau.",
 	"cite_error_references_group_mismatch": "Mae gan y tag <code>&lt;ref&gt;</code> oddi mewn i <code>&lt;references&gt;</code> briodoledd grŵp anghyson \"$1\".",
 	"cite_error_references_missing_group": "Mae gan y tag <code>&lt;ref&gt;</code> a ddiffinir yn <code>&lt;references&gt;</code> briodoledd grŵp \"$1\" nag ydyw'n cael ei ddefnyddio yn y testun cynt.",

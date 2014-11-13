@@ -7,6 +7,7 @@
 	},
 	"cite-desc": " <nowiki><ref[ name=id]></nowiki> و <nowiki><سرچشمه یا/></nowiki> tags,و تگیا نه د گوتنیا اضاف بکید",
 	"cite_error": "خطا جاگه:$1",
+	"cite_error_ref_too_many_keys": "نامعتور<code>&lt;ref&gt;</code> سردیس؛\nنومیا نامعتور، همچنو فره ئه",
 	"cite_references_link_accessibility_label": "بالا پرسن",
 	"cite_references_link_many_accessibility_label": "پرستن د"
 }

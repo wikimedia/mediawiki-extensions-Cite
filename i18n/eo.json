@@ -3,7 +3,8 @@
 		"authors": [
 			"AVRS",
 			"Malafaya",
-			"Yekrats"
+			"Yekrats",
+			"KuboF"
 		]
 	},
 	"cite-desc": "Aldonas etikedojn <nowiki><ref[ name=id]></nowiki> kaj <nowiki><references/></nowiki> por citaĵoj",
@@ -23,5 +24,7 @@
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> havas grupatributon \"$1\" kiu ne aperas en antaŭa teksto.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> etikedo kun la nomo \"$1\" difinita en <code>&lt;references&gt;</code> ne estas uzata en antaŭa teksto.",
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> ne havas noman atributon.",
-	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> kun nomo \"$1\" ne havas enhavon."
+	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> kun nomo \"$1\" ne havas enhavon.",
+	"cite_references_link_accessibility_label": "Salti supren",
+	"cite_references_link_many_accessibility_label": "Salti supren al:"
 }

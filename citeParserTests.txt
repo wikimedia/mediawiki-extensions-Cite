@@ -419,14 +419,14 @@ Bug 31374 regression check: nested strip items
 <references group=Note />
 <references />
 !! result
-<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[Note 1]</a></sup>
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[Note 1]</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">note<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></span>
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">note<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[1]</a></sup></span>
 </li>
 </ol>
 <ol class="references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">reference</span>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">reference</span>
 </li>
 </ol>
 

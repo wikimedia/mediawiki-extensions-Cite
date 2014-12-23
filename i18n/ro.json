@@ -4,7 +4,8 @@
 			"Firilacroco",
 			"KlaudiuMihaila",
 			"Mihai",
-			"Minisarm"
+			"Minisarm",
+			"Marian banica"
 		]
 	},
 	"cite-desc": "Adaugă etichete <nowiki><ref[ name=id]></nowiki> și <nowiki><references/></nowiki>, pentru citări",
@@ -15,6 +16,8 @@
 	"cite_error_ref_no_input": "Etichetă <code>&lt;ref&gt;</code> invalidă;\nref-urile fără nume trebuie să aibă conținut",
 	"cite_error_references_invalid_parameters": "Etichetă <code>&lt;references&gt;</code> invalidă;\nparametrii nu sunt permiși.\nFolosește eticheta <code>&lt;references /&gt;</code>",
 	"cite_error_references_invalid_parameters_group": "Etichetă <code>&lt;references&gt;</code> invalidă;\ndoar parametrul „grup” este permis.\nFolosește eticheta <code>&lt;references /&gt;</code>, sau <code>&lt;references group=\"...\" /&gt;</code>",
+	"cite_error_references_no_backlink_label": "S-au terminat legaturile catre etichete personalizate. Defineste mai multe in mesajul  <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
+	"cite_error_no_link_label_group": "S-au terminat legaturile catre etichete personalizate pentru grupul $1. Defineste mai multe in mesajul <nowiki>[[MediaWiki:$2]]</nowiki>",
 	"cite_error_references_no_text": "Etichetă <code>&lt;ref&gt;</code> invalidă;\nniciun text nu a fost furnizat pentru ref-urile numite <code>$1</code>",
 	"cite_error_included_ref": "Eticheta de închidere <code>&lt;/ref&gt;</code> lipsește pentru eticheta <code>&lt;ref&gt;</code>",
 	"cite_error_group_refs_without_references": "Etichete <code>&lt;ref&gt;</code> există pentru un grup numit „$1”, dar nu și o etichetă <code>&lt;references group=\"$1\"/&gt;</code> ori o etichetă  <code>&lt;/ref&gt;</code> de final lipsește",

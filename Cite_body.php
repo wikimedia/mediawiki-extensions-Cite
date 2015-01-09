@@ -393,7 +393,7 @@ class Cite {
 				// insert part of note at the beginning of the group
 				$groupsCount = count( $this->mRefs[$group] );
 				for ( $k = 0; $k < $groupsCount; $k++ ) {
-					if ( $this->mRefs[$group][$k]['follow'] == null ) {
+					if ( !isset( $this->mRefs[$group][$k]['follow'] ) ) {
 						break;
 					}
 				}

@@ -301,7 +301,7 @@ class Cite {
 
 		# Not clear how we could get here, but something is probably
 		# wrong with the types.  Let's fail fast.
-		throw new MWException( 'Invalid $str and/or $key: ' . serialize( array( $str, $key ) ) );
+		throw new Exception( 'Invalid $str and/or $key: ' . serialize( array( $str, $key ) ) );
 	}
 
 	/**
@@ -456,7 +456,7 @@ class Cite {
 					);
 			}
 		} else {
-			throw new MWException( 'Invalid stack key: ' . serialize( $key ) );
+			throw new Exception( 'Invalid stack key: ' . serialize( $key ) );
 		}
 	}
 

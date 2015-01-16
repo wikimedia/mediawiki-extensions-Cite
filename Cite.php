@@ -30,7 +30,7 @@ $wgExtensionCredits['parserhook'][] = array(
 		'Steve Sanbeg'
 	),
 	'descriptionmsg' => 'cite-desc',
-	'license-name' => 'GPLv2',
+	'license-name' => 'GPL-2.0+',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Cite'
 );
 

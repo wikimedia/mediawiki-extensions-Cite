@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"C.R."
+		]
+	},
+	"cite_error": "Errore dint'a funzione Cite: $1",
+	"cite_error_ref_numeric_key": "Tag <code>&lt;ref&gt;</code> invalido;\n'o nomme nun ò essere surtanto n'intero. Ausate nu titolo descrittivo",
+	"cite_error_included_ref": "A nchiusa <code>&lt;/ref&gt;</code> nun se trova p' 'o tag <code>&lt;ref&gt;</code>",
+	"cite_references_link_accessibility_label": "Zompa ncopp'a",
+	"cite_references_link_many_accessibility_label": "Zompa ncoppa nfin'a:"
+}

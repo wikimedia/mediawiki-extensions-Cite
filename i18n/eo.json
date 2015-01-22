@@ -19,7 +19,7 @@
 	"cite_error_no_link_label_group": "Mankas proprajn ligilajn etikedojn por grupo \"$1\".\nDifinu pliajn en la <nowiki>[[MediaWiki:$2]]</nowiki> mesaĝo.",
 	"cite_error_references_no_text": "Nevalida <code>&lt;ref&gt;</code> etikedo;\nneniu teksto estis donita por ref-oj nomataj <code>$1</code>",
 	"cite_error_included_ref": "Ferma <code>&lt;/ref&gt;</code> mankas por <code>&lt;ref&gt;</code>-etikedo",
-	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code> etikedoj ekzistas por grupo nomita \"$1\", sed ne koresponda <code>&lt;references group=\"$1\"/&gt;</code> etikedo estis trovita",
+	"cite_error_group_refs_without_references": "Etikedoj <code>&lt;ref&gt;</code> ekzistas por la grupo nomita \"$1\", sed la koresponda etikedo <code>&lt;references group=\"$1\"/&gt;</code> ne estis trovita aŭ la ferma <code>&lt;/ref&gt;</code> mankas.",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> etikedo en <code>&lt;references&gt;</code> havas konflikan grupatributon \"$1\".",
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> etikedo difinita en <code>&lt;references&gt;</code> havas grupatributon \"$1\" kiu ne aperas en antaŭa teksto.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> etikedo kun la nomo \"$1\" difinita en <code>&lt;references&gt;</code> ne estas uzata en antaŭa teksto.",

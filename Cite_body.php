@@ -641,7 +641,6 @@ class Cite {
 			return '';
 		}
 
-		wfProfileIn( __METHOD__ );
 		wfProfileIn( __METHOD__ . '-entries' );
 		$ent = array();
 		foreach ( $this->mRefs[$group] as $k => $v ) {
@@ -685,8 +684,6 @@ class Cite {
 		} else {
 			$ret = $this->mParser->unserializeHalfParsedText( $data );
 		}
-
-		wfProfileOut( __METHOD__ );
 
 		// done, clean up so we can reuse the group
 		unset( $this->mRefs[$group] );
@@ -966,11 +963,9 @@ class Cite {
 	 * arbitrary number of tokens separated by [\t\n ]
 	 */
 	function genBacklinkLabels() {
-		wfProfileIn( __METHOD__ );
 		$text = wfMessage( 'cite_references_link_many_format_backlink_labels' )
 			->inContentLanguage()->plain();
 		$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
-		wfProfileOut( __METHOD__ );
 	}
 
 	/**
@@ -982,14 +977,12 @@ class Cite {
 	 * @param $message
 	 */
 	function genLinkLabels( $group, $message ) {
-		wfProfileIn( __METHOD__ );
 		$text = false;
 		$msg = wfMessage( $message )->inContentLanguage();
 		if ( $msg->exists() ) {
 			$text = $msg->plain();
 		}
 		$this->mLinkLabels[$group] = ( !$text ) ? false : preg_split( '#[\n\t ]#', $text );
-		wfProfileOut( __METHOD__ );
 	}
 
 	/**

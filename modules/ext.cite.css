@@ -22,3 +22,9 @@
 	-ms-user-select: none;
 	user-select: none;
 }
+
+@media print {
+	.mw-cite-backlink {
+		display: none;
+	}
+}

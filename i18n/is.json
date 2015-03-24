@@ -4,6 +4,7 @@
 			"Snævar"
 		]
 	},
+	"cite-desc": "Bætir <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki> tögum við fyrir heimildir",
 	"cite_error": "Tilvísunar villa: $1",
 	"cite_error_ref_numeric_key": "Villa í <code>&lt;ref&gt;</code> tag;\nnafn tilvísunar má ekki vera heil tala. Notaðu lýsandi titil",
 	"cite_error_ref_no_key": "Villa í <code>&lt;ref&gt;</code> tag;\ntilvísunin verður annaðhvort að hafa nafn eða innihald.",
@@ -18,5 +19,7 @@
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> tag skilgreint í <code>&lt;references&gt;</code> hefur hópa eigindið \"$1\" sem birtist ekki í textanum á undan.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> tag með nafnið \"$1\" og er skilgreint í <code>&lt;references&gt;</code> er ekki notað í textanum á undan.",
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code> tag skilgreint í <code>&lt;references&gt;</code> hefur engin nafna eigindi.",
-	"cite_error_empty_references_define": "Bæta þarf innihaldi við tilvísun með nafnið \"$1\"."
+	"cite_error_empty_references_define": "Bæta þarf innihaldi við tilvísun með nafnið \"$1\".",
+	"cite_references_link_accessibility_label": "Stökkva upp",
+	"cite_references_link_many_accessibility_label": "Stökkva upp til:"
 }

@@ -51,6 +51,10 @@
 				"cite_references_link_many_accessibility_label"
 			],
 			"position": "bottom"
+		},
+		"ext.cite.style": {
+			"class": "CiteCSSFileModule",
+			"styles": "ext.cite.style.css"
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -62,7 +66,8 @@
 		"CiteCacheReferences": false
 	},
 	"AutoloadClasses": {
-		"Cite": "Cite_body.php"
+		"Cite": "Cite_body.php",
+		"CiteCSSFileModule": "CiteCSSFileModule.php"
 	},
 	"ParserTestFiles": [
 		"citeParserTests.txt"

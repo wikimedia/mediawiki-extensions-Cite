@@ -39,7 +39,6 @@ $wgMessagesDirs['Cite'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Cite'] = __DIR__ . "/Cite.i18n.php";
 $wgAutoloadClasses['Cite'] = __DIR__ . "/Cite_body.php";
 
-define( 'CITE_DEFAULT_GROUP', '' );
 /**
  * The emergency shut-off switch.  Override in local settings to disable
  * groups; or remove all references from this file to enable unconditionally

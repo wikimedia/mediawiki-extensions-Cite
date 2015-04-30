@@ -17,7 +17,7 @@ if ( ! defined( 'MEDIAWIKI' ) )
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
-$wgHooks['ParserFirstCallInit'][] = 'wfCite';
+$wgHooks['ParserFirstCallInit'][] = 'Cite::setHooks';
 
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
@@ -49,19 +49,6 @@ $wgAllowCiteGroups = true;
  * An emergency optimisation measure for caching cite <references /> output.
  */
 $wgCiteCacheReferences = false;
-
-/**
- * Performs the hook registration.
- * Note that several extensions (and even core!) try to detect if Cite is
- * installed by looking for wfCite().
- *
- * @param $parser Parser
- *
- * @return bool
- */
-function wfCite( $parser ) {
-	return Cite::setHooks( $parser );
-}
 
 // Resources
 $citeResourceTemplate = array(

@@ -18,6 +18,12 @@
  */
 
 class Cite {
+
+	/**
+	 * @todo document
+	 */
+	const DEFAULT_GROUP = '';
+
 	/**#@+
 	 * @access private
 	 */
@@ -185,7 +191,7 @@ class Cite {
 	 * @param $default_group string
 	 * @return string
 	 */
-	function guardedRef( $str, $argv, $parser, $default_group = CITE_DEFAULT_GROUP ) {
+	function guardedRef( $str, $argv, $parser, $default_group = self::DEFAULT_GROUP ) {
 		$this->mParser = $parser;
 
 		# The key here is the "name" attribute.
@@ -562,7 +568,7 @@ class Cite {
 	 * @param $group string
 	 * @return string
 	 */
-	function guardedReferences( $str, $argv, $parser, $group = CITE_DEFAULT_GROUP ) {
+	function guardedReferences( $str, $argv, $parser, $group = self::DEFAULT_GROUP ) {
 		global $wgAllowCiteGroups;
 
 		$this->mParser = $parser;
@@ -925,7 +931,7 @@ class Cite {
 					$this->refKey( $key, $count ),
 					$this->referencesKey( $key . $subkey ),
 					$this->getLinkLabel( $label, $group,
-						( ( $group == CITE_DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
+						( ( $group == self::DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
 				)->inContentLanguage()->plain()
 			);
 	}
@@ -1067,7 +1073,7 @@ class Cite {
 			if ( count( $refs ) == 0 ) {
 				continue;
 			}
-			if ( $group == CITE_DEFAULT_GROUP ) {
+			if ( $group == self::DEFAULT_GROUP ) {
 				$text .= $this->referencesFormat( $group, '', '' );
 			} else {
 				$text .= "\n<br />" .

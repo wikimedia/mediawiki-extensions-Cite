@@ -17,6 +17,10 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
+/**
+ * WARNING: MediaWiki core hardcodes this class name to check if the
+ * Cite extension is installed. See T89151.
+ */
 class Cite {
 
 	/**

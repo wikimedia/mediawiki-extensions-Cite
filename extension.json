@@ -24,7 +24,12 @@
 	"ResourceModules": {
 		"ext.cite": {
 			"scripts": "ext.cite.js",
-			"styles": "ext.cite.css",
+			"styles": {
+				"ext.cite.css": {},
+				"ext.cite.print.css": {
+					"media": "print"
+				}
+			},
 			"messages": [
 				"cite_references_link_accessibility_label",
 				"cite_references_link_many_accessibility_label"

@@ -155,7 +155,11 @@ class Cite {
 	 * @return string
 	 */
 	function unstripRef( $str, $argv, $parser ) {
-		if ( $this->mInCite ) {
+		// Since we're not a function tag, we should only get expanded as HTML.
+		// However, the parser might be set to HTML when we're called, but then
+		// not set that way when we're unstripped. If this happens, treat it as
+		// if we were already in a reference, and bail out.
+		if ( $this->mInCite || !$parser->ot['html'] ) {
 			return htmlspecialchars( "<ref>$str</ref>" );
 		}
 
@@ -467,7 +471,11 @@ class Cite {
 	 * @return string
 	 */
 	function unstripReferences( $str, $argv, $parser ) {
-		if ( $this->mInCite || $this->mInReferences ) {
+		// Since we're not a function tag, we should only get expanded as HTML.
+		// However, the parser might be set to HTML when we're called, but then
+		// not set that way when we're unstripped. If this happens, treat it as
+		// if we were already in a reference, and bail out.
+		if ( $this->mInCite || $this->mInReferences || !$parser->ot['html'] ) {
 			if ( is_null( $str ) ) {
 				return htmlspecialchars( "<references/>" );
 			} else {

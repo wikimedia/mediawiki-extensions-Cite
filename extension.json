@@ -48,5 +48,6 @@
 	},
 	"ParserTestFiles": [
 		"citeParserTests.txt"
-	]
+	],
+	"manifest_version": 1
 }

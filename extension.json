@@ -21,23 +21,36 @@
 			"Cite::setHooks"
 		]
 	},
+	"@comment": "ext.cite and ext.rtlcite are backwards compatibility deployment hacks",
 	"ResourceModules": {
 		"ext.cite": {
-			"scripts": "ext.cite.js",
+			"dependencies": [
+				"ext.cite.a11y",
+				"ext.cite.styles"
+			],
+			"position": "bottom"
+		},
+		"ext.rtlcite": {
+			"styles": "ext.rtlcite.css",
+			"position": "bottom"
+		},
+		"ext.cite.styles": {
 			"styles": {
-				"ext.cite.css": {},
+				"ext.cite.styles.css": {},
 				"ext.cite.print.css": {
 					"media": "print"
 				}
 			},
+			"position": "bottom"
+		},
+		"ext.cite.a11y": {
+			"scripts": "ext.cite.a11y.js",
+			"styles": "ext.cite.a11y.css",
 			"messages": [
 				"cite_references_link_accessibility_label",
 				"cite_references_link_many_accessibility_label"
-			]
-		},
-		"ext.rtlcite": {
-			"styles": "ext.rtlcite.css",
-			"position": "top"
+			],
+			"position": "bottom"
 		}
 	},
 	"ResourceFileModulePaths": {

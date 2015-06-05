@@ -171,8 +171,8 @@ class Cite {
 		$this->mInCite = false;
 
 		$parserOutput = $parser->getOutput();
-		$parserOutput->addModules( 'ext.cite' );
-		$parserOutput->addModuleStyles( 'ext.rtlcite' );
+		$parserOutput->addModules( 'ext.cite.a11y' );
+		$parserOutput->addModuleStyles( 'ext.cite.styles' );
 
 		return $ret;
 	}

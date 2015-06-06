@@ -21,19 +21,7 @@
 			"Cite::setHooks"
 		]
 	},
-	"@comment": "ext.cite and ext.rtlcite are backwards compatibility deployment hacks",
 	"ResourceModules": {
-		"ext.cite": {
-			"dependencies": [
-				"ext.cite.a11y",
-				"ext.cite.styles"
-			],
-			"position": "bottom"
-		},
-		"ext.rtlcite": {
-			"styles": "ext.rtlcite.css",
-			"position": "bottom"
-		},
 		"ext.cite.styles": {
 			"styles": {
 				"ext.cite.styles.css": {},

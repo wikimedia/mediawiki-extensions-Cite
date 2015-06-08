@@ -101,6 +101,14 @@ class Cite {
 	public $mParser;
 
 	/**
+	 * True when the ParserAfterParse hook has been called.
+	 * Used to avoid doing anything in ParserBeforeTidy.
+	 *
+	 * @var boolean
+	 */
+	public $mHaveAfterParse = false;
+
+	/**
 	 * True when a <ref> tag is being processed.
 	 * Used to avoid infinite recursion
 	 *
@@ -108,20 +116,13 @@ class Cite {
 	 */
 	public $mInCite = false;
 
-
-	const NOT_IN_REFERENCES = 0;
-	const RUNNING_REFERENCES = 1;
-	const PARSING_REFERENCES = 2;
-
 	/**
-	 * When parsing the contents of a <references> tag, set to Cite::PARSING_REFERENCES.
-	 * When performing any other operation as part of a <references> tag (such as when
-	 * parsing the references themselves), set to Cite::RUNNING_REFERENCES. Otherwise, set
-	 * to Cite::NOT_IN_REFERENCES;
+	 * True when a <references> tag is being processed.
+	 * Used to detect the use of <references> to define refs
 	 *
-	 * @var int
+	 * @var boolean
 	 */
-	public $mInReferences = Cite::NOT_IN_REFERENCES;
+	public $mInReferences = false;
 
 	/**
 	 * Error stack used when defining refs in <references>
@@ -138,6 +139,15 @@ class Cite {
 	public $mReferencesGroup = '';
 
 	/**
+	 * <ref> call stack
+	 * Used to cleanup out of sequence ref calls created by #tag
+	 * See description of function rollbackRef.
+	 *
+	 * @var array
+	 */
+	public $mRefCallStack = array();
+
+	/**
 	 * Did we install us into $wgHooks yet?
 	 * @var Boolean
 	 */
@@ -146,20 +156,17 @@ class Cite {
 	/**#@+ @access private */
 
 	/**
-	 * Callback function for <ref> that actually does the work.
+	 * Callback function for <ref>
 	 *
 	 * @param $str string Input
 	 * @param $argv array Arguments
 	 * @param $parser Parser
+	 * @param $frame PPFrame
 	 *
 	 * @return string
 	 */
-	function unstripRef( $str, $argv, $parser ) {
-		// Since we're not a function tag, we should only get expanded as HTML.
-		// However, the parser might be set to HTML when we're called, but then
-		// not set that way when we're unstripped. If this happens, treat it as
-		// if we were already in a reference, and bail out.
-		if ( $this->mInCite || !$parser->ot['html'] ) {
+	function ref( $str, $argv, $parser, $frame ) {
+		if ( $this->mInCite ) {
 			return htmlspecialchars( "<ref>$str</ref>" );
 		}
 
@@ -174,23 +181,11 @@ class Cite {
 		$parserOutput->addModules( 'ext.cite.a11y' );
 		$parserOutput->addModuleStyles( 'ext.cite.styles' );
 
-		return $ret;
-	}
+		if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
+			$frame->setVolatile();
+		}
 
-	/**
-	 * Callback function for <ref>. Nothing actually gets done until unstrip.
-	 *
-	 * @param $str string Input
-	 * @param $argv array Arguments
-	 * @param $parser Parser
-	 *
-	 * @return callable
-	 */
-	function ref( $str, $argv, $parser ) {
-		$self = $this;
-		return function() use( $self, $str, $argv, $parser ) {
-			return $self->unstripRef( $str, $argv, $parser );
-		};
+		return $ret;
 	}
 
 	/**
@@ -208,7 +203,7 @@ class Cite {
 
 		# Split these into groups.
 		if ( $group === null ) {
-			if ( $this->mInReferences === Cite::PARSING_REFERENCES ) {
+			if ( $this->mInReferences ) {
 				$group = $this->mReferencesGroup;
 			} else {
 				$group = $default_group;
@@ -221,7 +216,7 @@ class Cite {
 		# <ref name="foo"> BAR </ref>
 		# </references>
 		#
-		if ( $this->mInReferences === Cite::PARSING_REFERENCES ) {
+		if ( $this->mInReferences ) {
 			if ( $group != $this->mReferencesGroup ) {
 				# <ref> and <references> have conflicting group attributes.
 				$this->mReferencesErrors[] =
@@ -256,6 +251,7 @@ class Cite {
 			# it's a contentful ref, but OK if it's a named duplicate and should
 			# be equivalent <ref ... />, for compatability with #tag.
 			if ( $key == false ) {
+				$this->mRefCallStack[] = false;
 				return $this->error( 'cite_error_ref_no_input' );
 			} else {
 				$str = null;
@@ -264,11 +260,13 @@ class Cite {
 
 		if ( $key === false ) {
 			# TODO: Comment this case; what does this condition mean?
+			$this->mRefCallStack[] = false;
 			return $this->error( 'cite_error_ref_too_many_keys' );
 		}
 
 		if ( $str === null && $key === null ) {
 			# Something like <ref />; this makes no sense.
+			$this->mRefCallStack[] = false;
 			return $this->error( 'cite_error_ref_no_key' );
 		}
 
@@ -278,6 +276,7 @@ class Cite {
 			# would be to mangle them, but it's not really high-priority
 			# (and would produce weird id's anyway).
 
+			$this->mRefCallStack[] = false;
 			return $this->error( 'cite_error_ref_numeric_key' );
 		}
 
@@ -296,6 +295,7 @@ class Cite {
 			# of the <ref> tag.  This way no part of the article will be eaten
 			# even temporarily.
 
+			$this->mRefCallStack[] = false;
 			return $this->error( 'cite_error_included_ref' );
 		}
 
@@ -412,6 +412,8 @@ class Cite {
 						'text' => $str,
 						'key' => ++$this->mOutCnt ,
 						'follow' => $follow ) ) );
+				array_splice( $this->mRefCallStack, $k, 0,
+					array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
 			}
 			// return an empty string : this is not a reference
 			return '';
@@ -420,6 +422,7 @@ class Cite {
 			// No key
 			// $this->mRefs[$group][] = $str;
 			$this->mRefs[$group][] = array( 'count' => - 1, 'text' => $str, 'key' => ++$this->mOutCnt );
+			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
 
 			return $this->linkRef( $group, $this->mOutCnt );
 		} elseif ( is_string( $key ) ) {
@@ -432,6 +435,7 @@ class Cite {
 					'key' => ++$this->mOutCnt,
 					'number' => ++$this->mGroupCnt[$group]
 				);
+				$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
 
 				return
 					$this->linkRef(
@@ -446,6 +450,11 @@ class Cite {
 				if ( $this->mRefs[$group][$key]['text'] === null && $str !== '' ) {
 					// If no text found before, use this text
 					$this->mRefs[$group][$key]['text'] = $str;
+					$this->mRefCallStack[] = array( 'assign', $call, $str, $key, $group,
+						$this->mRefs[$group][$key]['key'] );
+				} else {
+					$this->mRefCallStack[] = array( 'increment', $call, $str, $key, $group,
+						$this->mRefs[$group][$key]['key'] );
 				}
 				return
 					$this->linkRef(
@@ -462,20 +471,83 @@ class Cite {
 	}
 
 	/**
-	 * Callback function for <references> that actually does the work.
+	 * Partially undoes the effect of calls to stack()
+	 *
+	 * Called by guardedReferences()
+	 *
+	 * The option to define <ref> within <references> makes the
+	 * behavior of <ref> context dependent.  This is normally fine
+	 * but certain operations (especially #tag) lead to out-of-order
+	 * parser evaluation with the <ref> tags being processed before
+	 * their containing <reference> element is read.  This leads to
+	 * stack corruption that this function works to fix.
+	 *
+	 * This function is not a total rollback since some internal
+	 * counters remain incremented.  Doing so prevents accidentally
+	 * corrupting certain links.
+	 *
+	 * @param $type
+	 * @param $key
+	 * @param $group
+	 * @param $index
+	 */
+	function rollbackRef( $type, $key, $group, $index ) {
+		if ( !isset( $this->mRefs[$group] ) ) {
+			return;
+		}
+
+		if ( $key === null ) {
+			foreach ( $this->mRefs[$group] as $k => $v ) {
+				if ( $this->mRefs[$group][$k]['key'] === $index ) {
+					$key = $k;
+					break;
+				}
+			}
+		}
+
+		# Sanity checks that specified element exists.
+		if ( $key === null ) {
+			return;
+		}
+		if ( !isset( $this->mRefs[$group][$key] ) ) {
+			return;
+		}
+		if ( $this->mRefs[$group][$key]['key'] != $index ) {
+			return;
+		}
+
+		switch ( $type ) {
+		case 'new':
+			# Rollback the addition of new elements to the stack.
+			unset( $this->mRefs[$group][$key] );
+			if ( count( $this->mRefs[$group] ) == 0 ) {
+				unset( $this->mRefs[$group] );
+				unset( $this->mGroupCnt[$group] );
+			}
+			break;
+		case 'assign':
+			# Rollback assignment of text to pre-existing elements.
+			$this->mRefs[$group][$key]['text'] = null;
+			# continue without break
+		case 'increment':
+			# Rollback increase in named ref occurrences.
+			$this->mRefs[$group][$key]['count']--;
+			break;
+		}
+	}
+
+	/**
+	 * Callback function for <references>
 	 *
 	 * @param $str string Input
 	 * @param $argv array Arguments
 	 * @param $parser Parser
+	 * @param $frame PPFrame
 	 *
 	 * @return string
 	 */
-	function unstripReferences( $str, $argv, $parser ) {
-		// Since we're not a function tag, we should only get expanded as HTML.
-		// However, the parser might be set to HTML when we're called, but then
-		// not set that way when we're unstripped. If this happens, treat it as
-		// if we were already in a reference, and bail out.
-		if ( $this->mInCite || $this->mInReferences || !$parser->ot['html'] ) {
+	function references( $str, $argv, $parser, $frame ) {
+		if ( $this->mInCite || $this->mInReferences ) {
 			if ( is_null( $str ) ) {
 				return htmlspecialchars( "<references/>" );
 			} else {
@@ -483,27 +555,14 @@ class Cite {
 			}
 		} else {
 			$this->mCallCnt++;
-			$this->mInReferences = Cite::RUNNING_REFERENCES;
+			$this->mInReferences = true;
 			$ret = $this->guardedReferences( $str, $argv, $parser );
-			$this->mInReferences = Cite::NOT_IN_REFERENCES;
+			$this->mInReferences = false;
+			if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
+				$frame->setVolatile();
+			}
 			return $ret;
 		}
-	}
-
-	/**
-	 * Callback function for <references>. Nothing actually gets done until unstrip.
-	 *
-	 * @param $str string Input
-	 * @param $argv array Arguments
-	 * @param $parser Parser
-	 *
-	 * @return callable
-	 */
-	function references( $str, $argv, $parser ) {
-		$self = $this;
-		return function() use( $self, $str, $argv, $parser ) {
-			return $self->unstripReferences( $str, $argv, $parser );
-		};
 	}
 
 	/**
@@ -526,10 +585,39 @@ class Cite {
 		if ( strval( $str ) !== '' ) {
 			$this->mReferencesGroup = $group;
 
+			# Detect whether we were sent already rendered <ref>s
+			# Mostly a side effect of using #tag to call references
+			$count = substr_count( $str, Parser::MARKER_PREFIX . "-ref-" );
+			for ( $i = 1; $i <= $count; $i++ ) {
+				if ( count( $this->mRefCallStack ) < 1 ) {
+					break;
+				}
+
+				# The following assumes that the parsed <ref>s sent within
+				# the <references> block were the most recent calls to
+				# <ref>.  This assumption is true for all known use cases,
+				# but not strictly enforced by the parser.  It is possible
+				# that some unusual combination of #tag, <references> and
+				# conditional parser functions could be created that would
+				# lead to malformed references here.
+				$call = array_pop( $this->mRefCallStack );
+				if ( $call !== false ) {
+					list( $type, $ref_argv, $ref_str,
+						$ref_key, $ref_group, $ref_index ) = $call;
+
+					# Undo effects of calling <ref> while unaware of containing <references>
+					$this->rollbackRef( $type, $ref_key, $ref_group, $ref_index );
+
+					# Rerun <ref> call now that mInReferences is set.
+					$this->guardedRef( $ref_str, $ref_argv, $parser );
+				}
+			}
+
 			# Parse $str to process any unparsed <ref> tags.
-			$this->mInReferences = Cite::PARSING_REFERENCES;
-			$parser->mStripState->unstripGeneral( $parser->recursiveTagParse( $str ) );
-			$this->mInReferences = Cite::RUNNING_REFERENCES;
+			$parser->recursiveTagParse( $str );
+
+			# Reset call stack
+			$this->mRefCallStack = array();
 		}
 
 		if ( count( $argv ) && $wgAllowCiteGroups ) {
@@ -931,6 +1019,7 @@ class Cite {
 		$this->mCallCnt = 0;
 		$this->mRefs = array();
 		$this->mReferencesErrors = array();
+		$this->mRefCallStack = array();
 
 		return true;
 	}
@@ -953,7 +1042,7 @@ class Cite {
 
 		// Clear the state, making sure it will actually work.
 		$parser->extCite->mInCite = false;
-		$parser->extCite->mInReferences = Cite::NOT_IN_REFERENCES;
+		$parser->extCite->mInReferences = false;
 		$parser->extCite->clearState( $parser );
 
 		return true;
@@ -963,14 +1052,21 @@ class Cite {
 	 * Called at the end of page processing to append an error if refs were
 	 * used without a references tag.
 	 *
+	 * @param $afterParse bool  true if called from the ParserAfterParse hook
 	 * @param $parser Parser
 	 * @param $text string
 	 *
 	 * @return bool
 	 */
-	function checkRefsNoReferences( &$parser, &$text ) {
+	function checkRefsNoReferences( $afterParse, &$parser, &$text ) {
 		if ( $parser->extCite !== $this ) {
-			return $parser->extCite->checkRefsNoReferences( $parser, $text );
+			return $parser->extCite->checkRefsNoReferences( $afterParse, $parser, $text );
+		}
+
+		if ( $afterParse ) {
+			$this->mHaveAfterParse = true;
+		} elseif ( $this->mHaveAfterParse ) {
+			return true;
 		}
 
 		if ( $parser->getOptions()->getIsSectionPreview() ) {
@@ -1021,7 +1117,8 @@ class Cite {
 		if ( !Cite::$hooksInstalled ) {
 			$wgHooks['ParserClearState'][] = array( $parser->extCite, 'clearState' );
 			$wgHooks['ParserCloned'][] = array( $parser->extCite, 'cloneState' );
-			$wgHooks['ParserAfterUnstrip'][] = array( $parser->extCite, 'checkRefsNoReferences' );
+			$wgHooks['ParserAfterParse'][] = array( $parser->extCite, 'checkRefsNoReferences', true );
+			$wgHooks['ParserBeforeTidy'][] = array( $parser->extCite, 'checkRefsNoReferences', false );
 			$wgHooks['InlineEditorPartialAfterParse'][] = array( $parser->extCite, 'checkAnyCalls' );
 			Cite::$hooksInstalled = true;
 		}

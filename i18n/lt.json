@@ -3,7 +3,8 @@
 		"authors": [
 			"Garas",
 			"Homo",
-			"Matasg"
+			"Matasg",
+			"Albertas"
 		]
 	},
 	"cite-desc": "Prideda <nowiki><ref[ name=id]></nowiki> ir <nowiki><references/></nowiki> žymes citavimui",
@@ -14,5 +15,7 @@
 	"cite_error_ref_no_input": "Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be vardo turi turėti turinį",
 	"cite_error_references_invalid_parameters": "Neleistina <code>&lt;references&gt;</code> gairė; neleidžiami jokie parametrai, naudokite <code>&lt;references /&gt;</code>",
 	"cite_error_references_no_backlink_label": "Baigėsi antraštės.\nNurodykite daugiau <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> sisteminiame tekste",
-	"cite_error_included_ref": "Trūksta uždaromojo <code>&lt;/ref&gt;</code> žymei <code>&lt;ref&gt;</code>"
+	"cite_error_included_ref": "Trūksta uždaromojo <code>&lt;/ref&gt;</code> žymei <code>&lt;ref&gt;</code>",
+	"cite_references_link_accessibility_label": "Šokti aukštyn",
+	"cite_references_link_many_accessibility_label": "Šokti į:"
 }

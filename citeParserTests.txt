@@ -449,3 +449,13 @@ foo</span>
 </ol></div>
 
 !! end
+
+!! test
+<ref> with no name and no content.
+!! input
+Bla.<ref></ref>
+!! result
+<p>Bla.<strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+refs with no name must have content</strong>
+</p>
+!! end

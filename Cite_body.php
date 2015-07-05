@@ -252,6 +252,7 @@ class Cite {
 			# be equivalent <ref ... />, for compatability with #tag.
 			if ( $key == false ) {
 				$this->mRefCallStack[] = false;
+
 				return $this->error( 'cite_error_ref_no_input' );
 			} else {
 				$str = null;
@@ -1146,6 +1147,8 @@ class Cite {
 		$msg = wfMessage( 'cite_error', wfMessage( $key, $param )->inContentLanguage()->plain() )
 			->inContentLanguage()
 			->plain();
+
+		$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 
 		$ret = '<strong class="error mw-ext-cite-error">' . $msg . '</strong>';
 

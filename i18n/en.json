@@ -11,6 +11,7 @@
 			"Steve Sanbeg",
 			"Marius Hoch",
 			"Brion Vibber",
+			"Amir E. Aharoni",
 			"Ævar Arnfjörð Bjarmason"
 		]
 	},
@@ -32,6 +33,8 @@
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> tag with name \"$1\" defined in <code>&lt;references&gt;</code> is not used in prior text.",
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.",
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> with name \"$1\" has no content.",
+	"cite-tracking-category-cite-error": "Pages with reference errors",
+	"cite-tracking-category-cite-error-desc": "Pages in this category have errors in the usage of references tags.",
 	"cite_reference_link_key_with_num": "$1_$2",
 	"cite_reference_link_prefix": "cite_ref-",
 	"cite_reference_link_suffix": "",

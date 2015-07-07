@@ -364,7 +364,7 @@ class Cite {
 				--$cnt;
 			}
 
-			if ( $cnt == 0 ) {
+			if ( $cnt === 0 ) {
 				return array ( $key, $group, $follow );
 			} else {
 				// Invalid key
@@ -520,7 +520,7 @@ class Cite {
 		case 'new':
 			# Rollback the addition of new elements to the stack.
 			unset( $this->mRefs[$group][$key] );
-			if ( count( $this->mRefs[$group] ) == 0 ) {
+			if ( count( $this->mRefs[$group] ) === 0 ) {
 				unset( $this->mRefs[$group] );
 				unset( $this->mGroupCnt[$group] );
 			}
@@ -647,7 +647,7 @@ class Cite {
 	 * @return string XHTML ready for output
 	 */
 	function referencesFormat( $group ) {
-		if ( ( count( $this->mRefs ) == 0 ) || ( empty( $this->mRefs[$group] ) ) ) {
+		if ( ( count( $this->mRefs ) === 0 ) || ( empty( $this->mRefs[$group] ) ) ) {
 			return '';
 		}
 
@@ -935,7 +935,7 @@ class Cite {
 					$this->refKey( $key, $count ),
 					$this->referencesKey( $key . $subkey ),
 					$this->getLinkLabel( $label, $group,
-						( ( $group == self::DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
+						( ( $group === self::DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
 				)->inContentLanguage()->plain()
 			);
 	}
@@ -958,7 +958,7 @@ class Cite {
 		$sep = wfMessage( 'cite_references_link_many_sep' )->inContentLanguage()->plain();
 		$and = wfMessage( 'cite_references_link_many_and' )->inContentLanguage()->plain();
 
-		if ( $cnt == 1 ) {
+		if ( $cnt === 1 ) {
 			// Enforce always returning a string
 			return (string)$arr[0];
 		} else {
@@ -1074,10 +1074,10 @@ class Cite {
 		}
 
 		foreach ( $this->mRefs as $group => $refs ) {
-			if ( count( $refs ) == 0 ) {
+			if ( count( $refs ) === 0 ) {
 				continue;
 			}
-			if ( $group == self::DEFAULT_GROUP ) {
+			if ( $group === self::DEFAULT_GROUP ) {
 				$text .= $this->referencesFormat( $group, '', '' );
 			} else {
 				$text .= "\n<br />" .
@@ -1146,7 +1146,7 @@ class Cite {
 
 		$ret = '<strong class="error mw-ext-cite-error">' . $msg . '</strong>';
 
-		if ( $parse == 'parse' ) {
+		if ( $parse === 'parse' ) {
 			$ret = $this->mParser->recursiveTagParse( $ret );
 		}
 

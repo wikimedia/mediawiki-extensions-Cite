@@ -525,7 +525,7 @@ class Cite {
 		case 'new':
 			# Rollback the addition of new elements to the stack.
 			unset( $this->mRefs[$group][$key] );
-			if ( count( $this->mRefs[$group] ) === 0 ) {
+			if ( $this->mRefs[$group] === array() ) {
 				unset( $this->mRefs[$group] );
 				unset( $this->mGroupCnt[$group] );
 			}
@@ -592,7 +592,7 @@ class Cite {
 			# Mostly a side effect of using #tag to call references
 			$count = substr_count( $str, Parser::MARKER_PREFIX . "-ref-" );
 			for ( $i = 1; $i <= $count; $i++ ) {
-				if ( count( $this->mRefCallStack ) < 1 ) {
+				if ( !$this->mRefCallStack ) {
 					break;
 				}
 
@@ -623,10 +623,10 @@ class Cite {
 			$this->mRefCallStack = array();
 		}
 
-		if ( count( $argv ) && $wgAllowCiteGroups ) {
+		if ( $argv && $wgAllowCiteGroups ) {
 			return $this->error( 'cite_error_references_invalid_parameters_group' );
 		}
-		if ( count( $argv ) ) {
+		if ( $argv ) {
 			return $this->error( 'cite_error_references_invalid_parameters' );
 		}
 
@@ -636,7 +636,7 @@ class Cite {
 		}
 
 		# Append errors generated while processing <references>
-		if ( count( $this->mReferencesErrors ) > 0 ) {
+		if ( $this->mReferencesErrors ) {
 			$s .= "\n" . implode( "<br />\n", $this->mReferencesErrors );
 			$this->mReferencesErrors = array();
 		}
@@ -651,7 +651,7 @@ class Cite {
 	 * @return string XHTML ready for output
 	 */
 	function referencesFormat( $group ) {
-		if ( ( count( $this->mRefs ) === 0 ) || ( empty( $this->mRefs[$group] ) ) ) {
+		if ( !$this->mRefs || !$this->mRefs[$group] ) {
 			return '';
 		}
 
@@ -1083,7 +1083,7 @@ class Cite {
 		}
 
 		foreach ( $this->mRefs as $group => $refs ) {
-			if ( count( $refs ) === 0 ) {
+			if ( !$refs ) {
 				continue;
 			}
 			if ( $group === self::DEFAULT_GROUP ) {

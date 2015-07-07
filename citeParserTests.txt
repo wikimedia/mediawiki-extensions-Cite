@@ -304,7 +304,7 @@ Wikipedia rocks!<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[n
 !! end
 
 !! test
-Simple <ref>, with <references/> in group, with groupname in chinese 
+Simple <ref>, with <references/> in group, with groupname in chinese
 !! input
 AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="参">ref c</ref>
 

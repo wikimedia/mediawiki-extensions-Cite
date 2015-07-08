@@ -459,3 +459,25 @@ Bla.<ref></ref>
 refs with no name must have content</strong>
 </p>
 !! end
+
+!! test
+<ref> with an empty-string name parameter and no content.
+!! input
+Bla.<ref name=""></ref>
+!! result
+<p>Bla.<strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+refs with no name must have content</strong>
+</p>
+!! end
+
+!! test
+<ref> with an empty-string name parameter and no content.
+!! input
+Bla.<ref name="void"></ref>
+!! result
+Bla.<sup id="cite_ref-void_1-0" class="reference"><a href="#cite_note-void-1">[1]</a></sup><ol class="references">
+<li id="cite_note-void"><span class="mw-cite-backlink"><a href="#cite_ref-void_0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>void</code></strong></li>
+</ol>
+
+!! end

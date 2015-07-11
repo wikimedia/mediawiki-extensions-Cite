@@ -471,7 +471,7 @@ refs with no name must have content</strong>
 !! end
 
 !! test
-<ref> with an empty-string name parameter and no content.
+<ref> with a non-empty name parameter and no content.
 !! input
 Bla.<ref name="void"></ref>
 !! result

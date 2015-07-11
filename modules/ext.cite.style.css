@@ -5,6 +5,8 @@ span.mw-ref {
 	vertical-align: super;
 	line-height: 1;
 	font-size: smaller;
+	/* Make sure the brackets and the numbers aren't jumbled after LTR words in RTL wikis */
+	unicode-bidi: embed;
 }
 
 /* With a group set */

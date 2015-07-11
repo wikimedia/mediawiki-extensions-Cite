@@ -6,11 +6,9 @@
 	user-select: none;
 }
 
-/* Isolation to fix references in case of RTL words at the end of a reference */
+/* Make sure the brackets and the numbers aren't jumbled after LTR words in RTL wikis */
 sup.reference {
-	unicode-bidi: -moz-isolate;
-	unicode-bidi: -webkit-isolate;
-	unicode-bidi: isolate;
+	unicode-bidi: embed;
 }
 
 /* Highlight clicked reference in blue to help navigation */

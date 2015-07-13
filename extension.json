@@ -55,7 +55,11 @@
 		"ext.cite.style": {
 			"class": "CiteCSSFileModule",
 			"styles": "ext.cite.style.css",
-			"position": "top"
+			"position": "top",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {

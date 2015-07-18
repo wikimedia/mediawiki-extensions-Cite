@@ -394,7 +394,6 @@ class Cite {
 		if ( !isset( $this->mGroupCnt[$group] ) ) {
 			$this->mGroupCnt[$group] = 0;
 		}
-
 		if ( $follow != null ) {
 			if ( isset( $this->mRefs[$group][$follow] ) && is_array( $this->mRefs[$group][$follow] ) ) {
 				// add text to the note that is being followed
@@ -418,6 +417,7 @@ class Cite {
 			// return an empty string : this is not a reference
 			return '';
 		}
+
 		if ( $key === null ) {
 			// No key
 			// $this->mRefs[$group][] = $str;
@@ -425,49 +425,48 @@ class Cite {
 			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
 
 			return $this->linkRef( $group, $this->mOutCnt );
-		} elseif ( is_string( $key ) ) {
-			// Valid key
-			if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
-				// First occurrence
-				$this->mRefs[$group][$key] = array(
-					'text' => $str,
-					'count' => 0,
-					'key' => ++$this->mOutCnt,
-					'number' => ++$this->mGroupCnt[$group]
-				);
-				$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
-
-				return
-					$this->linkRef(
-						$group,
-						$key,
-						$this->mRefs[$group][$key]['key'] . "-" . $this->mRefs[$group][$key]['count'],
-						$this->mRefs[$group][$key]['number'],
-						"-" . $this->mRefs[$group][$key]['key']
-					);
-			} else {
-				// We've been here before
-				if ( $this->mRefs[$group][$key]['text'] === null && $str !== '' ) {
-					// If no text found before, use this text
-					$this->mRefs[$group][$key]['text'] = $str;
-					$this->mRefCallStack[] = array( 'assign', $call, $str, $key, $group,
-						$this->mRefs[$group][$key]['key'] );
-				} else {
-					$this->mRefCallStack[] = array( 'increment', $call, $str, $key, $group,
-						$this->mRefs[$group][$key]['key'] );
-				}
-				return
-					$this->linkRef(
-						$group,
-						$key,
-						$this->mRefs[$group][$key]['key'] . "-" . ++$this->mRefs[$group][$key]['count'],
-						$this->mRefs[$group][$key]['number'],
-						"-" . $this->mRefs[$group][$key]['key']
-					);
-			}
-		} else {
+		}
+		if ( !is_string( $key ) ) {
 			throw new Exception( 'Invalid stack key: ' . serialize( $key ) );
 		}
+
+		// Valid key
+		if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
+			// First occurrence
+			$this->mRefs[$group][$key] = array(
+				'text' => $str,
+				'count' => 0,
+				'key' => ++$this->mOutCnt,
+				'number' => ++$this->mGroupCnt[$group]
+			);
+			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
+
+			return $this->linkRef(
+				$group,
+				$key,
+				$this->mRefs[$group][$key]['key'] . "-" . $this->mRefs[$group][$key]['count'],
+				$this->mRefs[$group][$key]['number'],
+				"-" . $this->mRefs[$group][$key]['key']
+			);
+		}
+
+		// We've been here before
+		if ( $this->mRefs[$group][$key]['text'] === null && $str !== '' ) {
+			// If no text found before, use this text
+			$this->mRefs[$group][$key]['text'] = $str;
+			$this->mRefCallStack[] = array( 'assign', $call, $str, $key, $group,
+				$this->mRefs[$group][$key]['key'] );
+		} else {
+			$this->mRefCallStack[] = array( 'increment', $call, $str, $key, $group,
+				$this->mRefs[$group][$key]['key'] );
+		}
+		return $this->linkRef(
+			$group,
+			$key,
+			$this->mRefs[$group][$key]['key'] . "-" . ++$this->mRefs[$group][$key]['count'],
+			$this->mRefs[$group][$key]['number'],
+			"-" . $this->mRefs[$group][$key]['key']
+		);
 	}
 
 	/**
@@ -505,7 +504,7 @@ class Cite {
 			}
 		}
 
-		# Sanity checks that specified element exists.
+		// Sanity checks that specified element exists.
 		if ( $key === null ) {
 			return;
 		}
@@ -550,19 +549,17 @@ class Cite {
 		if ( $this->mInCite || $this->mInReferences ) {
 			if ( is_null( $str ) ) {
 				return htmlspecialchars( "<references/>" );
-			} else {
-				return htmlspecialchars( "<references>$str</references>" );
 			}
-		} else {
-			$this->mCallCnt++;
-			$this->mInReferences = true;
-			$ret = $this->guardedReferences( $str, $argv, $parser );
-			$this->mInReferences = false;
-			if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
-				$frame->setVolatile();
-			}
-			return $ret;
+			return htmlspecialchars( "<references>$str</references>" );
 		}
+		$this->mCallCnt++;
+		$this->mInReferences = true;
+		$ret = $this->guardedReferences( $str, $argv, $parser );
+		$this->mInReferences = false;
+		if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
+			$frame->setVolatile();
+		}
+		return $ret;
 	}
 
 	/**
@@ -622,21 +619,22 @@ class Cite {
 
 		if ( count( $argv ) && $wgAllowCiteGroups ) {
 			return $this->error( 'cite_error_references_invalid_parameters_group' );
-		} elseif ( count( $argv ) ) {
+		}
+		if ( count( $argv ) ) {
 			return $this->error( 'cite_error_references_invalid_parameters' );
-		} else {
-			$s = $this->referencesFormat( $group );
-			if ( $parser->getOptions()->getIsSectionPreview() ) {
-				return $s;
-			}
+		}
 
-			# Append errors generated while processing <references>
-			if ( count( $this->mReferencesErrors ) > 0 ) {
-				$s .= "\n" . implode( "<br />\n", $this->mReferencesErrors );
-				$this->mReferencesErrors = array();
-			}
+		$s = $this->referencesFormat( $group );
+		if ( $parser->getOptions()->getIsSectionPreview() ) {
 			return $s;
 		}
+
+		# Append errors generated while processing <references>
+		if ( count( $this->mReferencesErrors ) > 0 ) {
+			$s .= "\n" . implode( "<br />\n", $this->mReferencesErrors );
+			$this->mReferencesErrors = array();
+		}
+		return $s;
 	}
 
 	/**

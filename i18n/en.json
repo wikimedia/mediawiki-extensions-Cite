@@ -54,8 +54,6 @@
 	"cite_references_link_many_and": "&#32;",
 	"cite_references_link_accessibility_label": "Jump up",
 	"cite_references_link_many_accessibility_label": "Jump up to:",
-	"cite_references_prefix": "<ol class=\"references\">",
-	"cite_references_suffix": "</ol>",
 	"cite_section_preview_references": "Preview of references",
 	"cite_warning": "Cite warning: $1",
 	"cite_warning_sectionpreview_no_text": "<code>&lt;ref&gt;</code> tag with name <code>$1</code> cannot be previewed because it is defined outside the current section or not defined at all."

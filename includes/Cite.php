@@ -650,7 +650,7 @@ class Cite {
 		Parser $parser,
 		$group = self::DEFAULT_GROUP
 	) {
-		global $wgAllowCiteGroups;
+		global $wgAllowCiteGroups, $wgCiteResponsiveReferences;
 
 		$this->mParser = $parser;
 
@@ -706,6 +706,13 @@ class Cite {
 			$this->mRefCallStack = [];
 		}
 
+		if ( isset( $argv['responsive'] ) ) {
+			$responsive = $argv['responsive'] !== '0';
+			unset( $argv['responsive'] );
+		} else {
+			$responsive = $wgCiteResponsiveReferences;
+		}
+
 		if ( $argv && $wgAllowCiteGroups ) {
 			return $this->error( 'cite_error_references_invalid_parameters_group' );
 		}
@@ -713,7 +720,7 @@ class Cite {
 			return $this->error( 'cite_error_references_invalid_parameters' );
 		}
 
-		$s = $this->referencesFormat( $group );
+		$s = $this->referencesFormat( $group, $responsive );
 
 		# Append errors generated while processing <references>
 		if ( $this->mReferencesErrors ) {
@@ -727,10 +734,10 @@ class Cite {
 	 * Make output to be returned from the references() function
 	 *
 	 * @param string $group
-	 *
-	 * @return string XHTML ready for output
+	 * @param bool $responsive
+	 * @return string HTML ready for output
 	 */
-	private function referencesFormat( $group ) {
+	private function referencesFormat( $group, $responsive ) {
 		if ( !$this->mRefs || !isset( $this->mRefs[$group] ) ) {
 			return '';
 		}
@@ -740,13 +747,11 @@ class Cite {
 			$ent[] = $this->referencesFormatEntry( $k, $v );
 		}
 
-		$prefix = wfMessage( 'cite_references_prefix' )->inContentLanguage()->plain();
-		$suffix = wfMessage( 'cite_references_suffix' )->inContentLanguage()->plain();
-		$content = implode( "\n", $ent );
-
-		// Prepare the parser input.
-		// We add new lines between the pieces to avoid a confused tidy (bug 13073).
-		$parserInput = $prefix . "\n" . $content . "\n" . $suffix;
+		// Add new lines between the list items (ref entires) to avoid confusing tidy (bug 13073).
+		// Note: This builds a string of wikitext, not html.
+		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ],
+			"\n" . implode( "\n", $ent ) . "\n"
+		);
 
 		// Let's try to cache it.
 		global $wgCiteCacheReferences, $wgMemc;
@@ -772,6 +777,16 @@ class Cite {
 
 		} else {
 			$ret = $this->mParser->unserializeHalfParsedText( $data );
+		}
+
+		if ( $responsive ) {
+			// Use a DIV wrap because column-count on a list directly is broken in Chrome.
+			// See https://bugs.chromium.org/p/chromium/issues/detail?id=498730.
+			$wrapClasses = [ 'mw-references-wrap' ];
+			if ( count( $this->mRefs[$group] ) > 10 ) {
+				$wrapClasses[] = 'mw-references-columns';
+			}
+			$ret = Html::rawElement( 'div', [ 'class' => $wrapClasses ], $ret );
 		}
 
 		if ( !$this->mParser->getOptions()->getIsPreview() ) {
@@ -1145,6 +1160,7 @@ class Cite {
 	 * @return bool
 	 */
 	public function checkRefsNoReferences( $afterParse, &$parser, &$text ) {
+		global $wgCiteResponsiveReferences;
 		if ( is_null( $parser->extCite ) ) {
 			return true;
 		}
@@ -1174,7 +1190,7 @@ class Cite {
 				continue;
 			}
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-				$s .= $this->referencesFormat( $group );
+				$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
 			} else {
 				$s .= "\n<br />" .
 					$this->error( 'cite_error_group_refs_without_references', htmlspecialchars( $group ) );

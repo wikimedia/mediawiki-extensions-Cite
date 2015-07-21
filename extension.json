@@ -54,7 +54,11 @@
 					"media": "print"
 				}
 			},
-			"position": "bottom"
+			"position": "bottom",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		},
 		"ext.cite.a11y": {
 			"scripts": "ext.cite.a11y.js",
@@ -90,7 +94,8 @@
 		"CiteCacheReferences": false,
 		"CiteStoreReferencesData": false,
 		"CiteCacheReferencesDataOnParse": false,
-		"CiteVisualEditorOtherGroup": false
+		"CiteVisualEditorOtherGroup": false,
+		"CiteResponsiveReferences": true
 	},
 	"AutoloadClasses": {
 		"ApiQueryReferences": "includes/ApiQueryReferences.php",

@@ -1057,6 +1057,9 @@ class Cite {
 	 * @return bool
 	 */
 	function checkRefsNoReferences( $afterParse, &$parser, &$text ) {
+		if ( is_null( $parser->extCite ) ) {
+			return true;
+		}
 		if ( $parser->extCite !== $this ) {
 			return $parser->extCite->checkRefsNoReferences( $afterParse, $parser, $text );
 		}

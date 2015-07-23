@@ -213,7 +213,8 @@ Regression: non-blank ref "0" followed by ref with content
 <li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">0</span>
 </li>
 </ol>
-
+<p><strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "blank" defined multiple times with different content</strong>
+</p>
 !! end
 
 !! test
@@ -232,7 +233,8 @@ Regression sanity check: non-blank ref "1" followed by ref with content
 <li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">1</span>
 </li>
 </ol>
-
+<p><strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "blank" defined multiple times with different content</strong>
+</p>
 !! end
 
 !! test

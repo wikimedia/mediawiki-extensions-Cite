@@ -365,7 +365,7 @@ class Cite {
 			}
 
 			if ( $cnt === 0 ) {
-				return array ( $key, $group, $follow );
+				return array( $key, $group, $follow );
 			} else {
 				// Invalid key
 				return array( false, false, false );
@@ -576,7 +576,7 @@ class Cite {
 
 		if ( isset( $argv['group'] ) && $wgAllowCiteGroups ) {
 			$group = $argv['group'];
-			unset ( $argv['group'] );
+			unset( $argv['group'] );
 		}
 
 		if ( strval( $str ) !== '' ) {

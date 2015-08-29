@@ -1047,8 +1047,10 @@ class Cite {
 	}
 
 	/**
-	 * Called at the end of page processing to append an error if refs were
-	 * used without a references tag.
+	 * Called at the end of page processing to append a default references
+	 * section, if refs were used without a main references tag. If there are references
+	 * in a custom group, and there is no references tag for it, show an error
+	 * message for that group.
 	 *
 	 * @param $afterParse bool  true if called from the ParserAfterParse hook
 	 * @param $parser Parser

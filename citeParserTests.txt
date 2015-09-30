@@ -160,6 +160,25 @@ Templating<ref>Text<!--comment--></ref>
 !! end
 
 !! test
+Ref with content followed by blank ref
+!! input
+<ref name="blank">content</ref>
+
+<ref name="blank"/>
+
+<references/>
+!! result
+<p><sup id="cite_ref-blank_1-0" class="reference"><a href="#cite_note-blank-1">[1]</a></sup>
+</p><p><sup id="cite_ref-blank_1-1" class="reference"><a href="#cite_note-blank-1">[1]</a></sup>
+</p>
+<ol class="references">
+<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">content</span>
+</li>
+</ol>
+
+!! end
+
+!! test
 Blank ref followed by ref with content
 !! input
 <ref name="blank"/>

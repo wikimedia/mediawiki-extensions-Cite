@@ -13,6 +13,7 @@
 	"cite_error_ref_no_key": "תג <code>&lt;ref&gt;</code> לא תקין;\nלהערות שוליים ללא תוכן חייב להיות שם (name)",
 	"cite_error_ref_too_many_keys": "תג <code>&lt;ref&gt;</code> לא תקין;\nשמות שגויים, למשל, רבים מדי",
 	"cite_error_ref_no_input": "תג <code>&lt;ref&gt;</code> לא תקין;\nלהערות שוליים ללא שם חייב להיות תוכן",
+	"cite_error_references_duplicate_key": "תג <code>&lt;ref&gt;</code> בלתי־תקין; השם \"$1\" הוגדר מספר פעמים עם תוכן שונה",
 	"cite_error_references_invalid_parameters": "תג <code>&lt;references&gt;</code> לא תקין;\nלא ניתן להשתמש בפרמטרים.\nיש להשתמש בקוד <code dir=\"ltr\">&lt;references /&gt;</code>",
 	"cite_error_references_invalid_parameters_group": "תג <code>&lt;references&gt;</code> לא תקין;\nרק הפרמטר \"group\" מותר לשימוש.\nאנא השתמשו בקוד <code dir=\"ltr\">&lt;references /&gt;</code>, או בקוד <code dir=\"ltr\">&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_backlink_label": "אזלו תוויות הקישורים המותאמות אישית.\nאנא הגדירו עוד תוויות בהודעת המערכת <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.",

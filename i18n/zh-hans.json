@@ -19,6 +19,7 @@
 	"cite_error_ref_no_key": "无效<code>&lt;ref&gt;</code>标签；未填内容的引用必须填写name属性",
 	"cite_error_ref_too_many_keys": "无效<code>&lt;ref&gt;</code>标签；name属性非法，可能是内容过长",
 	"cite_error_ref_no_input": "无效<code>&lt;ref&gt;</code>标签；未填name属性的引用必须填写内容",
+	"cite_error_references_duplicate_key": "无效<code>&lt;ref&gt;</code>标签；name属性“$1”使用不同内容定义了多次",
 	"cite_error_references_invalid_parameters": "无效<code>&lt;references&gt;</code>标签；不允许填写参数，请使用<code>&lt;references /&gt;</code>",
 	"cite_error_references_invalid_parameters_group": "无效<code>&lt;references&gt;</code>标签；只允许填写“group”参数，请使用<code>&lt;references /&gt;</code>或<code>&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_backlink_label": "自定义回链标签耗尽，请在<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>中定义更多的标签。",

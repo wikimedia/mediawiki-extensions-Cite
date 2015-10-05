@@ -6,7 +6,8 @@
 			"Fryed-peach",
 			"JtFuruhata",
 			"Shirayuki",
-			"Sujiniku"
+			"Sujiniku",
+			"2nd-player"
 		]
 	},
 	"cite-desc": "引用のためのタグ <nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する",
@@ -15,7 +16,7 @@
 	"cite_error_ref_no_key": "無効な <code>&lt;ref&gt;</code> タグです。\n引用句の内容がない場合は名前 (name 属性) が必要です",
 	"cite_error_ref_too_many_keys": "無効な <code>&lt;ref&gt;</code> タグです。\n名前 (name 属性) が無効です (数が多すぎる、など)",
 	"cite_error_ref_no_input": "無効な <code>&lt;ref&gt;</code> タグです。\n名前 (name 属性) がない場合は引用句の内容が必要です",
-	"cite_error_references_duplicate_key": "無効な <code>&lt;ref&gt;</code> タグ; 名前「$1」は異なる内容で複数回定義",
+	"cite_error_references_duplicate_key": "無効な <code>&lt;ref&gt;</code> タグ; name \"$1\"が異なる内容で複数回定義されています",
 	"cite_error_references_invalid_parameters": "無効な <code>&lt;references&gt;</code> タグです。\n引数は指定できません。\n<code>&lt;references /&gt;</code> を使用してください",
 	"cite_error_references_invalid_parameters_group": "無効な <code>&lt;references&gt;</code> タグです。\n使用できる引数は「group」のみです。\n<code>&lt;references /&gt;</code> または <code>&lt;references group=\"...\" /&gt;</code> を使用してください",
 	"cite_error_references_no_backlink_label": "カスタム バックリンク ラベルを使い果たしました。\n<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> メッセージでの定義を増やしてください。",

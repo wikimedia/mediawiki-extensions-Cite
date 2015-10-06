@@ -3,7 +3,8 @@
 		"authors": [
 			"Alma",
 			"Toliño",
-			"Xosé"
+			"Xosé",
+			"Elisardojm"
 		]
 	},
 	"cite-desc": "Engade as etiquetas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para as citas",
@@ -12,6 +13,7 @@
 	"cite_error_ref_no_key": "Etiqueta <code>&lt;ref&gt;</code> non válida;\nas referencias que non teñan contido deben ter un nome",
 	"cite_error_ref_too_many_keys": "Etiqueta <code>&lt;ref&gt;</code> non válida;\nnomes non válidos, por exemplo, demasiados",
 	"cite_error_ref_no_input": "Etiqueta <code>&lt;ref&gt;</code> non válida;\nas referencias que non teñan nome, deben ter contido",
+	"cite_error_references_duplicate_key": "Etiqueta <code>&lt;ref&gt;</code> non válida; o nome \"$1\" está definido varias veces con contidos diferentes",
 	"cite_error_references_invalid_parameters": "Etiqueta <code>&lt;references&gt;</code> non válida;\nnon están permitidos eses parámetros.\nUse <code>&lt;references /&gt;</code>",
 	"cite_error_references_invalid_parameters_group": "Etiqueta <code>&lt;references&gt;</code> non válida;\nsó está permitido o parámetro \"group\" (\"grupo\").\nUse <code>&lt;references /&gt;</code> ou <code>&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_backlink_label": "As etiquetas personalizadas esgotáronse.\nDefina máis na mensaxe <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",

@@ -5,7 +5,8 @@
 			"Holek",
 			"Leinad",
 			"Sp5uhe",
-			"Woytecr"
+			"Woytecr",
+			"Peter Bowman"
 		]
 	},
 	"cite-desc": "Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów",
@@ -14,6 +15,7 @@
 	"cite_error_ref_no_key": "Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.",
 	"cite_error_ref_too_many_keys": "Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.",
 	"cite_error_ref_no_input": "Błąd w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść",
+	"cite_error_references_duplicate_key": "Nieprawidłowy znacznik <code>&lt;ref&gt;</code>; nazwę „$1” zdefiniowano więcej niż raz z różną zawartością",
 	"cite_error_references_invalid_parameters": "Błąd w składni elementu <code>&lt;references&gt;</code>. Nie można wprowadzać parametrów do tego elementu, użyj <code>&lt;references /&gt;</code>",
 	"cite_error_references_invalid_parameters_group": "Nieprawidłowy znacznik <code>&lt;references&gt;</code>;\ndostępny jest wyłącznie parametr „group”.\nUżyj znacznika <code>&lt;references /&gt;</code>, lub <code>&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_backlink_label": "Zabrakło etykiet do przypisów.\nZadeklaruj więcej w komunikacie <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",

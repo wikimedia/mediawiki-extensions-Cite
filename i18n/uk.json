@@ -18,6 +18,7 @@
 	"cite_error_ref_no_key": "Неправильний виклик <code>&lt;ref&gt;</code>:\nпорожній тег <code>ref</code> повинен мати параметр name.",
 	"cite_error_ref_too_many_keys": "Неправильний виклик <code>&lt;ref&gt;</code>:\nвказані неправильні значення <code>name</code> або вказано забагато параметрів",
 	"cite_error_ref_no_input": "Неправильний виклик <code>&lt;ref&gt;</code>:\nтег <code>ref</code> без назви повинен мати вхідні дані",
+	"cite_error_references_duplicate_key": "Некоректний теґ <code>&lt;ref&gt;</code>; назва «$1» визначена кілька разів з різним вмістом",
 	"cite_error_references_invalid_parameters": "Неправильний тег <code>&lt;references&gt;</code>:\nпараметри не передбачені. Використовуйте <code>&lt;references /&gt;</code>",
 	"cite_error_references_invalid_parameters_group": "Помилковий тег <code>&lt;references&gt;</code>;\nможна використовувати тільки параметр «group».\nВикористовуйте <code>&lt;references /&gt;</code> або <code>&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_backlink_label": "Недостатньо символів для зворотних гіперпосилань.\nПотрібно розширити системну змінну <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",

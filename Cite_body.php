@@ -398,7 +398,7 @@ class Cite {
 		if ( $follow != null ) {
 			if ( isset( $this->mRefs[$group][$follow] ) && is_array( $this->mRefs[$group][$follow] ) ) {
 				// add text to the note that is being followed
-				$this->mRefs[$group][$follow]['text'] = $this->mRefs[$group][$follow]['text'] . ' ' . $str;
+				$this->mRefs[$group][$follow]['text'] .= ' ' . $str;
 			} else {
 				// insert part of note at the beginning of the group
 				$groupsCount = count( $this->mRefs[$group] );
@@ -460,7 +460,8 @@ class Cite {
 		} else {
 			if ( $str != null && $str !== '' && $str !== $this->mRefs[$group][$key]['text'] ) {
 				// two refs with same key and different content
-				$this->mReferencesErrors[] = $this->error( 'cite_error_references_duplicate_key', $key );
+				// add error message to the original ref
+				$this->mRefs[$group][$key]['text'] .= ' ' . $this->error( 'cite_error_references_duplicate_key', $key );
 			}
 			$this->mRefCallStack[] = array( 'increment', $call, $str, $key, $group,
 				$this->mRefs[$group][$key]['key'] );

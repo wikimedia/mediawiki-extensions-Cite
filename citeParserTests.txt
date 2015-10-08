@@ -210,7 +210,7 @@ Regression: non-blank ref "0" followed by ref with content
 </p><p><sup id="cite_ref-blank_1-1" class="reference"><a href="#cite_note-blank-1">&#91;1&#93;</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">0 <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "blank" defined multiple times with different content</span></span>
+<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">0 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "blank" defined multiple times with different content</span></span>
 </li>
 </ol>
 
@@ -229,7 +229,7 @@ Regression sanity check: non-blank ref "1" followed by ref with content
 </p><p><sup id="cite_ref-blank_1-1" class="reference"><a href="#cite_note-blank-1">&#91;1&#93;</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">1 <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "blank" defined multiple times with different content</span></span>
+<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">1 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "blank" defined multiple times with different content</span></span>
 </li>
 </ol>
 
@@ -276,22 +276,22 @@ Erroneous refs
 
 <references />
 !! result
-<p><span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 name cannot be a simple integer. Use a descriptive title</span>
 </p><p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
-</p><p><span class="error mw-ext-cite-error">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</span>
+</p><p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</span>
 </p><p><sup id="cite_ref-bar_2-0" class="reference"><a href="#cite_note-bar-2">&#91;2&#93;</a></sup>
 </p><p><sup id="cite_ref-blankwithnoreference_3-0" class="reference"><a href="#cite_note-blankwithnoreference-3">&#91;3&#93;</a></sup>
-</p><p><span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;references&gt;</code> tag;
+</p><p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;references&gt;</code> tag;
 parameter "group" is allowed only.
 Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;</code></span>
 </p>
 <ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Also zero, but differently! (Normal ref)</span>
 </li>
-<li id="cite_note-bar-2"><span class="mw-cite-backlink"><a href="#cite_ref-bar_2-0">↑</a></span> <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<li id="cite_note-bar-2"><span class="mw-cite-backlink"><a href="#cite_ref-bar_2-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>bar</code></span></li>
-<li id="cite_note-blankwithnoreference-3"><span class="mw-cite-backlink"><a href="#cite_ref-blankwithnoreference_3-0">↑</a></span> <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<li id="cite_note-blankwithnoreference-3"><span class="mw-cite-backlink"><a href="#cite_ref-blankwithnoreference_3-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>blankwithnoreference</code></span></li>
 </ol>
 
@@ -399,12 +399,12 @@ AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="�
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;2 1&#93;</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>foo</code></span></li>
 </ol>
-<p><span class="error mw-ext-cite-error">Cite error: <code>&lt;ref&gt;</code> tag with name "unused" defined in <code>&lt;references&gt;</code> is not used in prior text.</span><br />
-<span class="error mw-ext-cite-error">Cite error: <code>&lt;ref&gt;</code> tag in <code>&lt;references&gt;</code> has conflicting group attribute "1".</span><br />
-<span class="error mw-ext-cite-error">Cite error: <code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.</span>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "unused" defined in <code>&lt;references&gt;</code> is not used in prior text.</span><br />
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag in <code>&lt;references&gt;</code> has conflicting group attribute "1".</span><br />
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.</span>
 </p>
 !! end
 
@@ -473,7 +473,7 @@ foo</span>
 !! input
 Bla.<ref></ref>
 !! result
-<p>Bla.<span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<p>Bla.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 refs with no name must have content</span>
 </p>
 !! end
@@ -483,7 +483,7 @@ refs with no name must have content</span>
 !! input
 Bla.<ref name=""></ref>
 !! result
-<p>Bla.<span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<p>Bla.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 refs with no name must have content</span>
 </p>
 !! end
@@ -494,7 +494,7 @@ refs with no name must have content</span>
 Bla.<ref name="void"></ref>
 !! result
 Bla.<sup id="cite_ref-void_1-0" class="reference"><a href="#cite_note-void-1">&#91;1&#93;</a></sup><ol class="references">
-<li id="cite_note-void-1"><span class="mw-cite-backlink"><a href="#cite_ref-void_1-0">↑</a></span> <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<li id="cite_note-void-1"><span class="mw-cite-backlink"><a href="#cite_ref-void_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>void</code></span></li>
 </ol>
 
@@ -527,7 +527,7 @@ Page two.<ref follow="beginning">Second page footnote text.</ref>
 Page one.<ref name="the-name" follow="the-name">This ref is invalid.</ref>
 <references />
 !! result
-<p>Page one.<span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<p>Page one.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 invalid names, e.g. too many</span>
 </p>
 !! end
@@ -543,7 +543,7 @@ Multiple definition (outside <references/>)
 <sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">abc <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">abc <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
 </li>
 </ol>
 
@@ -561,7 +561,7 @@ Multiple definition (inside <references/>)
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
 </li>
 </ol>
 
@@ -578,7 +578,7 @@ Multiple definition (mixed outside/inside)
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
 </li>
 </ol>
 
@@ -596,7 +596,7 @@ Multiple definition (inside {{#tag:references}})
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <span class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
 </li>
 </ol>
 

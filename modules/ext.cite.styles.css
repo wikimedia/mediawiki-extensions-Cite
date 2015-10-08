@@ -27,4 +27,6 @@ sup.reference:target {
 /* Make cite errors "strong" */
 .mw-ext-cite-error {
 	font-weight: bold;
+	/* For the case that the error is embedded in an element with a different direction */
+	unicode-bidi: embed;
 }

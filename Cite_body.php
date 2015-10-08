@@ -1275,12 +1275,14 @@ class Cite {
 	 * @return string XHTML or wikitext ready for output
 	 */
 	function error( $key, $param = null, $parse = 'parse' ) {
-		# We rely on the fact that PHP is okay with passing unused argu-
-		# ments to functions.  If $1 is not used in the message, wfMessage will
-		# just ignore the extra parameter.
 		# For ease of debugging and because errors are rare, we
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();
+		$dir = $lang->getDir();
+
+		# We rely on the fact that PHP is okay with passing unused argu-
+		# ments to functions.  If $1 is not used in the message, wfMessage will
+		# just ignore the extra parameter.
 		$msg = wfMessage(
 			'cite_error',
 			wfMessage( $key, $param )->inLanguage( $lang )->plain()
@@ -1290,7 +1292,15 @@ class Cite {
 
 		$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 
-		$ret = '<span class="error mw-ext-cite-error">' . $msg . '</span>';
+		$ret = Html::rawElement(
+			'span',
+			array(
+				'class' => 'error mw-ext-cite-error',
+				'lang' => $lang->getHtmlCode(),
+				'dir' => $dir,
+			),
+			$msg
+		);
 
 		if ( $parse === 'parse' ) {
 			$ret = $this->mParser->recursiveTagParse( $ret );
@@ -1308,12 +1318,14 @@ class Cite {
 	 * @return string XHTML or wikitext ready for output
 	 */
 	function warning( $key, $param = null, $parse = 'parse' ) {
-		# We rely on the fact that PHP is okay with passing unused argu-
-		# ments to functions.  If $1 is not used in the message, wfMessage will
-		# just ignore the extra parameter.
 		# For ease of debugging and because errors are rare, we
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();
+		$dir = $lang->getDir();
+
+		# We rely on the fact that PHP is okay with passing unused argu-
+		# ments to functions.  If $1 is not used in the message, wfMessage will
+		# just ignore the extra parameter.
 		$msg = wfMessage(
 			'cite_warning',
 			wfMessage( $key, $param )->inLanguage( $lang )->plain()
@@ -1322,9 +1334,16 @@ class Cite {
 			->plain();
 
 		$key = preg_replace( '/^cite_warning_/', '', $key ) . '';
-		$ret = '<span class="warning mw-ext-cite-warning mw-ext-cite-warning-' .
-			Sanitizer::escapeClass( $key ) .
-			'">' . $msg . '</span>';
+		$ret = Html::rawElement(
+			'span',
+			array(
+				'class' => 'warning mw-ext-cite-warning mw-ext-cite-warning-' .
+					Sanitizer::escapeClass( $key ),
+				'lang' => $lang->getHtmlCode(),
+				'dir' => $dir,
+			),
+			$msg
+		);
 
 		if ( $parse === 'parse' ) {
 			$ret = $this->mParser->recursiveTagParse( $ret );

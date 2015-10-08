@@ -34,6 +34,8 @@
 	"cite_error_references_missing_key": "Error message shown when using something like\n<pre>\n<references>\n<ref name=\"refname\">...</ref>\n</references>\n</pre>\nand the reference <code><nowiki><ref name=\"refname\" /></nowiki></code> is not used anywhere in the page text.\n\nParameters:\n* $1 - the name of the unused reference (in the example above, “refname”)",
 	"cite_error_references_no_key": "Error message shown when a <code><nowiki><ref></nowiki></code> inside <code><nowiki><references></nowiki></code> does not have a <code>name</code> attribute.",
 	"cite_error_empty_references_define": "Error message shown when there is a <code><nowiki><ref></nowiki></code> inside <code><nowiki><references></nowiki></code>, but it does not have any content, e.g.\n<pre>\n<references>\n<ref name=\"foo\" />\n</references>\n</pre>\n\nParameters:\n* $1 - the <code><nowiki>name</nowiki></code> of the erroneous <code><nowiki><ref></nowiki></code> (in the above example, “foo”)",
+	"cite-tracking-category-cite-error": "Tracking category name.",
+	"cite-tracking-category-cite-error-desc": "Tracking category description.",
 	"cite_reference_link_key_with_num": "{{optional}}\nParameters:\n* $1 - the key\n* $2 - the number of the key",
 	"cite_reference_link_prefix": "{{optional}}",
 	"cite_reference_link_suffix": "{{optional}}",

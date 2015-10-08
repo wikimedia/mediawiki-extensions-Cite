@@ -65,5 +65,8 @@
 	"ParserTestFiles": [
 		"citeParserTests.txt"
 	],
+	"TrackingCategories": [
+		"cite-tracking-category-cite-error"
+	],
 	"manifest_version": 1
 }

@@ -29,6 +29,8 @@
 	"cite_error_references_missing_key": "Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ wird im vorausgehenden Text nicht verwendet.",
 	"cite_error_references_no_key": "Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag hat kein Namensattribut.",
 	"cite_error_empty_references_define": "Das in <code>&lt;references&gt;</code> definierte <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ weist keinen Inhalt auf.",
+	"cite-tracking-category-cite-error": "Seiten mit Referenzierungsfehlern",
+	"cite-tracking-category-cite-error-desc": "Seiten in dieser Kategorie haben Fehler in der Verwendung von Einzelnachweis-Tags.",
 	"cite_references_link_accessibility_label": "Hochspringen",
 	"cite_references_link_many_accessibility_label": "Hochspringen nach:"
 }

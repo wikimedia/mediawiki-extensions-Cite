@@ -23,6 +23,8 @@
 	"cite_error_references_missing_key": "'O tag <code>&lt;ref&gt;</code> c' 'o nomme \"$1\" definito int'a <code>&lt;references&gt;</code> nun è ausato dint' 'o testo 'e primma.",
 	"cite_error_references_no_key": "'O tag <code>&lt;ref&gt;</code> definito int'a <code>&lt;references&gt;</code> nun tene n'attribbuto 'e nomme.",
 	"cite_error_empty_references_define": "'O tag <code>&lt;ref&gt;</code> definito int'a <code>&lt;references&gt;</code> c' 'o nomme \"$1\" nun tene cuntenute.",
+	"cite-tracking-category-cite-error": "Paggene ch'errure 'e riferimiento",
+	"cite-tracking-category-cite-error-desc": "Paggene dint'a sta categuria teneno errure int'a l'uso 'e ll'etichette 'e riferimento.",
 	"cite_references_link_accessibility_label": "Zompa ncopp'a",
 	"cite_references_link_many_accessibility_label": "Zompa ncoppa nfin'a:"
 }

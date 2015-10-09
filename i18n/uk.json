@@ -31,6 +31,8 @@
 	"cite_error_references_missing_key": "Тег <code>&lt;ref&gt;</code> з назвою \"$1\", визначений у <code>&lt;references&gt;</code>, не використовується в попередньому тексті.",
 	"cite_error_references_no_key": "Тег <code>&lt;ref&gt;</code>, визначений у <code>&lt;references&gt;</code>, не має атрибута назви.",
 	"cite_error_empty_references_define": "Тег <code>&lt;ref&gt;</code>, визначений у <code>&lt;references&gt;</code>, з назвою \"$1\" не має змісту.",
+	"cite-tracking-category-cite-error": "Сторінки з помилками посилань",
+	"cite-tracking-category-cite-error-desc": "Сторінок у цій категорії мають помилки у використанні теґів посилань.",
 	"cite_reference_link_key_with_num": "$1_$2",
 	"cite_reference_link_prefix": "cite_ref-",
 	"cite_references_link_prefix": "cite_note-",

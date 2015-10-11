@@ -29,6 +29,8 @@
 	"cite_error_references_missing_key": "Na <code>&lt;ref&gt;</code> se jménem „$1“ definovaný uvnitř <code>&lt;references&gt;</code> nejsou v předchozím textu žádné odkazy.",
 	"cite_error_references_no_key": "U značky <code>&lt;ref&gt;</code> definované uvnitř <code>&lt;references&gt;</code> chybí atribut <code>name</code>.",
 	"cite_error_empty_references_define": "U značky <code>&lt;ref&gt;</code> s názvem „$1“ definované uvnitř <code>&lt;references&gt;</code> chybí obsah.",
+	"cite-tracking-category-cite-error": "Stránky s chybami v referencích",
+	"cite-tracking-category-cite-error-desc": "Stránky v této kategorii obsahují chyby v použití značek pro reference.",
 	"cite_references_link_accessibility_label": "Skočit nahoru",
 	"cite_references_link_many_accessibility_label": "Skočit nahoru k:"
 }

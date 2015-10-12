@@ -26,6 +26,8 @@
 	"cite_error_references_missing_key": "<code>&lt;references&gt;</code> ह्या मध्ये टाकलेला <code>&lt;ref&gt;</code>  \"$1\" ह्या नावाची खूणपताका  ह्या पूर्वी वापरण्यात आलेली नाही.",
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code>खूणपताकेत नमूद गोष्टींना <code>&lt;references&gt;</code> ला नाम-गुणधर्म नाहीत.",
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code>खूणपताकेत नमूद गोष्टींना, <code>&lt;references&gt;</code> ज्या  \"$1\" ह्या नावाने संबोधल्या आहेत, त्यात माहिती नाही.",
+	"cite-tracking-category-cite-error": "संदर्भ त्रुटी असणारी पाने",
+	"cite-tracking-category-cite-error-desc": "या वर्गात असणाऱ्या पानांत संदर्भ खूणपताकासंबंधी त्रुटी आहे.",
 	"cite_references_link_accessibility_label": "वर उडी मारा",
 	"cite_references_link_many_accessibility_label": "ला वर उडी मारा:"
 }

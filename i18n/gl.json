@@ -26,6 +26,8 @@
 	"cite_error_references_missing_key": "A etiqueta <code>&lt;ref&gt;</code> co nome \"$1\" definida en <code>&lt;references&gt;</code> non se utiliza no texto anterior.",
 	"cite_error_references_no_key": "A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> non ten nome de atributo.",
 	"cite_error_empty_references_define": "A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> co nome \"$1\" non ten contido.",
+	"cite-tracking-category-cite-error": "Páxinas con erros de referencia",
+	"cite-tracking-category-cite-error-desc": "As páxinas nesta categoría teñen erros no uso das etiquetas de referencias.",
 	"cite_references_link_accessibility_label": "Saltar a",
 	"cite_references_link_many_accessibility_label": "Saltar a:"
 }

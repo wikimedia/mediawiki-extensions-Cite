@@ -11,7 +11,7 @@
 		]
 	},
 	"cite-desc": "Aggiunge i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> per gestire le citazioni",
-	"cite_error": "Errore nella funzione Cite: $1",
+	"cite_error": "Errore nelle note: $1",
 	"cite_error_ref_numeric_key": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: il nome non può essere un numero intero. Usare un titolo esteso",
 	"cite_error_ref_no_key": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref vuoti non possono essere privi di nome",
 	"cite_error_ref_too_many_keys": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)",
@@ -29,6 +29,8 @@
 	"cite_error_references_missing_key": "Il tag <code>&lt;ref&gt;</code> con nome \"$1\" definito in <code>&lt;references&gt;</code> non è usato nel testo precedente.",
 	"cite_error_references_no_key": "Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> non ha un attributo nome.",
 	"cite_error_empty_references_define": "Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> con nome \"$1\" non ha alcun contenuto.",
+	"cite-tracking-category-cite-error": "Pagine con errori nelle note",
+	"cite-tracking-category-cite-error-desc": "Le pagine in questa categoria hanno errori nell'uso dei tag per le note.",
 	"cite_references_link_accessibility_label": "Salta",
 	"cite_references_link_many_accessibility_label": "Salta a:"
 }

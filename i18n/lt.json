@@ -4,7 +4,8 @@
 			"Garas",
 			"Homo",
 			"Matasg",
-			"Albertas"
+			"Albertas",
+			"Zygimantus"
 		]
 	},
 	"cite-desc": "Prideda <nowiki><ref[ name=id]></nowiki> ir <nowiki><references/></nowiki> žymes citavimui",
@@ -26,6 +27,7 @@
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> žymė vardu \"$1\", apibrėžta <code>&lt;references&gt;</code>, nėra naudojama ankstesniame tekste.",
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code> žymė, apibrėžta <code>&lt;references&gt;</code>, neturi vardo atributo.",
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> žymė, apibrėžta <code>&lt;references&gt;</code>, su vardu \"$1\", neturi turinio.",
+	"cite-tracking-category-cite-error": "Puslapiai su nuorodų klaidomis",
 	"cite_references_link_accessibility_label": "Šokti aukštyn",
 	"cite_references_link_many_accessibility_label": "Šokti į:"
 }

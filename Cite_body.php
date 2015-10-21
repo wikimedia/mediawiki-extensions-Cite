@@ -461,7 +461,7 @@ class Cite {
 			if ( $str != null && $str !== '' && $str !== $this->mRefs[$group][$key]['text'] ) {
 				// two refs with same key and different content
 				// add error message to the original ref
-				$this->mRefs[$group][$key]['text'] .= ' ' . $this->error( 'cite_error_references_duplicate_key', $key );
+				$this->mRefs[$group][$key]['text'] .= ' ' . $this->error( 'cite_error_references_duplicate_key', $key, 'noparse' );
 			}
 			$this->mRefCallStack[] = array( 'increment', $call, $str, $key, $group,
 				$this->mRefs[$group][$key]['key'] );

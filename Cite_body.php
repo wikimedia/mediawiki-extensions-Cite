@@ -191,14 +191,14 @@ class Cite {
 	/**
 	 * Callback function for <ref>
 	 *
-	 * @param $str string Input
-	 * @param $argv array Arguments
-	 * @param $parser Parser
-	 * @param $frame PPFrame
+	 * @param string|null $str Raw content of the <ref> tag.
+	 * @param string[] $argv Arguments
+	 * @param Parser $parser
+	 * @param PPFrame $frame
 	 *
 	 * @return string
 	 */
-	function ref( $str, $argv, $parser, $frame ) {
+	function ref( $str, array $argv, Parser $parser, PPFrame $frame ) {
 		if ( $this->mInCite ) {
 			return htmlspecialchars( "<ref>$str</ref>" );
 		}
@@ -226,13 +226,15 @@ class Cite {
 	}
 
 	/**
-	 * @param $str string Input
-	 * @param $argv array Arguments
-	 * @param $parser Parser
-	 * @param $default_group string
+	 * @param string|null $str Raw content of the <ref> tag.
+	 * @param string[] $argv Arguments
+	 * @param Parser $parser
+	 * @param string $default_group
+	 *
+	 * @throws Exception
 	 * @return string
 	 */
-	function guardedRef( $str, $argv, $parser, $default_group = self::DEFAULT_GROUP ) {
+	function guardedRef( $str, array $argv, Parser $parser, $default_group = self::DEFAULT_GROUP ) {
 		$this->mParser = $parser;
 
 		# The key here is the "name" attribute.
@@ -372,11 +374,11 @@ class Cite {
 	 *  "follow" : If the current reference is the continuation of another, key of that reference.
 	 *
 	 *
-	 * @param $argv array The argument vector
+	 * @param string[] $argv The argument vector
 	 * @return mixed false on invalid input, a string on valid
 	 *               input and null on no input
 	 */
-	function refArg( $argv ) {
+	function refArg( array $argv ) {
 		global $wgAllowCiteGroups;
 		$cnt = count( $argv );
 		$group = null;
@@ -429,15 +431,16 @@ class Cite {
 	/**
 	 * Populate $this->mRefs based on input and arguments to <ref>
 	 *
-	 * @param $str string Input from the <ref> tag
-	 * @param $key mixed Argument to the <ref> tag as returned by $this->refArg()
-	 * @param $group
-	 * @param $follow
-	 * @param $call
+	 * @param string $str Input from the <ref> tag
+	 * @param string|null $key Argument to the <ref> tag as returned by $this->refArg()
+	 * @param string $group
+	 * @param string|null $follow
+	 * @param string[] $call
 	 *
+	 * @throws Exception
 	 * @return string
 	 */
-	function stack( $str, $key = null, $group, $follow, $call ) {
+	function stack( $str, $key = null, $group, $follow, array $call ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = array();
 		}
@@ -456,11 +459,12 @@ class Cite {
 						break;
 					}
 				}
-				array_splice( $this->mRefs[$group], $k, 0,
-					array( array( 'count' => - 1,
-						'text' => $str,
-						'key' => ++$this->mOutCnt ,
-						'follow' => $follow ) ) );
+				array_splice( $this->mRefs[$group], $k, 0, array( array(
+					'count' => -1,
+					'text' => $str,
+					'key' => ++$this->mOutCnt,
+					'follow' => $follow
+				) ) );
 				array_splice( $this->mRefCallStack, $k, 0,
 					array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
 			}
@@ -471,7 +475,11 @@ class Cite {
 		if ( $key === null ) {
 			// No key
 			// $this->mRefs[$group][] = $str;
-			$this->mRefs[$group][] = array( 'count' => - 1, 'text' => $str, 'key' => ++$this->mOutCnt );
+			$this->mRefs[$group][] = array(
+				'count' => -1,
+				'text' => $str,
+				'key' => ++$this->mOutCnt
+			);
 			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
 
 			return $this->linkRef( $group, $this->mOutCnt );
@@ -542,10 +550,10 @@ class Cite {
 	 * counters remain incremented.  Doing so prevents accidentally
 	 * corrupting certain links.
 	 *
-	 * @param $type
-	 * @param $key
-	 * @param $group
-	 * @param $index
+	 * @param string $type
+	 * @param string|null $key
+	 * @param string $group
+	 * @param int $index
 	 */
 	function rollbackRef( $type, $key, $group, $index ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
@@ -595,14 +603,14 @@ class Cite {
 	/**
 	 * Callback function for <references>
 	 *
-	 * @param $str string Input
-	 * @param $argv array Arguments
-	 * @param $parser Parser
-	 * @param $frame PPFrame
+	 * @param string|null $str Raw content of the <references> tag.
+	 * @param string[] $argv Arguments
+	 * @param Parser $parser
+	 * @param PPFrame $frame
 	 *
 	 * @return string
 	 */
-	function references( $str, $argv, $parser, $frame ) {
+	function references( $str, array $argv, Parser $parser, PPFrame $frame ) {
 		if ( $this->mInCite || $this->mInReferences ) {
 			if ( is_null( $str ) ) {
 				return htmlspecialchars( "<references/>" );
@@ -620,13 +628,14 @@ class Cite {
 	}
 
 	/**
-	 * @param $str string
-	 * @param $argv array
-	 * @param $parser Parser
-	 * @param $group string
+	 * @param string|null $str Raw content of the <references> tag.
+	 * @param string[] $argv
+	 * @param Parser $parser
+	 * @param string $group
+	 *
 	 * @return string
 	 */
-	function guardedReferences( $str, $argv, $parser, $group = self::DEFAULT_GROUP ) {
+	function guardedReferences( $str, array $argv, Parser $parser, $group = self::DEFAULT_GROUP ) {
 		global $wgAllowCiteGroups;
 
 		$this->mParser = $parser;
@@ -706,7 +715,7 @@ class Cite {
 	/**
 	 * Make output to be returned from the references() function
 	 *
-	 * @param $group
+	 * @param string $group
 	 *
 	 * @return string XHTML ready for output
 	 */
@@ -977,14 +986,14 @@ class Cite {
 	 * Generate a link (<sup ...) for the <ref> element from a key
 	 * and return XHTML ready for output
 	 *
-	 * @param $group
-	 * @param $key string The key for the link
-	 * @param $count int The index of the key, used for distinguishing
+	 * @param string $group
+	 * @param string $key The key for the link
+	 * @param int $count The index of the key, used for distinguishing
 	 *                   multiple occurrences of the same key
-	 * @param $label int The label to use for the link, I want to
+	 * @param int $label The label to use for the link, I want to
 	 *                   use the same label for all occourances of
 	 *                   the same named reference.
-	 * @param $subkey string
+	 * @param string $subkey
 	 *
 	 * @return string
 	 */
@@ -1047,8 +1056,8 @@ class Cite {
 	 * 'cite_reference_link' message instead of numbers, the format is an
 	 * arbitrary number of tokens separated by [\t\n ]
 	 *
-	 * @param $group
-	 * @param $message
+	 * @param string $group
+	 * @param string $message
 	 */
 	function genLinkLabels( $group, $message ) {
 		$text = false;
@@ -1063,11 +1072,11 @@ class Cite {
 	 * Gets run when Parser::clearState() gets run, since we don't
 	 * want the counts to transcend pages and other instances
 	 *
-	 * @param $parser Parser
+	 * @param Parser $parser
 	 *
 	 * @return bool
 	 */
-	function clearState( &$parser ) {
+	function clearState( Parser &$parser ) {
 		if ( $parser->extCite !== $this ) {
 			return $parser->extCite->clearState( $parser );
 		}
@@ -1091,11 +1100,11 @@ class Cite {
 	/**
 	 * Gets run when the parser is cloned.
 	 *
-	 * @param $parser Parser
+	 * @param Parser $parser
 	 *
 	 * @return bool
 	 */
-	function cloneState( $parser ) {
+	function cloneState( Parser $parser ) {
 		if ( $parser->extCite !== $this ) {
 			return $parser->extCite->cloneState( $parser );
 		}
@@ -1120,9 +1129,9 @@ class Cite {
 	 * If we are processing a section preview, this adds the missing
 	 * references tags and does not add the errors.
 	 *
-	 * @param $afterParse bool  true if called from the ParserAfterParse hook
-	 * @param $parser Parser
-	 * @param $text string
+	 * @param bool $afterParse True if called from the ParserAfterParse hook
+	 * @param Parser $parser
+	 * @param string $text
 	 *
 	 * @return bool
 	 */
@@ -1230,11 +1239,11 @@ class Cite {
 	/**
 	 * Initialize the parser hooks
 	 *
-	 * @param $parser Parser
+	 * @param Parser $parser
 	 *
 	 * @return bool
 	 */
-	static function setHooks( $parser ) {
+	static function setHooks( Parser $parser ) {
 		global $wgHooks;
 
 		$parser->extCite = new self();

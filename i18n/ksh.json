@@ -24,6 +24,8 @@
 	"cite_error_references_missing_key": "Dä <code>&lt;ref&gt;</code> Befähl mem Nahme „$1“, aanjejovve em Befähl <code>&lt;references&gt;</code>, es em Täx doför nit vörjekumme.",
 	"cite_error_references_no_key": "Dä <code>&lt;ref&gt;</code> Befähl, aanjejoove em Befähl <code>&lt;references&gt;</code>, hät kei Eijeschaff <code>name=</code> aanjejovve.",
 	"cite_error_empty_references_define": "Dä <code>&lt;ref&gt;</code> Befähl mem Nahme „$1“, aanjejoove em Befähl <code>&lt;references&gt;</code> mem Nahme „$1“, hät keine Enhallt.",
+	"cite-tracking-category-cite-error": "Sigge met Fähler en Fohßnuhte",
+	"cite-tracking-category-cite-error-desc": "En Sigge en heh dä Saachjropp sin Fähler em Jebruch vun Fohßnuhte",
 	"cite_reference_link_key_with_num": "$1_$2",
 	"cite_reference_link_prefix": "fohss_noht_betreck_",
 	"cite_references_link_prefix": "fohss_noht_nommer_",

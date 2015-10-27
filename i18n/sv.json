@@ -10,7 +10,8 @@
 			"Skalman",
 			"Lokal Profil",
 			"WikiPhoenix",
-			"MagnusA"
+			"MagnusA",
+			"GameOn"
 		]
 	},
 	"cite-desc": "Lägger till taggarna <nowiki><ref[ name=id]></nowiki> och <nowiki><references/></nowiki> för referenser till källor",
@@ -33,6 +34,7 @@
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code>-tagg definierad i <code>&lt;references&gt;</code> saknar name-attribut.",
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code>-tagg definierad i <code>&lt;ref&gt;</code> med namn \"$1\" har inget innehåll.",
 	"cite-tracking-category-cite-error": "Sidor med referensfel",
+	"cite-tracking-category-cite-error-desc": "Sidor i denna kategori har fel i sin användning av referens-taggar.",
 	"cite_references_link_accessibility_label": "Hoppa upp",
 	"cite_references_link_many_accessibility_label": "Hoppa upp till:"
 }

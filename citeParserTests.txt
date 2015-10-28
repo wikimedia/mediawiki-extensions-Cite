@@ -532,3 +532,55 @@ Page one.<ref name="the-name" follow="the-name">This ref is invalid.</ref>
 invalid names, e.g. too many</strong>
 </p>
 !! end
+
+!! test
+Multiple definition (outside <references/>)
+!! input
+<ref name=a>abc</ref>
+<ref name=a>def</ref>
+<references />
+!! result
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">[1]</a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">[1]</a></sup>
+</p>
+<ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">abc <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</strong></span>
+</li>
+</ol>
+
+!! end
+
+!! test
+Multiple definition (inside <references/>)
+!! input
+<ref name=a />
+<references>
+<ref name=a>abc</ref>
+<ref name=a>def</ref>
+</references>
+!! result
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">[1]</a></sup>
+</p>
+<ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</strong></span>
+</li>
+</ol>
+
+!! end
+
+!! test
+Multiple definition (mixed outside/inside)
+!! input
+<ref name=a>abc</ref>
+<references>
+<ref name=a>def</ref>
+</references>
+!! result
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">[1]</a></sup>
+</p>
+<ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</strong></span>
+</li>
+</ol>
+
+!! end

@@ -26,6 +26,8 @@
 	"cite_error_references_missing_key": "Тэг <code>&lt;ref&gt;</code> з назвай «$1» вызначаны ў <code>&lt;references&gt;</code> не выкарыстоўваўся ў папярэднім тэксьце.",
 	"cite_error_references_no_key": "Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> ня мае атрыбуту назвы.",
 	"cite_error_empty_references_define": "Тэг <code>&lt;ref&gt;</code> вызначаны ў <code>&lt;references&gt;</code> з назвай «$1» ня мае зьместу.",
+	"cite-tracking-category-cite-error": "Старонкі з памылкамі ў крыніцах",
+	"cite-tracking-category-cite-error-desc": "Старонкі ў гэтай катэгорыі маюць памылкі ў спасылках на крыніцы.",
 	"cite_references_link_accessibility_label": "Угару",
 	"cite_references_link_many_accessibility_label": "Угару да:"
 }

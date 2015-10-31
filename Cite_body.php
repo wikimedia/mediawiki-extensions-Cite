@@ -651,7 +651,7 @@ class Cite {
 	 * @return string XHTML ready for output
 	 */
 	function referencesFormat( $group ) {
-		if ( !$this->mRefs || !$this->mRefs[$group] ) {
+		if ( !$this->mRefs || !isset( $this->mRefs[$group] ) ) {
 			return '';
 		}
 

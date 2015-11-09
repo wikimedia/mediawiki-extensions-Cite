@@ -279,8 +279,7 @@ Erroneous refs
 <p><strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 name cannot be a simple integer. Use a descriptive title</strong>
 </p><p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>
-</p><p><strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
-refs with no content must have a name</strong>
+</p><p><strong class="error mw-ext-cite-error">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</strong>
 </p><p><sup id="cite_ref-bar_2-0" class="reference"><a href="#cite_note-bar-2">[2]</a></sup>
 </p><p><sup id="cite_ref-blankwithnoreference_3-0" class="reference"><a href="#cite_note-blankwithnoreference-3">[3]</a></sup>
 </p><p><strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;references&gt;</code> tag;

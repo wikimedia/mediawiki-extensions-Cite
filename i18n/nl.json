@@ -26,6 +26,7 @@
 	"cite_error_references_missing_key": "Het label <code>&lt;ref&gt;</code> met de naam \"$1\" gedefinieerd in <code>&lt;references&gt;</code> wordt niet eerder in de tekst gebruikt.",
 	"cite_error_references_no_key": "Het label <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> heeft geen eigenschapsnaam.",
 	"cite_error_empty_references_define": "Het label <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam \"$1\" heeft geen inhoud.",
+	"cite-tracking-category-cite-error": "Pagina's met referentiefouten",
 	"cite_references_link_accessibility_label": "Omhoog",
 	"cite_references_link_many_accessibility_label": "Omhoog naar:"
 }

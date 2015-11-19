@@ -9,7 +9,7 @@
 		]
 	},
 	"cite-desc": "<nowiki><ref[ name=id]></nowiki> व <nowiki><references/></nowiki> हे दोन संदर्भ देण्यासाठी वापरण्यात येणारे शब्द जोडल्या जातील.",
-	"cite_error": "त्रूटी उधृत करा: $1",
+	"cite_error": "त्रुटी उधृत करा: $1",
 	"cite_error_ref_numeric_key": "<code>&lt;ref&gt;</code> चुकीचा कोड; नाव हे पूर्णांकी संख्या असू शकत नाही, कृपया माहितीपूर्ण शीर्षक द्या",
 	"cite_error_ref_no_key": "<code>&lt;ref&gt;</code> चुकीचा कोड; रिकाम्या संदर्भांना नाव असणे गरजेचे आहे",
 	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> चुकीचा कोड; चुकीची नावे, उदा. खूप सारी",

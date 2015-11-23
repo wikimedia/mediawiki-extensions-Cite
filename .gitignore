@@ -2,4 +2,6 @@
 *~
 *.kate-swp
 .*.swp
-node_modules/
+/node_modules/
+/vendor/
+/composer.lock

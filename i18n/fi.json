@@ -8,7 +8,8 @@
 			"Silvonen",
 			"Str4nd",
 			"Tarmo",
-			"Syreeni"
+			"Syreeni",
+			"Pxos"
 		]
 	},
 	"cite-desc": "Tarjoaa <nowiki><ref[ name=id]></nowiki>- ja <nowiki><references/></nowiki>-elementit viittauksien tekemiseen.",
@@ -28,5 +29,6 @@
 	"cite_error_references_missing_group": "<code>&lt;references&gt;</code>-elementissä määritetty <code>&lt;ref&gt;</code>-elementti sisältää ryhmämääritteen ”$1”, jota ei mainita aiemmassa tekstissä.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code>-elementin nimeä ”$1”, johon viitataan elementissä <code>&lt;references&gt;</code> ei käytetä edeltävässä tekstissä.",
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä ei ole nimimääritettä.",
-	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä nimellä ”$1” ei ole sisältöä."
+	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä nimellä ”$1” ei ole sisältöä.",
+	"cite-tracking-category-cite-error": "Sivut, joissa on viittausvirheitä"
 }

@@ -4,7 +4,8 @@
 			"Amire80",
 			"Rotem Liss",
 			"Rotemliss",
-			"YaronSh"
+			"YaronSh",
+			"IKhitron"
 		]
 	},
 	"cite-desc": "הוספת תגי <span dir=\"ltr\"><nowiki><ref[ name=id]></nowiki></span> ו־<span dir=\"ltr\"><nowiki><references/></nowiki></span> עבור הערות שוליים",
@@ -13,6 +14,7 @@
 	"cite_error_ref_no_key": "תג <code>&lt;ref&gt;</code> לא תקין;\nלהערות שוליים ללא תוכן חייב להיות שם (name)",
 	"cite_error_ref_too_many_keys": "תג <code>&lt;ref&gt;</code> לא תקין;\nשמות שגויים, למשל, רבים מדי",
 	"cite_error_ref_no_input": "תג <code>&lt;ref&gt;</code> לא תקין;\nלהערות שוליים ללא שם חייב להיות תוכן",
+	"cite_error_references_duplicate_key": "תג <code>&lt;ref&gt;</code> בלתי־תקין; השם \"$1\" הוגדר מספר פעמים עם תוכן שונה",
 	"cite_error_references_invalid_parameters": "תג <code>&lt;references&gt;</code> לא תקין;\nלא ניתן להשתמש בפרמטרים.\nיש להשתמש בקוד <code dir=\"ltr\">&lt;references /&gt;</code>",
 	"cite_error_references_invalid_parameters_group": "תג <code>&lt;references&gt;</code> לא תקין;\nרק הפרמטר \"group\" מותר לשימוש.\nאנא השתמשו בקוד <code dir=\"ltr\">&lt;references /&gt;</code>, או בקוד <code dir=\"ltr\">&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_backlink_label": "אזלו תוויות הקישורים המותאמות אישית.\nאנא הגדירו עוד תוויות בהודעת המערכת <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.",
@@ -25,6 +27,8 @@
 	"cite_error_references_missing_key": "התג <code>&lt;ref&gt;</code> בשם \"$1\" המוגדר בתוך <code>&lt;references&gt;</code> אינו נמצא בשימוש בטקסט שלפניו.",
 	"cite_error_references_no_key": "לתג <code>&lt;ref&gt;</code> המוגדר בתוך <code>&lt;references&gt;</code> אין מאפיין שם (name).",
 	"cite_error_empty_references_define": "התג <code>&lt;ref&gt;</code> בעל השם \"$1\" המוגדר בתוך <code>&lt;references&gt;</code> אינו מכיל תוכן.",
+	"cite-tracking-category-cite-error": "דפים עם שגיאות בהערה",
+	"cite-tracking-category-cite-error-desc": "דפים בקטגוריה הזאת כוללים שגיאות בשימוש בהערות.",
 	"cite_references_link_accessibility_label": "לקפוץ מעלה",
 	"cite_references_link_many_accessibility_label": "לקפוץ מעלה אל:"
 }

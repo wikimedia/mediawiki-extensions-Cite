@@ -4,7 +4,8 @@
 			"Aftab1995",
 			"Bellayet",
 			"Nasir8891",
-			"Zaheen"
+			"Zaheen",
+			"Aftabuzzaman"
 		]
 	},
 	"cite-desc": "উদ্ধৃতির জন্য, <nowiki><ref[ name=id]></nowiki> এবং <nowiki><references/></nowiki> ট্যাগসমূহ যোগ করুন",
@@ -20,5 +21,9 @@
 	"cite_error_references_no_text": "অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের ref গুলির জন্য কোন টেক্সট প্রদান করা হয়নি",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> ট্যাগের ক্ষেত্রে <code>&lt;/ref&gt;</code> ট্যাগ যোগ করা হয়নি",
 	"cite_error_group_refs_without_references": "\"$1\" নামের গ্রুপের <code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু এর জন্য <code>&lt;references group=\"$1\"/&gt;</code> ট্যাগ দেয়া হয়নি",
-	"cite_error_references_group_mismatch": "\"$1\" গ্রুপের ক্ষেত্রে <code>&lt;ref&gt;</code> ট্যাগ <code>&lt;references&gt;</code> ট্যাগের অংশে ব্যবহারে সমস্যা সৃষ্টি হয়েছে।"
+	"cite_error_references_group_mismatch": "\"$1\" গ্রুপের ক্ষেত্রে <code>&lt;ref&gt;</code> ট্যাগ <code>&lt;references&gt;</code> ট্যাগের অংশে ব্যবহারে সমস্যা সৃষ্টি হয়েছে।",
+	"cite-tracking-category-cite-error": "তথ্যসূত্র ত্রুটিসহ পাতা",
+	"cite-tracking-category-cite-error-desc": "এই বিষয়শ্রেণীতে অন্তর্ভুক্ত নিবন্ধসমূহে তথ্যসূত্র ট্যাগ ব্যবহারে ত্রুটি আছে।",
+	"cite_references_link_accessibility_label": "ঝাঁপ দাও",
+	"cite_references_link_many_accessibility_label": "ঝাঁপ দাও:"
 }

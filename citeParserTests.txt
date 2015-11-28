@@ -126,7 +126,7 @@ Templating<ref>Text<!--comment--></ref>
 </p>
 <ul class="gallery mw-gallery-traditional">
 		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
-			<div class="thumb" style="width: 150px;"><div style="margin:68px auto;"><a href="/wiki/File:Foobar.jpg" class="image"><img alt="Foobar.jpg" src="http://example.com/images/thumb/3/3a/Foobar.jpg/120px-Foobar.jpg" width="120" height="14" /></a></div></div>
+			<div class="thumb" style="width: 150px;"><div style="margin:68px auto;"><a href="/wiki/File:Foobar.jpg" class="image"><img alt="Foobar.jpg" src="http://example.com/images/thumb/3/3a/Foobar.jpg/120px-Foobar.jpg" width="120" height="14" srcset="http://example.com/images/thumb/3/3a/Foobar.jpg/180px-Foobar.jpg 1.5x, http://example.com/images/thumb/3/3a/Foobar.jpg/240px-Foobar.jpg 2x" /></a></div></div>
 			<div class="gallerytext">
 			</div>
 		</div></li>
@@ -157,6 +157,25 @@ Templating<ref>Text<!--comment--></ref>
 !! result
 <p>1337
 </p>
+!! end
+
+!! test
+Ref with content followed by blank ref
+!! input
+<ref name="blank">content</ref>
+
+<ref name="blank"/>
+
+<references/>
+!! result
+<p><sup id="cite_ref-blank_1-0" class="reference"><a href="#cite_note-blank-1">[1]</a></sup>
+</p><p><sup id="cite_ref-blank_1-1" class="reference"><a href="#cite_note-blank-1">[1]</a></sup>
+</p>
+<ol class="references">
+<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">content</span>
+</li>
+</ol>
+
 !! end
 
 !! test
@@ -191,7 +210,7 @@ Regression: non-blank ref "0" followed by ref with content
 </p><p><sup id="cite_ref-blank_1-1" class="reference"><a href="#cite_note-blank-1">[1]</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">0</span>
+<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">0 <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "blank" defined multiple times with different content</strong></span>
 </li>
 </ol>
 
@@ -210,7 +229,7 @@ Regression sanity check: non-blank ref "1" followed by ref with content
 </p><p><sup id="cite_ref-blank_1-1" class="reference"><a href="#cite_note-blank-1">[1]</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">1</span>
+<li id="cite_note-blank-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-blank_1-0">1.0</a></sup> <sup><a href="#cite_ref-blank_1-1">1.1</a></sup></span> <span class="reference-text">1 <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "blank" defined multiple times with different content</strong></span>
 </li>
 </ol>
 
@@ -304,7 +323,7 @@ Wikipedia rocks!<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[n
 !! end
 
 !! test
-Simple <ref>, with <references/> in group, with groupname in chinese 
+Simple <ref>, with <references/> in group, with groupname in Chinese
 !! input
 AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="参">ref c</ref>
 
@@ -397,7 +416,7 @@ wa' cha' wej loS vagh jav Soch chorgh Hut wa'maH
 !! endarticle
 
 !! test
-<ref> with custom group link
+<ref> with custom group link with number names in Klingon
 !! input
 Wikipedia rocks!<ref group="klingon">Proceeds of Rockology, vol. XXI</ref>
 
@@ -447,5 +466,121 @@ foo
 foo</span>
 </li>
 </ol></div>
+
+!! end
+
+!! test
+<ref> with no name and no content.
+!! input
+Bla.<ref></ref>
+!! result
+<p>Bla.<strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+refs with no name must have content</strong>
+</p>
+!! end
+
+!! test
+<ref> with an empty-string name parameter and no content.
+!! input
+Bla.<ref name=""></ref>
+!! result
+<p>Bla.<strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+refs with no name must have content</strong>
+</p>
+!! end
+
+!! test
+<ref> with a non-empty name parameter and no content.
+!! input
+Bla.<ref name="void"></ref>
+!! result
+Bla.<sup id="cite_ref-void_1-0" class="reference"><a href="#cite_note-void-1">[1]</a></sup><ol class="references">
+<li id="cite_note-void"><span class="mw-cite-backlink"><a href="#cite_ref-void_0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>void</code></strong></li>
+</ol>
+
+!! end
+
+!! test
+<ref>s with the follow parameter
+!! input
+Page one.<ref name="beginning">First page footnote text.</ref>
+
+Page two.<ref follow="beginning">Second page footnote text.</ref>
+
+== References ==
+<references />
+!! result
+<p>Page one.<sup id="cite_ref-beginning_1-0" class="reference"><a href="#cite_note-beginning-1">[1]</a></sup>
+</p><p>Page two.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Parser_test&amp;action=edit&amp;section=1" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-beginning-1"><span class="mw-cite-backlink"><a href="#cite_ref-beginning_1-0">↑</a></span> <span class="reference-text">First page footnote text. Second page footnote text.</span>
+</li>
+</ol>
+
+!! end
+
+!! test
+<ref> with both name and follow parameters - invalid
+!! input
+Page one.<ref name="the-name" follow="the-name">This ref is invalid.</ref>
+<references />
+!! result
+<p>Page one.<strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+invalid names, e.g. too many</strong>
+</p>
+!! end
+
+!! test
+Multiple definition (outside <references/>)
+!! input
+<ref name=a>abc</ref>
+<ref name=a>def</ref>
+<references />
+!! result
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">[1]</a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">[1]</a></sup>
+</p>
+<ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">abc <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</strong></span>
+</li>
+</ol>
+
+!! end
+
+!! test
+Multiple definition (inside <references/>)
+!! input
+<ref name=a />
+<references>
+<ref name=a>abc</ref>
+<ref name=a>def</ref>
+</references>
+!! result
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">[1]</a></sup>
+</p>
+<ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</strong></span>
+</li>
+</ol>
+
+!! end
+
+!! test
+Multiple definition (mixed outside/inside)
+!! input
+<ref name=a>abc</ref>
+<references>
+<ref name=a>def</ref>
+</references>
+!! result
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">[1]</a></sup>
+</p>
+<ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</strong></span>
+</li>
+</ol>
 
 !! end

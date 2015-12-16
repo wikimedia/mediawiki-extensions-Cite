@@ -1,5 +1,6 @@
 <?php
 
+// @codingStandardsIgnoreStart
 /**#@+
  * A parser extension that adds two tags, <ref> and <references> for adding
  * citations to pages
@@ -16,6 +17,7 @@
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
+// @codingStandardsIgnoreEnd
 
 /**
  * WARNING: MediaWiki core hardcodes this class name to check if the
@@ -210,12 +212,13 @@ class Cite {
 			}
 		}
 
-		# This section deals with constructions of the form
-		#
-		# <references>
-		# <ref name="foo"> BAR </ref>
-		# </references>
-		#
+		/*
+		 * This section deals with constructions of the form
+		 *
+		 * <references>
+		 * <ref name="foo"> BAR </ref>
+		 * </references>
+		 */
 		if ( $this->mInReferences ) {
 			if ( $group != $this->mReferencesGroup ) {
 				# <ref> and <references> have conflicting group attributes.
@@ -235,10 +238,15 @@ class Cite {
 					$this->mReferencesErrors[] =
 						$this->error( 'cite_error_references_missing_key', $key );
 				} else {
-					if ( isset( $this->mRefs[$group][$key]['text'] ) && $str !== $this->mRefs[$group][$key]['text'] ) {
+					if (
+						isset( $this->mRefs[$group][$key]['text'] ) &&
+						$str !== $this->mRefs[$group][$key]['text']
+					) {
 						// two refs with same key and different content
 						// add error message to the original ref
-						$this->mRefs[$group][$key]['text'] .= ' ' . $this->error( 'cite_error_references_duplicate_key', $key, 'noparse' );
+						$this->mRefs[$group][$key]['text'] .= ' ' . $this->error(
+							'cite_error_references_duplicate_key', $key, 'noparse'
+						);
 					} else {
 						# Assign the text to corresponding ref
 						$this->mRefs[$group][$key]['text'] = $str;
@@ -291,13 +299,13 @@ class Cite {
 			'/<ref\b[^<]*?>/',
 			preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $str )
 		) ) {
-			# (bug 6199) This most likely implies that someone left off the
+			# (bug T8199) This most likely implies that someone left off the
 			# closing </ref> tag, which will cause the entire article to be
 			# eaten up until the next <ref>.  So we bail out early instead.
 			# The fancy regex above first tries chopping out anything that
 			# looks like a comment or SGML tag, which is a crude way to avoid
 			# false alarms for <nowiki>, <pre>, etc.
-			#
+
 			# Possible improvement: print the warning, followed by the contents
 			# of the <ref> tag.  This way no part of the article will be eaten
 			# even temporarily.
@@ -467,7 +475,9 @@ class Cite {
 			if ( $str != null && $str !== '' && $str !== $this->mRefs[$group][$key]['text'] ) {
 				// two refs with same key and different content
 				// add error message to the original ref
-				$this->mRefs[$group][$key]['text'] .= ' ' . $this->error( 'cite_error_references_duplicate_key', $key, 'noparse' );
+				$this->mRefs[$group][$key]['text'] .= ' ' . $this->error(
+					'cite_error_references_duplicate_key', $key, 'noparse'
+				);
 			}
 			$this->mRefCallStack[] = array( 'increment', $call, $str, $key, $group,
 				$this->mRefs[$group][$key]['key'] );

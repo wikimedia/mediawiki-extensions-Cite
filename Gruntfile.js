@@ -17,9 +17,10 @@ module.exports = function ( grunt ) {
 				jshintrc: true
 			},
 			all: [
-				'*.js',
+				'**/*.js',
 				'{.jsduck,build}/**/*.js',
-				'modules/**/*.js'
+				'modules/**/*.js',
+				'!node_modules/**'
 			]
 		},
 		banana: {

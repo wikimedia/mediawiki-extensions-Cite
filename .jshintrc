@@ -27,6 +27,6 @@
 	"jquery": true,
 
 	"globals": {
-		"mw": false
+		"mediaWiki": false
 	}
 }

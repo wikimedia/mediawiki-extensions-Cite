@@ -6,7 +6,8 @@
 			"Mark85296341",
 			"Philip",
 			"乌拉跨氪",
-			"Cwlin0416"
+			"Cwlin0416",
+			"Bowleerin"
 		]
 	},
 	"cite-desc": "支援 <nowiki><ref[ name=id]></nowiki> 與 <nowiki><references/></nowiki> 標籤，可用來註明參考文獻",
@@ -27,6 +28,8 @@
 	"cite_error_references_missing_key": "在 <code>&lt;references&gt;</code> 中定義的 <code>&lt;ref&gt;</code> 標籤設定 name 屬性為 \"$1\"，但在前文中並未使用。",
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code> 中定義的<code>&lt;ref&gt;</code> 沒有設定 name 屬性。",
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code> 中定義的 <code>&lt;ref&gt;</code> 的 name 屬性 \"$1\" 沒有任何內容。",
+	"cite-tracking-category-cite-error": "有參考來源錯誤的頁面",
+	"cite-tracking-category-cite-error-desc": "在此分類內的頁面在參考來源的使用上有錯誤。",
 	"cite_references_link_accessibility_label": "移至",
 	"cite_references_link_many_accessibility_label": "移至："
 }

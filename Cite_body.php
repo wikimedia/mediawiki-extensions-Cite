@@ -1165,8 +1165,14 @@ class Cite {
 		# We rely on the fact that PHP is okay with passing unused argu-
 		# ments to functions.  If $1 is not used in the message, wfMessage will
 		# just ignore the extra parameter.
-		$msg = wfMessage( 'cite_error', wfMessage( $key, $param )->inContentLanguage()->plain() )
-			->inContentLanguage()
+		# For ease of debugging and because errors are rare, we
+		# use the user language and split the parser cache.
+		$lang = $this->mParser->getOptions()->getUserLangObj();
+		$msg = wfMessage(
+			'cite_error',
+			wfMessage( $key, $param )->inLanguage( $lang )->plain()
+		)
+			->inLanguage( $lang )
 			->plain();
 
 		$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );

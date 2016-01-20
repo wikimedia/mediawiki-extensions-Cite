@@ -35,5 +35,7 @@
 	"cite-tracking-category-cite-error": "有参考文献错误的页面",
 	"cite-tracking-category-cite-error-desc": "此分类中的页面在参考文献标签的用法上有错误。",
 	"cite_references_link_accessibility_label": "跳转",
-	"cite_references_link_many_accessibility_label": "跳转至："
+	"cite_references_link_many_accessibility_label": "跳转至：",
+	"cite_warning": "引用警告：$1",
+	"cite_warning_sectionpreview_no_text": "带名称<code>$1</code>的<code>&lt;ref&gt;</code>标签不能预览，因为它在当前章节以外定义，或完全未定义。"
 }

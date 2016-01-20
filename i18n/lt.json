@@ -30,5 +30,7 @@
 	"cite-tracking-category-cite-error": "Puslapiai su nuorodų klaidomis",
 	"cite-tracking-category-cite-error-desc": "Šios kategorijos puslapiai turi klaidų nuorodų žymių naudojime.",
 	"cite_references_link_accessibility_label": "Šokti aukštyn",
-	"cite_references_link_many_accessibility_label": "Šokti į:"
+	"cite_references_link_many_accessibility_label": "Šokti į:",
+	"cite_warning": "Cituoti įspėjimą: $1",
+	"cite_warning_sectionpreview_no_text": "<code>&lt;ref&gt;</code> žymė su vardu <code>$1</code> negali būti peržiūrėta, nes ji apibrėžta už dabartinės sekcijos ribų arba nėra apibrėžta apskritai."
 }

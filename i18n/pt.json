@@ -32,5 +32,6 @@
 	"cite-tracking-category-cite-error": "Páginas com erros em referências",
 	"cite-tracking-category-cite-error-desc": "As páginas nesta categoria contém erros no uso das marcações de referências.",
 	"cite_references_link_accessibility_label": "Ir para cima",
-	"cite_references_link_many_accessibility_label": "Ir para:"
+	"cite_references_link_many_accessibility_label": "Ir para:",
+	"cite_warning": "Aviso: $1"
 }

@@ -604,30 +604,39 @@ class Cite {
 		if ( strval( $str ) !== '' ) {
 			$this->mReferencesGroup = $group;
 
-			# Detect whether we were sent already rendered <ref>s
-			# Mostly a side effect of using #tag to call references
+			# Detect whether we were sent already rendered <ref>s.
+			# Mostly a side effect of using #tag to call references.
+			# The following assumes that the parsed <ref>s sent within
+			# the <references> block were the most recent calls to
+			# <ref>.  This assumption is true for all known use cases,
+			# but not strictly enforced by the parser.  It is possible
+			# that some unusual combination of #tag, <references> and
+			# conditional parser functions could be created that would
+			# lead to malformed references here.
 			$count = substr_count( $str, Parser::MARKER_PREFIX . "-ref-" );
+			$redoStack = array();
+
+			# Undo effects of calling <ref> while unaware of containing <references>
 			for ( $i = 1; $i <= $count; $i++ ) {
 				if ( !$this->mRefCallStack ) {
 					break;
 				}
 
-				# The following assumes that the parsed <ref>s sent within
-				# the <references> block were the most recent calls to
-				# <ref>.  This assumption is true for all known use cases,
-				# but not strictly enforced by the parser.  It is possible
-				# that some unusual combination of #tag, <references> and
-				# conditional parser functions could be created that would
-				# lead to malformed references here.
 				$call = array_pop( $this->mRefCallStack );
+				$redoStack[] = $call;
 				if ( $call !== false ) {
 					list( $type, $ref_argv, $ref_str,
 						$ref_key, $ref_group, $ref_index ) = $call;
-
-					# Undo effects of calling <ref> while unaware of containing <references>
 					$this->rollbackRef( $type, $ref_key, $ref_group, $ref_index );
+				}
+			}
 
-					# Rerun <ref> call now that mInReferences is set.
+			# Rerun <ref> call now that mInReferences is set.
+			for ( $i = count( $redoStack ) - 1; $i >= 0; $i-- ) {
+				$call = $redoStack[$i];
+				if ( $call !== false ) {
+					list( $type, $ref_argv, $ref_str,
+						$ref_key, $ref_group, $ref_index ) = $call;
 					$this->guardedRef( $ref_str, $ref_argv, $parser );
 				}
 			}

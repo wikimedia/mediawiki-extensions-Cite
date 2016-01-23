@@ -31,5 +31,6 @@
 	"cite_references_link_many": "<li id=\"$1\"><span class=\"mw-cite-backlink\">↑ $2</span> $3</li>",
 	"cite_references_link_many_format": "<sup>[[#$1|$2]]</sup>",
 	"cite_references_link_many_sep": "&#32;",
-	"cite_references_link_many_and": "&#32;"
+	"cite_references_link_many_and": "&#32;",
+	"cite_references_link_accessibility_label": "ზემოთ ასვლა"
 }

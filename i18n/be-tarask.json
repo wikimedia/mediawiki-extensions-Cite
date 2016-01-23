@@ -30,5 +30,6 @@
 	"cite-tracking-category-cite-error-desc": "Старонкі ў гэтай катэгорыі маюць памылкі ў спасылках на крыніцы.",
 	"cite_references_link_accessibility_label": "Угару",
 	"cite_references_link_many_accessibility_label": "Угару да:",
-	"cite_warning": "Папярэджаньне ў крыніцах: $1"
+	"cite_warning": "Папярэджаньне ў крыніцах: $1",
+	"cite_warning_sectionpreview_no_text": "Тэг <code>&lt;ref&gt;</code> з назвай <code>$1</code> ня можа быць паказаны ў папярэднім праглядзе, бо ён вызначаны па-за межамі гэтага разьдзелу або ня вызначаны наогул."
 }

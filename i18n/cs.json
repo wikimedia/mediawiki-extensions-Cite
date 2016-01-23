@@ -32,5 +32,7 @@
 	"cite-tracking-category-cite-error": "Stránky s chybami v referencích",
 	"cite-tracking-category-cite-error-desc": "Stránky v této kategorii obsahují chyby v použití značek pro reference.",
 	"cite_references_link_accessibility_label": "Skočit nahoru",
-	"cite_references_link_many_accessibility_label": "Skočit nahoru k:"
+	"cite_references_link_many_accessibility_label": "Skočit nahoru k:",
+	"cite_warning": "Upozornění k citaci: $1",
+	"cite_warning_sectionpreview_no_text": "Nelze zobrazit náhled značky <code>&lt;ref&gt;</code> se jménem <code>$1</code>, protože je definována mimo aktuální sekci nebo není definována vůbec."
 }

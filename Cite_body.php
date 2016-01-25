@@ -30,6 +30,32 @@ class Cite {
 	 */
 	const DEFAULT_GROUP = '';
 
+	/**
+	 * Maximum storage capacity for pp_value field of page_props table
+	 * @todo Find a way to retrieve this information from the DBAL
+	 */
+	const MAX_STORAGE_LENGTH = 65535; // Size of MySQL 'blob' field
+
+	/**
+	 * Key used for storage in parser output's ExtensionData and ObjectCache
+	 */
+	const EXT_DATA_KEY = 'Cite:References';
+
+	/**
+	 * Version number in case we change the data structure in the future
+	 */
+	const DATA_VERSION_NUMBER = 1;
+
+	/**
+	 * Cache duration set when parsing a page with references
+	 */
+	const CACHE_DURATION_ONPARSE = 3600; // 1 hour
+
+	/**
+	 * Cache duration set when fetching references from db
+	 */
+	const CACHE_DURATION_ONFETCH = 18000; // 5 hours
+
 	/**#@+
 	 * @access private
 	 */
@@ -150,6 +176,11 @@ class Cite {
 	public $mRefCallStack = array();
 
 	/**
+	 * @var bool
+	 */
+	private $mBumpRefData = false;
+
+	/**
 	 * Did we install us into $wgHooks yet?
 	 * @var Boolean
 	 */
@@ -186,6 +217,10 @@ class Cite {
 		if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
 			$frame->setVolatile();
 		}
+
+		// new <ref> tag, we may need to bump the ref data counter
+		// to avoid overwriting a previous group
+		$this->mBumpRefData = true;
 
 		return $ret;
 	}
@@ -724,6 +759,11 @@ class Cite {
 			$ret = $this->mParser->unserializeHalfParsedText( $data );
 		}
 
+		if ( !$this->mParser->getOptions()->getIsPreview() ) {
+			// save references data for later use by LinksUpdate hooks
+			$this->saveReferencesData( $group );
+		}
+
 		// done, clean up so we can reuse the group
 		unset( $this->mRefs[$group] );
 		unset( $this->mGroupCnt[$group] );
@@ -1105,7 +1145,15 @@ class Cite {
 			return true;
 		}
 
-		$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+		if ( !$parser->getOptions()->getIsPreview() ) {
+			// save references data for later use by LinksUpdate hooks
+			if ( $this->mRefs && isset( $this->mRefs[self::DEFAULT_GROUP] ) ) {
+				$this->saveReferencesData();
+			}
+			$isSectionPreview = false;
+		} else {
+			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+		}
 
 		$s = '';
 		foreach ( $this->mRefs as $group => $refs ) {
@@ -1129,6 +1177,40 @@ class Cite {
 			$text .= $s;
 		}
 		return true;
+	}
+
+	/**
+	 * Saves references in parser extension data
+	 * This is called by each <references/> tag, and by checkRefsNoReferences
+	 * Assumes $this->mRefs[$group] is set
+	 *
+	 * @param $group
+	 */
+	private function saveReferencesData( $group = self::DEFAULT_GROUP ) {
+		global $wgCiteStoreReferencesData;
+		if ( !$wgCiteStoreReferencesData ) {
+			return;
+		}
+		$savedRefs = $this->mParser->getOutput()->getExtensionData( self::EXT_DATA_KEY );
+		if ( $savedRefs === null ) {
+			// Initialize array structure
+			$savedRefs = array(
+				'refs' => array(),
+				'version' => self::DATA_VERSION_NUMBER,
+			);
+		}
+		if ( $this->mBumpRefData ) {
+			// This handles pages with multiple <references/> tags with <ref> tags in between.
+			// On those, a group can appear several times, so we need to avoid overwriting
+			// a previous appearance.
+			$savedRefs['refs'][] = array();
+			$this->mBumpRefData = false;
+		}
+		$n = count( $savedRefs['refs'] ) - 1;
+		// save group
+		$savedRefs['refs'][$n][$group] = $this->mRefs[$group];
+
+		$this->mParser->getOutput()->setExtensionData( self::EXT_DATA_KEY, $savedRefs );
 	}
 
 	/**
@@ -1217,6 +1299,83 @@ class Cite {
 		}
 
 		return $ret;
+	}
+
+	/**
+	 * Fetch references stored for the given title in page_props
+	 * For performance, results are cached
+	 *
+	 * @param Title $title
+	 * @return array|false
+	 */
+	public static function getStoredReferences( Title $title ) {
+		global $wgCiteStoreReferencesData;
+		if ( !$wgCiteStoreReferencesData ) {
+			return false;
+		}
+		$cache = ObjectCache::getMainWANInstance();
+		$key = $cache->makeKey( self::EXT_DATA_KEY, $title->getArticleID() );
+		return $cache->getWithSetCallback(
+			$key,
+			self::CACHE_DURATION_ONFETCH,
+			function ( $oldValue, &$ttl, array &$setOpts ) use ( $title ) {
+				$dbr = wfGetDB( DB_SLAVE );
+				$setOpts += Database::getCacheSetOptions( $dbr );
+				return self::recursiveFetchRefsFromDB( $title, $dbr );
+			},
+			array(
+				'checkKeys' => array( $key ),
+				'lockTSE' => 30,
+			)
+		);
+	}
+
+	/**
+	 * Reconstructs compressed json by successively retrieving the properties references-1, -2, etc
+	 * It attempts the next step when a decoding error occurs.
+	 * Returns json_decoded uncompressed string, with validation of json
+	 *
+	 * @param Title $title
+	 * @param DatabaseBase $dbr
+	 * @param string $string
+	 * @param int $i
+	 * @return array|false
+	 */
+	private static function recursiveFetchRefsFromDB( Title $title, DatabaseBase $dbr,
+		$string = '', $i = 1 ) {
+		$id = $title->getArticleID();
+		$result = $dbr->selectField(
+			'page_props',
+			'pp_value',
+			array(
+				'pp_page' => $id,
+				'pp_propname' => 'references-' . $i
+			),
+			__METHOD__
+		);
+		if ( $result !== false ) {
+			$string .= $result;
+			$decodedString = gzdecode( $string );
+			if ( $decodedString !== false ) {
+				$json = json_decode( $decodedString, true );
+				if ( json_last_error() === JSON_ERROR_NONE ) {
+					return $json;
+				}
+				// corrupted json ?
+				// shouldn't happen since when string is truncated, gzdecode should fail
+				wfDebug( "Corrupted json detected when retrieving stored references for title id $id" );
+			}
+			// if gzdecode fails, try to fetch next references- property value
+			return self::recursiveFetchRefsFromDB( $title, $dbr, $string, ++$i );
+
+		} else {
+			// no refs stored in page_props at this index
+			if ( $i > 1 ) {
+				// shouldn't happen
+				wfDebug( "Failed to retrieve stored references for title id $id" );
+			}
+			return false;
+		}
 	}
 
 	/**#@-*/

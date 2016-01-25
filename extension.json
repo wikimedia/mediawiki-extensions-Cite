@@ -27,6 +27,15 @@
 		],
 		"ResourceLoaderTestModules": [
 			"CiteHooks::onResourceLoaderTestModules"
+		],
+		"LinksUpdateConstructed": [
+			"CiteHooks::onLinksUpdateConstructed"
+		],
+		"LinksUpdate": [
+			"CiteHooks::onLinksUpdate"
+		],
+		"LinksUpdateComplete": [
+			"CiteHooks::onLinksUpdateComplete"
 		]
 	},
 	"ResourceModules": {
@@ -160,7 +169,9 @@
 	],
 	"config": {
 		"AllowCiteGroups": true,
-		"CiteCacheReferences": false
+		"CiteCacheReferences": false,
+		"CiteStoreReferencesData": false,
+		"CiteCacheReferencesDataOnParse": false
 	},
 	"AutoloadClasses": {
 		"Cite": "Cite_body.php",

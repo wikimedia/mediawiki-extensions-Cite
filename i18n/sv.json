@@ -36,5 +36,6 @@
 	"cite-tracking-category-cite-error": "Sidor med referensfel",
 	"cite-tracking-category-cite-error-desc": "Sidor i denna kategori har fel i sin användning av referens-taggar.",
 	"cite_references_link_accessibility_label": "Hoppa upp",
-	"cite_references_link_many_accessibility_label": "Hoppa upp till:"
+	"cite_references_link_many_accessibility_label": "Hoppa upp till:",
+	"cite_warning_sectionpreview_no_text": "<code>&lt;ref&gt;</code>-tagg med namn <code>$1</code> kan inte förhandsvisas då den definierats utanför det aktuella stycket eller inte har definierats alls."
 }

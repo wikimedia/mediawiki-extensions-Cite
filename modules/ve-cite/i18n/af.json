@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Naudefj",
+			"Neil P. Quinn",
+			"Oesjaar",
+			"Fwolff"
+		]
+	},
+	"visualeditor-cite-tool-name-book": "Boek",
+	"visualeditor-cite-tool-name-journal": "Tydskrif",
+	"visualeditor-cite-tool-name-news": "Nuus",
+	"visualeditor-cite-tool-name-web": "Webtuiste",
+	"cite-ve-dialog-reference-options-group-label": "Gebruik die groep",
+	"cite-ve-dialog-reference-options-group-placeholder": "Algemene verwysings",
+	"cite-ve-dialog-reference-options-name-label": "Hergebruik op die naam",
+	"cite-ve-dialog-reference-options-section": "Opsies",
+	"cite-ve-dialog-reference-title": "Verwysing",
+	"cite-ve-dialog-reference-useexisting-label": "Gebruik 'n bestaande verwysing",
+	"cite-ve-dialog-reference-useexisting-tool": "Hergebruik",
+	"cite-ve-dialog-referenceslist-contextitem-description-general": "Lys van algemene bronne",
+	"cite-ve-dialog-referenceslist-contextitem-description-named": "Lys van bronne vir groep \"$1\"",
+	"cite-ve-dialog-referenceslist-title": "Lys van verwysings",
+	"cite-ve-dialogbutton-reference-tooltip": "Basies",
+	"cite-ve-dialogbutton-referenceslist-tooltip": "Lys van verwysings",
+	"cite-ve-toolbar-group-label": "Aanhaal"
+}

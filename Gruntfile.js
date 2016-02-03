@@ -24,7 +24,8 @@ module.exports = function ( grunt ) {
 			]
 		},
 		banana: {
-			core: [ 'i18n/' ]
+			core: [ 'i18n/' ],
+			ve: [ 'modules/ve-cite/i18n/' ]
 		},
 		jscs: {
 			fix: {

@@ -29,5 +29,7 @@
 	"cite-tracking-category-cite-error": "Páxinas con erros de referencia",
 	"cite-tracking-category-cite-error-desc": "As páxinas nesta categoría teñen erros no uso das etiquetas de referencias.",
 	"cite_references_link_accessibility_label": "Saltar a",
-	"cite_references_link_many_accessibility_label": "Saltar a:"
+	"cite_references_link_many_accessibility_label": "Saltar a:",
+	"cite_warning": "Advertencia de cita: $1",
+	"cite_warning_sectionpreview_no_text": "A etiqueta <code>&lt;ref&gt;</code> co nome <code>$1</code> non pode previsualizarse porque está definida fóra da sección actual ou non está definida en absoluto."
 }

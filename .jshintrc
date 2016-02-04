@@ -10,7 +10,6 @@
 	"noarg": true,
 	"noempty": true,
 	"nonew": true,
-	"quotmark": false, // sometimes double quotes make sense, e.g. "foo's" is better readable than 'foo\'s'
 	"trailing": true,
 	"undef": true,
 	"unused": "vars", // we want to allow unused function parameters
@@ -27,6 +26,9 @@
 	"jquery": true,
 
 	"globals": {
-		"mediaWiki": false
+		"mediaWiki": false,
+		"mw": false,
+		"OO": false,
+		"ve": false
 	}
 }

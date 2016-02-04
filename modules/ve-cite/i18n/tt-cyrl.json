@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajdar",
+			"Derslek",
+			"Ильнар"
+		]
+	},
+	"cite-ve-dialog-reference-options-group-label": "Бу төркемне кулланырга",
+	"cite-ve-dialog-reference-options-name-label": "Кабаттан шушы исем белән кулланырга",
+	"cite-ve-dialog-reference-options-section": "Көйләнмәләр",
+	"cite-ve-dialog-reference-title": "Искәрмә",
+	"cite-ve-dialog-reference-useexisting-label": "Инде булган искәрмәне кулланырга",
+	"cite-ve-dialog-referenceslist-title": "Искәрмәләр исемлеге",
+	"cite-ve-dialogbutton-reference-tooltip": "Искәрмә",
+	"cite-ve-dialogbutton-reference-title": "Искәрмә",
+	"cite-ve-dialogbutton-referenceslist-tooltip": "Искәрмәләр исемлеге",
+	"cite-ve-reference-input-placeholder": "Нәрсәне чыганак итәргә телисез?",
+	"cite-ve-referenceslist-isempty": "Әлеге биттә « $1 » төркеме белән сылтамалар юк.",
+	"cite-ve-referenceslist-missingref": "Әлеге сылтама калыпта гына яки аерым блокта гына билгеләнә, һәм хәзерге вакытта аны чыганак код режимында гына үзгәртеп була."
+}

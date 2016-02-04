@@ -16,7 +16,7 @@
 			if ( ve.getProp( toolGroups[ j ], 'include', 0, 'group' ) === 'cite' ) {
 				// Skip if the cite group exists already
 				linkIndex = -1;
-				break targetLoop;
+				continue targetLoop;
 			}
 		}
 		// Looking through the object to find what we actually need

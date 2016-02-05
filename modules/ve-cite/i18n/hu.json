@@ -35,7 +35,7 @@
 	"cite-ve-dialogbutton-reference-title": "Forráshivatkozás",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Forráshivatkozások listája",
 	"cite-ve-reference-input-placeholder": "Keresés jelenlegi forráshivatkozásokban",
-	"cite-ve-referenceslist-isempty": "Nincsenek megjeleníthető forráshivatkozások a $1 csoportban ezen az oldalon.",
+	"cite-ve-referenceslist-isempty": "Nincsenek megjeleníthető forráshivatkozások a(z) „$1” csoportban ezen az oldalon.",
 	"cite-ve-referenceslist-isempty-default": "Nincs a lapon forráshivatkozás a lapon, amit szerepelhetne ebben a listában.",
 	"cite-ve-referenceslist-missingref": "Ez a forráshivatkozás egy sablonban vagy más generált blokkban van definiálva, és jelenleg csak forrásnézetben szerkeszthető.",
 	"cite-ve-toolbar-group-label": "Forráshivatkozás"

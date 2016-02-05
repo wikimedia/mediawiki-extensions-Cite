@@ -6,6 +6,10 @@
 			"Horus"
 		]
 	},
+	"visualeditor-cite-tool-name-book": "หนังสือ",
+	"visualeditor-cite-tool-name-journal": "วารสาร",
+	"visualeditor-cite-tool-name-news": "ข่าว",
+	"visualeditor-cite-tool-name-web": "เว็บไซต์",
 	"cite-ve-dialog-reference-options-group-label": "ใช้กลุ่มนี้",
 	"cite-ve-dialog-reference-options-name-label": "ใช้ซ้ำโดยชื่อนี้",
 	"cite-ve-dialog-reference-options-section": "ตัวเลือก",

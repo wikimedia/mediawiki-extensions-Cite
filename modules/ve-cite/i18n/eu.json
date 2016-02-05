@@ -10,7 +10,7 @@
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Liburua",
-	"visualeditor-cite-tool-name-journal": "Egunkaria",
+	"visualeditor-cite-tool-name-journal": "Aldizkaria",
 	"visualeditor-cite-tool-name-news": "Albisteak",
 	"visualeditor-cite-tool-name-web": "Webgunea",
 	"cite-ve-dialog-reference-editing-reused": "Erreferentzia hau $1{{PLURAL:$1|aldiz}} agertzen da orri honetan",
@@ -26,8 +26,8 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Erreferentzia zerrenda \"$1\" talderako",
 	"cite-ve-dialog-referenceslist-title": "Erreferentzia-zerrenda",
 	"cite-ve-dialogbutton-reference-full-label": "Oinarrizko forma",
-	"cite-ve-dialogbutton-reference-tooltip": "Oinarrizkoa",
 	"cite-ve-dialogbutton-reference-title": "Erreferentzia",
+	"cite-ve-dialogbutton-reference-tooltip": "Oinarrizkoa",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Erreferentzia-zerrenda",
 	"cite-ve-reference-input-placeholder": "Bilatu oraingo aipuen artean",
 	"cite-ve-referenceslist-isempty": "Ez dago «$1» taldearekiko erreferentziarik orri honetan.",

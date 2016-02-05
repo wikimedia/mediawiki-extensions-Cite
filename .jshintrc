@@ -29,6 +29,7 @@
 		"mediaWiki": false,
 		"mw": false,
 		"OO": false,
-		"ve": false
+		"ve": false,
+		"QUnit": false
 	}
 }

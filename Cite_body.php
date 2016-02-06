@@ -1106,16 +1106,27 @@ class Cite {
 		}
 
 		$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+
+		$s = '';
 		foreach ( $this->mRefs as $group => $refs ) {
 			if ( !$refs ) {
 				continue;
 			}
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-				$text .= $this->referencesFormat( $group, '', '' );
+				$s .= $this->referencesFormat( $group );
 			} else {
-				$text .= "\n<br />" .
+				$s .= "\n<br />" .
 					$this->error( 'cite_error_group_refs_without_references', htmlspecialchars( $group ) );
 			}
+		}
+		if ( $isSectionPreview && $s !== '' ) {
+			$text .= "\n"
+				. '<span class="mw-ext-cite-cite_section_preview_references" >'
+				. "<h2>" . wfMessage( 'cite_section_preview_references' )->escaped() . "</h2>"
+				. $s
+				. '</span>';
+		} else {
+			$text .= $s;
 		}
 		return true;
 	}

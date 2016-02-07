@@ -29,7 +29,7 @@
 	"visualeditor-cite-tool-name-journal": "期刊",
 	"visualeditor-cite-tool-name-news": "新闻",
 	"visualeditor-cite-tool-name-web": "网站",
-	"cite-ve-dialog-reference-editing-reused": "这个引用在此页面使用了$1次。",
+	"cite-ve-dialog-reference-editing-reused": "这个引用在此页面使用了$1{{PLURAL:$1|次}}。",
 	"cite-ve-dialog-reference-options-group-label": "使用该组",
 	"cite-ve-dialog-reference-options-group-placeholder": "一般参考文献",
 	"cite-ve-dialog-reference-options-name-label": "以该名称重复使用",

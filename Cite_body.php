@@ -1120,11 +1120,15 @@ class Cite {
 			}
 		}
 		if ( $isSectionPreview && $s !== '' ) {
-			$text .= "\n"
-				. '<span class="mw-ext-cite-cite_section_preview_references" >'
-				. "<h2>" . wfMessage( 'cite_section_preview_references' )->escaped() . "</h2>"
-				. $s
-				. '</span>';
+			// provide a preview of references in its own section
+			$text .= "\n" . '<div class="mw-ext-cite-cite_section_preview_references" >';
+			$headerMsg = wfMessage( 'cite_section_preview_references' );
+			if ( !$headerMsg->isDisabled() ) {
+				$text .= '<h2 id="mw-ext-cite-cite_section_preview_references_header" >'
+				. $headerMsg->escaped()
+				. '</h2>';
+			}
+			$text .= $s . '</div>';
 		} else {
 			$text .= $s;
 		}

@@ -43,6 +43,7 @@
 	"cite_references_link_many_and": "&#32;et&#32;",
 	"cite_references_link_accessibility_label": "Aller",
 	"cite_references_link_many_accessibility_label": "Aller à :",
+	"cite_section_preview_references": "Aperçu des références",
 	"cite_warning": "Avertissement de Cite : $1",
 	"cite_warning_sectionpreview_no_text": "La balise <code>&lt;ref&gt;</code> avec le nom <code>$1</code> ne peut pas être prévisualisée car elle est définie en dehors de la section actuelle, ou pas définie du tout."
 }

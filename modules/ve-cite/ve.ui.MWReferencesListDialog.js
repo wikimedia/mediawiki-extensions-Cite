@@ -39,12 +39,12 @@ ve.ui.MWReferencesListDialog.static.size = 'medium';
 ve.ui.MWReferencesListDialog.static.actions = [
 	{
 		action: 'apply',
-		label: OO.ui.deferMsg( 'cite-ve-dialog-action-apply' ),
+		label: OO.ui.deferMsg( 'visualeditor-dialog-action-apply' ),
 		flags: [ 'progressive', 'primary' ],
 		modes: 'edit'
 	},
 	{
-		label: OO.ui.deferMsg( 'cite-ve-dialog-action-cancel' ),
+		label: OO.ui.deferMsg( 'visualeditor-dialog-action-cancel' ),
 		flags: [ 'safe', 'back' ],
 		modes: 'edit'
 	}

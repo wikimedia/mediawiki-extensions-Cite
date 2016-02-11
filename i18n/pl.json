@@ -32,5 +32,6 @@
 	"cite-tracking-category-cite-error": "Strony z zepsutymi przypisami",
 	"cite-tracking-category-cite-error-desc": "Strony w tej kategorii zawierają błędy w użyciu znaczników przypisów.",
 	"cite_references_link_accessibility_label": "Skocz do góry",
-	"cite_references_link_many_accessibility_label": "Skocz do:"
+	"cite_references_link_many_accessibility_label": "Skocz do:",
+	"cite_section_preview_references": "Podgląd przypisów"
 }

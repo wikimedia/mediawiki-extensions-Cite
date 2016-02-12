@@ -796,13 +796,6 @@ class Cite {
 					$this->referencesKey( $val['follow'] ),
 					$text
 				)->inContentLanguage()->plain();
-		} elseif ( !isset( $val['text'] ) ) {
-			return wfMessage(
-						'cite_references_link_one',
-						$this->referencesKey( $key ),
-						$this->refKey( $key, $val['count'] ),
-						$text
-					)->inContentLanguage()->plain();
 		}
 
 		if ( $val['count'] < 0 ) {

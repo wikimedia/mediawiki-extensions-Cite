@@ -290,9 +290,9 @@ Use <code>&lt;references /&gt;</code>, or <code>&lt;references group="..." /&gt;
 <ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Also zero, but differently! (Normal ref)</span>
 </li>
-<li id="cite_note-bar"><span class="mw-cite-backlink"><a href="#cite_ref-bar_0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<li id="cite_note-bar-2"><span class="mw-cite-backlink"><a href="#cite_ref-bar_2-0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>bar</code></strong></li>
-<li id="cite_note-blankwithnoreference"><span class="mw-cite-backlink"><a href="#cite_ref-blankwithnoreference_0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<li id="cite_note-blankwithnoreference-3"><span class="mw-cite-backlink"><a href="#cite_ref-blankwithnoreference_3-0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>blankwithnoreference</code></strong></li>
 </ol>
 
@@ -400,7 +400,7 @@ AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="�
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">[2 1]</a></sup>
 </p>
 <ol class="references">
-<li id="cite_note-foo"><span class="mw-cite-backlink"><a href="#cite_ref-foo_0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>foo</code></strong></li>
 </ol>
 <p><strong class="error mw-ext-cite-error">Cite error: <code>&lt;ref&gt;</code> tag with name "unused" defined in <code>&lt;references&gt;</code> is not used in prior text.</strong><br />
@@ -495,7 +495,7 @@ refs with no name must have content</strong>
 Bla.<ref name="void"></ref>
 !! result
 Bla.<sup id="cite_ref-void_1-0" class="reference"><a href="#cite_note-void-1">[1]</a></sup><ol class="references">
-<li id="cite_note-void"><span class="mw-cite-backlink"><a href="#cite_ref-void_0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+<li id="cite_note-void-1"><span class="mw-cite-backlink"><a href="#cite_ref-void_1-0">↑</a></span> <strong class="error mw-ext-cite-error">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>void</code></strong></li>
 </ol>
 

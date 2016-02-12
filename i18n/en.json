@@ -18,7 +18,7 @@
 	"cite-desc": "Adds <nowiki><ref[ name=id]></nowiki> and <nowiki><references/></nowiki> tags, for citations",
 	"cite_error": "Cite error: $1",
 	"cite_error_ref_numeric_key": "Invalid <code>&lt;ref&gt;</code> tag;\nname cannot be a simple integer. Use a descriptive title",
-	"cite_error_ref_no_key": "Invalid <code>&lt;ref&gt;</code> tag;\nrefs with no content must have a name",
+	"cite_error_ref_no_key": "The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name",
 	"cite_error_ref_too_many_keys": "Invalid <code>&lt;ref&gt;</code> tag;\ninvalid names, e.g. too many",
 	"cite_error_ref_no_input": "Invalid <code>&lt;ref&gt;</code> tag;\nrefs with no name must have content",
 	"cite_error_references_duplicate_key": "Invalid <code>&lt;ref&gt;</code> tag; name \"$1\" defined multiple times with different content",

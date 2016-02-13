@@ -30,5 +30,7 @@
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code>-elementin nimeä ”$1”, johon viitataan elementissä <code>&lt;references&gt;</code> ei käytetä edeltävässä tekstissä.",
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä ei ole nimimääritettä.",
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä nimellä ”$1” ei ole sisältöä.",
-	"cite-tracking-category-cite-error": "Sivut, joissa on viittausvirheitä"
+	"cite-tracking-category-cite-error": "Sivut, joissa on viittausvirheitä",
+	"cite_section_preview_references": "Viitteiden esikatselu",
+	"cite_warning_sectionpreview_no_text": "<code>&lt;ref&gt;</code>-viitettä, jonka nimenä on <code>$1</code>, ei voida näyttää esikatselussa, koska se määritetään tämän osion ulkopuolella tai sitä ei ole määritetty lainkaan."
 }

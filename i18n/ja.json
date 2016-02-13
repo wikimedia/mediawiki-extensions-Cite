@@ -7,13 +7,14 @@
 			"JtFuruhata",
 			"Shirayuki",
 			"Sujiniku",
-			"2nd-player"
+			"2nd-player",
+			"Otokoume"
 		]
 	},
 	"cite-desc": "引用のためのタグ <nowiki><ref[ name=id]></nowiki> および <nowiki><references/></nowiki> を追加する",
 	"cite_error": "引用エラー: $1",
 	"cite_error_ref_numeric_key": "無効な <code>&lt;ref&gt;</code> タグです。\n名前 (name 属性) に単なる整数は使用できません。説明的なものにしてください",
-	"cite_error_ref_no_key": "無効な <code>&lt;ref&gt;</code> タグです。\n引用句の内容がない場合は名前 (name 属性) が必要です",
+	"cite_error_ref_no_key": "冒頭の <code>&lt;ref&gt;</code> タグは正しくない形式であるか、不適切な名前です",
 	"cite_error_ref_too_many_keys": "無効な <code>&lt;ref&gt;</code> タグです。\n名前 (name 属性) が無効です (数が多すぎる、など)",
 	"cite_error_ref_no_input": "無効な <code>&lt;ref&gt;</code> タグです。\n名前 (name 属性) がない場合は引用句の内容が必要です",
 	"cite_error_references_duplicate_key": "無効な <code>&lt;ref&gt;</code> タグ; name \"$1\"が異なる内容で複数回定義されています",

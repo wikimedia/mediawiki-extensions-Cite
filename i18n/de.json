@@ -13,7 +13,7 @@
 	"cite-desc": "Ermöglicht Referenzierungen mittels <code><nowiki><ref[&nbsp;name=id]></nowiki></code> und <code><nowiki><references&nbsp;/></nowiki></code>",
 	"cite_error": "Referenzfehler: $1",
 	"cite_error_ref_numeric_key": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „name“ darf kein reiner Zahlenwert sein. Benutze einen beschreibenden Namen.",
-	"cite_error_ref_no_key": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „ref“ ohne Inhalt muss einen Namen haben.",
+	"cite_error_ref_no_key": "Das öffnende <code>&lt;ref&gt;</code>-Tag ist beschädigt oder hat einen ungültigen Namen",
 	"cite_error_ref_too_many_keys": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „name“ ist ungültig oder zu lang.",
 	"cite_error_ref_no_input": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „ref“ ohne Namen muss einen Inhalt haben.",
 	"cite_error_references_duplicate_key": "Ungültiges <code>&lt;ref&gt;</code>-Tag. Der Name „$1“ wurde mehrere Male mit einem unterschiedlichen Inhalt definiert.",

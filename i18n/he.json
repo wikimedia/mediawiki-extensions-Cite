@@ -11,7 +11,7 @@
 	"cite-desc": "הוספת תגי <span dir=\"ltr\"><nowiki><ref[ name=id]></nowiki></span> ו־<span dir=\"ltr\"><nowiki><references/></nowiki></span> עבור הערות שוליים",
 	"cite_error": "שגיאת ציטוט: $1",
 	"cite_error_ref_numeric_key": "תג <code>&lt;ref&gt;</code> לא תקין;\nשם (name) לא יכול להיות מספר שלם פשוט. יש להשתמש בכותרת תיאורית",
-	"cite_error_ref_no_key": "תג <code>&lt;ref&gt;</code> לא תקין;\nלהערות שוליים ללא תוכן חייב להיות שם (name)",
+	"cite_error_ref_no_key": "תג ה־<code>&lt;ref&gt;</code> הפותח בלתי־תקין או בעל שם שגוי.",
 	"cite_error_ref_too_many_keys": "תג <code>&lt;ref&gt;</code> לא תקין;\nשמות שגויים, למשל, רבים מדי",
 	"cite_error_ref_no_input": "תג <code>&lt;ref&gt;</code> לא תקין;\nלהערות שוליים ללא שם חייב להיות תוכן",
 	"cite_error_references_duplicate_key": "תג <code>&lt;ref&gt;</code> בלתי־תקין; השם \"$1\" הוגדר מספר פעמים עם תוכן שונה",

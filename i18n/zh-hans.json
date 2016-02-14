@@ -16,7 +16,7 @@
 	"cite-desc": "增加用于引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>标签",
 	"cite_error": "引用错误：$1",
 	"cite_error_ref_numeric_key": "无效<code>&lt;ref&gt;</code>标签；name属性不能是单一的数字，请使用可辨识的标题",
-	"cite_error_ref_no_key": "无效<code>&lt;ref&gt;</code>标签；未填内容的引用必须填写name属性",
+	"cite_error_ref_no_key": "打开的<code>&lt;ref&gt;</code>标签格式有误，或拥有一个错误的名称",
 	"cite_error_ref_too_many_keys": "无效<code>&lt;ref&gt;</code>标签；name属性非法，可能是内容过长",
 	"cite_error_ref_no_input": "无效<code>&lt;ref&gt;</code>标签；未填name属性的引用必须填写内容",
 	"cite_error_references_duplicate_key": "无效<code>&lt;ref&gt;</code>标签；name属性“$1”使用不同内容定义了多次",

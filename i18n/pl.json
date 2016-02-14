@@ -13,7 +13,7 @@
 	"cite-desc": "Dodaje znaczniki <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> ułatwiające podawanie źródeł cytatów",
 	"cite_error": "Błąd rozszerzenia ''cite'': $1",
 	"cite_error_ref_numeric_key": "Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.",
-	"cite_error_ref_no_key": "Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Odnośnik ref z zawartością musi mieć nazwę.",
+	"cite_error_ref_no_key": "Otwierający znacznik <code>&lt;ref&gt;</code> jest nieprawidłowy lub ma błędną nazwę.",
 	"cite_error_ref_too_many_keys": "Nieprawidłowe nazwy parametrów elementu <code>&lt;ref&gt;</code>.",
 	"cite_error_ref_no_input": "Błąd w składni elementu <code>&lt;ref&gt;</code>. Przypisy bez podanej nazwy muszą posiadać treść",
 	"cite_error_references_duplicate_key": "Nieprawidłowy znacznik <code>&lt;ref&gt;</code>; nazwę „$1” zdefiniowano więcej niż raz z różną zawartością",

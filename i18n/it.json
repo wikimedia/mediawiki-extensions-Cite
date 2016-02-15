@@ -13,7 +13,7 @@
 	"cite-desc": "Aggiunge i tag <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> per gestire le citazioni",
 	"cite_error": "Errore nelle note: $1",
 	"cite_error_ref_numeric_key": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: il nome non può essere un numero intero. Usare un titolo esteso",
-	"cite_error_ref_no_key": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref vuoti non possono essere privi di nome",
+	"cite_error_ref_no_key": "L'apertura dell'etichetta <code>&lt;ref&gt;</code> non è corretta o ha un nome errato.",
 	"cite_error_ref_too_many_keys": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)",
 	"cite_error_ref_no_input": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: i ref privi di nome non possono essere vuoti",
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> non valido; il nome \"$1\" è stato definito più volte con contenuti diversi",

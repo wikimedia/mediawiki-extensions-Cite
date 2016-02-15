@@ -10,7 +10,7 @@
 	"cite-desc": "Дадае тэгі <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для зносак",
 	"cite_error": "Памылка цытаваньня: $1",
 	"cite_error_ref_numeric_key": "Няслушны тэг <code>&lt;ref&gt;</code>;\nназва ня можа быць проста лікам, ужывайце апісальную назву",
-	"cite_error_ref_no_key": "Няслушны тэг <code>&lt;ref&gt;</code>;\nпустыя тэгі <code>ref</code> мусяць мець назву",
+	"cite_error_ref_no_key": "Пачатковы тэг <code>&lt;ref&gt;</code> зьяўляецца няслушным або мае кепскую назву",
 	"cite_error_ref_too_many_keys": "Няслушны тэг <code>&lt;ref&gt;</code>;\nняслушныя назвы, ці іх было зашмат",
 	"cite_error_ref_no_input": "Няслушны тэг <code>&lt;ref&gt;</code>;\nкрыніцы бяз назваў мусяць мець зьмест",
 	"cite_error_references_duplicate_key": "Няслушны тэг <code>&lt;ref&gt;</code>; назва «$1» вызначаная некалькі разоў з розным зьместам",

@@ -16,7 +16,7 @@
 	"cite-desc": "Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок",
 	"cite_error": "Ошибка цитирования $1",
 	"cite_error_ref_numeric_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nимя не может быть целым числом. Используйте описательное название",
-	"cite_error_ref_no_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nэлемент без содержания должен иметь имя.",
+	"cite_error_ref_no_key": "Открывающий тег <code>&lt;ref&gt;</code> — неправильный или содержит некорректное имя.",
 	"cite_error_ref_too_many_keys": "Неправильный тег <code>&lt;ref&gt;</code>;\nошибочные имена, возможно, слишком много",
 	"cite_error_ref_no_input": "Неправильный тег <code>&lt;ref&gt;</code>;\nэлемент без имени должен иметь содержание",
 	"cite_error_references_duplicate_key": "Неверный тег <code>&lt;ref&gt;</code>: название «$1» определено несколько раз для различного содержимого",

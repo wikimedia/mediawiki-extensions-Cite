@@ -15,6 +15,8 @@
 			"Umherirrender"
 		]
 	},
+	"apihelp-query+references-description": "{{doc-apihelp-description|query+references}}",
+	"apihelp-query+references-example-1": "{{doc-apihelp-example|query+references}}",
 	"cite-desc": "{{desc|name=Cite|url=https://www.mediawiki.org/wiki/Extension:Cite}}",
 	"cite_error": "Cite extension.\n\nUsed when there are errors in ref or references tags.\n\nParameters:\n* $1 - an error message",
 	"cite_error_ref_numeric_key": "Cite extension. Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code><nowiki><ref name=\"123\" /></nowiki></code> or <code><nowiki><ref name=\"456\">input</ref></nowiki></code>",

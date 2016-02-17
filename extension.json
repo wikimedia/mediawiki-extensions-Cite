@@ -18,6 +18,11 @@
 		"cite": "i18n",
 		"ve-cite": "modules/ve-cite/i18n"
 	},
+	"APIPropModules": {
+		"references": {
+			"class": "ApiQueryReferences"
+		}
+	},
 	"Hooks": {
 		"ParserFirstCallInit": [
 			"Cite::setHooks"
@@ -164,6 +169,9 @@
 	"VisualEditorPluginModules": [
 		"ext.cite.visualEditor"
 	],
+	"ConfigRegistry": {
+		"cite": "GlobalVarConfig::newInstance"
+	},
 	"config": {
 		"AllowCiteGroups": true,
 		"CiteCacheReferences": false,
@@ -171,6 +179,7 @@
 		"CiteCacheReferencesDataOnParse": false
 	},
 	"AutoloadClasses": {
+		"ApiQueryReferences": "ApiQueryReferences.php",
 		"Cite": "Cite_body.php",
 		"CiteHooks": "CiteHooks.php",
 		"CiteDataModule": "CiteDataModule.php",

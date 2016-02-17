@@ -4,7 +4,8 @@
 			"Dani",
 			"Glanthor Reviol",
 			"KossuthRad",
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Nyuszika7H"
 		]
 	},
 	"cite-desc": "Lehetővé teszi idézések létrehozását <nowiki><ref[ name=id]></nowiki> és <nowiki><references/></nowiki> tagek segítségével",
@@ -30,5 +31,8 @@
 	"cite-tracking-category-cite-error-desc": "Az ebben a kategóriában található lapokon hibásan használt forráshivatkozás-elemek találhatók.",
 	"cite_references_link_many": "<li id=\"$1\"><span class=\"mw-cite-backlink\">^ $2</span> $3</li>",
 	"cite_references_link_accessibility_label": "Ugrás fel",
-	"cite_references_link_many_accessibility_label": "Ugrás ehhez:"
+	"cite_references_link_many_accessibility_label": "Ugrás ehhez:",
+	"cite_section_preview_references": "Források előnézete",
+	"cite_warning": "Forráshivatkozás-figyelmeztetés: $1",
+	"cite_warning_sectionpreview_no_text": "A(z) <code>$1</code> nevű <code>&lt;ref&gt;</code> tag előnézete nem jeleníthető meg, mert a jelenlegi szakaszon kívül vagy egyáltalán nincs definiálva."
 }

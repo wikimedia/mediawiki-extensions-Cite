@@ -729,15 +729,17 @@ class Cite {
 		// We add new lines between the pieces to avoid a confused tidy (bug 13073).
 		$parserInput = $prefix . "\n" . $content . "\n" . $suffix;
 
-		// Let's try to cache it.
-		global $wgMemc;
-		$cacheKey = wfMemcKey( 'citeref', md5( $parserInput ), $this->mParser->Title()->getArticleID() );
-
 		wfProfileOut( __METHOD__ . '-entries' );
 
-		global $wgCiteCacheReferences;
+		// Let's try to cache it.
+		global $wgCiteCacheReferences, $wgMemc;
 		$data = false;
 		if ( $wgCiteCacheReferences ) {
+			$cacheKey = wfMemcKey(
+				'citeref',
+				md5( $parserInput ),
+				$this->mParser->Title()->getArticleID()
+			);
 			wfProfileIn( __METHOD__ . '-cache-get' );
 			$data = $wgMemc->get( $cacheKey );
 			wfProfileOut( __METHOD__ . '-cache-get' );

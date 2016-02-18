@@ -19,3 +19,8 @@ sup.reference:target {
 	background-color: #def; /* fallback */
 	background-color: rgba(0, 127, 255, 0.133);
 }
+
+/* Make cite errors "strong" */
+.mw-ext-cite-error {
+	font-weight: bold;
+}

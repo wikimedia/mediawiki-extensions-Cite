@@ -1290,7 +1290,7 @@ class Cite {
 		} else {
 			$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 
-			$ret = '<strong class="error mw-ext-cite-error">' . $msg . '</strong>';
+			$ret = '<span class="error mw-ext-cite-error">' . $msg . '</span>';
 		}
 
 		if ( $parse === 'parse' ) {

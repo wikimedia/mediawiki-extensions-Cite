@@ -16,7 +16,7 @@
 	"cite-desc": "Додає теги <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для виносок",
 	"cite_error": "Помилка цитування: $1",
 	"cite_error_ref_numeric_key": "Неправильний виклик <code>&lt;ref&gt;</code>:\nназва не може містити тільки цифри.",
-	"cite_error_ref_no_key": "Неправильний виклик <code>&lt;ref&gt;</code>:\nпорожній тег <code>ref</code> повинен мати параметр name.",
+	"cite_error_ref_no_key": "Відкривальний тег <code>&lt;ref&gt;</code> неправильний або містить хибну назву.",
 	"cite_error_ref_too_many_keys": "Неправильний виклик <code>&lt;ref&gt;</code>:\nвказані неправильні значення <code>name</code> або вказано забагато параметрів",
 	"cite_error_ref_no_input": "Неправильний виклик <code>&lt;ref&gt;</code>:\nтег <code>ref</code> без назви повинен мати вхідні дані",
 	"cite_error_references_duplicate_key": "Некоректний теґ <code>&lt;ref&gt;</code>; назва «$1» визначена кілька разів з різним вмістом",
@@ -44,5 +44,8 @@
 	"cite_references_link_many_sep": "&#32;",
 	"cite_references_link_many_and": "&#32;",
 	"cite_references_link_accessibility_label": "Вгору",
-	"cite_references_link_many_accessibility_label": "Перейти до:"
+	"cite_references_link_many_accessibility_label": "Перейти до:",
+	"cite_section_preview_references": "Попередній перегляд приміток",
+	"cite_warning": "Попередження щодо приміток: $1",
+	"cite_warning_sectionpreview_no_text": "Тег <code>&lt;ref&gt;</code> з назвою <code>$1</code> не можна попередньо переглянути, оскільки він визначений за межами поточної сесії, або й не визначений зовсім."
 }

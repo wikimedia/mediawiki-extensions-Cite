@@ -851,6 +851,9 @@ class Cite {
 	 */
 	function referenceText( $key, $text ) {
 		if ( !isset( $text ) || $text === '' ) {
+			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
+				return $this->warning( 'cite_warning_sectionpreview_no_text', $key, 'noparse' );
+			}
 			return $this->error( 'cite_error_references_no_text', $key, 'noparse' );
 		}
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";
@@ -1257,21 +1260,11 @@ class Cite {
 	 * Return an error message based on an error ID
 	 *
 	 * @param string $key   Message name for the error
-	 * @param string $param Parameter to pass to the message
+	 * @param string|null $param Parameter to pass to the message
 	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
 	 * @return string XHTML or wikitext ready for output
 	 */
 	function error( $key, $param = null, $parse = 'parse' ) {
-		$decreaseToWarning = false;
-		if (
-			$this->mParser->getOptions()->getIsSectionPreview() &&
-			$key === 'cite_error_references_no_text'
-		) {
-			// ref may be defined somewhere else on the page so use distinct message
-			// and be less intrusive than in a real error
-			$key = 'cite_warning_sectionpreview_no_text';
-			$decreaseToWarning = true;
-		}
 		# We rely on the fact that PHP is okay with passing unused argu-
 		# ments to functions.  If $1 is not used in the message, wfMessage will
 		# just ignore the extra parameter.
@@ -1279,19 +1272,49 @@ class Cite {
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();
 		$msg = wfMessage(
-			$decreaseToWarning ? 'cite_warning' : 'cite_error',
+			'cite_error',
 			wfMessage( $key, $param )->inLanguage( $lang )->plain()
 		)
 			->inLanguage( $lang )
 			->plain();
 
-		if ( $decreaseToWarning ) {
-			$ret = '<span class="warning mw-ext-cite-warning">' . $msg . '</span>';
-		} else {
-			$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );
+		$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 
-			$ret = '<span class="error mw-ext-cite-error">' . $msg . '</span>';
+		$ret = '<span class="error mw-ext-cite-error">' . $msg . '</span>';
+
+		if ( $parse === 'parse' ) {
+			$ret = $this->mParser->recursiveTagParse( $ret );
 		}
+
+		return $ret;
+	}
+
+	/**
+	 * Return a warning message based on a warning ID
+	 *
+	 * @param string $key   Message name for the warning. Name should start with cite_warning_
+	 * @param string|null $param Parameter to pass to the message
+	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
+	 * @return string XHTML or wikitext ready for output
+	 */
+	function warning( $key, $param = null, $parse = 'parse' ) {
+		# We rely on the fact that PHP is okay with passing unused argu-
+		# ments to functions.  If $1 is not used in the message, wfMessage will
+		# just ignore the extra parameter.
+		# For ease of debugging and because errors are rare, we
+		# use the user language and split the parser cache.
+		$lang = $this->mParser->getOptions()->getUserLangObj();
+		$msg = wfMessage(
+			'cite_warning',
+			wfMessage( $key, $param )->inLanguage( $lang )->plain()
+		)
+			->inLanguage( $lang )
+			->plain();
+
+		$key = preg_replace( '/^cite_warning_/', '', $key ) . '';
+		$ret = '<span class="warning mw-ext-cite-warning mw-ext-cite-warning-' .
+			Sanitizer::escapeClass( $key ) .
+			'">' . $msg . '</span>';
 
 		if ( $parse === 'parse' ) {
 			$ret = $this->mParser->recursiveTagParse( $ret );

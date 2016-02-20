@@ -28,9 +28,6 @@
 		"ResourceLoaderTestModules": [
 			"CiteHooks::onResourceLoaderTestModules"
 		],
-		"LinksUpdateConstructed": [
-			"CiteHooks::onLinksUpdateConstructed"
-		],
 		"LinksUpdate": [
 			"CiteHooks::onLinksUpdate"
 		],

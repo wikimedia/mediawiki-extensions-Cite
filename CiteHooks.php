@@ -67,27 +67,6 @@ class CiteHooks {
 	}
 
 	/**
-	 * Callback for LinksUpdateConstructed hook
-	 * If $wgCiteCacheRawReferencesOnParse is set to true, caches the raw references
-	 * in array form
-	 *
-	 * @param LinksUpdate $linksUpdate
-	 */
-	public static function onLinksUpdateConstructed( LinksUpdate &$linksUpdate ) {
-		global $wgCiteStoreReferencesData, $wgCiteCacheRawReferencesOnParse;
-		if ( !$wgCiteStoreReferencesData || !$wgCiteCacheRawReferencesOnParse ) {
-			return;
-		}
-		$refs = $linksUpdate->getParserOutput()->getExtensionData( Cite::EXT_DATA_KEY );
-		if ( $refs !== null ) {
-			$cache = ObjectCache::getMainWANInstance();
-			$articleID = $linksUpdate->getTitle()->getArticleID();
-			$key = $cache->makeKey( Cite::EXT_DATA_KEY, $articleID );
-			$cache->set( $key, $refs, Cite::CACHE_DURATION_ONPARSE );
-		}
-	}
-
-	/**
 	 * Callback for LinksUpdate hook
 	 * Post-output processing of references property, for proper db storage
 	 * Deferred to avoid performance overhead when outputting the page
@@ -95,24 +74,32 @@ class CiteHooks {
 	 * @param LinksUpdate $linksUpdate
 	 */
 	public static function onLinksUpdate( LinksUpdate &$linksUpdate ) {
-		global $wgCiteStoreReferencesData;
+		global $wgCiteStoreReferencesData, $wgCiteCacheRawReferencesOnParse;
 		if ( !$wgCiteStoreReferencesData ) {
 			return;
 		}
-		$refs = $linksUpdate->getParserOutput()->getExtensionData( Cite::EXT_DATA_KEY );
-		if ( $refs !== null ) {
-			// JSON encode
-			$ppValue = FormatJson::encode( $refs, false, FormatJson::ALL_OK );
-			// GZIP encode references data at maximum compression
-			$ppValue = gzencode( $ppValue, 9 );
-			// split the string in smaller parts that can fit into a db blob
-			$ppValues = str_split( $ppValue, Cite::MAX_STORAGE_LENGTH );
-			foreach ( $ppValues as $num => $ppValue ) {
-				$key = 'references-' . intval( $num + 1 );
-				$linksUpdate->mProperties[$key] = $ppValue;
-			}
-			$linksUpdate->getParserOutput()->setExtensionData( Cite::EXT_DATA_KEY, null );
+		$refData = $linksUpdate->getParserOutput()->getExtensionData( Cite::EXT_DATA_KEY );
+		if ( $refData === null ) {
+			return;
 		}
+		if ( $wgCiteCacheRawReferencesOnParse ) {
+			// caching
+			$cache = ObjectCache::getMainWANInstance();
+			$articleID = $linksUpdate->getTitle()->getArticleID();
+			$key = $cache->makeKey( Cite::EXT_DATA_KEY, $articleID );
+			$cache->set( $key, $refData, Cite::CACHE_DURATION_ONPARSE );
+		}
+		// JSON encode
+		$ppValue = FormatJson::encode( $refData, false, FormatJson::ALL_OK );
+		// GZIP encode references data at maximum compression
+		$ppValue = gzencode( $ppValue, 9 );
+		// split the string in smaller parts that can fit into a db blob
+		$ppValues = str_split( $ppValue, Cite::MAX_STORAGE_LENGTH );
+		foreach ( $ppValues as $num => $ppValue ) {
+			$key = 'references-' . intval( $num + 1 );
+			$linksUpdate->mProperties[$key] = $ppValue;
+		}
+		$linksUpdate->getParserOutput()->setExtensionData( Cite::EXT_DATA_KEY, null );
 	}
 
 	/**

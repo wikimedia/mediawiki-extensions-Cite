@@ -44,6 +44,7 @@
 	"cite_references_link_many_and": "&#32;",
 	"cite_references_link_accessibility_label": "Перейти",
 	"cite_references_link_many_accessibility_label": "Перейти к:",
+	"cite_section_preview_references": "Предпросмотр примечаний",
 	"cite_warning": "Предупреждение о цитировании: $1",
 	"cite_warning_sectionpreview_no_text": "Тег <code>&lt;ref&gt;</code> с именем <code>$1</code> не может быть предпросмотрен, так как он определён вне текущего раздела или не определён вообще."
 }

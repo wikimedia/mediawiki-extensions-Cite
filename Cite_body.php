@@ -795,7 +795,7 @@ class Cite {
 		if ( !is_array( $val ) ) {
 			return wfMessage(
 					'cite_references_link_one',
-					$this->referencesKey( $key ),
+					self::getReferencesKey( $key ),
 					$this->refKey( $key ),
 					$this->referenceText( $key, $val )
 				)->inContentLanguage()->plain();
@@ -804,7 +804,7 @@ class Cite {
 		if ( isset( $val['follow'] ) ) {
 			return wfMessage(
 					'cite_references_no_link',
-					$this->referencesKey( $val['follow'] ),
+					self::getReferencesKey( $val['follow'] ),
 					$text
 				)->inContentLanguage()->plain();
 		}
@@ -812,7 +812,7 @@ class Cite {
 		if ( $val['count'] < 0 ) {
 			return wfMessage(
 					'cite_references_link_one',
-					$this->referencesKey( $val['key'] ),
+					self::getReferencesKey( $val['key'] ),
 					# $this->refKey( $val['key'], $val['count'] ),
 					$this->refKey( $val['key'] ),
 					$text
@@ -824,7 +824,7 @@ class Cite {
 		} elseif ( $val['count'] === 0 ) {
 			return wfMessage(
 					'cite_references_link_one',
-					$this->referencesKey( $key . "-" . $val['key'] ),
+					self::getReferencesKey( $key . "-" . $val['key'] ),
 					# $this->refKey( $key, $val['count'] ),
 					$this->refKey( $key, $val['key'] . "-" . $val['count'] ),
 					$text
@@ -845,7 +845,7 @@ class Cite {
 			$list = $this->listToText( $links );
 
 			return wfMessage( 'cite_references_link_many',
-					$this->referencesKey( $key . "-" . $val['key'] ),
+					self::getReferencesKey( $key . "-" . $val['key'] ),
 					$list,
 					$text
 				)->inContentLanguage()->plain();
@@ -971,7 +971,7 @@ class Cite {
 	 * @param int $num The number of the key
 	 * @return string A key for use in wikitext
 	 */
-	function referencesKey( $key, $num = null ) {
+	public static function getReferencesKey( $key, $num = null ) {
 		$prefix = wfMessage( 'cite_references_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_references_link_suffix' )->inContentLanguage()->text();
 		if ( isset( $num ) ) {
@@ -1006,7 +1006,7 @@ class Cite {
 				wfMessage(
 					'cite_reference_link',
 					$this->refKey( $key, $count ),
-					$this->referencesKey( $key . $subkey ),
+					self::getReferencesKey( $key . $subkey ),
 					$this->getLinkLabel( $label, $group,
 						( ( $group === self::DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
 				)->inContentLanguage()->plain()

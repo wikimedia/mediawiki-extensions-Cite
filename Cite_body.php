@@ -257,12 +257,13 @@ class Cite {
 		 * </references>
 		 */
 		if ( $this->mInReferences ) {
+			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 			if ( $group != $this->mReferencesGroup ) {
 				# <ref> and <references> have conflicting group attributes.
 				$this->mReferencesErrors[] =
 					$this->error( 'cite_error_references_group_mismatch', htmlspecialchars( $group ) );
 			} elseif ( $str !== '' ) {
-				if ( !isset( $this->mRefs[$group] ) ) {
+				if ( !$isSectionPreview && !isset( $this->mRefs[$group] ) ) {
 					# Called with group attribute not defined in text.
 					$this->mReferencesErrors[] =
 						$this->error( 'cite_error_references_missing_group', htmlspecialchars( $group ) );
@@ -270,7 +271,7 @@ class Cite {
 					# <ref> calls inside <references> must be named
 					$this->mReferencesErrors[] =
 						$this->error( 'cite_error_references_no_key' );
-				} elseif ( !isset( $this->mRefs[$group][$key] ) ) {
+				} elseif ( !$isSectionPreview && !isset( $this->mRefs[$group][$key] ) ) {
 					# Called with name attribute not defined in text.
 					$this->mReferencesErrors[] =
 						$this->error( 'cite_error_references_missing_key', $key );
@@ -700,9 +701,6 @@ class Cite {
 		}
 
 		$s = $this->referencesFormat( $group );
-		if ( $parser->getOptions()->getIsSectionPreview() ) {
-			return $s;
-		}
 
 		# Append errors generated while processing <references>
 		if ( $this->mReferencesErrors ) {
@@ -821,7 +819,8 @@ class Cite {
 			// anonymous reference because displaying "1. 1.1 Ref text" is
 			// overkill and users frequently use named references when they
 			// don't need them for convenience
-		} elseif ( $val['count'] === 0 ) {
+		}
+		if ( $val['count'] === 0 ) {
 			return wfMessage(
 					'cite_references_link_one',
 					self::getReferencesKey( $key . "-" . $val['key'] ),
@@ -830,26 +829,33 @@ class Cite {
 					$text
 				)->inContentLanguage()->plain();
 		// Named references with >1 occurrences
-		} else {
-			$links = array();
-			// for group handling, we have an extra key here.
-			for ( $i = 0; $i <= $val['count']; ++$i ) {
-				$links[] = wfMessage(
-						'cite_references_link_many_format',
-						$this->refKey( $key, $val['key'] . "-$i" ),
-						$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
-						$this->referencesFormatEntryAlternateBacklinkLabel( $i )
-				)->inContentLanguage()->plain();
-			}
-
-			$list = $this->listToText( $links );
-
+		}
+		if ( !isset( $val['count'] ) ) {
+			// this handles the case of section preview for list-defined references
 			return wfMessage( 'cite_references_link_many',
 					self::getReferencesKey( $key . "-" . $val['key'] ),
-					$list,
+					'',
 					$text
 				)->inContentLanguage()->plain();
 		}
+		$links = array();
+		// for group handling, we have an extra key here.
+		for ( $i = 0; $i <= $val['count']; ++$i ) {
+			$links[] = wfMessage(
+					'cite_references_link_many_format',
+					$this->refKey( $key, $val['key'] . "-$i" ),
+					$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
+					$this->referencesFormatEntryAlternateBacklinkLabel( $i )
+			)->inContentLanguage()->plain();
+		}
+
+		$list = $this->listToText( $links );
+
+		return wfMessage( 'cite_references_link_many',
+				self::getReferencesKey( $key . "-" . $val['key'] ),
+				$list,
+				$text
+			)->inContentLanguage()->plain();
 	}
 
 	/**

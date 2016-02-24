@@ -968,16 +968,11 @@ class Cite {
 	 * @static
 	 *
 	 * @param string $key The key
-	 * @param int $num The number of the key
 	 * @return string A key for use in wikitext
 	 */
-	public static function getReferencesKey( $key, $num = null ) {
+	public static function getReferencesKey( $key ) {
 		$prefix = wfMessage( 'cite_references_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_references_link_suffix' )->inContentLanguage()->text();
-		if ( isset( $num ) ) {
-			$key = wfMessage( 'cite_reference_link_key_with_num', $key, $num )
-				->inContentLanguage()->plain();
-		}
 
 		return "$prefix$key$suffix";
 	}

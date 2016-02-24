@@ -301,12 +301,12 @@ class Cite {
 			# <ref ...></ref>.  This construct is  invalid if
 			# it's a contentful ref, but OK if it's a named duplicate and should
 			# be equivalent <ref ... />, for compatability with #tag.
-			if ( $key == false ) {
+			if ( is_string( $key ) && $key !== '' ) {
+				$str = null;
+			} else {
 				$this->mRefCallStack[] = false;
 
 				return $this->error( 'cite_error_ref_no_input' );
-			} else {
-				$str = null;
 			}
 		}
 

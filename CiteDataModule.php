@@ -21,7 +21,9 @@ class CiteDataModule extends ResourceLoaderModule {
 
 	public function getScript( ResourceLoaderContext $context ) {
 		$citationDefinition = json_decode(
-			wfMessage( 'visualeditor-cite-tool-definition.json' )->plain()
+			wfMessage( 'visualeditor-cite-tool-definition.json' )
+				->inContentLanguage()
+				->plain()
 		);
 
 		$citationTools = array();
@@ -29,7 +31,9 @@ class CiteDataModule extends ResourceLoaderModule {
 			foreach ( $citationDefinition as $tool ) {
 				if ( !isset( $tool->title ) ) {
 					$tool->title =
-						wfMessage( 'visualeditor-cite-tool-name-' . $tool->name )->text();
+						wfMessage( 'visualeditor-cite-tool-name-' . $tool->name )
+							->inLanguage( $context->getLanguage() )
+							->text();
 				}
 				$citationTools[] = $tool;
 			}

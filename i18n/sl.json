@@ -8,7 +8,7 @@
 	"cite-desc": "Doda etiketi <nowiki><ref[ name=id]></nowiki> in <nowiki><references/></nowiki> za navajanje",
 	"cite_error": "Napaka pri navajanju: $1",
 	"cite_error_ref_numeric_key": "Neveljavna oznaka <code>&lt;ref&gt;</code>;\nime ne more biti samo število. Uporabite opisni naslov",
-	"cite_error_ref_no_key": "Neveljavna oznaka <code>&lt;ref&gt;</code>;\nsklici brez vsebine morajo imeti ime",
+	"cite_error_ref_no_key": "Začetna oznaka <code>&lt;ref&gt;</code> je poškodovana ali ima slabo ime",
 	"cite_error_ref_too_many_keys": "Neveljavna etiketa <code>&lt;ref&gt;</code>;\nneveljavna imena, npr. preveč",
 	"cite_error_ref_no_input": "Neveljavna oznaka <code>&lt;ref&gt;</code>;\nsklici brez imena morajo imeti vsebino",
 	"cite_error_references_invalid_parameters": "Neveljavna etiketa <code>&lt;references&gt;</code>;\nparametri niso dovoljeni.\nUporabite <code>&lt;references /&gt;</code>",

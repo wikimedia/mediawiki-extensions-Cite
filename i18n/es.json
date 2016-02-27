@@ -22,6 +22,7 @@
 			"Peter Bowman"
 		]
 	},
+	"apihelp-query+references-example-1": "Referencias asociadas con <kbd>Albert Einstein</kbd>.",
 	"cite-desc": "Añade las etiquetas <nowiki><ref[ name=id]></nowiki> y <nowiki><references/></nowiki> para citas.",
 	"cite_error": "Error en la cita: $1",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> no válida;\nel nombre no puede ser un número entero. Use un título descriptivo",

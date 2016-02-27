@@ -9,7 +9,7 @@
 	"cite-desc": "Yn ychwanegu tagiau <nowiki><ref[ name=id]></nowiki> a <nowiki><references/></nowiki>, ar gyfer cyfeiriadau",
 	"cite_error": "Gwall cyfeirio: $1",
 	"cite_error_ref_numeric_key": "Tag <code>&lt;ref&gt;</code> annilys;\nni all enw fod yn rif yn unig. Defnyddiwch deitl disgrifiadol.",
-	"cite_error_ref_no_key": "Tag <code>&lt;ref&gt;</code> annilys;\nrhaid i dagiau ref sydd heb gynnwys iddynt gael enw",
+	"cite_error_ref_no_key": "Mae'r <code>&lt;ref&gt;</code> tag yn annilys neu rhoddwyd iddo enw annilys",
 	"cite_error_ref_too_many_keys": "Tag <code>&lt;ref&gt;</code> annilys;\nenwau annilys; e.e. gormod ohonynt",
 	"cite_error_ref_no_input": "Tag <code>&lt;ref&gt;</code> annilys;\nrhaid i dagiau ref heb enw iddynt gynnwys rhywbeth",
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> annilys; mae'r enw \"$1\" wedi'i ddiffinio droeon gyda chynnwys gwahanol",

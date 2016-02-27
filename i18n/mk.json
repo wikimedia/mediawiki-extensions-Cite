@@ -5,10 +5,12 @@
 			"Brest"
 		]
 	},
+	"apihelp-query+references-description": "Дај податочно претставување на наводите поврзани со дадени страници.",
+	"apihelp-query+references-example-1": "Наводи поврзани со <kbd>Алберт Ајнштајн</kbd>.",
 	"cite-desc": "Додава ознаки <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki>, за цитирања",
 	"cite_error": "Грешка во наводот: $1.",
 	"cite_error_ref_numeric_key": "Погрешна ознака <code>&lt;ref&gt;</code>;\nимето не може да биде број. Употребете описен наслов",
-	"cite_error_ref_no_key": "Погрешна ознака <code>&lt;ref&gt;</code>;\nнаводите без содржина мора да имаат име",
+	"cite_error_ref_no_key": "Отворачката ознака <code>&lt;ref&gt;</code> не е добро срочена или има погрешно име",
 	"cite_error_ref_too_many_keys": "Погрешна ознака<code>&lt;ref&gt;</code>;\nпогрешни имиња, т.е. ги има премногу",
 	"cite_error_ref_no_input": "Погрешна ознака <code>&lt;ref&gt;</code>;\nнаводите без име мораат да имаат содржина",
 	"cite_error_references_duplicate_key": "Неважечка ознака <code>&lt;ref&gt;</code>; називот „$1“ е зададен повеќепати со различна содржина",

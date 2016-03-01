@@ -18,6 +18,8 @@
 			"Wladek92"
 		]
 	},
+	"apihelp-query+references-description": "Renvoyer une représentation des données des références associées avec les pages fournies.",
+	"apihelp-query+references-example-1": "Références associées avec <kbd>Albert Einstein</kbd>.",
 	"cite-desc": "Ajoute les balises <nowiki><ref[ name=\"id\"]></nowiki> et <nowiki><references/></nowiki> pour les références et notes de bas de page.",
 	"cite_error": "Erreur de référence : $1",
 	"cite_error_ref_numeric_key": "Balise <code>&lt;ref&gt;</code> incorrecte ;\nle nom ne peut être un entier simple. Utilisez un titre descriptif.",

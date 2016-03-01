@@ -44,8 +44,8 @@ class CiteHooks {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
 
 		if (
-			isset( $resourceModules[ 'ext.cite.visualEditor' ] ) ||
-			$resourceLoader->isModuleRegistered( 'ext.cite.visualEditor' )
+			isset( $resourceModules[ 'ext.visualEditor.mediawiki' ] ) ||
+			$resourceLoader->isModuleRegistered( 'ext.visualEditor.mediawiki' )
 		) {
 			$testModules['qunit']['ext.cite.visualEditor.test'] = array(
 				'scripts' => array(

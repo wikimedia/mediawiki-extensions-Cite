@@ -62,8 +62,6 @@ ve.ce.MWReferenceNode.static.primaryCommandName = 'reference';
 
 /**
  * Handle setup event.
- *
- * @method
  */
 ve.ce.MWReferenceNode.prototype.onSetup = function () {
 	ve.ce.MWReferenceNode.super.prototype.onSetup.call( this );
@@ -72,8 +70,6 @@ ve.ce.MWReferenceNode.prototype.onSetup = function () {
 
 /**
  * Handle teardown event.
- *
- * @method
  */
 ve.ce.MWReferenceNode.prototype.onTeardown = function () {
 	// As we are listening to the internal list, we need to make sure
@@ -88,7 +84,6 @@ ve.ce.MWReferenceNode.prototype.onTeardown = function () {
  *
  * This will occur after a document transaction.
  *
- * @method
  * @param {string[]} groupsChanged A list of groups which have changed in this transaction
  */
 ve.ce.MWReferenceNode.prototype.onInternalListUpdate = function ( groupsChanged ) {
@@ -99,9 +94,25 @@ ve.ce.MWReferenceNode.prototype.onInternalListUpdate = function ( groupsChanged 
 };
 
 /**
- * Handle update events.
- *
- * @method
+ * @inheritdoc ve.ce.FocusableNode
+ */
+ve.ce.MWReferenceNode.prototype.executeCommand = function () {
+	var command, contextItem,
+		items = ve.ui.contextItemFactory.getRelatedItems( [ this.model ] );
+
+	if ( items.length ) {
+		contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
+		if ( contextItem ) {
+			command = ve.init.target.commandRegistry.lookup( contextItem.static.commandName );
+			if ( command ) {
+				command.execute( this.focusableSurface.getSurface() );
+			}
+		}
+	}
+};
+
+/**
+ * Update the rendering
  */
 ve.ce.MWReferenceNode.prototype.update = function () {
 	var group = this.model.getGroup();

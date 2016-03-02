@@ -76,7 +76,7 @@
 		try {
 			// Must use mw.message to avoid JSON being parsed as Wikitext
 			tools = JSON.parse( mw.message( 'visualeditor-cite-tool-definition.json' ).plain() );
-		} catch ( e ) { }
+		} catch ( e ) {}
 
 		if ( Array.isArray( tools ) ) {
 			for ( i = 0, len = Math.min( limit, tools.length ); i < len; i++ ) {

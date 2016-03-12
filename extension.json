@@ -156,7 +156,6 @@
 			]
 		},
 		"ext.visualEditor.mwreference": {
-			"@comment": "Deprecated alias",
 			"dependencies": [
 				"ext.cite.visualEditor"
 			]

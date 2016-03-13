@@ -154,11 +154,6 @@
 				"desktop",
 				"mobile"
 			]
-		},
-		"ext.visualEditor.mwreference": {
-			"dependencies": [
-				"ext.cite.visualEditor"
-			]
 		}
 	},
 	"ResourceFileModulePaths": {

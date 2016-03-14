@@ -10,9 +10,12 @@
 			"Okras",
 			"Александр Сигачёв",
 			"Iltever",
-			"NBS"
+			"NBS",
+			"Putnik"
 		]
 	},
+	"apihelp-query+references-description": "Возвращает представление данных из ссылок, связанных с данной страницей.",
+	"apihelp-query+references-example-1": "Ссылки, связанные с <kbd>Albert Einstein</kbd>.",
 	"cite-desc": "Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок",
 	"cite_error": "Ошибка цитирования $1",
 	"cite_error_ref_numeric_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nимя не может быть целым числом. Используйте описательное название",

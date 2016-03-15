@@ -14,6 +14,8 @@
 			"GameOn"
 		]
 	},
+	"apihelp-query+references-description": "Returnera en datarepresentation av referenser associerade med den angivna sidorna.",
+	"apihelp-query+references-example-1": "Referenser associerade med <kbd>Albert Einstein</kbd>.",
 	"cite-desc": "Lägger till taggarna <nowiki><ref[ name=id]></nowiki> och <nowiki><references/></nowiki> för referenser till källor",
 	"cite_error": "Referensfel: $1",
 	"cite_error_ref_numeric_key": "Ogiltig <code>&lt;ref&gt;</code>-tagg; parametern 'name' kan inte vara ett tal, använd en beskrivande titel",

@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Assele"
+			"Assele",
+			"Вильданова Гюзель"
 		]
 	},
 	"cite-desc": "Төшөрмәләр өсөн <nowiki><ref[ name=id]></nowiki> һәм <nowiki><references/></nowiki> билдәләрен өҫтәй",
 	"cite_error": "Өҙөмтә хатаһы: $1",
 	"cite_error_ref_numeric_key": "<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;\nисем бөтөн һан була алмай. Тасуирларлыҡ исем ҡулланығыҙ.",
-	"cite_error_ref_no_key": "<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;\nэстәлекһеҙ төшөрмәнең исеме булырға тейеш.",
+	"cite_error_ref_no_key": "Асыусы тег <code>&lt;ref&gt;</code> билдәһе-  дөрөҫ түгел йәки мәғәнәһеҙ исем йөрөтә.",
 	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;\nисемдәр дөрөҫ түгел, бәлки, бигерәк күп",
 	"cite_error_ref_no_input": "<code>&lt;ref&gt;</code> билдәһе дөрөҫ түгел;\nисемһеҙ төшөрмәнең эстәлеге булырға тейеш.",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> билдәһе дөрөҫ түгел;\nпараметрҙар рөхсәт ителмәй.\n<code>&lt;references /&gt;</code> ҡулланығыҙ.",

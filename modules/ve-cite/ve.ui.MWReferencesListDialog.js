@@ -30,8 +30,6 @@ ve.ui.MWReferencesListDialog.static.name = 'referencesList';
 ve.ui.MWReferencesListDialog.static.title =
 	OO.ui.deferMsg( 'cite-ve-dialog-referenceslist-title' );
 
-ve.ui.MWReferencesListDialog.static.icon = 'references';
-
 ve.ui.MWReferencesListDialog.static.modelClasses = [ ve.dm.MWReferencesListNode ];
 
 ve.ui.MWReferencesListDialog.static.size = 'medium';

@@ -32,8 +32,6 @@ OO.inheritClass( ve.ui.MWCitationDialog, ve.ui.MWTemplateDialog );
 
 ve.ui.MWCitationDialog.static.name = 'citation';
 
-ve.ui.MWCitationDialog.static.icon = 'reference';
-
 /* Methods */
 
 /**

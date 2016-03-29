@@ -128,7 +128,6 @@
 					};
 					OO.inheritClass( dialog, ve.ui.MWCitationDialog );
 					dialog.static.name = name;
-					dialog.static.icon = item.icon;
 					dialog.static.title = item.title;
 					ve.ui.windowFactory.register( dialog );
 				}

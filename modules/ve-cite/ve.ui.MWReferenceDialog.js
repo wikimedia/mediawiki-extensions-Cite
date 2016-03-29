@@ -34,8 +34,6 @@ ve.ui.MWReferenceDialog.static.name = 'reference';
 ve.ui.MWReferenceDialog.static.title =
 	OO.ui.deferMsg( 'cite-ve-dialog-reference-title' );
 
-ve.ui.MWReferenceDialog.static.icon = 'reference';
-
 ve.ui.MWReferenceDialog.static.actions = [
 	{
 		action: 'apply',

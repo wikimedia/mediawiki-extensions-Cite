@@ -4,7 +4,8 @@
 			"Flightmare",
 			"Niels",
 			"Romaine",
-			"Siebrand"
+			"Siebrand",
+			"Dinosaur918"
 		]
 	},
 	"cite-desc": "Voegt <nowiki><ref[ name=id]></nowiki>- en <nowiki><references/></nowiki>-labels toe voor citaten",
@@ -28,5 +29,6 @@
 	"cite_error_empty_references_define": "Het label <code>&lt;ref&gt;</code> die is gedefinieerd in <code>&lt;references&gt;</code> met de naam \"$1\" heeft geen inhoud.",
 	"cite-tracking-category-cite-error": "Pagina's met referentiefouten",
 	"cite_references_link_accessibility_label": "Omhoog",
-	"cite_references_link_many_accessibility_label": "Omhoog naar:"
+	"cite_references_link_many_accessibility_label": "Omhoog naar:",
+	"cite_warning_sectionpreview_no_text": "Van <code>&lt;ref&gt;</code> met de naam <code>$1</code> kan geen voorvertoning gegeven worden, daar deze niet in de huidige sectie of in zijn geheel niet gedefinieerd wordt."
 }

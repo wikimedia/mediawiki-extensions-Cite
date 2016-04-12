@@ -68,7 +68,7 @@ ve.ui.commandHelpRegistry.register( 'insert', 'ref', {
 	label: OO.ui.deferMsg( 'cite-ve-dialog-reference-title' )
 } );
 
-ve.ui.mwWikitextTransferRegistry.register( 'reference', /<ref[^>]+>/ );
+ve.ui.mwWikitextTransferRegistry.register( 'reference', /<ref[^>]*>/ );
 
 /**
  * MediaWiki UserInterface references list tool.

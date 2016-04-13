@@ -19,7 +19,8 @@
 			"Uğurkent",
 			"Kincki",
 			"McAang",
-			"HakanIST"
+			"HakanIST",
+			"Sadrettin"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Kitap",
@@ -37,6 +38,7 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Genel referans listesi",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Başvuru listesi için Grup \"$1\"",
 	"cite-ve-dialog-referenceslist-title": "Kaynak listesi",
+	"cite-ve-dialogbutton-citation-educationpopup-title": "Alıntılar",
 	"cite-ve-dialogbutton-reference-full-label": "Temel form",
 	"cite-ve-dialogbutton-reference-title": "Kaynakça",
 	"cite-ve-dialogbutton-reference-tooltip": "Temel",

@@ -267,7 +267,10 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 
 	// Initialization
 	this.originalGroup = this.referenceModel.getGroup();
+	// Set the group input while it's disabled, so this doesn't pop up the group-picker menu
+	this.referenceGroupInput.setDisabled( true );
 	this.referenceGroupInput.input.setValue( this.originalGroup );
+	this.referenceGroupInput.setDisabled( false );
 	this.contentFieldset.$element.append( this.referenceTarget.$element );
 	this.referenceTarget.initialize();
 

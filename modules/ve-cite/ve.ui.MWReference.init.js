@@ -12,6 +12,18 @@
 		}
 		toolGroups = target.static.toolbarGroups;
 		linkIndex = toolGroups.length;
+
+		if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
+			for ( j = 0; j < linkIndex; j++ ) {
+				if ( toolGroups[ j ].include === '*' ) {
+					toolGroups[ j ].type = 'list';
+					toolGroups[ j ].include = [ '*', { group: 'cite' }, 'reference', 'reference/existing' ];
+					toolGroups[ j ].demote = [ 'reference', 'reference/existing' ];
+				}
+			}
+			continue;
+		}
+
 		for ( j = 0, jLen = toolGroups.length; j < jLen; j++ ) {
 			if ( ve.getProp( toolGroups[ j ], 'include', 0, 'group' ) === 'cite' ) {
 				// Skip if the cite group exists already
@@ -99,7 +111,11 @@
 					tool.static.group = 'cite';
 					tool.static.name = name;
 					tool.static.icon = item.icon;
-					tool.static.title = item.title;
+					if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
+						tool.static.title = mw.msg( 'cite-ve-othergroup-item', item.title );
+					} else {
+						tool.static.title = item.title;
+					}
 					tool.static.commandName = name;
 					tool.static.template = item.template;
 					tool.static.autoAddToCatchall = false;

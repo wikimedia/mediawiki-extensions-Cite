@@ -38,6 +38,9 @@
 		],
 		"LinksUpdateComplete": [
 			"CiteHooks::onLinksUpdateComplete"
+		],
+		"ResourceLoaderGetConfigVars": [
+			"CiteHooks::onResourceLoaderGetConfigVars"
 		]
 	},
 	"ResourceModules": {
@@ -148,7 +151,8 @@
 				"cite-ve-dialogbutton-reference-title",
 				"cite-ve-dialogbutton-referenceslist-tooltip",
 				"cite-ve-reference-input-placeholder",
-				"cite-ve-toolbar-group-label"
+				"cite-ve-toolbar-group-label",
+				"cite-ve-othergroup-item"
 			],
 			"targets": [
 				"desktop",
@@ -170,7 +174,8 @@
 		"AllowCiteGroups": true,
 		"CiteCacheReferences": false,
 		"CiteStoreReferencesData": false,
-		"CiteCacheReferencesDataOnParse": false
+		"CiteCacheReferencesDataOnParse": false,
+		"CiteVisualEditorOtherGroup": false
 	},
 	"AutoloadClasses": {
 		"ApiQueryReferences": "ApiQueryReferences.php",

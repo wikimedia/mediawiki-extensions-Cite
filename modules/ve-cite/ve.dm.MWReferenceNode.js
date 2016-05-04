@@ -295,6 +295,17 @@ ve.dm.MWReferenceNode.static.getIndexLabel = function ( dataElement, internalLis
 	return '[' + ( refGroup ? refGroup + ' ' : '' ) + index + ']';
 };
 
+/**
+ * @inheritdoc
+ */
+ve.dm.MWReferenceNode.static.cloneElement = function () {
+	var clone = ve.dm.MWReferenceNode.super.static.cloneElement.apply( this, arguments );
+	delete clone.attributes.contentsUsed;
+	delete clone.attributes.mw;
+	delete clone.attributes.originalMw;
+	return clone;
+};
+
 /* Methods */
 
 /**
@@ -384,15 +395,6 @@ ve.dm.MWReferenceNode.prototype.removeFromInternalList = function () {
 		this.registeredListIndex,
 		this
 	);
-};
-
-/** */
-ve.dm.MWReferenceNode.prototype.getClonedElement = function () {
-	var clone = ve.dm.LeafNode.prototype.getClonedElement.call( this );
-	delete clone.attributes.contentsUsed;
-	delete clone.attributes.mw;
-	delete clone.attributes.originalMw;
-	return clone;
 };
 
 ve.dm.MWReferenceNode.prototype.onAttributeChange = function ( key, from, to ) {

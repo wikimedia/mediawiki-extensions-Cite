@@ -806,7 +806,14 @@ class Cite {
 					$text
 				)->inContentLanguage()->plain();
 		}
-
+		if ( !isset( $val['count'] ) ) {
+			// this handles the case of section preview for list-defined references
+			return wfMessage( 'cite_references_link_many',
+					self::getReferencesKey( $key . "-" . $val['key'] ),
+					'',
+					$text
+				)->inContentLanguage()->plain();
+		}
 		if ( $val['count'] < 0 ) {
 			return wfMessage(
 					'cite_references_link_one',
@@ -829,14 +836,6 @@ class Cite {
 					$text
 				)->inContentLanguage()->plain();
 		// Named references with >1 occurrences
-		}
-		if ( !isset( $val['count'] ) ) {
-			// this handles the case of section preview for list-defined references
-			return wfMessage( 'cite_references_link_many',
-					self::getReferencesKey( $key . "-" . $val['key'] ),
-					'',
-					$text
-				)->inContentLanguage()->plain();
 		}
 		$links = array();
 		// for group handling, we have an extra key here.

@@ -11,6 +11,7 @@
 			"Bluemersen"
 		]
 	},
+	"apihelp-query+references-example-1": "<kbd>Albert Einstein</kbd>과 관련된 주석.",
 	"cite-desc": "인용에 쓰이는 <nowiki><ref[ name=id]></nowiki>와 <nowiki><references/></nowiki> 태그를 추가합니다",
 	"cite_error": "인용 오류: $1",
 	"cite_error_ref_numeric_key": "<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;\n이름은 숫자가 될 수 없습니다. 설명적인 이름을 사용하세요",

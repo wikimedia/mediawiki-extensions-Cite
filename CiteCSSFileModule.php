@@ -10,7 +10,7 @@
 
 class CiteCSSFileModule extends ResourceLoaderFileModule {
 	public function __construct(
-		$options = array(),
+		$options = [],
 		$localBasePath = null,
 		$remoteBasePath = null
 	) {
@@ -20,7 +20,7 @@ class CiteCSSFileModule extends ResourceLoaderFileModule {
 
 		// Get the content language code, and all the fallbacks. The first that
 		// has a ext.cite.style.<lang code>.css file present will be used.
-		$langCodes = array_merge( array( $wgContLang->getCode() ),
+		$langCodes = array_merge( [ $wgContLang->getCode() ],
 			$wgContLang->getFallbackLanguages() );
 		foreach ( $langCodes as $lang ) {
 			$langStyleFile = 'ext.cite.style.' . $lang . '.css';

@@ -91,7 +91,7 @@ class Cite {
 	 *
 	 * @var array
 	 **/
-	public $mRefs = array();
+	public $mRefs = [];
 
 	/**
 	 * Count for user displayed output (ref[1], ref[2], ...)
@@ -99,7 +99,7 @@ class Cite {
 	 * @var int
 	 */
 	public $mOutCnt = 0;
-	public $mGroupCnt = array();
+	public $mGroupCnt = [];
 
 	/**
 	 * Counter to track the total number of (useful) calls to either the
@@ -121,7 +121,7 @@ class Cite {
 	 *
 	 * @var array
 	 */
-	public $mLinkLabels = array();
+	public $mLinkLabels = [];
 
 	/**
 	 * @var Parser
@@ -157,7 +157,7 @@ class Cite {
 	 *
 	 * @var array
 	 */
-	public $mReferencesErrors = array();
+	public $mReferencesErrors = [];
 
 	/**
 	 * Group used when in <references> block
@@ -173,7 +173,7 @@ class Cite {
 	 *
 	 * @var array
 	 */
-	public $mRefCallStack = array();
+	public $mRefCallStack = [];
 
 	/**
 	 * @var bool
@@ -214,7 +214,7 @@ class Cite {
 		$parserOutput->addModules( 'ext.cite.a11y' );
 		$parserOutput->addModuleStyles( 'ext.cite.styles' );
 
-		if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
+		if ( is_callable( [ $frame, 'setVolatile' ] ) ) {
 			$frame->setVolatile();
 		}
 
@@ -364,7 +364,7 @@ class Cite {
 
 		# Not clear how we could get here, but something is probably
 		# wrong with the types.  Let's fail fast.
-		throw new Exception( 'Invalid $str and/or $key: ' . serialize( array( $str, $key ) ) );
+		throw new Exception( 'Invalid $str and/or $key: ' . serialize( [ $str, $key ] ) );
 	}
 
 	/**
@@ -392,7 +392,7 @@ class Cite {
 			return false;
 		} elseif ( $cnt >= 1 ) {
 			if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
-				return array( false, false, false );
+				return [ false, false, false ];
 			}
 			if ( isset( $argv['name'] ) ) {
 				// Key given.
@@ -409,7 +409,7 @@ class Cite {
 			if ( isset( $argv['group'] ) ) {
 				if ( !$wgAllowCiteGroups ) {
 					// remove when groups are fully tested.
-					return array( false );
+					return [ false ];
 				}
 				// Group given.
 				$group = $argv['group'];
@@ -418,14 +418,14 @@ class Cite {
 			}
 
 			if ( $cnt === 0 ) {
-				return array( $key, $group, $follow );
+				return [ $key, $group, $follow ];
 			} else {
 				// Invalid key
-				return array( false, false, false );
+				return [ false, false, false ];
 			}
 		} else {
 			// No key
-			return array( null, $group, false );
+			return [ null, $group, false ];
 		}
 	}
 
@@ -443,7 +443,7 @@ class Cite {
 	 */
 	function stack( $str, $key = null, $group, $follow, array $call ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
-			$this->mRefs[$group] = array();
+			$this->mRefs[$group] = [];
 		}
 		if ( !isset( $this->mGroupCnt[$group] ) ) {
 			$this->mGroupCnt[$group] = 0;
@@ -460,14 +460,14 @@ class Cite {
 						break;
 					}
 				}
-				array_splice( $this->mRefs[$group], $k, 0, array( array(
+				array_splice( $this->mRefs[$group], $k, 0, [ [
 					'count' => -1,
 					'text' => $str,
 					'key' => ++$this->mOutCnt,
 					'follow' => $follow
-				) ) );
+				] ] );
 				array_splice( $this->mRefCallStack, $k, 0,
-					array( array( 'new', $call, $str, $key, $group, $this->mOutCnt ) ) );
+					[ [ 'new', $call, $str, $key, $group, $this->mOutCnt ] ] );
 			}
 			// return an empty string : this is not a reference
 			return '';
@@ -476,12 +476,12 @@ class Cite {
 		if ( $key === null ) {
 			// No key
 			// $this->mRefs[$group][] = $str;
-			$this->mRefs[$group][] = array(
+			$this->mRefs[$group][] = [
 				'count' => -1,
 				'text' => $str,
 				'key' => ++$this->mOutCnt
-			);
-			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
+			];
+			$this->mRefCallStack[] = [ 'new', $call, $str, $key, $group, $this->mOutCnt ];
 
 			return $this->linkRef( $group, $this->mOutCnt );
 		}
@@ -492,13 +492,13 @@ class Cite {
 		// Valid key
 		if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
 			// First occurrence
-			$this->mRefs[$group][$key] = array(
+			$this->mRefs[$group][$key] = [
 				'text' => $str,
 				'count' => 0,
 				'key' => ++$this->mOutCnt,
 				'number' => ++$this->mGroupCnt[$group]
-			);
-			$this->mRefCallStack[] = array( 'new', $call, $str, $key, $group, $this->mOutCnt );
+			];
+			$this->mRefCallStack[] = [ 'new', $call, $str, $key, $group, $this->mOutCnt ];
 
 			return $this->linkRef(
 				$group,
@@ -513,8 +513,8 @@ class Cite {
 		if ( $this->mRefs[$group][$key]['text'] === null && $str !== '' ) {
 			// If no text found before, use this text
 			$this->mRefs[$group][$key]['text'] = $str;
-			$this->mRefCallStack[] = array( 'assign', $call, $str, $key, $group,
-				$this->mRefs[$group][$key]['key'] );
+			$this->mRefCallStack[] = [ 'assign', $call, $str, $key, $group,
+				$this->mRefs[$group][$key]['key'] ];
 		} else {
 			if ( $str != null && $str !== '' && $str !== $this->mRefs[$group][$key]['text'] ) {
 				// two refs with same key and different content
@@ -523,8 +523,8 @@ class Cite {
 					'cite_error_references_duplicate_key', $key, 'noparse'
 				);
 			}
-			$this->mRefCallStack[] = array( 'increment', $call, $str, $key, $group,
-				$this->mRefs[$group][$key]['key'] );
+			$this->mRefCallStack[] = [ 'increment', $call, $str, $key, $group,
+				$this->mRefs[$group][$key]['key'] ];
 		}
 		return $this->linkRef(
 			$group,
@@ -585,7 +585,7 @@ class Cite {
 		case 'new':
 			# Rollback the addition of new elements to the stack.
 			unset( $this->mRefs[$group][$key] );
-			if ( $this->mRefs[$group] === array() ) {
+			if ( $this->mRefs[$group] === [] ) {
 				unset( $this->mRefs[$group] );
 				unset( $this->mGroupCnt[$group] );
 			}
@@ -622,7 +622,7 @@ class Cite {
 		$this->mInReferences = true;
 		$ret = $this->guardedReferences( $str, $argv, $parser );
 		$this->mInReferences = false;
-		if ( is_callable( array( $frame, 'setVolatile' ) ) ) {
+		if ( is_callable( [ $frame, 'setVolatile' ] ) ) {
 			$frame->setVolatile();
 		}
 		return $ret;
@@ -659,7 +659,7 @@ class Cite {
 			# conditional parser functions could be created that would
 			# lead to malformed references here.
 			$count = substr_count( $str, Parser::MARKER_PREFIX . "-ref-" );
-			$redoStack = array();
+			$redoStack = [];
 
 			# Undo effects of calling <ref> while unaware of containing <references>
 			for ( $i = 1; $i <= $count; $i++ ) {
@@ -690,7 +690,7 @@ class Cite {
 			$parser->recursiveTagParse( $str );
 
 			# Reset call stack
-			$this->mRefCallStack = array();
+			$this->mRefCallStack = [];
 		}
 
 		if ( $argv && $wgAllowCiteGroups ) {
@@ -705,7 +705,7 @@ class Cite {
 		# Append errors generated while processing <references>
 		if ( $this->mReferencesErrors ) {
 			$s .= "\n" . implode( "<br />\n", $this->mReferencesErrors );
-			$this->mReferencesErrors = array();
+			$this->mReferencesErrors = [];
 		}
 		return $s;
 	}
@@ -723,7 +723,7 @@ class Cite {
 		}
 
 		wfProfileIn( __METHOD__ . '-entries' );
-		$ent = array();
+		$ent = [];
 		foreach ( $this->mRefs[$group] as $k => $v ) {
 			$ent[] = $this->referencesFormatEntry( $k, $v );
 		}
@@ -837,7 +837,7 @@ class Cite {
 				)->inContentLanguage()->plain();
 		// Named references with >1 occurrences
 		}
-		$links = array();
+		$links = [];
 		// for group handling, we have an extra key here.
 		for ( $i = 0; $i <= $val['count']; ++$i ) {
 			$links[] = wfMessage(
@@ -942,7 +942,7 @@ class Cite {
 			return $this->mLinkLabels[$group][$offset - 1];
 		} else {
 			// Feed me!
-			return $this->error( 'cite_error_no_link_label_group', array( $group, $message ), 'noparse' );
+			return $this->error( 'cite_error_no_link_label_group', [ $group, $message ], 'noparse' );
 		}
 	}
 
@@ -1090,12 +1090,12 @@ class Cite {
 			return true;
 		}
 
-		$this->mGroupCnt = array();
+		$this->mGroupCnt = [];
 		$this->mOutCnt = 0;
 		$this->mCallCnt = 0;
-		$this->mRefs = array();
-		$this->mReferencesErrors = array();
-		$this->mRefCallStack = array();
+		$this->mRefs = [];
+		$this->mReferencesErrors = [];
+		$this->mRefCallStack = [];
 
 		return true;
 	}
@@ -1113,8 +1113,8 @@ class Cite {
 		}
 
 		$parser->extCite = clone $this;
-		$parser->setHook( 'ref', array( $parser->extCite, 'ref' ) );
-		$parser->setHook( 'references', array( $parser->extCite, 'references' ) );
+		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );
+		$parser->setHook( 'references', [ $parser->extCite, 'references' ] );
 
 		// Clear the state, making sure it will actually work.
 		$parser->extCite->mInCite = false;
@@ -1205,16 +1205,16 @@ class Cite {
 		$savedRefs = $this->mParser->getOutput()->getExtensionData( self::EXT_DATA_KEY );
 		if ( $savedRefs === null ) {
 			// Initialize array structure
-			$savedRefs = array(
-				'refs' => array(),
+			$savedRefs = [
+				'refs' => [],
 				'version' => self::DATA_VERSION_NUMBER,
-			);
+			];
 		}
 		if ( $this->mBumpRefData ) {
 			// This handles pages with multiple <references/> tags with <ref> tags in between.
 			// On those, a group can appear several times, so we need to avoid overwriting
 			// a previous appearance.
-			$savedRefs['refs'][] = array();
+			$savedRefs['refs'][] = [];
 			$this->mBumpRefData = false;
 		}
 		$n = count( $savedRefs['refs'] ) - 1;
@@ -1252,15 +1252,15 @@ class Cite {
 		$parser->extCite = new self();
 
 		if ( !Cite::$hooksInstalled ) {
-			$wgHooks['ParserClearState'][] = array( $parser->extCite, 'clearState' );
-			$wgHooks['ParserCloned'][] = array( $parser->extCite, 'cloneState' );
-			$wgHooks['ParserAfterParse'][] = array( $parser->extCite, 'checkRefsNoReferences', true );
-			$wgHooks['ParserBeforeTidy'][] = array( $parser->extCite, 'checkRefsNoReferences', false );
-			$wgHooks['InlineEditorPartialAfterParse'][] = array( $parser->extCite, 'checkAnyCalls' );
+			$wgHooks['ParserClearState'][] = [ $parser->extCite, 'clearState' ];
+			$wgHooks['ParserCloned'][] = [ $parser->extCite, 'cloneState' ];
+			$wgHooks['ParserAfterParse'][] = [ $parser->extCite, 'checkRefsNoReferences', true ];
+			$wgHooks['ParserBeforeTidy'][] = [ $parser->extCite, 'checkRefsNoReferences', false ];
+			$wgHooks['InlineEditorPartialAfterParse'][] = [ $parser->extCite, 'checkAnyCalls' ];
 			Cite::$hooksInstalled = true;
 		}
-		$parser->setHook( 'ref', array( $parser->extCite, 'ref' ) );
-		$parser->setHook( 'references', array( $parser->extCite, 'references' ) );
+		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );
+		$parser->setHook( 'references', [ $parser->extCite, 'references' ] );
 
 		return true;
 	}
@@ -1293,11 +1293,11 @@ class Cite {
 
 		$ret = Html::rawElement(
 			'span',
-			array(
+			[
 				'class' => 'error mw-ext-cite-error',
 				'lang' => $lang->getHtmlCode(),
 				'dir' => $dir,
-			),
+			],
 			$msg
 		);
 
@@ -1335,12 +1335,12 @@ class Cite {
 		$key = preg_replace( '/^cite_warning_/', '', $key ) . '';
 		$ret = Html::rawElement(
 			'span',
-			array(
+			[
 				'class' => 'warning mw-ext-cite-warning mw-ext-cite-warning-' .
 					Sanitizer::escapeClass( $key ),
 				'lang' => $lang->getHtmlCode(),
 				'dir' => $dir,
-			),
+			],
 			$msg
 		);
 
@@ -1373,10 +1373,10 @@ class Cite {
 				$setOpts += Database::getCacheSetOptions( $dbr );
 				return self::recursiveFetchRefsFromDB( $title, $dbr );
 			},
-			array(
-				'checkKeys' => array( $key ),
+			[
+				'checkKeys' => [ $key ],
 				'lockTSE' => 30,
-			)
+			]
 		);
 	}
 
@@ -1397,10 +1397,10 @@ class Cite {
 		$result = $dbr->selectField(
 			'page_props',
 			'pp_value',
-			array(
+			[
 				'pp_page' => $id,
 				'pp_propname' => 'references-' . $i
-			),
+			],
 			__METHOD__
 		);
 		if ( $result !== false ) {

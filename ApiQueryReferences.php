@@ -45,7 +45,7 @@ class ApiQueryReferences extends ApiQueryBase {
 				$startId = false;
 			}
 			$storedRefs = Cite::getStoredReferences( $title );
-			$allReferences = array();
+			$allReferences = [];
 			// some pages may not have references stored
 			if ( $storedRefs !== false ) {
 				// a page can have multiple <references> tags but they all have unique keys
@@ -85,10 +85,10 @@ class ApiQueryReferences extends ApiQueryBase {
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=query&prop=references&titles=Albert%20Einstein' =>
 				'apihelp-query+references-example-1',
-		);
+		];
 	}
 
 }

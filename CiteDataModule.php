@@ -15,7 +15,7 @@ class CiteDataModule extends ResourceLoaderModule {
 	/* Protected Members */
 
 	protected $origin = self::ORIGIN_USER_SITEWIDE;
-	protected $targets = array( 'desktop', 'mobile' );
+	protected $targets = [ 'desktop', 'mobile' ];
 
 	/* Methods */
 
@@ -26,7 +26,7 @@ class CiteDataModule extends ResourceLoaderModule {
 				->plain()
 		);
 
-		$citationTools = array();
+		$citationTools = [];
 		if ( is_array( $citationDefinition ) ) {
 			foreach ( $citationDefinition as $tool ) {
 				if ( !isset( $tool->title ) ) {
@@ -39,25 +39,25 @@ class CiteDataModule extends ResourceLoaderModule {
 
 		return
 			've.init.platform.addMessages(' . FormatJson::encode(
-				array(
+				[
 					'visualeditor-cite-tool-definition.json' => json_encode( $citationTools )
-				),
+				],
 				ResourceLoader::inDebugMode()
 			) . ');';
 	}
 
 	public function getDependencies( ResourceLoaderContext $context = null ) {
-		return array(
+		return [
 			'ext.visualEditor.base',
 			'ext.visualEditor.mediawiki',
-		);
+		];
 	}
 
 	public function getDefinitionSummary( ResourceLoaderContext $context ) {
 		$summary = parent::getDefinitionSummary( $context );
-		$summary[] = array(
+		$summary[] = [
 			'script' => $this->getScript( $context ),
-		);
+		];
 		return $summary;
 	}
 }

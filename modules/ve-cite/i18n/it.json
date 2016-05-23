@@ -51,7 +51,7 @@
 	"cite-ve-dialogbutton-reference-tooltip": "Base",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Elenco note",
 	"cite-ve-reference-input-placeholder": "Ricerca all'interno delle citazioni correnti",
-	"cite-ve-referenceslist-isempty": "In questa pagina non ci sono note con il gruppo \"$1\", includibili in questo elenco.",
+	"cite-ve-referenceslist-isempty": "In questa pagina non ci sono note da elencare con il gruppo \"$1\".",
 	"cite-ve-referenceslist-isempty-default": "In questa pagina non ci sono note da elencare.",
 	"cite-ve-referenceslist-missingref": "Questa nota è definita in un template o in un altro blocco generato e per ora può essere modificata solo in modalità sorgente.",
 	"cite-ve-toolbar-group-label": "Cita"

@@ -44,7 +44,8 @@
 			"Mattho69",
 			"Wladek92",
 			"Harmonia Amanda",
-			"Macofe"
+			"Macofe",
+			"Pols12"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Livre",
@@ -63,8 +64,8 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Liste de références générales",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Liste de références pour le groupe « $1 »",
 	"cite-ve-dialog-referenceslist-title": "Liste des références",
-	"cite-ve-dialogbutton-citation-educationpopup-text": "Améliore votre contenu en ajoutant des sources d’information. Vous pouvez faire des citations depuis des livres, des journaux et des sites web.",
-	"cite-ve-dialogbutton-citation-educationpopup-title": "Citations",
+	"cite-ve-dialogbutton-citation-educationpopup-text": "Améliore votre contenu en ajoutant des sources d’information. Vous pouvez ajouter comme références des livres, des journaux et des sites web.",
+	"cite-ve-dialogbutton-citation-educationpopup-title": "Références",
 	"cite-ve-dialogbutton-reference-full-label": "Autre référence",
 	"cite-ve-dialogbutton-reference-title": "Références",
 	"cite-ve-dialogbutton-reference-tooltip": "Référence",
@@ -73,5 +74,5 @@
 	"cite-ve-referenceslist-isempty": "Il n’y a aucune référence avec le groupe « $1 » sur cette page à inclure dans cette liste.",
 	"cite-ve-referenceslist-isempty-default": "Il n’y a aucune référence sur cette page à inclure dans cette liste.",
 	"cite-ve-referenceslist-missingref": "Cette référence est définie dans un modèle ou un autre bloc généré et ne peut pour le moment être modifiée qu’avec l’éditeur de wikicode.",
-	"cite-ve-toolbar-group-label": "Citer"
+	"cite-ve-toolbar-group-label": "Source"
 }

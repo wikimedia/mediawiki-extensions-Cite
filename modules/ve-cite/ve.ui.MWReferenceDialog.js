@@ -244,7 +244,7 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 		this.referenceTarget.destroy();
 	}
 
-	citeCommands = Object.keys( ve.init.target.commandRegistry.registry ).filter( function ( command ) {
+	citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry ).filter( function ( command ) {
 		return command.indexOf( 'cite-' ) !== -1;
 	} );
 

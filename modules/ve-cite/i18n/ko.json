@@ -20,7 +20,8 @@
 			"Alex00728",
 			"콩가루",
 			"Hwangjy9",
-			"IRTC1015"
+			"IRTC1015",
+			"Ykhwong"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "책",
@@ -39,7 +40,7 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "일반 각주 목록",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "\"$1\" 그룹에 대한 각주 목록",
 	"cite-ve-dialog-referenceslist-title": "각주 목록",
-	"cite-ve-dialogbutton-citation-educationpopup-text": "정보의 출처를 추가하여 당신의 컨텐츠를 보강합니다. 서적이나 신문, 웹사이트를 인용할 수 있습니다.",
+	"cite-ve-dialogbutton-citation-educationpopup-text": "정보의 출처를 추가하여 당신의 콘텐츠를 보강합니다. 서적이나 신문, 웹사이트를 인용할 수 있습니다.",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "인용",
 	"cite-ve-dialogbutton-reference-full-label": "기본 양식",
 	"cite-ve-dialogbutton-reference-title": "각주",

@@ -16,10 +16,12 @@
 			"Amir E. Aharoni"
 		]
 	},
+	"visualeditor-cite-tool-definition.json": "null",
 	"visualeditor-cite-tool-name-book": "Book",
 	"visualeditor-cite-tool-name-journal": "Journal",
 	"visualeditor-cite-tool-name-news": "News",
 	"visualeditor-cite-tool-name-web": "Website",
+	"cite-tool-definition.json": "null",
 	"cite-ve-dialog-reference-editing-reused": "This reference is used $1 {{PLURAL:$1|times}} on this page.",
 	"cite-ve-dialog-reference-options-group-label": "Use this group",
 	"cite-ve-dialog-reference-options-group-placeholder": "General references",

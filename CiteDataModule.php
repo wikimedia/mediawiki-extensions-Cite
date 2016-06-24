@@ -21,10 +21,18 @@ class CiteDataModule extends ResourceLoaderModule {
 
 	public function getScript( ResourceLoaderContext $context ) {
 		$citationDefinition = json_decode(
-			$context->msg( 'visualeditor-cite-tool-definition.json' )
+			$context->msg( 'cite-tool-definition.json' )
 				->inContentLanguage()
 				->plain()
 		);
+
+		if ( $citationDefinition === null ) {
+			$citationDefinition = json_decode(
+				$context->msg( 'visualeditor-cite-tool-definition.json' )
+					->inContentLanguage()
+					->plain()
+			);
+		}
 
 		$citationTools = [];
 		if ( is_array( $citationDefinition ) ) {

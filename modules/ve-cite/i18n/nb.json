@@ -13,7 +13,8 @@
 			"Jdforrester",
 			"Emilbk",
 			"Cocu",
-			"Tarjeimo"
+			"Tarjeimo",
+			"Telaneo"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Bok",
@@ -42,5 +43,5 @@
 	"cite-ve-referenceslist-isempty": "Det finnes ingen kildehenvisninger i gruppen «$1» på denne siden som kan  inkluderes i denne lista.",
 	"cite-ve-referenceslist-isempty-default": "Det er ingen kildehenvisninger på denne siden som kan inkluderes i denne lista.",
 	"cite-ve-referenceslist-missingref": "Denne kildehenvisningen er definert ved hjelp av en mal eller en annen generert blokk, og kan foreløpig kun redigeres i kildemodus.",
-	"cite-ve-toolbar-group-label": "Siter"
+	"cite-ve-toolbar-group-label": "Referer"
 }

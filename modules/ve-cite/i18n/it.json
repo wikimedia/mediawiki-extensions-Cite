@@ -28,10 +28,12 @@
 			"Supernino"
 		]
 	},
+	"visualeditor-cite-tool-definition.json": "nullo",
 	"visualeditor-cite-tool-name-book": "Libro",
 	"visualeditor-cite-tool-name-journal": "Pubblicazione",
 	"visualeditor-cite-tool-name-news": "Notizie",
 	"visualeditor-cite-tool-name-web": "Sito web",
+	"cite-tool-definition.json": "nullo",
 	"cite-ve-dialog-reference-editing-reused": "Questo riferimento è usato $1 {{PLURAL:$1|volta|volte}} su questa pagina.",
 	"cite-ve-dialog-reference-options-group-label": "Usa questo gruppo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Riferimenti generali",

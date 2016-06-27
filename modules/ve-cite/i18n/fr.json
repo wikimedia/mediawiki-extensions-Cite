@@ -48,10 +48,12 @@
 			"Pols12"
 		]
 	},
+	"visualeditor-cite-tool-definition.json": "nul",
 	"visualeditor-cite-tool-name-book": "Livre",
 	"visualeditor-cite-tool-name-journal": "Journal",
 	"visualeditor-cite-tool-name-news": "Actualités",
 	"visualeditor-cite-tool-name-web": "Site web",
+	"cite-tool-definition.json": "nul",
 	"cite-ve-dialog-reference-editing-reused": "Cette référence est utilisée $1 {{PLURAL:$1|fois}} sur cette page.",
 	"cite-ve-dialog-reference-options-group-label": "Utiliser ce groupe",
 	"cite-ve-dialog-reference-options-group-placeholder": "Références générales",

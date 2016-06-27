@@ -20,10 +20,12 @@
 			"Warrakkk"
 		]
 	},
+	"visualeditor-cite-tool-definition.json": "null",
 	"visualeditor-cite-tool-name-book": "Bok",
 	"visualeditor-cite-tool-name-journal": "Tidskrift",
 	"visualeditor-cite-tool-name-news": "Nyheter",
 	"visualeditor-cite-tool-name-web": "Webbplats",
+	"cite-tool-definition.json": "null",
 	"cite-ve-dialog-reference-editing-reused": "Denna referens används $1 {{PLURAL:$1|gånger}} på denna sida.",
 	"cite-ve-dialog-reference-options-group-label": "Använd den här gruppen",
 	"cite-ve-dialog-reference-options-group-placeholder": "Allmänna referenser",

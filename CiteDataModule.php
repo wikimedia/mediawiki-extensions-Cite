@@ -48,7 +48,7 @@ class CiteDataModule extends ResourceLoaderModule {
 		return
 			've.init.platform.addMessages(' . FormatJson::encode(
 				[
-					'visualeditor-cite-tool-definition.json' => json_encode( $citationTools )
+					'cite-tool-definition.json' => json_encode( $citationTools )
 				],
 				ResourceLoader::inDebugMode()
 			) . ');';

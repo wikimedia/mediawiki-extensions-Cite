@@ -249,7 +249,7 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	} );
 
 	// Properties
-	this.referenceTarget = new ve.ui.MWTargetWidget(
+	this.referenceTarget = ve.init.target.createTargetWidget(
 		this.referenceModel.getDocument(),
 		{
 			tools: ve.copy( ve.init.target.constructor.static.toolbarGroups ),

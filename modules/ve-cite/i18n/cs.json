@@ -48,5 +48,6 @@
 	"cite-ve-referenceslist-isempty": "Na této stránce nejsou žádné reference se skupinou „$1“, které by se v tomto seznamu zobrazily.",
 	"cite-ve-referenceslist-isempty-default": "Na této stránce nejsou žádné reference, které by se v tomto seznamu zobrazily.",
 	"cite-ve-referenceslist-missingref": "Tato reference je definována v šabloně nebo jiné generované části textu a zatím ji lze editovat jen v režimu zdrojového textu.",
-	"cite-ve-toolbar-group-label": "Citace"
+	"cite-ve-toolbar-group-label": "Citace",
+	"cite-ve-othergroup-item": "$1 reference"
 }

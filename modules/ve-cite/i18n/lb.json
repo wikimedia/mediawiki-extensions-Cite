@@ -37,5 +37,6 @@
 	"cite-ve-referenceslist-isempty": "Et gëtt keng Referenze mam Grupp \"$1\" op dëser Säit fir an dës Lëscht opzehuelen.",
 	"cite-ve-referenceslist-isempty-default": "Et gëtt keng Referenzen op dëser Säit fir an dës Lëscht opzehuelen.",
 	"cite-ve-referenceslist-missingref": "Dës Referenz ass an enger Schabloun oder engem anere generéierte Block definéiert a kann dowéinst just am Quelltextmodus geännert ginn.",
-	"cite-ve-toolbar-group-label": "Zitat"
+	"cite-ve-toolbar-group-label": "Zitat",
+	"cite-ve-othergroup-item": "$1 Referenz"
 }

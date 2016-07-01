@@ -56,5 +56,6 @@
 	"cite-ve-referenceslist-isempty": "In questa pagina non ci sono note da elencare con il gruppo \"$1\".",
 	"cite-ve-referenceslist-isempty-default": "In questa pagina non ci sono note da elencare.",
 	"cite-ve-referenceslist-missingref": "Questa nota è definita in un template o in un altro blocco generato e per ora può essere modificata solo in modalità sorgente.",
-	"cite-ve-toolbar-group-label": "Cita"
+	"cite-ve-toolbar-group-label": "Cita",
+	"cite-ve-othergroup-item": "$1 note"
 }

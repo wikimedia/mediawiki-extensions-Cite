@@ -40,5 +40,6 @@
 	"cite-ve-referenceslist-isempty": "Non hai referencias co grupo \"$1\" nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-isempty-default": "Non hai referencias nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referencia está definida nun modelo ou noutro bloque xerado; polo de agora, só se pode editar no modo fonte.",
-	"cite-ve-toolbar-group-label": "Citar"
+	"cite-ve-toolbar-group-label": "Citar",
+	"cite-ve-othergroup-item": "referencia $1"
 }

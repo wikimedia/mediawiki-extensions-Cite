@@ -47,5 +47,6 @@
 	"cite-ve-referenceslist-isempty": "Não existem referências com o grupo \"$1\" nesta página para incluir nesta lista.",
 	"cite-ve-referenceslist-isempty-default": "Não há nenhuma referência nesta página para incluir nesta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referência está definida numa predefinição ou outro tipo de bloqueio gerado, e no momento só pode ser editada através do seu código-fonte.",
-	"cite-ve-toolbar-group-label": "Citar"
+	"cite-ve-toolbar-group-label": "Citar",
+	"cite-ve-othergroup-item": "Referência $1"
 }

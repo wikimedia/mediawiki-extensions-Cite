@@ -14,10 +14,12 @@
 			"Macofe"
 		]
 	},
+	"visualeditor-cite-tool-definition.json": "nulo",
 	"visualeditor-cite-tool-name-book": "Libro",
 	"visualeditor-cite-tool-name-journal": "Publicación periódica",
 	"visualeditor-cite-tool-name-news": "Novas",
 	"visualeditor-cite-tool-name-web": "Páxina web",
+	"cite-tool-definition.json": "nulo",
 	"cite-ve-dialog-reference-editing-reused": "Esta referenza úsase $1 {{PLURAL:$1|vez|veces}} nesta páxina.",
 	"cite-ve-dialog-reference-options-group-label": "Utilizar este grupo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referencias xerais",

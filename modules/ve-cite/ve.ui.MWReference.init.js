@@ -1,5 +1,5 @@
 ( function () {
-	var i, j, jLen, toolGroups, linkIndex, target, label, group;
+	var i, j, jLen, toolGroup, toolGroups, linkIndex, target, label, group;
 
 	// HACK: Find the position of the current citation toolbar definition
 	// and manipulate it.
@@ -15,10 +15,10 @@
 
 		if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
 			for ( j = 0; j < linkIndex; j++ ) {
-				if ( toolGroups[ j ].include === '*' ) {
-					toolGroups[ j ].type = 'list';
-					toolGroups[ j ].include = [ '*', { group: 'cite' }, 'reference', 'reference/existing' ];
-					toolGroups[ j ].demote = [ 'reference', 'reference/existing' ];
+				toolGroup = toolGroups[ j ];
+				if ( toolGroup.include === '*' && ( !toolGroup.demote || toolGroup.demote.indexOf( 'reference' ) === -1 ) ) {
+					toolGroup.demote = toolGroup.demote || [];
+					toolGroup.demote.push( { group: 'cite' }, 'reference', 'reference/existing' );
 				}
 			}
 			continue;

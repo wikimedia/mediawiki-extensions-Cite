@@ -4,7 +4,8 @@
 			"Aspar",
 			"Erdemaslancan",
 			"Gorizon",
-			"Xoser"
+			"Xoser",
+			"Kumkumuk"
 		]
 	},
 	"cite-desc": "Qe çime mucnayîşî, etiketanê <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> de keno",
@@ -25,6 +26,7 @@
 	"cite_error_references_missing_key": "etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevisr biyo ser name \"$1\"î verni de niesto.",
 	"cite_error_references_no_key": "etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevsir biyo name xo çini yo.",
 	"cite_error_empty_references_define": "etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de tevsir biyo \"$1\" kontent xo çini yo.",
+	"cite-tracking-category-cite-error": "Perê ke xetay çımi tede est o",
 	"cite_reference_link_key_with_num": "$1_$2",
 	"cite_reference_link_prefix": "sita_ref-",
 	"cite_references_link_prefix": "sita_not-",

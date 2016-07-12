@@ -19,10 +19,12 @@
 			"דולב"
 		]
 	},
+	"visualeditor-cite-tool-definition.json": "ריק",
 	"visualeditor-cite-tool-name-book": "ספר",
 	"visualeditor-cite-tool-name-journal": "כתב־עת",
 	"visualeditor-cite-tool-name-news": "חדשות",
 	"visualeditor-cite-tool-name-web": "אתר אינטרנט",
+	"cite-tool-definition.json": "ריק",
 	"cite-ve-dialog-reference-editing-reused": "הערת השוליים משמשת {{PLURAL:$1|פעם אחת|פעמיים|$1 פעמים}} בדף הזה.",
 	"cite-ve-dialog-reference-options-group-label": "להשתמש בקבוצה הזאת",
 	"cite-ve-dialog-reference-options-group-placeholder": "הערות שוליים כלליות",

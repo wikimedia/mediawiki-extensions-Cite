@@ -809,7 +809,7 @@ class Cite {
 		if ( !isset( $val['count'] ) ) {
 			// this handles the case of section preview for list-defined references
 			return wfMessage( 'cite_references_link_many',
-					self::getReferencesKey( $key . "-" . $val['key'] ),
+					self::getReferencesKey( $key . "-" . ( isset( $val['key'] ) ? $val['key'] : '' ) ),
 					'',
 					$text
 				)->inContentLanguage()->plain();

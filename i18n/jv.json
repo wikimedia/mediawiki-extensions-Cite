@@ -9,7 +9,7 @@
 		]
 	},
 	"cite-desc": "Nambahaké tag <nowiki><ref[ name=id]></nowiki> lan <nowiki><references/></nowiki> kanggo kutipan (sitat)",
-	"cite_error": "Cacad panyuplik: $1",
+	"cite_error": "Cacad sitiran: $1",
 	"cite_error_ref_numeric_key": "Tag <code>&lt;ref&gt;</code> ora absah;\njenengé ora bisa namung angka integer waé. Gunakna irah-irahan (judhul) dèskriptif",
 	"cite_error_ref_no_key": "Tag <code>&lt;ref&gt;</code> ora absah;\nrefs tanpa isi kudu duwé jeneng",
 	"cite_error_ref_too_many_keys": "Tag <code>&lt;ref&gt;</code> ora absah;\njeneng-jenengé ora absah, contoné kakèhan",

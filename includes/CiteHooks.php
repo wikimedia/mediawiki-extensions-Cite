@@ -52,16 +52,16 @@ class CiteHooks {
 		) {
 			$testModules['qunit']['ext.cite.visualEditor.test'] = [
 				'scripts' => [
-					'/../modules/ve-cite/tests/ve.dm.citeExample.js',
-					'/../modules/ve-cite/tests/ve.dm.Converter.test.js',
-					'/../modules/ve-cite/tests/ve.dm.InternalList.test.js',
-					'/../modules/ve-cite/tests/ve.dm.Transaction.test.js',
+					'modules/ve-cite/tests/ve.dm.citeExample.js',
+					'modules/ve-cite/tests/ve.dm.Converter.test.js',
+					'modules/ve-cite/tests/ve.dm.InternalList.test.js',
+					'modules/ve-cite/tests/ve.dm.Transaction.test.js',
 				],
 				'dependencies' => [
 					'ext.cite.visualEditor',
 					'ext.visualEditor.test'
 				],
-				'localBasePath' => __DIR__,
+				'localBasePath' => dirname( __DIR__ ),
 				'remoteExtPath' => 'Cite',
 			];
 		}

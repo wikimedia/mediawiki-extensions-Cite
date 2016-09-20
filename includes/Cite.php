@@ -184,7 +184,7 @@ class Cite {
 	 * Did we install us into $wgHooks yet?
 	 * @var Boolean
 	 */
-	static protected $hooksInstalled = false;
+	protected static $hooksInstalled = false;
 
 	/**#@+ @access private */
 
@@ -198,7 +198,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function ref( $str, array $argv, Parser $parser, PPFrame $frame ) {
+	public function ref( $str, array $argv, Parser $parser, PPFrame $frame ) {
 		if ( $this->mInCite ) {
 			return htmlspecialchars( "<ref>$str</ref>" );
 		}
@@ -234,7 +234,12 @@ class Cite {
 	 * @throws Exception
 	 * @return string
 	 */
-	function guardedRef( $str, array $argv, Parser $parser, $default_group = self::DEFAULT_GROUP ) {
+	public function guardedRef(
+		$str,
+		array $argv,
+		Parser $parser,
+		$default_group = self::DEFAULT_GROUP
+	) {
 		$this->mParser = $parser;
 
 		# The key here is the "name" attribute.
@@ -379,7 +384,7 @@ class Cite {
 	 * @return mixed false on invalid input, a string on valid
 	 *               input and null on no input
 	 */
-	function refArg( array $argv ) {
+	public function refArg( array $argv ) {
 		global $wgAllowCiteGroups;
 		$cnt = count( $argv );
 		$group = null;
@@ -441,7 +446,7 @@ class Cite {
 	 * @throws Exception
 	 * @return string
 	 */
-	function stack( $str, $key = null, $group, $follow, array $call ) {
+	public function stack( $str, $key = null, $group, $follow, array $call ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = [];
 		}
@@ -556,7 +561,7 @@ class Cite {
 	 * @param string $group
 	 * @param int $index
 	 */
-	function rollbackRef( $type, $key, $group, $index ) {
+	public function rollbackRef( $type, $key, $group, $index ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			return;
 		}
@@ -611,7 +616,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function references( $str, array $argv, Parser $parser, PPFrame $frame ) {
+	public function references( $str, array $argv, Parser $parser, PPFrame $frame ) {
 		if ( $this->mInCite || $this->mInReferences ) {
 			if ( is_null( $str ) ) {
 				return htmlspecialchars( "<references/>" );
@@ -636,7 +641,12 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function guardedReferences( $str, array $argv, Parser $parser, $group = self::DEFAULT_GROUP ) {
+	public function guardedReferences(
+		$str,
+		array $argv,
+		Parser $parser,
+		$group = self::DEFAULT_GROUP
+	) {
 		global $wgAllowCiteGroups;
 
 		$this->mParser = $parser;
@@ -717,7 +727,7 @@ class Cite {
 	 *
 	 * @return string XHTML ready for output
 	 */
-	function referencesFormat( $group ) {
+	public function referencesFormat( $group ) {
 		if ( !$this->mRefs || !isset( $this->mRefs[$group] ) ) {
 			return '';
 		}
@@ -788,7 +798,7 @@ class Cite {
 	 *                   references, array for user-suppplied
 	 * @return string Wikitext
 	 */
-	function referencesFormatEntry( $key, $val ) {
+	public function referencesFormatEntry( $key, $val ) {
 		// Anonymous reference
 		if ( !is_array( $val ) ) {
 			return wfMessage(
@@ -863,7 +873,7 @@ class Cite {
 	 * @param String $text
 	 * @return String
 	 */
-	function referenceText( $key, $text ) {
+	public function referenceText( $key, $text ) {
 		if ( !isset( $text ) || $text === '' ) {
 			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
 				return $this->warning( 'cite_warning_sectionpreview_no_text', $key, 'noparse' );
@@ -885,7 +895,7 @@ class Cite {
 	 * @param int $max Maximum value expected.
 	 * @return string
 	 */
-	function referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max ) {
+	public function referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max ) {
 		global $wgContLang;
 		$scope = strlen( $max );
 		$ret = $wgContLang->formatNum(
@@ -904,7 +914,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function referencesFormatEntryAlternateBacklinkLabel( $offset ) {
+	public function referencesFormatEntryAlternateBacklinkLabel( $offset ) {
 		if ( !isset( $this->mBacklinkLabels ) ) {
 			$this->genBacklinkLabels();
 		}
@@ -928,7 +938,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function getLinkLabel( $offset, $group, $label ) {
+	public function getLinkLabel( $offset, $group, $label ) {
 		$message = "cite_link_label_group-$group";
 		if ( !isset( $this->mLinkLabels[$group] ) ) {
 			$this->genLinkLabels( $group, $message );
@@ -957,7 +967,7 @@ class Cite {
 	 * @param int $num The number of the key
 	 * @return string A key for use in wikitext
 	 */
-	function refKey( $key, $num = null ) {
+	public function refKey( $key, $num = null ) {
 		$prefix = wfMessage( 'cite_reference_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_reference_link_suffix' )->inContentLanguage()->text();
 		if ( isset( $num ) ) {
@@ -1000,7 +1010,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
+	public function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
 		global $wgContLang;
 		$label = is_null( $label ) ? ++$this->mGroupCnt[$group] : $label;
 
@@ -1028,7 +1038,7 @@ class Cite {
 	 * @param array $arr The array to format
 	 * @return string
 	 */
-	function listToText( $arr ) {
+	public function listToText( $arr ) {
 		$cnt = count( $arr );
 
 		$sep = wfMessage( 'cite_references_link_many_sep' )->inContentLanguage()->plain();
@@ -1048,7 +1058,7 @@ class Cite {
 	 * 'cite_references_link_many_format' message, the format is an
 	 * arbitrary number of tokens separated by [\t\n ]
 	 */
-	function genBacklinkLabels() {
+	public function genBacklinkLabels() {
 		$text = wfMessage( 'cite_references_link_many_format_backlink_labels' )
 			->inContentLanguage()->plain();
 		$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
@@ -1062,7 +1072,7 @@ class Cite {
 	 * @param string $group
 	 * @param string $message
 	 */
-	function genLinkLabels( $group, $message ) {
+	public function genLinkLabels( $group, $message ) {
 		$text = false;
 		$msg = wfMessage( $message )->inContentLanguage();
 		if ( $msg->exists() ) {
@@ -1079,7 +1089,7 @@ class Cite {
 	 *
 	 * @return bool
 	 */
-	function clearState( Parser &$parser ) {
+	public function clearState( Parser &$parser ) {
 		if ( $parser->extCite !== $this ) {
 			return $parser->extCite->clearState( $parser );
 		}
@@ -1107,7 +1117,7 @@ class Cite {
 	 *
 	 * @return bool
 	 */
-	function cloneState( Parser $parser ) {
+	public function cloneState( Parser $parser ) {
 		if ( $parser->extCite !== $this ) {
 			return $parser->extCite->cloneState( $parser );
 		}
@@ -1138,7 +1148,7 @@ class Cite {
 	 *
 	 * @return bool
 	 */
-	function checkRefsNoReferences( $afterParse, &$parser, &$text ) {
+	public function checkRefsNoReferences( $afterParse, &$parser, &$text ) {
 		if ( is_null( $parser->extCite ) ) {
 			return true;
 		}
@@ -1233,7 +1243,7 @@ class Cite {
 	 *
 	 * @return bool
 	 */
-	function checkAnyCalls( &$output ) {
+	public function checkAnyCalls( &$output ) {
 		global $wgParser;
 		/* InlineEditor always uses $wgParser */
 		return ( $wgParser->extCite->mCallCnt <= 0 );
@@ -1246,7 +1256,7 @@ class Cite {
 	 *
 	 * @return bool
 	 */
-	static function setHooks( Parser $parser ) {
+	public static function setHooks( Parser $parser ) {
 		global $wgHooks;
 
 		$parser->extCite = new self();
@@ -1273,7 +1283,7 @@ class Cite {
 	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
 	 * @return string XHTML or wikitext ready for output
 	 */
-	function error( $key, $param = null, $parse = 'parse' ) {
+	public function error( $key, $param = null, $parse = 'parse' ) {
 		# For ease of debugging and because errors are rare, we
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();
@@ -1316,7 +1326,7 @@ class Cite {
 	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
 	 * @return string XHTML or wikitext ready for output
 	 */
-	function warning( $key, $param = null, $parse = 'parse' ) {
+	public function warning( $key, $param = null, $parse = 'parse' ) {
 		# For ease of debugging and because errors are rare, we
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();

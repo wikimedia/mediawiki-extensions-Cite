@@ -732,7 +732,6 @@ class Cite {
 			return '';
 		}
 
-		wfProfileIn( __METHOD__ . '-entries' );
 		$ent = [];
 		foreach ( $this->mRefs[$group] as $k => $v ) {
 			$ent[] = $this->referencesFormatEntry( $k, $v );
@@ -746,8 +745,6 @@ class Cite {
 		// We add new lines between the pieces to avoid a confused tidy (bug 13073).
 		$parserInput = $prefix . "\n" . $content . "\n" . $suffix;
 
-		wfProfileOut( __METHOD__ . '-entries' );
-
 		// Let's try to cache it.
 		global $wgCiteCacheReferences, $wgMemc;
 		$data = false;
@@ -757,13 +754,10 @@ class Cite {
 				md5( $parserInput ),
 				$this->mParser->Title()->getArticleID()
 			);
-			wfProfileIn( __METHOD__ . '-cache-get' );
 			$data = $wgMemc->get( $cacheKey );
-			wfProfileOut( __METHOD__ . '-cache-get' );
 		}
 
 		if ( !$data || !$this->mParser->isValidHalfParsedText( $data ) ) {
-			wfProfileIn( __METHOD__ . '-parse' );
 
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 			$ret = rtrim( $this->mParser->recursiveTagParse( $parserInput ), "\n" );
@@ -773,7 +767,6 @@ class Cite {
 				$wgMemc->set( $cacheKey, $serData, 86400 );
 			}
 
-			wfProfileOut( __METHOD__ . '-parse' );
 		} else {
 			$ret = $this->mParser->unserializeHalfParsedText( $data );
 		}

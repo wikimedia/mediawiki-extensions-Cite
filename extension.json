@@ -178,11 +178,11 @@
 		"CiteVisualEditorOtherGroup": false
 	},
 	"AutoloadClasses": {
-		"ApiQueryReferences": "ApiQueryReferences.php",
-		"Cite": "Cite_body.php",
-		"CiteHooks": "CiteHooks.php",
-		"CiteDataModule": "CiteDataModule.php",
-		"CiteCSSFileModule": "CiteCSSFileModule.php"
+		"ApiQueryReferences": "includes/ApiQueryReferences.php",
+		"Cite": "includes/Cite.php",
+		"CiteHooks": "includes/CiteHooks.php",
+		"CiteDataModule": "includes/CiteDataModule.php",
+		"CiteCSSFileModule": "includes/CiteCSSFileModule.php"
 	},
 	"ParserTestFiles": [
 		"citeParserTests.txt"

@@ -1,15 +1,19 @@
 <?php
 
-// @codingStandardsIgnoreStart
-/**#@+
+/**
  * A parser extension that adds two tags, <ref> and <references> for adding
  * citations to pages
  *
  * @ingroup Extensions
  *
- * @link http://www.mediawiki.org/wiki/Extension:Cite/Cite.php Documentation
- * @link http://www.w3.org/TR/html4/struct/text.html#edef-CITE <cite> definition in HTML
- * @link http://www.w3.org/TR/2005/WD-xhtml2-20050527/mod-text.html#edef_text_cite <cite> definition in XHTML 2.0
+ * Documentation
+ * @link http://www.mediawiki.org/wiki/Extension:Cite/Cite.php
+ *
+ * <cite> definition in HTML
+ * @link http://www.w3.org/TR/html4/struct/text.html#edef-CITE
+ *
+ * <cite> definition in XHTML 2.0
+ * @link http://www.w3.org/TR/2005/WD-xhtml2-20050527/mod-text.html#edef_text_cite
  *
  * @bug https://phabricator.wikimedia.org/T6579
  *
@@ -17,7 +21,6 @@
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
-// @codingStandardsIgnoreEnd
 
 /**
  * WARNING: MediaWiki core hardcodes this class name to check if the
@@ -56,10 +59,6 @@ class Cite {
 	 */
 	const CACHE_DURATION_ONFETCH = 18000; // 5 hours
 
-	/**#@+
-	 * @access private
-	 */
-
 	/**
 	 * Datastructure representing <ref> input, in the format of:
 	 * <code>
@@ -89,44 +88,50 @@ class Cite {
 	 * * User supplied keys can't be integers, therefore avoiding
 	 *   conflict with anonymous keys
 	 *
-	 * @var array
-	 **/
-	public $mRefs = [];
+	 * @var array[]
+	 */
+	private $mRefs = [];
 
 	/**
 	 * Count for user displayed output (ref[1], ref[2], ...)
 	 *
 	 * @var int
 	 */
-	public $mOutCnt = 0;
-	public $mGroupCnt = [];
+	private $mOutCnt = 0;
+
+	/**
+	 * @var int[]
+	 */
+	private $mGroupCnt = [];
 
 	/**
 	 * Counter to track the total number of (useful) calls to either the
 	 * ref or references tag hook
+	 *
+	 * @var int
 	 */
-	public $mCallCnt = 0;
+	private $mCallCnt = 0;
 
 	/**
 	 * The backlinks, in order, to pass as $3 to
 	 * 'cite_references_link_many_format', defined in
 	 * 'cite_references_link_many_format_backlink_labels
 	 *
-	 * @var array
+	 * @var string[]
 	 */
-	public $mBacklinkLabels;
+	private $mBacklinkLabels;
 
 	/**
 	 * The links to use per group, in order.
 	 *
 	 * @var array
 	 */
-	public $mLinkLabels = [];
+	private $mLinkLabels = [];
 
 	/**
 	 * @var Parser
 	 */
-	public $mParser;
+	private $mParser;
 
 	/**
 	 * True when the ParserAfterParse hook has been called.
@@ -134,7 +139,7 @@ class Cite {
 	 *
 	 * @var boolean
 	 */
-	public $mHaveAfterParse = false;
+	private $mHaveAfterParse = false;
 
 	/**
 	 * True when a <ref> tag is being processed.
@@ -155,16 +160,16 @@ class Cite {
 	/**
 	 * Error stack used when defining refs in <references>
 	 *
-	 * @var array
+	 * @var string[]
 	 */
-	public $mReferencesErrors = [];
+	private $mReferencesErrors = [];
 
 	/**
 	 * Group used when in <references> block
 	 *
 	 * @var string
 	 */
-	public $mReferencesGroup = '';
+	private $mReferencesGroup = '';
 
 	/**
 	 * <ref> call stack
@@ -173,7 +178,7 @@ class Cite {
 	 *
 	 * @var array
 	 */
-	public $mRefCallStack = [];
+	private $mRefCallStack = [];
 
 	/**
 	 * @var bool
@@ -184,9 +189,7 @@ class Cite {
 	 * Did we install us into $wgHooks yet?
 	 * @var Boolean
 	 */
-	protected static $hooksInstalled = false;
-
-	/**#@+ @access private */
+	private static $hooksInstalled = false;
 
 	/**
 	 * Callback function for <ref>
@@ -234,7 +237,7 @@ class Cite {
 	 * @throws Exception
 	 * @return string
 	 */
-	public function guardedRef(
+	private function guardedRef(
 		$str,
 		array $argv,
 		Parser $parser,
@@ -384,7 +387,7 @@ class Cite {
 	 * @return mixed false on invalid input, a string on valid
 	 *               input and null on no input
 	 */
-	public function refArg( array $argv ) {
+	private function refArg( array $argv ) {
 		global $wgAllowCiteGroups;
 		$cnt = count( $argv );
 		$group = null;
@@ -446,7 +449,7 @@ class Cite {
 	 * @throws Exception
 	 * @return string
 	 */
-	public function stack( $str, $key = null, $group, $follow, array $call ) {
+	private function stack( $str, $key = null, $group, $follow, array $call ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = [];
 		}
@@ -561,7 +564,7 @@ class Cite {
 	 * @param string $group
 	 * @param int $index
 	 */
-	public function rollbackRef( $type, $key, $group, $index ) {
+	private function rollbackRef( $type, $key, $group, $index ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			return;
 		}
@@ -641,7 +644,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	public function guardedReferences(
+	private function guardedReferences(
 		$str,
 		array $argv,
 		Parser $parser,
@@ -727,7 +730,7 @@ class Cite {
 	 *
 	 * @return string XHTML ready for output
 	 */
-	public function referencesFormat( $group ) {
+	private function referencesFormat( $group ) {
 		if ( !$this->mRefs || !isset( $this->mRefs[$group] ) ) {
 			return '';
 		}
@@ -791,7 +794,7 @@ class Cite {
 	 *                   references, array for user-suppplied
 	 * @return string Wikitext
 	 */
-	public function referencesFormatEntry( $key, $val ) {
+	private function referencesFormatEntry( $key, $val ) {
 		// Anonymous reference
 		if ( !is_array( $val ) ) {
 			return wfMessage(
@@ -866,7 +869,7 @@ class Cite {
 	 * @param String $text
 	 * @return String
 	 */
-	public function referenceText( $key, $text ) {
+	private function referenceText( $key, $text ) {
 		if ( !isset( $text ) || $text === '' ) {
 			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
 				return $this->warning( 'cite_warning_sectionpreview_no_text', $key, 'noparse' );
@@ -888,7 +891,7 @@ class Cite {
 	 * @param int $max Maximum value expected.
 	 * @return string
 	 */
-	public function referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max ) {
+	private function referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max ) {
 		global $wgContLang;
 		$scope = strlen( $max );
 		$ret = $wgContLang->formatNum(
@@ -907,7 +910,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	public function referencesFormatEntryAlternateBacklinkLabel( $offset ) {
+	private function referencesFormatEntryAlternateBacklinkLabel( $offset ) {
 		if ( !isset( $this->mBacklinkLabels ) ) {
 			$this->genBacklinkLabels();
 		}
@@ -931,7 +934,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	public function getLinkLabel( $offset, $group, $label ) {
+	private function getLinkLabel( $offset, $group, $label ) {
 		$message = "cite_link_label_group-$group";
 		if ( !isset( $this->mLinkLabels[$group] ) ) {
 			$this->genLinkLabels( $group, $message );
@@ -960,7 +963,7 @@ class Cite {
 	 * @param int $num The number of the key
 	 * @return string A key for use in wikitext
 	 */
-	public function refKey( $key, $num = null ) {
+	private function refKey( $key, $num = null ) {
 		$prefix = wfMessage( 'cite_reference_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_reference_link_suffix' )->inContentLanguage()->text();
 		if ( isset( $num ) ) {
@@ -1003,7 +1006,7 @@ class Cite {
 	 *
 	 * @return string
 	 */
-	public function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
+	private function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
 		global $wgContLang;
 		$label = is_null( $label ) ? ++$this->mGroupCnt[$group] : $label;
 
@@ -1031,7 +1034,7 @@ class Cite {
 	 * @param array $arr The array to format
 	 * @return string
 	 */
-	public function listToText( $arr ) {
+	private function listToText( $arr ) {
 		$cnt = count( $arr );
 
 		$sep = wfMessage( 'cite_references_link_many_sep' )->inContentLanguage()->plain();
@@ -1051,7 +1054,7 @@ class Cite {
 	 * 'cite_references_link_many_format' message, the format is an
 	 * arbitrary number of tokens separated by [\t\n ]
 	 */
-	public function genBacklinkLabels() {
+	private function genBacklinkLabels() {
 		$text = wfMessage( 'cite_references_link_many_format_backlink_labels' )
 			->inContentLanguage()->plain();
 		$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
@@ -1065,7 +1068,7 @@ class Cite {
 	 * @param string $group
 	 * @param string $message
 	 */
-	public function genLinkLabels( $group, $message ) {
+	private function genLinkLabels( $group, $message ) {
 		$text = false;
 		$msg = wfMessage( $message )->inContentLanguage();
 		if ( $msg->exists() ) {
@@ -1276,7 +1279,7 @@ class Cite {
 	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
 	 * @return string XHTML or wikitext ready for output
 	 */
-	public function error( $key, $param = null, $parse = 'parse' ) {
+	private function error( $key, $param = null, $parse = 'parse' ) {
 		# For ease of debugging and because errors are rare, we
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();
@@ -1319,7 +1322,7 @@ class Cite {
 	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
 	 * @return string XHTML or wikitext ready for output
 	 */
-	public function warning( $key, $param = null, $parse = 'parse' ) {
+	private function warning( $key, $param = null, $parse = 'parse' ) {
 		# For ease of debugging and because errors are rare, we
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();
@@ -1431,5 +1434,4 @@ class Cite {
 		}
 	}
 
-	/**#@-*/
 }

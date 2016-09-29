@@ -11,7 +11,7 @@
  * @link http://www.w3.org/TR/html4/struct/text.html#edef-CITE <cite> definition in HTML
  * @link http://www.w3.org/TR/2005/WD-xhtml2-20050527/mod-text.html#edef_text_cite <cite> definition in XHTML 2.0
  *
- * @bug 4579
+ * @bug https://phabricator.wikimedia.org/T6579
  *
  * @author Ævar Arnfjörð Bjarmason <avarab@gmail.com>
  * @copyright Copyright © 2005, Ævar Arnfjörð Bjarmason

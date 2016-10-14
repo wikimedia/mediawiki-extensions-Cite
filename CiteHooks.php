@@ -67,6 +67,116 @@ class CiteHooks {
 	}
 
 	/**
+	 * Conditionally register resource loader modules that depends on the
+	 * VisualEditor MediaWiki extension.
+	 *
+	 * @param $resourceLoader
+	 * @return true
+	 */
+	public static function onResourceLoaderRegisterModules( &$resourceLoader ) {
+
+		if ( ! class_exists( 'VisualEditorHooks' ) ) {
+			return true;
+		}
+
+		$dir = __DIR__ . DIRECTORY_SEPARATOR;
+
+		$resourceLoader->register( "ext.cite.visualEditor.core", [
+			'localBasePath' => $dir . 'modules',
+			'remoteExtPath' => 'Cite/modules',
+			"scripts" => [
+				"ve-cite/ve.dm.MWReferenceModel.js",
+				"ve-cite/ve.dm.MWReferencesListNode.js",
+				"ve-cite/ve.dm.MWReferenceNode.js",
+				"ve-cite/ve.ce.MWReferencesListNode.js",
+				"ve-cite/ve.ce.MWReferenceNode.js",
+				"ve-cite/ve.ui.MWReferencesListCommand.js"
+			],
+			"styles" => [
+				"ve-cite/ve.ce.MWReferencesListNode.css",
+				"ve-cite/ve.ce.MWReferenceNode.css"
+			],
+			"dependencies" => [
+				"ext.visualEditor.mwcore"
+			],
+			"messages" => [
+				"cite-ve-referenceslist-isempty",
+				"cite-ve-referenceslist-isempty-default",
+				"cite-ve-referenceslist-missingref"
+			],
+			"targets" => [
+				"desktop",
+				"mobile"
+			]
+		] );
+
+		$resourceLoader->register( "ext.cite.visualEditor.data",
+			[ "class" => "CiteDataModule" ] );
+
+		$resourceLoader->register( "ext.cite.visualEditor", [
+			'localBasePath' => $dir . 'modules',
+			'remoteExtPath' => 'Cite/modules',
+			"scripts" => [
+				"ve-cite/ve.ui.MWReferenceGroupInputWidget.js",
+				"ve-cite/ve.ui.MWReferenceSearchWidget.js",
+				"ve-cite/ve.ui.MWReferenceResultWidget.js",
+				"ve-cite/ve.ui.MWUseExistingReferenceCommand.js",
+				"ve-cite/ve.ui.MWCitationDialog.js",
+				"ve-cite/ve.ui.MWReferencesListDialog.js",
+				"ve-cite/ve.ui.MWReferenceDialog.js",
+				"ve-cite/ve.ui.MWReferenceDialogTool.js",
+				"ve-cite/ve.ui.MWCitationDialogTool.js",
+				"ve-cite/ve.ui.MWReferenceContextItem.js",
+				"ve-cite/ve.ui.MWReferencesListContextItem.js",
+				"ve-cite/ve.ui.MWCitationContextItem.js",
+				"ve-cite/ve.ui.MWCitationAction.js",
+				"ve-cite/ve.ui.MWReference.init.js"
+			],
+			"styles" => [
+				"ve-cite/ve.ui.MWReferenceContextItem.css",
+				"ve-cite/ve.ui.MWReferenceGroupInputWidget.css",
+				"ve-cite/ve.ui.MWReferenceIcons.css",
+				"ve-cite/ve.ui.MWReferenceResultWidget.css",
+				"ve-cite/ve.ui.MWReferenceSearchWidget.css"
+			],
+			"dependencies" => [
+				"ext.cite.visualEditor.core",
+				"ext.cite.visualEditor.data",
+				"ext.cite.style",
+				"ext.visualEditor.mwtransclusion",
+				"ext.visualEditor.mediawiki"
+			],
+			"messages" => [
+				"cite-ve-dialog-reference-editing-reused",
+				"cite-ve-dialog-reference-options-group-label",
+				"cite-ve-dialog-reference-options-group-placeholder",
+				"cite-ve-dialog-reference-options-name-label",
+				"cite-ve-dialog-reference-options-section",
+				"cite-ve-dialog-reference-title",
+				"cite-ve-dialog-reference-useexisting-full-label",
+				"cite-ve-dialog-reference-useexisting-label",
+				"cite-ve-dialog-reference-useexisting-tool",
+				"cite-ve-dialog-referenceslist-contextitem-description-general",
+				"cite-ve-dialog-referenceslist-contextitem-description-named",
+				"cite-ve-dialog-referenceslist-title",
+				"cite-ve-dialogbutton-citation-educationpopup-title",
+				"cite-ve-dialogbutton-citation-educationpopup-text",
+				"cite-ve-dialogbutton-reference-full-label",
+				"cite-ve-dialogbutton-reference-tooltip",
+				"cite-ve-dialogbutton-reference-title",
+				"cite-ve-dialogbutton-referenceslist-tooltip",
+				"cite-ve-reference-input-placeholder",
+				"cite-ve-toolbar-group-label"
+			],
+			"targets" => [
+				"desktop",
+				"mobile"
+			]
+		] );
+		return true;
+	}
+
+	/**
 	 * Callback for LinksUpdate hook
 	 * Post-output processing of references property, for proper db storage
 	 * Deferred to avoid performance overhead when outputting the page

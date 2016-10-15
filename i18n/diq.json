@@ -5,13 +5,14 @@
 			"Erdemaslancan",
 			"Gorizon",
 			"Xoser",
-			"Kumkumuk"
+			"Kumkumuk",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"apihelp-query+references-description": "Eleqe referansa deyaye peran de temsilandataya çerx keno",
 	"apihelp-query+references-example-1": "<kbd>Albert Einstein</kbd>'i ya eleqeyın referanso",
 	"cite-desc": "Qe çime mucnayîşî, etiketanê <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> de keno",
-	"cite_error": "Ğeletê çime mucnayîşî: $1",
+	"cite_error": "Xetaya çımeyi: $1",
 	"cite_error_ref_numeric_key": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nName nieşkeno biyo yew rekam. Çekuyan binuse",
 	"cite_error_ref_no_key": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nEka kontent çini yo, gani yew name biyo",
 	"cite_error_ref_too_many_keys": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nname raşt niyo, e.g. zaf esto",
@@ -21,7 +22,7 @@
 	"cite_error_references_invalid_parameters_group": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nparametrayan ra destur çini yo.\n<code>&lt;references /&gt;</code> sero kar bike, ya zi  <code>&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_backlink_label": "Linkanê Custom backlinkî hin çini yo.\nZerreyê mesajê <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>î de hewna tasvir bike",
 	"cite_error_no_link_label_group": "Eka etiketinê linkê şexsi ser ena grubi \"$1\" ciniyo.\nZerre mesajê <nowiki>[[MediaWiki:$2]]</nowiki> de zafyer qise bike.",
-	"cite_error_references_no_text": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nqe refs yew nuşte nidayiyo <code>$1</code>",
+	"cite_error_references_no_text": "Nêravyarde <code>&lt;ref&gt;</code> etiket;\n<code>$1</code>nameya referansa rê metin nêabıryayo",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code>Qandê etiketi <code>&lt;/ref&gt;</code> racnayış kemiyo",
 	"cite_error_group_refs_without_references": "etiketé <code>&lt;ref&gt;</code>i niesto ser grubé $1'i, feqat  etiketé <code>&lt;references/&gt;</code>dé \"$1\"/&gt;nidiyo",
 	"cite_error_references_group_mismatch": "etiketê <code>&lt;ref&gt;</code>î, zerre <code>&lt;references/&gt;</code> de ser grupê \"$1\"î konflikt keno.",

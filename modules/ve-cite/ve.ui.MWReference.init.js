@@ -83,8 +83,6 @@
 		var i, len, item, name, data, tool, tools, dialog, contextItem,
 			limit = 5;
 
-		/*jshint loopfunc:true */
-
 		try {
 			// Must use mw.message to avoid JSON being parsed as Wikitext
 			tools = JSON.parse( mw.message( 'cite-tool-definition.json' ).plain() );

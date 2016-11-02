@@ -21,7 +21,7 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	}, config );
 
 	// Parent constructor
-	OO.ui.SearchWidget.call( this, config );
+	ve.ui.MWReferenceSearchWidget.super.call( this, config );
 
 	// Properties
 	this.index = [];
@@ -46,7 +46,7 @@ OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
  */
 ve.ui.MWReferenceSearchWidget.prototype.onQueryChange = function () {
 	// Parent method
-	OO.ui.SearchWidget.prototype.onQueryChange.call( this );
+	ve.ui.MWReferenceSearchWidget.super.prototype.onQueryChange.call( this );
 
 	// Populate
 	this.addResults();

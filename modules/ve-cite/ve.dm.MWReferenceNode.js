@@ -17,7 +17,7 @@
  */
 ve.dm.MWReferenceNode = function VeDmMWReferenceNode() {
 	// Parent constructor
-	ve.dm.LeafNode.apply( this, arguments );
+	ve.dm.MWReferenceNode.super.apply( this, arguments );
 
 	// Mixin constructors
 	ve.dm.FocusableNode.call( this );

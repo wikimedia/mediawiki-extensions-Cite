@@ -16,9 +16,9 @@
  * @param {ve.dm.MWReferencesListNode} model Model to observe
  * @param {Object} [config] Configuration options
  */
-ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode( model, config ) {
+ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 	// Parent constructor
-	ve.ce.LeafNode.call( this, model, config );
+	ve.ce.MWReferencesListNode.super.apply( this, arguments );
 
 	// Mixin constructors
 	ve.ce.FocusableNode.call( this );
@@ -78,7 +78,7 @@ ve.ce.MWReferencesListNode.prototype.onSetup = function () {
 	this.listNode.connect( this, { update: 'onListNodeUpdate' } );
 
 	// Parent method
-	ve.ce.LeafNode.prototype.onSetup.call( this );
+	ve.ce.MWReferencesListNode.super.prototype.onSetup.call( this );
 };
 
 /**
@@ -94,7 +94,7 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
 	this.listNode = null;
 
 	// Parent method
-	ve.ce.LeafNode.prototype.onTeardown.call( this );
+	ve.ce.MWReferencesListNode.super.prototype.onTeardown.call( this );
 };
 
 /**

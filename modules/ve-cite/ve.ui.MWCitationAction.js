@@ -14,9 +14,9 @@
  * @constructor
  * @param {ve.ui.Surface} surface Surface to act on
  */
-ve.ui.MWCitationAction = function VeUiMWCitationAction( surface ) {
+ve.ui.MWCitationAction = function VeUiMWCitationAction() {
 	// Parent constructor
-	ve.ui.Action.call( this, surface );
+	ve.ui.MWCitationAction.super.apply( this, arguments );
 };
 
 /* Inheritance */

@@ -18,7 +18,7 @@
  */
 ve.dm.MWReferencesListNode = function VeDmMWReferencesListNode() {
 	// Parent constructor
-	ve.dm.BranchNode.apply( this, arguments );
+	ve.dm.MWReferencesListNode.super.apply( this, arguments );
 
 	// Mixin constructors
 	ve.dm.FocusableNode.call( this );

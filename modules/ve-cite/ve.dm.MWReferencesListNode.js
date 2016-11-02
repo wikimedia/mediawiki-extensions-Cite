@@ -80,7 +80,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		attribs = dataElement.attributes,
 		contentsData = data.slice( 1, -1 );
 
-	if ( dataElement.originalDomElementsIndex ) {
+	if ( dataElement.originalDomElementsIndex !== undefined ) {
 		// If there's more than 1 element, preserve entire array, not just first element
 		els = ve.copyDomElements( converter.getStore().value( dataElement.originalDomElementsIndex ), doc );
 	} else {

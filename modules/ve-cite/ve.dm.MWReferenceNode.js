@@ -216,7 +216,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		el.setAttribute( 'data-mw', originalMw );
 
 		// Return the original DOM elements if possible
-		if ( dataElement.originalDomElementsIndex ) {
+		if ( dataElement.originalDomElementsIndex !== undefined ) {
 			return ve.copyDomElements( converter.getStore().value( dataElement.originalDomElementsIndex ), doc );
 		}
 	} else {

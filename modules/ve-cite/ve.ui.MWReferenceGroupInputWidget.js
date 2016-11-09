@@ -9,7 +9,7 @@
  * Creates an ve.ui.MWReferenceGroupInput object.
  *
  * @class
- * @extends OO.ui.ComboBoxWidget
+ * @extends OO.ui.ComboBoxInputWidget
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -28,7 +28,7 @@ ve.ui.MWReferenceGroupInputWidget = function VeUiMWReferenceGroupInputWidget( co
 
 /* Inheritance */
 
-OO.inheritClass( ve.ui.MWReferenceGroupInputWidget, OO.ui.ComboBoxWidget );
+OO.inheritClass( ve.ui.MWReferenceGroupInputWidget, OO.ui.ComboBoxInputWidget );
 
 /* Methods */
 

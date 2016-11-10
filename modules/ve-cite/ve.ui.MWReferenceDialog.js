@@ -152,7 +152,7 @@ ve.ui.MWReferenceDialog.prototype.documentHasContent = function () {
 ve.ui.MWReferenceDialog.prototype.canApply = function () {
 	return this.documentHasContent() &&
 		( this.referenceTarget.getSurface().getModel().hasBeenModified() ||
-		this.referenceGroupInput.input.getValue() !== this.originalGroup );
+		this.referenceGroupInput.getValue() !== this.originalGroup );
 };
 
 /**
@@ -270,7 +270,7 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	this.originalGroup = this.referenceModel.getGroup();
 	// Set the group input while it's disabled, so this doesn't pop up the group-picker menu
 	this.referenceGroupInput.setDisabled( true );
-	this.referenceGroupInput.input.setValue( this.originalGroup );
+	this.referenceGroupInput.setValue( this.originalGroup );
 	this.referenceGroupInput.setDisabled( false );
 	this.contentFieldset.$element.append( this.referenceTarget.$element );
 	this.referenceTarget.initialize();
@@ -317,7 +317,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 		$overlay: this.$overlay,
 		emptyGroupName: ve.msg( 'cite-ve-dialog-reference-options-group-placeholder' )
 	} );
-	this.referenceGroupInput.input.connect( this, { change: 'onReferenceGroupInputChange' } );
+	this.referenceGroupInput.connect( this, { change: 'onReferenceGroupInputChange' } );
 	this.referenceGroupField = new OO.ui.FieldLayout( this.referenceGroupInput, {
 		align: 'top',
 		label: ve.msg( 'cite-ve-dialog-reference-options-group-label' )
@@ -358,7 +358,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 		return new OO.ui.Process( function () {
 			var surfaceModel = this.getFragment().getSurface();
 
-			this.referenceModel.setGroup( this.referenceGroupInput.input.getValue() );
+			this.referenceModel.setGroup( this.referenceGroupInput.getValue() );
 
 			// Insert reference (will auto-create an internal item if needed)
 			if ( !( this.selectedNode instanceof ve.dm.MWReferenceNode ) ) {

@@ -97,7 +97,7 @@ ve.ui.MWReferencesListDialog.prototype.getActionProcess = function ( action ) {
 				surfaceModel = this.getFragment().getSurface();
 
 			// Save changes
-			refGroup = this.groupInput.input.getValue();
+			refGroup = this.groupInput.getValue();
 			listGroup = 'mwReference/' + refGroup;
 
 			if ( this.selectedNode ) {
@@ -137,7 +137,7 @@ ve.ui.MWReferencesListDialog.prototype.getSetupProcess = function ( data ) {
 
 			this.actions.setMode( 'edit' );
 
-			this.groupInput.input.setValue( this.selectedNode.getAttribute( 'refGroup' ) );
+			this.groupInput.setValue( this.selectedNode.getAttribute( 'refGroup' ) );
 			this.groupInput.populateMenu( this.getFragment().getDocument().getInternalList() );
 		}, this );
 };

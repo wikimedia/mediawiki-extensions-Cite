@@ -151,14 +151,14 @@ ve.ui.MWReferenceDialog.prototype.documentHasContent = function () {
  */
 ve.ui.MWReferenceDialog.prototype.canApply = function () {
 	return this.documentHasContent() &&
-		( this.referenceTarget.getSurface().getModel().hasBeenModified() ||
+		( this.referenceTarget.hasBeenModified() ||
 		this.referenceGroupInput.getValue() !== this.originalGroup );
 };
 
 /**
- * Handle reference surface change events
+ * Handle reference target widget change events
  */
-ve.ui.MWReferenceDialog.prototype.onSurfaceHistory = function () {
+ve.ui.MWReferenceDialog.prototype.onTargetChange = function () {
 	var hasContent = this.documentHasContent();
 
 	this.actions.setAbilities( {
@@ -229,7 +229,7 @@ ve.ui.MWReferenceDialog.prototype.getBodyHeight = function () {
  * @chainable
  */
 ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
-	var group, citeCommands;
+	var group;
 
 	// Properties
 	if ( ref instanceof ve.dm.MWReferenceModel ) {
@@ -240,31 +240,7 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 		this.referenceModel = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
 	}
 
-	// Cleanup
-	if ( this.referenceTarget ) {
-		this.referenceTarget.destroy();
-	}
-
-	citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry ).filter( function ( command ) {
-		return command.indexOf( 'cite-' ) !== -1;
-	} );
-
-	// Properties
-	this.referenceTarget = ve.init.target.createTargetWidget(
-		this.referenceModel.getDocument(),
-		{
-			tools: ve.copy( ve.init.target.constructor.static.toolbarGroups ),
-			includeCommands: this.constructor.static.includeCommands,
-			excludeCommands: this.constructor.static.excludeCommands.concat( citeCommands ),
-			importRules: this.constructor.static.getImportRules(),
-			inDialog: this.constructor.static.name
-		}
-	);
-
-	// Events
-	this.referenceTarget.getSurface().getModel().connect( this, {
-		history: this.onSurfaceHistory.bind( this )
-	} );
+	this.referenceTarget.setDocument( this.referenceModel.getDocument() );
 
 	// Initialization
 	this.originalGroup = this.referenceModel.getGroup();
@@ -272,7 +248,6 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	this.referenceGroupInput.setDisabled( true );
 	this.referenceGroupInput.setValue( this.originalGroup );
 	this.referenceGroupInput.setDisabled( false );
-	this.contentFieldset.$element.append( this.referenceTarget.$element );
 	this.referenceTarget.initialize();
 
 	group = this.getFragment().getDocument().getInternalList()
@@ -294,6 +269,10 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
  * @inheritdoc
  */
 ve.ui.MWReferenceDialog.prototype.initialize = function () {
+	var citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry ).filter( function ( command ) {
+		return command.indexOf( 'cite-' ) !== -1;
+	} );
+
 	// Parent method
 	ve.ui.MWReferenceDialog.super.prototype.initialize.call( this );
 
@@ -308,11 +287,23 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	this.$reuseWarningText = $( '<span>' );
 	this.$reuseWarning = $( '<span>' ).append( this.reuseWarningIcon.$element, this.$reuseWarningText );
 
+	this.referenceTarget = ve.init.target.createTargetWidget(
+		{
+			tools: ve.copy( ve.init.target.constructor.static.toolbarGroups ),
+			includeCommands: this.constructor.static.includeCommands,
+			excludeCommands: this.constructor.static.excludeCommands.concat( citeCommands ),
+			importRules: this.constructor.static.getImportRules(),
+			inDialog: this.constructor.static.name
+		}
+	);
+
 	this.contentFieldset = new OO.ui.FieldsetLayout();
 	this.optionsFieldset = new OO.ui.FieldsetLayout( {
 		label: ve.msg( 'cite-ve-dialog-reference-options-section' ),
 		icon: 'settings'
 	} );
+	this.contentFieldset.$element.append( this.referenceTarget.$element );
+
 	this.referenceGroupInput = new ve.ui.MWReferenceGroupInputWidget( {
 		$overlay: this.$overlay,
 		emptyGroupName: ve.msg( 'cite-ve-dialog-reference-options-group-placeholder' )
@@ -326,6 +317,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	// Events
 	this.search.getResults().connect( this, { choose: 'onSearchResultsChoose' } );
+	this.referenceTarget.connect( this, { change: 'onTargetChange' } );
 
 	// Initialization
 	this.panels.addItems( [ this.editPanel, this.searchPanel ] );
@@ -431,8 +423,7 @@ ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 		.first( function () {
 			this.referenceTarget.getSurface().getModel().disconnect( this );
 			this.search.getQuery().setValue( '' );
-			this.referenceTarget.destroy();
-			this.referenceTarget = null;
+			this.referenceTarget.clear();
 			this.referenceModel = null;
 		}, this );
 };

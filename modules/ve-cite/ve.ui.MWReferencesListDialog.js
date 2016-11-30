@@ -111,7 +111,7 @@ ve.ui.MWReferencesListDialog.prototype.getActionProcess = function ( action ) {
 						refGroup: refGroup
 					};
 					surfaceModel.change(
-						ve.dm.Transaction.newFromAttributeChanges(
+						ve.dm.TransactionBuilder.static.newFromAttributeChanges(
 							doc, this.selectedNode.getOuterRange().start, attrChanges
 						)
 					);

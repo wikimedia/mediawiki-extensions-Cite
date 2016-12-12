@@ -15,6 +15,7 @@
 	},
 	"apihelp-query+references-description": "返回与指定页面相关联的参考文献的数据表示法。",
 	"apihelp-query+references-example-1": "与<kbd>Albert Einstein</kbd>相关联的参考文献。",
+	"apierror-citestoragedisabled": "引用扩展参考存储未启用。",
 	"cite-desc": "增加用于引用的<nowiki><ref[ name=id]></nowiki>和<nowiki><references/></nowiki>标签",
 	"cite_error": "引用错误：$1",
 	"cite_error_ref_numeric_key": "无效<code>&lt;ref&gt;</code>标签；name属性不能是单一的数字，请使用可辨识的标题",

@@ -6,11 +6,13 @@
 			"Gorizon",
 			"Xoser",
 			"Kumkumuk",
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Gırd"
 		]
 	},
 	"apihelp-query+references-description": "Eleqe referansa deyaye peran de temsilandataya çerx keno",
 	"apihelp-query+references-example-1": "<kbd>Albert Einstein</kbd>'i ya eleqeyın referanso",
+	"apierror-citestoragedisabled": "Nımıtışê referansê cıkerdışê qalkerdışi a niyo.",
 	"cite-desc": "Qe çime mucnayîşî, etiketanê <nowiki><ref[ name=id]></nowiki> u <nowiki><references/></nowiki> de keno",
 	"cite_error": "Xetaya çımeyi: $1",
 	"cite_error_ref_numeric_key": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nName nieşkeno biyo yew rekam. Çekuyan binuse",

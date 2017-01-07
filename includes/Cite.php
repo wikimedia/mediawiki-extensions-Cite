@@ -62,23 +62,23 @@ class Cite {
 	/**
 	 * Datastructure representing <ref> input, in the format of:
 	 * <code>
-	 * array(
-	 * 	'user supplied' => array(
+	 * [
+	 * 	'user supplied' => [
 	 *		'text' => 'user supplied reference & key',
 	 *		'count' => 1, // occurs twice
 	 * 		'number' => 1, // The first reference, we want
 	 * 		               // all occourances of it to
 	 * 		               // use the same number
-	 *	),
+	 *	],
 	 *	0 => 'Anonymous reference',
 	 *	1 => 'Another anonymous reference',
-	 *	'some key' => array(
+	 *	'some key' => [
 	 *		'text' => 'this one occurs once'
 	 *		'count' => 0,
 	 * 		'number' => 4
-	 *	),
+	 *	],
 	 *	3 => 'more stuff'
-	 * );
+	 * ];
 	 * </code>
 	 *
 	 * This works because:
@@ -902,8 +902,8 @@ class Cite {
 
 	/**
 	 * Generate a custom format backlink given an offset, e.g.
-	 * $offset = 2; = c if $this->mBacklinkLabels = array( 'a',
-	 * 'b', 'c', ...). Return an error if the offset > the # of
+	 * $offset = 2; = c if $this->mBacklinkLabels = [ 'a',
+	 * 'b', 'c', ...]. Return an error if the offset > the # of
 	 * array items
 	 *
 	 * @param int $offset The offset
@@ -925,7 +925,7 @@ class Cite {
 	/**
 	 * Generate a custom format link for a group given an offset, e.g.
 	 * the second <ref group="foo"> is b if $this->mLinkLabels["foo"] =
-	 * array( 'a', 'b', 'c', ...).
+	 * [ 'a', 'b', 'c', ...].
 	 * Return an error if the offset > the # of array items
 	 *
 	 * @param int $offset The offset

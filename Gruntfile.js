@@ -7,7 +7,8 @@
 /* eslint-env node */
 
 module.exports = function ( grunt ) {
-	'use strict';
+	var conf = grunt.file.readJSON( 'extension.json' );
+
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
@@ -27,10 +28,7 @@ module.exports = function ( grunt ) {
 				'!node_modules/**'
 			]
 		},
-		banana: {
-			core: [ 'i18n/' ],
-			ve: [ 'modules/ve-cite/i18n/' ]
-		},
+		banana: conf.MessagesDirs,
 		stylelint: {
 			core: {
 				src: [

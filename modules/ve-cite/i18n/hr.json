@@ -6,7 +6,8 @@
 			"SpeedyGonsales",
 			"Zeljko.filipin",
 			"Milicevic01",
-			"Teoo3"
+			"Teoo3",
+			"Bugoslav"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Knjiga",
@@ -14,7 +15,7 @@
 	"visualeditor-cite-tool-name-news": "Vijesti",
 	"visualeditor-cite-tool-name-web": "Web stranice",
 	"cite-ve-dialog-reference-options-group-label": "Koristi ovu grupu",
-	"cite-ve-dialog-reference-options-group-placeholder": "Opće reference",
+	"cite-ve-dialog-reference-options-group-placeholder": "Opće referencije",
 	"cite-ve-dialog-reference-options-name-label": "Ponovno koristi pod ovim imenom",
 	"cite-ve-dialog-reference-options-section": "Mogućnosti",
 	"cite-ve-dialog-reference-title": "Izvori",
@@ -24,8 +25,8 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Popis općih izvora",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Popis izvora za grupu \"$1\"",
 	"cite-ve-dialog-referenceslist-title": "Popis izvora",
-	"cite-ve-dialogbutton-citation-educationpopup-title": "Citati",
 	"cite-ve-dialogbutton-citation-educationpopup-text": "Poboljšavajte sadržaje dodavanjem izvora informacija. Citirajte knjige, novine i internetske stranice.",
+	"cite-ve-dialogbutton-citation-educationpopup-title": "Citati",
 	"cite-ve-dialogbutton-reference-full-label": "Osnovni oblik",
 	"cite-ve-dialogbutton-reference-tooltip": "Osnovno",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Popis izvora",

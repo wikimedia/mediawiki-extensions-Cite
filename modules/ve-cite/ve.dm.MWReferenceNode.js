@@ -308,6 +308,21 @@ ve.dm.MWReferenceNode.static.cloneElement = function () {
 	return clone;
 };
 
+ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
+	if ( key === 'refGroup' ) {
+		if ( change.from ) {
+			if ( change.to ) {
+				return ve.msg( 'cite-ve-changedesc-reflist-group-both', change.from, change.to );
+			} else {
+				return ve.msg( 'cite-ve-changedesc-reflist-group-from', change.from );
+			}
+		}
+		return ve.msg( 'cite-ve-changedesc-reflist-group-to', change.to );
+	}
+
+	return null;
+};
+
 /* Methods */
 
 /**

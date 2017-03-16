@@ -151,6 +151,12 @@ class CiteHooks {
 				"ext.visualEditor.mediawiki"
 			],
 			"messages" => [
+				"cite-ve-changedesc-ref-group-both",
+				"cite-ve-changedesc-ref-group-from",
+				"cite-ve-changedesc-ref-group-to",
+				"cite-ve-changedesc-reflist-group-both",
+				"cite-ve-changedesc-reflist-group-from",
+				"cite-ve-changedesc-reflist-group-to",
 				"cite-ve-dialog-reference-editing-reused",
 				"cite-ve-dialog-reference-options-group-label",
 				"cite-ve-dialog-reference-options-group-placeholder",

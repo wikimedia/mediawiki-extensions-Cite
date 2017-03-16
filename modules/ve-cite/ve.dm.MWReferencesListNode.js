@@ -123,12 +123,19 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	return els;
 };
 
-ve.dm.MWReferencesListNode.static.describeChange = function ( key ) {
-	if ( key === 'originalMw' ) {
-		return null;
+ve.dm.MWReferencesListNode.static.describeChange = function ( key, change ) {
+	if ( key === 'refGroup' ) {
+		if ( change.from ) {
+			if ( change.to ) {
+				return ve.msg( 'cite-ve-changedesc-ref-group-both', change.from, change.to );
+			} else {
+				return ve.msg( 'cite-ve-changedesc-ref-group-from', change.from );
+			}
+		}
+		return ve.msg( 'cite-ve-changedesc-ref-group-to', change.to );
 	}
-	// Parent method
-	return ve.dm.MWReferencesListNode.super.static.describeChange.apply( this, arguments );
+
+	return null;
 };
 
 /* Registration */

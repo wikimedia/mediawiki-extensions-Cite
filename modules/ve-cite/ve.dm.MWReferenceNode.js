@@ -223,7 +223,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		el.setAttribute( 'data-mw', JSON.stringify( mwData ) );
 		// HTML for the external clipboard, it will be ignored by the converter
 		$( el ).append(
-			$( '<sup>', doc ).text( this.getIndexLabel( dataElement, converter.internalList ) )
+			$( '<a>', doc ).append(
+				$( '<span>', doc ).addClass( 'mw-reflink-text' ).text( this.getIndexLabel( dataElement, converter.internalList ) )
+			)
 		);
 	}
 

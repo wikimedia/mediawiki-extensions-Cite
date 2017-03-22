@@ -90,7 +90,6 @@
 		"cite": "GlobalVarConfig::newInstance"
 	},
 	"config": {
-		"AllowCiteGroups": true,
 		"CiteCacheReferences": false,
 		"CiteStoreReferencesData": false,
 		"CiteCacheReferencesDataOnParse": false,

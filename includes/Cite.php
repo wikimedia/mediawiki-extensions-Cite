@@ -388,7 +388,6 @@ class Cite {
 	 *               input and null on no input
 	 */
 	private function refArg( array $argv ) {
-		global $wgAllowCiteGroups;
 		$cnt = count( $argv );
 		$group = null;
 		$key = null;
@@ -415,10 +414,6 @@ class Cite {
 				--$cnt;
 			}
 			if ( isset( $argv['group'] ) ) {
-				if ( !$wgAllowCiteGroups ) {
-					// remove when groups are fully tested.
-					return [ false ];
-				}
 				// Group given.
 				$group = $argv['group'];
 				unset( $argv['group'] );
@@ -650,11 +645,11 @@ class Cite {
 		Parser $parser,
 		$group = self::DEFAULT_GROUP
 	) {
-		global $wgAllowCiteGroups, $wgCiteResponsiveReferences;
+		global $wgCiteResponsiveReferences;
 
 		$this->mParser = $parser;
 
-		if ( isset( $argv['group'] ) && $wgAllowCiteGroups ) {
+		if ( isset( $argv['group'] ) ) {
 			$group = $argv['group'];
 			unset( $argv['group'] );
 		}
@@ -715,11 +710,7 @@ class Cite {
 
 		// There are remaining parameters we don't recognise
 		if ( $argv ) {
-			if ( $wgAllowCiteGroups ) {
-				return $this->error( 'cite_error_references_invalid_parameters_group' );
-			} else {
-				return $this->error( 'cite_error_references_invalid_parameters' );
-			}
+			return $this->error( 'cite_error_references_invalid_parameters' );
 		}
 
 		$s = $this->referencesFormat( $group, $responsive );

@@ -713,11 +713,13 @@ class Cite {
 			$responsive = $wgCiteResponsiveReferences;
 		}
 
-		if ( $argv && $wgAllowCiteGroups ) {
-			return $this->error( 'cite_error_references_invalid_parameters_group' );
-		}
+		// There are remaining parameters we don't recognise
 		if ( $argv ) {
-			return $this->error( 'cite_error_references_invalid_parameters' );
+			if ( $wgAllowCiteGroups ) {
+				return $this->error( 'cite_error_references_invalid_parameters_group' );
+			} else {
+				return $this->error( 'cite_error_references_invalid_parameters' );
+			}
 		}
 
 		$s = $this->referencesFormat( $group, $responsive );

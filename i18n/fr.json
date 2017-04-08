@@ -31,7 +31,7 @@
 	"cite_error_ref_no_input": "Balise <code>&lt;ref&gt;</code> incorrecte ;\nles références sans nom doivent avoir un contenu.",
 	"cite_error_references_duplicate_key": "Balise <code>&lt;ref&gt;</code> non valide ; le nom « $1 » est défini plusieurs fois avec des contenus différents",
 	"cite_error_references_invalid_parameters": "Balise <code>&lt;references&gt;</code> incorrecte ;\naucun paramètre n’est permis.\nUtilisez simplement <code>&lt;references /&gt;</code>.",
-	"cite_error_references_invalid_parameters_group": "Balise <code>&lt;references&gt;</code> incorrecte ;\nseul l’attribut « group » est autorisé.\nUtilisez <code>&lt;references /&gt;</code>, ou bien <code>&lt;references group=\"...\" /&gt;</code>.",
+	"cite_error_references_invalid_parameters_group": "Paramètre invalide dans la balise <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "Épuisement des étiquettes de liens personnalisées.\nDéfinissez-en un plus grand nombre dans le message <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>.",
 	"cite_error_no_link_label_group": "Plus d’étiquettes de liens personnalisées pour le groupe « $1 ».\nDéfinissez-en plus dans le message <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Balise <code>&lt;ref&gt;</code> incorrecte ;\naucun texte n’a été fourni pour les références nommées <code>$1</code>.",

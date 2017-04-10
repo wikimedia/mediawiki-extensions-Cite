@@ -123,6 +123,14 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	return els;
 };
 
+ve.dm.MWReferencesListNode.static.describeChange = function ( key ) {
+	if ( key === 'originalMw' ) {
+		return null;
+	}
+	// Parent method
+	return ve.dm.MWReferencesListNode.super.static.describeChange.apply( this, arguments );
+};
+
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.MWReferencesListNode );

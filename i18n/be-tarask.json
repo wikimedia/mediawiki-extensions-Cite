@@ -18,7 +18,7 @@
 	"cite_error_ref_no_input": "Няслушны тэг <code>&lt;ref&gt;</code>;\nкрыніцы бяз назваў мусяць мець зьмест",
 	"cite_error_references_duplicate_key": "Няслушны тэг <code>&lt;ref&gt;</code>; назва «$1» вызначаная некалькі разоў з розным зьместам",
 	"cite_error_references_invalid_parameters": "Няслушны тэг <code>&lt;references&gt;</code>;\nнедазволеныя парамэтры.\nКарыстайцеся <code>&lt;references /&gt;</code>",
-	"cite_error_references_invalid_parameters_group": "Няслушны тэг <code>&lt;references&gt;</code>;\nдазволена карыстацца толькі парамэтрам «group».\nКарыстайцеся <code>&lt;references /&gt;</code>, ці <code>&lt;references group=\"...\" /&gt;</code>",
+	"cite_error_references_invalid_parameters_group": "Няслушны парамэтар у тэгу <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "Не хапае сымбаляў для адваротных спасылак.\nНеабходна пашырыць сыстэмнае паведамленьне <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
 	"cite_error_no_link_label_group": "Скончыліся нестандартныя меткі спасылак для групы «$1».\nВызначыце болей у паведамленьні <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Няслушны тэг <code>&lt;ref&gt;</code>;\nняма тэксту ў назьве зносак <code>$1</code>",

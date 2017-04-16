@@ -25,7 +25,7 @@
 	"cite_error_ref_no_input": "Ogiltig <code>&lt;ref&gt;</code>-tagg; referenser utan namn måste ha innehåll",
 	"cite_error_references_duplicate_key": "Taggen <code>&lt;ref&gt;</code> är ogiltig; namnet \"$1\" definieras flera gånger med olika innehåll",
 	"cite_error_references_invalid_parameters": "Ogiltig <code>&lt;references&gt;</code>-tagg; inga parametrar tillåts. Använd <code>&lt;references /&gt;</code>",
-	"cite_error_references_invalid_parameters_group": "Ogiltig <code>&lt;references&gt;</code>-tagg;\nendast \"group\"-parametern är tillåten.\nAnvänd <code>&lt;references /&gt;</code>, eller <code>&lt;references group=\"...\" /&gt;</code>",
+	"cite_error_references_invalid_parameters_group": "Ogiltig parameter i <code>&lt;references&gt;</code>-tagg",
 	"cite_error_references_no_backlink_label": "De anpassade etiketterna för tillbaka-länkar har tagit slut. Definiera fler etiketter i systemmedelandet <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
 	"cite_error_no_link_label_group": "Anpassade länketiketter för gruppen \"$1\" tog slut.\nDefinera fler i <nowiki>[[MediaWiki:$2]]</nowiki>-meddelandet.",
 	"cite_error_references_no_text": "Ogiltig <code>&lt;ref&gt;</code>-tagg; ingen text har angivits för referensen med namnet <code>$1</code>",

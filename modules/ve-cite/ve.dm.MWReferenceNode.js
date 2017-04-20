@@ -395,6 +395,10 @@ ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
  * Unregister the node from the internal list
  */
 ve.dm.MWReferenceNode.prototype.removeFromInternalList = function () {
+	if ( !this.registeredListGroup ) {
+		// Don't try to remove if we haven't been added in the first place.
+		return;
+	}
 	this.getDocument().getInternalList().removeNode(
 		this.registeredListGroup,
 		this.registeredListKey,

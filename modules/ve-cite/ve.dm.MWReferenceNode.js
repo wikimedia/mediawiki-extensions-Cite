@@ -365,9 +365,13 @@ ve.dm.MWReferenceNode.prototype.onRoot = function () {
 
 /**
  * Handle the node being detached from the root
+ *
+ * @param {ve.dm.DocumentNode} oldRoot Old document root
  */
-ve.dm.MWReferenceNode.prototype.onUnroot = function () {
-	this.removeFromInternalList();
+ve.dm.MWReferenceNode.prototype.onUnroot = function ( oldRoot ) {
+	if ( this.getDocument().getDocumentNode() === oldRoot ) {
+		this.removeFromInternalList();
+	}
 };
 
 /**

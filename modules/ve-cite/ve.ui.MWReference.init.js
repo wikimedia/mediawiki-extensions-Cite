@@ -1,3 +1,9 @@
+/*!
+ * VisualEditor MediaWiki Cite initialisation code.
+ *
+ * @copyright 2011-2017 Cite VisualEditor Team and others; see AUTHORS.txt
+ * @license The MIT License (MIT); see LICENSE.txt
+ */
 ( function () {
 	var i, j, jLen, toolGroup, toolGroups, linkIndex, target, label, group;
 

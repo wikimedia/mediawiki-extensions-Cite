@@ -56,6 +56,7 @@ class CiteHooks {
 					'modules/ve-cite/tests/ve.dm.Converter.test.js',
 					'modules/ve-cite/tests/ve.dm.InternalList.test.js',
 					'modules/ve-cite/tests/ve.dm.Transaction.test.js',
+					'modules/ve-cite/tests/ve.ui.MWWikitextStringTransferHandler.test.js',
 				],
 				'dependencies' => [
 					'ext.cite.visualEditor',

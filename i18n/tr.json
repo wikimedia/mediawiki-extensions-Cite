@@ -18,7 +18,6 @@
 	"cite_error_ref_no_input": "Geçersiz <code>&lt;ref&gt;</code> etiketi;\nisimsiz reflerin içeriği olmalı",
 	"cite_error_references_duplicate_key": "Geçersiz <code>&lt;ref&gt;</code> etiketi: \"$1\" adı farklı içerikte birden fazla tanımlanmış.",
 	"cite_error_references_invalid_parameters": "Geçersiz <code>&lt;references&gt;</code> etiketi;\nparametrelere izin verilmiyor.\n<code>&lt;references /&gt;</code> kullanın",
-	"cite_error_references_invalid_parameters_group": "Geçersiz <code>&lt;references&gt;</code> etiketi;\nsadece \"group\" parametresine izin verilir.\n<code>&lt;references /&gt;</code>, ya da <code>&lt;references group=\"...\" /&gt;</code> kullanın",
 	"cite_error_references_no_backlink_label": "Özel geribağlantı etiketleri kalmadı.\n<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> mesajında daha fazla tanımlayın",
 	"cite_error_no_link_label_group": "\"$1\" grubu için özel bağlantı etiketleri bitti.\n<nowiki>[[MediaWiki:$2]]</nowiki> mesajında daha fazla tanımlayın.",
 	"cite_error_references_no_text": "Geçersiz <code>&lt;ref&gt;</code> etiketi;\n<code>$1</code> isimli refler için metin temin edilmemiş",

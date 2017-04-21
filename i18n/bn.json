@@ -16,7 +16,6 @@
 	"cite_error_ref_no_input": "অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; নামবিহীন ref সমূহের অবশ্যই বিষয়বস্তু থাকতে হবে",
 	"cite_error_references_duplicate_key": "<code>&lt;ref&gt;</code> ট্যাগ অবৈধ; আলাদা বিষয়বস্তুর সঙ্গে \"$1\" নাম একাধিক বার সংজ্ঞায়িত করা হয়েছে",
 	"cite_error_references_invalid_parameters": "অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; কোন প্যারামিটার অনুমোদিত নয়। <code>&lt;references /&gt;</code> ব্যবহার করুন",
-	"cite_error_references_invalid_parameters_group": "<code>&lt;references&gt;</code> ট্যাগে অবৈধ প্যারামিটার",
 	"cite_error_references_no_backlink_label": "স্বনির্ধারিত পিছনসংযোগের স্তরের সংখ্যা শেষ হয়ে গেছে।\n<nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> বার্তায় আরও সংজ্ঞায়িত করুন।",
 	"cite_error_no_link_label_group": "\"$1\" গ্রুপের জন্য স্বনির্ধারিত লিংক ব্যবহারের সীমানা পেরিয়েছে।\n<nowiki>[[MediaWiki:$2]]</nowiki> বার্তায় আরও সজ্ঞায়িত করুন।",
 	"cite_error_references_no_text": "অবৈধ <code>&lt;ref&gt;</code> ট্যাগ; <code>$1</code> নামের সূত্রের জন্য কোন লেখা প্রদান করা হয়নি",

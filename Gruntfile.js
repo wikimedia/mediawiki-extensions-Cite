@@ -24,21 +24,10 @@ module.exports = function ( grunt ) {
 		},
 		banana: conf.MessagesDirs,
 		stylelint: {
-			core: {
-				src: [
-					'**/*.css',
-					'!modules/ve-cite/**',
-					'!node_modules/**'
-				]
-			},
-			've-cite': {
-				options: {
-					configFile: 'modules/ve-cite/.stylelintrc'
-				},
-				src: [
-					'modules/ve-cite/**/*.css'
-				]
-			}
+			all: [
+				'**/*.css',
+				'!node_modules/**'
+			]
 		},
 		jsonlint: {
 			all: [

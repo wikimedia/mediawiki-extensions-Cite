@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Чаховіч Уладзіслаў"
+			"Чаховіч Уладзіслаў",
+			"Artsiom91"
 		]
 	},
-	"cite_error": "Памылка цытавання $1"
+	"cite_error": "Памылка цытавання $1",
+	"cite-tracking-category-cite-error": "Старонкі з памылкамі ў зносках",
+	"cite-tracking-category-cite-error-desc": "Старонка мае памылкі ў выкарыстанні тэгаў зносак"
 }

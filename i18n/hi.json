@@ -6,11 +6,12 @@
 			"Shubhamkanodia",
 			"Siddhartha Ghai",
 			"Sfic",
-			"Jayprakash12345"
+			"Jayprakash12345",
+			"Anoop rao"
 		]
 	},
 	"apihelp-query+references-description": "दिए गए पृष्ठों से संबंधित संदर्भों का एक डेटा प्रस्तुत करें।",
-	"apihelp-query+references-example-1": "<kbd> अल्बर्ट आइंस्टीन </ kbd> से संबंधित संदर्भ।",
+	"apihelp-query+references-example-1": "<kbd> अल्बर्ट आइंस्टीन </kbd> से संबंधित संदर्भ।",
 	"apierror-citestoragedisabled": "उद्धरण विस्तार संदर्भ संग्रहण सक्षम नहीं है।",
 	"cite-desc": "उद्धरणों के लिये <nowiki><ref[ name=id]></nowiki> और <nowiki><references/></nowiki> टैग जोड़ता है।",
 	"cite_error": "सन्दर्भ त्रुटि: $1",

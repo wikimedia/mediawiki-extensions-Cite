@@ -109,5 +109,8 @@
 	"TrackingCategories": [
 		"cite-tracking-category-cite-error"
 	],
+	"CodeMirrorTagModes": {
+		"ref": "text/mediawiki"
+	},
 	"manifest_version": 1
 }

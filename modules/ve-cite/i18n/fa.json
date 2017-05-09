@@ -23,10 +23,12 @@
 			"فلورانس"
 		]
 	},
+	"visualeditor-cite-tool-definition.json": "تهی",
 	"visualeditor-cite-tool-name-book": "کتاب",
 	"visualeditor-cite-tool-name-journal": "مجله",
 	"visualeditor-cite-tool-name-news": "اخبار",
 	"visualeditor-cite-tool-name-web": "وب‌گاه",
+	"cite-tool-definition.json": "تهی",
 	"cite-ve-dialog-reference-editing-reused": "این یادکرد $1 {{PLURAL:$1|times}} در این صفحه استفاده شده‌است.",
 	"cite-ve-dialog-reference-options-group-label": "استفاده از این گروه",
 	"cite-ve-dialog-reference-options-group-placeholder": "منابع عمومی",

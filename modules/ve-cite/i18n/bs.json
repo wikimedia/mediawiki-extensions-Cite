@@ -10,7 +10,7 @@
 	"visualeditor-cite-tool-name-book": "Knjiga",
 	"visualeditor-cite-tool-name-journal": "Časopis",
 	"visualeditor-cite-tool-name-news": "Vijesti",
-	"visualeditor-cite-tool-name-web": "Web-stranica",
+	"visualeditor-cite-tool-name-web": "Veb-sajt",
 	"cite-ve-dialog-reference-editing-reused": "Ova referenca koristi se već $1 {{PLURAL:$1|put|puta}} na ovoj stranici.",
 	"cite-ve-dialog-reference-options-group-label": "Koristite ovu grupu",
 	"cite-ve-dialog-reference-options-group-placeholder": "Opće reference",

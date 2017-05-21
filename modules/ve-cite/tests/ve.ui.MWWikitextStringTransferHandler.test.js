@@ -31,7 +31,6 @@ QUnit.test( 'convert', function ( assert ) {
 					'</ol>',
 				annotations: [],
 				expectedData: [
-					{ type: 'paragraph' },
 					{
 						type: 'mwReference',
 						attributes: {
@@ -52,7 +51,6 @@ QUnit.test( 'convert', function ( assert ) {
 						}
 					},
 					{ type: '/mwReference' },
-					{ type: '/paragraph' },
 					{ type: 'internalList' },
 					{ type: 'internalItem' },
 					{ type: 'paragraph', internal: { generated: 'wrapper' } },

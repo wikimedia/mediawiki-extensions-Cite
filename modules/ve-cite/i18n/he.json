@@ -25,6 +25,8 @@
 	"visualeditor-cite-tool-name-news": "חדשות",
 	"visualeditor-cite-tool-name-web": "אתר אינטרנט",
 	"cite-tool-definition.json": "ריק",
+	"cite-ve-changedesc-ref-group-both": "קבוצת ההערות השתנתה מ{{GRAMMAR:תחילית|$1}} ל{{GRAMMAR:תחילית|$2}}",
+	"cite-ve-changedesc-ref-group-from": "קבוצת ההערות השתנתה מ{{GRAMMAR:תחילית|$1}} לקבוצה הכללית",
 	"cite-ve-dialog-reference-editing-reused": "הערת השוליים משמשת {{PLURAL:$1|פעם אחת|פעמיים|$1 פעמים}} בדף הזה.",
 	"cite-ve-dialog-reference-options-group-label": "להשתמש בקבוצה הזאת",
 	"cite-ve-dialog-reference-options-group-placeholder": "הערות שוליים כלליות",

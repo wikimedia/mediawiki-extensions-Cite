@@ -26,7 +26,8 @@
 			"Themasterriot",
 			"Vikytinta",
 			"Ncontinanza",
-			"Dgstranz"
+			"Dgstranz",
+			"Javiersanp"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "nulo",
@@ -35,7 +36,9 @@
 	"visualeditor-cite-tool-name-news": "Noticias",
 	"visualeditor-cite-tool-name-web": "Sitio web",
 	"cite-tool-definition.json": "nulo",
+	"cite-ve-changedesc-ref-group-both": "El grupo de referencia cambió de \"$1\" a \"$2\"",
 	"cite-ve-changedesc-reflist-group-both": "El grupo de lista de referencias cambió de «$1» a «$2»",
+	"cite-ve-changedesc-reflist-group-to": "El grupo de listas de referencias cambió del grupo general a \"$1\"",
 	"cite-ve-dialog-reference-editing-reused": "Esta referencia se utiliza $1 {{PLURAL:$1|vez|veces}} en esta página.",
 	"cite-ve-dialog-reference-options-group-label": "Usar este grupo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referencias generales",

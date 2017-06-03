@@ -144,6 +144,8 @@ class CiteHooks {
 				"ve-cite/ve.ui.MWReferenceSearchWidget.css"
 			],
 			"dependencies" => [
+				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-interactions",
 				"ext.cite.visualEditor.core",
 				"ext.cite.visualEditor.data",
 				"ext.cite.style",

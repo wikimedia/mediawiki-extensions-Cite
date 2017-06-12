@@ -106,7 +106,9 @@ class CiteHooks {
 			"messages" => [
 				"cite-ve-referenceslist-isempty",
 				"cite-ve-referenceslist-isempty-default",
-				"cite-ve-referenceslist-missingref"
+				"cite-ve-referenceslist-missingref",
+				"visualeditor-internal-list-diff-default-group-name-mwreference",
+				"visualeditor-internal-list-diff-group-name-mwreference"
 			],
 			"targets" => [
 				"desktop",

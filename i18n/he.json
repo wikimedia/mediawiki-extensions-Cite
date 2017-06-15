@@ -9,6 +9,7 @@
 		]
 	},
 	"apihelp-query+references-description": "החזרת ייצוג נתונים של ציטוטים שמשויכים לדפים הנתונים.",
+	"apihelp-query+references-summary": "החזרת ייצוג נתונים של מקורות שמשויכים לדפים שניתנו.",
 	"apihelp-query+references-example-1": "ציטוטים שמשויכים ל־<kbd>Albert Einstein</kbd>.",
 	"apierror-citestoragedisabled": "אחסון הערות של ההרחבה Cite אינו מופעל.",
 	"cite-desc": "הוספת תגי <span dir=\"ltr\"><nowiki><ref[ name=id]></nowiki></span> ו־<span dir=\"ltr\"><nowiki><references/></nowiki></span> עבור הערות שוליים",

@@ -54,6 +54,9 @@
 					"media": "print"
 				}
 			},
+			"skinStyles": {
+				"minerva": "ext.cite.styles.minerva.less"
+			},
 			"position": "bottom",
 			"targets": [
 				"desktop",

@@ -44,6 +44,7 @@
 	"cite-ve-dialog-reference-options-group-placeholder": "Placeholder for the reference group input",
 	"cite-ve-dialog-reference-options-name-label": "Label for the reference name input",
 	"cite-ve-dialog-reference-options-section": "Label for the reference options sub-section.\n{{Identical|Options}}",
+	"cite-ve-dialog-reference-placeholder": "Placeholder text shown in a basic reference when no text has yet been entered.",
 	"cite-ve-dialog-reference-title": "{{Identical|Reference}}",
 	"cite-ve-dialog-reference-useexisting-full-label": "Full length label for the button to choose an existing reference",
 	"cite-ve-dialog-reference-useexisting-label": "Label for button in reference dialog to insert a re-use of an existing reference",

@@ -163,6 +163,7 @@ class CiteHooks {
 				"cite-ve-dialog-reference-options-group-placeholder",
 				"cite-ve-dialog-reference-options-name-label",
 				"cite-ve-dialog-reference-options-section",
+				"cite-ve-dialog-reference-placeholder",
 				"cite-ve-dialog-reference-title",
 				"cite-ve-dialog-reference-useexisting-full-label",
 				"cite-ve-dialog-reference-useexisting-label",

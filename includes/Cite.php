@@ -759,7 +759,6 @@ class Cite {
 		}
 
 		if ( !$data || !$this->mParser->isValidHalfParsedText( $data ) ) {
-
 			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 			$ret = rtrim( $this->mParser->recursiveTagParse( $parserInput ), "\n" );
 

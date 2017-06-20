@@ -78,7 +78,6 @@ class CiteHooks {
 	 * @return true
 	 */
 	public static function onResourceLoaderRegisterModules( &$resourceLoader ) {
-
 		if ( ! class_exists( 'VisualEditorHooks' ) ) {
 			return true;
 		}

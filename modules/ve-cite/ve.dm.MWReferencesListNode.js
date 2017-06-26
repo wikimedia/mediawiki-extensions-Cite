@@ -134,6 +134,9 @@ ve.dm.MWReferencesListNode.static.describeChange = function ( key, change ) {
 		}
 		return ve.msg( 'cite-ve-changedesc-ref-group-to', change.to );
 	}
+	if ( key === 'originalMw' ) {
+		return null;
+	}
 
 	return null;
 };

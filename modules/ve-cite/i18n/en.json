@@ -52,5 +52,7 @@
 	"cite-ve-referenceslist-isempty-default": "There are no references on this page to include in this list.",
 	"cite-ve-referenceslist-missingref": "This reference is defined in a template or other generated block, and for now can only be edited in source mode.",
 	"cite-ve-toolbar-group-label": "Cite",
-	"cite-ve-othergroup-item": "$1 reference"
+	"cite-ve-othergroup-item": "$1 reference",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "References",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Reference group name: \"$1\""
 }

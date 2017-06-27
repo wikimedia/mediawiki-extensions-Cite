@@ -42,5 +42,7 @@
 	"cite-ve-referenceslist-isempty-default": "На страницава нема наводи што би ги ставил во списоков.",
 	"cite-ve-referenceslist-missingref": "Овој навод се задава во шаблон или друг самосоздаден блок. Засега може да се уредува само непосредно во изворот.",
 	"cite-ve-toolbar-group-label": "Наведи",
-	"cite-ve-othergroup-item": "$1 навод"
+	"cite-ve-othergroup-item": "$1 навод",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Наводи",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Име на групата наводи: „$1“"
 }

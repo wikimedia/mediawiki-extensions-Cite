@@ -58,5 +58,7 @@
 	"cite-ve-referenceslist-isempty-default": "In questa pagina non ci sono note da elencare.",
 	"cite-ve-referenceslist-missingref": "Questa nota è definita in un template o in un altro blocco generato e per ora può essere modificata solo in modalità sorgente.",
 	"cite-ve-toolbar-group-label": "Cita",
-	"cite-ve-othergroup-item": "$1 note"
+	"cite-ve-othergroup-item": "$1 note",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Riferimenti",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Nome gruppo riferimenti: \"$1\""
 }

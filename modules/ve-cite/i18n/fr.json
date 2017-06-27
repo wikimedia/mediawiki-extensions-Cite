@@ -45,7 +45,8 @@
 			"Wladek92",
 			"Harmonia Amanda",
 			"Macofe",
-			"Pols12"
+			"Pols12",
+			"Thibaut120094"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "nul",
@@ -84,5 +85,7 @@
 	"cite-ve-referenceslist-isempty-default": "Il n’y a aucune référence sur cette page à inclure dans cette liste.",
 	"cite-ve-referenceslist-missingref": "Cette référence est définie dans un modèle ou un autre bloc généré et ne peut pour le moment être modifiée qu’avec l’éditeur de wikicode.",
 	"cite-ve-toolbar-group-label": "Source",
-	"cite-ve-othergroup-item": "référence $1"
+	"cite-ve-othergroup-item": "référence $1",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Références",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Nom du groupe de référence : « $1 »"
 }

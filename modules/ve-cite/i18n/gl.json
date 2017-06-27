@@ -31,6 +31,7 @@
 	"cite-ve-dialog-reference-options-group-placeholder": "Referencias xerais",
 	"cite-ve-dialog-reference-options-name-label": "Reutilizar por este nome",
 	"cite-ve-dialog-reference-options-section": "Opcións",
+	"cite-ve-dialog-reference-placeholder": "Escribe ou pega a túa referencia aquí, ou insire un modelo de cita.",
 	"cite-ve-dialog-reference-title": "Referencia",
 	"cite-ve-dialog-reference-useexisting-full-label": "Reutilizar unha cita que xa existe nesta páxina",
 	"cite-ve-dialog-reference-useexisting-label": "Utilizar unha referencia existente",
@@ -49,5 +50,7 @@
 	"cite-ve-referenceslist-isempty-default": "Non hai referencias nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referencia está definida nun modelo ou noutro bloque xerado; polo de agora, só se pode editar no modo fonte.",
 	"cite-ve-toolbar-group-label": "Citar",
-	"cite-ve-othergroup-item": "referencia $1"
+	"cite-ve-othergroup-item": "referencia $1",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencias",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Grupo de referencias de nome : \"$1\""
 }

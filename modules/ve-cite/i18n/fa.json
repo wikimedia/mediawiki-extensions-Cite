@@ -59,5 +59,7 @@
 	"cite-ve-referenceslist-isempty-default": "ارجاعی در این صفحه برای شامل‌کردن در این فهرست وجود ندارد.",
 	"cite-ve-referenceslist-missingref": "این یادکرد درون یک الگو یا قطعهٔ تولیدی دیگر تعریف شده است و هم‌اکنون تنها می‌توان در حالت متنی آن را ویرایش کرد",
 	"cite-ve-toolbar-group-label": "یادکرد",
-	"cite-ve-othergroup-item": "$1 ارجاع"
+	"cite-ve-othergroup-item": "$1 ارجاع",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "منابع",
+	"visualeditor-internal-list-diff-group-name-mwreference": "نام گروه منابع: «$1»"
 }

@@ -44,5 +44,6 @@
 	"cite-ve-referenceslist-missingref": "এই তথ্যটি একটি টেমপ্লেট বা অন্যান্য উত্পন্ন ব্লক হিসেবে সংজ্ঞায়িত করা হয় এবং এখনকার জন্য এটি শুধুমাত্র উৎস মোডে সম্পাদনা করা যাবে।",
 	"cite-ve-toolbar-group-label": "উদ্ধৃতি",
 	"cite-ve-othergroup-item": "$1টি তথ্যসূত্র",
-	"visualeditor-internal-list-diff-default-group-name-mwreference": "তথ্যসূত্র"
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "তথ্যসূত্র",
+	"visualeditor-internal-list-diff-group-name-mwreference": "তথ্যসূত্রের দলের নাম: \"$1\""
 }

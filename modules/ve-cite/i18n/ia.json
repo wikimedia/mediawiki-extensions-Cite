@@ -40,5 +40,7 @@
 	"cite-ve-referenceslist-isempty-default": "Il non ha referentias in iste pagina a includer in iste lista.",
 	"cite-ve-referenceslist-missingref": "Iste referentia es definite in un patrono o altere bloco generate, e pro le momento pote solmente esser modificate in modo de codice fonte.",
 	"cite-ve-toolbar-group-label": "Citar",
-	"cite-ve-othergroup-item": "Referentia $1"
+	"cite-ve-othergroup-item": "Referentia $1",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referentias",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Nomine del gruppo de referentias: \"$1\""
 }

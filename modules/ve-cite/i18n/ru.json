@@ -66,5 +66,7 @@
 	"cite-ve-referenceslist-isempty-default": "На этой странице нет ссылок для включения в этот список.",
 	"cite-ve-referenceslist-missingref": "Эта сноска определена в шаблоне или другом генерируемом блоке и на данный момент может быть отредактирована только в режиме правки исходного текста.",
 	"cite-ve-toolbar-group-label": "Источники",
-	"cite-ve-othergroup-item": "$1 примечание"
+	"cite-ve-othergroup-item": "$1 примечание",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Сноски",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Название группы сносок: «$1»"
 }

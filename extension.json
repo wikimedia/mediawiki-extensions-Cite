@@ -103,9 +103,6 @@
 		"CiteDataModule": "includes/CiteDataModule.php",
 		"CiteCSSFileModule": "includes/CiteCSSFileModule.php"
 	},
-	"ParserTestFiles": [
-		"tests/parser/citeParserTests.txt"
-	],
 	"TrackingCategories": [
 		"cite-tracking-category-cite-error"
 	],

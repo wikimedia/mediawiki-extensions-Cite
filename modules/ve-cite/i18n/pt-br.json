@@ -24,7 +24,8 @@
 			"TheEduGobi",
 			"TheGabrielZaum",
 			"!Silent",
-			"McDutchie"
+			"McDutchie",
+			"Felipe L. Ewald"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "nulo",
@@ -56,5 +57,6 @@
 	"cite-ve-referenceslist-isempty-default": "Não há qualquer referência nesta página para a incluir nesta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referência está definida em uma predefinição ou em um outro bloco gerado e, por enquanto só pode ser editada no código-fonte.",
 	"cite-ve-toolbar-group-label": "Citar",
-	"cite-ve-othergroup-item": "Referência $1"
+	"cite-ve-othergroup-item": "Referência $1",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referências"
 }

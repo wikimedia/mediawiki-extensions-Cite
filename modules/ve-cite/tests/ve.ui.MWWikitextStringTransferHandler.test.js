@@ -8,12 +8,12 @@
 window.MWWIKITEXT_MOCK_API = true;
 
 QUnit.module( 've.ui.MWWikitextStringTransferHandler (Cite)', QUnit.newMwEnvironment( {
-	setup: function () {
+	beforeEach: function () {
 		// Mock XHR for mw.Api()
 		this.server = window.MWWIKITEXT_MOCK_API ? this.sandbox.useFakeServer() : null;
 		ve.test.utils.mwEnvironment.setup.call( this );
 	},
-	teardown: ve.test.utils.mwEnvironment.teardown
+	afterEach: ve.test.utils.mwEnvironment.teardown
 } ) );
 
 /* Tests */

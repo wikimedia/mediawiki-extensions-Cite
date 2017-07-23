@@ -1265,13 +1265,13 @@ class Cite {
 
 		$parser->extCite = new self();
 
-		if ( !Cite::$hooksInstalled ) {
+		if ( !self::$hooksInstalled ) {
 			$wgHooks['ParserClearState'][] = [ $parser->extCite, 'clearState' ];
 			$wgHooks['ParserCloned'][] = [ $parser->extCite, 'cloneState' ];
 			$wgHooks['ParserAfterParse'][] = [ $parser->extCite, 'checkRefsNoReferences', true ];
 			$wgHooks['ParserBeforeTidy'][] = [ $parser->extCite, 'checkRefsNoReferences', false ];
 			$wgHooks['InlineEditorPartialAfterParse'][] = [ $parser->extCite, 'checkAnyCalls' ];
-			Cite::$hooksInstalled = true;
+			self::$hooksInstalled = true;
 		}
 		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );
 		$parser->setHook( 'references', [ $parser->extCite, 'references' ] );

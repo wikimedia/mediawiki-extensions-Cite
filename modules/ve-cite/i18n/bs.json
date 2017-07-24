@@ -12,7 +12,7 @@
 	"visualeditor-cite-tool-name-news": "Vijesti",
 	"visualeditor-cite-tool-name-web": "Veb-sajt",
 	"cite-ve-dialog-reference-editing-reused": "Ova referenca koristi se već $1 {{PLURAL:$1|put|puta}} na ovoj stranici.",
-	"cite-ve-dialog-reference-options-group-label": "Koristite ovu grupu",
+	"cite-ve-dialog-reference-options-group-label": "Koristi ovu grupu",
 	"cite-ve-dialog-reference-options-group-placeholder": "Opće reference",
 	"cite-ve-dialog-reference-options-name-label": "Ponovo koristi pod ovim imenom",
 	"cite-ve-dialog-reference-options-section": "Opcije",

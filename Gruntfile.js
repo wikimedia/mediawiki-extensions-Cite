@@ -19,7 +19,8 @@ module.exports = function ( grunt ) {
 				'**/*.js',
 				'{.jsduck,build}/**/*.js',
 				'modules/**/*.js',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 		banana: conf.MessagesDirs,
@@ -27,14 +28,16 @@ module.exports = function ( grunt ) {
 			all: [
 				'**/*.css',
 				'**/*.less',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 		jsonlint: {
 			all: [
 				'**/*.json',
 				'.stylelintrc',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		}
 	} );

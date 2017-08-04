@@ -23,5 +23,6 @@
 	"cite_error_references_no_key": "De tag <code>&lt;ref&gt;</code> dae is gedefinieerd in <code>&lt;references&gt;</code> haet geine eigesjapsnaam.",
 	"cite_error_empty_references_define": "De tag <code>&lt;ref&gt;</code> dae is gedefinieerd in <code>&lt;references&gt;</code> mit de naam \"$1\" haet geinen inhawd.",
 	"cite_references_link_accessibility_label": "Ómhoeag",
-	"cite_references_link_many_accessibility_label": "Ómhoeag nao:"
+	"cite_references_link_many_accessibility_label": "Ómhoeag nao:",
+	"cite_warning": "Rifferensiewaorsjoewing: $1"
 }

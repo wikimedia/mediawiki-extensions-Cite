@@ -532,13 +532,11 @@ ve.dm.citeExample.complexInternalData = [
 	'F', [ 'o', [ ve.dm.example.bold ] ], [ 'o', [ ve.dm.example.italic ] ],
 	// 4
 	{ type: 'mwReference', attributes: {
-		mw: {},
 		about: '#mwt1',
 		listIndex: 0,
 		listGroup: 'mwReference/',
 		listKey: 'auto/0',
-		refGroup: '',
-		contentsUsed: true
+		refGroup: ''
 	} },
 	// 5
 	{ type: '/mwReference' },

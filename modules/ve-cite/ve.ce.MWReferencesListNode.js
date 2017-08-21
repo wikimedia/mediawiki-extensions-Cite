@@ -150,6 +150,28 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		listGroup = this.model.getAttribute( 'listGroup' ),
 		nodes = internalList.getNodeGroup( listGroup );
 
+	function updateGeneratedContent( viewNode, $li ) {
+		// HACK: PHP parser doesn't wrap single lines in a paragraph
+		if (
+			viewNode.$element.children().length === 1 &&
+			viewNode.$element.children( 'p' ).length === 1
+		) {
+			// unwrap inner
+			viewNode.$element.children().replaceWith(
+				viewNode.$element.children().contents()
+			);
+		}
+		$li.append(
+			$( '<span>' )
+				.addClass( 'reference-text' )
+				.append( viewNode.$element )
+		);
+
+		// Since this is running after content generation has finished, it's
+		// safe to destroy the view.
+		viewNode.destroy();
+	}
+
 	this.$reflist.detach().empty();
 	this.$refmsg.detach();
 
@@ -220,26 +242,16 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			modelNode = internalList.getItemNode( firstNode.getAttribute( 'listIndex' ) );
 			if ( modelNode && modelNode.length ) {
 				viewNode = new ve.ce.InternalItemNode( modelNode );
-				// HACK: PHP parser doesn't wrap single lines in a paragraph
-				if (
-					viewNode.$element.children().length === 1 &&
-					viewNode.$element.children( 'p' ).length === 1
-				) {
-					// unwrap inner
-					viewNode.$element.children().replaceWith(
-						viewNode.$element.children().contents()
-					);
-				}
-				$li.append(
-					$( '<span>' )
-						.addClass( 'reference-text' )
-						.append( viewNode.$element )
-				);
-				// HACK: See bug 62682 - We happen to know that destroy doesn't abort async
-				// rendering for generated content nodes, but we really can't guarantee that in the
-				// future - if you are here, debugging, because something isn't rendering properly,
-				// it's likely that something has changed and these assumptions are no longer valid
-				viewNode.destroy();
+
+				ve.ce.GeneratedContentNode.static.awaitGeneratedContent( viewNode )
+					.then( updateGeneratedContent.bind( this, viewNode, $li ) );
+
+				// Because this update runs a number of times when using the
+				// basic dialog, disconnect the model here rather than waiting
+				// for when it's destroyed after the generated content is
+				// finished. Failing to do this causes teardown errors with
+				// basic citations.
+				modelNode.disconnect( viewNode );
 			} else {
 				$li.append(
 					$( '<span>' )

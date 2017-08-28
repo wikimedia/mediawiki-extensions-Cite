@@ -29,7 +29,7 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 
 	// DOM changes
 	this.$element.addClass( 've-ce-mwReferencesListNode' );
-	this.$reflist = $( '<ol class="mw-references"></ol>' );
+	this.$reflist = $( '<ol>' ).addClass( 'mw-references references' );
 	this.$refmsg = $( '<p>' )
 		.addClass( 've-ce-mwReferencesListNode-muted' );
 

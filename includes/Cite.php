@@ -1383,7 +1383,7 @@ class Cite {
 			$key,
 			self::CACHE_DURATION_ONFETCH,
 			function ( $oldValue, &$ttl, array &$setOpts ) use ( $title ) {
-				$dbr = wfGetDB( DB_SLAVE );
+				$dbr = wfGetDB( DB_REPLICA );
 				$setOpts += Database::getCacheSetOptions( $dbr );
 				return self::recursiveFetchRefsFromDB( $title, $dbr );
 			},

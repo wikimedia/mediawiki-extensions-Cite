@@ -66,5 +66,6 @@
 	"cite-ve-referenceslist-missingref": "Esta referencia está definida en una plantilla u otro tipo de bloque generado, y por ahora sólo puede editarse en el editor de fuente.",
 	"cite-ve-toolbar-group-label": "Citar",
 	"cite-ve-othergroup-item": "referencia $1",
-	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencias"
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencias",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Nombre de grupo de referencias: «$1»"
 }

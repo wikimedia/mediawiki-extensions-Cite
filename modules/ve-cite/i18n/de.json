@@ -28,6 +28,7 @@
 	"cite-ve-changedesc-reflist-group-both": "Einzelnachweislistengruppe geändert von „$1“ in „$2“",
 	"cite-ve-changedesc-reflist-group-from": "Einzelnachweislistengruppe geändert von „$1“ in die allgemeine Gruppe",
 	"cite-ve-changedesc-reflist-group-to": "Einzelnachweislistengruppe geändert von der allgemeinen Gruppe in „$1“",
+	"cite-ve-changedesc-reflist-item-id": "Einzelnachweisindex geändert",
 	"cite-ve-dialog-reference-editing-reused": "Dieser Einzelnachweis wird auf dieser Seite {{PLURAL:$1|einmal|$1 Mal}} verwendet.",
 	"cite-ve-dialog-reference-options-group-label": "Diese Gruppe verwenden",
 	"cite-ve-dialog-reference-options-group-placeholder": "Allgemeine Einzelnachweise",

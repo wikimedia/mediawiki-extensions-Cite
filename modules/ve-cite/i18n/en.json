@@ -28,6 +28,7 @@
 	"cite-ve-changedesc-reflist-group-both": "References list group changed from \"$1\" to \"$2\"",
 	"cite-ve-changedesc-reflist-group-from": "References list group changed from \"$1\" to the general group",
 	"cite-ve-changedesc-reflist-group-to": "References list group changed from the general group to \"$1\"",
+	"cite-ve-changedesc-reflist-item-id": "Reference index changed",
 	"cite-ve-dialog-reference-editing-reused": "This reference is used $1 {{PLURAL:$1|times}} on this page.",
 	"cite-ve-dialog-reference-options-group-label": "Use this group",
 	"cite-ve-dialog-reference-options-group-placeholder": "General references",

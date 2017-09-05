@@ -323,6 +323,9 @@ ve.dm.MWReferenceNode.static.cloneElement = function () {
 	return clone;
 };
 
+/**
+ * @inheritdoc
+ */
 ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 	if ( key === 'refGroup' ) {
 		if ( change.from ) {
@@ -334,11 +337,9 @@ ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 		}
 		return ve.msg( 'cite-ve-changedesc-reflist-group-to', change.to );
 	}
-	if ( key === 'listGroup' || key === 'originalMw' ) {
-		return null;
+	if ( key === 'refListItemId' ) {
+		return ve.msg( 'cite-ve-changedesc-reflist-item-id' );
 	}
-
-	return ve.dm.MWReferenceNode.parent.static.describeChange.apply( this, arguments );
 };
 
 /* Methods */

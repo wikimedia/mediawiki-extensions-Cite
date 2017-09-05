@@ -160,6 +160,7 @@ class CiteHooks {
 				"cite-ve-changedesc-reflist-group-both",
 				"cite-ve-changedesc-reflist-group-from",
 				"cite-ve-changedesc-reflist-group-to",
+				"cite-ve-changedesc-reflist-item-id",
 				"cite-ve-dialog-reference-editing-reused",
 				"cite-ve-dialog-reference-options-group-label",
 				"cite-ve-dialog-reference-options-group-placeholder",

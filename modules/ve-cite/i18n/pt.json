@@ -33,6 +33,7 @@
 	"cite-ve-changedesc-reflist-group-both": "Grupo da lista de referências alterado de \"$1\" para \"$2\"",
 	"cite-ve-changedesc-reflist-group-from": "Grupo da lista de referências alterado de \"$1\" para o grupo geral",
 	"cite-ve-changedesc-reflist-group-to": "Grupo da lista de referências alterado do grupo geral para \"$1\"",
+	"cite-ve-changedesc-reflist-item-id": "Índice da referência alterado",
 	"cite-ve-dialog-reference-editing-reused": "Esta referência é usada $1 {{PLURAL:$1|vezes}} nesta página.",
 	"cite-ve-dialog-reference-options-group-label": "Usar este grupo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referências gerais",

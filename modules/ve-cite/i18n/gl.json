@@ -26,6 +26,7 @@
 	"cite-ve-changedesc-reflist-group-both": "Grupo de lista de referencias cambiado de \"$1\" to \"$2\"",
 	"cite-ve-changedesc-reflist-group-from": "Grupo de lista de referencias cambiado de \"$1\" ó grupo xeral",
 	"cite-ve-changedesc-reflist-group-to": "Grupo de lista de referencias cambiado do grupo xeral a \"$1\"",
+	"cite-ve-changedesc-reflist-item-id": "Índice da referencia modificado",
 	"cite-ve-dialog-reference-editing-reused": "Esta referenza úsase $1 {{PLURAL:$1|vez|veces}} nesta páxina.",
 	"cite-ve-dialog-reference-options-group-label": "Utilizar este grupo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referencias xerais",

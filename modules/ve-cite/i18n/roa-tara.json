@@ -16,6 +16,7 @@
 	"cite-ve-changedesc-reflist-group-both": "Elenghe de le gruppe de referimende cangiate da \"$1\" a \"$2\"",
 	"cite-ve-changedesc-reflist-group-from": "Elenghe de le gruppe de referimende cangiate da \"$1\" a gruppe generale",
 	"cite-ve-changedesc-reflist-group-to": "Elenghe de le gruppe de referimende cangiate da gruppe generale a \"$1\"",
+	"cite-ve-changedesc-reflist-item-id": "Indice de referimende cangiate",
 	"cite-ve-dialog-reference-editing-reused": "Stu referimende avène ausate $1 {{PLURAL:$1|vote}} sus a sta pàgene.",
 	"cite-ve-dialog-reference-options-group-label": "Ause stu gruppe",
 	"cite-ve-dialog-reference-options-group-placeholder": "Refereminde generale",

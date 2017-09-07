@@ -1,13 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bunukwiki"
+			"Bunukwiki",
+			"Benel"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "cudad",
 	"visualeditor-cite-tool-name-news": "sinbun",
 	"visualeditor-cite-tool-name-web": "calay-kakacawan(C-wangcan)",
 	"cite-ve-dialog-reference-options-section": "mapili’ay",
+	"cite-ve-dialog-reference-useexisting-tool": "caliwanaca",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "nicaliwan",
 	"cite-ve-dialogbutton-reference-tooltip": "angangan",
 	"cite-ve-toolbar-group-label": "nicaliwan"

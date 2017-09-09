@@ -35,6 +35,7 @@
 	"cite-ve-changedesc-reflist-group-both": "فهرست ارجاع‌های گروهی از «$1» به «$2» تغییر یافت",
 	"cite-ve-changedesc-reflist-group-from": "فهرست ارجاع‌های گروهی از «$1» به گروه عمومی تغییر یافت",
 	"cite-ve-changedesc-reflist-group-to": "فهرست ارجاع‌های گروهی از گروه عمومی به «$1» تغییر یافت",
+	"cite-ve-changedesc-reflist-item-id": "نمایه منابع تغییریافت",
 	"cite-ve-dialog-reference-editing-reused": "این یادکرد $1 {{PLURAL:$1|times}} در این صفحه استفاده شده‌است.",
 	"cite-ve-dialog-reference-options-group-label": "استفاده از این گروه",
 	"cite-ve-dialog-reference-options-group-placeholder": "منابع عمومی",

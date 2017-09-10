@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bunukwiki"
+			"Bunukwiki",
+			"Benel"
 		]
 	},
 	"cite_error": "nicaliwan mungangaw: $1",
-	"cite_references_link_accessibility_label": "palimad i"
+	"cite_references_link_accessibility_label": "palimad i",
+	"cite_section_preview_references": "pataayaway miazih miazih tu tatenga’ay nasulitan"
 }

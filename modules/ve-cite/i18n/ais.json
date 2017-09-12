@@ -2,15 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Bunukwiki",
-			"Benel"
+			"Benel",
+			"Tokoabibi"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "cudad",
+	"visualeditor-cite-tool-name-journal": "paydemiad-inasc-nasulitan",
 	"visualeditor-cite-tool-name-news": "sinbun",
 	"visualeditor-cite-tool-name-web": "calay-kakacawan(C-wangcan)",
 	"cite-ve-dialog-reference-options-group-label": "pisaungay tina luyaluy",
 	"cite-ve-dialog-reference-options-section": "mapili’ay",
-	"cite-ve-dialog-reference-useexisting-tool": "caliwanaca",
+	"cite-ve-dialog-reference-useexisting-tool": "miliyaw pisaungay",
 	"cite-ve-dialog-referenceslist-title": "miazih tu tatenga’ay  nasulitan piazihan tu sulit",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "nicaliwan",
 	"cite-ve-dialogbutton-reference-full-label": "palana’an aazihan a cudad",

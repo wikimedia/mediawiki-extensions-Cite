@@ -267,4 +267,17 @@ class CiteHooks {
 		$vars['wgCiteVisualEditorOtherGroup'] = $config->get( 'CiteVisualEditorOtherGroup' );
 		return true;
 	}
+
+	/**
+	 * Hook: APIQuerySiteInfoGeneralInfo
+	 *
+	 * Expose configs via action=query&meta=siteinfo
+	 *
+	 * @param ApiQuerySiteInfo $api
+	 * @param array &$data
+	 */
+	public static function onAPIQuerySiteInfoGeneralInfo( ApiQuerySiteInfo $api, array &$data ) {
+		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'cite' );
+		$data['citeresponsivereferences'] = $config->get( 'CiteResponsiveReferences' );
+	}
 }

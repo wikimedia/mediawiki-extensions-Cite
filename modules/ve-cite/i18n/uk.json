@@ -34,6 +34,7 @@
 	"cite-ve-changedesc-reflist-group-both": "Групу списку приміток змінено з «$1» на «$2»",
 	"cite-ve-changedesc-reflist-group-from": "Групу списку приміток змінено з «$1» на загальну групу",
 	"cite-ve-changedesc-reflist-group-to": "Групу списку приміток змінено із загальної групи на «$1»",
+	"cite-ve-changedesc-reflist-item-id": "Покажчик приміток змінився",
 	"cite-ve-dialog-reference-editing-reused": "Ця примітка використовується $1 {{PLURAL:$1|раз|рази|разів}} на цій сторінці.",
 	"cite-ve-dialog-reference-options-group-label": "Використати цю групу",
 	"cite-ve-dialog-reference-options-group-placeholder": "Загальні посилання",

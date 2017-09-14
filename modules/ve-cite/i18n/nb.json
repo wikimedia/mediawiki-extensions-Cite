@@ -53,5 +53,7 @@
 	"cite-ve-referenceslist-isempty-default": "Det er ingen kildehenvisninger på denne siden som kan inkluderes i denne lista.",
 	"cite-ve-referenceslist-missingref": "Denne kildehenvisningen er definert ved hjelp av en mal eller en annen generert blokk, og kan foreløpig kun redigeres i kildemodus.",
 	"cite-ve-toolbar-group-label": "Angi kilde",
-	"cite-ve-othergroup-item": "$1 referanse"
+	"cite-ve-othergroup-item": "$1 referanse",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referanser",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Referansegruppenavn: «$1»"
 }

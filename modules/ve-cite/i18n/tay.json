@@ -6,8 +6,10 @@
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Biru’",
+	"visualeditor-cite-tool-name-web": "Wangcan",
 	"cite-ve-dialog-referenceslist-title": "Kt’aniy sa binkgan kktan biru’ na bunkeng",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "’nagal sa",
+	"cite-ve-dialogbutton-reference-tooltip": "T’ringan balay na",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Kt’aniy sa binkgan kktan biru’ na bunkeng",
 	"cite-ve-toolbar-group-label": "’nagal sa"
 }

@@ -36,8 +36,10 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 	// Events
 	this.model.connect( this, { attributeChange: 'onAttributeChange' } );
 
+	this.updateDebounced = ve.debounce( this.update.bind( this ) );
+
 	// Initialization
-	this.update();
+	this.updateDebounced();
 };
 
 /* Inheritance */
@@ -108,7 +110,7 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
 ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsChanged ) {
 	// Only update if this group has been changed
 	if ( groupsChanged.indexOf( this.model.getAttribute( 'listGroup' ) ) !== -1 ) {
-		this.update();
+		this.updateDebounced();
 	}
 };
 
@@ -121,7 +123,7 @@ ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsCha
  */
 ve.ce.MWReferencesListNode.prototype.onAttributeChange = function ( key ) {
 	if ( key === 'listGroup' ) {
-		this.update();
+		this.updateDebounced();
 	}
 };
 
@@ -136,7 +138,7 @@ ve.ce.MWReferencesListNode.prototype.onListNodeUpdate = function () {
 	// When the list node updates we're not sure which list group the item
 	// belonged to so we always update
 	// TODO: Only re-render the reference which has been edited
-	this.update();
+	this.updateDebounced();
 };
 
 /**

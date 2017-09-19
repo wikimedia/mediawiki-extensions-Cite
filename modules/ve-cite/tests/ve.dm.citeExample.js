@@ -227,7 +227,8 @@ ve.dm.citeExample.domToDataCases = {
 					},
 					originalMw: '{"name":"references","body":{"html":"<span about=\\"#mwt8\\" class=\\"reference\\" data-mw=\\"{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;Ref in refs&quot;},&quot;attrs&quot;:{&quot;group&quot;:&quot;g1&quot;,&quot;name&quot;:&quot;foo&quot;}}\\" rel=\\"dc:references\\" typeof=\\"mw:Extension/ref\\"><a href=\\"#cite_note-foo-3\\">[3]</a></span>"},"attrs":{"group":"g1"}}',
 					listGroup: 'mwReference/g1',
-					refGroup: 'g1'
+					refGroup: 'g1',
+					isResponsive: true
 				}
 			},
 			{ type: 'paragraph', internal: { generated: 'wrapper' } },
@@ -491,7 +492,8 @@ ve.dm.citeExample.references = [
 			},
 			originalMw: '{"name":"references","attrs":{"group":"g1"}"}',
 			listGroup: 'mwReference/',
-			refGroup: ''
+			refGroup: '',
+			isResponsive: true
 		}
 	},
 	{ type: '/mwReferencesList' },

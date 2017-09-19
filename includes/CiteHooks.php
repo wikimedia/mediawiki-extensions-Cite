@@ -150,6 +150,7 @@ class CiteHooks {
 				"ext.cite.visualEditor.core",
 				"ext.cite.visualEditor.data",
 				"ext.cite.style",
+				"ext.cite.styles",
 				"ext.visualEditor.mwtransclusion",
 				"ext.visualEditor.mediawiki"
 			],
@@ -165,6 +166,7 @@ class CiteHooks {
 				"cite-ve-dialog-reference-options-group-label",
 				"cite-ve-dialog-reference-options-group-placeholder",
 				"cite-ve-dialog-reference-options-name-label",
+				"cite-ve-dialog-reference-options-responsive-label",
 				"cite-ve-dialog-reference-options-section",
 				"cite-ve-dialog-reference-placeholder",
 				"cite-ve-dialog-reference-title",
@@ -265,6 +267,7 @@ class CiteHooks {
 	public static function onResourceLoaderGetConfigVars( array &$vars ) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'cite' );
 		$vars['wgCiteVisualEditorOtherGroup'] = $config->get( 'CiteVisualEditorOtherGroup' );
+		$vars['wgCiteResponsiveReferences'] = $config->get( 'CiteResponsiveReferences' );
 		return true;
 	}
 

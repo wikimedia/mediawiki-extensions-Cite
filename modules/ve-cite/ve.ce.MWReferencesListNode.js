@@ -122,8 +122,13 @@ ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsCha
  * @param {string} to New value
  */
 ve.ce.MWReferencesListNode.prototype.onAttributeChange = function ( key ) {
-	if ( key === 'listGroup' ) {
-		this.updateDebounced();
+	switch ( key ) {
+		case 'listGroup':
+			this.updateDebounced();
+			break;
+		case 'isResponsive':
+			this.updateClasses();
+			break;
 	}
 };
 
@@ -264,8 +269,22 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 
 			this.$reflist.append( $li );
 		}
+		this.updateClasses();
 		this.$element.append( this.$reflist );
 	}
+};
+
+/**
+ * Update ref list classes.
+ *
+ * Currently used to set responsive layout
+ */
+ve.ce.MWReferencesListNode.prototype.updateClasses = function () {
+	var isResponsive = this.model.getAttribute( 'isResponsive' );
+
+	this.$element
+		.toggleClass( 'mw-references-wrap', isResponsive )
+		.toggleClass( 'mw-references-columns', isResponsive && this.$reflist.children().length > 10 );
 };
 
 /* Registration */

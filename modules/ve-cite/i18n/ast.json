@@ -19,6 +19,7 @@
 	"cite-ve-changedesc-reflist-group-both": "Grupu de llista de referencies cambiáu de «$1» to «$2»",
 	"cite-ve-changedesc-reflist-group-from": "Grupu de llista de referencies cambiáu de «$1» al grupu xeneral",
 	"cite-ve-changedesc-reflist-group-to": "Grupu de llista de referencies cambiáu del grupu xeneral a «$1»",
+	"cite-ve-changedesc-reflist-item-id": "Cambió l'índiz de la referencia",
 	"cite-ve-dialog-reference-editing-reused": "Esta referencia úsase $1 {{PLURAL:$1|vez|veces}} nesta páxina.",
 	"cite-ve-dialog-reference-options-group-label": "Usar esti grupu",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referencies xenerales",

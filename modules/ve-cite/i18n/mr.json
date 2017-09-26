@@ -33,12 +33,12 @@
 	"cite-ve-dialogbutton-citation-educationpopup-title": "संदर्भ",
 	"cite-ve-dialogbutton-reference-full-label": "मूळ रुप",
 	"cite-ve-dialogbutton-reference-title": "संदर्भ",
-	"cite-ve-dialogbutton-reference-tooltip": "प्राथमिक",
+	"cite-ve-dialogbutton-reference-tooltip": "पहिल्यांदा",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "संदर्भ यादी",
 	"cite-ve-reference-input-placeholder": "सध्या अवतरणातच शोधा",
 	"cite-ve-referenceslist-isempty": "गट \"$1\" पाशी या लेखपानावर संदर्भ उपलब्ध नाहीत.",
 	"cite-ve-referenceslist-isempty-default": "या यादीत अंतर्भूत करावयासाठी या पानावर कोणतेच संदर्भ नाहीत.",
 	"cite-ve-referenceslist-missingref": "हा संदर्भ सध्या केवळ स्रोत संपादन पद्धतीने संपादीत करता येतो कारण संबंधित संदर्भ साचातून किंवा इतर जनरेटेड ब्लॉक मधून डिफाईन केला गेला आहे.",
-	"cite-ve-toolbar-group-label": "उधृत करा",
+	"cite-ve-toolbar-group-label": "संदर्भ जोडा",
 	"cite-ve-othergroup-item": "$1 संदर्भ"
 }

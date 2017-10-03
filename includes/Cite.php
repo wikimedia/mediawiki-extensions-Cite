@@ -269,12 +269,18 @@ class Cite {
 			if ( $group != $this->mReferencesGroup ) {
 				# <ref> and <references> have conflicting group attributes.
 				$this->mReferencesErrors[] =
-					$this->error( 'cite_error_references_group_mismatch', htmlspecialchars( $group ) );
+					$this->error(
+						'cite_error_references_group_mismatch',
+						Sanitizer::safeEncodeAttribute( $group )
+					);
 			} elseif ( $str !== '' ) {
 				if ( !$isSectionPreview && !isset( $this->mRefs[$group] ) ) {
 					# Called with group attribute not defined in text.
 					$this->mReferencesErrors[] =
-						$this->error( 'cite_error_references_missing_group', htmlspecialchars( $group ) );
+						$this->error(
+							'cite_error_references_missing_group',
+							Sanitizer::safeEncodeAttribute( $group )
+						);
 				} elseif ( $key === null || $key === '' ) {
 					# <ref> calls inside <references> must be named
 					$this->mReferencesErrors[] =
@@ -282,7 +288,7 @@ class Cite {
 				} elseif ( !$isSectionPreview && !isset( $this->mRefs[$group][$key] ) ) {
 					# Called with name attribute not defined in text.
 					$this->mReferencesErrors[] =
-						$this->error( 'cite_error_references_missing_key', $key );
+						$this->error( 'cite_error_references_missing_key', Sanitizer::safeEncodeAttribute( $key ) );
 				} else {
 					if (
 						isset( $this->mRefs[$group][$key]['text'] ) &&
@@ -301,7 +307,7 @@ class Cite {
 			} else {
 				# <ref> called in <references> has no content.
 				$this->mReferencesErrors[] =
-					$this->error( 'cite_error_empty_references_define', $key );
+					$this->error( 'cite_error_empty_references_define', Sanitizer::safeEncodeAttribute( $key ) );
 			}
 			return '';
 		}
@@ -403,13 +409,13 @@ class Cite {
 			}
 			if ( isset( $argv['name'] ) ) {
 				// Key given.
-				$key = Sanitizer::escapeId( $argv['name'], 'noninitial' );
+				$key = Sanitizer::escapeIdForAttribute( $argv['name'] );
 				unset( $argv['name'] );
 				--$cnt;
 			}
 			if ( isset( $argv['follow'] ) ) {
 				// Follow given.
-				$follow = Sanitizer::escapeId( $argv['follow'], 'noninitial' );
+				$follow = Sanitizer::escapeIdForAttribute( $argv['follow'] );
 				unset( $argv['follow'] );
 				--$cnt;
 			}
@@ -806,8 +812,12 @@ class Cite {
 		if ( !is_array( $val ) ) {
 			return wfMessage(
 					'cite_references_link_one',
-					self::getReferencesKey( $key ),
-					$this->refKey( $key ),
+					Sanitizer::safeEncodeAttribute(
+						self::getReferencesKey( $key )
+					),
+					Sanitizer::safeEncodeAttribute(
+						$this->refKey( $key )
+					),
 					$this->referenceText( $key, $val )
 				)->inContentLanguage()->plain();
 		}
@@ -815,14 +825,18 @@ class Cite {
 		if ( isset( $val['follow'] ) ) {
 			return wfMessage(
 					'cite_references_no_link',
-					self::getReferencesKey( $val['follow'] ),
+					Sanitizer::safeEncodeAttribute(
+						self::getReferencesKey( $val['follow'] )
+					),
 					$text
 				)->inContentLanguage()->plain();
 		}
 		if ( !isset( $val['count'] ) ) {
 			// this handles the case of section preview for list-defined references
 			return wfMessage( 'cite_references_link_many',
-					self::getReferencesKey( $key . "-" . ( isset( $val['key'] ) ? $val['key'] : '' ) ),
+					Sanitizer::safeEncodeAttribute(
+						self::getReferencesKey( $key . "-" . ( isset( $val['key'] ) ? $val['key'] : '' ) )
+					),
 					'',
 					$text
 				)->inContentLanguage()->plain();
@@ -830,9 +844,13 @@ class Cite {
 		if ( $val['count'] < 0 ) {
 			return wfMessage(
 					'cite_references_link_one',
-					self::getReferencesKey( $val['key'] ),
-					# $this->refKey( $val['key'], $val['count'] ),
-					$this->refKey( $val['key'] ),
+					Sanitizer::safeEncodeAttribute(
+						self::getReferencesKey( $val['key'] )
+					),
+					Sanitizer::safeEncodeAttribute(
+						# $this->refKey( $val['key'], $val['count'] )
+						$this->refKey( $val['key'] )
+					),
 					$text
 				)->inContentLanguage()->plain();
 			// Standalone named reference, I want to format this like an
@@ -843,9 +861,13 @@ class Cite {
 		if ( $val['count'] === 0 ) {
 			return wfMessage(
 					'cite_references_link_one',
-					self::getReferencesKey( $key . "-" . $val['key'] ),
-					# $this->refKey( $key, $val['count'] ),
-					$this->refKey( $key, $val['key'] . "-" . $val['count'] ),
+					Sanitizer::safeEncodeAttribute(
+						self::getReferencesKey( $key . "-" . $val['key'] )
+					),
+					Sanitizer::safeEncodeAttribute(
+						# $this->refKey( $key, $val['count'] ),
+						$this->refKey( $key, $val['key'] . "-" . $val['count'] )
+					),
 					$text
 				)->inContentLanguage()->plain();
 		// Named references with >1 occurrences
@@ -855,7 +877,9 @@ class Cite {
 		for ( $i = 0; $i <= $val['count']; ++$i ) {
 			$links[] = wfMessage(
 					'cite_references_link_many_format',
-					$this->refKey( $key, $val['key'] . "-$i" ),
+					Sanitizer::safeEncodeAttribute(
+						$this->refKey( $key, $val['key'] . "-$i" )
+					),
 					$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
 					$this->referencesFormatEntryAlternateBacklinkLabel( $i )
 			)->inContentLanguage()->plain();
@@ -864,7 +888,9 @@ class Cite {
 		$list = $this->listToText( $links );
 
 		return wfMessage( 'cite_references_link_many',
-				self::getReferencesKey( $key . "-" . $val['key'] ),
+				Sanitizer::safeEncodeAttribute(
+					self::getReferencesKey( $key . "-" . $val['key'] )
+				),
 				$list,
 				$text
 			)->inContentLanguage()->plain();
@@ -1021,10 +1047,16 @@ class Cite {
 			$this->mParser->recursiveTagParse(
 				wfMessage(
 					'cite_reference_link',
-					$this->refKey( $key, $count ),
-					self::getReferencesKey( $key . $subkey ),
-					$this->getLinkLabel( $label, $group,
-						( ( $group === self::DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
+					Sanitizer::safeEncodeAttribute(
+						$this->refKey( $key, $count )
+					),
+					Sanitizer::safeEncodeAttribute(
+						self::getReferencesKey( $key . $subkey )
+					),
+					Sanitizer::safeEncodeAttribute(
+						$this->getLinkLabel( $label, $group,
+							( ( $group === self::DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
+					)
 				)->inContentLanguage()->plain()
 			);
 	}
@@ -1185,7 +1217,10 @@ class Cite {
 				$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
 			} else {
 				$s .= "\n<br />" .
-					$this->error( 'cite_error_group_refs_without_references', htmlspecialchars( $group ) );
+					$this->error(
+						'cite_error_group_refs_without_references',
+						Sanitizer::safeEncodeAttribute( $group )
+					);
 			}
 		}
 		if ( $isSectionPreview && $s !== '' ) {

@@ -14,6 +14,9 @@
 	"descriptionmsg": "cite-desc",
 	"license-name": "GPL-2.0+",
 	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.30.0"
+	},
 	"MessagesDirs": {
 		"cite": "i18n",
 		"ve-cite": "modules/ve-cite/i18n"

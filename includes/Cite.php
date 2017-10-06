@@ -1120,7 +1120,7 @@ class Cite {
 	 * Gets run when Parser::clearState() gets run, since we don't
 	 * want the counts to transcend pages and other instances
 	 *
-	 * @param Parser $parser
+	 * @param Parser &$parser
 	 *
 	 * @return bool
 	 */
@@ -1178,8 +1178,8 @@ class Cite {
 	 * references tags and does not add the errors.
 	 *
 	 * @param bool $afterParse True if called from the ParserAfterParse hook
-	 * @param Parser $parser
-	 * @param string $text
+	 * @param Parser &$parser
+	 * @param string &$text
 	 *
 	 * @return bool
 	 */
@@ -1244,7 +1244,7 @@ class Cite {
 	 * This is called by each <references/> tag, and by checkRefsNoReferences
 	 * Assumes $this->mRefs[$group] is set
 	 *
-	 * @param $group
+	 * @param string $group
 	 */
 	private function saveReferencesData( $group = self::DEFAULT_GROUP ) {
 		global $wgCiteStoreReferencesData;
@@ -1278,7 +1278,7 @@ class Cite {
 	 * If any ref or reference reference tag is in the text,
 	 * the entire page should be reparsed, so we return false in that case.
 	 *
-	 * @param $output
+	 * @param string &$output
 	 *
 	 * @return bool
 	 */

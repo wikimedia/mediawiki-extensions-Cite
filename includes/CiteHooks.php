@@ -15,7 +15,7 @@ class CiteHooks {
 	 * content.
 	 *
 	 * @param Title $title
-	 * @param string $model
+	 * @param string &$model
 	 * @return bool
 	 */
 	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
@@ -36,8 +36,8 @@ class CiteHooks {
 	 * Conditionally register the unit testing module for the ext.cite.visualEditor module
 	 * only if that module is loaded
 	 *
-	 * @param array $testModules The array of registered test modules
-	 * @param ResourceLoader $resourceLoader The reference to the resource loader
+	 * @param array &$testModules The array of registered test modules
+	 * @param ResourceLoader &$resourceLoader The reference to the resource loader
 	 * @return true
 	 */
 	public static function onResourceLoaderTestModules(
@@ -74,7 +74,7 @@ class CiteHooks {
 	 * Conditionally register resource loader modules that depends on the
 	 * VisualEditor MediaWiki extension.
 	 *
-	 * @param $resourceLoader
+	 * @param ResourceLoader &$resourceLoader
 	 * @return true
 	 */
 	public static function onResourceLoaderRegisterModules( &$resourceLoader ) {
@@ -199,7 +199,7 @@ class CiteHooks {
 	 * Post-output processing of references property, for proper db storage
 	 * Deferred to avoid performance overhead when outputting the page
 	 *
-	 * @param LinksUpdate $linksUpdate
+	 * @param LinksUpdate &$linksUpdate
 	 */
 	public static function onLinksUpdate( LinksUpdate &$linksUpdate ) {
 		global $wgCiteStoreReferencesData, $wgCiteCacheRawReferencesOnParse;
@@ -235,7 +235,7 @@ class CiteHooks {
 	 * If $wgCiteCacheRawReferencesOnParse is set to false, purges the cache
 	 * when references are modified
 	 *
-	 * @param LinksUpdate $linksUpdate
+	 * @param LinksUpdate &$linksUpdate
 	 */
 	public static function onLinksUpdateComplete( LinksUpdate &$linksUpdate ) {
 		global $wgCiteStoreReferencesData, $wgCiteCacheRawReferencesOnParse;
@@ -263,6 +263,8 @@ class CiteHooks {
 
 	/**
 	 * Adds extra variables to the global config
+	 * @param array &$vars
+	 * @return true
 	 */
 	public static function onResourceLoaderGetConfigVars( array &$vars ) {
 		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'cite' );

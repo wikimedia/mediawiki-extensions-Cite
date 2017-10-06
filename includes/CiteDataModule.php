@@ -19,6 +19,7 @@ class CiteDataModule extends ResourceLoaderModule {
 
 	/* Methods */
 
+	/** @inheritDoc */
 	public function getScript( ResourceLoaderContext $context ) {
 		$citationDefinition = json_decode(
 			$context->msg( 'cite-tool-definition.json' )
@@ -54,6 +55,7 @@ class CiteDataModule extends ResourceLoaderModule {
 			) . ');';
 	}
 
+	/** @inheritDoc */
 	public function getDependencies( ResourceLoaderContext $context = null ) {
 		return [
 			'ext.visualEditor.base',
@@ -61,6 +63,7 @@ class CiteDataModule extends ResourceLoaderModule {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getDefinitionSummary( ResourceLoaderContext $context ) {
 		$summary = parent::getDefinitionSummary( $context );
 		$summary[] = [

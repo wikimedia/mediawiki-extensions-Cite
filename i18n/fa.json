@@ -32,7 +32,7 @@
 	"cite_error_references_missing_key": "برچسپ <code>&lt;ref&gt;</code> که با نام «$1» درون <code>&lt;references&gt;</code> تعریف شده، در متن قبل از آن استفاده نشده‌است.",
 	"cite_error_references_no_key": "برچسپ <code>&lt;ref&gt;</code> درون <code>&lt;references&gt;</code> ویژگی name را ندارد.",
 	"cite_error_empty_references_define": "برچسپ <code>&lt;ref&gt;</code> تعریف شده درون <code>&lt;references&gt;</code> با نام «$1» محتوایی ندارد.",
-	"cite-tracking-category-cite-error": "صفحات داری خطا در ارجاع",
+	"cite-tracking-category-cite-error": "صفحات دارای خطا در ارجاع",
 	"cite-tracking-category-cite-error-desc": "صفحات موجود در این رده دارای خطا در استفاده از برچسب ارجاع هستند.",
 	"cite_reference_link_key_with_num": "$1_$2",
 	"cite_reference_link_prefix": "cite_ref-",

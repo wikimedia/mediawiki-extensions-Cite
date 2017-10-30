@@ -16,7 +16,7 @@
 	"cite-desc": "Menambahkan tag <nowiki><ref[ name=id]></nowiki> dan <nowiki><references/></nowiki> untuk kutipan",
 	"cite_error": "Kesalahan pengutipan: $1",
 	"cite_error_ref_numeric_key": "Tag <code>&lt;ref&gt;</code> tidak sah; \nnama tidak boleh intejer sederhana.\nGunakan nama deskriptif",
-	"cite_error_ref_no_key": "Tag <code>&lt;ref&gt;</code> tidak sah;\nreferensi tanpa isi harus memiliki nama",
+	"cite_error_ref_no_key": "Tag <code>&lt;ref&gt;</code> tidak sah atau memiliki nama yang salah.",
 	"cite_error_ref_too_many_keys": "Tag <code>&lt;ref&gt;</code> tidak sah;\nnama tidak sah; misalnya, terlalu banyak",
 	"cite_error_ref_no_input": "Tag <code>&lt;ref&gt;</code> tidak sah;\nreferensi tanpa nama harus memiliki isi",
 	"cite_error_references_duplicate_key": "Tanda <code>&lt;ref&gt;</code> tidak sah; nama \"$1\" didefinisikan berulang dengan isi berbeda",

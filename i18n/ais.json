@@ -6,6 +6,7 @@
 			"Tokoabibi"
 		]
 	},
+	"cite-desc": "midama <nowiki><ref[ name=id]></nowiki> atu <nowiki><references/></nowiki> aazihen-paya, kapah pabacuen miazih tu tatenga’ay nasulitan",
 	"cite_error": "nicaliwan mungangaw: $1",
 	"cite_error_ref_numeric_key": "la’cus <code>&lt;ref&gt;</code> aazihen-paya, kya susin amama pisaungay asip-bacu, pisaungay taneng misapuelac lacul a satangahan",
 	"cite_error_ref_no_key": "<code>&lt;ref&gt;</code> aazihen-paya angangan a kese mungangaw saca kalungangan caay kalucek.",
@@ -16,6 +17,7 @@
 	"cite_error_references_no_text": "la’cusay <code>&lt;ref&gt;</code> aazihen-paya,\ncaay satetek kalungangan ku <code>$1</code> a miazih tu tatenga’ay nasulitan lacul sulit.",
 	"cite_error_included_ref": "caay kataneng <code>&lt;ref&gt;</code>aazihen-paya a pahezek aazihen-paya  <code>&lt;/ref&gt;</code>",
 	"cite_error_group_refs_without_references": "pisaungay luyaluy kalungangan \"$1\" a <code>&lt;ref&gt;</code> aazihen-paya mamueneng tu, caykatepa patatapalen a <code>&lt;references group=\"$1\"/&gt;</code> aazihen-paya，saca caay kataneng <code>&lt;/ref&gt;</code> pahezek aazihen-paya.",
+	"cite_error_references_group_mismatch": "i <code>&lt;references&gt;</code> a <code>&lt;ref&gt;</code> aazihen-paya group susin sasula’cus \"$1\"",
 	"cite_error_references_missing_group": "ihekal nu <code>&lt;ref&gt;</code> satetekay a<code>&lt;references&gt;</code> aazihen-paya izaw ku setin group susin ku \"$1\", uyzasa iayaway a sulit caay misaungay.",
 	"cite_error_references_missing_key": "i <code>&lt;references&gt;</code> satetekay a <code>&lt;ref&gt;</code> aazihen-paya misetin name susin ku \"$1\", uyzasa iayaway a sulit caay henay misaungay.",
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code> satetekay <code>&lt;ref&gt;</code> inayi’ misetin name susin",

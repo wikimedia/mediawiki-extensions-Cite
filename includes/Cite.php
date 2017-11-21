@@ -411,13 +411,13 @@ class Cite {
 			}
 			if ( isset( $argv['name'] ) ) {
 				// Key given.
-				$key = Sanitizer::escapeIdForAttribute( $argv['name'] );
+				$key = trim( $argv['name'] );
 				unset( $argv['name'] );
 				--$cnt;
 			}
 			if ( isset( $argv['follow'] ) ) {
 				// Follow given.
-				$follow = Sanitizer::escapeIdForAttribute( $argv['follow'] );
+				$follow = trim( $argv['follow'] );
 				unset( $argv['follow'] );
 				--$cnt;
 			}
@@ -814,10 +814,10 @@ class Cite {
 		if ( !is_array( $val ) ) {
 			return wfMessage(
 					'cite_references_link_one',
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						self::getReferencesKey( $key )
 					),
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						$this->refKey( $key )
 					),
 					$this->referenceText( $key, $val )
@@ -827,7 +827,7 @@ class Cite {
 		if ( isset( $val['follow'] ) ) {
 			return wfMessage(
 					'cite_references_no_link',
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						self::getReferencesKey( $val['follow'] )
 					),
 					$text
@@ -836,7 +836,7 @@ class Cite {
 		if ( !isset( $val['count'] ) ) {
 			// this handles the case of section preview for list-defined references
 			return wfMessage( 'cite_references_link_many',
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						self::getReferencesKey( $key . "-" . ( isset( $val['key'] ) ? $val['key'] : '' ) )
 					),
 					'',
@@ -846,10 +846,10 @@ class Cite {
 		if ( $val['count'] < 0 ) {
 			return wfMessage(
 					'cite_references_link_one',
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						self::getReferencesKey( $val['key'] )
 					),
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						# $this->refKey( $val['key'], $val['count'] )
 						$this->refKey( $val['key'] )
 					),
@@ -863,10 +863,10 @@ class Cite {
 		if ( $val['count'] === 0 ) {
 			return wfMessage(
 					'cite_references_link_one',
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						self::getReferencesKey( $key . "-" . $val['key'] )
 					),
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						# $this->refKey( $key, $val['count'] ),
 						$this->refKey( $key, $val['key'] . "-" . $val['count'] )
 					),
@@ -879,7 +879,7 @@ class Cite {
 		for ( $i = 0; $i <= $val['count']; ++$i ) {
 			$links[] = wfMessage(
 					'cite_references_link_many_format',
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						$this->refKey( $key, $val['key'] . "-$i" )
 					),
 					$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
@@ -890,7 +890,7 @@ class Cite {
 		$list = $this->listToText( $links );
 
 		return wfMessage( 'cite_references_link_many',
-				Sanitizer::safeEncodeAttribute(
+				$this->normalizeKey(
 					self::getReferencesKey( $key . "-" . $val['key'] )
 				),
 				$list,
@@ -1049,10 +1049,10 @@ class Cite {
 			$this->mParser->recursiveTagParse(
 				wfMessage(
 					'cite_reference_link',
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						$this->refKey( $key, $count )
 					),
-					Sanitizer::safeEncodeAttribute(
+					$this->normalizeKey(
 						self::getReferencesKey( $key . $subkey )
 					),
 					Sanitizer::safeEncodeAttribute(
@@ -1061,6 +1061,19 @@ class Cite {
 					)
 				)->inContentLanguage()->plain()
 			);
+	}
+
+	/**
+	 * Normalizes and sanitizes a reference key
+	 *
+	 * @param string $key
+	 * @return string
+	 */
+	private function normalizeKey( $key ) {
+		$key = Sanitizer::escapeIdForAttribute( $key );
+		$key = Sanitizer::safeEncodeAttribute( $key );
+
+		return $key;
 	}
 
 	/**

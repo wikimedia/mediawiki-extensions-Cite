@@ -13,7 +13,6 @@
 	"cite_error_ref_no_input": "അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;\nപേരില്ലാത്ത അവലംബത്തിനു ഉള്ളടക്കമുണ്ടായിരിക്കണം.",
 	"cite_error_references_duplicate_key": "അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്; \"$1\" എന്ന പേര് വ്യത്യസ്തമായ ഉള്ളടക്കത്തോടെ നിരവധി തവണ നിർവ്വചിച്ചിരിക്കുന്നു",
 	"cite_error_references_invalid_parameters": "അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;\nറെഫറൻസ് ടാഗിനകത്ത് ചരങ്ങൾ അനുവദനീയമല്ല. പകരം ഇങ്ങനെ <code>&lt;references /&gt;</code> ചെയ്യാവുന്നതാണ്.",
-	"cite_error_references_invalid_parameters_group": "അസാധുവായ <code>&lt;references&gt;</code> ടാഗ്;\nറെഫറൻസ് ടാഗിനകത്ത് \"group\" ചരം മാത്രമേ അനുവദനീയമായുള്ളൂ. പകരം  <code>&lt;references /&gt;</code> എന്ന്, അല്ലെങ്കിൽ <code>&lt;references group=\"...\" /&gt;</code> എന്ന് ചെയ്യാവുന്നതാണ്.",
 	"cite_error_references_no_backlink_label": "പിൻകണ്ണികൾക്കായി നൽകുന്ന ഇച്ഛാനുസരണ കുറികൾ തീർന്നുപോയിരിക്കുന്നു.\nകൂടുതൽ [[MediaWiki:Cite references link many format backlink labels]] സന്ദേശത്തിൽ നിർവചിക്കുക.",
 	"cite_error_no_link_label_group": "\"$1\" സംഘത്തിലെ കണ്ണികൾക്കായി നൽകുന്ന ഇച്ഛാനുസരണ കുറികൾ തീർന്നുപോയിരിക്കുന്നു.\nകൂടുതൽ <nowiki>[[MediaWiki:$2]]</nowiki> സന്ദേശത്തിൽ നിർവചിക്കുക.",
 	"cite_error_references_no_text": "അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;\n<code>$1</code> എന്ന അവലംബങ്ങൾക്ക് ടെക്സ്റ്റ് ഒന്നും കൊടുത്തിട്ടില്ല.",

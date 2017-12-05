@@ -12,7 +12,6 @@
 	"cite_error_ref_too_many_keys": "برچسب <code><ref></code> نامجاز؛ نام‌های نامجاز یا بیش از اندازه",
 	"cite_error_ref_no_input": "برچسب <code><ref></code> نامجاز؛ یادکردهای بدون نام باید نۆم جِک(محتوا) داشته باشند",
 	"cite_error_references_invalid_parameters": "برچسب <code><references></code> نامجاز؛ استفاده از پارامتر مجاز است. از <code><references /></code> استفاده کنید",
-	"cite_error_references_invalid_parameters_group": "برچسب <code>&lt;references&gt;</code> نامجاز؛ تنها پارامتر «group» قابل استفاده است.\nاز <code>&lt;references /&gt;</code> یا <code>&lt;references group=\"...\" /&gt;</code> استفاده کنید",
 	"cite_error_references_no_backlink_label": "برچسب‌های پیوند به انتها رسید.\nموارد جدیدی را در پیغام <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> تعریف کنید",
 	"cite_error_no_link_label_group": "از برچسب‌های پیوند سفارشی برای گروه «$1» خارج شد.\nدر پیغام <nowiki>[[MediaWiki:$2]]</nowiki> بیشتر تعریف کنید.",
 	"cite_error_references_no_text": "برچسب <code><ref></code> نامجاز؛ متنی برای یادکردهای با نام <code>$1</code> وارد نشده‌است",

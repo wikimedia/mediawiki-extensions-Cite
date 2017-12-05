@@ -11,7 +11,6 @@
 	"cite_error_ref_too_many_keys": "Villa í <code>&lt;ref&gt;</code> tag;\nógilt nafn, t.d. of mörg",
 	"cite_error_ref_no_input": "Villa í <code>&lt;ref&gt;</code> tag;\ntilvísunin verður annaðhvort að hafa nafn eða innihald.",
 	"cite_error_references_invalid_parameters": "Villa í <code>&lt;ref&gt;</code> tag;\nengir stikar eru leyfðir\nNotaðu <code>&lt;references /&gt;</code> í staðinn",
-	"cite_error_references_invalid_parameters_group": "Villa í <code>&lt;ref&gt;</code> tag;\naðeins einn stiki er leyfður, \"group\"\nNotaðu <code>&lt;references /&gt;</code> eða <code>&lt;references group=\"...\" /&gt;</code> í staðinn.",
 	"cite_error_references_no_text": "Villa í <code>&lt;ref&gt;</code> tag;\ntilgreindu texta fyrir tilvísun með nafnið <code>$1</code>",
 	"cite_error_included_ref": "Loka þarf tilvísunni með <code>&lt;/ref&gt;</code> tagi",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code> tag er til fyrir hóp tilvísana undir nafninu \"$1\". Annaðhvort finnst ekkert sambærilegt <code>&lt;references group=\"$1\"/&gt;</code> tag, eða að það vanti að loka taginu með <code>&lt;/ref&gt;</code>.",

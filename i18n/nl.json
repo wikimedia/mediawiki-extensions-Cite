@@ -16,7 +16,6 @@
 	"cite_error_ref_no_input": "Onjuist label <code>&lt;ref&gt;</code>;\nrefs zonder naam moeten inhoud hebben",
 	"cite_error_references_duplicate_key": "Ongeldig label <code>&lt;ref&gt;</code>; de naam \"$1\" wordt meerdere keren met andere inhoud gedefinieerd.",
 	"cite_error_references_invalid_parameters": "Onjuist label <code>&lt;references&gt;</code>;\nparameters zijn niet toegestaan.\nGebruik <code>&lt;references /&gt;</code>",
-	"cite_error_references_invalid_parameters_group": "Ongeldig label <code>&lt;references&gt;</code>;\nalleen de parameter \"group\" is toegestaan.\nGebruik <code>&lt;references /&gt;</code>, of <code>&lt;references group=\"...\" /&gt;</code>",
 	"cite_error_references_no_backlink_label": "Het aantal beschikbare backlinklabels is opgebruikt.\nGeef meer labels op in het bericht <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki>",
 	"cite_error_no_link_label_group": "Het aantal aangepaste koppelinglabels voor de group \"$1\" is uitgeput.\nU kunt er meer instellen in het systeembericht <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Onjuist label <code>&lt;ref&gt;</code>;\ner is geen tekst opgegeven voor referenties met de naam <code>$1</code>",

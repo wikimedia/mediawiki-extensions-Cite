@@ -15,7 +15,6 @@
 	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> चुकीचा कोड; चुकीची नावे, उदा. खूप सारी",
 	"cite_error_ref_no_input": "<code>&lt;ref&gt;</code> चुकीचा कोड; निनावी संदर्भांमध्ये माहिती असणे गरजेचे आहे",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> हा चुकीचा वापर आहे; यामधे पॅरामीटर्स देणे निषिद्ध आहे.,\n<code>&lt;references /&gt;</code> असा कोड वापरा",
-	"cite_error_references_invalid_parameters_group": "चुकीची <code>&lt;references&gt;</code> खूण; फक्त पॅरॅमीटर चा गट वापरता येईल, <code>&lt;references /&gt;</code> किंवा <code>&lt;references group=\"...\" /&gt;</code> चा वापर करा",
 	"cite_error_references_no_backlink_label": "तयार केलेली मागीलदुवे देणारी नावे संपलेली आहेत, अधिक नावे <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> या प्रणाली संदेशात लिहा",
 	"cite_error_no_link_label_group": "\"$1\" करिता नमूदकेलेल्या कस्टम लिंक खूणा संपल्या .\n<nowiki>[[MediaWiki:$2]]</nowiki> संदेशात अधिक खूणा नमूद करा",
 	"cite_error_references_no_text": "<code>&lt;ref&gt;</code> चुकीचा कोड; <code>$1</code> नावाने दिलेल्या संदर्भांमध्ये काहीही माहिती नाही",

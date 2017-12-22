@@ -22,6 +22,8 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
+use Wikimedia\Rdbms\IDatabase;
+
 /**
  * WARNING: MediaWiki core hardcodes this class name to check if the
  * Cite extension is installed. See T89151.
@@ -1450,12 +1452,12 @@ class Cite {
 	 * Returns json_decoded uncompressed string, with validation of json
 	 *
 	 * @param Title $title
-	 * @param DatabaseBase $dbr
+	 * @param IDatabase $dbr
 	 * @param string $string
 	 * @param int $i
 	 * @return array|false
 	 */
-	private static function recursiveFetchRefsFromDB( Title $title, DatabaseBase $dbr,
+	private static function recursiveFetchRefsFromDB( Title $title, IDatabase $dbr,
 		$string = '', $i = 1 ) {
 		$id = $title->getArticleID();
 		$result = $dbr->selectField(

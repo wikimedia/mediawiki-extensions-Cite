@@ -1,9 +1,5 @@
 <?php
 /**
- * Cite extension hooks
- *
- * @file
- * @ingroup Extensions
  * @copyright 2011-2017 Cite VisualEditor Team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see MIT-LICENSE.txt
  */
@@ -11,6 +7,7 @@
 use MediaWiki\MediaWikiServices;
 
 class CiteHooks {
+
 	/**
 	 * Convert the content model of a message that is actually JSON to JSON. This
 	 * only affects validation and UI when saving and editing, not loading the
@@ -287,4 +284,5 @@ class CiteHooks {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'cite' );
 		$data['citeresponsivereferences'] = $config->get( 'CiteResponsiveReferences' );
 	}
+
 }

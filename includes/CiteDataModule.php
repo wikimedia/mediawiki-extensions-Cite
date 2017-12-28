@@ -1,23 +1,17 @@
 <?php
+
 /**
  * Resource loader module providing extra data from the server to Cite.
  *
  * Temporary hack for T93800
  *
- * @file
- * @ingroup Extensions
  * @copyright 2011-2017 Cite VisualEditor Team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see MIT-LICENSE.txt
  */
-
 class CiteDataModule extends ResourceLoaderModule {
-
-	/* Protected Members */
 
 	protected $origin = self::ORIGIN_USER_SITEWIDE;
 	protected $targets = [ 'desktop', 'mobile' ];
-
-	/* Methods */
 
 	/** @inheritDoc */
 	public function getScript( ResourceLoaderContext $context ) {
@@ -71,4 +65,5 @@ class CiteDataModule extends ResourceLoaderModule {
 		];
 		return $summary;
 	}
+
 }

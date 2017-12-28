@@ -393,7 +393,6 @@ class Cite {
 	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
 	 *  "follow" : If the current reference is the continuation of another, key of that reference.
 	 *
-	 *
 	 * @param string[] $argv The argument vector
 	 * @return mixed false on invalid input, a string on valid
 	 *               input and null on no input
@@ -924,8 +923,8 @@ class Cite {
 	 *
 	 * @static
 	 *
-	 * @param int $base The base
-	 * @param int $offset The offset
+	 * @param int $base
+	 * @param int $offset
 	 * @param int $max Maximum value expected.
 	 * @return string
 	 */
@@ -944,7 +943,7 @@ class Cite {
 	 * 'b', 'c', ...]. Return an error if the offset > the # of
 	 * array items
 	 *
-	 * @param int $offset The offset
+	 * @param int $offset
 	 *
 	 * @return string
 	 */
@@ -966,7 +965,7 @@ class Cite {
 	 * [ 'a', 'b', 'c', ...].
 	 * Return an error if the offset > the # of array items
 	 *
-	 * @param int $offset The offset
+	 * @param int $offset
 	 * @param string $group The group name
 	 * @param string $label The text to use if there's no message for them.
 	 *
@@ -997,7 +996,7 @@ class Cite {
 	 *
 	 * @static
 	 *
-	 * @param string $key The key
+	 * @param string $key
 	 * @param int $num The number of the key
 	 * @return string A key for use in wikitext
 	 */
@@ -1019,7 +1018,7 @@ class Cite {
 	 *
 	 * @static
 	 *
-	 * @param string $key The key
+	 * @param string $key
 	 * @return string A key for use in wikitext
 	 */
 	public static function getReferencesKey( $key ) {

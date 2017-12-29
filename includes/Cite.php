@@ -1047,8 +1047,7 @@ class Cite {
 		global $wgContLang;
 		$label = is_null( $label ) ? ++$this->mGroupCnt[$group] : $label;
 
-		return
-			$this->mParser->recursiveTagParse(
+		return $this->mParser->recursiveTagParse(
 				wfMessage(
 					'cite_reference_link',
 					$this->normalizeKey(

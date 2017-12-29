@@ -2,7 +2,7 @@
  * VisualEditor MediaWiki Cite initialisation code.
  *
  * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
+ * @license MIT
  */
 ( function () {
 	var i, j, jLen, toolGroup, toolGroups, linkIndex, target, label, group;

@@ -4,7 +4,7 @@
  * ResourceLoaderFileModule for adding the content language Cite CSS
  *
  * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
+ * @license MIT
  */
 class CiteCSSFileModule extends ResourceLoaderFileModule {
 

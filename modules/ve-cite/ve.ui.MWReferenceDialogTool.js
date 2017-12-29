@@ -2,7 +2,7 @@
  * VisualEditor MediaWiki Reference dialog tool classes.
  *
  * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
- * @license The MIT License (MIT); see LICENSE.txt
+ * @license MIT
  */
 
 /**

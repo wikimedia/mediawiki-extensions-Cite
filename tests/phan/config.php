@@ -268,8 +268,8 @@ return [
 	 * to this black-list to inhibit them from being reported.
 	 */
 	'suppress_issue_types' => [
-		'PhanUndeclaredClassMethod',
-		'PhanUndeclaredProperty'
+		// Due to creation of Parser::$extCite property
+		'PhanUndeclaredProperty',
 	],
 
 	/**

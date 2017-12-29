@@ -24,6 +24,7 @@
 
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\Database;
 
 /**
  * WARNING: MediaWiki core hardcodes this class name to check if the

@@ -22,6 +22,7 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -454,7 +455,7 @@ class Cite {
 	 * @throws Exception
 	 * @return string
 	 */
-	private function stack( $str, $key = null, $group, $follow, array $call ) {
+	private function stack( $str, $key, $group, $follow, array $call ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = [];
 		}
@@ -758,9 +759,9 @@ class Cite {
 
 		// Let's try to cache it.
 		global $wgCiteCacheReferences, $wgMemc;
-		$data = false;
+		$data = [];
 		if ( $wgCiteCacheReferences ) {
-			$cacheKey = wfMemcKey(
+			$cacheKey = $wgMemc->makeKey(
 				'citeref',
 				md5( $parserInput ),
 				$this->mParser->Title()->getArticleID()
@@ -1335,7 +1336,7 @@ class Cite {
 	 * Return an error message based on an error ID
 	 *
 	 * @param string $key   Message name for the error
-	 * @param string|null $param Parameter to pass to the message
+	 * @param string[]|string|null $param Parameter to pass to the message
 	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
 	 * @return string XHTML or wikitext ready for output
 	 */
@@ -1429,7 +1430,7 @@ class Cite {
 		if ( !$wgCiteStoreReferencesData ) {
 			return false;
 		}
-		$cache = ObjectCache::getMainWANInstance();
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$key = $cache->makeKey( self::EXT_DATA_KEY, $title->getArticleID() );
 		return $cache->getWithSetCallback(
 			$key,

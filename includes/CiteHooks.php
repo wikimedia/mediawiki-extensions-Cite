@@ -8,6 +8,8 @@
  * @license The MIT License (MIT); see MIT-LICENSE.txt
  */
 
+use MediaWiki\MediaWikiServices;
+
 class CiteHooks {
 	/**
 	 * Convert the content model of a message that is actually JSON to JSON. This
@@ -212,7 +214,7 @@ class CiteHooks {
 		}
 		if ( $wgCiteCacheRawReferencesOnParse ) {
 			// caching
-			$cache = ObjectCache::getMainWANInstance();
+			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 			$articleID = $linksUpdate->getTitle()->getArticleID();
 			$key = $cache->makeKey( Cite::EXT_DATA_KEY, $articleID );
 			$cache->set( $key, $refData, Cite::CACHE_DURATION_ONPARSE );
@@ -254,7 +256,7 @@ class CiteHooks {
 				return;
 			}
 		}
-		$cache = ObjectCache::getMainWANInstance();
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$articleID = $linksUpdate->getTitle()->getArticleID();
 		$key = $cache->makeKey( Cite::EXT_DATA_KEY, $articleID );
 		// delete with reduced hold off period (LinksUpdate uses a master connection)
@@ -267,7 +269,7 @@ class CiteHooks {
 	 * @return true
 	 */
 	public static function onResourceLoaderGetConfigVars( array &$vars ) {
-		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'cite' );
+		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'cite' );
 		$vars['wgCiteVisualEditorOtherGroup'] = $config->get( 'CiteVisualEditorOtherGroup' );
 		$vars['wgCiteResponsiveReferences'] = $config->get( 'CiteResponsiveReferences' );
 		return true;
@@ -282,7 +284,7 @@ class CiteHooks {
 	 * @param array &$data
 	 */
 	public static function onAPIQuerySiteInfoGeneralInfo( ApiQuerySiteInfo $api, array &$data ) {
-		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'cite' );
+		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'cite' );
 		$data['citeresponsivereferences'] = $config->get( 'CiteResponsiveReferences' );
 	}
 }

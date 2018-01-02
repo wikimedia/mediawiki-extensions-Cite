@@ -104,7 +104,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	var itemNodeHtml, originalHtml, mwData, i, iLen, keyedNodes, setContents, contentsAlreadySet,
 		originalMw, listKeyParts, name, group, $link,
 		isForClipboard = converter.isForClipboard(),
-		el = doc.createElement( 'span' ),
+		el = doc.createElement( 'sup' ),
 		itemNodeWrapper = doc.createElement( 'div' ),
 		originalHtmlWrapper = doc.createElement( 'div' ),
 		itemNode = converter.internalList.getItemNode( dataElement.attributes.listIndex ),

@@ -5,7 +5,7 @@
  *
  * Temporary hack for T93800
  *
- * @copyright 2011-2017 Cite VisualEditor Team and others; see AUTHORS.txt
+ * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
  * @license The MIT License (MIT); see MIT-LICENSE.txt
  */
 class CiteDataModule extends ResourceLoaderModule {

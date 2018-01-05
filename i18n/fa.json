@@ -18,7 +18,7 @@
 	"cite_error": "خطای یادکرد: $1",
 	"cite_error_ref_numeric_key": "برچسب <code><ref></code> نامعتبر؛ نام نمی‌تواند یک عدد باشد. عنوان روشنی برگزینید",
 	"cite_error_ref_no_key": "برچسب بازکنندهٔ <code><ref></code> بدشکل است یا نام بدی دارد",
-	"cite_error_ref_too_many_keys": "برچسب <code><ref></code> غیر مجاز؛ نام‌های غیر مجاز، مثلاً بیش از اندازه",
+	"cite_error_ref_too_many_keys": "برچسب <code>&lt;ref&gt;</code> غیر مجاز؛ نام‌های غیر مجاز، مثلاً بیش از اندازه",
 	"cite_error_ref_no_input": "برچسب <code><ref></code> نامعتبر؛ یادکردهای بدون نام باید محتوا داشته باشند",
 	"cite_error_references_duplicate_key": "برچسب <code>&lt;ref&gt;</code> نامعتبر؛ نام «$1» چندین بار با محتوای متفاوت تعریف شده‌است",
 	"cite_error_references_invalid_parameters": "پارامتر نامعتبر در برچسب <code><references></code> نامعتبر",

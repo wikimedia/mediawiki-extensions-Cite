@@ -38,7 +38,7 @@
 	"cite-ve-dialogbutton-reference-title": "Παραπομπή",
 	"cite-ve-dialogbutton-reference-tooltip": "Βασικό",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Κατάλογος παραπομπών",
-	"cite-ve-reference-input-placeholder": "Αναζήτηση εντός των τρεχόντων παραπομπών",
+	"cite-ve-reference-input-placeholder": "Αναζήτηση εντός των τρεχουσών παραπομπών",
 	"cite-ve-referenceslist-isempty": "Δεν υπάρχουν παραπομπές με την ομάδα «$1» σε αυτήν τη σελίδα για να περιληφθούν σε αυτόν τον κατάλογο.",
 	"cite-ve-referenceslist-isempty-default": "Δεν υπάρχουν παραπομπές σε αυτήν τη σελίδα για να περιληφθούν σε αυτόν τον κατάλογο.",
 	"cite-ve-referenceslist-missingref": "Η παραπομπή αυτή έχει οριστεί μέσω προτύπου ή άλλου αυτόματα παραγόμενου μπλοκ και, προς το παρόν, δεν μπορείτε να την επεξεργαστείτε με τον VisualEditor. Χρησιμοποιήστε τον επεξεργαστή κώδικα.",

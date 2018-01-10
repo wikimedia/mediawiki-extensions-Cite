@@ -60,8 +60,8 @@ ve.ui.MWReferenceSearchWidget.prototype.onQueryChange = function () {
 ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalList ) {
 	var i, iLen, groupNames, groupName, groups = internalList.getNodeGroups();
 
-	if ( this.results.getSelectedItem() ) {
-		this.results.getSelectedItem().setSelected( false );
+	if ( this.results.findSelectedItem() ) {
+		this.results.findSelectedItem().setSelected( false );
 	}
 
 	this.internalList = internalList;

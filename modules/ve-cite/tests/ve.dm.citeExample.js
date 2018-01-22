@@ -309,7 +309,7 @@ ve.dm.citeExample.domToDataCases = {
 			{ type: '/internalList' }
 		]
 	},
-	'mw:Reference with metadata': {
+	'mw:Reference with comment': {
 		body: '<p><sup about="#mwt2" class="reference" ' +
 			'data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:' +
 			'{&quot;html&quot;:&quot;Foo<!-- bar -->&quot;},&quot;attrs&quot;:{}}" ' +
@@ -528,8 +528,6 @@ ve.dm.citeExample.references = [
 
 ve.dm.citeExample.complexInternalData = [
 	// 0
-	{ type: 'alienMeta', originalDomElements: $( '<!-- before -->' ).toArray() },
-	{ type: '/alienMeta' },
 	{ type: 'paragraph' },
 	'F', [ 'o', [ ve.dm.example.bold ] ], [ 'o', [ ve.dm.example.italic ] ],
 	// 4
@@ -544,8 +542,6 @@ ve.dm.citeExample.complexInternalData = [
 	{ type: '/mwReference' },
 	// 6
 	{ type: '/paragraph' },
-	{ type: 'alienMeta', originalDomElements: $( '<!-- after -->' ).toArray() },
-	{ type: '/alienMeta' },
 	// 7
 	{ type: 'internalList' },
 	// 8
@@ -554,8 +550,6 @@ ve.dm.citeExample.complexInternalData = [
 	{ type: 'paragraph', internal: { generated: 'wrapper' } },
 	'R', [ 'e', [ ve.dm.example.bold ] ], 'f',
 	// 13
-	{ type: 'alienMeta', originalDomElements: $( '<!-- reference -->' ).toArray() },
-	{ type: '/alienMeta' },
 	'e', [ 'r', [ ve.dm.example.italic ] ], [ 'e', [ ve.dm.example.italic ] ],
 	// 16
 	{ type: 'mwReference', attributes: {
@@ -576,23 +570,15 @@ ve.dm.citeExample.complexInternalData = [
 	{ type: '/internalItem' },
 	// 23
 	{ type: 'internalItem' },
-	{ type: 'alienMeta', originalDomElements: $( '<!-- beginning -->' ).toArray() },
-	{ type: '/alienMeta' },
 	// 24
 	{ type: 'preformatted' },
-	{ type: 'alienMeta', originalDomElements: $( '<!-- inside -->' ).toArray() },
-	{ type: '/alienMeta' },
 	// 25
 	{ type: 'mwEntity', attributes: { character: '€' } },
 	// 26
 	{ type: '/mwEntity' },
 	'2', '5', '0',
-	{ type: 'alienMeta', originalDomElements: $( '<!-- inside2 -->' ).toArray() },
-	{ type: '/alienMeta' },
 	// 30
 	{ type: '/preformatted' },
-	{ type: 'alienMeta', originalDomElements: $( '<!-- end -->' ).toArray() },
-	{ type: '/alienMeta' },
 	// 31
 	{ type: '/internalItem' },
 	// 32

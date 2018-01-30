@@ -13,6 +13,7 @@
 	"cite_error_ref_too_many_keys": "نادرست <code>&lt;ref&gt;</code> ٹیگ;\nنادرست نام، مثال کے طور پر کئی",
 	"cite_error_ref_no_input": "نادرست <code>&lt;ref&gt;</code> ٹیگ;\nبے نام حوالہ جات کا مواد ہونا چاہیے",
 	"cite_error_references_invalid_parameters": "نادرست پیرامیٹر در <code>&lt;references&gt;</code> ٹیگ",
+	"cite_error_references_no_text": "ناقص <code>&lt;ref&gt;</code> ٹیگ؛ <code>$1</code> کے نام والے حوالوں کے لیے کوئی متن نہیں دیا گیا",
 	"cite-tracking-category-cite-error": "صفحات مع حوالہ جاتی اغلاط",
 	"cite-tracking-category-cite-error-desc": "اس زمرہ میں موجود صفحات میں حوالہ جاتی ٹیگز کو غلط استعمال کیا گیا ہے۔",
 	"cite_references_link_accessibility_label": "اوپر جائیں",

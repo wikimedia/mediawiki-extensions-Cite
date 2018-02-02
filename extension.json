@@ -61,7 +61,6 @@
 			"skinStyles": {
 				"minerva": "ext.cite.styles.minerva.less"
 			},
-			"position": "bottom",
 			"targets": [
 				"desktop",
 				"mobile"
@@ -73,13 +72,11 @@
 			"messages": [
 				"cite_references_link_accessibility_label",
 				"cite_references_link_many_accessibility_label"
-			],
-			"position": "bottom"
+			]
 		},
 		"ext.cite.style": {
 			"class": "CiteCSSFileModule",
 			"styles": "ext.cite.style.css",
-			"position": "top",
 			"targets": [
 				"desktop",
 				"mobile"

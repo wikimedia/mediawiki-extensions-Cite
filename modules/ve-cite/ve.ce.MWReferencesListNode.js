@@ -250,8 +250,10 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			if ( modelNode && modelNode.length ) {
 				viewNode = new ve.ce.InternalItemNode( modelNode );
 
+				// Use 'done' instead of 'then' so content is updated synchronously
+				// if possible, for clipboard conversion.
 				ve.ce.GeneratedContentNode.static.awaitGeneratedContent( viewNode )
-					.then( updateGeneratedContent.bind( this, viewNode, $li ) );
+					.done( updateGeneratedContent.bind( this, viewNode, $li ) );
 
 				// Because this update runs a number of times when using the
 				// basic dialog, disconnect the model here rather than waiting

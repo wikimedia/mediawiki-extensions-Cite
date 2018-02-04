@@ -76,7 +76,7 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 };
 
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {
-	var el, els, mwData, originalMw, contentsHtml, originalHtml, nextIndex, nextElement,
+	var el, els, mwData, originalMw, contentsHtml, originalHtml, nextIndex, nextElement, modelNode, viewNode,
 		isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' ),
 		wrapper = doc.createElement( 'div' ),
 		originalHtmlWrapper = doc.createElement( 'div' ),
@@ -84,7 +84,16 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		attrs = dataElement.attributes,
 		contentsData = data.slice( 1, -1 );
 
-	if ( dataElement.originalDomElementsIndex !== undefined ) {
+	if ( converter.isForClipboard() ) {
+		// Output needs to be read so re-render
+		modelNode = new ve.dm.MWReferencesListNode( dataElement );
+		// Build from original doc's internal list to get all refs (T186407)
+		modelNode.setDocument( converter.originalDocInternalList.getDocument() );
+		viewNode = new ve.ce.MWReferencesListNode( modelNode );
+		viewNode.update();
+		els = [ doc.createElement( 'div' ) ];
+		els[ 0 ].appendChild( viewNode.$reflist[ 0 ] );
+	} else if ( dataElement.originalDomElementsIndex !== undefined ) {
 		// If there's more than 1 element, preserve entire array, not just first element
 		els = ve.copyDomElements( converter.getStore().value( dataElement.originalDomElementsIndex ), doc );
 	} else {

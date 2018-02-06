@@ -163,6 +163,16 @@ ve.ui.MWReferencesListDialog.prototype.getSetupProcess = function ( data ) {
 		}, this );
 };
 
+/**
+ * @inheritdoc
+ */
+ve.ui.MWReferencesListDialog.prototype.getReadyProcess = function ( data ) {
+	return ve.ui.MWReferencesListDialog.super.prototype.getReadyProcess.call( this, data )
+		.next( function () {
+			this.groupInput.focus();
+		}, this );
+};
+
 /* Registration */
 
 ve.ui.windowFactory.register( ve.ui.MWReferencesListDialog );

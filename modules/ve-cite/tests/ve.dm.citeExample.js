@@ -120,11 +120,25 @@ ve.dm.citeExample.domToDataCases = {
 			'</p>' +
 			// The HTML below is enriched to wrap reference contents in <span id="mw-cite-[...]">
 			// which Parsoid doesn't do yet, but T88290 asks for
-			'<div typeof="mw:Extension/references"' +
+			'<div typeof="mw:Extension/references" ' +
 				'data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;g1&quot;},&quot;body&quot;:{' +
 				'&quot;html&quot;:&quot;<sup typeof=\\&quot;mw:Extension/ref\\&quot; ' +
 				'data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;group&amp;quot;:&amp;quot;g1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;html&amp;quot;:&amp;quot;Ref in refs&amp;quot;}}' +
 				'\\&quot; class=\\&quot;mw-ref\\&quot;><a data-mw-group=\\&quot;g1\\&quot; style=\\&quot;counter-reset: mw-Ref 3;\\&quot;><span class=\\&quot;mw-reflink-text\\&quot;>[g1 3]</span></a></sup>&quot;}}">' +
+					'<ol class="mw-references references" data-mw-group="g1">' +
+						'<li>' +
+							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
+							'<span class="reference-text"><span class="ve-ce-branchNode ve-ce-internalItemNode">Quux</span></span>' +
+						'</li>' +
+						'<li>' +
+							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
+							'<span class="reference-text"><span class="ve-ce-branchNode ve-ce-internalItemNode">No name</span></span>' +
+						'</li>' +
+						'<li>' +
+							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
+							'<span class="reference-text"><span class="ve-ce-branchNode ve-ce-internalItemNode">Ref in refs</span></span>' +
+						'</li>' +
+					'</ol>' +
 			'</div>',
 		head: '<base href="http://example.com" />',
 		data: [

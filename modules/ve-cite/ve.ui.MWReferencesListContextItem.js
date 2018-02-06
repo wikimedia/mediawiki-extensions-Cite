@@ -46,6 +46,22 @@ ve.ui.MWReferencesListContextItem.static.commandName = 'referencesList';
 /**
  * @inheritdoc
  */
+ve.ui.MWReferencesListContextItem.prototype.renderBody = function () {
+	this.$body.append(
+		$( '<div>' ).text( this.getDescription() )
+	);
+	if ( this.model.getAttribute( 'templateGenerated' ) ) {
+		this.$body.append(
+			$( '<div>' )
+				.addClass( 've-ui-mwReferenceContextItem-muted' )
+				.text( ve.msg( 'cite-ve-referenceslist-missingreflist' ) )
+		);
+	}
+};
+
+/**
+ * @inheritdoc
+ */
 ve.ui.MWReferencesListContextItem.prototype.getDescription = function () {
 	var group = this.model.getAttribute( 'refGroup' );
 

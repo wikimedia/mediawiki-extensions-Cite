@@ -30,6 +30,12 @@ OO.inheritClass( ve.dm.MWReferencesListNode, ve.dm.BranchNode );
 
 OO.mixinClass( ve.dm.MWReferencesListNode, ve.dm.FocusableNode );
 
+/* Methods */
+
+ve.dm.MWReferencesListNode.prototype.isEditable = function () {
+	return !this.getAttribute( 'templateGenerated' );
+};
+
 /* Static members */
 
 ve.dm.MWReferencesListNode.static.name = 'mwReferencesList';
@@ -40,18 +46,38 @@ ve.dm.MWReferencesListNode.static.ignoreChildren = true;
 
 ve.dm.MWReferencesListNode.static.matchTagNames = null;
 
-ve.dm.MWReferencesListNode.static.matchRdfaTypes = [ 'mw:Extension/references' ];
+ve.dm.MWReferencesListNode.static.matchRdfaTypes = [ 'mw:Extension/references', 'mw:Transclusion' ];
+
+ve.dm.MWReferencesListNode.static.matchFunction = function ( domElement ) {
+	function isRefList( el ) {
+		return el && el.nodeType === Node.ELEMENT_NODE && ( el.getAttribute( 'typeof' ) || '' ).indexOf( 'mw:Extension/references' ) !== -1;
+	}
+	// If the template generated only a reference list, treat it as a ref list (T52769)
+	return isRefList( domElement ) ||
+		// A div-wrapped reference list
+		( domElement.children.length === 1 && isRefList( domElement.children[ 0 ] ) );
+};
 
 ve.dm.MWReferencesListNode.static.preserveHtmlAttributes = false;
 
 ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, converter ) {
-	var referencesListData, contentsDiv, contentsData,
-		isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' ),
-		mwDataJSON = domElements[ 0 ].getAttribute( 'data-mw' ),
-		mwData = mwDataJSON ? JSON.parse( mwDataJSON ) : {},
-		refGroup = ve.getProp( mwData, 'attrs', 'group' ) || '',
-		responsiveAttr = ve.getProp( mwData, 'attrs', 'responsive' ),
-		listGroup = 'mwReference/' + refGroup;
+	var referencesListData, contentsDiv, contentsData, refListNode,
+		mwDataJSON, mwData, refGroup, responsiveAttr, listGroup,
+		templateGenerated = false,
+		isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' );
+
+	if ( ( domElements[ 0 ].getAttribute( 'typeof' ) || '' ).indexOf( 'mw:Extension/references' ) !== -1 ) {
+		refListNode = domElements[ 0 ];
+	} else {
+		refListNode = domElements[ 0 ].querySelectorAll( '[typeof*="mw:Extension/references"]' )[ 0 ];
+		templateGenerated = true;
+	}
+
+	mwDataJSON = refListNode.getAttribute( 'data-mw' );
+	mwData = mwDataJSON ? JSON.parse( mwDataJSON ) : {};
+	refGroup = ve.getProp( mwData, 'attrs', 'group' ) || '';
+	responsiveAttr = ve.getProp( mwData, 'attrs', 'responsive' );
+	listGroup = 'mwReference/' + refGroup;
 
 	referencesListData = {
 		type: this.name,
@@ -60,7 +86,8 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 			originalMw: mwDataJSON,
 			refGroup: refGroup,
 			listGroup: listGroup,
-			isResponsive: responsiveAttr !== undefined ? responsiveAttr !== '0' : isResponsiveDefault
+			isResponsive: responsiveAttr !== undefined ? responsiveAttr !== '0' : isResponsiveDefault,
+			templateGenerated: templateGenerated
 		}
 	};
 	if ( mwData.body && mwData.body.html ) {
@@ -78,13 +105,20 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {
 	var el, els, mwData, originalMw, contentsHtml, originalHtml, nextIndex, nextElement, modelNode, viewNode,
 		isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' ),
+		isForClipboard = converter.isForClipboard(),
 		wrapper = doc.createElement( 'div' ),
 		originalHtmlWrapper = doc.createElement( 'div' ),
 		dataElement = data[ 0 ],
 		attrs = dataElement.attributes,
 		contentsData = data.slice( 1, -1 );
 
-	if ( converter.isForClipboard() ) {
+	// If we are sending a template generated ref back to Parsoid, output it as a template.
+	// This works because the dataElement already as mw, originalMw and originalDomIndex properties.
+	if ( attrs.templateGenerated && !isForClipboard ) {
+		return ve.dm.MWTransclusionNode.static.toDomElements.call( this, dataElement, doc, converter );
+	}
+
+	if ( isForClipboard ) {
 		// Output needs to be read so re-render
 		modelNode = new ve.dm.MWReferencesListNode( dataElement );
 		// Build from original doc's internal list to get all refs (T186407)

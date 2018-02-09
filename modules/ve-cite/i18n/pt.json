@@ -59,6 +59,7 @@
 	"cite-ve-referenceslist-isempty": "Não existem referências com o grupo \"$1\" nesta página para incluir nesta lista.",
 	"cite-ve-referenceslist-isempty-default": "Não há nenhuma referência nesta página para incluir nesta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referência está definida numa predefinição ou noutro bloco, e de momento só pode ser editada através do código-fonte.",
+	"cite-ve-referenceslist-missingreflist": "Esta lista de referências é gerada por uma predefinição, e até ao momento só pode ser editada no modo de código-fonte.",
 	"cite-ve-toolbar-group-label": "Citar",
 	"cite-ve-othergroup-item": "Referência $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referências",

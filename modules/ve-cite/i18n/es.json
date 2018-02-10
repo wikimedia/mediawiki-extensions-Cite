@@ -66,6 +66,7 @@
 	"cite-ve-referenceslist-isempty": "No hay referencias con el grupo «$1» en esta página para incluir en la lista.",
 	"cite-ve-referenceslist-isempty-default": "No hay referencias en esta página para incluir en esta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referencia está definida en una plantilla u otro tipo de bloque generado, y por ahora sólo puede editarse en el editor de fuente.",
+	"cite-ve-referenceslist-missingreflist": "Esta lista de referencias la generó una plantilla; por ahora solo puede modificarse en el modo de código fuente.",
 	"cite-ve-toolbar-group-label": "Citar",
 	"cite-ve-othergroup-item": "referencia $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencias",

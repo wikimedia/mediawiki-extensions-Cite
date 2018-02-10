@@ -48,5 +48,6 @@
 	"cite-ve-referenceslist-isempty": "No hi ha cap referència amb el grup «$1» en aquesta pàgina a incloure en aquesta llista.",
 	"cite-ve-referenceslist-isempty-default": "No hi ha cap referència en aquesta pàgina que incloure en la llista.",
 	"cite-ve-referenceslist-missingref": "Aquesta referència està definida en una plantilla o un altre tipus de bloc generat, i de moment només pot editar-se amb l'editor de codi font.",
+	"cite-ve-referenceslist-missingreflist": "Aquesta llista de referències ha estat generada per una plantilla i, per ara, només es pot modificar en mode de codi font.",
 	"cite-ve-toolbar-group-label": "Referència"
 }

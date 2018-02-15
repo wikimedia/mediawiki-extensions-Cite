@@ -26,10 +26,12 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 	// Properties
 	this.internalList = null;
 	this.listNode = null;
+	this.modified = false;
 
 	// DOM changes
 	this.$element.addClass( 've-ce-mwReferencesListNode' );
 	this.$reflist = $( '<ol>' ).addClass( 'mw-references references' );
+	this.$originalRefList = null;
 	this.$refmsg = $( '<p>' )
 		.addClass( 've-ce-mwReferencesListNode-muted' );
 
@@ -110,6 +112,7 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
 ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsChanged ) {
 	// Only update if this group has been changed
 	if ( groupsChanged.indexOf( this.model.getAttribute( 'listGroup' ) ) !== -1 ) {
+		this.modified = true;
 		this.updateDebounced();
 	}
 };
@@ -125,6 +128,7 @@ ve.ce.MWReferencesListNode.prototype.onAttributeChange = function ( key ) {
 	switch ( key ) {
 		case 'listGroup':
 			this.updateDebounced();
+			this.modified = true;
 			break;
 		case 'isResponsive':
 			this.updateClasses();
@@ -157,6 +161,17 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		listGroup = this.model.getAttribute( 'listGroup' ),
 		nodes = internalList.getNodeGroup( listGroup );
 
+	// Just use Parsoid-provided DOM for first rendering
+	// NB: Technically this.modified could be reset to false if this
+	// node is re-attached, but that is an unlikely edge case.
+	if ( !this.modified && this.model.getElement().originalDomElementsIndex ) {
+		this.$originalRefList = $( this.model.getStore().value(
+			this.model.getElement().originalDomElementsIndex
+		) );
+		this.$element.append( this.$originalRefList );
+		return;
+	}
+
 	function updateGeneratedContent( viewNode, $li ) {
 		// HACK: PHP parser doesn't wrap single lines in a paragraph
 		if (
@@ -179,6 +194,10 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		viewNode.destroy();
 	}
 
+	if ( this.$originalRefList ) {
+		this.$originalRefList.remove();
+		this.$originalRefList = null;
+	}
 	this.$reflist.detach().empty();
 	this.$refmsg.detach();
 

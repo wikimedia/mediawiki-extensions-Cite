@@ -60,6 +60,7 @@
 	"cite-ve-referenceslist-isempty": "此頁面中無群組為 \"$1\" 的參考文獻可加入引用清單。",
 	"cite-ve-referenceslist-isempty-default": "此頁面目前無任何參考文獻可加入引用清單。",
 	"cite-ve-referenceslist-missingref": "此參考文獻已定義於模板或其他自動產生的區塊上，目前只能使用原始碼模式來編輯。",
+	"cite-ve-referenceslist-missingreflist": "此參考文獻清單是由模板所產生，並僅可在原始碼模式下編輯。",
 	"cite-ve-toolbar-group-label": "引用",
 	"cite-ve-othergroup-item": "$1 參考文獻",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "參考文獻",

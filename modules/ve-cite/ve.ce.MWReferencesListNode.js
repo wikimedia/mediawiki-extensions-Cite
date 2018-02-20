@@ -223,10 +223,10 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			$li = $( '<li>' );
 
 			if ( keyedNodes.length > 1 ) {
-				$refSpan = $( '<span rel="mw:referencedBy">' );
+				$refSpan = $( '<span>' ).attr( 'rel', 'mw:referencedBy' );
 				for ( j = 0, jLen = keyedNodes.length; j < jLen; j++ ) {
 					$link = $( '<a>' ).append(
-						$( '<span class="mw-linkback-text">' )
+						$( '<span>' ).addClass( 'mw-linkback-text' )
 							.text( ( j + 1 ) + ' ' )
 					);
 					if ( refGroup !== '' ) {
@@ -236,8 +236,9 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 				}
 				$li.append( $refSpan );
 			} else {
-				$link = $( '<a rel="mw:referencedBy">' ).append(
-					$( '<span class="mw-linkback-text">' ).text( '↑ ' )
+				$link = $( '<a>' ).attr( 'rel', 'mw:referencedBy' ).append(
+					$( '<span>' ).addClass( 'mw-linkback-text' )
+						.text( '↑ ' )
 				);
 				if ( refGroup !== '' ) {
 					$link.attr( 'data-mw-group', refGroup );

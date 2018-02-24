@@ -207,6 +207,14 @@ ve.dm.MWReferencesListNode.static.describeChange = function ( key, change ) {
 		}
 		return ve.msg( 'cite-ve-changedesc-reflist-group-to', change.to );
 	}
+
+	if ( key === 'isResponsive' ) {
+		if ( change.from ) {
+			return ve.msg( 'cite-ve-changedesc-reflist-responsive-unset' );
+		}
+		return ve.msg( 'cite-ve-changedesc-reflist-responsive-set' );
+	}
+
 	if ( key === 'originalMw' ) {
 		return null;
 	}

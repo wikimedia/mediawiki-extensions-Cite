@@ -222,6 +222,18 @@ ve.dm.MWReferencesListNode.static.describeChange = function ( key, change ) {
 	return null;
 };
 
+ve.dm.MWReferencesListNode.static.getHashObject = function ( dataElement ) {
+	return {
+		type: dataElement.type,
+		attributes: {
+			refGroup: dataElement.attributes.refGroup,
+			listGroup: dataElement.attributes.listGroup,
+			isResponsive: dataElement.attributes.isResponsive,
+			templateGenerated: dataElement.attributes.templateGenerated
+		}
+	};
+};
+
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.MWReferencesListNode );

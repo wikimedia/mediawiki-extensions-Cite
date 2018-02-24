@@ -202,9 +202,7 @@ QUnit.test( 'getItemInsertion', function ( assert ) {
 				insert: [
 					{ type: 'internalItem' },
 					{ type: '/internalItem' }
-				],
-				insertedDataOffset: 0,
-				insertedDataLength: 2
+				]
 			},
 			{ type: 'retain', length: 1 }
 		],

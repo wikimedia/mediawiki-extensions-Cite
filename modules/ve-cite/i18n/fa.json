@@ -36,6 +36,8 @@
 	"cite-ve-changedesc-reflist-group-both": "فهرست منبع یادکرد از «$1» به «$2» تغییر یافت",
 	"cite-ve-changedesc-reflist-group-from": "فهرست گروه منبع از «$1» به گروه عمومی تغییر یافت",
 	"cite-ve-changedesc-reflist-group-to": "فهرست گروه منبع از گروه عمومی به «$1» تغییر یافت",
+	"cite-ve-changedesc-reflist-responsive-set": "فهرست منابع به حالت ستون‌های تعاملی تغییر یافت",
+	"cite-ve-changedesc-reflist-responsive-unset": "فهرست منابع به یک ستون تغییر یافت",
 	"cite-ve-changedesc-reflist-item-id": "نمایه منابع تغییریافت",
 	"cite-ve-dialog-reference-editing-reused": "این منبع $1 {{PLURAL:$1|بار}} در این صفحه استفاده شده‌است.",
 	"cite-ve-dialog-reference-options-group-label": "استفاده از این گروه",

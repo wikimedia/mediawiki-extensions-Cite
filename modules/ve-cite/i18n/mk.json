@@ -18,6 +18,8 @@
 	"cite-ve-changedesc-reflist-group-both": "Групата на списоци со наводи е сменета од „$1“ во „$2“",
 	"cite-ve-changedesc-reflist-group-from": "Групата на списоци со наводи е сменета од „$1“ во општата група",
 	"cite-ve-changedesc-reflist-group-to": "Групата на списоци со наводи е сменета од општата група во „$1“",
+	"cite-ve-changedesc-reflist-responsive-set": "Списокот на наводи е изменет за приказ во одѕивни столбови",
+	"cite-ve-changedesc-reflist-responsive-unset": "Списокот на наводи е изменет за приказ во само еден столб",
 	"cite-ve-changedesc-reflist-item-id": "Индексот на наводи е изменет",
 	"cite-ve-dialog-reference-editing-reused": "Овој навод се користи {{PLURAL:$1|еднаш|$1 пати}} во страницава.",
 	"cite-ve-dialog-reference-options-group-label": "Употреби ја групава",

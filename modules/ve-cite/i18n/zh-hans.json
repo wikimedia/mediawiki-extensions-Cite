@@ -37,6 +37,8 @@
 	"cite-ve-changedesc-reflist-group-both": "已将参考列表组从“$1”更改为“$2”",
 	"cite-ve-changedesc-reflist-group-from": "已将参考列表组从“$1”更改为一般组",
 	"cite-ve-changedesc-reflist-group-to": "已将参考列表组从一般组更改为“$1”",
+	"cite-ve-changedesc-reflist-responsive-set": "参考列表已更改为在响应栏中显示",
+	"cite-ve-changedesc-reflist-responsive-unset": "参考列表已更改为只在一栏中显示",
 	"cite-ve-changedesc-reflist-item-id": "参考索引已更改",
 	"cite-ve-dialog-reference-editing-reused": "这个引用在此页面使用了$1{{PLURAL:$1|次}}。",
 	"cite-ve-dialog-reference-options-group-label": "使用该组",

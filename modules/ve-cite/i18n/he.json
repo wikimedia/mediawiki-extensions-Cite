@@ -31,6 +31,8 @@
 	"cite-ve-changedesc-reflist-group-both": "קבוצת רשימת הערות שוליים שונתה מ{{GRAMMAR:תחילית|$1}} ל{{GRAMMAR:תחילית|$2}}",
 	"cite-ve-changedesc-reflist-group-from": "קבוצת רשימת הערות שוליים שונתה מ{{GRAMMAR:תחילית|$1}} לכללית",
 	"cite-ve-changedesc-reflist-group-to": "קבוצת הערות שוליים שונתה מכללית ל{{GRAMMAR:תחילית|$1}}",
+	"cite-ve-changedesc-reflist-responsive-set": "רשימת הערות השוליים שונתה לתצוגה בעמודות מותאמות לגודל המסך",
+	"cite-ve-changedesc-reflist-responsive-unset": "רשימת הערות השוליים שונתה לתצוגה בעמודה אחת",
 	"cite-ve-changedesc-reflist-item-id": "מפתח הערת השוליים השתנה",
 	"cite-ve-dialog-reference-editing-reused": "הערת השוליים משמשת {{PLURAL:$1|פעם אחת|פעמיים|$1 פעמים}} בדף הזה.",
 	"cite-ve-dialog-reference-options-group-label": "להשתמש בקבוצה הזאת",

@@ -757,30 +757,8 @@ class Cite {
 			"\n" . implode( "\n", $ent ) . "\n"
 		);
 
-		// Let's try to cache it.
-		global $wgCiteCacheReferences, $wgMemc;
-		$data = [];
-		if ( $wgCiteCacheReferences ) {
-			$cacheKey = $wgMemc->makeKey(
-				'citeref',
-				md5( $parserInput ),
-				$this->mParser->Title()->getArticleID()
-			);
-			$data = $wgMemc->get( $cacheKey );
-		}
-
-		if ( !$data || !$this->mParser->isValidHalfParsedText( $data ) ) {
-			// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
-			$ret = rtrim( $this->mParser->recursiveTagParse( $parserInput ), "\n" );
-
-			if ( $wgCiteCacheReferences ) {
-				$serData = $this->mParser->serializeHalfParsedText( $ret );
-				$wgMemc->set( $cacheKey, $serData, 86400 );
-			}
-
-		} else {
-			$ret = $this->mParser->unserializeHalfParsedText( $data );
-		}
+		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
+		$ret = rtrim( $this->mParser->recursiveTagParse( $parserInput ), "\n" );
 
 		if ( $responsive ) {
 			// Use a DIV wrap because column-count on a list directly is broken in Chrome.

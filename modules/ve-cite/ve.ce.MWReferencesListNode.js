@@ -36,7 +36,7 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 		.addClass( 've-ce-mwReferencesListNode-muted' );
 
 	// Events
-	this.model.connect( this, { attributeChange: 'onAttributeChange' } );
+	this.getModel().connect( this, { attributeChange: 'onAttributeChange' } );
 
 	this.updateDebounced = ve.debounce( this.update.bind( this ) );
 
@@ -75,7 +75,7 @@ ve.ce.MWReferencesListNode.static.getDescription = function ( model ) {
  * @method
  */
 ve.ce.MWReferencesListNode.prototype.onSetup = function () {
-	this.internalList = this.model.getDocument().getInternalList();
+	this.internalList = this.getModel().getDocument().getInternalList();
 	this.listNode = this.internalList.getListNode();
 
 	this.internalList.connect( this, { update: 'onInternalListUpdate' } );
@@ -111,7 +111,7 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
  */
 ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsChanged ) {
 	// Only update if this group has been changed
-	if ( groupsChanged.indexOf( this.model.getAttribute( 'listGroup' ) ) !== -1 ) {
+	if ( groupsChanged.indexOf( this.getModel().getAttribute( 'listGroup' ) ) !== -1 ) {
 		this.modified = true;
 		this.updateDebounced();
 	}
@@ -155,18 +155,25 @@ ve.ce.MWReferencesListNode.prototype.onListNodeUpdate = function () {
  */
 ve.ce.MWReferencesListNode.prototype.update = function () {
 	var i, j, iLen, jLen, index, firstNode, key, keyedNodes, modelNode, viewNode,
-		$li, $refSpan, $link,
-		internalList = this.model.getDocument().internalList,
-		refGroup = this.model.getAttribute( 'refGroup' ),
-		listGroup = this.model.getAttribute( 'listGroup' ),
-		nodes = internalList.getNodeGroup( listGroup );
+		$li, $refSpan, $link, internalList, refGroup, listGroup, nodes,
+		model = this.getModel();
+
+	// Check the node hasn't been destroyed, as this method is debounced.
+	if ( !model ) {
+		return;
+	}
+
+	internalList = model.getDocument().internalList;
+	refGroup = model.getAttribute( 'refGroup' );
+	listGroup = model.getAttribute( 'listGroup' );
+	nodes = internalList.getNodeGroup( listGroup );
 
 	// Just use Parsoid-provided DOM for first rendering
 	// NB: Technically this.modified could be reset to false if this
 	// node is re-attached, but that is an unlikely edge case.
-	if ( !this.modified && this.model.getElement().originalDomElementsIndex ) {
-		this.$originalRefList = $( this.model.getStore().value(
-			this.model.getElement().originalDomElementsIndex
+	if ( !this.modified && model.getElement().originalDomElementsIndex ) {
+		this.$originalRefList = $( model.getStore().value(
+			model.getElement().originalDomElementsIndex
 		) );
 		this.$element.append( this.$originalRefList );
 		return;
@@ -302,7 +309,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
  * Currently used to set responsive layout
  */
 ve.ce.MWReferencesListNode.prototype.updateClasses = function () {
-	var isResponsive = this.model.getAttribute( 'isResponsive' );
+	var isResponsive = this.getModel().getAttribute( 'isResponsive' );
 
 	this.$element
 		.toggleClass( 'mw-references-wrap', isResponsive )

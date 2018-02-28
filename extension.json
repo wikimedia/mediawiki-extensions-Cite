@@ -94,7 +94,6 @@
 		"cite": "GlobalVarConfig::newInstance"
 	},
 	"config": {
-		"CiteCacheReferences": false,
 		"CiteStoreReferencesData": false,
 		"CiteCacheReferencesDataOnParse": false,
 		"CiteVisualEditorOtherGroup": false,

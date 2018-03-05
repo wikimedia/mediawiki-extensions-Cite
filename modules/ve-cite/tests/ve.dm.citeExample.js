@@ -383,6 +383,81 @@ ve.dm.citeExample.domToDataCases = {
 			{ type: '/internalList' }
 		]
 	},
+	'Template generated reflist': {
+		body: '<p><sup about="#mwt2" class="mw-ref" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;},&quot;attrs&quot;:{&quot;group&quot;:&quot;notes&quot;}}"><a href="./Main_Page#cite_note-1" style="counter-reset: mw-Ref 1;" data-mw-group="notes"><span class="mw-reflink-text">[notes 1]</span></a></sup></p>' +
+			'<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt4" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;echo&quot;,&quot;href&quot;:&quot;./Template:Echo&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;<references group=\\&quot;notes\\&quot; />&quot;}},&quot;i&quot;:0}}]}">' +
+				'<ol class="mw-references references" data-mw-group="notes">' +
+					'<li about="#cite_note-1" id="cite_note-1"><a href="./Main_Page#cite_ref-1" data-mw-group="notes" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">Foo</span></li>' +
+				'</ol>' +
+			'</div>',
+		fromDataBody: '<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;},&quot;attrs&quot;:{&quot;group&quot;:&quot;notes&quot;}}"></sup></p>' +
+			'<span typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;echo&quot;,&quot;href&quot;:&quot;./Template:Echo&quot;},&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;<references group=\\&quot;notes\\&quot; />&quot;}},&quot;i&quot;:0}}]}"></span>',
+		clipboardBody: '<p><sup typeof="mw:Extension/ref" data-mw="{&quot;attrs&quot;:{&quot;group&quot;:&quot;notes&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;,&quot;html&quot;:&quot;Foo&quot;},&quot;name&quot;:&quot;ref&quot;}" class="mw-ref"><a data-mw-group="notes" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[notes 1]</span></a></sup></p>' +
+			'<div typeof="mw:Extension/references" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;params&quot;:{&quot;1&quot;:{&quot;wt&quot;:&quot;<references group=\\&quot;notes\\&quot; />&quot;}},&quot;target&quot;:{&quot;wt&quot;:&quot;echo&quot;,&quot;href&quot;:&quot;./Template:Echo&quot;},&quot;i&quot;:0}}],&quot;name&quot;:&quot;references&quot;}">' +
+				// TODO: This should list should get populated on copy
+				'<ol class="mw-references references"></ol>' +
+			'</div>',
+		data: [
+			{ type: 'paragraph' },
+			{
+				type: 'mwReference',
+				attributes: {
+					contentsUsed: true,
+					listGroup: 'mwReference/notes',
+					listIndex: 0,
+					listKey: 'auto/0',
+					mw: {
+						attrs: {
+							group: 'notes'
+						},
+						body: {
+							id: 'mw-reference-text-cite_note-1'
+						},
+						name: 'ref'
+					},
+					originalMw: '{"name":"ref","body":{"id":"mw-reference-text-cite_note-1"},"attrs":{"group":"notes"}}',
+					refGroup: 'notes',
+					refListItemId: 'mw-reference-text-cite_note-1'
+				}
+			},
+			{ type: '/mwReference' },
+			{ type: '/paragraph' },
+			{
+				type: 'mwReferencesList',
+				attributes: {
+					mw: {
+						parts: [ {
+							template: {
+								params: {
+									1: { wt: '<references group="notes" />' }
+								},
+								target: { wt: 'echo', href: './Template:Echo' },
+								i: 0
+							}
+						} ]
+					},
+					originalMw: '{"parts":[{"template":{"target":{"wt":"echo","href":"./Template:Echo"},"params":{"1":{"wt":"<references group=\\"notes\\" />"}},"i":0}}]}',
+					refGroup: '',
+					listGroup: 'mwReference/',
+					isResponsive: true,
+					templateGenerated: true
+				}
+			},
+			{ type: '/mwReferencesList' },
+			{ type: 'internalList' },
+			{ type: 'internalItem', attributes: { originalHtml: 'Foo' } },
+			{
+				internal: {
+					generated: 'wrapper'
+				},
+				type: 'paragraph'
+			},
+			'F', 'o', 'o',
+			{ type: '/paragraph' },
+			{ type: '/internalItem' },
+			{ type: '/internalList' }
+		]
+	},
 	'Template generated reflist (div wrapped)': {
 		body: '<p><sup about="#mwt2" class="mw-ref" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;},&quot;attrs&quot;:{}}"><a href="./Main_Page#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>' +
 			'<div about="#mwt3" typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}">' +

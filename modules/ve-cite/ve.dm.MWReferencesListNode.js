@@ -63,14 +63,15 @@ ve.dm.MWReferencesListNode.static.preserveHtmlAttributes = false;
 ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, converter ) {
 	var referencesListData, contentsDiv, contentsData, refListNode,
 		mwDataJSON, mwData, refGroup, responsiveAttr, listGroup,
-		templateGenerated = false,
+		type = domElements[ 0 ].getAttribute( 'typeof' ) || '',
+		templateGenerated = type.indexOf( 'mw:Transclusion' ) !== -1,
 		isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' );
 
-	if ( ( domElements[ 0 ].getAttribute( 'typeof' ) || '' ).indexOf( 'mw:Extension/references' ) !== -1 ) {
+	// We may have matched a mw:Transclusion wrapping a reference list, so pull out the refListNode
+	if ( type.indexOf( 'mw:Extension/references' ) !== -1 ) {
 		refListNode = domElements[ 0 ];
 	} else {
 		refListNode = domElements[ 0 ].querySelectorAll( '[typeof*="mw:Extension/references"]' )[ 0 ];
-		templateGenerated = true;
 	}
 
 	mwDataJSON = refListNode.getAttribute( 'data-mw' );

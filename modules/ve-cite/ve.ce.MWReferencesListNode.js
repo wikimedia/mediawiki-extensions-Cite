@@ -171,9 +171,9 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	// Just use Parsoid-provided DOM for first rendering
 	// NB: Technically this.modified could be reset to false if this
 	// node is re-attached, but that is an unlikely edge case.
-	if ( !this.modified && model.getElement().originalDomElementsIndex ) {
+	if ( !this.modified && model.getElement().originalDomElementsHash ) {
 		this.$originalRefList = $( model.getStore().value(
-			model.getElement().originalDomElementsIndex
+			model.getElement().originalDomElementsHash
 		) );
 		this.$element.append( this.$originalRefList );
 		return;

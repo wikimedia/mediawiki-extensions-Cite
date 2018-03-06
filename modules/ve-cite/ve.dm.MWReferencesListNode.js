@@ -130,9 +130,9 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		els[ 0 ].appendChild( viewNode.$reflist[ 0 ] );
 		// Destroy the view node so it doesn't try to update the DOM node later (e.g. updateDebounced)
 		viewNode.destroy();
-	} else if ( dataElement.originalDomElementsIndex !== undefined ) {
+	} else if ( dataElement.originalDomElementsHash !== undefined ) {
 		// If there's more than 1 element, preserve entire array, not just first element
-		els = ve.copyDomElements( converter.getStore().value( dataElement.originalDomElementsIndex ), doc );
+		els = ve.copyDomElements( converter.getStore().value( dataElement.originalDomElementsHash ), doc );
 	} else {
 		els = [ doc.createElement( 'div' ) ];
 	}

@@ -36,6 +36,8 @@
 	"cite-ve-changedesc-reflist-group-both": "각주 목록 그룹이 \"$1\"에서 \"$2\"(으)로 변경되었습니다",
 	"cite-ve-changedesc-reflist-group-from": "각주 목록 그룹이 \"$1\"에서 일반 그룹으로 변경되었습니다",
 	"cite-ve-changedesc-reflist-group-to": "각주 목록 그룹이 일반 그룹에서 \"$1\"(으)로 변경되었습니다",
+	"cite-ve-changedesc-reflist-responsive-set": "참고문헌 목록은 여러 반응형 열로 표시되도록 변경되었습니다",
+	"cite-ve-changedesc-reflist-responsive-unset": "참고문헌 목록은 하나의 열로만 표시되도록 변경되었습니다",
 	"cite-ve-changedesc-reflist-item-id": "참조 색인이 변경되었습니다",
 	"cite-ve-dialog-reference-editing-reused": "이 각주는 이 문서에서 $1{{PLURAL:$1|번}} 사용되었습니다.",
 	"cite-ve-dialog-reference-options-group-label": "이 그룹 사용",

@@ -8,6 +8,7 @@
 	},
 	"cite_error": "ھەڵەی ژێدەرەکان: $1",
 	"cite_error_ref_too_many_keys": "تاگی <code>&lt;ref&gt;</code>ی ڕێگەپێنەدراو؛\nبۆ نموونە، ناوە ھەڵەیەکان یان لە ڕادە بەدەر",
+	"cite_error_references_duplicate_key": "تاگی <code>&lt;ref&gt;</code>ی ھەڵە؛ ناوی «$1» زیاتر لە یەک جار پێناسە کراوە لەگەڵ ناوەڕۆکی جیاوازدا",
 	"cite_error_references_no_text": "تاگی <code>&lt;ref&gt;</code> ھەڵە؛\nھیچ دەقێک بۆ ژێدەری <code>$1</code> نەدراوە",
 	"cite_error_included_ref": "داخەری ژێدەر <code>&lt;/ref&gt;</code> بۆ تاگی <code>&lt;ref&gt;</code> بەردەست نییە",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> تاگی «$1» کە لە <code>&lt;ژێدەرەکاندا&gt;</code> پێناسەکراوە لە دەقی وتاردا بەکارنەھاتووە.",

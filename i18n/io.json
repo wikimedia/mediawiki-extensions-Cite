@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya"
+			"Malafaya",
+			"Joao Xavier"
 		]
 	},
-	"cite_error": "Citala eroro: $1"
+	"cite_error": "Citala eroro: $1",
+	"cite_error_group_refs_without_references": "Etiketi <code>&lt;ref&gt;</code> existas por la grupo nomizita \"$1\", ma nula etiketo korespondanta <code>&lt;references group=\"$1\"/&gt;</code> trovesis,o mankas la <code>&lt;/ref&gt;</code> por klozar ol."
 }

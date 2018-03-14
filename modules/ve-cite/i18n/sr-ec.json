@@ -10,12 +10,13 @@
 			"Сербијана",
 			"Obsuser",
 			"Prevodim",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "без вредности",
 	"visualeditor-cite-tool-name-book": "Књига",
-	"visualeditor-cite-tool-name-journal": "Журнал",
+	"visualeditor-cite-tool-name-journal": "Часопис",
 	"visualeditor-cite-tool-name-news": "Вести",
 	"visualeditor-cite-tool-name-web": "Веб-сајт",
 	"cite-tool-definition.json": "без вредности",

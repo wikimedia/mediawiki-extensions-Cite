@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="2 2 20 20">
     <path id="paper" d="M21 21H4c-1 0-2-1-2-2V4h19v17zM4 6v12.278c0 .397.325.722.722.722h14.28L19 6H4z"/>
     <path id="banner" d="M6 8h11v3H6z"/>
     <path id="text1" d="M12 12h5v2h-5z"/>

@@ -292,7 +292,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 				$li.append(
 					$( '<span>' )
 						.addClass( 've-ce-mwReferencesListNode-muted' )
-						.text( ve.msg( 'cite-ve-referenceslist-missingref' ) )
+						.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) )
 				);
 			}
 

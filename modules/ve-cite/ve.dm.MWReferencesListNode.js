@@ -125,6 +125,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		// Build from original doc's internal list to get all refs (T186407)
 		modelNode.setDocument( converter.originalDocInternalList.getDocument() );
 		viewNode = new ve.ce.MWReferencesListNode( modelNode );
+		viewNode.modified = true;
 		viewNode.update();
 		els = [ doc.createElement( 'div' ) ];
 		els[ 0 ].appendChild( viewNode.$reflist[ 0 ] );

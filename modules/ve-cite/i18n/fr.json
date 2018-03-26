@@ -88,6 +88,7 @@
 	"cite-ve-referenceslist-isempty": "Il n’y a aucune référence avec le groupe « $1 » sur cette page à inclure dans cette liste.",
 	"cite-ve-referenceslist-isempty-default": "Il n’y a aucune référence sur cette page à inclure dans cette liste.",
 	"cite-ve-referenceslist-missingref": "Cette référence est définie dans un modèle ou un autre bloc généré et ne peut pour le moment être modifiée qu’avec l’éditeur de wikicode.",
+	"cite-ve-referenceslist-missingref-in-list": "Cette référence est définie dans un modèle ou un autre bloc généré, et pour le moment, il ne peut être affiché en aperçu qu’en mode source.",
 	"cite-ve-referenceslist-missingreflist": "Cette liste de référence est générée par un modèle, et actuellement, elle ne peut être modifiée qu’en mode source.",
 	"cite-ve-toolbar-group-label": "Source",
 	"cite-ve-othergroup-item": "référence $1",

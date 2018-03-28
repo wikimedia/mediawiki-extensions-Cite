@@ -4,7 +4,8 @@
 			"Jfblanc",
 			"Cedric31",
 			"Fitoschido",
-			"McDutchie"
+			"McDutchie",
+			"Unuaiga"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Libre",
@@ -27,5 +28,6 @@
 	"cite-ve-referenceslist-isempty": "I a pas de referéncia dins lo grop \"$1\" d'aquesta pagina per apondre a aquela lista.",
 	"cite-ve-referenceslist-isempty-default": "I a pas de referéncias dins aquela pagina a apondre a aquela lista.",
 	"cite-ve-referenceslist-missingref": "Aquela referéncia es definida dins un modèl o un autre blòt generat, e pòt per ara èsser modificada sonque en edicion de font.",
+	"cite-ve-referenceslist-missingref-in-list": "Aquela referéncia es definida dins un modèl o un autre blòt generat, per ara e pòt èsser previsualizada sonque en edicion de font.",
 	"cite-ve-toolbar-group-label": "Citar"
 }

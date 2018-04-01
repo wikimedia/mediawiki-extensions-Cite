@@ -63,6 +63,7 @@
 	"cite-ve-referenceslist-isempty": "منبعی با گروه «$1» در این صفحه برای شامل‌کردن در این فهرست وجود ندارد.",
 	"cite-ve-referenceslist-isempty-default": "منبعی در این صفحه برای شامل‌کردن در این فهرست وجود ندارد.",
 	"cite-ve-referenceslist-missingref": "این منبع درون یک الگو یا قطعهٔ تولیدی دیگر تعریف شده است و هم‌اکنون تنها می‌توان در حالت متنی آن را ویرایش کرد",
+	"cite-ve-referenceslist-missingref-in-list": "منبع تعریف شده درون الگو یا سایر بلوک‌های شبیه‌سازی شده در حال حاضر فقط به صورت حالت متنی قابل مشاهده هست.",
 	"cite-ve-referenceslist-missingreflist": "این فهرست منابع به کمک یک الگو ایجاد شده‌است که فقط امکان ویرایش آن در حالت ویرایش متنی وجود دارد.",
 	"cite-ve-toolbar-group-label": "یادکرد",
 	"cite-ve-othergroup-item": "$1 منبع",

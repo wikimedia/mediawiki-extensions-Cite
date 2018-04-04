@@ -301,7 +301,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	this.contentFieldset = new OO.ui.FieldsetLayout();
 	this.optionsFieldset = new OO.ui.FieldsetLayout( {
 		label: ve.msg( 'cite-ve-dialog-reference-options-section' ),
-		icon: 'settings'
+		icon: 'advanced'
 	} );
 	this.contentFieldset.$element.append( this.referenceTarget.$element );
 

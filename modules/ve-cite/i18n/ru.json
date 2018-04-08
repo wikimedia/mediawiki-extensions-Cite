@@ -28,7 +28,8 @@
 			"Краснорядцева Елена",
 			"Mailman",
 			"Facenapalm",
-			"Mouse21"
+			"Mouse21",
+			"Happy13241"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "null",
@@ -68,6 +69,7 @@
 	"cite-ve-referenceslist-isempty": "На этой странице нет ссылок с группой «$1» для включения в этот список.",
 	"cite-ve-referenceslist-isempty-default": "На этой странице нет ссылок для включения в этот список.",
 	"cite-ve-referenceslist-missingref": "Эта сноска определена в шаблоне или другом генерируемом блоке и на данный момент может быть отредактирована только в режиме правки исходного текста.",
+	"cite-ve-referenceslist-missingref-in-list": "Эта ссылка определяется в шаблоне или другом сгенерированном блоке и на данный момент может быть просмотрена только в исходном режиме.",
 	"cite-ve-referenceslist-missingreflist": "Этот список ссылок генерируется шаблоном, и теперь его можно редактировать только в режиме источника.",
 	"cite-ve-toolbar-group-label": "Источники",
 	"cite-ve-othergroup-item": "$1 примечание",

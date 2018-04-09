@@ -44,6 +44,8 @@
 	"cite-ve-changedesc-reflist-group-both": "Группа списка примечаний изменена с «$1» на «$2»",
 	"cite-ve-changedesc-reflist-group-from": "Группа списка примечаний изменена с «$1» на общую группу",
 	"cite-ve-changedesc-reflist-group-to": "Группа списка примечаний изменена с общей группы на «$1»",
+	"cite-ve-changedesc-reflist-responsive-set": "Список литературы изменен для отображения в ответных столбцах",
+	"cite-ve-changedesc-reflist-responsive-unset": "Список литературы изменен для отображения только в одном столбце",
 	"cite-ve-changedesc-reflist-item-id": "Изменился индекс сноски",
 	"cite-ve-dialog-reference-editing-reused": "Эта ссылка используется на странице $1 раз{{PLURAL:$1|||а}}.",
 	"cite-ve-dialog-reference-options-group-label": "Использовать эту группу",

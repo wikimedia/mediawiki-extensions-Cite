@@ -120,6 +120,57 @@ class CiteHooks {
 		$resourceLoader->register( "ext.cite.visualEditor.data",
 			[ "class" => "CiteDataModule" ] );
 
+		$resourceLoader->register( "ext.cite.visualEditor.icons", [
+			'localBasePath' => $dir . 'modules',
+			'remoteExtPath' => 'Cite/modules',
+			"class" => "ResourceLoaderImageModule",
+			"selectorWithoutVariant" => ".oo-ui-icon-{name}",
+			"selectorWithVariant" => ".oo-ui-image-{variant}.oo-ui-icon-{name}",
+			"variants" => [
+				"progressive" => [
+					"color" => "#36c"
+				]
+			],
+			"images" => [
+				"ref-cite-book" => [
+					"file" => "ve-cite/icons/ref-cite-book.svg"
+				],
+				"ref-cite-journal" => [
+					"file" => [
+						"ltr" => "ve-cite/icons/ref-cite-journal-ltr.svg",
+						"rtl" => "ve-cite/icons/ref-cite-journal-rtl.svg"
+					]
+				],
+				"ref-cite-news" => [
+					"file" => [
+						"ltr" => "ve-cite/icons/ref-cite-news-ltr.svg",
+						"rtl" => "ve-cite/icons/ref-cite-news-rtl.svg"
+					]
+				],
+				"ref-cite-web" => [
+					"file" => "ve-cite/icons/ref-cite-web.svg"
+				],
+				"reference" => [
+					"file" => [
+						"ltr" => "ve-cite/icons/reference-ltr.svg",
+						"rtl" => "ve-cite/icons/reference-rtl.svg"
+					]
+				],
+				"reference-existing" => [
+					"file" => [
+						"ltr" => "ve-cite/icons/reference-existing-ltr.svg",
+						"rtl" => "ve-cite/icons/reference-existing-rtl.svg"
+					]
+				],
+				"references" => [
+					"file" => [
+						"ltr" => "ve-cite/icons/references-ltr.svg",
+						"rtl" => "ve-cite/icons/references-rtl.svg"
+					]
+				],
+			]
+		] );
+
 		$resourceLoader->register( "ext.cite.visualEditor", [
 			'localBasePath' => $dir . 'modules',
 			'remoteExtPath' => 'Cite/modules',
@@ -142,7 +193,6 @@ class CiteHooks {
 			"styles" => [
 				"ve-cite/ve.ui.MWReferenceContextItem.css",
 				"ve-cite/ve.ui.MWReferenceGroupInputWidget.css",
-				"ve-cite/ve.ui.MWReferenceIcons.css",
 				"ve-cite/ve.ui.MWReferenceResultWidget.css",
 				"ve-cite/ve.ui.MWReferenceSearchWidget.css"
 			],
@@ -151,6 +201,7 @@ class CiteHooks {
 				"oojs-ui.styles.icons-interactions",
 				"ext.cite.visualEditor.core",
 				"ext.cite.visualEditor.data",
+				"ext.cite.visualEditor.icons",
 				"ext.cite.style",
 				"ext.cite.styles",
 				"ext.visualEditor.mwtransclusion",

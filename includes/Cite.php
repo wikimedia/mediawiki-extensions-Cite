@@ -221,9 +221,7 @@ class Cite {
 		$parserOutput->addModules( 'ext.cite.a11y' );
 		$parserOutput->addModuleStyles( 'ext.cite.styles' );
 
-		if ( is_callable( [ $frame, 'setVolatile' ] ) ) {
-			$frame->setVolatile();
-		}
+		$frame->setVolatile();
 
 		// new <ref> tag, we may need to bump the ref data counter
 		// to avoid overwriting a previous group
@@ -636,9 +634,7 @@ class Cite {
 		$this->mInReferences = true;
 		$ret = $this->guardedReferences( $str, $argv, $parser );
 		$this->mInReferences = false;
-		if ( is_callable( [ $frame, 'setVolatile' ] ) ) {
-			$frame->setVolatile();
-		}
+		$frame->setVolatile();
 		return $ret;
 	}
 

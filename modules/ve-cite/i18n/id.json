@@ -59,6 +59,7 @@
 	"cite-ve-referenceslist-isempty": "Tidak ada referensi dengan kelompok \"$1\" pada halaman ini yang dapat disertakan dalam daftar ini.",
 	"cite-ve-referenceslist-isempty-default": "Tidak ada referensi pada halaman ini yang dapat disertakan dalam daftar ini.",
 	"cite-ve-referenceslist-missingref": "Referensi ini didefinisikan dalam templat atau blok lain, dan sekarang hanya dapat disunting dalam mode \"sunting sumber\".",
+	"cite-ve-referenceslist-missingreflist": "Daftar referensi ini dihasilkan oleh tempat, dan karena itu kini hanya dapat disunting dalam mode sumber.",
 	"cite-ve-toolbar-group-label": "Kutip",
 	"cite-ve-othergroup-item": "$1 referensi",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referensi",

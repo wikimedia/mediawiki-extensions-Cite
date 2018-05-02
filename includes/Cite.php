@@ -248,8 +248,11 @@ class Cite {
 		$this->mParser = $parser;
 
 		# The key here is the "name" attribute.
-		list( $key, $group, $follow ) = $this->refArg( $argv );
-
+		list( $key, $group, $follow, $dir ) = $this->refArg( $argv );
+		// empty string indicate invalid dir
+		if ( $dir === '' && $str !== '' ) {
+			$str .= $this->error( 'cite_error_ref_invalid_dir', $argv['dir'], 'noparse' );
+		}
 		# Split these into groups.
 		if ( $group === null ) {
 			if ( $this->mInReferences ) {
@@ -377,7 +380,7 @@ class Cite {
 			# we'll figure that out later.  Likewise it's definitely valid
 			# if there's any content, regardless of key.
 
-			return $this->stack( $str, $key, $group, $follow, $argv );
+			return $this->stack( $str, $key, $group, $follow, $argv, $dir );
 		}
 
 		# Not clear how we could get here, but something is probably
@@ -391,6 +394,7 @@ class Cite {
 	 *  "name" : Key of the reference.
 	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
 	 *  "follow" : If the current reference is the continuation of another, key of that reference.
+	 *  "dir" : set direction of text (ltr/rtl)
 	 *
 	 * @param string[] $argv The argument vector
 	 * @return mixed false on invalid input, a string on valid
@@ -401,14 +405,25 @@ class Cite {
 		$group = null;
 		$key = null;
 		$follow = null;
+		$dir = null;
+		if ( isset( $argv['dir'] ) ) {
+			// compare the dir attribute value against an explicit whitelist.
+			$dir = '';
+			$isValidDir = in_array( strtolower( $argv['dir'] ), [ 'ltr', 'rtl' ] );
+			if ( $isValidDir ) {
+				$dir = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . strtolower( $argv['dir'] ) ] );
+			}
 
+			unset( $argv['dir'] );
+			--$cnt;
+		}
 		if ( $cnt > 2 ) {
 			// There should only be one key or follow parameter, and one group parameter
 			// FIXME : this looks inconsistent, it should probably return a tuple
 			return false;
 		} elseif ( $cnt >= 1 ) {
 			if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
-				return [ false, false, false ];
+				return [ false, false, false, false ];
 			}
 			if ( isset( $argv['name'] ) ) {
 				// Key given.
@@ -430,14 +445,14 @@ class Cite {
 			}
 
 			if ( $cnt === 0 ) {
-				return [ $key, $group, $follow ];
+				return [ $key, $group, $follow, $dir ];
 			} else {
 				// Invalid key
-				return [ false, false, false ];
+				return [ false, false, false, false ];
 			}
 		} else {
 			// No key
-			return [ null, $group, false ];
+			return [ null, $group, false, $dir ];
 		}
 	}
 
@@ -449,11 +464,12 @@ class Cite {
 	 * @param string $group
 	 * @param string|null $follow
 	 * @param string[] $call
+	 * @param $dir ref direction
 	 *
 	 * @throws Exception
 	 * @return string
 	 */
-	private function stack( $str, $key, $group, $follow, array $call ) {
+	private function stack( $str, $key, $group, $follow, array $call, $dir ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = [];
 		}
@@ -476,7 +492,8 @@ class Cite {
 					'count' => -1,
 					'text' => $str,
 					'key' => ++$this->mOutCnt,
-					'follow' => $follow
+					'follow' => $follow,
+					'dir' => $dir
 				] ] );
 				array_splice( $this->mRefCallStack, $k, 0,
 					[ [ 'new', $call, $str, $key, $group, $this->mOutCnt ] ] );
@@ -488,10 +505,12 @@ class Cite {
 		if ( $key === null ) {
 			// No key
 			// $this->mRefs[$group][] = $str;
+
 			$this->mRefs[$group][] = [
 				'count' => -1,
 				'text' => $str,
-				'key' => ++$this->mOutCnt
+				'key' => ++$this->mOutCnt,
+				'dir' => $dir
 			];
 			$this->mRefCallStack[] = [ 'new', $call, $str, $key, $group, $this->mOutCnt ];
 
@@ -508,7 +527,8 @@ class Cite {
 				'text' => $str,
 				'count' => 0,
 				'key' => ++$this->mOutCnt,
-				'number' => ++$this->mGroupCnt[$group]
+				'number' => ++$this->mGroupCnt[$group],
+				'dir' => $dir
 			];
 			$this->mRefCallStack[] = [ 'new', $call, $str, $key, $group, $this->mOutCnt ];
 
@@ -797,7 +817,8 @@ class Cite {
 					$this->normalizeKey(
 						$this->refKey( $key )
 					),
-					$this->referenceText( $key, $val )
+					$this->referenceText( $key, $val ),
+					$val['dir']
 				)->inContentLanguage()->plain();
 		}
 		$text = $this->referenceText( $key, $val['text'] );
@@ -830,7 +851,8 @@ class Cite {
 						# $this->refKey( $val['key'], $val['count'] )
 						$this->refKey( $val['key'] )
 					),
-					$text
+					$text,
+					$val['dir']
 				)->inContentLanguage()->plain();
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is
@@ -847,7 +869,8 @@ class Cite {
 						# $this->refKey( $key, $val['count'] ),
 						$this->refKey( $key, $val['key'] . "-" . $val['count'] )
 					),
-					$text
+					$text,
+					$val['dir']
 				)->inContentLanguage()->plain();
 		// Named references with >1 occurrences
 		}
@@ -871,7 +894,8 @@ class Cite {
 					self::getReferencesKey( $key . "-" . $val['key'] )
 				),
 				$list,
-				$text
+				$text,
+				$val['dir']
 			)->inContentLanguage()->plain();
 	}
 

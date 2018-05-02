@@ -42,3 +42,15 @@ sup.reference:target {
 	/* For the case that the error is embedded in an element with a different direction */
 	unicode-bidi: embed;
 }
+
+/* @noflip */
+.mw-cite-dir-ltr .reference-text {
+	direction: ltr;
+	unicode-bidi: embed;
+}
+
+/* @noflip */
+.mw-cite-dir-rtl .reference-text {
+	direction: rtl;
+	unicode-bidi: embed;
+}

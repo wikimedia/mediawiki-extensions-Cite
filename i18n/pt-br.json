@@ -5,7 +5,8 @@
 			"Eduardo.mps",
 			"Giro720",
 			"555",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"apihelp-query+references-description": "Retornar uma representação de dados de referências associadas às páginas fornecidas.",
@@ -14,6 +15,7 @@
 	"apierror-citestoragedisabled": "O armazenamento de referência da extensão Cite não está habilitado.",
 	"cite-desc": "Adiciona marcas <nowiki><ref[ name=id]></nowiki> e <nowiki><references/></nowiki> para citações",
 	"cite_error": "Erro de citação: $1",
+	"cite_error_ref_invalid_dir": "Elemento <code>&lt;ref&gt;</code> inválido; o atributo dir \"$1\" é desconhecido. Tem de ser ltr ou rtl",
 	"cite_error_ref_numeric_key": "Marca <code>&lt;ref&gt;</code> inválida; \no nome não pode ser um número. Utilize um título descritivo",
 	"cite_error_ref_no_key": "A tag de abertura <code>&lt;ref&gt;</code> está mal formada ou tem um nome ruim",
 	"cite_error_ref_too_many_keys": "Marca <code>&lt;ref&gt;</code> inválida; \nnomes inválidos, por exemplo, muito extenso",

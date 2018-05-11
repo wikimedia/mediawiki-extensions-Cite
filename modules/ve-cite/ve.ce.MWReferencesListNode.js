@@ -275,7 +275,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			// Generate reference HTML from first item in key
 			modelNode = internalList.getItemNode( firstNode.getAttribute( 'listIndex' ) );
 			if ( modelNode && modelNode.length ) {
-				viewNode = new ve.ce.InternalItemNode( modelNode );
+				viewNode = ve.ce.nodeFactory.createFromModel( modelNode );
 
 				// Use 'done' instead of 'then' so content is updated synchronously
 				// if possible, for clipboard conversion.

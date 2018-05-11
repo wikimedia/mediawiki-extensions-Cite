@@ -11,6 +11,18 @@ ve.dm.citeExample.createExampleDocument = function ( name, store ) {
 	return ve.dm.example.createExampleDocumentFromObject( name, store, ve.dm.citeExample );
 };
 
+ve.dm.citeExample.refListItemClipboard = function ( text ) {
+	return '<span class="reference-text">' +
+		'<div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output">' +
+			'<span class="ve-ce-branchNode ve-ce-internalItemNode">' +
+				'<p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">' +
+					text +
+				'</p>' +
+			'</span>' +
+		'</div>' +
+	'</span>';
+};
+
 ve.dm.citeExample.domToDataCases = {
 	'mw:Reference': {
 		// Wikitext:
@@ -128,15 +140,15 @@ ve.dm.citeExample.domToDataCases = {
 					'<ol class="mw-references references" data-mw-group="g1">' +
 						'<li>' +
 							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
-							'<span class="reference-text"><span class="ve-ce-branchNode ve-ce-internalItemNode">Quux</span></span>' +
+							ve.dm.citeExample.refListItemClipboard( 'Quux' ) +
 						'</li>' +
 						'<li>' +
 							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
-							'<span class="reference-text"><span class="ve-ce-branchNode ve-ce-internalItemNode">No name</span></span>' +
+							ve.dm.citeExample.refListItemClipboard( 'No name' ) +
 						'</li>' +
 						'<li>' +
 							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
-							'<span class="reference-text"><span class="ve-ce-branchNode ve-ce-internalItemNode">Ref in refs</span></span>' +
+							ve.dm.citeExample.refListItemClipboard( 'Ref in refs' ) +
 						'</li>' +
 					'</ol>' +
 			'</div>',
@@ -472,7 +484,10 @@ ve.dm.citeExample.domToDataCases = {
 		clipboardBody: '<p><sup typeof="mw:Extension/ref" data-mw="{&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;,&quot;html&quot;:&quot;Foo&quot;},&quot;name&quot;:&quot;ref&quot;}" class="mw-ref"><a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>' +
 			'<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{}}">' +
 				'<ol class="mw-references references">' +
-					'<li><a rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a><span class="reference-text"><span class="ve-ce-branchNode ve-ce-internalItemNode">Foo</span></span></li>' +
+					'<li>' +
+						'<a rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a>' +
+						ve.dm.citeExample.refListItemClipboard( 'Foo' ) +
+					'</li>' +
 				'</ol>' +
 			'</div>',
 		data: [

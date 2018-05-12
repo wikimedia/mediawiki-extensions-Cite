@@ -1,5 +1,6 @@
 {
 	"name": "Cite",
+	"version": "1.0.0",
 	"author": [
 		"Ævar Arnfjörð Bjarmason",
 		"Andrew Garrett",

@@ -1136,18 +1136,17 @@ class Cite {
 	 * want the counts to transcend pages and other instances
 	 *
 	 * @param Parser &$parser
-	 *
-	 * @return bool
 	 */
 	public function clearState( Parser &$parser ) {
 		if ( $parser->extCite !== $this ) {
-			return $parser->extCite->clearState( $parser );
+			$parser->extCite->clearState( $parser );
+			return;
 		}
 
 		# Don't clear state when we're in the middle of parsing
 		# a <ref> tag
 		if ( $this->mInCite || $this->mInReferences ) {
-			return true;
+			return;
 		}
 
 		$this->mGroupCnt = [];
@@ -1156,20 +1155,17 @@ class Cite {
 		$this->mRefs = [];
 		$this->mReferencesErrors = [];
 		$this->mRefCallStack = [];
-
-		return true;
 	}
 
 	/**
 	 * Gets run when the parser is cloned.
 	 *
 	 * @param Parser $parser
-	 *
-	 * @return bool
 	 */
 	public function cloneState( Parser $parser ) {
 		if ( $parser->extCite !== $this ) {
-			return $parser->extCite->cloneState( $parser );
+			$parser->extCite->cloneState( $parser );
+			return;
 		}
 
 		$parser->extCite = clone $this;
@@ -1180,8 +1176,6 @@ class Cite {
 		$parser->extCite->mInCite = false;
 		$parser->extCite->mInReferences = false;
 		$parser->extCite->clearState( $parser );
-
-		return true;
 	}
 
 	/**
@@ -1195,22 +1189,21 @@ class Cite {
 	 * @param bool $afterParse True if called from the ParserAfterParse hook
 	 * @param Parser &$parser
 	 * @param string &$text
-	 *
-	 * @return bool
 	 */
 	public function checkRefsNoReferences( $afterParse, &$parser, &$text ) {
 		global $wgCiteResponsiveReferences;
 		if ( is_null( $parser->extCite ) ) {
-			return true;
+			return;
 		}
 		if ( $parser->extCite !== $this ) {
-			return $parser->extCite->checkRefsNoReferences( $afterParse, $parser, $text );
+			$parser->extCite->checkRefsNoReferences( $afterParse, $parser, $text );
+			return;
 		}
 
 		if ( $afterParse ) {
 			$this->mHaveAfterParse = true;
 		} elseif ( $this->mHaveAfterParse ) {
-			return true;
+			return;
 		}
 
 		if ( !$parser->getOptions()->getIsPreview() ) {
@@ -1251,7 +1244,6 @@ class Cite {
 		} else {
 			$text .= $s;
 		}
-		return true;
 	}
 
 	/**
@@ -1307,8 +1299,6 @@ class Cite {
 	 * Initialize the parser hooks
 	 *
 	 * @param Parser $parser
-	 *
-	 * @return bool
 	 */
 	public static function setHooks( Parser $parser ) {
 		global $wgHooks;
@@ -1325,8 +1315,6 @@ class Cite {
 		}
 		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );
 		$parser->setHook( 'references', [ $parser->extCite, 'references' ] );
-
-		return true;
 	}
 
 	/**

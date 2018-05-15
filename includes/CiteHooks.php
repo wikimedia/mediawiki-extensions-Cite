@@ -15,7 +15,6 @@ class CiteHooks {
 	 *
 	 * @param Title $title
 	 * @param string &$model
-	 * @return bool
 	 */
 	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
 		if (
@@ -27,8 +26,6 @@ class CiteHooks {
 		) {
 			$model = CONTENT_MODEL_JSON;
 		}
-
-		return true;
 	}
 
 	/**
@@ -37,7 +34,6 @@ class CiteHooks {
 	 *
 	 * @param array &$testModules The array of registered test modules
 	 * @param ResourceLoader &$resourceLoader The reference to the resource loader
-	 * @return true
 	 */
 	public static function onResourceLoaderTestModules(
 		array &$testModules,
@@ -66,8 +62,6 @@ class CiteHooks {
 				'remoteExtPath' => 'Cite',
 			];
 		}
-
-		return true;
 	}
 
 	/**
@@ -75,11 +69,10 @@ class CiteHooks {
 	 * VisualEditor MediaWiki extension.
 	 *
 	 * @param ResourceLoader &$resourceLoader
-	 * @return true
 	 */
 	public static function onResourceLoaderRegisterModules( &$resourceLoader ) {
 		if ( ! class_exists( 'VisualEditorHooks' ) ) {
-			return true;
+			return;
 		}
 
 		$dir = dirname( __DIR__ ) . DIRECTORY_SEPARATOR;
@@ -246,7 +239,6 @@ class CiteHooks {
 				"mobile"
 			]
 		] );
-		return true;
 	}
 
 	/**
@@ -319,13 +311,11 @@ class CiteHooks {
 	/**
 	 * Adds extra variables to the global config
 	 * @param array &$vars
-	 * @return true
 	 */
 	public static function onResourceLoaderGetConfigVars( array &$vars ) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'cite' );
 		$vars['wgCiteVisualEditorOtherGroup'] = $config->get( 'CiteVisualEditorOtherGroup' );
 		$vars['wgCiteResponsiveReferences'] = $config->get( 'CiteResponsiveReferences' );
-		return true;
 	}
 
 	/**

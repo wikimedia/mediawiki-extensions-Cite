@@ -1135,9 +1135,9 @@ class Cite {
 	 * Gets run when Parser::clearState() gets run, since we don't
 	 * want the counts to transcend pages and other instances
 	 *
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 */
-	public function clearState( Parser &$parser ) {
+	public function clearState( Parser $parser ) {
 		if ( $parser->extCite !== $this ) {
 			$parser->extCite->clearState( $parser );
 			return;
@@ -1187,10 +1187,10 @@ class Cite {
 	 * references tags and does not add the errors.
 	 *
 	 * @param bool $afterParse True if called from the ParserAfterParse hook
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 * @param string &$text
 	 */
-	public function checkRefsNoReferences( $afterParse, &$parser, &$text ) {
+	public function checkRefsNoReferences( $afterParse, $parser, &$text ) {
 		global $wgCiteResponsiveReferences;
 		if ( is_null( $parser->extCite ) ) {
 			return;
@@ -1285,11 +1285,11 @@ class Cite {
 	 * If any ref or reference reference tag is in the text,
 	 * the entire page should be reparsed, so we return false in that case.
 	 *
-	 * @param string &$output
+	 * @param ParserOutput $output
 	 *
 	 * @return bool
 	 */
-	public function checkAnyCalls( &$output ) {
+	public function checkAnyCalls( $output ) {
 		global $wgParser;
 		/* InlineEditor always uses $wgParser */
 		return ( $wgParser->extCite->mCallCnt <= 0 );

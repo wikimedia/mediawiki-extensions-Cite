@@ -33,11 +33,11 @@ class CiteHooks {
 	 * only if that module is loaded
 	 *
 	 * @param array &$testModules The array of registered test modules
-	 * @param ResourceLoader &$resourceLoader The reference to the resource loader
+	 * @param ResourceLoader $resourceLoader
 	 */
 	public static function onResourceLoaderTestModules(
 		array &$testModules,
-		ResourceLoader &$resourceLoader
+		ResourceLoader $resourceLoader
 	) {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
 
@@ -68,9 +68,9 @@ class CiteHooks {
 	 * Conditionally register resource loader modules that depends on the
 	 * VisualEditor MediaWiki extension.
 	 *
-	 * @param ResourceLoader &$resourceLoader
+	 * @param ResourceLoader $resourceLoader
 	 */
-	public static function onResourceLoaderRegisterModules( &$resourceLoader ) {
+	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
 		if ( ! class_exists( 'VisualEditorHooks' ) ) {
 			return;
 		}
@@ -246,9 +246,9 @@ class CiteHooks {
 	 * Post-output processing of references property, for proper db storage
 	 * Deferred to avoid performance overhead when outputting the page
 	 *
-	 * @param LinksUpdate &$linksUpdate
+	 * @param LinksUpdate $linksUpdate
 	 */
-	public static function onLinksUpdate( LinksUpdate &$linksUpdate ) {
+	public static function onLinksUpdate( LinksUpdate $linksUpdate ) {
 		global $wgCiteStoreReferencesData, $wgCiteCacheRawReferencesOnParse;
 		if ( !$wgCiteStoreReferencesData ) {
 			return;
@@ -282,9 +282,9 @@ class CiteHooks {
 	 * If $wgCiteCacheRawReferencesOnParse is set to false, purges the cache
 	 * when references are modified
 	 *
-	 * @param LinksUpdate &$linksUpdate
+	 * @param LinksUpdate $linksUpdate
 	 */
-	public static function onLinksUpdateComplete( LinksUpdate &$linksUpdate ) {
+	public static function onLinksUpdateComplete( LinksUpdate $linksUpdate ) {
 		global $wgCiteStoreReferencesData, $wgCiteCacheRawReferencesOnParse;
 		if ( !$wgCiteStoreReferencesData || $wgCiteCacheRawReferencesOnParse ) {
 			return;

@@ -1281,21 +1281,6 @@ class Cite {
 	}
 
 	/**
-	 * Hook for the InlineEditor extension.
-	 * If any ref or reference reference tag is in the text,
-	 * the entire page should be reparsed, so we return false in that case.
-	 *
-	 * @param ParserOutput $output
-	 *
-	 * @return bool
-	 */
-	public function checkAnyCalls( $output ) {
-		global $wgParser;
-		/* InlineEditor always uses $wgParser */
-		return ( $wgParser->extCite->mCallCnt <= 0 );
-	}
-
-	/**
 	 * Initialize the parser hooks
 	 *
 	 * @param Parser $parser
@@ -1310,7 +1295,6 @@ class Cite {
 			$wgHooks['ParserCloned'][] = [ $parser->extCite, 'cloneState' ];
 			$wgHooks['ParserAfterParse'][] = [ $parser->extCite, 'checkRefsNoReferences', true ];
 			$wgHooks['ParserBeforeTidy'][] = [ $parser->extCite, 'checkRefsNoReferences', false ];
-			$wgHooks['InlineEditorPartialAfterParse'][] = [ $parser->extCite, 'checkAnyCalls' ];
 			self::$hooksInstalled = true;
 		}
 		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );

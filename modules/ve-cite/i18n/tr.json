@@ -20,13 +20,20 @@
 			"Kincki",
 			"McAang",
 			"HakanIST",
-			"Sadrettin"
+			"Sadrettin",
+			"Hedda"
 		]
 	},
+	"visualeditor-cite-tool-definition.json": "boş",
 	"visualeditor-cite-tool-name-book": "Kitap",
 	"visualeditor-cite-tool-name-journal": "Dergi",
 	"visualeditor-cite-tool-name-news": "Haberler",
 	"visualeditor-cite-tool-name-web": "Web sitesi",
+	"cite-tool-definition.json": "boş",
+	"cite-ve-changedesc-ref-group-both": "\"$1\" olan kaynak grubu \"$2\" olarak değiştirildi",
+	"cite-ve-changedesc-ref-group-from": "\"$1\" olan kaynak grubu genel grup olarak değiştirildi",
+	"cite-ve-changedesc-ref-group-to": "Genel grup olan kaynak grubu \"1\" olarak değiştirildi",
+	"cite-ve-changedesc-reflist-group-both": "\"$1\" olan kaynak listesi grubu \"$2\" olarak değiştirildi",
 	"cite-ve-dialog-reference-options-group-label": "Bu grubu kullan",
 	"cite-ve-dialog-reference-options-group-placeholder": "Genel referanslar",
 	"cite-ve-dialog-reference-options-name-label": "Bu isimle yeniden kullan",

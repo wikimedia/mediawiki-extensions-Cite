@@ -24,6 +24,7 @@
 	"apierror-citestoragedisabled": "Хранилище сносок расширения цитирования не активировано.",
 	"cite-desc": "Добавляет теги <nowiki><ref[ name=id]></nowiki> и <nowiki><references/></nowiki> для сносок",
 	"cite_error": "Ошибка цитирования $1",
+	"cite_error_ref_invalid_dir": "Неверный тег<code>&lt;ref&gt;</code>; атрибут «$1» для dir неизвестен. Он должен содержать ltr или rtl",
 	"cite_error_ref_numeric_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nимя не может быть целым числом. Используйте описательное название",
 	"cite_error_ref_no_key": "Открывающий тег <code>&lt;ref&gt;</code> — неправильный или содержит некорректное имя.",
 	"cite_error_ref_too_many_keys": "Неправильный тег <code>&lt;ref&gt;</code>;\nошибочные имена, возможно, слишком много",

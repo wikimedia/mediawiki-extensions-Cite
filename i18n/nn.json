@@ -3,7 +3,8 @@
 		"authors": [
 			"Frokor",
 			"Harald Khan",
-			"Njardarlogar"
+			"Njardarlogar",
+			"Ranveig"
 		]
 	},
 	"cite-desc": "Legg til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-merke for referansar",
@@ -21,5 +22,6 @@
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code>-merke definert i <code>&lt;references&gt;</code> har gruppenamnet «$1» som ikkje vert nytta i teksten føre.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code>-merke med namnet «$1» definert i <code>&lt;references&gt;</code> vert ikkje nytta i teksten føre.",
 	"cite_error_references_no_key": "eit <code>&lt;ref&gt;</code>-merke definert i <code>&lt;references&gt;</code> er ikkje gjeve noko namn.",
+	"cite-tracking-category-cite-error": "Artiklar med referansefeil",
 	"cite_section_preview_references": "Førehandsvising av kjelder"
 }

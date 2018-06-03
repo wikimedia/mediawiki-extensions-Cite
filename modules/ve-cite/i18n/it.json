@@ -26,7 +26,8 @@
 			"Purodha",
 			"Statix64",
 			"Supernino",
-			"McDutchie"
+			"McDutchie",
+			"Daimona Eaytoy"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "nullo",
@@ -37,7 +38,7 @@
 	"cite-tool-definition.json": "nullo",
 	"cite-ve-dialog-reference-editing-reused": "Questo riferimento è usato $1 {{PLURAL:$1|volta|volte}} su questa pagina.",
 	"cite-ve-dialog-reference-options-group-label": "Usa questo gruppo",
-	"cite-ve-dialog-reference-options-group-placeholder": "Riferimenti generali",
+	"cite-ve-dialog-reference-options-group-placeholder": "Note generali",
 	"cite-ve-dialog-reference-options-name-label": "Riutilizza questo nome",
 	"cite-ve-dialog-reference-options-responsive-label": "Utilizza il layout della colonna adattivo",
 	"cite-ve-dialog-reference-options-section": "Opzioni",

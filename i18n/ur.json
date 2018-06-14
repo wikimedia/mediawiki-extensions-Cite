@@ -15,6 +15,7 @@
 	"cite_error_references_duplicate_key": "نادرست <code>&lt;ref&gt;</code> ٹیگ؛ نام \"$1\" مختلف مواد کے ساتھ کئی بار استعمال ہوا ہے۔",
 	"cite_error_references_invalid_parameters": "نادرست پیرامیٹر در <code>&lt;references&gt;</code> ٹیگ",
 	"cite_error_references_no_text": "ناقص <code>&lt;ref&gt;</code> ٹیگ؛ <code>$1</code> کے نام والے حوالوں کے لیے کوئی متن نہیں دیا گیا",
+	"cite_error_group_refs_without_references": "\"$1\" نام کے حوالے کے لیے ٹیگ <code>&lt;ref&gt;</code> ہیں، لیکن مماثل ٹیگ <code>&lt;references group=\"$1\"/&gt;</code> نہیں ملا یا پھر بند- ٹیگ <code>&lt;/ref&gt;</code> ناموجود ہے",
 	"cite-tracking-category-cite-error": "صفحات مع حوالہ جاتی اغلاط",
 	"cite-tracking-category-cite-error-desc": "اس زمرہ میں موجود صفحات میں حوالہ جاتی ٹیگز کو غلط استعمال کیا گیا ہے۔",
 	"cite_references_link_accessibility_label": "اوپر جائیں",

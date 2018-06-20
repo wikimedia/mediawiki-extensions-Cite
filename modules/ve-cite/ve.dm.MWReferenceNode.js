@@ -334,14 +334,13 @@ ve.dm.MWReferenceNode.static.cloneElement = function () {
  */
 ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 	if ( key === 'refGroup' ) {
-		if ( change.from ) {
-			if ( change.to ) {
-				return ve.msg( 'cite-ve-changedesc-ref-group-both', change.from, change.to );
-			} else {
-				return ve.msg( 'cite-ve-changedesc-ref-group-from', change.from );
-			}
+		if ( !change.from ) {
+			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-to', $( '<ins>' ).text( change.to ) );
+		} else if ( !change.to ) {
+			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-from', $( '<del>' ).text( change.from ) );
+		} else {
+			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-both', $( '<del>' ).text( change.from ), $( '<ins>' ).text( change.to ) );
 		}
-		return ve.msg( 'cite-ve-changedesc-ref-group-to', change.to );
 	}
 	if ( key === 'refListItemId' ) {
 		return ve.msg( 'cite-ve-changedesc-reflist-item-id' );

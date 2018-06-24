@@ -35,5 +35,7 @@
 	"cite-ve-referenceslist-isempty-default": "Әлеге биттә исемлеккә кертер өчен сылтамалар юк.",
 	"cite-ve-referenceslist-missingref": "Әлеге сылтама калыпта гына яки аерым блокта гына билгеләнә, һәм хәзерге вакытта аны чыганак код режимында гына үзгәртеп була.",
 	"cite-ve-toolbar-group-label": "Чыганаклар",
-	"cite-ve-othergroup-item": "$1 искәрмә"
+	"cite-ve-othergroup-item": "$1 искәрмә",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Сылтамалар",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Сылтамалар төркеме исеме: «$1»"
 }

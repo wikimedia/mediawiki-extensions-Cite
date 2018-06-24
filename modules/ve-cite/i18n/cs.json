@@ -18,13 +18,14 @@
 			"Cvanca",
 			"Kusavica",
 			"Dvorapa",
-			"Ilimanaq29"
+			"Ilimanaq29",
+			"Evica"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "prázdný",
 	"visualeditor-cite-tool-name-book": "Kniha",
 	"visualeditor-cite-tool-name-journal": "Časopis",
-	"visualeditor-cite-tool-name-news": "Časopis / noviny",
+	"visualeditor-cite-tool-name-news": "Novinky",
 	"visualeditor-cite-tool-name-web": "Webová stránka",
 	"cite-tool-definition.json": "prázdný",
 	"cite-ve-changedesc-ref-group-both": "Skupina reference změněna z „$1“ na „$2“",

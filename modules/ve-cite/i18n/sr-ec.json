@@ -47,7 +47,7 @@
 	"cite-ve-dialogbutton-reference-title": "Референца",
 	"cite-ve-dialogbutton-reference-tooltip": "Основна",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Списак референци",
-	"cite-ve-reference-input-placeholder": "Претражи постојеће референце",
+	"cite-ve-reference-input-placeholder": "Претрага постојећих референци",
 	"cite-ve-referenceslist-isempty": "Нема референци унутар групе „$1” на овој страници које можете додати у овом списку.",
 	"cite-ve-referenceslist-isempty-default": "Нема референци на овој страници које би могло да се укључе на овај списак.",
 	"cite-ve-referenceslist-missingref": "Ова референца је дефинисана у шаблону или другом генерисаном блоку и за сада може да се уређује само у изворном режиму.",

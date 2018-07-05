@@ -15,6 +15,7 @@
 	"apierror-citestoragedisabled": "Referanselagring i Cite-utvidelsen er ikke slått på.",
 	"cite-desc": "Legger til <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-tagger for referanser",
 	"cite_error": "Siteringsfeil: $1",
+	"cite_error_ref_invalid_dir": "Ugyldig <code>&lt;ref&gt;</code>-tag; dir-attributtet «$1» er ukjent. Må være ltr eller rtl",
 	"cite_error_ref_numeric_key": "Ugyldig <code>&lt;ref&gt;</code>-kode; navnet kan ikke være et enkelt heltall, bruk en beskrivende tittel",
 	"cite_error_ref_no_key": "Åpningstaggen <code>&lt;ref&gt;</code> er ugyldig eller har et ugyldig navn",
 	"cite_error_ref_too_many_keys": "Ugyldig <code>&lt;ref&gt;</code>-kode; ugyldige navn, f.eks. for mange",

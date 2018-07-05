@@ -19,6 +19,7 @@
 	"apierror-citestoragedisabled": "Зберігання посилань для розширення Cite не увімкнене.",
 	"cite-desc": "Додає теги <nowiki><ref[ name=id]></nowiki> і <nowiki><references/></nowiki> для виносок",
 	"cite_error": "Помилка цитування: $1",
+	"cite_error_ref_invalid_dir": "Недійсний тег <code>&lt;ref&gt;</code>; властивість напрямку «$1» невідома. Має бути або ltr, або rtl",
 	"cite_error_ref_numeric_key": "Неправильний виклик <code>&lt;ref&gt;</code>:\nназва не може містити тільки цифри.",
 	"cite_error_ref_no_key": "Відкривальний тег <code>&lt;ref&gt;</code> неправильний або містить хибну назву.",
 	"cite_error_ref_too_many_keys": "Неправильний виклик <code>&lt;ref&gt;</code>:\nвказані неправильні значення <code>name</code> або вказано забагато параметрів",

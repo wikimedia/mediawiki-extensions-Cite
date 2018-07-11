@@ -30,7 +30,8 @@
 			"Facenapalm",
 			"Mouse21",
 			"Happy13241",
-			"Stjn"
+			"Stjn",
+			"Evs"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "null",
@@ -60,7 +61,7 @@
 	"cite-ve-dialog-reference-useexisting-label": "Использовать существующую сноску",
 	"cite-ve-dialog-reference-useexisting-tool": "Повторное использование",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Список общих ссылок",
-	"cite-ve-dialog-referenceslist-contextitem-description-named": "Список примечаний для группы \"$1\"",
+	"cite-ve-dialog-referenceslist-contextitem-description-named": "Список примечаний для группы «$1»",
 	"cite-ve-dialog-referenceslist-title": "Список примечаний",
 	"cite-ve-dialogbutton-citation-educationpopup-text": "Улучшайте контент, добавляя туда источники информации. Вы можете цитировать книги, газеты и веб-сайты.",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Цитаты",

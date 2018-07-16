@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Michaello",
-			"Milicevic01"
+			"Milicevic01",
+			"Zoranzoki21"
 		]
 	},
 	"cite-desc": "Dodaje <nowiki><ref[ name=id]></nowiki> i <nowiki><references/></nowiki> oznake za citiranje.",
-	"cite_error": "Greška citata: $1",
+	"cite_error": "Greška kod citiranja: $1",
 	"cite_error_ref_numeric_key": "Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; ime ne može biti jednostavni intedžer. Koristi opisni naslov.",
 	"cite_error_ref_no_key": "Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; ref-ovi bez sadržaja moraju imati ime.",
 	"cite_error_ref_too_many_keys": "Loša oznaka <code>&amp;lt;ref&amp;gt;</code>; loša imena, odnosno mnogo njih.",

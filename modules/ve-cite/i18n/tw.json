@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Celestinesucess"
+			"Celestinesucess",
+			"Ed g2s"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "Hwee",
+	"visualeditor-cite-tool-definition.json": "null",
 	"visualeditor-cite-tool-name-book": "Buukuu",
 	"visualeditor-cite-tool-name-journal": "Atesɛm krataa",
 	"visualeditor-cite-tool-name-news": "Nsɛm",
-	"cite-tool-definition.json": "Hwee",
-	"cite-ve-dialog-reference-useexisting-tool": "fa yɛ adeɛ bio",
+	"cite-tool-definition.json": "null",
+	"cite-ve-dialog-reference-useexisting-tool": "Fa yɛ adeɛ bio",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Bebea nsɛm no fri",
 	"cite-ve-dialogbutton-reference-tooltip": "Titirew"
 }

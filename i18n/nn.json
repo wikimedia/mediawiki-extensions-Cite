@@ -22,6 +22,7 @@
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code>-merke definert i <code>&lt;references&gt;</code> har gruppenamnet «$1» som ikkje vert nytta i teksten føre.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code>-merke med namnet «$1» definert i <code>&lt;references&gt;</code> vert ikkje nytta i teksten føre.",
 	"cite_error_references_no_key": "eit <code>&lt;ref&gt;</code>-merke definert i <code>&lt;references&gt;</code> er ikkje gjeve noko namn.",
+	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code>-merket i <code>&lt;references&gt;</code> med namnet «$1» har ikkje noko innhald.",
 	"cite-tracking-category-cite-error": "Artiklar med referansefeil",
 	"cite-tracking-category-cite-error-desc": "Sider i denne kategorien har feil bruk av referansemerke.",
 	"cite_section_preview_references": "Førehandsvising av kjelder",

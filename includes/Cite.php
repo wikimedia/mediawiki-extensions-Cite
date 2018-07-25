@@ -659,11 +659,12 @@ class Cite {
 	}
 
 	/**
+	 * Must only be called from references(). Use that to prevent recursion.
+	 *
 	 * @param string|null $str Raw content of the <references> tag.
 	 * @param string[] $argv
 	 * @param Parser $parser
 	 * @param string $group
-	 *
 	 * @return string
 	 */
 	private function guardedReferences(
@@ -751,7 +752,10 @@ class Cite {
 	}
 
 	/**
-	 * Make output to be returned from the references() function
+	 * Make output to be returned from the references() function.
+	 *
+	 * If called outside of references(), caller is responsible for ensuring
+	 * `mInReferences` is enabled before the call and disabled after call.
 	 *
 	 * @param string $group
 	 * @param bool $responsive
@@ -1222,7 +1226,9 @@ class Cite {
 				continue;
 			}
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
+				$this->mInReferences = true;
 				$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
+				$this->mInReferences = false;
 			} else {
 				$s .= "\n<br />" .
 					$this->error(

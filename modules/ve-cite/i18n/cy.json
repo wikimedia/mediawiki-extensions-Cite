@@ -23,6 +23,8 @@
 	"cite-ve-dialog-reference-useexisting-label": "Defnyddiwch gyfeirnod sy'n bodoli eisoes",
 	"cite-ve-dialog-reference-useexisting-tool": "Ail-ddefnyddio",
 	"cite-ve-dialog-referenceslist-title": "Rhestr cyfeirnodau",
+	"cite-ve-dialogbutton-citation-educationpopup-title": "Cyfeirnodau",
+	"cite-ve-dialogbutton-reference-full-label": "Ffurf sylfaenol",
 	"cite-ve-dialogbutton-reference-title": "Cyfeirnod",
 	"cite-ve-dialogbutton-reference-tooltip": "Cyfeiriad at ffynhonnell",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Rhestr cyfeiriadau",
@@ -30,5 +32,8 @@
 	"cite-ve-referenceslist-isempty": "Nid oes unrhyw gyfeiriadau o'r grŵp \"$1\" ar y dudalen hon i'w cynnwys ar y rhestr.",
 	"cite-ve-referenceslist-isempty-default": "Nid oes unrhyw gyfeiriadau ar y dudalen hon i'w cynnwys ar y rhestr hon.",
 	"cite-ve-referenceslist-missingref": "Mae'r cyfeirnod hwn wedi cael ei gynhyrchu gan templed neu rhyw god arall, ac ar hyn o bryd rhaid golygu'r cod ei hunan yn hytrach na defnyddio VisualEditor.",
-	"visualeditor-internal-list-diff-default-group-name-mwreference": "Cyfeiriadau"
+	"cite-ve-toolbar-group-label": "Cyfeirio",
+	"cite-ve-othergroup-item": "Cyfeirnod $1",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Cyfeiriadau",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Enw grwp cyfeirnodau: \"$1\""
 }

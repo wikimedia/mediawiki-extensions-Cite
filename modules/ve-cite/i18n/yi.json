@@ -12,6 +12,7 @@
 	"visualeditor-cite-tool-name-news": "נײַעס",
 	"visualeditor-cite-tool-name-web": "וועבזײַטל",
 	"cite-tool-definition.json": "נול",
+	"cite-ve-changedesc-ref-group-both": "רעפֿערענצן גרופע געענדערט פֿון \"$1\" צו \"$2\"",
 	"cite-ve-changedesc-reflist-group-both": "רעפֿערענצן ליסטע גרופע געענדערט פֿון \"$1\" צו \"$2\"",
 	"cite-ve-changedesc-reflist-item-id": "רעפֿערענץ-אינדעקס געענדערט",
 	"cite-ve-dialog-reference-editing-reused": "דער רעפערענץ ווערט געניצט $1 {{PLURAL:$1|מאל}} אויף דעם בלאט.",

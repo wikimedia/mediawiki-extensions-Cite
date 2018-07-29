@@ -161,7 +161,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		// Add reference contents to data-mw.
 		if ( setContents && !contentsAlreadySet ) {
 			converter.getDomSubtreeFromData(
-				itemNode.getDocument().getFullData( itemNodeRange, true ),
+				itemNode.getDocument().getFullData( itemNodeRange, 'roundTrip' ),
 				itemNodeWrapper
 			);
 			itemNodeHtml = itemNodeWrapper.innerHTML; // Returns '' if itemNodeWrapper is empty

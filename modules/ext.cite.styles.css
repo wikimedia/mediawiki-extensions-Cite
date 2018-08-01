@@ -28,6 +28,10 @@ sup.reference {
 	/* Don't allow a reference that includes a group name
 	to break in the end of the line */
 	white-space: nowrap;
+
+	/* Do not inherit bold or italic */
+	font-weight: normal;
+	font-style: normal;
 }
 
 /* Highlight clicked reference in blue to help navigation */

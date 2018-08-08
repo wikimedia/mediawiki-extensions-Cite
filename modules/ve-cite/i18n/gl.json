@@ -11,7 +11,8 @@
 			"Agremon",
 			"Vivaelcelta",
 			"Banjo",
-			"Macofe"
+			"Macofe",
+			"Maria zaos"
 		]
 	},
 	"visualeditor-cite-tool-definition.json": "nulo",
@@ -26,6 +27,7 @@
 	"cite-ve-changedesc-reflist-group-both": "Grupo de lista de referencias cambiado de \"$1\" to \"$2\"",
 	"cite-ve-changedesc-reflist-group-from": "Grupo de lista de referencias cambiado de \"$1\" ó grupo xeral",
 	"cite-ve-changedesc-reflist-group-to": "Grupo de lista de referencias cambiado do grupo xeral a \"$1\"",
+	"cite-ve-changedesc-reflist-responsive-unset": "A lista de referencias mudou para amosar só unha columna",
 	"cite-ve-changedesc-reflist-item-id": "Índice da referencia modificado",
 	"cite-ve-dialog-reference-editing-reused": "Esta referenza úsase $1 {{PLURAL:$1|vez|veces}} nesta páxina.",
 	"cite-ve-dialog-reference-options-group-label": "Utilizar este grupo",
@@ -51,6 +53,8 @@
 	"cite-ve-referenceslist-isempty": "Non hai referencias co grupo \"$1\" nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-isempty-default": "Non hai referencias nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referencia está definida nun modelo ou noutro bloque xerado; polo de agora, só se pode editar no modo fonte.",
+	"cite-ve-referenceslist-missingref-in-list": "Esta referencias está definida nun modelo ou noutro bloque xerado e só pode previsualizarse en modo fonte.",
+	"cite-ve-referenceslist-missingreflist": "Esta referencia é xerada a través dun modelo e polo momento só pode editarse en modo fonte.",
 	"cite-ve-toolbar-group-label": "Citar",
 	"cite-ve-othergroup-item": "referencia $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencias",

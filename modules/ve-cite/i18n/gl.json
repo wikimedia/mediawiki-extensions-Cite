@@ -15,12 +15,10 @@
 			"Maria zaos"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "nulo",
 	"visualeditor-cite-tool-name-book": "Libro",
 	"visualeditor-cite-tool-name-journal": "Publicación periódica",
 	"visualeditor-cite-tool-name-news": "Novas",
 	"visualeditor-cite-tool-name-web": "Páxina web",
-	"cite-tool-definition.json": "nulo",
 	"cite-ve-changedesc-ref-group-both": "Grupo de referencia cambiado de \"$1\" a \"$2\"",
 	"cite-ve-changedesc-ref-group-from": "Grupo de referencia cambiado de \"$1\" ó grupo xeral",
 	"cite-ve-changedesc-ref-group-to": "Grupo de referencia cambiado do grupo xeral a \"$1\"",

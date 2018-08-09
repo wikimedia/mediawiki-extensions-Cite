@@ -18,12 +18,10 @@
 			"Jon Harald Søby"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "null",
 	"visualeditor-cite-tool-name-book": "Bok",
 	"visualeditor-cite-tool-name-journal": "Tidsskrift",
 	"visualeditor-cite-tool-name-news": "Nyhet",
 	"visualeditor-cite-tool-name-web": "Nettside",
-	"cite-tool-definition.json": "null",
 	"cite-ve-changedesc-ref-group-both": "Referansegruppe endret fra «$1» til «$2»",
 	"cite-ve-changedesc-ref-group-from": "Referansegruppe endret fra «$1» til den generelle gruppa",
 	"cite-ve-changedesc-ref-group-to": "Referansegruppe endret fra den generelle gruppa til «$1»",

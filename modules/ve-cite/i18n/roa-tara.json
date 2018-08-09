@@ -4,12 +4,10 @@
 			"Joetaras"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "null",
 	"visualeditor-cite-tool-name-book": "Libbre",
 	"visualeditor-cite-tool-name-journal": "Sciurnale",
 	"visualeditor-cite-tool-name-news": "Notizie",
 	"visualeditor-cite-tool-name-web": "Site web",
-	"cite-tool-definition.json": "null",
 	"cite-ve-changedesc-ref-group-both": "Gruppe de referimende cangiate da \"$1\" a \"$2\"",
 	"cite-ve-changedesc-ref-group-from": "Gruppe de referimende cangiate da \"$1\" a gruppe generale",
 	"cite-ve-changedesc-ref-group-to": "Gruppe de referimende cangiate da gruppe generale a \"$1\"",

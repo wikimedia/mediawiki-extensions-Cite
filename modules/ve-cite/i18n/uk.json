@@ -22,12 +22,10 @@
 			"Dars"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "null",
 	"visualeditor-cite-tool-name-book": "Книга",
 	"visualeditor-cite-tool-name-journal": "Журнал",
 	"visualeditor-cite-tool-name-news": "Новини",
 	"visualeditor-cite-tool-name-web": "Веб-сайт",
-	"cite-tool-definition.json": "null",
 	"cite-ve-changedesc-ref-group-both": "Групу приміток змінено з «$1» на «$2»",
 	"cite-ve-changedesc-ref-group-from": "Групу приміток змінено з «$1» на загальну групу",
 	"cite-ve-changedesc-ref-group-to": "Групу приміток змінено із загальної групи на «$1»",

@@ -14,12 +14,10 @@
 			"BadDog"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "без вредности",
 	"visualeditor-cite-tool-name-book": "Књига",
 	"visualeditor-cite-tool-name-journal": "Часопис",
 	"visualeditor-cite-tool-name-news": "Новости",
 	"visualeditor-cite-tool-name-web": "Веб-сајт",
-	"cite-tool-definition.json": "без вредности",
 	"cite-ve-changedesc-ref-group-both": "Група референци промењена из „$1” у „$2”",
 	"cite-ve-changedesc-ref-group-from": "Група референци промењена из „$1” у општу групу",
 	"cite-ve-changedesc-ref-group-to": "Група референци промењена из опште групе у „$1”",

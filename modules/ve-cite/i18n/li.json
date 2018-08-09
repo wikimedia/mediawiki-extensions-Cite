@@ -6,12 +6,10 @@
 			"Ooswesthoesbes"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "nól",
 	"visualeditor-cite-tool-name-book": "Book",
 	"visualeditor-cite-tool-name-journal": "Tiedsjrif",
 	"visualeditor-cite-tool-name-news": "Nuujs",
 	"visualeditor-cite-tool-name-web": "Website",
-	"cite-tool-definition.json": "nól",
 	"cite-ve-changedesc-ref-group-both": "Rifferensiegebroek verangerd van \"$1\" nao \"$2\"",
 	"cite-ve-changedesc-ref-group-from": "Rifferensiegebroek verangerd van \"$1\" nao de algemein groep",
 	"cite-ve-changedesc-ref-group-to": "Rifferensiegebroek verangerd van de algemein groep nao \"$1\"",

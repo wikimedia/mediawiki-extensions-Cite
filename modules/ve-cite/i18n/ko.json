@@ -24,12 +24,10 @@
 			"Ykhwong"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "비어 있음",
 	"visualeditor-cite-tool-name-book": "책",
 	"visualeditor-cite-tool-name-journal": "저널",
 	"visualeditor-cite-tool-name-news": "뉴스",
 	"visualeditor-cite-tool-name-web": "웹사이트",
-	"cite-tool-definition.json": "비어 있음",
 	"cite-ve-changedesc-ref-group-both": "각주 그룹이 \"$1\"에서 \"$2\"(으)로 변경되었습니다",
 	"cite-ve-changedesc-ref-group-from": "각주 그룹이 \"$1\"에서 일반 그룹으로 변경되었습니다",
 	"cite-ve-changedesc-ref-group-to": "각주 그룹이 일반 그룹에서 \"$1\"(으)로 변경되었습니다",

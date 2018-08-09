@@ -22,12 +22,10 @@
 			"Gombang"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "null",
 	"visualeditor-cite-tool-name-book": "Buku",
 	"visualeditor-cite-tool-name-journal": "Jurnal",
 	"visualeditor-cite-tool-name-news": "Berita",
 	"visualeditor-cite-tool-name-web": "Situs web",
-	"cite-tool-definition.json": "null",
 	"cite-ve-changedesc-ref-group-both": "Kelompok referensi diubah dari \"$1\" ke \"$2\"",
 	"cite-ve-changedesc-ref-group-from": "Kelompok referensi diubah dari \"$1\" ke kelompok umum",
 	"cite-ve-changedesc-ref-group-to": "Kelompok referensi berubah dari kelompok umum ke \"$1\"",

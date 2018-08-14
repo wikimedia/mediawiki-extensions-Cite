@@ -191,6 +191,7 @@ class CiteHooks {
 			],
 			"dependencies" => [
 				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-editing-citation",
 				"oojs-ui.styles.icons-interactions",
 				"ext.cite.visualEditor.core",
 				"ext.cite.visualEditor.data",

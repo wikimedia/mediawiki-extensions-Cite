@@ -545,6 +545,8 @@ class Cite {
 		if ( $this->mRefs[$group][$key]['text'] === null && $str !== '' ) {
 			// If no text found before, use this text
 			$this->mRefs[$group][$key]['text'] = $str;
+			// Use the dir parameter only from the full definition of a named ref tag
+			$this->mRefs[$group][$key]['dir'] = $dir;
 			$this->mRefCallStack[] = [ 'assign', $call, $str, $key, $group,
 				$this->mRefs[$group][$key]['key'] ];
 		} else {

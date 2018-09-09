@@ -926,8 +926,6 @@ class Cite {
 	 * offset, e.g. $base = 1, $offset = 2; = 1.2
 	 * Since bug #5525, it correctly does 1.9 -> 1.10 as well as 1.099 -> 1.100
 	 *
-	 * @static
-	 *
 	 * @param int $base
 	 * @param int $offset
 	 * @param int $max Maximum value expected.
@@ -999,8 +997,6 @@ class Cite {
 	 * optionally the number of it, used in <references>, not <ref>
 	 * (since otherwise it would link to itself)
 	 *
-	 * @static
-	 *
 	 * @param string $key
 	 * @param int $num The number of the key
 	 * @return string A key for use in wikitext
@@ -1020,8 +1016,6 @@ class Cite {
 	 * Return an id for use in wikitext output based on a key and
 	 * optionally the number of it, used in <ref>, not <references>
 	 * (since otherwise it would link to itself)
-	 *
-	 * @static
 	 *
 	 * @param string $key
 	 * @return string A key for use in wikitext
@@ -1088,8 +1082,6 @@ class Cite {
 	 * slightly different purpose (people might not want , as the
 	 * first separator and not 'and' as the second, and this has to
 	 * use messages from the content language) I'm rolling my own.
-	 *
-	 * @static
 	 *
 	 * @param array $arr The array to format
 	 * @return string

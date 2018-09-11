@@ -773,7 +773,7 @@ class Cite {
 			$ent[] = $this->referencesFormatEntry( $k, $v );
 		}
 
-		// Add new lines between the list items (ref entires) to avoid confusing tidy (bug 13073).
+		// Add new lines between the list items (ref entires) to avoid confusing tidy (T15073).
 		// Note: This builds a string of wikitext, not html.
 		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ],
 			"\n" . implode( "\n", $ent ) . "\n"

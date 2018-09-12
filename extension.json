@@ -19,8 +19,10 @@
 		"MediaWiki": ">= 1.32.0"
 	},
 	"MessagesDirs": {
-		"cite": "i18n",
-		"ve-cite": "modules/ve-cite/i18n"
+		"Cite": [
+			"i18n",
+			"modules/ve-cite/i18n"
+        ]
 	},
 	"APIPropModules": {
 		"references": {

@@ -251,7 +251,7 @@ class Cite {
 		list( $key, $group, $follow, $dir ) = $this->refArg( $argv );
 		// empty string indicate invalid dir
 		if ( $dir === '' && $str !== '' ) {
-			$str .= $this->error( 'cite_error_ref_invalid_dir', $argv['dir'], 'noparse' );
+			$str .= $this->plainError( 'cite_error_ref_invalid_dir', $argv['dir'] );
 		}
 		# Split these into groups.
 		if ( $group === null ) {
@@ -301,8 +301,8 @@ class Cite {
 					) {
 						// two refs with same key and different content
 						// add error message to the original ref
-						$this->mRefs[$group][$key]['text'] .= ' ' . $this->error(
-							'cite_error_references_duplicate_key', $key, 'noparse'
+						$this->mRefs[$group][$key]['text'] .= ' ' . $this->plainError(
+							'cite_error_references_duplicate_key', $key
 						);
 					} else {
 						# Assign the text to corresponding ref
@@ -399,6 +399,7 @@ class Cite {
 	 * @param string[] $argv The argument vector
 	 * @return mixed false on invalid input, a string on valid
 	 *               input and null on no input
+	 * @return-taint tainted
 	 */
 	private function refArg( array $argv ) {
 		$cnt = count( $argv );
@@ -553,8 +554,8 @@ class Cite {
 			if ( $str != null && $str !== '' && $str !== $this->mRefs[$group][$key]['text'] ) {
 				// two refs with same key and different content
 				// add error message to the original ref
-				$this->mRefs[$group][$key]['text'] .= ' ' . $this->error(
-					'cite_error_references_duplicate_key', $key, 'noparse'
+				$this->mRefs[$group][$key]['text'] .= ' ' . $this->plainError(
+					'cite_error_references_duplicate_key', $key
 				);
 			}
 			$this->mRefCallStack[] = [ 'increment', $call, $str, $key, $group,
@@ -916,7 +917,7 @@ class Cite {
 			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
 				return $this->warning( 'cite_warning_sectionpreview_no_text', $key, 'noparse' );
 			}
-			return $this->error( 'cite_error_references_no_text', $key, 'noparse' );
+			return $this->plainError( 'cite_error_references_no_text', $key );
 		}
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";
 	}
@@ -958,7 +959,7 @@ class Cite {
 			return $this->mBacklinkLabels[$offset];
 		} else {
 			// Feed me!
-			return $this->error( 'cite_error_references_no_backlink_label', null, 'noparse' );
+			return $this->plainError( 'cite_error_references_no_backlink_label', null );
 		}
 	}
 
@@ -988,7 +989,7 @@ class Cite {
 			return $this->mLinkLabels[$group][$offset - 1];
 		} else {
 			// Feed me!
-			return $this->error( 'cite_error_no_link_label_group', [ $group, $message ], 'noparse' );
+			return $this->plainError( 'cite_error_no_link_label_group', [ $group, $message ] );
 		}
 	}
 
@@ -1031,6 +1032,7 @@ class Cite {
 	 * Generate a link (<sup ...) for the <ref> element from a key
 	 * and return XHTML ready for output
 	 *
+	 * @suppress SecurityCheck-DoubleEscaped
 	 * @param string $group
 	 * @param string $key The key for the link
 	 * @param int $count The index of the key, used for distinguishing
@@ -1302,14 +1304,26 @@ class Cite {
 	}
 
 	/**
-	 * Return an error message based on an error ID
+	 * Return an error message based on an error ID and parses it
 	 *
 	 * @param string $key   Message name for the error
 	 * @param string[]|string|null $param Parameter to pass to the message
-	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
-	 * @return string XHTML or wikitext ready for output
+	 * @return string HTML ready for output
 	 */
-	private function error( $key, $param = null, $parse = 'parse' ) {
+	private function error( $key, $param = null ) {
+		$error = $this->plainError( $key, $param );
+		return $this->mParser->recursiveTagParse( $error );
+	}
+
+	/**
+	 * Return an error message based on an error ID as unescaped plaintext.
+	 *
+	 * @param string $key   Message name for the error
+	 * @param string[]|string|null $param Parameter to pass to the message
+	 * @return string wikitext ready for output
+	 * @return-taint tainted
+	 */
+	private function plainError( $key, $param = null ) {
 		# For ease of debugging and because errors are rare, we
 		# use the user language and split the parser cache.
 		$lang = $this->mParser->getOptions()->getUserLangObj();
@@ -1336,10 +1350,6 @@ class Cite {
 			],
 			$msg
 		);
-
-		if ( $parse === 'parse' ) {
-			$ret = $this->mParser->recursiveTagParse( $ret );
-		}
 
 		return $ret;
 	}

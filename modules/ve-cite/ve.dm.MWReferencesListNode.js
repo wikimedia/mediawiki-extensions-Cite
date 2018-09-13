@@ -106,7 +106,7 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {
 	var el, els, mwData, originalMw, contentsHtml, originalHtml, nextIndex, nextElement, modelNode, viewNode,
 		isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' ),
-		isForClipboard = converter.isForClipboard(),
+		isForParser = converter.isForParser(),
 		wrapper = doc.createElement( 'div' ),
 		originalHtmlWrapper = doc.createElement( 'div' ),
 		dataElement = data[ 0 ],
@@ -114,12 +114,12 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		contentsData = data.slice( 1, -1 );
 
 	// If we are sending a template generated ref back to Parsoid, output it as a template.
-	// This works because the dataElement already as mw, originalMw and originalDomIndex properties.
-	if ( attrs.templateGenerated && !isForClipboard ) {
+	// This works because the dataElement already has mw, originalMw and originalDomIndex properties.
+	if ( attrs.templateGenerated && isForParser ) {
 		return ve.dm.MWTransclusionNode.static.toDomElements.call( this, dataElement, doc, converter );
 	}
 
-	if ( isForClipboard ) {
+	if ( !isForParser ) {
 		// Output needs to be read so re-render
 		modelNode = ve.dm.nodeFactory.createFromElement( dataElement );
 		modelNode = new ve.dm.MWReferencesListNode( dataElement );

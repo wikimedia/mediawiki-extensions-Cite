@@ -152,41 +152,6 @@ ve.dm.citeExample.domToDataCases = {
 						'</li>' +
 					'</ol>' +
 			'</div>',
-		previewBody:
-			'<p>Foo' +
-				'<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" class="mw-ref">' +
-					'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>' +
-				'</sup>' +
-				' Baz' +
-				'<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;Quux&quot;},&quot;attrs&quot;:{&quot;group&quot;:&quot;g1&quot;,&quot;name&quot;:&quot;:0&quot;}}" class="mw-ref">' +
-					'<a data-mw-group="g1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[g1 1]</span></a>' +
-				'</sup>' +
-				' Whee' +
-				'<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;' +
-				'<a href=\\&quot;./Bar\\&quot; rel=\\&quot;mw:WikiLink\\&quot;>Bar' +
-				'</a>&quot;},&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" class="mw-ref">' +
-					'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>' +
-				'</sup>' +
-				' Yay' +
-				// This reference has .body.id instead of .body.html
-				'<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;id&quot;:&quot;mw-cite-3&quot;},&quot;attrs&quot;:{&quot;group&quot;:&quot;g1&quot;}}" class="mw-ref">' +
-					'<a data-mw-group="g1" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[g1 2]</span></a>' +
-				'</sup>' +
-				' Quux' +
-				'<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;Different content&quot;},&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" class="mw-ref">' +
-					'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>' +
-				'</sup>' +
-				' Foo' +
-				'<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;g1&quot;,&quot;name&quot;:&quot;foo&quot;}}" class="mw-ref">' +
-					'<a data-mw-group="g1" style="counter-reset: mw-Ref 3;"><span class="mw-reflink-text">[g1 3]</span></a>' +
-				'</sup>' +
-			'</p>' +
-			'<div typeof="mw:Extension/references" ' +
-				'data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;g1&quot;},&quot;body&quot;:{' +
-				'&quot;html&quot;:&quot;<sup typeof=\\&quot;mw:Extension/ref\\&quot; ' +
-				'data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;group&amp;quot;:&amp;quot;g1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;html&amp;quot;:&amp;quot;Ref in refs&amp;quot;}}' +
-				'\\&quot; class=\\&quot;mw-ref\\&quot;><a data-mw-group=\\&quot;g1\\&quot; style=\\&quot;counter-reset: mw-Ref 3;\\&quot;><span class=\\&quot;mw-reflink-text\\&quot;>[g1 3]</span></a></sup>&quot;}}">' +
-			'</div>',
 		head: '<base href="http://example.com" />',
 		data: [
 			{ type: 'paragraph' },

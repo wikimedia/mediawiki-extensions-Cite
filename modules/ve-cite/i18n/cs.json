@@ -19,12 +19,13 @@
 			"Kusavica",
 			"Dvorapa",
 			"Ilimanaq29",
-			"Evica"
+			"Evica",
+			"Martin Urbanec"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Kniha",
 	"visualeditor-cite-tool-name-journal": "Časopis",
-	"visualeditor-cite-tool-name-news": "Novinky",
+	"visualeditor-cite-tool-name-news": "Časopis / noviny",
 	"visualeditor-cite-tool-name-web": "Webová stránka",
 	"cite-ve-changedesc-ref-group-both": "Skupina reference změněna z „$1“ na „$2“",
 	"cite-ve-changedesc-ref-group-from": "Skupina reference změněna z „$1“ na základní",

@@ -34,8 +34,6 @@
 	"cite_error_empty_references_define": "برچسپ <code>&lt;ref&gt;</code> تعریف شده درون <code>&lt;references&gt;</code> با نام «$1» محتوایی ندارد.",
 	"cite-tracking-category-cite-error": "صفحات دارای خطا در ارجاع",
 	"cite-tracking-category-cite-error-desc": "صفحات موجود در این رده دارای خطا در استفاده از برچسب ارجاع هستند.",
-	"cite_reference_link_key_with_num": "$1_$2",
-	"cite_reference_link_prefix": "cite_ref-",
 	"cite_references_link_accessibility_label": "پرش به بالا",
 	"cite_references_link_many_accessibility_label": "پرش به بالا به:",
 	"cite_section_preview_references": "پیش‌نمایش ارجاع‌ها",

@@ -33,7 +33,6 @@
 	"cite_error_empty_references_define": "Tag <code>&lt;ref&gt;</code> yang didefinisikan di di <code>&lt;references&gt;</code> dengan nama \"$1\" tidak memiliki isi.",
 	"cite-tracking-category-cite-error": "Halaman dengan kesalahan referensi",
 	"cite-tracking-category-cite-error-desc": "Halaman dalam kategori ini memiliki kesalahan dalam penggunaan tanda referensi.",
-	"cite_references_link_many_format": "<sup>[[#$1|$2]]</sup>",
 	"cite_references_link_accessibility_label": "Ke atas",
 	"cite_references_link_many_accessibility_label": "Lompat ke:",
 	"cite_section_preview_references": "Pratayang referensi",

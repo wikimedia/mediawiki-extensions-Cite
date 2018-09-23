@@ -11,6 +11,7 @@
 	"cite_error_ref_too_many_keys": "Nevalida etiketo <code>&lt;ref&gt;</code>;\nnevalida nomi (exemple: tre multa)",
 	"cite_error_references_invalid_parameters": "Nevalida parametri en l'etiketo <code>&lt;references&gt;</code>",
 	"cite_error_references_no_text": "Nevalida etiketo <code>&lt;ref&gt;</code>;\nnula texto furniseis por la referi nomizita <code>$1</code>",
+	"cite_error_included_ref": "Ne trovesis <code>&lt;/ref&gt;</code> por klozar l'etiketo <code>&lt;ref&gt;</code> (Sempre ke <code>&lt;/ref&gt;</code> uzesas, <code>&lt;/ref&gt;</code> esas bezonata)",
 	"cite_error_group_refs_without_references": "Existas <code>&lt;ref&gt;</code> etiketi por la grupo nomizita \"$1\", ma nula etiketo korespondanta <code>&lt;references group=\"$1\"/&gt;</code> trovesis, o mankas la <code>&lt;/ref&gt;</code> por klozar li.",
 	"cite_error_references_group_mismatch": "Existas konflikti inter la grupala atribuo \"$1\" e <code>&lt;ref&gt;</code> pri l'etiketo <code>&lt;references&gt;</code>.",
 	"cite_error_references_missing_group": "L'etiketo <code>&lt;ref&gt;</code> definita en <code>&lt;references&gt;</code> havas atributo di grupo \"$1\", qua ne aparas en l'antea texto.",

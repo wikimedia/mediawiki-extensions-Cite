@@ -19,8 +19,6 @@
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> тегін <code>&lt;/ref&gt;</code> тегімен жабуды қажет етеді",
 	"cite_error_group_refs_without_references": "\"$1\" деп аталған дереккөз тобында <code>&lt;ref&gt;</code> тегі бар, бірақ тиісті <code>&lt;references group=\"$1\"/&gt;</code> тегі табылмады, немесе <code>&lt;/ref&gt;</code> жабу тегін қажет етеді",
 	"cite-tracking-category-cite-error": "Қате сілтемелері бар беттер",
-	"cite_references_link_one": "<li id=\"$1\"$4><span class=\"mw-cite-backlink\">[[#$2|↑]]</span> $3</li>",
-	"cite_references_link_many": "<li id=\"$1\"$4><span class=\"mw-cite-backlink\">↑ $2</span> $3</li>",
 	"cite_references_link_accessibility_label": "Жоғарыға көтеріліңіз",
 	"cite_references_link_many_accessibility_label": "Мынаған өту:"
 }

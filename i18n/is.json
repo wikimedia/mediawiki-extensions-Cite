@@ -20,9 +20,6 @@
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> tag með nafnið \"$1\" og er skilgreint í <code>&lt;references&gt;</code> er ekki notað í textanum á undan.",
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code> tag skilgreint í <code>&lt;references&gt;</code> hefur engin nafna eigindi.",
 	"cite_error_empty_references_define": "Bæta þarf innihaldi við tilvísun með nafnið \"$1\".",
-	"cite_reference_link_key_with_num": "$1_$2",
-	"cite_references_link_many_sep": "&#32;",
-	"cite_references_link_many_and": "&#32;",
 	"cite_references_link_accessibility_label": "Stökkva upp",
 	"cite_references_link_many_accessibility_label": "Stökkva upp til:"
 }

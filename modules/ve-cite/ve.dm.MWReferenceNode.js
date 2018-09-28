@@ -335,11 +335,11 @@ ve.dm.MWReferenceNode.static.cloneElement = function () {
 ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 	if ( key === 'refGroup' ) {
 		if ( !change.from ) {
-			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-to', $( '<ins>' ).text( change.to ) );
+			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-to', this.wrapText( 'ins', change.to ) );
 		} else if ( !change.to ) {
-			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-from', $( '<del>' ).text( change.from ) );
+			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-from', this.wrapText( 'del', change.from ) );
 		} else {
-			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-both', $( '<del>' ).text( change.from ), $( '<ins>' ).text( change.to ) );
+			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-both', this.wrapText( 'del', change.from ), this.wrapText( 'ins', change.to ) );
 		}
 	}
 	if ( key === 'refListItemId' ) {

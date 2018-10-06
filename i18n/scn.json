@@ -25,11 +25,6 @@
 	"cite_error_references_missing_key": "N'etichetta <code>&lt;ref&gt;</code> difinuta nta <code>&lt;references&gt;</code> havi comu attribbutu name \"$1\" ca nun è adupiratu ntô testu pricidenti.",
 	"cite_error_references_no_key": "N'etichetta <code>&lt;ref&gt;</code> difinuta nta <code>&lt;references&gt;</code> nun havi n'attribbutu nomu.",
 	"cite_error_empty_references_define": "L'etichetta <code>&lt;ref&gt;</code> difinuta nta <code>&lt;references&gt;</code> cû nomu \"$1\" nun havi nuddu cuntinutu.",
-	"cite_reference_link_prefix": "muntuari ref",
-	"cite_references_link_prefix": "muntuari annutazzioni",
-	"cite_references_link_one": "<li id=\"$1\"$4>[[#$2|'''^''']] $3</li>",
-	"cite_references_link_many": "<li id=\"$1\"$4>'''^''' $2 $3</li>",
-	"cite_references_link_many_format": "<sup>''[[#$1|$3]]''</sup>",
 	"cite_references_link_accessibility_label": "Attorna pi supra",
 	"cite_references_link_many_accessibility_label": "Attorna pi supra unni:"
 }

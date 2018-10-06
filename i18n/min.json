@@ -20,8 +20,5 @@
 	"cite_error_references_missing_group": "Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> indak ado namo grup \"$1\".",
 	"cite_error_references_missing_key": "Tag <code>&lt;ref&gt;</code> jo namo \"$1\" pado <code>&lt;references&gt;</code> indak ado.",
 	"cite_error_references_no_key": "Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> indak ado aprameter namo.",
-	"cite_error_empty_references_define": "Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> nan banamo \"$1\" indak ado isi.",
-	"cite_references_link_one": "<li id=\"$1\"$4>'''<span class=\"mw-cite-backlink\">[[#$2|^]]</span>''' $3</li>",
-	"cite_references_link_many": "<li id=\"$1\"$4><span class=\"mw-cite-backlink\">'''^''' $2</span> $3</li>",
-	"cite_references_link_many_format": "<sup>[[#$1|'''''$2''''']]</sup>"
+	"cite_error_empty_references_define": "Tag <code>&lt;ref&gt;</code> pado <code>&lt;references&gt;</code> nan banamo \"$1\" indak ado isi."
 }

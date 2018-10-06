@@ -12,7 +12,8 @@
 			"Vivaelcelta",
 			"Banjo",
 			"Macofe",
-			"Maria zaos"
+			"Maria zaos",
+			"Navhy"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Libro",
@@ -47,7 +48,7 @@
 	"cite-ve-dialogbutton-reference-title": "Referencia",
 	"cite-ve-dialogbutton-reference-tooltip": "Básica",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Lista de referencias",
-	"cite-ve-reference-input-placeholder": "Buscar dentro das referencias actuais",
+	"cite-ve-reference-input-placeholder": "Procurar dentro das referencias actuais",
 	"cite-ve-referenceslist-isempty": "Non hai referencias co grupo \"$1\" nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-isempty-default": "Non hai referencias nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referencia está definida nun modelo ou noutro bloque xerado; polo de agora, só se pode editar no modo fonte.",

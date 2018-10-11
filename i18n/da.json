@@ -9,7 +9,7 @@
 			"Jhertel"
 		]
 	},
-	"cite-desc": "Tilføjer <nowiki><ref[ name=id]></nowiki> og <nowiki><references/></nowiki>-elementer til referencer.",
+	"cite-desc": "Tilføjer <code><nowiki><ref[ name=id]></nowiki></code> og <code><nowiki><references/></nowiki></code>-elementer til referencer.",
 	"cite_error": "Fodnotefejl: $1",
 	"cite_error_ref_numeric_key": "Ugyldigt <code>&lt;ref&gt;</code>-tag; \"name\" kan ikke være et simpelt heltal, brug en beskrivende titel",
 	"cite_error_ref_no_key": "Det indledende <code>&lt;ref&gt;</code>-tag har en forkert form eller har et ugyldigt navn",

@@ -10,7 +10,7 @@
 			"Mainframe98"
 		]
 	},
-	"cite-desc": "Voegt <nowiki><ref[ name=id]></nowiki>- en <nowiki><references/></nowiki>-labels toe voor citaten",
+	"cite-desc": "Voegt <code><nowiki><ref[ name=id]></nowiki></code>- en <code><nowiki><references/></nowiki></code>-labels toe voor citaten",
 	"cite_error": "Citefout: $1",
 	"cite_error_ref_invalid_dir": "Ongeldig <code>&lt;ref&gt;</code> element; dir attribuut \"$1\" is onbekend. Dit moet ltr of rtl zijn.",
 	"cite_error_ref_numeric_key": "Onjuist label <code>&lt;ref&gt;</code>;\nde naam kan geen eenvoudige integer zijn.\nGebruik een beschrijvende titel",

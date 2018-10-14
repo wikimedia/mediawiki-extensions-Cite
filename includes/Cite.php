@@ -380,7 +380,7 @@ class Cite {
 			# we'll figure that out later.  Likewise it's definitely valid
 			# if there's any content, regardless of key.
 
-			return $this->stack( $str, $key, $group, $follow, $argv, $dir );
+			return $this->stack( $str, $key, $group, $follow, $argv, $dir, $parser );
 		}
 
 		# Not clear how we could get here, but something is probably
@@ -465,12 +465,13 @@ class Cite {
 	 * @param string $group
 	 * @param string|null $follow
 	 * @param string[] $call
-	 * @param $dir ref direction
+	 * @param string $dir ref direction
+	 * @param Parser $parser
 	 *
 	 * @throws Exception
 	 * @return string
 	 */
-	private function stack( $str, $key, $group, $follow, array $call, $dir ) {
+	private function stack( $str, $key, $group, $follow, array $call, $dir, Parser $parser ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = [];
 		}
@@ -551,7 +552,11 @@ class Cite {
 			$this->mRefCallStack[] = [ 'assign', $call, $str, $key, $group,
 				$this->mRefs[$group][$key]['key'] ];
 		} else {
-			if ( $str != null && $str !== '' && $str !== $this->mRefs[$group][$key]['text'] ) {
+			if ( $str != null && $str !== ''
+				// T205803 different strip markers might hide the same text
+				&& $parser->mStripState->unstripBoth( $str )
+					!== $parser->mStripState->unstripBoth( $this->mRefs[$group][$key]['text'] )
+			) {
 				// two refs with same key and different content
 				// add error message to the original ref
 				$this->mRefs[$group][$key]['text'] .= ' ' . $this->plainError(

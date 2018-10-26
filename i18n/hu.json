@@ -8,7 +8,7 @@
 			"Nyuszika7H"
 		]
 	},
-	"cite-desc": "Lehetővé teszi idézések létrehozását <code><nowiki><ref[ name=id]></nowiki></code> és <code><nowiki><references/></nowiki></code> tagek segítségével",
+	"cite-desc": "Lehetővé teszi idézések létrehozását <code>&lt;ref[ name=id]&gt;</code> és <code>&lt;references/&gt;</code> tagek segítségével",
 	"cite_error": "Forráshivatkozás-hiba: $1",
 	"cite_error_ref_numeric_key": "Érvénytelen <code>&lt;ref&gt;</code> tag; a name értéke nem lehet csupán egy szám, használj leíró címeket",
 	"cite_error_ref_no_key": "Érvénytelen <code>&lt;ref&gt;</code> tag; a tartalom nélküli ref-eknek kötelező nevet (name) adni",

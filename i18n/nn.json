@@ -7,7 +7,7 @@
 			"Ranveig"
 		]
 	},
-	"cite-desc": "Legg til <code><nowiki><ref[ name=id]></nowiki></code> og <code><nowiki><references/></nowiki></code>-merke for referansar",
+	"cite-desc": "Legg til <code>&lt;ref[ name=id]&gt;</code> og <code>&lt;references/&gt;</code>-merke for referansar",
 	"cite_error": "Referansefeil: $1",
 	"cite_error_ref_numeric_key": "Ugyldig <code>&lt;ref&gt;</code>-kode; namnet kan ikkje vere eit enkelt heiltal, bruk ein skildrande tittel",
 	"cite_error_ref_no_key": "Ugyldig <code>&lt;ref&gt;</code>-kode; referansar utan innhald må innehalde namn",

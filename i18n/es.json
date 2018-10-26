@@ -26,7 +26,7 @@
 	"apihelp-query+references-summary": "Devuelve una representación de datos de las referencias asociadas con las páginas dadas.",
 	"apihelp-query+references-example-1": "Referencias asociadas con <kbd>Albert Einstein</kbd>.",
 	"apierror-citestoragedisabled": "El almacenamiento de referencias de la extensión de citas, no está activado.",
-	"cite-desc": "Añade las etiquetas <code><nowiki><ref[ name=id]></nowiki></code> y <code><nowiki><references/></nowiki></code> para citas.",
+	"cite-desc": "Añade las etiquetas <code>&lt;ref[ name=id]&gt;</code> y <code>&lt;references/&gt;</code> para citas.",
 	"cite_error": "Error en la cita: $1",
 	"cite_error_ref_invalid_dir": "La etiqueta <code>&lt;ref&gt;</code> no es válida; se desconoce el atributo de dirección «$1». Debe ser «ltr» o «rtl»",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> no válida;\nel nombre no puede ser un número entero. Use un título descriptivo",

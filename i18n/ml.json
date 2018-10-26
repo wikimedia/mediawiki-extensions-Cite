@@ -5,7 +5,7 @@
 			"Shijualex"
 		]
 	},
-	"cite-desc": "അവലംബം ചേർക്കുവാൻ ഉപയോഗിക്കാനുള്ള <code><nowiki><ref[ name=id]></nowiki></code>, <code><nowiki><references/></nowiki></code> എന്നീ ടാഗുകൾ ചേർക്കുന്നു",
+	"cite-desc": "അവലംബം ചേർക്കുവാൻ ഉപയോഗിക്കാനുള്ള <code>&lt;ref[ name=id]&gt;</code>, <code>&lt;references/&gt;</code> എന്നീ ടാഗുകൾ ചേർക്കുന്നു",
 	"cite_error": "ഉദ്ധരിച്ചതിൽ പിഴവ്: $1",
 	"cite_error_ref_numeric_key": "അസാധുവായ <code>&lt;ref&gt;</code> ടാഗ്;\nനാമത്തിൽ സംഖ്യ മാത്രമായി അനുവദനീയമല്ല. എന്തെങ്കിലും ലഘുവിവരണം ഉപയോഗിക്കുക.",
 	"cite_error_ref_no_key": "തുറക്കാനുള്ള <code>&lt;ref&gt;</code> ടാഗിൽ പിഴവുണ്ട് അല്ലെങ്കിൽ പേരിൽ കുഴപ്പമുണ്ട്",

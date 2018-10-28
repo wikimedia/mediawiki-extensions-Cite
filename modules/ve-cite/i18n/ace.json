@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Si Gam Acèh",
-			"Ayie7791"
+			"Ayie7791",
+			"Rachmat04"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Kitab",
@@ -16,6 +17,7 @@
 	"cite-ve-dialog-reference-useexisting-label": "Ngui rèfèrènsi nyang ka awai na",
 	"cite-ve-dialog-reference-useexisting-tool": "Ngui ulang",
 	"cite-ve-dialog-referenceslist-title": "Dapeuta rèfèrènsi",
+	"cite-ve-dialogbutton-reference-title": "Nè",
 	"cite-ve-dialogbutton-reference-tooltip": "Rèfèrènsi",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Dapeuta rèfèrènsi",
 	"cite-ve-toolbar-group-label": "Kutép"

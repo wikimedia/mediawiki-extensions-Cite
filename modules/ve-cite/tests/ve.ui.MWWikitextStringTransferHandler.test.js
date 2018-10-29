@@ -34,18 +34,9 @@ QUnit.test( 'convert', function ( assert ) {
 					{
 						type: 'mwReference',
 						attributes: {
-							mw: {
-								attrs: {},
-								body: {
-									id: 'mw-reference-text-cite_note-1'
-								},
-								name: 'ref'
-							},
-							contentsUsed: true,
 							listGroup: 'mwReference/',
 							listIndex: 0,
 							listKey: 'auto/0',
-							originalMw: '{"name":"ref","body":{"id":"mw-reference-text-cite_note-1"},"attrs":{}}',
 							refGroup: '',
 							refListItemId: 'mw-reference-text-cite_note-1'
 						}
@@ -73,8 +64,7 @@ QUnit.test( 'convert', function ( assert ) {
 					{
 						type: 'mwTransclusionInline',
 						attributes: {
-							mw: {},
-							originalMw: null
+							mw: {}
 						}
 					},
 					{

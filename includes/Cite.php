@@ -7,7 +7,7 @@
  * @ingroup Extensions
  *
  * Documentation
- * @link http://www.mediawiki.org/wiki/Extension:Cite/Cite.php
+ * @link https://www.mediawiki.org/wiki/Extension:Cite/Cite.php
  *
  * <cite> definition in HTML
  * @link http://www.w3.org/TR/html4/struct/text.html#edef-CITE

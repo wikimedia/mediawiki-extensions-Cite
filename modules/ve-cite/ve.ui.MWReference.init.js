@@ -68,7 +68,7 @@
 	 * messages are pre-defined for tool names such as `web`, `book`, `news` and `journal`.
 	 *
 	 * Example:
-	 * [ { "name": "web", "icon": "cite-web", "template": "Cite web" }, ... ]
+	 * [ { "name": "web", "icon": "ref-cite-web", "template": "Cite web" }, ... ]
 	 *
 	 */
 	( function () {

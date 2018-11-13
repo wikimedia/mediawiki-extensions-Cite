@@ -5,7 +5,7 @@
  *
  * @author Marius Hoch <hoo@online.de>
  */
-( function ( mw, $ ) {
+( function () {
 	'use strict';
 
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
@@ -35,4 +35,4 @@
 			);
 		} );
 	} );
-}( mediaWiki, jQuery ) );
+}() );

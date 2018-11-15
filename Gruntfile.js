@@ -21,6 +21,7 @@ module.exports = function ( grunt ) {
 				'**/*.js',
 				'{.jsduck,build}/**/*.js',
 				'modules/**/*.js',
+				'tests/**/*.js',
 				'!node_modules/**',
 				'!vendor/**'
 			]

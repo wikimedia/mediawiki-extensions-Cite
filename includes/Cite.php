@@ -218,7 +218,7 @@ class Cite {
 		$this->mInCite = false;
 
 		$parserOutput = $parser->getOutput();
-		$parserOutput->addModules( 'ext.cite.a11y' );
+		$parserOutput->addModules( 'ext.cite.ux-enhancements' );
 		$parserOutput->addModuleStyles( 'ext.cite.styles' );
 
 		$frame->setVolatile();

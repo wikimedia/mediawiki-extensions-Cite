@@ -1111,18 +1111,18 @@ class Cite {
 	/**
 	 * Generate the labels to pass to the
 	 * 'cite_references_link_many_format' message, the format is an
-	 * arbitrary number of tokens separated by [\t\n ]
+	 * arbitrary number of tokens separated by whitespace.
 	 */
 	private function genBacklinkLabels() {
 		$text = wfMessage( 'cite_references_link_many_format_backlink_labels' )
 			->inContentLanguage()->plain();
-		$this->mBacklinkLabels = preg_split( '#[\n\t ]#', $text );
+		$this->mBacklinkLabels = preg_split( '/\s+/', $text );
 	}
 
 	/**
 	 * Generate the labels to pass to the
 	 * 'cite_reference_link' message instead of numbers, the format is an
-	 * arbitrary number of tokens separated by [\t\n ]
+	 * arbitrary number of tokens separated by whitespace.
 	 *
 	 * @param string $group
 	 * @param string $message
@@ -1133,7 +1133,7 @@ class Cite {
 		if ( $msg->exists() ) {
 			$text = $msg->plain();
 		}
-		$this->mLinkLabels[$group] = ( !$text ) ? false : preg_split( '#[\n\t ]#', $text );
+		$this->mLinkLabels[$group] = $text ? preg_split( '/\s+/', $text ) : false;
 	}
 
 	/**

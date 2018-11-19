@@ -395,16 +395,16 @@ class Cite {
 	 *  "dir" : set direction of text (ltr/rtl)
 	 *
 	 * @param string[] $argv The argument vector
-	 * @return mixed false on invalid input, a string on valid
-	 *               input and null on no input
+	 * @return (string|false|null)[] An array with exactly four elements, where each is a string on
+	 *  valid input, false on invalid input, or null on no input.
 	 * @return-taint tainted
 	 */
 	private function refArg( array $argv ) {
-		$cnt = count( $argv );
 		$group = null;
 		$key = null;
 		$follow = null;
 		$dir = null;
+
 		if ( isset( $argv['dir'] ) ) {
 			// compare the dir attribute value against an explicit whitelist.
 			$dir = '';
@@ -414,45 +414,45 @@ class Cite {
 			}
 
 			unset( $argv['dir'] );
-			--$cnt;
 		}
-		if ( $cnt > 2 ) {
+
+		if ( $argv === [] ) {
+			// No key
+			return [ null, null, false, $dir ];
+		}
+
+		if ( count( $argv ) > 2 ) {
 			// There should only be one key or follow parameter, and one group parameter
 			// FIXME : this looks inconsistent, it should probably return a tuple
 			return false;
-		} elseif ( $cnt >= 1 ) {
-			if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
-				return [ false, false, false, false ];
-			}
-			if ( isset( $argv['name'] ) ) {
-				// Key given.
-				$key = trim( $argv['name'] );
-				unset( $argv['name'] );
-				--$cnt;
-			}
-			if ( isset( $argv['follow'] ) ) {
-				// Follow given.
-				$follow = trim( $argv['follow'] );
-				unset( $argv['follow'] );
-				--$cnt;
-			}
-			if ( isset( $argv['group'] ) ) {
-				// Group given.
-				$group = $argv['group'];
-				unset( $argv['group'] );
-				--$cnt;
-			}
-
-			if ( $cnt === 0 ) {
-				return [ $key, $group, $follow, $dir ];
-			} else {
-				// Invalid key
-				return [ false, false, false, false ];
-			}
-		} else {
-			// No key
-			return [ null, $group, false, $dir ];
 		}
+
+		if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
+			return [ false, false, false, false ];
+		}
+
+		if ( isset( $argv['name'] ) ) {
+			// Key given.
+			$key = trim( $argv['name'] );
+			unset( $argv['name'] );
+		}
+		if ( isset( $argv['follow'] ) ) {
+			// Follow given.
+			$follow = trim( $argv['follow'] );
+			unset( $argv['follow'] );
+		}
+		if ( isset( $argv['group'] ) ) {
+			// Group given.
+			$group = $argv['group'];
+			unset( $argv['group'] );
+		}
+
+		if ( $argv !== [] ) {
+			// Invalid key
+			return [ false, false, false, false ];
+		}
+
+		return [ $key, $group, $follow, $dir ];
 	}
 
 	/**

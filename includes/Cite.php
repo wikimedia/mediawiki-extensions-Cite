@@ -234,7 +234,6 @@ class Cite {
 	 * @param string|null $str Raw content of the <ref> tag.
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
-	 * @param string $default_group
 	 *
 	 * @throws Exception
 	 * @return string
@@ -242,8 +241,7 @@ class Cite {
 	private function guardedRef(
 		$str,
 		array $argv,
-		Parser $parser,
-		$default_group = self::DEFAULT_GROUP
+		Parser $parser
 	) {
 		$this->mParser = $parser;
 
@@ -258,7 +256,7 @@ class Cite {
 			if ( $this->mInReferences ) {
 				$group = $this->mReferencesGroup;
 			} else {
-				$group = $default_group;
+				$group = self::DEFAULT_GROUP;
 			}
 		}
 
@@ -672,14 +670,13 @@ class Cite {
 	 * @param string|null $str Raw content of the <references> tag.
 	 * @param string[] $argv
 	 * @param Parser $parser
-	 * @param string $group
+	 *
 	 * @return string
 	 */
 	private function guardedReferences(
 		$str,
 		array $argv,
-		Parser $parser,
-		$group = self::DEFAULT_GROUP
+		Parser $parser
 	) {
 		global $wgCiteResponsiveReferences;
 
@@ -688,6 +685,8 @@ class Cite {
 		if ( isset( $argv['group'] ) ) {
 			$group = $argv['group'];
 			unset( $argv['group'] );
+		} else {
+			$group = self::DEFAULT_GROUP;
 		}
 
 		if ( strval( $str ) !== '' ) {

@@ -128,7 +128,7 @@ class Cite {
 	/**
 	 * The links to use per group, in order.
 	 *
-	 * @var array
+	 * @var (string[]|false)[]
 	 */
 	private $mLinkLabels = [];
 
@@ -180,7 +180,7 @@ class Cite {
 	 * Used to cleanup out of sequence ref calls created by #tag
 	 * See description of function rollbackRef.
 	 *
-	 * @var array
+	 * @var (array|false)[]
 	 */
 	private $mRefCallStack = [];
 
@@ -913,9 +913,9 @@ class Cite {
 
 	/**
 	 * Returns formatted reference text
-	 * @param String $key
-	 * @param String $text
-	 * @return String
+	 * @param string $key
+	 * @param string|null $text
+	 * @return string
 	 */
 	private function referenceText( $key, $text ) {
 		if ( !isset( $text ) || $text === '' ) {
@@ -1004,7 +1004,7 @@ class Cite {
 	 * (since otherwise it would link to itself)
 	 *
 	 * @param string $key
-	 * @param int $num The number of the key
+	 * @param int|null $num The number of the key
 	 * @return string A key for use in wikitext
 	 */
 	private function refKey( $key, $num = null ) {
@@ -1040,9 +1040,9 @@ class Cite {
 	 * @suppress SecurityCheck-DoubleEscaped
 	 * @param string $group
 	 * @param string $key The key for the link
-	 * @param int $count The index of the key, used for distinguishing
+	 * @param int|null $count The index of the key, used for distinguishing
 	 *                   multiple occurrences of the same key
-	 * @param int $label The label to use for the link, I want to
+	 * @param int|null $label The label to use for the link, I want to
 	 *                   use the same label for all occourances of
 	 *                   the same named reference.
 	 * @param string $subkey
@@ -1090,7 +1090,7 @@ class Cite {
 	 * first separator and not 'and' as the second, and this has to
 	 * use messages from the content language) I'm rolling my own.
 	 *
-	 * @param array $arr The array to format
+	 * @param string[] $arr The array to format
 	 * @return string
 	 */
 	private function listToText( $arr ) {

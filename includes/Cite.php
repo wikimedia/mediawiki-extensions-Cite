@@ -1097,17 +1097,15 @@ class Cite {
 	 */
 	private function listToText( $arr ) {
 		$cnt = count( $arr );
-
-		$sep = wfMessage( 'cite_references_link_many_sep' )->inContentLanguage()->plain();
-		$and = wfMessage( 'cite_references_link_many_and' )->inContentLanguage()->plain();
-
 		if ( $cnt === 1 ) {
 			// Enforce always returning a string
 			return (string)$arr[0];
-		} else {
-			$t = array_slice( $arr, 0, $cnt - 1 );
-			return implode( $sep, $t ) . $and . $arr[$cnt - 1];
 		}
+
+		$sep = wfMessage( 'cite_references_link_many_sep' )->inContentLanguage()->plain();
+		$and = wfMessage( 'cite_references_link_many_and' )->inContentLanguage()->plain();
+		$t = array_slice( $arr, 0, $cnt - 1 );
+		return implode( $sep, $t ) . $and . $arr[$cnt - 1];
 	}
 
 	/**

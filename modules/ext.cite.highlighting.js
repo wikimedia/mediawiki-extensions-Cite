@@ -9,7 +9,8 @@
 		$content.find( '.reference[id] > a' ).click( function () {
 			var $backlink, $backlinkWrapper, $upArrowLink, textNode, upArrow,
 				id = $( this ).parent().attr( 'id' ),
-				className = 'mw-cite-targeted-backlink';
+				className = 'mw-cite-targeted-backlink',
+				accessibilityLabel;
 
 			$content.find( '.' + className ).removeClass( className );
 			// The additional "*" avoids the "↑" (when there is only one backlink) becoming bold.
@@ -30,6 +31,7 @@
 					textNode.nodeType === Node.TEXT_NODE &&
 					textNode.data.trim() !== ''
 				) {
+					accessibilityLabel = mw.msg( 'cite_references_link_accessibility_back_label' );
 					upArrow = textNode.data.trim();
 					// The text node typically contains "↑ ", and we need to keep the space.
 					textNode.data = textNode.data.replace( upArrow, '' );
@@ -38,6 +40,8 @@
 					// one is visible at a time.
 					$upArrowLink = $( '<a>' )
 						.addClass( 'mw-cite-up-arrow-backlink' )
+						.attr( 'aria-label', accessibilityLabel )
+						.attr( 'title', accessibilityLabel )
 						.text( upArrow );
 					$backlinkWrapper.prepend(
 						$( '<span>' )

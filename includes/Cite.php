@@ -653,7 +653,7 @@ class Cite {
 	 */
 	public function references( $str, array $argv, Parser $parser, PPFrame $frame ) {
 		if ( $this->mInCite || $this->mInReferences ) {
-			if ( is_null( $str ) ) {
+			if ( $str === null ) {
 				return htmlspecialchars( "<references/>" );
 			}
 			return htmlspecialchars( "<references>$str</references>" );
@@ -918,7 +918,7 @@ class Cite {
 	 * @return String
 	 */
 	private function referenceText( $key, $text ) {
-		if ( !isset( $text ) || $text === '' ) {
+		if ( $text === null || $text === '' ) {
 			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
 				return $this->warning( 'cite_warning_sectionpreview_no_text', $key, 'noparse' );
 			}
@@ -1010,7 +1010,7 @@ class Cite {
 	private function refKey( $key, $num = null ) {
 		$prefix = wfMessage( 'cite_reference_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_reference_link_suffix' )->inContentLanguage()->text();
-		if ( isset( $num ) ) {
+		if ( $num !== null ) {
 			$key = wfMessage( 'cite_reference_link_key_with_num', $key, $num )
 				->inContentLanguage()->plain();
 		}
@@ -1051,7 +1051,10 @@ class Cite {
 	 */
 	private function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
 		global $wgContLang;
-		$label = is_null( $label ) ? ++$this->mGroupCnt[$group] : $label;
+
+		if ( $label === null ) {
+			$label = ++$this->mGroupCnt[$group];
+		}
 
 		return $this->mParser->recursiveTagParse(
 				wfMessage(
@@ -1197,7 +1200,7 @@ class Cite {
 	 */
 	public function checkRefsNoReferences( $afterParse, $parser, &$text ) {
 		global $wgCiteResponsiveReferences;
-		if ( is_null( $parser->extCite ) ) {
+		if ( $parser->extCite === null ) {
 			return;
 		}
 		if ( $parser->extCite !== $this ) {

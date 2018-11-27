@@ -146,16 +146,19 @@ ve.ui.MWCitationDialog.prototype.onAddParameterBeforeLoad = function ( page ) {
  * @return {boolean}
  */
 ve.ui.MWCitationDialog.prototype.hasUsefulParameter = function () {
-	var foundUseful = false;
-	$.each( this.bookletLayout.pages, function () {
+	var name, page,
+		foundUseful = false;
+
+	for ( name in this.bookletLayout.pages ) {
+		page = this.bookletLayout.pages[ name ];
 		if (
-			this instanceof ve.ui.MWParameterPage &&
-			( !this.preLoad || this.valueInput.getValue() !== '' )
+			page instanceof ve.ui.MWParameterPage &&
+			( !page.preLoad || page.valueInput.getValue() !== '' )
 		) {
 			foundUseful = true;
 			return false;
 		}
-	} );
+	}
 	return foundUseful;
 };
 

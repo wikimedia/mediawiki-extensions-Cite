@@ -38,6 +38,7 @@
 	"cite-tracking-category-cite-error-desc": "Seiten in dieser Kategorie haben Fehler in der Verwendung von Einzelnachweis-Tags.",
 	"cite_references_link_accessibility_label": "Hochspringen",
 	"cite_references_link_many_accessibility_label": "Hochspringen nach:",
+	"cite_references_link_accessibility_back_label": "Zurück nach oben springen",
 	"cite_section_preview_references": "Vorschau von Einzelnachweisen",
 	"cite_warning": "Referenzwarnung: $1",
 	"cite_warning_sectionpreview_no_text": "Das Tag <code>&lt;ref&gt;</code> mit dem Namen <code>$1</code> kann nicht in der Vorschau angezeigt werden, da es außerhalb des aktuellen Abschnitts liegt oder überhaupt nicht definiert ist."

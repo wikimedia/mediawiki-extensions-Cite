@@ -13,8 +13,16 @@
 				accessibilityLabel;
 
 			$content.find( '.' + className ).removeClass( className );
-			// The additional "*" avoids the "↑" (when there is only one backlink) becoming bold.
-			$backlink = $content.find( '.mw-cite-backlink * a[href="#' + id + '"]' )
+			// Bail out if there is not at least a second backlink ("cite_references_link_many").
+			if ( id.slice( -2 ) === '-0' &&
+				!$content.find( '.references a[href="#' + id.slice( 0, -1 ) + '1"]' ).length
+			) {
+				return;
+			}
+
+			// The :not() skips the duplicate link created below. Relevant when double clicking.
+			$backlink = $content.find( '.references a[href="#' + id + '"]:not(.mw-cite-up-arrow-backlink)' )
+				.first()
 				.addClass( className );
 
 			if ( !$backlink.length ) {
@@ -24,7 +32,7 @@
 			$backlinkWrapper = $backlink.closest( '.mw-cite-backlink' );
 			$upArrowLink = $backlinkWrapper.find( '.mw-cite-up-arrow-backlink' );
 
-			if ( !$upArrowLink.length ) {
+			if ( !$upArrowLink.length && $backlinkWrapper.length ) {
 				textNode = $backlinkWrapper[ 0 ].firstChild;
 
 				if ( textNode &&

@@ -146,8 +146,7 @@ ve.ui.MWCitationDialog.prototype.onAddParameterBeforeLoad = function ( page ) {
  * @return {boolean}
  */
 ve.ui.MWCitationDialog.prototype.hasUsefulParameter = function () {
-	var name, page,
-		foundUseful = false;
+	var name, page;
 
 	for ( name in this.bookletLayout.pages ) {
 		page = this.bookletLayout.pages[ name ];
@@ -155,11 +154,10 @@ ve.ui.MWCitationDialog.prototype.hasUsefulParameter = function () {
 			page instanceof ve.ui.MWParameterPage &&
 			( !page.preLoad || page.valueInput.getValue() !== '' )
 		) {
-			foundUseful = true;
-			return false;
+			return true;
 		}
 	}
-	return foundUseful;
+	return false;
 };
 
 /**

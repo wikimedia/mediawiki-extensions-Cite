@@ -100,9 +100,6 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 					);
 				}
 			}
-			this.actions.forEach( { actions: 'insert' }, function ( action ) {
-				action.setLabel( ve.msg( 'visualeditor-dialog-action-insert' ) );
-			} );
 		}, this );
 };
 

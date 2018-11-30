@@ -29,14 +29,23 @@
 				return;
 			}
 
-			$backlinkWrapper = $backlink.closest( '.mw-cite-backlink' );
+			// It's convenient to stop at the class name, but it's not guaranteed to be there.
+			$backlinkWrapper = $backlink.closest( '.mw-cite-backlink, li' );
 			$upArrowLink = $backlinkWrapper.find( '.mw-cite-up-arrow-backlink' );
 
 			if ( !$upArrowLink.length && $backlinkWrapper.length ) {
 				textNode = $backlinkWrapper[ 0 ].firstChild;
 
-				if ( textNode &&
-					textNode.nodeType === Node.TEXT_NODE &&
+				if ( !textNode ) {
+					return;
+				}
+
+				// Skip additional, custom HTML wrappers, if any.
+				while ( textNode.firstChild ) {
+					textNode = textNode.firstChild;
+				}
+
+				if ( textNode.nodeType === Node.TEXT_NODE &&
 					textNode.data.trim() !== ''
 				) {
 					accessibilityLabel = mw.msg( 'cite_references_link_accessibility_back_label' );

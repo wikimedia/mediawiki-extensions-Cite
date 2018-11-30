@@ -4,13 +4,58 @@
 ( function () {
 	'use strict';
 
+	/**
+	 * @param {jQuery} $backlinkWrapper
+	 * @return {jQuery}
+	 */
+	function makeUpArrowLink( $backlinkWrapper ) {
+		var textNode, upArrow, accessibilityLabel,
+			$upArrowLink = $();
+
+		textNode = $backlinkWrapper[ 0 ].firstChild;
+
+		if ( !textNode ) {
+			return $upArrowLink;
+		}
+
+		// Skip additional, custom HTML wrappers, if any.
+		while ( textNode.firstChild ) {
+			textNode = textNode.firstChild;
+		}
+
+		if ( textNode.nodeType !== Node.TEXT_NODE || textNode.data.trim() === '' ) {
+			return $upArrowLink;
+		}
+
+		upArrow = textNode.data.trim();
+		// The text node typically contains "↑ ", and we need to keep the space.
+		textNode.data = textNode.data.replace( upArrow, '' );
+
+		accessibilityLabel = mw.msg( 'cite_references_link_accessibility_back_label' );
+
+		// Create a plain text and a clickable "↑". CSS :target selectors make sure only
+		// one is visible at a time.
+		$upArrowLink = $( '<a>' )
+			.addClass( 'mw-cite-up-arrow-backlink' )
+			.attr( 'aria-label', accessibilityLabel )
+			.attr( 'title', accessibilityLabel )
+			.text( upArrow );
+		$backlinkWrapper.prepend(
+			$( '<span>' )
+				.addClass( 'mw-cite-up-arrow' )
+				.text( upArrow ),
+			$upArrowLink
+		);
+
+		return $upArrowLink;
+	}
+
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		// We are going to use the ID in the code below, so better be sure one is there.
 		$content.find( '.reference[id] > a' ).click( function () {
-			var $backlink, $backlinkWrapper, $upArrowLink, textNode, upArrow,
+			var $backlink, $backlinkWrapper, $upArrowLink,
 				id = $( this ).parent().attr( 'id' ),
-				className = 'mw-cite-targeted-backlink',
-				accessibilityLabel;
+				className = 'mw-cite-targeted-backlink';
 
 			$content.find( '.' + className ).removeClass( className );
 			// Bail out if there is not at least a second backlink ("cite_references_link_many").
@@ -34,39 +79,7 @@
 			$upArrowLink = $backlinkWrapper.find( '.mw-cite-up-arrow-backlink' );
 
 			if ( !$upArrowLink.length && $backlinkWrapper.length ) {
-				textNode = $backlinkWrapper[ 0 ].firstChild;
-
-				if ( !textNode ) {
-					return;
-				}
-
-				// Skip additional, custom HTML wrappers, if any.
-				while ( textNode.firstChild ) {
-					textNode = textNode.firstChild;
-				}
-
-				if ( textNode.nodeType !== Node.TEXT_NODE || textNode.data.trim() === '' ) {
-					return;
-				}
-
-				accessibilityLabel = mw.msg( 'cite_references_link_accessibility_back_label' );
-				upArrow = textNode.data.trim();
-				// The text node typically contains "↑ ", and we need to keep the space.
-				textNode.data = textNode.data.replace( upArrow, '' );
-
-				// Create a plain text and a clickable "↑". CSS :target selectors make sure only
-				// one is visible at a time.
-				$upArrowLink = $( '<a>' )
-					.addClass( 'mw-cite-up-arrow-backlink' )
-					.attr( 'aria-label', accessibilityLabel )
-					.attr( 'title', accessibilityLabel )
-					.text( upArrow );
-				$backlinkWrapper.prepend(
-					$( '<span>' )
-						.addClass( 'mw-cite-up-arrow' )
-						.text( upArrow ),
-					$upArrowLink
-				);
+				$upArrowLink = makeUpArrowLink( $backlinkWrapper );
 			}
 
 			$upArrowLink.attr( 'href', $backlink.attr( 'href' ) );

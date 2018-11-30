@@ -45,28 +45,28 @@
 					textNode = textNode.firstChild;
 				}
 
-				if ( textNode.nodeType === Node.TEXT_NODE &&
-					textNode.data.trim() !== ''
-				) {
-					accessibilityLabel = mw.msg( 'cite_references_link_accessibility_back_label' );
-					upArrow = textNode.data.trim();
-					// The text node typically contains "↑ ", and we need to keep the space.
-					textNode.data = textNode.data.replace( upArrow, '' );
-
-					// Create a plain text and a clickable "↑". CSS :target selectors make sure only
-					// one is visible at a time.
-					$upArrowLink = $( '<a>' )
-						.addClass( 'mw-cite-up-arrow-backlink' )
-						.attr( 'aria-label', accessibilityLabel )
-						.attr( 'title', accessibilityLabel )
-						.text( upArrow );
-					$backlinkWrapper.prepend(
-						$( '<span>' )
-							.addClass( 'mw-cite-up-arrow' )
-							.text( upArrow ),
-						$upArrowLink
-					);
+				if ( textNode.nodeType !== Node.TEXT_NODE || textNode.data.trim() === '' ) {
+					return;
 				}
+
+				accessibilityLabel = mw.msg( 'cite_references_link_accessibility_back_label' );
+				upArrow = textNode.data.trim();
+				// The text node typically contains "↑ ", and we need to keep the space.
+				textNode.data = textNode.data.replace( upArrow, '' );
+
+				// Create a plain text and a clickable "↑". CSS :target selectors make sure only
+				// one is visible at a time.
+				$upArrowLink = $( '<a>' )
+					.addClass( 'mw-cite-up-arrow-backlink' )
+					.attr( 'aria-label', accessibilityLabel )
+					.attr( 'title', accessibilityLabel )
+					.text( upArrow );
+				$backlinkWrapper.prepend(
+					$( '<span>' )
+						.addClass( 'mw-cite-up-arrow' )
+						.text( upArrow ),
+					$upArrowLink
+				);
 			}
 
 			$upArrowLink.attr( 'href', $backlink.attr( 'href' ) );

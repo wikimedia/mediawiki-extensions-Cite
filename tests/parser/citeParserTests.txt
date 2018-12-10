@@ -307,6 +307,46 @@ no text was provided for refs named <code>blankwithnoreference</code></span></li
 
 !! end
 
+!! test
+Can't have name="…" and follow="…" the same time
+!! wikitext
+<ref name="theName" follow="theFollows">theValue</ref>
+<references />
+!! html
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+invalid names, e.g. too many</span>
+</p>
+!! end
+
+!! test
+FIXME: Invalid parameters (here: conflicting name and follow) are just ignored when a third is present!
+!! wikitext
+<ref name="theName" follow="theFollows" dummy="dummy">theValue</ref>
+<references />
+!! html
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">theValue</span>
+</li>
+</ol></div>
+
+!! end
+
+!! test
+FIXME: Valid parameters are just ignored when a third is present!
+!! wikitext
+<ref name="theName" group="theGroup" dummy="dummy">theValue</ref>
+<references group="theGroup" />
+!! html
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">theValue</span>
+</li>
+</ol></div>
+
+!! end
 
 !! test
 Simple <ref>, with <references/> in group

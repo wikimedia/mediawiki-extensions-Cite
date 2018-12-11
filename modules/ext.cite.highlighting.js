@@ -9,10 +9,13 @@
 	 * @return {jQuery}
 	 */
 	function makeUpArrowLink( $backlinkWrapper ) {
-		var textNode, upArrow, accessibilityLabel,
-			$upArrowLink = $();
-
-		textNode = $backlinkWrapper[ 0 ].firstChild;
+		var upArrow,
+			textNode = $backlinkWrapper[ 0 ].firstChild,
+			accessibilityLabel = mw.msg( 'cite_references_link_accessibility_back_label' ),
+			$upArrowLink = $( '<a>' )
+				.addClass( 'mw-cite-up-arrow-backlink' )
+				.attr( 'aria-label', accessibilityLabel )
+				.attr( 'title', accessibilityLabel );
 
 		if ( !textNode ) {
 			return $upArrowLink;
@@ -31,33 +34,43 @@
 		// The text node typically contains "↑ ", and we need to keep the space.
 		textNode.data = textNode.data.replace( upArrow, '' );
 
-		accessibilityLabel = mw.msg( 'cite_references_link_accessibility_back_label' );
-
 		// Create a plain text and a clickable "↑". CSS :target selectors make sure only
 		// one is visible at a time.
-		$upArrowLink = $( '<a>' )
-			.addClass( 'mw-cite-up-arrow-backlink' )
-			.attr( 'aria-label', accessibilityLabel )
-			.attr( 'title', accessibilityLabel )
-			.text( upArrow );
 		$backlinkWrapper.prepend(
 			$( '<span>' )
 				.addClass( 'mw-cite-up-arrow' )
 				.text( upArrow ),
 			$upArrowLink
+				.text( upArrow )
 		);
 
 		return $upArrowLink;
 	}
 
+	/**
+	 * @param {jQuery} $backlink
+	 */
+	function updateUpArrowLink( $backlink ) {
+		// It's convenient to stop at the class name, but it's not guaranteed to be there.
+		var $backlinkWrapper = $backlink.closest( '.mw-cite-backlink, li' ),
+			$upArrowLink = $backlinkWrapper.find( '.mw-cite-up-arrow-backlink' );
+
+		if ( !$upArrowLink.length && $backlinkWrapper.length ) {
+			$upArrowLink = makeUpArrowLink( $backlinkWrapper );
+		}
+
+		$upArrowLink.attr( 'href', $backlink.attr( 'href' ) );
+	}
+
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		// We are going to use the ID in the code below, so better be sure one is there.
 		$content.find( '.reference[id] > a' ).click( function () {
-			var $backlink, $backlinkWrapper, $upArrowLink,
+			var $backlink,
 				id = $( this ).parent().attr( 'id' ),
 				className = 'mw-cite-targeted-backlink';
 
 			$content.find( '.' + className ).removeClass( className );
+
 			// Bail out if there is not at least a second backlink ("cite_references_link_many").
 			if ( id.slice( -2 ) === '-0' &&
 				!$content.find( '.references a[href="#' + id.slice( 0, -1 ) + '1"]' ).length
@@ -70,19 +83,9 @@
 				.first()
 				.addClass( className );
 
-			if ( !$backlink.length ) {
-				return;
+			if ( $backlink.length ) {
+				updateUpArrowLink( $backlink );
 			}
-
-			// It's convenient to stop at the class name, but it's not guaranteed to be there.
-			$backlinkWrapper = $backlink.closest( '.mw-cite-backlink, li' );
-			$upArrowLink = $backlinkWrapper.find( '.mw-cite-up-arrow-backlink' );
-
-			if ( !$upArrowLink.length && $backlinkWrapper.length ) {
-				$upArrowLink = makeUpArrowLink( $backlinkWrapper );
-			}
-
-			$upArrowLink.attr( 'href', $backlink.attr( 'href' ) );
 		} );
 	} );
 }() );

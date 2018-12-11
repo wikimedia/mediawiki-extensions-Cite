@@ -1080,6 +1080,7 @@ class Cite {
 	 */
 	private function normalizeKey( $key ) {
 		$key = Sanitizer::escapeIdForAttribute( $key );
+		$key = preg_replace( '/__+/', '_', $key );
 		$key = Sanitizer::safeEncodeAttribute( $key );
 
 		return $key;

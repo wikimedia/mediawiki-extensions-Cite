@@ -272,6 +272,21 @@ Ref names containing a number
 !! end
 
 !! test
+T184912: Consistent normalization of consecutive underscores
+!! wikitext
+<ref name="x__x">example</ref>
+<references />
+!! html
+<p><sup id="cite_ref-x_x_1-0" class="reference"><a href="#cite_note-x_x-1">&#91;1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-x_x-1"><span class="mw-cite-backlink"><a href="#cite_ref-x_x_1-0">↑</a></span> <span class="reference-text">example</span>
+</li>
+</ol></div>
+
+!! end
+
+!! test
 Erroneous refs
 !! wikitext
 <ref name="0">Zero</ref>

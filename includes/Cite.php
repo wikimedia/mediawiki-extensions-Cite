@@ -421,12 +421,6 @@ class Cite {
 			return [ null, null, false, $dir ];
 		}
 
-		if ( count( $argv ) > 2 ) {
-			// There should only be one key or follow parameter, and one group parameter
-			// FIXME : this looks inconsistent, it should probably return a tuple
-			return false;
-		}
-
 		if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
 			return [ false, false, false, false ];
 		}

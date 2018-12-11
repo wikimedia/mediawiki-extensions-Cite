@@ -334,33 +334,25 @@ invalid names, e.g. too many</span>
 !! end
 
 !! test
-FIXME: Invalid parameters (here: conflicting name and follow) are just ignored when a third is present!
+Conflicting name="…" and follow="…" still invalid when a third parameter is present
 !! wikitext
 <ref name="theName" follow="theFollows" dummy="dummy">theValue</ref>
 <references />
 !! html
-<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+invalid names, e.g. too many</span>
 </p>
-<div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">theValue</span>
-</li>
-</ol></div>
-
 !! end
 
 !! test
-FIXME: Valid parameters are just ignored when a third is present!
+Valid parameters become invalid when a third is present
 !! wikitext
 <ref name="theName" group="theGroup" dummy="dummy">theValue</ref>
 <references group="theGroup" />
 !! html
-<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+invalid names, e.g. too many</span>
 </p>
-<div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">theValue</span>
-</li>
-</ol></div>
-
 !! end
 
 !! test

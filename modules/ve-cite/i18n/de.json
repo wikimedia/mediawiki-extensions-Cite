@@ -29,7 +29,7 @@
 	"cite-ve-changedesc-reflist-responsive-set": "Die Einzelnachweisliste wird jetzt in reagierenden Spalten angezeigt",
 	"cite-ve-changedesc-reflist-responsive-unset": "Die Einzelnachweisliste wird jetzt in nur einer Spalte angezeigt",
 	"cite-ve-changedesc-reflist-item-id": "Einzelnachweisindex geändert",
-	"cite-ve-dialog-reference-editing-reused": "Dieser Einzelnachweis wird auf dieser Seite {{PLURAL:$1|einmal|$1 Mal}} verwendet.",
+	"cite-ve-dialog-reference-editing-reused": "Dieser Einzelnachweis wird auf dieser Seite {{PLURAL:$1|einmal|2=zwei Mal|$1 Mal}} verwendet.",
 	"cite-ve-dialog-reference-options-group-label": "Diese Gruppe verwenden",
 	"cite-ve-dialog-reference-options-group-placeholder": "Allgemeine Einzelnachweise",
 	"cite-ve-dialog-reference-options-name-label": "Diesen Namen weiterverwenden",

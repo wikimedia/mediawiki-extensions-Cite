@@ -34,7 +34,7 @@
 	"visualeditor-cite-tool-name-journal": "Pubblicazione",
 	"visualeditor-cite-tool-name-news": "Notizie",
 	"visualeditor-cite-tool-name-web": "Sito web",
-	"cite-ve-dialog-reference-editing-reused": "Questo riferimento è usato $1 {{PLURAL:$1|volta|volte}} su questa pagina.",
+	"cite-ve-dialog-reference-editing-reused": "Questo riferimento è usato {{PLURAL:$1|una volta|2=due volte|$1 volte}} su questa pagina.",
 	"cite-ve-dialog-reference-options-group-label": "Usa questo gruppo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Note generali",
 	"cite-ve-dialog-reference-options-name-label": "Riutilizza questo nome",

@@ -27,7 +27,7 @@
 	"cite-ve-changedesc-reflist-responsive-set": "Списак референци је промењен да се приказује у прилагодљивим колонама",
 	"cite-ve-changedesc-reflist-responsive-unset": "Списак референци је промењен да се приказује само у једној колони",
 	"cite-ve-changedesc-reflist-item-id": "Индекс референце је промењен",
-	"cite-ve-dialog-reference-editing-reused": "Ова референца се користи $1 {{PLURAL:$1|пут|пута}} на овој страници.",
+	"cite-ve-dialog-reference-editing-reused": "Ова референца се користи {{PLURAL:$1|1=једном|2=два пута|$1 пут|$1 пута}} на овој страници.",
 	"cite-ve-dialog-reference-options-group-label": "Користи ову групу",
 	"cite-ve-dialog-reference-options-group-placeholder": "Опште референце",
 	"cite-ve-dialog-reference-options-name-label": "Поново употреби под овим именом",

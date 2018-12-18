@@ -78,8 +78,9 @@ QUnit.test( 'convert', function ( assert ) {
 
 	for ( i = 0; i < cases.length; i++ ) {
 		ve.test.utils.runWikitextStringHandlerTest(
-			assert, this.server, cases[ i ].pasteString, cases[ i ].pasteType, cases[ i ].parsoidResponse,
-			cases[ i ].expectedData, cases[ i ].annotations, cases[ i ].assertDom, cases[ i ].msg
+			assert, this.server, cases[ i ].pasteString, cases[ i ].pasteType,
+			cases[ i ].parsoidResponse, cases[ i ].expectedData, cases[ i ].annotations,
+			cases[ i ].assertDom, cases[ i ].msg
 		);
 	}
 } );

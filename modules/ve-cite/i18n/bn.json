@@ -22,7 +22,7 @@
 	"cite-ve-changedesc-reflist-responsive-set": "প্রতিক্রিয়াশীল কলামে প্রদর্শিত হতে তথ্যসূত্রের তালিকাটি পরিবর্তিত করে",
 	"cite-ve-changedesc-reflist-responsive-unset": "কেবলমাত্র একটি কলামে প্রদর্শিত হতে তথ্যসূত্রের তালিকাটি পরিবর্তিত করে",
 	"cite-ve-changedesc-reflist-item-id": "তথ্যসূত্রের সূচক পরিবর্তিত হয়েছে",
-	"cite-ve-dialog-reference-editing-reused": "এই তথ্যসূত্রটি এই পাতায় $1 {{PLURAL:$1|বার}} ব্যবহৃত হয়েছে।",
+	"cite-ve-dialog-reference-editing-reused": "এই তথ্যসূত্রটি এই পাতায় {{PLURAL:$1|একবার|2=দুইবার|$1 বার}} ব্যবহৃত হয়েছে।",
 	"cite-ve-dialog-reference-options-group-label": "এই দল ব্যবহার করুন",
 	"cite-ve-dialog-reference-options-group-placeholder": "সাধারণ তথ্যসূত্র",
 	"cite-ve-dialog-reference-options-name-label": "এই নামে পুনঃব্যবহার করুন",

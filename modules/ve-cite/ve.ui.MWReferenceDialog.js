@@ -255,7 +255,7 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	if ( ve.getProp( group, 'keyedNodes', this.referenceModel.getListKey(), 'length' ) > 1 ) {
 		this.$reuseWarning.removeClass( 'oo-ui-element-hidden' );
 		this.$reuseWarningText.text( mw.msg(
-			'cite-ve-dialog-reference-editing-reused',
+			'cite-ve-dialog-reference-editing-reused-long',
 			group.keyedNodes[ this.referenceModel.getListKey() ].length
 		) );
 	} else {
@@ -285,7 +285,9 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	this.reuseWarningIcon = new OO.ui.IconWidget( { icon: 'alert' } );
 	this.$reuseWarningText = $( '<span>' );
-	this.$reuseWarning = $( '<span>' ).append( this.reuseWarningIcon.$element, this.$reuseWarningText );
+	this.$reuseWarning = $( '<div>' )
+		.addClass( 've-ui-mwReferenceDialog-reuseWarning' )
+		.append( this.reuseWarningIcon.$element, this.$reuseWarningText );
 
 	this.referenceTarget = ve.init.target.createTargetWidget(
 		{

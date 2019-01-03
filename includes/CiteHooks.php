@@ -184,6 +184,7 @@ class CiteHooks {
 				"ve-cite/ve.ui.MWReference.init.js"
 			],
 			"styles" => [
+				"ve-cite/ve.ui.MWReferenceDialog.css",
 				"ve-cite/ve.ui.MWReferenceContextItem.css",
 				"ve-cite/ve.ui.MWReferenceGroupInputWidget.css",
 				"ve-cite/ve.ui.MWReferenceResultWidget.css",
@@ -212,6 +213,7 @@ class CiteHooks {
 				"cite-ve-changedesc-reflist-responsive-set",
 				"cite-ve-changedesc-reflist-responsive-unset",
 				"cite-ve-dialog-reference-editing-reused",
+				"cite-ve-dialog-reference-editing-reused-long",
 				"cite-ve-dialog-reference-options-group-label",
 				"cite-ve-dialog-reference-options-group-placeholder",
 				"cite-ve-dialog-reference-options-name-label",

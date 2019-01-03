@@ -103,38 +103,15 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 		}, this );
 };
 
-ve.ui.MWCitationDialog.prototype.onTransclusionReady = function () {
-	// Parent method
-	ve.ui.MWCitationDialog.super.prototype.onTransclusionReady.call( this );
-
-	if ( !this.hasUsefulParameter() ) {
-		this.actions.setAbilities( { apply: false, insert: false } );
-	}
-};
-
 /**
  * @inheritdoc
  */
-ve.ui.MWCitationDialog.prototype.setPageByName = function ( param ) {
-	var hasUsefulParameter = this.hasUsefulParameter();
-
-	// Parent method
-	ve.ui.MWCitationDialog.super.prototype.setPageByName.call( this, param );
-
-	this.actions.setAbilities( { apply: hasUsefulParameter, insert: hasUsefulParameter } );
-};
-
-/**
- * @inheritdoc
- */
-ve.ui.MWCitationDialog.prototype.onAddParameterBeforeLoad = function ( page ) {
-	var dialog = this,
-		hasUsefulParameter = this.hasUsefulParameter();
-
-	page.preLoad = true;
-	page.valueInput.on( 'change', function () {
-		dialog.actions.setAbilities( { apply: hasUsefulParameter, insert: hasUsefulParameter } );
-	} );
+ve.ui.MWCitationDialog.prototype.setApplicableStatus = function () {
+	ve.ui.MWCitationDialog.super.prototype.setApplicableStatus.call( this );
+	// Parent method disables 'apply' if no changes were made (this is okay for us), and
+	// disables 'insert' if transclusion is empty (but it is never empty in our case).
+	// Instead, disable 'insert' if no parameters were added.
+	this.actions.setAbilities( { insert: this.hasUsefulParameter() } );
 };
 
 /**
@@ -149,7 +126,7 @@ ve.ui.MWCitationDialog.prototype.hasUsefulParameter = function () {
 		page = this.bookletLayout.pages[ name ];
 		if (
 			page instanceof ve.ui.MWParameterPage &&
-			( !page.preLoad || page.valueInput.getValue() !== '' )
+			page.valueInput.getValue() !== ''
 		) {
 			return true;
 		}

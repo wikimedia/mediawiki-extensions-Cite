@@ -221,8 +221,6 @@ class CiteHooks {
 				"cite-ve-dialog-reference-options-section",
 				"cite-ve-dialog-reference-placeholder",
 				"cite-ve-dialog-reference-title",
-				"cite-ve-dialog-reference-useexisting-full-label",
-				"cite-ve-dialog-reference-useexisting-label",
 				"cite-ve-dialog-reference-useexisting-tool",
 				"cite-ve-dialog-referenceslist-contextitem-description-general",
 				"cite-ve-dialog-referenceslist-contextitem-description-named",

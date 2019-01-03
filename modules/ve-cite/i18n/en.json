@@ -40,8 +40,6 @@
 	"cite-ve-dialog-reference-options-section": "Options",
 	"cite-ve-dialog-reference-placeholder": "Write or paste your reference here, or insert a citation template.",
 	"cite-ve-dialog-reference-title": "Reference",
-	"cite-ve-dialog-reference-useexisting-full-label": "Re-use a citation that already exists on this page",
-	"cite-ve-dialog-reference-useexisting-label": "Use an existing reference",
 	"cite-ve-dialog-reference-useexisting-tool": "Re-use",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "List of general references",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "List of references for group \"$1\"",

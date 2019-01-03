@@ -51,17 +51,6 @@ ve.ui.MWReferenceDialog.static.actions = [
 		label: OO.ui.deferMsg( 'visualeditor-dialog-action-cancel' ),
 		flags: [ 'safe', 'back' ],
 		modes: [ 'readonly', 'insert', 'edit', 'insert-select' ]
-	},
-	{
-		action: 'select',
-		label: OO.ui.deferMsg( 'cite-ve-dialog-reference-useexisting-label' ),
-		modes: [ 'insert', 'edit' ]
-	},
-	{
-		action: 'back',
-		label: OO.ui.deferMsg( 'visualeditor-dialog-action-goback' ),
-		flags: 'safe',
-		modes: 'select'
 	}
 ];
 
@@ -163,8 +152,7 @@ ve.ui.MWReferenceDialog.prototype.onTargetChange = function () {
 
 	this.actions.setAbilities( {
 		done: this.isModified(),
-		insert: hasContent,
-		select: !hasContent && !this.search.isIndexEmpty()
+		insert: hasContent
 	} );
 };
 
@@ -332,14 +320,9 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 /**
  * Switches dialog to use existing reference mode.
- *
- * @param {string} [action='select'] Symbolic name of action, either 'select' or 'insert-select'
  */
-ve.ui.MWReferenceDialog.prototype.useExistingReference = function ( action ) {
-	action = action || 'select';
-	if ( action === 'insert-select' || action === 'select' ) {
-		this.actions.setMode( action );
-	}
+ve.ui.MWReferenceDialog.prototype.useExistingReference = function () {
+	this.actions.setMode( 'insert-select' );
 	this.search.buildIndex();
 	this.panels.setItem( this.searchPanel );
 	this.search.getQuery().focus().select();
@@ -370,12 +353,6 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 
 			this.close( { action: action } );
 		}, this );
-	} else if ( action === 'back' ) {
-		this.actions.setMode( this.getMode() );
-		this.panels.setItem( this.editPanel );
-		this.editPanel.$element.find( '.ve-ce-documentNode' )[ 0 ].focus();
-	} else if ( action === 'select' || action === 'insert-select' ) {
-		this.useExistingReference( action );
 	}
 	return ve.ui.MWReferenceDialog.super.prototype.getActionProcess.call( this, action );
 };
@@ -406,14 +383,10 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			this.referenceGroupInput.setReadOnly( isReadOnly );
 
 			if ( data.useExisting ) {
-				this.useExistingReference( 'insert-select' );
+				this.useExistingReference();
 			}
 			this.useExisting = !!data.useExisting;
-			// If we're using an existing reference, start off disabled
-			// If not, set disabled based on whether or not there are any existing ones.
 			this.actions.setAbilities( {
-				select: !( this.selectedNode instanceof ve.dm.MWReferenceNode ) &&
-					!this.search.isIndexEmpty(),
 				done: false
 			} );
 

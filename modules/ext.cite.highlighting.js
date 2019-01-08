@@ -64,7 +64,7 @@
 
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		// We are going to use the ID in the code below, so better be sure one is there.
-		$content.find( '.reference[id] > a' ).click( function () {
+		$content.find( '.reference[id] > a' ).on( 'click', function () {
 			var $backlink,
 				id = $( this ).parent().attr( 'id' ),
 				className = 'mw-cite-targeted-backlink';

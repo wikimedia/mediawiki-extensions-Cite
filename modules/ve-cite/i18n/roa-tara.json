@@ -18,6 +18,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "Elenghe de le refereminde cangiate pe ffà 'ndrucà sulamende 'na culonne",
 	"cite-ve-changedesc-reflist-item-id": "Indice de referimende cangiate",
 	"cite-ve-dialog-reference-editing-reused": "Stu referimende avène ausate {{PLURAL:$1|'na vote|2=doje vote|$1 vote}} sus a sta pàgene.",
+	"cite-ve-dialog-reference-editing-reused-long": "Stu referimende jè ausate {{PLURAL:$1|'na vote|2=doje vote|$1 vote}} sus a sta pàgene. Le cangiaminde fatte aqquà avènene applecate jndr'à tutte le poste addà stu referimende avène ausate arrete.",
 	"cite-ve-dialog-reference-options-group-label": "Ause stu gruppe",
 	"cite-ve-dialog-reference-options-group-placeholder": "Refereminde generale",
 	"cite-ve-dialog-reference-options-name-label": "Ause arrete stu nome",

@@ -21,6 +21,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "Списокот на наводи е изменет за приказ во само еден столб",
 	"cite-ve-changedesc-reflist-item-id": "Индексот на наводи е изменет",
 	"cite-ve-dialog-reference-editing-reused": "Овој навод се користи {{PLURAL:$1|еднаш|2=двапати|$1 пати}} во страницава.",
+	"cite-ve-dialog-reference-editing-reused-long": "Овој навод се користи {{PLURAL:$1|еднаш|2=двапати|$1 пати}} на страницава. Тука направените промени ќе ги засегнат сите места на неговата употреба.",
 	"cite-ve-dialog-reference-options-group-label": "Употреби ја групава",
 	"cite-ve-dialog-reference-options-group-placeholder": "Општи наводи",
 	"cite-ve-dialog-reference-options-name-label": "Преупотреби под ова име",

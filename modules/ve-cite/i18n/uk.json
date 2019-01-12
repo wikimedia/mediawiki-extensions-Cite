@@ -36,6 +36,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "Список приміток змінено так, щоб він утворював лише один стовпець",
 	"cite-ve-changedesc-reflist-item-id": "Покажчик приміток змінився",
 	"cite-ve-dialog-reference-editing-reused": "Ця примітка використовується $1 {{PLURAL:$1|раз|рази|разів}} на цій сторінці.",
+	"cite-ve-dialog-reference-editing-reused-long": "Ця примітка вживається на цій сторінці {{PLURAL:$1|$1 раз|$1 рази|$1 разів}}. Зміни, здійснені тут, буде застосовано в усіх місцях, у яких повторно використовується ця примітка.",
 	"cite-ve-dialog-reference-options-group-label": "Використати цю групу",
 	"cite-ve-dialog-reference-options-group-placeholder": "Загальні посилання",
 	"cite-ve-dialog-reference-options-name-label": "Повторно використати з цією назвою",

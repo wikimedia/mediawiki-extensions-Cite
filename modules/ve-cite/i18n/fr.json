@@ -46,7 +46,8 @@
 			"Harmonia Amanda",
 			"Macofe",
 			"Pols12",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Zarisi"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Livre",
@@ -63,6 +64,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "Liste des références modifiées à afficher dans une seule colonne",
 	"cite-ve-changedesc-reflist-item-id": "L'index de la référence a changé",
 	"cite-ve-dialog-reference-editing-reused": "Cette référence est utilisée {{PLURAL:$1|une|$1}} fois sur cette page.",
+	"cite-ve-dialog-reference-editing-reused-long": "Cette référence est utilisée {{PLURAL:$1|une fois|2=deux|$1 fois}} sur cette page. Les modifications faites ici vont êtres appliquées partout où cette référence est utilisée.",
 	"cite-ve-dialog-reference-options-group-label": "Utiliser ce groupe",
 	"cite-ve-dialog-reference-options-group-placeholder": "Références générales",
 	"cite-ve-dialog-reference-options-name-label": "Réutiliser avec ce nom",

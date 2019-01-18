@@ -32,7 +32,8 @@
 			"Happy13241",
 			"Stjn",
 			"Evs",
-			"Vlad5250"
+			"Vlad5250",
+			"Movses"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Книга",
@@ -48,7 +49,7 @@
 	"cite-ve-changedesc-reflist-responsive-set": "Список примечаний изменён на отображение адаптивных колонок",
 	"cite-ve-changedesc-reflist-responsive-unset": "Список примечаний изменён на отображение только одной колонки",
 	"cite-ve-changedesc-reflist-item-id": "Изменился индекс сноски",
-	"cite-ve-dialog-reference-editing-reused": "Эта ссылка используется на странице $1 раз{{PLURAL:$1|||а}}.",
+	"cite-ve-dialog-reference-editing-reused": "Эта ссылка используется на странице $1 {{PLURAL:$1|раз|раза|раз}}.",
 	"cite-ve-dialog-reference-editing-reused-long": "Эта ссылка используется на странице {{PLURAL:$1|однажды|2=дважды|$1 раз}}. Выполненные здесь изменения будут применены ко всем местам её использования.",
 	"cite-ve-dialog-reference-options-group-label": "Использовать эту группу",
 	"cite-ve-dialog-reference-options-group-placeholder": "Общие ссылки",

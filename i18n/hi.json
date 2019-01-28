@@ -13,14 +13,17 @@
 		]
 	},
 	"apihelp-query+references-description": "दिए गए पृष्ठों से संबंधित संदर्भों का एक डेटा प्रस्तुत करें।",
+	"apihelp-query+references-summary": "Return a data representation of references associated with the given pages.",
 	"apihelp-query+references-example-1": "<kbd> अल्बर्ट आइंस्टीन </kbd> से संबंधित संदर्भ।",
 	"apierror-citestoragedisabled": "उद्धरण विस्तार संदर्भ संग्रहण सक्षम नहीं है।",
 	"cite-desc": "उद्धरणों के लिये <code>&lt;ref[ name=id]&gt;</code> और <code>&lt;references/&gt;</code> टैग जोड़ता है।",
 	"cite_error": "सन्दर्भ त्रुटि: $1",
+	"cite_error_ref_invalid_dir": "<code>&lt;ref&gt;</code> अमान्य टैग है; $1 डायरेक्ट्री लक्षण अज्ञात है। यह या तो ltr या rtl होना चाहिये",
 	"cite_error_ref_numeric_key": "अमान्य <code>&lt;ref&gt;</code> टैग;\nनाम साधारण संख्या (integer) नहीं हो सकता, कृपया विस्तृत शीर्षक दें।",
 	"cite_error_ref_no_key": "उद्घाटन <code>&lt;ref&gt;</code> टैग खराब है या उसका नाम खराब है.",
 	"cite_error_ref_too_many_keys": "अमान्य <code>&lt;ref&gt;</code> टैग;\n(संभवतः कई) अमान्य नाम",
 	"cite_error_ref_no_input": "अमान्य <code>&lt;ref&gt;</code> टैग;\nनाम रहित संदर्भों में जानकारी देना आवश्यक है",
+	"cite_error_references_duplicate_key": "<code>&lt;ref&gt;</code> अमान्य टैग है; \"$1\" नाम कई बार विभिन्न सामग्रियों में परिभाषित हो चुका है",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> चिप्पि में अमान्य प्राचल",
 	"cite_error_references_no_backlink_label": "पृष्ठ पाठ की कड़ियाँ देने वाले विशिष्ट नाम खतम हो गये।\nअधिक नाम <nowiki>[[MediaWiki:Cite references link many format backlink labels]]</nowiki> संदेश में जोड़ें।",
 	"cite_error_no_link_label_group": "\"$1\" संदर्भ समूह के लिये कड़ियों के विशिष्ट नाम कम पड़ गए।\n<nowiki>[[MediaWiki:$2]]</nowiki> सन्देश में और नाम परिभाषित करें।",
@@ -39,5 +42,6 @@
 	"cite_references_link_many_accessibility_label": "इस तक ऊपर जायें:",
 	"cite_references_link_accessibility_back_label": "Jump back up",
 	"cite_section_preview_references": "सन्दर्भ की झलक",
-	"cite_warning": "सन्दर्भ चेतावनी: $1"
+	"cite_warning": "सन्दर्भ चेतावनी: $1",
+	"cite_warning_sectionpreview_no_text": "<code>&lt;ref&gt;</code> टैग <code>$1</code> नाम के साथ पूर्वावलोकन किया जा सका क्योंकि या तो यह वर्तमान विभाग के बाहर परिभाषित है अथवा परिभाषित ही नहीं है।"
 }

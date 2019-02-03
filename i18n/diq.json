@@ -7,10 +7,12 @@
 			"Xoser",
 			"Kumkumuk",
 			"1917 Ekim Devrimi",
-			"Gırd"
+			"Gırd",
+			"Orbot707"
 		]
 	},
 	"apihelp-query+references-description": "Eleqe referansa deyaye peran de temsilandataya çerx keno",
+	"apihelp-query+references-summary": "Eleqe referansa deyaye peran de temsilandataya çerx keno",
 	"apihelp-query+references-example-1": "<kbd>Albert Einstein</kbd>'i ya eleqeyın referanso",
 	"apierror-citestoragedisabled": "Nımıtışê referansê cıkerdışê qalkerdışi a niyo.",
 	"cite-desc": "Qe çime mucnayîşî, etiketanê <code>&lt;ref[ name=id]&gt;</code> u <code>&lt;references/&gt;</code> de keno",

@@ -56,7 +56,7 @@ class CiteHooks {
 				],
 				'dependencies' => [
 					'ext.cite.visualEditor',
-					'ext.visualEditor.test'
+					'test.VisualEditor'
 				],
 				'localBasePath' => dirname( __DIR__ ),
 				'remoteExtPath' => 'Cite',

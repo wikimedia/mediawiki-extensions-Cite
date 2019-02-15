@@ -72,7 +72,7 @@
 	 *
 	 */
 	( function () {
-		var i, len, item, name, data, tool, tools, dialog, contextItem,
+		var i, len, item, name, data, tool, tools, contextItem,
 			limit = 5;
 
 		try {
@@ -89,7 +89,7 @@
 		if ( Array.isArray( tools ) ) {
 			for ( i = 0, len = Math.min( limit, tools.length ); i < len; i++ ) {
 				item = tools[ i ];
-				data = { template: item.template };
+				data = { template: item.template, title: item.title };
 
 				// Generate citation tool
 				name = 'cite-' + item.name;
@@ -114,7 +114,7 @@
 					ve.ui.toolFactory.register( tool );
 					ve.ui.commandRegistry.register(
 						new ve.ui.Command(
-							name, 'mwcite', 'open', { args: [ name, data ], supportedSelections: [ 'linear' ] }
+							name, 'mwcite', 'open', { args: [ data ], supportedSelections: [ 'linear' ] }
 						)
 					);
 				}
@@ -132,17 +132,6 @@
 					contextItem.static.commandName = name;
 					contextItem.static.template = item.template;
 					ve.ui.contextItemFactory.register( contextItem );
-				}
-
-				// Generate dialog
-				if ( !ve.ui.windowFactory.lookup( name ) ) {
-					dialog = function GeneratedMWCitationDialog() {
-						ve.ui.MWCitationDialog.apply( this, arguments );
-					};
-					OO.inheritClass( dialog, ve.ui.MWCitationDialog );
-					dialog.static.name = name;
-					dialog.static.title = item.title;
-					ve.ui.windowFactory.register( dialog );
 				}
 			}
 		}

@@ -50,7 +50,7 @@ ve.ui.MWReferenceDialog.static.actions = [
 	{
 		label: OO.ui.deferMsg( 'visualeditor-dialog-action-cancel' ),
 		flags: [ 'safe', 'back' ],
-		modes: [ 'insert', 'edit', 'insert-select' ]
+		modes: [ 'readonly', 'insert', 'edit', 'insert-select' ]
 	},
 	{
 		action: 'select',
@@ -389,6 +389,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
+			var isReadOnly = this.isReadOnly();
 			this.panels.setItem( this.editPanel );
 			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
 				this.useReference(
@@ -400,6 +401,9 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			}
 
 			this.search.setInternalList( this.getFragment().getDocument().getInternalList() );
+
+			this.referenceTarget.setReadOnly( isReadOnly );
+			this.referenceGroupInput.setReadOnly( isReadOnly );
 
 			if ( data.useExisting ) {
 				this.useExistingReference( 'insert-select' );

@@ -167,6 +167,8 @@ ve.ui.MWReferencesListDialog.prototype.getActionProcess = function ( action ) {
 ve.ui.MWReferencesListDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWReferencesListDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
+			var isReadOnly = this.isReadOnly();
+
 			if ( !( this.selectedNode instanceof ve.dm.MWReferencesListNode ) ) {
 				throw new Error( 'Cannot open dialog: references list must be selected' );
 			}
@@ -175,6 +177,9 @@ ve.ui.MWReferencesListDialog.prototype.getSetupProcess = function ( data ) {
 			this.groupInput.populateMenu( this.getFragment().getDocument().getInternalList() );
 
 			this.responsiveCheckbox.setSelected( this.selectedNode.getAttribute( 'isResponsive' ) );
+
+			this.groupInput.setReadOnly( isReadOnly );
+			this.responsiveCheckbox.setDisabled( isReadOnly );
 
 			this.groupInput.connect( this, { change: 'onChange' } );
 			this.responsiveCheckbox.connect( this, { change: 'onChange' } );

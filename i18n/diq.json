@@ -18,6 +18,7 @@
 	"apierror-citestoragedisabled": "Nımıtışê referansê cıkerdışê qalkerdışi a niyo.",
 	"cite-desc": "Qe çime mucnayîşî, etiketanê <code>&lt;ref[ name=id]&gt;</code> u <code>&lt;references/&gt;</code> de keno",
 	"cite_error": "Çımeyo ğelet: $1",
+	"cite_error_ref_invalid_dir": "Etiketo <code>&lt;ref&gt;</code> nêravêrde; xısusiyetê diri \"$1\" nêzaniyeno. Gani \"ltr\" ya zi \"rtl\" bo",
 	"cite_error_ref_numeric_key": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nName nieşkeno biyo yew rekam. Çekuyan binuse",
 	"cite_error_ref_no_key": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nEka kontent çini yo, gani yew name biyo",
 	"cite_error_ref_too_many_keys": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nname raşt niyo, e.g. zaf esto",

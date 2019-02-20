@@ -30,7 +30,7 @@ OO.inheritClass( ve.ui.MWCitationDialog, ve.ui.MWTemplateDialog );
 
 /* Static Properties */
 
-ve.ui.MWCitationDialog.static.name = 'citation';
+ve.ui.MWCitationDialog.static.name = 'cite';
 
 /* Methods */
 
@@ -90,6 +90,8 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 		.next( function () {
 			data = data || {};
 			this.inDialog = data.inDialog;
+			this.citationTitle = data.title;
+			this.updateTitle();
 
 			// Initialization
 			if ( this.selectedNode ) {
@@ -101,6 +103,18 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 				}
 			}
 		}, this );
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ui.MWCitationDialog.prototype.updateTitle = function () {
+	if ( this.citationTitle ) {
+		this.title.setLabel( this.citationTitle );
+	} else {
+		// Parent method
+		ve.ui.MWCitationDialog.super.prototype.updateTitle.call( this );
+	}
 };
 
 /**
@@ -214,3 +228,7 @@ ve.ui.MWCitationDialog.prototype.getTeardownProcess = function ( data ) {
 			this.referenceNode = null;
 		}, this );
 };
+
+/* Registration */
+
+ve.ui.windowFactory.register( ve.ui.MWCitationDialog );

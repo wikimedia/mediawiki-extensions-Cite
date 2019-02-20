@@ -73,13 +73,13 @@
 
 			// Bail out if there is not at least a second backlink ("cite_references_link_many").
 			if ( id.slice( -2 ) === '-0' &&
-				!$content.find( '.references a[href="#' + id.slice( 0, -1 ) + '1"]' ).length
+				!$content.find( '.references a[href="#' + $.escapeSelector( id.slice( 0, -1 ) ) + '1"]' ).length
 			) {
 				return;
 			}
 
 			// The :not() skips the duplicate link created below. Relevant when double clicking.
-			$backlink = $content.find( '.references a[href="#' + id + '"]:not(.mw-cite-up-arrow-backlink)' )
+			$backlink = $content.find( '.references a[href="#' + $.escapeSelector( id ) + '"]:not(.mw-cite-up-arrow-backlink)' )
 				.first()
 				.addClass( className );
 

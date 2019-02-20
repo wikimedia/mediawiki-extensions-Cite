@@ -5,6 +5,35 @@
 	'use strict';
 
 	/**
+	 * Checks if the ID uses a composite format that does not only consist of a sequential number,
+	 * as specified in "cite_reference_link_key_with_num".
+	 *
+	 * @param {string} id
+	 * @return {boolean}
+	 */
+	function isNamedReference( id ) {
+		var prefix = mw.msg( 'cite_reference_link_prefix' );
+
+		// Note: This assumes IDs start with the prefix; this is guaranteed by the parser function
+		return /\D/.test( id.slice( prefix.length ) );
+	}
+
+	/**
+	 * @param {string} id
+	 * @param {jQuery} $content
+	 * @return {boolean}
+	 */
+	function isReusedNamedReference( id, $content ) {
+		if ( !isNamedReference( id ) ) {
+			return false;
+		}
+
+		// Either the ID is already a reuse, or at least one reuse exists somewhere else on the page
+		return id.slice( -2 ) !== '-0' ||
+			$content.find( '.references a[href="#' + $.escapeSelector( id.slice( 0, -1 ) ) + '1"]' ).length;
+	}
+
+	/**
 	 * @param {jQuery} $backlinkWrapper
 	 * @return {jQuery}
 	 */
@@ -72,9 +101,7 @@
 			$content.find( '.' + className ).removeClass( className );
 
 			// Bail out if there is not at least a second backlink ("cite_references_link_many").
-			if ( id.slice( -2 ) === '-0' &&
-				!$content.find( '.references a[href="#' + $.escapeSelector( id.slice( 0, -1 ) ) + '1"]' ).length
-			) {
+			if ( !isReusedNamedReference( id, $content ) ) {
 				return;
 			}
 

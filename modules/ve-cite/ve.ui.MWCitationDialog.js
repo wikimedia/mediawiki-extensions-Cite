@@ -108,7 +108,7 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
  */
 ve.ui.MWCitationDialog.prototype.setApplicableStatus = function () {
 	ve.ui.MWCitationDialog.super.prototype.setApplicableStatus.call( this );
-	// Parent method disables 'apply' if no changes were made (this is okay for us), and
+	// Parent method disables 'done' if no changes were made (this is okay for us), and
 	// disables 'insert' if transclusion is empty (but it is never empty in our case).
 	// Instead, disable 'insert' if no parameters were added.
 	this.actions.setAbilities( { insert: this.hasUsefulParameter() } );
@@ -141,7 +141,7 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 	var dialog = this;
 	if (
 		this.inDialog !== 'reference' &&
-		( action === 'apply' || action === 'insert' )
+		( action === 'done' || action === 'insert' )
 	) {
 		return new OO.ui.Process( function () {
 			var deferred = $.Deferred();

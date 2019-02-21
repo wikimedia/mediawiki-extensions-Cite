@@ -36,7 +36,7 @@ ve.ui.MWReferenceDialog.static.title =
 
 ve.ui.MWReferenceDialog.static.actions = [
 	{
-		action: 'apply',
+		action: 'done',
 		label: OO.ui.deferMsg( 'visualeditor-dialog-action-apply' ),
 		flags: [ 'progressive', 'primary' ],
 		modes: 'edit'
@@ -147,9 +147,9 @@ ve.ui.MWReferenceDialog.prototype.documentHasContent = function () {
 /*
  * Determine whether any changes have been made (and haven't been undone).
  *
- * @return {boolean} Dialog can be applied
+ * @return {boolean} Changes have been made
  */
-ve.ui.MWReferenceDialog.prototype.canApply = function () {
+ve.ui.MWReferenceDialog.prototype.isModified = function () {
 	return this.documentHasContent() &&
 		( this.referenceTarget.hasBeenModified() ||
 		this.referenceGroupInput.getValue() !== this.originalGroup );
@@ -162,7 +162,7 @@ ve.ui.MWReferenceDialog.prototype.onTargetChange = function () {
 	var hasContent = this.documentHasContent();
 
 	this.actions.setAbilities( {
-		apply: this.canApply(),
+		done: this.isModified(),
 		insert: hasContent,
 		select: !hasContent && !this.search.isIndexEmpty()
 	} );
@@ -173,7 +173,7 @@ ve.ui.MWReferenceDialog.prototype.onTargetChange = function () {
  */
 ve.ui.MWReferenceDialog.prototype.onReferenceGroupInputChange = function () {
 	this.actions.setAbilities( {
-		apply: this.canApply()
+		done: this.isModified()
 	} );
 };
 
@@ -349,7 +349,7 @@ ve.ui.MWReferenceDialog.prototype.useExistingReference = function ( action ) {
  * @inheritdoc
  */
 ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
-	if ( action === 'insert' || action === 'apply' ) {
+	if ( action === 'insert' || action === 'done' ) {
 		return new OO.ui.Process( function () {
 			var surfaceModel = this.getFragment().getSurface();
 
@@ -371,7 +371,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 			this.close( { action: action } );
 		}, this );
 	} else if ( action === 'back' ) {
-		this.actions.setMode( this.selectedNode ? 'edit' : 'insert' );
+		this.actions.setMode( this.getMode() );
 		this.panels.setItem( this.editPanel );
 		this.editPanel.$element.find( '.ve-ce-documentNode' )[ 0 ].focus();
 	} else if ( action === 'select' || action === 'insert-select' ) {
@@ -396,10 +396,9 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				);
 			} else {
 				this.useReference( null );
-				this.actions.setAbilities( { apply: false, insert: false } );
+				this.actions.setAbilities( { done: false, insert: false } );
 			}
 
-			this.actions.setMode( this.selectedNode ? 'edit' : 'insert' );
 			this.search.setInternalList( this.getFragment().getDocument().getInternalList() );
 
 			if ( data.useExisting ) {
@@ -411,7 +410,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			this.actions.setAbilities( {
 				select: !( this.selectedNode instanceof ve.dm.MWReferenceNode ) &&
 					!this.search.isIndexEmpty(),
-				apply: false
+				done: false
 			} );
 
 			this.referenceGroupInput.populateMenu( this.getFragment().getDocument().getInternalList() );

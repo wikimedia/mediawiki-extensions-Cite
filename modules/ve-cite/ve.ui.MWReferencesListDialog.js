@@ -34,20 +34,6 @@ ve.ui.MWReferencesListDialog.static.modelClasses = [ ve.dm.MWReferencesListNode 
 
 ve.ui.MWReferencesListDialog.static.size = 'medium';
 
-ve.ui.MWReferencesListDialog.static.actions = [
-	{
-		action: 'apply',
-		label: OO.ui.deferMsg( 'visualeditor-dialog-action-apply' ),
-		flags: [ 'progressive', 'primary' ],
-		modes: 'edit'
-	},
-	{
-		label: OO.ui.deferMsg( 'visualeditor-dialog-action-cancel' ),
-		flags: [ 'safe', 'back' ],
-		modes: 'edit'
-	}
-];
-
 /* Methods */
 
 /**
@@ -103,10 +89,10 @@ ve.ui.MWReferencesListDialog.prototype.onChange = function () {
 };
 
 /**
- * Update the 'apply' action according to whether there are changes
+ * Update the 'done' action according to whether there are changes
  */
 ve.ui.MWReferencesListDialog.prototype.updateActions = function () {
-	this.actions.setAbilities( { apply: this.isModified() } );
+	this.actions.setAbilities( { done: this.isModified() } );
 };
 
 /**
@@ -132,7 +118,7 @@ ve.ui.MWReferencesListDialog.prototype.isModified = function () {
  * @inheritdoc
  */
 ve.ui.MWReferencesListDialog.prototype.getActionProcess = function ( action ) {
-	if ( action === 'apply' ) {
+	if ( action === 'done' ) {
 		return new OO.ui.Process( function () {
 			var refGroup, listGroup, isResponsive, mwData, attrChanges, doc,
 				surfaceModel = this.getFragment().getSurface();
@@ -184,8 +170,6 @@ ve.ui.MWReferencesListDialog.prototype.getSetupProcess = function ( data ) {
 			if ( !( this.selectedNode instanceof ve.dm.MWReferencesListNode ) ) {
 				throw new Error( 'Cannot open dialog: references list must be selected' );
 			}
-
-			this.actions.setMode( 'edit' );
 
 			this.groupInput.setValue( this.selectedNode.getAttribute( 'refGroup' ) );
 			this.groupInput.populateMenu( this.getFragment().getDocument().getInternalList() );

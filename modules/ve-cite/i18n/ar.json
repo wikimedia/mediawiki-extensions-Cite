@@ -45,8 +45,6 @@
 	"cite-ve-dialog-reference-options-section": "خيارات",
 	"cite-ve-dialog-reference-placeholder": "اكتب أو انسخ مرجعك هنا، أو أدخل قالب استشهاد.",
 	"cite-ve-dialog-reference-title": "مرجع",
-	"cite-ve-dialog-reference-useexisting-full-label": "أعد استخدام استشهاد موجود بالفعل في الصفحة",
-	"cite-ve-dialog-reference-useexisting-label": "استخدم مرجعا موجودا",
 	"cite-ve-dialog-reference-useexisting-tool": "أعد الاستخدام",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "قائمة المراجع العامة",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "قائمة المراجع في مجموعة \"$1\"",

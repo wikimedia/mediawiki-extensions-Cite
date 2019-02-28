@@ -39,8 +39,6 @@
 	"cite-ve-dialog-reference-options-section": "Valg",
 	"cite-ve-dialog-reference-placeholder": "Skriv eller lim inn referansen her, eller sett inn en kildemal.",
 	"cite-ve-dialog-reference-title": "Referanse",
-	"cite-ve-dialog-reference-useexisting-full-label": "Gjenbruk et sitat som allerede finnes på siden",
-	"cite-ve-dialog-reference-useexisting-label": "Bruk en eksisterende kilde",
 	"cite-ve-dialog-reference-useexisting-tool": "Gjenbruk",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Liste over generelle referanser",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Liste over referanser i gruppen «$1»",

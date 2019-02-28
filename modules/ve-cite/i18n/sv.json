@@ -43,8 +43,6 @@
 	"cite-ve-dialog-reference-options-section": "Alternativ",
 	"cite-ve-dialog-reference-placeholder": "Skriv eller klistra in din referens här eller infoga en referensmall.",
 	"cite-ve-dialog-reference-title": "Källa",
-	"cite-ve-dialog-reference-useexisting-full-label": "Återanvänd en källa som redan finns på denna sida",
-	"cite-ve-dialog-reference-useexisting-label": "Använd en befintlig källa",
 	"cite-ve-dialog-reference-useexisting-tool": "Återanvänd",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Lista över allmänna referenser",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Lista över referenser för grupp \"$1\"",

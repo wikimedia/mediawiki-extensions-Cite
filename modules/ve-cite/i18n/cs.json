@@ -45,8 +45,6 @@
 	"cite-ve-dialog-reference-options-section": "Možnosti",
 	"cite-ve-dialog-reference-placeholder": "Sem napište nebo vložte svou referenci nebo citační šablonu.",
 	"cite-ve-dialog-reference-title": "Reference",
-	"cite-ve-dialog-reference-useexisting-full-label": "Znovupoužít citaci, která již na stránce existuje",
-	"cite-ve-dialog-reference-useexisting-label": "Použít existující referenci",
 	"cite-ve-dialog-reference-useexisting-tool": "Použít existující",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Seznam obecných referencí",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Seznam referencí pro skupinu „$1“",

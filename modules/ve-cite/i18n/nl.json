@@ -48,8 +48,6 @@
 	"cite-ve-dialog-reference-options-section": "Opties",
 	"cite-ve-dialog-reference-placeholder": "Schrijf of voeg hier uw referentie in, of gebruik een citeersjabloon.",
 	"cite-ve-dialog-reference-title": "Referentie",
-	"cite-ve-dialog-reference-useexisting-full-label": "Een citaat dat al bestaat op deze pagina opnieuw gebruiken",
-	"cite-ve-dialog-reference-useexisting-label": "Bestaande referentie gebruiken",
 	"cite-ve-dialog-reference-useexisting-tool": "Hergebruiken",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Algemene lijst met bronnen",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Lijst met bronnen voor de groep \"$1\"",

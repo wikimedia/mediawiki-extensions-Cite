@@ -37,8 +37,6 @@
 	"cite-ve-dialog-reference-options-section": "Opcións",
 	"cite-ve-dialog-reference-placeholder": "Escribe ou pega a túa referencia aquí, ou insire un modelo de cita.",
 	"cite-ve-dialog-reference-title": "Referencia",
-	"cite-ve-dialog-reference-useexisting-full-label": "Reutilizar unha cita que xa existe nesta páxina",
-	"cite-ve-dialog-reference-useexisting-label": "Utilizar unha referencia existente",
 	"cite-ve-dialog-reference-useexisting-tool": "Reutilizar",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Lista de referencias xerais",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Lista de referencias para o grupo \"$1\"",

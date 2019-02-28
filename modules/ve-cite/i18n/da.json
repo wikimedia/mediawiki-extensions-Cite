@@ -38,8 +38,6 @@
 	"cite-ve-dialog-reference-options-section": "Indstillinger",
 	"cite-ve-dialog-reference-placeholder": "Skriv eller indsæt din reference her, eller indsæt en referenceskabelon.",
 	"cite-ve-dialog-reference-title": "Reference",
-	"cite-ve-dialog-reference-useexisting-full-label": "Genbrug en reference som allerede eksisterer på denne side",
-	"cite-ve-dialog-reference-useexisting-label": "Brug en eksisterende reference",
 	"cite-ve-dialog-reference-useexisting-tool": "Genbrug",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Liste over generelle referencer",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Liste over referencer i gruppen \"$1\"",

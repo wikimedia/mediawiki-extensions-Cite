@@ -40,8 +40,6 @@
 	"cite-ve-dialog-reference-options-section": "オプション",
 	"cite-ve-dialog-reference-placeholder": "ここに脚注を入力し、若しくは貼り付け、又は引用テンプレートを追加してください。",
 	"cite-ve-dialog-reference-title": "脚注",
-	"cite-ve-dialog-reference-useexisting-full-label": "既にこのページにある引用を再利用する",
-	"cite-ve-dialog-reference-useexisting-label": "既存の情報源を使用",
 	"cite-ve-dialog-reference-useexisting-tool": "再利用",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "汎用の脚注リスト",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "グループ「$1」の脚注のリスト",

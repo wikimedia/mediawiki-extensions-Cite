@@ -58,8 +58,6 @@
 	"cite-ve-dialog-reference-options-section": "Параметры",
 	"cite-ve-dialog-reference-placeholder": "Напишите или скопируйте вашу сноску сюда, или вставьте шаблон источника.",
 	"cite-ve-dialog-reference-title": "Примечание",
-	"cite-ve-dialog-reference-useexisting-full-label": "Повторное использование источника, который уже существует на этой странице",
-	"cite-ve-dialog-reference-useexisting-label": "Использовать существующую сноску",
 	"cite-ve-dialog-reference-useexisting-tool": "Повторное использование",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Список общих ссылок",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Список примечаний для группы «$1»",

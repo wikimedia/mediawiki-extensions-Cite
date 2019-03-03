@@ -71,7 +71,7 @@ class CiteHooks {
 	 * @param ResourceLoader $resourceLoader
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
-		if ( !class_exists( 'VisualEditorHooks' ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'VisualEditor' ) ) {
 			return;
 		}
 

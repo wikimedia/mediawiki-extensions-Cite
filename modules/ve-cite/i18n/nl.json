@@ -34,7 +34,8 @@
 			"Mainframe98",
 			"Effeietsanders",
 			"Patio",
-			"KlaasZ4usV"
+			"KlaasZ4usV",
+			"Ciell"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Boek",
@@ -63,7 +64,7 @@
 	"cite-ve-referenceslist-isempty-default": "Er zijn op deze pagina geen referenties die in deze lijst opgenomen kunnen worden.",
 	"cite-ve-referenceslist-missingref": "Deze referentie bevindt zich in een sjabloon of een ander soort gegenereerd blok en kan voorlopig alleen in de broncodemodus bewerkt worden.",
 	"cite-ve-referenceslist-missingref-in-list": "Deze referentie staat in een sjabloon of elders gemaakt blok waarvan men nu alleen broncode kan zien.",
-	"cite-ve-toolbar-group-label": "Citeren",
+	"cite-ve-toolbar-group-label": "Referentie",
 	"cite-ve-othergroup-item": "$1 referentie",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referenties"
 }

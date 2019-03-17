@@ -840,7 +840,7 @@ class Cite {
 			// this handles the case of section preview for list-defined references
 			return wfMessage( 'cite_references_link_many',
 					$this->normalizeKey(
-						self::getReferencesKey( $key . "-" . ( isset( $val['key'] ) ? $val['key'] : '' ) )
+						self::getReferencesKey( $key . "-" . ( $val['key'] ?? '' ) )
 					),
 					'',
 					$text

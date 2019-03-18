@@ -32,6 +32,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "Referanseliste endret til å vise i kun én kolonne",
 	"cite-ve-changedesc-reflist-item-id": "Referanseindeks endret",
 	"cite-ve-dialog-reference-editing-reused": "Denne referansen er brukt {{PLURAL:$1|én gang|$1  ganger}} på denne siden.",
+	"cite-ve-dialog-reference-editing-reused-long": "Denne referansen er brukt {{PLURAL:$1|én gang|$2 ganger}} på denne siden. Endringer som gjøres her vil også gjelde de andre stedene der referansen brukes.",
 	"cite-ve-dialog-reference-options-group-label": "Bruk denne gruppen",
 	"cite-ve-dialog-reference-options-group-placeholder": "Generelle referanser",
 	"cite-ve-dialog-reference-options-name-label": "Gjenbruk med dette navnet",

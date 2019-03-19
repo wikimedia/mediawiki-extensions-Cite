@@ -121,13 +121,15 @@ Templating<ref>Text<!--comment--></ref>
 
 !! test
 <references> after <gallery> (bug 6164)
+!! options
+parsoid=wt2html,html2html
 !! wikitext
 <ref>one</ref>
 
 <gallery>Image:Foobar.jpg</gallery>
 
 <references />
-!! html
+!! html/php
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
 </p>
 <ul class="gallery mw-gallery-traditional">
@@ -141,6 +143,14 @@ Templating<ref>Text<!--comment--></ref>
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">one</span>
 </li>
 </ol></div>
+!! html/parsoid
+<p><sup about="#mwt4" class="mw-ref" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
+
+<ul class="gallery mw-gallery-traditional" typeof="mw:Extension/gallery" about="#mwt9" data-mw='{"name":"gallery","attrs":{},"body":{}}'>
+<li class="gallerybox" style="width: 155px;"><div class="thumb" style="width: 150px; height: 150px;"><figure-inline typeof="mw:Image"><a href="./File:Foobar.jpg"><img resource="./File:Foobar.jpg" src="//example.com/images/thumb/3/3a/Foobar.jpg/120px-Foobar.jpg" data-file-width="1941" data-file-height="220" data-file-type="bitmap" height="14" width="120"/></a></figure-inline></div><div class="gallerytext"></div></li>
+</ul>
+
+<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">one</span></li></ol>
 !! end
 
 !! test
@@ -1668,4 +1678,16 @@ ghi<ref name="r1">jkl</ref>mno
 <p>ghi<sup about="#mwt7" class="mw-ref" id="cite_ref-r1_1-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"r1"},"body":{"id":"mw-reference-text-cite_note-r1-1"}}'><a href="./Parser_test#cite_note-r1-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup>mno</p>
 
 <ol class="mw-references references" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-r1-1" id="cite_note-r1-1"><span rel="mw:referencedBy"><a href="./Parser_test#cite_ref-r1_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-r1_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-r1-1" class="mw-reference-text">jkl</span></li></ol>
+!! end
+
+!! test
+Similarly named refs with identical bodies
+!! wikitext
+1 <ref name="1">1</ref> 2 <ref name="1">1</ref>
+
+<references />
+!! html/parsoid
+<p>1 <sup about="#mwt7" class="mw-ref" id="cite_ref-1_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"1"},"body":{"id":"mw-reference-text-cite_note-1-1"}}'><a href="./Parser_test#cite_note-1-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup> 2 <sup about="#mwt9" class="mw-ref" id="cite_ref-1_1-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"1"},"body":{"id":"mw-reference-text-cite_note-1-1"}}'><a href="./Parser_test#cite_note-1-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
+
+<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-1-1" id="cite_note-1-1"><span rel="mw:referencedBy"><a href="./Parser_test#cite_ref-1_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-1_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-1-1" class="mw-reference-text" data-parsoid="{}">1</span></li></ol>
 !! end

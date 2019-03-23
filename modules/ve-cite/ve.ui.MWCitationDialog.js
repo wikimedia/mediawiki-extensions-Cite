@@ -68,7 +68,12 @@ ve.ui.MWCitationDialog.prototype.getSelectedNode = function () {
 			leaves[ 0 ];
 	}
 
-	return transclusionNode || null;
+	// Only use the selected node if it is the same template as this dialog expects
+	if ( transclusionNode && transclusionNode.isSingleTemplate( this.citationTemplate ) ) {
+		return transclusionNode;
+	}
+
+	return null;
 };
 
 /**
@@ -87,20 +92,21 @@ ve.ui.MWCitationDialog.prototype.initialize = function ( data ) {
  */
 ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWCitationDialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.first( function () {
 			data = data || {};
 			this.inDialog = data.inDialog;
+			this.citationTemplate = data.template;
 			this.citationTitle = data.title;
+		}, this )
+		.next( function () {
 			this.updateTitle();
 
 			// Initialization
-			if ( this.selectedNode ) {
-				this.referenceNode = this.getReferenceNode();
-				if ( this.referenceNode ) {
-					this.referenceModel = ve.dm.MWReferenceModel.static.newFromReferenceNode(
-						this.referenceNode
-					);
-				}
+			this.referenceNode = this.getReferenceNode();
+			if ( this.referenceNode ) {
+				this.referenceModel = ve.dm.MWReferenceModel.static.newFromReferenceNode(
+					this.referenceNode
+				);
 			}
 		}, this );
 };
@@ -160,11 +166,21 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 		return new OO.ui.Process( function () {
 			var deferred = $.Deferred();
 			dialog.checkRequiredParameters().done( function () {
-				var item,
+				var item, refDoc,
 					surfaceModel = dialog.getFragment().getSurface(),
 					doc = surfaceModel.getDocument(),
 					internalList = doc.getInternalList(),
 					obj = dialog.transclusionModel.getPlainObject();
+
+				// We had a reference, but no template node (or wrong kind of template node)
+				if ( dialog.referenceModel && !dialog.selectedNode ) {
+					refDoc = dialog.referenceModel.getDocument();
+					// Empty the existing reference, whatever it contained. This allows the dialog to be
+					// used for arbitrary references (to replace their contents with a citation).
+					refDoc.commit(
+						ve.dm.TransactionBuilder.static.newFromRemoval( refDoc, refDoc.getDocumentRange(), true )
+					);
+				}
 
 				if ( !dialog.referenceModel ) {
 					// Collapse returns a new fragment, so update dialog.fragment

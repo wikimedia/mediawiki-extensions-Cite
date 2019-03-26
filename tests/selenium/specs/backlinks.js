@@ -12,8 +12,9 @@ describe( 'Cite backlinks', function () {
 		browser.call( function () {
 			return Api.edit(
 				title,
-				'abc<ref name="a">reftext</ref>\n\ndef<ref name="a" />\n\n' +
-				'ghi<ref>reftext2</ref>\n\n' +
+				'This is reference #1: <ref name="a">This is citation #1 for reference #1 and #2</ref>\n\n' +
+				'This is reference #2: <ref name="a" />\n\n' +
+				'This is reference #3: <ref>This is citation #2</ref>\n\n' +
 				'<references />'
 			);
 		} );
@@ -35,7 +36,7 @@ describe( 'Cite backlinks', function () {
 
 	it( 'clickable up arrow is hidden by default when there are multiple backlinks', function () {
 		assert(
-			!CitePage.getCiteBacklink( 1 ).isVisible(),
+			!CitePage.getCiteMultiBacklink( 1 ).isVisible(),
 			'the up-pointing arrow in the reference line is not linked'
 		);
 	} );
@@ -43,12 +44,12 @@ describe( 'Cite backlinks', function () {
 	it( 'clickable up arrow shows when jumping to multiple used references', function () {
 		CitePage.getReference( 2 ).click();
 		assert(
-			CitePage.getCiteBacklink( 1 ).isVisible(),
+			CitePage.getCiteMultiBacklink( 1 ).isVisible(),
 			'the up-pointing arrow in the reference line is linked'
 		);
 
 		assert.strictEqual(
-			CitePage.getFragmentFromLink( CitePage.getCiteBacklink( 1 ) ),
+			CitePage.getFragmentFromLink( CitePage.getCiteMultiBacklink( 1 ) ),
 			CitePage.getReference( 2 ).getAttribute( 'id' ),
 			'the up-pointing arrow in the reference line is linked to the clicked reference'
 		);
@@ -59,7 +60,7 @@ describe( 'Cite backlinks', function () {
 		CitePage.getReference( 1 ).click();
 
 		assert.strictEqual(
-			CitePage.getFragmentFromLink( CitePage.getCiteBacklink( 1 ) ),
+			CitePage.getFragmentFromLink( CitePage.getCiteMultiBacklink( 1 ) ),
 			CitePage.getReference( 1 ).getAttribute( 'id' ),
 			'the up-pointing arrow in the reference line is linked to the last clicked reference'
 		);
@@ -67,11 +68,23 @@ describe( 'Cite backlinks', function () {
 
 	it( 'clickable up arrow is hidden when jumping back from multiple used references', function () {
 		CitePage.getReference( 2 ).click();
-		CitePage.getCiteBacklink( 1 ).click();
+		CitePage.getCiteMultiBacklink( 1 ).click();
 
 		assert(
-			!CitePage.getCiteBacklink( 1 ).isVisible(),
+			!CitePage.getCiteMultiBacklink( 1 ).isVisible(),
 			'the up-pointing arrow in the reference line is not linked'
+		);
+	} );
+
+	it( 'are not accidentally removed from unnamed references', function () {
+		CitePage.getReference( 3 ).click();
+		CitePage.getCiteSingleBacklink( 2 ).click();
+		// It doesn't matter what is focussed next, just needs to be something else
+		CitePage.getReference( 1 ).click();
+
+		assert(
+			CitePage.getCiteSingleBacklink( 2 ).isVisible(),
+			'the backlink on the unnamed reference is still visible'
 		);
 	} );
 } );

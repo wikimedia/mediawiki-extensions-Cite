@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Idojc"
+			"Idojc",
+			"Joao Xavier"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Libro",
@@ -17,7 +18,7 @@
 	"cite-ve-dialog-reference-useexisting-tool": "Ri-uzar",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Listo de generala referi",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Listo de referi por grupo $1",
-	"cite-ve-dialog-referenceslist-title": "Listo de referi",
+	"cite-ve-dialog-referenceslist-title": "Listo pri referi",
 	"cite-ve-dialogbutton-citation-educationpopup-text": "Plubonigas vua kontenajo per adjuntar fonti de informo. Vu povas citar ek libri, jurnali e retositui",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Citaji",
 	"cite-ve-dialogbutton-reference-full-label": "Bazala formo",

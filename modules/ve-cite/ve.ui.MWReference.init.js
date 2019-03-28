@@ -72,7 +72,7 @@
 	 *
 	 */
 	( function () {
-		var i, len, item, name, data, tool, tools, contextItem,
+		var tools,
 			limit = 5;
 
 		try {
@@ -86,55 +86,56 @@
 			} catch ( e ) {}
 		}
 
-		if ( Array.isArray( tools ) ) {
-			for ( i = 0, len = Math.min( limit, tools.length ); i < len; i++ ) {
-				item = tools[ i ];
+		// Limit and expose
+		ve.ui.mwCitationTools = ( tools || [] ).slice( 0, limit );
+
+		ve.ui.mwCitationTools.forEach( function ( item ) {
+			var name, tool, contextItem,
 				data = { template: item.template, title: item.title };
 
-				// Generate citation tool
-				name = 'cite-' + item.name;
-				if ( !ve.ui.toolFactory.lookup( name ) ) {
-					tool = function GeneratedMWCitationDialogTool() {
-						ve.ui.MWCitationDialogTool.apply( this, arguments );
-					};
-					OO.inheritClass( tool, ve.ui.MWCitationDialogTool );
-					tool.static.group = 'cite';
-					tool.static.name = name;
-					tool.static.icon = item.icon;
-					if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
-						tool.static.title = mw.msg( 'cite-ve-othergroup-item', item.title );
-					} else {
-						tool.static.title = item.title;
-					}
-					tool.static.commandName = name;
-					tool.static.template = item.template;
-					tool.static.autoAddToCatchall = false;
-					tool.static.autoAddToGroup = true;
-					tool.static.associatedWindows = [ name ];
-					ve.ui.toolFactory.register( tool );
-					ve.ui.commandRegistry.register(
-						new ve.ui.Command(
-							name, 'mwcite', 'open', { args: [ data ], supportedSelections: [ 'linear' ] }
-						)
-					);
+			// Generate citation tool
+			name = 'cite-' + item.name;
+			if ( !ve.ui.toolFactory.lookup( name ) ) {
+				tool = function GeneratedMWCitationDialogTool() {
+					ve.ui.MWCitationDialogTool.apply( this, arguments );
+				};
+				OO.inheritClass( tool, ve.ui.MWCitationDialogTool );
+				tool.static.group = 'cite';
+				tool.static.name = name;
+				tool.static.icon = item.icon;
+				if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
+					tool.static.title = mw.msg( 'cite-ve-othergroup-item', item.title );
+				} else {
+					tool.static.title = item.title;
 				}
-
-				// Generate citation context item
-				if ( !ve.ui.contextItemFactory.lookup( name ) ) {
-					contextItem = function GeneratedMWCitationContextItem() {
-						// Parent constructor
-						ve.ui.MWCitationContextItem.apply( this, arguments );
-					};
-					OO.inheritClass( contextItem, ve.ui.MWCitationContextItem );
-					contextItem.static.name = name;
-					contextItem.static.icon = item.icon;
-					contextItem.static.label = item.title;
-					contextItem.static.commandName = name;
-					contextItem.static.template = item.template;
-					ve.ui.contextItemFactory.register( contextItem );
-				}
+				tool.static.commandName = name;
+				tool.static.template = item.template;
+				tool.static.autoAddToCatchall = false;
+				tool.static.autoAddToGroup = true;
+				tool.static.associatedWindows = [ name ];
+				ve.ui.toolFactory.register( tool );
+				ve.ui.commandRegistry.register(
+					new ve.ui.Command(
+						name, 'mwcite', 'open', { args: [ data ], supportedSelections: [ 'linear' ] }
+					)
+				);
 			}
-		}
+
+			// Generate citation context item
+			if ( !ve.ui.contextItemFactory.lookup( name ) ) {
+				contextItem = function GeneratedMWCitationContextItem() {
+					// Parent constructor
+					ve.ui.MWCitationContextItem.apply( this, arguments );
+				};
+				OO.inheritClass( contextItem, ve.ui.MWCitationContextItem );
+				contextItem.static.name = name;
+				contextItem.static.icon = item.icon;
+				contextItem.static.label = item.title;
+				contextItem.static.commandName = name;
+				contextItem.static.template = item.template;
+				ve.ui.contextItemFactory.register( contextItem );
+			}
+		} );
 	}() );
 
 }() );

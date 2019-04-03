@@ -288,8 +288,7 @@ ve.dm.citeExample.domToDataCases = {
 						title: 'Bar',
 						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
-						lookupTitle: 'Bar',
-						hrefPrefix: './'
+						lookupTitle: 'Bar'
 					}
 				} ]
 			],
@@ -301,8 +300,7 @@ ve.dm.citeExample.domToDataCases = {
 						title: 'Bar',
 						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
-						lookupTitle: 'Bar',
-						hrefPrefix: './'
+						lookupTitle: 'Bar'
 					}
 				} ]
 			],
@@ -314,8 +312,7 @@ ve.dm.citeExample.domToDataCases = {
 						title: 'Bar',
 						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
-						lookupTitle: 'Bar',
-						hrefPrefix: './'
+						lookupTitle: 'Bar'
 					}
 				} ]
 			],

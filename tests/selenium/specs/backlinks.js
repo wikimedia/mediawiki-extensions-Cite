@@ -22,7 +22,7 @@ describe( 'Cite backlinks', function () {
 
 	beforeEach( function () {
 		CitePage.openTitle( title );
-		browser.pause( 300 ); // make sure JS is loaded
+		CitePage.scriptsReady();
 	} );
 
 	it( 'are highlighted in the reference list when there are multiple used references', function () {
@@ -78,6 +78,7 @@ describe( 'Cite backlinks', function () {
 
 	it( 'are not accidentally removed from unnamed references', function () {
 		CitePage.getReference( 3 ).click();
+		CitePage.getCiteSingleBacklink( 2 ).waitForVisible();
 		CitePage.getCiteSingleBacklink( 2 ).click();
 		// It doesn't matter what is focussed next, just needs to be something else
 		CitePage.getReference( 1 ).click();

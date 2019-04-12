@@ -68,12 +68,19 @@
 	 * messages are pre-defined for tool names such as `web`, `book`, `news` and `journal`.
 	 *
 	 * Example:
-	 * [ { "name": "web", "icon": "ref-cite-web", "template": "Cite web" }, ... ]
+	 * [ { "name": "web", "icon": "browser", "template": "Cite web" }, ... ]
 	 *
 	 */
 	( function () {
 		var tools,
-			limit = 5;
+			limit = 5,
+			deprecatedIcons = {
+				'ref-cite-book': 'book',
+				'ref-cite-journal': 'journal',
+				'ref-cite-news': 'newspaper',
+				'ref-cite-web': 'browser',
+				'reference-existing': 'referenceExisting'
+			};
 
 		try {
 			// Must use mw.message to avoid JSON being parsed as Wikitext
@@ -92,6 +99,10 @@
 		ve.ui.mwCitationTools.forEach( function ( item ) {
 			var name, tool, contextItem,
 				data = { template: item.template, title: item.title };
+
+			if ( Object.prototype.hasOwnProperty.call( deprecatedIcons, item.icon ) ) {
+				item.icon = deprecatedIcons[ item.icon ];
+			}
 
 			// Generate citation tool
 			name = 'cite-' + item.name;

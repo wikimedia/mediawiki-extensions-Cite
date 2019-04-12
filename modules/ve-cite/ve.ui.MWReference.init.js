@@ -80,6 +80,12 @@
 				'ref-cite-news': 'newspaper',
 				'ref-cite-web': 'browser',
 				'reference-existing': 'referenceExisting'
+			},
+			defaultIcons = {
+				book: 'book',
+				journal: 'journal',
+				news: 'newspaper',
+				web: 'browser'
 			};
 
 		try {
@@ -98,9 +104,14 @@
 
 		ve.ui.mwCitationTools.forEach( function ( item ) {
 			var name, tool, contextItem,
+				hasOwn = Object.prototype.hasOwnProperty,
 				data = { template: item.template, title: item.title };
 
-			if ( Object.prototype.hasOwnProperty.call( deprecatedIcons, item.icon ) ) {
+			if ( !item.icon && hasOwn.call( defaultIcons, item.name ) ) {
+				item.icon = defaultIcons[ item.name ];
+			}
+
+			if ( hasOwn.call( deprecatedIcons, item.icon ) ) {
 				item.icon = deprecatedIcons[ item.icon ];
 			}
 

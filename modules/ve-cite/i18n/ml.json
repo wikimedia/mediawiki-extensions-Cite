@@ -41,6 +41,8 @@
 	"cite-ve-referenceslist-isempty": "ഈ താളിൽ, \"$1\" ഗണത്തിൽ, ഈ പട്ടികയിൽ ഉൾപ്പെടുത്താവുന്ന അവലംബങ്ങളൊന്നും ഈ താളിലില്ല.",
 	"cite-ve-referenceslist-isempty-default": "ഈ പട്ടികയിൽ ഉൾപ്പെടുത്താവുന്ന അവലംബങ്ങളൊന്നും ഈ താളിലില്ല.",
 	"cite-ve-referenceslist-missingref": "ഈ അവലംബം ഫലകം ഉപയോഗിച്ചോ മറ്റേതെങ്കിലും ഘടകമുപയോഗിച്ചോ ആണ് ചേർത്തിരിക്കുന്നത്, അതിനാലിത് ഇപ്പോൾ മൂലരൂപത്തിൽ മാത്രമേ തിരുത്താനാവൂ.",
+	"cite-ve-referenceslist-missingref-in-list": "ഈ അവലംബം ഫലകം ഉപയോഗിച്ചോ മറ്റേതെങ്കിലും ഘടകമുപയോഗിച്ചോ ആണ് നിർവചിച്ചിരിക്കുന്നത്, അതിനാലിത് ഇപ്പോൾ മൂലരൂപത്തിൽ മാത്രമേ എങ്ങനെയുണ്ടെന്ന് കാണാനാവൂ.",
+	"cite-ve-referenceslist-missingreflist": "ഈ അവലംബം ഒരു ഫലകം ഉപയോഗിച്ചാണ് നിർമ്മിച്ചിരിക്കുന്നത്, ഇത് സ്രോതസ്സ് രൂപത്തിൽ മാത്രമേ ഇപ്പോൾ തിരുത്താനാവൂ.",
 	"cite-ve-toolbar-group-label": "ഉദ്ധരിക്കുക",
 	"cite-ve-othergroup-item": "അവലംബ $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "അവലംബങ്ങൾ",

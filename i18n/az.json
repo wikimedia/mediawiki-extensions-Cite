@@ -3,10 +3,12 @@
 		"authors": [
 			"Vago",
 			"Wertuose",
-			"Serkanland"
+			"Serkanland",
+			"Toghrul Rahimli"
 		]
 	},
 	"cite_error": "Sitat səhvi: $1",
+	"cite_error_references_duplicate_key": "Xətalı <code>&lt;ref&gt;</code> etiketi; \"$1\" adı bir neçə dəfə müxtəlif məzmunla verilib",
 	"cite-tracking-category-cite-error": "İstinad xətası olan səhifələr",
 	"cite_section_preview_references": "İstinadların sınaq göstərişi"
 }

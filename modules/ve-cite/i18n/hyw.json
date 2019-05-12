@@ -4,9 +4,16 @@
 			"Azniv Stepanian"
 		]
 	},
+	"visualeditor-cite-tool-name-book": "Գիրքեր",
+	"visualeditor-cite-tool-name-journal": "Լրագիր",
+	"visualeditor-cite-tool-name-news": "Նորութիւններ",
+	"visualeditor-cite-tool-name-web": "Կայք",
 	"cite-ve-dialog-reference-options-group-placeholder": "Ընդհանուր ծանօթագրութիւններ",
+	"cite-ve-dialog-reference-title": "Ծանօթագրութիւն",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Ընդհանուր ծանօթագրութիւններու ցանկ",
 	"cite-ve-dialog-referenceslist-title": "Ծանօթագրութիւններու ցանկ",
 	"cite-ve-dialogbutton-reference-title": "Ծանօթագրութիւն",
-	"cite-ve-dialogbutton-referenceslist-tooltip": "Ծանօթագրութիւններու ցանկ"
+	"cite-ve-dialogbutton-reference-tooltip": "Հիմնական",
+	"cite-ve-dialogbutton-referenceslist-tooltip": "Ծանօթագրութիւններու ցանկ",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Ծանօթագրութիւններ"
 }

@@ -5,7 +5,8 @@
 			"KuboF",
 			"Shirayuki",
 			"Yekrats",
-			"Kvardek du"
+			"Kvardek du",
+			"Mirin"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Libro",
@@ -22,10 +23,14 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Listo de ĝeneralaj referencoj",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Listo de referencoj por la grupo \"$1\"",
 	"cite-ve-dialog-referenceslist-title": "Listo de referencoj",
+	"cite-ve-dialogbutton-citation-educationpopup-title": "Citoj",
 	"cite-ve-dialogbutton-reference-full-label": "Baza formo",
+	"cite-ve-dialogbutton-reference-title": "Referenco",
 	"cite-ve-dialogbutton-reference-tooltip": "Baza",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Listo de referencoj",
 	"cite-ve-reference-input-placeholder": "Serĉi en nuntempaj refrencoj",
 	"cite-ve-referenceslist-isempty": "En tiu ĉi paĝo ne estas referencoj de grupo \"$1\" por aldoni al tiu ĉi listo.",
-	"cite-ve-referenceslist-isempty-default": "En tiu ĉi paĝo ne estas referencoj por aldoni al tiu ĉi listo."
+	"cite-ve-referenceslist-isempty-default": "En tiu ĉi paĝo ne estas referencoj por aldoni al tiu ĉi listo.",
+	"cite-ve-toolbar-group-label": "Citi",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencoj"
 }

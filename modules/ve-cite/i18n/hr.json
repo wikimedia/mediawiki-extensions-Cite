@@ -37,5 +37,6 @@
 	"cite-ve-referenceslist-isempty": "Nema referenci u grupi \"$1\" na ovoj stranici koje bi mogle biti uključene u ovaj popis.",
 	"cite-ve-referenceslist-isempty-default": "Nema referenci na ovoj stranici koje bi mogle biti uključene u ovaj popis.",
 	"cite-ve-referenceslist-missingref": "Ova reference je definirana u predlošku ili drugom generiranom dijelu, i za sad može biti uređivana samo u prikazu za uređivanje izvornog koda.",
-	"cite-ve-toolbar-group-label": "Citiraj"
+	"cite-ve-toolbar-group-label": "Citiraj",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencije"
 }

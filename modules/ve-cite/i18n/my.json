@@ -7,5 +7,10 @@
 		]
 	},
 	"visualeditor-cite-tool-name-web": "ဝဘ်ဆိုဒ်",
-	"cite-ve-dialogbutton-reference-title": "ရည်ညွှန်း"
+	"cite-ve-dialog-reference-title": "ကိုးကား",
+	"cite-ve-dialog-reference-useexisting-tool": "ပြန်လည်သုံး",
+	"cite-ve-dialogbutton-reference-title": "ရည်ညွှန်း",
+	"cite-ve-dialogbutton-reference-tooltip": "အခြေခံ",
+	"cite-ve-othergroup-item": "$1 ကိုးကား",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "ကိုးကားချက်များ"
 }

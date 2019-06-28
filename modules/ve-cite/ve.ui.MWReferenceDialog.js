@@ -87,8 +87,6 @@ ve.ui.MWReferenceDialog.static.excludeCommands = [
 	'reference',
 	'reference/existing',
 	'citoid',
-	// citefromid is being renamed (T219512)
-	'citefromid',
 	'referencesList'
 ];
 

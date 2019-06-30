@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Esbardu",
-			"Xuacu"
+			"Xuacu",
+			"Fitoschido"
 		]
 	},
 	"apihelp-query+references-description": "Devolver una representación de datos de les referencies asociaes coles páxines indicaes.",
@@ -11,7 +12,7 @@
 	"apierror-citestoragedisabled": "L'almacenamientu de referencies de la estensión Cite nun ta activáu.",
 	"cite-desc": "Añade les etiquetes <code>&lt;ref[ name=id]&gt;</code> y <code>&lt;references/&gt;</code> pa les cites",
 	"cite_error": "Error de cita: $1",
-	"cite_error_ref_invalid_dir": "La etiqueta <code>&lt;ref&gt;</code> nun ye válida; desconozse l'atributu de direición «$1». Tien De ser «ltr» o «rtl»",
+	"cite_error_ref_invalid_dir": "La etiqueta <code>&lt;ref&gt;</code> nun ye válida; desconozse l'atributu de direición «$1». Tien de ser «ltr» o «rtl»",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> non válida; el nome nun pue ser un enteru simple, usa un títulu descriptivu",
 	"cite_error_ref_no_key": "La etiqueta d'apertura <code>&lt;ref&gt;</code> ta mal formada o tien un mal nome",
 	"cite_error_ref_too_many_keys": "Etiqueta <code>&lt;ref&gt;</code> non válida; nomes non válidos (p.ex. demasiaos)",

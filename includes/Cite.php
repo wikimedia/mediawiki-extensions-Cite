@@ -1073,11 +1073,11 @@ class Cite {
 	 * @return string
 	 */
 	private function normalizeKey( $key ) {
-		$key = Sanitizer::escapeIdForAttribute( $key );
-		$key = preg_replace( '/__+/', '_', $key );
-		$key = Sanitizer::safeEncodeAttribute( $key );
+		$ret = Sanitizer::escapeIdForAttribute( $key );
+		$ret = preg_replace( '/__+/', '_', $ret );
+		$ret = Sanitizer::safeEncodeAttribute( $ret );
 
-		return $key;
+		return $ret;
 	}
 
 	/**

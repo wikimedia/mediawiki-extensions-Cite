@@ -11,8 +11,6 @@
 			"Railfail536"
 		]
 	},
-	"apihelp-query+references-description": "Zwraca reprezentację danych przypisów związanych z tą stroną.",
-	"apihelp-query+references-example-1": "Przypisy powiązane z <kbd>Albert Einstein</kbd>.",
 	"cite-desc": "Dodaje znaczniki <code>&lt;ref[ name=id]&gt;</code> oraz <code>&lt;references/&gt;</code> ułatwiające podawanie źródeł cytatów",
 	"cite_error": "Błąd rozszerzenia ''cite'': $1",
 	"cite_error_ref_invalid_dir": "Nieprawidłowy tag <code>&lt;ref&gt;</code>; atrybut dir „$1” jest nieznany. Musi być ltr lub rtl",

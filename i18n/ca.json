@@ -9,7 +9,6 @@
 			"Fitoschido"
 		]
 	},
-	"apihelp-query+references-example-1": "Referències associades amb <kbd>Albert Einstein</kbd>.",
 	"cite-desc": "Afegeix les etiquetes <code>&lt;ref[ name=id]&gt;</code> i <code>&lt;references/&gt;</code>, per a cites",
 	"cite_error": "Error de citació: $1",
 	"cite_error_ref_invalid_dir": "L’etiqueta <code>&lt;ref&gt;</code> no és vàlida; es desconeix l’atribut de direcció «$1». Aquest ha de ser bé «ltr» o bé «rtl»",

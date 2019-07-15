@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Woytecr"
+		]
+	},
+	"apihelp-query+references-description": "Zwraca reprezentację danych przypisów związanych z tą stroną.",
+	"apihelp-query+references-example-1": "Przypisy powiązane z <kbd>Albert Einstein</kbd>."
+}

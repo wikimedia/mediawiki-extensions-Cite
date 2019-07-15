@@ -7,7 +7,6 @@
 			"Papuass"
 		]
 	},
-	"apihelp-query+references-example-1": "Atsauces, kas saistītas ar <kbd>Albertu Einšteinu</kbd>.",
 	"cite-desc": "Pievieno <code>&lt;ref[ name=id]&gt;</code> un <code>&lt;references/&gt;</code> iezīmes, atsaucēm",
 	"cite_error": "Kļūda atsaucē: $1",
 	"cite_error_ref_numeric_key": "Nederīga <code>&lt;ref&gt;</code> iezīme;\n\"name\" vērtība nevar būt vienkāršs skaitlis. Izmanto aprakstošāku nosaukumu",

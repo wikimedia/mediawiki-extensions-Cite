@@ -8,8 +8,6 @@
 			"Pras"
 		]
 	},
-	"apihelp-query+references-example-1": "Rujukan sing gegayutan <kbd>Albert Einstein</kbd>.",
-	"apierror-citestoragedisabled": "Panyimpenan rujukan èkstènsi sitir ora diurubaké.",
 	"cite-desc": "Nambah tenger <code>&lt;ref[ name=id]&gt;</code> lan <code>&lt;references/&gt;</code>, kanggo sitiran",
 	"cite_error": "Masalah sitiran: $1",
 	"cite_error_ref_numeric_key": "Tenger <code>&lt;ref&gt;</code> ora trep;\njenengé ora bisa mung integer prasaja. Anggonen sesirah sing dhèskriptif",

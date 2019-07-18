@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"apihelp-query+references-description": "Daj podatkovno predstavljanje o navodima povezanih s danim stranicama.",
+	"apihelp-query+references-summary": "Daj podatkovno predstavljanje o navodima povezanih s danim stranicama.",
+	"apierror-citestoragedisabled": "Spremište referencija za dodatak \"Citiranje\" nije omogućeno."
+}

@@ -566,26 +566,6 @@ no text was provided for refs named <code>void</code></span></li>
 !! end
 
 !! test
-<ref>s with the follow parameter
-!! wikitext
-Page one.<ref name="beginning">First page footnote text.</ref>
-
-Page two.<ref follow="beginning">Second page footnote text.</ref>
-
-== References ==
-<references />
-!! html
-<p>Page one.<sup id="cite_ref-beginning_1-0" class="reference"><a href="#cite_note-beginning-1">&#91;1&#93;</a></sup>
-</p><p>Page two.
-</p>
-<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Parser_test&amp;action=edit&amp;section=1" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
-<div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-beginning-1"><span class="mw-cite-backlink"><a href="#cite_ref-beginning_1-0">↑</a></span> <span class="reference-text">First page footnote text. Second page footnote text.</span>
-</li>
-</ol></div>
-!! end
-
-!! test
 <ref> with both name and follow parameters - invalid
 !! wikitext
 Page one.<ref name="the-name" follow="the-name">This ref is invalid.</ref>

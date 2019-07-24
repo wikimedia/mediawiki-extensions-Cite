@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Azniv Stepanian"
+			"Azniv Stepanian",
+			"Դավիթ Սարոյան"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Գիրքեր",
@@ -15,6 +16,7 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Ընդհանուր ծանօթագրութիւններու ցանկ",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "$1 խումբի ծանօթագրութիւններու ցուցակ",
 	"cite-ve-dialog-referenceslist-title": "Ծանօթագրութիւններու ցանկ",
+	"cite-ve-dialogbutton-citation-educationpopup-text": "Բարելաւեցէ՛ք բովանդակութիւնը՝ տեղեկութեան աղբիւրներ աւելցնելով։ Դուք կրնաք մեջբերումներ կատարել գիրքերէ, թերթերէ եւ կայքէջերէ։",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Մէջբերում",
 	"cite-ve-dialogbutton-reference-full-label": "Հիմնական ձեւ",
 	"cite-ve-dialogbutton-reference-title": "Ծանօթագրութիւն",

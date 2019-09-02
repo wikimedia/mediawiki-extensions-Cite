@@ -927,9 +927,8 @@ class Cite {
 	 * @return string
 	 */
 	private function referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max ) {
-		global $wgContLang;
 		$scope = strlen( $max );
-		$ret = $wgContLang->formatNum(
+		$ret = MediaWikiServices::getInstance()->getContentLanguage()->formatNum(
 			sprintf( "%s.%0{$scope}s", $base, $offset )
 		);
 		return $ret;
@@ -1039,7 +1038,7 @@ class Cite {
 	 * @return string
 	 */
 	private function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
-		global $wgContLang;
+		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 
 		if ( $label === null ) {
 			$label = ++$this->mGroupCnt[$group];
@@ -1056,7 +1055,7 @@ class Cite {
 					),
 					Sanitizer::safeEncodeAttribute(
 						$this->getLinkLabel( $label, $group,
-							( ( $group === self::DEFAULT_GROUP ) ? '' : "$group " ) . $wgContLang->formatNum( $label ) )
+							( ( $group === self::DEFAULT_GROUP ) ? '' : "$group " ) . $contLang->formatNum( $label ) )
 					)
 				)->inContentLanguage()->plain()
 			);

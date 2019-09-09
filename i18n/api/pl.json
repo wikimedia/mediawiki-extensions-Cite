@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Woytecr"
+			"Woytecr",
+			"Railfail536"
 		]
 	},
 	"apihelp-query+references-description": "Zwraca reprezentację danych przypisów związanych z tą stroną.",
-	"apihelp-query+references-example-1": "Przypisy powiązane z <kbd>Albert Einstein</kbd>."
+	"apihelp-query+references-summary": "Zwraca reprezentację danych przypisów związanych z tą stroną.",
+	"apihelp-query+references-example-1": "Przypisy powiązane z <kbd>Albert Einstein</kbd>.",
+	"apierror-citestoragedisabled": "Pamięć referencyjna rozszerzenia Cite nie jest włączona."
 }

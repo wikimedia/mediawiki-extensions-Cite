@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Woytecr",
-			"Railfail536"
+			"Railfail536",
+			"Rail"
 		]
 	},
 	"apihelp-query+references-description": "Zwraca reprezentację danych przypisów związanych z tą stroną.",

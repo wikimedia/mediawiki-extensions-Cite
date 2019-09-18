@@ -34,7 +34,7 @@
 					};
 					label = OO.ui.deferMsg( 'cite-ve-toolbar-group-label' );
 					// Treat mobile targets differently
-					if ( ve.init.mw.MobileArticleTarget && target.prototype instanceof ve.init.mw.MobileArticleTarget ) {
+					if ( target === ve.init.mw.MobileArticleTarget ) {
 						group.header = label;
 						group.title = label;
 						group.icon = 'reference';

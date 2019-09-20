@@ -217,6 +217,10 @@ class Cite {
 		$parserOutput->addModules( 'ext.cite.ux-enhancements' );
 		$parserOutput->addModuleStyles( 'ext.cite.styles' );
 
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
+			$parserOutput->addModules( 'ext.cite.tracking' );
+		}
+
 		$frame->setVolatile();
 
 		// new <ref> tag, we may need to bump the ref data counter

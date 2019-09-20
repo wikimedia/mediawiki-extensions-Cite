@@ -119,6 +119,9 @@
 		"CiteVisualEditorOtherGroup": false,
 		"CiteResponsiveReferences": true
 	},
+	"EventLoggingSchemas": {
+		"ReferencePreviewsBaseline": 19414499
+	},
 	"AutoloadClasses": {
 		"ApiQueryReferences": "includes/ApiQueryReferences.php",
 		"Cite": "includes/Cite.php",

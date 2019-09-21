@@ -130,7 +130,8 @@ class CiteHooks {
 				"ve-cite/ve.ui.MWReferencesListContextItem.js",
 				"ve-cite/ve.ui.MWCitationContextItem.js",
 				"ve-cite/ve.ui.MWCitationAction.js",
-				"ve-cite/ve.ui.MWReference.init.js"
+				"ve-cite/ve.ui.MWReference.init.js",
+				"ve-cite/ve.ui.MWCitationNeededContextItem.js",
 			],
 			"styles" => [
 				"ve-cite/ve.ui.MWReferenceDialog.css",
@@ -160,6 +161,9 @@ class CiteHooks {
 				"cite-ve-changedesc-reflist-item-id",
 				"cite-ve-changedesc-reflist-responsive-set",
 				"cite-ve-changedesc-reflist-responsive-unset",
+				"cite-ve-citationneeded-button",
+				"cite-ve-citationneeded-description",
+				"cite-ve-citationneeded-title",
 				"cite-ve-dialog-reference-editing-reused",
 				"cite-ve-dialog-reference-editing-reused-long",
 				"cite-ve-dialog-reference-options-group-label",

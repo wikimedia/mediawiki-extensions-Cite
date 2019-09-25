@@ -91,7 +91,7 @@
 	"cite-ve-referenceslist-missingref": "Cette référence est définie dans un modèle ou un autre bloc généré et ne peut pour le moment être modifiée qu’en mode source.",
 	"cite-ve-referenceslist-missingref-in-list": "Cette référence est définie dans un modèle ou un autre bloc généré et ne peut actuellement être prévisualisée qu’en mode source.",
 	"cite-ve-referenceslist-missingreflist": "Cette liste de référence est générée par un modèle et ne peut actuellement être modifiée qu’en mode source.",
-	"cite-ve-toolbar-group-label": "Citer",
+	"cite-ve-toolbar-group-label": "Sourcer",
 	"cite-ve-othergroup-item": "référence $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Références",
 	"visualeditor-internal-list-diff-group-name-mwreference": "Nom du groupe de référence : « $1 »"

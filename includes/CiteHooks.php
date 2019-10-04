@@ -65,17 +65,32 @@ class CiteHooks {
 	}
 
 	/**
-	 * Conditionally register resource loader modules that depends on the
-	 * VisualEditor MediaWiki extension.
+	 * Conditionally register resource loader modules that depend on
+	 * other MediaWiki extensions.
 	 *
 	 * @param ResourceLoader $resourceLoader
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
+		$dir = dirname( __DIR__ ) . DIRECTORY_SEPARATOR;
+
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
+			$resourceLoader->register( 'ext.cite.tracking', [
+				'localBasePath' => $dir . 'modules',
+				'remoteExtPath' => 'Cite/modules',
+				'scripts' => [
+					'ext.cite.tracking.js'
+				],
+				'dependencies' => 'ext.eventLogging',
+				'targets' => [
+					'desktop',
+					'mobile'
+				]
+			] );
+		}
+
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'VisualEditor' ) ) {
 			return;
 		}
-
-		$dir = dirname( __DIR__ ) . DIRECTORY_SEPARATOR;
 
 		$resourceLoader->register( "ext.cite.visualEditor.core", [
 			'localBasePath' => $dir . 'modules',

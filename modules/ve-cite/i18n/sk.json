@@ -6,7 +6,8 @@
 			"Sudo77(new)",
 			"TomášPolonec",
 			"Kusavica",
-			"Luky001"
+			"Luky001",
+			"Vlad5250"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Kniha",
@@ -22,6 +23,7 @@
 	"cite-ve-changedesc-reflist-responsive-set": "Zoznam referencií sa teraz zobrazuje v responzívnych stĺpcoch",
 	"cite-ve-changedesc-reflist-responsive-unset": "Zoznam referencií sa teraz zobrazuje len v jednom stĺpci",
 	"cite-ve-changedesc-reflist-item-id": "Číslo referencie zmenené",
+	"cite-ve-citationneeded-button": "Pridať citáciu",
 	"cite-ve-dialog-reference-editing-reused": "Tato referencia sa na tejto stránke používa $1 {{PLURAL:$1|krát}}.",
 	"cite-ve-dialog-reference-options-group-label": "Použiť túto skupinu",
 	"cite-ve-dialog-reference-options-group-placeholder": "Všeobecné referencie",

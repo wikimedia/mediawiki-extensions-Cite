@@ -27,7 +27,7 @@ class CitePage extends Page {
 
 	getFragmentFromLink( linkElement ) {
 		// the href includes the full url so slice the fragment from it
-		let href = linkElement.getAttribute( 'href' );
+		const href = linkElement.getAttribute( 'href' );
 		return href.slice( href.indexOf( '#' ) + 1 );
 	}
 }

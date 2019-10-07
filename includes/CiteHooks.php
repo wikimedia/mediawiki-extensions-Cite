@@ -73,20 +73,30 @@ class CiteHooks {
 	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
 		$dir = dirname( __DIR__ ) . DIRECTORY_SEPARATOR;
 
+		$uxEnhancementsModule = [
+			'localBasePath' => $dir . 'modules',
+			'remoteExtPath' => 'Cite/modules',
+			'scripts' => [
+				'ext.cite.a11y.js',
+				'ext.cite.highlighting.js',
+			],
+			'styles' => [
+				'ext.cite.a11y.css',
+				'ext.cite.highlighting.css',
+			],
+			'messages' => [
+				'cite_reference_link_prefix',
+				'cite_references_link_accessibility_label',
+				'cite_references_link_many_accessibility_label',
+				'cite_references_link_accessibility_back_label',
+			],
+		];
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
-			$resourceLoader->register( 'ext.cite.tracking', [
-				'localBasePath' => $dir . 'modules',
-				'remoteExtPath' => 'Cite/modules',
-				'scripts' => [
-					'ext.cite.tracking.js'
-				],
-				'dependencies' => 'ext.eventLogging',
-				'targets' => [
-					'desktop',
-					'mobile'
-				]
-			] );
+			// Temporary tracking for T231529
+			$uxEnhancementsModule['scripts'][] = 'ext.cite.tracking.js';
+			$uxEnhancementsModule['dependencies'][] = 'ext.eventLogging';
 		}
+		$resourceLoader->register( 'ext.cite.ux-enhancements', $uxEnhancementsModule );
 
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'VisualEditor' ) ) {
 			return;

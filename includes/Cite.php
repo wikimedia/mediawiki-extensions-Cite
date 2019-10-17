@@ -31,33 +31,35 @@ class Cite {
 	/**
 	 * @todo document
 	 */
-	const DEFAULT_GROUP = '';
+	private const DEFAULT_GROUP = '';
 
 	/**
-	 * Maximum storage capacity for pp_value field of page_props table
+	 * Maximum storage capacity for the pp_value field of the page_props table. 2^16-1 = 65535 is
+	 * the size of a MySQL 'blob' field.
 	 * @todo Find a way to retrieve this information from the DBAL
 	 */
-	const MAX_STORAGE_LENGTH = 65535; // Size of MySQL 'blob' field
+	public const MAX_STORAGE_LENGTH = 65535;
 
 	/**
 	 * Key used for storage in parser output's ExtensionData and ObjectCache
 	 */
-	const EXT_DATA_KEY = 'Cite:References';
+	public const EXT_DATA_KEY = 'Cite:References';
 
 	/**
 	 * Version number in case we change the data structure in the future
 	 */
-	const DATA_VERSION_NUMBER = 1;
+	private const DATA_VERSION_NUMBER = 1;
 
 	/**
-	 * Cache duration set when parsing a page with references
+	 * Cache duration when parsing a page with references, in seconds. 3,600 seconds = 1 hour.
 	 */
-	const CACHE_DURATION_ONPARSE = 3600; // 1 hour
+	public const CACHE_DURATION_ONPARSE = 3600;
 
 	/**
-	 * Cache duration set when fetching references from db
+	 * Cache duration when fetching references from the database, in seconds. 18,000 seconds = 5
+	 * hours.
 	 */
-	const CACHE_DURATION_ONFETCH = 18000; // 5 hours
+	private const CACHE_DURATION_ONFETCH = 18000;
 
 	/**
 	 * Datastructure representing <ref> input, in the format of:
@@ -1085,7 +1087,7 @@ class Cite {
 	 * @param string[] $arr The array to format
 	 * @return string
 	 */
-	private function listToText( $arr ) {
+	private function listToText( array $arr ) {
 		$cnt = count( $arr );
 		if ( $cnt === 1 ) {
 			// Enforce always returning a string

@@ -25,10 +25,17 @@ use MediaWiki\MediaWikiServices;
 
 class ApiQueryReferences extends ApiQueryBase {
 
-	public function __construct( $query, $moduleName ) {
+	/**
+	 * @param ApiQuery $query
+	 * @param string $moduleName
+	 */
+	public function __construct( ApiQuery $query, $moduleName ) {
 		parent::__construct( $query, $moduleName, 'rf' );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams() {
 		return [
 		   'continue' => [
@@ -104,8 +111,7 @@ class ApiQueryReferences extends ApiQueryBase {
 	}
 
 	/**
-	 * @see ApiBase::getExamplesMessages()
-	 * @return array
+	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {
 		return [

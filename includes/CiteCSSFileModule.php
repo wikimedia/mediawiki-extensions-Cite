@@ -10,8 +10,11 @@ use MediaWiki\MediaWikiServices;
  */
 class CiteCSSFileModule extends ResourceLoaderFileModule {
 
+	/**
+	 * @inheritDoc
+	 */
 	public function __construct(
-		$options = [],
+		array $options = [],
 		$localBasePath = null,
 		$remoteBasePath = null
 	) {

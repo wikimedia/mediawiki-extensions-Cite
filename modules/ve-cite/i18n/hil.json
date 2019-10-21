@@ -1,7 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Redhotchili23"
+			"Redhotchili23",
+			"Pare Mo"
 		]
-	}
+	},
+	"cite-ve-dialogbutton-reference-title": "Referensiya",
+	"cite-ve-dialogbutton-referenceslist-tooltip": "Lista sg mga referensiya"
 }

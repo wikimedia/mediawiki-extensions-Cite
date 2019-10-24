@@ -91,7 +91,8 @@
 		},
 		"EventLogging": {
 			"Schemas": {
-				"ReferencePreviewsBaseline": 19414499
+				"ReferencePreviewsBaseline": 19489336,
+				"ReferencePreviewsCite": 19489328
 			}
 		},
 		"VisualEditor": {

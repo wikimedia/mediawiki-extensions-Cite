@@ -512,9 +512,8 @@ class Cite {
 			throw new Exception( 'Invalid stack key: ' . serialize( $key ) );
 		}
 
-		// Valid key
+		// Valid key with first occurrence
 		if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
-			// First occurrence
 			$this->mRefs[$group][$key] = [
 				'text' => $str,
 				'count' => 0,
@@ -533,9 +532,9 @@ class Cite {
 			);
 		}
 
-		// We've been here before
+		// Valid key that is already known
 		if ( $this->mRefs[$group][$key]['text'] === null && $str !== '' ) {
-			// If no text found before, use this text
+			// If no text was set before, use this text
 			$this->mRefs[$group][$key]['text'] = $str;
 			// Use the dir parameter only from the full definition of a named ref tag
 			$this->mRefs[$group][$key]['dir'] = $dir;
@@ -547,7 +546,7 @@ class Cite {
 				&& $parser->mStripState->unstripBoth( $str )
 					!== $parser->mStripState->unstripBoth( $this->mRefs[$group][$key]['text'] )
 			) {
-				// two refs with same key and different content
+				// two refs with same key and different text
 				// add error message to the original ref
 				$this->mRefs[$group][$key]['text'] .= ' ' . $this->plainError(
 					'cite_error_references_duplicate_key', $key

@@ -1709,3 +1709,38 @@ wgFragmentMode=['legacy']
 <p><sup about="#mwt2" class="mw-ref" id="cite_ref-füllen_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"füllen"},"body":{"id":"mw-reference-text-cite_note-füllen-1"}}'><a href="./Parser_test#cite_note-füllen_1-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
 <ol class="mw-references references" typeof="mw:Extension/references" about="#mwt3" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-füllen-1" id="cite_note-füllen-1"><a href="./Parser_test#cite_ref-füllen-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-füllen-1" class="mw-reference-text" data-parsoid="{}">[bar]</span></li></ol>
 !! end
+
+!! test
+Refines tag rejected by default
+!! config
+wgCiteBookReferencing=false
+!! wikitext
+<ref name="parent">[foo]</ref>
+<ref refines="parent">[bar]</ref>
+!! html/php
+<p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+</p>
+invalid names, e.g. too many</span><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-parent-1"><span class="mw-cite-backlink"><a href="#cite_ref-parent_1-0">↑</a></span> <span class="reference-text">[foo]</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+Refines tag allowed with feature flag set
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="parent">[foo]</ref>
+<ref refines="parent">[bar]</ref>
+!! html/php
+<p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
+</p>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-parent-1"><span class="mw-cite-backlink"><a href="#cite_ref-parent_1-0">↑</a></span> <span class="reference-text">[foo]</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">[bar]</span>
+</li>
+</ol></div>
+!! end

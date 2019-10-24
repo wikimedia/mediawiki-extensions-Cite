@@ -62,6 +62,12 @@ class Cite {
 	private const CACHE_DURATION_ONFETCH = 18000;
 
 	/**
+	 * Wikitext attribute name for Book Referencing.
+	 * TODO: Still under discussion.
+	 */
+	public const REFINES_ATTRIBUTE = 'refines';
+
+	/**
 	 * Datastructure representing <ref> input, in the format of:
 	 * <code>
 	 * [
@@ -391,6 +397,7 @@ class Cite {
 	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
 	 *  "follow" : If the current reference is the continuation of another, key of that reference.
 	 *  "dir" : set direction of text (ltr/rtl)
+	 *  "refines": Points to a named reference which serves as the context for this reference.
 	 *
 	 * @param string[] $argv The argument vector
 	 * @return (string|false|null)[] An array with exactly four elements, where each is a string on
@@ -398,6 +405,8 @@ class Cite {
 	 * @return-taint tainted
 	 */
 	private function refArg( array $argv ) {
+		global $wgCiteBookReferencing;
+
 		$group = null;
 		$key = null;
 		$follow = null;
@@ -437,6 +446,11 @@ class Cite {
 			// Group given.
 			$group = $argv['group'];
 			unset( $argv['group'] );
+		}
+		if ( $wgCiteBookReferencing && isset( $argv[self::REFINES_ATTRIBUTE] ) ) {
+			// TODO: Extract the name and return it.
+			// $refines = trim( $argv[self::REFINES_ATTRIBUTE] );
+			unset( $argv[self::REFINES_ATTRIBUTE] );
 		}
 
 		if ( $argv !== [] ) {

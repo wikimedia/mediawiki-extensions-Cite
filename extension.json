@@ -104,6 +104,11 @@
 		"cite": "GlobalVarConfig::newInstance"
 	},
 	"config": {
+		"CiteBookReferencing": {
+			"description": "Development feature flag for Book Referencing, a way to nest citations. Please don't enable in production.",
+			"public": true,
+			"value": false
+		},
 		"CiteStoreReferencesData": {
 			"description": "If set to true, references are saved in the database so that other extensions can retrieve them independently of the main article content.",
 			"public": true,

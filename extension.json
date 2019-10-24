@@ -83,20 +83,45 @@
 		"localBasePath": "modules",
 		"remoteExtPath": "Cite/modules"
 	},
-	"VisualEditorPluginModules": [
-		"ext.cite.visualEditor"
-	],
+	"attributes": {
+		"CodeMirror": {
+			"TagModes": {
+				"ref": "text/mediawiki"
+			}
+		},
+		"EventLogging": {
+			"Schemas": {
+				"ReferencePreviewsBaseline": 19414499
+			}
+		},
+		"VisualEditor": {
+			"PluginModules": [
+				"ext.cite.visualEditor"
+			]
+		}
+	},
 	"ConfigRegistry": {
 		"cite": "GlobalVarConfig::newInstance"
 	},
 	"config": {
-		"CiteStoreReferencesData": false,
-		"CiteCacheReferencesDataOnParse": false,
-		"CiteVisualEditorOtherGroup": false,
-		"CiteResponsiveReferences": true
-	},
-	"EventLoggingSchemas": {
-		"ReferencePreviewsBaseline": 19414499
+		"CiteStoreReferencesData": {
+			"description": "If set to true, references are saved in the database so that other extensions can retrieve them independently of the main article content.",
+			"public": true,
+			"value": false
+		},
+		"CiteCacheReferencesDataOnParse": {
+			"description": "Requires $wgCiteStoreReferencesData. By default, references are cached only on database access. If set to true, references are also cached whenever pages are parsed.",
+			"public": true,
+			"value": false
+		},
+		"CiteVisualEditorOtherGroup": {
+			"public": true,
+			"value": false
+		},
+		"CiteResponsiveReferences": {
+			"public": true,
+			"value": true
+		}
 	},
 	"AutoloadClasses": {
 		"ApiQueryReferences": "includes/ApiQueryReferences.php",
@@ -108,8 +133,5 @@
 	"TrackingCategories": [
 		"cite-tracking-category-cite-error"
 	],
-	"CodeMirrorTagModes": {
-		"ref": "text/mediawiki"
-	},
-	"manifest_version": 1
+	"manifest_version": 2
 }

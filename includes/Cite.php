@@ -687,12 +687,8 @@ class Cite {
 
 		$this->mParser = $parser;
 
-		if ( isset( $argv['group'] ) ) {
-			$group = $argv['group'];
-			unset( $argv['group'] );
-		} else {
-			$group = self::DEFAULT_GROUP;
-		}
+		$group = $argv['group'] ?? self::DEFAULT_GROUP;
+		unset( $argv['group'] );
 
 		if ( strval( $str ) !== '' ) {
 			$this->mReferencesGroup = $group;
@@ -963,12 +959,8 @@ class Cite {
 		if ( !isset( $this->mBacklinkLabels ) ) {
 			$this->genBacklinkLabels();
 		}
-		if ( isset( $this->mBacklinkLabels[$offset] ) ) {
-			return $this->mBacklinkLabels[$offset];
-		} else {
-			// Feed me!
-			return $this->plainError( 'cite_error_references_no_backlink_label', null );
-		}
+		return $this->mBacklinkLabels[$offset]
+			?? $this->plainError( 'cite_error_references_no_backlink_label', null );
 	}
 
 	/**
@@ -993,12 +985,8 @@ class Cite {
 			return $label;
 		}
 
-		if ( isset( $this->mLinkLabels[$group][$offset - 1] ) ) {
-			return $this->mLinkLabels[$group][$offset - 1];
-		} else {
-			// Feed me!
-			return $this->plainError( 'cite_error_no_link_label_group', [ $group, $message ] );
-		}
+		return $this->mLinkLabels[$group][$offset - 1]
+			?? $this->plainError( 'cite_error_no_link_label_group', [ $group, $message ] );
 	}
 
 	/**

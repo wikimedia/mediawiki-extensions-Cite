@@ -9,6 +9,34 @@ use MediaWiki\MediaWikiServices;
 class CiteHooks {
 
 	/**
+	 * Did we install us into $wgHooks yet?
+	 * @var bool
+	 */
+	private static $hooksInstalled = false;
+
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit
+	 *
+	 * @param Parser $parser
+	 */
+	public static function onParserFirstCallInit( Parser $parser ) {
+		global $wgHooks;
+
+		$parser->extCite = new Cite();
+
+		if ( !self::$hooksInstalled ) {
+			$wgHooks['ParserClearState'][] = [ $parser->extCite, 'clearState' ];
+			$wgHooks['ParserCloned'][] = [ $parser->extCite, 'cloneState' ];
+			$wgHooks['ParserAfterParse'][] = [ $parser->extCite, 'checkRefsNoReferences', true ];
+			$wgHooks['ParserBeforeTidy'][] = [ $parser->extCite, 'checkRefsNoReferences', false ];
+			self::$hooksInstalled = true;
+		}
+
+		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );
+		$parser->setHook( 'references', [ $parser->extCite, 'references' ] );
+	}
+
+	/**
 	 * Convert the content model of a message that is actually JSON to JSON. This
 	 * only affects validation and UI when saving and editing, not loading the
 	 * content.

@@ -145,7 +145,7 @@ class Cite {
 	 * True when the ParserAfterParse hook has been called.
 	 * Used to avoid doing anything in ParserBeforeTidy.
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	private $mHaveAfterParse = false;
 
@@ -153,7 +153,7 @@ class Cite {
 	 * True when a <ref> tag is being processed.
 	 * Used to avoid infinite recursion
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	public $mInCite = false;
 
@@ -161,7 +161,7 @@ class Cite {
 	 * True when a <references> tag is being processed.
 	 * Used to detect the use of <references> to define refs
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	public $mInReferences = false;
 
@@ -192,12 +192,6 @@ class Cite {
 	 * @var bool
 	 */
 	private $mBumpRefData = false;
-
-	/**
-	 * Did we install us into $wgHooks yet?
-	 * @var Boolean
-	 */
-	private static $hooksInstalled = false;
 
 	/**
 	 * Callback function for <ref>
@@ -1290,27 +1284,6 @@ class Cite {
 		$savedRefs['refs'][$n][$group] = $this->mRefs[$group];
 
 		$this->mParser->getOutput()->setExtensionData( self::EXT_DATA_KEY, $savedRefs );
-	}
-
-	/**
-	 * Initialize the parser hooks
-	 *
-	 * @param Parser $parser
-	 */
-	public static function setHooks( Parser $parser ) {
-		global $wgHooks;
-
-		$parser->extCite = new self();
-
-		if ( !self::$hooksInstalled ) {
-			$wgHooks['ParserClearState'][] = [ $parser->extCite, 'clearState' ];
-			$wgHooks['ParserCloned'][] = [ $parser->extCite, 'cloneState' ];
-			$wgHooks['ParserAfterParse'][] = [ $parser->extCite, 'checkRefsNoReferences', true ];
-			$wgHooks['ParserBeforeTidy'][] = [ $parser->extCite, 'checkRefsNoReferences', false ];
-			self::$hooksInstalled = true;
-		}
-		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );
-		$parser->setHook( 'references', [ $parser->extCite, 'references' ] );
 	}
 
 	/**

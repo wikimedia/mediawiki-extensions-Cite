@@ -344,9 +344,7 @@ class Cite {
 			return $this->error( 'cite_error_ref_no_key' );
 		}
 
-		if ( is_string( $key ) && preg_match( '/^\d+$/', $key ) ||
-			is_string( $follow ) && preg_match( '/^\d+$/', $follow )
-		) {
+		if ( ctype_digit( $key ) || ctype_digit( $follow ) ) {
 			# Numeric names mess up the resulting id's, potentially produ-
 			# cing duplicate id's in the XHTML.  The Right Thing To Do
 			# would be to mangle them, but it's not really high-priority

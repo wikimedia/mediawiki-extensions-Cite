@@ -22,8 +22,15 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IDatabase;
 
 class ApiQueryReferences extends ApiQueryBase {
+
+	/**
+	 * Cache duration when fetching references from the database, in seconds. 18,000 seconds = 5
+	 * hours.
+	 */
+	private const CACHE_DURATION_ONFETCH = 18000;
 
 	/**
 	 * @param ApiQuery $query
@@ -67,7 +74,7 @@ class ApiQueryReferences extends ApiQueryBase {
 			} else {
 				$startId = false;
 			}
-			$storedRefs = Cite::getStoredReferences( $title );
+			$storedRefs = $this->getStoredReferences( $title );
 			$allReferences = [];
 			// some pages may not have references stored
 			if ( $storedRefs !== false ) {
@@ -98,6 +105,87 @@ class ApiQueryReferences extends ApiQueryBase {
 				break;
 			}
 		}
+	}
+
+	/**
+	 * Fetch references stored for the given title in page_props
+	 * For performance, results are cached
+	 *
+	 * @param Title $title
+	 * @return array|false
+	 */
+	private function getStoredReferences( Title $title ) {
+		global $wgCiteStoreReferencesData;
+		if ( !$wgCiteStoreReferencesData ) {
+			return false;
+		}
+
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$key = $cache->makeKey( Cite::EXT_DATA_KEY, $title->getArticleID() );
+		return $cache->getWithSetCallback(
+			$key,
+			self::CACHE_DURATION_ONFETCH,
+			function ( $oldValue, &$ttl, array &$setOpts ) use ( $title ) {
+				$dbr = wfGetDB( DB_REPLICA );
+				$setOpts += Database::getCacheSetOptions( $dbr );
+				return $this->recursiveFetchRefsFromDB( $title, $dbr );
+			},
+			[
+				'checkKeys' => [ $key ],
+				'lockTSE' => 30,
+			]
+		);
+	}
+
+	/**
+	 * Reconstructs compressed json by successively retrieving the properties references-1, -2, etc
+	 * It attempts the next step when a decoding error occurs.
+	 * Returns json_decoded uncompressed string, with validation of json
+	 *
+	 * @param Title $title
+	 * @param IDatabase $dbr
+	 * @param string $string
+	 * @param int $i
+	 * @return array|false
+	 */
+	private function recursiveFetchRefsFromDB(
+		Title $title,
+		IDatabase $dbr,
+		$string = '',
+		$i = 1
+	) {
+		$id = $title->getArticleID();
+		$result = $dbr->selectField(
+			'page_props',
+			'pp_value',
+			[
+				'pp_page' => $id,
+				'pp_propname' => 'references-' . $i
+			],
+			__METHOD__
+		);
+		if ( $result === false ) {
+			// no refs stored in page_props at this index
+			if ( $i > 1 ) {
+				// shouldn't happen
+				wfDebug( "Failed to retrieve stored references for title id $id" );
+			}
+			return false;
+		}
+
+		$string .= $result;
+		$decodedString = gzdecode( $string );
+		if ( $decodedString !== false ) {
+			$json = json_decode( $decodedString, true );
+			if ( json_last_error() === JSON_ERROR_NONE ) {
+				return $json;
+			}
+			// corrupted json ?
+			// shouldn't happen since when string is truncated, gzdecode should fail
+			wfDebug( "Corrupted json detected when retrieving stored references for title id $id" );
+		}
+		// if gzdecode fails, try to fetch next references- property value
+		return $this->recursiveFetchRefsFromDB( $title, $dbr, $string, ++$i );
 	}
 
 	/**

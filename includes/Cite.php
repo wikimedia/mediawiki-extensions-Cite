@@ -1101,16 +1101,15 @@ class Cite {
 	 * @return string
 	 */
 	private function listToText( array $arr ) {
-		$cnt = count( $arr );
-		if ( $cnt === 1 ) {
-			// Enforce always returning a string
-			return (string)$arr[0];
+		$lastElement = array_pop( $arr );
+
+		if ( $arr === [] ) {
+			return (string)$lastElement;
 		}
 
 		$sep = wfMessage( 'cite_references_link_many_sep' )->inContentLanguage()->plain();
 		$and = wfMessage( 'cite_references_link_many_and' )->inContentLanguage()->plain();
-		$t = array_slice( $arr, 0, $cnt - 1 );
-		return implode( $sep, $t ) . $and . $arr[$cnt - 1];
+		return implode( $sep, $arr ) . $and . $lastElement;
 	}
 
 	/**

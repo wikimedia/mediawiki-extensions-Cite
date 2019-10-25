@@ -31,27 +31,13 @@
 		}
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"Cite::setHooks"
-		],
-		"ContentHandlerDefaultModelFor": [
-			"CiteHooks::onContentHandlerDefaultModelFor"
-		],
-		"ResourceLoaderTestModules": [
-			"CiteHooks::onResourceLoaderTestModules"
-		],
-		"ResourceLoaderRegisterModules": [
-			"CiteHooks::onResourceLoaderRegisterModules"
-		],
-		"LinksUpdate": [
-			"CiteHooks::onLinksUpdate"
-		],
-		"LinksUpdateComplete": [
-			"CiteHooks::onLinksUpdateComplete"
-		],
-		"ResourceLoaderGetConfigVars": [
-			"CiteHooks::onResourceLoaderGetConfigVars"
-		],
+		"ParserFirstCallInit": "Cite::setHooks",
+		"ContentHandlerDefaultModelFor": "CiteHooks::onContentHandlerDefaultModelFor",
+		"ResourceLoaderTestModules": "CiteHooks::onResourceLoaderTestModules",
+		"ResourceLoaderRegisterModules": "CiteHooks::onResourceLoaderRegisterModules",
+		"LinksUpdate": "CiteHooks::onLinksUpdate",
+		"LinksUpdateComplete": "CiteHooks::onLinksUpdateComplete",
+		"ResourceLoaderGetConfigVars": "CiteHooks::onResourceLoaderGetConfigVars",
 		"APIQuerySiteInfoGeneralInfo": "CiteHooks::onAPIQuerySiteInfoGeneralInfo"
 	},
 	"ResourceModules": {

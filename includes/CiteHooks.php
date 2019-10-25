@@ -301,10 +301,10 @@ class CiteHooks {
 	 *
 	 * Expose configs via action=query&meta=siteinfo
 	 *
-	 * @param ApiQuerySiteInfo $api
+	 * @param ApiQuerySiteinfo $api
 	 * @param array &$data
 	 */
-	public static function onAPIQuerySiteInfoGeneralInfo( ApiQuerySiteInfo $api, array &$data ) {
+	public static function onAPIQuerySiteInfoGeneralInfo( ApiQuerySiteinfo $api, array &$data ) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'cite' );
 		$data['citeresponsivereferences'] = $config->get( 'CiteResponsiveReferences' );
 	}

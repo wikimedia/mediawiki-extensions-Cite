@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"StanProg"
+		]
+	},
+	"apihelp-query+references-description": "Връщане на данни представящи източниците свързани с дадената страница.",
+	"apihelp-query+references-summary": "Връщане на данни представящи източниците свързани с дадените страници.",
+	"apihelp-query+references-example-1": "Източници свързани с <kbd>Алберт Айнщайн</kbd>.",
+	"apierror-citestoragedisabled": "Хранилището на източници на разширението Cite не е включено."
+}

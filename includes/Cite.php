@@ -448,7 +448,7 @@ class Cite {
 	/**
 	 * Populate $this->mRefs based on input and arguments to <ref>
 	 *
-	 * @param string $str Input from the <ref> tag
+	 * @param string|null $str Content from the <ref> tag
 	 * @param string|null $key Argument to the <ref> tag as returned by $this->refArg()
 	 * @param string $group
 	 * @param string|null $follow

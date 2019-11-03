@@ -319,7 +319,9 @@ class Cite {
 		}
 
 		if ( $key === false ) {
-			# TODO: Comment this case; what does this condition mean?
+			# Invalid attribute in the tag like <ref no_valid_attr="foo" />
+			# or name and follow attribute used both in one tag checked in
+			# Cite::refArg that returns false for the key then.
 			$this->mRefCallStack[] = false;
 			return $this->error( 'cite_error_ref_too_many_keys' );
 		}
@@ -438,7 +440,7 @@ class Cite {
 		}
 
 		if ( $argv !== [] ) {
-			// Invalid key
+			// Unexpected invalid attribute.
 			return [ false, false, false, false ];
 		}
 

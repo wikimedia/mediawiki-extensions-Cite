@@ -3,6 +3,16 @@
 class CiteParserHooks {
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserFirstCallInit
+	 *
+	 * @param Parser $parser
+	 */
+	public static function onParserFirstCallInit( Parser $parser ) {
+		$parser->extCite = new Cite();
+		CiteParserTagHooks::initialize( $parser );
+	}
+
+	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserClearState
 	 *
 	 * @param Parser $parser

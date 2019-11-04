@@ -6,7 +6,6 @@ use Cite;
 use CiteHooks;
 use HashConfig;
 use LinksUpdate;
-use Parser;
 use ParserOutput;
 use ResourceLoader;
 use Title;
@@ -21,23 +20,6 @@ class CiteHooksTest extends \MediaWikiUnitTestCase {
 
 		parent::setUp();
 		$wgCiteStoreReferencesData = true;
-	}
-
-	/**
-	 * @covers ::onParserFirstCallInit
-	 */
-	public function testOnParserFirstCallInit() {
-		$parser = $this->createMock( Parser::class );
-		$parser->expects( $this->exactly( 2 ) )
-			->method( 'setHook' )
-			->withConsecutive(
-				[ 'ref', $this->isType( 'callable' ) ],
-				[ 'references', $this->isType( 'callable' ) ]
-			);
-
-		CiteHooks::onParserFirstCallInit( $parser );
-
-		$this->assertInstanceOf( Cite::class, $parser->extCite );
 	}
 
 	/**

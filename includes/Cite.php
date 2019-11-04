@@ -26,9 +26,6 @@ use MediaWiki\MediaWikiServices;
 
 class Cite {
 
-	/**
-	 * @todo document
-	 */
 	private const DEFAULT_GROUP = '';
 
 	/**
@@ -263,7 +260,6 @@ class Cite {
 				$str = null;
 			} else {
 				$this->mRefCallStack[] = false;
-
 				return $this->error( 'cite_error_ref_no_input' );
 			}
 		}
@@ -503,9 +499,6 @@ class Cite {
 		}
 
 		if ( $key === null ) {
-			// No key
-			// $this->mRefs[$group][] = $str;
-
 			$this->mRefs[$group][] = [
 				'count' => -1,
 				'text' => $str,
@@ -854,7 +847,6 @@ class Cite {
 						self::getReferencesKey( $val['key'] )
 					),
 					$this->normalizeKey(
-						# $this->refKey( $val['key'], $val['count'] )
 						$this->refKey( $val['key'] )
 					),
 					$text,
@@ -872,7 +864,6 @@ class Cite {
 						self::getReferencesKey( $key . "-" . $val['key'] )
 					),
 					$this->normalizeKey(
-						# $this->refKey( $key, $val['count'] ),
 						$this->refKey( $key, $val['key'] . "-" . $val['count'] )
 					),
 					$text,

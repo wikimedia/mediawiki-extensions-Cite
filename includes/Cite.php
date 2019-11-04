@@ -240,11 +240,7 @@ class Cite {
 		}
 		# Split these into groups.
 		if ( $group === null ) {
-			if ( $this->mInReferences ) {
-				$group = $this->mReferencesGroup;
-			} else {
-				$group = self::DEFAULT_GROUP;
-			}
+			$group = $this->mInReferences ? $this->mReferencesGroup : self::DEFAULT_GROUP;
 		}
 
 		if ( $this->mInReferences ) {
@@ -601,13 +597,10 @@ class Cite {
 		}
 
 		// Sanity checks that specified element exists.
-		if ( $key === null ) {
-			return;
-		}
-		if ( !isset( $this->mRefs[$group][$key] ) ) {
-			return;
-		}
-		if ( $this->mRefs[$group][$key]['key'] != $index ) {
+		if ( $key === null ||
+			!isset( $this->mRefs[$group][$key] ) ||
+			$this->mRefs[$group][$key]['key'] !== $index
+		) {
 			return;
 		}
 
@@ -757,7 +750,7 @@ class Cite {
 	 * @return string HTML ready for output
 	 */
 	private function referencesFormat( $group, $responsive ) {
-		if ( !$this->mRefs || !isset( $this->mRefs[$group] ) ) {
+		if ( !isset( $this->mRefs[$group] ) ) {
 			return '';
 		}
 

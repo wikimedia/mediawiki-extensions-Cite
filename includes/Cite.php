@@ -250,58 +250,8 @@ class Cite {
 			}
 		}
 
-		/*
-		 * This section deals with constructions of the form
-		 *
-		 * <references>
-		 * <ref name="foo"> BAR </ref>
-		 * </references>
-		 */
 		if ( $this->mInReferences ) {
-			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
-			if ( $group != $this->mReferencesGroup ) {
-				# <ref> and <references> have conflicting group attributes.
-				$this->mReferencesErrors[] =
-					$this->error(
-						'cite_error_references_group_mismatch',
-						Sanitizer::safeEncodeAttribute( $group )
-					);
-			} elseif ( $str !== '' ) {
-				if ( !$isSectionPreview && !isset( $this->mRefs[$group] ) ) {
-					# Called with group attribute not defined in text.
-					$this->mReferencesErrors[] =
-						$this->error(
-							'cite_error_references_missing_group',
-							Sanitizer::safeEncodeAttribute( $group )
-						);
-				} elseif ( $key === null || $key === '' ) {
-					# <ref> calls inside <references> must be named
-					$this->mReferencesErrors[] =
-						$this->error( 'cite_error_references_no_key' );
-				} elseif ( !$isSectionPreview && !isset( $this->mRefs[$group][$key] ) ) {
-					# Called with name attribute not defined in text.
-					$this->mReferencesErrors[] =
-						$this->error( 'cite_error_references_missing_key', Sanitizer::safeEncodeAttribute( $key ) );
-				} else {
-					if (
-						isset( $this->mRefs[$group][$key]['text'] ) &&
-						$str !== $this->mRefs[$group][$key]['text']
-					) {
-						// two refs with same key and different content
-						// add error message to the original ref
-						$this->mRefs[$group][$key]['text'] .= ' ' . $this->plainError(
-							'cite_error_references_duplicate_key', $key
-						);
-					} else {
-						# Assign the text to corresponding ref
-						$this->mRefs[$group][$key]['text'] = $str;
-					}
-				}
-			} else {
-				# <ref> called in <references> has no content.
-				$this->mReferencesErrors[] =
-					$this->error( 'cite_error_empty_references_define', Sanitizer::safeEncodeAttribute( $key ) );
-			}
+			$this->inReferencesGuardedRef( $key, $str, $group, $parser );
 			return '';
 		}
 
@@ -374,6 +324,64 @@ class Cite {
 		# Not clear how we could get here, but something is probably
 		# wrong with the types.  Let's fail fast.
 		throw new Exception( 'Invalid $str and/or $key: ' . serialize( [ $str, $key ] ) );
+	}
+
+	/**
+	 * Deals with references defined in the reference section
+	 * <references>
+	 * <ref name="foo"> BAR </ref>
+	 * </references>
+	 *
+	 * @param $key
+	 * @param $str
+	 * @param string $group
+	 * @param Parser $parser
+	 */
+	private function inReferencesGuardedRef( $key, $str, $group, Parser $parser ) {
+		$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+		if ( $group != $this->mReferencesGroup ) {
+			# <ref> and <references> have conflicting group attributes.
+			$this->mReferencesErrors[] =
+				$this->error(
+					'cite_error_references_group_mismatch',
+					Sanitizer::safeEncodeAttribute( $group )
+				);
+		} elseif ( $str !== '' ) {
+			if ( !$isSectionPreview && !isset( $this->mRefs[$group] ) ) {
+				# Called with group attribute not defined in text.
+				$this->mReferencesErrors[] =
+					$this->error(
+						'cite_error_references_missing_group',
+						Sanitizer::safeEncodeAttribute( $group )
+					);
+			} elseif ( $key === null || $key === '' ) {
+				# <ref> calls inside <references> must be named
+				$this->mReferencesErrors[] =
+					$this->error( 'cite_error_references_no_key' );
+			} elseif ( !$isSectionPreview && !isset( $this->mRefs[$group][$key] ) ) {
+				# Called with name attribute not defined in text.
+				$this->mReferencesErrors[] =
+					$this->error( 'cite_error_references_missing_key', Sanitizer::safeEncodeAttribute( $key ) );
+			} else {
+				if (
+					isset( $this->mRefs[$group][$key]['text'] ) &&
+					$str !== $this->mRefs[$group][$key]['text']
+				) {
+					// two refs with same key and different content
+					// add error message to the original ref
+					$this->mRefs[$group][$key]['text'] .= ' ' . $this->plainError(
+							'cite_error_references_duplicate_key', $key
+						);
+				} else {
+					# Assign the text to corresponding ref
+					$this->mRefs[$group][$key]['text'] = $str;
+				}
+			}
+		} else {
+			# <ref> called in <references> has no content.
+			$this->mReferencesErrors[] =
+				$this->error( 'cite_error_empty_references_define', Sanitizer::safeEncodeAttribute( $key ) );
+		}
 	}
 
 	/**

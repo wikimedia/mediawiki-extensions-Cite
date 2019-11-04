@@ -1144,8 +1144,8 @@ class Cite {
 		}
 
 		$parser->extCite = clone $this;
-		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );
-		$parser->setHook( 'references', [ $parser->extCite, 'references' ] );
+		$parser->setHook( 'ref', 'CiteParserTagHooks::ref' );
+		$parser->setHook( 'references', 'CiteParserTagHooks::references' );
 
 		// Clear the state, making sure it will actually work.
 		$parser->extCite->mInCite = false;

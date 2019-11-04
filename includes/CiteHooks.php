@@ -25,15 +25,15 @@ class CiteHooks {
 		$parser->extCite = new Cite();
 
 		if ( !self::$hooksInstalled ) {
-			$wgHooks['ParserClearState'][] = [ $parser->extCite, 'clearState' ];
-			$wgHooks['ParserCloned'][] = [ $parser->extCite, 'cloneState' ];
-			$wgHooks['ParserAfterParse'][] = [ $parser->extCite, 'checkRefsNoReferences', true ];
-			$wgHooks['ParserBeforeTidy'][] = [ $parser->extCite, 'checkRefsNoReferences', false ];
+			$wgHooks['ParserClearState'][] = 'CiteParserHooks::onParserClearState';
+			$wgHooks['ParserCloned'][] = 'CiteParserHooks::onParserCloned';
+			$wgHooks['ParserAfterParse'][] = 'CiteParserHooks::onParserAfterParse';
+			$wgHooks['ParserBeforeTidy'][] = 'CiteParserHooks::onParserBeforeTidy';
 			self::$hooksInstalled = true;
 		}
 
-		$parser->setHook( 'ref', [ $parser->extCite, 'ref' ] );
-		$parser->setHook( 'references', [ $parser->extCite, 'references' ] );
+		$parser->setHook( 'ref', 'CiteParserTagHooks::ref' );
+		$parser->setHook( 'references', 'CiteParserTagHooks::references' );
 	}
 
 	/**

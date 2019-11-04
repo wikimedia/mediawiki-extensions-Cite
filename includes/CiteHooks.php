@@ -4,6 +4,7 @@
  * @license MIT
  */
 
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 
 class CiteHooks {
@@ -43,7 +44,7 @@ class CiteHooks {
 	 * @param Title $title
 	 * @param string &$model
 	 */
-	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
+	public static function onContentHandlerDefaultModelFor( LinkTarget $title, &$model ) {
 		if (
 			$title->inNamespace( NS_MEDIAWIKI ) &&
 			(

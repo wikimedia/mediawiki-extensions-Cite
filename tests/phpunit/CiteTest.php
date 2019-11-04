@@ -86,6 +86,8 @@ class CiteTest extends MediaWikiTestCase {
 		$mockParser = $this->createMock( Parser::class );
 		$mockParser->method( 'getOutput' )
 			->willReturn( $mockOutput );
+		$mockParser->method( 'getStripState' )
+			->willReturn( $this->createMock( StripState::class ) );
 
 		$mockOutput->expects( $this->once() )
 			->method( 'setProperty' )

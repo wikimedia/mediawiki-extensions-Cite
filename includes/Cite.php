@@ -255,7 +255,8 @@ class Cite {
 		}
 
 		if ( $this->mInReferences ) {
-			$this->inReferencesGuardedRef( $key, $text, $group, $parser );
+			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+			$this->inReferencesGuardedRef( $key, $text, $group, $isSectionPreview );
 			return '';
 		}
 
@@ -321,7 +322,7 @@ class Cite {
 			# we'll figure that out later.  Likewise it's definitely valid
 			# if there's any content, regardless of key.
 
-			return $this->stack( $text, $key, $group, $follow, $argv, $dir, $parser );
+			return $this->stack( $text, $key, $group, $follow, $argv, $dir, $parser->getStripState() );
 		}
 
 		# Not clear how we could get here, but something is probably
@@ -338,10 +339,9 @@ class Cite {
 	 * @param string|false|null $key
 	 * @param string|null $text Content from the <ref> tag
 	 * @param string $group
-	 * @param Parser $parser
+	 * @param bool $isSectionPreview
 	 */
-	private function inReferencesGuardedRef( $key, $text, $group, Parser $parser ) {
-		$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+	private function inReferencesGuardedRef( $key, $text, $group, $isSectionPreview ) {
 		if ( $group != $this->mReferencesGroup ) {
 			# <ref> and <references> have conflicting group attributes.
 			$this->mReferencesErrors[] =
@@ -469,12 +469,12 @@ class Cite {
 	 * @param string|null $follow
 	 * @param string[] $call
 	 * @param string $dir ref direction
-	 * @param Parser $parser
+	 * @param StripState $stripState
 	 *
 	 * @throws Exception
 	 * @return string
 	 */
-	private function stack( $text, $key, $group, $follow, array $call, $dir, Parser $parser ) {
+	private function stack( $text, $key, $group, $follow, array $call, $dir, StripState $stripState ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = [];
 		}
@@ -553,8 +553,8 @@ class Cite {
 		} else {
 			if ( $text != null && $text !== ''
 				// T205803 different strip markers might hide the same text
-				&& $parser->mStripState->unstripBoth( $text )
-					!== $parser->mStripState->unstripBoth( $this->mRefs[$group][$key]['text'] )
+				&& $stripState->unstripBoth( $text )
+					!== $stripState->unstripBoth( $this->mRefs[$group][$key]['text'] )
 			) {
 				// two refs with same key and different text
 				// add error message to the original ref

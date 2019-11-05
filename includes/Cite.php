@@ -185,22 +185,22 @@ class Cite {
 	/**
 	 * Callback function for <ref>
 	 *
-	 * @param string|null $str Raw content of the <ref> tag.
+	 * @param string|null $text Raw content of the <ref> tag.
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 *
 	 * @return string
 	 */
-	public function ref( $str, array $argv, Parser $parser, PPFrame $frame ) {
+	public function ref( $text, array $argv, Parser $parser, PPFrame $frame ) {
 		if ( $this->mInCite ) {
-			return htmlspecialchars( "<ref>$str</ref>" );
+			return htmlspecialchars( "<ref>$text</ref>" );
 		}
 
 		$this->mCallCnt++;
 		$this->mInCite = true;
 
-		$ret = $this->guardedRef( $str, $argv, $parser );
+		$ret = $this->guardedRef( $text, $argv, $parser );
 
 		$this->mInCite = false;
 
@@ -218,7 +218,7 @@ class Cite {
 	}
 
 	/**
-	 * @param string|null $str Raw content of the <ref> tag.
+	 * @param string|null $text Raw content of the <ref> tag.
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
 	 *
@@ -226,7 +226,7 @@ class Cite {
 	 * @return string
 	 */
 	private function guardedRef(
-		$str,
+		$text,
 		array $argv,
 		Parser $parser
 	) {
@@ -235,8 +235,8 @@ class Cite {
 		# The key here is the "name" attribute.
 		list( $key, $group, $follow, $dir ) = $this->refArg( $argv );
 		// empty string indicate invalid dir
-		if ( $dir === '' && $str !== '' ) {
-			$str .= $this->plainError( 'cite_error_ref_invalid_dir', $argv['dir'] );
+		if ( $dir === '' && $text !== '' ) {
+			$text .= $this->plainError( 'cite_error_ref_invalid_dir', $argv['dir'] );
 		}
 		# Split these into groups.
 		if ( $group === null ) {
@@ -244,16 +244,16 @@ class Cite {
 		}
 
 		if ( $this->mInReferences ) {
-			$this->inReferencesGuardedRef( $key, $str, $group, $parser );
+			$this->inReferencesGuardedRef( $key, $text, $group, $parser );
 			return '';
 		}
 
-		if ( $str === '' ) {
+		if ( $text === '' ) {
 			# <ref ...></ref>.  This construct is  invalid if
 			# it's a contentful ref, but OK if it's a named duplicate and should
 			# be equivalent <ref ... />, for compatability with #tag.
 			if ( is_string( $key ) && $key !== '' ) {
-				$str = null;
+				$text = null;
 			} else {
 				$this->mRefCallStack[] = false;
 				return $this->error( 'cite_error_ref_no_input' );
@@ -268,7 +268,7 @@ class Cite {
 			return $this->error( 'cite_error_ref_too_many_keys' );
 		}
 
-		if ( $str === null && $key === null ) {
+		if ( $text === null && $key === null ) {
 			# Something like <ref />; this makes no sense.
 			$this->mRefCallStack[] = false;
 			return $this->error( 'cite_error_ref_no_key' );
@@ -286,7 +286,7 @@ class Cite {
 
 		if ( preg_match(
 			'/<ref\b[^<]*?>/',
-			preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $str )
+			preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $text )
 		) ) {
 			# (bug T8199) This most likely implies that someone left off the
 			# closing </ref> tag, which will cause the entire article to be
@@ -303,19 +303,19 @@ class Cite {
 			return $this->error( 'cite_error_included_ref' );
 		}
 
-		if ( is_string( $key ) || is_string( $str ) ) {
+		if ( is_string( $key ) || is_string( $text ) ) {
 			# We don't care about the content: if the key exists, the ref
 			# is presumptively valid.  Either it stores a new ref, or re-
 			# fers to an existing one.  If it refers to a nonexistent ref,
 			# we'll figure that out later.  Likewise it's definitely valid
 			# if there's any content, regardless of key.
 
-			return $this->stack( $str, $key, $group, $follow, $argv, $dir, $parser );
+			return $this->stack( $text, $key, $group, $follow, $argv, $dir, $parser );
 		}
 
 		# Not clear how we could get here, but something is probably
 		# wrong with the types.  Let's fail fast.
-		throw new Exception( 'Invalid $str and/or $key: ' . serialize( [ $str, $key ] ) );
+		throw new Exception( 'Invalid $text and/or $key: ' . serialize( [ $text, $key ] ) );
 	}
 
 	/**
@@ -325,11 +325,11 @@ class Cite {
 	 * </references>
 	 *
 	 * @param $key
-	 * @param $str
+	 * @param $text Content from the <ref> tag
 	 * @param string $group
 	 * @param Parser $parser
 	 */
-	private function inReferencesGuardedRef( $key, $str, $group, Parser $parser ) {
+	private function inReferencesGuardedRef( $key, $text, $group, Parser $parser ) {
 		$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		if ( $group != $this->mReferencesGroup ) {
 			# <ref> and <references> have conflicting group attributes.
@@ -338,7 +338,7 @@ class Cite {
 					'cite_error_references_group_mismatch',
 					Sanitizer::safeEncodeAttribute( $group )
 				);
-		} elseif ( $str !== '' ) {
+		} elseif ( $text !== '' ) {
 			if ( !$isSectionPreview && !isset( $this->mRefs[$group] ) ) {
 				# Called with group attribute not defined in text.
 				$this->mReferencesErrors[] =
@@ -357,7 +357,7 @@ class Cite {
 			} else {
 				if (
 					isset( $this->mRefs[$group][$key]['text'] ) &&
-					$str !== $this->mRefs[$group][$key]['text']
+					$text !== $this->mRefs[$group][$key]['text']
 				) {
 					// two refs with same key and different content
 					// add error message to the original ref
@@ -366,7 +366,7 @@ class Cite {
 						);
 				} else {
 					# Assign the text to corresponding ref
-					$this->mRefs[$group][$key]['text'] = $str;
+					$this->mRefs[$group][$key]['text'] = $text;
 				}
 			}
 		} else {
@@ -450,7 +450,7 @@ class Cite {
 	/**
 	 * Populate $this->mRefs based on input and arguments to <ref>
 	 *
-	 * @param string|null $str Content from the <ref> tag
+	 * @param string|null $text Content from the <ref> tag
 	 * @param string|null $key Argument to the <ref> tag as returned by $this->refArg()
 	 * @param string $group
 	 * @param string|null $follow
@@ -461,7 +461,7 @@ class Cite {
 	 * @throws Exception
 	 * @return string
 	 */
-	private function stack( $str, $key, $group, $follow, array $call, $dir, Parser $parser ) {
+	private function stack( $text, $key, $group, $follow, array $call, $dir, Parser $parser ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = [];
 		}
@@ -471,7 +471,7 @@ class Cite {
 		if ( $follow != null ) {
 			if ( isset( $this->mRefs[$group][$follow] ) && is_array( $this->mRefs[$group][$follow] ) ) {
 				// add text to the note that is being followed
-				$this->mRefs[$group][$follow]['text'] .= ' ' . $str;
+				$this->mRefs[$group][$follow]['text'] .= ' ' . $text;
 			} else {
 				// insert part of note at the beginning of the group
 				$groupsCount = count( $this->mRefs[$group] );
@@ -482,13 +482,13 @@ class Cite {
 				}
 				array_splice( $this->mRefs[$group], $k, 0, [ [
 					'count' => -1,
-					'text' => $str,
+					'text' => $text,
 					'key' => ++$this->mOutCnt,
 					'follow' => $follow,
 					'dir' => $dir
 				] ] );
 				array_splice( $this->mRefCallStack, $k, 0,
-					[ [ 'new', $call, $str, $key, $group, $this->mOutCnt ] ] );
+					[ [ 'new', $call, $text, $key, $group, $this->mOutCnt ] ] );
 			}
 			// return an empty string : this is not a reference
 			return '';
@@ -497,11 +497,11 @@ class Cite {
 		if ( $key === null ) {
 			$this->mRefs[$group][] = [
 				'count' => -1,
-				'text' => $str,
+				'text' => $text,
 				'key' => ++$this->mOutCnt,
 				'dir' => $dir
 			];
-			$this->mRefCallStack[] = [ 'new', $call, $str, $key, $group, $this->mOutCnt ];
+			$this->mRefCallStack[] = [ 'new', $call, $text, $key, $group, $this->mOutCnt ];
 
 			return $this->linkRef( $group, $this->mOutCnt );
 		}
@@ -512,13 +512,13 @@ class Cite {
 		// Valid key with first occurrence
 		if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
 			$this->mRefs[$group][$key] = [
-				'text' => $str,
+				'text' => $text,
 				'count' => 0,
 				'key' => ++$this->mOutCnt,
 				'number' => ++$this->mGroupCnt[$group],
 				'dir' => $dir
 			];
-			$this->mRefCallStack[] = [ 'new', $call, $str, $key, $group, $this->mOutCnt ];
+			$this->mRefCallStack[] = [ 'new', $call, $text, $key, $group, $this->mOutCnt ];
 
 			return $this->linkRef(
 				$group,
@@ -530,17 +530,17 @@ class Cite {
 		}
 
 		// Valid key that is already known
-		if ( $this->mRefs[$group][$key]['text'] === null && $str !== '' ) {
+		if ( $this->mRefs[$group][$key]['text'] === null && $text !== '' ) {
 			// If no text was set before, use this text
-			$this->mRefs[$group][$key]['text'] = $str;
+			$this->mRefs[$group][$key]['text'] = $text;
 			// Use the dir parameter only from the full definition of a named ref tag
 			$this->mRefs[$group][$key]['dir'] = $dir;
-			$this->mRefCallStack[] = [ 'assign', $call, $str, $key, $group,
+			$this->mRefCallStack[] = [ 'assign', $call, $text, $key, $group,
 				$this->mRefs[$group][$key]['key'] ];
 		} else {
-			if ( $str != null && $str !== ''
+			if ( $text != null && $text !== ''
 				// T205803 different strip markers might hide the same text
-				&& $parser->mStripState->unstripBoth( $str )
+				&& $parser->mStripState->unstripBoth( $text )
 					!== $parser->mStripState->unstripBoth( $this->mRefs[$group][$key]['text'] )
 			) {
 				// two refs with same key and different text
@@ -549,7 +549,7 @@ class Cite {
 					'cite_error_references_duplicate_key', $key
 				);
 			}
-			$this->mRefCallStack[] = [ 'increment', $call, $str, $key, $group,
+			$this->mRefCallStack[] = [ 'increment', $call, $text, $key, $group,
 				$this->mRefs[$group][$key]['key'] ];
 		}
 		return $this->linkRef(
@@ -627,23 +627,23 @@ class Cite {
 	/**
 	 * Callback function for <references>
 	 *
-	 * @param string|null $str Raw content of the <references> tag.
+	 * @param string|null $text Raw content of the <references> tag.
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 *
 	 * @return string
 	 */
-	public function references( $str, array $argv, Parser $parser, PPFrame $frame ) {
+	public function references( $text, array $argv, Parser $parser, PPFrame $frame ) {
 		if ( $this->mInCite || $this->mInReferences ) {
-			if ( $str === null ) {
+			if ( $text === null ) {
 				return htmlspecialchars( "<references/>" );
 			}
-			return htmlspecialchars( "<references>$str</references>" );
+			return htmlspecialchars( "<references>$text</references>" );
 		}
 		$this->mCallCnt++;
 		$this->mInReferences = true;
-		$ret = $this->guardedReferences( $str, $argv, $parser );
+		$ret = $this->guardedReferences( $text, $argv, $parser );
 		$this->mInReferences = false;
 		$frame->setVolatile();
 		return $ret;
@@ -652,14 +652,14 @@ class Cite {
 	/**
 	 * Must only be called from references(). Use that to prevent recursion.
 	 *
-	 * @param string|null $str Raw content of the <references> tag.
+	 * @param string|null $text Raw content of the <references> tag.
 	 * @param string[] $argv
 	 * @param Parser $parser
 	 *
 	 * @return string
 	 */
 	private function guardedReferences(
-		$str,
+		$text,
 		array $argv,
 		Parser $parser
 	) {
@@ -670,7 +670,7 @@ class Cite {
 		$group = $argv['group'] ?? self::DEFAULT_GROUP;
 		unset( $argv['group'] );
 
-		if ( strval( $str ) !== '' ) {
+		if ( strval( $text ) !== '' ) {
 			$this->mReferencesGroup = $group;
 
 			# Detect whether we were sent already rendered <ref>s.
@@ -682,7 +682,7 @@ class Cite {
 			# that some unusual combination of #tag, <references> and
 			# conditional parser functions could be created that would
 			# lead to malformed references here.
-			$count = substr_count( $str, Parser::MARKER_PREFIX . "-ref-" );
+			$count = substr_count( $text, Parser::MARKER_PREFIX . "-ref-" );
 			$redoStack = [];
 
 			# Undo effects of calling <ref> while unaware of containing <references>
@@ -694,7 +694,7 @@ class Cite {
 				$call = array_pop( $this->mRefCallStack );
 				$redoStack[] = $call;
 				if ( $call !== false ) {
-					list( $type, $ref_argv, $ref_str,
+					list( $type, $ref_argv, $ref_text,
 						$ref_key, $ref_group, $ref_index ) = $call;
 					$this->rollbackRef( $type, $ref_key, $ref_group, $ref_index );
 				}
@@ -704,14 +704,14 @@ class Cite {
 			for ( $i = count( $redoStack ) - 1; $i >= 0; $i-- ) {
 				$call = $redoStack[$i];
 				if ( $call !== false ) {
-					list( $type, $ref_argv, $ref_str,
+					list( $type, $ref_argv, $ref_text,
 						$ref_key, $ref_group, $ref_index ) = $call;
-					$this->guardedRef( $ref_str, $ref_argv, $parser );
+					$this->guardedRef( $ref_text, $ref_argv, $parser );
 				}
 			}
 
-			# Parse $str to process any unparsed <ref> tags.
-			$parser->recursiveTagParse( $str );
+			# Parse $text to process any unparsed <ref> tags.
+			$parser->recursiveTagParse( $text );
 
 			# Reset call stack
 			$this->mRefCallStack = [];

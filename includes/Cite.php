@@ -324,8 +324,8 @@ class Cite {
 	 * <ref name="foo"> BAR </ref>
 	 * </references>
 	 *
-	 * @param $key
-	 * @param $text Content from the <ref> tag
+	 * @param string|false|null $key
+	 * @param string|null $text Content from the <ref> tag
 	 * @param string $group
 	 * @param Parser $parser
 	 */

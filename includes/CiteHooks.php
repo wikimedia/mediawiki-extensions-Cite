@@ -60,7 +60,7 @@ class CiteHooks {
 	 * Conditionally register the unit testing module for the ext.cite.visualEditor module
 	 * only if that module is loaded
 	 *
-	 * @param array &$testModules The array of registered test modules
+	 * @param array[] &$testModules The array of registered test modules
 	 * @param ResourceLoader $resourceLoader
 	 */
 	public static function onResourceLoaderTestModules(

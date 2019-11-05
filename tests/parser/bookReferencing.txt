@@ -416,9 +416,11 @@ wgCiteBookReferencing=true
 <references />
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+invalid names, e.g. too many</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book 1 huh?</span>
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book 1</span>
 </li>
 </ol></div>
 !! end
@@ -437,9 +439,11 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 <sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+invalid names, e.g. too many</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book 1 huh?</span>
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book 1</span>
 </li>
 <li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">book 2</span>
 </li>

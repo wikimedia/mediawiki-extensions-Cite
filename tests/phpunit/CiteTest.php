@@ -43,7 +43,7 @@ class CiteTest extends MediaWikiTestCase {
 			// Pairs
 			[ [ 'follow' => 'f', 'name' => 'n' ], [ false, false, false, false, false ] ],
 			[ [ 'follow' => null, 'name' => null ], [ false, false, false, false, false ] ],
-			[ [ 'follow' => 'f', 'refines' => 'r' ], [ null, null, 'f', null, 'r' ] ],
+			[ [ 'follow' => 'f', 'refines' => 'r' ], [ false, false, false, false, false ] ],
 			[ [ 'group' => 'g', 'name' => 'n' ], [ 'n', 'g', null, null, null ] ],
 
 			// Combinations of 3 or more attributes

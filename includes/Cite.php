@@ -415,7 +415,9 @@ class Cite {
 			return [ null, null, false, $dir, null ];
 		}
 
-		if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
+		if ( isset( $argv['follow'] ) &&
+			( isset( $argv['name'] ) || isset( $argv[self::REFINES_ATTRIBUTE] ) )
+		) {
 			return [ false, false, false, false, false ];
 		}
 

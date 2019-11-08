@@ -1,0 +1,127 @@
+!! test
+Refines tag rejected by default
+!! config
+wgCiteBookReferencing=false
+!! wikitext
+<ref name="parent">[foo]</ref>
+<ref refines="parent">[bar]</ref>
+!! html/php
+<p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+</p>
+invalid names, e.g. too many</span><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-parent-1"><span class="mw-cite-backlink"><a href="#cite_ref-parent_1-0">↑</a></span> <span class="reference-text">[foo]</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+T236256 - Cant reuse a name for 2 refinements
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a">book</ref>
+<ref refines="a" name="b">page 2</ref>
+<ref refines="a" name="b">page 3</ref>
+<references />
+!! html/php
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup>
+<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
+</li>
+<li id="cite_note-b-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-b_2-0">2.0</a></sup> <sup><a href="#cite_ref-b_2-1">2.1</a></sup></span> <span class="reference-text">page 2 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span></span>
+</li>
+</ol></div>
+!! end
+
+!! test
+T236256 - Named reference without text
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a" />
+<ref refines="a">page 1</ref>
+!! html/php
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+</p>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>a</code></span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+T236256 - Reference with the same name defined twice
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a">book</ref>
+<ref name="a">magazine</ref>
+<ref refines="a">page 1</ref>
+!! html/php
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+</p>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+T236256 - No text for a refinement
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="foo">book</ref>
+<ref refines="foo" />
+!! html/php
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+</p>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</span><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">book</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+T236256 - Empty text for a refinement
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="foo">book</ref>
+<ref refines="foo"></ref>
+!! html/php
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+</p>
+refs with no name must have content</span><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">book</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+T236256 - De-facto empty text for a refinement
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="foo">book</ref>
+<ref refines="foo"> </ref>
+!! html/php
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+</p>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">book</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"> </span>
+</li>
+</ol></div>
+!! end

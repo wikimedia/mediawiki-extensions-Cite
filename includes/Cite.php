@@ -233,7 +233,7 @@ class Cite {
 		$this->mParser = $parser;
 
 		# The key here is the "name" attribute.
-		list( $key, $group, $follow, $dir ) = $this->refArg( $argv );
+		list( $key, $group, $follow, $dir, $refines ) = $this->refArg( $argv );
 		// empty string indicate invalid dir
 		if ( $dir === '' && $text !== '' ) {
 			$text .= $this->plainError( 'cite_error_ref_invalid_dir', $argv['dir'] );
@@ -397,6 +397,7 @@ class Cite {
 		$key = null;
 		$follow = null;
 		$dir = null;
+		$refines = null;
 
 		if ( isset( $argv['dir'] ) ) {
 			// compare the dir attribute value against an explicit whitelist.
@@ -411,11 +412,11 @@ class Cite {
 
 		if ( $argv === [] ) {
 			// No key
-			return [ null, null, false, $dir ];
+			return [ null, null, false, $dir, null ];
 		}
 
 		if ( isset( $argv['name'] ) && isset( $argv['follow'] ) ) {
-			return [ false, false, false, false ];
+			return [ false, false, false, false, false ];
 		}
 
 		if ( isset( $argv['name'] ) ) {
@@ -434,17 +435,16 @@ class Cite {
 			unset( $argv['group'] );
 		}
 		if ( $wgCiteBookReferencing && isset( $argv[self::REFINES_ATTRIBUTE] ) ) {
-			// TODO: Extract the name and return it.
-			// $refines = trim( $argv[self::REFINES_ATTRIBUTE] );
+			$refines = trim( $argv[self::REFINES_ATTRIBUTE] );
 			unset( $argv[self::REFINES_ATTRIBUTE] );
 		}
 
 		if ( $argv !== [] ) {
 			// Unexpected invalid attribute.
-			return [ false, false, false, false ];
+			return [ false, false, false, false, false ];
 		}
 
-		return [ $key, $group, $follow, $dir ];
+		return [ $key, $group, $follow, $dir, $refines ];
 	}
 
 	/**

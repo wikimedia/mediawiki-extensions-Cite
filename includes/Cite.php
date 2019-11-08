@@ -57,6 +57,11 @@ class Cite {
 	public const REFINES_ATTRIBUTE = 'refines';
 
 	/**
+	 * Page property key for the Book Referencing `extends` attribute.
+	 */
+	public const BOOK_REF_PROPERTY = 'ref-extends';
+
+	/**
 	 * Datastructure representing <ref> input, in the format of:
 	 * <code>
 	 * [
@@ -241,6 +246,12 @@ class Cite {
 		# Split these into groups.
 		if ( $group === null ) {
 			$group = $this->mInReferences ? $this->mReferencesGroup : self::DEFAULT_GROUP;
+		}
+
+		// Tag every page where Book Referencing has been used.  This code and the properties
+		// will be removed once the feature is stable.  See T237531.
+		if ( $refines ) {
+			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
 		if ( $this->mInReferences ) {

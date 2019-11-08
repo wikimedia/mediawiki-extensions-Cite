@@ -77,4 +77,23 @@ class CiteTest extends MediaWikiTestCase {
 		];
 	}
 
+	/**
+	 * @covers ::ref
+	 */
+	public function testRef_pageProperty() {
+		$mockOutput = $this->createMock( ParserOutput::class );
+		$mockPPframe = $this->createMock( PPFrame::class );
+		$mockParser = $this->createMock( Parser::class );
+		$mockParser->method( 'getOutput' )
+			->willReturn( $mockOutput );
+
+		$mockOutput->expects( $this->once() )
+			->method( 'setProperty' )
+			->with( $this->equalTo( Cite::BOOK_REF_PROPERTY ), $this->equalTo( true ) );
+
+		$cite = new Cite();
+		$cite->ref( 'contentA', [ 'name' => 'a' ], $mockParser, $mockPPframe );
+		$cite->ref( 'contentB', [ Cite::REFINES_ATTRIBUTE => 'a' ], $mockParser, $mockPPframe );
+	}
+
 }

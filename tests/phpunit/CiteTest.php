@@ -28,28 +28,28 @@ class CiteTest extends MediaWikiTestCase {
 
 	public function provideRefAttributes() {
 		return [
-			[ [], [ null, null, false, null ] ],
+			[ [], [ null, null, false, null, null ] ],
 
 			// One attribute only
-			[ [ 'dir' => 'invalid' ], [ null, null, false, '' ] ],
-			[ [ 'dir' => 'rtl' ], [ null, null, false, ' class="mw-cite-dir-rtl"' ] ],
-			[ [ 'follow' => 'f' ], [ null, null, 'f', null ] ],
-			[ [ 'group' => 'g' ], [ null, 'g', null, null ] ],
-			[ [ 'invalid' => 'i' ], [ false, false, false, false ] ],
-			[ [ 'name' => 'n' ], [ 'n', null, null, null ] ],
-			[ [ 'name' => null ], [ false, false, false, false ] ],
-			[ [ 'refines' => 'r' ], [ null, null, null, null ] ],
+			[ [ 'dir' => 'invalid' ], [ null, null, false, '', null ] ],
+			[ [ 'dir' => 'rtl' ], [ null, null, false, ' class="mw-cite-dir-rtl"', null ] ],
+			[ [ 'follow' => 'f' ], [ null, null, 'f', null, null ] ],
+			[ [ 'group' => 'g' ], [ null, 'g', null, null, null ] ],
+			[ [ 'invalid' => 'i' ], [ false, false, false, false, false ] ],
+			[ [ 'name' => 'n' ], [ 'n', null, null, null, null ] ],
+			[ [ 'name' => null ], [ false, false, false, false, false ] ],
+			[ [ 'refines' => 'r' ], [ null, null, null, null, 'r' ] ],
 
 			// Pairs
-			[ [ 'follow' => 'f', 'name' => 'n' ], [ false, false, false, false ] ],
-			[ [ 'follow' => null, 'name' => null ], [ false, false, false, false ] ],
-			[ [ 'follow' => 'f', 'refines' => 'r' ], [ null, null, 'f', null ] ],
-			[ [ 'group' => 'r', 'name' => 'n' ], [ 'n', 'r', null, null ] ],
+			[ [ 'follow' => 'f', 'name' => 'n' ], [ false, false, false, false, false ] ],
+			[ [ 'follow' => null, 'name' => null ], [ false, false, false, false, false ] ],
+			[ [ 'follow' => 'f', 'refines' => 'r' ], [ null, null, 'f', null, 'r' ] ],
+			[ [ 'group' => 'g', 'name' => 'n' ], [ 'n', 'g', null, null, null ] ],
 
 			// Combinations of 3 or more attributes
 			[
-				[ 'group' => 'r', 'name' => 'n', 'refines' => 'f', 'dir' => 'rtl' ],
-				[ 'n', 'r', null, ' class="mw-cite-dir-rtl"' ]
+				[ 'group' => 'g', 'name' => 'n', 'refines' => 'r', 'dir' => 'rtl' ],
+				[ 'n', 'g', null, ' class="mw-cite-dir-rtl"', 'r' ]
 			],
 		];
 	}

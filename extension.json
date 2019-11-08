@@ -120,7 +120,9 @@
 		"Cite": "includes/Cite.php",
 		"CiteHooks": "includes/CiteHooks.php",
 		"CiteDataModule": "includes/CiteDataModule.php",
-		"CiteCSSFileModule": "includes/CiteCSSFileModule.php"
+		"CiteCSSFileModule": "includes/CiteCSSFileModule.php",
+		"CiteParserHooks": "includes/CiteParserHooks.php",
+		"CiteParserTagHooks": "includes/CiteParserTagHooks.php"
 	},
 	"TrackingCategories": [
 		"cite-tracking-category-cite-error"

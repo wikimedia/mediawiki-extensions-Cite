@@ -305,7 +305,7 @@ class CiteHooks {
 	 * @param ApiQuerySiteinfo $api
 	 * @param array &$data
 	 */
-	public static function onAPIQuerySiteInfoGeneralInfo( ApiQuerySiteinfo $api, array &$data ) {
+	public static function onAPIQuerySiteInfoGeneralInfo( $api, array &$data ) {
 		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'cite' );
 		$data['citeresponsivereferences'] = $config->get( 'CiteResponsiveReferences' );
 	}

@@ -203,6 +203,7 @@ class Cite {
 		}
 
 		$this->mCallCnt++;
+		$this->mParser = $parser;
 		$this->mInCite = true;
 
 		$ret = $this->guardedRef( $text, $argv, $parser );
@@ -235,8 +236,6 @@ class Cite {
 		array $argv,
 		Parser $parser
 	) {
-		$this->mParser = $parser;
-
 		# The key here is the "name" attribute.
 		list( $key, $group, $follow, $dir, $refines ) = $this->refArg( $argv );
 		// empty string indicate invalid dir
@@ -654,10 +653,13 @@ class Cite {
 			}
 			return htmlspecialchars( "<references>$text</references>" );
 		}
+
 		$this->mCallCnt++;
+		$this->mParser = $parser;
 		$this->mInReferences = true;
 		$ret = $this->guardedReferences( $text, $argv, $parser );
 		$this->mInReferences = false;
+
 		$frame->setVolatile();
 		return $ret;
 	}
@@ -677,8 +679,6 @@ class Cite {
 		Parser $parser
 	) {
 		global $wgCiteResponsiveReferences;
-
-		$this->mParser = $parser;
 
 		$group = $argv['group'] ?? self::DEFAULT_GROUP;
 		unset( $argv['group'] );

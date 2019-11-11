@@ -1120,15 +1120,8 @@ class Cite {
 	/**
 	 * Gets run when Parser::clearState() gets run, since we don't
 	 * want the counts to transcend pages and other instances
-	 *
-	 * @param Parser $parser
 	 */
-	public function clearState( Parser $parser ) {
-		if ( $parser->extCite !== $this ) {
-			$parser->extCite->clearState( $parser );
-			return;
-		}
-
+	public function clearState() {
 		# Don't clear state when we're in the middle of parsing
 		# a <ref> tag
 		if ( $this->mInCite || $this->mInReferences ) {
@@ -1144,27 +1137,6 @@ class Cite {
 	}
 
 	/**
-	 * Gets run when the parser is cloned.
-	 *
-	 * @param Parser $parser
-	 */
-	public function cloneState( Parser $parser ) {
-		if ( $parser->extCite !== $this ) {
-			$parser->extCite->cloneState( $parser );
-			return;
-		}
-
-		$parser->extCite = clone $this;
-		$parser->setHook( 'ref', 'CiteParserTagHooks::ref' );
-		$parser->setHook( 'references', 'CiteParserTagHooks::references' );
-
-		// Clear the state, making sure it will actually work.
-		$parser->extCite->mInCite = false;
-		$parser->extCite->mInReferences = false;
-		$parser->extCite->clearState( $parser );
-	}
-
-	/**
 	 * Called at the end of page processing to append a default references
 	 * section, if refs were used without a main references tag. If there are references
 	 * in a custom group, and there is no references tag for it, show an error
@@ -1173,18 +1145,11 @@ class Cite {
 	 * references tags and does not add the errors.
 	 *
 	 * @param bool $afterParse True if called from the ParserAfterParse hook
-	 * @param Parser $parser
+	 * @param ParserOptions $parserOptions
 	 * @param string &$text
 	 */
-	public function checkRefsNoReferences( $afterParse, $parser, &$text ) {
+	public function checkRefsNoReferences( $afterParse, ParserOptions $parserOptions, &$text ) {
 		global $wgCiteResponsiveReferences;
-		if ( $parser->extCite === null ) {
-			return;
-		}
-		if ( $parser->extCite !== $this ) {
-			$parser->extCite->checkRefsNoReferences( $afterParse, $parser, $text );
-			return;
-		}
 
 		if ( $afterParse ) {
 			$this->mHaveAfterParse = true;
@@ -1192,14 +1157,14 @@ class Cite {
 			return;
 		}
 
-		if ( !$parser->getOptions()->getIsPreview() ) {
+		if ( !$parserOptions->getIsPreview() ) {
 			// save references data for later use by LinksUpdate hooks
 			if ( $this->mRefs && isset( $this->mRefs[self::DEFAULT_GROUP] ) ) {
 				$this->saveReferencesData();
 			}
 			$isSectionPreview = false;
 		} else {
-			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+			$isSectionPreview = $parserOptions->getIsSectionPreview();
 		}
 
 		$s = '';

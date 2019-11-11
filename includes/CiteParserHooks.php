@@ -10,7 +10,7 @@ class CiteParserHooks {
 	public static function onParserClearState( Parser $parser ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		$cite->clearState( $parser );
+		$cite->clearState();
 	}
 
 	/**
@@ -19,9 +19,16 @@ class CiteParserHooks {
 	 * @param Parser $parser
 	 */
 	public static function onParserCloned( Parser $parser ) {
+		$parser->extCite = clone $parser->extCite;
+
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		$cite->cloneState( $parser );
+		// Clear the state, making sure it will actually work.
+		$cite->mInCite = false;
+		$cite->mInReferences = false;
+		$cite->clearState();
+
+		CiteParserTagHooks::initialize( $parser );
 	}
 
 	/**
@@ -34,7 +41,7 @@ class CiteParserHooks {
 	public static function onParserAfterParse( Parser $parser, &$text, $stripState ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		$cite->checkRefsNoReferences( true, $parser, $text );
+		$cite->checkRefsNoReferences( true, $parser->getOptions(), $text );
 	}
 
 	/**
@@ -46,7 +53,7 @@ class CiteParserHooks {
 	public static function onParserBeforeTidy( Parser $parser, &$text ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		$cite->checkRefsNoReferences( false, $parser, $text );
+		$cite->checkRefsNoReferences( false, $parser->getOptions(), $text );
 	}
 
 }

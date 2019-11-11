@@ -3,6 +3,16 @@
 class CiteParserTagHooks {
 
 	/**
+	 * Enables the two <ref> and <references> tags.
+	 *
+	 * @param Parser $parser
+	 */
+	public static function initialize( Parser $parser ) {
+		$parser->setHook( 'ref', 'CiteParserTagHooks::ref' );
+		$parser->setHook( 'references', 'CiteParserTagHooks::references' );
+	}
+
+	/**
 	 * Parser hook for the <ref> tag.
 	 *
 	 * @param string|null $content Raw wikitext content of the <ref> tag.

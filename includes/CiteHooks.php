@@ -32,8 +32,7 @@ class CiteHooks {
 			self::$hooksInstalled = true;
 		}
 
-		$parser->setHook( 'ref', 'CiteParserTagHooks::ref' );
-		$parser->setHook( 'references', 'CiteParserTagHooks::references' );
+		CiteParserTagHooks::initialize( $parser );
 	}
 
 	/**

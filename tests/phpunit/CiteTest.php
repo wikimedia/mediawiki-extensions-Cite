@@ -89,7 +89,7 @@ class CiteTest extends MediaWikiTestCase {
 
 		$mockOutput->expects( $this->once() )
 			->method( 'setProperty' )
-			->with( $this->equalTo( Cite::BOOK_REF_PROPERTY ), $this->equalTo( true ) );
+			->with( Cite::BOOK_REF_PROPERTY, true );
 
 		$cite = new Cite();
 		$cite->ref( 'contentA', [ 'name' => 'a' ], $mockParser, $mockPPframe );

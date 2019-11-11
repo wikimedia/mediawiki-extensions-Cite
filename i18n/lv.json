@@ -9,6 +9,7 @@
 	},
 	"cite-desc": "Pievieno <code>&lt;ref[ name=id]&gt;</code> un <code>&lt;references/&gt;</code> iezīmes, atsaucēm",
 	"cite_error": "Kļūda atsaucē: $1",
+	"cite_error_ref_invalid_dir": "Nederīga <code>&lt;ref&gt;</code> iezīme; \"dir\" atribūta vērtība \"$1\" ir nezināma. Jābūt vai nu \"ltr\", vai \"rtl\".",
 	"cite_error_ref_numeric_key": "Nederīga <code>&lt;ref&gt;</code> iezīme;\n\"name\" vērtība nevar būt vienkāršs skaitlis. Izmanto aprakstošāku nosaukumu",
 	"cite_error_ref_no_input": "Nederīga <code>&lt;ref&gt;</code> iezīme;\natsaucēm bez nosaukuma ir jābūt saturam",
 	"cite_error_references_duplicate_key": "Nederīga <code>&lt;ref&gt;</code> iezīme; nosaukums \"$1\" definēts vairākas reizes ar atšķirīgu saturu",

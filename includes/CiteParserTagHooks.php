@@ -8,8 +8,8 @@ class CiteParserTagHooks {
 	 * @param Parser $parser
 	 */
 	public static function initialize( Parser $parser ) {
-		$parser->setHook( 'ref', 'CiteParserTagHooks::ref' );
-		$parser->setHook( 'references', 'CiteParserTagHooks::references' );
+		$parser->setHook( 'ref', __CLASS__ . '::ref' );
+		$parser->setHook( 'references', __CLASS__ . '::references' );
 	}
 
 	/**

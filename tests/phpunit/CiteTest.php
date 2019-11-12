@@ -1,11 +1,18 @@
 <?php
 
+namespace Cite\Tests;
+
+use Cite;
+use Parser;
+use ParserOutput;
+use PPFrame;
+use StripState;
 use Wikimedia\TestingAccessWrapper;
 
 /**
  * @coversDefaultClass \Cite
  */
-class CiteTest extends MediaWikiTestCase {
+class CiteTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp() : void {
 		parent::setUp();
@@ -78,7 +85,7 @@ class CiteTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ::ref
+	 * @covers ::guardedRef
 	 */
 	public function testRef_pageProperty() {
 		$mockOutput = $this->createMock( ParserOutput::class );

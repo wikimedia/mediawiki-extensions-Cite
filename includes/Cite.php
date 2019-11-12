@@ -106,14 +106,6 @@ class Cite {
 	private $mGroupCnt = [];
 
 	/**
-	 * Counter to track the total number of (useful) calls to either the
-	 * ref or references tag hook
-	 *
-	 * @var int
-	 */
-	private $mCallCnt = 0;
-
-	/**
 	 * The backlinks, in order, to pass as $3 to
 	 * 'cite_references_link_many_format', defined in
 	 * 'cite_references_link_many_format_backlink_labels
@@ -201,7 +193,6 @@ class Cite {
 			return htmlspecialchars( "<ref>$text</ref>" );
 		}
 
-		$this->mCallCnt++;
 		$this->mParser = $parser;
 		$this->mInCite = true;
 
@@ -653,7 +644,6 @@ class Cite {
 			return htmlspecialchars( "<references>$text</references>" );
 		}
 
-		$this->mCallCnt++;
 		$this->mParser = $parser;
 		$this->mInReferences = true;
 		$ret = $this->guardedReferences( $text, $argv, $parser );
@@ -1131,7 +1121,6 @@ class Cite {
 
 		$this->mGroupCnt = [];
 		$this->mOutCnt = 0;
-		$this->mCallCnt = 0;
 		$this->mRefs = [];
 		$this->mReferencesErrors = [];
 		$this->mRefCallStack = [];

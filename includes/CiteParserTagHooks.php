@@ -20,13 +20,24 @@ class CiteParserTagHooks {
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 *
-	 * @return string
+	 * @return string HTML
 	 */
 	public static function ref( $content, array $attributes, Parser $parser, PPFrame $frame ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
 		// @phan-suppress-next-line SecurityCheck-XSS False positive
-		return $cite->ref( $content, $attributes, $parser, $frame );
+		$result = $cite->ref( $content, $attributes, $parser );
+
+		if ( $result === false ) {
+			return htmlspecialchars( "<ref>$content</ref>" );
+		}
+
+		$parserOutput = $parser->getOutput();
+		$parserOutput->addModules( 'ext.cite.ux-enhancements' );
+		$parserOutput->addModuleStyles( 'ext.cite.styles' );
+
+		$frame->setVolatile();
+		return $result;
 	}
 
 	/**
@@ -37,13 +48,23 @@ class CiteParserTagHooks {
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 *
-	 * @return string
+	 * @return string HTML
 	 */
 	public static function references( $content, array $attributes, Parser $parser, PPFrame $frame ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
 		// @phan-suppress-next-line SecurityCheck-XSS False positive
-		return $cite->references( $content, $attributes, $parser, $frame );
+		$result = $cite->references( $content, $attributes, $parser );
+
+		if ( $result === false ) {
+			return htmlspecialchars( $content === null
+				? "<references/>"
+				: "<references>$content</references>"
+			);
+		}
+
+		$frame->setVolatile();
+		return $result;
 	}
 
 }

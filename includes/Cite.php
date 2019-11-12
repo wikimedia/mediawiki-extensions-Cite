@@ -184,13 +184,12 @@ class Cite {
 	 * @param string|null $text Raw content of the <ref> tag.
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
-	 * @param PPFrame $frame
 	 *
-	 * @return string
+	 * @return string|false False in case a <ref> tag is not allowed in the current context
 	 */
-	public function ref( $text, array $argv, Parser $parser, PPFrame $frame ) {
+	public function ref( $text, array $argv, Parser $parser ) {
 		if ( $this->mInCite ) {
-			return htmlspecialchars( "<ref>$text</ref>" );
+			return false;
 		}
 
 		$this->mParser = $parser;
@@ -199,12 +198,6 @@ class Cite {
 		$ret = $this->guardedRef( $text, $argv, $parser );
 
 		$this->mInCite = false;
-
-		$parserOutput = $parser->getOutput();
-		$parserOutput->addModules( 'ext.cite.ux-enhancements' );
-		$parserOutput->addModuleStyles( 'ext.cite.styles' );
-
-		$frame->setVolatile();
 
 		// new <ref> tag, we may need to bump the ref data counter
 		// to avoid overwriting a previous group
@@ -632,16 +625,12 @@ class Cite {
 	 * @param string|null $text Raw content of the <references> tag.
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
-	 * @param PPFrame $frame
 	 *
-	 * @return string
+	 * @return string|false False in case a <references> tag is not allowed in the current context
 	 */
-	public function references( $text, array $argv, Parser $parser, PPFrame $frame ) {
+	public function references( $text, array $argv, Parser $parser ) {
 		if ( $this->mInCite || $this->mInReferences ) {
-			if ( $text === null ) {
-				return htmlspecialchars( "<references/>" );
-			}
-			return htmlspecialchars( "<references>$text</references>" );
+			return false;
 		}
 
 		$this->mParser = $parser;
@@ -649,7 +638,6 @@ class Cite {
 		$ret = $this->guardedReferences( $text, $argv, $parser );
 		$this->mInReferences = false;
 
-		$frame->setVolatile();
 		return $ret;
 	}
 

@@ -5,6 +5,7 @@ namespace Cite\Tests\Unit;
 use Cite;
 use CiteParserTagHooks;
 use Parser;
+use ParserOutput;
 use PPFrame;
 
 /**
@@ -31,34 +32,36 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 	 * @covers ::ref
 	 */
 	public function testRef() {
-		$parser = $this->createMock( Parser::class );
-		$frame = $this->createMock( PPFrame::class );
-
 		$cite = $this->createMock( Cite::class );
 		$cite->expects( $this->once() )
-			->method( 'ref' )
-			->with( null, [], $parser, $frame );
+			->method( 'ref' );
 
+		$parserOutput = $this->createMock( ParserOutput::class );
+		$parserOutput->expects( $this->once() )
+			->method( 'addModules' );
+		$parserOutput->expects( $this->once() )
+			->method( 'addModuleStyles' );
+
+		$parser = $this->createMock( Parser::class );
+		$parser->method( 'getOutput' )
+			->willReturn( $parserOutput );
 		$parser->extCite = $cite;
 
-		CiteParserTagHooks::ref( null, [], $parser, $frame );
+		CiteParserTagHooks::ref( null, [], $parser, $this->createMock( PPFrame::class ) );
 	}
 
 	/**
 	 * @covers ::references
 	 */
 	public function testReferences() {
-		$parser = $this->createMock( Parser::class );
-		$frame = $this->createMock( PPFrame::class );
-
 		$cite = $this->createMock( Cite::class );
 		$cite->expects( $this->once() )
-			->method( 'references' )
-			->with( null, [], $parser, $frame );
+			->method( 'references' );
 
+		$parser = $this->createMock( Parser::class );
 		$parser->extCite = $cite;
 
-		CiteParserTagHooks::references( null, [], $parser, $frame );
+		CiteParserTagHooks::references( null, [], $parser, $this->createMock( PPFrame::class ) );
 	}
 
 }

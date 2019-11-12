@@ -6,6 +6,7 @@ use Cite;
 use CiteParserHooks;
 use Parser;
 use ParserOptions;
+use ParserOutput;
 use StripState;
 
 /**
@@ -62,33 +63,21 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::onParserAfterParse
+	 * @covers ::onParserBeforeTidy
 	 */
-	public function testOnParserAfterParse() {
+	public function testAfterParseHooks() {
 		$cite = $this->createMock( Cite::class );
-		$cite->expects( $this->once() )
+		$cite->expects( $this->exactly( 2 ) )
 			->method( 'checkRefsNoReferences' );
 
 		$parser = $this->createMock( Parser::class );
 		$parser->method( 'getOptions' )
 			->willReturn( $this->createMock( ParserOptions::class ) );
+		$parser->method( 'getOutput' )
+			->willReturn( $this->createMock( ParserOutput::class ) );
 		$parser->extCite = $cite;
 
 		CiteParserHooks::onParserAfterParse( $parser, $text, $this->createMock( StripState::class ) );
-	}
-
-	/**
-	 * @covers ::onParserBeforeTidy
-	 */
-	public function testOnParserBeforeTidy() {
-		$cite = $this->createMock( Cite::class );
-		$cite->expects( $this->once() )
-			->method( 'checkRefsNoReferences' );
-
-		$parser = $this->createMock( Parser::class );
-		$parser->method( 'getOptions' )
-			->willReturn( $this->createMock( ParserOptions::class ) );
-		$parser->extCite = $cite;
-
 		CiteParserHooks::onParserBeforeTidy( $parser, $text );
 	}
 

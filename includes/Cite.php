@@ -793,7 +793,7 @@ class Cite {
 
 		if ( !$this->mParser->getOptions()->getIsPreview() ) {
 			// save references data for later use by LinksUpdate hooks
-			$this->saveReferencesData( $group );
+			$this->saveReferencesData( $this->mParser->getOutput(), $group );
 		}
 
 		// done, clean up so we can reuse the group
@@ -1162,7 +1162,7 @@ class Cite {
 		if ( !$parserOptions->getIsPreview() ) {
 			// save references data for later use by LinksUpdate hooks
 			if ( $this->mRefs && isset( $this->mRefs[self::DEFAULT_GROUP] ) ) {
-				$this->saveReferencesData();
+				$this->saveReferencesData( $this->mParser->getOutput() );
 			}
 			$isSectionPreview = false;
 		} else {
@@ -1206,14 +1206,15 @@ class Cite {
 	 * This is called by each <references/> tag, and by checkRefsNoReferences
 	 * Assumes $this->mRefs[$group] is set
 	 *
+	 * @param ParserOutput $parserOutput
 	 * @param string $group
 	 */
-	private function saveReferencesData( $group = self::DEFAULT_GROUP ) {
+	private function saveReferencesData( ParserOutput $parserOutput, $group = self::DEFAULT_GROUP ) {
 		global $wgCiteStoreReferencesData;
 		if ( !$wgCiteStoreReferencesData ) {
 			return;
 		}
-		$savedRefs = $this->mParser->getOutput()->getExtensionData( self::EXT_DATA_KEY );
+		$savedRefs = $parserOutput->getExtensionData( self::EXT_DATA_KEY );
 		if ( $savedRefs === null ) {
 			// Initialize array structure
 			$savedRefs = [
@@ -1232,7 +1233,7 @@ class Cite {
 		// save group
 		$savedRefs['refs'][$n][$group] = $this->mRefs[$group];
 
-		$this->mParser->getOutput()->setExtensionData( self::EXT_DATA_KEY, $savedRefs );
+		$parserOutput->setExtensionData( self::EXT_DATA_KEY, $savedRefs );
 	}
 
 	/**

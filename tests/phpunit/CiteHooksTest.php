@@ -1,6 +1,6 @@
 <?php
 
-namespace Cite\Test;
+namespace Cite\Tests;
 
 use ApiQuerySiteinfo;
 use CiteHooks;

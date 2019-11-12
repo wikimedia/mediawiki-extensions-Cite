@@ -1,6 +1,6 @@
 <?php
 
-namespace Cite\Test\Unit;
+namespace Cite\Tests\Unit;
 
 use Cite;
 use CiteHooks;

@@ -31,7 +31,11 @@
 		}
 	},
 	"Hooks": {
-		"ParserFirstCallInit": "CiteHooks::onParserFirstCallInit",
+		"ParserAfterParse": "CiteParserHooks::onParserAfterParse",
+		"ParserBeforeTidy": "CiteParserHooks::onParserBeforeTidy",
+		"ParserClearState": "CiteParserHooks::onParserClearState",
+		"ParserCloned": "CiteParserHooks::onParserCloned",
+		"ParserFirstCallInit": "CiteParserHooks::onParserFirstCallInit",
 		"ContentHandlerDefaultModelFor": "CiteHooks::onContentHandlerDefaultModelFor",
 		"ResourceLoaderTestModules": "CiteHooks::onResourceLoaderTestModules",
 		"ResourceLoaderRegisterModules": "CiteHooks::onResourceLoaderRegisterModules",

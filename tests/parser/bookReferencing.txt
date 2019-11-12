@@ -1,10 +1,10 @@
 !! test
-Refines attribute rejected by default
+Book Referencing attribute rejected by default
 !! config
 wgCiteBookReferencing=false
 !! wikitext
 <ref name="parent">[foo]</ref>
-<ref refines="parent">[bar]</ref>
+<ref extends="parent">[bar]</ref>
 !! html/php
 <p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
@@ -18,12 +18,12 @@ invalid names, e.g. too many</span><div class="mw-references-wrap"><ol class="re
 # TODO:
 #   * Subnumbering and indent.
 !! test
-Refines tag allowed with feature flag set
+Book Referencing attribute allowed with feature flag set
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="parent">[foo]</ref>
-<ref refines="parent">[bar]</ref>
+<ref extends="parent">[bar]</ref>
 !! html/php
 <p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
 </p>
@@ -38,13 +38,13 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Subnumbering and indent.
 !! test
-T236256 - Refining the same base multiple times is fine
+T236256 - Extending the same base multiple times is fine
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book</ref>
-<ref refines="a">page 2</ref>
-<ref refines="a">page 3</ref>
+<ref extends="a">page 2</ref>
+<ref extends="a">page 3</ref>
 <references />
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
@@ -64,13 +64,13 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Subnumbering and indent.
 !! test
-T236256 - Naming refinements is fine
+T236256 - Naming book references is fine
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book</ref>
-<ref refines="a" name="b">page 2</ref>
-<ref refines="a" name="c">page 3</ref>
+<ref extends="a" name="b">page 2</ref>
+<ref extends="a" name="c">page 3</ref>
 <ref name="b" />
 <ref name="c" />
 <references />
@@ -94,11 +94,11 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Should render an error.
 !! test
-T236256 - Refining a reference that doesn't exist #1
+T236256 - Extending a reference that doesn't exist #1
 !! config
 wgCiteBookReferencing=true
 !! wikitext
-<ref refines="a">page 1</ref>
+<ref extends="a">page 1</ref>
 !! html/php
 <sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">page 1</span>
@@ -109,12 +109,12 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Should render an error at the second reference.
 !! test
-T236256 - Refining a reference that doesn't exist #2
+T236256 - Extending a reference that doesn't exist #2
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref>book</ref>
-<ref refines="a">page 1</ref>
+<ref extends="a">page 1</ref>
 !! html/php
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
 </p>
@@ -133,7 +133,7 @@ wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book</ref>
 <ref name="a">magazine</ref>
-<ref refines="a">page 1</ref>
+<ref extends="a">page 1</ref>
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 <sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
@@ -147,13 +147,13 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Can't reuse a name for two refinements
+T236256 - Can't reuse a name for two book references
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book</ref>
-<ref refines="a" name="b">page 2</ref>
-<ref refines="a" name="b">page 3</ref>
+<ref extends="a" name="b">page 2</ref>
+<ref extends="a" name="b">page 3</ref>
 <references />
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
@@ -171,13 +171,13 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Should render an error on ref-3.
 !! test
-T236256 - Cant refine a refined ref (no nesting).
+T236256 - Cant extend a book reference (no nesting).
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book</ref>
-<ref refines="a" name="b">page 2</ref>
-<ref refines="b">section 3</ref>
+<ref extends="a" name="b">page 2</ref>
+<ref extends="b">section 3</ref>
 <references />
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
@@ -200,7 +200,7 @@ T236256 - Named reference without text
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a" />
-<ref refines="a">page 1</ref>
+<ref extends="a">page 1</ref>
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 </p>
@@ -213,12 +213,12 @@ no text was provided for refs named <code>a</code></span></li>
 !! end
 
 !! test
-T236256 - No text for a refinement
+T236256 - No text for a book reference
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="foo">book</ref>
-<ref refines="foo" />
+<ref extends="foo" />
 !! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
 </p>
@@ -229,12 +229,12 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Empty text for a refinement
+T236256 - Empty text for a book reference
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="foo">book</ref>
-<ref refines="foo"></ref>
+<ref extends="foo"></ref>
 !! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
@@ -246,12 +246,12 @@ refs with no name must have content</span><div class="mw-references-wrap"><ol cl
 !! end
 
 !! test
-T236256 - De-facto empty text for a refinement
+T236256 - De-facto empty text for a book reference
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="foo">book</ref>
-<ref refines="foo"> </ref>
+<ref extends="foo"> </ref>
 !! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
 </p>
@@ -271,7 +271,7 @@ T236256 - Everything in the same group
 wgCiteBookReferencing=true
 !! wikitext
 <ref group="g1" name="a">book</ref>
-<ref group="g1" refines="a" name="b">page</ref>
+<ref group="g1" extends="a" name="b">page</ref>
 <ref group="g1" name="b" />
 <references group="g1"/>
 !! html/php
@@ -290,12 +290,12 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Should render an error at the second reference.
 !! test
-T236256 - Base and refinement in different groups
+T236256 - Base and book reference in different groups
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref group="g1" name="a">book</ref>
-<ref group="g2" refines="a">page</ref>
+<ref group="g2" extends="a">page</ref>
 <references group="g1"/>
 <references group="g2"/>
 !! html/php
@@ -315,12 +315,12 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Should render an error at the second reference.
 !! test
-T236256 - Refinement in the unnamed default group
+T236256 - Extending in the unnamed default group
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref group="g1" name="a">book</ref>
-<ref refines="a">page</ref>
+<ref extends="a">page</ref>
 <references group="g1"/>
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;g1 1&#93;</a></sup>
@@ -343,7 +343,7 @@ T236256 - Base in the unnamed default group
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book</ref>
-<ref group="g1" refines="a">page</ref>
+<ref group="g1" extends="a">page</ref>
 <references group="g1"/>
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
@@ -361,13 +361,13 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Subnumbering and indent.
 !! test
-T236256 - Refining a multi-part ref should be fine
+T236256 - Extending a multi-part ref should be fine
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">part 1</ref>
 <ref follow="a">part 2</ref>
-<ref refines="a">ok</ref>
+<ref extends="a">ok</ref>
 <references />
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
@@ -384,12 +384,12 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Should render an error at the third reference.
 !! test
-T236256 - Dont allow splitting a refinement for now
+T236256 - Dont allow splitting a book reference for now
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book</ref>
-<ref refines="a" name="b">page 2</ref>
+<ref extends="a" name="b">page 2</ref>
 <ref follow="b">and page 3 the same time?</ref>
 <references />
 !! html/php
@@ -407,12 +407,12 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Should render an error at the second reference.
 !! test
-T236256 - Cant be a follow up and a refinement the same time
+T236256 - Cant be a follow up and a book reference the same time
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book 1</ref>
-<ref follow="a" refines="a">huh?</ref>
+<ref follow="a" extends="a">huh?</ref>
 <references />
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
@@ -428,13 +428,13 @@ invalid names, e.g. too many</span>
 # TODO:
 #   * Should render an error at the third reference.
 !! test
-T236256 - Can't be a follow up and a refinement the same time, even when referencing 2 different bases
+T236256 - Can't be a follow up and a book reference the same time, even when referencing 2 different bases
 !! config
 wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">book 1</ref>
 <ref name="b">book 2</ref>
-<ref follow="a" refines="b">huh?</ref>
+<ref follow="a" extends="b">huh?</ref>
 <references />
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>

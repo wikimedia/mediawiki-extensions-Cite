@@ -52,9 +52,8 @@ class Cite {
 
 	/**
 	 * Wikitext attribute name for Book Referencing.
-	 * TODO: Still under discussion.
 	 */
-	public const REFINES_ATTRIBUTE = 'refines';
+	public const BOOK_REF_ATTRIBUTE = 'extends';
 
 	/**
 	 * Page property key for the Book Referencing `extends` attribute.
@@ -237,7 +236,7 @@ class Cite {
 		Parser $parser
 	) {
 		# The key here is the "name" attribute.
-		list( $key, $group, $follow, $dir, $refines ) = $this->refArg( $argv );
+		list( $key, $group, $follow, $dir, $extends ) = $this->refArg( $argv );
 		// empty string indicate invalid dir
 		if ( $dir === '' && $text !== '' ) {
 			$text .= $this->plainError( 'cite_error_ref_invalid_dir', $argv['dir'] );
@@ -249,7 +248,7 @@ class Cite {
 
 		// Tag every page where Book Referencing has been used.  This code and the properties
 		// will be removed once the feature is stable.  See T237531.
-		if ( $refines ) {
+		if ( $extends ) {
 			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
@@ -393,7 +392,7 @@ class Cite {
 	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
 	 *  "follow" : If the current reference is the continuation of another, key of that reference.
 	 *  "dir" : set direction of text (ltr/rtl)
-	 *  "refines": Points to a named reference which serves as the context for this reference.
+	 *  "extends": Points to a named reference which serves as the context for this reference.
 	 *
 	 * @param string[] $argv The argument vector
 	 * @return (string|false|null)[] An array with exactly four elements, where each is a string on
@@ -407,7 +406,7 @@ class Cite {
 		$key = null;
 		$follow = null;
 		$dir = null;
-		$refines = null;
+		$extends = null;
 
 		if ( isset( $argv['dir'] ) ) {
 			// compare the dir attribute value against an explicit whitelist.
@@ -426,7 +425,7 @@ class Cite {
 		}
 
 		if ( isset( $argv['follow'] ) &&
-			( isset( $argv['name'] ) || isset( $argv[self::REFINES_ATTRIBUTE] ) )
+			( isset( $argv['name'] ) || isset( $argv[self::BOOK_REF_ATTRIBUTE] ) )
 		) {
 			return [ false, false, false, false, false ];
 		}
@@ -446,9 +445,9 @@ class Cite {
 			$group = $argv['group'];
 			unset( $argv['group'] );
 		}
-		if ( $wgCiteBookReferencing && isset( $argv[self::REFINES_ATTRIBUTE] ) ) {
-			$refines = trim( $argv[self::REFINES_ATTRIBUTE] );
-			unset( $argv[self::REFINES_ATTRIBUTE] );
+		if ( $wgCiteBookReferencing && isset( $argv[self::BOOK_REF_ATTRIBUTE] ) ) {
+			$extends = trim( $argv[self::BOOK_REF_ATTRIBUTE] );
+			unset( $argv[self::BOOK_REF_ATTRIBUTE] );
 		}
 
 		if ( $argv !== [] ) {
@@ -456,7 +455,7 @@ class Cite {
 			return [ false, false, false, false, false ];
 		}
 
-		return [ $key, $group, $follow, $dir, $refines ];
+		return [ $key, $group, $follow, $dir, $extends ];
 	}
 
 	/**

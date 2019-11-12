@@ -38,18 +38,18 @@ class CiteTest extends MediaWikiTestCase {
 			[ [ 'invalid' => 'i' ], [ false, false, false, false, false ] ],
 			[ [ 'name' => 'n' ], [ 'n', null, null, null, null ] ],
 			[ [ 'name' => null ], [ false, false, false, false, false ] ],
-			[ [ 'refines' => 'r' ], [ null, null, null, null, 'r' ] ],
+			[ [ 'extends' => 'e' ], [ null, null, null, null, 'e' ] ],
 
 			// Pairs
 			[ [ 'follow' => 'f', 'name' => 'n' ], [ false, false, false, false, false ] ],
 			[ [ 'follow' => null, 'name' => null ], [ false, false, false, false, false ] ],
-			[ [ 'follow' => 'f', 'refines' => 'r' ], [ false, false, false, false, false ] ],
+			[ [ 'follow' => 'f', 'extends' => 'e' ], [ false, false, false, false, false ] ],
 			[ [ 'group' => 'g', 'name' => 'n' ], [ 'n', 'g', null, null, null ] ],
 
 			// Combinations of 3 or more attributes
 			[
-				[ 'group' => 'g', 'name' => 'n', 'refines' => 'r', 'dir' => 'rtl' ],
-				[ 'n', 'g', null, ' class="mw-cite-dir-rtl"', 'r' ]
+				[ 'group' => 'g', 'name' => 'n', 'extends' => 'e', 'dir' => 'rtl' ],
+				[ 'n', 'g', null, ' class="mw-cite-dir-rtl"', 'e' ]
 			],
 		];
 	}
@@ -95,7 +95,7 @@ class CiteTest extends MediaWikiTestCase {
 
 		$cite = new Cite();
 		$cite->ref( 'contentA', [ 'name' => 'a' ], $mockParser, $mockPPframe );
-		$cite->ref( 'contentB', [ Cite::REFINES_ATTRIBUTE => 'a' ], $mockParser, $mockPPframe );
+		$cite->ref( 'contentB', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ], $mockParser, $mockPPframe );
 	}
 
 }

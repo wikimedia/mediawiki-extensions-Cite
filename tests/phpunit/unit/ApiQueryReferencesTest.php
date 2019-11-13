@@ -7,6 +7,7 @@ use ApiQuery;
 use ApiQueryReferences;
 use IContextSource;
 use Title;
+use Wikimedia\AtEase\AtEase;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\TestingAccessWrapper;
 
@@ -40,7 +41,21 @@ class ApiQueryReferencesTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @covers ::recursiveFetchRefsFromDB
 	 */
-	public function testRecursiveFetchRefsFromDB() {
+	public function testRecursiveFetchRefsFromDB_fails() {
+		$api = $this->newApiQueryReferences();
+		$title = $this->createMock( Title::class );
+
+		$dbr = $this->createMock( IDatabase::class );
+		$dbr->method( 'selectField' )
+			->willReturn( false );
+
+		$this->assertFalse( $api->recursiveFetchRefsFromDB( $title, $dbr ) );
+	}
+
+	/**
+	 * @covers ::recursiveFetchRefsFromDB
+	 */
+	public function testRecursiveFetchRefsFromDB_firstTry() {
 		$api = $this->newApiQueryReferences();
 		$title = $this->createMock( Title::class );
 
@@ -49,6 +64,26 @@ class ApiQueryReferencesTest extends \MediaWikiUnitTestCase {
 			->willReturn( gzencode( '{"refs":{}}' ) );
 
 		$this->assertSame( [ 'refs' => [] ], $api->recursiveFetchRefsFromDB( $title, $dbr ) );
+	}
+
+	/**
+	 * @covers ::recursiveFetchRefsFromDB
+	 */
+	public function testRecursiveFetchRefsFromDB_secondTry() {
+		$api = $this->newApiQueryReferences();
+		$title = $this->createMock( Title::class );
+
+		$dbr = $this->createMock( IDatabase::class );
+		$dbr->expects( $this->exactly( 2 ) )
+			->method( 'selectField' )
+			->willReturnOnConsecutiveCalls( '', gzencode( '{"refs":{}}' ) );
+
+		// Code relies on gzdecode() returning false, but that reports an error now
+		AtEase::suppressWarnings();
+		$refs = $api->recursiveFetchRefsFromDB( $title, $dbr );
+		AtEase::restoreWarnings();
+
+		$this->assertSame( [ 'refs' => [] ], $refs );
 	}
 
 	/**

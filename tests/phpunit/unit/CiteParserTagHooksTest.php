@@ -31,10 +31,28 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @covers ::ref
 	 */
+	public function testRef_fails() {
+		$cite = $this->createMock( Cite::class );
+		$cite->method( 'ref' )
+			->willReturn( false );
+
+		$parser = $this->createMock( Parser::class );
+		$parser->extCite = $cite;
+
+		$frame = $this->createMock( PPFrame::class );
+
+		$html = CiteParserTagHooks::ref( null, [], $parser, $frame );
+		$this->assertSame( '&lt;ref&gt;&lt;/ref&gt;', $html );
+	}
+
+	/**
+	 * @covers ::ref
+	 */
 	public function testRef() {
 		$cite = $this->createMock( Cite::class );
 		$cite->expects( $this->once() )
-			->method( 'ref' );
+			->method( 'ref' )
+			->willReturn( '<HTML>' );
 
 		$parserOutput = $this->createMock( ParserOutput::class );
 		$parserOutput->expects( $this->once() )
@@ -47,7 +65,27 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 			->willReturn( $parserOutput );
 		$parser->extCite = $cite;
 
-		CiteParserTagHooks::ref( null, [], $parser, $this->createMock( PPFrame::class ) );
+		$frame = $this->createMock( PPFrame::class );
+
+		$html = CiteParserTagHooks::ref( null, [], $parser, $frame );
+		$this->assertSame( '<HTML>', $html );
+	}
+
+	/**
+	 * @covers ::references
+	 */
+	public function testReferences_fails() {
+		$cite = $this->createMock( Cite::class );
+		$cite->method( 'references' )
+			->willReturn( false );
+
+		$parser = $this->createMock( Parser::class );
+		$parser->extCite = $cite;
+
+		$frame = $this->createMock( PPFrame::class );
+
+		$html = CiteParserTagHooks::references( null, [], $parser, $frame );
+		$this->assertSame( '&lt;references/&gt;', $html );
 	}
 
 	/**
@@ -56,12 +94,16 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 	public function testReferences() {
 		$cite = $this->createMock( Cite::class );
 		$cite->expects( $this->once() )
-			->method( 'references' );
+			->method( 'references' )
+			->willReturn( '<HTML>' );
 
 		$parser = $this->createMock( Parser::class );
 		$parser->extCite = $cite;
 
-		CiteParserTagHooks::references( null, [], $parser, $this->createMock( PPFrame::class ) );
+		$frame = $this->createMock( PPFrame::class );
+
+		$html = CiteParserTagHooks::references( null, [], $parser, $frame );
+		$this->assertSame( '<HTML>', $html );
 	}
 
 }

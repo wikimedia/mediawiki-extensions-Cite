@@ -1124,9 +1124,15 @@ class Cite {
 	 *
 	 * @param bool $afterParse True if called from the ParserAfterParse hook
 	 * @param ParserOptions $parserOptions
+	 * @param ParserOutput $parserOutput
 	 * @param string &$text
 	 */
-	public function checkRefsNoReferences( $afterParse, ParserOptions $parserOptions, &$text ) {
+	public function checkRefsNoReferences(
+		$afterParse,
+		ParserOptions $parserOptions,
+		ParserOutput $parserOutput,
+		&$text
+	) {
 		global $wgCiteResponsiveReferences;
 
 		if ( $afterParse ) {
@@ -1138,7 +1144,7 @@ class Cite {
 		if ( !$parserOptions->getIsPreview() ) {
 			// save references data for later use by LinksUpdate hooks
 			if ( $this->mRefs && isset( $this->mRefs[self::DEFAULT_GROUP] ) ) {
-				$this->saveReferencesData( $this->mParser->getOutput() );
+				$this->saveReferencesData( $parserOutput );
 			}
 			$isSectionPreview = false;
 		} else {

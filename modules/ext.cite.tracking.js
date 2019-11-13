@@ -18,28 +18,31 @@
 			loggingTopic = isReferencePreviewsEnabled ?
 				'event.ReferencePreviewsCite' :
 				'event.ReferencePreviewsBaseline',
-			samplingRate = isReferencePreviewsEnabled ?
-				1 :
-				1000,
-			isSampling = navigator.sendBeacon && mw.eventLog.eventInSample( samplingRate );
+			samplingRate = isReferencePreviewsEnabled ? 1 : 1000;
 
-		if ( isSampling ) {
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '#mw-content-text' ).on(
-				'click',
-				// Footnote links, references block in VisualEditor, and reference content links.
-				'.reference a[ href*="#" ], .mw-reference-text a, .reference-text a',
-				function () {
-					var isInReferenceBlock = $( this ).parents( '.references' ).length > 0;
-					mw.track( loggingTopic, {
-						action: ( isInReferenceBlock ?
-							'clickedReferenceContentLink' :
-							'clickedFootnote' )
-					} );
-				}
-			);
-
-			mw.track( loggingTopic, { action: 'pageview' } );
+		if ( !navigator.sendBeacon ||
+			!mw.config.get( 'wgIsArticle' ) ||
+			!mw.eventLog ||
+			!mw.eventLog.eventInSample( samplingRate )
+		) {
+			return;
 		}
+
+		// eslint-disable-next-line no-jquery/no-global-selector
+		$( '#mw-content-text' ).on(
+			'click',
+			// Footnote links, references block in VisualEditor, and reference content links.
+			'.reference a[ href*="#" ], .mw-reference-text a, .reference-text a',
+			function () {
+				var isInReferenceBlock = $( this ).parents( '.references' ).length > 0;
+				mw.track( loggingTopic, {
+					action: ( isInReferenceBlock ?
+						'clickedReferenceContentLink' :
+						'clickedFootnote' )
+				} );
+			}
+		);
+
+		mw.track( loggingTopic, { action: 'pageview' } );
 	} );
 }() );

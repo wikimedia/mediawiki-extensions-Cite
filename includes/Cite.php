@@ -71,8 +71,14 @@ class Cite {
 	 * 		               // all occourances of it to
 	 * 		               // use the same number
 	 *	],
-	 *	0 => 'Anonymous reference',
-	 *	1 => 'Another anonymous reference',
+	 *	0 => [
+	 * 		'text' => 'Anonymous reference',
+	 * 		'count' => -1,
+	 * 	],
+	 *	1 => [
+	 * 		'text' => 'Another anonymous reference',
+	 * 		'count' => -1,
+	 * 	],
 	 *	'some key' => [
 	 *		'text' => 'this one occurs once'
 	 *		'count' => 0,
@@ -89,7 +95,7 @@ class Cite {
 	 * * User supplied keys can't be integers, therefore avoiding
 	 *   conflict with anonymous keys
 	 *
-	 * @var array[]
+	 * @var array[][]
 	 */
 	private $mRefs = [];
 
@@ -464,7 +470,7 @@ class Cite {
 			$this->mGroupCnt[$group] = 0;
 		}
 		if ( $follow != null ) {
-			if ( isset( $this->mRefs[$group][$follow] ) && is_array( $this->mRefs[$group][$follow] ) ) {
+			if ( isset( $this->mRefs[$group][$follow] ) ) {
 				// add text to the note that is being followed
 				$this->mRefs[$group][$follow]['text'] .= ' ' . $text;
 			} else {
@@ -505,7 +511,7 @@ class Cite {
 		}
 
 		// Valid key with first occurrence
-		if ( !isset( $this->mRefs[$group][$key] ) || !is_array( $this->mRefs[$group][$key] ) ) {
+		if ( !isset( $this->mRefs[$group][$key] ) ) {
 			$this->mRefs[$group][$key] = [
 				'text' => $text,
 				'count' => 0,
@@ -784,25 +790,10 @@ class Cite {
 	 * Format a single entry for the referencesFormat() function
 	 *
 	 * @param string $key The key of the reference
-	 * @param mixed $val The value of the reference, string for anonymous
-	 *                   references, array for user-suppplied
-	 * @return string Wikitext
+	 * @param array $val A single reference as documented at {@see $mRefs}
+	 * @return string Wikitext, wrapped in a single <li> element
 	 */
-	private function referencesFormatEntry( $key, $val ) {
-		// Anonymous reference
-		if ( !is_array( $val ) ) {
-			return wfMessage(
-					'cite_references_link_one',
-					$this->normalizeKey(
-						self::getReferencesKey( $key )
-					),
-					$this->normalizeKey(
-						$this->refKey( $key )
-					),
-					$this->referenceText( $key, $val ),
-					$val['dir']
-				)->inContentLanguage()->plain();
-		}
+	private function referencesFormatEntry( $key, array $val ) {
 		$text = $this->referenceText( $key, $val['text'] );
 		if ( isset( $val['follow'] ) ) {
 			return wfMessage(

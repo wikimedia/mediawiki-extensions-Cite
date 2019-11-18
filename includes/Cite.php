@@ -739,16 +739,13 @@ class Cite {
 			return '';
 		}
 
-		$ent = [];
-		foreach ( $this->mRefs[$group] as $k => $v ) {
-			$ent[] = $this->referencesFormatEntry( $k, $v );
-		}
-
 		// Add new lines between the list items (ref entires) to avoid confusing tidy (T15073).
 		// Note: This builds a string of wikitext, not html.
-		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ],
-			"\n" . implode( "\n", $ent ) . "\n"
-		);
+		$parserInput = "\n";
+		foreach ( $this->mRefs[$group] as $key => $value ) {
+			$parserInput .= $this->referencesFormatEntry( $key, $value ) . "\n";
+		}
+		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
 
 		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 		$ret = rtrim( $this->mParser->recursiveTagParse( $parserInput ), "\n" );

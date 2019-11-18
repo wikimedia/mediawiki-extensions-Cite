@@ -781,37 +781,44 @@ class Cite {
 	 */
 	private function referencesFormatEntry( $key, array $val ) {
 		$text = $this->referenceText( $key, $val['text'] );
+
+		// Fallback for a broken, and therefore unprocessed follow="…". Note this returns a <p>, not
+		// an <li> as expected!
 		if ( isset( $val['follow'] ) ) {
 			return wfMessage(
-					'cite_references_no_link',
-					$this->normalizeKey(
-						self::getReferencesKey( $val['follow'] )
-					),
-					$text
-				)->inContentLanguage()->plain();
+				'cite_references_no_link',
+				$this->normalizeKey(
+					self::getReferencesKey( $val['follow'] )
+				),
+				$text
+			)->inContentLanguage()->plain();
 		}
+
 		if ( !isset( $val['count'] ) ) {
 			// this handles the case of section preview for list-defined references
-			return wfMessage( 'cite_references_link_many',
-					$this->normalizeKey(
-						self::getReferencesKey( $key . "-" . ( $val['key'] ?? '' ) )
-					),
-					'',
-					$text
-				)->inContentLanguage()->plain();
+			return wfMessage(
+				'cite_references_link_many',
+				$this->normalizeKey(
+					self::getReferencesKey( $key . "-" . ( $val['key'] ?? '' ) )
+				),
+				'',
+				$text
+			)->inContentLanguage()->plain();
 		}
+
+		// Anonymous, auto-numbered references can't be reused and get marked with a -1.
 		if ( $val['count'] < 0 ) {
 			return wfMessage(
-					'cite_references_link_one',
-					$this->normalizeKey(
-						self::getReferencesKey( $val['key'] )
-					),
-					$this->normalizeKey(
-						$this->refKey( $val['key'] )
-					),
-					$text,
-					$val['dir']
-				)->inContentLanguage()->plain();
+				'cite_references_link_one',
+				$this->normalizeKey(
+					self::getReferencesKey( $val['key'] )
+				),
+				$this->normalizeKey(
+					$this->refKey( $val['key'] )
+				),
+				$text,
+				$val['dir']
+			)->inContentLanguage()->plain();
 			// Standalone named reference, I want to format this like an
 			// anonymous reference because displaying "1. 1.1 Ref text" is
 			// overkill and users frequently use named references when they
@@ -819,41 +826,39 @@ class Cite {
 		}
 		if ( $val['count'] === 0 ) {
 			return wfMessage(
-					'cite_references_link_one',
-					$this->normalizeKey(
-						self::getReferencesKey( $key . "-" . $val['key'] )
-					),
-					$this->normalizeKey(
-						$this->refKey( $key, $val['key'] . "-" . $val['count'] )
-					),
-					$text,
-					$val['dir']
-				)->inContentLanguage()->plain();
-		// Named references with >1 occurrences
-		}
-		$links = [];
-		// for group handling, we have an extra key here.
-		for ( $i = 0; $i <= $val['count']; ++$i ) {
-			$links[] = wfMessage(
-					'cite_references_link_many_format',
-					$this->normalizeKey(
-						$this->refKey( $key, $val['key'] . "-$i" )
-					),
-					$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
-					$this->referencesFormatEntryAlternateBacklinkLabel( $i )
-			)->inContentLanguage()->plain();
-		}
-
-		$list = $this->listToText( $links );
-
-		return wfMessage( 'cite_references_link_many',
+				'cite_references_link_one',
 				$this->normalizeKey(
 					self::getReferencesKey( $key . "-" . $val['key'] )
 				),
-				$list,
+				$this->normalizeKey(
+					$this->refKey( $key, $val['key'] . "-" . $val['count'] )
+				),
 				$text,
 				$val['dir']
 			)->inContentLanguage()->plain();
+		// Named references with >1 occurrences
+		}
+		$backlinks = [];
+		// for group handling, we have an extra key here.
+		for ( $i = 0; $i <= $val['count']; ++$i ) {
+			$backlinks[] = wfMessage(
+				'cite_references_link_many_format',
+				$this->normalizeKey(
+					$this->refKey( $key, $val['key'] . "-$i" )
+				),
+				$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
+				$this->referencesFormatEntryAlternateBacklinkLabel( $i )
+			)->inContentLanguage()->plain();
+		}
+
+		return wfMessage( 'cite_references_link_many',
+			$this->normalizeKey(
+				self::getReferencesKey( $key . "-" . $val['key'] )
+			),
+			$this->listToText( $backlinks ),
+			$text,
+			$val['dir']
+		)->inContentLanguage()->plain();
 	}
 
 	/**

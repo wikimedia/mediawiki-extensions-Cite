@@ -806,38 +806,26 @@ class Cite {
 			)->inContentLanguage()->plain();
 		}
 
-		// Anonymous, auto-numbered references can't be reused and get marked with a -1.
-		if ( $val['count'] < 0 ) {
+		// This counts the number of reuses. 0 means the reference appears only 1 time.
+		if ( $val['count'] < 1 ) {
+			// Anonymous, auto-numbered references can't be reused and get marked with a -1.
+			if ( $val['count'] < 0 ) {
+				$id = $val['key'];
+				$backlinkId = $this->refKey( $val['key'] );
+			} else {
+				$id = $key . '-' . $val['key'];
+				$backlinkId = $this->refKey( $key, $val['key'] . '-' . $val['count'] );
+			}
 			return wfMessage(
 				'cite_references_link_one',
-				$this->normalizeKey(
-					self::getReferencesKey( $val['key'] )
-				),
-				$this->normalizeKey(
-					$this->refKey( $val['key'] )
-				),
+				$this->normalizeKey( self::getReferencesKey( $id ) ),
+				$this->normalizeKey( $backlinkId ),
 				$text,
 				$val['dir']
 			)->inContentLanguage()->plain();
-			// Standalone named reference, I want to format this like an
-			// anonymous reference because displaying "1. 1.1 Ref text" is
-			// overkill and users frequently use named references when they
-			// don't need them for convenience
 		}
-		if ( $val['count'] === 0 ) {
-			return wfMessage(
-				'cite_references_link_one',
-				$this->normalizeKey(
-					self::getReferencesKey( $key . "-" . $val['key'] )
-				),
-				$this->normalizeKey(
-					$this->refKey( $key, $val['key'] . "-" . $val['count'] )
-				),
-				$text,
-				$val['dir']
-			)->inContentLanguage()->plain();
+
 		// Named references with >1 occurrences
-		}
 		$backlinks = [];
 		// for group handling, we have an extra key here.
 		for ( $i = 0; $i <= $val['count']; ++$i ) {

@@ -493,12 +493,23 @@ class Cite {
 		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).
 		// Note: This builds a string of wikitext, not html.
 		$parserInput = "\n";
+		$indented = false;
 		$groupRefs = $this->referenceStack->getGroupRefs( $group );
 		foreach ( $groupRefs as $key => $value ) {
+			// This assumes extended references appear after their parent in the array.
+			if ( !$indented && isset( $value['extends'] ) ) {
+				// Hack: The nested <ol> needs to go inside of the <li>.
+				$parserInput = preg_replace( '/<\/li>\s*$/', '', $parserInput );
+				$parserInput .= Html::openElement( 'ol', [ 'class' => 'mw-extended-references' ] );
+				$indented = true;
+			} elseif ( $indented && !isset( $value['extends'] ) ) {
+				// FIXME: This is't closed if there is no unindented element at the end
+				$parserInput .= Html::closeElement( 'ol' );
+				$indented = false;
+			}
 			$parserInput .= $this->referencesFormatEntry( $key, $value ) . "\n";
 		}
 		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
-
 		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 		$ret = rtrim( $this->mParser->recursiveTagParse( $parserInput ), "\n" );
 

@@ -303,6 +303,177 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'increment', [], 'text-2', 'a', null, 'foo', 1 ]
 				]
 			],
+			'Named extends with no parent' => [
+				[
+					[ 'text-a', 'a', 'foo', 'b', null, [], 'rtl' ],
+				],
+				[
+					[ 'a', '1-0', 1, '-1' ],
+				],
+				[
+					'foo' => [
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'text' => 'text-a',
+							'number' => 1,
+						],
+					]
+				],
+				[
+					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+				]
+			],
+			'Named extends before parent' => [
+				[
+					[ 'text-a', 'a', 'foo', 'b', null, [], 'rtl' ],
+					[ 'text-b', 'b', 'foo', null, null, [], 'rtl' ],
+				],
+				[
+					[ 'a', '1-0', 1, '-1' ],
+					[ 'b', '2-0', 2, '-2' ],
+				],
+				[
+					'foo' => [
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'text' => 'text-a',
+							'number' => 1,
+						],
+						'b' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 2,
+							'text' => 'text-b',
+							'number' => 2,
+						]
+					]
+				],
+				[
+					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+					[ 'new', [], 'text-b', 'b', null, 'foo', 2 ],
+				]
+			],
+			'Named extends after parent' => [
+				[
+					[ 'text-a', 'a', 'foo', null, null, [], 'rtl' ],
+					[ 'text-b', 'b', 'foo', 'a', null, [], 'rtl' ],
+				],
+				[
+					[ 'a', '1-0', 1, '-1' ],
+					[ 'b', '2-0', '1.1', '-2' ],
+				],
+				[
+					'foo' => [
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'text' => 'text-a',
+							'number' => 1,
+						],
+						'b' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 2,
+							'text' => 'text-b',
+							'extends' => '1.1',
+							'number' => '1.1',
+						]
+					]
+				],
+				[
+					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+					[ 'new', [], 'text-b', 'b', 'a', 'foo', 2 ],
+				]
+			],
+			'Anonymous extends with no parent' => [
+				[
+					[ 'text-a', null, 'foo', 'b', null, [], 'rtl' ],
+				],
+				[
+					[ 1, null, 1, null ],
+				],
+				[
+					'foo' => [
+						0 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 1,
+							'text' => 'text-a',
+						],
+					]
+				],
+				[
+					[ 'new', [], 'text-a', null, null, 'foo', 1 ],
+				]
+			],
+			'Anonymous extends before parent' => [
+				[
+					[ 'text-a', null, 'foo', 'b', null, [], 'rtl' ],
+					[ 'text-b', 'b', 'foo', null, null, [], 'rtl' ],
+				],
+				[
+					[ 1, null, 1, null ],
+					[ 'b', '2-0', 2, '-2' ],
+				],
+				[
+					'foo' => [
+						0 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 1,
+							'text' => 'text-a',
+						],
+						'b' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 2,
+							'text' => 'text-b',
+							'number' => 2,
+						]
+					]
+				],
+				[
+					[ 'new', [], 'text-a', null, null, 'foo', 1 ],
+					[ 'new', [], 'text-b', 'b', null, 'foo', 2 ],
+				]
+			],
+			'Anonymous extends after parent' => [
+				[
+					[ 'text-a', 'a', 'foo', null, null, [], 'rtl' ],
+					[ 'text-b', null, 'foo', 'a', null, [], 'rtl' ],
+				],
+				[
+					[ 'a', '1-0', 1, '-1' ],
+					[ 2, null, '1.1', null ],
+				],
+				[
+					'foo' => [
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'text' => 'text-a',
+							'number' => 1,
+						],
+						0 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 2,
+							'text' => 'text-b',
+							'extends' => '1.1',
+						]
+					]
+				],
+				[
+					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+					[ 'new', [], 'text-b', null, 'a', 'foo', 2 ],
+				]
+			],
 		];
 	}
 

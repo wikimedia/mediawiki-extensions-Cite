@@ -67,7 +67,7 @@ ol.mw-references {
 	counter-reset: mw-ref-linkback;
 }
 
-ol.mw-references li {
+ol.mw-references > li {
 	counter-increment: mw-ref-linkback;
 }
 

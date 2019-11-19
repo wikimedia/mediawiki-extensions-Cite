@@ -6,7 +6,6 @@ use ApiMain;
 use ApiQuery;
 use ApiQueryReferences;
 use IContextSource;
-use Title;
 use Wikimedia\AtEase\AtEase;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\TestingAccessWrapper;
@@ -36,8 +35,7 @@ class ApiQueryReferencesTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testGetStoredReferences_storeDisabled() {
 		$api = $this->newApiQueryReferences();
-		$title = $this->createMock( Title::class );
-		$this->assertFalse( $api->getStoredReferences( $title ) );
+		$this->assertFalse( $api->getStoredReferences( 0 ) );
 	}
 
 	/**
@@ -45,13 +43,12 @@ class ApiQueryReferencesTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testRecursiveFetchRefsFromDB_fails() {
 		$api = $this->newApiQueryReferences();
-		$title = $this->createMock( Title::class );
 
 		$dbr = $this->createMock( IDatabase::class );
 		$dbr->method( 'selectField' )
 			->willReturn( false );
 
-		$this->assertFalse( $api->recursiveFetchRefsFromDB( $title, $dbr ) );
+		$this->assertFalse( $api->recursiveFetchRefsFromDB( 0, $dbr ) );
 	}
 
 	/**
@@ -59,13 +56,12 @@ class ApiQueryReferencesTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testRecursiveFetchRefsFromDB_firstTry() {
 		$api = $this->newApiQueryReferences();
-		$title = $this->createMock( Title::class );
 
 		$dbr = $this->createMock( IDatabase::class );
 		$dbr->method( 'selectField' )
 			->willReturn( gzencode( '{"refs":{}}' ) );
 
-		$this->assertSame( [ 'refs' => [] ], $api->recursiveFetchRefsFromDB( $title, $dbr ) );
+		$this->assertSame( [ 'refs' => [] ], $api->recursiveFetchRefsFromDB( 0, $dbr ) );
 	}
 
 	/**
@@ -73,7 +69,6 @@ class ApiQueryReferencesTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testRecursiveFetchRefsFromDB_secondTry() {
 		$api = $this->newApiQueryReferences();
-		$title = $this->createMock( Title::class );
 
 		$dbr = $this->createMock( IDatabase::class );
 		$dbr->expects( $this->exactly( 2 ) )
@@ -82,7 +77,7 @@ class ApiQueryReferencesTest extends \MediaWikiUnitTestCase {
 
 		// Code relies on gzdecode() returning false, but that reports an error now
 		AtEase::suppressWarnings();
-		$refs = $api->recursiveFetchRefsFromDB( $title, $dbr );
+		$refs = $api->recursiveFetchRefsFromDB( 0, $dbr );
 		AtEase::restoreWarnings();
 
 		$this->assertSame( [ 'refs' => [] ], $refs );

@@ -122,6 +122,7 @@
 	"AutoloadClasses": {
 		"ApiQueryReferences": "includes/ApiQueryReferences.php",
 		"Cite": "includes/Cite.php",
+		"CiteErrorReporter": "includes/CiteErrorReporter.php",
 		"CiteHooks": "includes/CiteHooks.php",
 		"CiteDataModule": "includes/CiteDataModule.php",
 		"CiteCSSFileModule": "includes/CiteCSSFileModule.php",

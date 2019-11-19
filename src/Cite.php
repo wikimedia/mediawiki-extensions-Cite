@@ -350,46 +350,44 @@ class Cite {
 	private function inReferencesGuardedRef( $key, $text, $group, $isSectionPreview ) {
 		if ( $group !== $this->inReferencesGroup ) {
 			# <ref> and <references> have conflicting group attributes.
-			$this->mReferencesErrors[] =
-				$this->errorReporter->html(
-					'cite_error_references_group_mismatch',
-					Sanitizer::safeEncodeAttribute( $group )
-				);
-		} elseif ( $text !== '' ) {
-			if ( !$isSectionPreview && !isset( $this->mRefs[$group] ) ) {
-				# Called with group attribute not defined in text.
-				$this->mReferencesErrors[] =
-					$this->errorReporter->html(
-						'cite_error_references_missing_group',
-						Sanitizer::safeEncodeAttribute( $group )
-					);
-			} elseif ( $key === null || $key === '' ) {
-				# <ref> calls inside <references> must be named
-				$this->mReferencesErrors[] =
-					$this->errorReporter->html( 'cite_error_references_no_key' );
-			} elseif ( !$isSectionPreview && !isset( $this->mRefs[$group][$key] ) ) {
-				# Called with name attribute not defined in text.
-				$this->mReferencesErrors[] = $this->errorReporter->html(
-					'cite_error_references_missing_key', Sanitizer::safeEncodeAttribute( $key ) );
-			} else {
-				if (
-					isset( $this->mRefs[$group][$key]['text'] ) &&
-					$text !== $this->mRefs[$group][$key]['text']
-				) {
-					// two refs with same key and different content
-					// add error message to the original ref
-					$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->wikitext(
-							'cite_error_references_duplicate_key', $key
-						);
-				} else {
-					# Assign the text to corresponding ref
-					$this->mRefs[$group][$key]['text'] = $text;
-				}
-			}
-		} else {
+			$this->mReferencesErrors[] = $this->errorReporter->html(
+				'cite_error_references_group_mismatch',
+				Sanitizer::safeEncodeAttribute( $group )
+			);
+		} elseif ( $key === null || $key === '' ) {
+			# <ref> calls inside <references> must be named
+			$this->mReferencesErrors[] = $this->errorReporter->html(
+				'cite_error_references_no_key'
+			);
+		} elseif ( $text === '' ) {
 			# <ref> called in <references> has no content.
 			$this->mReferencesErrors[] = $this->errorReporter->html(
-				'cite_error_empty_references_define', Sanitizer::safeEncodeAttribute( $key ) );
+				'cite_error_empty_references_define',
+				Sanitizer::safeEncodeAttribute( $key )
+			);
+		} elseif ( !isset( $this->mRefs[$group] ) && !$isSectionPreview ) {
+			# Called with group attribute not defined in text.
+			$this->mReferencesErrors[] = $this->errorReporter->html(
+				'cite_error_references_missing_group',
+				Sanitizer::safeEncodeAttribute( $group )
+			);
+		} elseif ( !isset( $this->mRefs[$group][$key] ) && !$isSectionPreview ) {
+			# Called with name attribute not defined in text.
+			$this->mReferencesErrors[] = $this->errorReporter->html(
+				'cite_error_references_missing_key',
+				Sanitizer::safeEncodeAttribute( $key )
+			);
+		} elseif ( isset( $this->mRefs[$group][$key]['text'] ) &&
+			$this->mRefs[$group][$key]['text'] !== $text
+		) {
+			// two refs with same key and different content
+			// add error message to the original ref
+			$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->wikitext(
+					'cite_error_references_duplicate_key', $key
+				);
+		} else {
+			# Assign the text to corresponding ref
+			$this->mRefs[$group][$key]['text'] = $text;
 		}
 	}
 

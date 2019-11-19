@@ -514,30 +514,18 @@ class Cite {
 		if ( !isset( $this->mRefs[$group][$key] ) ) {
 			$this->mRefs[$group][$key] = [
 				'text' => $text,
-				'count' => 0,
+				'count' => -1,
 				'key' => ++$this->mOutCnt,
 				'number' => ++$this->mGroupCnt[$group],
 				'dir' => $dir
 			];
-			$this->mRefCallStack[] = [ 'new', $call, $text, $key, $group, $this->mOutCnt ];
-
-			return $this->linkRef(
-				$group,
-				$key,
-				$this->mRefs[$group][$key]['key'] . "-" . $this->mRefs[$group][$key]['count'],
-				$this->mRefs[$group][$key]['number'],
-				"-" . $this->mRefs[$group][$key]['key']
-			);
-		}
-
-		// Valid key that is already known
-		if ( $this->mRefs[$group][$key]['text'] === null && $text !== '' ) {
+			$action = 'new';
+		} elseif ( $this->mRefs[$group][$key]['text'] === null && $text !== '' ) {
 			// If no text was set before, use this text
 			$this->mRefs[$group][$key]['text'] = $text;
 			// Use the dir parameter only from the full definition of a named ref tag
 			$this->mRefs[$group][$key]['dir'] = $dir;
-			$this->mRefCallStack[] = [ 'assign', $call, $text, $key, $group,
-				$this->mRefs[$group][$key]['key'] ];
+			$action = 'assign';
 		} else {
 			if ( $text != null && $text !== ''
 				// T205803 different strip markers might hide the same text
@@ -550,9 +538,10 @@ class Cite {
 					'cite_error_references_duplicate_key', $key
 				);
 			}
-			$this->mRefCallStack[] = [ 'increment', $call, $text, $key, $group,
-				$this->mRefs[$group][$key]['key'] ];
+			$action = 'increment';
 		}
+		$this->mRefCallStack[] = [ $action, $call, $text, $key, $group,
+			$this->mRefs[$group][$key]['key'] ];
 		return $this->linkRef(
 			$group,
 			$key,

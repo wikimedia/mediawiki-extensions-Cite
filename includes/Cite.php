@@ -133,6 +133,11 @@ class Cite {
 	private $mParser;
 
 	/**
+	 * @var CiteErrorReporter
+	 */
+	private $errorReporter;
+
+	/**
 	 * True when the ParserAfterParse hook has been called.
 	 * Used to avoid doing anything in ParserBeforeTidy.
 	 *
@@ -185,6 +190,19 @@ class Cite {
 	private $mBumpRefData = false;
 
 	/**
+	 * @param Parser $parser
+	 */
+	private function rememberParser( Parser $parser ) {
+		if ( $parser !== $this->mParser ) {
+			$this->mParser = $parser;
+			$this->errorReporter = new CiteErrorReporter(
+				$parser->getOptions()->getUserLangObj(),
+				$parser
+			);
+		}
+	}
+
+	/**
 	 * Callback function for <ref>
 	 *
 	 * @param string|null $text Raw content of the <ref> tag.
@@ -198,11 +216,10 @@ class Cite {
 			return false;
 		}
 
-		$this->mParser = $parser;
+		$this->rememberParser( $parser );
+
 		$this->mInCite = true;
-
 		$ret = $this->guardedRef( $text, $argv, $parser );
-
 		$this->mInCite = false;
 
 		// new <ref> tag, we may need to bump the ref data counter
@@ -229,7 +246,7 @@ class Cite {
 		list( $key, $group, $follow, $dir, $extends ) = $this->refArg( $argv );
 		// empty string indicate invalid dir
 		if ( $dir === '' && $text !== '' ) {
-			$text .= $this->plainError( 'cite_error_ref_invalid_dir', $argv['dir'] );
+			$text .= $this->errorReporter->wikitext( 'cite_error_ref_invalid_dir', $argv['dir'] );
 		}
 		# Split these into groups.
 		if ( $group === null ) {
@@ -256,7 +273,7 @@ class Cite {
 				$text = null;
 			} else {
 				$this->mRefCallStack[] = false;
-				return $this->error( 'cite_error_ref_no_input' );
+				return $this->errorReporter->html( 'cite_error_ref_no_input' );
 			}
 		}
 
@@ -265,13 +282,13 @@ class Cite {
 			# or name and follow attribute used both in one tag checked in
 			# Cite::refArg that returns false for the key then.
 			$this->mRefCallStack[] = false;
-			return $this->error( 'cite_error_ref_too_many_keys' );
+			return $this->errorReporter->html( 'cite_error_ref_too_many_keys' );
 		}
 
 		if ( $text === null && $key === null ) {
 			# Something like <ref />; this makes no sense.
 			$this->mRefCallStack[] = false;
-			return $this->error( 'cite_error_ref_no_key' );
+			return $this->errorReporter->html( 'cite_error_ref_no_key' );
 		}
 
 		if ( ctype_digit( $key ) || ctype_digit( $follow ) ) {
@@ -281,7 +298,7 @@ class Cite {
 			# (and would produce weird id's anyway).
 
 			$this->mRefCallStack[] = false;
-			return $this->error( 'cite_error_ref_numeric_key' );
+			return $this->errorReporter->html( 'cite_error_ref_numeric_key' );
 		}
 
 		if ( preg_match(
@@ -300,7 +317,7 @@ class Cite {
 			# even temporarily.
 
 			$this->mRefCallStack[] = false;
-			return $this->error( 'cite_error_included_ref' );
+			return $this->errorReporter->html( 'cite_error_included_ref' );
 		}
 
 		if ( is_string( $key ) || is_string( $text ) ) {
@@ -333,7 +350,7 @@ class Cite {
 		if ( $group != $this->mReferencesGroup ) {
 			# <ref> and <references> have conflicting group attributes.
 			$this->mReferencesErrors[] =
-				$this->error(
+				$this->errorReporter->html(
 					'cite_error_references_group_mismatch',
 					Sanitizer::safeEncodeAttribute( $group )
 				);
@@ -341,18 +358,18 @@ class Cite {
 			if ( !$isSectionPreview && !isset( $this->mRefs[$group] ) ) {
 				# Called with group attribute not defined in text.
 				$this->mReferencesErrors[] =
-					$this->error(
+					$this->errorReporter->html(
 						'cite_error_references_missing_group',
 						Sanitizer::safeEncodeAttribute( $group )
 					);
 			} elseif ( $key === null || $key === '' ) {
 				# <ref> calls inside <references> must be named
 				$this->mReferencesErrors[] =
-					$this->error( 'cite_error_references_no_key' );
+					$this->errorReporter->html( 'cite_error_references_no_key' );
 			} elseif ( !$isSectionPreview && !isset( $this->mRefs[$group][$key] ) ) {
 				# Called with name attribute not defined in text.
-				$this->mReferencesErrors[] =
-					$this->error( 'cite_error_references_missing_key', Sanitizer::safeEncodeAttribute( $key ) );
+				$this->mReferencesErrors[] = $this->errorReporter->html(
+					'cite_error_references_missing_key', Sanitizer::safeEncodeAttribute( $key ) );
 			} else {
 				if (
 					isset( $this->mRefs[$group][$key]['text'] ) &&
@@ -360,7 +377,7 @@ class Cite {
 				) {
 					// two refs with same key and different content
 					// add error message to the original ref
-					$this->mRefs[$group][$key]['text'] .= ' ' . $this->plainError(
+					$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->wikitext(
 							'cite_error_references_duplicate_key', $key
 						);
 				} else {
@@ -370,8 +387,8 @@ class Cite {
 			}
 		} else {
 			# <ref> called in <references> has no content.
-			$this->mReferencesErrors[] =
-				$this->error( 'cite_error_empty_references_define', Sanitizer::safeEncodeAttribute( $key ) );
+			$this->mReferencesErrors[] = $this->errorReporter->html(
+				'cite_error_empty_references_define', Sanitizer::safeEncodeAttribute( $key ) );
 		}
 	}
 
@@ -534,7 +551,7 @@ class Cite {
 			) {
 				// two refs with same key and different text
 				// add error message to the original ref
-				$this->mRefs[$group][$key]['text'] .= ' ' . $this->plainError(
+				$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->wikitext(
 					'cite_error_references_duplicate_key', $key
 				);
 			}
@@ -628,7 +645,8 @@ class Cite {
 			return false;
 		}
 
-		$this->mParser = $parser;
+		$this->rememberParser( $parser );
+
 		$this->mInReferences = true;
 		$ret = $this->guardedReferences( $text, $argv, $parser );
 		$this->mInReferences = false;
@@ -711,7 +729,7 @@ class Cite {
 
 		// There are remaining parameters we don't recognise
 		if ( $argv ) {
-			return $this->error( 'cite_error_references_invalid_parameters' );
+			return $this->errorReporter->html( 'cite_error_references_invalid_parameters' );
 		}
 
 		$s = $this->referencesFormat( $group, $responsive );
@@ -858,9 +876,9 @@ class Cite {
 	private function referenceText( $key, $text ) {
 		if ( $text === null || $text === '' ) {
 			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
-				return $this->warning( 'cite_warning_sectionpreview_no_text', $key, 'noparse' );
+				return $this->errorReporter->wikitext( 'cite_warning_sectionpreview_no_text', $key );
 			}
-			return $this->plainError( 'cite_error_references_no_text', $key );
+			return $this->errorReporter->wikitext( 'cite_error_references_no_text', $key );
 		}
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";
 	}
@@ -898,7 +916,7 @@ class Cite {
 			$this->genBacklinkLabels();
 		}
 		return $this->mBacklinkLabels[$offset]
-			?? $this->plainError( 'cite_error_references_no_backlink_label', null );
+			?? $this->errorReporter->wikitext( 'cite_error_references_no_backlink_label', null );
 	}
 
 	/**
@@ -924,7 +942,7 @@ class Cite {
 		}
 
 		return $this->mLinkLabels[$group][$offset - 1]
-			?? $this->plainError( 'cite_error_no_link_label_group', [ $group, $message ] );
+			?? $this->errorReporter->wikitext( 'cite_error_no_link_label_group', [ $group, $message ] );
 	}
 
 	/**
@@ -1136,7 +1154,7 @@ class Cite {
 				$this->mInReferences = false;
 			} else {
 				$s .= "\n<br />" .
-					$this->error(
+					$this->errorReporter->html(
 						'cite_error_group_refs_without_references',
 						Sanitizer::safeEncodeAttribute( $group )
 					);
@@ -1190,100 +1208,6 @@ class Cite {
 		$savedRefs['refs'][$n][$group] = $this->mRefs[$group];
 
 		$parserOutput->setExtensionData( self::EXT_DATA_KEY, $savedRefs );
-	}
-
-	/**
-	 * Return an error message based on an error ID and parses it
-	 *
-	 * @param string $key   Message name for the error
-	 * @param string[]|string|null $param Parameter to pass to the message
-	 * @return string HTML ready for output
-	 */
-	private function error( $key, $param = null ) {
-		$error = $this->plainError( $key, $param );
-		return $this->mParser->recursiveTagParse( $error );
-	}
-
-	/**
-	 * Return an error message based on an error ID as unescaped plaintext.
-	 *
-	 * @param string $key   Message name for the error
-	 * @param string[]|string|null $param Parameter to pass to the message
-	 * @return string wikitext ready for output
-	 * @return-taint tainted
-	 */
-	private function plainError( $key, $param = null ) {
-		# For ease of debugging and because errors are rare, we
-		# use the user language and split the parser cache.
-		$lang = $this->mParser->getOptions()->getUserLangObj();
-		$dir = $lang->getDir();
-
-		# We rely on the fact that PHP is okay with passing unused argu-
-		# ments to functions.  If $1 is not used in the message, wfMessage will
-		# just ignore the extra parameter.
-		$msg = wfMessage(
-			'cite_error',
-			wfMessage( $key, $param )->inLanguage( $lang )->plain()
-		)
-			->inLanguage( $lang )
-			->plain();
-
-		$this->mParser->addTrackingCategory( 'cite-tracking-category-cite-error' );
-
-		$ret = Html::rawElement(
-			'span',
-			[
-				'class' => 'error mw-ext-cite-error',
-				'lang' => $lang->getHtmlCode(),
-				'dir' => $dir,
-			],
-			$msg
-		);
-
-		return $ret;
-	}
-
-	/**
-	 * Return a warning message based on a warning ID
-	 *
-	 * @param string $key   Message name for the warning. Name should start with cite_warning_
-	 * @param string|null $param Parameter to pass to the message
-	 * @param string $parse Whether to parse the message ('parse') or not ('noparse')
-	 * @return string XHTML or wikitext ready for output
-	 */
-	private function warning( $key, $param = null, $parse = 'parse' ) {
-		# For ease of debugging and because errors are rare, we
-		# use the user language and split the parser cache.
-		$lang = $this->mParser->getOptions()->getUserLangObj();
-		$dir = $lang->getDir();
-
-		# We rely on the fact that PHP is okay with passing unused argu-
-		# ments to functions.  If $1 is not used in the message, wfMessage will
-		# just ignore the extra parameter.
-		$msg = wfMessage(
-			'cite_warning',
-			wfMessage( $key, $param )->inLanguage( $lang )->plain()
-		)
-			->inLanguage( $lang )
-			->plain();
-
-		$key = preg_replace( '/^cite_warning_/', '', $key ) . '';
-		$ret = Html::rawElement(
-			'span',
-			[
-				'class' => 'warning mw-ext-cite-warning mw-ext-cite-warning-' .
-					Sanitizer::escapeClass( $key ),
-				'lang' => $lang->getHtmlCode(),
-				'dir' => $dir,
-			],
-			$msg
-		);
-
-		if ( $parse === 'parse' ) {
-			$ret = $this->mParser->recursiveTagParse( $ret );
-		}
-
-		return $ret;
 	}
 
 }

@@ -3,7 +3,9 @@
 namespace Cite\Tests;
 
 use Cite;
+use Language;
 use Parser;
+use ParserOptions;
 use ParserOutput;
 use StripState;
 
@@ -31,7 +33,13 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			->method( 'setProperty' )
 			->with( Cite::BOOK_REF_PROPERTY, true );
 
+		$parserOptions = $this->createMock( ParserOptions::class );
+		$parserOptions->method( 'getUserLangObj' )
+			->willReturn( $this->createMock( Language::class ) );
+
 		$mockParser = $this->createMock( Parser::class );
+		$mockParser->method( 'getOptions' )
+			->willReturn( $parserOptions );
 		$mockParser->method( 'getOutput' )
 			->willReturn( $mockOutput );
 		$mockParser->method( 'getStripState' )

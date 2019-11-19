@@ -146,7 +146,7 @@ class Cite {
 	 *
 	 * @var bool
 	 */
-	public $mInCite = false;
+	private $mInCite = false;
 
 	/**
 	 * True when a <references> tag is being processed.
@@ -154,7 +154,7 @@ class Cite {
 	 *
 	 * @var bool
 	 */
-	public $mInReferences = false;
+	private $mInReferences = false;
 
 	/**
 	 * Error stack used when defining refs in <references>
@@ -1069,11 +1069,15 @@ class Cite {
 	/**
 	 * Gets run when Parser::clearState() gets run, since we don't
 	 * want the counts to transcend pages and other instances
+	 *
+	 * @param string $force Set to "force" to interrupt parsing
 	 */
-	public function clearState() {
-		# Don't clear state when we're in the middle of parsing
-		# a <ref> tag
-		if ( $this->mInCite || $this->mInReferences ) {
+	public function clearState( $force = '' ) {
+		if ( $force === 'force' ) {
+			$this->mInCite = false;
+			$this->mInReferences = false;
+		} elseif ( $this->mInCite || $this->mInReferences ) {
+			// Don't clear when we're in the middle of parsing a <ref> or <references> tag
 			return;
 		}
 

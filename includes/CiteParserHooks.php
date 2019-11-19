@@ -36,10 +36,7 @@ class CiteParserHooks {
 
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		// Clear the state, making sure it will actually work.
-		$cite->mInCite = false;
-		$cite->mInReferences = false;
-		$cite->clearState();
+		$cite->clearState( 'force' );
 
 		CiteParserTagHooks::initialize( $parser );
 	}

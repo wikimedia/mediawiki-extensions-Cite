@@ -74,7 +74,7 @@ class ApiQueryReferences extends ApiQueryBase {
 			} else {
 				$startId = false;
 			}
-			$storedRefs = $this->getStoredReferences( $title );
+			$storedRefs = $this->getStoredReferences( $pageId );
 			$allReferences = [];
 			// some pages may not have references stored
 			if ( $storedRefs !== false ) {
@@ -111,24 +111,24 @@ class ApiQueryReferences extends ApiQueryBase {
 	 * Fetch references stored for the given title in page_props
 	 * For performance, results are cached
 	 *
-	 * @param Title $title
+	 * @param int $pageId
 	 * @return array|false
 	 */
-	private function getStoredReferences( Title $title ) {
+	private function getStoredReferences( $pageId ) {
 		global $wgCiteStoreReferencesData;
 		if ( !$wgCiteStoreReferencesData ) {
 			return false;
 		}
 
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$key = $cache->makeKey( Cite::EXT_DATA_KEY, $title->getArticleID() );
+		$key = $cache->makeKey( Cite::EXT_DATA_KEY, $pageId );
 		return $cache->getWithSetCallback(
 			$key,
 			self::CACHE_DURATION_ONFETCH,
-			function ( $oldValue, &$ttl, array &$setOpts ) use ( $title ) {
+			function ( $oldValue, &$ttl, array &$setOpts ) use ( $pageId ) {
 				$dbr = wfGetDB( DB_REPLICA );
 				$setOpts += Database::getCacheSetOptions( $dbr );
-				return $this->recursiveFetchRefsFromDB( $title, $dbr );
+				return $this->recursiveFetchRefsFromDB( $pageId, $dbr );
 			},
 			[
 				'checkKeys' => [ $key ],
@@ -142,24 +142,23 @@ class ApiQueryReferences extends ApiQueryBase {
 	 * It attempts the next step when a decoding error occurs.
 	 * Returns json_decoded uncompressed string, with validation of json
 	 *
-	 * @param Title $title
+	 * @param int $pageId
 	 * @param IDatabase $dbr
 	 * @param string $string
 	 * @param int $i
 	 * @return array|false
 	 */
 	private function recursiveFetchRefsFromDB(
-		Title $title,
+		$pageId,
 		IDatabase $dbr,
 		$string = '',
 		$i = 1
 	) {
-		$id = $title->getArticleID();
 		$result = $dbr->selectField(
 			'page_props',
 			'pp_value',
 			[
-				'pp_page' => $id,
+				'pp_page' => $pageId,
 				'pp_propname' => 'references-' . $i
 			],
 			__METHOD__
@@ -168,7 +167,7 @@ class ApiQueryReferences extends ApiQueryBase {
 			// no refs stored in page_props at this index
 			if ( $i > 1 ) {
 				// shouldn't happen
-				wfDebug( "Failed to retrieve stored references for title id $id" );
+				wfDebug( "Failed to retrieve stored references for title id $pageId" );
 			}
 			return false;
 		}
@@ -182,10 +181,10 @@ class ApiQueryReferences extends ApiQueryBase {
 			}
 			// corrupted json ?
 			// shouldn't happen since when string is truncated, gzdecode should fail
-			wfDebug( "Corrupted json detected when retrieving stored references for title id $id" );
+			wfDebug( "Corrupted json detected when retrieving stored references for title id $pageId" );
 		}
 		// if gzdecode fails, try to fetch next references- property value
-		return $this->recursiveFetchRefsFromDB( $title, $dbr, $string, ++$i );
+		return $this->recursiveFetchRefsFromDB( $pageId, $dbr, $string, ++$i );
 	}
 
 	/**

@@ -268,23 +268,17 @@ class CiteHooks {
 		if ( !$wgCiteStoreReferencesData || $wgCiteCacheRawReferencesOnParse ) {
 			return;
 		}
+
 		// if we can, avoid clearing the cache when references were not changed
-		if ( method_exists( $linksUpdate, 'getAddedProperties' )
-			&& method_exists( $linksUpdate, 'getRemovedProperties' )
+		if ( isset( $linksUpdate->getAddedProperties()['references-1'] )
+			|| isset( $linksUpdate->getRemovedProperties()['references-1'] )
 		) {
-			$addedProps = $linksUpdate->getAddedProperties();
-			$removedProps = $linksUpdate->getRemovedProperties();
-			if ( !isset( $addedProps['references-1'] )
-				&& !isset( $removedProps['references-1'] )
-			) {
-				return;
-			}
+			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+			$articleID = $linksUpdate->getTitle()->getArticleID();
+			$key = $cache->makeKey( Cite::EXT_DATA_KEY, $articleID );
+			// delete with reduced hold off period (LinksUpdate uses a master connection)
+			$cache->delete( $key, WANObjectCache::MAX_COMMIT_DELAY );
 		}
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$articleID = $linksUpdate->getTitle()->getArticleID();
-		$key = $cache->makeKey( Cite::EXT_DATA_KEY, $articleID );
-		// delete with reduced hold off period (LinksUpdate uses a master connection)
-		$cache->delete( $key, WANObjectCache::MAX_COMMIT_DELAY );
 	}
 
 	/**

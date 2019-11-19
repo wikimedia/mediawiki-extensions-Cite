@@ -2,13 +2,13 @@
 
 namespace Cite\Tests;
 
-use CiteErrorReporter;
+use Cite\CiteErrorReporter;
 use Language;
 use MediaWiki\MediaWikiServices;
 use Parser;
 
 /**
- * @covers \CiteErrorReporter
+ * @covers \Cite\CiteErrorReporter
  *
  * @license GPL-2.0-or-later
  */

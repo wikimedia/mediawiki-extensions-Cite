@@ -1,5 +1,12 @@
 <?php
 
+namespace Cite;
+
+use Html;
+use Language;
+use Parser;
+use Sanitizer;
+
 /**
  * @license GPL-2.0-or-later
  */

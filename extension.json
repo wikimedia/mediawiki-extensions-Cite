@@ -27,22 +27,22 @@
 	},
 	"APIPropModules": {
 		"references": {
-			"class": "ApiQueryReferences"
+			"class": "Cite\\Api\\ApiQueryReferences"
 		}
 	},
 	"Hooks": {
-		"ParserAfterParse": "CiteParserHooks::onParserAfterParse",
-		"ParserBeforeTidy": "CiteParserHooks::onParserBeforeTidy",
-		"ParserClearState": "CiteParserHooks::onParserClearState",
-		"ParserCloned": "CiteParserHooks::onParserCloned",
-		"ParserFirstCallInit": "CiteParserHooks::onParserFirstCallInit",
-		"ContentHandlerDefaultModelFor": "CiteHooks::onContentHandlerDefaultModelFor",
-		"ResourceLoaderTestModules": "CiteHooks::onResourceLoaderTestModules",
-		"ResourceLoaderRegisterModules": "CiteHooks::onResourceLoaderRegisterModules",
-		"LinksUpdate": "CiteHooks::onLinksUpdate",
-		"LinksUpdateComplete": "CiteHooks::onLinksUpdateComplete",
-		"ResourceLoaderGetConfigVars": "CiteHooks::onResourceLoaderGetConfigVars",
-		"APIQuerySiteInfoGeneralInfo": "CiteHooks::onAPIQuerySiteInfoGeneralInfo"
+		"APIQuerySiteInfoGeneralInfo": "Cite\\Hooks\\CiteHooks::onAPIQuerySiteInfoGeneralInfo",
+		"ContentHandlerDefaultModelFor": "Cite\\Hooks\\CiteHooks::onContentHandlerDefaultModelFor",
+		"LinksUpdate": "Cite\\Hooks\\CiteHooks::onLinksUpdate",
+		"LinksUpdateComplete": "Cite\\Hooks\\CiteHooks::onLinksUpdateComplete",
+		"ParserAfterParse": "Cite\\Hooks\\CiteParserHooks::onParserAfterParse",
+		"ParserBeforeTidy": "Cite\\Hooks\\CiteParserHooks::onParserBeforeTidy",
+		"ParserClearState": "Cite\\Hooks\\CiteParserHooks::onParserClearState",
+		"ParserCloned": "Cite\\Hooks\\CiteParserHooks::onParserCloned",
+		"ParserFirstCallInit": "Cite\\Hooks\\CiteParserHooks::onParserFirstCallInit",
+		"ResourceLoaderGetConfigVars": "Cite\\Hooks\\CiteHooks::onResourceLoaderGetConfigVars",
+		"ResourceLoaderRegisterModules": "Cite\\Hooks\\CiteHooks::onResourceLoaderRegisterModules",
+		"ResourceLoaderTestModules": "Cite\\Hooks\\CiteHooks::onResourceLoaderTestModules"
 	},
 	"ResourceModules": {
 		"ext.cite.styles": {
@@ -61,7 +61,7 @@
 			]
 		},
 		"ext.cite.style": {
-			"class": "CiteCSSFileModule",
+			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
 			"styles": "ext.cite.style.css",
 			"targets": [
 				"desktop",
@@ -119,15 +119,8 @@
 			"value": true
 		}
 	},
-	"AutoloadClasses": {
-		"ApiQueryReferences": "includes/ApiQueryReferences.php",
-		"Cite": "includes/Cite.php",
-		"CiteErrorReporter": "includes/CiteErrorReporter.php",
-		"CiteHooks": "includes/CiteHooks.php",
-		"CiteDataModule": "includes/CiteDataModule.php",
-		"CiteCSSFileModule": "includes/CiteCSSFileModule.php",
-		"CiteParserHooks": "includes/CiteParserHooks.php",
-		"CiteParserTagHooks": "includes/CiteParserTagHooks.php"
+	"AutoloadNamespaces": {
+		"Cite\\": "src/"
 	},
 	"TrackingCategories": [
 		"cite-tracking-category-cite-error"

@@ -1,5 +1,7 @@
 <?php
 
+namespace Cite\ResourceLoader;
+
 use MediaWiki\MediaWikiServices;
 
 /**
@@ -8,7 +10,7 @@ use MediaWiki\MediaWikiServices;
  * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
  * @license MIT
  */
-class CiteCSSFileModule extends ResourceLoaderFileModule {
+class CiteCSSFileModule extends \ResourceLoaderFileModule {
 
 	/**
 	 * @inheritDoc

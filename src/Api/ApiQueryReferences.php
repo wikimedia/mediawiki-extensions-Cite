@@ -21,10 +21,17 @@
  * @see https://www.mediawiki.org/wiki/Extension:Cite#API
  */
 
+namespace Cite\Api;
+
+use ApiBase;
+use ApiQuery;
+use ApiResult;
+use Cite\Cite;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IDatabase;
 
-class ApiQueryReferences extends ApiQueryBase {
+class ApiQueryReferences extends \ApiQueryBase {
 
 	/**
 	 * Cache duration when fetching references from the database, in seconds. 18,000 seconds = 5

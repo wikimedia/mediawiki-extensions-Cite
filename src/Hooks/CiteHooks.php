@@ -4,8 +4,18 @@
  * @license MIT
  */
 
+namespace Cite\Hooks;
+
+use ApiQuerySiteinfo;
+use Cite\Cite;
+use ExtensionRegistry;
+use FormatJson;
+use LinksUpdate;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use ResourceLoader;
+use Title;
+use WANObjectCache;
 
 class CiteHooks {
 
@@ -59,7 +69,7 @@ class CiteHooks {
 					'ext.cite.visualEditor',
 					'test.VisualEditor'
 				],
-				'localBasePath' => __DIR__ . '/../modules/ve-cite/tests',
+				'localBasePath' => __DIR__ . '/../../modules/ve-cite/tests',
 				'remoteExtPath' => 'Cite/modules/ve-cite/tests',
 			];
 		}
@@ -73,7 +83,7 @@ class CiteHooks {
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
 		$uxEnhancementsModule = [
-			'localBasePath' => __DIR__ . '/../modules',
+			'localBasePath' => __DIR__ . '/../../modules',
 			'remoteExtPath' => 'Cite/modules',
 			'scripts' => [
 				'ext.cite.a11y.js',
@@ -102,7 +112,7 @@ class CiteHooks {
 		}
 
 		$resourceLoader->register( "ext.cite.visualEditor.core", [
-			'localBasePath' => __DIR__ . '/../modules/ve-cite',
+			'localBasePath' => __DIR__ . '/../../modules/ve-cite',
 			'remoteExtPath' => 'Cite/modules/ve-cite',
 			"scripts" => [
 				've.dm.MWReferenceModel.js',
@@ -135,10 +145,10 @@ class CiteHooks {
 		] );
 
 		$resourceLoader->register( "ext.cite.visualEditor.data",
-			[ "class" => "CiteDataModule" ] );
+			[ 'class' => 'Cite\\ResourceLoader\\CiteDataModule' ] );
 
 		$resourceLoader->register( "ext.cite.visualEditor", [
-			'localBasePath' => __DIR__ . '/../modules/ve-cite',
+			'localBasePath' => __DIR__ . '/../../modules/ve-cite',
 			'remoteExtPath' => 'Cite/modules/ve-cite',
 			"scripts" => [
 				've.ui.MWReferenceGroupInputWidget.js',

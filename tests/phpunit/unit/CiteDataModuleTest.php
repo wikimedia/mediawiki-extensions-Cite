@@ -2,13 +2,13 @@
 
 namespace Cite\Tests\Unit;
 
-use CiteDataModule;
+use Cite\ResourceLoader\CiteDataModule;
 use Message;
 use ResourceLoaderContext;
 use WebRequest;
 
 /**
- * @covers \CiteDataModule
+ * @covers \Cite\ResourceLoader\CiteDataModule
  *
  * @license GPL-2.0-or-later
  */

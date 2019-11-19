@@ -2,11 +2,11 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite;
+use Cite\Cite;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \Cite
+ * @coversDefaultClass \Cite\Cite
  *
  * @license GPL-2.0-or-later
  */

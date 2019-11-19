@@ -3,14 +3,14 @@
 namespace Cite\Tests;
 
 use ApiQuerySiteinfo;
-use CiteHooks;
+use Cite\Hooks\CiteHooks;
 use HashBagOStuff;
 use LinksUpdate;
 use Title;
 use WANObjectCache;
 
 /**
- * @coversDefaultClass \CiteHooks
+ * @coversDefaultClass \Cite\Hooks\CiteHooks
  *
  * @license GPL-2.0-or-later
  */

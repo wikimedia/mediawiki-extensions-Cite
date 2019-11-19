@@ -4,14 +4,14 @@ namespace Cite\Tests\Unit;
 
 use ApiMain;
 use ApiQuery;
-use ApiQueryReferences;
+use Cite\Api\ApiQueryReferences;
 use IContextSource;
 use Wikimedia\AtEase\AtEase;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \ApiQueryReferences
+ * @coversDefaultClass \Cite\Api\ApiQueryReferences
  *
  * @license GPL-2.0-or-later
  */

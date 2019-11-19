@@ -22,7 +22,16 @@
  * @license GPL-2.0-or-later
  */
 
+namespace Cite;
+
+use Exception;
+use Html;
 use MediaWiki\MediaWikiServices;
+use Parser;
+use ParserOptions;
+use ParserOutput;
+use Sanitizer;
+use StripState;
 
 class Cite {
 

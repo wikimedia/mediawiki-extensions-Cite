@@ -2,14 +2,14 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite;
-use CiteParserTagHooks;
+use Cite\Cite;
+use Cite\Hooks\CiteParserTagHooks;
 use Parser;
 use ParserOutput;
 use PPFrame;
 
 /**
- * @coversDefaultClass \CiteParserTagHooks
+ * @coversDefaultClass \Cite\Hooks\CiteParserTagHooks
  *
  * @license GPL-2.0-or-later
  */

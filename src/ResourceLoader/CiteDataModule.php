@@ -1,5 +1,11 @@
 <?php
 
+namespace Cite\ResourceLoader;
+
+use FormatJson;
+use ResourceLoader;
+use ResourceLoaderContext;
+
 /**
  * Resource loader module providing extra data from the server to Cite.
  *
@@ -8,7 +14,7 @@
  * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
  * @license MIT
  */
-class CiteDataModule extends ResourceLoaderModule {
+class CiteDataModule extends \ResourceLoaderModule {
 
 	protected $targets = [ 'desktop', 'mobile' ];
 

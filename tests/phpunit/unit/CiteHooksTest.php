@@ -2,8 +2,8 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite;
-use CiteHooks;
+use Cite\Cite;
+use Cite\Hooks\CiteHooks;
 use HashConfig;
 use LinksUpdate;
 use ParserOutput;
@@ -11,7 +11,7 @@ use ResourceLoader;
 use Title;
 
 /**
- * @coversDefaultClass \CiteHooks
+ * @coversDefaultClass \Cite\Hooks\CiteHooks
  *
  * @license GPL-2.0-or-later
  */

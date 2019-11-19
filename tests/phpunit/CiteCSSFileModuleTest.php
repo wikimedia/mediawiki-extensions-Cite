@@ -2,12 +2,12 @@
 
 namespace Cite\Tests;
 
-use CiteCSSFileModule;
+use Cite\ResourceLoader\CiteCSSFileModule;
 use MediaWiki\MediaWikiServices;
 use ResourceLoaderContext;
 
 /**
- * @covers \CiteCSSFileModule
+ * @covers \Cite\ResourceLoader\CiteCSSFileModule
  *
  * @license GPL-2.0-or-later
  */

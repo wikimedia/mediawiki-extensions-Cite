@@ -2,7 +2,7 @@
 
 namespace Cite\Tests;
 
-use Cite;
+use Cite\Cite;
 use Language;
 use Parser;
 use ParserOptions;
@@ -10,7 +10,7 @@ use ParserOutput;
 use StripState;
 
 /**
- * @coversDefaultClass \Cite
+ * @coversDefaultClass \Cite\Cite
  *
  * @license GPL-2.0-or-later
  */

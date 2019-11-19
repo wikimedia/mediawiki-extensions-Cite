@@ -1,5 +1,11 @@
 <?php
 
+namespace Cite\Hooks;
+
+use Cite\Cite;
+use Parser;
+use PPFrame;
+
 /**
  * @license GPL-2.0-or-later
  */

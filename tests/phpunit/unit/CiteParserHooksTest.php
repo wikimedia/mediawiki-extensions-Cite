@@ -2,15 +2,15 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite;
-use CiteParserHooks;
+use Cite\Cite;
+use Cite\Hooks\CiteParserHooks;
 use Parser;
 use ParserOptions;
 use ParserOutput;
 use StripState;
 
 /**
- * @coversDefaultClass \CiteParserHooks
+ * @coversDefaultClass \Cite\Hooks\CiteParserHooks
  *
  * @license GPL-2.0-or-later
  */

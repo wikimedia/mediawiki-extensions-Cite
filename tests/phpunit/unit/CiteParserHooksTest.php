@@ -11,6 +11,8 @@ use StripState;
 
 /**
  * @coversDefaultClass \CiteParserHooks
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 

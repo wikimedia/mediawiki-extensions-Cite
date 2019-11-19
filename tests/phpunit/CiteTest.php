@@ -9,6 +9,8 @@ use StripState;
 
 /**
  * @coversDefaultClass \Cite
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteTest extends \MediaWikiIntegrationTestCase {
 

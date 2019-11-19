@@ -13,6 +13,8 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @coversDefaultClass \ApiQueryReferences
+ *
+ * @license GPL-2.0-or-later
  */
 class ApiQueryReferencesTest extends \MediaWikiUnitTestCase {
 

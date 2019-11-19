@@ -10,6 +10,8 @@ use PPFrame;
 
 /**
  * @coversDefaultClass \CiteParserTagHooks
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 

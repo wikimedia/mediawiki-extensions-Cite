@@ -11,6 +11,8 @@ use WANObjectCache;
 
 /**
  * @coversDefaultClass \CiteHooks
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 

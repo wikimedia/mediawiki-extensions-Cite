@@ -12,6 +12,8 @@ use Title;
 
 /**
  * @coversDefaultClass \CiteHooks
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteHooksTest extends \MediaWikiUnitTestCase {
 

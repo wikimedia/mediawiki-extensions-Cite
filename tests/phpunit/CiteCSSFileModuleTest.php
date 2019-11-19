@@ -8,6 +8,8 @@ use ResourceLoaderContext;
 
 /**
  * @covers \CiteCSSFileModule
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteCSSFileModuleTest extends \MediaWikiIntegrationTestCase {
 

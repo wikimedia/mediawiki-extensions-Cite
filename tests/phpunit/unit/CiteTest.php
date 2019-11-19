@@ -7,6 +7,8 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @coversDefaultClass \Cite
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteTest extends \MediaWikiUnitTestCase {
 

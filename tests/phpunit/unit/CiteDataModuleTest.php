@@ -9,6 +9,8 @@ use WebRequest;
 
 /**
  * @covers \CiteDataModule
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 

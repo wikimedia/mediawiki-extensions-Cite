@@ -262,7 +262,6 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	this.referenceGroupInput.setDisabled( true );
 	this.referenceGroupInput.setValue( this.originalGroup );
 	this.referenceGroupInput.setDisabled( false );
-	this.referenceTarget.initialize();
 
 	group = this.getFragment().getDocument().getInternalList()
 		.getNodeGroup( this.referenceModel.getListGroup() );
@@ -305,7 +304,6 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	this.referenceTarget = ve.init.target.createTargetWidget(
 		{
-			tools: ve.copy( ve.init.target.constructor.static.toolbarGroups ),
 			includeCommands: this.constructor.static.includeCommands,
 			excludeCommands: this.constructor.static.excludeCommands.concat( citeCommands ),
 			importRules: this.constructor.static.getImportRules(),

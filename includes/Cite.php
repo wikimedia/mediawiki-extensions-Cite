@@ -154,12 +154,10 @@ class Cite {
 	private $mInCite = false;
 
 	/**
-	 * True when a <references> tag is being processed.
-	 * Used to detect the use of <references> to define refs
-	 *
-	 * @var bool
+	 * @var null|string The current group name while parsing nested <ref> in <references>. Null when
+	 *  parsing <ref> outside of <references>. Warning, an empty string is a valid group name!
 	 */
-	private $mInReferences = false;
+	private $inReferencesGroup = null;
 
 	/**
 	 * Error stack used when defining refs in <references>
@@ -167,13 +165,6 @@ class Cite {
 	 * @var string[]
 	 */
 	private $mReferencesErrors = [];
-
-	/**
-	 * Group used when in <references> block
-	 *
-	 * @var string
-	 */
-	private $mReferencesGroup = '';
 
 	/**
 	 * <ref> call stack
@@ -250,7 +241,7 @@ class Cite {
 		}
 		# Split these into groups.
 		if ( $group === null ) {
-			$group = $this->mInReferences ? $this->mReferencesGroup : self::DEFAULT_GROUP;
+			$group = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
 		}
 
 		// Tag every page where Book Referencing has been used.  This code and the properties
@@ -259,7 +250,7 @@ class Cite {
 			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
-		if ( $this->mInReferences ) {
+		if ( $this->inReferencesGroup !== null ) {
 			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 			$this->inReferencesGuardedRef( $key, $text, $group, $isSectionPreview );
 			return '';
@@ -347,7 +338,7 @@ class Cite {
 	 * @param bool $isSectionPreview
 	 */
 	private function inReferencesGuardedRef( $key, $text, $group, $isSectionPreview ) {
-		if ( $group != $this->mReferencesGroup ) {
+		if ( $group !== $this->inReferencesGroup ) {
 			# <ref> and <references> have conflicting group attributes.
 			$this->mReferencesErrors[] =
 				$this->errorReporter->html(
@@ -641,15 +632,13 @@ class Cite {
 	 * @return string|false False in case a <references> tag is not allowed in the current context
 	 */
 	public function references( $text, array $argv, Parser $parser ) {
-		if ( $this->mInCite || $this->mInReferences ) {
+		if ( $this->mInCite || $this->inReferencesGroup !== null ) {
 			return false;
 		}
 
 		$this->rememberParser( $parser );
-
-		$this->mInReferences = true;
 		$ret = $this->guardedReferences( $text, $argv, $parser );
-		$this->mInReferences = false;
+		$this->inReferencesGroup = null;
 
 		return $ret;
 	}
@@ -672,10 +661,9 @@ class Cite {
 
 		$group = $argv['group'] ?? self::DEFAULT_GROUP;
 		unset( $argv['group'] );
+		$this->inReferencesGroup = $group;
 
 		if ( strval( $text ) !== '' ) {
-			$this->mReferencesGroup = $group;
-
 			# Detect whether we were sent already rendered <ref>s.
 			# Mostly a side effect of using #tag to call references.
 			# The following assumes that the parsed <ref>s sent within
@@ -1093,8 +1081,8 @@ class Cite {
 	public function clearState( $force = '' ) {
 		if ( $force === 'force' ) {
 			$this->mInCite = false;
-			$this->mInReferences = false;
-		} elseif ( $this->mInCite || $this->mInReferences ) {
+			$this->inReferencesGroup = null;
+		} elseif ( $this->mInCite || $this->inReferencesGroup !== null ) {
 			// Don't clear when we're in the middle of parsing a <ref> or <references> tag
 			return;
 		}
@@ -1149,9 +1137,9 @@ class Cite {
 				continue;
 			}
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-				$this->mInReferences = true;
+				$this->inReferencesGroup = $group;
 				$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
-				$this->mInReferences = false;
+				$this->inReferencesGroup = null;
 			} else {
 				$s .= "\n<br />" .
 					$this->errorReporter->html(

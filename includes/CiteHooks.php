@@ -48,19 +48,19 @@ class CiteHooks {
 		) {
 			$testModules['qunit']['ext.cite.visualEditor.test'] = [
 				'scripts' => [
-					'modules/ve-cite/tests/ve.dm.citeExample.js',
-					'modules/ve-cite/tests/ve.dm.Converter.test.js',
-					'modules/ve-cite/tests/ve.dm.InternalList.test.js',
-					'modules/ve-cite/tests/ve.dm.Transaction.test.js',
-					'modules/ve-cite/tests/ve.ui.DiffElement.test.js',
-					'modules/ve-cite/tests/ve.ui.MWWikitextStringTransferHandler.test.js',
+					've.dm.citeExample.js',
+					've.dm.Converter.test.js',
+					've.dm.InternalList.test.js',
+					've.dm.Transaction.test.js',
+					've.ui.DiffElement.test.js',
+					've.ui.MWWikitextStringTransferHandler.test.js',
 				],
 				'dependencies' => [
 					'ext.cite.visualEditor',
 					'test.VisualEditor'
 				],
-				'localBasePath' => dirname( __DIR__ ),
-				'remoteExtPath' => 'Cite',
+				'localBasePath' => __DIR__ . '/../modules/ve-cite/tests',
+				'remoteExtPath' => 'Cite/modules/ve-cite/tests',
 			];
 		}
 	}
@@ -72,10 +72,8 @@ class CiteHooks {
 	 * @param ResourceLoader $resourceLoader
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
-		$dir = dirname( __DIR__ ) . DIRECTORY_SEPARATOR;
-
 		$uxEnhancementsModule = [
-			'localBasePath' => $dir . 'modules',
+			'localBasePath' => __DIR__ . '/../modules',
 			'remoteExtPath' => 'Cite/modules',
 			'scripts' => [
 				'ext.cite.a11y.js',
@@ -104,19 +102,19 @@ class CiteHooks {
 		}
 
 		$resourceLoader->register( "ext.cite.visualEditor.core", [
-			'localBasePath' => $dir . 'modules',
-			'remoteExtPath' => 'Cite/modules',
+			'localBasePath' => __DIR__ . '/../modules/ve-cite',
+			'remoteExtPath' => 'Cite/modules/ve-cite',
 			"scripts" => [
-				"ve-cite/ve.dm.MWReferenceModel.js",
-				"ve-cite/ve.dm.MWReferencesListNode.js",
-				"ve-cite/ve.dm.MWReferenceNode.js",
-				"ve-cite/ve.ce.MWReferencesListNode.js",
-				"ve-cite/ve.ce.MWReferenceNode.js",
-				"ve-cite/ve.ui.MWReferencesListCommand.js"
+				've.dm.MWReferenceModel.js',
+				've.dm.MWReferencesListNode.js',
+				've.dm.MWReferenceNode.js',
+				've.ce.MWReferencesListNode.js',
+				've.ce.MWReferenceNode.js',
+				've.ui.MWReferencesListCommand.js',
 			],
 			"styles" => [
-				"ve-cite/ve.ce.MWReferencesListNode.css",
-				"ve-cite/ve.ce.MWReferenceNode.css"
+				've.ce.MWReferencesListNode.css',
+				've.ce.MWReferenceNode.css',
 			],
 			"dependencies" => [
 				"ext.visualEditor.mwcore"
@@ -140,31 +138,31 @@ class CiteHooks {
 			[ "class" => "CiteDataModule" ] );
 
 		$resourceLoader->register( "ext.cite.visualEditor", [
-			'localBasePath' => $dir . 'modules',
-			'remoteExtPath' => 'Cite/modules',
+			'localBasePath' => __DIR__ . '/../modules/ve-cite',
+			'remoteExtPath' => 'Cite/modules/ve-cite',
 			"scripts" => [
-				"ve-cite/ve.ui.MWReferenceGroupInputWidget.js",
-				"ve-cite/ve.ui.MWReferenceSearchWidget.js",
-				"ve-cite/ve.ui.MWReferenceResultWidget.js",
-				"ve-cite/ve.ui.MWUseExistingReferenceCommand.js",
-				"ve-cite/ve.ui.MWCitationDialog.js",
-				"ve-cite/ve.ui.MWReferencesListDialog.js",
-				"ve-cite/ve.ui.MWReferenceDialog.js",
-				"ve-cite/ve.ui.MWReferenceDialogTool.js",
-				"ve-cite/ve.ui.MWCitationDialogTool.js",
-				"ve-cite/ve.ui.MWReferenceContextItem.js",
-				"ve-cite/ve.ui.MWReferencesListContextItem.js",
-				"ve-cite/ve.ui.MWCitationContextItem.js",
-				"ve-cite/ve.ui.MWCitationAction.js",
-				"ve-cite/ve.ui.MWReference.init.js",
-				"ve-cite/ve.ui.MWCitationNeededContextItem.js",
+				've.ui.MWReferenceGroupInputWidget.js',
+				've.ui.MWReferenceSearchWidget.js',
+				've.ui.MWReferenceResultWidget.js',
+				've.ui.MWUseExistingReferenceCommand.js',
+				've.ui.MWCitationDialog.js',
+				've.ui.MWReferencesListDialog.js',
+				've.ui.MWReferenceDialog.js',
+				've.ui.MWReferenceDialogTool.js',
+				've.ui.MWCitationDialogTool.js',
+				've.ui.MWReferenceContextItem.js',
+				've.ui.MWReferencesListContextItem.js',
+				've.ui.MWCitationContextItem.js',
+				've.ui.MWCitationAction.js',
+				've.ui.MWReference.init.js',
+				've.ui.MWCitationNeededContextItem.js',
 			],
 			"styles" => [
-				"ve-cite/ve.ui.MWReferenceDialog.css",
-				"ve-cite/ve.ui.MWReferenceContextItem.css",
-				"ve-cite/ve.ui.MWReferenceGroupInputWidget.css",
-				"ve-cite/ve.ui.MWReferenceResultWidget.css",
-				"ve-cite/ve.ui.MWReferenceSearchWidget.css"
+				've.ui.MWReferenceDialog.css',
+				've.ui.MWReferenceContextItem.css',
+				've.ui.MWReferenceGroupInputWidget.css',
+				've.ui.MWReferenceResultWidget.css',
+				've.ui.MWReferenceSearchWidget.css',
 			],
 			"dependencies" => [
 				"oojs-ui.styles.icons-alerts",

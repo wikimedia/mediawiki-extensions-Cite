@@ -256,7 +256,8 @@ class Cite {
 			return '';
 		}
 
-		if ( $text === '' ) {
+		// @phan-suppress-next-line PhanImpossibleTypeComparison false positive
+		if ( $text !== null && trim( $text ) === '' ) {
 			# <ref ...></ref>.  This construct is  invalid if
 			# it's a contentful ref, but OK if it's a named duplicate and should
 			# be equivalent <ref ... />, for compatability with #tag.
@@ -862,7 +863,7 @@ class Cite {
 	 * @return string
 	 */
 	private function referenceText( $key, $text ) {
-		if ( $text === null || $text === '' ) {
+		if ( trim( $text ) === '' ) {
 			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
 				return $this->errorReporter->wikitext( 'cite_warning_sectionpreview_no_text', $key );
 			}

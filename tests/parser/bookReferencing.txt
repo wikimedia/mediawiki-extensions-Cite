@@ -254,11 +254,10 @@ wgCiteBookReferencing=true
 <ref extends="foo"> </ref>
 !! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 </p>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+refs with no name must have content</span><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">book</span>
-</li>
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"> </span>
 </li>
 </ol></div>
 !! end

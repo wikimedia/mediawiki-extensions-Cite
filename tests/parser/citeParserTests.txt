@@ -547,7 +547,7 @@ refs with no name must have content</span>
 !! test
 <ref> with an empty-string name parameter and no content.
 !! wikitext
-Bla.<ref name=""></ref>
+Bla.<ref name=""> </ref>
 !! html
 <p>Bla.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 refs with no name must have content</span>
@@ -557,7 +557,7 @@ refs with no name must have content</span>
 !! test
 <ref> with a non-empty name parameter and no content.
 !! wikitext
-Bla.<ref name="void"></ref>
+Bla.<ref name="void"> </ref>
 !! html
 Bla.<sup id="cite_ref-void_1-0" class="reference"><a href="#cite_note-void-1">&#91;1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-void-1"><span class="mw-cite-backlink"><a href="#cite_ref-void_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;

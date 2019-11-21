@@ -29,35 +29,12 @@ use Html;
 use MediaWiki\MediaWikiServices;
 use Parser;
 use ParserOptions;
-use ParserOutput;
 use Sanitizer;
 use StatusValue;
 
 class Cite {
 
 	private const DEFAULT_GROUP = '';
-
-	/**
-	 * Maximum storage capacity for the pp_value field of the page_props table. 2^16-1 = 65535 is
-	 * the size of a MySQL 'blob' field.
-	 * @todo Find a way to retrieve this information from the DBAL
-	 */
-	public const MAX_STORAGE_LENGTH = 65535;
-
-	/**
-	 * Key used for storage in parser output's ExtensionData and ObjectCache
-	 */
-	public const EXT_DATA_KEY = 'Cite:References';
-
-	/**
-	 * Version number in case we change the data structure in the future
-	 */
-	private const DATA_VERSION_NUMBER = 1;
-
-	/**
-	 * Cache duration when parsing a page with references, in seconds. 3,600 seconds = 1 hour.
-	 */
-	public const CACHE_DURATION_ONPARSE = 3600;
 
 	/**
 	 * Wikitext attribute name for Book Referencing.
@@ -140,11 +117,6 @@ class Cite {
 	private $referenceStack;
 
 	/**
-	 * @var bool
-	 */
-	private $mBumpRefData = false;
-
-	/**
 	 * @param Parser $parser
 	 */
 	private function rememberParser( Parser $parser ) {
@@ -179,10 +151,6 @@ class Cite {
 		$this->mInCite = true;
 		$ret = $this->guardedRef( $text, $argv, $parser );
 		$this->mInCite = false;
-
-		// new <ref> tag, we may need to bump the ref data counter
-		// to avoid overwriting a previous group
-		$this->mBumpRefData = true;
 
 		return $ret;
 	}
@@ -544,11 +512,6 @@ class Cite {
 			$ret = Html::rawElement( 'div', [ 'class' => $wrapClasses ], $ret );
 		}
 
-		if ( !$this->isPagePreview ) {
-			// save references data for later use by LinksUpdate hooks
-			$this->saveReferencesData( $this->mParser->getOutput(), $group );
-		}
-
 		// done, clean up so we can reuse the group
 		$this->referenceStack->deleteGroup( $group );
 
@@ -877,13 +840,11 @@ class Cite {
 	 *
 	 * @param bool $afterParse True if called from the ParserAfterParse hook
 	 * @param ParserOptions $parserOptions
-	 * @param ParserOutput $parserOutput
 	 * @param string &$text
 	 */
 	public function checkRefsNoReferences(
 		$afterParse,
 		ParserOptions $parserOptions,
-		ParserOutput $parserOutput,
 		&$text
 	) {
 		global $wgCiteResponsiveReferences;
@@ -892,15 +853,6 @@ class Cite {
 			$this->mHaveAfterParse = true;
 		} elseif ( $this->mHaveAfterParse ) {
 			return;
-		}
-
-		if ( !$parserOptions->getIsPreview() ) {
-			// save references data for later use by LinksUpdate hooks
-			if ( $this->referenceStack &&
-				$this->referenceStack->hasGroup( self::DEFAULT_GROUP )
-			) {
-				$this->saveReferencesData( $parserOutput );
-			}
 		}
 
 		$s = '';
@@ -932,40 +884,6 @@ class Cite {
 		} else {
 			$text .= $s;
 		}
-	}
-
-	/**
-	 * Saves references in parser extension data
-	 * This is called by each <references/> tag, and by checkRefsNoReferences
-	 *
-	 * @param ParserOutput $parserOutput
-	 * @param string $group
-	 */
-	private function saveReferencesData( ParserOutput $parserOutput, $group = self::DEFAULT_GROUP ) {
-		global $wgCiteStoreReferencesData;
-		if ( !$wgCiteStoreReferencesData ) {
-			return;
-		}
-		$savedRefs = $parserOutput->getExtensionData( self::EXT_DATA_KEY );
-		if ( $savedRefs === null ) {
-			// Initialize array structure
-			$savedRefs = [
-				'refs' => [],
-				'version' => self::DATA_VERSION_NUMBER,
-			];
-		}
-		if ( $this->mBumpRefData ) {
-			// This handles pages with multiple <references/> tags with <ref> tags in between.
-			// On those, a group can appear several times, so we need to avoid overwriting
-			// a previous appearance.
-			$savedRefs['refs'][] = [];
-			$this->mBumpRefData = false;
-		}
-		$n = count( $savedRefs['refs'] ) - 1;
-		// save group
-		$savedRefs['refs'][$n][$group] = $this->referenceStack->getGroupRefs( $group );
-
-		$parserOutput->setExtensionData( self::EXT_DATA_KEY, $savedRefs );
 	}
 
 }

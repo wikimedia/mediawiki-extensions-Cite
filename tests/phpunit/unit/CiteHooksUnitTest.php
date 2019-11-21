@@ -2,11 +2,8 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite\Cite;
 use Cite\Hooks\CiteHooks;
 use HashConfig;
-use LinksUpdate;
-use ParserOutput;
 use ResourceLoader;
 use Title;
 
@@ -16,13 +13,6 @@ use Title;
  * @license GPL-2.0-or-later
  */
 class CiteHooksUnitTest extends \MediaWikiUnitTestCase {
-
-	protected function setUp() : void {
-		global $wgCiteStoreReferencesData;
-
-		parent::setUp();
-		$wgCiteStoreReferencesData = true;
-	}
 
 	/**
 	 * @covers ::onContentHandlerDefaultModelFor
@@ -64,27 +54,6 @@ class CiteHooksUnitTest extends \MediaWikiUnitTestCase {
 			->method( 'register' );
 
 		CiteHooks::onResourceLoaderRegisterModules( $resourceLoader );
-	}
-
-	/**
-	 * @covers ::onLinksUpdate
-	 */
-	public function testOnLinksUpdate() {
-		$parserOutput = $this->createMock( ParserOutput::class );
-		$parserOutput->method( 'getExtensionData' )
-			->willReturn( true );
-		$parserOutput->expects( $this->once() )
-			->method( 'setExtensionData' )
-			->with( Cite::EXT_DATA_KEY, null );
-
-		$linksUpdate = $this->createMock( LinksUpdate::class );
-		$linksUpdate->method( 'getParserOutput' )
-			->willReturn( $parserOutput );
-		/** @var LinksUpdate $linksUpdate */
-
-		CiteHooks::onLinksUpdate( $linksUpdate );
-
-		$this->assertArrayHasKey( 'references-1', $linksUpdate->mProperties );
 	}
 
 }

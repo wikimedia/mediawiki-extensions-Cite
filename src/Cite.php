@@ -809,21 +809,8 @@ class Cite {
 			)->inContentLanguage()->plain();
 		}
 
-		if ( !isset( $val['count'] ) ) {
-			// this handles the case of section preview for list-defined references
-			return wfMessage(
-				'cite_references_link_many',
-				$this->normalizeKey(
-					self::getReferencesKey( $key . "-" . ( $val['key'] ?? '' ) )
-				),
-				'',
-				$text . $error,
-				$extraAttributes
-			)->inContentLanguage()->plain();
-		}
-
 		// This counts the number of reuses. 0 means the reference appears only 1 time.
-		if ( $val['count'] < 1 ) {
+		if ( isset( $val['count'] ) && $val['count'] < 1 ) {
 			// Anonymous, auto-numbered references can't be reused and get marked with a -1.
 			if ( $val['count'] < 0 ) {
 				$id = $val['key'];
@@ -843,21 +830,25 @@ class Cite {
 
 		// Named references with >1 occurrences
 		$backlinks = [];
-		// for group handling, we have an extra key here.
-		for ( $i = 0; $i <= $val['count']; $i++ ) {
+		// There is no count in case of a section preview
+		for ( $i = 0; $i <= ( $val['count'] ?? -1 ); $i++ ) {
 			$backlinks[] = wfMessage(
 				'cite_references_link_many_format',
 				$this->normalizeKey(
-					$this->refKey( $key, $val['key'] . "-$i" )
+					$this->refKey( $key, $val['key'] . '-' . $i )
 				),
-				$this->referencesFormatEntryNumericBacklinkLabel( $val['number'], $i, $val['count'] ),
+				$this->referencesFormatEntryNumericBacklinkLabel(
+					$val['number'],
+					$i,
+					$val['count']
+				),
 				$this->referencesFormatEntryAlternateBacklinkLabel( $i )
 			)->inContentLanguage()->plain();
 		}
-
-		return wfMessage( 'cite_references_link_many',
+		return wfMessage(
+			'cite_references_link_many',
 			$this->normalizeKey(
-				self::getReferencesKey( $key . "-" . $val['key'] )
+				self::getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) )
 			),
 			$this->listToText( $backlinks ),
 			$text . $error,

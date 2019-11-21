@@ -35,27 +35,27 @@ class CiteTest extends \MediaWikiUnitTestCase {
 			[ [], [ null, null, false, null, null ] ],
 
 			// One attribute only
-			[ [ 'dir' => 'invalid' ], [ null, null, false, '', null ] ],
-			[ [ 'dir' => 'rtl' ], [ null, null, false, ' class="mw-cite-dir-rtl"', null ] ],
+			[ [ 'dir' => 'invalid' ], [ null, null, false, false, null ] ],
+			[ [ 'dir' => ' rtl ' ], [ null, null, false, 'rtl', null ] ],
 			[ [ 'follow' => ' f ' ], [ null, null, 'f', null, null ] ],
 			// FIXME: Unlike all other attributes, group isn't trimmed. Why?
 			[ [ 'group' => ' g ' ], [ null, ' g ', null, null, null ] ],
-			[ [ 'invalid' => 'i' ], [ false, false, false, false, false ] ],
-			[ [ 'invalid' => null ], [ false, false, false, false, false ] ],
+			[ [ 'invalid' => 'i' ], [ false, false, false, null, false ] ],
+			[ [ 'invalid' => null ], [ false, false, false, null, false ] ],
 			[ [ 'name' => ' n ' ], [ 'n', null, null, null, null ] ],
-			[ [ 'name' => null ], [ false, false, false, false, false ] ],
+			[ [ 'name' => null ], [ false, false, false, null, false ] ],
 			[ [ 'extends' => ' e ' ], [ null, null, null, null, 'e' ] ],
 
 			// Pairs
-			[ [ 'follow' => 'f', 'name' => 'n' ], [ false, false, false, false, false ] ],
-			[ [ 'follow' => null, 'name' => null ], [ false, false, false, false, false ] ],
-			[ [ 'follow' => 'f', 'extends' => 'e' ], [ false, false, false, false, false ] ],
+			[ [ 'follow' => 'f', 'name' => 'n' ], [ false, false, false, null, false ] ],
+			[ [ 'follow' => null, 'name' => null ], [ false, false, false, null, false ] ],
+			[ [ 'follow' => 'f', 'extends' => 'e' ], [ false, false, false, null, false ] ],
 			[ [ 'group' => 'g', 'name' => 'n' ], [ 'n', 'g', null, null, null ] ],
 
 			// Combinations of 3 or more attributes
 			[
 				[ 'group' => 'g', 'name' => 'n', 'extends' => 'e', 'dir' => 'rtl' ],
-				[ 'n', 'g', null, ' class="mw-cite-dir-rtl"', 'e' ]
+				[ 'n', 'g', null, 'rtl', 'e' ]
 			],
 		];
 	}

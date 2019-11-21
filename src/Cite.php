@@ -244,8 +244,8 @@ class Cite {
 	) {
 		# The key here is the "name" attribute.
 		list( $key, $group, $follow, $dir, $extends ) = $this->refArg( $argv );
-		// empty string indicate invalid dir
-		if ( $dir === '' && $text !== '' ) {
+
+		if ( $dir === false && $text !== '' ) {
 			$text .= $this->errorReporter->wikitext( 'cite_error_ref_invalid_dir', $argv['dir'] );
 		}
 		# Split these into groups.
@@ -417,13 +417,10 @@ class Cite {
 		$extends = null;
 
 		if ( isset( $argv['dir'] ) ) {
-			// compare the dir attribute value against an explicit whitelist.
-			$dir = '';
-			$isValidDir = in_array( strtolower( $argv['dir'] ), [ 'ltr', 'rtl' ] );
-			if ( $isValidDir ) {
-				$dir = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . strtolower( $argv['dir'] ) ] );
+			$dir = strtolower( trim( $argv['dir'] ) );
+			if ( !in_array( $dir, [ 'ltr', 'rtl' ] ) ) {
+				$dir = false;
 			}
-
 			unset( $argv['dir'] );
 		}
 
@@ -435,7 +432,7 @@ class Cite {
 		if ( isset( $argv['follow'] ) &&
 			( isset( $argv['name'] ) || isset( $argv[self::BOOK_REF_ATTRIBUTE] ) )
 		) {
-			return [ false, false, false, false, false ];
+			return [ false, false, false, null, false ];
 		}
 
 		if ( isset( $argv['name'] ) ) {
@@ -460,7 +457,7 @@ class Cite {
 
 		if ( $argv !== [] ) {
 			// Unexpected invalid attribute.
-			return [ false, false, false, false, false ];
+			return [ false, false, false, null, false ];
 		}
 
 		return [ $key, $group, $follow, $dir, $extends ];
@@ -837,7 +834,7 @@ class Cite {
 				$this->normalizeKey( self::getReferencesKey( $id ) ),
 				$this->normalizeKey( $backlinkId ),
 				$text,
-				$val['dir']
+				$val['dir'] ? Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $val['dir'] ] ) : ''
 			)->inContentLanguage()->plain();
 		}
 
@@ -861,7 +858,7 @@ class Cite {
 			),
 			$this->listToText( $backlinks ),
 			$text,
-			$val['dir']
+			$val['dir'] ? Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $val['dir'] ] ) : ''
 		)->inContentLanguage()->plain();
 	}
 

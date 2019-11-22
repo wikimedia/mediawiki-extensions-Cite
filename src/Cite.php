@@ -90,6 +90,16 @@ class Cite {
 	private $mParser;
 
 	/**
+	 * @var bool
+	 */
+	private $isPagePreview;
+
+	/**
+	 * @var bool
+	 */
+	private $isSectionPreview;
+
+	/**
 	 * @var CiteErrorReporter
 	 */
 	private $errorReporter;
@@ -139,6 +149,8 @@ class Cite {
 	private function rememberParser( Parser $parser ) {
 		if ( $parser !== $this->mParser ) {
 			$this->mParser = $parser;
+			$this->isPagePreview = $parser->getOptions()->getIsPreview();
+			$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 			$this->errorReporter = new CiteErrorReporter(
 				$parser->getOptions()->getUserLangObj(),
 				$parser
@@ -530,7 +542,7 @@ class Cite {
 			$ret = Html::rawElement( 'div', [ 'class' => $wrapClasses ], $ret );
 		}
 
-		if ( !$this->mParser->getOptions()->getIsPreview() ) {
+		if ( !$this->isPagePreview ) {
 			// save references data for later use by LinksUpdate hooks
 			$this->saveReferencesData( $this->mParser->getOutput(), $group );
 		}
@@ -629,7 +641,7 @@ class Cite {
 	 */
 	private function referenceText( $key, $text ) {
 		if ( trim( $text ) === '' ) {
-			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
+			if ( $this->isSectionPreview ) {
 				return $this->errorReporter->plain( 'cite_warning_sectionpreview_no_text', $key );
 			}
 			return $this->errorReporter->plain( 'cite_error_references_no_text', $key );
@@ -887,15 +899,12 @@ class Cite {
 			) {
 				$this->saveReferencesData( $parserOutput );
 			}
-			$isSectionPreview = false;
-		} else {
-			$isSectionPreview = $parserOptions->getIsSectionPreview();
 		}
 
 		$s = '';
 		if ( $this->referenceStack ) {
 			foreach ( $this->referenceStack->getGroups() as $group ) {
-				if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
+				if ( $group === self::DEFAULT_GROUP || $parserOptions->getIsSectionPreview() ) {
 					$this->inReferencesGroup = $group;
 					$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
 					$this->inReferencesGroup = null;
@@ -908,7 +917,7 @@ class Cite {
 				}
 			}
 		}
-		if ( $isSectionPreview && $s !== '' ) {
+		if ( $parserOptions->getIsSectionPreview() && $s !== '' ) {
 			// provide a preview of references in its own section
 			$text .= "\n" . '<div class="mw-ext-cite-cite_section_preview_references" >';
 			$headerMsg = wfMessage( 'cite_section_preview_references' );

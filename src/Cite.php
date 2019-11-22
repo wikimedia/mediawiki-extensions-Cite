@@ -417,7 +417,7 @@ class Cite {
 
 		if ( $argv === [] ) {
 			// No key
-			return [ null, null, false, $dir, null ];
+			return [ null, null, null, $dir, null ];
 		}
 
 		if ( isset( $argv['follow'] ) &&
@@ -460,7 +460,7 @@ class Cite {
 	 * @param string|null $text Content from the <ref> tag
 	 * @param string|null $key Argument to the <ref> tag as returned by $this->refArg()
 	 * @param string $group
-	 * @param string|null $follow
+	 * @param string|null $follow Guaranteed to not be a numeric string
 	 * @param string[] $call
 	 * @param string $dir ref direction
 	 * @param StripState $stripState
@@ -475,29 +475,31 @@ class Cite {
 		if ( !isset( $this->mGroupCnt[$group] ) ) {
 			$this->mGroupCnt[$group] = 0;
 		}
-		if ( $follow != null ) {
+
+		if ( $follow ) {
+			// We know the parent note already, so just perform the "follow" and bail out
 			if ( isset( $this->mRefs[$group][$follow] ) ) {
-				// add text to the note that is being followed
 				$this->mRefs[$group][$follow]['text'] .= ' ' . $text;
-			} else {
-				// insert part of note at the beginning of the group
-				$k = 0;
-				foreach ( $this->mRefs[$group] as $k => $value ) {
-					if ( !isset( $value['follow'] ) ) {
-						break;
-					}
-				}
-				array_splice( $this->mRefs[$group], $k, 0, [ [
-					'count' => -1,
-					'text' => $text,
-					'key' => ++$this->mOutCnt,
-					'follow' => $follow,
-					'dir' => $dir
-				] ] );
-				array_splice( $this->mRefCallStack, $k, 0,
-					[ [ 'new', $call, $text, $key, $group, $this->mOutCnt ] ] );
+				return '';
 			}
-			// return an empty string : this is not a reference
+
+			// insert part of note at the beginning of the group
+			$k = 0;
+			foreach ( $this->mRefs[$group] as $k => $value ) {
+				if ( !isset( $value['follow'] ) ) {
+					break;
+				}
+			}
+			array_splice( $this->mRefs[$group], $k, 0, [ [
+				'count' => -1,
+				'text' => $text,
+				'key' => ++$this->mOutCnt,
+				'follow' => $follow,
+				'dir' => $dir,
+			] ] );
+			array_splice( $this->mRefCallStack, $k, 0,
+				[ [ 'new', $call, $text, $key, $group, $this->mOutCnt ] ] );
+			// A "follow" never gets it's own footnote marker
 			return '';
 		}
 

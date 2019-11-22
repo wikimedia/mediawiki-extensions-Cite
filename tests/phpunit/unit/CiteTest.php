@@ -32,11 +32,11 @@ class CiteTest extends \MediaWikiUnitTestCase {
 
 	public function provideRefAttributes() {
 		return [
-			[ [], [ null, null, false, null, null ] ],
+			[ [], [ null, null, null, null, null ] ],
 
 			// One attribute only
-			[ [ 'dir' => 'invalid' ], [ null, null, false, 'invalid', null ] ],
-			[ [ 'dir' => ' rtl ' ], [ null, null, false, 'rtl', null ] ],
+			[ [ 'dir' => 'invalid' ], [ null, null, null, 'invalid', null ] ],
+			[ [ 'dir' => ' rtl ' ], [ null, null, null, 'rtl', null ] ],
 			[ [ 'follow' => ' f ' ], [ null, null, 'f', null, null ] ],
 			// FIXME: Unlike all other attributes, group isn't trimmed. Why?
 			[ [ 'group' => ' g ' ], [ null, ' g ', null, null, null ] ],

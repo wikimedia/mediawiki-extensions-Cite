@@ -340,6 +340,50 @@ invalid names, e.g. too many</span>
 !! end
 
 !! test
+It's not possible to follow="…" a <ref> defined in the <references> section
+!! wikitext
+<ref follow="theName">theFollows</ref>
+<references>
+<ref name="theName">theValue</ref>
+</references>
+!! html
+<div class="mw-references-wrap"><ol class="references">
+<p id="cite_note-theName"><span class="reference-text">theFollows</span>
+</p>
+</ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "theName" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
+</p>
+!! end
+
+!! test
+A follow="…" after it's parent is not merged
+!! wikitext
+<ref follow="theName">theFollows</ref>
+<ref name="theName">theValue</ref>
+!! html
+<sup id="cite_ref-theName_2-0" class="reference"><a href="#cite_note-theName-2">&#91;1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<p id="cite_note-theName"><span class="reference-text">theFollows</span>
+</p>
+<li id="cite_note-theName-2"><span class="mw-cite-backlink"><a href="#cite_ref-theName_2-0">↑</a></span> <span class="reference-text">theValue</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+Valid follow="…" after it's parent
+!! wikitext
+<ref name="theName">theValue</ref>
+<ref follow="theName">theFollows</ref>
+!! html
+<p><sup id="cite_ref-theName_1-0" class="reference"><a href="#cite_note-theName-1">&#91;1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="#cite_ref-theName_1-0">↑</a></span> <span class="reference-text">theValue theFollows</span>
+</li>
+</ol></div>
+!! end
+
+!! test
 Valid parameters become invalid when a third is present
 !! wikitext
 <ref name="theName" group="theGroup" dummy="dummy">theValue</ref>
@@ -563,17 +607,6 @@ Bla.<sup id="cite_ref-void_1-0" class="reference"><a href="#cite_note-void-1">&#
 <li id="cite_note-void-1"><span class="mw-cite-backlink"><a href="#cite_ref-void_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
 no text was provided for refs named <code>void</code></span></li>
 </ol></div>
-!! end
-
-!! test
-<ref> with both name and follow parameters - invalid
-!! wikitext
-Page one.<ref name="the-name" follow="the-name">This ref is invalid.</ref>
-<references />
-!! html
-<p>Page one.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
-invalid names, e.g. too many</span>
-</p>
 !! end
 
 !! test

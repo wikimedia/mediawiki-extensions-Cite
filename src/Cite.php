@@ -491,9 +491,9 @@ class Cite {
 				$this->mRefs[$group][$follow]['text'] .= ' ' . $text;
 			} else {
 				// insert part of note at the beginning of the group
-				$groupsCount = count( $this->mRefs[$group] );
-				for ( $k = 0; $k < $groupsCount; $k++ ) {
-					if ( !isset( $this->mRefs[$group][$k]['follow'] ) ) {
+				$k = 0;
+				foreach ( $this->mRefs[$group] as $k => $value ) {
+					if ( !isset( $value['follow'] ) ) {
 						break;
 					}
 				}
@@ -685,7 +685,7 @@ class Cite {
 			$redoStack = [];
 
 			# Undo effects of calling <ref> while unaware of containing <references>
-			for ( $i = 1; $i <= $count; $i++ ) {
+			for ( $i = 0; $i < $count; $i++ ) {
 				if ( !$this->mRefCallStack ) {
 					break;
 				}
@@ -700,7 +700,7 @@ class Cite {
 			}
 
 			# Rerun <ref> call now that mInReferences is set.
-			for ( $i = count( $redoStack ) - 1; $i >= 0; $i-- ) {
+			for ( $i = count( $redoStack ); $i--; ) {
 				$call = $redoStack[$i];
 				if ( $call !== false ) {
 					list( $type, $ref_argv, $ref_text,
@@ -842,7 +842,7 @@ class Cite {
 		// Named references with >1 occurrences
 		$backlinks = [];
 		// for group handling, we have an extra key here.
-		for ( $i = 0; $i <= $val['count']; ++$i ) {
+		for ( $i = 0; $i <= $val['count']; $i++ ) {
 			$backlinks[] = wfMessage(
 				'cite_references_link_many_format',
 				$this->normalizeKey(

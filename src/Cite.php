@@ -270,7 +270,7 @@ class Cite {
 				$text = null;
 			} else {
 				$this->mRefCallStack[] = false;
-				return $this->errorReporter->html( 'cite_error_ref_no_input' );
+				return $this->errorReporter->halfParsed( 'cite_error_ref_no_input' );
 			}
 		}
 
@@ -279,13 +279,13 @@ class Cite {
 			# or name and follow attribute used both in one tag checked in
 			# Cite::refArg that returns false for the key then.
 			$this->mRefCallStack[] = false;
-			return $this->errorReporter->html( 'cite_error_ref_too_many_keys' );
+			return $this->errorReporter->halfParsed( 'cite_error_ref_too_many_keys' );
 		}
 
 		if ( $text === null && $key === null ) {
 			# Something like <ref />; this makes no sense.
 			$this->mRefCallStack[] = false;
-			return $this->errorReporter->html( 'cite_error_ref_no_key' );
+			return $this->errorReporter->halfParsed( 'cite_error_ref_no_key' );
 		}
 
 		if ( ctype_digit( $key ) || ctype_digit( $follow ) ) {
@@ -295,7 +295,7 @@ class Cite {
 			# (and would produce weird id's anyway).
 
 			$this->mRefCallStack[] = false;
-			return $this->errorReporter->html( 'cite_error_ref_numeric_key' );
+			return $this->errorReporter->halfParsed( 'cite_error_ref_numeric_key' );
 		}
 
 		if ( preg_match(
@@ -314,7 +314,7 @@ class Cite {
 			# even temporarily.
 
 			$this->mRefCallStack[] = false;
-			return $this->errorReporter->html( 'cite_error_included_ref' );
+			return $this->errorReporter->halfParsed( 'cite_error_included_ref' );
 		}
 
 		if ( is_string( $key ) || is_string( $text ) ) {
@@ -346,30 +346,30 @@ class Cite {
 	private function inReferencesGuardedRef( $key, $text, $group, $isSectionPreview ) {
 		if ( $group !== $this->inReferencesGroup ) {
 			# <ref> and <references> have conflicting group attributes.
-			$this->mReferencesErrors[] = $this->errorReporter->html(
+			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_references_group_mismatch',
 				Sanitizer::safeEncodeAttribute( $group )
 			);
 		} elseif ( $key === null || $key === '' ) {
 			# <ref> calls inside <references> must be named
-			$this->mReferencesErrors[] = $this->errorReporter->html(
+			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_references_no_key'
 			);
 		} elseif ( $text === '' ) {
 			# <ref> called in <references> has no content.
-			$this->mReferencesErrors[] = $this->errorReporter->html(
+			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_empty_references_define',
 				Sanitizer::safeEncodeAttribute( $key )
 			);
 		} elseif ( !isset( $this->mRefs[$group] ) && !$isSectionPreview ) {
 			# Called with group attribute not defined in text.
-			$this->mReferencesErrors[] = $this->errorReporter->html(
+			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_references_missing_group',
 				Sanitizer::safeEncodeAttribute( $group )
 			);
 		} elseif ( !isset( $this->mRefs[$group][$key] ) && !$isSectionPreview ) {
 			# Called with name attribute not defined in text.
-			$this->mReferencesErrors[] = $this->errorReporter->html(
+			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_references_missing_key',
 				Sanitizer::safeEncodeAttribute( $key )
 			);
@@ -378,7 +378,7 @@ class Cite {
 		) {
 			// two refs with same key and different content
 			// add error message to the original ref
-			$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->wikitext(
+			$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->plain(
 					'cite_error_references_duplicate_key', $key
 				);
 		} else {
@@ -542,7 +542,7 @@ class Cite {
 			) {
 				// two refs with same key and different text
 				// add error message to the original ref
-				$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->wikitext(
+				$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->plain(
 					'cite_error_references_duplicate_key', $key
 				);
 			}
@@ -717,7 +717,7 @@ class Cite {
 
 		// There are remaining parameters we don't recognise
 		if ( $argv ) {
-			return $this->errorReporter->html( 'cite_error_references_invalid_parameters' );
+			return $this->errorReporter->halfParsed( 'cite_error_references_invalid_parameters' );
 		}
 
 		$s = $this->referencesFormat( $group, $responsive );
@@ -795,7 +795,7 @@ class Cite {
 			if ( in_array( $dir, [ 'ltr', 'rtl' ] ) ) {
 				$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
 			} else {
-				$error .= $this->errorReporter->wikitext( 'cite_error_ref_invalid_dir', $val['dir'] ) . "\n";
+				$error .= $this->errorReporter->plain( 'cite_error_ref_invalid_dir', $val['dir'] ) . "\n";
 			}
 		}
 
@@ -867,9 +867,9 @@ class Cite {
 	private function referenceText( $key, $text ) {
 		if ( trim( $text ) === '' ) {
 			if ( $this->mParser->getOptions()->getIsSectionPreview() ) {
-				return $this->errorReporter->wikitext( 'cite_warning_sectionpreview_no_text', $key );
+				return $this->errorReporter->plain( 'cite_warning_sectionpreview_no_text', $key );
 			}
-			return $this->errorReporter->wikitext( 'cite_error_references_no_text', $key );
+			return $this->errorReporter->plain( 'cite_error_references_no_text', $key );
 		}
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";
 	}
@@ -907,7 +907,7 @@ class Cite {
 			$this->genBacklinkLabels();
 		}
 		return $this->mBacklinkLabels[$offset]
-			?? $this->errorReporter->wikitext( 'cite_error_references_no_backlink_label', null );
+			?? $this->errorReporter->plain( 'cite_error_references_no_backlink_label', null );
 	}
 
 	/**
@@ -933,7 +933,7 @@ class Cite {
 		}
 
 		return $this->mLinkLabels[$group][$offset - 1]
-			?? $this->errorReporter->wikitext( 'cite_error_no_link_label_group', [ $group, $message ] );
+			?? $this->errorReporter->plain( 'cite_error_no_link_label_group', [ $group, $message ] );
 	}
 
 	/**
@@ -1145,7 +1145,7 @@ class Cite {
 				$this->inReferencesGroup = null;
 			} else {
 				$s .= "\n<br />" .
-					$this->errorReporter->html(
+					$this->errorReporter->halfParsed(
 						'cite_error_group_refs_without_references',
 						Sanitizer::safeEncodeAttribute( $group )
 					);

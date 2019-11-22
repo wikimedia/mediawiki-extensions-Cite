@@ -35,7 +35,7 @@ class CiteErrorReporterTest extends \MediaWikiIntegrationTestCase {
 			->willReturnArgument( 0 );
 
 		$reporter = new CiteErrorReporter( $this->language, $parser );
-		$html = $reporter->html( 'cite_error_example', 'first param' );
+		$html = $reporter->halfParsed( 'cite_error_example', 'first param' );
 		$this->assertSame(
 			'<span class="error mw-ext-cite-error" lang="qqx" '
 				. 'dir="ltr">(cite_error: (cite_error_example: first param))</span>',
@@ -51,7 +51,7 @@ class CiteErrorReporterTest extends \MediaWikiIntegrationTestCase {
 			->method( 'recursiveTagParse' );
 
 		$reporter = new CiteErrorReporter( $this->language, $parser );
-		$wikitext = $reporter->wikitext( 'cite_warning_example', 'first param' );
+		$wikitext = $reporter->plain( 'cite_warning_example', 'first param' );
 		$this->assertSame(
 			'<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" '
 				. 'dir="ltr">(cite_warning: (cite_warning_example: first param))</span>',

@@ -35,22 +35,21 @@ class CiteErrorReporter {
 	 * @param string $key Message name of the error or warning
 	 * @param mixed ...$params
 	 *
-	 * @return string HTML ready for output
+	 * @return string Half-parsed wikitext with extension's tags already being expanded
 	 */
-	public function html( $key, ...$params ) {
-		// FIXME: We suspect this is not necessary and can be replaced with Message::parse(),
-		// except wikis have custom error messages with example <ref> tags.
-		return $this->parser->recursiveTagParse( $this->wikitext( $key, ...$params ) );
+	public function halfParsed( $key, ...$params ) {
+		// FIXME: We suspect this is not necessary and can just be removed
+		return $this->parser->recursiveTagParse( $this->plain( $key, ...$params ) );
 	}
 
 	/**
 	 * @param string $key Message name of the error or warning
 	 * @param mixed ...$params
 	 *
-	 * @return string Wikitext ready for output
+	 * @return string Plain, unparsed wikitext
 	 * @return-taint tainted
 	 */
-	public function wikitext( $key, ...$params ) {
+	public function plain( $key, ...$params ) {
 		$msg = wfMessage( $key, $params )->inLanguage( $this->language );
 
 		if ( strncmp( $key, 'cite_warning_', 13 ) === 0 ) {

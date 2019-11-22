@@ -50,11 +50,11 @@ class CiteErrorReporter {
 	 * @return-taint tainted
 	 */
 	public function plain( $key, ...$params ) {
-		$msg = wfMessage( $key, $params )->inLanguage( $this->language );
+		$msg = wfMessage( $key, ...$params )->inLanguage( $this->language );
 
-		if ( strncmp( $key, 'cite_warning_', 13 ) === 0 ) {
+		if ( strncmp( $msg->getKey(), 'cite_warning_', 13 ) === 0 ) {
 			$type = 'warning';
-			$id = substr( $key, 13 );
+			$id = substr( $msg->getKey(), 13 );
 			$extraClass = ' mw-ext-cite-warning-' . Sanitizer::escapeClass( $id );
 		} else {
 			$type = 'error';

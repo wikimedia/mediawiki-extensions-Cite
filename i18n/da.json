@@ -11,7 +11,7 @@
 		]
 	},
 	"cite-desc": "Tilføjer <code>&lt;ref[ name=id]&gt;</code> og <code>&lt;references/&gt;</code>-elementer til referencer.",
-	"cite_error": "Fodnotefejl: $1",
+	"cite_error": "Referencefejl: $1",
 	"cite_error_ref_numeric_key": "Ugyldigt <code>&lt;ref&gt;</code>-tag; \"name\" kan ikke være et simpelt heltal, brug en beskrivende titel",
 	"cite_error_ref_no_key": "Det indledende <code>&lt;ref&gt;</code>-tag har en forkert form eller har et ugyldigt navn",
 	"cite_error_ref_too_many_keys": "Ugyldigt <code>&lt;ref&gt;</code>-tag: Ugyldige navne, fx for mange",

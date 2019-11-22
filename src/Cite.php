@@ -31,7 +31,6 @@ use Parser;
 use ParserOptions;
 use ParserOutput;
 use Sanitizer;
-use StripState;
 
 class Cite {
 
@@ -68,57 +67,6 @@ class Cite {
 	 * Page property key for the Book Referencing `extends` attribute.
 	 */
 	public const BOOK_REF_PROPERTY = 'ref-extends';
-
-	/**
-	 * Datastructure representing <ref> input, in the format of:
-	 * <code>
-	 * [
-	 * 	'user supplied' => [
-	 *		'text' => 'user supplied reference & key',
-	 *		'count' => 1, // occurs twice
-	 * 		'number' => 1, // The first reference, we want
-	 * 		               // all occourances of it to
-	 * 		               // use the same number
-	 *	],
-	 *	0 => [
-	 * 		'text' => 'Anonymous reference',
-	 * 		'count' => -1,
-	 * 	],
-	 *	1 => [
-	 * 		'text' => 'Another anonymous reference',
-	 * 		'count' => -1,
-	 * 	],
-	 *	'some key' => [
-	 *		'text' => 'this one occurs once'
-	 *		'count' => 0,
-	 * 		'number' => 4
-	 *	],
-	 *	3 => 'more stuff'
-	 * ];
-	 * </code>
-	 *
-	 * This works because:
-	 * * PHP's datastructures are guaranteed to be returned in the
-	 *   order that things are inserted into them (unless you mess
-	 *   with that)
-	 * * User supplied keys can't be integers, therefore avoiding
-	 *   conflict with anonymous keys
-	 *
-	 * @var array[][]
-	 */
-	private $mRefs = [];
-
-	/**
-	 * Count for user displayed output (ref[1], ref[2], ...)
-	 *
-	 * @var int
-	 */
-	private $mOutCnt = 0;
-
-	/**
-	 * @var int[]
-	 */
-	private $mGroupCnt = [];
 
 	/**
 	 * The backlinks, in order, to pass as $3 to
@@ -176,13 +124,9 @@ class Cite {
 	private $mReferencesErrors = [];
 
 	/**
-	 * <ref> call stack
-	 * Used to cleanup out of sequence ref calls created by #tag
-	 * See description of function rollbackRef.
-	 *
-	 * @var (array|false)[]
+	 * @var ReferenceStack $referenceStack
 	 */
-	private $mRefCallStack = [];
+	private $referenceStack;
 
 	/**
 	 * @var bool
@@ -199,6 +143,7 @@ class Cite {
 				$parser->getOptions()->getUserLangObj(),
 				$parser
 			);
+			$this->referenceStack = new ReferenceStack( $this->errorReporter );
 		}
 	}
 
@@ -268,7 +213,7 @@ class Cite {
 			if ( is_string( $name ) && $name !== '' ) {
 				$text = null;
 			} else {
-				$this->mRefCallStack[] = false;
+				$this->referenceStack->pushInvalidRef();
 				return $this->errorReporter->halfParsed( 'cite_error_ref_no_input' );
 			}
 		}
@@ -277,13 +222,13 @@ class Cite {
 			# Invalid attribute in the tag like <ref no_valid_attr="foo" />
 			# or name and follow attribute used both in one tag checked in
 			# Cite::refArg that returns false for the name then.
-			$this->mRefCallStack[] = false;
+			$this->referenceStack->pushInvalidRef();
 			return $this->errorReporter->halfParsed( 'cite_error_ref_too_many_keys' );
 		}
 
 		if ( $text === null && $name === null ) {
 			# Something like <ref />; this makes no sense.
-			$this->mRefCallStack[] = false;
+			$this->referenceStack->pushInvalidRef();
 			return $this->errorReporter->halfParsed( 'cite_error_ref_no_key' );
 		}
 
@@ -293,7 +238,7 @@ class Cite {
 			# would be to mangle them, but it's not really high-priority
 			# (and would produce weird id's anyway).
 
-			$this->mRefCallStack[] = false;
+			$this->referenceStack->pushInvalidRef();
 			return $this->errorReporter->halfParsed( 'cite_error_ref_numeric_key' );
 		}
 
@@ -312,7 +257,7 @@ class Cite {
 			# of the <ref> tag.  This way no part of the article will be eaten
 			# even temporarily.
 
-			$this->mRefCallStack[] = false;
+			$this->referenceStack->pushInvalidRef();
 			return $this->errorReporter->halfParsed( 'cite_error_included_ref' );
 		}
 
@@ -323,7 +268,14 @@ class Cite {
 			# we'll figure that out later.  Likewise it's definitely valid
 			# if there's any content, regardless of name.
 
-			return $this->stack( $text, $name, $group, $follow, $argv, $dir, $parser->getStripState() );
+			$result = $this->referenceStack->pushRef(
+				$text, $name, $group, $follow, $argv, $dir, $parser->getStripState() );
+			if ( $result === null ) {
+				return '';
+			} else {
+				[ $key, $count, $label, $subkey ] = $result;
+				return $this->linkRef( $group, $key, $count, $label, $subkey );
+			}
 		}
 
 		# Not clear how we could get here, but something is probably
@@ -360,29 +312,29 @@ class Cite {
 				'cite_error_empty_references_define',
 				Sanitizer::safeEncodeAttribute( $name )
 			);
-		} elseif ( !isset( $this->mRefs[$group] ) && !$isSectionPreview ) {
+		} elseif ( !$this->referenceStack->hasGroup( $group ) && !$isSectionPreview ) {
 			# Called with group attribute not defined in text.
 			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_references_missing_group',
 				Sanitizer::safeEncodeAttribute( $group )
 			);
-		} elseif ( !isset( $this->mRefs[$group][$name] ) && !$isSectionPreview ) {
-			# Called with name attribute not defined in text.
-			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-				'cite_error_references_missing_key',
-				Sanitizer::safeEncodeAttribute( $name )
-			);
-		} elseif ( isset( $this->mRefs[$group][$name]['text'] ) &&
-			$this->mRefs[$group][$name]['text'] !== $text
-		) {
-			// two refs with same key and different content
-			// add error message to the original ref
-			$this->mRefs[$group][$name]['text'] .= ' ' . $this->errorReporter->plain(
-					'cite_error_references_duplicate_key', $name
-				);
 		} else {
-			# Assign the text to corresponding ref
-			$this->mRefs[$group][$name]['text'] = $text;
+			$groupRefs = $this->referenceStack->getGroupRefs( $group );
+			if ( !isset( $groupRefs[$name] ) && !$isSectionPreview ) {
+				# Called with name attribute not defined in text.
+				$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
+					'cite_error_references_missing_key',
+					Sanitizer::safeEncodeAttribute( $name )
+				);
+			} elseif ( isset( $groupRefs[$name]['text'] ) && $groupRefs[$name]['text'] !== $text ) {
+				// two refs with same key and different content
+				// add error message to the original ref
+				$text = $groupRefs[$name]['text'] . ' ' .
+					$this->errorReporter->plain( 'cite_error_references_duplicate_key', $name );
+				$this->referenceStack->setRefText( $group, $name, $text );
+			} else {
+				$this->referenceStack->setRefText( $group, $name, $text );
+			}
 		}
 	}
 
@@ -454,177 +406,6 @@ class Cite {
 	}
 
 	/**
-	 * Populate $this->mRefs based on input and arguments to <ref>
-	 *
-	 * @param string|null $text Content from the <ref> tag
-	 * @param string|null $name Argument to the <ref> tag as returned by $this->refArg()
-	 * @param string $group
-	 * @param string|null $follow Guaranteed to not be a numeric string
-	 * @param string[] $argv
-	 * @param string $dir ref direction
-	 * @param StripState $stripState
-	 *
-	 * @throws Exception
-	 * @return string
-	 */
-	private function stack(
-		$text, $name, $group, $follow, array $argv, $dir, StripState $stripState
-	) {
-		if ( !isset( $this->mRefs[$group] ) ) {
-			$this->mRefs[$group] = [];
-		}
-		if ( !isset( $this->mGroupCnt[$group] ) ) {
-			$this->mGroupCnt[$group] = 0;
-		}
-
-		if ( $follow ) {
-			// We know the parent note already, so just perform the "follow" and bail out
-			if ( isset( $this->mRefs[$group][$follow] ) ) {
-				$this->mRefs[$group][$follow]['text'] .= ' ' . $text;
-				return '';
-			}
-
-			// insert part of note at the beginning of the group
-			$groupsCount = count( $this->mRefs[$group] );
-			for ( $k = 0; $k < $groupsCount; $k++ ) {
-				if ( !isset( $this->mRefs[$group][$k]['follow'] ) ) {
-					break;
-				}
-			}
-			array_splice( $this->mRefs[$group], $k, 0, [ [
-				'count' => -1,
-				'text' => $text,
-				'key' => ++$this->mOutCnt,
-				'follow' => $follow,
-				'dir' => $dir,
-			] ] );
-			array_splice( $this->mRefCallStack, $k, 0,
-				[ [ 'new', $argv, $text, $name, $group, $this->mOutCnt ] ] );
-			// A "follow" never gets it's own footnote marker
-			return '';
-		}
-
-		if ( $name === null ) {
-			$this->mRefs[$group][] = [
-				'count' => -1,
-				'text' => $text,
-				'key' => ++$this->mOutCnt,
-				'dir' => $dir
-			];
-			$this->mRefCallStack[] = [ 'new', $argv, $text, $name, $group, $this->mOutCnt ];
-
-			return $this->linkRef( $group, $this->mOutCnt );
-		}
-		if ( !is_string( $name ) ) {
-			throw new Exception( 'Invalid stack key: ' . serialize( $name ) );
-		}
-
-		// Valid key with first occurrence
-		if ( !isset( $this->mRefs[$group][$name] ) ) {
-			$this->mRefs[$group][$name] = [
-				'text' => $text,
-				'count' => -1,
-				'key' => ++$this->mOutCnt,
-				'number' => ++$this->mGroupCnt[$group],
-				'dir' => $dir
-			];
-			$action = 'new';
-		} elseif ( $this->mRefs[$group][$name]['text'] === null && $text !== '' ) {
-			// If no text was set before, use this text
-			$this->mRefs[$group][$name]['text'] = $text;
-			// Use the dir parameter only from the full definition of a named ref tag
-			$this->mRefs[$group][$name]['dir'] = $dir;
-			$action = 'assign';
-		} else {
-			if ( $text != null && $text !== ''
-				// T205803 different strip markers might hide the same text
-				&& $stripState->unstripBoth( $text )
-					!== $stripState->unstripBoth( $this->mRefs[$group][$name]['text'] )
-			) {
-				// two refs with same name and different text
-				// add error message to the original ref
-				$this->mRefs[$group][$name]['text'] .= ' ' . $this->errorReporter->plain(
-					'cite_error_references_duplicate_key', $name
-				);
-			}
-			$action = 'increment';
-		}
-		$this->mRefCallStack[] = [ $action, $argv, $text, $name, $group,
-			$this->mRefs[$group][$name]['key'] ];
-		return $this->linkRef(
-			$group,
-			$name,
-			$this->mRefs[$group][$name]['key'] . "-" . ++$this->mRefs[$group][$name]['count'],
-			$this->mRefs[$group][$name]['number'],
-			"-" . $this->mRefs[$group][$name]['key']
-		);
-	}
-
-	/**
-	 * Partially undoes the effect of calls to stack()
-	 *
-	 * Called by guardedReferences()
-	 *
-	 * The option to define <ref> within <references> makes the
-	 * behavior of <ref> context dependent.  This is normally fine
-	 * but certain operations (especially #tag) lead to out-of-order
-	 * parser evaluation with the <ref> tags being processed before
-	 * their containing <reference> element is read.  This leads to
-	 * stack corruption that this function works to fix.
-	 *
-	 * This function is not a total rollback since some internal
-	 * counters remain incremented.  Doing so prevents accidentally
-	 * corrupting certain links.
-	 *
-	 * @param string $type
-	 * @param string|null $name The name attribute passed in the ref tag.
-	 * @param string $group
-	 * @param int $index Autoincrement counter for this ref.
-	 */
-	private function rollbackRef( $type, $name, $group, $index ) {
-		if ( !isset( $this->mRefs[$group] ) ) {
-			return;
-		}
-
-		$key = $name;
-		if ( $name === null ) {
-			foreach ( $this->mRefs[$group] as $k => $v ) {
-				if ( $this->mRefs[$group][$k]['key'] === $index ) {
-					$key = $k;
-					break;
-				}
-			}
-		}
-
-		// Sanity checks that specified element exists.
-		if ( $key === null ||
-			!isset( $this->mRefs[$group][$key] ) ||
-			$this->mRefs[$group][$key]['key'] !== $index
-		) {
-			return;
-		}
-
-		switch ( $type ) {
-		case 'new':
-			# Rollback the addition of new elements to the stack.
-			unset( $this->mRefs[$group][$key] );
-			if ( $this->mRefs[$group] === [] ) {
-				unset( $this->mRefs[$group] );
-				unset( $this->mGroupCnt[$group] );
-			}
-			break;
-		case 'assign':
-			# Rollback assignment of text to pre-existing elements.
-			$this->mRefs[$group][$key]['text'] = null;
-			# continue without break
-		case 'increment':
-			# Rollback increase in named ref occurrences.
-			$this->mRefs[$group][$key]['count']--;
-			break;
-		}
-	}
-
-	/**
 	 * Callback function for <references>
 	 *
 	 * @param string|null $text Raw content of the <references> tag.
@@ -676,38 +457,18 @@ class Cite {
 			# conditional parser functions could be created that would
 			# lead to malformed references here.
 			$count = substr_count( $text, Parser::MARKER_PREFIX . "-ref-" );
-			$redoStack = [];
 
 			# Undo effects of calling <ref> while unaware of containing <references>
-			for ( $i = 0; $i < $count; $i++ ) {
-				if ( !$this->mRefCallStack ) {
-					break;
-				}
-
-				$call = array_pop( $this->mRefCallStack );
-				$redoStack[] = $call;
-				if ( $call !== false ) {
-					list( $type, $ref_argv, $ref_text,
-						$ref_key, $ref_group, $ref_index ) = $call;
-					$this->rollbackRef( $type, $ref_key, $ref_group, $ref_index );
-				}
-			}
+			$redoStack = $this->referenceStack->rollbackRefs( $count );
 
 			# Rerun <ref> call now that mInReferences is set.
-			for ( $i = count( $redoStack ); $i--; ) {
-				$call = $redoStack[$i];
-				if ( $call !== false ) {
-					list( $type, $ref_argv, $ref_text,
-						$ref_key, $ref_group, $ref_index ) = $call;
-					$this->guardedRef( $ref_text, $ref_argv, $parser );
-				}
+			foreach ( $redoStack as $call ) {
+				[ $ref_argv, $ref_text ] = $call;
+				$this->guardedRef( $ref_text, $ref_argv, $parser );
 			}
 
 			# Parse $text to process any unparsed <ref> tags.
 			$parser->recursiveTagParse( $text );
-
-			# Reset call stack
-			$this->mRefCallStack = [];
 		}
 
 		if ( isset( $argv['responsive'] ) ) {
@@ -743,14 +504,15 @@ class Cite {
 	 * @return string HTML ready for output
 	 */
 	private function referencesFormat( $group, $responsive ) {
-		if ( !isset( $this->mRefs[$group] ) ) {
+		if ( !$this->referenceStack->hasGroup( $group ) ) {
 			return '';
 		}
 
 		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).
 		// Note: This builds a string of wikitext, not html.
 		$parserInput = "\n";
-		foreach ( $this->mRefs[$group] as $key => $value ) {
+		$groupRefs = $this->referenceStack->getGroupRefs( $group );
+		foreach ( $groupRefs as $key => $value ) {
 			$parserInput .= $this->referencesFormatEntry( $key, $value ) . "\n";
 		}
 		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
@@ -762,7 +524,7 @@ class Cite {
 			// Use a DIV wrap because column-count on a list directly is broken in Chrome.
 			// See https://bugs.chromium.org/p/chromium/issues/detail?id=498730.
 			$wrapClasses = [ 'mw-references-wrap' ];
-			if ( count( $this->mRefs[$group] ) > 10 ) {
+			if ( count( $groupRefs ) > 10 ) {
 				$wrapClasses[] = 'mw-references-columns';
 			}
 			$ret = Html::rawElement( 'div', [ 'class' => $wrapClasses ], $ret );
@@ -774,8 +536,7 @@ class Cite {
 		}
 
 		// done, clean up so we can reuse the group
-		unset( $this->mRefs[$group] );
-		unset( $this->mGroupCnt[$group] );
+		$this->referenceStack->deleteGroup( $group );
 
 		return $ret;
 	}
@@ -783,8 +544,8 @@ class Cite {
 	/**
 	 * Format a single entry for the referencesFormat() function
 	 *
-	 * @param string|int $key The name or group index of the reference
-	 * @param array $val A single reference as documented at {@see $mRefs}
+	 * @param string|int $key The key of the reference
+	 * @param array $val A single reference as documented at {@see ReferenceStack::$refs}
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
 	private function referencesFormatEntry( $key, array $val ) {
@@ -982,19 +743,15 @@ class Cite {
 	 * @param string $key The key for the link
 	 * @param int|null $count The index of the key, used for distinguishing
 	 *                   multiple occurrences of the same key
-	 * @param int|null $label The label to use for the link, I want to
-	 *                   use the same label for all occourances of
+	 * @param int $label The label to use for the link, I want to
+	 *                   use the same label for all occurrences of
 	 *                   the same named reference.
-	 * @param string $subkey
+	 * @param string|null $subkey
 	 *
 	 * @return string
 	 */
-	private function linkRef( $group, $key, $count = null, $label = null, $subkey = '' ) {
+	private function linkRef( $group, $key, $count, $label, $subkey ) {
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
-
-		if ( $label === null ) {
-			$label = ++$this->mGroupCnt[$group];
-		}
 
 		return $this->mParser->recursiveTagParse(
 				wfMessage(
@@ -1091,12 +848,9 @@ class Cite {
 			// Don't clear when we're in the middle of parsing a <ref> or <references> tag
 			return;
 		}
-
-		$this->mGroupCnt = [];
-		$this->mOutCnt = 0;
-		$this->mRefs = [];
-		$this->mReferencesErrors = [];
-		$this->mRefCallStack = [];
+		if ( $this->referenceStack ) {
+			$this->referenceStack->clear();
+		}
 	}
 
 	/**
@@ -1128,7 +882,9 @@ class Cite {
 
 		if ( !$parserOptions->getIsPreview() ) {
 			// save references data for later use by LinksUpdate hooks
-			if ( $this->mRefs && isset( $this->mRefs[self::DEFAULT_GROUP] ) ) {
+			if ( $this->referenceStack &&
+				$this->referenceStack->hasGroup( self::DEFAULT_GROUP )
+			) {
 				$this->saveReferencesData( $parserOutput );
 			}
 			$isSectionPreview = false;
@@ -1137,20 +893,19 @@ class Cite {
 		}
 
 		$s = '';
-		foreach ( $this->mRefs as $group => $refs ) {
-			if ( !$refs ) {
-				continue;
-			}
-			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-				$this->inReferencesGroup = $group;
-				$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
-				$this->inReferencesGroup = null;
-			} else {
-				$s .= "\n<br />" .
-					$this->errorReporter->halfParsed(
-						'cite_error_group_refs_without_references',
-						Sanitizer::safeEncodeAttribute( $group )
-					);
+		if ( $this->referenceStack ) {
+			foreach ( $this->referenceStack->getGroups() as $group ) {
+				if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
+					$this->inReferencesGroup = $group;
+					$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
+					$this->inReferencesGroup = null;
+				} else {
+					$s .= "\n<br />" .
+						$this->errorReporter->halfParsed(
+							'cite_error_group_refs_without_references',
+							Sanitizer::safeEncodeAttribute( $group )
+						);
+				}
 			}
 		}
 		if ( $isSectionPreview && $s !== '' ) {
@@ -1171,7 +926,6 @@ class Cite {
 	/**
 	 * Saves references in parser extension data
 	 * This is called by each <references/> tag, and by checkRefsNoReferences
-	 * Assumes $this->mRefs[$group] is set
 	 *
 	 * @param ParserOutput $parserOutput
 	 * @param string $group
@@ -1198,7 +952,7 @@ class Cite {
 		}
 		$n = count( $savedRefs['refs'] ) - 1;
 		// save group
-		$savedRefs['refs'][$n][$group] = $this->mRefs[$group];
+		$savedRefs['refs'][$n][$group] = $this->referenceStack->getGroupRefs( $group );
 
 		$parserOutput->setExtensionData( self::EXT_DATA_KEY, $savedRefs );
 	}

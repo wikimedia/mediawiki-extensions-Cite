@@ -433,7 +433,7 @@ It's not possible to follow="…" a <ref> defined in the <references> section
 !! end
 
 !! test
-A follow="…" after it's parent is not merged
+A follow="…" before its parent is not merged
 !! wikitext
 <ref follow="theName">theFollows</ref>
 <ref name="theName">theValue</ref>
@@ -442,6 +442,53 @@ A follow="…" after it's parent is not merged
 <p id="cite_note-theName"><span class="reference-text">theFollows</span>
 </p>
 <li id="cite_note-theName-2"><span class="mw-cite-backlink"><a href="#cite_ref-theName_2-0">↑</a></span> <span class="reference-text">theValue</span>
+</li>
+</ol></div>
+!! end
+
+# This is a nasty edge case which was dropping the ref entirely.
+!! test
+"follow" after a named ref but before its parent
+!! wikitext
+<ref name="first">First</ref>
+<ref follow="third">Second</ref>
+<ref name="third">Third</ref>
+<hr />
+<references />
+!! html/php
+<p><sup id="cite_ref-first_1-0" class="reference"><a href="#cite_note-first-1">&#91;1&#93;</a></sup>
+</p><p><sup id="cite_ref-third_3-0" class="reference"><a href="#cite_note-third-3">&#91;2&#93;</a></sup>
+</p>
+<hr />
+<div class="mw-references-wrap"><ol class="references">
+<p id="cite_note-third"><span class="reference-text">Second</span>
+</p>
+<li id="cite_note-first-1"><span class="mw-cite-backlink"><a href="#cite_ref-first_1-0">↑</a></span> <span class="reference-text">First</span>
+</li>
+<li id="cite_note-third-3"><span class="mw-cite-backlink"><a href="#cite_ref-third_3-0">↑</a></span> <span class="reference-text">Third</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+"follow" after an anonymous ref but before its parent
+!! wikitext
+<ref>First</ref>
+<ref follow="third">Second</ref>
+<ref name="third">Third</ref>
+<hr />
+<references />
+!! html/php
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p><p><sup id="cite_ref-third_3-0" class="reference"><a href="#cite_note-third-3">&#91;2&#93;</a></sup>
+</p>
+<hr />
+<div class="mw-references-wrap"><ol class="references">
+<p id="cite_note-third"><span class="reference-text">Second</span>
+</p>
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">First</span>
+</li>
+<li id="cite_note-third-3"><span class="mw-cite-backlink"><a href="#cite_ref-third_3-0">↑</a></span> <span class="reference-text">Third</span>
 </li>
 </ol></div>
 !! end

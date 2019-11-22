@@ -17,7 +17,7 @@
 	},
 	"cite-desc": "Adds <code>&lt;ref[ name=id]&gt;</code> and <code>&lt;references/&gt;</code> tags, for citations",
 	"cite_error": "Cite error: $1",
-	"cite_error_ref_invalid_dir": "Invalid <code>&lt;ref&gt;</code> tag; dir attribute \"$1\" is unknown. Must be ltr or rtl",
+	"cite_error_ref_invalid_dir": "Invalid <code>dir=\"$1\"</code>, must be <code>ltr</code> or <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Invalid <code>&lt;ref&gt;</code> tag;\nname cannot be a simple integer. Use a descriptive title",
 	"cite_error_ref_no_key": "The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name",
 	"cite_error_ref_too_many_keys": "Invalid <code>&lt;ref&gt;</code> tag;\ninvalid names, e.g. too many",

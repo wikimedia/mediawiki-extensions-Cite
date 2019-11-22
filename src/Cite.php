@@ -245,9 +245,6 @@ class Cite {
 		# The key here is the "name" attribute.
 		list( $key, $group, $follow, $dir, $extends ) = $this->refArg( $argv );
 
-		if ( $dir === false && $text !== '' ) {
-			$text .= $this->errorReporter->wikitext( 'cite_error_ref_invalid_dir', $argv['dir'] );
-		}
 		# Split these into groups.
 		if ( $group === null ) {
 			$group = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
@@ -265,7 +262,6 @@ class Cite {
 			return '';
 		}
 
-		// @phan-suppress-next-line PhanImpossibleTypeComparison false positive
 		if ( $text !== null && trim( $text ) === '' ) {
 			# <ref ...></ref>.  This construct is  invalid if
 			# it's a contentful ref, but OK if it's a named duplicate and should
@@ -415,10 +411,7 @@ class Cite {
 		$extends = null;
 
 		if ( isset( $argv['dir'] ) ) {
-			$dir = strtolower( trim( $argv['dir'] ) );
-			if ( !in_array( $dir, [ 'ltr', 'rtl' ] ) ) {
-				$dir = false;
-			}
+			$dir = trim( $argv['dir'] );
 			unset( $argv['dir'] );
 		}
 
@@ -455,7 +448,7 @@ class Cite {
 
 		if ( $argv !== [] ) {
 			// Unexpected invalid attribute.
-			return [ false, false, false, null, false ];
+			return [ false, false, false, false, false ];
 		}
 
 		return [ $key, $group, $follow, $dir, $extends ];
@@ -792,6 +785,17 @@ class Cite {
 	 */
 	private function referencesFormatEntry( $key, array $val ) {
 		$text = $this->referenceText( $key, $val['text'] );
+		$error = '';
+		$extraAttributes = '';
+
+		if ( isset( $val['dir'] ) ) {
+			$dir = strtolower( $val['dir'] );
+			if ( in_array( $dir, [ 'ltr', 'rtl' ] ) ) {
+				$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
+			} else {
+				$error .= $this->errorReporter->wikitext( 'cite_error_ref_invalid_dir', $val['dir'] ) . "\n";
+			}
+		}
 
 		// Fallback for a broken, and therefore unprocessed follow="…". Note this returns a <p>, not
 		// an <li> as expected!
@@ -813,7 +817,8 @@ class Cite {
 					self::getReferencesKey( $key . "-" . ( $val['key'] ?? '' ) )
 				),
 				'',
-				$text
+				$text . $error,
+				$extraAttributes
 			)->inContentLanguage()->plain();
 		}
 
@@ -831,8 +836,8 @@ class Cite {
 				'cite_references_link_one',
 				$this->normalizeKey( self::getReferencesKey( $id ) ),
 				$this->normalizeKey( $backlinkId ),
-				$text,
-				$val['dir'] ? Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $val['dir'] ] ) : ''
+				$text . $error,
+				$extraAttributes
 			)->inContentLanguage()->plain();
 		}
 
@@ -855,8 +860,8 @@ class Cite {
 				self::getReferencesKey( $key . "-" . $val['key'] )
 			),
 			$this->listToText( $backlinks ),
-			$text,
-			$val['dir'] ? Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $val['dir'] ] ) : ''
+			$text . $error,
+			$extraAttributes
 		)->inContentLanguage()->plain();
 	}
 

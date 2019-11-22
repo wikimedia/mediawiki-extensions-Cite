@@ -105,18 +105,95 @@ Templating<!--<ref>{{simple template}}</ref>-->
 !! end
 
 !! test
-<!--comment--> in a <ref> (bug 5384)
+<!--comment--> in a <ref> (T7384)
 !! wikitext
 Templating<ref>Text<!--comment--></ref>
 
 <references />
-!! html
+!! html/php+tidy
 <p>Templating<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Text</span>
 </li>
 </ol></div>
+!! html/parsoid
+<p>Templating<sup about="#mwt6" class="mw-ref" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
+
+<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">Text<!--comment--></span></li></ol>
+!! end
+
+!! test
+<ref> in an ignored caption (T235656)
+!! wikitext
+[[File:Foobar.jpg|frameless|ignored caption with a ref<ref>boo</ref>]]
+
+<references />
+!! html/php+tidy
+<p><a href="/wiki/File:Foobar.jpg" class="image" title="ignored caption with a ref[1]"><img alt="ignored caption with a ref[1]" src="http://example.com/images/thumb/3/3a/Foobar.jpg/180px-Foobar.jpg" decoding="async" width="180" height="20" srcset="http://example.com/images/thumb/3/3a/Foobar.jpg/270px-Foobar.jpg 1.5x, http://example.com/images/thumb/3/3a/Foobar.jpg/360px-Foobar.jpg 2x" /></a>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">boo</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><figure-inline class="mw-default-size" typeof="mw:Image/Frameless" data-parsoid='{"optList":[{"ck":"frameless","ak":"frameless"},{"ck":"caption","ak":"ignored caption with a ref&lt;ref>boo&lt;/ref>"}]}' data-mw='{"caption":"ignored caption with a ref&lt;sup about=\"#mwt6\" class=\"mw-ref\" id=\"cite_ref-1\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[54,68,5,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">[1]&lt;/span>&lt;/a>&lt;/sup>"}'><a href="./File:Foobar.jpg" data-parsoid="{}"><img resource="./File:Foobar.jpg" src="//example.com/images/thumb/3/3a/Foobar.jpg/220px-Foobar.jpg" data-file-width="1941" data-file-height="220" data-file-type="bitmap" height="25" width="220" data-parsoid='{"a":{"resource":"./File:Foobar.jpg","height":"25","width":"220"},"sa":{"resource":"File:Foobar.jpg"}}'/></a></figure-inline></p>
+
+<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">boo</span></li></ol>
+!! end
+
+!! test
+<ref> in expanded attributes of tags (legitimate or otherwise)
+!! options
+parsoid=wt2html,wt2wt
+!! wikitext
+{|
+|- <ref>boo</ref>
+|x
+|}
+<references />
+!! html/php+tidy
+<table>
+
+<tbody><tr id="cite_ref-1" class="reference">
+<td>x
+</td></tr></tbody></table>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">boo</span>
+</li>
+</ol></div>
+!! html/parsoid
+<table>
+<tbody><tr about="#mwt4" typeof="mw:ExpandedAttrs" data-parsoid='{"startTagSrc":"|-","a":{"&lt;ref>boo&lt;/ref>":null},"sa":{"&lt;ref>boo&lt;/ref>":""}' data-mw='{"attribs":[[{"txt":"","html":"&lt;sup about=\"#mwt3\" class=\"mw-ref\" id=\"cite_ref-1\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[5,19,5,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">[1]&lt;/span>&lt;/a>&lt;/sup>"},{"html":""}]]}'>
+<td>x</td></tr>
+</tbody></table>
+
+<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-1" id="cite_note-1" data-parsoid="{}"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy" data-parsoid="{}"><span class="mw-linkback-text" data-parsoid="{}">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text" data-parsoid="{}">boo</span></li></ol>
+
+!! end
+
+!! test
+<ref>s in language variant markup
+!! options
+language=sr variant=sr-ec
+!! wikitext
+-{lj <ref>a</ref>}-аб-{nj <ref name="y">b</ref>}-вг-{dž}- c <ref name="y" />
+<references />
+!! html/php+tidy
+<p>lj <sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>абnj <sup id="cite_ref-y_2-0" class="reference"><a href="#cite_note-y-2">&#91;2&#93;</a></sup>вгdž ц <sup id="cite_ref-y_2-1" class="reference"><a href="#cite_note-y-2">&#91;2&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">а</span>
+</li>
+<li id="cite_note-y-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-y_2-0">2,0</a></sup> <sup><a href="#cite_ref-y_2-1">2,1</a></sup></span> <span class="reference-text">б</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><span typeof="mw:LanguageVariant" data-mw-variant='{"disabled":{"t":"lj &lt;sup class=\"mw-ref\" id=\"cite_ref-1\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\">&lt;span class=\"mw-reflink-text\">[1]&lt;/span>&lt;/a>&lt;/sup>"}}'></span>аб<span typeof="mw:LanguageVariant" data-mw-variant='{"disabled":{"t":"nj &lt;sup class=\"mw-ref\" id=\"cite_ref-y_2-0\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"y\"},\"body\":{\"id\":\"mw-reference-text-cite_note-y-2\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-y-2\">&lt;span class=\"mw-reflink-text\">[2]&lt;/span>&lt;/a>&lt;/sup>"}}'></span>вг<span typeof="mw:LanguageVariant" data-mw-variant='{"disabled":{"t":"dž"}}'></span> c <sup class="mw-ref" id="cite_ref-y_2-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"y"}}'><a href="./Parser_test#cite_note-y-2"><span class="mw-reflink-text">[2]</span></a></sup></p>
+<ol class="mw-references references" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
+<li id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">a</span></li>
+<li id="cite_note-y-2"><span rel="mw:referencedBy"><a href="./Parser_test#cite_ref-y_2-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-y_2-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-y-2" class="mw-reference-text">b</span></li>
+</ol>
 !! end
 
 !! test
@@ -692,7 +769,7 @@ parsoid=wt2html
 </ol></div>
 !! html/parsoid
 <p><sup about="#mwt2" class="mw-ref" id="cite_ref-[#foo]_{bar}_&lt;baz_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"[#foo] {bar} &lt;baz"},"body":{"id":"mw-reference-text-cite_note-[#foo]_{bar}_&lt;baz-1"}}'><a href="./Parser_test#cite_note-[#foo]_{bar}_&lt;baz-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
-<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt3" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'><li about="#cite_note-[#foo]_{bar}_&lt;baz-1" id="cite_note-[#foo]_{bar}_&lt;baz-1"><a href="./Parser_test#cite_ref-[#foo]_{bar}_&lt;baz_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-[#foo]_{bar}_&lt;baz-1" class="mw-reference-text" data-parsoid="{}">">[bar]</span></li></ol>
+<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt3" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'><li about="#cite_note-[#foo]_{bar}_&lt;baz-1" id="cite_note-[#foo]_{bar}_&lt;baz-1"><a href="./Parser_test#cite_ref-[#foo]_{bar}_&lt;baz_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-[#foo]_{bar}_&lt;baz-1" class="mw-reference-text">">[bar]</span></li></ol>
 !! end
 
 !! test
@@ -1742,4 +1819,20 @@ wgFragmentMode=['legacy']
 !! html/parsoid
 <p><sup about="#mwt2" class="mw-ref" id="cite_ref-füllen_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"füllen"},"body":{"id":"mw-reference-text-cite_note-füllen-1"}}'><a href="./Parser_test#cite_note-füllen_1-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
 <ol class="mw-references references" typeof="mw:Extension/references" about="#mwt3" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-füllen-1" id="cite_note-füllen-1"><a href="./Parser_test#cite_ref-füllen-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-füllen-1" class="mw-reference-text" data-parsoid="{}">[bar]</span></li></ol>
+!! end
+
+## Just a regression test
+!! test
+Transclusion parameter spacing is lost without data-parsoid
+!! options
+parsoid=wt2wt
+!! wikitext
+<ref>{{echo|
+Hi ho
+}}</ref>
+
+<!-- Traverse with an encapsulation where the root isn't a native extension -->
+{{echo|<div><references /></div>}}
+!! html/parsoid
+
 !! end

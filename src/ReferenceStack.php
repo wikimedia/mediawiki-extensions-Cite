@@ -139,12 +139,13 @@ class ReferenceStack {
 
 		if ( $follow ) {
 			$ref['follow'] = $follow;
-			// insert broken follow at the end of any other broken follows.
-			$groupsCount = count( $this->refs[$group] );
-			for ( $k = 0; $k < $groupsCount; $k++ ) {
-				if ( !isset( $this->refs[$group][$k]['follow'] ) ) {
+			// This inserts the broken "follow" at the end of all other broken "follow"
+			$k = 0;
+			foreach ( $this->refs[$group] as $value ) {
+				if ( !isset( $value['follow'] ) ) {
 					break;
 				}
+				$k++;
 			}
 			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
 			array_splice( $this->refCallStack, $k, 0,

@@ -484,9 +484,9 @@ class Cite {
 			}
 
 			// insert part of note at the beginning of the group
-			$k = 0;
-			foreach ( $this->mRefs[$group] as $k => $value ) {
-				if ( !isset( $value['follow'] ) ) {
+			$groupsCount = count( $this->mRefs[$group] );
+			for ( $k = 0; $k < $groupsCount; $k++ ) {
+				if ( !isset( $this->mRefs[$group][$k]['follow'] ) ) {
 					break;
 				}
 			}

@@ -12,7 +12,7 @@
 	},
 	"cite-desc": "يضيف وسمي <code>&lt;ref[ name=id]&gt;</code> و <code>&lt;references/&gt;</code>، للاستشهادات",
 	"cite_error": "خطأ استشهاد: $1",
-	"cite_error_ref_invalid_dir": "وسم <code>&lt;ref&gt;</code> غير صالح، سمة dir \"$1\" غير معروفة; يجب أن تكون ltr أو rtl",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> غير صالح؛ يجب أن يكون <code>ltr</code> أو <code>rtl</code>",
 	"cite_error_ref_numeric_key": "وسم <code>&lt;ref&gt;</code> غير صحيح؛\nالاسم لا يمكن أن يكون عددا صحيحا بسيطا. استخدم عنوانا وصفيا",
 	"cite_error_ref_no_key": "وسم الفتح <code>&lt;ref&gt;</code> غير صحيح أو له اسم سييء.",
 	"cite_error_ref_too_many_keys": "وسم <code>&lt;ref&gt;</code> غير صحيح؛\nأسماء غير صحيحة، على سبيل المثال كثيرة جدا",

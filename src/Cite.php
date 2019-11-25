@@ -389,9 +389,9 @@ class Cite {
 	/**
 	 * Parse the arguments to the <ref> tag
 	 *
-	 *  "name" : Key of the reference.
+	 *  "name" : Name for reusing the reference.
 	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
-	 *  "follow" : If the current reference is the continuation of another, key of that reference.
+	 *  "follow" : If the current reference is the continuation of a named reference.
 	 *  "dir" : set direction of text (ltr/rtl)
 	 *  "extends": Points to a named reference which serves as the context for this reference.
 	 *
@@ -415,7 +415,7 @@ class Cite {
 		}
 
 		if ( $argv === [] ) {
-			// No key
+			// No more attributes.
 			return [ null, null, null, $dir, null ];
 		}
 
@@ -575,9 +575,9 @@ class Cite {
 	 * corrupting certain links.
 	 *
 	 * @param string $type
-	 * @param string|null $key
+	 * @param string|null $key The name attribute passed in the ref tag.
 	 * @param string $group
-	 * @param int $index
+	 * @param int $index Autoincrement counter for this ref.
 	 */
 	private function rollbackRef( $type, $key, $group, $index ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
@@ -744,7 +744,7 @@ class Cite {
 			return '';
 		}
 
-		// Add new lines between the list items (ref entires) to avoid confusing tidy (T15073).
+		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).
 		// Note: This builds a string of wikitext, not html.
 		$parserInput = "\n";
 		foreach ( $this->mRefs[$group] as $key => $value ) {

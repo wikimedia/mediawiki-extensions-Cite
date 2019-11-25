@@ -204,6 +204,12 @@ class Cite {
 			return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
 		}
 
+		global $wgCiteBookReferencing;
+		// Temporary feature flag until mainstreamed.  See T236255
+		if ( !$wgCiteBookReferencing && $extends ) {
+			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+		}
+
 		if ( $this->inReferencesGroup !== null ) {
 			// Inside a references tag.  Note that we could have be deceived by `{{#tag`, so don't
 			// take any actions that we can't reverse later.
@@ -388,8 +394,6 @@ class Cite {
 	 * @return-taint tainted
 	 */
 	private function refArg( array $argv ) {
-		global $wgCiteBookReferencing;
-
 		$group = null;
 		$name = null;
 		$follow = null;
@@ -427,7 +431,7 @@ class Cite {
 			$group = $argv['group'];
 			unset( $argv['group'] );
 		}
-		if ( $wgCiteBookReferencing && isset( $argv[self::BOOK_REF_ATTRIBUTE] ) ) {
+		if ( isset( $argv[self::BOOK_REF_ATTRIBUTE] ) ) {
 			$extends = trim( $argv[self::BOOK_REF_ATTRIBUTE] );
 			unset( $argv[self::BOOK_REF_ATTRIBUTE] );
 		}

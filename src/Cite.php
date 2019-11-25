@@ -205,6 +205,12 @@ class Cite {
 		}
 
 		if ( $this->inReferencesGroup !== null ) {
+			// Inside a references tag.  Note that we could have be deceived by `{{#tag`, so don't
+			// take any actions that we can't reverse later.
+			// FIXME: Some assertions make assumptions that rely on earlier tests not failing.
+			//  These dependencies need to be explicit so they aren't accidentally broken by
+			//  reordering in the future.
+
 			if ( $group !== $this->inReferencesGroup ) {
 				// <ref> and <references> have conflicting group attributes.
 				return StatusValue::newFatal( 'cite_error_references_group_mismatch',
@@ -238,6 +244,8 @@ class Cite {
 					Sanitizer::safeEncodeAttribute( $name ) );
 			}
 		} else {
+			// Not in a references tag
+
 			if ( $text !== null && trim( $text ) === '' && !$name ) {
 				// Must have content or reuse another ref by name.
 				// TODO: Trim text before validation.
@@ -278,6 +286,9 @@ class Cite {
 	}
 
 	/**
+	 * TODO: Looks like this should be split into a section insensitive to context, and the
+	 *  special handling for each context.
+	 *
 	 * @param string|null $text Raw content of the <ref> tag.
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
@@ -341,6 +352,7 @@ class Cite {
 
 			// FIXME: If we ever have multiple errors, these must all be presented to the user,
 			//  so they know what to correct.
+			// TODO: Make this nicer, see T238061
 			$error = $valid->getErrors()[0];
 			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
 		}

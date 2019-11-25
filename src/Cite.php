@@ -337,19 +337,19 @@ class Cite {
 	 * <ref name="foo"> BAR </ref>
 	 * </references>
 	 *
-	 * @param string|false|null $key
+	 * @param string|false|null $name
 	 * @param string|null $text Content from the <ref> tag
 	 * @param string $group
 	 * @param bool $isSectionPreview
 	 */
-	private function inReferencesGuardedRef( $key, $text, $group, $isSectionPreview ) {
+	private function inReferencesGuardedRef( $name, $text, $group, $isSectionPreview ) {
 		if ( $group !== $this->inReferencesGroup ) {
 			# <ref> and <references> have conflicting group attributes.
 			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_references_group_mismatch',
 				Sanitizer::safeEncodeAttribute( $group )
 			);
-		} elseif ( $key === null || $key === '' ) {
+		} elseif ( $name === null || $name === '' ) {
 			# <ref> calls inside <references> must be named
 			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_references_no_key'
@@ -358,7 +358,7 @@ class Cite {
 			# <ref> called in <references> has no content.
 			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_empty_references_define',
-				Sanitizer::safeEncodeAttribute( $key )
+				Sanitizer::safeEncodeAttribute( $name )
 			);
 		} elseif ( !isset( $this->mRefs[$group] ) && !$isSectionPreview ) {
 			# Called with group attribute not defined in text.
@@ -366,23 +366,23 @@ class Cite {
 				'cite_error_references_missing_group',
 				Sanitizer::safeEncodeAttribute( $group )
 			);
-		} elseif ( !isset( $this->mRefs[$group][$key] ) && !$isSectionPreview ) {
+		} elseif ( !isset( $this->mRefs[$group][$name] ) && !$isSectionPreview ) {
 			# Called with name attribute not defined in text.
 			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 				'cite_error_references_missing_key',
-				Sanitizer::safeEncodeAttribute( $key )
+				Sanitizer::safeEncodeAttribute( $name )
 			);
-		} elseif ( isset( $this->mRefs[$group][$key]['text'] ) &&
-			$this->mRefs[$group][$key]['text'] !== $text
+		} elseif ( isset( $this->mRefs[$group][$name]['text'] ) &&
+			$this->mRefs[$group][$name]['text'] !== $text
 		) {
 			// two refs with same key and different content
 			// add error message to the original ref
-			$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->plain(
-					'cite_error_references_duplicate_key', $key
+			$this->mRefs[$group][$name]['text'] .= ' ' . $this->errorReporter->plain(
+					'cite_error_references_duplicate_key', $name
 				);
 		} else {
 			# Assign the text to corresponding ref
-			$this->mRefs[$group][$key]['text'] = $text;
+			$this->mRefs[$group][$name]['text'] = $text;
 		}
 	}
 

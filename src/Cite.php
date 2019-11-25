@@ -192,12 +192,11 @@ class Cite {
 	 * @param string $name
 	 * @param string $group
 	 * @param string $follow
-	 * @param string $dir
 	 * @param string $extends
 	 *
 	 * @return StatusValue
 	 */
-	private function validateRef( $text, $name, $group, $follow, $dir, $extends ) : StatusValue {
+	private function validateRef( $text, $name, $group, $follow, $extends ) : StatusValue {
 		if ( ctype_digit( $name ) || ctype_digit( $follow ) || ctype_digit( $extends ) ) {
 			// Numeric names mess up the resulting id's, potentially producing
 			// duplicate id's in the XHTML.  The Right Thing To Do
@@ -305,7 +304,7 @@ class Cite {
 			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
-		$valid = $this->validateRef( $text, $name, $group, $follow, $dir, $extends );
+		$valid = $this->validateRef( $text, $name, $group, $follow, $extends );
 
 		if ( $this->inReferencesGroup !== null ) {
 			if ( !$valid->isOK() ) {

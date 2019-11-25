@@ -188,12 +188,11 @@ class Cite {
 	}
 
 	/**
-	 * @param string $text
-	 * @param string $name
-	 * @param string $group
-	 * @param string $follow
-	 * @param string $extends
-	 *
+	 * @param string|null $text
+	 * @param string|null $name
+	 * @param string|null $group
+	 * @param string|null $follow
+	 * @param string|null $extends
 	 * @return StatusValue
 	 */
 	private function validateRef( $text, $name, $group, $follow, $extends ) : StatusValue {

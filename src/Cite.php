@@ -242,8 +242,7 @@ class Cite {
 		array $argv,
 		Parser $parser
 	) {
-		# The key here is the "name" attribute.
-		list( $key, $group, $follow, $dir, $extends ) = $this->refArg( $argv );
+		list( $name, $group, $follow, $dir, $extends ) = $this->refArg( $argv );
 
 		# Split these into groups.
 		if ( $group === null ) {
@@ -258,7 +257,7 @@ class Cite {
 
 		if ( $this->inReferencesGroup !== null ) {
 			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
-			$this->inReferencesGuardedRef( $key, $text, $group, $isSectionPreview );
+			$this->inReferencesGuardedRef( $name, $text, $group, $isSectionPreview );
 			return '';
 		}
 
@@ -266,7 +265,7 @@ class Cite {
 			# <ref ...></ref>.  This construct is  invalid if
 			# it's a contentful ref, but OK if it's a named duplicate and should
 			# be equivalent <ref ... />, for compatability with #tag.
-			if ( is_string( $key ) && $key !== '' ) {
+			if ( is_string( $name ) && $name !== '' ) {
 				$text = null;
 			} else {
 				$this->mRefCallStack[] = false;
@@ -274,21 +273,21 @@ class Cite {
 			}
 		}
 
-		if ( $key === false ) {
+		if ( $name === false ) {
 			# Invalid attribute in the tag like <ref no_valid_attr="foo" />
 			# or name and follow attribute used both in one tag checked in
-			# Cite::refArg that returns false for the key then.
+			# Cite::refArg that returns false for the name then.
 			$this->mRefCallStack[] = false;
 			return $this->errorReporter->halfParsed( 'cite_error_ref_too_many_keys' );
 		}
 
-		if ( $text === null && $key === null ) {
+		if ( $text === null && $name === null ) {
 			# Something like <ref />; this makes no sense.
 			$this->mRefCallStack[] = false;
 			return $this->errorReporter->halfParsed( 'cite_error_ref_no_key' );
 		}
 
-		if ( ctype_digit( $key ) || ctype_digit( $follow ) ) {
+		if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
 			# Numeric names mess up the resulting id's, potentially produ-
 			# cing duplicate id's in the XHTML.  The Right Thing To Do
 			# would be to mangle them, but it's not really high-priority
@@ -317,19 +316,19 @@ class Cite {
 			return $this->errorReporter->halfParsed( 'cite_error_included_ref' );
 		}
 
-		if ( is_string( $key ) || is_string( $text ) ) {
-			# We don't care about the content: if the key exists, the ref
+		if ( is_string( $name ) || is_string( $text ) ) {
+			# We don't care about the content: if the name exists, the ref
 			# is presumptively valid.  Either it stores a new ref, or re-
 			# fers to an existing one.  If it refers to a nonexistent ref,
 			# we'll figure that out later.  Likewise it's definitely valid
-			# if there's any content, regardless of key.
+			# if there's any content, regardless of name.
 
-			return $this->stack( $text, $key, $group, $follow, $argv, $dir, $parser->getStripState() );
+			return $this->stack( $text, $name, $group, $follow, $argv, $dir, $parser->getStripState() );
 		}
 
 		# Not clear how we could get here, but something is probably
 		# wrong with the types.  Let's fail fast.
-		throw new Exception( 'Invalid $text and/or $key: ' . serialize( [ $text, $key ] ) );
+		throw new Exception( 'Invalid $text and/or $name: ' . serialize( [ $text, $name ] ) );
 	}
 
 	/**

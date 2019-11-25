@@ -47,9 +47,9 @@ class CiteTest extends \MediaWikiUnitTestCase {
 			[ [ 'extends' => ' e ' ], [ null, null, null, null, 'e' ] ],
 
 			// Pairs
-			[ [ 'follow' => 'f', 'name' => 'n' ], [ false, false, false, null, false ] ],
+			[ [ 'follow' => 'f', 'name' => 'n' ], [ 'n', null, 'f', null, null ] ],
 			[ [ 'follow' => null, 'name' => null ], [ false, false, false, false, false ] ],
-			[ [ 'follow' => 'f', 'extends' => 'e' ], [ false, false, false, null, false ] ],
+			[ [ 'follow' => 'f', 'extends' => 'e' ], [ null, null, 'f', null, 'e' ] ],
 			[ [ 'group' => 'g', 'name' => 'n' ], [ 'n', 'g', null, null, null ] ],
 
 			// Combinations of 3 or more attributes

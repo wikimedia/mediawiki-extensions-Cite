@@ -210,6 +210,11 @@ class Cite {
 			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
 		}
 
+		if ( $follow && ( $name || $extends ) ) {
+			// TODO: Introduce a specific error for this case.
+			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+		}
+
 		if ( $this->inReferencesGroup !== null ) {
 			// Inside a references tag.  Note that we could have be deceived by `{{#tag`, so don't
 			// take any actions that we can't reverse later.
@@ -408,12 +413,6 @@ class Cite {
 		if ( $argv === [] ) {
 			// No more attributes.
 			return [ null, null, null, $dir, null ];
-		}
-
-		if ( isset( $argv['follow'] ) &&
-			( isset( $argv['name'] ) || isset( $argv[self::BOOK_REF_ATTRIBUTE] ) )
-		) {
-			return [ false, false, false, null, false ];
 		}
 
 		if ( isset( $argv['name'] ) ) {

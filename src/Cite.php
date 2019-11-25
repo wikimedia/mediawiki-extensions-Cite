@@ -577,16 +577,17 @@ class Cite {
 	 * corrupting certain links.
 	 *
 	 * @param string $type
-	 * @param string|null $key The name attribute passed in the ref tag.
+	 * @param string|null $name The name attribute passed in the ref tag.
 	 * @param string $group
 	 * @param int $index Autoincrement counter for this ref.
 	 */
-	private function rollbackRef( $type, $key, $group, $index ) {
+	private function rollbackRef( $type, $name, $group, $index ) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			return;
 		}
 
-		if ( $key === null ) {
+		$key = $name;
+		if ( $name === null ) {
 			foreach ( $this->mRefs[$group] as $k => $v ) {
 				if ( $this->mRefs[$group][$k]['key'] === $index ) {
 					$key = $k;
@@ -782,7 +783,7 @@ class Cite {
 	/**
 	 * Format a single entry for the referencesFormat() function
 	 *
-	 * @param string $key The key of the reference
+	 * @param string|int $key The name or group index of the reference
 	 * @param array $val A single reference as documented at {@see $mRefs}
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
@@ -861,7 +862,7 @@ class Cite {
 
 	/**
 	 * Returns formatted reference text
-	 * @param string $key
+	 * @param string|int $key
 	 * @param string|null $text
 	 * @return string
 	 */

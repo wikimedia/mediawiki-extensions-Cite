@@ -404,7 +404,7 @@ class Cite {
 		global $wgCiteBookReferencing;
 
 		$group = null;
-		$key = null;
+		$name = null;
 		$follow = null;
 		$dir = null;
 		$extends = null;
@@ -427,7 +427,7 @@ class Cite {
 
 		if ( isset( $argv['name'] ) ) {
 			// Key given.
-			$key = trim( $argv['name'] );
+			$name = trim( $argv['name'] );
 			unset( $argv['name'] );
 		}
 		if ( isset( $argv['follow'] ) ) {
@@ -450,24 +450,26 @@ class Cite {
 			return [ false, false, false, false, false ];
 		}
 
-		return [ $key, $group, $follow, $dir, $extends ];
+		return [ $name, $group, $follow, $dir, $extends ];
 	}
 
 	/**
 	 * Populate $this->mRefs based on input and arguments to <ref>
 	 *
 	 * @param string|null $text Content from the <ref> tag
-	 * @param string|null $key Argument to the <ref> tag as returned by $this->refArg()
+	 * @param string|null $name Argument to the <ref> tag as returned by $this->refArg()
 	 * @param string $group
 	 * @param string|null $follow Guaranteed to not be a numeric string
-	 * @param string[] $call
+	 * @param string[] $argv
 	 * @param string $dir ref direction
 	 * @param StripState $stripState
 	 *
 	 * @throws Exception
 	 * @return string
 	 */
-	private function stack( $text, $key, $group, $follow, array $call, $dir, StripState $stripState ) {
+	private function stack(
+		$text, $name, $group, $follow, array $argv, $dir, StripState $stripState
+	) {
 		if ( !isset( $this->mRefs[$group] ) ) {
 			$this->mRefs[$group] = [];
 		}
@@ -497,29 +499,29 @@ class Cite {
 				'dir' => $dir,
 			] ] );
 			array_splice( $this->mRefCallStack, $k, 0,
-				[ [ 'new', $call, $text, $key, $group, $this->mOutCnt ] ] );
+				[ [ 'new', $argv, $text, $name, $group, $this->mOutCnt ] ] );
 			// A "follow" never gets it's own footnote marker
 			return '';
 		}
 
-		if ( $key === null ) {
+		if ( $name === null ) {
 			$this->mRefs[$group][] = [
 				'count' => -1,
 				'text' => $text,
 				'key' => ++$this->mOutCnt,
 				'dir' => $dir
 			];
-			$this->mRefCallStack[] = [ 'new', $call, $text, $key, $group, $this->mOutCnt ];
+			$this->mRefCallStack[] = [ 'new', $argv, $text, $name, $group, $this->mOutCnt ];
 
 			return $this->linkRef( $group, $this->mOutCnt );
 		}
-		if ( !is_string( $key ) ) {
-			throw new Exception( 'Invalid stack key: ' . serialize( $key ) );
+		if ( !is_string( $name ) ) {
+			throw new Exception( 'Invalid stack key: ' . serialize( $name ) );
 		}
 
 		// Valid key with first occurrence
-		if ( !isset( $this->mRefs[$group][$key] ) ) {
-			$this->mRefs[$group][$key] = [
+		if ( !isset( $this->mRefs[$group][$name] ) ) {
+			$this->mRefs[$group][$name] = [
 				'text' => $text,
 				'count' => -1,
 				'key' => ++$this->mOutCnt,
@@ -527,34 +529,34 @@ class Cite {
 				'dir' => $dir
 			];
 			$action = 'new';
-		} elseif ( $this->mRefs[$group][$key]['text'] === null && $text !== '' ) {
+		} elseif ( $this->mRefs[$group][$name]['text'] === null && $text !== '' ) {
 			// If no text was set before, use this text
-			$this->mRefs[$group][$key]['text'] = $text;
+			$this->mRefs[$group][$name]['text'] = $text;
 			// Use the dir parameter only from the full definition of a named ref tag
-			$this->mRefs[$group][$key]['dir'] = $dir;
+			$this->mRefs[$group][$name]['dir'] = $dir;
 			$action = 'assign';
 		} else {
 			if ( $text != null && $text !== ''
 				// T205803 different strip markers might hide the same text
 				&& $stripState->unstripBoth( $text )
-					!== $stripState->unstripBoth( $this->mRefs[$group][$key]['text'] )
+					!== $stripState->unstripBoth( $this->mRefs[$group][$name]['text'] )
 			) {
-				// two refs with same key and different text
+				// two refs with same name and different text
 				// add error message to the original ref
-				$this->mRefs[$group][$key]['text'] .= ' ' . $this->errorReporter->plain(
-					'cite_error_references_duplicate_key', $key
+				$this->mRefs[$group][$name]['text'] .= ' ' . $this->errorReporter->plain(
+					'cite_error_references_duplicate_key', $name
 				);
 			}
 			$action = 'increment';
 		}
-		$this->mRefCallStack[] = [ $action, $call, $text, $key, $group,
-			$this->mRefs[$group][$key]['key'] ];
+		$this->mRefCallStack[] = [ $action, $argv, $text, $name, $group,
+			$this->mRefs[$group][$name]['key'] ];
 		return $this->linkRef(
 			$group,
-			$key,
-			$this->mRefs[$group][$key]['key'] . "-" . ++$this->mRefs[$group][$key]['count'],
-			$this->mRefs[$group][$key]['number'],
-			"-" . $this->mRefs[$group][$key]['key']
+			$name,
+			$this->mRefs[$group][$name]['key'] . "-" . ++$this->mRefs[$group][$name]['count'],
+			$this->mRefs[$group][$name]['number'],
+			"-" . $this->mRefs[$group][$name]['key']
 		);
 	}
 

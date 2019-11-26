@@ -315,17 +315,17 @@ class Cite {
 		array $argv,
 		Parser $parser
 	) {
+		// Tag every page where Book Referencing has been used, whether or not the ref tag is valid.
+		// This code and the page property will be removed once the feature is stable.  See T237531.
+		if ( array_key_exists( self::BOOK_REF_ATTRIBUTE, $argv ) ) {
+			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
+		}
+
 		list( $name, $group, $follow, $dir, $extends ) = $this->refArg( $argv );
 
 		# Split these into groups.
 		if ( $group === null ) {
 			$group = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
-		}
-
-		// Tag every page where Book Referencing has been used.  This code and the properties
-		// will be removed once the feature is stable.  See T237531.
-		if ( $extends ) {
-			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
 		$valid = $this->validateRef( $text, $name, $group, $follow, $extends );

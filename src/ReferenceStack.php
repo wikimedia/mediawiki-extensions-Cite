@@ -125,7 +125,7 @@ class ReferenceStack {
 
 			// insert broken follow at the end of any other broken follows.
 			// FIXME: This relies on an undocumented feature of array_splice, and produces
-			// invalid HTML output, inserting a <p> tag into an <ol>.
+			//  invalid HTML output, inserting a <p> tag into an <ol>.
 			$groupsCount = count( $this->refs[$group] );
 			for ( $k = 0; $k < $groupsCount; $k++ ) {
 				if ( !isset( $this->refs[$group][$k]['follow'] ) ) {

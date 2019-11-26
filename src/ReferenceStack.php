@@ -134,10 +134,10 @@ class ReferenceStack {
 			}
 			array_splice( $this->refs[$group], $k, 0, [ [
 				'count' => -1,
-				'text' => $text,
-				'key' => ++$this->refSequence,
-				'follow' => $follow,
 				'dir' => $dir,
+				'key' => ++$this->refSequence,
+				'text' => $text,
+				'follow' => $follow,
 			] ] );
 			array_splice( $this->refCallStack, $k, 0,
 				[ [ 'new', $argv, $text, $name, $group, $this->refSequence ] ] );
@@ -150,9 +150,9 @@ class ReferenceStack {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = [
 				'count' => -1,
-				'text' => $text,
+				'dir' => $dir,
 				'key' => ++$this->refSequence,
-				'dir' => $dir
+				'text' => $text,
 			];
 			$this->refCallStack[] = [ 'new', $argv, $text, $name, $group, $this->refSequence ];
 
@@ -161,11 +161,11 @@ class ReferenceStack {
 		// Valid key with first occurrence
 		if ( !isset( $this->refs[$group][$name] ) ) {
 			$this->refs[$group][$name] = [
-				'text' => $text,
 				'count' => -1,
+				'dir' => $dir,
 				'key' => ++$this->refSequence,
+				'text' => $text,
 				'number' => ++$this->groupRefSequence[$group],
-				'dir' => $dir
 			];
 			$action = 'new';
 		} elseif ( $this->refs[$group][$name]['text'] === null && $text !== '' ) {

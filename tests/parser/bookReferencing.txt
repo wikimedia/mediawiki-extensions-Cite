@@ -406,7 +406,7 @@ wgCiteBookReferencing=true
 # TODO:
 #   * Should render an error at the second reference.
 !! test
-T236256 - Cant be a follow up and a book reference the same time
+T236256 - Can't be a follow up and a book reference the same time
 !! config
 wgCiteBookReferencing=true
 !! wikitext

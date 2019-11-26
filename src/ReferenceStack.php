@@ -149,6 +149,7 @@ class ReferenceStack {
 		}
 
 		if ( $name === null ) {
+			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = [
 				'count' => -1,
 				'text' => $text,

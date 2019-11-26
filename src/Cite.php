@@ -198,7 +198,7 @@ class Cite {
 	 * @return StatusValue
 	 */
 	private function validateRef( $text, $name, $group, $follow, $dir, $extends ) : StatusValue {
-		if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
+		if ( ctype_digit( $name ) || ctype_digit( $follow ) || ctype_digit( $extends ) ) {
 			// Numeric names mess up the resulting id's, potentially producing
 			// duplicate id's in the XHTML.  The Right Thing To Do
 			// would be to mangle them, but it's not really high-priority

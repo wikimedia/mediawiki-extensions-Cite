@@ -116,13 +116,22 @@ class ReferenceStack {
 			$this->groupRefSequence[$group] = 0;
 		}
 
-		if ( $follow ) {
+		if ( $this->refs[$group][$follow] ?? false ) {
 			// We know the parent note already, so just perform the "follow" and bail out
-			if ( isset( $this->refs[$group][$follow] ) ) {
-				$this->refs[$group][$follow]['text'] .= ' ' . $text;
-				return null;
-			}
+			// TODO: Separate `pushRef` from these side-effects.
+			$this->refs[$group][$follow]['text'] .= ' ' . $text;
+			return null;
+		}
 
+		$ref = [
+			'count' => $name ? 0 : -1,
+			'dir' => $dir,
+			'key' => ++$this->refSequence,
+			'text' => $text,
+		];
+
+		if ( $follow ) {
+			$ref['follow'] = $follow;
 			// insert broken follow at the end of any other broken follows.
 			// FIXME: This relies on an undocumented feature of array_splice, and produces
 			//  invalid HTML output, inserting a <p> tag into an <ol>.
@@ -132,13 +141,7 @@ class ReferenceStack {
 					break;
 				}
 			}
-			array_splice( $this->refs[$group], $k, 0, [ [
-				'count' => -1,
-				'dir' => $dir,
-				'key' => ++$this->refSequence,
-				'text' => $text,
-				'follow' => $follow,
-			] ] );
+			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
 			array_splice( $this->refCallStack, $k, 0,
 				[ [ 'new', $argv, $text, $name, $group, $this->refSequence ] ] );
 
@@ -146,55 +149,50 @@ class ReferenceStack {
 			return null;
 		}
 
-		if ( $name === null ) {
+		if ( !$name ) {
 			// This is an anonymous reference, which will be given a numeric index.
-			$this->refs[$group][] = [
-				'count' => -1,
-				'dir' => $dir,
-				'key' => ++$this->refSequence,
-				'text' => $text,
-			];
-			$this->refCallStack[] = [ 'new', $argv, $text, $name, $group, $this->refSequence ];
-
-			return [ $this->refSequence, null, ++$this->groupRefSequence[$group], null ];
-		}
-		// Valid key with first occurrence
-		if ( !isset( $this->refs[$group][$name] ) ) {
-			$this->refs[$group][$name] = [
-				'count' => -1,
-				'dir' => $dir,
-				'key' => ++$this->refSequence,
-				'text' => $text,
-				'number' => ++$this->groupRefSequence[$group],
-			];
+			$this->refs[$group][] = $ref;
 			$action = 'new';
-		} elseif ( $this->refs[$group][$name]['text'] === null && $text !== '' ) {
-			// If no text was set before, use this text
-			$this->refs[$group][$name]['text'] = $text;
-			// Use the dir parameter only from the full definition of a named ref tag
-			$this->refs[$group][$name]['dir'] = $dir;
-			$action = 'assign';
+		} elseif ( !isset( $this->refs[$group][$name] ) ) {
+			// Valid key with first occurrence
+			$ref['number'] = ++$this->groupRefSequence[$group];
+			$this->refs[$group][$name] = $ref;
+			$action = 'new';
 		} else {
-			if ( $text != null && $text !== ''
-				// T205803 different strip markers might hide the same text
-				&& $stripState->unstripBoth( $text )
-				!== $stripState->unstripBoth( $this->refs[$group][$name]['text'] )
-			) {
-				// two refs with same name and different text
-				// add error message to the original ref
-				$this->refs[$group][$name]['text'] .= ' ' . $this->errorReporter->plain(
-					'cite_error_references_duplicate_key', $name
-				);
+			// Change an existing ref entry.
+			$ref =& $this->refs[$group][$name];
+			$ref['count']++;
+			if ( $ref['text'] === null && $text !== '' ) {
+				// If no text was set before, use this text
+				$ref['text'] = $text;
+				// Use the dir parameter only from the full definition of a named ref tag
+				$ref['dir'] = $dir;
+				$action = 'assign';
+			} else {
+				if ( $text != null && $text !== ''
+					// T205803 different strip markers might hide the same text
+					&& $stripState->unstripBoth( $text )
+					!== $stripState->unstripBoth( $ref['text'] )
+				) {
+					// two refs with same name and different text
+					// add error message to the original ref
+					// TODO: standardize error display and move to `validateRef`.
+					$ref['text'] .= ' ' . $this->errorReporter->plain(
+						'cite_error_references_duplicate_key', $name
+					);
+				}
+				$action = 'increment';
 			}
-			$action = 'increment';
+			// Rollback the counter since we are dropping this ref.  Goes away once we
+			// move this logic to validateRef.
+			$this->refSequence--;
 		}
-		$this->refCallStack[] = [ $action, $argv, $text, $name, $group,
-			$this->refs[$group][$name]['key'] ];
+		$this->refCallStack[] = [ $action, $argv, $text, $name, $group, $ref['key'] ];
 		return [
-			$name,
-			$this->refs[$group][$name]['key'] . "-" . ++$this->refs[$group][$name]['count'],
-			$this->refs[$group][$name]['number'] ?? ++$this->groupRefSequence[$group],
-			"-" . $this->refs[$group][$name]['key']
+			$name ?? $ref['key'],
+			$name ? $ref['key'] . '-' . $ref['count'] : null,
+			$ref['number'] ?? ++$this->groupRefSequence[$group],
+			$name ? '-' . $ref['key'] : null
 		];
 	}
 

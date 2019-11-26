@@ -293,6 +293,9 @@ class Cite {
 				// even temporarily.
 				return StatusValue::newFatal( 'cite_error_included_ref' );
 			}
+
+			// TODO: Assert things such as $text is different than existing ref with $name,
+			//  currently done in `pushRef`.
 		}
 
 		return StatusValue::newGood();

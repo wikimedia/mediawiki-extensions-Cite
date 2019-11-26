@@ -169,7 +169,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 			],
 			'Follow with no base' => [
 				[
-					[ 'text', 'b', 'foo', 'a', [], 'rtl' ]
+					[ 'text', null, 'foo', 'a', [], 'rtl' ]
 				],
 				[
 					null
@@ -186,13 +186,13 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text', 'b', 'foo', 1 ]
+					[ 'new', [], 'text', null, 'foo', 1 ]
 				]
 			],
 			'Follow pointing to later ref' => [
 				[
 					[ 'text-a', 'a', 'foo', null, [], 'rtl' ],
-					[ 'text-b', 'b', 'foo', 'c', [], 'rtl' ],
+					[ 'text-b', null, 'foo', 'c', [], 'rtl' ],
 					[ 'text-c', 'c', 'foo', null, [], 'rtl' ]
 				],
 				[
@@ -226,7 +226,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text-b', 'b', 'foo', 2 ],
+					[ 'new', [], 'text-b', null, 'foo', 2 ],
 					[ 'new', [], 'text-a', 'a', 'foo', 1 ],
 					[ 'new', [], 'text-c', 'c', 'foo', 3 ]
 				]

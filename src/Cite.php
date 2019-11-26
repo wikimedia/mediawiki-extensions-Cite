@@ -31,6 +31,7 @@ use Parser;
 use ParserOptions;
 use ParserOutput;
 use Sanitizer;
+use StatusValue;
 
 class Cite {
 
@@ -187,6 +188,98 @@ class Cite {
 	}
 
 	/**
+	 * @param string $text
+	 * @param string $name
+	 * @param string $group
+	 * @param string $follow
+	 * @param string $dir
+	 * @param string $extends
+	 *
+	 * @return StatusValue
+	 */
+	private function validateRef( $text, $name, $group, $follow, $dir, $extends ) : StatusValue {
+		if ( $this->inReferencesGroup !== null ) {
+			if ( $group !== $this->inReferencesGroup ) {
+				// <ref> and <references> have conflicting group attributes.
+				return StatusValue::newFatal( 'cite_error_references_group_mismatch',
+					Sanitizer::safeEncodeAttribute( $group ) );
+			}
+
+			if ( !$name ) {
+				// <ref> calls inside <references> must be named
+				return StatusValue::newFatal( 'cite_error_references_no_key' );
+			}
+
+			if ( $text === '' ) {
+				// <ref> called in <references> has no content.
+				return StatusValue::newFatal(
+					'cite_error_empty_references_define',
+					Sanitizer::safeEncodeAttribute( $name )
+				);
+			}
+
+			if ( !$this->referenceStack->hasGroup( $group ) && !$this->isSectionPreview ) {
+				// Called with group attribute not defined in text.
+				return StatusValue::newFatal( 'cite_error_references_missing_group',
+					Sanitizer::safeEncodeAttribute( $group ) );
+			}
+
+			$groupRefs = $this->referenceStack->getGroupRefs( $group );
+
+			if ( !isset( $groupRefs[$name] ) && !$this->isSectionPreview ) {
+				// Called with name attribute not defined in text.
+				return StatusValue::newFatal( 'cite_error_references_missing_key',
+					Sanitizer::safeEncodeAttribute( $name ) );
+			}
+		} else {
+			if ( $text !== null && trim( $text ) === '' && !$name ) {
+				// Must have content or reuse another ref by name.
+				// TODO: Trim text before validation.
+				return StatusValue::newFatal( 'cite_error_ref_no_input' );
+			}
+
+			if ( $name === false ) {
+				// Invalid attribute in the tag like <ref no_valid_attr="foo" />
+				// or name and follow attribute used both in one tag checked in
+				// Cite::refArg that returns false for the name then.
+				// TODO: Move validation out of refArg.
+				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+			}
+
+			if ( $text === null && $name === null ) {
+				// Something like <ref />; this makes no sense.
+				// TODO: Is this redundant with no_input?
+				return StatusValue::newFatal( 'cite_error_ref_no_key' );
+			}
+
+			if ( preg_match( '/<ref\b[^<]*?>/',
+				preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $text ) ) ) {
+				// (bug T8199) This most likely implies that someone left off the
+				// closing </ref> tag, which will cause the entire article to be
+				// eaten up until the next <ref>.  So we bail out early instead.
+				// The fancy regex above first tries chopping out anything that
+				// looks like a comment or SGML tag, which is a crude way to avoid
+				// false alarms for <nowiki>, <pre>, etc.
+				//
+				// Possible improvement: print the warning, followed by the contents
+				// of the <ref> tag.  This way no part of the article will be eaten
+				// even temporarily.
+				return StatusValue::newFatal( 'cite_error_included_ref' );
+			}
+
+			if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
+				// Numeric names mess up the resulting id's, potentially producing
+				// duplicate id's in the XHTML.  The Right Thing To Do
+				// would be to mangle them, but it's not really high-priority
+				// (and would produce weird id's anyway).
+				return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
+			}
+		}
+
+		return StatusValue::newGood();
+	}
+
+	/**
 	 * @param string|null $text Raw content of the <ref> tag.
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
@@ -212,141 +305,58 @@ class Cite {
 			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
+		$valid = $this->validateRef( $text, $name, $group, $follow, $dir, $extends );
+
 		if ( $this->inReferencesGroup !== null ) {
-			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
-			$this->inReferencesGuardedRef( $name, $text, $group, $isSectionPreview );
+			if ( !$valid->isOK() ) {
+				foreach ( $valid->getErrors() as $error ) {
+					$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
+						$error['message'], ...$error['params'] );
+				}
+			} else {
+				$groupRefs = $this->referenceStack->getGroupRefs( $group );
+				if ( !isset( $groupRefs[$name]['text'] ) ) {
+					$this->referenceStack->setRefText( $group, $name, $text );
+				} else {
+					if ( $groupRefs[$name]['text'] !== $text ) {
+						// two refs with same key and different content
+						// FIXME: These edge cases are crazy.
+						// add error message to the original ref
+						$text =
+							$groupRefs[$name]['text'] . ' ' .
+							$this->errorReporter->plain( 'cite_error_references_duplicate_key',
+								$name );
+						$this->referenceStack->setRefText( $group, $name, $text );
+					}
+				}
+			}
 			return '';
 		}
 
-		if ( $text !== null && trim( $text ) === '' ) {
-			# <ref ...></ref>.  This construct is  invalid if
-			# it's a contentful ref, but OK if it's a named duplicate and should
-			# be equivalent <ref ... />, for compatability with #tag.
-			if ( is_string( $name ) && $name !== '' ) {
-				$text = null;
-			} else {
-				$this->referenceStack->pushInvalidRef();
-				return $this->errorReporter->halfParsed( 'cite_error_ref_no_input' );
-			}
+		if ( $text !== null && trim( $text ) === '' && $name ) {
+			$text = null;
 		}
 
-		if ( $name === false ) {
-			# Invalid attribute in the tag like <ref no_valid_attr="foo" />
-			# or name and follow attribute used both in one tag checked in
-			# Cite::refArg that returns false for the name then.
+		if ( !$valid->isOK() ) {
 			$this->referenceStack->pushInvalidRef();
-			return $this->errorReporter->halfParsed( 'cite_error_ref_too_many_keys' );
+
+			$error = $valid->getErrors()[0];
+			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
 		}
 
-		if ( $text === null && $name === null ) {
-			# Something like <ref />; this makes no sense.
-			$this->referenceStack->pushInvalidRef();
-			return $this->errorReporter->halfParsed( 'cite_error_ref_no_key' );
-		}
+		# We don't care about the content: if the name exists, the ref
+		# is presumptively valid.  Either it stores a new ref, or re-
+		# fers to an existing one.  If it refers to a nonexistent ref,
+		# we'll figure that out later.  Likewise it's definitely valid
+		# if there's any content, regardless of name.
 
-		if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
-			# Numeric names mess up the resulting id's, potentially produ-
-			# cing duplicate id's in the XHTML.  The Right Thing To Do
-			# would be to mangle them, but it's not really high-priority
-			# (and would produce weird id's anyway).
-
-			$this->referenceStack->pushInvalidRef();
-			return $this->errorReporter->halfParsed( 'cite_error_ref_numeric_key' );
-		}
-
-		if ( preg_match(
-			'/<ref\b[^<]*?>/',
-			preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $text )
-		) ) {
-			# (bug T8199) This most likely implies that someone left off the
-			# closing </ref> tag, which will cause the entire article to be
-			# eaten up until the next <ref>.  So we bail out early instead.
-			# The fancy regex above first tries chopping out anything that
-			# looks like a comment or SGML tag, which is a crude way to avoid
-			# false alarms for <nowiki>, <pre>, etc.
-
-			# Possible improvement: print the warning, followed by the contents
-			# of the <ref> tag.  This way no part of the article will be eaten
-			# even temporarily.
-
-			$this->referenceStack->pushInvalidRef();
-			return $this->errorReporter->halfParsed( 'cite_error_included_ref' );
-		}
-
-		if ( is_string( $name ) || is_string( $text ) ) {
-			# We don't care about the content: if the name exists, the ref
-			# is presumptively valid.  Either it stores a new ref, or re-
-			# fers to an existing one.  If it refers to a nonexistent ref,
-			# we'll figure that out later.  Likewise it's definitely valid
-			# if there's any content, regardless of name.
-
-			$result = $this->referenceStack->pushRef(
-				$text, $name, $group, $follow, $argv, $dir, $parser->getStripState() );
-			if ( $result === null ) {
-				return '';
-			} else {
-				[ $key, $count, $label, $subkey ] = $result;
-				return $this->linkRef( $group, $key, $count, $label, $subkey );
-			}
-		}
-
-		# Not clear how we could get here, but something is probably
-		# wrong with the types.  Let's fail fast.
-		throw new Exception( 'Invalid $text and/or $name: ' . serialize( [ $text, $name ] ) );
-	}
-
-	/**
-	 * Deals with references defined in the reference section
-	 * <references>
-	 * <ref name="foo"> BAR </ref>
-	 * </references>
-	 *
-	 * @param string|false|null $name
-	 * @param string|null $text Content from the <ref> tag
-	 * @param string $group
-	 * @param bool $isSectionPreview
-	 */
-	private function inReferencesGuardedRef( $name, $text, $group, $isSectionPreview ) {
-		if ( $group !== $this->inReferencesGroup ) {
-			# <ref> and <references> have conflicting group attributes.
-			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-				'cite_error_references_group_mismatch',
-				Sanitizer::safeEncodeAttribute( $group )
-			);
-		} elseif ( $name === null || $name === '' ) {
-			# <ref> calls inside <references> must be named
-			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-				'cite_error_references_no_key'
-			);
-		} elseif ( $text === '' ) {
-			# <ref> called in <references> has no content.
-			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-				'cite_error_empty_references_define',
-				Sanitizer::safeEncodeAttribute( $name )
-			);
-		} elseif ( !$this->referenceStack->hasGroup( $group ) && !$isSectionPreview ) {
-			# Called with group attribute not defined in text.
-			$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-				'cite_error_references_missing_group',
-				Sanitizer::safeEncodeAttribute( $group )
-			);
+		$result = $this->referenceStack->pushRef(
+			$text, $name, $group, $follow, $argv, $dir, $parser->getStripState() );
+		if ( $result === null ) {
+			return '';
 		} else {
-			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			if ( !isset( $groupRefs[$name] ) && !$isSectionPreview ) {
-				# Called with name attribute not defined in text.
-				$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-					'cite_error_references_missing_key',
-					Sanitizer::safeEncodeAttribute( $name )
-				);
-			} elseif ( isset( $groupRefs[$name]['text'] ) && $groupRefs[$name]['text'] !== $text ) {
-				// two refs with same key and different content
-				// add error message to the original ref
-				$text = $groupRefs[$name]['text'] . ' ' .
-					$this->errorReporter->plain( 'cite_error_references_duplicate_key', $name );
-				$this->referenceStack->setRefText( $group, $name, $text );
-			} else {
-				$this->referenceStack->setRefText( $group, $name, $text );
-			}
+			[ $key, $count, $label, $subkey ] = $result;
+			return $this->linkRef( $group, $key, $count, $label, $subkey );
 		}
 	}
 

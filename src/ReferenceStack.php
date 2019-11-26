@@ -104,7 +104,7 @@ class ReferenceStack {
 	 * @param string $dir ref direction
 	 * @param StripState $stripState
 	 *
-	 * @return array|null
+	 * @return string[]|null of [ $key, $count, $label, $subkey ] or null if nothing is pushed.
 	 */
 	public function pushRef(
 		$text, $name, $group, $follow, array $argv, $dir, StripState $stripState

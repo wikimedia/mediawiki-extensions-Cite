@@ -14,7 +14,7 @@
 	},
 	"cite-desc": "Aggiunge i tag <code>&lt;ref[ name=id]&gt;</code> e <code>&lt;references/&gt;</code> per gestire le citazioni",
 	"cite_error": "Errore nelle note: $1",
-	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valido, deve essere  <code>ltr</code> or <code>rtl</code>",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valido, deve essere  <code>ltr</code> o <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: il nome non può essere un numero intero. Usare un titolo esteso",
 	"cite_error_ref_no_key": "L'apertura dell'etichetta <code>&lt;ref&gt;</code> non è corretta o ha un nome errato.",
 	"cite_error_ref_too_many_keys": "Errore nell'uso del marcatore <code>&lt;ref&gt;</code>: nomi non validi (ad es. numero troppo elevato)",

@@ -198,6 +198,14 @@ class Cite {
 	 * @return StatusValue
 	 */
 	private function validateRef( $text, $name, $group, $follow, $dir, $extends ) : StatusValue {
+		if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
+			// Numeric names mess up the resulting id's, potentially producing
+			// duplicate id's in the XHTML.  The Right Thing To Do
+			// would be to mangle them, but it's not really high-priority
+			// (and would produce weird id's anyway).
+			return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
+		}
+
 		if ( $this->inReferencesGroup !== null ) {
 			if ( $group !== $this->inReferencesGroup ) {
 				// <ref> and <references> have conflicting group attributes.
@@ -265,14 +273,6 @@ class Cite {
 				// of the <ref> tag.  This way no part of the article will be eaten
 				// even temporarily.
 				return StatusValue::newFatal( 'cite_error_included_ref' );
-			}
-
-			if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
-				// Numeric names mess up the resulting id's, potentially producing
-				// duplicate id's in the XHTML.  The Right Thing To Do
-				// would be to mangle them, but it's not really high-priority
-				// (and would produce weird id's anyway).
-				return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
 			}
 		}
 

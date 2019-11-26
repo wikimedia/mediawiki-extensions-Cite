@@ -321,7 +321,7 @@ class Cite {
 			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
-		list( $name, $group, $follow, $dir, $extends ) = $this->refArg( $argv );
+		list( $dir, $extends, $follow, $group, $name ) = $this->refArg( $argv );
 
 		# Split these into groups.
 		if ( $group === null ) {
@@ -390,52 +390,43 @@ class Cite {
 	/**
 	 * Parse the arguments to the <ref> tag
 	 *
-	 *  "name" : Name for reusing the reference.
-	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
-	 *  "follow" : If the current reference is the continuation of a named reference.
 	 *  "dir" : set direction of text (ltr/rtl)
 	 *  "extends": Points to a named reference which serves as the context for this reference.
+	 *  "follow" : If the current reference is the continuation of a named reference.
+	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
+	 *  "name" : Name for reusing the reference.
 	 *
 	 * @param string[] $argv The argument vector
-	 * @return (string|false|null)[] An array with exactly four elements, where each is a string on
+	 * @return (string|false|null)[] An array with exactly five elements, where each is a string on
 	 *  valid input, false on invalid input, or null on no input.
 	 * @return-taint tainted
 	 */
 	private function refArg( array $argv ) {
-		$group = null;
-		$name = null;
-		$follow = null;
 		$dir = null;
 		$extends = null;
+		$follow = null;
+		$group = null;
+		$name = null;
 
 		if ( isset( $argv['dir'] ) ) {
 			$dir = trim( $argv['dir'] );
 			unset( $argv['dir'] );
 		}
-
-		if ( $argv === [] ) {
-			// No more attributes.
-			return [ null, null, null, $dir, null ];
-		}
-
-		if ( isset( $argv['name'] ) ) {
-			// Key given.
-			$name = trim( $argv['name'] );
-			unset( $argv['name'] );
+		if ( isset( $argv[self::BOOK_REF_ATTRIBUTE] ) ) {
+			$extends = trim( $argv[self::BOOK_REF_ATTRIBUTE] );
+			unset( $argv[self::BOOK_REF_ATTRIBUTE] );
 		}
 		if ( isset( $argv['follow'] ) ) {
-			// Follow given.
 			$follow = trim( $argv['follow'] );
 			unset( $argv['follow'] );
 		}
 		if ( isset( $argv['group'] ) ) {
-			// Group given.
 			$group = $argv['group'];
 			unset( $argv['group'] );
 		}
-		if ( isset( $argv[self::BOOK_REF_ATTRIBUTE] ) ) {
-			$extends = trim( $argv[self::BOOK_REF_ATTRIBUTE] );
-			unset( $argv[self::BOOK_REF_ATTRIBUTE] );
+		if ( isset( $argv['name'] ) ) {
+			$name = trim( $argv['name'] );
+			unset( $argv['name'] );
 		}
 
 		if ( $argv !== [] ) {
@@ -443,7 +434,7 @@ class Cite {
 			return [ false, false, false, false, false ];
 		}
 
-		return [ $name, $group, $follow, $dir, $extends ];
+		return [ $dir, $extends, $follow, $group, $name ];
 	}
 
 	/**

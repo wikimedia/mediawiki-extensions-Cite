@@ -241,18 +241,21 @@ class Cite {
 				);
 			}
 
-			if ( !$this->referenceStack->hasGroup( $group ) && !$this->isSectionPreview ) {
-				// Called with group attribute not defined in text.
-				return StatusValue::newFatal( 'cite_error_references_missing_group',
-					Sanitizer::safeEncodeAttribute( $group ) );
-			}
+			// Section previews are exempt from some rules.
+			if ( !$this->isSectionPreview ) {
+				if ( !$this->referenceStack->hasGroup( $group ) ) {
+					// Called with group attribute not defined in text.
+					return StatusValue::newFatal( 'cite_error_references_missing_group',
+						Sanitizer::safeEncodeAttribute( $group ) );
+				}
 
-			$groupRefs = $this->referenceStack->getGroupRefs( $group );
+				$groupRefs = $this->referenceStack->getGroupRefs( $group );
 
-			if ( !isset( $groupRefs[$name] ) && !$this->isSectionPreview ) {
-				// Called with name attribute not defined in text.
-				return StatusValue::newFatal( 'cite_error_references_missing_key',
-					Sanitizer::safeEncodeAttribute( $name ) );
+				if ( !isset( $groupRefs[$name] ) ) {
+					// No such group exists.
+					return StatusValue::newFatal( 'cite_error_references_missing_key',
+						Sanitizer::safeEncodeAttribute( $name ) );
+				}
 			}
 		} else {
 			// Not in a references tag

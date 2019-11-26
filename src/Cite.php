@@ -320,8 +320,9 @@ class Cite {
 				} else {
 					if ( $groupRefs[$name]['text'] !== $text ) {
 						// two refs with same key and different content
-						// FIXME: These edge cases are crazy.
-						// add error message to the original ref
+						// adds error message to the original ref
+						// TODO: report these errors the same way as the others, rather than a
+						//  special case to append to the second one's content.
 						$text =
 							$groupRefs[$name]['text'] . ' ' .
 							$this->errorReporter->plain( 'cite_error_references_duplicate_key',
@@ -340,6 +341,8 @@ class Cite {
 		if ( !$valid->isOK() ) {
 			$this->referenceStack->pushInvalidRef();
 
+			// FIXME: If we ever have multiple errors, these must all be presented to the user,
+			//  so they know what to correct.
 			$error = $valid->getErrors()[0];
 			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
 		}

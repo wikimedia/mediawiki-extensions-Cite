@@ -2,7 +2,6 @@
 
 namespace Cite;
 
-use InvalidArgumentException;
 use StripState;
 
 /**
@@ -106,7 +105,6 @@ class ReferenceStack {
 	 * @param StripState $stripState
 	 *
 	 * @return array|null
-	 * @throws InvalidArgumentException
 	 */
 	public function pushRef(
 		$text, $name, $group, $follow, array $argv, $dir, StripState $stripState
@@ -160,10 +158,6 @@ class ReferenceStack {
 
 			return [ $this->refSequence, null, ++$this->groupRefSequence[$group], null ];
 		}
-		if ( !is_string( $name ) ) {
-			throw new InvalidArgumentException( 'Invalid stack key: ' . serialize( $name ) );
-		}
-
 		// Valid key with first occurrence
 		if ( !isset( $this->refs[$group][$name] ) ) {
 			$this->refs[$group][$name] = [

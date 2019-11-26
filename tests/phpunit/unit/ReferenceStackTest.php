@@ -4,7 +4,6 @@ namespace Cite\Tests\Unit;
 
 use Cite\CiteErrorReporter;
 use Cite\ReferenceStack;
-use InvalidArgumentException;
 use MediaWikiUnitTestCase;
 use StripState;
 use Wikimedia\TestingAccessWrapper;
@@ -36,7 +35,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 	 */
 	public function testPushRefs(
 		array $refs,
-		$expectedOutputs,
+		array $expectedOutputs,
 		array $finalRefs,
 		array $finalCallStack
 	) {
@@ -46,9 +45,6 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 
 		for ( $i = 0; $i < count( $refs ); $i++ ) {
 			[ $text, $name, $group, $follow, $argv, $dir ] = $refs[$i];
-			if ( is_string( $expectedOutputs ) ) {
-				$this->expectException( $expectedOutputs );
-			}
 			$result = $stack->pushRef(
 				$text, $name, $group, $follow, $argv, $dir, $mockStripState );
 
@@ -309,16 +305,6 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'new', [], 'text-1', 'a', 'foo', 1 ],
 					[ 'increment', [], 'text-2', 'a', 'foo', 1 ]
 				]
-			],
-
-			// FIXME: Split this off into a separate test method
-			'Illegal value for name' => [
-				[
-					[ null, 123, '', null, [], 'rtl' ]
-				],
-				InvalidArgumentException::class,
-				[],
-				[]
 			],
 		];
 	}

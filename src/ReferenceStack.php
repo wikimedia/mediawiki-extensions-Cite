@@ -96,19 +96,25 @@ class ReferenceStack {
 	/**
 	 * Populate $this->refs and $this->refCallStack based on input and arguments to <ref>
 	 *
-	 * @param string|null $text Content from the <ref> tag
-	 * @param string|null $name
+	 * @param ?string $text Content from the <ref> tag
+	 * @param ?string $name
 	 * @param string $group
-	 * @param string|null $follow Guaranteed to not be a numeric string
+	 * @param ?string $follow Guaranteed to not be a numeric string
 	 * @param string[] $argv
-	 * @param string $dir ref direction
+	 * @param ?string $dir ref direction
 	 * @param StripState $stripState
 	 *
 	 * @return string[]|null of [ $key, $count, $label, $subkey ] or null if nothing is pushed.
 	 */
 	public function pushRef(
-		$text, $name, $group, $follow, array $argv, $dir, StripState $stripState
-	) {
+		?string $text,
+		?string $name,
+		string $group,
+		?string $follow,
+		array $argv,
+		?string $dir,
+		StripState $stripState
+	) : ?array {
 		if ( !isset( $this->refs[$group] ) ) {
 			$this->refs[$group] = [];
 		}
@@ -126,6 +132,7 @@ class ReferenceStack {
 		$ref = [
 			'count' => $name ? 0 : -1,
 			'dir' => $dir,
+			// This assumes we are going to register a new reference, instead of reusing one
 			'key' => ++$this->refSequence,
 			'text' => $text,
 		];
@@ -133,8 +140,6 @@ class ReferenceStack {
 		if ( $follow ) {
 			$ref['follow'] = $follow;
 			// insert broken follow at the end of any other broken follows.
-			// FIXME: This relies on an undocumented feature of array_splice, and produces
-			//  invalid HTML output, inserting a <p> tag into an <ol>.
 			$groupsCount = count( $this->refs[$group] );
 			for ( $k = 0; $k < $groupsCount; $k++ ) {
 				if ( !isset( $this->refs[$group][$k]['follow'] ) ) {
@@ -302,7 +307,7 @@ class ReferenceStack {
 	 *
 	 * @param string $group
 	 */
-	public function deleteGroup( $group ) {
+	public function deleteGroup( string $group ) {
 		unset( $this->refs[$group] );
 		unset( $this->groupRefSequence[$group] );
 	}
@@ -320,7 +325,7 @@ class ReferenceStack {
 	/**
 	 * Returns a list of all groups with references.
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	public function getGroups() : array {
 		$groups = [];
@@ -338,7 +343,7 @@ class ReferenceStack {
 	 * @param string $group
 	 * @return array[]
 	 */
-	public function getGroupRefs( $group ) : array {
+	public function getGroupRefs( string $group ) : array {
 		return $this->refs[$group] ?? [];
 	}
 
@@ -349,9 +354,9 @@ class ReferenceStack {
 	 *
 	 * @param string $group
 	 * @param string $name
-	 * @param string $text
+	 * @param ?string $text
 	 */
-	public function setRefText( $group, $name, $text ) {
+	public function setRefText( string $group, string $name, ?string $text ) {
 		$this->refs[$group][$name]['text'] = $text;
 	}
 

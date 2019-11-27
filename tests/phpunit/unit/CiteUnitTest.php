@@ -3,6 +3,8 @@
 namespace Cite\Tests\Unit;
 
 use Cite\Cite;
+use Cite\CiteErrorReporter;
+use Cite\ReferenceStack;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -18,6 +20,83 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		parent::setUp();
 		$wgCiteBookReferencing = true;
 		$wgFragmentMode = [ 'html5' ];
+	}
+
+	/**
+	 * @covers ::validateRef
+	 * @dataProvider provideValidations
+	 */
+	public function testValidateRef(
+		array $referencesStack,
+		?string $inReferencesGroup,
+		bool $isSectionPreview,
+		?string $text,
+		?string $name,
+		?string $group,
+		?string $follow,
+		?string $extends,
+		$expected
+	) {
+		$errorReporter = $this->createMock( CiteErrorReporter::class );
+		/** @var ReferenceStack $stack */
+		$stack = TestingAccessWrapper::newFromObject( new ReferenceStack( $errorReporter ) );
+		$stack->refs = $referencesStack;
+
+		/** @var Cite $cite */
+		$cite = TestingAccessWrapper::newFromObject( new Cite() );
+		$cite->referenceStack = $stack;
+		$cite->inReferencesGroup = $inReferencesGroup;
+		$cite->isSectionPreview = $isSectionPreview;
+
+		$status = $cite->validateRef( $text, $name, $group, $follow, $extends );
+		if ( is_string( $expected ) ) {
+			$this->assertSame( $expected, $status->getErrors()[0]['message'] );
+		} else {
+			$this->assertSame( $expected, $status->isOK(), $status->getErrors()[0]['message'] ?? '' );
+		}
+	}
+
+	public function provideValidations() {
+		return [
+			// Validating <ref> outside of <references>
+			'text-only <ref>' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 't',
+				'name' => null,
+				'group' => null,
+				'follow' => null,
+				'extends' => null,
+				'expected' => true,
+			],
+			'totally empty <ref>' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => null,
+				'name' => null,
+				'group' => null,
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_ref_no_key',
+			],
+			// TODO: Add test cases that trigger all possible code paths
+
+			// Validating a <ref> in <references>
+			'most trivial <ref> in <references>' => [
+				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'inReferencesGroup' => 'g',
+				'isSectionPreview' => false,
+				'text' => 'not empty',
+				'name' => 'n',
+				'group' => 'g',
+				'follow' => null,
+				'extends' => null,
+				'expected' => true,
+			],
+			// TODO: Add test cases that trigger all possible code paths
+		];
 	}
 
 	/**

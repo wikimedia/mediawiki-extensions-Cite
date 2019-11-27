@@ -409,15 +409,15 @@ class Cite {
 		$name = null;
 
 		if ( isset( $argv['dir'] ) ) {
-			$dir = trim( $argv['dir'] );
+			$dir = $argv['dir'];
 			unset( $argv['dir'] );
 		}
 		if ( isset( $argv[self::BOOK_REF_ATTRIBUTE] ) ) {
-			$extends = trim( $argv[self::BOOK_REF_ATTRIBUTE] );
+			$extends = $argv[self::BOOK_REF_ATTRIBUTE];
 			unset( $argv[self::BOOK_REF_ATTRIBUTE] );
 		}
 		if ( isset( $argv['follow'] ) ) {
-			$follow = trim( $argv['follow'] );
+			$follow = $argv['follow'];
 			unset( $argv['follow'] );
 		}
 		if ( isset( $argv['group'] ) ) {
@@ -425,7 +425,7 @@ class Cite {
 			unset( $argv['group'] );
 		}
 		if ( isset( $argv['name'] ) ) {
-			$name = trim( $argv['name'] );
+			$name = $argv['name'];
 			unset( $argv['name'] );
 		}
 

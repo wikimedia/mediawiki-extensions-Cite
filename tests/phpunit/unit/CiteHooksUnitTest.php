@@ -80,6 +80,7 @@ class CiteHooksUnitTest extends \MediaWikiUnitTestCase {
 		$linksUpdate = $this->createMock( LinksUpdate::class );
 		$linksUpdate->method( 'getParserOutput' )
 			->willReturn( $parserOutput );
+		/** @var LinksUpdate $linksUpdate */
 
 		CiteHooks::onLinksUpdate( $linksUpdate );
 

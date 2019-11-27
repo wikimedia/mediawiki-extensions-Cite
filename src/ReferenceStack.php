@@ -296,7 +296,6 @@ class ReferenceStack {
 		$this->groupRefSequence = [];
 		$this->refSequence = 0;
 		$this->refs = [];
-		$this->mReferencesErrors = [];
 		$this->refCallStack = [];
 	}
 

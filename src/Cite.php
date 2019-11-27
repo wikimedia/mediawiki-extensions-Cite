@@ -383,7 +383,7 @@ class Cite {
 		# if there's any content, regardless of name.
 
 		$result = $this->referenceStack->pushRef(
-			$text, $name, $group, $follow, $argv, $dir, $parser->getStripState() );
+			$text, $name, $group, $extends, $follow, $argv, $dir, $parser->getStripState() );
 		if ( $result === null ) {
 			return '';
 		} else {

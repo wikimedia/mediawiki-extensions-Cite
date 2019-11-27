@@ -42,9 +42,9 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 		$stack = $this->newStack();
 
 		for ( $i = 0; $i < count( $refs ); $i++ ) {
-			[ $text, $name, $group, $follow, $argv, $dir ] = $refs[$i];
+			[ $text, $name, $group, $extends, $follow, $argv, $dir ] = $refs[$i];
 			$result = $stack->pushRef(
-				$text, $name, $group, $follow, $argv, $dir, $mockStripState );
+				$text, $name, $group, $extends, $follow, $argv, $dir, $mockStripState );
 
 			$this->assertSame( $expectedOutputs[$i], $result );
 		}
@@ -57,7 +57,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 		return [
 			'Anonymous ref in default group' => [
 				[
-					[ null, null, '', null, [], 'rtl' ]
+					[ null, null, '', null, null, [], 'rtl' ]
 				],
 				[
 					[ 1, null, 1, null ]
@@ -73,12 +73,12 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], null, null, '', 1 ]
+					[ 'new', [], null, null, null, '', 1 ]
 				]
 			],
 			'Anonymous ref in named group' => [
 				[
-					[ null, null, 'foo', null, [], 'rtl' ]
+					[ null, null, 'foo', null, null, [], 'rtl' ]
 				],
 				[
 					[ 1, null, 1, null ]
@@ -94,12 +94,12 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], null, null, 'foo', 1 ]
+					[ 'new', [], null, null, null, 'foo', 1 ]
 				]
 			],
 			'Ref with text' => [
 				[
-					[ 'text', null, 'foo', null, [], 'rtl' ]
+					[ 'text', null, 'foo', null, null, [], 'rtl' ]
 				],
 				[
 					[ 1, null, 1, null ]
@@ -115,12 +115,12 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text', null, 'foo', 1 ]
+					[ 'new', [], 'text', null, null, 'foo', 1 ]
 				]
 			],
 			'Named ref with text' => [
 				[
-					[ 'text', 'name', 'foo', null, [], 'rtl' ]
+					[ 'text', 'name', 'foo', null, null, [], 'rtl' ]
 				],
 				[
 					[ 'name', '1-0', 1, '-1' ]
@@ -137,13 +137,13 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text', 'name', 'foo', 1 ]
+					[ 'new', [], 'text', 'name', null, 'foo', 1 ]
 				]
 			],
 			'Follow after base' => [
 				[
-					[ 'text-a', 'a', 'foo', null, [], 'rtl' ],
-					[ 'text-b', 'b', 'foo', 'a', [], 'rtl' ]
+					[ 'text-a', 'a', 'foo', null, null, [], 'rtl' ],
+					[ 'text-b', 'b', 'foo', null, 'a', [], 'rtl' ]
 				],
 				[
 					[ 'a', '1-0', 1, '-1' ],
@@ -161,12 +161,12 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text-a', 'a', 'foo', 1 ]
+					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ]
 				]
 			],
 			'Follow with no base' => [
 				[
-					[ 'text', null, 'foo', 'a', [], 'rtl' ]
+					[ 'text', null, 'foo', null, 'a', [], 'rtl' ]
 				],
 				[
 					null
@@ -183,14 +183,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text', null, 'foo', 1 ]
+					[ 'new', [], 'text', null, null, 'foo', 1 ]
 				]
 			],
 			'Follow pointing to later ref' => [
 				[
-					[ 'text-a', 'a', 'foo', null, [], 'rtl' ],
-					[ 'text-b', null, 'foo', 'c', [], 'rtl' ],
-					[ 'text-c', 'c', 'foo', null, [], 'rtl' ]
+					[ 'text-a', 'a', 'foo', null, null, [], 'rtl' ],
+					[ 'text-b', null, 'foo', null, 'c', [], 'rtl' ],
+					[ 'text-c', 'c', 'foo', null, null, [], 'rtl' ]
 				],
 				[
 					[ 'a', '1-0', 1, '-1' ],
@@ -223,15 +223,15 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text-b', null, 'foo', 2 ],
-					[ 'new', [], 'text-a', 'a', 'foo', 1 ],
-					[ 'new', [], 'text-c', 'c', 'foo', 3 ]
+					[ 'new', [], 'text-b', null, null, 'foo', 2 ],
+					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+					[ 'new', [], 'text-c', 'c', null, 'foo', 3 ]
 				]
 			],
 			'Repeated ref, text in first tag' => [
 				[
-					[ 'text', 'a', 'foo', null, [], 'rtl' ],
-					[ null, 'a', 'foo', null, [], 'rtl' ]
+					[ 'text', 'a', 'foo', null, null, [], 'rtl' ],
+					[ null, 'a', 'foo', null, null, [], 'rtl' ]
 				],
 				[
 					[ 'a', '1-0', 1, '-1' ],
@@ -249,14 +249,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text', 'a', 'foo', 1 ],
-					[ 'increment', [], null, 'a', 'foo', 1 ]
+					[ 'new', [], 'text', 'a', null, 'foo', 1 ],
+					[ 'increment', [], null, 'a', null, 'foo', 1 ]
 				]
 			],
 			'Repeated ref, text in second tag' => [
 				[
-					[ null, 'a', 'foo', null, [], 'rtl' ],
-					[ 'text', 'a', 'foo', null, [], 'rtl' ]
+					[ null, 'a', 'foo', null, null, [], 'rtl' ],
+					[ 'text', 'a', 'foo', null, null, [], 'rtl' ]
 				],
 				[
 					[ 'a', '1-0', 1, '-1' ],
@@ -274,14 +274,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], null, 'a', 'foo', 1 ],
-					[ 'assign', [], 'text', 'a', 'foo', 1 ]
+					[ 'new', [], null, 'a', null, 'foo', 1 ],
+					[ 'assign', [], 'text', 'a', null, 'foo', 1 ]
 				]
 			],
 			'Repeated ref, mismatched text' => [
 				[
-					[ 'text-1', 'a', 'foo', null, [], 'rtl' ],
-					[ 'text-2', 'a', 'foo', null, [], 'rtl' ]
+					[ 'text-1', 'a', 'foo', null, null, [], 'rtl' ],
+					[ 'text-2', 'a', 'foo', null, null, [], 'rtl' ]
 				],
 				[
 					[ 'a', '1-0', 1, '-1' ],
@@ -299,8 +299,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', [], 'text-1', 'a', 'foo', 1 ],
-					[ 'increment', [], 'text-2', 'a', 'foo', 1 ]
+					[ 'new', [], 'text-1', 'a', null, 'foo', 1 ],
+					[ 'increment', [], 'text-2', 'a', null, 'foo', 1 ]
 				]
 			],
 		];

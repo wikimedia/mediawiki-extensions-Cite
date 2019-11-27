@@ -99,6 +99,7 @@ class ReferenceStack {
 	 * @param ?string $text Content from the <ref> tag
 	 * @param ?string $name
 	 * @param string $group
+	 * @param ?string $extends
 	 * @param ?string $follow Guaranteed to not be a numeric string
 	 * @param string[] $argv
 	 * @param ?string $dir ref direction
@@ -110,6 +111,7 @@ class ReferenceStack {
 		?string $text,
 		?string $name,
 		string $group,
+		?string $extends,
 		?string $follow,
 		array $argv,
 		?string $dir,
@@ -149,7 +151,7 @@ class ReferenceStack {
 			}
 			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
 			array_splice( $this->refCallStack, $k, 0,
-				[ [ 'new', $argv, $text, $name, $group, $this->refSequence ] ] );
+				[ [ 'new', $argv, $text, $name, $extends, $group, $this->refSequence ] ] );
 
 			// A "follow" never gets its own footnote marker
 			return null;
@@ -193,7 +195,7 @@ class ReferenceStack {
 			// move this logic to validateRef.
 			$this->refSequence--;
 		}
-		$this->refCallStack[] = [ $action, $argv, $text, $name, $group, $ref['key'] ];
+		$this->refCallStack[] = [ $action, $argv, $text, $name, $extends, $group, $ref['key'] ];
 		return [
 			$name ?? $ref['key'],
 			$name ? $ref['key'] . '-' . $ref['count'] : null,
@@ -218,8 +220,8 @@ class ReferenceStack {
 
 			$call = array_pop( $this->refCallStack );
 			if ( $call !== false ) {
-				[ $action, $argv, $text, $name, $group, $index ] = $call;
-				$this->rollbackRef( $action, $name, $group, $index );
+				[ $action, $argv, $text, $name, $extends, $group, $index ] = $call;
+				$this->rollbackRef( $action, $name, $extends, $group, $index );
 				$redoStack[] = [ $argv, $text ];
 			}
 		}
@@ -247,10 +249,11 @@ class ReferenceStack {
 	 *
 	 * @param string $type
 	 * @param string|null $name The name attribute passed in the ref tag.
+	 * @param string|null $extends
 	 * @param string $group
 	 * @param int $index Autoincrement counter for this ref.
 	 */
-	private function rollbackRef( $type, $name, $group, $index ) {
+	private function rollbackRef( $type, $name, $extends, $group, $index ) {
 		if ( !$this->hasGroup( $group ) ) {
 			return;
 		}

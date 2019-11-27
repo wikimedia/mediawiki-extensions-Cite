@@ -97,7 +97,7 @@ class ReferenceStack {
 	 * Populate $this->refs and $this->refCallStack based on input and arguments to <ref>
 	 *
 	 * @param string|null $text Content from the <ref> tag
-	 * @param string|null $name Argument to the <ref> tag as returned by $this->refArg()
+	 * @param string|null $name
 	 * @param string $group
 	 * @param string|null $follow Guaranteed to not be a numeric string
 	 * @param string[] $argv

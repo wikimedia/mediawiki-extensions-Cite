@@ -100,13 +100,17 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::refArg
+	 * @covers ::parseArguments
 	 * @dataProvider provideRefAttributes
 	 */
 	public function testRefArg( array $attributes, array $expected ) {
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( new Cite() );
-		$this->assertSame( $expected, $cite->refArg( $attributes ) );
+		$result = $cite->parseArguments(
+			$attributes,
+			[ 'dir', 'extends', 'follow', 'group', 'name' ]
+		);
+		$this->assertSame( $expected, array_values( $result ) );
 	}
 
 	public function provideRefAttributes() {
@@ -123,12 +127,12 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			[ [ 'invalid' => 'i' ], [ false, false, false, false, false ] ],
 			[ [ 'invalid' => null ], [ false, false, false, false, false ] ],
 			[ [ 'name' => 'n' ], [ null, null, null, null, 'n' ] ],
-			[ [ 'name' => null ], [ false, false, false, false, false ] ],
+			[ [ 'name' => null ], [ null, null, null, null, null ] ],
 			[ [ 'extends' => 'e' ], [ null, 'e', null, null, null ] ],
 
 			// Pairs
 			[ [ 'follow' => 'f', 'name' => 'n' ], [ null, null, 'f', null, 'n' ] ],
-			[ [ 'follow' => null, 'name' => null ], [ false, false, false, false, false ] ],
+			[ [ 'follow' => null, 'name' => null ], [ null, null, null, null, null ] ],
 			[ [ 'follow' => 'f', 'extends' => 'e' ], [ null, 'e', 'f', null, null ] ],
 			[ [ 'group' => 'g', 'name' => 'n' ], [ null, null, null, 'g', 'n' ] ],
 

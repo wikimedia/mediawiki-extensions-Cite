@@ -268,9 +268,8 @@ class Cite {
 
 			if ( $name === false ) {
 				// Invalid attribute in the tag like <ref no_valid_attr="foo" />
-				// or name and follow attribute used both in one tag checked in
-				// Cite::refArg that returns false for the name then.
-				// TODO: Move validation out of refArg.
+				// or name and follow attribute used both in one tag
+				// TODO: Move validation out of parseArguments
 				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
 			}
 
@@ -321,7 +320,16 @@ class Cite {
 			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
-		list( $dir, $extends, $follow, $group, $name ) = $this->refArg( $argv );
+		[
+			'dir' => $dir,
+			self::BOOK_REF_ATTRIBUTE => $extends,
+			'follow' => $follow,
+			'group' => $group,
+			'name' => $name
+		] = $this->parseArguments(
+			$argv,
+			[ 'dir', self::BOOK_REF_ATTRIBUTE, 'follow', 'group', 'name' ]
+		);
 
 		# Split these into groups.
 		if ( $group === null ) {
@@ -388,53 +396,21 @@ class Cite {
 	}
 
 	/**
-	 * Parse the arguments to the <ref> tag
-	 *
-	 *  "dir" : set direction of text (ltr/rtl)
-	 *  "extends": Points to a named reference which serves as the context for this reference.
-	 *  "follow" : If the current reference is the continuation of a named reference.
-	 *  "group" : Group to which it belongs. Needs to be passed to <references /> too.
-	 *  "name" : Name for reusing the reference.
-	 *
 	 * @param string[] $argv The argument vector
+	 * @param string[] $allowedAttributes Allowed attribute names
+	 *
 	 * @return (string|false|null)[] An array with exactly five elements, where each is a string on
 	 *  valid input, false on invalid input, or null on no input.
-	 * @return-taint tainted
 	 */
-	private function refArg( array $argv ) {
-		$dir = null;
-		$extends = null;
-		$follow = null;
-		$group = null;
-		$name = null;
+	private function parseArguments( array $argv, array $allowedAttributes ) {
+		$defaultValues = array_fill_keys( $allowedAttributes, null );
 
-		if ( isset( $argv['dir'] ) ) {
-			$dir = $argv['dir'];
-			unset( $argv['dir'] );
-		}
-		if ( isset( $argv[self::BOOK_REF_ATTRIBUTE] ) ) {
-			$extends = $argv[self::BOOK_REF_ATTRIBUTE];
-			unset( $argv[self::BOOK_REF_ATTRIBUTE] );
-		}
-		if ( isset( $argv['follow'] ) ) {
-			$follow = $argv['follow'];
-			unset( $argv['follow'] );
-		}
-		if ( isset( $argv['group'] ) ) {
-			$group = $argv['group'];
-			unset( $argv['group'] );
-		}
-		if ( isset( $argv['name'] ) ) {
-			$name = $argv['name'];
-			unset( $argv['name'] );
+		if ( array_diff_key( $argv, $defaultValues ) ) {
+			// FIXME: This shouldn't kill the <ref>, but still display it, along with an error
+			return array_fill_keys( $allowedAttributes, false );
 		}
 
-		if ( $argv !== [] ) {
-			// Unexpected invalid attribute.
-			return [ false, false, false, false, false ];
-		}
-
-		return [ $dir, $extends, $follow, $group, $name ];
+		return array_merge( $defaultValues, $argv );
 	}
 
 	/**
@@ -474,9 +450,11 @@ class Cite {
 	) {
 		global $wgCiteResponsiveReferences;
 
-		$group = $argv['group'] ?? self::DEFAULT_GROUP;
-		unset( $argv['group'] );
-		$this->inReferencesGroup = $group;
+		[ 'group' => $group, 'responsive' => $responsive ] = $this->parseArguments(
+			$argv,
+			[ 'group', 'responsive' ]
+		);
+		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
 		if ( strval( $text ) !== '' ) {
 			# Detect whether we were sent already rendered <ref>s.
@@ -503,19 +481,19 @@ class Cite {
 			$parser->recursiveTagParse( $text );
 		}
 
+		// FIXME: This feature is not covered by parser tests!
 		if ( isset( $argv['responsive'] ) ) {
-			$responsive = $argv['responsive'] !== '0';
-			unset( $argv['responsive'] );
+			$responsive = $responsive !== '0';
 		} else {
 			$responsive = $wgCiteResponsiveReferences;
 		}
 
 		// There are remaining parameters we don't recognise
-		if ( $argv ) {
+		if ( $group === false ) {
 			return $this->errorReporter->halfParsed( 'cite_error_references_invalid_parameters' );
 		}
 
-		$s = $this->referencesFormat( $group, $responsive );
+		$s = $this->referencesFormat( $this->inReferencesGroup, $responsive );
 
 		# Append errors generated while processing <references>
 		if ( $this->mReferencesErrors ) {

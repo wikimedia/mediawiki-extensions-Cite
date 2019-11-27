@@ -10,7 +10,7 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @license GPL-2.0-or-later
  */
-class CiteTest extends \MediaWikiUnitTestCase {
+class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 	protected function setUp() : void {
 		global $wgCiteBookReferencing, $wgFragmentMode;

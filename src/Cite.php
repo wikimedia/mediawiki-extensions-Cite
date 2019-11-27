@@ -323,27 +323,28 @@ class Cite {
 			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
+		$result = $this->parseArguments(
+			$argv,
+			[ 'dir', self::BOOK_REF_ATTRIBUTE, 'follow', 'group', 'name' ]
+		);
 		[
 			'dir' => $dir,
 			self::BOOK_REF_ATTRIBUTE => $extends,
 			'follow' => $follow,
 			'group' => $group,
 			'name' => $name
-		] = $this->parseArguments(
-			$argv,
-			[ 'dir', self::BOOK_REF_ATTRIBUTE, 'follow', 'group', 'name' ]
-		);
+		] = $result;
 
 		# Split these into groups.
 		if ( $group === null ) {
 			$group = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
 		}
 
-		$valid = $this->validateRef( $text, $name, $group, $follow, $extends );
+		$status = $this->validateRef( $text, $name, $group, $follow, $extends );
 
 		if ( $this->inReferencesGroup !== null ) {
-			if ( !$valid->isOK() ) {
-				foreach ( $valid->getErrors() as $error ) {
+			if ( !$status->isOK() ) {
+				foreach ( $status->getErrors() as $error ) {
 					$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 						$error['message'], ...$error['params'] );
 				}
@@ -372,13 +373,13 @@ class Cite {
 			$text = null;
 		}
 
-		if ( !$valid->isOK() ) {
+		if ( !$status->isOK() ) {
 			$this->referenceStack->pushInvalidRef();
 
 			// FIXME: If we ever have multiple errors, these must all be presented to the user,
 			//  so they know what to correct.
 			// TODO: Make this nicer, see T238061
-			$error = $valid->getErrors()[0];
+			$error = $status->getErrors()[0];
 			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
 		}
 
@@ -453,10 +454,11 @@ class Cite {
 	) {
 		global $wgCiteResponsiveReferences;
 
-		[ 'group' => $group, 'responsive' => $responsive ] = $this->parseArguments(
+		$result = $this->parseArguments(
 			$argv,
 			[ 'group', 'responsive' ]
 		);
+		[ 'group' => $group, 'responsive' => $responsive ] = $result;
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
 		if ( strval( $text ) !== '' ) {

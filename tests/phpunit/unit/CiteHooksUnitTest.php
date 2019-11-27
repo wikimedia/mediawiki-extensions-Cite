@@ -15,7 +15,7 @@ use Title;
  *
  * @license GPL-2.0-or-later
  */
-class CiteHooksTest extends \MediaWikiUnitTestCase {
+class CiteHooksUnitTest extends \MediaWikiUnitTestCase {
 
 	protected function setUp() : void {
 		global $wgCiteStoreReferencesData;

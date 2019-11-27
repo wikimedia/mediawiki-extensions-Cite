@@ -110,20 +110,21 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 	}
 
 	public function provideRefAttributes() {
+		// Note: Values are guaranteed to be trimmed by the parser, see
+		// Sanitizer::decodeTagAttributes()
 		return [
 			[ [], [ null, null, null, null, null ] ],
 
 			// One attribute only
 			[ [ 'dir' => 'invalid' ], [ 'invalid', null, null, null, null ] ],
-			[ [ 'dir' => ' rtl ' ], [ 'rtl', null, null, null, null ] ],
-			[ [ 'follow' => ' f ' ], [ null, null, 'f', null, null ] ],
-			// FIXME: Unlike all other attributes, group isn't trimmed. Why?
-			[ [ 'group' => ' g ' ], [ null, null, null, ' g ', null ] ],
+			[ [ 'dir' => 'rtl' ], [ 'rtl', null, null, null, null ] ],
+			[ [ 'follow' => 'f' ], [ null, null, 'f', null, null ] ],
+			[ [ 'group' => 'g' ], [ null, null, null, 'g', null ] ],
 			[ [ 'invalid' => 'i' ], [ false, false, false, false, false ] ],
 			[ [ 'invalid' => null ], [ false, false, false, false, false ] ],
-			[ [ 'name' => ' n ' ], [ null, null, null, null, 'n' ] ],
+			[ [ 'name' => 'n' ], [ null, null, null, null, 'n' ] ],
 			[ [ 'name' => null ], [ false, false, false, false, false ] ],
-			[ [ 'extends' => ' e ' ], [ null, 'e', null, null, null ] ],
+			[ [ 'extends' => 'e' ], [ null, 'e', null, null, null ] ],
 
 			// Pairs
 			[ [ 'follow' => 'f', 'name' => 'n' ], [ null, null, 'f', null, 'n' ] ],

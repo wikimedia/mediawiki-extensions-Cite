@@ -568,6 +568,26 @@ AAA<ref group="参">ref a</ref>BBB<ref group="注">note b</ref>CCC<ref group="�
 !! end
 
 !! test
+Attributes are trimmed by the parser, see Sanitizer::decodeTagAttributes()
+!! wikitext
+<ref group="g" name="n1">in group g</ref>
+<ref group=" g " name=" n2 ">in group " g "</ref>
+<references group="g" />
+<references group=" g " />
+!! html
+<p><sup id="cite_ref-n1_1-0" class="reference"><a href="#cite_note-n1-1">&#91;g 1&#93;</a></sup>
+<sup id="cite_ref-n2_2-0" class="reference"><a href="#cite_note-n2-2">&#91;g 2&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-n1-1"><span class="mw-cite-backlink"><a href="#cite_ref-n1_1-0">↑</a></span> <span class="reference-text">in group g</span>
+</li>
+<li id="cite_note-n2-2"><span class="mw-cite-backlink"><a href="#cite_ref-n2_2-0">↑</a></span> <span class="reference-text">in group " g "</span>
+</li>
+</ol></div>
+
+!! end
+
+!! test
 <ref> defined in <references>
 !! wikitext
 <ref name="foo" />

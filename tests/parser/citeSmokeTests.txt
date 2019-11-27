@@ -1,0 +1,75 @@
+!! test
+Smoke test for duplicated references with the same text
+!! wikitext
+<ref name="a">text</ref>
+<ref name="a">text</ref>
+<ref name="b">other</ref>
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+</p>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">text</span>
+</li>
+<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">other</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+Smoke test for duplicated references with conflicting text
+!! wikitext
+<ref name="a">text</ref>
+<ref name="a">bad</ref>
+<ref name="b">other</ref>
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+</p>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">text <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+</li>
+<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">other</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+Smoke test for references that are reused *before* defined in the text
+!! wikitext
+<ref name="a" />
+<ref name="a">text</ref>
+<ref name="b">other</ref>
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+</p>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">text</span>
+</li>
+<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">other</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+Smoke test for references that are reused *before* defined in <references>
+!! wikitext
+<ref name="a" />
+<ref name="a" />
+<ref name="b">other</ref>
+<references>
+<ref name="a">text</ref>
+</references>
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">text</span>
+</li>
+<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">other</span>
+</li>
+</ol></div>
+!! end

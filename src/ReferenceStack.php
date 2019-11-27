@@ -311,13 +311,13 @@ class ReferenceStack {
 	}
 
 	/**
-	 * Retruns true if the group exists.
+	 * Retruns true if the group exists and contains references.
 	 *
 	 * @param string $group
 	 * @return bool
 	 */
 	public function hasGroup( string $group ) : bool {
-		return $this->refs && isset( $this->refs[$group] );
+		return isset( $this->refs[$group] ) && $this->refs[$group];
 	}
 
 	/**
@@ -342,7 +342,7 @@ class ReferenceStack {
 	 * @return array[]
 	 */
 	public function getGroupRefs( $group ) : array {
-		return $this->refs[$group];
+		return $this->refs[$group] ?? [];
 	}
 
 	/**

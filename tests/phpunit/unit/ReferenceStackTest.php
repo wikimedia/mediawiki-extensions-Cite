@@ -10,10 +10,13 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @coversDefaultClass \Cite\ReferenceStack
+ *
+ * @license GPL-2.0-or-later
  */
 class ReferenceStackTest extends MediaWikiUnitTestCase {
 
 	/**
+	 * @covers ::__construct
 	 * @covers ::pushInvalidRef
 	 */
 	public function testPushInvalidRef() {
@@ -21,16 +24,11 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 
 		$stack->pushInvalidRef();
 
-		$spy = TestingAccessWrapper::newFromObject( $stack );
-		$this->assertSame( [ false ], $spy->refCallStack );
+		$this->assertSame( [ false ], $stack->refCallStack );
 	}
-
-	// TODO: testRollbackRefs()
-	// TODO: testGetGroupRefs()
 
 	/**
 	 * @covers ::pushRef
-	 *
 	 * @dataProvider providePushRef
 	 */
 	public function testPushRefs(
@@ -51,9 +49,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 			$this->assertSame( $expectedOutputs[$i], $result );
 		}
 
-		$spy = TestingAccessWrapper::newFromObject( $stack );
-		$this->assertSame( $finalRefs, $spy->refs );
-		$this->assertSame( $finalCallStack, $spy->refCallStack );
+		$this->assertSame( $finalRefs, $stack->refs );
+		$this->assertSame( $finalCallStack, $stack->refCallStack );
 	}
 
 	public function providePushRef() {
@@ -309,13 +306,30 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 		];
 	}
 
+	// TODO: @covers ::rollbackRefs
+	// TODO: @covers ::rollbackRef
+
+	/**
+	 * @covers ::clear
+	 * @covers ::deleteGroup
+	 */
+	public function testRemovals() {
+		$stack = $this->newStack();
+		$stack->refs = [ 'group1' => [], 'group2' => [] ];
+
+		$stack->deleteGroup( 'group1' );
+		$this->assertSame( [ 'group2' => [] ], $stack->refs );
+
+		$stack->clear();
+		$this->assertSame( [], $stack->refs );
+	}
+
 	/**
 	 * @covers ::getGroups
 	 */
 	public function testGetGroups() {
 		$stack = $this->newStack();
-		$spy = TestingAccessWrapper::newFromObject( $stack );
-		$spy->refs = [ 'havenot' => [], 'have' => [ [ 'ref etc' ] ] ];
+		$stack->refs = [ 'havenot' => [], 'have' => [ [ 'ref etc' ] ] ];
 
 		$this->assertSame( [ 'have' ], $stack->getGroups() );
 	}
@@ -325,11 +339,23 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 	 */
 	public function testHasGroup() {
 		$stack = $this->newStack();
-		$spy = TestingAccessWrapper::newFromObject( $stack );
-		$spy->refs = [ 'present' => [ [ 'ref etc' ] ] ];
+		$stack->refs = [ 'present' => [ [ 'ref etc' ] ], 'empty' => [] ];
 
 		$this->assertFalse( $stack->hasGroup( 'absent' ) );
 		$this->assertTrue( $stack->hasGroup( 'present' ) );
+		$this->assertFalse( $stack->hasGroup( 'empty' ) );
+	}
+
+	/**
+	 * @covers ::getGroupRefs
+	 */
+	public function testGetGroupRefs() {
+		$stack = $this->newStack();
+		$stack->refs = [ 'present' => [ [ 'ref etc' ] ], 'empty' => [] ];
+
+		$this->assertSame( [], $stack->getGroupRefs( 'absent' ) );
+		$this->assertSame( [ [ 'ref etc' ] ], $stack->getGroupRefs( 'present' ) );
+		$this->assertSame( [], $stack->getGroupRefs( 'empty' ) );
 	}
 
 	/**
@@ -340,15 +366,20 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 
 		$stack->setRefText( 'group', 'name', 'the-text' );
 
-		$spy = TestingAccessWrapper::newFromObject( $stack );
 		$this->assertSame(
-			[ 'group' => [ 'name' => [ 'text' => 'the-text' ] ] ], $spy->refs );
+			[ 'group' => [ 'name' => [ 'text' => 'the-text' ] ] ],
+			$stack->refs
+		);
 	}
 
+	/**
+	 * @return ReferenceStack
+	 */
 	private function newStack() {
 		$errorReporter = $this->createMock( CiteErrorReporter::class );
 		$errorReporter->method( 'plain' )->willReturnArgument( 0 );
-		return new ReferenceStack( $errorReporter );
+		$stack = new ReferenceStack( $errorReporter );
+		return TestingAccessWrapper::newFromObject( $stack );
 	}
 
 }

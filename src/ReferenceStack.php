@@ -65,6 +65,11 @@ class ReferenceStack {
 	private $groupRefSequence = [];
 
 	/**
+	 * @var int[][]
+	 */
+	private $extendsCount = [];
+
+	/**
 	 * <ref> call stack
 	 * Used to cleanup out of sequence ref calls created by #tag
 	 * See description of function rollbackRef.
@@ -155,6 +160,19 @@ class ReferenceStack {
 
 			// A "follow" never gets its own footnote marker
 			return null;
+		}
+
+		if ( $extends !== null ) {
+			if ( isset( $this->refs[$group][$extends] ) ) {
+				$this->extendsCount[$group][$extends] =
+					( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
+
+				$ref['extends'] = $this->groupRefSequence[$group] . '.' . $this->extendsCount[$group][$extends];
+			} else {
+				// TODO: check parent existence in a second, pre-render stage of validation.
+				//  This should be an error, not silent degradation.
+				$extends = null;
+			}
 		}
 
 		if ( !$name ) {
@@ -276,13 +294,19 @@ class ReferenceStack {
 			return;
 		}
 
+		if ( $extends ) {
+			$this->extendsCount[$group][$extends]--;
+		}
+
 		switch ( $type ) {
 			case 'new':
 				# Rollback the addition of new elements to the stack.
 				unset( $this->refs[$group][$key] );
 				if ( $this->refs[$group] === [] ) {
+					// TODO: Unsetting is unecessary.
 					unset( $this->refs[$group] );
 					unset( $this->groupRefSequence[$group] );
+					unset( $this->extendsCount[$group] );
 				}
 				break;
 			case 'assign':

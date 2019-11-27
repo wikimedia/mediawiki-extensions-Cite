@@ -103,14 +103,22 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 	 * @covers ::parseArguments
 	 * @dataProvider provideRefAttributes
 	 */
-	public function testRefArg( array $attributes, array $expected ) {
+	public function testParseRefAttributes(
+		array $attributes,
+		array $expectedValue,
+		string $expectedError = null
+	) {
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( new Cite() );
-		$result = $cite->parseArguments(
+		$status = $cite->parseArguments(
 			$attributes,
 			[ 'dir', 'extends', 'follow', 'group', 'name' ]
 		);
-		$this->assertSame( $expected, array_values( $result ) );
+		$this->assertSame( $expectedValue, array_values( $status->getValue() ) );
+		$this->assertSame( !$expectedError, $status->isOK() );
+		if ( $expectedError ) {
+			$this->assertSame( $expectedError, $status->getErrors()[0]['message'] );
+		}
 	}
 
 	public function provideRefAttributes() {
@@ -124,8 +132,16 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			[ [ 'dir' => 'rtl' ], [ 'rtl', null, null, null, null ] ],
 			[ [ 'follow' => 'f' ], [ null, null, 'f', null, null ] ],
 			[ [ 'group' => 'g' ], [ null, null, null, 'g', null ] ],
-			[ [ 'invalid' => 'i' ], [ false, false, false, false, false ] ],
-			[ [ 'invalid' => null ], [ false, false, false, false, false ] ],
+			[
+				[ 'invalid' => 'i' ],
+				[ null, null, null, null, null ],
+				'cite_error_ref_too_many_keys'
+			],
+			[
+				[ 'invalid' => null ],
+				[ null, null, null, null, null ],
+				'cite_error_ref_too_many_keys'
+			],
 			[ [ 'name' => 'n' ], [ null, null, null, null, 'n' ] ],
 			[ [ 'name' => null ], [ null, null, null, null, null ] ],
 			[ [ 'extends' => 'e' ], [ null, 'e', null, null, null ] ],

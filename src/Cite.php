@@ -266,13 +266,6 @@ class Cite {
 				return StatusValue::newFatal( 'cite_error_ref_no_input' );
 			}
 
-			if ( $name === false ) {
-				// Invalid attribute in the tag like <ref no_valid_attr="foo" />
-				// or name and follow attribute used both in one tag
-				// TODO: Move validation out of parseArguments
-				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
-			}
-
 			if ( $text === null && $name === null ) {
 				// Something like <ref />; this makes no sense.
 				// TODO: Is this redundant with no_input?
@@ -323,7 +316,7 @@ class Cite {
 			$parser->getOutput()->setProperty( self::BOOK_REF_PROPERTY, true );
 		}
 
-		$result = $this->parseArguments(
+		$status = $this->parseArguments(
 			$argv,
 			[ 'dir', self::BOOK_REF_ATTRIBUTE, 'follow', 'group', 'name' ]
 		);
@@ -333,14 +326,14 @@ class Cite {
 			'follow' => $follow,
 			'group' => $group,
 			'name' => $name
-		] = $result;
+		] = $status->getValue();
 
-		# Split these into groups.
+		// Use the default group, or the references group when inside one.
 		if ( $group === null ) {
 			$group = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
 		}
 
-		$status = $this->validateRef( $text, $name, $group, $follow, $extends );
+		$status->merge( $this->validateRef( $text, $name, $group, $follow, $extends ) );
 
 		if ( $this->inReferencesGroup !== null ) {
 			if ( !$status->isOK() ) {
@@ -403,18 +396,23 @@ class Cite {
 	 * @param string[] $argv The argument vector
 	 * @param string[] $allowedAttributes Allowed attribute names
 	 *
-	 * @return (string|false|null)[] An array with exactly five elements, where each is a string on
-	 *  valid input, false on invalid input, or null on no input.
+	 * @return StatusValue Either an error, or has a value with the dictionary of field names and
+	 * parsed or default values.  Missing attributes will be `null`.
 	 */
 	private function parseArguments( array $argv, array $allowedAttributes ) {
-		$defaultValues = array_fill_keys( $allowedAttributes, null );
+		$maxCount = count( $allowedAttributes );
+		$allValues = array_merge( array_fill_keys( $allowedAttributes, null ), $argv );
+		$status = StatusValue::newGood( array_slice( $allValues, 0, $maxCount ) );
 
-		if ( array_diff_key( $argv, $defaultValues ) ) {
-			// FIXME: This shouldn't kill the <ref>, but still display it, along with an error
-			return array_fill_keys( $allowedAttributes, false );
+		if ( count( $allValues ) > $maxCount ) {
+			// A <ref> must have a name (can be null), but <references> can't have one
+			$status->fatal( in_array( 'name', $allowedAttributes )
+				? 'cite_error_ref_too_many_keys'
+				: 'cite_error_references_invalid_parameters'
+			);
 		}
 
-		return array_merge( $defaultValues, $argv );
+		return $status;
 	}
 
 	/**
@@ -454,11 +452,11 @@ class Cite {
 	) {
 		global $wgCiteResponsiveReferences;
 
-		$result = $this->parseArguments(
+		$status = $this->parseArguments(
 			$argv,
 			[ 'group', 'responsive' ]
 		);
-		[ 'group' => $group, 'responsive' => $responsive ] = $result;
+		[ 'group' => $group, 'responsive' => $responsive ] = $status->getValue();
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
 		if ( strval( $text ) !== '' ) {
@@ -493,9 +491,10 @@ class Cite {
 			$responsive = $wgCiteResponsiveReferences;
 		}
 
-		// There are remaining parameters we don't recognise
-		if ( $group === false ) {
-			return $this->errorReporter->halfParsed( 'cite_error_references_invalid_parameters' );
+		if ( !$status->isOK() ) {
+			// Bail out with an error.
+			$error = $status->getErrors()[0];
+			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
 		}
 
 		$s = $this->referencesFormat( $this->inReferencesGroup, $responsive );

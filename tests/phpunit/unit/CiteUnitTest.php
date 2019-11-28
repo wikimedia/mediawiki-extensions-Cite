@@ -15,11 +15,10 @@ use Wikimedia\TestingAccessWrapper;
 class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 	protected function setUp() : void {
-		global $wgCiteBookReferencing, $wgFragmentMode;
+		global $wgCiteBookReferencing;
 
 		parent::setUp();
 		$wgCiteBookReferencing = true;
-		$wgFragmentMode = [ 'html5' ];
 	}
 
 	/**
@@ -157,29 +156,6 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				[ 'group' => 'g', 'name' => 'n', 'extends' => 'e', 'dir' => 'rtl' ],
 				[ 'rtl', 'e', null, 'g', 'n' ]
 			],
-		];
-	}
-
-	/**
-	 * @covers ::normalizeKey
-	 * @dataProvider provideKeyNormalizations
-	 */
-	public function testNormalizeKey( $key, $expected ) {
-		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( new Cite() );
-		$this->assertSame( $expected, $cite->normalizeKey( $key ) );
-	}
-
-	public function provideKeyNormalizations() {
-		return [
-			[ 'a b', 'a_b' ],
-			[ 'a  __  b', 'a_b' ],
-			[ ':', ':' ],
-			[ "\t\n", '&#9;&#10;' ],
-			[ "'", '&#039;' ],
-			[ "''", '&#039;&#039;' ],
-			[ '"%&/<>?[]{|}', '&quot;%&amp;/&lt;&gt;?&#91;&#93;&#123;&#124;&#125;' ],
-			[ 'ISBN', '&#73;SBN' ],
 		];
 	}
 

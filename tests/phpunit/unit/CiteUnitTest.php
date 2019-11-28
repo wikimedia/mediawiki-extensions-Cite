@@ -36,6 +36,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		?string $extends,
 		$expected
 	) {
+		/** @var CiteErrorReporter $errorReporter */
 		$errorReporter = $this->createMock( CiteErrorReporter::class );
 		/** @var ReferenceStack $stack */
 		$stack = TestingAccessWrapper::newFromObject( new ReferenceStack( $errorReporter ) );

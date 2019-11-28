@@ -8,7 +8,6 @@ use Parser;
 use ParserOptions;
 use ParserOutput;
 use StripState;
-use Wikimedia\TestingAccessWrapper;
 
 /**
  * @coversDefaultClass \Cite\Cite
@@ -50,38 +49,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$cite = new Cite();
 		$cite->ref( 'contentA', [ 'name' => 'a' ], $mockParser );
 		$cite->ref( 'contentB', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ], $mockParser );
-	}
-
-	/**
-	 * @covers ::listToText
-	 * @dataProvider provideLists
-	 */
-	public function testListToText( array $list, $expected ) {
-		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( new Cite() );
-		$this->assertSame( $expected, $cite->listToText( $list ) );
-	}
-
-	public function provideLists() {
-		return [
-			[
-				[],
-				''
-			],
-			[
-				// This is intentionally using numbers to test the to-string cast
-				[ 1 ],
-				'1'
-			],
-			[
-				[ 1, 2 ],
-				'1(cite_references_link_many_and)2'
-			],
-			[
-				[ 1, 2, 3 ],
-				'1(cite_references_link_many_sep)2(cite_references_link_many_and)3'
-			],
-		];
 	}
 
 }

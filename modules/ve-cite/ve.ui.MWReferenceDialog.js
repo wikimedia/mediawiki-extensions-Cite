@@ -144,7 +144,7 @@ ve.ui.MWReferenceDialog.static.getImportRules = function () {
  */
 ve.ui.MWReferenceDialog.prototype.documentHasContent = function () {
 	// TODO: Check for other types of empty, e.g. only whitespace?
-	return this.referenceModel.getDocument().data.hasContent();
+	return this.referenceModel && this.referenceModel.getDocument().data.hasContent();
 };
 
 /*

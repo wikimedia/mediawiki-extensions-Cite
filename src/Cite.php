@@ -34,7 +34,7 @@ use StatusValue;
 
 class Cite {
 
-	private const DEFAULT_GROUP = '';
+	public const DEFAULT_GROUP = '';
 
 	/**
 	 * Wikitext attribute name for Book Referencing.
@@ -56,13 +56,6 @@ class Cite {
 	private $mBacklinkLabels;
 
 	/**
-	 * The links to use per group, in order.
-	 *
-	 * @var (string[]|false)[]
-	 */
-	private $mLinkLabels = [];
-
-	/**
 	 * @var Parser
 	 */
 	private $mParser;
@@ -76,6 +69,11 @@ class Cite {
 	 * @var bool
 	 */
 	private $isSectionPreview;
+
+	/**
+	 * @var FootnoteMarkFormatter
+	 */
+	private $footnoteMarkFormatter;
 
 	/**
 	 * @var CiteErrorReporter
@@ -135,6 +133,8 @@ class Cite {
 			);
 			$this->referenceStack = new ReferenceStack( $this->errorReporter );
 			$this->citeKeyFormatter = new CiteKeyFormatter();
+			$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
+				$this->mParser, $this->errorReporter, $this->citeKeyFormatter );
 		}
 	}
 
@@ -362,7 +362,7 @@ class Cite {
 			return '';
 		} else {
 			[ $key, $count, $label, $subkey ] = $result;
-			return $this->linkRef( $group, $key, $count, $label, $subkey );
+			return $this->footnoteMarkFormatter->linkRef( $group, $key, $count, $label, $subkey );
 		}
 	}
 
@@ -668,68 +668,6 @@ class Cite {
 	}
 
 	/**
-	 * Generate a custom format link for a group given an offset, e.g.
-	 * the second <ref group="foo"> is b if $this->mLinkLabels["foo"] =
-	 * [ 'a', 'b', 'c', ...].
-	 * Return an error if the offset > the # of array items
-	 *
-	 * @param int $offset
-	 * @param string $group The group name
-	 * @param string $label The text to use if there's no message for them.
-	 *
-	 * @return string
-	 */
-	private function getLinkLabel( $offset, $group, $label ) {
-		$message = "cite_link_label_group-$group";
-		if ( !isset( $this->mLinkLabels[$group] ) ) {
-			$this->genLinkLabels( $group, $message );
-		}
-		if ( $this->mLinkLabels[$group] === false ) {
-			// Use normal representation, ie. "$group 1", "$group 2"...
-			return $label;
-		}
-
-		return $this->mLinkLabels[$group][$offset - 1]
-			?? $this->errorReporter->plain( 'cite_error_no_link_label_group', [ $group, $message ] );
-	}
-
-	/**
-	 * Generate a link (<sup ...) for the <ref> element from a key
-	 * and return XHTML ready for output
-	 *
-	 * @suppress SecurityCheck-DoubleEscaped
-	 * @param string $group
-	 * @param string $key The key for the link
-	 * @param int|null $count The index of the key, used for distinguishing
-	 *                   multiple occurrences of the same key
-	 * @param int $label The label to use for the link, I want to
-	 *                   use the same label for all occurrences of
-	 *                   the same named reference.
-	 * @param string|null $subkey
-	 *
-	 * @return string
-	 */
-	private function linkRef( $group, $key, $count, $label, $subkey ) {
-		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
-
-		return $this->mParser->recursiveTagParse(
-				wfMessage(
-					'cite_reference_link',
-					$this->citeKeyFormatter->normalizeKey(
-						$this->citeKeyFormatter->refKey( $key, $count )
-					),
-					$this->citeKeyFormatter->normalizeKey(
-						$this->citeKeyFormatter->getReferencesKey( $key . $subkey )
-					),
-					Sanitizer::safeEncodeAttribute(
-						$this->getLinkLabel( $label, $group,
-							( ( $group === self::DEFAULT_GROUP ) ? '' : "$group " ) . $contLang->formatNum( $label ) )
-					)
-				)->inContentLanguage()->plain()
-			);
-	}
-
-	/**
 	 * This does approximately the same thing as
 	 * Language::listToText() but due to this being used for a
 	 * slightly different purpose (people might not want , as the
@@ -760,23 +698,6 @@ class Cite {
 		$text = wfMessage( 'cite_references_link_many_format_backlink_labels' )
 			->inContentLanguage()->plain();
 		$this->mBacklinkLabels = preg_split( '/\s+/', $text );
-	}
-
-	/**
-	 * Generate the labels to pass to the
-	 * 'cite_reference_link' message instead of numbers, the format is an
-	 * arbitrary number of tokens separated by whitespace.
-	 *
-	 * @param string $group
-	 * @param string $message
-	 */
-	private function genLinkLabels( $group, $message ) {
-		$text = false;
-		$msg = wfMessage( $message )->inContentLanguage();
-		if ( $msg->exists() ) {
-			$text = $msg->plain();
-		}
-		$this->mLinkLabels[$group] = $text ? preg_split( '/\s+/', $text ) : false;
 	}
 
 	/**

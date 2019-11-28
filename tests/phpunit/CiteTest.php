@@ -38,6 +38,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( $this->createMock( Language::class ) );
 
 		$mockParser = $this->createMock( Parser::class );
+		$mockParser->method( 'recursiveTagParse' )
+			->willReturn( '' );
 		$mockParser->method( 'getOptions' )
 			->willReturn( $parserOptions );
 		$mockParser->method( 'getOutput' )

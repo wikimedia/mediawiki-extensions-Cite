@@ -56,7 +56,11 @@ class FootnoteBodyFormatter {
 	 * @param bool $isSectionPreview
 	 * @return string
 	 */
-	public function referencesFormat( array $groupRefs, bool $responsive, bool $isSectionPreview ) {
+	public function referencesFormat(
+		array $groupRefs,
+		bool $responsive,
+		bool $isSectionPreview
+	) : string {
 		if ( !$groupRefs ) {
 			return '';
 		}
@@ -120,7 +124,7 @@ class FootnoteBodyFormatter {
 	 * @param bool $isSectionPreview
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
-	private function referencesFormatEntry( $key, array $val, bool $isSectionPreview ) {
+	private function referencesFormatEntry( $key, array $val, bool $isSectionPreview ) : string {
 		$text = $this->referenceText( $key, $val['text'], $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';
@@ -194,7 +198,7 @@ class FootnoteBodyFormatter {
 	 * @param bool $isSectionPreview
 	 * @return string
 	 */
-	private function referenceText( $key, ?string $text, bool $isSectionPreview ) {
+	private function referenceText( $key, ?string $text, bool $isSectionPreview ) : string {
 		if ( $text === null ) {
 			if ( $isSectionPreview ) {
 				return $this->errorReporter->plain( 'cite_warning_sectionpreview_no_text', $key );
@@ -209,12 +213,16 @@ class FootnoteBodyFormatter {
 	 * offset, e.g. $base = 1, $offset = 2; = 1.2
 	 * Since bug #5525, it correctly does 1.9 -> 1.10 as well as 1.099 -> 1.100
 	 *
-	 * @param int $base
+	 * @param int|string $base
 	 * @param int $offset
 	 * @param int $max Maximum value expected.
 	 * @return string
 	 */
-	private function referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max ) {
+	private function referencesFormatEntryNumericBacklinkLabel(
+		$base,
+		int $offset,
+		int $max
+	) : string {
 		$scope = strlen( $max );
 		$ret = MediaWikiServices::getInstance()->getContentLanguage()->formatNum(
 			$base . '.' . sprintf( "%0{$scope}s", $offset )
@@ -232,7 +240,7 @@ class FootnoteBodyFormatter {
 	 *
 	 * @return string
 	 */
-	private function referencesFormatEntryAlternateBacklinkLabel( $offset ) {
+	private function referencesFormatEntryAlternateBacklinkLabel( int $offset ) : string {
 		if ( !isset( $this->backlinkLabels ) ) {
 			$this->genBacklinkLabels();
 		}
@@ -261,7 +269,7 @@ class FootnoteBodyFormatter {
 	 * @param string[] $arr The array to format
 	 * @return string
 	 */
-	private function listToText( array $arr ) {
+	private function listToText( array $arr ) : string {
 		$lastElement = array_pop( $arr );
 
 		if ( $arr === [] ) {

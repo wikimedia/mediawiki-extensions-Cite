@@ -15,10 +15,10 @@ class CiteKeyFormatter {
 	 * (since otherwise it would link to itself)
 	 *
 	 * @param string $key
-	 * @param int|null $num The number of the key
+	 * @param string|null $num The number of the key
 	 * @return string A key for use in wikitext
 	 */
-	public function refKey( $key, $num = null ) {
+	public function refKey( string $key, string $num = null ) : string {
 		$prefix = wfMessage( 'cite_reference_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_reference_link_suffix' )->inContentLanguage()->text();
 		if ( $num !== null ) {
@@ -37,7 +37,7 @@ class CiteKeyFormatter {
 	 * @param string $key
 	 * @return string A key for use in wikitext
 	 */
-	public function getReferencesKey( $key ) {
+	public function getReferencesKey( string $key ) : string {
 		$prefix = wfMessage( 'cite_references_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_references_link_suffix' )->inContentLanguage()->text();
 
@@ -50,7 +50,7 @@ class CiteKeyFormatter {
 	 * @param string $key
 	 * @return string
 	 */
-	private function normalizeKey( $key ) {
+	private function normalizeKey( string $key ) : string {
 		$ret = Sanitizer::escapeIdForAttribute( $key );
 		$ret = preg_replace( '/__+/', '_', $ret );
 		$ret = Sanitizer::safeEncodeAttribute( $ret );

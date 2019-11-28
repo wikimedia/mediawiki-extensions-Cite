@@ -231,7 +231,7 @@ class ReferenceStack {
 	 * @param int $count
 	 * @return array Refs to restore under the correct context. [ $argv, $text ]
 	 */
-	public function rollbackRefs( $count ) : array {
+	public function rollbackRefs( int $count ) : array {
 		$redoStack = [];
 		for ( $i = 0; $i < $count; $i++ ) {
 			if ( !$this->refCallStack ) {
@@ -273,7 +273,13 @@ class ReferenceStack {
 	 * @param string $group
 	 * @param int $index Autoincrement counter for this ref.
 	 */
-	private function rollbackRef( $type, $name, $extends, $group, $index ) {
+	private function rollbackRef(
+		string $type,
+		?string $name,
+		?string $extends,
+		string $group,
+		int $index
+	) {
 		if ( !$this->hasGroup( $group ) ) {
 			return;
 		}

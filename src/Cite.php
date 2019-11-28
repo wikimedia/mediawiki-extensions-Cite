@@ -26,7 +26,6 @@ namespace Cite;
 
 use Exception;
 use Parser;
-use ParserOptions;
 use Sanitizer;
 use StatusValue;
 
@@ -143,7 +142,7 @@ class Cite {
 	 *
 	 * @return string|false False in case a <ref> tag is not allowed in the current context
 	 */
-	public function ref( $text, array $argv, Parser $parser ) {
+	public function ref( ?string $text, array $argv, Parser $parser ) {
 		if ( $this->mInCite ) {
 			return false;
 		}
@@ -165,7 +164,13 @@ class Cite {
 	 * @param string|null $extends
 	 * @return StatusValue
 	 */
-	private function validateRef( $text, $name, $group, $follow, $extends ) : StatusValue {
+	private function validateRef(
+		?string $text,
+		?string $name,
+		?string $group,
+		?string $follow,
+		?string $extends
+	) : StatusValue {
 		if ( ctype_digit( $name ) || ctype_digit( $follow ) || ctype_digit( $extends ) ) {
 			// Numeric names mess up the resulting id's, potentially producing
 			// duplicate id's in the XHTML.  The Right Thing To Do
@@ -275,10 +280,10 @@ class Cite {
 	 * @return string
 	 */
 	private function guardedRef(
-		$text,
+		?string $text,
 		array $argv,
 		Parser $parser
-	) {
+	) : string {
 		// Tag every page where Book Referencing has been used, whether or not the ref tag is valid.
 		// This code and the page property will be removed once the feature is stable.  See T237531.
 		if ( array_key_exists( self::BOOK_REF_ATTRIBUTE, $argv ) ) {
@@ -369,7 +374,7 @@ class Cite {
 	 * @return StatusValue Either an error, or has a value with the dictionary of field names and
 	 * parsed or default values.  Missing attributes will be `null`.
 	 */
-	private function parseArguments( array $argv, array $allowedAttributes ) {
+	private function parseArguments( array $argv, array $allowedAttributes ) : StatusValue {
 		$maxCount = count( $allowedAttributes );
 		$allValues = array_merge( array_fill_keys( $allowedAttributes, null ), $argv );
 		$status = StatusValue::newGood( array_slice( $allValues, 0, $maxCount ) );
@@ -394,7 +399,7 @@ class Cite {
 	 *
 	 * @return string|false False in case a <references> tag is not allowed in the current context
 	 */
-	public function references( $text, array $argv, Parser $parser ) {
+	public function references( ?string $text, array $argv, Parser $parser ) {
 		if ( $this->mInCite || $this->inReferencesGroup !== null ) {
 			return false;
 		}
@@ -416,10 +421,10 @@ class Cite {
 	 * @return string
 	 */
 	private function guardedReferences(
-		$text,
+		?string $text,
 		array $argv,
 		Parser $parser
-	) {
+	) : string {
 		global $wgCiteResponsiveReferences;
 
 		$status = $this->parseArguments(
@@ -487,7 +492,7 @@ class Cite {
 	 * @param bool $responsive
 	 * @return string HTML ready for output
 	 */
-	private function referencesFormat( $group, $responsive ) {
+	private function referencesFormat( string $group, bool $responsive ) : string {
 		$ret = $this->footnoteBodyFormatter->referencesFormat(
 			$this->referenceStack->getGroupRefs( $group ), $responsive, $this->isSectionPreview );
 
@@ -503,7 +508,7 @@ class Cite {
 	 *
 	 * @param string $force Set to "force" to interrupt parsing
 	 */
-	public function clearState( $force = '' ) {
+	public function clearState( string $force = '' ) {
 		if ( $force === 'force' ) {
 			$this->mInCite = false;
 			$this->inReferencesGroup = null;
@@ -525,13 +530,13 @@ class Cite {
 	 * references tags and does not add the errors.
 	 *
 	 * @param bool $afterParse True if called from the ParserAfterParse hook
-	 * @param ParserOptions $parserOptions
+	 * @param bool $isSectionPreview
 	 * @param string &$text
 	 */
 	public function checkRefsNoReferences(
-		$afterParse,
-		ParserOptions $parserOptions,
-		&$text
+		bool $afterParse,
+		bool $isSectionPreview,
+		string &$text
 	) {
 		global $wgCiteResponsiveReferences;
 
@@ -544,7 +549,7 @@ class Cite {
 		$s = '';
 		if ( $this->referenceStack ) {
 			foreach ( $this->referenceStack->getGroups() as $group ) {
-				if ( $group === self::DEFAULT_GROUP || $parserOptions->getIsSectionPreview() ) {
+				if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
 					$this->inReferencesGroup = $group;
 					$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
 					$this->inReferencesGroup = null;
@@ -557,7 +562,7 @@ class Cite {
 				}
 			}
 		}
-		if ( $parserOptions->getIsSectionPreview() && $s !== '' ) {
+		if ( $isSectionPreview && $s !== '' ) {
 			// provide a preview of references in its own section
 			$text .= "\n" . '<div class="mw-ext-cite-cite_section_preview_references" >';
 			$headerMsg = wfMessage( 'cite_section_preview_references' );

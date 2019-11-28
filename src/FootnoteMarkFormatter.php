@@ -55,16 +55,22 @@ class FootnoteMarkFormatter {
 	 * @suppress SecurityCheck-DoubleEscaped
 	 * @param string $group
 	 * @param string $key The key for the link
-	 * @param int|null $count The index of the key, used for distinguishing
+	 * @param ?string $count The index of the key, used for distinguishing
 	 *                   multiple occurrences of the same key
-	 * @param int $label The label to use for the link, I want to
+	 * @param int|string $label The label to use for the link, I want to
 	 *                   use the same label for all occurrences of
 	 *                   the same named reference.
 	 * @param string|null $subkey
 	 *
 	 * @return string
 	 */
-	public function linkRef( $group, $key, $count, $label, $subkey ) {
+	public function linkRef(
+		string $group,
+		string $key,
+		?string $count,
+		$label,
+		?string $subkey
+	) : string {
 		return $this->parser->recursiveTagParse(
 			wfMessage(
 				'cite_reference_link',
@@ -86,13 +92,13 @@ class FootnoteMarkFormatter {
 	 * [ 'a', 'b', 'c', ...].
 	 * Return an error if the offset > the # of array items
 	 *
-	 * @param int $offset
+	 * @param int|string $offset
 	 * @param string $group The group name
 	 * @param string $label The text to use if there's no message for them.
 	 *
 	 * @return string
 	 */
-	private function getLinkLabel( $offset, $group, $label ) {
+	private function getLinkLabel( $offset, string $group, string $label ) : string {
 		$message = "cite_link_label_group-$group";
 		if ( !isset( $this->linkLabels[$group] ) ) {
 			$this->genLinkLabels( $group, $message );
@@ -102,6 +108,7 @@ class FootnoteMarkFormatter {
 			return $label;
 		}
 
+		// FIXME: This doesn't work as expected when $offset is a string like "1.2"
 		return $this->linkLabels[$group][$offset - 1]
 			?? $this->errorReporter->plain( 'cite_error_no_link_label_group', [ $group, $message ] );
 	}
@@ -114,7 +121,7 @@ class FootnoteMarkFormatter {
 	 * @param string $group
 	 * @param string $message
 	 */
-	private function genLinkLabels( $group, $message ) {
+	private function genLinkLabels( string $group, string $message ) {
 		$text = false;
 		$msg = wfMessage( $message )->inContentLanguage();
 		if ( $msg->exists() ) {

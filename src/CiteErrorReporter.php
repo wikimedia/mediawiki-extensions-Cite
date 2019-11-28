@@ -37,7 +37,7 @@ class CiteErrorReporter {
 	 *
 	 * @return string Half-parsed wikitext with extension's tags already being expanded
 	 */
-	public function halfParsed( $key, ...$params ) {
+	public function halfParsed( string $key, ...$params ) : string {
 		// FIXME: We suspect this is not necessary and can just be removed
 		return $this->parser->recursiveTagParse( $this->plain( $key, ...$params ) );
 	}
@@ -49,7 +49,7 @@ class CiteErrorReporter {
 	 * @return string Plain, unparsed wikitext
 	 * @return-taint tainted
 	 */
-	public function plain( $key, ...$params ) {
+	public function plain( string $key, ...$params ) : string {
 		$msg = wfMessage( $key, ...$params )->inLanguage( $this->language );
 
 		if ( strncmp( $msg->getKey(), 'cite_warning_', 13 ) === 0 ) {

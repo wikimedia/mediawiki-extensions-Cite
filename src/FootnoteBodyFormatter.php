@@ -69,9 +69,16 @@ class FootnoteBodyFormatter {
 		// Note: This builds a string of wikitext, not html.
 		$parserInput = "\n";
 		$indented = false;
+		// After sorting the list, we can assume that references are in the same order as their
+		// numbering.  Subreferences will come immediately after their parent.
+		uasort(
+			$groupRefs,
+			function ( array $a, array $b ) : int {
+				return ( $a['number'] ?? '' ) <=> ( $b['number'] ?? '' ) ?:
+					( $a['extendsIndex'] ?? '0' ) <=> ( $b['extendsIndex'] ?? '0' );
+			}
+		);
 		foreach ( $groupRefs as $key => $value ) {
-			// FIXME: This assumes extended references appear immediately after their parent in the
-			//  data structure.  Reorder the refs according to their stored numbering.
 			if ( !$indented && isset( $value['extends'] ) ) {
 				// The nested <ol> must be inside the parent's <li>
 				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
@@ -125,9 +132,12 @@ class FootnoteBodyFormatter {
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
 	private function referencesFormatEntry( $key, array $val, bool $isSectionPreview ) : string {
-		$text = $this->referenceText( $key, $val['text'], $isSectionPreview );
+		$text = $this->referenceText( $key, ( $val['text'] ?? null ), $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';
+
+		// TODO: Show an error if isset( $val['__placeholder__'] ), this is caused by extends
+		//  with a missing parent.
 
 		if ( isset( $val['dir'] ) ) {
 			$dir = strtolower( $val['dir'] );

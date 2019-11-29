@@ -423,6 +423,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 						'name' => 'a',
 						'text' => 'text-a',
 						'number' => 1,
+						'extends' => 'b',
+						'extendsIndex' => 1,
 					],
 				],
 				[
@@ -434,11 +436,17 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 							'name' => 'a',
 							'text' => 'text-a',
 							'number' => 1,
+							'extends' => 'b',
+							'extendsIndex' => 1,
 						],
+						'b' => [
+							'number' => 1,
+							'__placeholder__' => true,
+						]
 					]
 				],
 				[
-					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+					[ 'new', [], 'text-a', 'a', 'b', 'foo', 1 ],
 				]
 			],
 			'Named extends before parent' => [
@@ -454,6 +462,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 						'name' => 'a',
 						'text' => 'text-a',
 						'number' => 1,
+						'extends' => 'b',
+						'extendsIndex' => 1,
 					],
 					[
 						'count' => 0,
@@ -461,7 +471,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 						'key' => 2,
 						'name' => 'b',
 						'text' => 'text-b',
-						'number' => 2,
+						'number' => 1,
 					]
 				],
 				[
@@ -473,6 +483,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 							'name' => 'a',
 							'text' => 'text-a',
 							'number' => 1,
+							'extends' => 'b',
+							'extendsIndex' => 1,
 						],
 						'b' => [
 							'count' => 0,
@@ -480,12 +492,12 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 							'key' => 2,
 							'name' => 'b',
 							'text' => 'text-b',
-							'number' => 2,
+							'number' => 1,
 						]
 					]
 				],
 				[
-					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+					[ 'new', [], 'text-a', 'a', 'b', 'foo', 1 ],
 					[ 'new', [], 'text-b', 'b', null, 'foo', 2 ],
 				]
 			],
@@ -553,6 +565,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 						'name' => null,
 						'text' => 'text-a',
 						'number' => 1,
+						'extends' => 'b',
+						'extendsIndex' => 1,
 					]
 				],
 				[
@@ -564,11 +578,17 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 							'name' => null,
 							'text' => 'text-a',
 							'number' => 1,
+							'extends' => 'b',
+							'extendsIndex' => 1,
 						],
-					]
+						'b' => [
+							'number' => 1,
+							'__placeholder__' => true,
+						]
+					],
 				],
 				[
-					[ 'new', [], 'text-a', null, null, 'foo', 1 ],
+					[ 'new', [], 'text-a', null, 'b', 'foo', 1 ],
 				]
 			],
 			'Anonymous extends before parent' => [
@@ -584,6 +604,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 						'name' => null,
 						'text' => 'text-a',
 						'number' => 1,
+						'extends' => 'b',
+						'extendsIndex' => 1,
 					],
 					[
 						'count' => 0,
@@ -591,7 +613,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 						'key' => 2,
 						'name' => 'b',
 						'text' => 'text-b',
-						'number' => 2,
+						'number' => 1,
 					]
 				],
 				[
@@ -603,6 +625,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 							'name' => null,
 							'text' => 'text-a',
 							'number' => 1,
+							'extends' => 'b',
+							'extendsIndex' => 1,
 						],
 						'b' => [
 							'count' => 0,
@@ -610,12 +634,12 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 							'key' => 2,
 							'name' => 'b',
 							'text' => 'text-b',
-							'number' => 2,
+							'number' => 1,
 						]
 					]
 				],
 				[
-					[ 'new', [], 'text-a', null, null, 'foo', 1 ],
+					[ 'new', [], 'text-a', null, 'b', 'foo', 1 ],
 					[ 'new', [], 'text-b', 'b', null, 'foo', 2 ],
 				]
 			],

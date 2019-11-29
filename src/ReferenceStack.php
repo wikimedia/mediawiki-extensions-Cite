@@ -169,6 +169,13 @@ class ReferenceStack {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = &$ref;
 			$action = 'new';
+		} elseif ( isset( $this->refs[$group][$name]['__placeholder__'] ) ) {
+			// Populate a placeholder.
+			unset( $this->refs[$group][$name]['__placeholder__'] );
+			unset( $ref['number'] );
+			$ref = array_merge( $ref, $this->refs[$group][$name] );
+			$this->refs[$group][$name] =& $ref;
+			$action = 'new';
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
 			// Valid key with first occurrence
 			$this->refs[$group][$name] = &$ref;
@@ -205,18 +212,22 @@ class ReferenceStack {
 		$ref['number'] = $ref['number'] ?? ++$this->groupRefSequence[$group];
 
 		if ( $extends ) {
-			if ( isset( $this->refs[$group][$extends] ) ) {
-				$this->extendsCount[$group][$extends] =
-					( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
+			$this->extendsCount[$group][$extends] =
+				( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
 
-				$ref['extends'] = $extends;
-				$ref['extendsIndex'] = $this->extendsCount[$group][$extends];
+			$ref['extends'] = $extends;
+			$ref['extendsIndex'] = $this->extendsCount[$group][$extends];
 
+			if ( isset( $this->refs[$group][$extends]['number'] ) ) {
+				// Adopt the parent's number.
+				// TODO: Do we need to roll back the group ref sequence here?
 				$ref['number'] = $this->refs[$group][$extends]['number'];
 			} else {
-				// TODO: check parent existence in a second, pre-render stage of validation.
-				//  This should be an error, not silent degradation.
-				$extends = null;
+				// Transfer my number to parent ref.
+				$this->refs[$group][$extends] = [
+					'number' => $ref['number'],
+					'__placeholder__' => true,
+				];
 			}
 		}
 

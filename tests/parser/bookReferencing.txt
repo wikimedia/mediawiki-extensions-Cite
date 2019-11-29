@@ -85,8 +85,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error.
 !! test
 T236256 - Extending a reference that doesn't exist #1
 !! config
@@ -94,14 +92,14 @@ wgCiteBookReferencing=true
 !! wikitext
 <ref extends="a">page 1</ref>
 !! html/php
-<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">page 1</span>
+<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">page 1</span>
 </li>
+</ol></li>
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error at the second reference.
 !! test
 T236256 - Extending a reference that doesn't exist #2
 !! config
@@ -112,11 +110,13 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
 </p>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">book</span>
 </li>
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
+</ol></li>
 </ol></div>
 !! end
 
@@ -278,8 +278,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error at the second reference.
 !! test
 T236256 - Base and book reference in different groups
 !! config
@@ -291,20 +289,20 @@ wgCiteBookReferencing=true
 <references group="g2"/>
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;g1 1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;g2 1&#93;</a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;g2 1.1&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
 </li>
 </ol></div>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
 </li>
+</ol></li>
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error at the second reference.
 !! test
 T236256 - Extending in the unnamed default group
 !! config
@@ -315,19 +313,19 @@ wgCiteBookReferencing=true
 <references group="g1"/>
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;g1 1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1&#93;</a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
 </li>
 </ol></div><div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
 </li>
+</ol></li>
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error at the second reference.
 !! test
 T236256 - Base in the unnamed default group
 !! config
@@ -338,11 +336,13 @@ wgCiteBookReferencing=true
 <references group="g1"/>
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;g1 1&#93;</a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;g1 1.1&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
 </li>
+</ol></li>
 </ol></div><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
 </li>
@@ -439,6 +439,8 @@ invalid names, e.g. too many</span>
 </ol></div>
 !! end
 
+# TODO
+#  * This should be invalid, there's no way to know that `footwo` should be subnumbered in a one-pass parse.
 !! test
 Extends <ref> defined in <references> called with #tag
 !! wikitext
@@ -455,6 +457,58 @@ Extends <ref> defined in <references> called with #tag
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">BAR</span>
 <ol class="mw-extended-references"><li id="cite_note-footwo-2"><span class="mw-cite-backlink"><a href="#cite_ref-footwo_2-0">↑</a></span> <span class="reference-text">p. 10</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+!! test
+Extends parent <ref> defined in <references> called with #tag
+!! wikitext
+<ref>BAR</ref>
+<ref name="footwo" extends="foo">page 7</ref>
+<ref name="foo" />
+
+{{#tag:references|
+<ref name="foo">book name</ref>
+}}
+!! html
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-footwo_2-0" class="reference"><a href="#cite_note-footwo-2">&#91;2.1&#93;</a></sup>
+<sup id="cite_ref-foo_3-0" class="reference"><a href="#cite_note-foo-3">&#91;2&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">BAR</span>
+</li>
+<li id="cite_note-foo-3"><span class="mw-cite-backlink"><a href="#cite_ref-foo_3-0">↑</a></span> <span class="reference-text">book name</span>
+<ol class="mw-extended-references"><li id="cite_note-footwo-2"><span class="mw-cite-backlink"><a href="#cite_ref-footwo_2-0">↑</a></span> <span class="reference-text">page 7</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+!! test
+Interleaved extends groups
+!! wikitext
+<ref name="a">text-a</ref>
+<ref name="c">text-c</ref>
+
+<ref extends="a">page b</ref>
+<ref extends="c">page d</ref>
+<references />
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-c_2-0" class="reference"><a href="#cite_note-c-2">&#91;2&#93;</a></sup>
+</p><p><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;1.1&#93;</a></sup>
+<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;2.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">text-a</span>
+<ol class="mw-extended-references"><li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">page b</span>
+</li>
+</ol></li>
+<li id="cite_note-c-2"><span class="mw-cite-backlink"><a href="#cite_ref-c_2-0">↑</a></span> <span class="reference-text">text-c</span>
+<ol class="mw-extended-references"><li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">page d</span>
 </li>
 </ol></li>
 </ol></div>
@@ -530,6 +584,7 @@ wgCiteBookReferencing=true
 <ref name="a">book</ref>
 <ref>another</ref>
 <ref extends="a">page 2</ref>
+
 <references />
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
@@ -538,10 +593,10 @@ wgCiteBookReferencing=true
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
-</li>
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">another</span>
 <ol class="mw-extended-references"><li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">page 2</span>
 </li>
 </ol></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">another</span>
+</li>
 </ol></div>
 !! end

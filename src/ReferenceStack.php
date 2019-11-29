@@ -187,7 +187,7 @@ class ReferenceStack {
 			$this->refs[$group][$name] = $ref;
 			$action = 'new';
 		} else {
-			// Change an existing ref entry.
+			// Change an existing entry.
 			$ref =& $this->refs[$group][$name];
 			$ref['count']++;
 			if ( $ref['text'] === null && $text !== '' ) {
@@ -245,7 +245,7 @@ class ReferenceStack {
 				$redoStack[] = [ $argv, $text ];
 			}
 		}
-		// Drop unused rollbacks.  TODO: Warn if not fully consumed?
+		// Drop unused rollbacks, this group is finished.
 		$this->refCallStack = [];
 
 		return array_reverse( $redoStack );
@@ -280,6 +280,7 @@ class ReferenceStack {
 
 		$key = $name;
 		if ( $name === null ) {
+			// Find anonymous ref by key.
 			foreach ( $this->refs[$group] as $k => $v ) {
 				if ( $this->refs[$group][$k]['key'] === $index ) {
 					$key = $k;
@@ -310,6 +311,7 @@ class ReferenceStack {
 					unset( $this->groupRefSequence[$group] );
 					unset( $this->extendsCount[$group] );
 				}
+				// TODO: don't we need to decrement groupRefSequence?
 				break;
 			case 'assign':
 				# Rollback assignment of text to pre-existing elements.

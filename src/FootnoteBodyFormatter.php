@@ -66,7 +66,8 @@ class FootnoteBodyFormatter {
 		$parserInput = "\n";
 		$indented = false;
 		foreach ( $groupRefs as $key => $value ) {
-			// This assumes extended references appear after their parent in the array.
+			// FIXME: This assumes extended references appear immediately after their parent in the
+			//  array.  Reorder the refs according to their stored numbering.
 			if ( !$indented && isset( $value['extends'] ) ) {
 				// Hack: The nested <ol> needs to go inside of the <li>.
 				$parserInput = preg_replace( '/<\/li>\s*$/', '', $parserInput );

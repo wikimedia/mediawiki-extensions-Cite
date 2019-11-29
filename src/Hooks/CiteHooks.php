@@ -7,15 +7,11 @@
 namespace Cite\Hooks;
 
 use ApiQuerySiteinfo;
-use Cite\Cite;
 use ExtensionRegistry;
-use FormatJson;
-use LinksUpdate;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use ResourceLoader;
 use Title;
-use WANObjectCache;
 
 class CiteHooks {
 
@@ -226,67 +222,6 @@ class CiteHooks {
 				"mobile"
 			]
 		] );
-	}
-
-	/**
-	 * Callback for LinksUpdate hook
-	 * Post-output processing of references property, for proper db storage
-	 * Deferred to avoid performance overhead when outputting the page
-	 *
-	 * @param LinksUpdate $linksUpdate
-	 */
-	public static function onLinksUpdate( LinksUpdate $linksUpdate ) {
-		global $wgCiteStoreReferencesData, $wgCiteCacheRawReferencesOnParse;
-		if ( !$wgCiteStoreReferencesData ) {
-			return;
-		}
-		$refData = $linksUpdate->getParserOutput()->getExtensionData( Cite::EXT_DATA_KEY );
-		if ( $refData === null ) {
-			return;
-		}
-		if ( $wgCiteCacheRawReferencesOnParse ) {
-			// caching
-			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-			$articleID = $linksUpdate->getTitle()->getArticleID();
-			$key = $cache->makeKey( Cite::EXT_DATA_KEY, $articleID );
-			$cache->set( $key, $refData, Cite::CACHE_DURATION_ONPARSE );
-		}
-		// JSON encode
-		$ppValue = FormatJson::encode( $refData, false, FormatJson::ALL_OK );
-		// GZIP encode references data at maximum compression
-		$ppValue = gzencode( $ppValue, 9 );
-		// split the string in smaller parts that can fit into a db blob
-		$ppValues = str_split( $ppValue, Cite::MAX_STORAGE_LENGTH );
-		foreach ( $ppValues as $num => $ppValue ) {
-			$key = 'references-' . intval( $num + 1 );
-			$linksUpdate->mProperties[$key] = $ppValue;
-		}
-		$linksUpdate->getParserOutput()->setExtensionData( Cite::EXT_DATA_KEY, null );
-	}
-
-	/**
-	 * Callback for LinksUpdateComplete hook
-	 * If $wgCiteCacheRawReferencesOnParse is set to false, purges the cache
-	 * when references are modified
-	 *
-	 * @param LinksUpdate $linksUpdate
-	 */
-	public static function onLinksUpdateComplete( LinksUpdate $linksUpdate ) {
-		global $wgCiteStoreReferencesData, $wgCiteCacheRawReferencesOnParse;
-		if ( !$wgCiteStoreReferencesData || $wgCiteCacheRawReferencesOnParse ) {
-			return;
-		}
-
-		// if we can, avoid clearing the cache when references were not changed
-		if ( isset( $linksUpdate->getAddedProperties()['references-1'] )
-			|| isset( $linksUpdate->getRemovedProperties()['references-1'] )
-		) {
-			$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-			$articleID = $linksUpdate->getTitle()->getArticleID();
-			$key = $cache->makeKey( Cite::EXT_DATA_KEY, $articleID );
-			// delete with reduced hold off period (LinksUpdate uses a master connection)
-			$cache->delete( $key, WANObjectCache::MAX_COMMIT_DELAY );
-		}
 	}
 
 	/**

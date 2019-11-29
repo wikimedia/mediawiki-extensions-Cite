@@ -1,3 +1,13 @@
+.mw-extended-references {
+	counter-reset: mw-ref-linkback;
+	list-style: none;
+}
+
+.mw-extended-references > li:before {
+	counter-increment: mw-ref-linkback;
+	content: counters( mw-ref-linkback, '.' ) ' ';
+}
+
 .mw-cite-backlink,
 .cite-accessibility-label {
 	-moz-user-select: none;
@@ -17,6 +27,14 @@
 	-webkit-column-break-inside: avoid;
 	page-break-inside: avoid;
 	break-inside: avoid-column;
+}
+
+ol.references {
+	counter-reset: mw-ref-linkback;
+}
+
+ol.references > li {
+	counter-increment: mw-ref-linkback;
 }
 
 sup.reference {

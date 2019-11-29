@@ -181,7 +181,7 @@ class ReferenceStack {
 			$action = 'new';
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
 			// Valid key with first occurrence
-			$ref['number'] = ++$this->groupRefSequence[$group];
+			$ref['number'] = $ref['extends'] ?? ++$this->groupRefSequence[$group];
 			$this->refs[$group][$name] = $ref;
 			$action = 'new';
 		} else {
@@ -217,7 +217,7 @@ class ReferenceStack {
 		return [
 			$name ?? $ref['key'],
 			$name ? $ref['key'] . '-' . $ref['count'] : null,
-			$ref['number'] ?? ++$this->groupRefSequence[$group],
+			$ref['extends'] ?? $ref['number'] ?? ++$this->groupRefSequence[$group],
 			$name ? '-' . $ref['key'] : null
 		];
 	}

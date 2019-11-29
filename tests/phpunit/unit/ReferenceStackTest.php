@@ -46,6 +46,8 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 			$result = $stack->pushRef(
 				$text, $name, $group, $extends, $follow, $argv, $dir, $mockStripState );
 
+			$this->assertTrue( array_key_exists( $i, $expectedOutputs ),
+				'Bad test, not enough expected outputs in fixture.' );
 			$this->assertSame( $expectedOutputs[$i], $result );
 		}
 
@@ -57,7 +59,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 		return [
 			'Anonymous ref in default group' => [
 				[
-					[ null, null, '', null, null, [], 'rtl' ]
+					[ 'text', null, '', null, null, [], 'rtl' ]
 				],
 				[
 					[ 1, null, 1, null ]
@@ -68,17 +70,17 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 							'count' => -1,
 							'dir' => 'rtl',
 							'key' => 1,
-							'text' => null,
+							'text' => 'text',
 						]
 					]
 				],
 				[
-					[ 'new', [], null, null, null, '', 1 ]
+					[ 'new', [], 'text', null, null, '', 1 ]
 				]
 			],
 			'Anonymous ref in named group' => [
 				[
-					[ null, null, 'foo', null, null, [], 'rtl' ]
+					[ 'text', null, 'foo', null, null, [], 'rtl' ]
 				],
 				[
 					[ 1, null, 1, null ]
@@ -89,12 +91,12 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 							'count' => -1,
 							'dir' => 'rtl',
 							'key' => 1,
-							'text' => null,
+							'text' => 'text',
 						]
 					]
 				],
 				[
-					[ 'new', [], null, null, null, 'foo', 1 ]
+					[ 'new', [], 'text', null, null, 'foo', 1 ]
 				]
 			],
 			'Ref with text' => [

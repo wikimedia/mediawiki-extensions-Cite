@@ -143,6 +143,7 @@ class ReferenceStack {
 			'dir' => $dir,
 			// This assumes we are going to register a new reference, instead of reusing one
 			'key' => ++$this->refSequence,
+			'name' => $name,
 			'text' => $text,
 		];
 

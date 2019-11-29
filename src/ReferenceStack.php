@@ -165,27 +165,13 @@ class ReferenceStack {
 			return null;
 		}
 
-		if ( $extends !== null ) {
-			if ( isset( $this->refs[$group][$extends] ) ) {
-				$this->extendsCount[$group][$extends] =
-					( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
-
-				$ref['extends'] = $this->groupRefSequence[$group] . '.' . $this->extendsCount[$group][$extends];
-			} else {
-				// TODO: check parent existence in a second, pre-render stage of validation.
-				//  This should be an error, not silent degradation.
-				$extends = null;
-			}
-		}
-
 		if ( !$name ) {
 			// This is an anonymous reference, which will be given a numeric index.
-			$this->refs[$group][] = $ref;
+			$this->refs[$group][] =& $ref;
 			$action = 'new';
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
 			// Valid key with first occurrence
-			$ref['number'] = $ref['extends'] ?? ++$this->groupRefSequence[$group];
-			$this->refs[$group][$name] = $ref;
+			$this->refs[$group][$name] =& $ref;
 			$action = 'new';
 		} else {
 			// Change an existing entry.
@@ -215,11 +201,29 @@ class ReferenceStack {
 				$action = 'increment';
 			}
 		}
+
+		$ref['number'] = $ref['number'] ?? ++$this->groupRefSequence[$group];
+
+		if ( $extends ) {
+			if ( isset( $this->refs[$group][$extends] ) ) {
+				$ref['extends'] = $extends;
+				$ref['extendsIndex'] = $this->extendsCount[$group][$extends] =
+					( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
+
+				$ref['number'] = $this->refs[$group][$extends]['number'];
+			} else {
+				// TODO: check parent existence in a second, pre-render stage of validation.
+				//  This should be an error, not silent degradation.
+				$extends = null;
+			}
+		}
+
 		$this->refCallStack[] = [ $action, $argv, $text, $name, $extends, $group, $ref['key'] ];
 		return [
 			$name ?? $ref['key'],
 			$name ? $ref['key'] . '-' . $ref['count'] : null,
-			$ref['extends'] ?? $ref['number'] ?? ++$this->groupRefSequence[$group],
+			$ref['number'] .
+				( isset( $ref['extendsIndex'] ) ? '.' . $ref['extendsIndex'] : '' ),
 			$name ? '-' . $ref['key'] : null
 		];
 	}

@@ -175,7 +175,8 @@ class FootnoteBodyFormatter {
 				'cite_references_link_many_format',
 				$this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $i ),
 				$this->referencesFormatEntryNumericBacklinkLabel(
-					$val['number'],
+					$val['number'] .
+						( isset( $val['extendsIndex'] ) ? '.' . $val['extendsIndex'] : '' ),
 					$i,
 					$val['count']
 				),

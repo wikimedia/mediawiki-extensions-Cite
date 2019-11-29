@@ -112,7 +112,7 @@ class Cite {
 	private $mReferencesErrors = [];
 
 	/**
-	 * @var ReferenceStack $referenceStack
+	 * @var ReferenceStack
 	 */
 	private $referenceStack;
 

@@ -80,7 +80,7 @@ class ReferenceStack {
 
 	/**
 	 * @deprecated We should be able to push this responsibility to calling code.
-	 * @var CiteErrorReporter $errorReporter
+	 * @var CiteErrorReporter
 	 */
 	private $errorReporter;
 

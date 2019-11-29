@@ -207,7 +207,7 @@ class FootnoteBodyFormatter {
 	private function referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max ) {
 		$scope = strlen( $max );
 		$ret = MediaWikiServices::getInstance()->getContentLanguage()->formatNum(
-			sprintf( "%s.%0{$scope}s", $base, $offset )
+			$base . '.' . sprintf( "%0{$scope}s", $offset )
 		);
 		return $ret;
 	}

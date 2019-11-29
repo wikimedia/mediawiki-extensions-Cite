@@ -357,13 +357,12 @@ class Cite {
 		# we'll figure that out later.  Likewise it's definitely valid
 		# if there's any content, regardless of name.
 
-		$result = $this->referenceStack->pushRef(
+		$ref = $this->referenceStack->pushRef(
 			$text, $name, $group, $extends, $follow, $argv, $dir, $parser->getStripState() );
-		if ( $result === null ) {
+		if ( $ref === null ) {
 			return '';
 		} else {
-			[ $key, $count, $label, $subkey ] = $result;
-			return $this->footnoteMarkFormatter->linkRef( $group, $key, $count, $label, $subkey );
+			return $this->footnoteMarkFormatter->linkRef( $group, $ref );
 		}
 	}
 

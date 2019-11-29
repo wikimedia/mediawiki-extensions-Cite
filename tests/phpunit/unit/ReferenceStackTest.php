@@ -62,7 +62,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text', null, '', null, null, [], 'rtl' ]
 				],
 				[
-					[ 1, null, '1', null ]
+					[
+						'count' => -1,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => null,
+						'text' => 'text',
+						'number' => 1,
+					]
 				],
 				[
 					'' => [
@@ -85,7 +92,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text', null, 'foo', null, null, [], 'rtl' ]
 				],
 				[
-					[ 1, null, '1', null ]
+					[
+						'count' => -1,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => null,
+						'text' => 'text',
+						'number' => 1,
+					]
 				],
 				[
 					'foo' => [
@@ -108,7 +122,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text', null, 'foo', null, null, [], 'rtl' ]
 				],
 				[
-					[ 1, null, '1', null ]
+					[
+						'count' => -1,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => null,
+						'text' => 'text',
+						'number' => 1,
+					]
 				],
 				[
 					'foo' => [
@@ -131,7 +152,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text', 'name', 'foo', null, null, [], 'rtl' ]
 				],
 				[
-					[ 'name', '1-0', '1', '-1' ]
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'name',
+						'text' => 'text',
+						'number' => 1,
+					],
 				],
 				[
 					'foo' => [
@@ -155,7 +183,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-b', 'b', 'foo', null, 'a', [], 'rtl' ]
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
 					null
 				],
 				[
@@ -204,9 +239,23 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-c', 'c', 'foo', null, null, [], 'rtl' ]
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
 					null,
-					[ 'c', '3-0', '2', '-3' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 3,
+						'name' => 'c',
+						'text' => 'text-c',
+						'number' => 2,
+					]
 				],
 				[
 					'foo' => [
@@ -248,8 +297,22 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ null, 'a', 'foo', null, null, [], 'rtl' ]
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
-					[ 'a', '1-1', '1', '-1' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text',
+						'number' => 1,
+					],
+					[
+						'count' => 1,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text',
+						'number' => 1,
+					],
 				],
 				[
 					'foo' => [
@@ -274,8 +337,22 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text', 'a', 'foo', null, null, [], 'rtl' ]
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
-					[ 'a', '1-1', '1', '-1' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => null,
+						'number' => 1,
+					],
+					[
+						'count' => 1,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text',
+						'number' => 1,
+					]
 				],
 				[
 					'foo' => [
@@ -300,8 +377,22 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-2', 'a', 'foo', null, null, [], 'rtl' ]
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
-					[ 'a', '1-1', '1', '-1' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-1',
+						'number' => 1,
+					],
+					[
+						'count' => 1,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-1 cite_error_references_duplicate_key',
+						'number' => 1,
+					]
 				],
 				[
 					'foo' => [
@@ -325,7 +416,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-a', 'a', 'foo', 'b', null, [], 'rtl' ],
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
 				],
 				[
 					'foo' => [
@@ -349,8 +447,22 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-b', 'b', 'foo', null, null, [], 'rtl' ],
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
-					[ 'b', '2-0', '2', '-2' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 2,
+						'name' => 'b',
+						'text' => 'text-b',
+						'number' => 2,
+					]
 				],
 				[
 					'foo' => [
@@ -383,8 +495,24 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-b', 'b', 'foo', 'a', null, [], 'rtl' ],
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
-					[ 'b', '2-0', '1.1', '-2' ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 2,
+						'name' => 'b',
+						'text' => 'text-b',
+						'number' => 1,
+						'extends' => 'a',
+						'extendsIndex' => 1,
+					]
 				],
 				[
 					'foo' => [
@@ -418,7 +546,14 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-a', null, 'foo', 'b', null, [], 'rtl' ],
 				],
 				[
-					[ 1, null, '1', null ],
+					[
+						'count' => -1,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => null,
+						'text' => 'text-a',
+						'number' => 1,
+					]
 				],
 				[
 					'foo' => [
@@ -442,8 +577,22 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-b', 'b', 'foo', null, null, [], 'rtl' ],
 				],
 				[
-					[ 1, null, '1', null ],
-					[ 'b', '2-0', '2', '-2' ],
+					[
+						'count' => -1,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => null,
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 2,
+						'name' => 'b',
+						'text' => 'text-b',
+						'number' => 2,
+					]
 				],
 				[
 					'foo' => [
@@ -476,8 +625,24 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'text-b', null, 'foo', 'a', null, [], 'rtl' ],
 				],
 				[
-					[ 'a', '1-0', '1', '-1' ],
-					[ 2, null, '1.1', null ],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					[
+						'count' => -1,
+						'dir' => 'rtl',
+						'key' => 2,
+						'name' => null,
+						'text' => 'text-b',
+						'number' => 1,
+						'extends' => 'a',
+						'extendsIndex' => 1,
+					]
 				],
 				[
 					'foo' => [

@@ -190,6 +190,8 @@ class ReferenceStack {
 			// Change an existing entry.
 			$ref =& $this->refs[$group][$name];
 			$ref['count']++;
+			// Rollback the global counter since we won't create a new ref.
+			$this->refSequence--;
 			if ( $ref['text'] === null && $text !== null ) {
 				// If no text was set before, use this text
 				$ref['text'] = $text;
@@ -211,9 +213,6 @@ class ReferenceStack {
 				}
 				$action = 'increment';
 			}
-			// Rollback the counter since we are dropping this ref.  Goes away once we
-			// move this logic to validateRef.
-			$this->refSequence--;
 		}
 		$this->refCallStack[] = [ $action, $argv, $text, $name, $extends, $group, $ref['key'] ];
 		return [
@@ -313,16 +312,15 @@ class ReferenceStack {
 				unset( $this->refs[$group][$key] );
 				if ( $this->refs[$group] === [] ) {
 					// TODO: Unsetting is unecessary.
-					unset( $this->refs[$group] );
-					unset( $this->groupRefSequence[$group] );
-					unset( $this->extendsCount[$group] );
+					$this->deleteGroup( $group );
 				}
-				// TODO: don't we need to decrement groupRefSequence?
+				// TODO: else, don't we need to decrement groupRefSequence?
 				break;
 			case 'assign':
 				# Rollback assignment of text to pre-existing elements.
 				$this->refs[$group][$key]['text'] = null;
-			# continue without break
+				$this->refs[$group][$key]['count']--;
+				break;
 			case 'increment':
 				# Rollback increase in named ref occurrences.
 				$this->refs[$group][$key]['count']--;
@@ -348,6 +346,7 @@ class ReferenceStack {
 	public function deleteGroup( string $group ) {
 		unset( $this->refs[$group] );
 		unset( $this->groupRefSequence[$group] );
+		unset( $this->extendsCount[$group] );
 	}
 
 	/**

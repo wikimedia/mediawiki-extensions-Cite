@@ -491,8 +491,37 @@ Multiple groups with extends
 </ol></div>
 !! end
 
-# TODO:
-#  * Fix numbering and placement of book reference, it's "1.1"
+!! test
+Multiple groups with extends, duplicated names across groups
+!! wikitext
+<ref name="a">text-a</ref>
+<ref extends="a">page b</ref>
+<references />
+
+<ref name="a">text-c</ref>
+<ref extends="a">page d</ref>
+<references />
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">text-a</span>
+<ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page b</span>
+</li>
+</ol></li>
+</ol></div>
+<p><sup id="cite_ref-a_3-0" class="reference"><a href="#cite_note-a-3">&#91;1&#93;</a></sup>
+<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-3"><span class="mw-cite-backlink"><a href="#cite_ref-a_3-0">↑</a></span> <span class="reference-text">text-c</span>
+<ol class="mw-extended-references"><li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">page d</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
 !! test
 Intervening ref before extends
 !! config

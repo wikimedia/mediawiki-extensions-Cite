@@ -7,6 +7,8 @@ use StripState;
 /**
  * Encapsulates most of Cite state during parsing.  This includes metadata about each ref tag,
  * and a rollback stack to correct confusion caused by lost context when `{{#tag` is used.
+ *
+ * @license GPL-2.0-or-later
  */
 class ReferenceStack {
 

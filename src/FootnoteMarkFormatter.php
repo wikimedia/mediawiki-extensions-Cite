@@ -1,12 +1,14 @@
 <?php
 
-
 namespace Cite;
 
 use MediaWiki\MediaWikiServices;
 use Parser;
 use Sanitizer;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class FootnoteMarkFormatter {
 
 	/**
@@ -68,12 +70,8 @@ class FootnoteMarkFormatter {
 		return $this->parser->recursiveTagParse(
 			wfMessage(
 				'cite_reference_link',
-				$this->citeKeyFormatter->normalizeKey(
-					$this->citeKeyFormatter->refKey( $key, $count )
-				),
-				$this->citeKeyFormatter->normalizeKey(
-					$this->citeKeyFormatter->getReferencesKey( $key . $subkey )
-				),
+				$this->citeKeyFormatter->refKey( $key, $count ),
+				$this->citeKeyFormatter->getReferencesKey( $key . $subkey ),
 				Sanitizer::safeEncodeAttribute(
 					$this->getLinkLabel( $label, $group,
 						( ( $group === Cite::DEFAULT_GROUP ) ? '' : "$group " ) .

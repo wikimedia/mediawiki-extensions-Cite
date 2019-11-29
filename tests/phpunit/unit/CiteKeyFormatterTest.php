@@ -4,9 +4,12 @@ namespace Cite\Tests\Unit;
 
 use Cite\CiteKeyFormatter;
 use MediaWikiUnitTestCase;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @coversDefaultClass \Cite\CiteKeyFormatter
+ *
+ * @license GPL-2.0-or-later
  */
 class CiteKeyFormatterTest extends MediaWikiUnitTestCase {
 
@@ -22,8 +25,9 @@ class CiteKeyFormatterTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideKeyNormalizations
 	 */
 	public function testNormalizeKey( $key, $expected ) {
-		$keyFormatter = new CiteKeyFormatter();
-		$this->assertSame( $expected, $keyFormatter->normalizeKey( $key ) );
+		/** @var CiteKeyFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new CiteKeyFormatter() );
+		$this->assertSame( $expected, $formatter->normalizeKey( $key ) );
 	}
 
 	public function provideKeyNormalizations() {

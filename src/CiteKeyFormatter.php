@@ -1,10 +1,12 @@
 <?php
 
-
 namespace Cite;
 
 use Sanitizer;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class CiteKeyFormatter {
 
 	/**
@@ -24,7 +26,7 @@ class CiteKeyFormatter {
 				->inContentLanguage()->plain();
 		}
 
-		return "$prefix$key$suffix";
+		return $this->normalizeKey( "$prefix$key$suffix" );
 	}
 
 	/**
@@ -39,7 +41,7 @@ class CiteKeyFormatter {
 		$prefix = wfMessage( 'cite_references_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_references_link_suffix' )->inContentLanguage()->text();
 
-		return "$prefix$key$suffix";
+		return $this->normalizeKey( "$prefix$key$suffix" );
 	}
 
 	/**
@@ -48,7 +50,7 @@ class CiteKeyFormatter {
 	 * @param string $key
 	 * @return string
 	 */
-	public function normalizeKey( $key ) {
+	private function normalizeKey( $key ) {
 		$ret = Sanitizer::escapeIdForAttribute( $key );
 		$ret = preg_replace( '/__+/', '_', $ret );
 		$ret = Sanitizer::safeEncodeAttribute( $ret );

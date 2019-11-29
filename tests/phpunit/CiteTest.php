@@ -21,7 +21,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 
 		$this->setMwGlobals( [
 			'wgCiteBookReferencing' => true,
-			'wgLanguageCode' => 'qqx',
 		] );
 	}
 

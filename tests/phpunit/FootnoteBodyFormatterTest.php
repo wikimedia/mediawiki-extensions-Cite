@@ -11,6 +11,8 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @coversDefaultClass \Cite\FootnoteBodyFormatter
+ *
+ * @license GPL-2.0-or-later
  */
 class FootnoteBodyFormatterTest extends MediaWikiIntegrationTestCase {
 

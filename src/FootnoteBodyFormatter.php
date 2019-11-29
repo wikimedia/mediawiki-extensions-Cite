@@ -1,12 +1,14 @@
 <?php
 
-
 namespace Cite;
 
 use Html;
 use MediaWiki\MediaWikiServices;
 use Parser;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class FootnoteBodyFormatter {
 
 	/**
@@ -122,9 +124,7 @@ class FootnoteBodyFormatter {
 		if ( isset( $val['follow'] ) ) {
 			return wfMessage(
 				'cite_references_no_link',
-				$this->citeKeyFormatter->normalizeKey(
-					$this->citeKeyFormatter->getReferencesKey( $val['follow'] )
-				),
+				$this->citeKeyFormatter->getReferencesKey( $val['follow'] ),
 				$text
 			)->inContentLanguage()->plain();
 		}
@@ -141,9 +141,8 @@ class FootnoteBodyFormatter {
 			}
 			return wfMessage(
 				'cite_references_link_one',
-				$this->citeKeyFormatter->normalizeKey(
-					$this->citeKeyFormatter->getReferencesKey( $id ) ),
-				$this->citeKeyFormatter->normalizeKey( $backlinkId ),
+				$this->citeKeyFormatter->getReferencesKey( $id ),
+				$backlinkId,
 				$text . $error,
 				$extraAttributes
 			)->inContentLanguage()->plain();
@@ -155,9 +154,7 @@ class FootnoteBodyFormatter {
 		for ( $i = 0; $i <= ( $val['count'] ?? -1 ); $i++ ) {
 			$backlinks[] = wfMessage(
 				'cite_references_link_many_format',
-				$this->citeKeyFormatter->normalizeKey(
-					$this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $i )
-				),
+				$this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $i ),
 				$this->referencesFormatEntryNumericBacklinkLabel(
 					$val['number'],
 					$i,
@@ -168,9 +165,7 @@ class FootnoteBodyFormatter {
 		}
 		return wfMessage(
 			'cite_references_link_many',
-			$this->citeKeyFormatter->normalizeKey(
-				$this->citeKeyFormatter->getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) )
-			),
+			$this->citeKeyFormatter->getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) ),
 			$this->listToText( $backlinks ),
 			$text . $error,
 			$extraAttributes

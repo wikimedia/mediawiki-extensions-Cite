@@ -65,8 +65,6 @@ class FootnoteMarkFormatter {
 	 * @return string
 	 */
 	public function linkRef( $group, $key, $count, $label, $subkey ) {
-		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
-
 		return $this->parser->recursiveTagParse(
 			wfMessage(
 				'cite_reference_link',
@@ -75,7 +73,8 @@ class FootnoteMarkFormatter {
 				Sanitizer::safeEncodeAttribute(
 					$this->getLinkLabel( $label, $group,
 						( ( $group === Cite::DEFAULT_GROUP ) ? '' : "$group " ) .
-							$contLang->formatNum( $label ) )
+							MediaWikiServices::getInstance()->getContentLanguage()
+								->formatNum( $label ) )
 				)
 			)->inContentLanguage()->plain()
 		);

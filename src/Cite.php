@@ -117,6 +117,11 @@ class Cite {
 	private $referenceStack;
 
 	/**
+	 * @var CiteKeyFormatter
+	 */
+	private $citeKeyFormatter;
+
+	/**
 	 * @param Parser $parser
 	 */
 	private function rememberParser( Parser $parser ) {
@@ -129,6 +134,7 @@ class Cite {
 				$parser
 			);
 			$this->referenceStack = new ReferenceStack( $this->errorReporter );
+			$this->citeKeyFormatter = new CiteKeyFormatter();
 		}
 	}
 
@@ -555,8 +561,8 @@ class Cite {
 		if ( isset( $val['follow'] ) ) {
 			return wfMessage(
 				'cite_references_no_link',
-				$this->normalizeKey(
-					self::getReferencesKey( $val['follow'] )
+				$this->citeKeyFormatter->normalizeKey(
+					$this->citeKeyFormatter->getReferencesKey( $val['follow'] )
 				),
 				$text
 			)->inContentLanguage()->plain();
@@ -567,15 +573,15 @@ class Cite {
 			// Anonymous, auto-numbered references can't be reused and get marked with a -1.
 			if ( $val['count'] < 0 ) {
 				$id = $val['key'];
-				$backlinkId = $this->refKey( $val['key'] );
+				$backlinkId = $this->citeKeyFormatter->refKey( $val['key'] );
 			} else {
 				$id = $key . '-' . $val['key'];
-				$backlinkId = $this->refKey( $key, $val['key'] . '-' . $val['count'] );
+				$backlinkId = $this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $val['count'] );
 			}
 			return wfMessage(
 				'cite_references_link_one',
-				$this->normalizeKey( self::getReferencesKey( $id ) ),
-				$this->normalizeKey( $backlinkId ),
+				$this->citeKeyFormatter->normalizeKey( $this->citeKeyFormatter->getReferencesKey( $id ) ),
+				$this->citeKeyFormatter->normalizeKey( $backlinkId ),
 				$text . $error,
 				$extraAttributes
 			)->inContentLanguage()->plain();
@@ -587,8 +593,8 @@ class Cite {
 		for ( $i = 0; $i <= ( $val['count'] ?? -1 ); $i++ ) {
 			$backlinks[] = wfMessage(
 				'cite_references_link_many_format',
-				$this->normalizeKey(
-					$this->refKey( $key, $val['key'] . '-' . $i )
+				$this->citeKeyFormatter->normalizeKey(
+					$this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $i )
 				),
 				$this->referencesFormatEntryNumericBacklinkLabel(
 					$val['number'],
@@ -600,8 +606,8 @@ class Cite {
 		}
 		return wfMessage(
 			'cite_references_link_many',
-			$this->normalizeKey(
-				self::getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) )
+			$this->citeKeyFormatter->normalizeKey(
+				$this->citeKeyFormatter->getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) )
 			),
 			$this->listToText( $backlinks ),
 			$text . $error,
@@ -688,41 +694,6 @@ class Cite {
 	}
 
 	/**
-	 * Return an id for use in wikitext output based on a key and
-	 * optionally the number of it, used in <references>, not <ref>
-	 * (since otherwise it would link to itself)
-	 *
-	 * @param string $key
-	 * @param int|null $num The number of the key
-	 * @return string A key for use in wikitext
-	 */
-	private function refKey( $key, $num = null ) {
-		$prefix = wfMessage( 'cite_reference_link_prefix' )->inContentLanguage()->text();
-		$suffix = wfMessage( 'cite_reference_link_suffix' )->inContentLanguage()->text();
-		if ( $num !== null ) {
-			$key = wfMessage( 'cite_reference_link_key_with_num', $key, $num )
-				->inContentLanguage()->plain();
-		}
-
-		return "$prefix$key$suffix";
-	}
-
-	/**
-	 * Return an id for use in wikitext output based on a key and
-	 * optionally the number of it, used in <ref>, not <references>
-	 * (since otherwise it would link to itself)
-	 *
-	 * @param string $key
-	 * @return string A key for use in wikitext
-	 */
-	public static function getReferencesKey( $key ) {
-		$prefix = wfMessage( 'cite_references_link_prefix' )->inContentLanguage()->text();
-		$suffix = wfMessage( 'cite_references_link_suffix' )->inContentLanguage()->text();
-
-		return "$prefix$key$suffix";
-	}
-
-	/**
 	 * Generate a link (<sup ...) for the <ref> element from a key
 	 * and return XHTML ready for output
 	 *
@@ -744,11 +715,11 @@ class Cite {
 		return $this->mParser->recursiveTagParse(
 				wfMessage(
 					'cite_reference_link',
-					$this->normalizeKey(
-						$this->refKey( $key, $count )
+					$this->citeKeyFormatter->normalizeKey(
+						$this->citeKeyFormatter->refKey( $key, $count )
 					),
-					$this->normalizeKey(
-						self::getReferencesKey( $key . $subkey )
+					$this->citeKeyFormatter->normalizeKey(
+						$this->citeKeyFormatter->getReferencesKey( $key . $subkey )
 					),
 					Sanitizer::safeEncodeAttribute(
 						$this->getLinkLabel( $label, $group,
@@ -756,20 +727,6 @@ class Cite {
 					)
 				)->inContentLanguage()->plain()
 			);
-	}
-
-	/**
-	 * Normalizes and sanitizes a reference key
-	 *
-	 * @param string $key
-	 * @return string
-	 */
-	private function normalizeKey( $key ) {
-		$ret = Sanitizer::escapeIdForAttribute( $key );
-		$ret = preg_replace( '/__+/', '_', $ret );
-		$ret = Sanitizer::safeEncodeAttribute( $ret );
-
-		return $ret;
 	}
 
 	/**

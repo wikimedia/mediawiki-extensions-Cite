@@ -190,14 +190,14 @@ class ReferenceStack {
 			// Change an existing entry.
 			$ref =& $this->refs[$group][$name];
 			$ref['count']++;
-			if ( $ref['text'] === null && $text !== '' ) {
+			if ( $ref['text'] === null && $text !== null ) {
 				// If no text was set before, use this text
 				$ref['text'] = $text;
 				// Use the dir parameter only from the full definition of a named ref tag
 				$ref['dir'] = $dir;
 				$action = 'assign';
 			} else {
-				if ( $text != null && $text !== ''
+				if ( $text !== null
 					// T205803 different strip markers might hide the same text
 					&& $stripState->unstripBoth( $text )
 					!== $stripState->unstripBoth( $ref['text'] )

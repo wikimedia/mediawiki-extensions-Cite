@@ -203,6 +203,7 @@ class Cite {
 				return StatusValue::newFatal( 'cite_error_references_no_key' );
 			}
 
+			// This doesn't catch the null case because that's guaranteed to trigger other errors
 			if ( $text === '' ) {
 				// <ref> called in <references> has no content.
 				return StatusValue::newFatal(
@@ -230,16 +231,14 @@ class Cite {
 		} else {
 			// Not in a references tag
 
-			if ( $text !== null && trim( $text ) === '' && !$name ) {
-				// Must have content or reuse another ref by name.
-				// TODO: Trim text before validation.
-				return StatusValue::newFatal( 'cite_error_ref_no_input' );
-			}
-
-			if ( $text === null && $name === null ) {
-				// Something like <ref />; this makes no sense.
-				// TODO: Is this redundant with no_input?
-				return StatusValue::newFatal( 'cite_error_ref_no_key' );
+			if ( !$name ) {
+				if ( $text === null ) {
+					// Something like <ref />; this makes no sense.
+					return StatusValue::newFatal( 'cite_error_ref_no_key' );
+				} elseif ( trim( $text ) === '' ) {
+					// Must have content or reuse another ref by name.
+					return StatusValue::newFatal( 'cite_error_ref_no_input' );
+				}
 			}
 
 			if ( preg_match( '/<ref\b[^<]*?>/',
@@ -305,6 +304,11 @@ class Cite {
 
 		$status->merge( $this->validateRef( $text, $name, $group, $follow, $extends ) );
 
+		// Validation cares about the difference between null and empty, but from here on we don't
+		if ( $text !== null && trim( $text ) === '' ) {
+			$text = null;
+		}
+
 		if ( $this->inReferencesGroup !== null ) {
 			if ( !$status->isOK() ) {
 				foreach ( $status->getErrors() as $error ) {
@@ -330,10 +334,6 @@ class Cite {
 				}
 			}
 			return '';
-		}
-
-		if ( $text !== null && trim( $text ) === '' && $name ) {
-			$text = null;
 		}
 
 		if ( !$status->isOK() ) {
@@ -429,7 +429,7 @@ class Cite {
 		[ 'group' => $group, 'responsive' => $responsive ] = $status->getValue();
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
-		if ( strval( $text ) !== '' ) {
+		if ( $text !== null && trim( $text ) !== '' ) {
 			# Detect whether we were sent already rendered <ref>s.
 			# Mostly a side effect of using #tag to call references.
 			# The following assumes that the parsed <ref>s sent within

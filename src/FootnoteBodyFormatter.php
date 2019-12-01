@@ -181,7 +181,7 @@ class FootnoteBodyFormatter {
 	 * @return string
 	 */
 	private function referenceText( $key, ?string $text, bool $isSectionPreview ) {
-		if ( trim( $text ) === '' ) {
+		if ( $text === null ) {
 			if ( $isSectionPreview ) {
 				return $this->errorReporter->plain( 'cite_warning_sectionpreview_no_text', $key );
 			}

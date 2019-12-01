@@ -67,20 +67,21 @@ class FootnoteBodyFormatter {
 		$indented = false;
 		foreach ( $groupRefs as $key => $value ) {
 			// FIXME: This assumes extended references appear immediately after their parent in the
-			//  array.  Reorder the refs according to their stored numbering.
+			//  data structure.  Reorder the refs according to their stored numbering.
 			if ( !$indented && isset( $value['extends'] ) ) {
-				// Hack: The nested <ol> needs to go inside of the <li>.
-				$parserInput = preg_replace( '/<\/li>\s*$/', '', $parserInput );
+				// The nested <ol> must be inside the parent's <li>
+				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
+					$parserInput = substr( $parserInput, 0, $matches[0][1] );
+				}
 				$parserInput .= Html::openElement( 'ol', [ 'class' => 'mw-extended-references' ] );
-				$indented = true;
+				$indented = $matches[0][0] ?? true;
 			} elseif ( $indented && !isset( $value['extends'] ) ) {
-				// FIXME: This is't closed if there is no unindented element at the end
-				$parserInput .= Html::closeElement( 'ol' );
+				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
-			$parserInput .= $this->referencesFormatEntry(
-					$key, $value, $isSectionPreview ) . "\n";
+			$parserInput .= $this->referencesFormatEntry( $key, $value, $isSectionPreview ) . "\n";
 		}
+		$parserInput .= $this->closeIndention( $indented );
 		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
 		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
 		$ret = rtrim( $this->parser->recursiveTagParse( $parserInput ), "\n" );
@@ -96,6 +97,19 @@ class FootnoteBodyFormatter {
 		} else {
 			return $ret;
 		}
+	}
+
+	/**
+	 * @param string|bool $closingLi
+	 *
+	 * @return string
+	 */
+	private function closeIndention( $closingLi ) : string {
+		if ( !$closingLi ) {
+			return '';
+		}
+
+		return Html::closeElement( 'ol' ) . ( is_string( $closingLi ) ? $closingLi : '' );
 	}
 
 	/**

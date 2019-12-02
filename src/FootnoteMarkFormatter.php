@@ -54,23 +54,17 @@ class FootnoteMarkFormatter {
 	 *
 	 * @suppress SecurityCheck-DoubleEscaped
 	 * @param string $group
-	 * @param string $key The key for the link
-	 * @param ?string $count The index of the key, used for distinguishing
-	 *                   multiple occurrences of the same key
-	 * @param int|string $label The label to use for the link, I want to
-	 *                   use the same label for all occurrences of
-	 *                   the same named reference.
-	 * @param string|null $subkey
+	 * @param array $ref Dictionary with ReferenceStack ref format
 	 *
 	 * @return string
 	 */
-	public function linkRef(
-		string $group,
-		string $key,
-		?string $count,
-		$label,
-		?string $subkey
-	) : string {
+	public function linkRef( string $group, array $ref ) : string {
+		$key = $ref['name'] ?? $ref['key'];
+		$count = $ref['name'] ? $ref['key'] . '-' . $ref['count'] : null;
+		$label = $ref['number'] .
+			( isset( $ref['extendsIndex'] ) ? '.' . $ref['extendsIndex'] : '' );
+		$subkey = $ref['name'] ? '-' . $ref['key'] : null;
+
 		return $this->parser->recursiveTagParse(
 			wfMessage(
 				'cite_reference_link',

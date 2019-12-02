@@ -219,13 +219,7 @@ class ReferenceStack {
 		}
 
 		$this->refCallStack[] = [ $action, $argv, $text, $name, $extends, $group, $ref['key'] ];
-		return [
-			$name ?? $ref['key'],
-			$name ? $ref['key'] . '-' . $ref['count'] : null,
-			$ref['number'] .
-				( isset( $ref['extendsIndex'] ) ? '.' . $ref['extendsIndex'] : '' ),
-			$name ? '-' . $ref['key'] : null
-		];
+		return $ref;
 	}
 
 	/**

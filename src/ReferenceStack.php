@@ -299,7 +299,9 @@ class ReferenceStack {
 		if ( $name === null ) {
 			// Find anonymous ref by key.
 			foreach ( $this->refs[$group] as $k => $v ) {
-				if ( $this->refs[$group][$k]['key'] === $index ) {
+				if ( isset( $this->refs[$group][$k]['key'] ) &&
+					$this->refs[$group][$k]['key'] === $index
+				) {
 					$key = $k;
 					break;
 				}

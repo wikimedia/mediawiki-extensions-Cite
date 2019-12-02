@@ -750,8 +750,193 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 		];
 	}
 
-	// TODO: @covers ::rollbackRefs
-	// TODO: @covers ::rollbackRef
+	/**
+	 * @covers ::rollbackRefs
+	 * @covers ::rollbackRef
+	 * @dataProvider provideRollbackRefs
+	 *
+	 * @param array $initialCallStack
+	 * @param array $initialRefs
+	 * @param int $count
+	 * @param array $expectedRedo
+	 * @param array $expectedRefs
+	 */
+	public function testRollbackRefs(
+		array $initialCallStack,
+		array $initialRefs,
+		int $count,
+		array $expectedRedo,
+		array $expectedRefs
+	) {
+		$stack = $this->newStack();
+		$stack->refCallStack = $initialCallStack;
+		$stack->refs = $initialRefs;
+
+		$redo = $stack->rollbackRefs( $count );
+		$this->assertSame( $expectedRedo, $redo );
+		$this->assertSame( $expectedRefs, $stack->refs );
+	}
+
+	public function provideRollbackRefs() {
+		return [
+			'Empty stack' => [ [], [], 0, [], [] ],
+			'Attempt to overflow stack bounds' => [ [], [], 1, [], [] ],
+			'Skip invalid refs' => [ [ false ], [], 1, [], [] ],
+			'Missing group' => [
+				[
+					[ 'new', [], 'text', null, null, 'foo', 1 ],
+				],
+				[],
+				1,
+				[
+					[ [], 'text' ]
+				],
+				[]
+			],
+			'Find anonymous ref by key' => [
+				[
+					[ 'new', [], 'text', null, null, 'foo', 1 ],
+				],
+				[
+					'foo' => [
+						[
+							'key' => 1,
+						]
+					]
+				],
+				1,
+				[
+					[ [], 'text' ]
+				],
+				[]
+			],
+			'Missing anonymous ref' => [
+				[
+					[ 'new', [], 'text', null, null, 'foo', 1 ],
+				],
+				[
+					'foo' => [
+						[
+							'key' => 2,
+						]
+					]
+				],
+				1,
+				[
+					[ [], 'text' ]
+				],
+				[
+					'foo' => [
+						[
+							'key' => 2,
+						]
+					]
+				]
+			],
+			'Assign text' => [
+				[
+					[ 'assign', [], 'text-2', null, null, 'foo', 1 ],
+				],
+				[
+					'foo' => [
+						[
+							'count' => 2,
+							'key' => 1,
+							'text' => 'text-1',
+						]
+					]
+				],
+				1,
+				[
+					[ [], 'text-2' ]
+				],
+				[
+					'foo' => [
+						[
+							'count' => 1,
+							'key' => 1,
+							'text' => null,
+						]
+					]
+				],
+			],
+			'Increment' => [
+				[
+					[ 'increment', [], null, null, null, 'foo', 1 ],
+				],
+				[
+					'foo' => [
+						[
+							'count' => 2,
+							'key' => 1,
+						]
+					]
+				],
+				1,
+				[
+					[ [], null ]
+				],
+				[
+					'foo' => [
+						[
+							'count' => 1,
+							'key' => 1,
+						]
+					]
+				],
+			],
+			'Safely ignore placeholder' => [
+				[
+					[ 'increment', [], null, null, null, 'foo', 1 ],
+				],
+				[
+					'foo' => [
+						[
+							'placeholder' => true,
+							'number' => 10,
+						],
+						[
+							'count' => 2,
+							'key' => 1,
+						]
+					]
+				],
+				1,
+				[
+					[ [], null ]
+				],
+				[
+					'foo' => [
+						[
+							'placeholder' => true,
+							'number' => 10,
+						],
+						[
+							'count' => 1,
+							'key' => 1,
+						]
+					]
+				],
+			],
+		];
+	}
+
+	/**
+	 * @covers ::rollbackRef
+	 */
+	public function testRollbackRefs_extends() {
+		$stack = $this->newStack();
+
+		$mockStripState = $this->createMock( StripState::class );
+		$mockStripState->method( 'unstripBoth' )->willReturnArgument( 0 );
+		/** @var StripState $mockStripState */
+		$stack->pushRef( 'text', null, 'foo', 'a', null, [], 'rtl', $mockStripState );
+		$this->assertSame( 1, $stack->extendsCount['foo']['a'] );
+
+		$redo = $stack->rollbackRefs( 1 );
+
+		$this->assertSame( 0, $stack->extendsCount['foo']['a'] );
+	}
 
 	/**
 	 * @covers ::clear

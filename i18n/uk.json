@@ -15,7 +15,7 @@
 	},
 	"cite-desc": "Додає теги <code>&lt;ref[ name=id]&gt;</code> і <code>&lt;references/&gt;</code> для виносок",
 	"cite_error": "Помилка цитування: $1",
-	"cite_error_ref_invalid_dir": "Недійсний тег <code>&lt;ref&gt;</code>; властивість напрямку «$1» невідома. Має бути або ltr, або rtl",
+	"cite_error_ref_invalid_dir": "Недійсний <code>dir=\"$1\"</code>, має бути <code>ltr</code> або <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Неправильний виклик <code>&lt;ref&gt;</code>:\nназва не може містити тільки цифри.",
 	"cite_error_ref_no_key": "Відкривальний тег <code>&lt;ref&gt;</code> неправильний або містить хибну назву.",
 	"cite_error_ref_too_many_keys": "Неправильний виклик <code>&lt;ref&gt;</code>:\nвказані неправильні значення <code>name</code> або вказано забагато параметрів",

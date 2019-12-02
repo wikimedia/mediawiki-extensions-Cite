@@ -695,6 +695,58 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'new', [], 'text-b', null, 'a', 'foo', 2 ],
 				]
 			],
+			'Two broken follows' => [
+				[
+					[ 'text-a', 'a', 'foo', null, null, [], 'rtl' ],
+					[ 'text-b', null, 'foo', null, 'd', [], 'rtl' ],
+					[ 'text-c', null, 'foo', null, 'd', [], 'rtl' ],
+				],
+				[
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					null,
+					null
+				],
+				[
+					'foo' => [
+						0 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 2,
+							'name' => null,
+							'text' => 'text-b',
+							'follow' => 'd',
+						],
+						1 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 3,
+							'name' => null,
+							'text' => 'text-c',
+							'follow' => 'd',
+						],
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'name' => 'a',
+							'text' => 'text-a',
+							'number' => 1,
+						],
+					]
+				],
+				[
+					[ 'new', [], 'text-b', null, null, 'foo', 2 ],
+					[ 'new', [], 'text-c', null, null, 'foo', 3 ],
+					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+				]
+			],
 		];
 	}
 

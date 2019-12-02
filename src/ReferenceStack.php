@@ -167,15 +167,15 @@ class ReferenceStack {
 
 		if ( !$name ) {
 			// This is an anonymous reference, which will be given a numeric index.
-			$this->refs[$group][] =& $ref;
+			$this->refs[$group][] = &$ref;
 			$action = 'new';
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
 			// Valid key with first occurrence
-			$this->refs[$group][$name] =& $ref;
+			$this->refs[$group][$name] = &$ref;
 			$action = 'new';
 		} else {
 			// Change an existing entry.
-			$ref =& $this->refs[$group][$name];
+			$ref = &$this->refs[$group][$name];
 			$ref['count']++;
 			// Rollback the global counter since we won't create a new ref.
 			$this->refSequence--;
@@ -206,9 +206,11 @@ class ReferenceStack {
 
 		if ( $extends ) {
 			if ( isset( $this->refs[$group][$extends] ) ) {
-				$ref['extends'] = $extends;
-				$ref['extendsIndex'] = $this->extendsCount[$group][$extends] =
+				$this->extendsCount[$group][$extends] =
 					( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
+
+				$ref['extends'] = $extends;
+				$ref['extendsIndex'] = $this->extendsCount[$group][$extends];
 
 				$ref['number'] = $this->refs[$group][$extends]['number'];
 			} else {

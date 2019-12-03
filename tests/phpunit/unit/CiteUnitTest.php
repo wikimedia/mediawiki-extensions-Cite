@@ -5,6 +5,7 @@ namespace Cite\Tests\Unit;
 use Cite\Cite;
 use Cite\CiteErrorReporter;
 use Cite\FootnoteMarkFormatter;
+use Cite\FootnoteBodyFormatter;
 use Cite\ReferenceStack;
 use Parser;
 use ParserOutput;
@@ -304,6 +305,103 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			[
 				[ 'group' => 'g', 'name' => 'n', 'extends' => 'e', 'dir' => 'rtl' ],
 				[ 'rtl', 'e', null, 'g', 'n' ]
+			],
+		];
+	}
+
+	/**
+	 * @covers ::guardedReferences
+	 * @dataProvider provideGuardedReferences
+	 */
+	public function testGuardedReferences(
+		?string $text,
+		array $argv,
+		int $expectedRollbackCount,
+		string $expectedInReferencesGroup,
+		bool $expectedResponsive,
+		string $expectedOutput
+	) {
+		global $wgCiteResponsiveReferences;
+		$wgCiteResponsiveReferences = false;
+
+		$cite = new Cite();
+		/** @var Cite $spy */
+		$spy = TestingAccessWrapper::newFromObject( $cite );
+		/** @var CiteErrorReporter $mockErrorReporter */
+		$spy->errorReporter = $this->createMock( CiteErrorReporter::class );
+		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
+			function ( ...$args ) {
+				return json_encode( $args );
+			}
+		);
+		$spy->footnoteBodyFormatter = $this->createMock( FootnoteBodyFormatter::class );
+		$spy->footnoteBodyFormatter->method( 'referencesFormat' )
+			->with( $this->anything(), $expectedResponsive, false )->willReturn( 'references!' );
+		$spy->isSectionPreview = false;
+		$spy->referenceStack = $this->createMock( ReferenceStack::class );
+		$spy->referenceStack->method( 'getGroupRefs' )
+			->with( $expectedInReferencesGroup )->willReturn( [] );
+		if ( $expectedRollbackCount === 0 ) {
+			$spy->referenceStack->expects( $this->never() )->method( 'rollbackRefs' );
+		} else {
+			$spy->referenceStack->method( 'rollbackRefs' )
+				->with( $expectedRollbackCount )->willReturn( [ [ [], 't' ] ] );
+		}
+
+		$output = $spy->guardedReferences(
+			$text, $argv, $this->createMock( Parser::class ) );
+		$this->assertSame( $expectedOutput, $output );
+	}
+
+	public function provideGuardedReferences() {
+		return [
+			'Bare references tag' => [
+				null,
+				[],
+				0,
+				'',
+				false,
+				'references!'
+			],
+			'References with group' => [
+				null,
+				[ 'group' => 'g' ],
+				0,
+				'g',
+				false,
+				'references!'
+			],
+			'Empty references tag' => [
+				'',
+				[],
+				0,
+				'',
+				false,
+				'references!'
+			],
+			'Set responsive' => [
+				'',
+				[ 'responsive' => '1' ],
+				0,
+				'',
+				true,
+				'references!'
+			],
+			'Unknown attribute' => [
+				'',
+				[ 'blargh' => '0' ],
+				0,
+				'',
+				false,
+				'["cite_error_references_invalid_parameters"]',
+			],
+			'Contains refs (which are broken)' => [
+				Parser::MARKER_PREFIX . '-ref- and ' . Parser::MARKER_PREFIX . '-notref-',
+				[],
+				1,
+				'',
+				false,
+				'references!' . "\n" . '["cite_error_references_no_key"]'
 			],
 		];
 	}

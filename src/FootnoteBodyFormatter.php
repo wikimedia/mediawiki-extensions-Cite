@@ -16,9 +16,9 @@ class FootnoteBodyFormatter {
 	 * 'cite_references_link_many_format', defined in
 	 * 'cite_references_link_many_format_backlink_labels
 	 *
-	 * @var string[]
+	 * @var string[]|null
 	 */
-	private $backlinkLabels;
+	private $backlinkLabels = null;
 
 	/**
 	 * @var CiteErrorReporter
@@ -68,14 +68,15 @@ class FootnoteBodyFormatter {
 		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).
 		// Note: This builds a string of wikitext, not html.
 		$parserInput = "\n";
+		/** @var string|bool $indented */
 		$indented = false;
 		// After sorting the list, we can assume that references are in the same order as their
 		// numbering.  Subreferences will come immediately after their parent.
 		uasort(
 			$groupRefs,
 			function ( array $a, array $b ) : int {
-				return ( $a['number'] ?? '' ) <=> ( $b['number'] ?? '' ) ?:
-					( $a['extendsIndex'] ?? '0' ) <=> ( $b['extendsIndex'] ?? '0' );
+				$cmp = ( $a['number'] ?? 0 ) - ( $b['number'] ?? 0 );
+				return $cmp ?: ( $a['extendsIndex'] ?? 0 ) - ( $b['extendsIndex'] ?? 0 );
 			}
 		);
 		foreach ( $groupRefs as $key => $value ) {
@@ -104,10 +105,10 @@ class FootnoteBodyFormatter {
 			if ( count( $groupRefs ) > 10 ) {
 				$wrapClasses[] = 'mw-references-columns';
 			}
-			return Html::rawElement( 'div', [ 'class' => $wrapClasses ], $ret );
-		} else {
-			return $ret;
+			$ret = Html::rawElement( 'div', [ 'class' => $wrapClasses ], $ret );
 		}
+
+		return $ret;
 	}
 
 	/**
@@ -132,7 +133,7 @@ class FootnoteBodyFormatter {
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
 	private function referencesFormatEntry( $key, array $val, bool $isSectionPreview ) : string {
-		$text = $this->referenceText( $key, ( $val['text'] ?? null ), $isSectionPreview );
+		$text = $this->referenceText( $key, $val['text'] ?? null, $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';
 
@@ -252,22 +253,17 @@ class FootnoteBodyFormatter {
 	 * @return string
 	 */
 	private function referencesFormatEntryAlternateBacklinkLabel( int $offset ) : string {
-		if ( !isset( $this->backlinkLabels ) ) {
-			$this->genBacklinkLabels();
+		if ( $this->backlinkLabels === null ) {
+			$this->backlinkLabels = preg_split(
+				'/\s+/',
+				wfMessage( 'cite_references_link_many_format_backlink_labels' )
+					->inContentLanguage()
+					->plain()
+			);
 		}
-		return $this->backlinkLabels[$offset]
-			?? $this->errorReporter->plain( 'cite_error_references_no_backlink_label', null );
-	}
 
-	/**
-	 * Generate the labels to pass to the
-	 * 'cite_references_link_many_format' message, the format is an
-	 * arbitrary number of tokens separated by whitespace.
-	 */
-	private function genBacklinkLabels() {
-		$text = wfMessage( 'cite_references_link_many_format_backlink_labels' )
-			->inContentLanguage()->plain();
-		$this->backlinkLabels = preg_split( '/\s+/', $text );
+		return $this->backlinkLabels[$offset]
+			?? $this->errorReporter->plain( 'cite_error_references_no_backlink_label' );
 	}
 
 	/**

@@ -202,6 +202,8 @@ class Cite {
 			}
 
 			// This doesn't catch the null case because that's guaranteed to trigger other errors
+			// FIXME: We allow whitespace-only text, should this be invalid?  It leaves a
+			//  loophole around the trimmed-text test outside of <references>.
 			if ( $text === '' ) {
 				// <ref> called in <references> has no content.
 				return StatusValue::newFatal(
@@ -221,7 +223,7 @@ class Cite {
 				$groupRefs = $this->referenceStack->getGroupRefs( $group );
 
 				if ( !isset( $groupRefs[$name] ) ) {
-					// No such group exists.
+					// No such named ref exists in this group.
 					return StatusValue::newFatal( 'cite_error_references_missing_key',
 						Sanitizer::safeEncodeAttribute( $name ) );
 				}

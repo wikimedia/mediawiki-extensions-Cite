@@ -4,6 +4,7 @@ namespace Cite\Tests\Unit;
 
 use Cite\Cite;
 use Cite\CiteErrorReporter;
+use Cite\FootnoteMarkFormatter;
 use Cite\ReferenceStack;
 use Parser;
 use ParserOutput;
@@ -159,6 +160,184 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			[
 				[ 'group' => 'g', 'name' => 'n', 'extends' => 'e', 'dir' => 'rtl' ],
 				[ 'rtl', 'e', null, 'g', 'n' ]
+			],
+		];
+	}
+
+	/**
+	 * @covers ::guardedRef
+	 * @dataProvider provideGuardedRef
+	 */
+	public function testGuardedRef(
+		string $text,
+		array $argv,
+		?string $inReferencesGroup,
+		array $initialRefs,
+		string $expectOutput,
+		array $expectedErrors,
+		array $expectedRefs
+	) {
+		/** @var (array|false)[] $pushedRefs Jumble of raw arguments, to roughly emulate
+		 *   ReferenceStack.
+		 */
+		$pushedRefs = [];
+
+		$mockParser = $this->createMock( Parser::class );
+		$mockParser->method( 'getStripState' )
+			->willReturn( $this->createMock( StripState::class ) );
+		$cite = new Cite();
+		$spy = TestingAccessWrapper::newFromObject( $cite );
+		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
+			function ( ...$args ) {
+				return json_encode( $args );
+			}
+		);
+		$mockErrorReporter->method( 'plain' )->willReturnCallback(
+			function ( ...$args ) {
+				return json_encode( $args );
+			}
+		);
+		/** @var CiteErrorReporter $mockErrorReporter */
+		$spy->errorReporter = $mockErrorReporter;
+		$mockFootnoteMarkFormatter = $this->createMock( FootnoteMarkFormatter::class );
+		$mockFootnoteMarkFormatter->method( 'linkRef' )->willReturn( '<foot />' );
+		$spy->footnoteMarkFormatter = $mockFootnoteMarkFormatter;
+		$spy->inReferencesGroup = $inReferencesGroup;
+		$spy->referenceStack = $this->createMock( ReferenceStack::class );
+		$spy->referenceStack->method( 'getGroupRefs' )->willReturnCallback(
+			function ( $group ) use ( $initialRefs ) {
+				return $initialRefs[$group];
+			} );
+		$spy->referenceStack->method( 'hasGroup' )->willReturn( true );
+		$spy->referenceStack->method( 'pushInvalidRef' )->willReturnCallback(
+			function () use ( &$pushedRefs ) {
+				$pushedRefs[] = false;
+			}
+		);
+		$spy->referenceStack->method( 'pushRef' )->willReturnCallback(
+			function (
+				$text, $name, $group, $extends, $follow, $argv, $dir, $_stripState
+			) use ( &$pushedRefs ) {
+				$pushedRefs[] = [ $text, $name, $group, $extends, $follow, $argv, $dir ];
+				return [
+					'name' => $name,
+				];
+			}
+		);
+		$spy->referenceStack->method( 'setRefText' )->willReturnCallback(
+			function ( $group, $name, $text ) use ( &$pushedRefs ) {
+				$pushedRefs[] = [ 'setRefText', $group, $name, $text ];
+			}
+		);
+
+		$result = $spy->guardedRef( $text, $argv, $mockParser );
+		$this->assertSame( $expectOutput, $result );
+		$this->assertSame( $expectedErrors, $spy->mReferencesErrors );
+		$this->assertSame( $expectedRefs, $pushedRefs );
+	}
+
+	public function provideGuardedRef() {
+		return [
+			'Whitespace text' => [
+				' ',
+				[
+					'name' => 'a',
+				],
+				null,
+				[],
+				'<foot />',
+				[],
+				[
+					[ null, 'a', '', null, null, [ 'name' => 'a' ], null ]
+				]
+			],
+			'Empty in default references' => [
+				'',
+				[],
+				'',
+				[],
+				'',
+				[ '["cite_error_references_no_key"]' ],
+				[]
+			],
+			'Fallback to references group' => [
+				'text',
+				[
+					'name' => 'a',
+				],
+				'foo',
+				[
+					'foo' => [
+						'a' => []
+					]
+				],
+				'',
+				[],
+				[
+					[ 'setRefText', 'foo', 'a', 'text' ]
+				]
+			],
+			'Successful ref' => [
+				'text',
+				[
+					'name' => 'a',
+				],
+				null,
+				[],
+				'<foot />',
+				[],
+				[
+					[ 'text', 'a', '', null, null, [ 'name' => 'a' ], null ]
+				]
+			],
+			'Invalid ref' => [
+				'text',
+				[
+					'name' => 'a',
+					'badkey' => 'b',
+				],
+				null,
+				[],
+				'["cite_error_ref_too_many_keys"]',
+				[],
+				[ false ]
+			],
+			'Successful references ref' => [
+				'text',
+				[
+					'name' => 'a',
+				],
+				'',
+				[
+					'' => [
+						'a' => []
+					]
+				],
+				'',
+				[],
+				[
+					[ 'setRefText', '', 'a', 'text' ]
+				]
+			],
+			'Mismatched text in references' => [
+				'text-2',
+				[
+					'name' => 'a',
+				],
+				'',
+				[
+					'' => [
+						'a' => [
+							'text' => 'text-1',
+						]
+					]
+				],
+				'',
+				[],
+				[
+					[ 'setRefText', '', 'a', 'text-1 ["cite_error_references_duplicate_key","a"]' ]
+				]
 			],
 		];
 	}

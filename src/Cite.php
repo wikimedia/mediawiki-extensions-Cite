@@ -125,11 +125,12 @@ class Cite {
 				$parser
 			);
 			$this->referenceStack = new ReferenceStack( $this->errorReporter );
+			$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
 			$citeKeyFormatter = new CiteKeyFormatter();
 			$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
 				$this->mParser, $this->errorReporter, $citeKeyFormatter );
 			$this->footnoteBodyFormatter = new FootnoteBodyFormatter(
-				$this->mParser, $this->errorReporter, $citeKeyFormatter );
+				$this->mParser, $this->errorReporter, $citeKeyFormatter, $messageLocalizer );
 		}
 	}
 

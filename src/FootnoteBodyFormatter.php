@@ -3,7 +3,6 @@
 namespace Cite;
 
 use Html;
-use MediaWiki\MediaWikiServices;
 use Parser;
 
 /**
@@ -36,18 +35,26 @@ class FootnoteBodyFormatter {
 	private $parser;
 
 	/**
+	 * @var ReferenceMessageLocalizer
+	 */
+	private $messageLocalizer;
+
+	/**
 	 * @param Parser $parser
 	 * @param CiteErrorReporter $errorReporter
 	 * @param CiteKeyFormatter $citeKeyFormatter
+	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
 	public function __construct(
 		Parser $parser,
 		CiteErrorReporter $errorReporter,
-		CiteKeyFormatter $citeKeyFormatter
+		CiteKeyFormatter $citeKeyFormatter,
+		ReferenceMessageLocalizer $messageLocalizer
 	) {
 		$this->errorReporter = $errorReporter;
 		$this->citeKeyFormatter = $citeKeyFormatter;
 		$this->parser = $parser;
+		$this->messageLocalizer = $messageLocalizer;
 	}
 
 	/**
@@ -153,11 +160,11 @@ class FootnoteBodyFormatter {
 		// Fallback for a broken, and therefore unprocessed follow="…". Note this returns a <p>, not
 		// an <li> as expected!
 		if ( isset( $val['follow'] ) ) {
-			return wfMessage(
+			return $this->messageLocalizer->msg(
 				'cite_references_no_link',
 				$this->citeKeyFormatter->getReferencesKey( $val['follow'] ),
 				$text
-			)->inContentLanguage()->plain();
+			)->plain();
 		}
 
 		// This counts the number of reuses. 0 means the reference appears only 1 time.
@@ -170,20 +177,20 @@ class FootnoteBodyFormatter {
 				$id = $key . '-' . $val['key'];
 				$backlinkId = $this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $val['count'] );
 			}
-			return wfMessage(
+			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
 				$this->citeKeyFormatter->getReferencesKey( $id ),
 				$backlinkId,
 				$text . $error,
 				$extraAttributes
-			)->inContentLanguage()->plain();
+			)->plain();
 		}
 
 		// Named references with >1 occurrences
 		$backlinks = [];
 		// There is no count in case of a section preview
 		for ( $i = 0; $i <= ( $val['count'] ?? -1 ); $i++ ) {
-			$backlinks[] = wfMessage(
+			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
 				$this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $i ),
 				$this->referencesFormatEntryNumericBacklinkLabel(
@@ -193,15 +200,15 @@ class FootnoteBodyFormatter {
 					$val['count']
 				),
 				$this->referencesFormatEntryAlternateBacklinkLabel( $i )
-			)->inContentLanguage()->plain();
+			)->plain();
 		}
-		return wfMessage(
+		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
 			$this->citeKeyFormatter->getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) ),
 			$this->listToText( $backlinks ),
 			$text . $error,
 			$extraAttributes
-		)->inContentLanguage()->plain();
+		)->plain();
 	}
 
 	/**
@@ -239,9 +246,7 @@ class FootnoteBodyFormatter {
 		int $offset,
 		int $max
 	) : string {
-		$language = MediaWikiServices::getInstance()->getContentLanguage();
-
-		return $language->formatNum(
+		return $this->messageLocalizer->getLanguage()->formatNum(
 			$base .
 			'.' .
 			str_pad( $offset, strlen( $max ), '0', STR_PAD_LEFT )
@@ -262,8 +267,7 @@ class FootnoteBodyFormatter {
 		if ( $this->backlinkLabels === null ) {
 			$this->backlinkLabels = preg_split(
 				'/\s+/',
-				wfMessage( 'cite_references_link_many_format_backlink_labels' )
-					->inContentLanguage()
+				$this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' )
 					->plain()
 			);
 		}
@@ -289,8 +293,8 @@ class FootnoteBodyFormatter {
 			return (string)$lastElement;
 		}
 
-		$sep = wfMessage( 'cite_references_link_many_sep' )->inContentLanguage()->plain();
-		$and = wfMessage( 'cite_references_link_many_and' )->inContentLanguage()->plain();
+		$sep = $this->messageLocalizer->msg( 'cite_references_link_many_sep' )->plain();
+		$and = $this->messageLocalizer->msg( 'cite_references_link_many_and' )->plain();
 		return implode( $sep, $arr ) . $and . $lastElement;
 	}
 

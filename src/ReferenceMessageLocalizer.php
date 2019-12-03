@@ -8,7 +8,6 @@ use MessageLocalizer;
 use MessageSpecifier;
 
 class ReferenceMessageLocalizer implements MessageLocalizer {
-
 	/**
 	 * @var Language
 	 */
@@ -42,5 +41,4 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	public function msg( $key, ...$params ): Message {
 		return wfMessage( $key, ...$params )->inLanguage( $this->language );
 	}
-
 }

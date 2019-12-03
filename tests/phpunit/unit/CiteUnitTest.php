@@ -104,9 +104,9 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::parseArguments
-	 * @dataProvider provideRefAttributes
+	 * @dataProvider provideParseArguments
 	 */
-	public function testParseRefAttributes(
+	public function testParseArguments(
 		array $attributes,
 		array $expectedValue,
 		string $expectedError = null
@@ -124,7 +124,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		}
 	}
 
-	public function provideRefAttributes() {
+	public function provideParseArguments() {
 		// Note: Values are guaranteed to be trimmed by the parser, see
 		// Sanitizer::decodeTagAttributes()
 		return [

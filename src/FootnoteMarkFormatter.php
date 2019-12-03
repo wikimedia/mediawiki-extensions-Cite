@@ -12,9 +12,7 @@ use Sanitizer;
 class FootnoteMarkFormatter {
 
 	/**
-	 * The links to use per group, in order.
-	 *
-	 * @var (string[]|false)[]
+	 * @var string[][]
 	 */
 	private $linkLabels = [];
 
@@ -59,10 +57,21 @@ class FootnoteMarkFormatter {
 	 * @return string
 	 */
 	public function linkRef( string $group, array $ref ) : string {
+		$language = MediaWikiServices::getInstance()->getContentLanguage();
+
+		$label = $this->getLinkLabel( $group, $ref['number'] );
+		if ( $label === null ) {
+			$label = $language->formatNum( $ref['number'] );
+			if ( $group !== Cite::DEFAULT_GROUP ) {
+				$label = "$group $label";
+			}
+		}
+		if ( isset( $ref['extendsIndex'] ) ) {
+			$label .= $language->formatNum( '.' . $ref['extendsIndex'] );
+		}
+
 		$key = $ref['name'] ?? $ref['key'];
 		$count = $ref['name'] ? $ref['key'] . '-' . $ref['count'] : null;
-		$label = $ref['number'] .
-			( isset( $ref['extendsIndex'] ) ? '.' . $ref['extendsIndex'] : '' );
 		$subkey = $ref['name'] ? '-' . $ref['key'] : null;
 
 		return $this->parser->recursiveTagParse(
@@ -70,12 +79,7 @@ class FootnoteMarkFormatter {
 				'cite_reference_link',
 				$this->citeKeyFormatter->refKey( $key, $count ),
 				$this->citeKeyFormatter->getReferencesKey( $key . $subkey ),
-				Sanitizer::safeEncodeAttribute(
-					$this->getLinkLabel( $label, $group,
-						( ( $group === Cite::DEFAULT_GROUP ) ? '' : "$group " ) .
-							MediaWikiServices::getInstance()->getContentLanguage()
-								->formatNum( $label ) )
-				)
+				Sanitizer::safeEncodeAttribute( $label )
 			)->inContentLanguage()->plain()
 		);
 	}
@@ -86,41 +90,24 @@ class FootnoteMarkFormatter {
 	 * [ 'a', 'b', 'c', ...].
 	 * Return an error if the offset > the # of array items
 	 *
-	 * @param int|string $offset
 	 * @param string $group The group name
-	 * @param string $label The text to use if there's no message for them.
+	 * @param int $number Expected to start at 1
 	 *
-	 * @return string
+	 * @return string|null Returns null if no custom labels for this group exist
 	 */
-	private function getLinkLabel( $offset, string $group, string $label ) : string {
+	private function getLinkLabel( string $group, int $number ) : ?string {
 		$message = "cite_link_label_group-$group";
 		if ( !isset( $this->linkLabels[$group] ) ) {
-			$this->genLinkLabels( $group, $message );
-		}
-		if ( $this->linkLabels[$group] === false ) {
-			// Use normal representation, ie. "$group 1", "$group 2"...
-			return $label;
+			$msg = wfMessage( $message )->inContentLanguage();
+			$this->linkLabels[$group] = $msg->isDisabled() ? [] : preg_split( '/\s+/', $msg->plain() );
 		}
 
-		// FIXME: This doesn't work as expected when $offset is a string like "1.2"
-		return $this->linkLabels[$group][$offset - 1]
-			?? $this->errorReporter->plain( 'cite_error_no_link_label_group', [ $group, $message ] );
+		if ( !$this->linkLabels[$group] ) {
+			return null;
+		}
+
+		return $this->linkLabels[$group][$number - 1]
+			?? $this->errorReporter->plain( 'cite_error_no_link_label_group', $group, $message );
 	}
 
-	/**
-	 * Generate the labels to pass to the
-	 * 'cite_reference_link' message instead of numbers, the format is an
-	 * arbitrary number of tokens separated by whitespace.
-	 *
-	 * @param string $group
-	 * @param string $message
-	 */
-	private function genLinkLabels( string $group, string $message ) {
-		$text = false;
-		$msg = wfMessage( $message )->inContentLanguage();
-		if ( $msg->exists() ) {
-			$text = $msg->plain();
-		}
-		$this->linkLabels[$group] = $text ? preg_split( '/\s+/', $text ) : false;
-	}
 }

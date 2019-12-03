@@ -5,6 +5,9 @@ namespace Cite\Tests\Unit;
 use Cite\Cite;
 use Cite\CiteErrorReporter;
 use Cite\ReferenceStack;
+use Parser;
+use ParserOutput;
+use StripState;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -158,6 +161,29 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				[ 'rtl', 'e', null, 'g', 'n' ]
 			],
 		];
+	}
+
+	/**
+	 * @covers ::guardedRef
+	 */
+	public function testGuardedRef_extendsProperty() {
+		$mockOutput = $this->createMock( ParserOutput::class );
+		// This will be our most important assertion.
+		$mockOutput->expects( $this->once() )
+			->method( 'setProperty' )
+			->with( Cite::BOOK_REF_PROPERTY, true );
+
+		$mockParser = $this->createMock( Parser::class );
+		$mockParser->method( 'getOutput' )->willReturn( $mockOutput );
+		$mockParser->method( 'getStripState' )
+			->willReturn( $this->createMock( StripState::class ) );
+		/** @var Parser $mockParser */
+
+		$cite = new Cite();
+		$spy = TestingAccessWrapper::newFromObject( $cite );
+		$spy->referenceStack = $this->createMock( ReferenceStack::class );
+
+		$spy->guardedRef( 'text', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ], $mockParser );
 	}
 
 }

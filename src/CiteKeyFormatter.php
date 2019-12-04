@@ -19,6 +19,7 @@ class CiteKeyFormatter {
 	 * @return string A key for use in wikitext
 	 */
 	public function refKey( string $key, string $num = null ) : string {
+		// FIXME: Move the message to 'cite_ref_link_*'
 		$prefix = wfMessage( 'cite_reference_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_reference_link_suffix' )->inContentLanguage()->text();
 		if ( $num !== null ) {
@@ -26,7 +27,7 @@ class CiteKeyFormatter {
 				->inContentLanguage()->plain();
 		}
 
-		return $this->normalizeKey( "$prefix$key$suffix" );
+		return $this->normalizeKey( $prefix . $key . $suffix );
 	}
 
 	/**
@@ -41,7 +42,7 @@ class CiteKeyFormatter {
 		$prefix = wfMessage( 'cite_references_link_prefix' )->inContentLanguage()->text();
 		$suffix = wfMessage( 'cite_references_link_suffix' )->inContentLanguage()->text();
 
-		return $this->normalizeKey( "$prefix$key$suffix" );
+		return $this->normalizeKey( $prefix . $key . $suffix );
 	}
 
 	/**

@@ -87,6 +87,16 @@ class FootnoteBodyFormatter {
 			}
 		);
 		foreach ( $groupRefs as $key => $value ) {
+			// Make sure the parent is not a subreference.
+			// FIXME: Move to a validation function.
+			if ( isset( $value['extends'] ) &&
+				isset( $groupRefs[$value['extends']]['extends'] )
+			) {
+				unset( $value['extends'] );
+				$value['text'] = ( $value['text'] ?? '' ) .
+					$this->errorReporter->plain( 'cite_error_ref_too_many_keys' );
+			}
+
 			if ( !$indented && isset( $value['extends'] ) ) {
 				// The nested <ol> must be inside the parent's <li>
 				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
@@ -97,14 +107,6 @@ class FootnoteBodyFormatter {
 			} elseif ( $indented && !isset( $value['extends'] ) ) {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
-			}
-			// Make sure the parent is not a subreference.
-			// FIXME: Move to a validation function.
-			if ( isset( $value['extends'] ) &&
-				isset( $groupRefs[$value['extends']]['extends'] )
-			) {
-				$value['text'] = ( $value['text'] ?? '' ) .
-					$this->errorReporter->plain( 'cite_error_ref_too_many_keys' );
 			}
 			$parserInput .= $this->referencesFormatEntry( $key, $value, $isSectionPreview ) . "\n";
 		}

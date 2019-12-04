@@ -28,7 +28,6 @@
 		"APIQuerySiteInfoGeneralInfo": "Cite\\Hooks\\CiteHooks::onAPIQuerySiteInfoGeneralInfo",
 		"ContentHandlerDefaultModelFor": "Cite\\Hooks\\CiteHooks::onContentHandlerDefaultModelFor",
 		"ParserAfterParse": "Cite\\Hooks\\CiteParserHooks::onParserAfterParse",
-		"ParserBeforeTidy": "Cite\\Hooks\\CiteParserHooks::onParserBeforeTidy",
 		"ParserClearState": "Cite\\Hooks\\CiteParserHooks::onParserClearState",
 		"ParserCloned": "Cite\\Hooks\\CiteParserHooks::onParserCloned",
 		"ParserFirstCallInit": "Cite\\Hooks\\CiteParserHooks::onParserFirstCallInit",

@@ -74,14 +74,6 @@ class Cite {
 	private $errorReporter;
 
 	/**
-	 * True when the ParserAfterParse hook has been called.
-	 * Used to avoid doing anything in ParserBeforeTidy.
-	 *
-	 * @var bool
-	 */
-	private $mHaveAfterParse = false;
-
-	/**
 	 * True when a <ref> tag is being processed.
 	 * Used to avoid infinite recursion
 	 *
@@ -529,21 +521,13 @@ class Cite {
 	 * If we are processing a section preview, this adds the missing
 	 * references tags and does not add the errors.
 	 *
-	 * @param bool $afterParse True if called from the ParserAfterParse hook
 	 * @param bool $isSectionPreview
 	 * @return string
 	 */
 	public function checkRefsNoReferences(
-		bool $afterParse,
 		bool $isSectionPreview
 	) : string {
 		global $wgCiteResponsiveReferences;
-
-		if ( $afterParse ) {
-			$this->mHaveAfterParse = true;
-		} elseif ( $this->mHaveAfterParse ) {
-			return '';
-		}
 
 		$s = '';
 		if ( $this->referenceStack ) {

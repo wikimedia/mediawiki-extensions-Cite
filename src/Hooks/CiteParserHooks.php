@@ -57,19 +57,7 @@ class CiteParserHooks {
 	public static function onParserAfterParse( Parser $parser, &$text, $stripState ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		$text .= $cite->checkRefsNoReferences( true, $parser->getOptions()->getIsSectionPreview() );
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserBeforeTidy
-	 *
-	 * @param Parser $parser
-	 * @param string &$text
-	 */
-	public static function onParserBeforeTidy( Parser $parser, &$text ) {
-		/** @var Cite $cite */
-		$cite = $parser->extCite;
-		$text .= $cite->checkRefsNoReferences( false, $parser->getOptions()->getIsSectionPreview() );
+		$text .= $cite->checkRefsNoReferences( $parser->getOptions()->getIsSectionPreview() );
 	}
 
 }

@@ -65,11 +65,10 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::onParserAfterParse
-	 * @covers ::onParserBeforeTidy
 	 */
 	public function testAfterParseHooks() {
 		$cite = $this->createMock( Cite::class );
-		$cite->expects( $this->exactly( 2 ) )
+		$cite->expects( $this->once() )
 			->method( 'checkRefsNoReferences' );
 
 		$parserOptions = $this->createMock( ParserOptions::class );
@@ -85,7 +84,6 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 
 		$text = '';
 		CiteParserHooks::onParserAfterParse( $parser, $text, $this->createMock( StripState::class ) );
-		CiteParserHooks::onParserBeforeTidy( $parser, $text );
 	}
 
 }

@@ -4,9 +4,11 @@ namespace Cite\Tests\Unit;
 
 use Cite\Cite;
 use Cite\CiteErrorReporter;
-use Cite\FootnoteMarkFormatter;
 use Cite\FootnoteBodyFormatter;
+use Cite\FootnoteMarkFormatter;
+use Cite\ReferenceMessageLocalizer;
 use Cite\ReferenceStack;
+use Message;
 use Parser;
 use ParserOutput;
 use StripState;
@@ -24,6 +26,108 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 		parent::setUp();
 		$wgCiteBookReferencing = true;
+	}
+
+	/**
+	 * @covers ::checkRefsNoReferences
+	 * @dataProvider provideCheckRefsNoReferences
+	 */
+	public function testCheckRefsNoReferences(
+		array $initialRefs, bool $isSectionPreview, string $expectedOutput
+	) {
+		global $wgCiteResponsiveReferences;
+		$wgCiteResponsiveReferences = true;
+
+		$cite = new Cite();
+		$spy = TestingAccessWrapper::newFromObject( $cite );
+		$mockReferenceStack = $this->createMock( ReferenceStack::class );
+		$mockReferenceStack->method( 'getGroups' )->willReturn( array_keys( $initialRefs ) );
+		$mockReferenceStack->method( 'getGroupRefs' )->willReturnCallback( function ( $group ) use (
+			$initialRefs
+		) {
+			return $initialRefs[$group];
+		} );
+		$spy->referenceStack = $mockReferenceStack;
+		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
+			function ( ...$args ) {
+				return '(' . implode( '|', $args ) . ')';
+			}
+		);
+		/** @var CiteErrorReporter $mockErrorReporter */
+		$spy->errorReporter = $mockErrorReporter;
+		$mockFootnoteBodyFormatter = $this->createMock( FootnoteBodyFormatter::class );
+		$mockFootnoteBodyFormatter->method( 'referencesFormat' )->willReturn( '<references />' );
+		$spy->footnoteBodyFormatter = $mockFootnoteBodyFormatter;
+		$spy->isSectionPreview = $isSectionPreview;
+		$spy->messageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$spy->messageLocalizer->method( 'msg' )->willReturnCallback(
+			function ( ...$args ) {
+				$mockMessage = $this->createMock( Message::class );
+				$mockMessage->method( 'escaped' )->willReturnCallback(
+					function () use ( $args ) {
+						return '(' . implode( '|', $args ) . ')';
+					}
+				);
+				return $mockMessage;
+			}
+		);
+
+		$output = $cite->checkRefsNoReferences( $isSectionPreview );
+		$this->assertSame( $expectedOutput, $output );
+	}
+
+	public function provideCheckRefsNoReferences() {
+		return [
+			'Default group' => [
+				[
+					'' => [
+						[
+							'name' => 'a',
+						]
+					]
+				],
+				false,
+				'<references />'
+			],
+			'Default group in preview' => [
+				[
+					'' => [
+						[
+							'name' => 'a',
+						]
+					]
+				],
+				true,
+				"\n" . '<div class="mw-ext-cite-cite_section_preview_references" >' .
+				'<h2 id="mw-ext-cite-cite_section_preview_references_header" >' .
+				'(cite_section_preview_references)</h2><references /></div>'
+			],
+			'Named group' => [
+				[
+					'foo' => [
+						[
+							'name' => 'a',
+						]
+					]
+				],
+				false,
+				"\n" . '<br />(cite_error_group_refs_without_references|foo)'
+			],
+			'Named group in preview' => [
+				[
+					'foo' => [
+						[
+							'name' => 'a',
+						]
+					]
+				],
+				true,
+				"\n" . '<div class="mw-ext-cite-cite_section_preview_references" >' .
+				'<h2 id="mw-ext-cite-cite_section_preview_references_header" >' .
+				'(cite_section_preview_references)</h2><references /></div>'
+			]
+		];
 	}
 
 	/**

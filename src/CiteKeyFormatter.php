@@ -10,6 +10,20 @@ use Sanitizer;
 class CiteKeyFormatter {
 
 	/**
+	 * @var ReferenceMessageLocalizer
+	 */
+	private $messageLocalizer;
+
+	/**
+	 * @param ReferenceMessageLocalizer $messageLocalizer
+	 */
+	public function __construct(
+		ReferenceMessageLocalizer $messageLocalizer
+	) {
+		$this->messageLocalizer = $messageLocalizer;
+	}
+
+	/**
 	 * Return an id for use in wikitext output based on a key and
 	 * optionally the number of it, used in <references>, not <ref>
 	 * (since otherwise it would link to itself)
@@ -20,11 +34,11 @@ class CiteKeyFormatter {
 	 */
 	public function refKey( string $key, string $num = null ) : string {
 		// FIXME: Move the message to 'cite_ref_link_*'
-		$prefix = wfMessage( 'cite_reference_link_prefix' )->inContentLanguage()->text();
-		$suffix = wfMessage( 'cite_reference_link_suffix' )->inContentLanguage()->text();
+		$prefix = $this->messageLocalizer->msg( 'cite_reference_link_prefix' )->text();
+		$suffix = $this->messageLocalizer->msg( 'cite_reference_link_suffix' )->text();
 		if ( $num !== null ) {
-			$key = wfMessage( 'cite_reference_link_key_with_num', $key, $num )
-				->inContentLanguage()->plain();
+			$key = $this->messageLocalizer->msg( 'cite_reference_link_key_with_num', $key, $num )
+				->plain();
 		}
 
 		return $this->normalizeKey( $prefix . $key . $suffix );
@@ -39,8 +53,8 @@ class CiteKeyFormatter {
 	 * @return string A key for use in wikitext
 	 */
 	public function getReferencesKey( string $key ) : string {
-		$prefix = wfMessage( 'cite_references_link_prefix' )->inContentLanguage()->text();
-		$suffix = wfMessage( 'cite_references_link_suffix' )->inContentLanguage()->text();
+		$prefix = $this->messageLocalizer->msg( 'cite_references_link_prefix' )->text();
+		$suffix = $this->messageLocalizer->msg( 'cite_references_link_suffix' )->text();
 
 		return $this->normalizeKey( $prefix . $key . $suffix );
 	}

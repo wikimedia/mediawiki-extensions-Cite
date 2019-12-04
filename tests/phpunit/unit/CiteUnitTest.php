@@ -27,7 +27,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::validateRef
-	 * @dataProvider provideValidations
+	 * @dataProvider provideValidateRef
 	 */
 	public function testValidateRef(
 		array $referencesStack,
@@ -60,8 +60,64 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		}
 	}
 
-	public function provideValidations() {
+	public function provideValidateRef() {
 		return [
+			// Shared <ref> validations regardless of context
+			'Numeric name' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => null,
+				'name' => '1',
+				'group' => null,
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_ref_numeric_key',
+			],
+			'Numeric follow' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 't',
+				'name' => null,
+				'group' => null,
+				'follow' => '1',
+				'extends' => null,
+				'expected' => 'cite_error_ref_numeric_key',
+			],
+			'Numeric extends' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 't',
+				'name' => null,
+				'group' => null,
+				'follow' => null,
+				'extends' => '1',
+				'expected' => 'cite_error_ref_numeric_key',
+			],
+			'Follow with name' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 't',
+				'name' => 'n',
+				'group' => null,
+				'follow' => 'f',
+				'extends' => null,
+				'expected' => 'cite_error_ref_too_many_keys',
+			],
+			'Follow with extends' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 't',
+				'name' => null,
+				'group' => null,
+				'follow' => 'f',
+				'extends' => 'e',
+				'expected' => 'cite_error_ref_too_many_keys',
+			],
 			// Validating <ref> outside of <references>
 			'text-only <ref>' => [
 				'referencesStack' => [],
@@ -74,6 +130,17 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'extends' => null,
 				'expected' => true,
 			],
+			'Whitespace or empty text' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => '',
+				'name' => null,
+				'group' => null,
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_ref_no_input',
+			],
 			'totally empty <ref>' => [
 				'referencesStack' => [],
 				'inReferencesGroup' => null,
@@ -85,7 +152,17 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'extends' => null,
 				'expected' => 'cite_error_ref_no_key',
 			],
-			// TODO: Add test cases that trigger all possible code paths
+			'contains <ref>-like text' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 'Foo <ref name="bar">',
+				'name' => 'n',
+				'group' => null,
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_included_ref',
+			],
 
 			// Validating a <ref> in <references>
 			'most trivial <ref> in <references>' => [
@@ -99,8 +176,75 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'extends' => null,
 				'expected' => true,
 			],
-			// TODO: Add test cases that trigger all possible code paths
+			'Different group than <references>' => [
+				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'inReferencesGroup' => 'g1',
+				'isSectionPreview' => false,
+				'text' => 't',
+				'name' => 'n',
+				'group' => 'g2',
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_references_group_mismatch',
+			],
+			'Unnamed in <references>' => [
+				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'inReferencesGroup' => 'g',
+				'isSectionPreview' => false,
+				'text' => 't',
+				'name' => null,
+				'group' => 'g',
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_references_no_key',
+			],
+			'Empty text in <references>' => [
+				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'inReferencesGroup' => 'g',
+				'isSectionPreview' => false,
+				'text' => '',
+				'name' => 'n',
+				'group' => 'g',
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_empty_references_define',
+			],
+			'Group never used' => [
+				'referencesStack' => [ 'g2' => [ 'n' => [] ] ],
+				'inReferencesGroup' => 'g',
+				'isSectionPreview' => false,
+				'text' => 'not empty',
+				'name' => 'n',
+				'group' => 'g',
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_references_missing_group',
+			],
+			'Ref never used' => [
+				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'inReferencesGroup' => 'g',
+				'isSectionPreview' => false,
+				'text' => 'not empty',
+				'name' => 'n2',
+				'group' => 'g',
+				'follow' => null,
+				'extends' => null,
+				'expected' => 'cite_error_references_missing_key',
+			],
 		];
+	}
+
+	/**
+	 * @covers ::validateRef
+	 */
+	public function testValidateRef_noExtends() {
+		global $wgCiteBookReferencing;
+		$wgCiteBookReferencing = false;
+
+		/** @var Cite $cite */
+		$cite = TestingAccessWrapper::newFromObject( new Cite() );
+		$status = $cite->validateRef( 'text', 'name', '', null, 'a' );
+		$this->assertSame( 'cite_error_ref_too_many_keys', $status->getErrors()[0]['message'] );
 	}
 
 	/**

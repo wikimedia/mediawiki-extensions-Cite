@@ -57,7 +57,7 @@ class CiteParserHooks {
 	public static function onParserAfterParse( Parser $parser, &$text, $stripState ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		$cite->checkRefsNoReferences( true, $parser->getOptions()->getIsSectionPreview(), $text );
+		$text .= $cite->checkRefsNoReferences( true, $parser->getOptions()->getIsSectionPreview() );
 	}
 
 	/**
@@ -69,7 +69,7 @@ class CiteParserHooks {
 	public static function onParserBeforeTidy( Parser $parser, &$text ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		$cite->checkRefsNoReferences( false, $parser->getOptions()->getIsSectionPreview(), $text );
+		$text .= $cite->checkRefsNoReferences( false, $parser->getOptions()->getIsSectionPreview() );
 	}
 
 }

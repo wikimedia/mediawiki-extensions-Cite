@@ -530,19 +530,18 @@ class Cite {
 	 *
 	 * @param bool $afterParse True if called from the ParserAfterParse hook
 	 * @param bool $isSectionPreview
-	 * @param string &$text
+	 * @return string
 	 */
 	public function checkRefsNoReferences(
 		bool $afterParse,
-		bool $isSectionPreview,
-		string &$text
-	) {
+		bool $isSectionPreview
+	) : string {
 		global $wgCiteResponsiveReferences;
 
 		if ( $afterParse ) {
 			$this->mHaveAfterParse = true;
 		} elseif ( $this->mHaveAfterParse ) {
-			return;
+			return '';
 		}
 
 		$s = '';
@@ -562,18 +561,16 @@ class Cite {
 			}
 		}
 		if ( $isSectionPreview && $s !== '' ) {
-			// provide a preview of references in its own section
-			$text .= "\n" . '<div class="mw-ext-cite-cite_section_preview_references" >';
 			$headerMsg = wfMessage( 'cite_section_preview_references' );
 			if ( !$headerMsg->isDisabled() ) {
-				$text .= '<h2 id="mw-ext-cite-cite_section_preview_references_header" >'
-				. $headerMsg->escaped()
-				. '</h2>';
+				$s = '<h2 id="mw-ext-cite-cite_section_preview_references_header" >'
+					. $headerMsg->escaped()
+					. '</h2>' . $s;
 			}
-			$text .= $s . '</div>';
-		} else {
-			$text .= $s;
+			// provide a preview of references in its own section
+			$s = "\n" . '<div class="mw-ext-cite-cite_section_preview_references" >' . $s . '</div>';
 		}
+		return $s;
 	}
 
 }

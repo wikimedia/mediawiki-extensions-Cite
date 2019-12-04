@@ -133,19 +133,12 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 					'</ol></div>'
 			],
 			'Use columns' => [
-				[
-					0 => [ 'key' => 1, 'text' => 't' ],
-					1 => [ 'key' => 2, 'text' => 't' ],
-					2 => [ 'key' => 3, 'text' => 't' ],
-					3 => [ 'key' => 4, 'text' => 't' ],
-					4 => [ 'key' => 5, 'text' => 't' ],
-					5 => [ 'key' => 6, 'text' => 't' ],
-					6 => [ 'key' => 7, 'text' => 't' ],
-					7 => [ 'key' => 8, 'text' => 't' ],
-					8 => [ 'key' => 9, 'text' => 't' ],
-					9 => [ 'key' => 10, 'text' => 't' ],
-					10 => [ 'key' => 11, 'text' => 't' ],
-				],
+				array_map(
+					function ( $i ) {
+						return [ 'key' => $i, 'text' => 't' ];
+					},
+					range( 0, 10 )
+				),
 				'<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
 					"\n" . '<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .

@@ -67,7 +67,7 @@ class FootnoteMarkFormatter {
 			}
 		}
 		if ( isset( $ref['extendsIndex'] ) ) {
-			$label .= $language->formatNum( '.' . $ref['extendsIndex'] );
+			$label .= '.' . $language->formatNum( $ref['extendsIndex'], true );
 		}
 
 		$key = $ref['name'] ?? $ref['key'];

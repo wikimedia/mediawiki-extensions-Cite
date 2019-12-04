@@ -235,11 +235,13 @@ class FootnoteBodyFormatter {
 		int $offset,
 		int $max
 	) : string {
-		$scope = strlen( $max );
-		$ret = MediaWikiServices::getInstance()->getContentLanguage()->formatNum(
-			$base . '.' . sprintf( "%0{$scope}s", $offset )
+		$language = MediaWikiServices::getInstance()->getContentLanguage();
+
+		return $language->formatNum(
+			$base .
+			'.' .
+			str_pad( $offset, strlen( $max ), '0', STR_PAD_LEFT )
 		);
-		return $ret;
 	}
 
 	/**

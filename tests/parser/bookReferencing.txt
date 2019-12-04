@@ -35,6 +35,8 @@ wgCiteBookReferencing=true
 
 !! test
 T236256 - Extending the same base multiple times is fine
+!! options
+language=de
 !! config
 wgCiteBookReferencing=true
 !! wikitext

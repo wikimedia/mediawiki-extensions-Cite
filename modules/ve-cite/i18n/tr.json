@@ -21,7 +21,8 @@
 			"McAang",
 			"HakanIST",
 			"Sadrettin",
-			"Hedda"
+			"Hedda",
+			"BaRaN6161 TURK"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Kitap",
@@ -37,7 +38,11 @@
 	"cite-ve-changedesc-reflist-responsive-set": "Kaynak listesi hassas sütunlarda görüntülenecek şekilde değiştirildi",
 	"cite-ve-changedesc-reflist-responsive-unset": "Kaynak listesi sadece bir sütunda görünecek şekilde değiştirildi",
 	"cite-ve-changedesc-reflist-item-id": "Kaynak indeksi değişti",
+	"cite-ve-citationneeded-button": "Alıntı ekle",
+	"cite-ve-citationneeded-description": "Bir editör, bu iddianın güvenilir bir kaynaktan alıntı yapılması gerektiğini belirtti.",
+	"cite-ve-citationneeded-title": "Kaynak belirtilmeli",
 	"cite-ve-dialog-reference-editing-reused": "Bu kaynak, bu sayfada $1 {{PLURAL:$1|defa}} kullanıldı.",
+	"cite-ve-dialog-reference-editing-reused-long": "Bu referans bu sayfada {{PLURAL:$1|kere|2=iki kez|$1 kez}} kullanıldı. Burada yapılan değişiklikler bu referansın yeniden kullanıldığı tüm yerlere uygulanacaktır.",
 	"cite-ve-dialog-reference-options-group-label": "Bu grubu kullan",
 	"cite-ve-dialog-reference-options-group-placeholder": "Genel referanslar",
 	"cite-ve-dialog-reference-options-name-label": "Bu isimle yeniden kullan",

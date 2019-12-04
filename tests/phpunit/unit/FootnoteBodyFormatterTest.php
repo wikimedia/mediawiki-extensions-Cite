@@ -27,6 +27,13 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 		$mockParser = $this->createMock( Parser::class );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		/** @var Parser $mockParser */
+		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter->method( 'plain' )->willReturnCallback(
+			function ( ...$args ) {
+				return json_encode( $args );
+			}
+		);
+		/** @var CiteErrorReporter $mockErrorReporter */
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
@@ -41,7 +48,7 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 		/** @var FootnoteBodyFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
 			$mockParser,
-			$this->createMock( CiteErrorReporter::class ),
+			$mockErrorReporter,
 			$this->createMock( CiteKeyFormatter::class ),
 			$mockMessageLocalizer ) );
 
@@ -92,6 +99,37 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 					"</ol></li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' .
 					"\n|)</li>\n" .
+					'</ol></div>'
+			],
+			'Subref of subref' => [
+				[
+					0 => [
+						'extends' => 'a',
+						'extendsIndex' => 1,
+						'key' => 1,
+						'number' => 1,
+						'text' => 't1',
+					],
+					'a' => [
+						'extends' => 'b',
+						'extendsIndex' => 1,
+						'key' => 2,
+						'number' => 1,
+						'text' => 't2',
+					],
+					'b' => [
+						'key' => 3,
+						'number' => 1,
+						'text' => 't3',
+					],
+				],
+				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' . "\n" .
+					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
+					'<span class="reference-text">t1["cite_error_ref_too_many_keys"]</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t2</span>' .
+					"\n|)</li>\n</ol></li>\n" .
 					'</ol></div>'
 			],
 			'Use columns' => [

@@ -98,6 +98,14 @@ class FootnoteBodyFormatter {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
+			// Make sure the parent is not a subreference.
+			// FIXME: Move to a validation function.
+			if ( isset( $value['extends'] ) &&
+				isset( $groupRefs[$value['extends']]['extends'] )
+			) {
+				$value['text'] = ( $value['text'] ?? '' ) .
+					$this->errorReporter->plain( 'cite_error_ref_too_many_keys' );
+			}
 			$parserInput .= $this->referencesFormatEntry( $key, $value, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
@@ -143,9 +151,6 @@ class FootnoteBodyFormatter {
 		$text = $this->referenceText( $key, $val['text'] ?? null, $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';
-
-		// TODO: Show an error if isset( $val['__placeholder__'] ), this is caused by extends
-		//  with a missing parent.
 
 		if ( isset( $val['dir'] ) ) {
 			$dir = strtolower( $val['dir'] );

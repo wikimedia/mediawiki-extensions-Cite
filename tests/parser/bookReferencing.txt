@@ -164,8 +164,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error on ref-3.
 !! test
 T236256 - Can't extend a book reference (no nesting).
 !! config
@@ -184,7 +182,8 @@ wgCiteBookReferencing=true
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
 <ol class="mw-extended-references"><li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">page 2</span>
 </li>
-<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">section 3</span>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">section 3<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+invalid names, e.g. too many</span></span>
 </li>
 </ol></li>
 </ol></div>

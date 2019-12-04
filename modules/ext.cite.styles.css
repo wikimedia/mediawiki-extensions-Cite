@@ -20,12 +20,14 @@
 }
 
 ol.references {
-	counter-reset: mw-ref-linkback;
+	/* Resetting *any* counter on an <ol> element messes the build-in numbering in Firefox up.
+	   Explicitely resetting the build-in "list-item" counter fixes this. */
+	counter-reset: mw-ref-extends-parent list-item;
 }
 
 ol.references > li {
-	counter-increment: mw-ref-linkback;
-	counter-reset: mw-extended-references;
+	counter-increment: mw-ref-extends-parent;
+	counter-reset: mw-ref-extends-child;
 }
 
 .mw-extended-references {
@@ -33,8 +35,8 @@ ol.references > li {
 }
 
 .mw-extended-references > li:before {
-	counter-increment: mw-extended-references;
-	content: counter( mw-ref-linkback, decimal ) '.' counter( mw-extended-references, decimal ) ' ';
+	counter-increment: mw-ref-extends-child;
+	content: counter( mw-ref-extends-parent, decimal ) '.' counter( mw-ref-extends-child, decimal ) ' ';
 }
 
 sup.reference {

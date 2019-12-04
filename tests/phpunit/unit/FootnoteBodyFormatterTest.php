@@ -19,6 +19,324 @@ use Wikimedia\TestingAccessWrapper;
  */
 class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 	/**
+	 * @covers ::__construct
+	 * @covers ::referencesFormat
+	 * @dataProvider provideReferencesFormat
+	 */
+	public function testReferencesFormat( array $refs, string $expectedOutput ) {
+		$mockParser = $this->createMock( Parser::class );
+		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
+		/** @var Parser $mockParser */
+		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
+			function ( ...$args ) {
+				$mockMessage = $this->createMock( Message::class );
+				$mockMessage->method( 'plain' )->willReturn(
+					'<li>(' . implode( '|', $args ) . ')</li>' );
+				return $mockMessage;
+			}
+		);
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
+
+		/** @var FootnoteBodyFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+			$mockParser,
+			$this->createMock( CiteErrorReporter::class ),
+			$this->createMock( CiteKeyFormatter::class ),
+			$mockMessageLocalizer ) );
+
+		$output = $formatter->referencesFormat( $refs, true, false );
+		$this->assertSame( $expectedOutput, $output );
+	}
+
+	public function provideReferencesFormat() {
+		return [
+			'Empty' => [
+				[],
+				''
+			],
+			'Minimal ref' => [
+				[
+					0 => [
+						'key' => 1,
+						'text' => 't',
+					]
+				],
+				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n</ol></div>"
+			],
+			'Ref with extends' => [
+				[
+					0 => [
+						'extends' => 'a',
+						'extendsIndex' => 1,
+						'key' => 2,
+						'number' => 10,
+						'text' => 't2',
+					],
+					1 => [
+						'number' => 11,
+						'text' => 't3',
+					],
+					'a' => [
+						'key' => 1,
+						'number' => 9,
+						'text' => 't1',
+					],
+				],
+				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t1</span>' . "\n" .
+					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
+					'<span class="reference-text">t2</span>' . "\n|)</li>\n" .
+					"</ol></li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' .
+					"\n|)</li>\n" .
+					'</ol></div>'
+			],
+			'Use columns' => [
+				[
+					0 => [ 'key' => 1, 'text' => 't' ],
+					1 => [ 'key' => 2, 'text' => 't' ],
+					2 => [ 'key' => 3, 'text' => 't' ],
+					3 => [ 'key' => 4, 'text' => 't' ],
+					4 => [ 'key' => 5, 'text' => 't' ],
+					5 => [ 'key' => 6, 'text' => 't' ],
+					6 => [ 'key' => 7, 'text' => 't' ],
+					7 => [ 'key' => 8, 'text' => 't' ],
+					8 => [ 'key' => 9, 'text' => 't' ],
+					9 => [ 'key' => 10, 'text' => 't' ],
+					10 => [ 'key' => 11, 'text' => 't' ],
+				],
+				'<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
+					"\n" . '<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n" .
+					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n|)</li>\n</ol></div>"
+			],
+		];
+	}
+
+	/**
+	 * @covers ::closeIndention
+	 * @dataProvider provideCloseIndention
+	 */
+	public function testCloseIndention( $closingLi, $expectedOutput ) {
+		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+			$this->createMock( Parser::class ),
+			$this->createMock( CiteErrorReporter::class ),
+			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( ReferenceMessageLocalizer::class ) ) );
+
+		$output = $formatter->closeIndention( $closingLi );
+		$this->assertSame( $expectedOutput, $output );
+	}
+
+	public function provideCloseIndention() {
+		return [
+			'No indention' => [ false, '' ],
+			'Indention string' => [ "</li>\n", "</ol></li>\n" ],
+			'Indention without string' => [ true, '</ol>' ],
+		];
+	}
+
+	/**
+	 * @covers ::referencesFormatEntry
+	 * @dataProvider provideReferencesFormatEntry
+	 */
+	public function testReferencesFormatEntry(
+		$key,
+		array $val,
+		string $expectedOutput
+	) {
+		/** @var CiteErrorReporter $mockErrorReporter */
+		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter->method( 'plain' )->willReturnCallback(
+			function ( ...$args ) {
+				return '(' . implode( '|', $args ) . ')';
+			}
+		);
+		$mockCiteKeyFormatter = $this->createMock( CiteKeyFormatter::class );
+		$mockCiteKeyFormatter->method( 'refKey' )->willReturnCallback(
+			function ( $key, $num = null ) {
+				return $key . '+' . ( $num ?? 'null' );
+			}
+		);
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
+		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$mockMessageLocalizer->method( 'getLanguage' )->willReturnCallback(
+			function () {
+				$mockLanguage = $this->createMock( Language::class );
+				$mockLanguage->method( 'formatNum' )->willReturnArgument( 0 );
+				return $mockLanguage;
+			}
+		);
+		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
+			function ( ...$args ) {
+				$mockMessage = $this->createMock( Message::class );
+				$mockMessage->method( 'plain' )->willReturn(
+					'(' . implode( '|', $args ) . ')' );
+				return $mockMessage;
+			}
+		);
+		/** @var FootnoteBodyFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+			$this->createMock( Parser::class ),
+			$mockErrorReporter,
+			$mockCiteKeyFormatter,
+			$mockMessageLocalizer ) );
+
+		$output = $formatter->referencesFormatEntry( $key, $val, false );
+		$this->assertSame( $expectedOutput, $output );
+	}
+
+	public function provideReferencesFormatEntry() {
+		return [
+			'Success' => [
+				1,
+				[
+					'text' => 't',
+				],
+				'(cite_references_link_many|||<span class="reference-text">t</span>' . "\n" . '|)'
+			],
+			'Good dir' => [
+				1,
+				[
+					'dir' => 'rtl',
+					'text' => 't',
+				],
+				'(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n" . '| class="mw-cite-dir-rtl")'
+			],
+			'Invalid dir' => [
+				1,
+				[
+					'dir' => 'not',
+					'text' => 't',
+				],
+				'(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n" . '(cite_error_ref_invalid_dir|not)' . "\n|)"
+			],
+			'Broken follow' => [
+				1,
+				[
+					'follow' => 'f',
+					'text' => 't',
+				],
+				'(cite_references_no_link||<span class="reference-text">t</span>' . "\n)"
+			],
+			'Count zero' => [
+				1,
+				[
+					'count' => 0,
+					'key' => 5,
+					'text' => 't',
+				],
+				'(cite_references_link_one||1+5-0|<span class="reference-text">t</span>' . "\n|)"
+			],
+			'Count negative' => [
+				1,
+				[
+					'count' => -1,
+					'key' => 5,
+					'number' => 3,
+					'text' => 't',
+				],
+				'(cite_references_link_one||5+null|<span class="reference-text">t</span>' . "\n|)"
+			],
+			'Count positive' => [
+				1,
+				[
+					'count' => 2,
+					'key' => 5,
+					'number' => 3,
+					'text' => 't',
+				],
+				'(cite_references_link_many||(cite_references_link_many_format|1+5-0|3.0|' .
+				'(cite_references_link_many_format_backlink_labels))' .
+				'(cite_references_link_many_sep)(cite_references_link_many_format|1+5-1|3.1|' .
+				'(cite_error_references_no_backlink_label))(cite_references_link_many_and)' .
+				'(cite_references_link_many_format|1+5-2|3.2|(cite_error_references_no_backlink_label' .
+				'))|<span class="reference-text">t</span>' . "\n|)"
+			],
+		];
+	}
+
+	/**
+	 * @covers ::referenceText
+	 * @dataProvider provideReferenceText
+	 */
+	public function testReferenceText(
+		$key,
+		?string $text,
+		bool $isSectionPreview,
+		string $expectedOutput
+	) {
+		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter->method( 'plain' )->willReturnCallback(
+			function ( ...$args ) {
+				return json_encode( $args );
+			}
+		);
+		/** @var FootnoteBodyFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+			$this->createMock( Parser::class ),
+			$mockErrorReporter,
+			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( ReferenceMessageLocalizer::class ) ) );
+
+		$output = $formatter->referenceText( $key, $text, $isSectionPreview );
+		$this->assertSame( $expectedOutput, $output );
+	}
+
+	public function provideReferenceText() {
+		return [
+			'No text, not preview' => [
+				1,
+				null,
+				false,
+				'["cite_error_references_no_text",1]'
+			],
+			'No text, is preview' => [
+				1,
+				null,
+				true,
+				'["cite_warning_sectionpreview_no_text",1]'
+			],
+			'Has text' => [
+				1,
+				'text',
+				true,
+				'<span class="reference-text">text</span>' . "\n"
+			],
+			'Trims text' => [
+				1,
+				"text\n\n",
+				true,
+				'<span class="reference-text">text</span>' . "\n"
+			],
+		];
+	}
+
+	/**
 	 * @covers ::referencesFormatEntryAlternateBacklinkLabel
 	 * @dataProvider provideReferencesFormatEntryAlternateBacklinkLabel
 	 */

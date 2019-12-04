@@ -145,6 +145,7 @@ class FootnoteBodyFormatter {
 			if ( in_array( $dir, [ 'ltr', 'rtl' ] ) ) {
 				$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
 			} else {
+				// TODO: Move to validation.
 				$error .= $this->errorReporter->plain( 'cite_error_ref_invalid_dir', $val['dir'] ) . "\n";
 			}
 		}
@@ -205,18 +206,20 @@ class FootnoteBodyFormatter {
 
 	/**
 	 * Returns formatted reference text
+	 *
 	 * @param string|int $key
 	 * @param ?string $text
 	 * @param bool $isSectionPreview
+	 *
 	 * @return string
 	 */
 	private function referenceText( $key, ?string $text, bool $isSectionPreview ) : string {
 		if ( $text === null ) {
-			if ( $isSectionPreview ) {
-				return $this->errorReporter->plain( 'cite_warning_sectionpreview_no_text', $key );
-			}
-			return $this->errorReporter->plain( 'cite_error_references_no_text', $key );
+			return $this->errorReporter->plain( $isSectionPreview
+				? 'cite_warning_sectionpreview_no_text'
+				: 'cite_error_references_no_text', $key );
 		}
+
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";
 	}
 
@@ -228,6 +231,7 @@ class FootnoteBodyFormatter {
 	 * @param int|string $base
 	 * @param int $offset
 	 * @param int $max Maximum value expected.
+	 *
 	 * @return string
 	 */
 	private function referencesFormatEntryNumericBacklinkLabel(

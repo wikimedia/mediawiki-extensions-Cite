@@ -7,6 +7,9 @@ use Message;
 use MessageLocalizer;
 use MessageSpecifier;
 
+/**
+ * Interface abstracts everything a Cite needs to do with languages.
+ */
 class ReferenceMessageLocalizer implements MessageLocalizer {
 	/**
 	 * @var Language
@@ -29,6 +32,9 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 
 	/**
 	 * This is the method for getting translated interface messages.
+	 *
+	 * Note that it returns messages coerced to a specific language, the content language
+	 * rather than the UI language.
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Messages_API
 	 * @see Message::__construct

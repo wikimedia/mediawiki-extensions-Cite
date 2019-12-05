@@ -100,11 +100,6 @@ class Cite {
 	private $referenceStack;
 
 	/**
-	 * @var CiteKeyFormatter
-	 */
-	private $citeKeyFormatter;
-
-	/**
 	 * @param Parser $parser
 	 */
 	private function rememberParser( Parser $parser ) {

@@ -2,7 +2,6 @@
 
 namespace Cite;
 
-use MediaWiki\MediaWikiServices;
 use Parser;
 use Sanitizer;
 
@@ -32,18 +31,26 @@ class FootnoteMarkFormatter {
 	private $errorReporter;
 
 	/**
+	 * @var ReferenceMessageLocalizer
+	 */
+	private $messageLocalizer;
+
+	/**
 	 * @param Parser $parser
 	 * @param CiteErrorReporter $errorReporter
 	 * @param CiteKeyFormatter $citeKeyFormatter
+	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
 	public function __construct(
 		Parser $parser,
 		CiteErrorReporter $errorReporter,
-		CiteKeyFormatter $citeKeyFormatter
+		CiteKeyFormatter $citeKeyFormatter,
+		ReferenceMessageLocalizer $messageLocalizer
 	) {
 		$this->parser = $parser;
 		$this->citeKeyFormatter = $citeKeyFormatter;
 		$this->errorReporter = $errorReporter;
+		$this->messageLocalizer = $messageLocalizer;
 	}
 
 	/**
@@ -57,7 +64,7 @@ class FootnoteMarkFormatter {
 	 * @return string
 	 */
 	public function linkRef( string $group, array $ref ) : string {
-		$language = MediaWikiServices::getInstance()->getContentLanguage();
+		$language = $this->messageLocalizer->getLanguage();
 
 		$label = $this->getLinkLabel( $group, $ref['number'] );
 		if ( $label === null ) {
@@ -75,12 +82,12 @@ class FootnoteMarkFormatter {
 		$subkey = $ref['name'] ? '-' . $ref['key'] : null;
 
 		return $this->parser->recursiveTagParse(
-			wfMessage(
+			$this->messageLocalizer->msg(
 				'cite_reference_link',
 				$this->citeKeyFormatter->refKey( $key, $count ),
 				$this->citeKeyFormatter->getReferencesKey( $key . $subkey ),
 				Sanitizer::safeEncodeAttribute( $label )
-			)->inContentLanguage()->plain()
+			)->plain()
 		);
 	}
 
@@ -98,7 +105,7 @@ class FootnoteMarkFormatter {
 	private function getLinkLabel( string $group, int $number ) : ?string {
 		$message = "cite_link_label_group-$group";
 		if ( !isset( $this->linkLabels[$group] ) ) {
-			$msg = wfMessage( $message )->inContentLanguage();
+			$msg = $this->messageLocalizer->msg( $message );
 			$this->linkLabels[$group] = $msg->isDisabled() ? [] : preg_split( '/\s+/', $msg->plain() );
 		}
 

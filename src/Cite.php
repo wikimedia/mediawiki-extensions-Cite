@@ -100,11 +100,6 @@ class Cite {
 	private $referenceStack;
 
 	/**
-	 * @var ReferenceMessageLocalizer $messageLocalizer
-	 */
-	private $messageLocalizer;
-
-	/**
 	 * @param Parser $parser
 	 */
 	private function rememberParser( Parser $parser ) {
@@ -117,12 +112,12 @@ class Cite {
 				$parser
 			);
 			$this->referenceStack = new ReferenceStack( $this->errorReporter );
-			$this->messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
-			$citeKeyFormatter = new CiteKeyFormatter( $this->messageLocalizer );
+			$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
+			$citeKeyFormatter = new CiteKeyFormatter( $messageLocalizer );
 			$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
-				$this->mParser, $this->errorReporter, $citeKeyFormatter, $this->messageLocalizer );
+				$this->mParser, $this->errorReporter, $citeKeyFormatter, $messageLocalizer );
 			$this->footnoteBodyFormatter = new FootnoteBodyFormatter(
-				$this->mParser, $this->errorReporter, $citeKeyFormatter, $this->messageLocalizer );
+				$this->mParser, $this->errorReporter, $citeKeyFormatter, $messageLocalizer );
 		}
 	}
 
@@ -548,7 +543,7 @@ class Cite {
 			}
 		}
 		if ( $isSectionPreview && $s !== '' ) {
-			$headerMsg = $this->messageLocalizer->msg( 'cite_section_preview_references' );
+			$headerMsg = wfMessage( 'cite_section_preview_references' );
 			if ( !$headerMsg->isDisabled() ) {
 				$s = '<h2 id="mw-ext-cite-cite_section_preview_references_header" >'
 					. $headerMsg->escaped()

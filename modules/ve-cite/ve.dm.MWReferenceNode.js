@@ -197,8 +197,6 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 					// Generate a name starting with ':' to distinguish it from normal names
 					'literal/:'
 				).slice( 'literal/'.length );
-			} else {
-				name = undefined;
 			}
 		} else {
 			// Use literal name

@@ -129,7 +129,6 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	if ( !isForParser ) {
 		// Output needs to be read so re-render
 		modelNode = ve.dm.nodeFactory.createFromElement( dataElement );
-		modelNode = new ve.dm.MWReferencesListNode( dataElement );
 		// Build from original doc's internal list to get all refs (T186407)
 		modelNode.setDocument( converter.originalDocInternalList.getDocument() );
 		viewNode = ve.ce.nodeFactory.createFromModel( modelNode );

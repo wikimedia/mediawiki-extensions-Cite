@@ -186,83 +186,94 @@ class Cite {
 			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
 		}
 
-		if ( $this->inReferencesGroup !== null ) {
-			// Inside a references tag.  Note that we could have be deceived by `{{#tag`, so don't
-			// take any actions that we can't reverse later.
-			// FIXME: Some assertions make assumptions that rely on earlier tests not failing.
-			//  These dependencies need to be explicit so they aren't accidentally broken by
-			//  reordering in the future.
+		return $this->inReferencesGroup === null ?
+			$this->validateRefOutsideOfReferences( $text, $name ) :
+			$this->validateRefInReferences( $text, $name, $group );
+	}
 
-			if ( $group !== $this->inReferencesGroup ) {
-				// <ref> and <references> have conflicting group attributes.
-				return StatusValue::newFatal( 'cite_error_references_group_mismatch',
+	private function validateRefOutsideOfReferences(
+		?string $text,
+		?string $name
+	): StatusValue {
+		if ( !$name ) {
+			if ( $text === null ) {
+				// Something like <ref />; this makes no sense.
+				return StatusValue::newFatal( 'cite_error_ref_no_key' );
+			} elseif ( trim( $text ) === '' ) {
+				// Must have content or reuse another ref by name.
+				return StatusValue::newFatal( 'cite_error_ref_no_input' );
+			}
+		}
+
+		if ( preg_match(
+			'/<ref\b.*?>/i',
+			preg_replace( '#<(\w++).*?>.*?</\1\s*>|<!--.*?-->#s', '', $text )
+		) ) {
+			// (bug T8199) This most likely implies that someone left off the
+			// closing </ref> tag, which will cause the entire article to be
+			// eaten up until the next <ref>.  So we bail out early instead.
+			// The fancy regex above first tries chopping out anything that
+			// looks like a comment or SGML tag, which is a crude way to avoid
+			// false alarms for <nowiki>, <pre>, etc.
+			//
+			// Possible improvement: print the warning, followed by the contents
+			// of the <ref> tag.  This way no part of the article will be eaten
+			// even temporarily.
+			return StatusValue::newFatal( 'cite_error_included_ref' );
+		}
+
+		// TODO: Assert things such as $text is different than existing ref with $name,
+		//  currently done in `pushRef`.
+
+		return StatusValue::newGood();
+	}
+
+	private function validateRefInReferences(
+		?string $text,
+		?string $name,
+		?string $group
+	): StatusValue {
+		// FIXME: Some assertions make assumptions that rely on earlier tests not failing.
+		//  These dependencies need to be explicit so they aren't accidentally broken by
+		//  reordering in the future, or made more robust to initial conditions.
+
+		if ( $group !== $this->inReferencesGroup ) {
+			// <ref> and <references> have conflicting group attributes.
+			return StatusValue::newFatal( 'cite_error_references_group_mismatch',
+				Sanitizer::safeEncodeAttribute( $group ) );
+		}
+
+		if ( !$name ) {
+			// <ref> calls inside <references> must be named
+			return StatusValue::newFatal( 'cite_error_references_no_key' );
+		}
+
+		// This doesn't catch the null case because that's guaranteed to trigger other errors
+		// FIXME: We allow whitespace-only text, should this be invalid?  It leaves a
+		//  loophole around the trimmed-text test outside of <references>.
+		if ( $text === '' ) {
+			// <ref> called in <references> has no content.
+			return StatusValue::newFatal(
+				'cite_error_empty_references_define',
+				Sanitizer::safeEncodeAttribute( $name )
+			);
+		}
+
+		// Section previews are exempt from some rules.
+		if ( !$this->isSectionPreview ) {
+			if ( !$this->referenceStack->hasGroup( $group ) ) {
+				// Called with group attribute not defined in text.
+				return StatusValue::newFatal( 'cite_error_references_missing_group',
 					Sanitizer::safeEncodeAttribute( $group ) );
 			}
 
-			if ( !$name ) {
-				// <ref> calls inside <references> must be named
-				return StatusValue::newFatal( 'cite_error_references_no_key' );
+			$groupRefs = $this->referenceStack->getGroupRefs( $group );
+
+			if ( !isset( $groupRefs[$name] ) ) {
+				// No such named ref exists in this group.
+				return StatusValue::newFatal( 'cite_error_references_missing_key',
+					Sanitizer::safeEncodeAttribute( $name ) );
 			}
-
-			// This doesn't catch the null case because that's guaranteed to trigger other errors
-			// FIXME: We allow whitespace-only text, should this be invalid?  It leaves a
-			//  loophole around the trimmed-text test outside of <references>.
-			if ( $text === '' ) {
-				// <ref> called in <references> has no content.
-				return StatusValue::newFatal(
-					'cite_error_empty_references_define',
-					Sanitizer::safeEncodeAttribute( $name )
-				);
-			}
-
-			// Section previews are exempt from some rules.
-			if ( !$this->isSectionPreview ) {
-				if ( !$this->referenceStack->hasGroup( $group ) ) {
-					// Called with group attribute not defined in text.
-					return StatusValue::newFatal( 'cite_error_references_missing_group',
-						Sanitizer::safeEncodeAttribute( $group ) );
-				}
-
-				$groupRefs = $this->referenceStack->getGroupRefs( $group );
-
-				if ( !isset( $groupRefs[$name] ) ) {
-					// No such named ref exists in this group.
-					return StatusValue::newFatal( 'cite_error_references_missing_key',
-						Sanitizer::safeEncodeAttribute( $name ) );
-				}
-			}
-		} else {
-			// Not in a references tag
-
-			if ( !$name ) {
-				if ( $text === null ) {
-					// Something like <ref />; this makes no sense.
-					return StatusValue::newFatal( 'cite_error_ref_no_key' );
-				} elseif ( trim( $text ) === '' ) {
-					// Must have content or reuse another ref by name.
-					return StatusValue::newFatal( 'cite_error_ref_no_input' );
-				}
-			}
-
-			if ( preg_match(
-				'/<ref\b.*?>/i',
-				preg_replace( '#<(\w++).*?>.*?</\1\s*>|<!--.*?-->#s', '', $text )
-			) ) {
-				// (bug T8199) This most likely implies that someone left off the
-				// closing </ref> tag, which will cause the entire article to be
-				// eaten up until the next <ref>.  So we bail out early instead.
-				// The fancy regex above first tries chopping out anything that
-				// looks like a comment or SGML tag, which is a crude way to avoid
-				// false alarms for <nowiki>, <pre>, etc.
-				//
-				// Possible improvement: print the warning, followed by the contents
-				// of the <ref> tag.  This way no part of the article will be eaten
-				// even temporarily.
-				return StatusValue::newFatal( 'cite_error_included_ref' );
-			}
-
-			// TODO: Assert things such as $text is different than existing ref with $name,
-			//  currently done in `pushRef`.
 		}
 
 		return StatusValue::newGood();

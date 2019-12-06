@@ -15,7 +15,7 @@
 			"Ævar Arnfjörð Bjarmason"
 		]
 	},
-	"cite-desc": "Adds <code>&lt;ref[ name=id]&gt;</code> and <code>&lt;references/&gt;</code> tags, for citations",
+	"cite-desc": "Adds <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> tags for citations",
 	"cite_error": "Cite error: $1",
 	"cite_error_ref_invalid_dir": "Invalid <code>dir=\"$1\"</code>, must be <code>ltr</code> or <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Invalid <code>&lt;ref&gt;</code> tag;\nname cannot be a simple integer. Use a descriptive title",

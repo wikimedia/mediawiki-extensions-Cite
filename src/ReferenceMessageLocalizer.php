@@ -11,6 +11,7 @@ use MessageSpecifier;
  * Interface abstracts everything a Cite needs to do with languages.
  */
 class ReferenceMessageLocalizer implements MessageLocalizer {
+
 	/**
 	 * @var Language
 	 */

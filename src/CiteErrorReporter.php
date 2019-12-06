@@ -23,12 +23,22 @@ class CiteErrorReporter {
 	private $language;
 
 	/**
+	 * @var ReferenceMessageLocalizer
+	 */
+	private $messageLocalizer;
+
+	/**
 	 * @param Language $language
 	 * @param Parser $parser
 	 */
-	public function __construct( Language $language, Parser $parser ) {
+	public function __construct(
+		Language $language,
+		Parser $parser,
+		ReferenceMessageLocalizer $messageLocalizer
+	) {
 		$this->language = $language;
 		$this->parser = $parser;
+		$this->messageLocalizer = $messageLocalizer;
 	}
 
 	/**
@@ -50,7 +60,7 @@ class CiteErrorReporter {
 	 * @return-taint tainted
 	 */
 	public function plain( string $key, ...$params ) : string {
-		$msg = wfMessage( $key, ...$params )->inLanguage( $this->language );
+		$msg = $this->messageLocalizer->msg( $key, ...$params );
 
 		if ( strncmp( $msg->getKey(), 'cite_warning_', 13 ) === 0 ) {
 			$type = 'warning';
@@ -71,7 +81,7 @@ class CiteErrorReporter {
 				'lang' => $this->language->getHtmlCode(),
 				'dir' => $this->language->getDir(),
 			],
-			wfMessage( "cite_$type", $msg->plain() )->inLanguage( $this->language )->plain()
+			$this->messageLocalizer->msg( "cite_$type", $msg->plain() )->plain()
 		);
 	}
 

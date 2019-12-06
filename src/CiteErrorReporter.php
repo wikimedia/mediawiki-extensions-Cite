@@ -18,17 +18,25 @@ class CiteErrorReporter {
 	private $parser;
 
 	/**
-	 * @var Language
+	 * @var ReferenceMessageLocalizer
 	 */
-	private $language;
+	private $messageLocalizer;
 
 	/**
-	 * @param Language $language
-	 * @param Parser $parser
+	 * @var Language
 	 */
-	public function __construct( Language $language, Parser $parser ) {
-		$this->language = $language;
+	private $cachedInterfaceLanguage = null;
+
+	/**
+	 * @param Parser $parser
+	 * @param ReferenceMessageLocalizer $messageLocalizer
+	 */
+	public function __construct(
+		Parser $parser,
+		ReferenceMessageLocalizer $messageLocalizer
+	) {
 		$this->parser = $parser;
+		$this->messageLocalizer = $messageLocalizer;
 	}
 
 	/**
@@ -50,7 +58,7 @@ class CiteErrorReporter {
 	 * @return-taint tainted
 	 */
 	public function plain( string $key, ...$params ) : string {
-		$msg = wfMessage( $key, ...$params )->inLanguage( $this->language );
+		$msg = $this->messageLocalizer->msg( $key, ...$params );
 
 		if ( strncmp( $msg->getKey(), 'cite_warning_', 13 ) === 0 ) {
 			$type = 'warning';
@@ -64,15 +72,30 @@ class CiteErrorReporter {
 			$this->parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 		}
 
+		$interfaceLanguage = $this->getInterfaceLanguageAndSplitCache();
+
 		return Html::rawElement(
 			'span',
 			[
 				'class' => "$type mw-ext-cite-$type" . $extraClass,
-				'lang' => $this->language->getHtmlCode(),
-				'dir' => $this->language->getDir(),
+				'lang' => $interfaceLanguage->getHtmlCode(),
+				'dir' => $interfaceLanguage->getDir(),
 			],
-			wfMessage( "cite_$type", $msg->plain() )->inLanguage( $this->language )->plain()
+			$this->messageLocalizer->msg( "cite_$type", $msg->plain() )
+				->inLanguage( $interfaceLanguage )->plain()
 		);
+	}
+
+	/**
+	 * Note the startling side effect of splitting ParserCache by user interface language!
+	 *
+	 * @return Language
+	 */
+	private function getInterfaceLanguageAndSplitCache(): Language {
+		if ( $this->cachedInterfaceLanguage === null ) {
+			$this->cachedInterfaceLanguage = $this->parser->getOptions()->getUserLangObj();
+		}
+		return $this->cachedInterfaceLanguage;
 	}
 
 }

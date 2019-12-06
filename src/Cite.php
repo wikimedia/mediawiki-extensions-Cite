@@ -107,12 +107,9 @@ class Cite {
 			$this->mParser = $parser;
 			$this->isPagePreview = $parser->getOptions()->getIsPreview();
 			$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
-			$this->errorReporter = new CiteErrorReporter(
-				$parser->getOptions()->getUserLangObj(),
-				$parser
-			);
-			$this->referenceStack = new ReferenceStack( $this->errorReporter );
 			$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
+			$this->errorReporter = new CiteErrorReporter( $parser, $messageLocalizer );
+			$this->referenceStack = new ReferenceStack( $this->errorReporter );
 			$citeKeyFormatter = new CiteKeyFormatter( $messageLocalizer );
 			$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
 				$this->mParser, $this->errorReporter, $citeKeyFormatter, $messageLocalizer );

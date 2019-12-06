@@ -153,7 +153,7 @@ class Cite {
 			$this->isPagePreview = $parser->getOptions()->getIsPreview();
 			$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 			$this->errorReporter = new CiteErrorReporter(
-				$parser->getOptions()->getUserLangObj(),
+				null,
 				$parser
 			);
 			$this->referenceStack = new ReferenceStack( $this->errorReporter );

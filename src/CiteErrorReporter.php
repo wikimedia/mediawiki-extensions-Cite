@@ -23,11 +23,10 @@ class CiteErrorReporter {
 	private $language;
 
 	/**
-	 * @param Language $language
+	 * @param null $language Unused, for cleaner hotfix deployment.
 	 * @param Parser $parser
 	 */
-	public function __construct( Language $language, Parser $parser ) {
-		$this->language = $language;
+	public function __construct( $language, Parser $parser ) {
 		$this->parser = $parser;
 	}
 
@@ -50,6 +49,11 @@ class CiteErrorReporter {
 	 * @return-taint tainted
 	 */
 	public function plain( $key, ...$params ) {
+		if ( !$this->language ) {
+			// Note the startling side effect of splitting ParserCache by user interface language!
+			$this->language = $this->parser->getOptions()->getUserLangObj();
+		}
+
 		$msg = wfMessage( $key, ...$params )->inLanguage( $this->language );
 
 		if ( strncmp( $msg->getKey(), 'cite_warning_', 13 ) === 0 ) {

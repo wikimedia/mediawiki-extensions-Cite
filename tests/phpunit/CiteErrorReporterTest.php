@@ -6,6 +6,7 @@ use Cite\CiteErrorReporter;
 use Language;
 use MediaWiki\MediaWikiServices;
 use Parser;
+use ParserOptions;
 
 /**
  * @covers \Cite\CiteErrorReporter
@@ -27,14 +28,17 @@ class CiteErrorReporterTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testHtmlError() {
+		$mockOptions = $this->createMock( ParserOptions::class );
+		$mockOptions->method( 'getUserLangObj' )->willReturn( $this->language );
 		$parser = $this->createMock( Parser::class );
 		$parser->expects( $this->once() )
 			->method( 'addTrackingCategory' );
 		$parser->expects( $this->once() )
 			->method( 'recursiveTagParse' )
 			->willReturnArgument( 0 );
+		$parser->method( 'getOptions' )->willReturn( $mockOptions );
 
-		$reporter = new CiteErrorReporter( $this->language, $parser );
+		$reporter = new CiteErrorReporter( null, $parser );
 		$html = $reporter->halfParsed( 'cite_error_example', 'first param' );
 		$this->assertSame(
 			'<span class="error mw-ext-cite-error" lang="qqx" '
@@ -44,13 +48,16 @@ class CiteErrorReporterTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testWikitextWarning() {
+		$mockOptions = $this->createMock( ParserOptions::class );
+		$mockOptions->method( 'getUserLangObj' )->willReturn( $this->language );
 		$parser = $this->createMock( Parser::class );
 		$parser->expects( $this->never() )
 			->method( 'addTrackingCategory' );
 		$parser->expects( $this->never() )
 			->method( 'recursiveTagParse' );
+		$parser->method( 'getOptions' )->willReturn( $mockOptions );
 
-		$reporter = new CiteErrorReporter( $this->language, $parser );
+		$reporter = new CiteErrorReporter( null, $parser );
 		$wikitext = $reporter->plain( 'cite_warning_example', 'first param' );
 		$this->assertSame(
 			'<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" '

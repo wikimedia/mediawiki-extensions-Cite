@@ -44,6 +44,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( $mockOutput );
 		$mockParser->method( 'getStripState' )
 			->willReturn( $this->createMock( StripState::class ) );
+		$mockParser->method( 'getContentLanguage' )
+			->willReturn( $this->createMock( Language::class ) );
 
 		$cite = new Cite();
 		$cite->ref( 'contentA', [ 'name' => 'a' ], $mockParser );

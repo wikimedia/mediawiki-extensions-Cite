@@ -152,10 +152,7 @@ class Cite {
 			$this->mParser = $parser;
 			$this->isPagePreview = $parser->getOptions()->getIsPreview();
 			$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
-			$this->errorReporter = new CiteErrorReporter(
-				$parser->getOptions()->getUserLangObj(),
-				$parser
-			);
+			$this->errorReporter = new CiteErrorReporter( $parser );
 			$this->referenceStack = new ReferenceStack( $this->errorReporter );
 		}
 	}

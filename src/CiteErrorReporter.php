@@ -20,14 +20,14 @@ class CiteErrorReporter {
 	/**
 	 * @var Language
 	 */
-	private $language;
+	private $cachedInterfaceLanguage = null;
 
 	/**
-	 * @param Language $language
 	 * @param Parser $parser
 	 */
-	public function __construct( Language $language, Parser $parser ) {
-		$this->language = $language;
+	public function __construct(
+		Parser $parser
+	) {
 		$this->parser = $parser;
 	}
 
@@ -50,7 +50,8 @@ class CiteErrorReporter {
 	 * @return-taint tainted
 	 */
 	public function plain( $key, ...$params ) {
-		$msg = wfMessage( $key, ...$params )->inLanguage( $this->language );
+		$interfaceLanguage = $this->getInterfaceLanguageAndSplitCache();
+		$msg = wfMessage( $key, ...$params )->inLanguage( $interfaceLanguage );
 
 		if ( strncmp( $msg->getKey(), 'cite_warning_', 13 ) === 0 ) {
 			$type = 'warning';
@@ -68,11 +69,23 @@ class CiteErrorReporter {
 			'span',
 			[
 				'class' => "$type mw-ext-cite-$type" . $extraClass,
-				'lang' => $this->language->getHtmlCode(),
-				'dir' => $this->language->getDir(),
+				'lang' => $interfaceLanguage->getHtmlCode(),
+				'dir' => $interfaceLanguage->getDir(),
 			],
-			wfMessage( "cite_$type", $msg->plain() )->inLanguage( $this->language )->plain()
+			wfMessage( "cite_$type", $msg->plain() )->inLanguage( $interfaceLanguage )->plain()
 		);
+	}
+
+	/**
+	 * Note the startling side effect of splitting ParserCache by user interface language!
+	 *
+	 * @return Language
+	 */
+	private function getInterfaceLanguageAndSplitCache(): Language {
+		if ( $this->cachedInterfaceLanguage === null ) {
+			$this->cachedInterfaceLanguage = $this->parser->getOptions()->getUserLangObj();
+		}
+		return $this->cachedInterfaceLanguage;
 	}
 
 }

@@ -24,10 +24,23 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	}
 
 	/**
-	 * @return Language
+	 * Transliterate numerals, add thousands separators and localize the decimal point.
+	 *
+	 * @param string $number
+	 * @return string
 	 */
-	public function getLanguage(): Language {
-		return $this->language;
+	public function formatNum( string $number ): string {
+		return $this->language->formatNum( $number );
+	}
+
+	/**
+	 * Transliterate numerals, without adding or changing separators.
+	 *
+	 * @param string $number
+	 * @return string
+	 */
+	public function formatNumNoSeparators( string $number ): string {
+		return $this->language->formatNumNoSeparators( $number );
 	}
 
 	/**
@@ -47,4 +60,5 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	public function msg( $key, ...$params ): Message {
 		return wfMessage( $key, ...$params )->inLanguage( $this->language );
 	}
+
 }

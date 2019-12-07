@@ -2,7 +2,6 @@
 
 namespace Cite;
 
-use Language;
 use MediaWikiUnitTestCase;
 use Message;
 use Parser;
@@ -34,13 +33,8 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 			}
 		);
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'getLanguage' )->willReturnCallback(
-			function () {
-				$mockLanguage = $this->createMock( Language::class );
-				$mockLanguage->method( 'formatNum' )->willReturnArgument( 0 );
-				return $mockLanguage;
-			}
-		);
+		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
+		$mockMessageLocalizer->method( 'formatNumNoSeparators' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) use ( $group, $fooLabels ) {
 				$mockMessage = $this->createMock( Message::class );

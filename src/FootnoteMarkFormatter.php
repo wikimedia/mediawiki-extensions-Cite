@@ -64,17 +64,15 @@ class FootnoteMarkFormatter {
 	 * @return string
 	 */
 	public function linkRef( string $group, array $ref ) : string {
-		$language = $this->messageLocalizer->getLanguage();
-
 		$label = $this->getLinkLabel( $group, $ref['number'] );
 		if ( $label === null ) {
-			$label = $language->formatNum( $ref['number'] );
+			$label = $this->messageLocalizer->formatNum( $ref['number'] );
 			if ( $group !== Cite::DEFAULT_GROUP ) {
 				$label = "$group $label";
 			}
 		}
 		if ( isset( $ref['extendsIndex'] ) ) {
-			$label .= '.' . $language->formatNum( $ref['extendsIndex'], true );
+			$label .= '.' . $this->messageLocalizer->formatNumNoSeparators( $ref['extendsIndex'] );
 		}
 
 		$key = $ref['name'] ?? $ref['key'];

@@ -6,7 +6,6 @@ use Cite\CiteErrorReporter;
 use Cite\CiteKeyFormatter;
 use Cite\FootnoteBodyFormatter;
 use Cite\ReferenceMessageLocalizer;
-use Language;
 use MediaWikiUnitTestCase;
 use Message;
 use Parser;
@@ -213,13 +212,7 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 		);
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'getLanguage' )->willReturnCallback(
-			function () {
-				$mockLanguage = $this->createMock( Language::class );
-				$mockLanguage->method( 'formatNum' )->willReturnArgument( 0 );
-				return $mockLanguage;
-			}
-		);
+		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
 				$mockMessage = $this->createMock( Message::class );
@@ -415,12 +408,9 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 	public function testReferencesFormatEntryNumericBacklinkLabel(
 		string $expectedLabel, int $base, int $offset, int $max
 	) {
-		$mockLanguage = $this->createMock( Language::class );
-		$mockLanguage->method( 'formatNum' )->with( $expectedLabel )
-			->willReturnArgument( 0 );
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'getLanguage' )->willReturn( $mockLanguage );
+		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
 			$this->createMock( Parser::class ),
 			$this->createMock( CiteErrorReporter::class ),

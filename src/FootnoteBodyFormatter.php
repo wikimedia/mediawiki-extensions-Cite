@@ -253,7 +253,7 @@ class FootnoteBodyFormatter {
 		int $offset,
 		int $max
 	) : string {
-		return $this->messageLocalizer->getLanguage()->formatNum(
+		return $this->messageLocalizer->formatNum(
 			$base .
 			'.' .
 			str_pad( $offset, strlen( $max ), '0', STR_PAD_LEFT )

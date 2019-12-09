@@ -284,14 +284,14 @@ class ReferenceStack {
 	 * @param string|null $name The name attribute passed in the ref tag.
 	 * @param string|null $extends
 	 * @param string $group
-	 * @param int $index Autoincrement counter for this ref.
+	 * @param int $key Autoincrement counter for this ref.
 	 */
 	private function rollbackRef(
 		string $type,
 		?string $name,
 		?string $extends,
 		string $group,
-		int $index
+		int $key
 	) {
 		if ( !$this->hasGroup( $group ) ) {
 			return;
@@ -302,7 +302,7 @@ class ReferenceStack {
 			// Find anonymous ref by key.
 			foreach ( $this->refs[$group] as $k => $v ) {
 				if ( isset( $this->refs[$group][$k]['key'] ) &&
-					$this->refs[$group][$k]['key'] === $index
+					$this->refs[$group][$k]['key'] === $key
 				) {
 					$lookup = $k;
 					break;
@@ -313,7 +313,7 @@ class ReferenceStack {
 		// Sanity checks that specified element exists.
 		if ( $lookup === null ||
 			!isset( $this->refs[$group][$lookup] ) ||
-			$this->refs[$group][$lookup]['key'] !== $index
+			$this->refs[$group][$lookup]['key'] !== $key
 		) {
 			return;
 		}

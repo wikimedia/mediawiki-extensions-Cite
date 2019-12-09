@@ -244,8 +244,10 @@ class Cite {
 				}
 			}
 
-			if ( preg_match( '/<ref\b[^<]*?>/',
-				preg_replace( '#<([^ ]+?).*?>.*?</\\1 *>|<!--.*?-->#', '', $text ) ) ) {
+			if ( preg_match(
+				'/<ref\b.*?>/i',
+				preg_replace( '#<(\w++).*?>.*?</\1\s*>|<!--.*?-->#s', '', $text )
+			) ) {
 				// (bug T8199) This most likely implies that someone left off the
 				// closing </ref> tag, which will cause the entire article to be
 				// eaten up until the next <ref>.  So we bail out early instead.

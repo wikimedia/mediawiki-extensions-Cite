@@ -25,13 +25,14 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	public function testFormatReferences( array $refs, string $expectedOutput ) {
 		$mockParser = $this->createMock( Parser::class );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
-		/** @var Parser $mockParser */
+
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			function ( $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
+
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
@@ -41,14 +42,14 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 			}
 		);
 
+		/** @var Parser $mockParser */
 		/** @var ErrorReporter $mockErrorReporter */
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
-		/** @var ReferencesFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
+		$formatter = new ReferencesFormatter(
 			$mockErrorReporter,
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
-		) );
+		);
 
 		$output = $formatter->formatReferences( $mockParser, $refs, true, false );
 		$this->assertSame( $expectedOutput, $output );
@@ -169,6 +170,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideCloseIndention
 	 */
 	public function testCloseIndention( $closingLi, $expectedOutput ) {
+		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( ErrorReporter::class ),
 			$this->createMock( AnchorFormatter::class ),

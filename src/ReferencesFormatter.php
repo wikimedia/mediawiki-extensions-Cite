@@ -67,11 +67,36 @@ class ReferencesFormatter {
 			return '';
 		}
 
-		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).
-		// Note: This builds a string of wikitext, not html.
-		$parserInput = "\n";
-		/** @var string|bool $indented */
-		$indented = false;
+		$wikitext = $this->formatRefsList( $parser, $groupRefs, $isSectionPreview );
+
+		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
+		$html = rtrim( $parser->recursiveTagParse( $wikitext ), "\n" );
+
+		if ( $responsive ) {
+			$wrapClasses = [ 'mw-references-wrap' ];
+			if ( count( $groupRefs ) > 10 ) {
+				$wrapClasses[] = 'mw-references-columns';
+			}
+			// Use a DIV wrap because column-count on a list directly is broken in Chrome.
+			// See https://bugs.chromium.org/p/chromium/issues/detail?id=498730.
+			return Html::rawElement( 'div', [ 'class' => $wrapClasses ], $html );
+		}
+
+		return $html;
+	}
+
+	/**
+	 * @param Parser $parser
+	 * @param array[] $groupRefs
+	 * @param bool $isSectionPreview
+	 *
+	 * @return string Wikitext
+	 */
+	private function formatRefsList(
+		Parser $parser,
+		array $groupRefs,
+		bool $isSectionPreview
+	) : string {
 		// After sorting the list, we can assume that references are in the same order as their
 		// numbering.  Subreferences will come immediately after their parent.
 		uasort(
@@ -81,6 +106,12 @@ class ReferencesFormatter {
 				return $cmp ?: ( $a['extendsIndex'] ?? 0 ) - ( $b['extendsIndex'] ?? 0 );
 			}
 		);
+
+		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).
+		// Note: This builds a string of wikitext, not html.
+		$parserInput = "\n";
+		/** @var string|bool $indented */
+		$indented = false;
 		foreach ( $groupRefs as $key => $value ) {
 			// Make sure the parent is not a subreference.
 			// FIXME: Move to a validation function.
@@ -106,21 +137,7 @@ class ReferencesFormatter {
 			$parserInput .= $this->formatListItem( $parser, $key, $value, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
-		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
-		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
-		$ret = rtrim( $parser->recursiveTagParse( $parserInput ), "\n" );
-
-		if ( $responsive ) {
-			// Use a DIV wrap because column-count on a list directly is broken in Chrome.
-			// See https://bugs.chromium.org/p/chromium/issues/detail?id=498730.
-			$wrapClasses = [ 'mw-references-wrap' ];
-			if ( count( $groupRefs ) > 10 ) {
-				$wrapClasses[] = 'mw-references-columns';
-			}
-			$ret = Html::rawElement( 'div', [ 'class' => $wrapClasses ], $ret );
-		}
-
-		return $ret;
+		return Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
 	}
 
 	/**
@@ -137,8 +154,6 @@ class ReferencesFormatter {
 	}
 
 	/**
-	 * Format a single entry for the referencesFormat() function
-	 *
 	 * @param Parser $parser
 	 * @param string|int $key The key of the reference
 	 * @param array $val A single reference as documented at {@see ReferenceStack::$refs}
@@ -219,8 +234,6 @@ class ReferencesFormatter {
 	}
 
 	/**
-	 * Returns formatted reference text
-	 *
 	 * @param string|int $key
 	 * @param ?string $text
 	 * @param bool $isSectionPreview
@@ -297,6 +310,7 @@ class ReferencesFormatter {
 	 * use messages from the content language) I'm rolling my own.
 	 *
 	 * @param string[] $arr The array to format
+	 *
 	 * @return string
 	 */
 	private function listToText( array $arr ) : string {

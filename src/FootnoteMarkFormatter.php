@@ -105,9 +105,12 @@ class FootnoteMarkFormatter {
 			return null;
 		}
 
-		return $this->linkLabels[$group][$number - 1]
-			?? $this->errorReporter->plain(
-				$parser, 'cite_error_no_link_label_group', $group, $message );
+		return $this->linkLabels[$group][$number - 1] ?? $this->errorReporter->plain(
+			$parser,
+			'cite_error_no_link_label_group',
+			$group,
+			$message
+		);
 	}
 
 }

@@ -322,10 +322,12 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		global $wgCiteResponsiveReferences;
 		$wgCiteResponsiveReferences = false;
 
+		/** @var Parser $parser */
+		$parser = $this->createMock( Parser::class );
+
 		$cite = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
-		/** @var ErrorReporter $mockErrorReporter */
 		$spy->errorReporter = $this->createMock( ErrorReporter::class );
 		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
 			function ( $parser, ...$args ) {
@@ -334,11 +336,11 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		);
 		$spy->referencesFormatter = $this->createMock( ReferencesFormatter::class );
 		$spy->referencesFormatter->method( 'formatReferences' )
-			->with( $this->anything(), $this->anything(), $expectedResponsive, false )
+			->with( $parser, [], $expectedResponsive, false )
 			->willReturn( 'references!' );
 		$spy->isSectionPreview = false;
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
-		$spy->referenceStack->method( 'getGroupRefs' )
+		$spy->referenceStack->method( 'popGroup' )
 			->with( $expectedInReferencesGroup )->willReturn( [] );
 		if ( $expectedRollbackCount === 0 ) {
 			$spy->referenceStack->expects( $this->never() )->method( 'rollbackRefs' );
@@ -347,8 +349,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 				->with( $expectedRollbackCount )->willReturn( [ [ [], 't' ] ] );
 		}
 
-		$output = $spy->guardedReferences(
-			$text, $argv, $this->createMock( Parser::class ) );
+		$output = $spy->guardedReferences( $text, $argv, $parser );
 		$this->assertSame( $expectedOutput, $output );
 	}
 

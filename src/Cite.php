@@ -24,6 +24,7 @@
 
 namespace Cite;
 
+use Html;
 use Parser;
 use Sanitizer;
 use StatusValue;
@@ -104,9 +105,15 @@ class Cite {
 		$this->referenceStack = new ReferenceStack( $this->errorReporter );
 		$anchorFormatter = new AnchorFormatter( $messageLocalizer );
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
-			$this->errorReporter, $anchorFormatter, $messageLocalizer );
+			$this->errorReporter,
+			$anchorFormatter,
+			$messageLocalizer
+		);
 		$this->referencesFormatter = new ReferencesFormatter(
-			$this->errorReporter, $anchorFormatter, $messageLocalizer );
+			$this->errorReporter,
+			$anchorFormatter,
+			$messageLocalizer
+		);
 	}
 
 	/**
@@ -314,7 +321,10 @@ class Cite {
 			if ( !$status->isOK() ) {
 				foreach ( $status->getErrors() as $error ) {
 					$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-						$parser, $error['message'], ...$error['params'] );
+						$parser,
+						$error['message'],
+						...$error['params']
+					);
 				}
 			} else {
 				$groupRefs = $this->referenceStack->getGroupRefs( $group );
@@ -326,11 +336,15 @@ class Cite {
 						// adds error message to the original ref
 						// TODO: report these errors the same way as the others, rather than a
 						//  special case to append to the second one's content.
-						$text =
-							$groupRefs[$name]['text'] . ' ' .
-							$this->errorReporter->plain(
-								$parser, 'cite_error_references_duplicate_key', $name );
-						$this->referenceStack->setRefText( $group, $name, $text );
+						$this->referenceStack->setRefText(
+							$group,
+							$name,
+							$groupRefs[$name]['text'] . ' ' . $this->errorReporter->plain(
+								$parser,
+								'cite_error_references_duplicate_key',
+								$name
+							)
+						);
 					}
 				}
 			}
@@ -417,12 +431,7 @@ class Cite {
 		array $argv,
 		Parser $parser
 	) : string {
-		global $wgCiteResponsiveReferences;
-
-		$status = $this->parseArguments(
-			$argv,
-			[ 'group', 'responsive' ]
-		);
+		$status = $this->parseArguments( $argv, [ 'group', 'responsive' ] );
 		[ 'group' => $group, 'responsive' => $responsive ] = $status->getValue();
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
@@ -451,13 +460,6 @@ class Cite {
 			$parser->recursiveTagParse( $text );
 		}
 
-		// FIXME: This feature is not covered by parser tests!
-		if ( isset( $argv['responsive'] ) ) {
-			$responsive = $responsive !== '0';
-		} else {
-			$responsive = $wgCiteResponsiveReferences;
-		}
-
 		if ( !$status->isOK() ) {
 			// Bail out with an error.
 			$error = $status->getErrors()[0];
@@ -482,21 +484,24 @@ class Cite {
 	 *
 	 * @param Parser $parser
 	 * @param string $group
-	 * @param bool $responsive
+	 * @param string|null $responsive Defaults to $wgCiteResponsiveReferences when not set
 	 *
 	 * @return string HTML
 	 */
-	private function formatReferences( Parser $parser, string $group, bool $responsive ) : string {
-		$ret = $this->referencesFormatter->formatReferences(
+	private function formatReferences(
+		Parser $parser,
+		string $group,
+		string $responsive = null
+	) : string {
+		global $wgCiteResponsiveReferences;
+
+		return $this->referencesFormatter->formatReferences(
 			$parser,
-			$this->referenceStack->getGroupRefs( $group ),
-			$responsive,
-			$this->isSectionPreview );
-
-		// done, clean up so we can reuse the group
-		$this->referenceStack->deleteGroup( $group );
-
-		return $ret;
+			$this->referenceStack->popGroup( $group ),
+			// FIXME: The responsive feature is not covered by parser tests!
+			(bool)( $responsive ?? $wgCiteResponsiveReferences ),
+			$this->isSectionPreview
+		);
 	}
 
 	/**
@@ -513,18 +518,10 @@ class Cite {
 	 * @return string HTML
 	 */
 	public function checkRefsNoReferences( Parser $parser, bool $isSectionPreview ) : string {
-		global $wgCiteResponsiveReferences;
-
-		if ( !$this->referenceStack ) {
-			return '';
-		}
-
 		$s = '';
 		foreach ( $this->referenceStack->getGroups() as $group ) {
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-				$this->inReferencesGroup = $group;
-				$s .= $this->formatReferences( $parser, $group, $wgCiteResponsiveReferences );
-				$this->inReferencesGroup = null;
+				$s .= $this->formatReferences( $parser, $group );
 			} else {
 				$s .= "\n<br />" . $this->errorReporter->halfParsed(
 					$parser,
@@ -536,20 +533,24 @@ class Cite {
 		if ( $isSectionPreview && $s !== '' ) {
 			$headerMsg = wfMessage( 'cite_section_preview_references' );
 			if ( !$headerMsg->isDisabled() ) {
-				$s = '<h2 id="mw-ext-cite-cite_section_preview_references_header" >'
-					. $headerMsg->escaped()
-					. '</h2>' . $s;
+				$s = Html::element(
+					'h2',
+					[ 'id' => 'mw-ext-cite-cite_section_preview_references_header' ],
+					$headerMsg->text()
+				) . $s;
 			}
 			// provide a preview of references in its own section
-			$s = "\n" . '<div class="mw-ext-cite-cite_section_preview_references" >' . $s . '</div>';
+			$s = "\n" . Html::rawElement(
+				'div',
+				[ 'class' => 'mw-ext-cite-cite_section_preview_references' ],
+				$s
+			);
 		}
 		return $s;
 	}
 
 	public function __clone() {
-		if ( $this->referenceStack ) {
-			$this->referenceStack = clone $this->referenceStack;
-		}
+		$this->referenceStack = clone $this->referenceStack;
 	}
 
 }

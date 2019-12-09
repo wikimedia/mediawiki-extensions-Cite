@@ -38,7 +38,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 
 		$mockReferenceStack = $this->createMock( ReferenceStack::class );
 		$mockReferenceStack->method( 'getGroups' )->willReturn( array_keys( $initialRefs ) );
-		$mockReferenceStack->method( 'getGroupRefs' )->willReturnCallback( function ( $group ) use (
+		$mockReferenceStack->method( 'popGroup' )->willReturnCallback( function ( $group ) use (
 			$initialRefs
 		) {
 			return $initialRefs[$group];
@@ -89,8 +89,8 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 					]
 				],
 				true,
-				"\n" . '<div class="mw-ext-cite-cite_section_preview_references" >' .
-				'<h2 id="mw-ext-cite-cite_section_preview_references_header" >' .
+				"\n" . '<div class="mw-ext-cite-cite_section_preview_references">' .
+				'<h2 id="mw-ext-cite-cite_section_preview_references_header">' .
 				'(cite_section_preview_references)</h2><references /></div>'
 			],
 			'Named group' => [
@@ -113,8 +113,8 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 					]
 				],
 				true,
-				"\n" . '<div class="mw-ext-cite-cite_section_preview_references" >' .
-				'<h2 id="mw-ext-cite-cite_section_preview_references_header" >' .
+				"\n" . '<div class="mw-ext-cite-cite_section_preview_references">' .
+				'<h2 id="mw-ext-cite-cite_section_preview_references_header">' .
 				'(cite_section_preview_references)</h2><references /></div>'
 			]
 		];

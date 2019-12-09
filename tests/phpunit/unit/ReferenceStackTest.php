@@ -1013,13 +1013,13 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::deleteGroup
+	 * @covers ::popGroup
 	 */
 	public function testRemovals() {
 		$stack = $this->newStack();
 		$stack->refs = [ 'group1' => [], 'group2' => [] ];
 
-		$stack->deleteGroup( 'group1' );
+		$this->assertSame( [], $stack->popGroup( 'group1' ) );
 		$this->assertSame( [ 'group2' => [] ], $stack->refs );
 	}
 

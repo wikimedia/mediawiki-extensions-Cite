@@ -332,7 +332,7 @@ class ReferenceStack {
 				unset( $this->refs[$group][$lookup] );
 				if ( $this->refs[$group] === [] ) {
 					// TODO: Unsetting is unecessary.
-					$this->deleteGroup( $group );
+					$this->popGroup( $group );
 				}
 				// TODO: else, don't we need to decrement groupRefSequence?
 				break;
@@ -354,11 +354,15 @@ class ReferenceStack {
 	 * Clear state for a single group.
 	 *
 	 * @param string $group
+	 *
+	 * @return array[] The references from the removed group
 	 */
-	public function deleteGroup( string $group ) {
+	public function popGroup( string $group ) {
+		$refs = $this->getGroupRefs( $group );
 		unset( $this->refs[$group] );
 		unset( $this->groupRefSequence[$group] );
 		unset( $this->extendsCount[$group] );
+		return $refs;
 	}
 
 	/**

@@ -47,11 +47,11 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		);
 		$mockParser = $this->createMock( Parser::class );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
-		/** @var FootnoteMarkFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
+		$formatter = new FootnoteMarkFormatter(
 			$mockErrorReporter,
 			$anchorFormatter,
-			$mockMessageLocalizer ) );
+			$mockMessageLocalizer
+		);
 
 		$output = $formatter->linkRef( $mockParser, $group, $ref );
 		$this->assertSame( $expectedOutput, $output );
@@ -183,4 +183,5 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		yield [ 'å', 1, 'foo', 'å β' ];
 		yield [ 'cite_error_no_link_label_group|foo|cite_link_label_group-foo', 4, 'foo', 'a b c' ];
 	}
+
 }

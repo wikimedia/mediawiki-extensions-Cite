@@ -253,11 +253,11 @@ class FootnoteBodyFormatter {
 		int $offset,
 		int $max
 	) : string {
-		return $this->messageLocalizer->formatNum(
-			$base .
-			'.' .
-			str_pad( $offset, strlen( $max ), '0', STR_PAD_LEFT )
-		);
+		return $this->messageLocalizer->formatNumNoSeparators( $base ) .
+			$this->messageLocalizer->formatNum(
+				'.' .
+				str_pad( $offset, strlen( $max ), '0', STR_PAD_LEFT )
+			);
 	}
 
 	/**

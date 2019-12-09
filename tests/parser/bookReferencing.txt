@@ -60,6 +60,28 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
+Extended references can be reused
+!! options
+language=de
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a">book</ref>
+<ref extends="a" name="b">page 2</ref>
+<ref name="b" />
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
+</p>
+<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
+<ol class="mw-extended-references"><li id="cite_note-b-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-b_2-0">1.1,0</a></sup> <sup><a href="#cite_ref-b_2-1">1.1,1</a></sup></span> <span class="reference-text">page 2</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+!! test
 T236256 - Naming book references is fine
 !! config
 wgCiteBookReferencing=true
@@ -463,6 +485,8 @@ invalid names, e.g. too many</span>
 #  * This should be invalid, there's no way to know that `footwo` should be subnumbered in a one-pass parse.
 !! test
 Extends <ref> defined in <references> called with #tag
+!! config
+wgCiteBookReferencing=true
 !! wikitext
 <ref name="foo">BAR</ref>
 <ref name="footwo" />
@@ -484,6 +508,8 @@ Extends <ref> defined in <references> called with #tag
 
 !! test
 Extends parent <ref> defined in <references> called with #tag
+!! config
+wgCiteBookReferencing=true
 !! wikitext
 <ref>BAR</ref>
 <ref name="footwo" extends="foo">page 7</ref>
@@ -509,6 +535,8 @@ Extends parent <ref> defined in <references> called with #tag
 
 !! test
 Interleaved extends groups
+!! config
+wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">text-a</ref>
 <ref name="c">text-c</ref>
@@ -536,6 +564,8 @@ Interleaved extends groups
 
 !! test
 Multiple groups with extends
+!! config
+wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">text-a</ref>
 <ref extends="a">page b</ref>
@@ -567,6 +597,8 @@ Multiple groups with extends
 
 !! test
 Multiple groups with extends, duplicated names across groups
+!! config
+wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">text-a</ref>
 <ref extends="a">page b</ref>
@@ -623,6 +655,8 @@ wgCiteBookReferencing=true
 
 !! test
 Normal refs after extends
+!! config
+wgCiteBookReferencing=true
 !! wikitext
 <ref name="a">text-a</ref>
 <ref extends="a">page b</ref>

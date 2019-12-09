@@ -32,7 +32,6 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 				return json_encode( $args );
 			}
 		);
-		/** @var CiteErrorReporter $mockErrorReporter */
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
@@ -42,14 +41,16 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 				return $mockMessage;
 			}
 		);
-		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 
+		/** @var CiteErrorReporter $mockErrorReporter */
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var FootnoteBodyFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
 			$mockParser,
 			$mockErrorReporter,
 			$this->createMock( CiteKeyFormatter::class ),
-			$mockMessageLocalizer ) );
+			$mockMessageLocalizer
+		) );
 
 		$output = $formatter->referencesFormat( $refs, true, false );
 		$this->assertSame( $expectedOutput, $output );
@@ -174,7 +175,8 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 			$this->createMock( Parser::class ),
 			$this->createMock( CiteErrorReporter::class ),
 			$this->createMock( CiteKeyFormatter::class ),
-			$this->createMock( ReferenceMessageLocalizer::class ) ) );
+			$this->createMock( ReferenceMessageLocalizer::class )
+		) );
 
 		$output = $formatter->closeIndention( $closingLi );
 		$this->assertSame( $expectedOutput, $output );
@@ -197,7 +199,6 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 		array $val,
 		string $expectedOutput
 	) {
-		/** @var CiteErrorReporter $mockErrorReporter */
 		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			function ( ...$args ) {
@@ -210,9 +211,9 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 				return $key . '+' . ( $num ?? 'null' );
 			}
 		);
-		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
+		$mockMessageLocalizer->method( 'formatNumNoSeparators' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
 				$mockMessage = $this->createMock( Message::class );
@@ -221,12 +222,16 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 				return $mockMessage;
 			}
 		);
+
+		/** @var CiteErrorReporter $mockErrorReporter */
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var FootnoteBodyFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$mockCiteKeyFormatter,
-			$mockMessageLocalizer ) );
+			$mockMessageLocalizer
+		) );
 
 		$output = $formatter->referencesFormatEntry( $key, $val, false );
 		$this->assertSame( $expectedOutput, $output );
@@ -320,12 +325,14 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 				return json_encode( $args );
 			}
 		);
+
 		/** @var FootnoteBodyFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$this->createMock( CiteKeyFormatter::class ),
-			$this->createMock( ReferenceMessageLocalizer::class ) ) );
+			$this->createMock( ReferenceMessageLocalizer::class )
+		) );
 
 		$output = $formatter->referenceText( $key, $text, $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
@@ -381,12 +388,14 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 		} else {
 			$mockErrorReporter->expects( $this->never() )->method( 'plain' );
 		}
+
 		/** @var FootnoteBodyFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$this->createMock( CiteKeyFormatter::class ),
-			$mockMessageLocalizer ) );
+			$mockMessageLocalizer
+		) );
 
 		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel( $offset );
 		if ( $expectedLabel !== null ) {
@@ -408,14 +417,18 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 	public function testReferencesFormatEntryNumericBacklinkLabel(
 		string $expectedLabel, int $base, int $offset, int $max
 	) {
-		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
+		$mockMessageLocalizer->method( 'formatNumNoSeparators' )->willReturnArgument( 0 );
+
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
+		/** @var FootnoteBodyFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
 			$this->createMock( Parser::class ),
 			$this->createMock( CiteErrorReporter::class ),
 			$this->createMock( CiteKeyFormatter::class ),
-			$mockMessageLocalizer ) );
+			$mockMessageLocalizer
+		) );
 
 		$label = $formatter->referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max );
 		$this->assertSame( $expectedLabel, $label );
@@ -441,12 +454,14 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 				return $mockMessage;
 			}
 		);
+
 		/** @var FootnoteBodyFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
 			$this->createMock( Parser::class ),
 			$this->createMock( CiteErrorReporter::class ),
 			$this->createMock( CiteKeyFormatter::class ),
-			$mockMessageLocalizer ) );
+			$mockMessageLocalizer
+		) );
 		$this->assertSame( $expected, $formatter->listToText( $list ) );
 	}
 

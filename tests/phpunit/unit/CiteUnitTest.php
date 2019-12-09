@@ -22,6 +22,8 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::validateRef
+	 * @covers ::validateRefOutsideOfReferences
+	 * @covers ::validateRefInReferences
 	 * @dataProvider provideValidateRef
 	 */
 	public function testValidateRef(

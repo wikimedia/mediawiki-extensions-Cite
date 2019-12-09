@@ -157,6 +157,8 @@ class ReferenceStack {
 				}
 				$k++;
 			}
+			// TODO: Once this edge case is eliminated, we'll be able to assume that a groupRefs
+			//  array index is constant, preventing O(N) searches.
 			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
 			array_splice( $this->refCallStack, $k, 0,
 				[ [ 'new', $argv, $text, $name, $extends, $group, $this->refSequence ] ] );

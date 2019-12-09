@@ -183,6 +183,7 @@ class ReferenceStack {
 			) {
 				// two refs with same name and different text
 				// add error message to the original ref
+				$this->refs[$group][$name]['text'] = $this->refs[$group][$name]['text'] ?? '';
 				$this->refs[$group][$name]['text'] .= ' ' . $this->errorReporter->plain(
 					'cite_error_references_duplicate_key', $name
 				);
@@ -194,7 +195,9 @@ class ReferenceStack {
 		$count = ( $this->refs[$group][$name]['count'] ?? 0 ) + 1;
 		$this->refs[$group][$name]['count'] = $count;
 		if ( !isset( $this->refs[$group][$name]['number'] ) ) {
-			$this->refs[$group][$name]['number'] = ++$this->groupRefSequence[$group];
+			$seq = ( $this->groupRefSequence[$group] ?? 0 ) + 1;
+			$this->refs[$group][$name]['number'] = $seq;
+			$this->groupRefSequence[$group] = $seq;
 		}
 		return [
 			$name,

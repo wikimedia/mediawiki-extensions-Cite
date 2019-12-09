@@ -12,7 +12,7 @@
 			"Rail"
 		]
 	},
-	"cite-desc": "Dodaje znaczniki <code>&lt;ref[ name=id]&gt;</code> oraz <code>&lt;references/&gt;</code> ułatwiające podawanie źródeł cytatów",
+	"cite-desc": "Dodaje znaczniki <code>&lt;ref&gt;</code> oraz <code>&lt;references&gt;</code> ułatwiające podawanie źródeł cytatów",
 	"cite_error": "Błąd rozszerzenia ''cite'': $1",
 	"cite_error_ref_invalid_dir": "Nieprawidłowy tag <code>&lt;ref&gt;</code>; atrybut dir „$1” jest nieznany. Musi być ltr lub rtl",
 	"cite_error_ref_numeric_key": "Nieprawidłowy znacznik <code>&lt;ref&gt;</code>. Nazwa nie może być liczbą, użyj nazwy opisowej.",

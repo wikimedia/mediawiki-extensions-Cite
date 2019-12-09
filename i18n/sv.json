@@ -14,7 +14,7 @@
 			"GameOn"
 		]
 	},
-	"cite-desc": "Lägger till taggarna <code>&lt;ref[ name=id]&gt;</code> och <code>&lt;references/&gt;</code> för referenser till källor",
+	"cite-desc": "Lägger till märkena <code>&lt;ref&gt;</code> och <code>&lt;references&gt;</code> för referenser till källor",
 	"cite_error": "Referensfel: $1",
 	"cite_error_ref_invalid_dir": "Taggen <code>&lt;ref&gt;</code> är ogiltig; dir-attributen \"$1\" är okänd. Måste vara ltr eller rtl",
 	"cite_error_ref_numeric_key": "Ogiltig <code>&lt;ref&gt;</code>-tagg; parametern 'name' kan inte vara ett tal, använd en beskrivande titel",

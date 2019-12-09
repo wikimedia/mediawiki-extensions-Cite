@@ -13,7 +13,7 @@
 	},
 	"cite-desc": "Voegt <code>&lt;ref[ name=id]&gt;</code>- en <code>&lt;references/&gt;</code>-labels toe voor citaten",
 	"cite_error": "Citefout: $1",
-	"cite_error_ref_invalid_dir": "Ongeldig <code>&lt;ref&gt;</code> element; dir attribuut \"$1\" is onbekend. Dit moet ltr of rtl zijn.",
+	"cite_error_ref_invalid_dir": "Ongeldig <code>dir=\"$1\"</code>, moet <code>ltr</code> of <code>rtl</code> zijn.",
 	"cite_error_ref_numeric_key": "Onjuist label <code>&lt;ref&gt;</code>;\nde naam kan geen eenvoudige integer zijn.\nGebruik een beschrijvende titel",
 	"cite_error_ref_no_key": "Het openingslabel <code>&lt;ref&gt;</code> is onjuist opgemaakt of heeft een verkeerde naam.",
 	"cite_error_ref_too_many_keys": "Onjuist label <code>&lt;ref&gt;</code>;\nonjuiste namen, bijvoorbeeld te veel",

@@ -5,7 +5,7 @@
 			"Yerpo"
 		]
 	},
-	"cite-desc": "Doda etiketi <code>&lt;ref[ name=id]&gt;</code> in <code>&lt;references/&gt;</code> za navajanje",
+	"cite-desc": "Doda oznaki <code>&lt;ref&gt;</code> in <code>&lt;references/&gt;</code> za navajanje",
 	"cite_error": "Napaka pri navajanju: $1",
 	"cite_error_ref_numeric_key": "Neveljavna oznaka <code>&lt;ref&gt;</code>;\nime ne more biti samo število. Uporabite opisni naslov",
 	"cite_error_ref_no_key": "Začetna oznaka <code>&lt;ref&gt;</code> je poškodovana ali ima slabo ime",

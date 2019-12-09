@@ -10,7 +10,7 @@
 			"ديفيد"
 		]
 	},
-	"cite-desc": "يضيف وسمي <code>&lt;ref[ name=id]&gt;</code> و <code>&lt;references/&gt;</code>، للاستشهادات",
+	"cite-desc": "يضيف وسمي <code>&lt;ref&gt;</code> و<code>&lt;references&gt;</code> للاستشهادات",
 	"cite_error": "خطأ استشهاد: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> غير صالح؛ يجب أن يكون <code>ltr</code> أو <code>rtl</code>",
 	"cite_error_ref_numeric_key": "وسم <code>&lt;ref&gt;</code> غير صحيح؛\nالاسم لا يمكن أن يكون عددا صحيحا بسيطا. استخدم عنوانا وصفيا",

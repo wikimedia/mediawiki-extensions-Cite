@@ -4,7 +4,7 @@ namespace Cite\Tests;
 
 use Cite\Cite;
 use Cite\CiteErrorReporter;
-use Cite\FootnoteBodyFormatter;
+use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
 use Wikimedia\TestingAccessWrapper;
 
@@ -48,15 +48,15 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 			}
 		);
 
-		$mockFootnoteBodyFormatter = $this->createMock( FootnoteBodyFormatter::class );
-		$mockFootnoteBodyFormatter->method( 'referencesFormat' )->willReturn( '<references />' );
+		$referencesFormatter = $this->createMock( ReferencesFormatter::class );
+		$referencesFormatter->method( 'formatReferences' )->willReturn( '<references />' );
 
 		$cite = new Cite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->referenceStack = $mockReferenceStack;
 		$spy->errorReporter = $mockErrorReporter;
-		$spy->footnoteBodyFormatter = $mockFootnoteBodyFormatter;
+		$spy->referencesFormatter = $referencesFormatter;
 		$spy->isSectionPreview = $isSectionPreview;
 
 		$output = $cite->checkRefsNoReferences( $isSectionPreview );

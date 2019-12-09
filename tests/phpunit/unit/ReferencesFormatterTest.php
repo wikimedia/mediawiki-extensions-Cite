@@ -4,25 +4,25 @@ namespace Cite\Tests\Unit;
 
 use Cite\CiteErrorReporter;
 use Cite\CiteKeyFormatter;
-use Cite\FootnoteBodyFormatter;
 use Cite\ReferenceMessageLocalizer;
+use Cite\ReferencesFormatter;
 use MediaWikiUnitTestCase;
 use Message;
 use Parser;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \Cite\FootnoteBodyFormatter
+ * @coversDefaultClass \Cite\ReferencesFormatter
  *
  * @license GPL-2.0-or-later
  */
-class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
+class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	/**
 	 * @covers ::__construct
-	 * @covers ::referencesFormat
-	 * @dataProvider provideReferencesFormat
+	 * @covers ::formatReferences
+	 * @dataProvider provideFormatReferences
 	 */
-	public function testReferencesFormat( array $refs, string $expectedOutput ) {
+	public function testFormatReferences( array $refs, string $expectedOutput ) {
 		$mockParser = $this->createMock( Parser::class );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		/** @var Parser $mockParser */
@@ -44,19 +44,19 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 
 		/** @var CiteErrorReporter $mockErrorReporter */
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
-		/** @var FootnoteBodyFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+		/** @var ReferencesFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$mockParser,
 			$mockErrorReporter,
 			$this->createMock( CiteKeyFormatter::class ),
 			$mockMessageLocalizer
 		) );
 
-		$output = $formatter->referencesFormat( $refs, true, false );
+		$output = $formatter->formatReferences( $refs, true, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideReferencesFormat() {
+	public function provideFormatReferences() {
 		return [
 			'Empty' => [
 				[],
@@ -171,7 +171,7 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideCloseIndention
 	 */
 	public function testCloseIndention( $closingLi, $expectedOutput ) {
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$this->createMock( CiteErrorReporter::class ),
 			$this->createMock( CiteKeyFormatter::class ),
@@ -191,10 +191,10 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::referencesFormatEntry
-	 * @dataProvider provideReferencesFormatEntry
+	 * @covers ::formatListItem
+	 * @dataProvider provideFormatListItem
 	 */
-	public function testReferencesFormatEntry(
+	public function testFormatListItem(
 		$key,
 		array $val,
 		string $expectedOutput
@@ -225,19 +225,19 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 
 		/** @var CiteErrorReporter $mockErrorReporter */
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
-		/** @var FootnoteBodyFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+		/** @var ReferencesFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$mockCiteKeyFormatter,
 			$mockMessageLocalizer
 		) );
 
-		$output = $formatter->referencesFormatEntry( $key, $val, false );
+		$output = $formatter->formatListItem( $key, $val, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideReferencesFormatEntry() {
+	public function provideFormatListItem() {
 		return [
 			'Success' => [
 				1,
@@ -326,8 +326,8 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 			}
 		);
 
-		/** @var FootnoteBodyFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+		/** @var ReferencesFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$this->createMock( CiteKeyFormatter::class ),
@@ -389,8 +389,8 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 			$mockErrorReporter->expects( $this->never() )->method( 'plain' );
 		}
 
-		/** @var FootnoteBodyFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+		/** @var ReferencesFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$this->createMock( CiteKeyFormatter::class ),
@@ -422,8 +422,8 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 		$mockMessageLocalizer->method( 'formatNumNoSeparators' )->willReturnArgument( 0 );
 
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
-		/** @var FootnoteBodyFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+		/** @var ReferencesFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$this->createMock( CiteErrorReporter::class ),
 			$this->createMock( CiteKeyFormatter::class ),
@@ -455,8 +455,8 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 			}
 		);
 
-		/** @var FootnoteBodyFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteBodyFormatter(
+		/** @var ReferencesFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$this->createMock( CiteErrorReporter::class ),
 			$this->createMock( CiteKeyFormatter::class ),

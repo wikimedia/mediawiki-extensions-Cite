@@ -4,7 +4,7 @@ namespace Cite\Tests\Unit;
 
 use Cite\Cite;
 use Cite\CiteErrorReporter;
-use Cite\FootnoteBodyFormatter;
+use Cite\ReferencesFormatter;
 use Cite\FootnoteMarkFormatter;
 use Cite\ReferenceStack;
 use MediaWikiUnitTestCase;
@@ -330,8 +330,8 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 				return json_encode( $args );
 			}
 		);
-		$spy->footnoteBodyFormatter = $this->createMock( FootnoteBodyFormatter::class );
-		$spy->footnoteBodyFormatter->method( 'referencesFormat' )
+		$spy->referencesFormatter = $this->createMock( ReferencesFormatter::class );
+		$spy->referencesFormatter->method( 'formatReferences' )
 			->with( $this->anything(), $expectedResponsive, false )->willReturn( 'references!' );
 		$spy->isSectionPreview = false;
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );

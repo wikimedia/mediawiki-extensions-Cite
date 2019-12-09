@@ -8,7 +8,7 @@ use Parser;
 /**
  * @license GPL-2.0-or-later
  */
-class FootnoteBodyFormatter {
+class ReferencesFormatter {
 
 	/**
 	 * The backlinks, in order, to pass as $3 to
@@ -61,9 +61,10 @@ class FootnoteBodyFormatter {
 	 * @param array[] $groupRefs
 	 * @param bool $responsive
 	 * @param bool $isSectionPreview
-	 * @return string
+	 *
+	 * @return string HTML
 	 */
-	public function referencesFormat(
+	public function formatReferences(
 		array $groupRefs,
 		bool $responsive,
 		bool $isSectionPreview
@@ -108,7 +109,7 @@ class FootnoteBodyFormatter {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
-			$parserInput .= $this->referencesFormatEntry( $key, $value, $isSectionPreview ) . "\n";
+			$parserInput .= $this->formatListItem( $key, $value, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
 		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
@@ -147,9 +148,10 @@ class FootnoteBodyFormatter {
 	 * @param string|int $key The key of the reference
 	 * @param array $val A single reference as documented at {@see ReferenceStack::$refs}
 	 * @param bool $isSectionPreview
+	 *
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
-	private function referencesFormatEntry( $key, array $val, bool $isSectionPreview ) : string {
+	private function formatListItem( $key, array $val, bool $isSectionPreview ) : string {
 		$text = $this->referenceText( $key, $val['text'] ?? null, $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';

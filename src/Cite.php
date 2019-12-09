@@ -64,9 +64,9 @@ class Cite {
 	private $footnoteMarkFormatter;
 
 	/**
-	 * @var FootnoteBodyFormatter
+	 * @var ReferencesFormatter
 	 */
-	private $footnoteBodyFormatter;
+	private $referencesFormatter;
 
 	/**
 	 * @var CiteErrorReporter
@@ -116,7 +116,7 @@ class Cite {
 			$citeKeyFormatter = new CiteKeyFormatter( $messageLocalizer );
 			$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
 				$this->mParser, $this->errorReporter, $citeKeyFormatter, $messageLocalizer );
-			$this->footnoteBodyFormatter = new FootnoteBodyFormatter(
+			$this->referencesFormatter = new ReferencesFormatter(
 				$this->mParser, $this->errorReporter, $citeKeyFormatter, $messageLocalizer );
 		}
 	}
@@ -176,7 +176,7 @@ class Cite {
 
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );
 			if ( isset( $groupRefs[$extends]['extends'] ) ) {
-				// TODO: Introduce a specific error for this case, reuse in referencesFormat()!
+				// TODO: Introduce a specific error for this case, reuse in formatReferences()!
 				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
 			}
 		}
@@ -482,7 +482,7 @@ class Cite {
 			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
 		}
 
-		$s = $this->referencesFormat( $this->inReferencesGroup, $responsive );
+		$s = $this->formatReferences( $this->inReferencesGroup, $responsive );
 
 		# Append errors generated while processing <references>
 		if ( $this->mReferencesErrors ) {
@@ -502,8 +502,8 @@ class Cite {
 	 * @param bool $responsive
 	 * @return string HTML ready for output
 	 */
-	private function referencesFormat( string $group, bool $responsive ) : string {
-		$ret = $this->footnoteBodyFormatter->referencesFormat(
+	private function formatReferences( string $group, bool $responsive ) : string {
+		$ret = $this->referencesFormatter->formatReferences(
 			$this->referenceStack->getGroupRefs( $group ), $responsive, $this->isSectionPreview );
 
 		// done, clean up so we can reuse the group
@@ -552,7 +552,7 @@ class Cite {
 			foreach ( $this->referenceStack->getGroups() as $group ) {
 				if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
 					$this->inReferencesGroup = $group;
-					$s .= $this->referencesFormat( $group, $wgCiteResponsiveReferences );
+					$s .= $this->formatReferences( $group, $wgCiteResponsiveReferences );
 					$this->inReferencesGroup = null;
 				} else {
 					$s .= "\n<br />" .

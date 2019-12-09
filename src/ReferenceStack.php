@@ -252,8 +252,8 @@ class ReferenceStack {
 
 			$call = array_pop( $this->refCallStack );
 			if ( $call !== false ) {
-				[ $action, $argv, $text, $name, $extends, $group, $index ] = $call;
-				$this->rollbackRef( $action, $name, $extends, $group, $index );
+				[ $action, $argv, $text, $name, $extends, $group, $key ] = $call;
+				$this->rollbackRef( $action, $name, $extends, $group, $key );
 				$redoStack[] = [ $argv, $text ];
 			}
 		}

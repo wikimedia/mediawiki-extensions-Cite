@@ -20,14 +20,14 @@ class ReferencesFormatter {
 	private $backlinkLabels = null;
 
 	/**
-	 * @var CiteErrorReporter
+	 * @var ErrorReporter
 	 */
 	private $errorReporter;
 
 	/**
-	 * @var CiteKeyFormatter
+	 * @var AnchorFormatter
 	 */
-	private $citeKeyFormatter;
+	private $anchorFormatter;
 
 	/**
 	 * @var Parser
@@ -41,18 +41,18 @@ class ReferencesFormatter {
 
 	/**
 	 * @param Parser $parser
-	 * @param CiteErrorReporter $errorReporter
-	 * @param CiteKeyFormatter $citeKeyFormatter
+	 * @param ErrorReporter $errorReporter
+	 * @param AnchorFormatter $anchorFormatter
 	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
 	public function __construct(
 		Parser $parser,
-		CiteErrorReporter $errorReporter,
-		CiteKeyFormatter $citeKeyFormatter,
+		ErrorReporter $errorReporter,
+		AnchorFormatter $anchorFormatter,
 		ReferenceMessageLocalizer $messageLocalizer
 	) {
 		$this->errorReporter = $errorReporter;
-		$this->citeKeyFormatter = $citeKeyFormatter;
+		$this->anchorFormatter = $anchorFormatter;
 		$this->parser = $parser;
 		$this->messageLocalizer = $messageLocalizer;
 	}
@@ -171,7 +171,7 @@ class ReferencesFormatter {
 		if ( isset( $val['follow'] ) ) {
 			return $this->messageLocalizer->msg(
 				'cite_references_no_link',
-				$this->citeKeyFormatter->getReferencesKey( $val['follow'] ),
+				$this->anchorFormatter->getReferencesKey( $val['follow'] ),
 				$text
 			)->plain();
 		}
@@ -181,14 +181,14 @@ class ReferencesFormatter {
 			// Anonymous, auto-numbered references can't be reused and get marked with a -1.
 			if ( $val['count'] < 0 ) {
 				$id = $val['key'];
-				$backlinkId = $this->citeKeyFormatter->refKey( $val['key'] );
+				$backlinkId = $this->anchorFormatter->refKey( $val['key'] );
 			} else {
 				$id = $key . '-' . $val['key'];
-				$backlinkId = $this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $val['count'] );
+				$backlinkId = $this->anchorFormatter->refKey( $key, $val['key'] . '-' . $val['count'] );
 			}
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
-				$this->citeKeyFormatter->getReferencesKey( $id ),
+				$this->anchorFormatter->getReferencesKey( $id ),
 				$backlinkId,
 				$text . $error,
 				$extraAttributes
@@ -201,7 +201,7 @@ class ReferencesFormatter {
 		for ( $i = 0; $i <= ( $val['count'] ?? -1 ); $i++ ) {
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
-				$this->citeKeyFormatter->refKey( $key, $val['key'] . '-' . $i ),
+				$this->anchorFormatter->refKey( $key, $val['key'] . '-' . $i ),
 				$this->referencesFormatEntryNumericBacklinkLabel(
 					$val['number'] .
 						( isset( $val['extendsIndex'] ) ? '.' . $val['extendsIndex'] : '' ),
@@ -213,7 +213,7 @@ class ReferencesFormatter {
 		}
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
-			$this->citeKeyFormatter->getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) ),
+			$this->anchorFormatter->getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) ),
 			$this->listToText( $backlinks ),
 			$text . $error,
 			$extraAttributes

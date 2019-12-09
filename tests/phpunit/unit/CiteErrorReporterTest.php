@@ -2,7 +2,7 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite\CiteErrorReporter;
+use Cite\ErrorReporter;
 use Cite\ReferenceMessageLocalizer;
 use Language;
 use MediaWikiUnitTestCase;
@@ -11,7 +11,7 @@ use Parser;
 use ParserOptions;
 
 /**
- * @coversDefaultClass \Cite\CiteErrorReporter
+ * @coversDefaultClass \Cite\ErrorReporter
  *
  * @license GPL-2.0-or-later
  */
@@ -62,7 +62,7 @@ class CiteErrorReporterTest extends MediaWikiUnitTestCase {
 		];
 	}
 
-	private function createReporter( array $expectedCategories ) : CiteErrorReporter {
+	private function createReporter( array $expectedCategories ) : ErrorReporter {
 		$mockParser = $this->createMock( Parser::class );
 		foreach ( $expectedCategories as $category ) {
 			$mockParser->method( 'addTrackingCategory' )->with( $category );
@@ -98,7 +98,7 @@ class CiteErrorReporterTest extends MediaWikiUnitTestCase {
 
 		/** @var Parser $mockParser */
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
-		return new CiteErrorReporter( $mockParser, $mockMessageLocalizer );
+		return new ErrorReporter( $mockParser, $mockMessageLocalizer );
 	}
 
 }

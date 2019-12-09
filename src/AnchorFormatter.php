@@ -7,7 +7,7 @@ use Sanitizer;
 /**
  * @license GPL-2.0-or-later
  */
-class CiteKeyFormatter {
+class AnchorFormatter {
 
 	/**
 	 * @var ReferenceMessageLocalizer
@@ -17,9 +17,7 @@ class CiteKeyFormatter {
 	/**
 	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
-	public function __construct(
-		ReferenceMessageLocalizer $messageLocalizer
-	) {
+	public function __construct( ReferenceMessageLocalizer $messageLocalizer ) {
 		$this->messageLocalizer = $messageLocalizer;
 	}
 

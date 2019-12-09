@@ -3,7 +3,7 @@
 namespace Cite\Tests\Unit;
 
 use Cite\Cite;
-use Cite\CiteErrorReporter;
+use Cite\ErrorReporter;
 use Cite\FootnoteMarkFormatter;
 use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
@@ -37,8 +37,8 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		?string $extends,
 		$expected
 	) {
-		/** @var CiteErrorReporter $errorReporter */
-		$errorReporter = $this->createMock( CiteErrorReporter::class );
+		/** @var ErrorReporter $errorReporter */
+		$errorReporter = $this->createMock( ErrorReporter::class );
 		/** @var ReferenceStack $stack */
 		$stack = TestingAccessWrapper::newFromObject( new ReferenceStack( $errorReporter ) );
 		$stack->refs = $referencesStack;
@@ -323,11 +323,11 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		$cite = new Cite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
-		/** @var CiteErrorReporter $mockErrorReporter */
-		$spy->errorReporter = $this->createMock( CiteErrorReporter::class );
+		/** @var ErrorReporter $mockErrorReporter */
+		$spy->errorReporter = $this->createMock( ErrorReporter::class );
 		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
 			function ( ...$args ) {
-				return json_encode( $args );
+				return '(' . implode( '|', $args ) . ')';
 			}
 		);
 		$spy->referencesFormatter = $this->createMock( ReferencesFormatter::class );
@@ -389,7 +389,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 				0,
 				'',
 				false,
-				'["cite_error_references_invalid_parameters"]',
+				'(cite_error_references_invalid_parameters)',
 			],
 			'Contains refs (which are broken)' => [
 				Parser::MARKER_PREFIX . '-ref- and ' . Parser::MARKER_PREFIX . '-notref-',
@@ -397,7 +397,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 				1,
 				'',
 				false,
-				'references!' . "\n" . '["cite_error_references_no_key"]'
+				'references!' . "\n" . '(cite_error_references_no_key)'
 			],
 		];
 	}
@@ -424,15 +424,15 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		$mockParser->method( 'getStripState' )
 			->willReturn( $this->createMock( StripState::class ) );
 
-		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
 			function ( ...$args ) {
-				return json_encode( $args );
+				return '(' . implode( '|', $args ) . ')';
 			}
 		);
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			function ( ...$args ) {
-				return json_encode( $args );
+				return '(' . implode( '|', $args ) . ')';
 			}
 		);
 
@@ -499,7 +499,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 				'',
 				[],
 				'',
-				[ '["cite_error_references_no_key"]' ],
+				[ '(cite_error_references_no_key)' ],
 				[]
 			],
 			'Fallback to references group' => [
@@ -540,7 +540,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 				],
 				null,
 				[],
-				'["cite_error_ref_too_many_keys"]',
+				'(cite_error_ref_too_many_keys)',
 				[],
 				[ false ]
 			],
@@ -577,7 +577,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 				'',
 				[],
 				[
-					[ 'setRefText', '', 'a', 'text-1 ["cite_error_references_duplicate_key","a"]' ]
+					[ 'setRefText', '', 'a', 'text-1 (cite_error_references_duplicate_key|a)' ]
 				]
 			],
 		];
@@ -602,7 +602,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		$cite = new Cite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
-		$spy->errorReporter = $this->createMock( CiteErrorReporter::class );
+		$spy->errorReporter = $this->createMock( ErrorReporter::class );
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
 
 		$spy->guardedRef( 'text', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ], $mockParser );

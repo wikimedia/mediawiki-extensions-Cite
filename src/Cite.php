@@ -68,7 +68,7 @@ class Cite {
 	private $referencesFormatter;
 
 	/**
-	 * @var CiteErrorReporter
+	 * @var ErrorReporter
 	 */
 	private $errorReporter;
 
@@ -107,13 +107,13 @@ class Cite {
 			$this->isPagePreview = $parser->getOptions()->getIsPreview();
 			$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 			$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
-			$this->errorReporter = new CiteErrorReporter( $parser, $messageLocalizer );
+			$this->errorReporter = new ErrorReporter( $parser, $messageLocalizer );
 			$this->referenceStack = new ReferenceStack( $this->errorReporter );
-			$citeKeyFormatter = new CiteKeyFormatter( $messageLocalizer );
+			$anchorFormatter = new AnchorFormatter( $messageLocalizer );
 			$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
-				$this->mParser, $this->errorReporter, $citeKeyFormatter, $messageLocalizer );
+				$this->mParser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
 			$this->referencesFormatter = new ReferencesFormatter(
-				$this->mParser, $this->errorReporter, $citeKeyFormatter, $messageLocalizer );
+				$this->mParser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
 		}
 	}
 

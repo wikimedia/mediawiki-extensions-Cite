@@ -82,14 +82,14 @@ class ReferenceStack {
 
 	/**
 	 * @deprecated We should be able to push this responsibility to calling code.
-	 * @var CiteErrorReporter
+	 * @var ErrorReporter
 	 */
 	private $errorReporter;
 
 	/**
-	 * @param CiteErrorReporter $errorReporter
+	 * @param ErrorReporter $errorReporter
 	 */
-	public function __construct( CiteErrorReporter $errorReporter ) {
+	public function __construct( ErrorReporter $errorReporter ) {
 		$this->errorReporter = $errorReporter;
 	}
 

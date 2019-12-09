@@ -2,7 +2,7 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite\CiteErrorReporter;
+use Cite\ErrorReporter;
 use Cite\ReferenceStack;
 use MediaWikiUnitTestCase;
 use StripState;
@@ -1075,7 +1075,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 	 * @return ReferenceStack
 	 */
 	private function newStack() {
-		$errorReporter = $this->createMock( CiteErrorReporter::class );
+		$errorReporter = $this->createMock( ErrorReporter::class );
 		$errorReporter->method( 'plain' )->willReturnArgument( 0 );
 		$stack = new ReferenceStack( $errorReporter );
 		return TestingAccessWrapper::newFromObject( $stack );

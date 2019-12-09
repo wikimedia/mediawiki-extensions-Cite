@@ -3,7 +3,7 @@
 namespace Cite\Tests;
 
 use Cite\Cite;
-use Cite\CiteErrorReporter;
+use Cite\ErrorReporter;
 use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
 use Wikimedia\TestingAccessWrapper;
@@ -41,7 +41,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 			return $initialRefs[$group];
 		} );
 
-		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
 			function ( ...$args ) {
 				return '(' . implode( '|', $args ) . ')';

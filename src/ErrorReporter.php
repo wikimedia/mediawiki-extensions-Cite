@@ -10,7 +10,7 @@ use Sanitizer;
 /**
  * @license GPL-2.0-or-later
  */
-class CiteErrorReporter {
+class ErrorReporter {
 
 	/**
 	 * @var Parser

@@ -2,8 +2,8 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite\CiteErrorReporter;
-use Cite\CiteKeyFormatter;
+use Cite\AnchorFormatter;
+use Cite\ErrorReporter;
 use Cite\ReferenceMessageLocalizer;
 use Cite\ReferencesFormatter;
 use MediaWikiUnitTestCase;
@@ -26,29 +26,28 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		$mockParser = $this->createMock( Parser::class );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		/** @var Parser $mockParser */
-		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			function ( ...$args ) {
-				return json_encode( $args );
+				return '(' . implode( '|', $args ) . ')';
 			}
 		);
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'plain' )->willReturn(
-					'<li>(' . implode( '|', $args ) . ')</li>' );
-				return $mockMessage;
+				$msg = $this->createMock( Message::class );
+				$msg->method( 'plain' )->willReturn( '<li>(' . implode( '|', $args ) . ')</li>' );
+				return $msg;
 			}
 		);
 
-		/** @var CiteErrorReporter $mockErrorReporter */
+		/** @var ErrorReporter $mockErrorReporter */
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$mockParser,
 			$mockErrorReporter,
-			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 
@@ -126,7 +125,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' . "\n" .
 					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
-					'<span class="reference-text">t1 ["cite_error_ref_too_many_keys"]</span>' .
+					'<span class="reference-text">t1 (cite_error_ref_too_many_keys)</span>' .
 					"\n|)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t2</span>' .
 					"\n|)</li>\n</ol></li>\n" .
@@ -173,8 +172,8 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	public function testCloseIndention( $closingLi, $expectedOutput ) {
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
-			$this->createMock( CiteErrorReporter::class ),
-			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( ErrorReporter::class ),
+			$this->createMock( AnchorFormatter::class ),
 			$this->createMock( ReferenceMessageLocalizer::class )
 		) );
 
@@ -199,37 +198,39 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		array $val,
 		string $expectedOutput
 	) {
-		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			function ( ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
-		$mockCiteKeyFormatter = $this->createMock( CiteKeyFormatter::class );
-		$mockCiteKeyFormatter->method( 'refKey' )->willReturnCallback(
-			function ( $key, $num = null ) {
-				return $key . '+' . ( $num ?? 'null' );
+
+		$anchorFormatter = $this->createMock( AnchorFormatter::class );
+		$anchorFormatter->method( 'refKey' )->willReturnCallback(
+			function ( ...$args ) {
+				return implode( '+', $args );
 			}
 		);
+
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'plain' )->willReturn(
-					'(' . implode( '|', $args ) . ')' );
-				return $mockMessage;
+				$msg = $this->createMock( Message::class );
+				$msg->method( 'plain' )->willReturn( '(' . implode( '|', $args ) . ')' );
+				return $msg;
 			}
 		);
 
-		/** @var CiteErrorReporter $mockErrorReporter */
+		/** @var ErrorReporter $mockErrorReporter */
+		/** @var AnchorFormatter $anchorFormatter */
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
-			$mockCiteKeyFormatter,
+			$anchorFormatter,
 			$mockMessageLocalizer
 		) );
 
@@ -289,7 +290,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 					'number' => 3,
 					'text' => 't',
 				],
-				'(cite_references_link_one||5+null|<span class="reference-text">t</span>' . "\n|)"
+				'(cite_references_link_one||5+|<span class="reference-text">t</span>' . "\n|)"
 			],
 			'Count positive' => [
 				1,
@@ -319,18 +320,19 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		bool $isSectionPreview,
 		string $expectedOutput
 	) {
-		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			function ( ...$args ) {
-				return json_encode( $args );
+				return '(' . implode( '|', $args ) . ')';
 			}
 		);
 
+		/** @var ErrorReporter $mockErrorReporter */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
-			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( AnchorFormatter::class ),
 			$this->createMock( ReferenceMessageLocalizer::class )
 		) );
 
@@ -344,13 +346,13 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 				1,
 				null,
 				false,
-				'["cite_error_references_no_text",1]'
+				'(cite_error_references_no_text|1)'
 			],
 			'No text, is preview' => [
 				1,
 				null,
 				true,
-				'["cite_warning_sectionpreview_no_text",1]'
+				'(cite_warning_sectionpreview_no_text|1)'
 			],
 			'Has text' => [
 				1,
@@ -377,23 +379,25 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		$mockMessage = $this->createMock( Message::class );
 		$mockMessage->method( 'exists' )->willReturn( (bool)$labelList );
 		$mockMessage->method( 'plain' )->willReturn( $labelList ?? '<missing-junk>' );
-		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
+
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )
 			->willReturn( $mockMessage );
-		/** @var CiteErrorReporter $mockErrorReporter */
-		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+
+		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		if ( $expectedLabel === null ) {
 			$mockErrorReporter->expects( $this->once() )->method( 'plain' );
 		} else {
 			$mockErrorReporter->expects( $this->never() )->method( 'plain' );
 		}
 
+		/** @var ErrorReporter $mockErrorReporter */
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
-			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 
@@ -425,8 +429,8 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
-			$this->createMock( CiteErrorReporter::class ),
-			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( ErrorReporter::class ),
+			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 
@@ -448,18 +452,19 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	public function testListToText( array $list, $expected ) {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( $msg ) {
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'plain' )->willReturn( "({$msg})" );
-				return $mockMessage;
+			function ( ...$args ) {
+				$msg = $this->createMock( Message::class );
+				$msg->method( 'plain' )->willReturn( '(' . implode( '|', $args ) . ')' );
+				return $msg;
 			}
 		);
 
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
 			$this->createMock( Parser::class ),
-			$this->createMock( CiteErrorReporter::class ),
-			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( ErrorReporter::class ),
+			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 		$this->assertSame( $expected, $formatter->listToText( $list ) );

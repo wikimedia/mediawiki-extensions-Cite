@@ -19,15 +19,15 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 	public function testLinkRef( string $group, array $ref, string $expectedOutput ) {
 		$fooLabels = 'a b c';
 
-		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			function ( ...$args ) {
 				return implode( '|', $args );
 			}
 		);
-		$mockKeyFormatter = $this->createMock( CiteKeyFormatter::class );
-		$mockKeyFormatter->method( 'getReferencesKey' )->willReturnArgument( 0 );
-		$mockKeyFormatter->method( 'refKey' )->willReturnCallback(
+		$anchorFormatter = $this->createMock( AnchorFormatter::class );
+		$anchorFormatter->method( 'getReferencesKey' )->willReturnArgument( 0 );
+		$anchorFormatter->method( 'refKey' )->willReturnCallback(
 			function ( ...$args ) {
 				return implode( '+', $args );
 			}
@@ -37,18 +37,12 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) use ( $group, $fooLabels ) {
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'isDisabled' )->willReturn( $group !== 'foo' );
-				if ( $args[0] === 'cite_reference_link' ) {
-					$mockMessage->method( 'plain' )->willReturnCallback(
-						function () use ( $args ) {
-							return '(' . implode( '|', $args ) . ')';
-						}
-					);
-				} else {
-					$mockMessage->method( 'plain' )->willReturn( $fooLabels );
-				}
-				return $mockMessage;
+				$msg = $this->createMock( Message::class );
+				$msg->method( 'isDisabled' )->willReturn( $group !== 'foo' );
+				$msg->method( 'plain' )->willReturn( $args[0] === 'cite_reference_link'
+					? '(' . implode( '|', $args ) . ')'
+					: $fooLabels );
+				return $msg;
 			}
 		);
 		$mockParser = $this->createMock( Parser::class );
@@ -57,7 +51,7 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
 			$mockParser,
 			$mockErrorReporter,
-			$mockKeyFormatter,
+			$anchorFormatter,
 			$mockMessageLocalizer ) );
 
 		$output = $formatter->linkRef( $group, $ref );
@@ -157,13 +151,13 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) use ( $labelList ) {
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'isDisabled' )->willReturn( $labelList === null );
-				$mockMessage->method( 'plain' )->willReturn( $labelList );
-				return $mockMessage;
+				$msg = $this->createMock( Message::class );
+				$msg->method( 'isDisabled' )->willReturn( $labelList === null );
+				$msg->method( 'plain' )->willReturn( $labelList );
+				return $msg;
 			}
 		);
-		$mockErrorReporter = $this->createMock( CiteErrorReporter::class );
+		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			function ( ...$args ) {
 				return implode( '|', $args );
@@ -173,7 +167,7 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
 			$this->createMock( Parser::class ),
 			$mockErrorReporter,
-			$this->createMock( CiteKeyFormatter::class ),
+			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer ) );
 
 		$output = $formatter->getLinkLabel( $group, $offset );

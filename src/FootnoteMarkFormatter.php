@@ -21,12 +21,12 @@ class FootnoteMarkFormatter {
 	private $parser;
 
 	/**
-	 * @var CiteKeyFormatter
+	 * @var AnchorFormatter
 	 */
-	private $citeKeyFormatter;
+	private $anchorFormatter;
 
 	/**
-	 * @var CiteErrorReporter
+	 * @var ErrorReporter
 	 */
 	private $errorReporter;
 
@@ -37,18 +37,18 @@ class FootnoteMarkFormatter {
 
 	/**
 	 * @param Parser $parser
-	 * @param CiteErrorReporter $errorReporter
-	 * @param CiteKeyFormatter $citeKeyFormatter
+	 * @param ErrorReporter $errorReporter
+	 * @param AnchorFormatter $anchorFormatter
 	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
 	public function __construct(
 		Parser $parser,
-		CiteErrorReporter $errorReporter,
-		CiteKeyFormatter $citeKeyFormatter,
+		ErrorReporter $errorReporter,
+		AnchorFormatter $anchorFormatter,
 		ReferenceMessageLocalizer $messageLocalizer
 	) {
 		$this->parser = $parser;
-		$this->citeKeyFormatter = $citeKeyFormatter;
+		$this->anchorFormatter = $anchorFormatter;
 		$this->errorReporter = $errorReporter;
 		$this->messageLocalizer = $messageLocalizer;
 	}
@@ -82,8 +82,8 @@ class FootnoteMarkFormatter {
 		return $this->parser->recursiveTagParse(
 			$this->messageLocalizer->msg(
 				'cite_reference_link',
-				$this->citeKeyFormatter->refKey( $key, $count ),
-				$this->citeKeyFormatter->getReferencesKey( $key . $subkey ),
+				$this->anchorFormatter->refKey( $key, $count ),
+				$this->anchorFormatter->getReferencesKey( $key . $subkey ),
 				Sanitizer::safeEncodeAttribute( $label )
 			)->plain()
 		);

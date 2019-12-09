@@ -2,18 +2,18 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite\CiteKeyFormatter;
+use Cite\AnchorFormatter;
 use Cite\ReferenceMessageLocalizer;
 use MediaWikiUnitTestCase;
 use Message;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \Cite\CiteKeyFormatter
+ * @coversDefaultClass \Cite\AnchorFormatter
  *
  * @license GPL-2.0-or-later
  */
-class CiteKeyFormatterTest extends MediaWikiUnitTestCase {
+class AnchorFormatterTest extends MediaWikiUnitTestCase {
 
 	public function setUp() : void {
 		parent::setUp();
@@ -29,21 +29,13 @@ class CiteKeyFormatterTest extends MediaWikiUnitTestCase {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'plain' )->willReturnCallback(
-					function () use ( $args ) {
-						return '(plain:' . implode( '|', $args ) . ')';
-					}
-				);
-				$mockMessage->method( 'text' )->willReturnCallback(
-					function () use ( $args ) {
-						return '(text:' . implode( '|', $args ) . ')';
-					}
-				);
-				return $mockMessage;
+				$msg = $this->createMock( Message::class );
+				$msg->method( 'plain' )->willReturn( '(plain:' . implode( '|', $args ) . ')' );
+				$msg->method( 'text' )->willReturn( '(text:' . implode( '|', $args ) . ')' );
+				return $msg;
 			}
 		);
-		$formatter = new CiteKeyFormatter( $mockMessageLocalizer );
+		$formatter = new AnchorFormatter( $mockMessageLocalizer );
 
 		$this->assertSame(
 			'(text:cite_reference_link_prefix)key(text:cite_reference_link_suffix)',
@@ -61,16 +53,12 @@ class CiteKeyFormatterTest extends MediaWikiUnitTestCase {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'text' )->willReturnCallback(
-					function () use ( $args ) {
-						return '(' . implode( '|', $args ) . ')';
-					}
-				);
-				return $mockMessage;
+				$msg = $this->createMock( Message::class );
+				$msg->method( 'text' )->willReturn( '(' . implode( '|', $args ) . ')' );
+				return $msg;
 			}
 		);
-		$formatter = new CiteKeyFormatter( $mockMessageLocalizer );
+		$formatter = new AnchorFormatter( $mockMessageLocalizer );
 
 		$this->assertSame(
 			'(cite_references_link_prefix)key(cite_references_link_suffix)',
@@ -83,8 +71,8 @@ class CiteKeyFormatterTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideKeyNormalizations
 	 */
 	public function testNormalizeKey( $key, $expected ) {
-		/** @var CiteKeyFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new CiteKeyFormatter(
+		/** @var AnchorFormatter $formatter */
+		$formatter = TestingAccessWrapper::newFromObject( new AnchorFormatter(
 			$this->createMock( ReferenceMessageLocalizer::class ) ) );
 		$this->assertSame( $expected, $formatter->normalizeKey( $key ) );
 	}

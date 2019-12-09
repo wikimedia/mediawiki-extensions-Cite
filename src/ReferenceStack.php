@@ -297,23 +297,23 @@ class ReferenceStack {
 			return;
 		}
 
-		$key = $name;
+		$lookup = $name;
 		if ( $name === null ) {
 			// Find anonymous ref by key.
 			foreach ( $this->refs[$group] as $k => $v ) {
 				if ( isset( $this->refs[$group][$k]['key'] ) &&
 					$this->refs[$group][$k]['key'] === $index
 				) {
-					$key = $k;
+					$lookup = $k;
 					break;
 				}
 			}
 		}
 
 		// Sanity checks that specified element exists.
-		if ( $key === null ||
-			!isset( $this->refs[$group][$key] ) ||
-			$this->refs[$group][$key]['key'] !== $index
+		if ( $lookup === null ||
+			!isset( $this->refs[$group][$lookup] ) ||
+			$this->refs[$group][$lookup]['key'] !== $index
 		) {
 			return;
 		}
@@ -325,7 +325,7 @@ class ReferenceStack {
 		switch ( $type ) {
 			case 'new':
 				# Rollback the addition of new elements to the stack.
-				unset( $this->refs[$group][$key] );
+				unset( $this->refs[$group][$lookup] );
 				if ( $this->refs[$group] === [] ) {
 					// TODO: Unsetting is unecessary.
 					$this->deleteGroup( $group );
@@ -334,12 +334,12 @@ class ReferenceStack {
 				break;
 			case 'assign':
 				# Rollback assignment of text to pre-existing elements.
-				$this->refs[$group][$key]['text'] = null;
-				$this->refs[$group][$key]['count']--;
+				$this->refs[$group][$lookup]['text'] = null;
+				$this->refs[$group][$lookup]['count']--;
 				break;
 			case 'increment':
 				# Rollback increase in named ref occurrences.
-				$this->refs[$group][$key]['count']--;
+				$this->refs[$group][$lookup]['count']--;
 				break;
 			default:
 				throw new \LogicException( "Unknown call stack action \"$type\"" );

@@ -124,9 +124,9 @@ class FootnoteBodyFormatterTest extends MediaWikiUnitTestCase {
 				],
 				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' . "\n" .
-					"|)</li>\n<li>(cite_references_link_many|||" .
-					'<span class="reference-text">t1["cite_error_ref_too_many_keys"]</span>' .
-					"\n" . '|)<ol class="mw-extended-references">' .
+					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
+					'<span class="reference-text">t1 ["cite_error_ref_too_many_keys"]</span>' .
+					"\n|)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t2</span>' .
 					"\n|)</li>\n</ol></li>\n" .
 					'</ol></div>'

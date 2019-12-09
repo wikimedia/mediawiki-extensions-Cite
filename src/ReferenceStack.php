@@ -393,11 +393,11 @@ class ReferenceStack {
 	/**
 	 * Return all references for a group.
 	 *
-	 * @param string $group
+	 * @param ?string $group
 	 * @return array[]
 	 */
-	public function getGroupRefs( string $group ) : array {
-		return $this->refs[$group] ?? [];
+	public function getGroupRefs( ?string $group ) : array {
+		return $this->refs[$group ?? Cite::DEFAULT_GROUP] ?? [];
 	}
 
 	/**

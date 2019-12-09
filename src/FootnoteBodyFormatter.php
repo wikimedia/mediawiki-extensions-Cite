@@ -58,7 +58,7 @@ class FootnoteBodyFormatter {
 	}
 
 	/**
-	 * @param array $groupRefs
+	 * @param array[] $groupRefs
 	 * @param bool $responsive
 	 * @param bool $isSectionPreview
 	 * @return string
@@ -92,8 +92,8 @@ class FootnoteBodyFormatter {
 			if ( isset( $value['extends'] ) &&
 				isset( $groupRefs[$value['extends']]['extends'] )
 			) {
-				unset( $value['extends'] );
-				$value['text'] = ( $value['text'] ?? '' ) .
+				$value['text'] = ( $value['text'] ?? '' ) . ' ' .
+					// TODO: Introduce a specific error for this case; reuse in validateRef()!
 					$this->errorReporter->plain( 'cite_error_ref_too_many_keys' );
 			}
 

@@ -339,6 +339,8 @@ class ReferenceStack {
 				# Rollback increase in named ref occurrences.
 				$this->refs[$group][$key]['count']--;
 				break;
+			default:
+				throw new \LogicException( "Unknown call stack action \"$type\"" );
 		}
 	}
 

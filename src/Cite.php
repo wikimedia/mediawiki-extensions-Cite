@@ -172,10 +172,18 @@ class Cite {
 			return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
 		}
 
-		global $wgCiteBookReferencing;
-		// Temporary feature flag until mainstreamed.  See T236255
-		if ( !$wgCiteBookReferencing && $extends ) {
-			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+		if ( $extends ) {
+			// Temporary feature flag until mainstreamed, see T236255
+			global $wgCiteBookReferencing;
+			if ( !$wgCiteBookReferencing ) {
+				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+			}
+
+			$groupRefs = $this->referenceStack->getGroupRefs( $group );
+			if ( isset( $groupRefs[$extends]['extends'] ) ) {
+				// TODO: Introduce a specific error for this case, reuse in referencesFormat()!
+				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+			}
 		}
 
 		if ( $follow && ( $name || $extends ) ) {

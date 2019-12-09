@@ -220,8 +220,9 @@ class ReferenceStack {
 
 			if ( isset( $this->refs[$group][$extends]['number'] ) ) {
 				// Adopt the parent's number.
-				// TODO: Do we need to roll back the group ref sequence here?
 				$ref['number'] = $this->refs[$group][$extends]['number'];
+				// Roll back the group sequence number.
+				--$this->groupRefSequence[$group];
 			} else {
 				// Transfer my number to parent ref.
 				$this->refs[$group][$extends] = [

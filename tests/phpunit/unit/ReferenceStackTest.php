@@ -695,6 +695,76 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 					[ 'new', [], 'text-b', null, 'a', 'foo', 2 ],
 				]
 			],
+			'Normal after extends' => [
+				[
+					[ 'text-a', 'a', 'foo', null, null, [], 'rtl' ],
+					[ 'text-b', null, 'foo', 'a', null, [], 'rtl' ],
+					[ 'text-c', 'c', 'foo', null, null, [], 'rtl' ],
+				],
+				[
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					[
+						'count' => -1,
+						'dir' => 'rtl',
+						'key' => 2,
+						'name' => null,
+						'text' => 'text-b',
+						'number' => 1,
+						'extends' => 'a',
+						'extendsIndex' => 1,
+					],
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 3,
+						'name' => 'c',
+						'text' => 'text-c',
+						'number' => 2,
+					],
+				],
+				[
+					'foo' => [
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'name' => 'a',
+							'text' => 'text-a',
+							'number' => 1,
+						],
+						0 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 2,
+							'name' => null,
+							'text' => 'text-b',
+							'number' => 1,
+							'extends' => 'a',
+							'extendsIndex' => 1,
+						],
+						'c' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 3,
+							'name' => 'c',
+							'text' => 'text-c',
+							'number' => 2,
+						],
+					]
+				],
+				[
+					[ 'new', [], 'text-a', 'a', null, 'foo', 1 ],
+					[ 'new', [], 'text-b', null, 'a', 'foo', 2 ],
+					[ 'new', [], 'text-c', 'c', null, 'foo', 3 ],
+				]
+			],
 			'Two broken follows' => [
 				[
 					[ 'text-a', 'a', 'foo', null, null, [], 'rtl' ],

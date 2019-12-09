@@ -621,7 +621,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: Third reference should have number "2"
 !! test
 Normal refs after extends
 !! wikitext
@@ -633,7 +632,7 @@ Normal refs after extends
 !! html
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 <sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
-</p><p><sup id="cite_ref-c_3-0" class="reference"><a href="#cite_note-c-3">&#91;3&#93;</a></sup>
+</p><p><sup id="cite_ref-c_3-0" class="reference"><a href="#cite_note-c-3">&#91;2&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">text-a</span>

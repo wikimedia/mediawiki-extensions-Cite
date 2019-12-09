@@ -394,8 +394,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error at the second reference.
 !! test
 T236256 - Can't be a follow up and a book reference the same time
 !! config
@@ -415,8 +413,6 @@ invalid names, e.g. too many</span>
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error at the third reference.
 !! test
 T236256 - Can't be a follow up and a book reference the same time, even when referencing 2 different bases
 !! config

@@ -176,6 +176,7 @@ class ReferenceStack {
 			$action = 'assign';
 		} else {
 			if ( $text != null && $text !== ''
+				&& isset( $this->refs[$group][$name]['text'] )
 				// T205803 different strip markers might hide the same text
 				&& $stripState->unstripBoth( $text )
 				!== $stripState->unstripBoth( $this->refs[$group][$name]['text'] )
@@ -189,12 +190,17 @@ class ReferenceStack {
 			$action = 'increment';
 		}
 		$this->refCallStack[] = [ $action, $argv, $text, $name, $group,
-			$this->refs[$group][$name]['key'] ];
+			$this->refs[$group][$name]['key'] ?? null ];
+		$count = ( $this->refs[$group][$name]['count'] ?? 0 ) + 1;
+		$this->refs[$group][$name]['count'] = $count;
+		if ( !isset( $this->refs[$group][$name]['number'] ) ) {
+			$this->refs[$group][$name]['number'] = ++$this->groupRefSequence[$group];
+		}
 		return [
 			$name,
-			$this->refs[$group][$name]['key'] . "-" . ++$this->refs[$group][$name]['count'],
-			$this->refs[$group][$name]['number'] ?? ++$this->groupRefSequence[$group],
-			"-" . $this->refs[$group][$name]['key']
+			( $this->refs[$group][$name]['key'] ?? '' ) . "-" . $count,
+			$this->refs[$group][$name]['number'],
+			"-" . ( $this->refs[$group][$name]['key'] ?? '' )
 		];
 	}
 
@@ -263,8 +269,7 @@ class ReferenceStack {
 
 		// Sanity checks that specified element exists.
 		if ( $key === null ||
-			!isset( $this->refs[$group][$key] ) ||
-			$this->refs[$group][$key]['key'] !== $index
+			( $this->refs[$group][$key]['key'] ?? null ) !== $index
 		) {
 			return;
 		}

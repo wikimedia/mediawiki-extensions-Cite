@@ -632,12 +632,12 @@ class Cite {
 			$backlinks[] = wfMessage(
 				'cite_references_link_many_format',
 				$this->normalizeKey(
-					$this->refKey( $key, $val['key'] . '-' . $i )
+					$this->refKey( $key, ( $val['key'] ?? '' ) . '-' . $i )
 				),
 				$this->referencesFormatEntryNumericBacklinkLabel(
-					$val['number'],
+					$val['number'] ?? '',
 					$i,
-					$val['count']
+					$val['count'] ?? ''
 				),
 				$this->referencesFormatEntryAlternateBacklinkLabel( $i )
 			)->inContentLanguage()->plain();

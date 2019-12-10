@@ -24,7 +24,6 @@
 
 namespace Cite;
 
-use Exception;
 use Parser;
 use Sanitizer;
 use StatusValue;
@@ -287,8 +286,7 @@ class Cite {
 	 * @param string[] $argv Arguments
 	 * @param Parser $parser
 	 *
-	 * @throws Exception
-	 * @return string
+	 * @return string HTML
 	 */
 	private function guardedRef(
 		?string $text,
@@ -428,7 +426,7 @@ class Cite {
 	 * @param string[] $argv
 	 * @param Parser $parser
 	 *
-	 * @return string
+	 * @return string HTML
 	 */
 	private function guardedReferences(
 		?string $text,
@@ -500,7 +498,8 @@ class Cite {
 	 *
 	 * @param string $group
 	 * @param bool $responsive
-	 * @return string HTML ready for output
+	 *
+	 * @return string HTML
 	 */
 	private function formatReferences( string $group, bool $responsive ) : string {
 		$ret = $this->referencesFormatter->formatReferences(
@@ -540,27 +539,27 @@ class Cite {
 	 * references tags and does not add the errors.
 	 *
 	 * @param bool $isSectionPreview
-	 * @return string
+	 *
+	 * @return string HTML
 	 */
-	public function checkRefsNoReferences(
-		bool $isSectionPreview
-	) : string {
+	public function checkRefsNoReferences( bool $isSectionPreview ) : string {
 		global $wgCiteResponsiveReferences;
 
+		if ( !$this->referenceStack ) {
+			return '';
+		}
+
 		$s = '';
-		if ( $this->referenceStack ) {
-			foreach ( $this->referenceStack->getGroups() as $group ) {
-				if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-					$this->inReferencesGroup = $group;
-					$s .= $this->formatReferences( $group, $wgCiteResponsiveReferences );
-					$this->inReferencesGroup = null;
-				} else {
-					$s .= "\n<br />" .
-						$this->errorReporter->halfParsed(
-							'cite_error_group_refs_without_references',
-							Sanitizer::safeEncodeAttribute( $group )
-						);
-				}
+		foreach ( $this->referenceStack->getGroups() as $group ) {
+			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
+				$this->inReferencesGroup = $group;
+				$s .= $this->formatReferences( $group, $wgCiteResponsiveReferences );
+				$this->inReferencesGroup = null;
+			} else {
+				$s .= "\n<br />" . $this->errorReporter->halfParsed(
+					'cite_error_group_refs_without_references',
+					Sanitizer::safeEncodeAttribute( $group )
+				);
 			}
 		}
 		if ( $isSectionPreview && $s !== '' ) {

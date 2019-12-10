@@ -281,14 +281,14 @@ class ReferenceStack {
 	 * counters remain incremented.  Doing so prevents accidentally
 	 * corrupting certain links.
 	 *
-	 * @param string $type
+	 * @param string $action
 	 * @param string|null $name The name attribute passed in the ref tag.
 	 * @param string|null $extends
 	 * @param string $group
 	 * @param int $index Autoincrement counter for this ref.
 	 */
 	private function rollbackRef(
-		string $type,
+		string $action,
 		?string $name,
 		?string $extends,
 		string $group,
@@ -323,7 +323,7 @@ class ReferenceStack {
 			$this->extendsCount[$group][$extends]--;
 		}
 
-		switch ( $type ) {
+		switch ( $action ) {
 			case 'new':
 				# Rollback the addition of new elements to the stack.
 				unset( $this->refs[$group][$key] );
@@ -343,7 +343,7 @@ class ReferenceStack {
 				$this->refs[$group][$key]['count']--;
 				break;
 			default:
-				throw new \LogicException( "Unknown call stack action \"$type\"" );
+				throw new \LogicException( "Unknown call stack action \"$action\"" );
 		}
 	}
 

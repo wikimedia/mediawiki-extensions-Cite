@@ -24,14 +24,14 @@ class ReferenceMessageLocalizerUnitTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::formatNumNoSeparators
+	 * @covers ::localizeDigits
 	 */
-	public function testFormatNumNoSeparators() {
+	public function testLocalizeDigits() {
 		$mockLanguage = $this->createMock( Language::class );
 		$mockLanguage->method( 'formatNumNoSeparators' )->willReturn( 'ה' );
 		/** @var Language $mockLanguage */
 		$messageLocalizer = new ReferenceMessageLocalizer( $mockLanguage );
-		$this->assertSame( 'ה', $messageLocalizer->formatNumNoSeparators( '5' ) );
+		$this->assertSame( 'ה', $messageLocalizer->localizeDigits( '5' ) );
 	}
 
 }

@@ -11,6 +11,7 @@ use MessageSpecifier;
  * Interface abstracts everything a Cite needs to do with languages.
  */
 class ReferenceMessageLocalizer implements MessageLocalizer {
+
 	/**
 	 * @var Language
 	 */
@@ -27,6 +28,7 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	 * Transliterate numerals, add thousands separators and localize the decimal point.
 	 *
 	 * @param string $number
+	 *
 	 * @return string
 	 */
 	public function formatNum( string $number ): string {
@@ -37,9 +39,10 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	 * Transliterate numerals, without adding or changing separators.
 	 *
 	 * @param string $number
+	 *
 	 * @return string
 	 */
-	public function formatNumNoSeparators( string $number ): string {
+	public function localizeDigits( string $number ): string {
 		return $this->language->formatNumNoSeparators( $number );
 	}
 
@@ -55,6 +58,7 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	 * @param string|string[]|MessageSpecifier $key Message key, or array of keys,
 	 *   or a MessageSpecifier.
 	 * @param mixed ...$params Normal message parameters
+	 *
 	 * @return Message
 	 */
 	public function msg( $key, ...$params ): Message {

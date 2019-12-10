@@ -72,7 +72,7 @@ class FootnoteMarkFormatter {
 			}
 		}
 		if ( isset( $ref['extendsIndex'] ) ) {
-			$label .= '.' . $this->messageLocalizer->formatNumNoSeparators( $ref['extendsIndex'] );
+			$label .= '.' . $this->messageLocalizer->localizeDigits( $ref['extendsIndex'] );
 		}
 
 		$key = $ref['name'] ?? $ref['key'];

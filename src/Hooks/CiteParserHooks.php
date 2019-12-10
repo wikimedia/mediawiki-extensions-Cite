@@ -18,7 +18,7 @@ class CiteParserHooks {
 	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
 		$parser->extCite = new Cite();
-		CiteParserTagHooks::initialize( $parser );
+		CiteParserTagHooks::register( $parser );
 	}
 
 	/**
@@ -44,7 +44,7 @@ class CiteParserHooks {
 		$cite = $parser->extCite;
 		$cite->clearState( 'force' );
 
-		CiteParserTagHooks::initialize( $parser );
+		CiteParserTagHooks::register( $parser );
 	}
 
 	/**

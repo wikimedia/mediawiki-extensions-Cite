@@ -576,4 +576,10 @@ class Cite {
 		return $s;
 	}
 
+	public function __clone() {
+		if ( $this->referenceStack ) {
+			$this->referenceStack = clone $this->referenceStack;
+		}
+	}
+
 }

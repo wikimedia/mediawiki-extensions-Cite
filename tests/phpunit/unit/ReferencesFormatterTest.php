@@ -6,7 +6,6 @@ use Cite\AnchorFormatter;
 use Cite\ErrorReporter;
 use Cite\ReferenceMessageLocalizer;
 use Cite\ReferencesFormatter;
-use MediaWikiUnitTestCase;
 use Message;
 use Parser;
 use Wikimedia\TestingAccessWrapper;
@@ -16,7 +15,8 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @license GPL-2.0-or-later
  */
-class ReferencesFormatterTest extends MediaWikiUnitTestCase {
+class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
+
 	/**
 	 * @covers ::__construct
 	 * @covers ::formatReferences

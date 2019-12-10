@@ -4,7 +4,6 @@ namespace Cite\Tests\Unit;
 
 use Cite\AnchorFormatter;
 use Cite\ReferenceMessageLocalizer;
-use MediaWikiUnitTestCase;
 use Message;
 use Wikimedia\TestingAccessWrapper;
 
@@ -13,7 +12,7 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @license GPL-2.0-or-later
  */
-class AnchorFormatterTest extends MediaWikiUnitTestCase {
+class AnchorFormatterTest extends \MediaWikiUnitTestCase {
 
 	public function setUp() : void {
 		parent::setUp();

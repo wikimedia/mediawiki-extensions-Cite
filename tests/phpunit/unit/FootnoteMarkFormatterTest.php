@@ -1,8 +1,11 @@
 <?php
 
-namespace Cite;
+namespace Cite\Tests;
 
-use MediaWikiUnitTestCase;
+use Cite\AnchorFormatter;
+use Cite\ErrorReporter;
+use Cite\FootnoteMarkFormatter;
+use Cite\ReferenceMessageLocalizer;
 use Message;
 use Parser;
 use Wikimedia\TestingAccessWrapper;
@@ -10,7 +13,8 @@ use Wikimedia\TestingAccessWrapper;
 /**
  * @coversDefaultClass \Cite\FootnoteMarkFormatter
  */
-class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
+class FootnoteMarkFormatterTest extends \MediaWikiUnitTestCase {
+
 	/**
 	 * @covers ::linkRef
 	 * @covers ::__construct
@@ -166,7 +170,8 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
 			$mockErrorReporter,
 			$this->createMock( AnchorFormatter::class ),
-			$mockMessageLocalizer ) );
+			$mockMessageLocalizer
+		) );
 
 		$output = $formatter->getLinkLabel(
 			$this->createMock( Parser::class ), $group, $offset );

@@ -1,14 +1,14 @@
 <?php
 
-namespace Cite;
+namespace Cite\Tests;
 
+use Cite\ReferenceMessageLocalizer;
 use LanguageQqx;
-use MediaWikiIntegrationTestCase;
 
 /**
  * @coversDefaultClass \Cite\ReferenceMessageLocalizer
  */
-class ReferenceMessageLocalizerTest extends MediaWikiIntegrationTestCase {
+class ReferenceMessageLocalizerTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::msg

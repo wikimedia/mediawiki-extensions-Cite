@@ -5,7 +5,6 @@ namespace Cite\Tests\Unit;
 use Cite\ErrorReporter;
 use Cite\ReferenceMessageLocalizer;
 use Language;
-use MediaWikiUnitTestCase;
 use Message;
 use Parser;
 use ParserOptions;
@@ -15,7 +14,7 @@ use ParserOptions;
  *
  * @license GPL-2.0-or-later
  */
-class ErrorReporterTest extends MediaWikiUnitTestCase {
+class ErrorReporterTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::plain

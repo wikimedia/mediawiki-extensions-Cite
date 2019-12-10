@@ -4,12 +4,11 @@ namespace Cite\Tests\Unit;
 
 use Cite\ReferenceMessageLocalizer;
 use Language;
-use MediaWikiUnitTestCase;
 
 /**
  * @coversDefaultClass \Cite\ReferenceMessageLocalizer
  */
-class ReferenceMessageLocalizerUnitTest extends MediaWikiUnitTestCase {
+class ReferenceMessageLocalizerUnitTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::formatNum

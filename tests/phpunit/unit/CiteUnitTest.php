@@ -8,7 +8,6 @@ use Cite\FootnoteMarkFormatter;
 use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
 use Language;
-use MediaWikiUnitTestCase;
 use Parser;
 use ParserOptions;
 use ParserOutput;
@@ -20,7 +19,7 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @license GPL-2.0-or-later
  */
-class CiteUnitTest extends MediaWikiUnitTestCase {
+class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::validateRef

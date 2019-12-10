@@ -4,7 +4,6 @@ namespace Cite\Tests\Unit;
 
 use Cite\ErrorReporter;
 use Cite\ReferenceStack;
-use MediaWikiUnitTestCase;
 use Parser;
 use StripState;
 use Wikimedia\TestingAccessWrapper;
@@ -14,7 +13,7 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @license GPL-2.0-or-later
  */
-class ReferenceStackTest extends MediaWikiUnitTestCase {
+class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::__construct

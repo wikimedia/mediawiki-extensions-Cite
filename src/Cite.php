@@ -986,4 +986,10 @@ class Cite {
 		$parserOutput->setExtensionData( self::EXT_DATA_KEY, $savedRefs );
 	}
 
+	public function __clone() {
+		if ( $this->referenceStack ) {
+			$this->referenceStack = clone $this->referenceStack;
+		}
+	}
+
 }

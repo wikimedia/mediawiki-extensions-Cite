@@ -350,7 +350,7 @@ class ReferenceStack {
 	 * @return array[]
 	 */
 	public function getGroupRefs( $group ) : array {
-		return $this->refs[$group];
+		return $this->refs[$group] ?? [];
 	}
 
 	/**

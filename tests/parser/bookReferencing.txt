@@ -81,6 +81,29 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
+# TODO: The two identical tags should be merged into one
+!! test
+T240459 - References should be merged when they have the exact same content
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a">book</ref>
+<ref extends="a">page 2</ref>
+<ref extends="a">page 2</ref>
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+</p>
+<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;1.2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
+<ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 2</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">page 2</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
 !! test
 T236256 - Naming book references is fine
 !! config

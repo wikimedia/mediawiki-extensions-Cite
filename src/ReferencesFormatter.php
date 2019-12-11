@@ -255,7 +255,7 @@ class ReferencesFormatter {
 		int $offset,
 		int $max
 	) : string {
-		return $this->messageLocalizer->formatNumNoSeparators( $base ) .
+		return $this->messageLocalizer->localizeDigits( $base ) .
 			$this->messageLocalizer->formatNum(
 				'.' .
 				str_pad( $offset, strlen( $max ), '0', STR_PAD_LEFT )

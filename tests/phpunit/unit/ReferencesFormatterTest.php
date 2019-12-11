@@ -213,7 +213,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		);
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
-		$mockMessageLocalizer->method( 'formatNumNoSeparators' )->willReturnArgument( 0 );
+		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
 				$mockMessage = $this->createMock( Message::class );
@@ -419,7 +419,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	) {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
-		$mockMessageLocalizer->method( 'formatNumNoSeparators' )->willReturnArgument( 0 );
+		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
 
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */

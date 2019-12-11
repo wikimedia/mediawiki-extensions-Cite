@@ -16,9 +16,9 @@ class CiteParserTagHooks {
 	 *
 	 * @param Parser $parser
 	 */
-	public static function initialize( Parser $parser ) {
-		$parser->setHook( 'ref', __CLASS__ . '::ref' );
-		$parser->setHook( 'references', __CLASS__ . '::references' );
+	public static function register( Parser $parser ) {
+		$parser->setHook( 'ref', [ __CLASS__, 'ref' ] );
+		$parser->setHook( 'references', [ __CLASS__, 'references' ] );
 	}
 
 	/**
@@ -34,7 +34,6 @@ class CiteParserTagHooks {
 	public static function ref( $content, array $attributes, Parser $parser, PPFrame $frame ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		// @phan-suppress-next-line SecurityCheck-XSS False positive
 		$result = $cite->ref( $content, $attributes, $parser );
 
 		if ( $result === false ) {
@@ -46,6 +45,7 @@ class CiteParserTagHooks {
 		$parserOutput->addModuleStyles( 'ext.cite.styles' );
 
 		$frame->setVolatile();
+		// @phan-suppress-next-line SecurityCheck-XSS False positive
 		return $result;
 	}
 
@@ -62,7 +62,6 @@ class CiteParserTagHooks {
 	public static function references( $content, array $attributes, Parser $parser, PPFrame $frame ) {
 		/** @var Cite $cite */
 		$cite = $parser->extCite;
-		// @phan-suppress-next-line SecurityCheck-XSS False positive
 		$result = $cite->references( $content, $attributes, $parser );
 
 		if ( $result === false ) {
@@ -73,6 +72,7 @@ class CiteParserTagHooks {
 		}
 
 		$frame->setVolatile();
+		// @phan-suppress-next-line SecurityCheck-XSS False positive
 		return $result;
 	}
 

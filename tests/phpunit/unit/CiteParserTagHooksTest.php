@@ -16,9 +16,9 @@ use PPFrame;
 class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 
 	/**
-	 * @covers ::initialize
+	 * @covers ::register
 	 */
-	public function testInitialize() {
+	public function testRegister() {
 		$parser = $this->createMock( Parser::class );
 		$parser->expects( $this->exactly( 2 ) )
 			->method( 'setHook' )
@@ -27,7 +27,7 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 				[ 'references', $this->isType( 'callable' ) ]
 			);
 
-		CiteParserTagHooks::initialize( $parser );
+		CiteParserTagHooks::register( $parser );
 	}
 
 	/**

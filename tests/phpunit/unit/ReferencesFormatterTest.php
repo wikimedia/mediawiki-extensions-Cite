@@ -45,13 +45,12 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
-			$mockParser,
 			$mockErrorReporter,
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 
-		$output = $formatter->formatReferences( $refs, true, false );
+		$output = $formatter->formatReferences( $mockParser, $refs, true, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -171,7 +170,6 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	 */
 	public function testCloseIndention( $closingLi, $expectedOutput ) {
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
-			$this->createMock( Parser::class ),
 			$this->createMock( ErrorReporter::class ),
 			$this->createMock( AnchorFormatter::class ),
 			$this->createMock( ReferenceMessageLocalizer::class )
@@ -226,9 +224,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		/** @var ErrorReporter $mockErrorReporter */
 		/** @var AnchorFormatter $anchorFormatter */
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
-		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
-			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$anchorFormatter,
 			$mockMessageLocalizer
@@ -330,7 +326,6 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		/** @var ErrorReporter $mockErrorReporter */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
-			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$this->createMock( AnchorFormatter::class ),
 			$this->createMock( ReferenceMessageLocalizer::class )
@@ -395,7 +390,6 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
-			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
@@ -428,7 +422,6 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
-			$this->createMock( Parser::class ),
 			$this->createMock( ErrorReporter::class ),
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
@@ -462,7 +455,6 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
-			$this->createMock( Parser::class ),
 			$this->createMock( ErrorReporter::class ),
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer

@@ -106,7 +106,7 @@ class Cite {
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
 			$this->errorReporter, $anchorFormatter, $messageLocalizer );
 		$this->referencesFormatter = new ReferencesFormatter(
-			$parser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
+			$this->errorReporter, $anchorFormatter, $messageLocalizer );
 	}
 
 	/**
@@ -466,7 +466,7 @@ class Cite {
 			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
 		}
 
-		$s = $this->formatReferences( $this->inReferencesGroup, $responsive );
+		$s = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive );
 
 		# Append errors generated while processing <references>
 		if ( $this->mReferencesErrors ) {
@@ -482,14 +482,18 @@ class Cite {
 	 * If called outside of references(), caller is responsible for ensuring
 	 * `mInReferences` is enabled before the call and disabled after call.
 	 *
+	 * @param Parser $parser
 	 * @param string $group
 	 * @param bool $responsive
 	 *
 	 * @return string HTML
 	 */
-	private function formatReferences( string $group, bool $responsive ) : string {
+	private function formatReferences( Parser $parser, string $group, bool $responsive ) : string {
 		$ret = $this->referencesFormatter->formatReferences(
-			$this->referenceStack->getGroupRefs( $group ), $responsive, $this->isSectionPreview );
+			$parser,
+			$this->referenceStack->getGroupRefs( $group ),
+			$responsive,
+			$this->isSectionPreview );
 
 		// done, clean up so we can reuse the group
 		$this->referenceStack->deleteGroup( $group );
@@ -505,11 +509,12 @@ class Cite {
 	 * If we are processing a section preview, this adds the missing
 	 * references tags and does not add the errors.
 	 *
+	 * @param Parser $parser
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string HTML
 	 */
-	public function checkRefsNoReferences( bool $isSectionPreview ) : string {
+	public function checkRefsNoReferences( Parser $parser, bool $isSectionPreview ) : string {
 		global $wgCiteResponsiveReferences;
 
 		if ( !$this->referenceStack ) {
@@ -520,7 +525,7 @@ class Cite {
 		foreach ( $this->referenceStack->getGroups() as $group ) {
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
 				$this->inReferencesGroup = $group;
-				$s .= $this->formatReferences( $group, $wgCiteResponsiveReferences );
+				$s .= $this->formatReferences( $parser, $group, $wgCiteResponsiveReferences );
 				$this->inReferencesGroup = null;
 			} else {
 				$s .= "\n<br />" . $this->errorReporter->halfParsed(

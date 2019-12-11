@@ -334,7 +334,8 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		);
 		$spy->referencesFormatter = $this->createMock( ReferencesFormatter::class );
 		$spy->referencesFormatter->method( 'formatReferences' )
-			->with( $this->anything(), $expectedResponsive, false )->willReturn( 'references!' );
+			->with( $this->anything(), $this->anything(), $expectedResponsive, false )
+			->willReturn( 'references!' );
 		$spy->isSectionPreview = false;
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
 		$spy->referenceStack->method( 'getGroupRefs' )

@@ -29,38 +29,19 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 			);
 
 		CiteParserHooks::onParserFirstCallInit( $parser );
-
-		$this->assertInstanceOf( Cite::class, $parser->extCite );
 	}
 
 	/**
-	 * @covers ::onParserClearState
-	 */
-	public function testOnParserClearState() {
-		$cite = $this->createMock( Cite::class );
-		$cite->expects( $this->once() )
-			->method( 'clearState' );
-
-		$parser = $this->createMock( Parser::class );
-		$parser->extCite = $cite;
-
-		CiteParserHooks::onParserClearState( $parser );
-	}
-
-	/**
-	 * @covers ::onParserCloned
+	 * @covers ::onParserClearStateOrCloned
 	 */
 	public function testOnParserCloned() {
-		$cite = $this->createMock( Cite::class );
-		$cite->expects( $this->once() )
-			->method( 'clearState' );
-
 		$parser = $this->createMock( Parser::class );
-		$parser->extCite = $cite;
+		$parser->extCite = $this->createMock( Cite::class );
 
-		CiteParserHooks::onParserCloned( $parser );
+		/** @var Parser $parser */
+		CiteParserHooks::onParserClearStateOrCloned( $parser );
 
-		$this->assertNotSame( $cite, $parser->extCite );
+		$this->assertFalse( isset( $parser->extCite ) );
 	}
 
 	/**

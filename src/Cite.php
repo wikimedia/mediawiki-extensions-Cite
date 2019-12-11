@@ -104,7 +104,7 @@ class Cite {
 		$this->referenceStack = new ReferenceStack( $this->errorReporter );
 		$anchorFormatter = new AnchorFormatter( $messageLocalizer );
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
-			$parser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
+			$this->errorReporter, $anchorFormatter, $messageLocalizer );
 		$this->referencesFormatter = new ReferencesFormatter(
 			$parser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
 	}
@@ -358,7 +358,7 @@ class Cite {
 		if ( $ref === null ) {
 			return '';
 		} else {
-			return $this->footnoteMarkFormatter->linkRef( $group, $ref );
+			return $this->footnoteMarkFormatter->linkRef( $parser, $group, $ref );
 		}
 	}
 

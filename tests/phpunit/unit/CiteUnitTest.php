@@ -4,8 +4,8 @@ namespace Cite\Tests\Unit;
 
 use Cite\Cite;
 use Cite\CiteErrorReporter;
-use Cite\ReferencesFormatter;
 use Cite\FootnoteMarkFormatter;
+use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
 use MediaWikiUnitTestCase;
 use Parser;
@@ -606,6 +606,21 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
 
 		$spy->guardedRef( 'text', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ], $mockParser );
+	}
+
+	/**
+	 * @covers ::__clone
+	 */
+	public function testClone() {
+		$original = new Cite();
+		/** @var Cite $spy */
+		$spy = TestingAccessWrapper::newFromObject( $original );
+		$spy->referenceStack = $this->createMock( ReferenceStack::class );
+
+		$clone = clone $original;
+		/** @var Cite $clone */
+		$clone = TestingAccessWrapper::newFromObject( $clone );
+		$this->assertNotSame( $clone->referenceStack, $spy->referenceStack );
 	}
 
 }

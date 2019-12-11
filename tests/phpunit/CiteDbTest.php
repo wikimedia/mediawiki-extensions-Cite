@@ -15,6 +15,7 @@ class CiteDbTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * Edge case where a parser call within `<ref>` parse clears the original parser state.
+	 * @covers \Cite\Cite::__clone
 	 * @covers \Cite\ReferenceStack::pushRef
 	 */
 	public function testReferenceStackError() {

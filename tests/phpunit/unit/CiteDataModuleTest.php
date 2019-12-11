@@ -26,7 +26,8 @@ class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 		$context = $this->createResourceLoaderContext();
 
 		$this->assertSame(
-			've.init.platform.addMessages({"cite-tool-definition.json":"[{\"title\":\"\"}]"});',
+			've.init.platform.addMessages({"cite-tool-definition.json":' .
+				'"[{\"name\":\"n\",\"title\":\"t\"}]"});',
 			$module->getScript( $context )
 		);
 	}
@@ -55,10 +56,18 @@ class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 		$msg->method( 'inContentLanguage' )
 			->willReturnSelf();
 		$msg->method( 'plain' )
-			->willReturn( '[{"title":""}]' );
+			->willReturnOnConsecutiveCalls( '', '[{"name":"n"}]', '[{"name":"n","title":"t"}]' );
+		$msg->method( 'text' )
+			->willReturn( 't' );
 
 		$context = $this->createMock( ResourceLoaderContext::class );
 		$context->method( 'msg' )
+			->withConsecutive(
+				[ 'cite-tool-definition.json' ],
+				[ 'visualeditor-cite-tool-definition.json' ],
+				[ 'visualeditor-cite-tool-name-n' ],
+				[ 'cite-tool-definition.json' ]
+			)
 			->willReturn( $msg );
 		return $context;
 	}

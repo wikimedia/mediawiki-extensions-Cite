@@ -13,11 +13,6 @@ use Sanitizer;
 class ErrorReporter {
 
 	/**
-	 * @var Parser
-	 */
-	private $parser;
-
-	/**
 	 * @var ReferenceMessageLocalizer
 	 */
 	private $messageLocalizer;
@@ -28,37 +23,37 @@ class ErrorReporter {
 	private $cachedInterfaceLanguage = null;
 
 	/**
-	 * @param Parser $parser
 	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
 	public function __construct(
-		Parser $parser,
 		ReferenceMessageLocalizer $messageLocalizer
 	) {
-		$this->parser = $parser;
 		$this->messageLocalizer = $messageLocalizer;
 	}
 
 	/**
+	 * @param Parser $parser
 	 * @param string $key Message name of the error or warning
 	 * @param mixed ...$params
 	 *
 	 * @return string Half-parsed wikitext with extension's tags already being expanded
 	 */
-	public function halfParsed( string $key, ...$params ) : string {
+	public function halfParsed( Parser $parser, string $key, ...$params ) : string {
 		// FIXME: We suspect this is not necessary and can just be removed
-		return $this->parser->recursiveTagParse( $this->plain( $key, ...$params ) );
+		return $parser->recursiveTagParse( $this->plain( $parser, $key, ...$params ) );
 	}
 
 	/**
+	 * @param Parser $parser
 	 * @param string $key Message name of the error or warning
 	 * @param mixed ...$params
 	 *
 	 * @return string Plain, unparsed wikitext
 	 * @return-taint tainted
 	 */
-	public function plain( string $key, ...$params ) : string {
-		$msg = $this->messageLocalizer->msg( $key, ...$params );
+	public function plain( Parser $parser, string $key, ...$params ) : string {
+		$interfaceLanguage = $this->getInterfaceLanguageAndSplitCache( $parser );
+		$msg = $this->messageLocalizer->msg( $key, ...$params )->inLanguage( $interfaceLanguage );
 
 		if ( strncmp( $msg->getKey(), 'cite_warning_', 13 ) === 0 ) {
 			$type = 'warning';
@@ -69,10 +64,8 @@ class ErrorReporter {
 			$extraClass = '';
 
 			// Take care; this is a sideeffect that might not belong to this class.
-			$this->parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
+			$parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 		}
-
-		$interfaceLanguage = $this->getInterfaceLanguageAndSplitCache();
 
 		return Html::rawElement(
 			'span',
@@ -89,11 +82,12 @@ class ErrorReporter {
 	/**
 	 * Note the startling side effect of splitting ParserCache by user interface language!
 	 *
+	 * @param Parser $parser
 	 * @return Language
 	 */
-	private function getInterfaceLanguageAndSplitCache(): Language {
+	private function getInterfaceLanguageAndSplitCache( Parser $parser ): Language {
 		if ( $this->cachedInterfaceLanguage === null ) {
-			$this->cachedInterfaceLanguage = $this->parser->getOptions()->getUserLangObj();
+			$this->cachedInterfaceLanguage = $parser->getOptions()->getUserLangObj();
 		}
 		return $this->cachedInterfaceLanguage;
 	}

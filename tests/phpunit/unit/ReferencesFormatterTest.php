@@ -28,7 +28,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 		/** @var Parser $mockParser */
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
@@ -198,7 +198,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
@@ -230,7 +230,9 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 			$mockMessageLocalizer
 		) );
 
-		$output = $formatter->formatListItem( $key, $val, false );
+		/** @var ReferencesFormatter $formatter */
+		$output = $formatter->formatListItem(
+			$this->createMock( Parser::class ), $key, $val, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -318,7 +320,7 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
@@ -331,7 +333,8 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 			$this->createMock( ReferenceMessageLocalizer::class )
 		) );
 
-		$output = $formatter->referenceText( $key, $text, $isSectionPreview );
+		$output = $formatter->referenceText(
+			$this->createMock( Parser::class ), $key, $text, $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -395,7 +398,8 @@ class ReferencesFormatterTest extends MediaWikiUnitTestCase {
 			$mockMessageLocalizer
 		) );
 
-		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel( $offset );
+		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel(
+			$this->createMock( Parser::class ), $offset );
 		if ( $expectedLabel !== null ) {
 			$this->assertSame( $expectedLabel, $label );
 		}

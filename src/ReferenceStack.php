@@ -2,6 +2,7 @@
 
 namespace Cite;
 
+use Parser;
 use StripState;
 
 /**
@@ -103,6 +104,7 @@ class ReferenceStack {
 	/**
 	 * Populate $this->refs and $this->refCallStack based on input and arguments to <ref>
 	 *
+	 * @param Parser $parser
 	 * @param ?string $text Content from the <ref> tag
 	 * @param ?string $name
 	 * @param string $group
@@ -115,6 +117,7 @@ class ReferenceStack {
 	 * @return ?array ref structure, or null if nothing was pushed
 	 */
 	public function pushRef(
+		Parser $parser,
 		?string $text,
 		?string $name,
 		string $group,
@@ -204,7 +207,7 @@ class ReferenceStack {
 					// add error message to the original ref
 					// TODO: standardize error display and move to `validateRef`.
 					$ref['text'] .= ' ' . $this->errorReporter->plain(
-						'cite_error_references_duplicate_key', $name
+						$parser, 'cite_error_references_duplicate_key', $name
 					);
 				}
 				$action = 'increment';

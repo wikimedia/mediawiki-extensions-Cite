@@ -57,7 +57,7 @@ class FootnoteMarkFormatter {
 	 * @return string
 	 */
 	public function linkRef( Parser $parser, string $group, array $ref ) : string {
-		$label = $this->getLinkLabel( $group, $ref['number'] );
+		$label = $this->getLinkLabel( $parser, $group, $ref['number'] );
 		if ( $label === null ) {
 			$label = $this->messageLocalizer->formatNum( $ref['number'] );
 			if ( $group !== Cite::DEFAULT_GROUP ) {
@@ -88,12 +88,13 @@ class FootnoteMarkFormatter {
 	 * [ 'a', 'b', 'c', ...].
 	 * Return an error if the offset > the # of array items
 	 *
+	 * @param Parser $parser
 	 * @param string $group The group name
 	 * @param int $number Expected to start at 1
 	 *
 	 * @return string|null Returns null if no custom labels for this group exist
 	 */
-	private function getLinkLabel( string $group, int $number ) : ?string {
+	private function getLinkLabel( Parser $parser, string $group, int $number ) : ?string {
 		$message = "cite_link_label_group-$group";
 		if ( !isset( $this->linkLabels[$group] ) ) {
 			$msg = $this->messageLocalizer->msg( $message );
@@ -105,7 +106,8 @@ class FootnoteMarkFormatter {
 		}
 
 		return $this->linkLabels[$group][$number - 1]
-			?? $this->errorReporter->plain( 'cite_error_no_link_label_group', $group, $message );
+			?? $this->errorReporter->plain(
+				$parser, 'cite_error_no_link_label_group', $group, $message );
 	}
 
 }

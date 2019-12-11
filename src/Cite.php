@@ -100,7 +100,7 @@ class Cite {
 		$this->isPagePreview = $parser->getOptions()->getIsPreview();
 		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
-		$this->errorReporter = new ErrorReporter( $parser, $messageLocalizer );
+		$this->errorReporter = new ErrorReporter( $messageLocalizer );
 		$this->referenceStack = new ReferenceStack( $this->errorReporter );
 		$anchorFormatter = new AnchorFormatter( $messageLocalizer );
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
@@ -314,7 +314,7 @@ class Cite {
 			if ( !$status->isOK() ) {
 				foreach ( $status->getErrors() as $error ) {
 					$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-						$error['message'], ...$error['params'] );
+						$parser, $error['message'], ...$error['params'] );
 				}
 			} else {
 				$groupRefs = $this->referenceStack->getGroupRefs( $group );
@@ -328,8 +328,8 @@ class Cite {
 						//  special case to append to the second one's content.
 						$text =
 							$groupRefs[$name]['text'] . ' ' .
-							$this->errorReporter->plain( 'cite_error_references_duplicate_key',
-								$name );
+							$this->errorReporter->plain(
+								$parser, 'cite_error_references_duplicate_key', $name );
 						$this->referenceStack->setRefText( $group, $name, $text );
 					}
 				}
@@ -344,7 +344,7 @@ class Cite {
 			//  so they know what to correct.
 			// TODO: Make this nicer, see T238061
 			$error = $status->getErrors()[0];
-			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
+			return $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
 		}
 
 		# We don't care about the content: if the name exists, the ref
@@ -354,7 +354,7 @@ class Cite {
 		# if there's any content, regardless of name.
 
 		$ref = $this->referenceStack->pushRef(
-			$text, $name, $group, $extends, $follow, $argv, $dir, $parser->getStripState() );
+			$parser, $text, $name, $group, $extends, $follow, $argv, $dir, $parser->getStripState() );
 		if ( $ref === null ) {
 			return '';
 		} else {
@@ -463,7 +463,7 @@ class Cite {
 		if ( !$status->isOK() ) {
 			// Bail out with an error.
 			$error = $status->getErrors()[0];
-			return $this->errorReporter->halfParsed( $error['message'], ...$error['params'] );
+			return $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
 		}
 
 		$s = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive );
@@ -529,6 +529,7 @@ class Cite {
 				$this->inReferencesGroup = null;
 			} else {
 				$s .= "\n<br />" . $this->errorReporter->halfParsed(
+					$parser,
 					'cite_error_group_refs_without_references',
 					Sanitizer::safeEncodeAttribute( $group )
 				);

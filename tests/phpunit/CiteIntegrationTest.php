@@ -46,7 +46,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);

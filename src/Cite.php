@@ -355,11 +355,9 @@ class Cite {
 
 		$ref = $this->referenceStack->pushRef(
 			$parser, $text, $name, $group, $extends, $follow, $argv, $dir, $parser->getStripState() );
-		if ( $ref === null ) {
-			return '';
-		} else {
-			return $this->footnoteMarkFormatter->linkRef( $parser, $group, $ref );
-		}
+		return $ref
+			? $this->footnoteMarkFormatter->linkRef( $parser, $group, $ref )
+			: '';
 	}
 
 	/**

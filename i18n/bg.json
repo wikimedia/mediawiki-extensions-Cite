@@ -9,7 +9,7 @@
 			"Ted Masters"
 		]
 	},
-	"cite-desc": "Добавя етикетите <code>&lt;ref[ name=id]&gt;</code> и <code>&lt;references/&gt;</code>, подходящи за цитиране",
+	"cite-desc": "Добавя етикетите <code>&lt;ref&gt;</code> и <code>&lt;references&gt;</code>, подходящи за цитиране",
 	"cite_error": "Грешка при цитиране: $1",
 	"cite_error_ref_invalid_dir": "Невалидна стойност на атрибут в <code>dir=\"$1\"</code>, трябва да бъде <code>ltr</code> или <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Грешка в етикет <code>&lt;ref&gt;</code>;\nимето не може да бъде число. Използвайте описателно име",

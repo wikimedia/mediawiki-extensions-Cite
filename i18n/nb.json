@@ -9,7 +9,7 @@
 			"Jon Harald Søby"
 		]
 	},
-	"cite-desc": "Legger til <code>&lt;ref[ name=id]&gt;</code> og <code>&lt;references/&gt;</code>-tagger for referanser",
+	"cite-desc": "Legger til <code>&lt;ref&gt;</code>- og <code>&lt;references/&gt;</code>-tagger for referanser",
 	"cite_error": "Siteringsfeil: $1",
 	"cite_error_ref_invalid_dir": "Ugyldig <code>dir=\"$1</code>, må være <code>ltr</code> eller <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Ugyldig <code>&lt;ref&gt;</code>-kode; navnet kan ikke være et enkelt heltall, bruk en beskrivende tittel",

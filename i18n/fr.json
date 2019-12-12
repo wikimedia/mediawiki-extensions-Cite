@@ -18,7 +18,8 @@
 			"Wladek92",
 			"The RedBurn",
 			"Trial",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Od1n"
 		]
 	},
 	"cite-desc": "Ajoute les balises <code>&lt;ref[ name=id]&gt;</code> et <code>&lt;references/&gt;</code> pour les citations",
@@ -35,7 +36,7 @@
 	"cite_error_references_no_text": "Balise <code>&lt;ref&gt;</code> incorrecte : aucun texte n’a été fourni pour les références nommées <code>$1</code>",
 	"cite_error_included_ref": "Balise fermante <code>&lt;/ref&gt;</code> manquante pour la balise <code>&lt;ref&gt;</code>",
 	"cite_error_group_refs_without_references": "Des balises <code>&lt;ref&gt;</code> existent pour un groupe nommé « $1 », mais aucune balise <code>&lt;references group=\"$1\"/&gt;</code> correspondante n’a été trouvée, ou bien il manque une balise fermante <code>&lt;/ref&gt;</code>",
-	"cite_error_references_group_mismatch": "La balise <code>&lt;ref&gt;</code> dans <code>&lt;references&gt;</code> a son attribut de groupe « $1 » en conflit avec celui de <code>&lt;references&gt;</code>.",
+	"cite_error_references_group_mismatch": "La balise <code>&lt;ref&gt;</code> dans <code>&lt;references&gt;</code> a un attribut de groupe « $1 » en conflit.",
 	"cite_error_references_missing_group": "La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> a un attribut de groupe « $1 » qui ne figure pas dans le texte précédent.",
 	"cite_error_references_missing_key": "La balise <code>&lt;ref&gt;</code> nommée « $1 » définie dans <code>&lt;references&gt;</code> n’est pas utilisée dans le texte précédent.",
 	"cite_error_references_no_key": "La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> n’a pas d’attribut de nom.",

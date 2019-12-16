@@ -7,8 +7,10 @@ use Cite\ErrorReporter;
 use Cite\FootnoteMarkFormatter;
 use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
+use Language;
 use MediaWikiUnitTestCase;
 use Parser;
+use ParserOptions;
 use ParserOutput;
 use StripState;
 use Wikimedia\TestingAccessWrapper;
@@ -44,7 +46,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		$stack->refs = $referencesStack;
 
 		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( new Cite() );
+		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
 		$cite->referenceStack = $stack;
 		$cite->inReferencesGroup = $inReferencesGroup;
 		$cite->isSectionPreview = $isSectionPreview;
@@ -239,7 +241,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		$wgCiteBookReferencing = false;
 
 		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( new Cite() );
+		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
 		$status = $cite->validateRef( 'text', 'name', '', null, 'a' );
 		$this->assertSame( 'cite_error_ref_too_many_keys', $status->getErrors()[0]['message'] );
 	}
@@ -254,7 +256,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		string $expectedError = null
 	) {
 		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( new Cite() );
+		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
 		$status = $cite->parseArguments(
 			$attributes,
 			[ 'dir', 'extends', 'follow', 'group', 'name' ]
@@ -320,7 +322,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		global $wgCiteResponsiveReferences;
 		$wgCiteResponsiveReferences = false;
 
-		$cite = new Cite();
+		$cite = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		/** @var ErrorReporter $mockErrorReporter */
@@ -439,7 +441,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		$mockFootnoteMarkFormatter = $this->createMock( FootnoteMarkFormatter::class );
 		$mockFootnoteMarkFormatter->method( 'linkRef' )->willReturn( '<foot />' );
 
-		$cite = new Cite();
+		$cite = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $mockErrorReporter;
@@ -599,7 +601,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 			->willReturn( $this->createMock( StripState::class ) );
 		/** @var Parser $mockParser */
 
-		$cite = new Cite();
+		$cite = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $this->createMock( ErrorReporter::class );
@@ -612,7 +614,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 	 * @covers ::__clone
 	 */
 	public function testClone() {
-		$original = new Cite();
+		$original = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $original );
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
@@ -621,6 +623,20 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		/** @var Cite $clone */
 		$clone = TestingAccessWrapper::newFromObject( $clone );
 		$this->assertNotSame( $clone->referenceStack, $spy->referenceStack );
+	}
+
+	private function newCite(): Cite {
+		$mockOptions = $this->createMock( ParserOptions::class );
+		$mockOptions->method( 'getIsPreview' )->willReturn( false );
+		$mockOptions->method( 'getIsSectionPreview' )->willReturn( false );
+		$mockOptions->method( 'getUserLangObj' )->willReturn(
+			$this->createMock( Language::class ) );
+		$mockParser = $this->createMock( Parser::class );
+		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
+		$mockParser->method( 'getContentLanguage' )->willReturn(
+			$this->createMock( Language::class ) );
+		/** @var Parser $mockParser */
+		return new Cite( $mockParser );
 	}
 
 }

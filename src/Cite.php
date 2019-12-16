@@ -43,11 +43,6 @@ class Cite {
 	public const BOOK_REF_PROPERTY = 'ref-extends';
 
 	/**
-	 * @var Parser
-	 */
-	private $mParser;
-
-	/**
 	 * @var bool
 	 */
 	private $isPagePreview;
@@ -101,20 +96,17 @@ class Cite {
 	/**
 	 * @param Parser $parser
 	 */
-	private function rememberParser( Parser $parser ) {
-		if ( $parser !== $this->mParser ) {
-			$this->mParser = $parser;
-			$this->isPagePreview = $parser->getOptions()->getIsPreview();
-			$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
-			$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
-			$this->errorReporter = new ErrorReporter( $parser, $messageLocalizer );
-			$this->referenceStack = new ReferenceStack( $this->errorReporter );
-			$anchorFormatter = new AnchorFormatter( $messageLocalizer );
-			$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
-				$this->mParser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
-			$this->referencesFormatter = new ReferencesFormatter(
-				$this->mParser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
-		}
+	public function __construct( Parser $parser ) {
+		$this->isPagePreview = $parser->getOptions()->getIsPreview();
+		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
+		$this->errorReporter = new ErrorReporter( $parser, $messageLocalizer );
+		$this->referenceStack = new ReferenceStack( $this->errorReporter );
+		$anchorFormatter = new AnchorFormatter( $messageLocalizer );
+		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
+			$parser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
+		$this->referencesFormatter = new ReferencesFormatter(
+			$parser, $this->errorReporter, $anchorFormatter, $messageLocalizer );
 	}
 
 	/**
@@ -130,8 +122,6 @@ class Cite {
 		if ( $this->mInCite ) {
 			return false;
 		}
-
-		$this->rememberParser( $parser );
 
 		$this->mInCite = true;
 		$ret = $this->guardedRef( $text, $argv, $parser );
@@ -409,7 +399,6 @@ class Cite {
 			return false;
 		}
 
-		$this->rememberParser( $parser );
 		$ret = $this->guardedReferences( $text, $argv, $parser );
 		$this->inReferencesGroup = null;
 

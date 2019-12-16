@@ -6,6 +6,9 @@ use Cite\Cite;
 use Cite\ErrorReporter;
 use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
+use Language;
+use Parser;
+use ParserOptions;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -51,7 +54,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		$referencesFormatter = $this->createMock( ReferencesFormatter::class );
 		$referencesFormatter->method( 'formatReferences' )->willReturn( '<references />' );
 
-		$cite = new Cite();
+		$cite = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->referenceStack = $mockReferenceStack;
@@ -114,6 +117,20 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 				'(cite_section_preview_references)</h2><references /></div>'
 			]
 		];
+	}
+
+	private function newCite(): Cite {
+		$mockOptions = $this->createMock( ParserOptions::class );
+		$mockOptions->method( 'getIsPreview' )->willReturn( false );
+		$mockOptions->method( 'getIsSectionPreview' )->willReturn( false );
+		$mockOptions->method( 'getUserLangObj' )->willReturn(
+			$this->createMock( Language::class ) );
+		$mockParser = $this->createMock( Parser::class );
+		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
+		$mockParser->method( 'getContentLanguage' )->willReturn(
+			$this->createMock( Language::class ) );
+		/** @var Parser $mockParser */
+		return new Cite( $mockParser );
 	}
 
 }

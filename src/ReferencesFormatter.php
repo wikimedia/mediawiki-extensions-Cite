@@ -170,13 +170,7 @@ class ReferencesFormatter {
 
 		if ( isset( $val['dir'] ) ) {
 			$dir = strtolower( $val['dir'] );
-			if ( in_array( $dir, [ 'ltr', 'rtl' ] ) ) {
-				$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
-			} else {
-				// TODO: Move to validation.
-				$error .= $this->errorReporter->plain( $parser, 'cite_error_ref_invalid_dir', $val['dir'] ) .
-					"\n";
-			}
+			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
 		}
 
 		// Fallback for a broken, and therefore unprocessed follow="…". Note this returns a <p>, not

@@ -36,6 +36,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		?string $group,
 		?string $follow,
 		?string $extends,
+		?string $dir,
 		$expected
 	) {
 		/** @var ErrorReporter $errorReporter */
@@ -50,7 +51,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		$cite->inReferencesGroup = $inReferencesGroup;
 		$cite->isSectionPreview = $isSectionPreview;
 
-		$status = $cite->validateRef( $text, $name, $group, $follow, $extends );
+		$status = $cite->validateRef( $text, $name, $group, $follow, $extends, $dir );
 		if ( is_string( $expected ) ) {
 			$this->assertSame( $expected, $status->getErrors()[0]['message'] );
 		} else {
@@ -70,6 +71,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_ref_numeric_key',
 			],
 			'Numeric follow' => [
@@ -81,6 +83,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => '1',
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_ref_numeric_key',
 			],
 			'Numeric extends' => [
@@ -92,6 +95,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => null,
 				'extends' => '1',
+				'dir' => null,
 				'expected' => 'cite_error_ref_numeric_key',
 			],
 			'Follow with name' => [
@@ -103,6 +107,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => 'f',
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_ref_too_many_keys',
 			],
 			'Follow with extends' => [
@@ -114,6 +119,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => 'f',
 				'extends' => 'e',
+				'dir' => null,
 				'expected' => 'cite_error_ref_too_many_keys',
 			],
 			// Validating <ref> outside of <references>
@@ -126,6 +132,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => true,
 			],
 			'Whitespace or empty text' => [
@@ -137,6 +144,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_ref_no_input',
 			],
 			'totally empty <ref>' => [
@@ -148,6 +156,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_ref_no_key',
 			],
 			'contains <ref>-like text' => [
@@ -159,6 +168,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => null,
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_included_ref',
 			],
 
@@ -172,6 +182,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => 'g',
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => true,
 			],
 			'Different group than <references>' => [
@@ -183,6 +194,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => 'g2',
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_references_group_mismatch',
 			],
 			'Unnamed in <references>' => [
@@ -194,6 +206,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => 'g',
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_references_no_key',
 			],
 			'Empty text in <references>' => [
@@ -205,6 +218,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => 'g',
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_empty_references_define',
 			],
 			'Group never used' => [
@@ -216,6 +230,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => 'g',
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_references_missing_group',
 			],
 			'Ref never used' => [
@@ -227,7 +242,32 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'group' => 'g',
 				'follow' => null,
 				'extends' => null,
+				'dir' => null,
 				'expected' => 'cite_error_references_missing_key',
+			],
+			'Good dir' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 'not empty',
+				'name' => 'n',
+				'group' => null,
+				'follow' => null,
+				'extends' => null,
+				'dir' => 'RTL',
+				'expected' => true,
+			],
+			'Bad dir' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 'not empty',
+				'name' => 'n',
+				'group' => null,
+				'follow' => null,
+				'extends' => null,
+				'dir' => 'foobar',
+				'expected' => 'cite_error_ref_invalid_dir',
 			],
 		];
 	}
@@ -241,7 +281,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
-		$status = $cite->validateRef( 'text', 'name', '', null, 'a' );
+		$status = $cite->validateRef( 'text', 'name', '', null, 'a', null );
 		$this->assertSame( 'cite_error_ref_too_many_keys', $status->getErrors()[0]['message'] );
 	}
 

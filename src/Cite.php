@@ -143,6 +143,7 @@ class Cite {
 	 * @param string|null $group
 	 * @param string|null $follow
 	 * @param string|null $extends
+	 * @param string|null $dir
 	 * @return StatusValue
 	 */
 	private function validateRef(
@@ -150,7 +151,8 @@ class Cite {
 		?string $name,
 		?string $group,
 		?string $follow,
-		?string $extends
+		?string $extends,
+		?string $dir
 	) : StatusValue {
 		if ( ctype_digit( $name ) || ctype_digit( $follow ) || ctype_digit( $extends ) ) {
 			// Numeric names mess up the resulting id's, potentially producing
@@ -177,6 +179,10 @@ class Cite {
 		if ( $follow && ( $name || $extends ) ) {
 			// TODO: Introduce a specific error for this case.
 			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+		}
+
+		if ( $dir !== null && !in_array( strtolower( $dir ), [ 'ltr', 'rtl' ] ) ) {
+			return StatusValue::newFatal( 'cite_error_ref_invalid_dir', $dir );
 		}
 
 		return $this->inReferencesGroup === null ?
@@ -310,7 +316,7 @@ class Cite {
 			$group = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
 		}
 
-		$status->merge( $this->validateRef( $text, $name, $group, $follow, $extends ) );
+		$status->merge( $this->validateRef( $text, $name, $group, $follow, $extends, $dir ) );
 
 		// Validation cares about the difference between null and empty, but from here on we don't
 		if ( $text !== null && trim( $text ) === '' ) {

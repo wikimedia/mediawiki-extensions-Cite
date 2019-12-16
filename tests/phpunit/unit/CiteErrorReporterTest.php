@@ -27,22 +27,24 @@ class CiteErrorReporterTest extends MediaWikiUnitTestCase {
 		string $expectedHtml,
 		array $expectedCategories
 	) {
-		$reporter = $this->createReporter( $expectedCategories );
+		$reporter = $this->createReporter();
+		$mockParser = $this->createParser( $expectedCategories );
 		$this->assertSame(
 			$expectedHtml,
-			$reporter->plain( $key, 'first param' ) );
+			$reporter->plain( $mockParser, $key, 'first param' ) );
 	}
 
 	/**
 	 * @covers ::halfParsed
 	 */
 	public function testHalfParsed() {
-		$reporter = $this->createReporter( [] );
+		$reporter = $this->createReporter();
+		$mockParser = $this->createParser( [] );
 		$expectedHtml = '';
 		$this->assertSame(
 			'[<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
 				'dir="rtl">(cite_warning|(cite_warning_example|first param))</span>]',
-			$reporter->halfParsed( 'cite_warning_example', 'first param' ) );
+			$reporter->halfParsed( $mockParser, 'cite_warning_example', 'first param' ) );
 	}
 
 	public function provideErrors() {
@@ -62,7 +64,25 @@ class CiteErrorReporterTest extends MediaWikiUnitTestCase {
 		];
 	}
 
-	private function createReporter( array $expectedCategories ) : ErrorReporter {
+	private function createReporter() : ErrorReporter {
+		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
+			function ( ...$args ) {
+				$rendered = '(' . implode( '|', $args ) . ')';
+				$mockMessage = $this->createMock( Message::class );
+				$mockMessage->method( 'getKey' )->willReturn( $args[0] );
+				$mockMessage->method( 'plain' )->willReturn( $rendered );
+				// FIXME: Doesn't prove that we've set the language correctly.
+				$mockMessage->method( 'inLanguage' )->willReturnSelf();
+				return $mockMessage;
+			}
+		);
+
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
+		return new ErrorReporter( $mockMessageLocalizer );
+	}
+
+	public function createParser( array $expectedCategories ) {
 		$mockParser = $this->createMock( Parser::class );
 		foreach ( $expectedCategories as $category ) {
 			$mockParser->method( 'addTrackingCategory' )->with( $category );
@@ -83,22 +103,7 @@ class CiteErrorReporterTest extends MediaWikiUnitTestCase {
 				return '[' . $content . ']';
 			}
 		);
-		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) {
-				$rendered = '(' . implode( '|', $args ) . ')';
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'getKey' )->willReturn( $args[0] );
-				$mockMessage->method( 'plain' )->willReturn( $rendered );
-				// FIXME: Doesn't prove that we've set the language correctly.
-				$mockMessage->method( 'inLanguage' )->willReturnSelf();
-				return $mockMessage;
-			}
-		);
-
-		/** @var Parser $mockParser */
-		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
-		return new ErrorReporter( $mockParser, $mockMessageLocalizer );
+		return $mockParser;
 	}
 
 }

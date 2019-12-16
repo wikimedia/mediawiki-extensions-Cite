@@ -5,6 +5,7 @@ namespace Cite\Tests\Unit;
 use Cite\ErrorReporter;
 use Cite\ReferenceStack;
 use MediaWikiUnitTestCase;
+use Parser;
 use StripState;
 use Wikimedia\TestingAccessWrapper;
 
@@ -44,6 +45,7 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 		for ( $i = 0; $i < count( $refs ); $i++ ) {
 			[ $text, $name, $group, $extends, $follow, $argv, $dir ] = $refs[$i];
 			$result = $stack->pushRef(
+				$this->createMock( Parser::class ),
 				$text, $name, $group, $extends, $follow, $argv, $dir, $mockStripState );
 
 			$this->assertTrue( array_key_exists( $i, $expectedOutputs ),
@@ -1000,7 +1002,9 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 		$mockStripState = $this->createMock( StripState::class );
 		$mockStripState->method( 'unstripBoth' )->willReturnArgument( 0 );
 		/** @var StripState $mockStripState */
-		$stack->pushRef( 'text', null, 'foo', 'a', null, [], 'rtl', $mockStripState );
+		$stack->pushRef(
+			$this->createMock( Parser::class ),
+			'text', null, 'foo', 'a', null, [], 'rtl', $mockStripState );
 		$this->assertSame( 1, $stack->extendsCount['foo']['a'] );
 
 		$redo = $stack->rollbackRefs( 1 );
@@ -1072,9 +1076,9 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 	 */
 	private function newStack() {
 		$errorReporter = $this->createMock( ErrorReporter::class );
-		$errorReporter->method( 'plain' )->willReturnArgument( 0 );
-		$stack = new ReferenceStack( $errorReporter );
-		return TestingAccessWrapper::newFromObject( $stack );
+		$errorReporter->method( 'plain' )->willReturnArgument( 1 );
+		/** @var ErrorReporter $errorReporter */
+		return TestingAccessWrapper::newFromObject( new ReferenceStack( $errorReporter ) );
 	}
 
 }

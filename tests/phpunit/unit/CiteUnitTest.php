@@ -328,7 +328,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		/** @var ErrorReporter $mockErrorReporter */
 		$spy->errorReporter = $this->createMock( ErrorReporter::class );
 		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
@@ -429,12 +429,12 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
@@ -461,7 +461,7 @@ class CiteUnitTest extends MediaWikiUnitTestCase {
 		);
 		$spy->referenceStack->method( 'pushRef' )->willReturnCallback(
 			function (
-				$text, $name, $group, $extends, $follow, $argv, $dir, $_stripState
+				$parser, $text, $name, $group, $extends, $follow, $argv, $dir, $_stripState
 			) use ( &$pushedRefs ) {
 				$pushedRefs[] = [ $text, $name, $group, $extends, $follow, $argv, $dir ];
 				return [

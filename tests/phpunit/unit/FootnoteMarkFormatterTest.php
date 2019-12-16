@@ -21,7 +21,7 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return implode( '|', $args );
 			}
 		);
@@ -158,7 +158,7 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		);
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( $parser, ...$args ) {
 				return implode( '|', $args );
 			}
 		);
@@ -168,7 +168,8 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer ) );
 
-		$output = $formatter->getLinkLabel( $group, $offset );
+		$output = $formatter->getLinkLabel(
+			$this->createMock( Parser::class ), $group, $offset );
 		$this->assertSame( $expectedLabel, $output );
 	}
 

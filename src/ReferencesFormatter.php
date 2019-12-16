@@ -89,7 +89,7 @@ class ReferencesFormatter {
 			) {
 				$value['text'] = ( $value['text'] ?? '' ) . ' ' .
 					// TODO: Introduce a specific error for this case; reuse in validateRef()!
-					$this->errorReporter->plain( 'cite_error_ref_too_many_keys' );
+					$this->errorReporter->plain( $parser, 'cite_error_ref_too_many_keys' );
 			}
 
 			if ( !$indented && isset( $value['extends'] ) ) {
@@ -103,7 +103,7 @@ class ReferencesFormatter {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
-			$parserInput .= $this->formatListItem( $key, $value, $isSectionPreview ) . "\n";
+			$parserInput .= $this->formatListItem( $parser, $key, $value, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
 		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
@@ -139,14 +139,17 @@ class ReferencesFormatter {
 	/**
 	 * Format a single entry for the referencesFormat() function
 	 *
+	 * @param Parser $parser
 	 * @param string|int $key The key of the reference
 	 * @param array $val A single reference as documented at {@see ReferenceStack::$refs}
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
-	private function formatListItem( $key, array $val, bool $isSectionPreview ) : string {
-		$text = $this->referenceText( $key, $val['text'] ?? null, $isSectionPreview );
+	private function formatListItem(
+		Parser $parser, $key, array $val, bool $isSectionPreview
+	) : string {
+		$text = $this->referenceText( $parser, $key, $val['text'] ?? null, $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';
 
@@ -156,7 +159,8 @@ class ReferencesFormatter {
 				$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
 			} else {
 				// TODO: Move to validation.
-				$error .= $this->errorReporter->plain( 'cite_error_ref_invalid_dir', $val['dir'] ) . "\n";
+				$error .= $this->errorReporter->plain( $parser, 'cite_error_ref_invalid_dir', $val['dir'] ) .
+					"\n";
 			}
 		}
 
@@ -202,7 +206,7 @@ class ReferencesFormatter {
 					$i,
 					$val['count']
 				),
-				$this->referencesFormatEntryAlternateBacklinkLabel( $i )
+				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i )
 			)->plain();
 		}
 		return $this->messageLocalizer->msg(
@@ -223,11 +227,14 @@ class ReferencesFormatter {
 	 *
 	 * @return string
 	 */
-	private function referenceText( $key, ?string $text, bool $isSectionPreview ) : string {
+	private function referenceText(
+		Parser $parser, $key, ?string $text, bool $isSectionPreview
+	) : string {
 		if ( $text === null ) {
-			return $this->errorReporter->plain( $isSectionPreview
-				? 'cite_warning_sectionpreview_no_text'
-				: 'cite_error_references_no_text', $key );
+			return $this->errorReporter->plain( $parser,
+				$isSectionPreview
+					? 'cite_warning_sectionpreview_no_text'
+					: 'cite_error_references_no_text', $key );
 		}
 
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";
@@ -262,11 +269,14 @@ class ReferencesFormatter {
 	 * 'b', 'c', ...]. Return an error if the offset > the # of
 	 * array items
 	 *
+	 * @param Parser $parser
 	 * @param int $offset
 	 *
 	 * @return string
 	 */
-	private function referencesFormatEntryAlternateBacklinkLabel( int $offset ) : string {
+	private function referencesFormatEntryAlternateBacklinkLabel(
+		Parser $parser, int $offset
+	) : string {
 		if ( $this->backlinkLabels === null ) {
 			$this->backlinkLabels = preg_split(
 				'/\s+/',
@@ -276,7 +286,7 @@ class ReferencesFormatter {
 		}
 
 		return $this->backlinkLabels[$offset]
-			?? $this->errorReporter->plain( 'cite_error_references_no_backlink_label' );
+			?? $this->errorReporter->plain( $parser, 'cite_error_references_no_backlink_label' );
 	}
 
 	/**

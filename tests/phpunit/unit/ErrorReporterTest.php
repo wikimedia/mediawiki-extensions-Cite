@@ -15,7 +15,7 @@ use ParserOptions;
  *
  * @license GPL-2.0-or-later
  */
-class CiteErrorReporterTest extends MediaWikiUnitTestCase {
+class ErrorReporterTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::plain

@@ -509,25 +509,6 @@ class Cite {
 	}
 
 	/**
-	 * Gets run when Parser::clearState() gets run, since we don't
-	 * want the counts to transcend pages and other instances
-	 *
-	 * @param string $force Set to "force" to interrupt parsing
-	 */
-	public function clearState( string $force = '' ) {
-		if ( $force === 'force' ) {
-			$this->mInCite = false;
-			$this->inReferencesGroup = null;
-		} elseif ( $this->mInCite || $this->inReferencesGroup !== null ) {
-			// Don't clear when we're in the middle of parsing a <ref> or <references> tag
-			return;
-		}
-		if ( $this->referenceStack ) {
-			$this->referenceStack->clear();
-		}
-	}
-
-	/**
 	 * Called at the end of page processing to append a default references
 	 * section, if refs were used without a main references tag. If there are references
 	 * in a custom group, and there is no references tag for it, show an error

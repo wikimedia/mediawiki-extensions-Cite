@@ -32,8 +32,7 @@ class CiteParserTagHooks {
 	 * @return string HTML
 	 */
 	public static function ref( $content, array $attributes, Parser $parser, PPFrame $frame ) {
-		/** @var Cite $cite */
-		$cite = $parser->extCite;
+		$cite = self::citeForParser( $parser );
 		$result = $cite->ref( $content, $attributes, $parser );
 
 		if ( $result === false ) {
@@ -60,8 +59,7 @@ class CiteParserTagHooks {
 	 * @return string HTML
 	 */
 	public static function references( $content, array $attributes, Parser $parser, PPFrame $frame ) {
-		/** @var Cite $cite */
-		$cite = $parser->extCite;
+		$cite = self::citeForParser( $parser );
 		$result = $cite->references( $content, $attributes, $parser );
 
 		if ( $result === false ) {
@@ -74,6 +72,19 @@ class CiteParserTagHooks {
 		$frame->setVolatile();
 		// @phan-suppress-next-line SecurityCheck-XSS False positive
 		return $result;
+	}
+
+	/**
+	 * Get or create Cite state for this parser.
+	 *
+	 * @param Parser $parser
+	 * @return Cite
+	 */
+	private static function citeForParser( Parser $parser ): Cite {
+		if ( !isset( $parser->extCite ) ) {
+			$parser->extCite = new Cite();
+		}
+		return $parser->extCite;
 	}
 
 }

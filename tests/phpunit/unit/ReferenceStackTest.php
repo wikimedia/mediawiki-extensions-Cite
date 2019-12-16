@@ -1009,7 +1009,6 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::clear
 	 * @covers ::deleteGroup
 	 */
 	public function testRemovals() {
@@ -1018,9 +1017,6 @@ class ReferenceStackTest extends MediaWikiUnitTestCase {
 
 		$stack->deleteGroup( 'group1' );
 		$this->assertSame( [ 'group2' => [] ], $stack->refs );
-
-		$stack->clear();
-		$this->assertSame( [], $stack->refs );
 	}
 
 	/**

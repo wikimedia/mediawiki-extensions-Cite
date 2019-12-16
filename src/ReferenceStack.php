@@ -348,16 +348,6 @@ class ReferenceStack {
 	}
 
 	/**
-	 * Reset all state.
-	 */
-	public function clear() {
-		$this->groupRefSequence = [];
-		$this->refSequence = 0;
-		$this->refs = [];
-		$this->refCallStack = [];
-	}
-
-	/**
 	 * Clear state for a single group.
 	 *
 	 * @param string $group

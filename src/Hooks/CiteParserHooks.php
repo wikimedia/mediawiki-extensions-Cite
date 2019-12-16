@@ -17,34 +17,19 @@ class CiteParserHooks {
 	 * @param Parser $parser
 	 */
 	public static function onParserFirstCallInit( Parser $parser ) {
-		$parser->extCite = new Cite();
 		CiteParserTagHooks::register( $parser );
 	}
 
 	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserClearState
-	 *
-	 * @param Parser $parser
-	 */
-	public static function onParserClearState( Parser $parser ) {
-		/** @var Cite $cite */
-		$cite = $parser->extCite;
-		$cite->clearState();
-	}
-
-	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserCloned
 	 *
 	 * @param Parser $parser
 	 */
-	public static function onParserCloned( Parser $parser ) {
-		$parser->extCite = clone $parser->extCite;
-
-		/** @var Cite $cite */
-		$cite = $parser->extCite;
-		$cite->clearState( 'force' );
-
-		CiteParserTagHooks::register( $parser );
+	public static function onParserClearStateOrCloned( Parser $parser ) {
+		if ( isset( $parser->extCite ) ) {
+			unset( $parser->extCite );
+		}
 	}
 
 	/**
@@ -55,9 +40,11 @@ class CiteParserHooks {
 	 * @param StripState $stripState
 	 */
 	public static function onParserAfterParse( Parser $parser, &$text, $stripState ) {
-		/** @var Cite $cite */
-		$cite = $parser->extCite;
-		$text .= $cite->checkRefsNoReferences( $parser->getOptions()->getIsSectionPreview() );
+		if ( isset( $parser->extCite ) ) {
+			/** @var Cite $cite */
+			$cite = $parser->extCite;
+			$text .= $cite->checkRefsNoReferences( $parser->getOptions()->getIsSectionPreview() );
+		}
 	}
 
 }

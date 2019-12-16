@@ -49,12 +49,11 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		/** @var FootnoteMarkFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
-			$mockParser,
 			$mockErrorReporter,
 			$anchorFormatter,
 			$mockMessageLocalizer ) );
 
-		$output = $formatter->linkRef( $group, $ref );
+		$output = $formatter->linkRef( $mockParser, $group, $ref );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -165,7 +164,6 @@ class FootnoteMarkFormatterTest extends MediaWikiUnitTestCase {
 		);
 		/** @var FootnoteMarkFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
-			$this->createMock( Parser::class ),
 			$mockErrorReporter,
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer ) );

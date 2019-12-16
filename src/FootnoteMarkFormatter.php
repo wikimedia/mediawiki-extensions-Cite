@@ -16,11 +16,6 @@ class FootnoteMarkFormatter {
 	private $linkLabels = [];
 
 	/**
-	 * @var Parser
-	 */
-	private $parser;
-
-	/**
 	 * @var AnchorFormatter
 	 */
 	private $anchorFormatter;
@@ -36,18 +31,15 @@ class FootnoteMarkFormatter {
 	private $messageLocalizer;
 
 	/**
-	 * @param Parser $parser
 	 * @param ErrorReporter $errorReporter
 	 * @param AnchorFormatter $anchorFormatter
 	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
 	public function __construct(
-		Parser $parser,
 		ErrorReporter $errorReporter,
 		AnchorFormatter $anchorFormatter,
 		ReferenceMessageLocalizer $messageLocalizer
 	) {
-		$this->parser = $parser;
 		$this->anchorFormatter = $anchorFormatter;
 		$this->errorReporter = $errorReporter;
 		$this->messageLocalizer = $messageLocalizer;
@@ -58,12 +50,13 @@ class FootnoteMarkFormatter {
 	 * and return XHTML ready for output
 	 *
 	 * @suppress SecurityCheck-DoubleEscaped
+	 * @param Parser $parser
 	 * @param string $group
 	 * @param array $ref Dictionary with ReferenceStack ref format
 	 *
 	 * @return string
 	 */
-	public function linkRef( string $group, array $ref ) : string {
+	public function linkRef( Parser $parser, string $group, array $ref ) : string {
 		$label = $this->getLinkLabel( $group, $ref['number'] );
 		if ( $label === null ) {
 			$label = $this->messageLocalizer->formatNum( $ref['number'] );
@@ -79,7 +72,7 @@ class FootnoteMarkFormatter {
 		$count = $ref['name'] ? $ref['key'] . '-' . $ref['count'] : null;
 		$subkey = $ref['name'] ? '-' . $ref['key'] : null;
 
-		return $this->parser->recursiveTagParse(
+		return $parser->recursiveTagParse(
 			$this->messageLocalizer->msg(
 				'cite_reference_link',
 				$this->anchorFormatter->refKey( $key, $count ),

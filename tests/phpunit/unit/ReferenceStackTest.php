@@ -4,6 +4,7 @@ namespace Cite\Tests\Unit;
 
 use Cite\ErrorReporter;
 use Cite\ReferenceStack;
+use LogicException;
 use Parser;
 use StripState;
 use Wikimedia\TestingAccessWrapper;
@@ -825,12 +826,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	 * @covers ::rollbackRefs
 	 * @covers ::rollbackRef
 	 * @dataProvider provideRollbackRefs
-	 *
-	 * @param array $initialCallStack
-	 * @param array $initialRefs
-	 * @param int $count
-	 * @param array $expectedRedo
-	 * @param array $expectedRefs
 	 */
 	public function testRollbackRefs(
 		array $initialCallStack,
@@ -1057,17 +1052,27 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::setRefText
+	 * @covers ::appendText
 	 */
-	public function testSetRefText() {
+	public function testAppendText_failure() {
 		$stack = $this->newStack();
 
-		$stack->setRefText( 'group', 'name', 'the-text' );
+		$this->expectException( LogicException::class );
+		$stack->appendText( 'group', 'name', 'the-text' );
+	}
 
-		$this->assertSame(
-			[ 'group' => [ 'name' => [ 'text' => 'the-text' ] ] ],
-			$stack->refs
-		);
+	/**
+	 * @covers ::appendText
+	 */
+	public function testAppendText() {
+		$stack = $this->newStack();
+		$stack->refs = [ 'group' => [ 'name' => [] ] ];
+
+		$stack->appendText( 'group', 'name', 'set' );
+		$this->assertSame( [ 'text' => 'set' ], $stack->refs['group']['name'] );
+
+		$stack->appendText( 'group', 'name', ' and append' );
+		$this->assertSame( [ 'text' => 'set and append' ], $stack->refs['group']['name'] );
 	}
 
 	/**

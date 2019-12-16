@@ -326,23 +326,21 @@ class Cite {
 			} else {
 				$groupRefs = $this->referenceStack->getGroupRefs( $group );
 				if ( !isset( $groupRefs[$name]['text'] ) ) {
-					$this->referenceStack->setRefText( $group, $name, $text );
-				} else {
-					if ( $groupRefs[$name]['text'] !== $text ) {
-						// two refs with same key and different content
-						// adds error message to the original ref
-						// TODO: report these errors the same way as the others, rather than a
-						//  special case to append to the second one's content.
-						$this->referenceStack->setRefText(
-							$group,
-							$name,
-							$groupRefs[$name]['text'] . ' ' . $this->errorReporter->plain(
-								$parser,
-								'cite_error_references_duplicate_key',
-								$name
-							)
-						);
-					}
+					$this->referenceStack->appendText( $group, $name, $text );
+				} elseif ( $groupRefs[$name]['text'] !== $text ) {
+					// two refs with same key and different content
+					// adds error message to the original ref
+					// TODO: report these errors the same way as the others, rather than a
+					//  special case to append to the second one's content.
+					$this->referenceStack->appendText(
+						$group,
+						$name,
+						' ' . $this->errorReporter->plain(
+							$parser,
+							'cite_error_references_duplicate_key',
+							$name
+						)
+					);
 				}
 			}
 			return '';

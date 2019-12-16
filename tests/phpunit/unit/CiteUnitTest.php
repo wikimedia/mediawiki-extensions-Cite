@@ -469,9 +469,9 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				];
 			}
 		);
-		$spy->referenceStack->method( 'setRefText' )->willReturnCallback(
+		$spy->referenceStack->method( 'appendText' )->willReturnCallback(
 			function ( $group, $name, $text ) use ( &$pushedRefs ) {
-				$pushedRefs[] = [ 'setRefText', $group, $name, $text ];
+				$pushedRefs[] = [ 'appendText', $group, $name, $text ];
 			}
 		);
 
@@ -519,7 +519,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'',
 				[],
 				[
-					[ 'setRefText', 'foo', 'a', 'text' ]
+					[ 'appendText', 'foo', 'a', 'text' ]
 				]
 			],
 			'Successful ref' => [
@@ -561,7 +561,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'',
 				[],
 				[
-					[ 'setRefText', '', 'a', 'text' ]
+					[ 'appendText', '', 'a', 'text' ]
 				]
 			],
 			'Mismatched text in references' => [
@@ -580,7 +580,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'',
 				[],
 				[
-					[ 'setRefText', '', 'a', 'text-1 (cite_error_references_duplicate_key|a)' ]
+					[ 'appendText', '', 'a', ' (cite_error_references_duplicate_key|a)' ]
 				]
 			],
 		];

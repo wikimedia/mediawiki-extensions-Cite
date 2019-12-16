@@ -2,6 +2,7 @@
 
 namespace Cite;
 
+use LogicException;
 use Parser;
 use StripState;
 
@@ -137,7 +138,7 @@ class ReferenceStack {
 		if ( $this->refs[$group][$follow] ?? false ) {
 			// We know the parent note already, so just perform the "follow" and bail out
 			// TODO: Separate `pushRef` from these side-effects.
-			$this->refs[$group][$follow]['text'] .= ' ' . $text;
+			$this->appendText( $group, $follow, ' ' . $text );
 			return null;
 		}
 
@@ -401,16 +402,20 @@ class ReferenceStack {
 	}
 
 	/**
-	 * Interface to set reference text from external code.  Ideally we can take over
-	 * responsibility for this logic.
-	 * @deprecated
-	 *
 	 * @param string $group
 	 * @param string $name
-	 * @param ?string $text
+	 * @param string $text
 	 */
-	public function setRefText( string $group, string $name, ?string $text ) {
-		$this->refs[$group][$name]['text'] = $text;
+	public function appendText( string $group, string $name, string $text ) {
+		if ( !isset( $this->refs[$group][$name] ) ) {
+			throw new LogicException( "Unknown ref \"$name\" in group \"$group\"" );
+		}
+
+		if ( isset( $this->refs[$group][$name]['text'] ) ) {
+			$this->refs[$group][$name]['text'] .= $text;
+		} else {
+			$this->refs[$group][$name]['text'] = $text;
+		}
 	}
 
 }

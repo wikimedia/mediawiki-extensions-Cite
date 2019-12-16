@@ -30,34 +30,27 @@ class ReferencesFormatter {
 	private $anchorFormatter;
 
 	/**
-	 * @var Parser
-	 */
-	private $parser;
-
-	/**
 	 * @var ReferenceMessageLocalizer
 	 */
 	private $messageLocalizer;
 
 	/**
-	 * @param Parser $parser
 	 * @param ErrorReporter $errorReporter
 	 * @param AnchorFormatter $anchorFormatter
 	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
 	public function __construct(
-		Parser $parser,
 		ErrorReporter $errorReporter,
 		AnchorFormatter $anchorFormatter,
 		ReferenceMessageLocalizer $messageLocalizer
 	) {
 		$this->errorReporter = $errorReporter;
 		$this->anchorFormatter = $anchorFormatter;
-		$this->parser = $parser;
 		$this->messageLocalizer = $messageLocalizer;
 	}
 
 	/**
+	 * @param Parser $parser
 	 * @param array[] $groupRefs
 	 * @param bool $responsive
 	 * @param bool $isSectionPreview
@@ -65,6 +58,7 @@ class ReferencesFormatter {
 	 * @return string HTML
 	 */
 	public function formatReferences(
+		Parser $parser,
 		array $groupRefs,
 		bool $responsive,
 		bool $isSectionPreview
@@ -114,7 +108,7 @@ class ReferencesFormatter {
 		$parserInput .= $this->closeIndention( $indented );
 		$parserInput = Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
 		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
-		$ret = rtrim( $this->parser->recursiveTagParse( $parserInput ), "\n" );
+		$ret = rtrim( $parser->recursiveTagParse( $parserInput ), "\n" );
 
 		if ( $responsive ) {
 			// Use a DIV wrap because column-count on a list directly is broken in Chrome.

@@ -43,7 +43,7 @@ class CiteParserHooks {
 		if ( isset( $parser->extCite ) ) {
 			/** @var Cite $cite */
 			$cite = $parser->extCite;
-			$text .= $cite->checkRefsNoReferences( $parser->getOptions()->getIsSectionPreview() );
+			$text .= $cite->checkRefsNoReferences( $parser, $parser->getOptions()->getIsSectionPreview() );
 		}
 	}
 

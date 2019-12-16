@@ -62,7 +62,8 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		$spy->referencesFormatter = $referencesFormatter;
 		$spy->isSectionPreview = $isSectionPreview;
 
-		$output = $cite->checkRefsNoReferences( $isSectionPreview );
+		$output = $cite->checkRefsNoReferences(
+			$this->createMock( Parser::class ), $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 

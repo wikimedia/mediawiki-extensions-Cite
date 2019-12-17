@@ -498,7 +498,6 @@ class Cite {
 		return $this->referencesFormatter->formatReferences(
 			$parser,
 			$this->referenceStack->popGroup( $group ),
-			// FIXME: The responsive feature is not covered by parser tests!
 			(bool)( $responsive ?? $wgCiteResponsiveReferences ),
 			$this->isSectionPreview
 		);

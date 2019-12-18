@@ -20,6 +20,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @covers ::__construct
 	 * @covers ::formatReferences
+	 * @covers ::formatRefsList
 	 * @dataProvider provideFormatReferences
 	 */
 	public function testFormatReferences( array $refs, string $expectedOutput ) {

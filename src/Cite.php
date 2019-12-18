@@ -241,10 +241,7 @@ class Cite {
 			return StatusValue::newFatal( 'cite_error_references_no_key' );
 		}
 
-		// This doesn't catch the null case because that's guaranteed to trigger other errors
-		// FIXME: We allow whitespace-only text, should this be invalid?  It leaves a
-		//  loophole around the trimmed-text test outside of <references>.
-		if ( $text === '' ) {
+		if ( $text === null || trim( $text ) === '' ) {
 			// <ref> called in <references> has no content.
 			return StatusValue::newFatal(
 				'cite_error_empty_references_define',

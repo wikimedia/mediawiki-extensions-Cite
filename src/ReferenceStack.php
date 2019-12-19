@@ -164,7 +164,7 @@ class ReferenceStack {
 			//  array index is constant, preventing O(N) searches.
 			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
 			array_splice( $this->refCallStack, $k, 0,
-				[ [ 'new', $argv, $text, $name, $extends, $group, $this->refSequence ] ] );
+				[ [ 'new', $this->refSequence, $group, $name, $extends, $argv, $text ] ] );
 
 			// A "follow" never gets its own footnote marker
 			return null;
@@ -237,7 +237,7 @@ class ReferenceStack {
 			}
 		}
 
-		$this->refCallStack[] = [ $action, $argv, $text, $name, $extends, $group, $ref['key'] ];
+		$this->refCallStack[] = [ $action, $ref['key'], $group, $name, $extends, $argv, $text ];
 		return $ref;
 	}
 
@@ -246,7 +246,7 @@ class ReferenceStack {
 	 * last few tags were actually inside of a references tag.
 	 *
 	 * @param int $count
-	 * @return array Refs to restore under the correct context. [ $argv, $text ]
+	 * @return array[] Refs to restore under the correct context, as a list of [ $argv, $text ]
 	 */
 	public function rollbackRefs( int $count ) : array {
 		$redoStack = [];
@@ -256,10 +256,9 @@ class ReferenceStack {
 			}
 
 			$call = array_pop( $this->refCallStack );
-			if ( $call !== false ) {
-				[ $action, $argv, $text, $name, $extends, $group, $key ] = $call;
-				$this->rollbackRef( $action, $name, $extends, $group, $key );
-				$redoStack[] = [ $argv, $text ];
+			if ( $call ) {
+				$this->rollbackRef( ...$call );
+				$redoStack[] = array_slice( $call, -2 );
 			}
 		}
 		// Drop unused rollbacks, this group is finished.
@@ -285,17 +284,17 @@ class ReferenceStack {
 	 * corrupting certain links.
 	 *
 	 * @param string $action
-	 * @param string|null $name The name attribute passed in the ref tag.
-	 * @param string|null $extends
-	 * @param string $group
 	 * @param int $key Autoincrement counter for this ref.
+	 * @param string $group
+	 * @param ?string $name The name attribute passed in the ref tag.
+	 * @param ?string $extends
 	 */
 	private function rollbackRef(
 		string $action,
-		?string $name,
-		?string $extends,
+		int $key,
 		string $group,
-		int $key
+		?string $name,
+		?string $extends
 	) {
 		if ( !$this->hasGroup( $group ) ) {
 			return;

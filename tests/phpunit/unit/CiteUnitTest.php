@@ -51,7 +51,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		$cite->inReferencesGroup = $inReferencesGroup;
 		$cite->isSectionPreview = $isSectionPreview;
 
-		$status = $cite->validateRef( $text, $name, $group, $follow, $extends, $dir );
+		$status = $cite->validateRef( $text, $group, $name, $extends, $follow, $dir );
 		if ( is_string( $expected ) ) {
 			$this->assertSame( $expected, $status->getErrors()[0]['message'] );
 		} else {
@@ -281,7 +281,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
-		$status = $cite->validateRef( 'text', 'name', '', null, 'a', null );
+		$status = $cite->validateRef( 'text', '', 'name', 'a', null, null );
 		$this->assertSame( 'cite_error_ref_too_many_keys', $status->getErrors()[0]['message'] );
 	}
 
@@ -369,7 +369,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $this->createMock( ErrorReporter::class );
 		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
-			function ( $parser, ...$args ) {
+			function ( Parser $parser, ...$args ) {
 				return '(' . implode( '|', $args ) . ')';
 			}
 		);
@@ -381,12 +381,10 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
 		$spy->referenceStack->method( 'popGroup' )
 			->with( $expectedInReferencesGroup )->willReturn( [] );
-		if ( $expectedRollbackCount === 0 ) {
-			$spy->referenceStack->expects( $this->never() )->method( 'rollbackRefs' );
-		} else {
-			$spy->referenceStack->method( 'rollbackRefs' )
-				->with( $expectedRollbackCount )->willReturn( [ [ [], 't' ] ] );
-		}
+		$spy->referenceStack->expects( $expectedRollbackCount ? $this->once() : $this->never() )
+			->method( 'rollbackRefs' )
+			->with( $expectedRollbackCount )
+			->willReturn( [ [ 't', [] ] ] );
 
 		$output = $spy->guardedReferences( $text, $argv, $parser );
 		$this->assertSame( $expectedOutput, $output );
@@ -500,13 +498,9 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			}
 		);
 		$spy->referenceStack->method( 'pushRef' )->willReturnCallback(
-			function (
-				$parser, $text, $name, $group, $extends, $follow, $argv, $dir, $_stripState
-			) use ( &$pushedRefs ) {
-				$pushedRefs[] = [ $text, $name, $group, $extends, $follow, $argv, $dir ];
-				return [
-					'name' => $name,
-				];
+			function ( Parser $parser, StripState $stripState, ...$arguments ) use ( &$pushedRefs ) {
+				$pushedRefs[] = $arguments;
+				return [ 'name' => $arguments[1] ];
 			}
 		);
 		$spy->referenceStack->method( 'appendText' )->willReturnCallback(
@@ -515,7 +509,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			}
 		);
 
-		$result = $spy->guardedRef( $text, $argv, $mockParser );
+		$result = $spy->guardedRef( $mockParser, $text, $argv );
 		$this->assertSame( $expectOutput, $result );
 		$this->assertSame( $expectedErrors, $spy->mReferencesErrors );
 		$this->assertSame( $expectedRefs, $pushedRefs );
@@ -533,7 +527,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'<foot />',
 				[],
 				[
-					[ null, 'a', '', null, null, [ 'name' => 'a' ], null ]
+					[ null, [ 'name' => 'a' ], '', 'a', null, null, null ]
 				]
 			],
 			'Empty in default references' => [
@@ -572,7 +566,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'<foot />',
 				[],
 				[
-					[ 'text', 'a', '', null, null, [ 'name' => 'a' ], null ]
+					[ 'text', [ 'name' => 'a' ], '', 'a', null, null, null ]
 				]
 			],
 			'Invalid ref' => [
@@ -648,7 +642,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		$spy->errorReporter = $this->createMock( ErrorReporter::class );
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
 
-		$spy->guardedRef( 'text', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ], $mockParser );
+		$spy->guardedRef( $mockParser, 'text', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ] );
 	}
 
 	/**

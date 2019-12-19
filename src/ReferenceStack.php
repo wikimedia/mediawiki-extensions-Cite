@@ -106,27 +106,27 @@ class ReferenceStack {
 	 * Populate $this->refs and $this->refCallStack based on input and arguments to <ref>
 	 *
 	 * @param Parser $parser
+	 * @param StripState $stripState
 	 * @param ?string $text Content from the <ref> tag
-	 * @param ?string $name
+	 * @param string[] $argv
 	 * @param string $group
+	 * @param ?string $name
 	 * @param ?string $extends
 	 * @param ?string $follow Guaranteed to not be a numeric string
-	 * @param string[] $argv
 	 * @param ?string $dir ref direction
-	 * @param StripState $stripState
 	 *
 	 * @return ?array ref structure, or null if nothing was pushed
 	 */
 	public function pushRef(
 		Parser $parser,
+		StripState $stripState,
 		?string $text,
-		?string $name,
+		array $argv,
 		string $group,
+		?string $name,
 		?string $extends,
 		?string $follow,
-		array $argv,
-		?string $dir,
-		StripState $stripState
+		?string $dir
 	) : ?array {
 		if ( !isset( $this->refs[$group] ) ) {
 			$this->refs[$group] = [];
@@ -165,7 +165,7 @@ class ReferenceStack {
 			//  array index is constant, preventing O(N) searches.
 			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
 			array_splice( $this->refCallStack, $k, 0,
-				[ [ 'new', $this->refSequence, $group, $name, $extends, $argv, $text ] ] );
+				[ [ 'new', $this->refSequence, $group, $name, $extends, $text, $argv ] ] );
 
 			// A "follow" never gets its own footnote marker
 			return null;
@@ -238,7 +238,7 @@ class ReferenceStack {
 			}
 		}
 
-		$this->refCallStack[] = [ $action, $ref['key'], $group, $name, $extends, $argv, $text ];
+		$this->refCallStack[] = [ $action, $ref['key'], $group, $name, $extends, $text, $argv ];
 		return $ref;
 	}
 
@@ -247,7 +247,7 @@ class ReferenceStack {
 	 * last few tags were actually inside of a references tag.
 	 *
 	 * @param int $count
-	 * @return array[] Refs to restore under the correct context, as a list of [ $argv, $text ]
+	 * @return array[] Refs to restore under the correct context, as a list of [ $text, $argv ]
 	 */
 	public function rollbackRefs( int $count ) : array {
 		$redoStack = [];

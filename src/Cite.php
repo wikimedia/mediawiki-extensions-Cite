@@ -131,27 +131,27 @@ class Cite {
 		}
 
 		$this->mInCite = true;
-		$ret = $this->guardedRef( $text, $argv, $parser );
+		$ret = $this->guardedRef( $parser, $text, $argv );
 		$this->mInCite = false;
 
 		return $ret;
 	}
 
 	/**
-	 * @param string|null $text
-	 * @param string|null $name
-	 * @param string|null $group
-	 * @param string|null $follow
-	 * @param string|null $extends
-	 * @param string|null $dir
+	 * @param ?string $text
+	 * @param ?string $group
+	 * @param ?string $name
+	 * @param ?string $extends
+	 * @param ?string $follow
+	 * @param ?string $dir
 	 * @return StatusValue
 	 */
 	private function validateRef(
 		?string $text,
-		?string $name,
 		?string $group,
-		?string $follow,
+		?string $name,
 		?string $extends,
+		?string $follow,
 		?string $dir
 	) : StatusValue {
 		if ( ctype_digit( $name ) || ctype_digit( $follow ) || ctype_digit( $extends ) ) {
@@ -279,16 +279,16 @@ class Cite {
 	 * TODO: Looks like this should be split into a section insensitive to context, and the
 	 *  special handling for each context.
 	 *
+	 * @param Parser $parser
 	 * @param string|null $text Raw content of the <ref> tag.
 	 * @param string[] $argv Arguments
-	 * @param Parser $parser
 	 *
 	 * @return string HTML
 	 */
 	private function guardedRef(
+		Parser $parser,
 		?string $text,
-		array $argv,
-		Parser $parser
+		array $argv
 	) : string {
 		// Tag every page where Book Referencing has been used, whether or not the ref tag is valid.
 		// This code and the page property will be removed once the feature is stable.  See T237531.
@@ -298,22 +298,17 @@ class Cite {
 
 		$status = $this->parseArguments(
 			$argv,
-			[ 'dir', self::BOOK_REF_ATTRIBUTE, 'follow', 'group', 'name' ]
+			[ 'group', 'name', self::BOOK_REF_ATTRIBUTE, 'follow', 'dir' ]
 		);
-		[
-			'dir' => $dir,
-			self::BOOK_REF_ATTRIBUTE => $extends,
-			'follow' => $follow,
-			'group' => $group,
-			'name' => $name
-		] = $status->getValue();
-
+		$arguments = $status->getValue();
 		// Use the default group, or the references group when inside one.
-		if ( $group === null ) {
-			$group = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
+		if ( $arguments['group'] === null ) {
+			$arguments['group'] = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
 		}
 
-		$status->merge( $this->validateRef( $text, $name, $group, $follow, $extends, $dir ) );
+		[ 'group' => $group, 'name' => $name ] = $arguments;
+
+		$status->merge( $this->validateRef( $text, ...array_values( $arguments ) ) );
 
 		// Validation cares about the difference between null and empty, but from here on we don't
 		if ( $text !== null && trim( $text ) === '' ) {
@@ -369,7 +364,7 @@ class Cite {
 		# if there's any content, regardless of name.
 
 		$ref = $this->referenceStack->pushRef(
-			$parser, $text, $name, $group, $extends, $follow, $argv, $dir, $parser->getStripState() );
+			$parser, $parser->getStripState(), $text, $argv, ...array_values( $arguments ) );
 		return $ref
 			? $this->footnoteMarkFormatter->linkRef( $parser, $group, $ref )
 			: '';
@@ -453,8 +448,7 @@ class Cite {
 
 			# Rerun <ref> call now that mInReferences is set.
 			foreach ( $redoStack as $call ) {
-				[ $ref_argv, $ref_text ] = $call;
-				$this->guardedRef( $ref_text, $ref_argv, $parser );
+				$this->guardedRef( $parser, ...$call );
 			}
 
 			# Parse $text to process any unparsed <ref> tags.

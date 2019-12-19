@@ -248,7 +248,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				],
 				'(cite_references_link_many|||<span class="reference-text">t</span>' . "\n" . '|)'
 			],
-			'Good dir' => [
+			'With dir' => [
 				1,
 				[
 					'dir' => 'rtl',
@@ -256,15 +256,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				],
 				'(cite_references_link_many|||<span class="reference-text">t</span>' .
 					"\n" . '| class="mw-cite-dir-rtl")'
-			],
-			'Invalid dir' => [
-				1,
-				[
-					'dir' => 'not',
-					'text' => 't',
-				],
-				'(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n" . '(cite_error_ref_invalid_dir|not)' . "\n|)"
 			],
 			'Broken follow' => [
 				1,

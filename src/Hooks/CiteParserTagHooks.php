@@ -24,19 +24,24 @@ class CiteParserTagHooks {
 	/**
 	 * Parser hook for the <ref> tag.
 	 *
-	 * @param string|null $content Raw wikitext content of the <ref> tag.
-	 * @param string[] $attributes
+	 * @param ?string $text Raw, untrimmed wikitext content of the <ref> tag, if any
+	 * @param string[] $argv
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 *
 	 * @return string HTML
 	 */
-	public static function ref( $content, array $attributes, Parser $parser, PPFrame $frame ) {
+	public static function ref(
+		?string $text,
+		array $argv,
+		Parser $parser,
+		PPFrame $frame
+	) : string {
 		$cite = self::citeForParser( $parser );
-		$result = $cite->ref( $content, $attributes, $parser );
+		$result = $cite->ref( $parser, $text, $argv );
 
 		if ( $result === false ) {
-			return htmlspecialchars( "<ref>$content</ref>" );
+			return htmlspecialchars( "<ref>$text</ref>" );
 		}
 
 		$parserOutput = $parser->getOutput();
@@ -51,21 +56,26 @@ class CiteParserTagHooks {
 	/**
 	 * Parser hook for the <references> tag.
 	 *
-	 * @param string|null $content Raw wikitext content of the <references> tag.
-	 * @param string[] $attributes
+	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
+	 * @param string[] $argv
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 *
 	 * @return string HTML
 	 */
-	public static function references( $content, array $attributes, Parser $parser, PPFrame $frame ) {
+	public static function references(
+		?string $text,
+		array $argv,
+		Parser $parser,
+		PPFrame $frame
+	) : string {
 		$cite = self::citeForParser( $parser );
-		$result = $cite->references( $content, $attributes, $parser );
+		$result = $cite->references( $parser, $text, $argv );
 
 		if ( $result === false ) {
-			return htmlspecialchars( $content === null
+			return htmlspecialchars( $text === null
 				? "<references/>"
-				: "<references>$content</references>"
+				: "<references>$text</references>"
 			);
 		}
 
@@ -81,7 +91,7 @@ class CiteParserTagHooks {
 	 *
 	 * @return Cite
 	 */
-	private static function citeForParser( Parser $parser ): Cite {
+	private static function citeForParser( Parser $parser ) : Cite {
 		if ( !isset( $parser->extCite ) ) {
 			$parser->extCite = new Cite( $parser );
 		}

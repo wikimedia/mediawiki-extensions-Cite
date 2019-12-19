@@ -48,10 +48,7 @@ class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 		);
 	}
 
-	/**
-	 * @return ResourceLoaderContext
-	 */
-	private function createResourceLoaderContext() {
+	private function createResourceLoaderContext() : ResourceLoaderContext {
 		$msg = $this->createMock( Message::class );
 		$msg->method( 'inContentLanguage' )
 			->willReturnSelf();

@@ -613,6 +613,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::__clone
+	 * @covers ::__construct
 	 */
 	public function testClone() {
 		$original = $this->newCite();

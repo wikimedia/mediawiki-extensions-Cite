@@ -48,6 +48,7 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
+	 * @covers ::citeForParser
 	 * @covers ::ref
 	 */
 	public function testRef() {
@@ -91,6 +92,7 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
+	 * @covers ::citeForParser
 	 * @covers ::references
 	 */
 	public function testReferences() {

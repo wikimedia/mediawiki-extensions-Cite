@@ -17,8 +17,9 @@ use ParserOptions;
 class ErrorReporterTest extends \MediaWikiUnitTestCase {
 
 	/**
-	 * @covers ::plain
 	 * @covers ::__construct
+	 * @covers ::getInterfaceLanguageAndSplitCache
+	 * @covers ::plain
 	 * @dataProvider provideErrors
 	 */
 	public function testPlain(

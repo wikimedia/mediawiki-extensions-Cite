@@ -67,6 +67,10 @@ sup.reference:target {
 	unicode-bidi: embed;
 }
 
+.mw-ext-cite-error code {
+	color: inherit;
+}
+
 /* @noflip */
 .mw-cite-dir-ltr .reference-text {
 	direction: ltr;

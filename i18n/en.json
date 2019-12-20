@@ -45,7 +45,6 @@
 	"cite_references_link_prefix": "cite_note-",
 	"cite_references_link_suffix": "",
 	"cite_reference_link": "<sup id=\"$1\" class=\"reference\">[[#$2|&#91;$3&#93;]]</sup>",
-	"cite_references_no_link": "<p id=\"$1\">$2</p>",
 	"cite_references_link_one": "<li id=\"$1\"$4><span class=\"mw-cite-backlink\">[[#$2|↑]]</span> $3</li>",
 	"cite_references_link_many": "<li id=\"$1\"$4><span class=\"mw-cite-backlink\">↑ $2</span> $3</li>",
 	"cite_references_link_many_format": "<sup>[[#$1|$2]]</sup>",

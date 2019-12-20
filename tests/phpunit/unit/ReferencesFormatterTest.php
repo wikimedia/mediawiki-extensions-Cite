@@ -257,14 +257,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				'(cite_references_link_many|||<span class="reference-text">t</span>' .
 					"\n" . '| class="mw-cite-dir-rtl")'
 			],
-			'Broken follow' => [
-				1,
-				[
-					'follow' => 'f',
-					'text' => 't',
-				],
-				'(cite_references_no_link||<span class="reference-text">t</span>' . "\n)"
-			],
 			'Count zero' => [
 				1,
 				[

@@ -173,16 +173,6 @@ class ReferencesFormatter {
 			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
 		}
 
-		// Fallback for a broken, and therefore unprocessed follow="…". Note this returns a <p>, not
-		// an <li> as expected!
-		if ( isset( $val['follow'] ) ) {
-			return $this->messageLocalizer->msg(
-				'cite_references_no_link',
-				$this->anchorFormatter->getReferencesKey( $val['follow'] ),
-				$text
-			)->plain();
-		}
-
 		// This counts the number of reuses. 0 means the reference appears only 1 time.
 		if ( isset( $val['count'] ) && $val['count'] < 1 ) {
 			// Anonymous, auto-numbered references can't be reused and get marked with a -1.

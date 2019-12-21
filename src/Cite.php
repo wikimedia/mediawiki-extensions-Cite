@@ -139,7 +139,7 @@ class Cite {
 
 	/**
 	 * @param ?string $text
-	 * @param ?string $group
+	 * @param string $group
 	 * @param ?string $name
 	 * @param ?string $extends
 	 * @param ?string $follow
@@ -148,13 +148,16 @@ class Cite {
 	 */
 	private function validateRef(
 		?string $text,
-		?string $group,
+		string $group,
 		?string $name,
 		?string $extends,
 		?string $follow,
 		?string $dir
 	) : StatusValue {
-		if ( ctype_digit( $name ) || ctype_digit( $follow ) || ctype_digit( $extends ) ) {
+		if ( ctype_digit( (string)$name )
+			|| ctype_digit( (string)$extends )
+			|| ctype_digit( (string)$follow )
+		) {
 			// Numeric names mess up the resulting id's, potentially producing
 			// duplicate id's in the XHTML.  The Right Thing To Do
 			// would be to mangle them, but it's not really high-priority
@@ -204,7 +207,7 @@ class Cite {
 			}
 		}
 
-		if ( preg_match(
+		if ( $text !== null && preg_match(
 			'/<ref(erences)?\b[^>]*+>/i',
 			preg_replace( '#<(\w++)[^>]*+>.*?</\1\s*>|<!--.*?-->#s', '', $text )
 		) ) {
@@ -230,7 +233,7 @@ class Cite {
 	private function validateRefInReferences(
 		?string $text,
 		?string $name,
-		?string $group
+		string $group
 	): StatusValue {
 		// FIXME: Some assertions make assumptions that rely on earlier tests not failing.
 		//  These dependencies need to be explicit so they aren't accidentally broken by
@@ -324,7 +327,7 @@ class Cite {
 						...$error['params']
 					);
 				}
-			} else {
+			} elseif ( $text !== null ) {
 				$groupRefs = $this->referenceStack->getGroupRefs( $group );
 				if ( !isset( $groupRefs[$name]['text'] ) ) {
 					$this->referenceStack->appendText( $group, $name, $text );

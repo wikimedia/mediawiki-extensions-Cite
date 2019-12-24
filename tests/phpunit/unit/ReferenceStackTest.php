@@ -832,160 +832,153 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	public function testRollbackRefs(
 		array $initialCallStack,
 		array $initialRefs,
-		int $count,
-		?array $expectedRedo,
-		?array $expectedRefs,
-		?string $expectedException
+		int $rollbackCount,
+		$expectedResult,
+		array $expectedRefs = []
 	) {
 		$stack = $this->newStack();
 		$stack->refCallStack = $initialCallStack;
 		$stack->refs = $initialRefs;
 
-		if ( $expectedException ) {
+		if ( is_string( $expectedResult ) ) {
 			$this->expectException( LogicException::class );
-			$this->expectExceptionMessage( $expectedException );
+			$this->expectExceptionMessage( $expectedResult );
 		}
-		$redo = $stack->rollbackRefs( $count );
-		$this->assertSame( $expectedRedo, $redo );
+		$redoStack = $stack->rollbackRefs( $rollbackCount );
+		$this->assertSame( $expectedResult, $redoStack );
 		$this->assertSame( $expectedRefs, $stack->refs );
 	}
 
 	public function provideRollbackRefs() {
 		return [
-			'Empty stack' => [ [], [], 0, [], [], null ],
-			'Attempt to overflow stack bounds' => [ [], [], 1, [], [], null ],
-			'Skip invalid refs' => [ [ false ], [], 1, [], [], null ],
+			'Empty stack' => [
+				'initialCallStack' => [],
+				'initialRefs' => [],
+				'rollbackCount' => 0,
+				'expectedResult' => [],
+				'expectedRefs' => [],
+			],
+			'Attempt to overflow stack bounds' => [
+				'initialCallStack' => [],
+				'initialRefs' => [],
+				'rollbackCount' => 1,
+				'expectedResult' => [],
+				'expectedRefs' => [],
+			],
+			'Skip invalid refs' => [
+				'initialCallStack' => [ false ],
+				'initialRefs' => [],
+				'rollbackCount' => 1,
+				'expectedResult' => [],
+				'expectedRefs' => [],
+			],
 			'Missing group' => [
-				[
+				'initialCallStack' => [
 					[ 'new', 1, 'foo', null, null, 'text', [] ],
 				],
-				[],
-				1,
-				null,
-				null,
-				'Cannot roll back ref with unknown group "foo".',
+				'initialRefs' => [],
+				'rollbackCount' => 1,
+				'expectedResult' => 'Cannot roll back ref with unknown group "foo".',
 			],
 			'Find anonymous ref by key' => [
-				[
+				'initialCallStack' => [
 					[ 'new', 1, 'foo', null, null, 'text', [] ],
 				],
-				[
-					'foo' => [
-						[
-							'key' => 1,
-						]
-					]
+				'initialRefs' => [ 'foo' => [
+					[
+						'key' => 1,
+					],
+				] ],
+				'rollbackCount' => 1,
+				'expectedResult' => [
+					[ 'text', [] ],
 				],
-				1,
-				[
-					[ 'text', [] ]
-				],
-				[],
-				null
+				'expectedRefs' => [],
 			],
 			'Missing anonymous ref' => [
-				[
+				'initialCallStack' => [
 					[ 'new', 1, 'foo', null, null, 'text', [] ],
 				],
-				[
-					'foo' => [
-						[
-							'key' => 2,
-						]
-					]
-				],
-				1,
-				null,
-				null,
-				'Cannot roll back unknown ref by key 1.',
+				'initialRefs' => [ 'foo' => [
+					[
+						'key' => 2,
+					],
+				] ],
+				'rollbackCount' => 1,
+				'expectedResult' => 'Cannot roll back unknown ref by key 1.',
 			],
 			'Assign text' => [
-				[
+				'initialCallStack' => [
 					[ 'assign', 1, 'foo', null, null, 'text-2', [] ],
 				],
-				[
-					'foo' => [
-						[
-							'count' => 2,
-							'key' => 1,
-							'text' => 'text-1',
-						]
-					]
+				'initialRefs' => [ 'foo' => [
+					[
+						'count' => 2,
+						'key' => 1,
+						'text' => 'text-1',
+					],
+				] ],
+				'rollbackCount' => 1,
+				'expectedResult' => [
+					[ 'text-2', [] ],
 				],
-				1,
-				[
-					[ 'text-2', [] ]
-				],
-				[
-					'foo' => [
-						[
-							'count' => 1,
-							'key' => 1,
-							'text' => null,
-						]
-					]
-				],
-				null
+				'expectedRefs' => [ 'foo' => [
+					[
+						'count' => 1,
+						'key' => 1,
+						'text' => null,
+					],
+				] ],
 			],
 			'Increment' => [
-				[
+				'initialCallStack' => [
 					[ 'increment', 1, 'foo', null, null, null, [] ],
 				],
-				[
-					'foo' => [
-						[
-							'count' => 2,
-							'key' => 1,
-						]
-					]
+				'initialRefs' => [ 'foo' => [
+					[
+						'count' => 2,
+						'key' => 1,
+					],
+				] ],
+				'rollbackCount' => 1,
+				'expectedResult' => [
+					[ null, [] ],
 				],
-				1,
-				[
-					[ null, [] ]
-				],
-				[
-					'foo' => [
-						[
-							'count' => 1,
-							'key' => 1,
-						]
-					]
-				],
-				null
+				'expectedRefs' => [ 'foo' => [
+					[
+						'count' => 1,
+						'key' => 1,
+					],
+				] ],
 			],
 			'Safely ignore placeholder' => [
-				[
+				'initialCallStack' => [
 					[ 'increment', 1, 'foo', null, null, null, [] ],
 				],
-				[
-					'foo' => [
-						[
-							'placeholder' => true,
-							'number' => 10,
-						],
-						[
-							'count' => 2,
-							'key' => 1,
-						]
-					]
+				'initialRefs' => [ 'foo' => [
+					[
+						'placeholder' => true,
+						'number' => 10,
+					],
+					[
+						'count' => 2,
+						'key' => 1,
+					],
+				] ],
+				'rollbackCount' => 1,
+				'expectedResult' => [
+					[ null, [] ],
 				],
-				1,
-				[
-					[ null, [] ]
-				],
-				[
-					'foo' => [
-						[
-							'placeholder' => true,
-							'number' => 10,
-						],
-						[
-							'count' => 1,
-							'key' => 1,
-						]
-					]
-				],
-				null
+				'expectedRefs' => [ 'foo' => [
+					[
+						'placeholder' => true,
+						'number' => 10,
+					],
+					[
+						'count' => 1,
+						'key' => 1,
+					],
+				] ],
 			],
 		];
 	}

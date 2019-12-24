@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Bjankuloski06",
-			"Brest"
+			"Brest",
+			"Reedy"
 		]
 	},
-	"cite-desc": "Додава ознаки <<code>&lt;ref&gt;</code> и <code>&lt;references&gt;</code> за цитирања",
+	"cite-desc": "Додава ознаки <code>&lt;ref&gt;</code> и <code>&lt;references&gt;</code> за цитирања",
 	"cite_error": "Грешка во наводот: $1.",
 	"cite_error_ref_invalid_dir": "Неважечка ознака <code>dir=\"$1\"</code>. Мора да биде <code>ltr</code> или <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Погрешна ознака <code>&lt;ref&gt;</code>;\nимето не може да биде број. Употребете описен наслов",

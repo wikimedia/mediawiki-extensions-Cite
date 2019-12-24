@@ -833,13 +833,18 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		array $initialCallStack,
 		array $initialRefs,
 		int $count,
-		array $expectedRedo,
-		array $expectedRefs
+		?array $expectedRedo,
+		?array $expectedRefs,
+		?string $expectedException
 	) {
 		$stack = $this->newStack();
 		$stack->refCallStack = $initialCallStack;
 		$stack->refs = $initialRefs;
 
+		if ( $expectedException ) {
+			$this->expectException( LogicException::class );
+			$this->expectExceptionMessage( $expectedException );
+		}
 		$redo = $stack->rollbackRefs( $count );
 		$this->assertSame( $expectedRedo, $redo );
 		$this->assertSame( $expectedRefs, $stack->refs );
@@ -847,19 +852,18 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 	public function provideRollbackRefs() {
 		return [
-			'Empty stack' => [ [], [], 0, [], [] ],
-			'Attempt to overflow stack bounds' => [ [], [], 1, [], [] ],
-			'Skip invalid refs' => [ [ false ], [], 1, [], [] ],
+			'Empty stack' => [ [], [], 0, [], [], null ],
+			'Attempt to overflow stack bounds' => [ [], [], 1, [], [], null ],
+			'Skip invalid refs' => [ [ false ], [], 1, [], [], null ],
 			'Missing group' => [
 				[
 					[ 'new', 1, 'foo', null, null, 'text', [] ],
 				],
 				[],
 				1,
-				[
-					[ 'text', [] ]
-				],
-				[]
+				null,
+				null,
+				'Cannot roll back ref with unknown group "foo".',
 			],
 			'Find anonymous ref by key' => [
 				[
@@ -876,7 +880,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				[
 					[ 'text', [] ]
 				],
-				[]
+				[],
+				null
 			],
 			'Missing anonymous ref' => [
 				[
@@ -890,16 +895,9 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					]
 				],
 				1,
-				[
-					[ 'text', [] ]
-				],
-				[
-					'foo' => [
-						[
-							'key' => 2,
-						]
-					]
-				]
+				null,
+				null,
+				'Cannot roll back unknown ref by key 1.',
 			],
 			'Assign text' => [
 				[
@@ -927,6 +925,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
+				null
 			],
 			'Increment' => [
 				[
@@ -952,6 +951,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
+				null
 			],
 			'Safely ignore placeholder' => [
 				[
@@ -985,6 +985,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
+				null
 			],
 		];
 	}

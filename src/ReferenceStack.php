@@ -298,7 +298,7 @@ class ReferenceStack {
 		?string $extends
 	) {
 		if ( !$this->hasGroup( $group ) ) {
-			return;
+			throw new LogicException( "Cannot roll back ref with unknown group \"$group\"." );
 		}
 
 		$lookup = $name;
@@ -314,12 +314,14 @@ class ReferenceStack {
 			}
 		}
 
-		// Sanity checks that specified element exists.
-		if ( $lookup === null ||
-			!isset( $this->refs[$group][$lookup] ) ||
-			$this->refs[$group][$lookup]['key'] !== $key
-		) {
-			return;
+		// Obsessive sanity checks that the specified element exists.
+		if ( $lookup === null ) {
+			throw new LogicException( "Cannot roll back unknown ref by key $key." );
+		} elseif ( !isset( $this->refs[$group][$lookup] ) ) {
+			throw new LogicException( "Cannot roll back missing named ref \"$lookup\"." );
+		} elseif ( $this->refs[$group][$lookup]['key'] !== $key ) {
+			throw new LogicException(
+				"Cannot roll back corrupt named ref \"$lookup\" which should have had key $key." );
 		}
 
 		if ( $extends ) {
@@ -346,7 +348,7 @@ class ReferenceStack {
 				$this->refs[$group][$lookup]['count']--;
 				break;
 			default:
-				throw new \LogicException( "Unknown call stack action \"$action\"" );
+				throw new LogicException( "Unknown call stack action \"$action\"" );
 		}
 	}
 

@@ -11,7 +11,7 @@
 			"BaRaN6161 TURK"
 		]
 	},
-	"cite-desc": "Alıntılar için, <code>&lt;ref[ name=id]&gt;</code> ve <code>&lt;references /&gt;</code> etiketlerini ekler",
+	"cite-desc": "Alıntılar için, <code>&lt;ref&gt;</code> ve <code>&lt;references&gt;</code> etiketlerini ekler",
 	"cite_error": "Kaynak hatası: $1",
 	"cite_error_ref_invalid_dir": "Geçersiz <code>dir=\"$1\"</code>, <code>ltr</code> veya <code>rtl</code> olmalıdır",
 	"cite_error_ref_numeric_key": "Geçersiz <code>&lt;ref&gt;</code> etiketi;\nisim basit bir tamsayı olamaz. Tanımlayıcı bir başlık kullanın",

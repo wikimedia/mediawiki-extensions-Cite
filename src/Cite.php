@@ -493,7 +493,7 @@ class Cite {
 		return $this->referencesFormatter->formatReferences(
 			$parser,
 			$this->referenceStack->popGroup( $group ),
-			(bool)( $responsive ?? $wgCiteResponsiveReferences ),
+			$responsive !== null ? $responsive !== '0' : $wgCiteResponsiveReferences,
 			$this->isSectionPreview
 		);
 	}

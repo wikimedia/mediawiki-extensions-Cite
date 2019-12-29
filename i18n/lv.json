@@ -7,7 +7,7 @@
 			"Papuass"
 		]
 	},
-	"cite-desc": "Pievieno <code>&lt;ref[ name=id]&gt;</code> un <code>&lt;references/&gt;</code> iezīmes, atsaucēm",
+	"cite-desc": "Pievieno <code>&lt;ref&gt;</code> un <code>&lt;references&gt;</code> iezīmes atsaucēm",
 	"cite_error": "Kļūda atsaucē: $1",
 	"cite_error_ref_invalid_dir": "Nederīga <code>dir=\"$1\"</code> vērtība, jābūt vai nu <code>ltr</code> vai <code>rtl</code>.",
 	"cite_error_ref_numeric_key": "Nederīga <code>&lt;ref&gt;</code> iezīme;\n\"name\" vērtība nevar būt vienkāršs skaitlis. Izmanto aprakstošāku nosaukumu",

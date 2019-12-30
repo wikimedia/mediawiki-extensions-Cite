@@ -65,6 +65,38 @@ wgCiteResponsiveReferences=true
 !! end
 
 !! test
+T241303: responsive attribute with no value should *not* disable the wrapper <div>
+!! config
+wgCiteResponsiveReferences=true
+!! wikitext
+<ref>a</ref>
+<references responsive />
+!! html/php
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">a</span>
+</li>
+</ol></div>
+!! end
+
+!! test
+T241303: responsive attribute with an empty value should *not* disable the wrapper <div>
+!! config
+wgCiteResponsiveReferences=true
+!! wikitext
+<ref>a</ref>
+<references responsive="" />
+!! html/php
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">a</span>
+</li>
+</ol></div>
+!! end
+
+!! test
 9 references should *not* enable the column mode
 !! config
 wgCiteResponsiveReferences=true

@@ -7,10 +7,11 @@
 			"ZaDiak",
 			"Απεργός",
 			"Xaris333",
-			"Nikosgranturismogt"
+			"Nikosgranturismogt",
+			"Geraki"
 		]
 	},
-	"cite-desc": "Προσθέτει τις ετικέτες <code>&lt;ref[ name=id]&gt;</code> και <code>&lt;references/&gt;</code>, για παραπομπές",
+	"cite-desc": "Προσθέτει τις ετικέτες <code>&lt;ref&gt;</code> και <code>&lt;references&gt;</code>, για παραπομπές",
 	"cite_error": "Σφάλμα παραπομπής: $1",
 	"cite_error_ref_numeric_key": "Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>·\nτο όνομα δεν μπορεί να είναι απλός ακέραιος. Χρησιμοποιήστε έναν περιγραφικό τίτλο",
 	"cite_error_ref_no_key": "Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>·\nπαραπομπές χωρίς περιεχόμενο πρέπει να έχουν όνομα",

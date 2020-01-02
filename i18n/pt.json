@@ -13,7 +13,7 @@
 			"Mansil alfalb"
 		]
 	},
-	"cite-desc": "Adiciona elementos <code>&lt;ref[ name=id]&gt;</code> e <code>&lt;references/&gt;</code> para uso em citações",
+	"cite-desc": "Adiciona elementos <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para uso em citações",
 	"cite_error": "Erro de citação: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> inválido, deve ser <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Elemento <code>&lt;ref&gt;</code> inválido; o nome não pode ser um número. Use um nome descritivo",

@@ -258,8 +258,7 @@ class ReferenceStack {
 
 			$call = array_pop( $this->refCallStack );
 			if ( $call ) {
-				$this->rollbackRef( ...$call );
-				$redoStack[] = array_slice( $call, -2 );
+				$redoStack[] = $this->rollbackRef( ...$call );
 			}
 		}
 		// Drop unused rollbacks, this group is finished.
@@ -289,14 +288,20 @@ class ReferenceStack {
 	 * @param string $group
 	 * @param ?string $name The name attribute passed in the ref tag.
 	 * @param ?string $extends
+	 * @param ?string $text
+	 * @param array $argv
+	 *
+	 * @return array [ $text, $argv ] Ref redo item.
 	 */
 	private function rollbackRef(
 		string $action,
 		int $key,
 		string $group,
 		?string $name,
-		?string $extends
-	) {
+		?string $extends,
+		?string $text,
+		array $argv
+	) : array {
 		if ( !$this->hasGroup( $group ) ) {
 			throw new LogicException( "Cannot roll back ref with unknown group \"$group\"." );
 		}
@@ -350,6 +355,7 @@ class ReferenceStack {
 			default:
 				throw new LogicException( "Unknown call stack action \"$action\"" );
 		}
+		return [ $text, $argv ];
 	}
 
 	/**

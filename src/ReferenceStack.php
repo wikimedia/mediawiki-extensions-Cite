@@ -217,7 +217,9 @@ class ReferenceStack {
 
 		$ref['number'] = $ref['number'] ?? ++$this->groupRefSequence[$group];
 
-		if ( $extends ) {
+		// Do not mess with a known parent a second time
+		// FIXME: As of now, bad $extends are ignored if $name and $text are fine, see T242110
+		if ( $extends && !isset( $ref['extendsIndex'] ) ) {
 			$this->extendsCount[$group][$extends] =
 				( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
 

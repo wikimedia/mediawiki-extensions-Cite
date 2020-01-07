@@ -246,11 +246,11 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 <sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;1.2&#93;</a></sup>
+<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
-<ol class="mw-extended-references"><li id="cite_note-b-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-b_2-0">1.2.0</a></sup> <sup><a href="#cite_ref-b_2-1">1.2.1</a></sup></span> <span class="reference-text">page 2 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span></span>
+<ol class="mw-extended-references"><li id="cite_note-b-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-b_2-0">1.1.0</a></sup> <sup><a href="#cite_ref-b_2-1">1.1.1</a></sup></span> <span class="reference-text">page 2 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span></span>
 </li>
 </ol></li>
 </ol></div>
@@ -745,5 +745,112 @@ wgCiteBookReferencing=true
 </ol></li>
 <li id="cite_note-c-3"><span class="mw-cite-backlink"><a href="#cite_ref-c_3-0">↑</a></span> <span class="reference-text">text-c</span>
 </li>
+</ol></div>
+!! end
+
+!! test
+T242110: Copy-pasted, named sub-references should be merged and not mess with the numbering
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a1" extends="a">a1</ref>
+<ref name="a1" extends="a">a1</ref>
+<references>
+<ref name="a">a</ref>
+</references>
+!! html
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+!! test
+T242110: Reused sub-references should be merged and not mess with the numbering
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a1" extends="a">a1</ref>
+<ref name="a1" extends="a" />
+<references>
+<ref name="a">a</ref>
+</references>
+!! html
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+# TODO: Currently, the extends attribute is ignored in this situation.
+!! test
+T242110: Bad extends attributes on reused sub-references should report an error
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a1" extends="a">a1</ref>
+<ref name="a1" extends="unknown" />
+<references>
+<ref name="a">a</ref>
+</references>
+!! html
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+!! test
+T242110: Copy-pasted, named sub-references should appear in proper order
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a1" extends="a">a1</ref>
+<ref name="a1" extends="a">a1</ref>
+<ref name="b1" extends="b">b1</ref>
+<ref name="b1" extends="b" />
+<ref name="c1" extends="c">c1</ref>
+<ref name="c1" />
+<references>
+<ref name="a">a</ref>
+<ref name="b">a</ref>
+<ref name="c">a</ref>
+</references>
+!! html
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<sup id="cite_ref-b1_2-0" class="reference"><a href="#cite_note-b1-2">&#91;2.1&#93;</a></sup>
+<sup id="cite_ref-b1_2-1" class="reference"><a href="#cite_note-b1-2">&#91;2.1&#93;</a></sup>
+<sup id="cite_ref-c1_3-0" class="reference"><a href="#cite_note-c1-3">&#91;3.1&#93;</a></sup>
+<sup id="cite_ref-c1_3-1" class="reference"><a href="#cite_note-c1-3">&#91;3.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
+</li>
+</ol></li>
+<li id="cite_note-b-"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<ol class="mw-extended-references"><li id="cite_note-b1-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-b1_2-0">2.1.0</a></sup> <sup><a href="#cite_ref-b1_2-1">2.1.1</a></sup></span> <span class="reference-text">b1</span>
+</li>
+</ol></li>
+<li id="cite_note-c-"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<ol class="mw-extended-references"><li id="cite_note-c1-3"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-c1_3-0">3.1.0</a></sup> <sup><a href="#cite_ref-c1_3-1">3.1.1</a></sup></span> <span class="reference-text">c1</span>
+</li>
+</ol></li>
 </ol></div>
 !! end

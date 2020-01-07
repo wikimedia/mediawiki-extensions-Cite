@@ -30,8 +30,9 @@ ol.references > li {
 	counter-reset: mw-ref-extends-child;
 }
 
-.mw-extended-references {
+ol.references .mw-extended-references {
 	list-style: none;
+	margin-left: 2em;
 }
 
 .mw-extended-references > li:before {

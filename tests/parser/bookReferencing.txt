@@ -792,7 +792,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: Currently, the extends attribute is ignored in this situation.
 !! test
 T242110: Bad extends attributes on reused sub-references should report an error
 !! config
@@ -809,7 +808,7 @@ wgCiteBookReferencing=true
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
-<ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
+<ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a1" defined multiple times with different content</span></span>
 </li>
 </ol></li>
 </ol></div>

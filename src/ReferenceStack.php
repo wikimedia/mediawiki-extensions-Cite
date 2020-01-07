@@ -218,7 +218,6 @@ class ReferenceStack {
 		$ref['number'] = $ref['number'] ?? ++$this->groupRefSequence[$group];
 
 		// Do not mess with a known parent a second time
-		// FIXME: As of now, bad $extends are ignored if $name and $text are fine, see T242110
 		if ( $extends && !isset( $ref['extendsIndex'] ) ) {
 			$this->extendsCount[$group][$extends] =
 				( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
@@ -238,6 +237,12 @@ class ReferenceStack {
 					'__placeholder__' => true,
 				];
 			}
+		} elseif ( $extends && $ref['extends'] !== $extends ) {
+			// TODO: Change the error message to talk about "conflicting content or parent"?
+			// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
+			$ref['text'] .= ' ' . $this->errorReporter->plain(
+				$parser, 'cite_error_references_duplicate_key', $name
+			);
 		}
 
 		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset "key" is guaranteed to be set

@@ -26,7 +26,7 @@
 	"cite_error_no_link_label_group": "群組 \"$1\" 的自訂連結標籤符號已用盡。\n請在 <nowiki>[[MediaWiki:$2]]</nowiki> 中定義更多的標籤符號。",
 	"cite_error_references_no_text": "無效的 <code>&lt;ref&gt;</code> 標籤，\n未定義名稱為 <code>$1</code> 的參考文獻內容文字。",
 	"cite_error_included_ref": "缺少 <code>&lt;ref&gt;</code> 標籤的結束標籤 <code>&lt;/ref&gt;</code>",
-	"cite_error_group_refs_without_references": "使用群組名稱 \"$1\" 的 <code>&lt;ref&gt;</code> 標籤已存在，但查無對應的 <code>&lt;references group=\"$1\"/&gt;</code> 標籤，或缺少 <code>&lt;/ref&gt;</code> 結束標籤。",
+	"cite_error_group_refs_without_references": "使用群組名稱 \"$1\" 的 <code>&lt;ref&gt;</code> 標籤已存在，但查無對應的 <code>&lt;references group=\"$1\"/&gt;</code> 標籤",
 	"cite_error_references_group_mismatch": "在 <code>&lt;references&gt;</code> 中的 <code>&lt;ref&gt;</code> 標籤 group 屬性衝突 \"$1\"。",
 	"cite_error_references_missing_group": "在 <code>&lt;ref&gt;</code> 外定義的 <code>&lt;references&gt;</code> 標籤有設定 group 屬性為 \"$1\"，但在前文中並未使用。",
 	"cite_error_references_missing_key": "在 <code>&lt;references&gt;</code> 中定義的 <code>&lt;ref&gt;</code> 標籤設定 name 屬性為 \"$1\"，但在前文中並未使用。",

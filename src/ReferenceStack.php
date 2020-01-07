@@ -135,7 +135,7 @@ class ReferenceStack {
 			$this->groupRefSequence[$group] = 0;
 		}
 
-		if ( $this->refs[$group][$follow] ?? false ) {
+		if ( $follow && isset( $this->refs[$group][$follow] ) ) {
 			// We know the parent note already, so just perform the "follow" and bail out
 			// TODO: Separate `pushRef` from these side-effects.
 			$this->appendText( $group, $follow, ' ' . $text );
@@ -238,6 +238,7 @@ class ReferenceStack {
 			}
 		}
 
+		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset "key" is guaranteed to be set
 		$this->refCallStack[] = [ $action, $ref['key'], $group, $name, $extends, $text, $argv ];
 		return $ref;
 	}
@@ -401,11 +402,11 @@ class ReferenceStack {
 	/**
 	 * Return all references for a group.
 	 *
-	 * @param ?string $group
+	 * @param string $group
 	 * @return array[]
 	 */
-	public function getGroupRefs( ?string $group ) : array {
-		return $this->refs[$group ?? Cite::DEFAULT_GROUP] ?? [];
+	public function getGroupRefs( string $group ) : array {
+		return $this->refs[$group] ?? [];
 	}
 
 	/**

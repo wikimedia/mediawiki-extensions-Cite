@@ -449,7 +449,6 @@ class Cite {
 			# Undo effects of calling <ref> while unaware of containing <references>
 			$redoStack = $this->referenceStack->rollbackRefs( $count );
 
-			# Rerun <ref> call now that mInReferences is set.
 			foreach ( $redoStack as $call ) {
 				$this->guardedRef( $parser, ...$call );
 			}
@@ -475,11 +474,6 @@ class Cite {
 	}
 
 	/**
-	 * Make output to be returned from the references() function.
-	 *
-	 * If called outside of references(), caller is responsible for ensuring
-	 * `mInReferences` is enabled before the call and disabled after call.
-	 *
 	 * @param Parser $parser
 	 * @param string $group
 	 * @param string|null $responsive Defaults to $wgCiteResponsiveReferences when not set

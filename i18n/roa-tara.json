@@ -17,7 +17,7 @@
 	"cite_error_no_link_label_group": "Le etichette personalizzate de le collegaminde pu gruppe \"$1\" onne spicciate.\nDefiniscene otre jndr'à 'u messàgge <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Tag <code>&lt;ref&gt;</code> invalide;\nnisciune teste ere previste pe le referimende nnomenate <code>$1</code>",
 	"cite_error_included_ref": "Stè 'u tag <code>&lt;/ref&gt;</code> ma manghe <code>&lt;ref&gt;</code>",
-	"cite_error_group_refs_without_references": "'U tag <code>&lt;ref&gt;</code> esiste pu gruppe nomenate \"$1\", ma non ge corresponne a 'u tag acchiate <code>&lt;references group=\"$1\"/&gt;</code>, o 'nu tag de chiusure <code>&lt;/ref&gt;</code> manghe",
+	"cite_error_group_refs_without_references": "'U tag <code>&lt;ref&gt;</code> esiste pu gruppe nomenate \"$1\", ma non ge corresponne a 'u tag acchiate <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "'U tag <code>&lt;ref&gt;</code> tag jndr'à <code>&lt;references&gt;</code> tène conflitte cu l'attribbute d'u gruppe \"$1\".",
 	"cite_error_references_missing_group": "'U tag <code>&lt;ref&gt;</code> definite jndr'à <code>&lt;references&gt;</code> ave attribbute de gruppe \"$1\" 'u quale non ge jesse jndr'à 'u teste prengepàle.",
 	"cite_error_references_missing_key": "'U tag <code>&lt;ref&gt;</code> cu 'u nome \"$1\" definite jndr'à <code>&lt;references&gt;</code> non g'avene ausate jndr'à 'u teste prengepàle.",

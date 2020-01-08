@@ -25,7 +25,7 @@
 	"cite_error_no_link_label_group": "Etichette esaurite per collegamenti personalizzati del gruppo \"$1\", aumentarne il numero nel messaggio <nowiki>[[MediaWiki:$2]]</nowiki>",
 	"cite_error_references_no_text": "Marcatore <code>&lt;ref&gt;</code> non valido; non è stato indicato alcun testo per il marcatore <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> di chiusura mancante per il marcatore <code>&lt;ref&gt;</code>",
-	"cite_error_group_refs_without_references": "Sono presenti dei marcatori <code>&lt;ref&gt;</code> per un gruppo chiamato \"$1\" ma non è stato trovato alcun marcatore <code>&lt;references group=\"$1\"/&gt;</code> corrispondente, o manca la chiusura <code>&lt;/ref&gt;</code>",
+	"cite_error_group_refs_without_references": "Sono presenti dei marcatori <code>&lt;ref&gt;</code> per un gruppo chiamato \"$1\" ma non è stato trovato alcun marcatore <code>&lt;references group=\"$1\"/&gt;</code> corrispondente",
 	"cite_error_references_group_mismatch": "Il tag <code>&lt;ref&gt;</code> in <code>&lt;references&gt;</code> ha attributo gruppo \"$1\" in conflitto.",
 	"cite_error_references_missing_group": "Il tag <code>&lt;ref&gt;</code> definito in <code>&lt;references&gt;</code> ha un attributo gruppo \"$1\" che non compare nel testo precedente.",
 	"cite_error_references_missing_key": "Il tag <code>&lt;ref&gt;</code> con nome \"$1\" definito in <code>&lt;references&gt;</code> non è usato nel testo precedente.",

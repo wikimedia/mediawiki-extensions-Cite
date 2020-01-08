@@ -502,7 +502,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				[
 					[ 'new', 1, 'foo', 'a', 'b', 'text-a', [] ],
-					[ 'new', 2, 'foo', 'b', null, 'text-b', [] ],
+					[ 'new-from-placeholder', 2, 'foo', 'b', null, 'text-b', [] ],
 				]
 			],
 			'Named extends after parent' => [
@@ -644,7 +644,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				[
 					[ 'new', 1, 'foo', null, 'b', 'text-a', [] ],
-					[ 'new', 2, 'foo', 'b', null, 'text-b', [] ],
+					[ 'new-from-placeholder', 2, 'foo', 'b', null, 'text-b', [] ],
 				]
 			],
 			'Anonymous extends after parent' => [

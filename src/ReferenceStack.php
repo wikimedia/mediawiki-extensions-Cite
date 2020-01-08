@@ -181,7 +181,7 @@ class ReferenceStack {
 			unset( $ref['number'] );
 			$ref = array_merge( $ref, $this->refs[$group][$name] );
 			$this->refs[$group][$name] =& $ref;
-			$action = 'new';
+			$action = 'new-from-placeholder';
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
 			// Valid key with first occurrence
 			$this->refs[$group][$name] = &$ref;
@@ -345,6 +345,10 @@ class ReferenceStack {
 					$this->popGroup( $group );
 				}
 				// TODO: else, don't we need to decrement groupRefSequence?
+				break;
+			case 'new-from-placeholder':
+				$this->refs[$group][$lookup]['__placeholder__'] = true;
+				unset( $this->refs[$group][$lookup]['count'] );
 				break;
 			case 'assign':
 				# Rollback assignment of text to pre-existing elements.

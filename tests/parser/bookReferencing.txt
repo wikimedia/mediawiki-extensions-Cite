@@ -486,8 +486,7 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO:
-#   * Should render an error at the third reference.
+# TODO: Should render an error at the third reference.
 !! test
 T236256 - Dont allow splitting a book reference for now
 !! config
@@ -551,8 +550,48 @@ invalid names, e.g. too many</span>
 </ol></div>
 !! end
 
-# TODO
-#  * This should be invalid, there's no way to know that `footwo` should be subnumbered in a one-pass parse.
+!! test
+Extending a <ref> that doesn't appear in the text, but in <references>
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref extends="a">Page 2</ref>
+<references>
+<ref name="a">Book</ref>
+</references>
+!! html
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
+<ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Page 2</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+# TODO: Should behave the same as above!
+!! test
+T239810: Extending a <ref> that doesn't appear in the text, but in {{#tag:references}}
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref extends="a">Page 2</ref>
+{{#tag:references|
+<ref name="a">Book</ref>
+}}
+!! html
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Page 2</span>
+</li>
+</ol></ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "a" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
+</p>
+!! end
+
+# TODO: This should be invalid, there's no way to know that `footwo` should be subnumbered in a one-pass parse.
 !! test
 Extends <ref> defined in <references> called with #tag
 !! config
@@ -560,7 +599,6 @@ wgCiteBookReferencing=true
 !! wikitext
 <ref name="foo">BAR</ref>
 <ref name="footwo" />
-
 {{#tag:references|
 <ref name="footwo" extends="foo">p. 10</ref>
 }}

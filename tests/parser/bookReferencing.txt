@@ -81,9 +81,9 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: The number for the first <ref> must be "1.1", not just "1"
+# TODO: T242141 - The number for the first <ref> must be "1.1", not just "1"
 !! test
-T240424 - Extended reference reused before defined in the text
+T240424 - Subreference reused as normal ref before its full definition
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -102,9 +102,7 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: This currently renders as if the extends="…" is not there
-# TODO: Render a helpful error message to make this issue visible
-# TODO: Find a way  to render this properly
+# TODO: T242141 - This currently renders as if the extends="…" is not there
 !! test
 T240424 - Extended reference reused before defined in the <references> section
 !! config
@@ -463,7 +461,7 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: Should render an error at the third reference.
+# TODO: T242227 - Should render an error at the third reference.
 !! test
 T236256 - Dont allow splitting a book reference for now
 !! config
@@ -567,7 +565,7 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: This should be invalid, there's no way to know that `footwo` should be subnumbered in a one-pass parse.
+# TODO: T242141 - This should be invalid, there's no way to know that `footwo` should be subnumbered in a one-pass parse.
 !! test
 Extends <ref> defined in <references> called with #tag
 !! config

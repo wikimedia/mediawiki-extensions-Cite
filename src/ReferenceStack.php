@@ -255,20 +255,18 @@ class ReferenceStack {
 	 * last few tags were actually inside of a references tag.
 	 *
 	 * @param int $count
+	 *
 	 * @return array[] Refs to restore under the correct context, as a list of [ $text, $argv ]
 	 */
 	public function rollbackRefs( int $count ) : array {
 		$redoStack = [];
-		for ( $i = 0; $i < $count; $i++ ) {
-			if ( !$this->refCallStack ) {
-				break;
-			}
-
+		while ( $count-- && $this->refCallStack ) {
 			$call = array_pop( $this->refCallStack );
 			if ( $call ) {
 				$redoStack[] = $this->rollbackRef( ...$call );
 			}
 		}
+
 		// Drop unused rollbacks, this group is finished.
 		$this->refCallStack = [];
 

@@ -83,6 +83,7 @@ class ErrorReporter {
 	 * Note the startling side effect of splitting ParserCache by user interface language!
 	 *
 	 * @param Parser $parser
+	 *
 	 * @return Language
 	 */
 	private function getInterfaceLanguageAndSplitCache( Parser $parser ): Language {

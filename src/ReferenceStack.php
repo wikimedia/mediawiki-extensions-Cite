@@ -387,6 +387,7 @@ class ReferenceStack {
 	 * Retruns true if the group exists and contains references.
 	 *
 	 * @param string $group
+	 *
 	 * @return bool
 	 */
 	public function hasGroup( string $group ) : bool {
@@ -412,6 +413,7 @@ class ReferenceStack {
 	 * Return all references for a group.
 	 *
 	 * @param string $group
+	 *
 	 * @return array[]
 	 */
 	public function getGroupRefs( string $group ) : array {

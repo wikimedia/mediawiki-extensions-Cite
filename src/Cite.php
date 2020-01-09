@@ -144,6 +144,7 @@ class Cite {
 	 * @param ?string $extends
 	 * @param ?string $follow
 	 * @param ?string $dir
+	 *
 	 * @return StatusValue
 	 */
 	private function validateRef(

@@ -361,12 +361,6 @@ class Cite {
 			return $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
 		}
 
-		# We don't care about the content: if the name exists, the ref
-		# is presumptively valid.  Either it stores a new ref, or re-
-		# fers to an existing one.  If it refers to a nonexistent ref,
-		# we'll figure that out later.  Likewise it's definitely valid
-		# if there's any content, regardless of name.
-
 		$ref = $this->referenceStack->pushRef(
 			$parser, $parser->getStripState(), $text, $argv, ...array_values( $arguments ) );
 		return $ref
@@ -436,26 +430,23 @@ class Cite {
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
 		if ( $text !== null && trim( $text ) !== '' ) {
-			# Detect whether we were sent already rendered <ref>s.
-			# Mostly a side effect of using #tag to call references.
-			# The following assumes that the parsed <ref>s sent within
-			# the <references> block were the most recent calls to
-			# <ref>.  This assumption is true for all known use cases,
-			# but not strictly enforced by the parser.  It is possible
-			# that some unusual combination of #tag, <references> and
-			# conditional parser functions could be created that would
-			# lead to malformed references here.
+			// Detect whether we were sent already rendered <ref>s. Mostly a side effect of using
+			// {{#tag:references}}. The following assumes that the parsed <ref>s sent within the
+			// <references> block were the most recent calls to <ref>. This assumption is true for
+			// all known use cases, but not strictly enforced by the parser. It is possible that
+			// some unusual combination of #tag, <references> and conditional parser functions could
+			// be created that would lead to malformed references here.
 			$count = substr_count( $text, Parser::MARKER_PREFIX . "-ref-" );
 
-			# Undo effects of calling <ref> while unaware of containing <references>
+			// Undo effects of calling <ref> while unaware of being contained in <references>
 			$redoStack = $this->referenceStack->rollbackRefs( $count );
 
-			# Rerun <ref> call now that mInReferences is set.
 			foreach ( $redoStack as $call ) {
+				// Rerun <ref> call with the <references> context now being known
 				$this->guardedRef( $parser, ...$call );
 			}
 
-			# Parse $text to process any unparsed <ref> tags.
+			// Parse the <references> content to process any unparsed <ref> tags
 			$parser->recursiveTagParse( $text );
 		}
 
@@ -467,7 +458,7 @@ class Cite {
 
 		$s = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive );
 
-		# Append errors generated while processing <references>
+		// Append errors generated while processing <references>
 		if ( $this->mReferencesErrors ) {
 			$s .= "\n" . implode( "<br />\n", $this->mReferencesErrors );
 			$this->mReferencesErrors = [];

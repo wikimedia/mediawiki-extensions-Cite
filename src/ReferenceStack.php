@@ -339,7 +339,7 @@ class ReferenceStack {
 
 		switch ( $action ) {
 			case 'new':
-				# Rollback the addition of new elements to the stack.
+				// Rollback the addition of new elements to the stack
 				unset( $this->refs[$group][$lookup] );
 				if ( $this->refs[$group] === [] ) {
 					// TODO: Unsetting is unecessary.
@@ -348,12 +348,12 @@ class ReferenceStack {
 				// TODO: else, don't we need to decrement groupRefSequence?
 				break;
 			case 'assign':
-				# Rollback assignment of text to pre-existing elements.
+				// Rollback assignment of text to pre-existing elements
 				$this->refs[$group][$lookup]['text'] = null;
 				$this->refs[$group][$lookup]['count']--;
 				break;
 			case 'increment':
-				# Rollback increase in named ref occurrences.
+				// Rollback increase in named ref occurrences
 				$this->refs[$group][$lookup]['count']--;
 				break;
 			default:

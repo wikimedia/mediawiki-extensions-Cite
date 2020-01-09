@@ -547,7 +547,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: Should behave the same as above!
 !! test
 T239810: Extending a <ref> that doesn't appear in the text, but in {{#tag:references}}
 !! config
@@ -561,11 +560,11 @@ wgCiteBookReferencing=true
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-2"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
 <ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Page 2</span>
 </li>
-</ol></ol></div>
-<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "a" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
-</p>
+</ol></li>
+</ol></div>
 !! end
 
 # TODO: This should be invalid, there's no way to know that `footwo` should be subnumbered in a one-pass parse.
@@ -599,7 +598,6 @@ wgCiteBookReferencing=true
 <ref>BAR</ref>
 <ref name="footwo" extends="foo">page 7</ref>
 <ref name="foo" />
-
 {{#tag:references|
 <ref name="foo">book name</ref>
 }}

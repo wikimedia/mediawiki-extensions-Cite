@@ -78,6 +78,7 @@ class CiteParserTagHooks {
 	 * Get or create Cite state for this parser.
 	 *
 	 * @param Parser $parser
+	 *
 	 * @return Cite
 	 */
 	private static function citeForParser( Parser $parser ): Cite {

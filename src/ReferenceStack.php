@@ -250,6 +250,7 @@ class ReferenceStack {
 	 * last few tags were actually inside of a references tag.
 	 *
 	 * @param int $count
+	 *
 	 * @return array[] Refs to restore under the correct context, as a list of [ $text, $argv ]
 	 */
 	public function rollbackRefs( int $count ) : array {
@@ -380,6 +381,7 @@ class ReferenceStack {
 	 * Retruns true if the group exists and contains references.
 	 *
 	 * @param string $group
+	 *
 	 * @return bool
 	 */
 	public function hasGroup( string $group ) : bool {
@@ -405,6 +407,7 @@ class ReferenceStack {
 	 * Return all references for a group.
 	 *
 	 * @param string $group
+	 *
 	 * @return array[]
 	 */
 	public function getGroupRefs( string $group ) : array {

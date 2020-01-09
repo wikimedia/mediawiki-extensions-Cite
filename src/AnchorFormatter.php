@@ -28,6 +28,7 @@ class AnchorFormatter {
 	 *
 	 * @param string $key
 	 * @param string|null $num The number of the key
+	 *
 	 * @return string A key for use in wikitext
 	 */
 	public function refKey( string $key, string $num = null ) : string {
@@ -48,6 +49,7 @@ class AnchorFormatter {
 	 * (since otherwise it would link to itself)
 	 *
 	 * @param string $key
+	 *
 	 * @return string A key for use in wikitext
 	 */
 	public function getReferencesKey( string $key ) : string {
@@ -61,6 +63,7 @@ class AnchorFormatter {
 	 * Normalizes and sanitizes a reference key
 	 *
 	 * @param string $key
+	 *
 	 * @return string
 	 */
 	private function normalizeKey( string $key ) : string {

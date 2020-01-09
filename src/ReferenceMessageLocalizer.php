@@ -31,7 +31,7 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	 *
 	 * @return string
 	 */
-	public function formatNum( string $number ): string {
+	public function formatNum( string $number ) : string {
 		return $this->language->formatNum( $number );
 	}
 
@@ -42,7 +42,7 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	 *
 	 * @return string
 	 */
-	public function localizeDigits( string $number ): string {
+	public function localizeDigits( string $number ) : string {
 		return $this->language->formatNumNoSeparators( $number );
 	}
 
@@ -61,7 +61,7 @@ class ReferenceMessageLocalizer implements MessageLocalizer {
 	 *
 	 * @return Message
 	 */
-	public function msg( $key, ...$params ): Message {
+	public function msg( $key, ...$params ) : Message {
 		return wfMessage( $key, ...$params )->inLanguage( $this->language );
 	}
 

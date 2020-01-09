@@ -119,13 +119,13 @@ class Cite {
 	/**
 	 * Callback function for <ref>
 	 *
-	 * @param string|null $text Raw content of the <ref> tag.
-	 * @param string[] $argv Arguments
 	 * @param Parser $parser
+	 * @param ?string $text Raw, untrimmed wikitext content of the <ref> tag, if any
+	 * @param string[] $argv Arguments as given in <ref name=…>, already trimmed
 	 *
 	 * @return string|false False in case a <ref> tag is not allowed in the current context
 	 */
-	public function ref( ?string $text, array $argv, Parser $parser ) {
+	public function ref( Parser $parser, ?string $text, array $argv ) {
 		if ( $this->mInCite ) {
 			return false;
 		}
@@ -191,13 +191,13 @@ class Cite {
 
 		return $this->inReferencesGroup === null ?
 			$this->validateRefOutsideOfReferences( $text, $name ) :
-			$this->validateRefInReferences( $text, $name, $group );
+			$this->validateRefInReferences( $text, $group, $name );
 	}
 
 	private function validateRefOutsideOfReferences(
 		?string $text,
 		?string $name
-	): StatusValue {
+	) : StatusValue {
 		if ( !$name ) {
 			if ( $text === null ) {
 				// Something like <ref />; this makes no sense.
@@ -233,9 +233,9 @@ class Cite {
 
 	private function validateRefInReferences(
 		?string $text,
-		?string $name,
-		string $group
-	): StatusValue {
+		string $group,
+		?string $name
+	) : StatusValue {
 		// FIXME: Some assertions make assumptions that rely on earlier tests not failing.
 		//  These dependencies need to be explicit so they aren't accidentally broken by
 		//  reordering in the future, or made more robust to initial conditions.
@@ -284,8 +284,8 @@ class Cite {
 	 *  special handling for each context.
 	 *
 	 * @param Parser $parser
-	 * @param string|null $text Raw content of the <ref> tag.
-	 * @param string[] $argv Arguments
+	 * @param ?string $text Raw, untrimmed wikitext content of the <ref> tag, if any
+	 * @param string[] $argv Arguments as given in <ref name=…>, already trimmed
 	 *
 	 * @return string HTML
 	 */
@@ -310,14 +310,14 @@ class Cite {
 			$arguments['group'] = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
 		}
 
-		[ 'group' => $group, 'name' => $name ] = $arguments;
-
 		$status->merge( $this->validateRef( $text, ...array_values( $arguments ) ) );
 
 		// Validation cares about the difference between null and empty, but from here on we don't
 		if ( $text !== null && trim( $text ) === '' ) {
 			$text = null;
 		}
+
+		[ 'group' => $group, 'name' => $name ] = $arguments;
 
 		if ( $this->inReferencesGroup !== null ) {
 			if ( !$status->isOK() ) {
@@ -394,18 +394,18 @@ class Cite {
 	/**
 	 * Callback function for <references>
 	 *
-	 * @param string|null $text Raw content of the <references> tag.
-	 * @param string[] $argv Arguments
 	 * @param Parser $parser
+	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
+	 * @param string[] $argv Arguments as given in <references name=…>, already trimmed
 	 *
 	 * @return string|false False in case a <references> tag is not allowed in the current context
 	 */
-	public function references( ?string $text, array $argv, Parser $parser ) {
+	public function references( Parser $parser, ?string $text, array $argv ) {
 		if ( $this->mInCite || $this->inReferencesGroup !== null ) {
 			return false;
 		}
 
-		$ret = $this->guardedReferences( $text, $argv, $parser );
+		$ret = $this->guardedReferences( $parser, $text, $argv );
 		$this->inReferencesGroup = null;
 
 		return $ret;
@@ -414,16 +414,16 @@ class Cite {
 	/**
 	 * Must only be called from references(). Use that to prevent recursion.
 	 *
-	 * @param string|null $text Raw content of the <references> tag.
-	 * @param string[] $argv
 	 * @param Parser $parser
+	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
+	 * @param string[] $argv Arguments as given in <references name=…>, already trimmed
 	 *
 	 * @return string HTML
 	 */
 	private function guardedReferences(
+		Parser $parser,
 		?string $text,
-		array $argv,
-		Parser $parser
+		array $argv
 	) : string {
 		$status = $this->parseArguments( $argv, [ 'group', 'responsive' ] );
 		[ 'group' => $group, 'responsive' => $responsive ] = $status->getValue();
@@ -439,9 +439,7 @@ class Cite {
 			$count = substr_count( $text, Parser::MARKER_PREFIX . "-ref-" );
 
 			// Undo effects of calling <ref> while unaware of being contained in <references>
-			$redoStack = $this->referenceStack->rollbackRefs( $count );
-
-			foreach ( $redoStack as $call ) {
+			foreach ( $this->referenceStack->rollbackRefs( $count ) as $call ) {
 				// Rerun <ref> call with the <references> context now being known
 				$this->guardedRef( $parser, ...$call );
 			}

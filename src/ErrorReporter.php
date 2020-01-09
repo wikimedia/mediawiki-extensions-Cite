@@ -86,7 +86,7 @@ class ErrorReporter {
 	 *
 	 * @return Language
 	 */
-	private function getInterfaceLanguageAndSplitCache( Parser $parser ): Language {
+	private function getInterfaceLanguageAndSplitCache( Parser $parser ) : Language {
 		if ( !$this->cachedInterfaceLanguage ) {
 			$this->cachedInterfaceLanguage = $parser->getOptions()->getUserLangObj();
 		}

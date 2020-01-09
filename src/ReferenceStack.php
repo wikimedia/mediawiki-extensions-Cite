@@ -375,7 +375,7 @@ class ReferenceStack {
 	 *
 	 * @return array[] The references from the removed group
 	 */
-	public function popGroup( string $group ) {
+	public function popGroup( string $group ) : array {
 		$refs = $this->getGroupRefs( $group );
 		unset( $this->refs[$group] );
 		unset( $this->groupRefSequence[$group] );

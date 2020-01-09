@@ -95,7 +95,7 @@ Smoke test for references that are reused *before* defined in <references>
 !! end
 
 !! test
-Erroring parser function shouldn't break references
+T240248: Erroring parser function shouldn't break references
 !! wikitext
 <ref>something</ref>
 {{#ifeq: {{#expr: string < 5 }} | 1 | true | false or error }}

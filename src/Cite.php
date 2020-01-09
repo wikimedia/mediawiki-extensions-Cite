@@ -25,6 +25,7 @@
 namespace Cite;
 
 use Html;
+use LogicException;
 use Parser;
 use Sanitizer;
 use StatusValue;
@@ -531,8 +532,11 @@ class Cite {
 		return $s;
 	}
 
+	/**
+	 * @see https://phabricator.wikimedia.org/T240248
+	 */
 	public function __clone() {
-		$this->referenceStack = clone $this->referenceStack;
+		throw new LogicException( 'Create a new instance please' );
 	}
 
 }

@@ -8,6 +8,7 @@ use Cite\FootnoteMarkFormatter;
 use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
 use Language;
+use LogicException;
 use Parser;
 use ParserOptions;
 use ParserOutput;
@@ -650,15 +651,10 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 	 * @covers ::__construct
 	 */
 	public function testClone() {
-		$original = $this->newCite();
-		/** @var Cite $spy */
-		$spy = TestingAccessWrapper::newFromObject( $original );
-		$spy->referenceStack = $this->createMock( ReferenceStack::class );
+		$cite = $this->newCite();
 
-		$clone = clone $original;
-		/** @var Cite $clone */
-		$clone = TestingAccessWrapper::newFromObject( $clone );
-		$this->assertNotSame( $clone->referenceStack, $spy->referenceStack );
+		$this->expectException( LogicException::class );
+		clone $cite;
 	}
 
 	private function newCite() : Cite {

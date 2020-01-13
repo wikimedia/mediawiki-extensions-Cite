@@ -321,6 +321,7 @@ class Cite {
 		[ 'group' => $group, 'name' => $name ] = $arguments;
 
 		if ( $this->inReferencesGroup !== null ) {
+			$groupRefs = $this->referenceStack->getGroupRefs( $group );
 			if ( !$status->isOK() ) {
 				foreach ( $status->getErrors() as $error ) {
 					$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
@@ -329,12 +330,10 @@ class Cite {
 						...$error['params']
 					);
 				}
-			} elseif ( $text !== null ) {
-				$groupRefs = $this->referenceStack->getGroupRefs( $group );
-				if ( !isset( $groupRefs[$name] ) ) {
-					return '';
-				}
-
+			} elseif ( $text !== null &&
+				// In preview mode, it's possible to reach this with the ref *not* being known
+				isset( $groupRefs[$name] )
+			) {
 				if ( !isset( $groupRefs[$name]['text'] ) ) {
 					$this->referenceStack->appendText( $group, $name, $text );
 				} elseif ( $groupRefs[$name]['text'] !== $text ) {

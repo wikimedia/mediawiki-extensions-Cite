@@ -329,6 +329,10 @@ class Cite {
 				}
 			} elseif ( $text !== null ) {
 				$groupRefs = $this->referenceStack->getGroupRefs( $group );
+				if ( !isset( $groupRefs[$name] ) ) {
+					return '';
+				}
+
 				if ( !isset( $groupRefs[$name]['text'] ) ) {
 					$this->referenceStack->appendText( $group, $name, $text );
 				} elseif ( $groupRefs[$name]['text'] !== $text ) {

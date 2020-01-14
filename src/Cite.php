@@ -200,8 +200,11 @@ class Cite {
 		?string $name
 	) : StatusValue {
 		if ( !$name ) {
-			if ( $text === null ) {
-				// Something like <ref />; this makes no sense.
+			if ( $name !== null ) {
+				// Empty-string name is forbidden.
+				return StatusValue::newFatal( 'cite_error_ref_no_key' );
+			} elseif ( $text === null ) {
+				// Completely empty ref like <ref /> is forbidden.
 				return StatusValue::newFatal( 'cite_error_ref_no_key' );
 			} elseif ( trim( $text ) === '' ) {
 				// Must have content or reuse another ref by name.
@@ -435,6 +438,10 @@ class Cite {
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
 		if ( $text !== null && trim( $text ) !== '' ) {
+			if ( substr_count( $text, Parser::MARKER_PREFIX . "-references-" ) ) {
+				return $this->errorReporter->halfParsed( $parser, 'cite_error_references_invalid_parameters' );
+			}
+
 			// Detect whether we were sent already rendered <ref>s. Mostly a side effect of using
 			// {{#tag:references}}. The following assumes that the parsed <ref>s sent within the
 			// <references> block were the most recent calls to <ref>. This assumption is true for

@@ -175,7 +175,11 @@ class Cite {
 			}
 
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			if ( isset( $groupRefs[$extends]['extends'] ) ) {
+			if ( isset( $groupRefs[$name] ) && !isset( $groupRefs[$name]['extends'] ) ) {
+				// T242141: A top-level <ref> can't be changed into a sub-reference
+				return StatusValue::newFatal( 'cite_error_references_duplicate_key', $name );
+			} elseif ( isset( $groupRefs[$extends]['extends'] ) ) {
+				// A sub-reference can not be extended a second time (no nesting)
 				// TODO: Introduce a specific error for this case, reuse in formatReferences()!
 				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
 			}

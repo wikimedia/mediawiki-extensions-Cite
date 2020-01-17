@@ -1863,14 +1863,10 @@ T15673: <ref> with direction "nonsense", strip invalid dir attribute and shows e
 <ref dir="nonsense">TEST</ref>
 
 <references />
-!! html/php
+!! html+tidy
 <p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir="nonsense"</code>, must be <code>ltr</code> or <code>rtl</code></span>
 </p><p><br />
 </p>
-!! html/parsoid
-<p><sup about="#mwt4" class="mw-ref" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"dir":"nonsense"},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
-
-<ol class="mw-references references" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">TEST</span></li></ol>
 !! end
 
 !! test
@@ -2036,4 +2032,16 @@ T242437 - Blank ref name in #tag regression
 <ref name="">foo</ref>
 }}
 !! html
+!! end
+
+!! test
+Serialize reference tags by themselves on a line
+!! options
+parsoid=html2wt
+!! html/parsoid
+<p>hi <sup about="#mwt3" class="mw-ref" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Main_Page#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text" data-parsoid="{}">[1]</span></a></sup></p><div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Main_Page#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">ho</span></li></ol></div><p>hi ho</p>
+!! wikitext
+hi <ref>ho</ref>
+<references />
+hi ho
 !! end

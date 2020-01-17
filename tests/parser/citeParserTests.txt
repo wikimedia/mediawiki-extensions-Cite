@@ -817,8 +817,7 @@ refs with no name must have content</span>
 !! wikitext
 Bla.<ref name=""> </ref>
 !! html
-<p>Bla.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
-refs with no name must have content</span>
+<p>Bla.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</span>
 </p>
 !! end
 
@@ -2016,4 +2015,25 @@ Hi ho
 {{echo|<div><references /></div>}}
 !! html/parsoid
 
+!! end
+
+# TODO: Return a more helpful error, this is because the reference is never used, not about the group attribute.
+!! test
+Confusing error
+!! wikitext
+<references>
+<ref name="foo">foo</ref>
+</references>
+!! html
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has group attribute "" which does not appear in prior text.</span>
+</p>
+!! end
+
+!! test
+T242437 - Blank ref name in #tag regression
+!! wikitext
+{{#tag:references|
+<ref name="">foo</ref>
+}}
+!! html
 !! end

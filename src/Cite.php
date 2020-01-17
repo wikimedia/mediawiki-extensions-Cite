@@ -200,8 +200,11 @@ class Cite {
 		?string $name
 	) : StatusValue {
 		if ( !$name ) {
-			if ( $text === null ) {
-				// Something like <ref />; this makes no sense.
+			if ( $name !== null ) {
+				// Empty-string name is forbidden.
+				return StatusValue::newFatal( 'cite_error_ref_no_key' );
+			} elseif ( $text === null ) {
+				// Completely empty ref like <ref /> is forbidden.
 				return StatusValue::newFatal( 'cite_error_ref_no_key' );
 			} elseif ( trim( $text ) === '' ) {
 				// Must have content or reuse another ref by name.

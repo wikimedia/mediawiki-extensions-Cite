@@ -435,6 +435,10 @@ class Cite {
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
 		if ( $text !== null && trim( $text ) !== '' ) {
+			if ( substr_count( $text, Parser::MARKER_PREFIX . "-references-" ) ) {
+				return $this->errorReporter->halfParsed( $parser, 'cite_error_included_references' );
+			}
+
 			// Detect whether we were sent already rendered <ref>s. Mostly a side effect of using
 			// {{#tag:references}}. The following assumes that the parsed <ref>s sent within the
 			// <references> block were the most recent calls to <ref>. This assumption is true for

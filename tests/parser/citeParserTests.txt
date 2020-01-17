@@ -622,6 +622,55 @@ Attributes are trimmed by the parser, see Sanitizer::decodeTagAttributes()
 !! end
 
 !! test
+T242437 - Nested references edge case, outer tag function with LDR
+!! wikitext
+<ref name="foo" />
+{{#tag:references|
+  <ref name="foo">bar</ref>
+
+  <references />
+}}
+!! html
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Closing tag missing for <code>&lt;references&gt;</code></span>
+</p>
+!! end
+
+!! test
+T242437 - Nested references edge case, outer tag function, inner LDR
+!! wikitext
+<ref name="foo" />
+{{#tag:references|
+  <references>
+    <ref name="foo">bar</ref>
+  </references>
+}}
+!! html
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Closing tag missing for <code>&lt;references&gt;</code></span>
+</p>
+!! end
+
+!! test
+T242437 - Nested references edge case, inner tag function with LDR
+!! wikitext
+<ref name="foo" />
+
+<references>
+  {{#tag:references|
+    <ref name="foo">bar</ref>
+  }}
+</references>
+!! html
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">bar</span>
+</li>
+</ol></div>
+!! end
+
+!! test
 <ref> defined in <references> error conditions
 !! wikitext
 <ref name="foo" group="2" />

@@ -39,7 +39,7 @@ class CiteDbTest extends \MediaWikiIntegrationTestCase {
 			ParserOptions::newFromAnon()
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'cite_ref-2',
 			$parserOutput->getText(),
 			'Internal counter should not reset to 1 for text #3'

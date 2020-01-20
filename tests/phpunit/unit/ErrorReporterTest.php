@@ -40,7 +40,6 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 	public function testHalfParsed() {
 		$reporter = $this->createReporter();
 		$mockParser = $this->createParser( [] );
-		$expectedHtml = '';
 		$this->assertSame(
 			'[<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
 				'dir="rtl">(cite_warning|(cite_warning_example|first param))</span>]',
@@ -68,13 +67,13 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) {
-				$rendered = '(' . implode( '|', $args ) . ')';
-				$mockMessage = $this->createMock( Message::class );
-				$mockMessage->method( 'getKey' )->willReturn( $args[0] );
-				$mockMessage->method( 'plain' )->willReturn( $rendered );
-				// FIXME: Doesn't prove that we've set the language correctly.
-				$mockMessage->method( 'inLanguage' )->willReturnSelf();
-				return $mockMessage;
+				$message = $this->createMock( Message::class );
+				$message->method( 'getKey' )->willReturn( $args[0] );
+				$message->method( 'plain' )->willReturn( '(' . implode( '|', $args ) . ')' );
+				$message->method( 'inLanguage' )->with( $this->callback( function ( Language $lang ) {
+					return $lang->getHtmlCode() === 'qqx';
+				} ) )->willReturnSelf();
+				return $message;
 			}
 		);
 
@@ -83,27 +82,24 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 	}
 
 	public function createParser( array $expectedCategories ) {
-		$mockParser = $this->createMock( Parser::class );
-		foreach ( $expectedCategories as $category ) {
-			$mockParser->method( 'addTrackingCategory' )->with( $category );
-		}
-		$mockParser->method( 'getOptions' )->willReturnCallback(
-			function () {
-				$mockLanguage = $this->createMock( Language::class );
-				$mockLanguage->method( 'getCode' )->willReturn( 'ui' );
-				$mockLanguage->method( 'getDir' )->willReturn( 'rtl' );
-				$mockLanguage->method( 'getHtmlCode' )->willReturn( 'qqx' );
-				$mockOptions = $this->createMock( ParserOptions::class );
-				$mockOptions->method( 'getUserLangObj' )->willReturn( $mockLanguage );
-				return $mockOptions;
-			}
-		);
-		$mockParser->method( 'recursiveTagParse' )->willReturnCallback(
+		$language = $this->createMock( Language::class );
+		$language->method( 'getDir' )->willReturn( 'rtl' );
+		$language->method( 'getHtmlCode' )->willReturn( 'qqx' );
+
+		$parserOptions = $this->createMock( ParserOptions::class );
+		$parserOptions->method( 'getUserLangObj' )->willReturn( $language );
+
+		$parser = $this->createMock( Parser::class );
+		$parser->expects( $this->exactly( count( $expectedCategories ) ) )
+			->method( 'addTrackingCategory' )
+			->withConsecutive( $expectedCategories );
+		$parser->method( 'getOptions' )->willReturn( $parserOptions );
+		$parser->method( 'recursiveTagParse' )->willReturnCallback(
 			function ( $content ) {
 				return '[' . $content . ']';
 			}
 		);
-		return $mockParser;
+		return $parser;
 	}
 
 }

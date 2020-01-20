@@ -559,7 +559,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'',
 				[],
 				'',
-				[],
+				[ '' => [] ],
 				'',
 				[ '(cite_error_references_no_key)' ],
 				[]
@@ -668,6 +668,26 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
 
 		$spy->guardedRef( $mockParser, 'text', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ] );
+	}
+
+	/**
+	 * @coversNothing
+	 */
+	public function testReferencesSectionPreview() {
+		$parserOptions = $this->createMock( ParserOptions::class );
+		$parserOptions->method( 'getIsSectionPreview' )->willReturn( true );
+
+		$parser = $this->createMock( Parser::class );
+		$parser->method( 'getOptions' )->willReturn( $parserOptions );
+		$parser->method( 'getContentLanguage' )->willReturn( $this->createMock( Language::class ) );
+
+		/** @var Cite $cite */
+		$cite = TestingAccessWrapper::newFromObject( new Cite( $parser ) );
+		// Assume the currently parsed <ref> is wrapped in <references>
+		$cite->inReferencesGroup = '';
+
+		$html = $cite->guardedRef( $parser, 'a', [ 'name' => 'a' ] );
+		$this->assertSame( '', $html );
 	}
 
 	/**

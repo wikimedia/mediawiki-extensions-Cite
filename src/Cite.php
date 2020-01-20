@@ -339,7 +339,7 @@ class Cite {
 
 		if ( $this->inReferencesGroup !== null ) {
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			if ( !$status->isOK() ) {
+			if ( !$status->isGood() ) {
 				foreach ( $status->getErrors() as $error ) {
 					$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
 						$parser,
@@ -372,7 +372,7 @@ class Cite {
 			return '';
 		}
 
-		if ( !$status->isOK() ) {
+		if ( !$status->isGood() ) {
 			$this->referenceStack->pushInvalidRef();
 
 			// FIXME: If we ever have multiple errors, these must all be presented to the user,
@@ -473,7 +473,7 @@ class Cite {
 			$parser->recursiveTagParse( $text );
 		}
 
-		if ( !$status->isOK() ) {
+		if ( !$status->isGood() ) {
 			// Bail out with an error.
 			$error = $status->getErrors()[0];
 			return $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );

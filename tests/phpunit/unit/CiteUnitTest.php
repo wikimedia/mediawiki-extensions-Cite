@@ -56,7 +56,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		if ( is_string( $expected ) ) {
 			$this->assertSame( $expected, $status->getErrors()[0]['message'] );
 		} else {
-			$this->assertSame( $expected, $status->isOK(), $status->getErrors()[0]['message'] ?? '' );
+			$this->assertSame( $expected, $status->isGood(), $status->getErrors()[0]['message'] ?? '' );
 		}
 	}
 
@@ -326,7 +326,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			[ 'dir', 'extends', 'follow', 'group', 'name' ]
 		);
 		$this->assertSame( $expectedValue, array_values( $status->getValue() ) );
-		$this->assertSame( !$expectedError, $status->isOK() );
+		$this->assertSame( !$expectedError, $status->isGood() );
 		if ( $expectedError ) {
 			$this->assertSame( $expectedError, $status->getErrors()[0]['message'] );
 		}

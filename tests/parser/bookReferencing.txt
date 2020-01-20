@@ -81,7 +81,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: T242141 - The number for the first <ref> must be "1.1", not just "1"
 !! test
 T240424 - Subreference reused as normal ref before its full definition
 !! config
@@ -92,17 +91,16 @@ wgCiteBookReferencing=true
 <ref name="a">book</ref>
 !! html
 <p><sup id="cite_ref-b_1-0" class="reference"><a href="#cite_note-b-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-b_1-1" class="reference"><a href="#cite_note-b-1">&#91;1.1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span>
 </p>
-<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2">&#91;1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-b-1"><span class="mw-cite-backlink"><a href="#cite_ref-b_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>b</code></span></li>
 <li id="cite_note-a-2"><span class="mw-cite-backlink"><a href="#cite_ref-a_2-0">↑</a></span> <span class="reference-text">book</span>
-<ol class="mw-extended-references"><li id="cite_note-b-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-b_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-b_1-1">1.1.1</a></sup></span> <span class="reference-text">page 2</span>
 </li>
-</ol></li>
 </ol></div>
 !! end
 
-# TODO: T242141 - This currently renders as if the extends="…" is not there
 !! test
 T240424 - Extended reference reused before defined in the <references> section
 !! config
@@ -121,9 +119,11 @@ wgCiteBookReferencing=true
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
 </li>
-<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">page 2</span>
-</li>
+<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>b</code></span></li>
 </ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span>
+</p>
 !! end
 
 !! test
@@ -265,17 +265,16 @@ wgCiteBookReferencing=true
 <references />
 !! html/php
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-a_3-0" class="reference"><a href="#cite_note-a-3">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span>
+<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2">&#91;2&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-a-3"><span class="mw-cite-backlink"><a href="#cite_ref-a_3-0">↑</a></span> <span class="reference-text">book</span>
-<ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">section 3 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
-invalid names, e.g. too many</span></span>
-</li>
-<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">page 2</span>
+<li id="cite_note-b-"><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>b</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">section 3</span>
 </li>
 </ol></li>
+<li id="cite_note-a-2"><span class="mw-cite-backlink"><a href="#cite_ref-a_2-0">↑</a></span> <span class="reference-text">book</span>
+</li>
 </ol></div>
 !! end
 
@@ -565,7 +564,6 @@ wgCiteBookReferencing=true
 </ol></div>
 !! end
 
-# TODO: T242141 - This should be invalid, there's no way to know that `footwo` should be subnumbered in a one-pass parse.
 !! test
 Extends <ref> defined in <references> called with #tag
 !! config
@@ -582,9 +580,9 @@ wgCiteBookReferencing=true
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">BAR</span>
-<ol class="mw-extended-references"><li id="cite_note-footwo-2"><span class="mw-cite-backlink"><a href="#cite_ref-footwo_2-0">↑</a></span> <span class="reference-text">p. 10</span>
 </li>
-</ol></li>
+<li id="cite_note-footwo-2"><span class="mw-cite-backlink"><a href="#cite_ref-footwo_2-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+no text was provided for refs named <code>footwo</code></span></li>
 </ol></div>
 !! end
 

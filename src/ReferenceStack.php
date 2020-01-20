@@ -135,7 +135,6 @@ class ReferenceStack {
 
 		if ( $follow && isset( $this->refs[$group][$follow] ) ) {
 			// We know the parent note already, so just perform the "follow" and bail out
-			// TODO: Separate `pushRef` from these side-effects.
 			$this->appendText( $group, $follow, ' ' . $text );
 			return null;
 		}
@@ -341,10 +340,10 @@ class ReferenceStack {
 			case 'new':
 				// Rollback the addition of new elements to the stack
 				unset( $this->refs[$group][$lookup] );
+				// TODO: Don't we need to rollback groupRefSequence and extendsCount as well?
 				if ( !$this->refs[$group] ) {
 					$this->popGroup( $group );
 				}
-				// TODO: else, don't we need to decrement groupRefSequence?
 				break;
 			case 'new-from-placeholder':
 				$this->refs[$group][$lookup]['__placeholder__'] = true;

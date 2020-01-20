@@ -236,9 +236,6 @@ class Cite {
 			return StatusValue::newFatal( 'cite_error_included_ref' );
 		}
 
-		// TODO: Assert things such as $text is different than existing ref with $name,
-		//  currently done in `pushRef`.
-
 		return StatusValue::newGood();
 	}
 
@@ -254,10 +251,6 @@ class Cite {
 		string $group,
 		?string $name
 	) : StatusValue {
-		// FIXME: Some assertions make assumptions that rely on earlier tests not failing.
-		//  These dependencies need to be explicit so they aren't accidentally broken by
-		//  reordering in the future, or made more robust to initial conditions.
-
 		if ( $group !== $this->inReferencesGroup ) {
 			// <ref> and <references> have conflicting group attributes.
 			return StatusValue::newFatal( 'cite_error_references_group_mismatch',
@@ -298,9 +291,6 @@ class Cite {
 	}
 
 	/**
-	 * TODO: Looks like this should be split into a section insensitive to context, and the
-	 *  special handling for each context.
-	 *
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <ref> tag, if any
 	 * @param string[] $argv Arguments as given in <ref name=…>, already trimmed

@@ -32,7 +32,6 @@ class AnchorFormatter {
 	 * @return string A key for use in wikitext
 	 */
 	public function refKey( string $key, string $num = null ) : string {
-		// FIXME: Move the message to 'cite_ref_link_*'
 		$prefix = $this->messageLocalizer->msg( 'cite_reference_link_prefix' )->text();
 		$suffix = $this->messageLocalizer->msg( 'cite_reference_link_suffix' )->text();
 		if ( $num !== null ) {

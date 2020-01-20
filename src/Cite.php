@@ -330,44 +330,46 @@ class Cite {
 
 		$status->merge( $this->validateRef( $text, ...array_values( $arguments ) ) );
 
+		if ( !$status->isGood() && $this->inReferencesGroup !== null ) {
+			foreach ( $status->getErrors() as $error ) {
+				$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
+					$parser,
+					$error['message'],
+					...$error['params']
+				);
+			}
+			return '';
+		}
+
 		// Validation cares about the difference between null and empty, but from here on we don't
 		if ( $text !== null && trim( $text ) === '' ) {
 			$text = null;
 		}
-
 		[ 'group' => $group, 'name' => $name ] = $arguments;
 
 		if ( $this->inReferencesGroup !== null ) {
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			if ( !$status->isGood() ) {
-				foreach ( $status->getErrors() as $error ) {
-					$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
+			// In preview mode, it's possible to reach this with the ref *not* being known
+			if ( $text === null || !isset( $groupRefs[$name] ) ) {
+				return '';
+			}
+
+			if ( !isset( $groupRefs[$name]['text'] ) ) {
+				$this->referenceStack->appendText( $group, $name, $text );
+			} elseif ( $groupRefs[$name]['text'] !== $text ) {
+				// two refs with same key and different content
+				// adds error message to the original ref
+				// TODO: report these errors the same way as the others, rather than a
+				//  special case to append to the second one's content.
+				$this->referenceStack->appendText(
+					$group,
+					$name,
+					' ' . $this->errorReporter->plain(
 						$parser,
-						$error['message'],
-						...$error['params']
-					);
-				}
-			} elseif ( $text !== null &&
-				// In preview mode, it's possible to reach this with the ref *not* being known
-				isset( $groupRefs[$name] )
-			) {
-				if ( !isset( $groupRefs[$name]['text'] ) ) {
-					$this->referenceStack->appendText( $group, $name, $text );
-				} elseif ( $groupRefs[$name]['text'] !== $text ) {
-					// two refs with same key and different content
-					// adds error message to the original ref
-					// TODO: report these errors the same way as the others, rather than a
-					//  special case to append to the second one's content.
-					$this->referenceStack->appendText(
-						$group,
-						$name,
-						' ' . $this->errorReporter->plain(
-							$parser,
-							'cite_error_references_duplicate_key',
-							$name
-						)
-					);
-				}
+						'cite_error_references_duplicate_key',
+						$name
+					)
+				);
 			}
 			return '';
 		}

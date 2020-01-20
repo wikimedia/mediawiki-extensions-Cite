@@ -343,8 +343,7 @@ class ReferenceStack {
 			case 'new':
 				// Rollback the addition of new elements to the stack
 				unset( $this->refs[$group][$lookup] );
-				if ( $this->refs[$group] === [] ) {
-					// TODO: Unsetting is unecessary.
+				if ( !$this->refs[$group] ) {
 					$this->popGroup( $group );
 				}
 				// TODO: else, don't we need to decrement groupRefSequence?

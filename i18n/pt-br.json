@@ -22,6 +22,7 @@
 	"cite_error_no_link_label_group": "Etiquetas personalizadas para links, no grupo \"$1\", esgotadas.\nDefina mais na mensagem <nowiki>[[MediaWiki:$2]]</nowiki>.",
 	"cite_error_references_no_text": "Marca <code>&lt;ref&gt;</code> inválida; \nnão foi fornecido texto para as refs chamadas <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> de fechamento ausente para a marca <code>&lt;ref&gt;</code>",
+	"cite_error_included_references": "Falta a etiqueta de fechamento para <code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "Existem marcas <code>&lt;ref&gt;</code> para um grupo chamado \"$1\", mas nenhuma marca <code>&lt;references group=\"$1\"/&gt;</code> correspondente foi encontrada",
 	"cite_error_references_group_mismatch": "marca <code>&lt;ref&gt;</code> em <code>&lt;references&gt;</code> está com o atributo de grupo \"$1\" conflitante.",
 	"cite_error_references_missing_group": "marca <code>&lt;ref&gt;</code> definida em <code>&lt;references&gt;</code> está com atributo de grupo \"$1\" que não aparece no texto anterior.",

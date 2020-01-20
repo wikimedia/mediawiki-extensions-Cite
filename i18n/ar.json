@@ -23,6 +23,7 @@
 	"cite_error_no_link_label_group": "تم الانتهاء من تسمية الارتباطات المخصصة لمجموعة \"$1\".\n\nللحصول على تعريف أكثر انظر هذه <nowiki>[[MediaWiki:$2]]</nowiki> الرسالة.",
 	"cite_error_references_no_text": "وسم <code>&lt;ref&gt;</code> غير صحيح؛\nلا نص تم توفيره للمراجع المسماة <code>$1</code>",
 	"cite_error_included_ref": "إغلاق <code>&lt;/ref&gt;</code> مفقود لوسم <code>&lt;ref&gt;</code>",
+	"cite_error_included_references": "وسم الإغلاق مفقود ل<code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "وسوم <code>&lt;ref&gt;</code> موجودة لمجموعة اسمها \"$1\"، ولكن لم يتم العثور على وسم <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "الوسم <code>&lt;ref&gt;</code> في <code>&lt;references&gt;</code> فيه خاصية group متضاربة \"$1\".",
 	"cite_error_references_missing_group": "الوسم <code>&lt;ref&gt;</code> المُعرّف في <code>&lt;references&gt;</code> فيه خاصية group \"$1\" التي لا تظهر في النص السابق.",

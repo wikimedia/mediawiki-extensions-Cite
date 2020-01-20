@@ -206,10 +206,7 @@ class Cite {
 		?string $name
 	) : StatusValue {
 		if ( !$name ) {
-			if ( $name !== null ) {
-				// Empty-string name is forbidden.
-				return StatusValue::newFatal( 'cite_error_ref_no_key' );
-			} elseif ( $text === null ) {
+			if ( $text === null ) {
 				// Completely empty ref like <ref /> is forbidden.
 				return StatusValue::newFatal( 'cite_error_ref_no_key' );
 			} elseif ( trim( $text ) === '' ) {

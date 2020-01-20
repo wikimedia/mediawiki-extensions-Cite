@@ -312,8 +312,8 @@ class ReferenceStack {
 			throw new LogicException( "Cannot roll back ref with unknown group \"$group\"." );
 		}
 
-		$lookup = $name;
-		if ( $name === null ) {
+		$lookup = $name ?: null;
+		if ( $lookup === null ) {
 			// Find anonymous ref by key.
 			foreach ( $this->refs[$group] as $k => $v ) {
 				if ( isset( $this->refs[$group][$k]['key'] ) &&

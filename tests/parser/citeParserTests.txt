@@ -817,7 +817,8 @@ refs with no name must have content</span>
 !! wikitext
 Bla.<ref name=""> </ref>
 !! html
-<p>Bla.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</span>
+<p>Bla.<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag;
+refs with no name must have content</span>
 </p>
 !! end
 
@@ -2032,6 +2033,8 @@ T242437 - Blank ref name in #tag regression
 <ref name="">foo</ref>
 }}
 !! html
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.</span>
+</p>
 !! end
 
 !! test

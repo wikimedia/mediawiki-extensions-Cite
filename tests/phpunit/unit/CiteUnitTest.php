@@ -170,7 +170,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'extends' => null,
 				'follow' => null,
 				'dir' => null,
-				'expected' => 'cite_error_ref_no_key',
+				'expected' => true,
 			],
 			'contains <ref>-like text' => [
 				'referencesStack' => [],

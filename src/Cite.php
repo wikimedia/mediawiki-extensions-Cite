@@ -195,6 +195,12 @@ class Cite {
 			$this->validateRefInReferences( $text, $group, $name );
 	}
 
+	/**
+	 * @param ?string $text
+	 * @param ?string $name
+	 *
+	 * @return StatusValue
+	 */
 	private function validateRefOutsideOfReferences(
 		?string $text,
 		?string $name
@@ -235,6 +241,13 @@ class Cite {
 		return StatusValue::newGood();
 	}
 
+	/**
+	 * @param ?string $text
+	 * @param string $group
+	 * @param ?string $name
+	 *
+	 * @return StatusValue
+	 */
 	private function validateRefInReferences(
 		?string $text,
 		string $group,

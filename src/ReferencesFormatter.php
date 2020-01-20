@@ -228,6 +228,7 @@ class ReferencesFormatter {
 	}
 
 	/**
+	 * @param Parser $parser
 	 * @param string|int $key
 	 * @param ?string $text
 	 * @param bool $isSectionPreview

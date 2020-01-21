@@ -8,7 +8,8 @@
 			"Mirzali",
 			"Se4598",
 			"Kumkumuk",
-			"Orbot707"
+			"Orbot707",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Kıtab",
@@ -32,6 +33,7 @@
 	"cite-ve-dialog-reference-options-name-label": "Ney nami fına bıkarne",
 	"cite-ve-dialog-reference-options-responsive-label": "Nizamê ustına hesase bıgurene",
 	"cite-ve-dialog-reference-options-section": "Weçinıteki",
+	"cite-ve-dialog-reference-placeholder": "Çımey tiya de bınusne, kopya kerê ya zi yew şablonê çımey tede kerê",
 	"cite-ve-dialog-reference-title": "Çıme",
 	"cite-ve-dialog-reference-useexisting-tool": "Fına bıkarn",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Listay umumi referansa",
@@ -43,6 +45,7 @@
 	"cite-ve-dialogbutton-reference-tooltip": "Referans",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Lista balantoğiye",
 	"cite-ve-reference-input-placeholder": "Qanci referansi şıma qalıyé bıkarné?",
+	"cite-ve-referenceslist-isempty-default": "Na lista tede kerdışi rê ena pela de mırecet esto",
 	"cite-ve-toolbar-group-label": "Vate",
 	"cite-ve-othergroup-item": "Çımeyê $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Çımeyi",

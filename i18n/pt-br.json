@@ -9,7 +9,7 @@
 			"Eduardo Addad de Oliveira"
 		]
 	},
-	"cite-desc": "Adiciona marcas <code>&lt;ref[ name=id]&gt;</code> e <code>&lt;references/&gt;</code> para citações",
+	"cite-desc": "Adiciona elementos <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para uso em citações",
 	"cite_error": "Erro de citação: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> inválido, deve ser <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Marca <code>&lt;ref&gt;</code> inválida; \no nome não pode ser um número. Utilize um título descritivo",

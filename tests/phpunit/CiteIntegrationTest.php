@@ -36,14 +36,6 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		global $wgCiteResponsiveReferences;
 		$wgCiteResponsiveReferences = true;
 
-		$mockReferenceStack = $this->createMock( ReferenceStack::class );
-		$mockReferenceStack->method( 'getGroups' )->willReturn( array_keys( $initialRefs ) );
-		$mockReferenceStack->method( 'popGroup' )->willReturnCallback( function ( $group ) use (
-			$initialRefs
-		) {
-			return $initialRefs[$group];
-		} );
-
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
 			function ( $parser, ...$args ) {
@@ -51,13 +43,17 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 			}
 		);
 
+		/** @var ReferenceStack $referenceStack */
+		$referenceStack = TestingAccessWrapper::newFromObject( new ReferenceStack( $mockErrorReporter ) );
+		$referenceStack->refs = $initialRefs;
+
 		$referencesFormatter = $this->createMock( ReferencesFormatter::class );
 		$referencesFormatter->method( 'formatReferences' )->willReturn( '<references />' );
 
 		$cite = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
-		$spy->referenceStack = $mockReferenceStack;
+		$spy->referenceStack = $referenceStack;
 		$spy->errorReporter = $mockErrorReporter;
 		$spy->referencesFormatter = $referencesFormatter;
 		$spy->isSectionPreview = $isSectionPreview;

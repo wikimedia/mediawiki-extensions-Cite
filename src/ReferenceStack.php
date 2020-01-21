@@ -130,8 +130,6 @@ class ReferenceStack {
 	) : ?array {
 		if ( !isset( $this->refs[$group] ) ) {
 			$this->refs[$group] = [];
-		}
-		if ( !isset( $this->groupRefSequence[$group] ) ) {
 			$this->groupRefSequence[$group] = 0;
 		}
 

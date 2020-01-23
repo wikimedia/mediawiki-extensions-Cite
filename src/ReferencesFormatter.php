@@ -119,8 +119,8 @@ class ReferencesFormatter {
 				isset( $groupRefs[$value['extends']]['extends'] )
 			) {
 				$value['text'] = ( $value['text'] ?? '' ) . ' ' .
-					// TODO: Introduce a specific error for this case; reuse in validateRef()!
-					$this->errorReporter->plain( $parser, 'cite_error_ref_too_many_keys' );
+					$this->errorReporter->plain( $parser, 'cite_error_ref_nested_extends',
+						$value['extends'], $groupRefs[$value['extends']]['extends'] );
 			}
 
 			if ( !$indented && isset( $value['extends'] ) ) {

@@ -180,8 +180,8 @@ class Cite {
 				return StatusValue::newFatal( 'cite_error_references_duplicate_key', $name );
 			} elseif ( isset( $groupRefs[$extends]['extends'] ) ) {
 				// A sub-reference can not be extended a second time (no nesting)
-				// TODO: Introduce a specific error for this case, reuse in formatReferences()!
-				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+				return StatusValue::newFatal( 'cite_error_ref_nested_extends', $extends,
+					$groupRefs[$extends]['extends'] );
 			}
 		}
 

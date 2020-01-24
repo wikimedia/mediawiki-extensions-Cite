@@ -21,6 +21,7 @@
 	"cite_error_ref_numeric_key": "Invalid <code>&lt;ref&gt;</code> tag;\nname cannot be a simple integer. Use a descriptive title",
 	"cite_error_ref_no_key": "The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name",
 	"cite_error_ref_too_many_keys": "Invalid <code>&lt;ref&gt;</code> tag;\ninvalid names, e.g. too many",
+	"cite_error_ref_nested_extends": "Extending <code>&lt;ref&gt;</code> tags more than one level deep is not allowed",
 	"cite_error_ref_no_input": "Invalid <code>&lt;ref&gt;</code> tag;\nrefs with no name must have content",
 	"cite_error_references_duplicate_key": "Invalid <code>&lt;ref&gt;</code> tag; name \"$1\" defined multiple times with different content",
 	"cite_error_references_invalid_parameters": "Invalid parameter in <code>&lt;references&gt;</code> tag",

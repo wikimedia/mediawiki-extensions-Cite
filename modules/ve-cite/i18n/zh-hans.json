@@ -24,7 +24,8 @@
 			"Linforest",
 			"Cwek",
 			"夢蝶葬花",
-			"佛壁灯"
+			"佛壁灯",
+			"VulpesVulpes825"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "图书",
@@ -40,6 +41,8 @@
 	"cite-ve-changedesc-reflist-responsive-set": "参考列表已更改为在响应栏中显示",
 	"cite-ve-changedesc-reflist-responsive-unset": "参考列表已更改为只在一栏中显示",
 	"cite-ve-changedesc-reflist-item-id": "参考索引已更改",
+	"cite-ve-citationneeded-button": "添加引用",
+	"cite-ve-citationneeded-title": "需要引用",
 	"cite-ve-dialog-reference-editing-reused": "此引用在本页使用了$1{{PLURAL:$1|次}}。",
 	"cite-ve-dialog-reference-editing-reused-long": "此引用在本页使用了$1{{PLURAL:$1|次}}。在此做出的更改将在复用此引用的所有页面生效。",
 	"cite-ve-dialog-reference-options-group-label": "使用该组",

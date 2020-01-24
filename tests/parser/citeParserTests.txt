@@ -2026,6 +2026,31 @@ T242437 - Blank ref name in #tag regression
 !! end
 
 !! test
+T48140 - Make sure rollback/redo does not consume numbers
+!! wikitext
+<ref>should be [1]</ref>
+<ref name="a" group="g" />
+{{#tag:references|
+<ref name="a">a</ref>
+|group=g}}
+<ref>should be [2]</ref>
+!! html
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2">&#91;g 1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-2"><span class="mw-cite-backlink"><a href="#cite_ref-a_2-0">↑</a></span> <span class="reference-text">a</span>
+</li>
+</ol></div>
+<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">should be [1]</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">should be [2]</span>
+</li>
+</ol></div>
+!! end
+
+!! test
 Numbers in the default group need to start with 1, independent from other groups
 !! wikitext
 <ref name="a" group="g" />

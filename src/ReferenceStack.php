@@ -340,10 +340,12 @@ class ReferenceStack {
 			case 'new':
 				// Rollback the addition of new elements to the stack
 				unset( $this->refs[$group][$lookup] );
-				// TODO: Don't we need to rollback groupRefSequence and extendsCount as well?
 				if ( !$this->refs[$group] ) {
 					$this->popGroup( $group );
+				} elseif ( isset( $this->groupRefSequence[$group] ) ) {
+					$this->groupRefSequence[$group]--;
 				}
+				// TODO: Don't we need to rollback extendsCount as well?
 				break;
 			case 'new-from-placeholder':
 				$this->refs[$group][$lookup]['__placeholder__'] = true;

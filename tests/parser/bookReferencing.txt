@@ -1,3 +1,4 @@
+!! version 2
 !! test
 Book Referencing attribute rejected by default
 !! config
@@ -8,7 +9,7 @@ wgCiteBookReferencing=false
 !! html/php
 <p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
 </p>
-<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; invalid names, e.g. too many</span><div class="mw-references-wrap"><ol class="references">
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; invalid names, e.g. too many</span></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-parent-1"><span class="mw-cite-backlink"><a href="#cite_ref-parent_1-0">↑</a></span> <span class="reference-text">[foo]</span>
 </li>
 </ol></div>
@@ -24,7 +25,7 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
 </p>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-parent-1"><span class="mw-cite-backlink"><a href="#cite_ref-parent_1-0">↑</a></span> <span class="reference-text">[foo]</span>
 <ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">[bar]</span>
 </li>
@@ -72,7 +73,7 @@ wgCiteBookReferencing=true
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 <sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
 </p>
-<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<p><sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
 <ol class="mw-extended-references"><li id="cite_note-b-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-b_2-0">1.1,0</a></sup> <sup><a href="#cite_ref-b_2-1">1.1,1</a></sup></span> <span class="reference-text">page 2</span>
 </li>
@@ -92,7 +93,7 @@ wgCiteBookReferencing=true
 <p><sup id="cite_ref-b_1-0" class="reference"><a href="#cite_note-b-1">&#91;1&#93;</a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span>
 </p>
-<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2">&#91;2&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<p><sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2">&#91;2&#93;</a></sup></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-b-1"><span class="mw-cite-backlink"><a href="#cite_ref-b_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>b</code></span></li>
 <li id="cite_note-a-2"><span class="mw-cite-backlink"><a href="#cite_ref-a_2-0">↑</a></span> <span class="reference-text">book</span>
 </li>
@@ -158,7 +159,7 @@ wgCiteBookReferencing=true
 !! wikitext
 <ref extends="a">page 1</ref>
 !! html/php
-<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 </ol></li>
@@ -175,7 +176,7 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
 </p>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2.1&#93;</a></sup></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">book</span>
 </li>
 <li id="cite_note-a-"><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
@@ -196,7 +197,7 @@ wgCiteBookReferencing=true
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 <sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 </p>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
 <ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
@@ -281,7 +282,7 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 </p>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup><div class="mw-references-wrap"><ol class="references">
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 </ol></li>
@@ -298,7 +299,7 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
 </p>
-<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</span><div class="mw-references-wrap"><ol class="references">
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</span></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">book</span>
 </li>
 </ol></div>
@@ -314,7 +315,7 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
 </p>
-<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content</span><div class="mw-references-wrap"><ol class="references">
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content</span></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">book</span>
 </li>
 </ol></div>
@@ -330,7 +331,7 @@ wgCiteBookReferencing=true
 !! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
 </p>
-<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content</span><div class="mw-references-wrap"><ol class="references">
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content</span></p><div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">book</span>
 </li>
 </ol></div>

@@ -1,3 +1,4 @@
+!! version 2
 !! test
 Ordered lists directly following each other should not be merged
 !! config

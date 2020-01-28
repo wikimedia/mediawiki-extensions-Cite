@@ -1053,19 +1053,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @covers ::appendText
 	 */
-	public function testAppendText_failure() {
-		$stack = $this->newStack();
-
-		$this->expectException( LogicException::class );
-		$stack->appendText( 'group', 'name', 'the-text' );
-	}
-
-	/**
-	 * @covers ::appendText
-	 */
 	public function testAppendText() {
 		$stack = $this->newStack();
-		$stack->refs = [ 'group' => [ 'name' => [] ] ];
 
 		$stack->appendText( 'group', 'name', 'set' );
 		$this->assertSame( [ 'text' => 'set' ], $stack->refs['group']['name'] );

@@ -409,7 +409,7 @@ class Cite {
 	 *
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
-	 * @param string[] $argv Arguments as given in <references name=…>, already trimmed
+	 * @param string[] $argv Arguments as given in <references …>, already trimmed
 	 *
 	 * @return string|false False in case a <references> tag is not allowed in the current context
 	 */
@@ -429,7 +429,7 @@ class Cite {
 	 *
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
-	 * @param string[] $argv Arguments as given in <references name=…>, already trimmed
+	 * @param string[] $argv Arguments as given in <references …>, already trimmed
 	 *
 	 * @return string HTML
 	 */

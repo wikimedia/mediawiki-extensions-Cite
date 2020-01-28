@@ -27,8 +27,9 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		string $expectedHtml,
 		array $expectedCategories
 	) {
-		$reporter = $this->createReporter();
-		$mockParser = $this->createParser( $expectedCategories );
+		$language = $this->createLanguage();
+		$reporter = $this->createReporter( $language );
+		$mockParser = $this->createParser( $language, $expectedCategories );
 		$this->assertSame(
 			$expectedHtml,
 			$reporter->plain( $mockParser, $key, 'first param' ) );
@@ -38,11 +39,12 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 	 * @covers ::halfParsed
 	 */
 	public function testHalfParsed() {
-		$reporter = $this->createReporter();
-		$mockParser = $this->createParser( [] );
+		$language = $this->createLanguage();
+		$reporter = $this->createReporter( $language );
+		$mockParser = $this->createParser( $language, [] );
 		$this->assertSame(
-			'[<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
-				'dir="rtl">(cite_warning|(cite_warning_example|first param))</span>]',
+			'<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
+				'dir="rtl">[(cite_warning|(cite_warning_example|first param))]</span>',
 			$reporter->halfParsed( $mockParser, 'cite_warning_example', 'first param' ) );
 	}
 
@@ -63,16 +65,22 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		];
 	}
 
-	private function createReporter() : ErrorReporter {
+	private function createLanguage() : Language {
+		$language = $this->createMock( Language::class );
+		$language->method( 'getDir' )->willReturn( 'rtl' );
+		$language->method( 'getHtmlCode' )->willReturn( 'qqx' );
+		return $language;
+	}
+
+	private function createReporter( Language $language ) : ErrorReporter {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) {
+			function ( ...$args ) use ( $language ) {
 				$message = $this->createMock( Message::class );
 				$message->method( 'getKey' )->willReturn( $args[0] );
 				$message->method( 'plain' )->willReturn( '(' . implode( '|', $args ) . ')' );
-				$message->method( 'inLanguage' )->with( $this->callback( function ( Language $lang ) {
-					return $lang->getHtmlCode() === 'qqx';
-				} ) )->willReturnSelf();
+				$message->method( 'inLanguage' )->with( $language )->willReturnSelf();
+				$message->method( 'getLanguage' )->willReturn( $language );
 				return $message;
 			}
 		);
@@ -81,11 +89,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		return new ErrorReporter( $mockMessageLocalizer );
 	}
 
-	public function createParser( array $expectedCategories ) {
-		$language = $this->createMock( Language::class );
-		$language->method( 'getDir' )->willReturn( 'rtl' );
-		$language->method( 'getHtmlCode' )->willReturn( 'qqx' );
-
+	public function createParser( Language $language, array $expectedCategories ) {
 		$parserOptions = $this->createMock( ParserOptions::class );
 		$parserOptions->method( 'getUserLangObj' )->willReturn( $language );
 

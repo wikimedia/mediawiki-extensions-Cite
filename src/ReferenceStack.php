@@ -106,6 +106,7 @@ class ReferenceStack {
 	 * @param ?string $dir ref direction
 	 *
 	 * @return ?array ref structure, or null if nothing was pushed
+	 * @suppress PhanTypePossiblyInvalidDimOffset To many complaints about array indizes
 	 */
 	public function pushRef(
 		Parser $parser,
@@ -233,7 +234,6 @@ class ReferenceStack {
 			}
 		}
 
-		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset "key" is guaranteed to be set
 		$this->refCallStack[] = [ $action, $ref['key'], $group, $name, $extends, $text, $argv ];
 		return $ref;
 	}

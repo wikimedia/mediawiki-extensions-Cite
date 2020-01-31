@@ -133,7 +133,7 @@ class ReferenceStack {
 			$this->groupRefSequence[$group] = 0;
 		}
 
-		if ( $follow && isset( $this->refs[$group][$follow] ) ) {
+		if ( $follow && isset( $this->refs[$group][$follow] ) && $text !== null ) {
 			// We know the parent note already, so just perform the "follow" and bail out
 			$this->appendText( $group, $follow, ' ' . $text );
 			return null;
@@ -236,10 +236,13 @@ class ReferenceStack {
 			}
 		} elseif ( $extends && $ref['extends'] !== $extends ) {
 			// TODO: Change the error message to talk about "conflicting content or parent"?
-			// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
-			$ref['text'] .= ' ' . $this->errorReporter->plain(
-				$parser, 'cite_error_references_duplicate_key', $name
-			);
+			$error = $this->errorReporter->plain( $parser, 'cite_error_references_duplicate_key',
+				$name );
+			if ( isset( $ref['text'] ) ) {
+				$ref['text'] .= ' ' . $error;
+			} else {
+				$ref['text'] = $error;
+			}
 		}
 
 		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset "key" is guaranteed to be set

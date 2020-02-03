@@ -15,48 +15,38 @@ use StripState;
 class ReferenceStack {
 
 	/**
-	 * Datastructure representing <ref> input, in the format of:
-	 * <code>
-	 * [
-	 *     'user supplied' => [
-	 *         'text' => 'user supplied reference & key',
-	 *         'count' => 1, // occurs twice
-	 *         'number' => 1, // The first reference, we want
-	 *                        // all occourances of it to
-	 *                        // use the same number
-	 *     ],
-	 *     0 => [
-	 *         'text' => 'Anonymous reference',
-	 *         'count' => -1,
-	 *     ],
-	 *     1 => [
-	 *         'text' => 'Another anonymous reference',
-	 *         'count' => -1,
-	 *     ],
-	 *     'some key' => [
-	 *         'text' => 'this one occurs once'
-	 *         'count' => 0,
-	 *         'number' => 4
-	 *     ],
-	 *     3 => 'more stuff'
-	 * ];
-	 * </code>
+	 * Data structure representing all <ref> tags parsed so far, indexed by group name (an empty
+	 * string for the default group) and reference name.
 	 *
-	 * This works because:
-	 * * PHP's datastructures are guaranteed to be returned in the
-	 *   order that things are inserted into them (unless you mess
-	 *   with that)
-	 * * User supplied keys can't be integers, therefore avoiding
-	 *   conflict with anonymous keys
+	 * References without a name get a numeric index, starting from 0. Conflicts are avoided by
+	 * disallowing numeric names (e.g. <ref name="1">) in {@see Cite::validateRef}.
 	 *
-	 * In this structure, 'key' will either be an autoincrementing integer.
+	 * Elements (almost all are optional):
+	 * - 'name': The original name="…" of a reference (also used as the array key), or null for
+	 *       anonymous references.
+	 * - 'key': Sequence number for all references, no matter which group, starting from 1. Used to
+	 *       generate IDs and anchors.
+	 * - 'number': Sequence number per group, starting from 1. To be used in the [1] footnote
+	 *       marker.
+	 * - 'extendsIndex': Sequence number for sub-references with the same extends="…", starting
+	 *       from 1. Used in addition to the 'number' in [1.1] footnote markers.
+	 * - 'count': How often a reference is reused. 0 means not reused, i.e. the reference appears
+	 *       only one time. -1 for anonymous references that cannot be reused.
+	 * - 'extends': Marks a sub-reference. Points to the parent reference by name.
+	 * - 'follow': Marks a broken follow="…" that appears before it's parent. This is not allowed.
+	 *       A valid follow is immediatelly resolved and not marked in any way.
+	 * - '__placeholder__': Temporarily marks an incomplete parent reference that was referenced via
+	 *       extends="…" before it exists.
+	 * - 'text': The content inside the <ref>…</ref> tag. Null for <ref /> without content. Also
+	 *       null for <ref></ref> without any non-whitespace content.
+	 * - 'dir': Direction of the text. Should either be "ltr" or "rtl".
 	 *
 	 * @var array[][]
 	 */
 	private $refs = [];
 
 	/**
-	 * Count for user displayed output (ref[1], ref[2], ...)
+	 * Auto-incrementing sequence number for all <ref>, no matter which group
 	 *
 	 * @var int
 	 */

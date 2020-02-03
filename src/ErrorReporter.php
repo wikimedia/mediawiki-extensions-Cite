@@ -4,6 +4,7 @@ namespace Cite;
 
 use Html;
 use Language;
+use Message;
 use Parser;
 use Sanitizer;
 
@@ -25,9 +26,7 @@ class ErrorReporter {
 	/**
 	 * @param ReferenceMessageLocalizer $messageLocalizer
 	 */
-	public function __construct(
-		ReferenceMessageLocalizer $messageLocalizer
-	) {
+	public function __construct( ReferenceMessageLocalizer $messageLocalizer ) {
 		$this->messageLocalizer = $messageLocalizer;
 	}
 
@@ -39,8 +38,9 @@ class ErrorReporter {
 	 * @return string Half-parsed wikitext with extension's tags already being expanded
 	 */
 	public function halfParsed( Parser $parser, string $key, ...$params ) : string {
-		// FIXME: We suspect this is not necessary and can just be removed
-		return $parser->recursiveTagParse( $this->plain( $parser, $key, ...$params ) );
+		$msg = $this->msg( $parser, $key, ...$params );
+		$wikitext = $parser->recursiveTagParse( $msg->plain() );
+		return $this->wrapInHtmlContainer( $wikitext, $key, $msg->getLanguage() );
 	}
 
 	/**
@@ -52,31 +52,31 @@ class ErrorReporter {
 	 * @return-taint tainted
 	 */
 	public function plain( Parser $parser, string $key, ...$params ) : string {
-		$interfaceLanguage = $this->getInterfaceLanguageAndSplitCache( $parser );
-		$msg = $this->messageLocalizer->msg( $key, ...$params )->inLanguage( $interfaceLanguage );
+		$msg = $this->msg( $parser, $key, ...$params );
+		$wikitext = $msg->plain();
+		return $this->wrapInHtmlContainer( $wikitext, $key, $msg->getLanguage() );
+	}
 
-		if ( strncmp( $msg->getKey(), 'cite_warning_', 13 ) === 0 ) {
-			$type = 'warning';
-			$id = substr( $msg->getKey(), 13 );
-			$extraClass = ' mw-ext-cite-warning-' . Sanitizer::escapeClass( $id );
-		} else {
-			$type = 'error';
-			$extraClass = '';
+	/**
+	 * @param Parser $parser
+	 * @param string $key
+	 * @param mixed ...$params
+	 *
+	 * @return Message
+	 */
+	private function msg( Parser $parser, string $key, ...$params ) : Message {
+		$language = $this->getInterfaceLanguageAndSplitCache( $parser );
+		$msg = $this->messageLocalizer->msg( $key, ...$params )->inLanguage( $language );
 
+		[ $type, ] = $this->parseTypeAndIdFromMessageKey( $msg->getKey() );
+
+		if ( $type === 'error' ) {
 			// Take care; this is a sideeffect that might not belong to this class.
 			$parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 		}
 
-		return Html::rawElement(
-			'span',
-			[
-				'class' => "$type mw-ext-cite-$type" . $extraClass,
-				'lang' => $interfaceLanguage->getHtmlCode(),
-				'dir' => $interfaceLanguage->getDir(),
-			],
-			$this->messageLocalizer->msg( "cite_$type", $msg->plain() )
-				->inLanguage( $interfaceLanguage )->plain()
-		);
+		// Messages: cite_error, cite_warning
+		return $this->messageLocalizer->msg( "cite_$type", $msg->plain() )->inLanguage( $language );
 	}
 
 	/**
@@ -91,6 +91,43 @@ class ErrorReporter {
 			$this->cachedInterfaceLanguage = $parser->getOptions()->getUserLangObj();
 		}
 		return $this->cachedInterfaceLanguage;
+	}
+
+	/**
+	 * @param string $wikitext
+	 * @param string $key
+	 * @param Language $language
+	 *
+	 * @return string
+	 */
+	private function wrapInHtmlContainer(
+		string $wikitext,
+		string $key,
+		Language $language
+	) : string {
+		[ $type, $id ] = $this->parseTypeAndIdFromMessageKey( $key );
+		$extraClass = $type === 'warning'
+			? ' mw-ext-cite-warning-' . Sanitizer::escapeClass( $id )
+			: '';
+
+		return Html::rawElement(
+			'span',
+			[
+				'class' => "$type mw-ext-cite-$type" . $extraClass,
+				'lang' => $language->getHtmlCode(),
+				'dir' => $language->getDir(),
+			],
+			$wikitext
+		);
+	}
+
+	/**
+	 * @param string $messageKey Expected to be a message key like "cite_error_ref_too_many_keys"
+	 *
+	 * @return string[]
+	 */
+	private function parseTypeAndIdFromMessageKey( string $messageKey ) : array {
+		return array_slice( explode( '_', $messageKey, 3 ), 1 );
 	}
 
 }

@@ -21,6 +21,7 @@
 	"cite_error_ref_too_many_keys": "無效的 <code>&lt;ref&gt;</code> 標籤，無效的 name 屬性值，可能名稱過長",
 	"cite_error_ref_nested_extends": "不允許超出一個層級深度的擴充 <code>&lt;ref&gt;</code> 標籤",
 	"cite_error_ref_no_input": "無效的 <code>&lt;ref&gt;</code> 標籤，沒有名稱的參考必須要有內容",
+	"cite_error_ref_no_parent": "無效的 <code>&lt;ref&gt;</code> 標籤取決於一個名為「$1」的不明參考",
 	"cite_error_references_duplicate_key": "無效的<code>&lt;ref&gt;</code>標籤；name屬性“$1”使用不同內容定義了多次",
 	"cite_error_references_invalid_parameters": "在 <code>&lt;references&gt;</code> 標籤裡的無效參數",
 	"cite_error_references_no_backlink_label": "自訂反向連結標籤符號已用盡。請在 [[MediaWiki:Cite references link many format backlink labels]] 中定義更多的標籤符號。",

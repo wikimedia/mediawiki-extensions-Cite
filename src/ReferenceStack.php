@@ -407,10 +407,6 @@ class ReferenceStack {
 	 * @param string $text
 	 */
 	public function appendText( string $group, string $name, string $text ) {
-		if ( !isset( $this->refs[$group][$name] ) ) {
-			throw new LogicException( "Unknown ref \"$name\" in group \"$group\"" );
-		}
-
 		if ( isset( $this->refs[$group][$name]['text'] ) ) {
 			$this->refs[$group][$name]['text'] .= $text;
 		} else {

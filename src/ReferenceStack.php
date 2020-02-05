@@ -138,6 +138,26 @@ class ReferenceStack {
 			'text' => $text,
 		];
 
+		if ( $follow ) {
+			$ref['follow'] = $follow;
+			// This inserts the broken "follow" at the end of all other broken "follow"
+			$k = 0;
+			foreach ( $this->refs[$group] as $value ) {
+				if ( !isset( $value['follow'] ) ) {
+					break;
+				}
+				$k++;
+			}
+			// TODO: Once this edge case is eliminated, we'll be able to assume that a groupRefs
+			//  array index is constant, preventing O(N) searches.
+			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
+			array_splice( $this->refCallStack, $k, 0,
+				[ [ 'new', $this->refSequence, $group, $name, $extends, $text, $argv ] ] );
+
+			// A "follow" never gets its own footnote marker
+			return null;
+		}
+
 		if ( !$name ) {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = &$ref;

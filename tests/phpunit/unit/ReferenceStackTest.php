@@ -181,6 +181,120 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[ 'new', 1, 'foo', 'name', null, 'text', [] ],
 				]
 			],
+			'Follow after base' => [
+				[
+					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
+					[ 'text-b', [], 'foo', 'b', null, 'a', 'rtl' ]
+				],
+				[
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					null
+				],
+				[
+					'foo' => [
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'name' => 'a',
+							'text' => 'text-a text-b',
+							'number' => 1,
+						]
+					]
+				],
+				[
+					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
+				]
+			],
+			'Follow with no base' => [
+				[
+					[ 'text', [], 'foo', null, null, 'a', 'rtl' ]
+				],
+				[
+					null
+				],
+				[
+					'foo' => [
+						[
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 1,
+							'name' => null,
+							'text' => 'text',
+							'follow' => 'a',
+						]
+					]
+				],
+				[
+					[ 'new', 1, 'foo', null, null, 'text', [] ],
+				]
+			],
+			'Follow pointing to later ref' => [
+				[
+					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
+					[ 'text-b', [], 'foo', null, null, 'c', 'rtl' ],
+					[ 'text-c', [], 'foo', 'c', null, null, 'rtl' ]
+				],
+				[
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					null,
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 3,
+						'name' => 'c',
+						'text' => 'text-c',
+						'number' => 2,
+					]
+				],
+				[
+					'foo' => [
+						0 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 2,
+							'name' => null,
+							'text' => 'text-b',
+							'follow' => 'c',
+						],
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'name' => 'a',
+							'text' => 'text-a',
+							'number' => 1,
+						],
+						'c' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 3,
+							'name' => 'c',
+							'text' => 'text-c',
+							'number' => 2,
+						]
+					]
+				],
+				[
+					[ 'new', 2, 'foo', null, null, 'text-b', [] ],
+					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
+					[ 'new', 3, 'foo', 'c', null, 'text-c', [] ],
+				]
+			],
 			'Repeated ref, text in first tag' => [
 				[
 					[ 'text', [], 'foo', 'a', null, null, 'rtl' ],
@@ -653,6 +767,58 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 					[ 'new', 2, 'foo', null, 'a', 'text-b', [] ],
 					[ 'new', 3, 'foo', 'c', null, 'text-c', [] ],
+				]
+			],
+			'Two broken follows' => [
+				[
+					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
+					[ 'text-b', [], 'foo', null, null, 'd', 'rtl' ],
+					[ 'text-c', [], 'foo', null, null, 'd', 'rtl' ],
+				],
+				[
+					[
+						'count' => 0,
+						'dir' => 'rtl',
+						'key' => 1,
+						'name' => 'a',
+						'text' => 'text-a',
+						'number' => 1,
+					],
+					null,
+					null
+				],
+				[
+					'foo' => [
+						0 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 2,
+							'name' => null,
+							'text' => 'text-b',
+							'follow' => 'd',
+						],
+						1 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 3,
+							'name' => null,
+							'text' => 'text-c',
+							'follow' => 'd',
+						],
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'name' => 'a',
+							'text' => 'text-a',
+							'number' => 1,
+						],
+					]
+				],
+				[
+					[ 'new', 2, 'foo', null, null, 'text-b', [] ],
+					[ 'new', 3, 'foo', null, null, 'text-c', [] ],
+					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 				]
 			],
 		];

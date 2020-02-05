@@ -294,30 +294,6 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 				'dir' => 'foobar',
 				'expected' => 'cite_error_ref_invalid_dir',
 			],
-			'Follows after parent' => [
-				'referencesStack' => [ '' => [ 'a' => [ 'name' => 'a' ] ] ],
-				'inReferencesGroup' => null,
-				'isSectionPreview' => false,
-				'text' => 'not empty',
-				'group' => '',
-				'name' => null,
-				'extends' => null,
-				'follow' => 'a',
-				'dir' => null,
-				'expected' => true,
-			],
-			'Follows without parent' => [
-				'referencesStack' => [],
-				'inReferencesGroup' => null,
-				'isSectionPreview' => false,
-				'text' => 'not empty',
-				'group' => '',
-				'name' => null,
-				'extends' => null,
-				'follow' => 'a',
-				'dir' => null,
-				'expected' => 'cite_error_ref_no_parent',
-			],
 		];
 	}
 

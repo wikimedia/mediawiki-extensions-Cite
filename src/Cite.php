@@ -194,12 +194,6 @@ class Cite {
 			return StatusValue::newFatal( 'cite_error_ref_invalid_dir', $dir );
 		}
 
-		if ( $follow &&
-			!isset( $this->referenceStack->getGroupRefs( $group )[$follow] )
-		) {
-			return StatusValue::newFatal( 'cite_error_ref_no_parent', $follow );
-		}
-
 		return $this->inReferencesGroup === null ?
 			$this->validateRefOutsideOfReferences( $text, $name ) :
 			$this->validateRefInReferences( $text, $group, $name );

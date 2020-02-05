@@ -173,8 +173,8 @@ class ReferencesFormatter {
 			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
 		}
 
-		// Fallback for a broken, and therefore unprocessed follow="…". Note this returns a <p>, not
-		// an <li> as expected!
+		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
+		// Wikisource. Note this returns a <p>, not an <li> as expected!
 		if ( isset( $val['follow'] ) ) {
 			return $this->messageLocalizer->msg(
 				'cite_references_no_link',

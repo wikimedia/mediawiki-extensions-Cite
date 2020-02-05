@@ -33,8 +33,8 @@ class ReferenceStack {
 	 * - 'count': How often a reference is reused. 0 means not reused, i.e. the reference appears
 	 *       only one time. -1 for anonymous references that cannot be reused.
 	 * - 'extends': Marks a sub-reference. Points to the parent reference by name.
-	 * - 'follow': Marks a broken follow="…" that appears before it's parent. This is not allowed.
-	 *       A valid follow is immediatelly resolved and not marked in any way.
+	 * - 'follow': Marks an incomplete follow="…". This is valid e.g. in the Page:… namespace on
+	 *       Wikisource.
 	 * - '__placeholder__': Temporarily marks an incomplete parent reference that was referenced via
 	 *       extends="…" before it exists.
 	 * - 'text': The content inside the <ref>…</ref> tag. Null for <ref /> without content. Also
@@ -140,7 +140,7 @@ class ReferenceStack {
 
 		if ( $follow ) {
 			$ref['follow'] = $follow;
-			// This inserts the broken "follow" at the end of all other broken "follow"
+			// This inserts the incomplete "follow" at the end of all other incomplete "follow"
 			$k = 0;
 			foreach ( $this->refs[$group] as $value ) {
 				if ( !isset( $value['follow'] ) ) {
@@ -148,8 +148,6 @@ class ReferenceStack {
 				}
 				$k++;
 			}
-			// TODO: Once this edge case is eliminated, we'll be able to assume that a groupRefs
-			//  array index is constant, preventing O(N) searches.
 			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
 			array_splice( $this->refCallStack, $k, 0,
 				[ [ 'new', $this->refSequence, $group, $name, $extends, $text, $argv ] ] );

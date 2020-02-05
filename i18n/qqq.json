@@ -46,6 +46,7 @@
 	"cite_references_link_prefix": "{{optional}}",
 	"cite_references_link_suffix": "{{ignored}}",
 	"cite_reference_link": "{{optional}}\n\nParameters:\n* $1 - ref key\n* $2 - references key\n* $3 - link label",
+	"cite_references_no_link": "{{notranslate}}\n\nParameters:\n* $1 - references key\n* $2 - reference text",
 	"cite_references_link_one": "{{optional}}\n\nParameters:\n* $1 - references key\n* $2 - ref key\n* $3 - reference text\n* $4 - optional CSS class for direction",
 	"cite_references_link_many": "{{optional}}\n\nParameters:\n* $1 - references key\n* $2 - list of links\n* $3 - reference text\n* $4 - optional CSS class for direction",
 	"cite_references_link_many_format": "{{optional}}\n\nParameters:\n* $1 - reference key\n* $2 - canonical numeric backlink label for the link, always in the form \"1.2\"\n* $3 - optional alternate backlink label as defined via [[MediaWiki:cite_references_link_many_format_backlink_labels]]",

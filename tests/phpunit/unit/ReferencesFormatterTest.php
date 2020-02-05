@@ -246,7 +246,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				[
 					'text' => 't',
 				],
-				'(cite_references_link_many|||<span class="reference-text">t</span>' . "\n" . '|)'
+				'(cite_references_link_many|||<span class="reference-text">t</span>' . "\n|)"
 			],
 			'With dir' => [
 				1,

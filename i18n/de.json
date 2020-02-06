@@ -20,7 +20,6 @@
 	"cite_error_ref_too_many_keys": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „name“ ist ungültig oder zu lang.",
 	"cite_error_ref_nested_extends": "Die Erweiterung von <code>&lt;ref&gt;<code> Tags tiefer als eine Ebene ist nicht erlaubt",
 	"cite_error_ref_no_input": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „ref“ ohne Namen muss einen Inhalt haben.",
-	"cite_error_ref_no_parent": "Ungültiger <code>&lt;ref&gt;<code>-Tag hängt von einem unbekannten Ref namens \"$1\" ab.",
 	"cite_error_references_duplicate_key": "Ungültiges <code>&lt;ref&gt;</code>-Tag. Der Name „$1“ wurde mehrere Male mit einem unterschiedlichen Inhalt definiert.",
 	"cite_error_references_invalid_parameters": "Ungültiger Parameter im <code>&lt;references&gt;</code>-Tag",
 	"cite_error_references_no_backlink_label": "Die Rücksprungmarken sind ausgegangen. Es können weitere in der Systemnachricht [[MediaWiki:Cite references link many format backlink labels]] definiert werden.",

@@ -20,7 +20,6 @@
 	"cite_error_ref_too_many_keys": "Geçersiz <code>&lt;ref&gt;</code> etiketi; geçersiz isimler, ör. çok fazla",
 	"cite_error_ref_nested_extends": "<code>&lt;ref&gt;</code> etiketlerinin birden fazla derinlikten fazla genişletilmesine izin verilmiyor",
 	"cite_error_ref_no_input": "Geçersiz <code>&lt;ref&gt;</code> etiketi; isimsiz reflerin içeriği olmalı",
-	"cite_error_ref_no_parent": "Geçersiz <code>&lt;ref&gt;</code> etiketi, \"$1\" adında bilinmeyen bir kaynakça bağlı",
 	"cite_error_references_duplicate_key": "Geçersiz <code>&lt;ref&gt;</code> etiketi: \"$1\" adı farklı içerikte birden fazla tanımlanmış",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> etiketinde geçersiz parametre",
 	"cite_error_references_no_backlink_label": "Özel geri bağlantı etiketleri kalmadı. [[MediaWiki:Cite references link many format backlink labels]] mesajında daha fazla tanımlayın",

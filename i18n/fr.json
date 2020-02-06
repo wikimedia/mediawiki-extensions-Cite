@@ -31,7 +31,6 @@
 	"cite_error_ref_too_many_keys": "Balise <code>&lt;ref&gt;</code> incorrecte : noms incorrects, par exemple trop nombreux",
 	"cite_error_ref_nested_extends": "L’extension des balises <code>&lt;ref&gt;</code> au delà d’un niveau de profondeur n’est pas autorisée.",
 	"cite_error_ref_no_input": "Balise <code>&lt;ref&gt;</code> incorrecte : les références sans nom doivent avoir un contenu",
-	"cite_error_ref_no_parent": "Balise <code>&lt;ref&gt;</code> non valide dépendant d'une référence inconnue appelée « $1 »",
 	"cite_error_references_duplicate_key": "Balise <code>&lt;ref&gt;</code> incorrecte : le nom « $1 » est défini plusieurs fois avec des contenus différents.",
 	"cite_error_references_invalid_parameters": "Paramètre incorrect dans la balise <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "Pas assez d’étiquettes de liens personnalisées. Définissez-en un plus grand nombre dans le message [[MediaWiki:Cite references link many format backlink labels]].",

@@ -46,6 +46,7 @@
 	"cite_error_empty_references_define": "La balise <code>&lt;ref&gt;</code> définie dans <code>&lt;references&gt;</code> avec le nom « $1 » n’a pas de contenu.",
 	"cite-tracking-category-cite-error": "Pages avec des erreurs de référence",
 	"cite-tracking-category-cite-error-desc": "Les pages dans cette catégorie ont des erreurs dans l’utilisation des balises de référence.",
+	"cite_references_no_link": "<p id=\"$1\">$2</p>",
 	"cite_references_link_many_and": "&#32;et&#32;",
 	"cite_references_link_accessibility_label": "Revenir plus haut",
 	"cite_references_link_many_accessibility_label": "Revenir plus haut en :",

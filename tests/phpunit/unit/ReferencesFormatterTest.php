@@ -257,7 +257,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				'(cite_references_link_many|||<span class="reference-text">t</span>' .
 					"\n" . '| class="mw-cite-dir-rtl")'
 			],
-			'Broken follow' => [
+			'Incomplete follow' => [
 				1,
 				[
 					'follow' => 'f',

@@ -27,9 +27,7 @@ class CiteParserHooks {
 	 * @param Parser $parser
 	 */
 	public static function onParserClearStateOrCloned( Parser $parser ) {
-		if ( isset( $parser->extCite ) ) {
-			unset( $parser->extCite );
-		}
+		unset( $parser->extCite );
 	}
 
 	/**

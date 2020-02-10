@@ -769,7 +769,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[ 'new', 3, 'foo', 'c', null, 'text-c', [] ],
 				]
 			],
-			'Two broken follows' => [
+			'Two incomplete follows' => [
 				[
 					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text-b', [], 'foo', null, null, 'd', 'rtl' ],

@@ -20,7 +20,7 @@
 	"cite_error_references_invalid_parameters": "nevaljana <code>&lt;references&gt;</code> oznaka; parametri nisu dozvoljeni, koristite <code>&lt;references /&gt;</code>",
 	"cite_error_references_no_backlink_label": "potrošene sve posebne oznake za poveznice unatrag, definirajte više u poruci [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_no_link_label_group": "nedovoljan broj proizvoljnih naslova poveznica za grupu \"$1\". Definirajte više putem poruke [[MediaWiki:$2]].",
-	"cite_error_references_no_text": "nije zadan tekst za izvor <code>$1</code>",
+	"cite_error_references_no_text": "Nevažeća <code>&lt;ref&gt;</code> oznaka; nije zadan tekst za izvor <code>$1</code>",
 	"cite_error_included_ref": "nedostaje zatvarajući <code>&lt;/ref&gt;</code> za <code>&lt;ref&gt;</code> oznaku",
 	"cite_error_group_refs_without_references": "oznake <code>&lt;ref&gt;</code> postoje za skupinu \"$1\", ali nema pripadajuće oznake <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> oznaka u <code>&lt;references&gt;</code> ima konfliktni grupni atribut  \"$1\".",

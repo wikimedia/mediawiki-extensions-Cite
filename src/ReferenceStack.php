@@ -124,12 +124,6 @@ class ReferenceStack {
 			$this->groupRefSequence[$group] = 0;
 		}
 
-		if ( $follow && isset( $this->refs[$group][$follow] ) && $text !== null ) {
-			// We know the parent already, so just perform the follow="…" and bail out
-			$this->appendText( $group, $follow, ' ' . $text );
-			return null;
-		}
-
 		$ref = [
 			'count' => $name ? 0 : -1,
 			'dir' => $dir,
@@ -140,11 +134,17 @@ class ReferenceStack {
 		];
 
 		if ( $follow ) {
-			// Mark an incomplete follow="…" as such. This is valid e.g. in the Page:… namespace
-			// on Wikisource.
-			$this->refs[$group][] = $ref + [ 'follow' => $follow ];
-			$this->refCallStack[] = [ 'new', $this->refSequence, $group, $name, $extends, $text,
-				$argv ];
+			if ( !isset( $this->refs[$group][$follow] ) ) {
+				// Mark an incomplete follow="…" as such. This is valid e.g. in the Page:… namespace
+				// on Wikisource.
+				$this->refs[$group][] = $ref + [ 'follow' => $follow ];
+				$this->refCallStack[] = [ 'new', $this->refSequence, $group, $name, $extends, $text,
+					$argv ];
+			} elseif ( $text !== null ) {
+				// We know the parent already, so just perform the follow="…" and bail out
+				$this->appendText( $group, $follow, ' ' . $text );
+				$this->refSequence--;
+			}
 			// A follow="…" never gets its own footnote marker
 			return null;
 		}

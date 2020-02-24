@@ -8,9 +8,9 @@
 			"Banjo"
 		]
 	},
-	"cite-desc": "Engade as etiquetas <code>&lt;ref[ name=id]&gt;</code> e <code>&lt;references/&gt;</code> para as citas",
+	"cite-desc": "Engade as etiquetas <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para as citas",
 	"cite_error": "Erro no código da cita: $1",
-	"cite_error_ref_invalid_dir": "Etiqueta <code>&lt;ref&gt;</code> non válida; descoñécese o atributo \"$1\". Debe ser ltr ou rtl",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non válido, debe ser <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> non válida;\no nome non pode ser un simple número enteiro. Use un título descritivo",
 	"cite_error_ref_no_key": "a etiqueta de apertura <code>&lt;ref&gt;</code> é incorrecta ou ten un nome incorrecto",
 	"cite_error_ref_too_many_keys": "Etiqueta <code>&lt;ref&gt;</code> non válida;\nnomes non válidos, por exemplo, demasiados",

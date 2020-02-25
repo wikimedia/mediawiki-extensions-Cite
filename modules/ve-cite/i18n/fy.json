@@ -3,7 +3,8 @@
 		"authors": [
 			"Kening Aldgilles",
 			"Robin0van0der0vliet",
-			"Jdforrester"
+			"Jdforrester",
+			"PiefPafPier"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Boek",
@@ -11,11 +12,13 @@
 	"visualeditor-cite-tool-name-web": "Webside",
 	"cite-ve-dialog-reference-options-section": "Opsjes",
 	"cite-ve-dialog-reference-title": "Referinsje",
+	"cite-ve-dialog-reference-useexisting-tool": "Werbrûkte",
 	"cite-ve-dialog-referenceslist-title": "List mei referinsjes",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Sitaaten",
 	"cite-ve-dialogbutton-reference-title": "Referinsje",
-	"cite-ve-dialogbutton-reference-tooltip": "Basis",
+	"cite-ve-dialogbutton-reference-tooltip": "Basale",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "List mei referinsjes",
 	"cite-ve-toolbar-group-label": "Sitearje",
+	"cite-ve-othergroup-item": "$1 referinsje",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referinsjes"
 }

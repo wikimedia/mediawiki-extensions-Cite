@@ -17,6 +17,7 @@
 	"cite_error_ref_no_input": "Nederīga <code>&lt;ref&gt;</code> iezīme; atsaucēm bez nosaukuma ir jābūt saturam",
 	"cite_error_references_duplicate_key": "Nederīga <code>&lt;ref&gt;</code> iezīme; nosaukums \"$1\" definēts vairākas reizes ar atšķirīgu saturu",
 	"cite_error_references_invalid_parameters": "Nederīgs parametrs <code>&lt;references&gt;</code> iezīmē",
+	"cite_error_no_link_label_group": "Grupai \"$1\" beidzās pielāgotie saišu nosaukumi. Lapā [[MediaWiki:$2]] var norādīt papildu nosaukumus.",
 	"cite_error_references_no_text": "Nederīga <code>&lt;ref&gt;</code> iezīme; atsaucēm ar nosaukumu <code>$1</code> nav teksta",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> iezīmei trūkst aizverošais <code>&lt;/ref&gt;</code>",
 	"cite_error_included_references": "Trūkst <code>&lt;references&gt;</code> aizverošā iezīme",

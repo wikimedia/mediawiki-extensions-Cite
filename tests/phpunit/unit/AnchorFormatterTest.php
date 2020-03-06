@@ -81,8 +81,7 @@ class AnchorFormatterTest extends \MediaWikiUnitTestCase {
 			[ 'a b', 'a_b' ],
 			[ 'a  __  b', 'a_b' ],
 			[ ':', ':' ],
-			// Temp disable
-			// [ "\t\n", '_' ],
+			[ "\t\n", '_' ],
 			[ "'", '&#039;' ],
 			[ "''", '&#039;&#039;' ],
 			[ '"%&/<>?[]{|}', '&quot;%&amp;/&lt;&gt;?&#91;&#93;&#123;&#124;&#125;' ],

@@ -20,7 +20,7 @@
 			"Stjn"
 		]
 	},
-	"cite-desc": "Добавляет теги <code>&lt;ref[ name=id]&gt;</code> и <code>&lt;references/&gt;</code> для сносок",
+	"cite-desc": "Добавляет для сносок теги <code>&lt;ref&gt;</code> и <code>&lt;references/&gt;</code>",
 	"cite_error": "Ошибка цитирования $1",
 	"cite_error_ref_invalid_dir": "Неверный тег<code>&lt;ref&gt;</code>; атрибут «$1» для dir неизвестен. Он должен содержать ltr или rtl",
 	"cite_error_ref_numeric_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nимя не может быть целым числом. Используйте описательное название",

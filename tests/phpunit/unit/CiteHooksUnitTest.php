@@ -3,7 +3,6 @@
 namespace Cite\Tests\Unit;
 
 use Cite\Hooks\CiteHooks;
-use HashConfig;
 use ResourceLoader;
 use Title;
 
@@ -35,10 +34,8 @@ class CiteHooksUnitTest extends \MediaWikiUnitTestCase {
 	public function testOnResourceLoaderTestModules() {
 		$testModules = [];
 		$resourceLoader = $this->createMock( ResourceLoader::class );
-		$resourceLoader->method( 'getConfig' )
-			->willReturn( new HashConfig( [
-				'ResourceModules' => [ 'ext.visualEditor.mediawiki' => true ],
-			] ) );
+		$resourceLoader->method( 'isModuleRegistered' )
+			->willReturn( true );
 
 		CiteHooks::onResourceLoaderTestModules( $testModules, $resourceLoader );
 

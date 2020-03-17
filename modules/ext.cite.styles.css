@@ -73,6 +73,8 @@ sup.reference:target {
 	   we need to increase contrast, by setting it to `transparent`. See T247903. */
 	background-color: transparent;
 	color: inherit;
+	/* Reduce inherited `padding` to make code fit in better in Resources list. */
+	padding: 1px 2px;
 }
 
 /* @noflip */

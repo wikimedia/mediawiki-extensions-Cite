@@ -20,7 +20,8 @@
 			"Trial",
 			"Thibaut120094",
 			"Od1n",
-			"Derugon"
+			"Derugon",
+			"Zetud"
 		]
 	},
 	"cite-desc": "Ajoute les balises <code>&lt;ref[ name=id]&gt;</code> et <code>&lt;references/&gt;</code> pour les citations",
@@ -29,7 +30,7 @@
 	"cite_error_ref_numeric_key": "Balise <code>&lt;ref&gt;</code> incorrecte : la valeur de l’attribut <code>name</code> ne peut être un simple entier. Utilisez un titre descriptif.",
 	"cite_error_ref_no_key": "La balise ouvrante <code>&lt;ref&gt;</code> est mal formée ou a un mauvais nom.",
 	"cite_error_ref_too_many_keys": "Balise <code>&lt;ref&gt;</code> incorrecte : noms incorrects, par exemple trop nombreux",
-	"cite_error_ref_nested_extends": "L’extension des balises <code>&lt;ref&gt;</code> au delà d’un niveau de profondeur n’est pas autorisée.",
+	"cite_error_ref_nested_extends": "L’extension des balises <code>&lt;ref&gt;</code> au-delà d’un niveau de profondeur n’est pas autorisée.",
 	"cite_error_ref_no_input": "Balise <code>&lt;ref&gt;</code> incorrecte : les références sans nom doivent avoir un contenu",
 	"cite_error_references_duplicate_key": "Balise <code>&lt;ref&gt;</code> incorrecte : le nom « $1 » est défini plusieurs fois avec des contenus différents.",
 	"cite_error_references_invalid_parameters": "Paramètre incorrect dans la balise <code>&lt;references&gt;</code>",

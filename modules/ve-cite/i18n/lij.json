@@ -14,6 +14,14 @@
 	"cite-ve-dialog-reference-options-group-label": "Doeuvia sto groppo chie",
 	"cite-ve-dialog-reference-options-group-placeholder": "Notte generæ",
 	"cite-ve-dialog-reference-options-name-label": "Doeuvia torna con sto nomme",
+	"cite-ve-dialog-reference-options-section": "Opçioin",
+	"cite-ve-dialog-reference-placeholder": "Scrivi ò coppia a to notta chie, ò donque inseisci un modello pe-e çitaçioin.",
+	"cite-ve-dialog-reference-title": "Refeimento",
+	"cite-ve-dialog-reference-useexisting-tool": "Riutilizza",
+	"cite-ve-dialog-referenceslist-contextitem-description-general": "Lista de notte generali",
+	"cite-ve-dialog-referenceslist-contextitem-description-named": "Lista de notte pe-o groppo \"$1\"",
+	"cite-ve-dialog-referenceslist-title": "Lista de notte",
+	"cite-ve-dialogbutton-citation-educationpopup-text": "Amegioa i contegnui co-a zonta de fonte d'informassion.Ti poeu çitâ da libbri, giornæ e sciti web.",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Çitaçioin",
 	"cite-ve-dialogbutton-reference-full-label": "Moddulo baze",
 	"cite-ve-dialogbutton-reference-title": "Refeimento",
@@ -21,5 +29,12 @@
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Lista de notte",
 	"cite-ve-reference-input-placeholder": "Serca inte çitaçioin corrente",
 	"cite-ve-referenceslist-isempty": "Inte sta paggina notte da elencâ co-o groppo \"$1\" no ghe n'è.",
-	"cite-ve-referenceslist-isempty-default": "Inte sta paggina notte da elencâ no ghe n'è."
+	"cite-ve-referenceslist-isempty-default": "Inte sta paggina notte da elencâ no ghe n'è.",
+	"cite-ve-referenceslist-missingref": "Sta nota chie a l'è definia inte 'n modello ò inte 'n atro blocco generou e pe oua a poeu vese modificâ soo che in modalitæ vivagna.",
+	"cite-ve-referenceslist-missingref-in-list": "Sta notta chie a l'è definia inte 'n modello ò inte 'n atro blocco generou e pe-o momento a so anteprimma a poeu vese vixoalizâ soo che in modalitæ vivagna.",
+	"cite-ve-referenceslist-missingreflist": "Sta lista de rifeimenti a l'è generâ da 'n modello e pe oua a poeu vese modificâ soo che in modalitæ vivagna.",
+	"cite-ve-toolbar-group-label": "Çitta",
+	"cite-ve-othergroup-item": "$1 notte",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Refeimenti",
+	"visualeditor-internal-list-diff-group-name-mwreference": "Nomme groppo rifeimenti: \"$1\""
 }

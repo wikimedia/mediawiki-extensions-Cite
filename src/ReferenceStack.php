@@ -105,7 +105,7 @@ class ReferenceStack {
 	 * @param ?string $follow Guaranteed to not be a numeric string
 	 * @param ?string $dir ref direction
 	 *
-	 * @return ?array ref structure, or null if nothing was pushed
+	 * @return ?array ref structure, or null if no footnote marker should be rendered
 	 * @suppress PhanTypePossiblyInvalidDimOffset To many complaints about array indizes
 	 */
 	public function pushRef(
@@ -125,7 +125,7 @@ class ReferenceStack {
 		}
 
 		if ( $follow && isset( $this->refs[$group][$follow] ) && $text !== null ) {
-			// We know the parent note already, so just perform the "follow" and bail out
+			// We know the parent already, so just perform the follow="…" and bail out
 			$this->appendText( $group, $follow, ' ' . $text );
 			return null;
 		}
@@ -140,20 +140,12 @@ class ReferenceStack {
 		];
 
 		if ( $follow ) {
-			$ref['follow'] = $follow;
-			// This inserts the incomplete "follow" at the end of all other incomplete "follow"
-			$k = 0;
-			foreach ( $this->refs[$group] as $value ) {
-				if ( !isset( $value['follow'] ) ) {
-					break;
-				}
-				$k++;
-			}
-			array_splice( $this->refs[$group], $k, 0, [ $ref ] );
-			array_splice( $this->refCallStack, $k, 0,
-				[ [ 'new', $this->refSequence, $group, $name, $extends, $text, $argv ] ] );
-
-			// A "follow" never gets its own footnote marker
+			// Mark an incomplete follow="…" as such. This is valid e.g. in the Page:… namespace
+			// on Wikisource.
+			$this->refs[$group][] = $ref + [ 'follow' => $follow ];
+			$this->refCallStack[] = [ 'new', $this->refSequence, $group, $name, $extends, $text,
+				$argv ];
+			// A follow="…" never gets its own footnote marker
 			return null;
 		}
 

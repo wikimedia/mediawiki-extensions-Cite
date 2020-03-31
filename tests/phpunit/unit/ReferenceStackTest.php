@@ -263,14 +263,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				[
 					'foo' => [
-						0 => [
-							'count' => -1,
-							'dir' => 'rtl',
-							'key' => 2,
-							'name' => null,
-							'text' => 'text-b',
-							'follow' => 'c',
-						],
 						'a' => [
 							'count' => 0,
 							'dir' => 'rtl',
@@ -278,6 +270,14 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'name' => 'a',
 							'text' => 'text-a',
 							'number' => 1,
+						],
+						0 => [
+							'count' => -1,
+							'dir' => 'rtl',
+							'key' => 2,
+							'name' => null,
+							'text' => 'text-b',
+							'follow' => 'c',
 						],
 						'c' => [
 							'count' => 0,
@@ -290,8 +290,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					]
 				],
 				[
-					[ 'new', 2, 'foo', null, null, 'text-b', [] ],
 					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
+					[ 'new', 2, 'foo', null, null, 'text-b', [] ],
 					[ 'new', 3, 'foo', 'c', null, 'text-c', [] ],
 				]
 			],
@@ -789,6 +789,14 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				[
 					'foo' => [
+						'a' => [
+							'count' => 0,
+							'dir' => 'rtl',
+							'key' => 1,
+							'name' => 'a',
+							'text' => 'text-a',
+							'number' => 1,
+						],
 						0 => [
 							'count' => -1,
 							'dir' => 'rtl',
@@ -805,20 +813,12 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'text' => 'text-c',
 							'follow' => 'd',
 						],
-						'a' => [
-							'count' => 0,
-							'dir' => 'rtl',
-							'key' => 1,
-							'name' => 'a',
-							'text' => 'text-a',
-							'number' => 1,
-						],
 					]
 				],
 				[
+					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 					[ 'new', 2, 'foo', null, null, 'text-b', [] ],
 					[ 'new', 3, 'foo', null, null, 'text-c', [] ],
-					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 				]
 			],
 		];

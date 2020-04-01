@@ -520,7 +520,7 @@ class Cite {
 		$s = '';
 		foreach ( $this->referenceStack->getGroups() as $group ) {
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-				$s .= "\n" . $this->formatReferences( $parser, $group );
+				$s .= $this->formatReferences( $parser, $group );
 			} else {
 				$s .= "\n<br />" . $this->errorReporter->halfParsed(
 					$parser,

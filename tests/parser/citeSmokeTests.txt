@@ -112,3 +112,49 @@ false or error
 </li>
 </ol></div>
 !! end
+
+!! test
+It should be impossible to roll back a follow="…", because it can't have a name
+!! wikitext
+<ref name="a" />
+<ref name="b">should be 2</ref>
+<references>
+<ref name="a">should be 1</ref>
+<ref name="c" follow="other page">is invalid</ref>
+</references>
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">should be 1</span>
+</li>
+<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">should be 2</span>
+</li>
+</ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; invalid names, e.g. too many</span>
+</p>
+!! end
+
+!! test
+It should be impossible to roll back a follow="…", because it must have a name
+!! wikitext
+<ref name="a" />
+<ref name="b">should be 2</ref>
+<references>
+<ref name="a">should be 1</ref>
+<ref follow="other page">is invalid</ref>
+</references>
+!! html
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">should be 1</span>
+</li>
+<li id="cite_note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text">should be 2</span>
+</li>
+</ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.</span>
+</p>
+!! end

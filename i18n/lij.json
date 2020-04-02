@@ -9,7 +9,7 @@
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non vallido, o deve eser <code>ltr</code> ò <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Errô inte l'uso do marcatô <code>&lt;ref&gt;</code>; o nomme o no poeu ese un nummero intrego. Adoeuvia un tittolo esteizo",
 	"cite_error_ref_no_key": "L'avertua de l'etichetta <code>&lt;ref&gt;</code> a no l'è corretta ò a g'ha un nomme errou.",
-	"cite_error_ref_too_many_keys": "Tag <code>&lt;ref&gt;</code> non vallido: nommi non vallidi (pres. troppi)",
+	"cite_error_ref_too_many_keys": "eEtichetta <code>&lt;ref&gt;</code> non vallida; nommi non vallidi, prez. troppi",
 	"cite_error_ref_nested_extends": "No l'è consentio estende e etichette <code>&lt;ref&gt;</code> ciu che 'n livello de profonditæ",
 	"cite_error_ref_no_input": "Tag <code>&lt;ref&gt;</code> non vallido; i ref sença nomme no poeuan ese voeui",
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> non vallido; o nomme \"$1\" o l'è stæto definio ciù votte con di contegnui despægi",

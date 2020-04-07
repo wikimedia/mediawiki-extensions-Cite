@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Chaduvari",
+			"Pavan santhosh.s",
 			"Ravichandra",
-			"Veeven",
-			"Pavan santhosh.s"
+			"Veeven"
 		]
 	},
 	"cite-desc": "ఉదహరింపులకు <code>&lt;ref[ name=id]&gt;</code>, <code>&lt;references/&gt;</code> టాగులను చేర్చుతుంది",

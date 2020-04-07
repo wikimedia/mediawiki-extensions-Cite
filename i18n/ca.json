@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Davidpar",
+			"Fitoschido",
 			"Jordi Roqué",
-			"SMP",
-			"Vriullop",
 			"Pere prlpz",
-			"Fitoschido"
+			"SMP",
+			"Vriullop"
 		]
 	},
 	"cite-desc": "Afegeix les etiquetes <code>&lt;ref[ name=id]&gt;</code> i <code>&lt;references/&gt;</code>, per a cites",

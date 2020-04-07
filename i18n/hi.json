@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Anoop rao",
 			"Ansumang",
+			"Jayprakash12345",
 			"Kaustubh",
+			"Prong$31",
+			"Sfic",
 			"Shubhamkanodia",
 			"Siddhartha Ghai",
-			"Sfic",
-			"Jayprakash12345",
-			"Anoop rao",
-			"संजीव कुमार",
-			"Prong$31"
+			"संजीव कुमार"
 		]
 	},
 	"cite-desc": "उद्धरणों के लिये <code>&lt;ref[ name=id]&gt;</code> और <code>&lt;references/&gt;</code> टैग जोड़ता है।",

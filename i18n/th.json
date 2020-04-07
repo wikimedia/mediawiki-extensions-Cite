@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aefgh39622",
 			"Horus",
-			"Passawuth",
-			"Aefgh39622"
+			"Passawuth"
 		]
 	},
 	"cite-desc": "เพิ่มป้ายระบุ <code>&lt;ref[ name=id]&gt;</code> และ &lt;references /&gt; สำหรับการอ้างอิง",

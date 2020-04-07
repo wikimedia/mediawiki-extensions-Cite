@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dinosaur918",
+			"Elroy",
 			"Flightmare",
+			"Mainframe98",
+			"Mar(c)",
 			"Niels",
 			"Romaine",
-			"Siebrand",
-			"Dinosaur918",
-			"Mar(c)",
-			"Mainframe98",
-			"Elroy"
+			"Siebrand"
 		]
 	},
 	"cite-desc": "Voegt <code>&lt;ref&gt;</code>- en <code>&lt;references&gt;</code>-labels toe voor citaten",

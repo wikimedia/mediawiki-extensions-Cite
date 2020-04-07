@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Bennylin",
+			"Gombang",
 			"Irwangatot",
 			"IvanLanin",
 			"Iwan Novirion",
-			"Rex",
-			"Gombang"
+			"Rex"
 		]
 	},
 	"cite-desc": "Menambahkan tag <code>&lt;ref[ name=id]&gt;</code> dan <code>&lt;references/&gt;</code> untuk kutipan",

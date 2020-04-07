@@ -1,16 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Milicevic01",
-			"Millosh",
-			"Rancher",
-			"Михајло Анђелковић",
-			"Srdjan m",
-			"Сербијана",
-			"Obsuser",
 			"Acamicamacaraca",
 			"BadDog",
-			"Zoranzoki21"
+			"Milicevic01",
+			"Millosh",
+			"Obsuser",
+			"Rancher",
+			"Srdjan m",
+			"Zoranzoki21",
+			"Михајло Анђелковић",
+			"Сербијана"
 		]
 	},
 	"cite-desc": "Додаје ознаке за цитирање <code>&lt;ref&gt;</code> и <code>&lt;references&gt;</code>.",

@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Debenben",
 			"Kghbln",
 			"Metalhead64",
 			"Purodha",
 			"Raimond Spekking",
-			"The Evil IP address",
-			"Umherirrender",
+			"Schmackes",
 			"TMg",
-			"Debenben",
-			"Schmackes"
+			"The Evil IP address",
+			"Umherirrender"
 		]
 	},
 	"cite-desc": "Ermöglicht Referenzierungen mittels <code>&lt;ref&gt;</code> und <code>&lt;references&gt;</code>",

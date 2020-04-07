@@ -2,13 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Consta",
+			"Geraki",
+			"Nikosgranturismogt",
 			"Omnipaedista",
 			"Protnet",
-			"ZaDiak",
-			"Απεργός",
 			"Xaris333",
-			"Nikosgranturismogt",
-			"Geraki"
+			"ZaDiak",
+			"Απεργός"
 		]
 	},
 	"cite-desc": "Προσθέτει τις ετικέτες <code>&lt;ref&gt;</code> και <code>&lt;references&gt;</code>, για παραπομπές",

@@ -2,23 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Ahonc",
+			"Alexandr Efremov",
 			"Dim Grits",
+			"Facenapalm",
 			"Ferrer",
+			"Iltever",
+			"Iniquity",
 			"KPu3uC B Poccuu",
 			"Kaganer",
 			"Kalan",
-			"Okras",
-			"Александр Сигачёв",
-			"Iltever",
+			"Movses",
 			"NBS",
+			"Okras",
 			"Putnik",
 			"Redredsonia",
-			"Alexandr Efremov",
-			"Facenapalm",
-			"Iniquity",
-			"Vlad5250",
 			"Stjn",
-			"Movses"
+			"Vlad5250",
+			"Александр Сигачёв"
 		]
 	},
 	"cite-desc": "Добавляет для сносок теги <code>&lt;ref&gt;</code> и <code>&lt;references/&gt;</code>",

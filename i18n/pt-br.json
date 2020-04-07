@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Cainamarques",
+			"Eduardo Addad de Oliveira",
 			"Eduardo.mps",
-			"Giro720",
-			"555",
 			"Felipe L. Ewald",
-			"Eduardo Addad de Oliveira"
+			"Giro720",
+			555
 		]
 	},
 	"cite-desc": "Adiciona elementos <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para uso em citações",

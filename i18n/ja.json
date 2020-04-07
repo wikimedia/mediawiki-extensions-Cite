@@ -1,17 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"2nd-player",
+			"Afaz",
 			"Aotake",
 			"Ficell",
 			"Fryed-peach",
 			"JtFuruhata",
+			"Omotecho",
+			"Otokoume",
 			"Shirayuki",
 			"Sujiniku",
-			"2nd-player",
-			"Otokoume",
-			"Omotecho",
-			"Yusuke1109",
-			"Afaz"
+			"Yusuke1109"
 		]
 	},
 	"cite-desc": "引用のためのタグ <code>&lt;ref[ name=id]&gt;</code> および <code>&lt;references/&gt;</code> を追加する",

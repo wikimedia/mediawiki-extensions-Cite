@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"BRUTE",
 			"David1010",
 			"Dawid Deutschland",
 			"Nodar Kherkheulidze",
-			"გიორგიმელა",
-			"BRUTE",
-			"Otogi"
+			"Otogi",
+			"გიორგიმელა"
 		]
 	},
 	"cite-desc": "ამატებს <code>&lt;ref[ name=id]&gt;</code> და <code>&lt;references/&gt;</code> ტეგებს სქოლიოსთვის",

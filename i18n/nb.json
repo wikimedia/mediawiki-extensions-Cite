@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Audun",
-			"Danmichaelo",
-			"Laaknor",
 			"Chameleon222",
 			"Cocu",
-			"Jon Harald Søby"
+			"Danmichaelo",
+			"Jon Harald Søby",
+			"Laaknor"
 		]
 	},
 	"cite-desc": "Legger til <code>&lt;ref&gt;</code>- og <code>&lt;references/&gt;</code>-tagger for referanser",

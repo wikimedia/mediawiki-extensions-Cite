@@ -2,12 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"AVRS",
-			"Malafaya",
-			"Yekrats",
 			"KuboF",
-			"Nemo bis",
+			"Malafaya",
 			"Mirin",
-			"Robin van der Vliet"
+			"Nemo bis",
+			"Robin van der Vliet",
+			"Yekrats"
 		]
 	},
 	"cite-desc": "Aldonas etikedojn <code>&lt;ref[ name=id]&gt;</code> kaj <code>&lt;references/&gt;</code> por citaĵoj",

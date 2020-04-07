@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"CRCHF",
-			"Ktchankt",
-			"Hello903hello"
+			"Hello903hello",
+			"Ktchankt"
 		]
 	},
 	"cite-desc": "加 <code>&lt;ref[ name=id]&gt;</code> 同 <code>&lt;references/&gt;</code> 標籤用響引用度",

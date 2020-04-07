@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Hosseinblue",
-			"Lakzon",
-			"Huji"
+			"Huji",
+			"Lakzon"
 		]
 	},
 	"cite-desc": "برچسب‌های <code>&lt;ref[ name=id]&gt;</code> و <code>&lt;references/&gt;</code> را برای یادکرد اضافه می‌کند",

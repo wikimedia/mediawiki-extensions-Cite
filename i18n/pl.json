@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chrumps",
 			"Derbeth",
 			"Holek",
 			"Leinad",
-			"Sp5uhe",
-			"Woytecr",
 			"Peter Bowman",
-			"Chrumps",
+			"Rail",
 			"Railfail536",
-			"Rail"
+			"Sp5uhe",
+			"Woytecr"
 		]
 	},
 	"cite-desc": "Dodaje znaczniki <code>&lt;ref&gt;</code> oraz <code>&lt;references&gt;</code> ułatwiające podawanie źródeł cytatów",

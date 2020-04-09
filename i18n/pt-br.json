@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Cainamarques",
+			"Dr03ramos",
 			"Eduardo Addad de Oliveira",
 			"Eduardo.mps",
 			"Felipe L. Ewald",
@@ -12,7 +13,7 @@
 	"cite-desc": "Adiciona elementos <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para uso em citações",
 	"cite_error": "Erro de citação: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> inválido, deve ser <code>ltr</code> ou <code>rtl</code>",
-	"cite_error_ref_numeric_key": "Marca <code>&lt;ref&gt;</code> inválida; \no nome não pode ser um número. Utilize um título descritivo",
+	"cite_error_ref_numeric_key": "Marca <code>&lt;ref&gt;</code> inválida; \no nome não pode ser um número inteiro. Utilize um título descritivo",
 	"cite_error_ref_no_key": "A tag de abertura <code>&lt;ref&gt;</code> está mal formada ou tem um nome ruim",
 	"cite_error_ref_too_many_keys": "Marca <code>&lt;ref&gt;</code> inválida; \nnomes inválidos, por exemplo, muito extenso",
 	"cite_error_ref_no_input": "Marca <code>&lt;ref&gt;</code> inválida; \nrefs sem nome devem possuir conteúdo",

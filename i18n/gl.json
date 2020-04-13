@@ -4,6 +4,7 @@
 			"Alma",
 			"Banjo",
 			"Elisardojm",
+			"Iváns",
 			"Toliño",
 			"Xosé"
 		]
@@ -20,7 +21,7 @@
 	"cite_error_references_no_backlink_label": "As etiquetas personalizadas esgotáronse. Defina máis na mensaxe [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_no_link_label_group": "As etiquetas personalizadas esgotáronse para o grupo \"$1\". Defina máis na mensaxe [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Etiqueta <code>&lt;ref&gt;</code> non válida;\nnon se forneceu texto para as referencias de nome <code>$1</code>",
-	"cite_error_included_ref": "Peche a etiqueta <code>&lt;/ref&gt;</code> que lle falta á outra etiqueta <code>&lt;ref&gt;</code>",
+	"cite_error_included_ref": "Pecha a etiqueta <code>&lt;/ref&gt;</code> que che falla á outra etiqueta <code>&lt;ref&gt;</code>",
 	"cite_error_group_refs_without_references": "As etiquetas <code>&lt;ref&gt;</code> existen para un grupo chamado \"$1\", pero non se atopou a etiqueta <code>&lt;references group=\"$1\"/&gt;</code> correspondente ou falta unha etiqueta <code>&lt;/ref&gt;</code> de peche",
 	"cite_error_references_group_mismatch": "A etiqueta <code>&lt;ref&gt;</code> en <code>&lt;references&gt;</code> ten un atributo de grupo conflitivo \"$1\".",
 	"cite_error_references_missing_group": "A etiqueta <code>&lt;ref&gt;</code> definida en <code>&lt;references&gt;</code> ten un atributo de grupo \"$1\" que non aparece no texto anterior.",

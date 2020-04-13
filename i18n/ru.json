@@ -18,15 +18,16 @@
 			"Redredsonia",
 			"Stjn",
 			"Vlad5250",
+			"Wikisaurus",
 			"Александр Сигачёв"
 		]
 	},
 	"cite-desc": "Добавляет для сносок теги <code>&lt;ref&gt;</code> и <code>&lt;references/&gt;</code>",
 	"cite_error": "Ошибка цитирования $1",
-	"cite_error_ref_invalid_dir": "Неверный тег <code>dir=\"$1\"</code>, должно быть <code>ltr</code> или <code>rtl</code>",
+	"cite_error_ref_invalid_dir": "Неверное значение <code>dir=\"$1\"</code>, должно быть <code>ltr</code> или <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nимя не может быть целым числом. Используйте описательное название",
 	"cite_error_ref_no_key": "Открывающий тег <code>&lt;ref&gt;</code> — неправильный или содержит некорректное имя.",
-	"cite_error_ref_too_many_keys": "Неправильный тег <code>&lt;ref&gt;</code>;\nошибочные имена, возможно их слишком много",
+	"cite_error_ref_too_many_keys": "Неправильный тег <code>&lt;ref&gt;</code>;\nошибочные имена; возможно, их слишком много",
 	"cite_error_ref_no_input": "Неправильный тег <code>&lt;ref&gt;</code>;\nэлемент без имени должен иметь содержание",
 	"cite_error_references_duplicate_key": "Неверный тег <code>&lt;ref&gt;</code>: название «$1» определено несколько раз для различного содержимого",
 	"cite_error_references_invalid_parameters": "Недопустимый параметр в теге <code>&lt;references&gt;</code>",

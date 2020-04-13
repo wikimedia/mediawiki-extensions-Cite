@@ -58,7 +58,7 @@
 	"cite-ve-referenceslist-isempty": "לא קיימים מקורות עם קבוצה בשם \"$1\" בדף הזה שאפשר לכלול ברשימה הזאת.",
 	"cite-ve-referenceslist-isempty-default": "בדף הזה אין הערות שוליים שאפשר לכלול ברשימה הזאת.",
 	"cite-ve-referenceslist-missingref": "הערת השוליים הזאת מוגדרת בתבנית או מחוללת בדרך אחרת כלשהי, ולעת־עתה אפשר לערוך אותה רק במצב קוד מקור.",
-	"cite-ve-referenceslist-missingref-in-list": "הערת השוליים הזו מוגדרת בתבנית או מחוללת בדרך אחרת כלשהי, ולעת־עתה אפשר לראות תצוגה מקדימה שלה רק במצב קוד מקור.",
+	"cite-ve-referenceslist-missingref-in-list": "הערת השוליים הזאת מוגדרת בתבנית או מחוללת בדרך אחרת כלשהי, ולעת־עתה אפשר לראות תצוגה מקדימה שלה רק במצב קוד מקור.",
 	"cite-ve-referenceslist-missingreflist": "רשימת הערות השוליים הזאת מחוללת באמצעות תבנית, ולעת־עתה אפשר לערוך אותה רק במצב קוד מקור.",
 	"cite-ve-toolbar-group-label": "הערת שוליים",
 	"cite-ve-othergroup-item": "הערה $1",

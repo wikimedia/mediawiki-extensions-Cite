@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Candalua"
+			"Candalua",
+			"Fierodelveneto"
 		]
 	},
 	"cite-desc": "Zonta i tag <code>&lt;ref[ name=id]&gt;</code> e <code>&lt;references/&gt;</code> par gestir le citazion",
-	"cite_error": "Eror ne la funsion Cite $1",
+	"cite_error": "Erore in te łe note: $1",
 	"cite_error_ref_numeric_key": "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: el nome no'l pode mìa èssar un nùmaro intiero. Dòpara un titolo esteso",
 	"cite_error_ref_no_key": "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: i ref vodi no i pol no verghe un nome",
 	"cite_error_ref_too_many_keys": "Eror ne l'uso del marcator <code>&lt;ref&gt;</code>: nomi mìa validi (ad es. nùmaro massa elevà)",

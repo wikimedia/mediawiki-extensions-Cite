@@ -520,9 +520,9 @@ class Cite {
 		$s = '';
 		foreach ( $this->referenceStack->getGroups() as $group ) {
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-				$s .= "\n" . $this->formatReferences( $parser, $group );
+				$s .= $this->formatReferences( $parser, $group );
 			} else {
-				$s .= "\n<br />" . $this->errorReporter->halfParsed(
+				$s .= '<br />' . $this->errorReporter->halfParsed(
 					$parser,
 					'cite_error_group_refs_without_references',
 					Sanitizer::safeEncodeAttribute( $group )
@@ -539,13 +539,13 @@ class Cite {
 				) . $s;
 			}
 			// provide a preview of references in its own section
-			$s = "\n" . Html::rawElement(
+			$s = Html::rawElement(
 				'div',
 				[ 'class' => 'mw-ext-cite-cite_section_preview_references' ],
 				$s
 			);
 		}
-		return $s;
+		return $s !== '' ? "\n" . $s : '';
 	}
 
 	/**

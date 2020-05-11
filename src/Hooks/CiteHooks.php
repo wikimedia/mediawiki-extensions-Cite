@@ -36,37 +36,6 @@ class CiteHooks {
 	}
 
 	/**
-	 * Conditionally register the unit testing module for the ext.cite.visualEditor module
-	 * only if that module is loaded
-	 *
-	 * @param array[] &$testModules The array of registered test modules
-	 * @param ResourceLoader $resourceLoader
-	 */
-	public static function onResourceLoaderTestModules(
-		array &$testModules,
-		ResourceLoader $resourceLoader
-	) {
-		if ( $resourceLoader->isModuleRegistered( 'ext.visualEditor.mediawiki' ) ) {
-			$testModules['qunit']['ext.cite.visualEditor.test'] = [
-				'scripts' => [
-					've.dm.citeExample.js',
-					've.dm.Converter.test.js',
-					've.dm.InternalList.test.js',
-					've.dm.Transaction.test.js',
-					've.ui.DiffElement.test.js',
-					've.ui.MWWikitextStringTransferHandler.test.js',
-				],
-				'dependencies' => [
-					'ext.cite.visualEditor',
-					'test.VisualEditor'
-				],
-				'localBasePath' => __DIR__ . '/../../modules/ve-cite/tests',
-				'remoteExtPath' => 'Cite/modules/ve-cite/tests',
-			];
-		}
-	}
-
-	/**
 	 * Conditionally register resource loader modules that depend on
 	 * other MediaWiki extensions.
 	 *

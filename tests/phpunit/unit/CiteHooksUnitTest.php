@@ -29,20 +29,6 @@ class CiteHooksUnitTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::onResourceLoaderTestModules
-	 */
-	public function testOnResourceLoaderTestModules() {
-		$testModules = [];
-		$resourceLoader = $this->createMock( ResourceLoader::class );
-		$resourceLoader->method( 'isModuleRegistered' )
-			->willReturn( true );
-
-		CiteHooks::onResourceLoaderTestModules( $testModules, $resourceLoader );
-
-		$this->assertArrayHasKey( 'ext.cite.visualEditor.test', $testModules['qunit'] );
-	}
-
-	/**
 	 * @covers ::onResourceLoaderRegisterModules
 	 */
 	public function testOnResourceLoaderRegisterModules() {

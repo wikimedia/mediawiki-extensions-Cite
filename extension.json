@@ -31,8 +31,7 @@
 		"ParserCloned": "Cite\\Hooks\\CiteParserHooks::onParserClearStateOrCloned",
 		"ParserFirstCallInit": "Cite\\Hooks\\CiteParserHooks::onParserFirstCallInit",
 		"ResourceLoaderGetConfigVars": "Cite\\Hooks\\CiteHooks::onResourceLoaderGetConfigVars",
-		"ResourceLoaderRegisterModules": "Cite\\Hooks\\CiteHooks::onResourceLoaderRegisterModules",
-		"ResourceLoaderTestModules": "Cite\\Hooks\\CiteHooks::onResourceLoaderTestModules"
+		"ResourceLoaderRegisterModules": "Cite\\Hooks\\CiteHooks::onResourceLoaderRegisterModules"
 	},
 	"ResourceModules": {
 		"ext.cite.styles": {
@@ -62,6 +61,22 @@
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
 		"remoteExtPath": "Cite/modules"
+	},
+	"QUnitTestModule": {
+		"localBasePath": "modules/ve-cite/tests",
+		"remoteExtPath": "Cite/modules/ve-cite/tests",
+		"scripts": [
+			"ve.dm.citeExample.js",
+			"ve.dm.Converter.test.js",
+			"ve.dm.InternalList.test.js",
+			"ve.dm.Transaction.test.js",
+			"ve.ui.DiffElement.test.js",
+			"ve.ui.MWWikitextStringTransferHandler.test.js"
+		],
+		"dependencies": [
+			"ext.cite.visualEditor",
+			"test.VisualEditor"
+		]
 	},
 	"attributes": {
 		"CodeMirror": {

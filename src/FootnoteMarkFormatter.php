@@ -59,7 +59,7 @@ class FootnoteMarkFormatter {
 	public function linkRef( Parser $parser, string $group, array $ref ) : string {
 		$label = $this->getLinkLabel( $parser, $group, $ref['number'] );
 		if ( $label === null ) {
-			$label = $this->messageLocalizer->formatNum( $ref['number'] );
+			$label = $this->messageLocalizer->localizeDigits( $ref['number'] );
 			if ( $group !== Cite::DEFAULT_GROUP ) {
 				$label = "$group $label";
 			}

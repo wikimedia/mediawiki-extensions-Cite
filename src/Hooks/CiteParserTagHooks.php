@@ -49,7 +49,6 @@ class CiteParserTagHooks {
 		$parserOutput->addModuleStyles( 'ext.cite.styles' );
 
 		$frame->setVolatile();
-		// @phan-suppress-next-line SecurityCheck-XSS False positive
 		return $result;
 	}
 
@@ -80,7 +79,6 @@ class CiteParserTagHooks {
 		}
 
 		$frame->setVolatile();
-		// @phan-suppress-next-line SecurityCheck-XSS False positive
 		return $result;
 	}
 

@@ -52,6 +52,7 @@ ve.dm.MWReferenceNode.static.blacklistedAnnotationTypes = [ 'link' ];
 
 /**
  * Regular expression for parsing the listKey attribute
+ *
  * @static
  * @property {RegExp}
  * @inheritable

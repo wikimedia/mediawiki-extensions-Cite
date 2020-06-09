@@ -235,7 +235,6 @@ ve.ui.MWReferenceDialog.prototype.getBodyHeight = function () {
 	);
 };
 
-// eslint-disable-next-line valid-jsdoc
 /**
  * Work on a specific reference.
  *

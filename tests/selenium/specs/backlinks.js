@@ -1,10 +1,12 @@
-var assert = require( 'assert' ),
+'use strict';
+
+const assert = require( 'assert' ),
 	Api = require( 'wdio-mediawiki/Api' ),
 	CitePage = require( '../pageobjects/cite.page' ),
 	Util = require( 'wdio-mediawiki/Util' );
 
 describe( 'Cite backlinks', function () {
-	var title;
+	let title;
 
 	before( function () {
 		title = Util.getTestString( 'CiteTest-title-' );

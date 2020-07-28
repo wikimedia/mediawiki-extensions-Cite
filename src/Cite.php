@@ -333,8 +333,7 @@ class Cite {
 
 		if ( $this->inReferencesGroup !== null ) {
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			// In preview mode, it's possible to reach this with the ref *not* being known
-			if ( $text === null || !isset( $groupRefs[$name] ) ) {
+			if ( $text === null ) {
 				return '';
 			}
 

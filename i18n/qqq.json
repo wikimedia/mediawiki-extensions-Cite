@@ -42,7 +42,7 @@
 	"cite_reference_link_key_with_num": "{{notranslate}}\n\nParameters:\n* $1 - the key\n* $2 - the number of the key",
 	"cite_reference_link_prefix": "{{notranslate}}",
 	"cite_reference_link_suffix": "{{notranslate}}",
-	"cite_references_link_prefix": "{{optional}}",
+	"cite_references_link_prefix": "{{notranslate}}",
 	"cite_references_link_suffix": "{{ignored}}",
 	"cite_reference_link": "{{notranslate}}\n\nParameters:\n* $1 - ref key\n* $2 - references key\n* $3 - link label",
 	"cite_references_no_link": "{{notranslate}}\n\nParameters:\n* $1 - references key\n* $2 - reference text",

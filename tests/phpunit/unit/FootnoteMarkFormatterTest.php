@@ -37,7 +37,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiUnitTestCase {
 			}
 		);
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'formatNum' )->willReturnArgument( 0 );
+		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) use ( $group, $fooLabels ) {

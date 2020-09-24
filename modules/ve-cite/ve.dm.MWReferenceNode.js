@@ -53,11 +53,13 @@ ve.dm.MWReferenceNode.static.disallowedAnnotationTypes = [ 'link' ];
 /**
  * Regular expression for parsing the listKey attribute
  *
+ * Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
+ *
  * @static
  * @property {RegExp}
  * @inheritable
  */
-ve.dm.MWReferenceNode.static.listKeyRegex = /^(auto|literal)\/(.*)$/;
+ve.dm.MWReferenceNode.static.listKeyRegex = /^(auto|literal)\/([\s\S]*)$/;
 
 ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter ) {
 	var dataElement, mwDataJSON, mwData, reflistItemId, body, refGroup, listGroup, autoKeyed, listKey, queueResult, listIndex, contentsUsed;

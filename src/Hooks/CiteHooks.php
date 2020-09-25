@@ -133,6 +133,7 @@ class CiteHooks {
 				've.ui.MWReferenceGroupInputWidget.css',
 				've.ui.MWReferenceResultWidget.css',
 				've.ui.MWReferenceSearchWidget.css',
+				've.ui.MWCitationDialogTool.css',
 			],
 			"dependencies" => [
 				"oojs-ui.styles.icons-alerts",

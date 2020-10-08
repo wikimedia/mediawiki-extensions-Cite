@@ -137,7 +137,7 @@ class ReferencesFormatter {
 			$parserInput .= $this->formatListItem( $parser, $key, $value, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
-		return Html::rawElement( 'ol', [ 'class' => [ 'references' ] ], $parserInput );
+		return Html::rawElement( 'ol', [ 'class' => 'references' ], $parserInput );
 	}
 
 	/**

@@ -523,9 +523,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		return [
 			'Whitespace text' => [
 				' ',
-				[
-					'name' => 'a',
-				],
+				[ 'name' => 'a' ],
 				null,
 				[],
 				'<foot />',
@@ -554,9 +552,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			],
 			'Fallback to references group' => [
 				'text',
-				[
-					'name' => 'a',
-				],
+				[ 'name' => 'a' ],
 				'foo',
 				[
 					'foo' => [
@@ -573,9 +569,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			],
 			'Successful ref' => [
 				'text',
-				[
-					'name' => 'a',
-				],
+				[ 'name' => 'a' ],
 				null,
 				[],
 				'<foot />',
@@ -607,9 +601,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			],
 			'Successful references ref' => [
 				'text',
-				[
-					'name' => 'a',
-				],
+				[ 'name' => 'a' ],
 				'',
 				[
 					'' => [
@@ -640,15 +632,11 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 			],
 			'Mismatched text in references' => [
 				'text-2',
-				[
-					'name' => 'a',
-				],
+				[ 'name' => 'a' ],
 				'',
 				[
 					'' => [
-						'a' => [
-							'text' => 'text-1',
-						]
+						'a' => [ 'text' => 'text-1' ],
 					]
 				],
 				'',

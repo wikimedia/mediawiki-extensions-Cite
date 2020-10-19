@@ -17,19 +17,13 @@
  * @param {Object} config Configuration options
  */
 ve.ui.MWCitationNeededContextItem = function VeUiMWCitationNeededContextItem() {
-	var contextItem = this;
-
 	// Parent constructor
 	ve.ui.MWCitationNeededContextItem.super.apply( this, arguments );
 
 	this.addButton = new OO.ui.ButtonWidget( {
 		label: ve.msg( 'cite-ve-citationneeded-button' ),
 		flags: [ 'progressive' ]
-	} ).on( 'click', function () {
-		var action = ve.ui.actionFactory.create( 'citoid', contextItem.context.getSurface() );
-		action.open( true );
-		ve.track( 'activity.' + contextItem.constructor.static.name, { action: 'context-add-citation' } );
-	} );
+	} ).on( 'click', this.onAddClick.bind( this ) );
 
 	// Remove progressive flag from edit, as addButton is now the
 	// main progressive action in the context.
@@ -52,6 +46,58 @@ ve.ui.MWCitationNeededContextItem.static.icon = 'quotes';
 ve.ui.MWCitationNeededContextItem.static.label = OO.ui.deferMsg( 'cite-ve-citationneeded-title' );
 
 /* Methods */
+
+ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
+	var promise,
+		contextItem = this,
+		surface = this.context.getSurface(),
+		// TODO: This assumes Citoid is installed...
+		action = ve.ui.actionFactory.create( 'citoid', surface ),
+		encapsulatedWikitext = this.getCanonicalParam( 'encapsulate' );
+
+	if ( encapsulatedWikitext ) {
+		this.addButton.setDisabled( true );
+		promise = ve.init.target.parseWikitextFragment( encapsulatedWikitext, false, this.model.getDocument() ).then( function ( response ) {
+			var dmDoc, nodes, range;
+
+			if ( ve.getProp( response, 'visualeditor', 'result' ) !== 'success' ) {
+				return ve.createDeferred().reject().promise();
+			}
+
+			dmDoc = ve.ui.MWWikitextStringTransferHandler.static.createDocumentFromParsoidHtml(
+				response.visualeditor.content,
+				surface.getModel().getDocument()
+			);
+
+			nodes = dmDoc.getDocumentNode().children.filter( function ( node ) {
+				return !node.isInternal();
+			} );
+
+			// Unwrap single content branch nodes to match internal copy/paste behaviour
+			// (which wouldn't put the open and close tags in the clipboard to begin with).
+			if (
+				nodes.length === 1 &&
+				nodes[ 0 ].canContainContent()
+			) {
+				range = nodes[ 0 ].getRange();
+			}
+
+			surface.getModel().pushStaging();
+			surface.getModel().getFragment().insertDocument( dmDoc, range ).collapseToEnd().select();
+			return true;
+		} );
+		promise.always( function () {
+			contextItem.addButton.setDisabled( false );
+		} );
+	} else {
+		promise = ve.createDeferred().resolve( false ).promise();
+	}
+
+	promise.then( function ( inStaging ) {
+		action.open( true, undefined, inStaging );
+	} );
+	ve.track( 'activity.' + this.constructor.static.name, { action: 'context-add-citation' } );
+};
 
 /**
  * @inheritdoc

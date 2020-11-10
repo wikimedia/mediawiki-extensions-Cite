@@ -16,7 +16,7 @@ QUnit.test( 'Diffing', function ( assert ) {
 				// attrs doesn't get set in preview mode
 			};
 
-			return '<sup typeof="mw:Extension/ref" data-mw="' + JSON.stringify( dataMw ).replace( /"/g, '&quot;' ) + '" class="mw-ref">' +
+			return '<sup typeof="mw:Extension/ref" data-mw="' + JSON.stringify( dataMw ).replace( /"/g, '&quot;' ) + '" class="mw-ref reference">' +
 						'<a style="counter-reset: mw-Ref ' + num + ';"><span class="mw-reflink-text">[' + num + ']</span></a>' +
 					'</sup>';
 		},

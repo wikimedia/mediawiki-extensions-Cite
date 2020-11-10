@@ -239,7 +239,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		if ( group ) {
 			$link.attr( 'data-mw-group', this.getGroup( dataElement ) );
 		}
-		$( el ).addClass( 'mw-ref' ).append(
+		$( el ).addClass( 'mw-ref reference' ).append(
 			$link.append(
 				$( '<span>', doc ).addClass( 'mw-reflink-text' ).text( this.getIndexLabel( dataElement, converter.internalList ) )
 			)

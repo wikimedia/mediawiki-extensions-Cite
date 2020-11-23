@@ -12,6 +12,7 @@
 	"visualeditor-cite-tool-name-journal": "期刊",
 	"visualeditor-cite-tool-name-news": "新聞",
 	"visualeditor-cite-tool-name-web": "網站",
+	"cite-ve-citationneeded-description": "有編輯者指出呢個講法要引用可靠來源。",
 	"cite-ve-dialog-reference-editing-reused": "喺呢版入面，呢個參考用過{{PLURAL:$1|$1次}}。",
 	"cite-ve-dialog-reference-editing-reused-long": "喺呢版入面，呢個參考用過{{PLURAL:$1|$1次}}。喺度做嘅改動會套用到其他用到呢個參考嘅地方。",
 	"cite-ve-dialog-reference-options-group-label": "用呢組",

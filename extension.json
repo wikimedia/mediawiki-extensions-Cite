@@ -56,6 +56,122 @@
 				"desktop",
 				"mobile"
 			]
+		},
+		"ext.cite.visualEditor.core": {
+			"localBasePath": "modules/ve-cite",
+			"remoteExtPath": "Cite/modules/ve-cite",
+			"scripts": [
+				"ve.dm.MWReferenceModel.js",
+				"ve.dm.MWReferencesListNode.js",
+				"ve.dm.MWReferenceNode.js",
+				"ve.ce.MWReferencesListNode.js",
+				"ve.ce.MWReferenceNode.js",
+				"ve.ui.MWReferencesListCommand.js"
+			],
+			"styles": [
+				"ve.ce.MWReferencesListNode.css",
+				"ve.ce.MWReferenceNode.css"
+			],
+			"dependencies": [
+				"ext.visualEditor.mwcore",
+				"ext.visualEditor.mwtransclusion"
+			],
+			"messages": [
+				"cite-ve-referenceslist-isempty",
+				"cite-ve-referenceslist-isempty-default",
+				"cite-ve-referenceslist-missingref",
+				"cite-ve-referenceslist-missingref-in-list",
+				"cite-ve-referenceslist-missingreflist",
+				"visualeditor-internal-list-diff-default-group-name-mwreference",
+				"visualeditor-internal-list-diff-group-name-mwreference"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"ext.cite.visualEditor.data": {
+			"class": "Cite\\ResourceLoader\\CiteDataModule"
+		},
+		"ext.cite.visualEditor": {
+			"localBasePath": "modules/ve-cite",
+			"remoteExtPath": "Cite/modules/ve-cite",
+			"scripts": [
+				"ve.ui.MWReferenceGroupInputWidget.js",
+				"ve.ui.MWReferenceSearchWidget.js",
+				"ve.ui.MWReferenceResultWidget.js",
+				"ve.ui.MWUseExistingReferenceCommand.js",
+				"ve.ui.MWCitationDialog.js",
+				"ve.ui.MWReferencesListDialog.js",
+				"ve.ui.MWReferenceDialog.js",
+				"ve.ui.MWReferenceDialogTool.js",
+				"ve.ui.MWCitationDialogTool.js",
+				"ve.ui.MWReferenceContextItem.js",
+				"ve.ui.MWReferencesListContextItem.js",
+				"ve.ui.MWCitationContextItem.js",
+				"ve.ui.MWCitationAction.js",
+				"ve.ui.MWReference.init.js",
+				"ve.ui.MWCitationNeededContextItem.js"
+			],
+			"styles": [
+				"ve.ui.MWReferenceDialog.css",
+				"ve.ui.MWReferenceContextItem.css",
+				"ve.ui.MWReferenceGroupInputWidget.css",
+				"ve.ui.MWReferenceResultWidget.css",
+				"ve.ui.MWReferenceSearchWidget.css",
+				"ve.ui.MWCitationDialogTool.css"
+			],
+			"dependencies": [
+				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-editing-citation",
+				"oojs-ui.styles.icons-interactions",
+				"ext.cite.visualEditor.core",
+				"ext.cite.visualEditor.data",
+				"ext.cite.style",
+				"ext.cite.styles",
+				"ext.visualEditor.mwtransclusion",
+				"ext.visualEditor.mediawiki"
+			],
+			"messages": [
+				"cite-ve-changedesc-ref-group-both",
+				"cite-ve-changedesc-ref-group-from",
+				"cite-ve-changedesc-ref-group-to",
+				"cite-ve-changedesc-reflist-group-both",
+				"cite-ve-changedesc-reflist-group-from",
+				"cite-ve-changedesc-reflist-group-to",
+				"cite-ve-changedesc-reflist-item-id",
+				"cite-ve-changedesc-reflist-responsive-set",
+				"cite-ve-changedesc-reflist-responsive-unset",
+				"cite-ve-citationneeded-button",
+				"cite-ve-citationneeded-description",
+				"cite-ve-citationneeded-title",
+				"cite-ve-dialog-reference-editing-reused",
+				"cite-ve-dialog-reference-editing-reused-long",
+				"cite-ve-dialog-reference-options-group-label",
+				"cite-ve-dialog-reference-options-group-placeholder",
+				"cite-ve-dialog-reference-options-name-label",
+				"cite-ve-dialog-reference-options-responsive-label",
+				"cite-ve-dialog-reference-options-section",
+				"cite-ve-dialog-reference-placeholder",
+				"cite-ve-dialog-reference-title",
+				"cite-ve-dialog-reference-useexisting-tool",
+				"cite-ve-dialog-referenceslist-contextitem-description-general",
+				"cite-ve-dialog-referenceslist-contextitem-description-named",
+				"cite-ve-dialog-referenceslist-title",
+				"cite-ve-dialogbutton-citation-educationpopup-title",
+				"cite-ve-dialogbutton-citation-educationpopup-text",
+				"cite-ve-dialogbutton-reference-full-label",
+				"cite-ve-dialogbutton-reference-tooltip",
+				"cite-ve-dialogbutton-reference-title",
+				"cite-ve-dialogbutton-referenceslist-tooltip",
+				"cite-ve-reference-input-placeholder",
+				"cite-ve-toolbar-group-label",
+				"cite-ve-othergroup-item"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {

@@ -87,7 +87,8 @@ class CiteHooks {
 				've.ce.MWReferenceNode.css',
 			],
 			"dependencies" => [
-				"ext.visualEditor.mwcore"
+				"ext.visualEditor.mwcore",
+				"ext.visualEditor.mwtransclusion"
 			],
 			"messages" => [
 				"cite-ve-referenceslist-isempty",

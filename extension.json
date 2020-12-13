@@ -30,8 +30,7 @@
 		"ParserClearState": "Cite\\Hooks\\CiteParserHooks::onParserClearStateOrCloned",
 		"ParserCloned": "Cite\\Hooks\\CiteParserHooks::onParserClearStateOrCloned",
 		"ParserFirstCallInit": "Cite\\Hooks\\CiteParserHooks::onParserFirstCallInit",
-		"ResourceLoaderGetConfigVars": "Cite\\Hooks\\CiteHooks::onResourceLoaderGetConfigVars",
-		"ResourceLoaderRegisterModules": "Cite\\Hooks\\CiteHooks::onResourceLoaderRegisterModules"
+		"ResourceLoaderGetConfigVars": "Cite\\Hooks\\CiteHooks::onResourceLoaderGetConfigVars"
 	},
 	"ResourceModules": {
 		"ext.cite.styles": {
@@ -171,6 +170,25 @@
 			"targets": [
 				"desktop",
 				"mobile"
+			]
+		},
+		"ext.cite.ux-enhancements": {
+			"localBasePath": "modules",
+			"remoteExtPath": "Cite/modules",
+			"scripts": [
+				"ext.cite.a11y.js",
+				"ext.cite.highlighting.js",
+				"ext.cite.tracking.js"
+			],
+			"styles": [
+				"ext.cite.a11y.css",
+				"ext.cite.highlighting.css"
+			],
+			"messages": [
+				"cite_reference_link_prefix",
+				"cite_references_link_accessibility_label",
+				"cite_references_link_many_accessibility_label",
+				"cite_references_link_accessibility_back_label"
 			]
 		}
 	},

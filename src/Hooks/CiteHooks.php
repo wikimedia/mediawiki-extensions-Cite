@@ -7,10 +7,8 @@
 namespace Cite\Hooks;
 
 use ApiQuerySiteinfo;
-use ExtensionRegistry;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
-use ResourceLoader;
 use Title;
 
 class CiteHooks {
@@ -33,39 +31,6 @@ class CiteHooks {
 		) {
 			$model = CONTENT_MODEL_JSON;
 		}
-	}
-
-	/**
-	 * Conditionally register resource loader modules that depend on
-	 * other MediaWiki extensions.
-	 *
-	 * @param ResourceLoader $resourceLoader
-	 */
-	public static function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ) {
-		$uxEnhancementsModule = [
-			'localBasePath' => __DIR__ . '/../../modules',
-			'remoteExtPath' => 'Cite/modules',
-			'scripts' => [
-				'ext.cite.a11y.js',
-				'ext.cite.highlighting.js',
-			],
-			'styles' => [
-				'ext.cite.a11y.css',
-				'ext.cite.highlighting.css',
-			],
-			'messages' => [
-				'cite_reference_link_prefix',
-				'cite_references_link_accessibility_label',
-				'cite_references_link_many_accessibility_label',
-				'cite_references_link_accessibility_back_label',
-			],
-		];
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
-			// Temporary tracking for T231529
-			$uxEnhancementsModule['scripts'][] = 'ext.cite.tracking.js';
-			$uxEnhancementsModule['dependencies'][] = 'ext.eventLogging';
-		}
-		$resourceLoader->register( 'ext.cite.ux-enhancements', $uxEnhancementsModule );
 	}
 
 	/**

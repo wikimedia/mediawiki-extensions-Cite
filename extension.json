@@ -144,6 +144,7 @@
 				"cite-ve-changedesc-reflist-responsive-unset",
 				"cite-ve-citationneeded-button",
 				"cite-ve-citationneeded-description",
+				"cite-ve-citationneeded-reason",
 				"cite-ve-citationneeded-title",
 				"cite-ve-dialog-reference-editing-reused",
 				"cite-ve-dialog-reference-editing-reused-long",
@@ -166,7 +167,9 @@
 				"cite-ve-dialogbutton-referenceslist-tooltip",
 				"cite-ve-reference-input-placeholder",
 				"cite-ve-toolbar-group-label",
-				"cite-ve-othergroup-item"
+				"cite-ve-othergroup-item",
+				"parentheses",
+				"word-separator"
 			],
 			"targets": [
 				"desktop",

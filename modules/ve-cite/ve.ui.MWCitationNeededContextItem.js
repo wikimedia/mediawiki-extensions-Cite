@@ -57,10 +57,26 @@ ve.ui.MWCitationNeededContextItem.static.label = OO.ui.deferMsg( 'cite-ve-citati
  * @inheritdoc
  */
 ve.ui.MWCitationNeededContextItem.prototype.renderBody = function () {
-	this.$body.empty().append(
-		$( '<p>' ).text( ve.msg( 'cite-ve-citationneeded-description' ) ),
-		this.addButton.$element
-	);
+	var date = this.getCanonicalParam( 'date' ),
+		reason = this.getCanonicalParam( 'reason' ),
+		description = ve.msg( 'cite-ve-citationneeded-description' );
+
+	if ( date ) {
+		description += ve.msg( 'word-separator' ) + ve.msg( 'parentheses', date );
+	}
+
+	this.$body.empty();
+	this.$body.append( $( '<p>' ).addClass( 've-ui-mwCitationNeededContextItem-description' ).text( description ) );
+	if ( reason ) {
+		this.$body.append(
+			$( '<p>' ).addClass( 've-ui-mwCitationNeededContextItem-reason' ).append(
+				document.createTextNode( ve.msg( 'cite-ve-citationneeded-reason' ) + ve.msg( 'word-separator' ) ),
+				// TODO: reason could have HTML entities, but this is rare
+				$( '<em>' ).text( reason )
+			)
+		);
+	}
+	this.$body.append( this.addButton.$element );
 };
 
 /* Registration */

@@ -37,6 +37,7 @@
 	"cite-ve-changedesc-reflist-item-id": "Índice da referência alterado",
 	"cite-ve-citationneeded-button": "Adicionar uma citação",
 	"cite-ve-citationneeded-description": "Um editor indicou que esta afirmação precisa de uma citação de uma fonte fiável.",
+	"cite-ve-citationneeded-reason": "Motivo apresentado:",
 	"cite-ve-citationneeded-title": "Citação necessária",
 	"cite-ve-dialog-reference-editing-reused": "Esta referência é usada $1 {{PLURAL:$1|vez|vezes}} nesta página.",
 	"cite-ve-dialog-reference-editing-reused-long": "Esta referência é usada {{PLURAL:$1|uma vez|$1 vezes}} nesta página. As alterações que forem feitas aqui serão aplicadas em todos os sítios onde esta referência é reutilizada.",

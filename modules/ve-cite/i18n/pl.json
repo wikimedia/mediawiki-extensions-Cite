@@ -45,6 +45,7 @@
 	"cite-ve-changedesc-reflist-item-id": "Zmienił się numer przypisu",
 	"cite-ve-citationneeded-button": "Dodaj przypis",
 	"cite-ve-citationneeded-description": "Edytor wykrył, że to stwierdzenie wymaga przypisu do wiarygodnego źródła.",
+	"cite-ve-citationneeded-reason": "Podany powód:",
 	"cite-ve-citationneeded-title": "Potrzebny przypis",
 	"cite-ve-dialog-reference-editing-reused": "Ten przypis jest użyty {{PLURAL:$1|raz|2=dwa razy|$1 razy}} na tej stronie.",
 	"cite-ve-dialog-reference-editing-reused-long": "Ten przypis jest użyty {{PLURAL:$1|raz|$1 razy}} na tej stronie. Zmiany tutaj wprowadzone zostaną zastosowane we wszystkich miejscach, gdzie ten przypis jest użyty.",

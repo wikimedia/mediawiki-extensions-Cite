@@ -3,18 +3,19 @@
 		"authors": [
 			"Gloria sah",
 			"Mondschein",
-			"Ninonino"
+			"Ninonino",
+			"Salvemm el lombard"
 		]
 	},
-	"cite-ve-dialog-reference-options-group-label": "Dòpra chèl grupo ché",
-	"cite-ve-dialog-reference-options-name-label": "Tùrna a doprà chèl nòm ché",
-	"cite-ve-dialog-reference-options-section": "Upsiù",
-	"cite-ve-dialog-reference-title": "Riferimènt",
-	"cite-ve-dialog-referenceslist-title": "Lìsta dei riferimèncc",
-	"cite-ve-dialogbutton-reference-tooltip": "Riferimènt",
-	"cite-ve-dialogbutton-referenceslist-tooltip": "Lìsta dei riferimèncc",
-	"cite-ve-reference-input-placeholder": "A che laùr öt fà riferimènt?",
-	"cite-ve-referenceslist-isempty": "En chèsta pàgina gh'è nisü riferimènt col grùpo \"$1\" de mèter en chèsta lìsta.",
-	"cite-ve-referenceslist-isempty-default": "Gh'è nisü riferimèncc en chèsta pàgina de mèter dét en chèsta lìsta.",
-	"cite-ve-referenceslist-missingref": "Chèsto riferimènt l'è definìt endèn mudèl o 'ndèn óter blòch generàt e per adès el pöl mìa éser mudificàt apéna 'n modalità sorgènt."
+	"cite-ve-dialog-reference-options-group-label": "Dopra quel grup chì",
+	"cite-ve-dialog-reference-options-name-label": "Torna a doprà quel nom chì",
+	"cite-ve-dialog-reference-options-section": "Opzion",
+	"cite-ve-dialog-reference-title": "Riferiment",
+	"cite-ve-dialog-referenceslist-title": "Lista di riferiment",
+	"cite-ve-dialogbutton-reference-tooltip": "Base",
+	"cite-ve-dialogbutton-referenceslist-tooltip": "Lista di riferiment",
+	"cite-ve-reference-input-placeholder": "Serca infra i citazzion corent",
+	"cite-ve-referenceslist-isempty": "In questa pagina a gh'è nissun riferiment al grup \"$1\" de met in quela lista chì.",
+	"cite-ve-referenceslist-isempty-default": "A gh'è nissun riferiment in questa pagina de met dent in questa lista.",
+	"cite-ve-referenceslist-missingref": "'Sto riferimrnt l'è definid ind el model o ind un alter bloch ingenerad e per adess el po vesser modificad doma in modalità sorgent."
 }

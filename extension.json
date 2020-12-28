@@ -15,7 +15,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.34.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"MessagesDirs": {
 		"Cite": [
@@ -24,13 +24,21 @@
 		]
 	},
 	"Hooks": {
-		"APIQuerySiteInfoGeneralInfo": "Cite\\Hooks\\CiteHooks::onAPIQuerySiteInfoGeneralInfo",
-		"ContentHandlerDefaultModelFor": "Cite\\Hooks\\CiteHooks::onContentHandlerDefaultModelFor",
-		"ParserAfterParse": "Cite\\Hooks\\CiteParserHooks::onParserAfterParse",
-		"ParserClearState": "Cite\\Hooks\\CiteParserHooks::onParserClearStateOrCloned",
-		"ParserCloned": "Cite\\Hooks\\CiteParserHooks::onParserClearStateOrCloned",
-		"ParserFirstCallInit": "Cite\\Hooks\\CiteParserHooks::onParserFirstCallInit",
-		"ResourceLoaderGetConfigVars": "Cite\\Hooks\\CiteHooks::onResourceLoaderGetConfigVars"
+		"APIQuerySiteInfoGeneralInfo": "main",
+		"ContentHandlerDefaultModelFor": "main",
+		"ParserAfterParse": "parser",
+		"ParserClearState": "parser",
+		"ParserCloned": "parser",
+		"ParserFirstCallInit": "parser",
+		"ResourceLoaderGetConfigVars": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "Cite\\Hooks\\CiteHooks"
+		},
+		"parser": {
+			"class": "Cite\\Hooks\\CiteParserHooks"
+		}
 	},
 	"ResourceModules": {
 		"ext.cite.styles": {

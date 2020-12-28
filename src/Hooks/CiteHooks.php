@@ -7,12 +7,17 @@
 namespace Cite\Hooks;
 
 use ApiQuerySiteinfo;
-use MediaWiki\Linker\LinkTarget;
-use MediaWiki\MediaWikiServices;
+use Config;
+use MediaWiki\Api\Hook\APIQuerySiteInfoGeneralInfoHook;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
+use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
 use Title;
 
-class CiteHooks {
-
+class CiteHooks implements
+	ContentHandlerDefaultModelForHook,
+	ResourceLoaderGetConfigVarsHook,
+	APIQuerySiteInfoGeneralInfoHook
+{
 	/**
 	 * Convert the content model of a message that is actually JSON to JSON. This
 	 * only affects validation and UI when saving and editing, not loading the
@@ -21,7 +26,7 @@ class CiteHooks {
 	 * @param Title $title
 	 * @param string &$model
 	 */
-	public static function onContentHandlerDefaultModelFor( LinkTarget $title, &$model ) {
+	public function onContentHandlerDefaultModelFor( $title, &$model ) {
 		if (
 			$title->inNamespace( NS_MEDIAWIKI ) &&
 			(
@@ -35,10 +40,11 @@ class CiteHooks {
 
 	/**
 	 * Adds extra variables to the global config
-	 * @param array &$vars
+	 * @param array &$vars `[ variable name => value ]`
+	 * @param string $skin
+	 * @param Config $config
 	 */
-	public static function onResourceLoaderGetConfigVars( array &$vars ) {
-		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'cite' );
+	public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ) : void {
 		$vars['wgCiteVisualEditorOtherGroup'] = $config->get( 'CiteVisualEditorOtherGroup' );
 		$vars['wgCiteResponsiveReferences'] = $config->get( 'CiteResponsiveReferences' );
 	}
@@ -48,12 +54,11 @@ class CiteHooks {
 	 *
 	 * Expose configs via action=query&meta=siteinfo
 	 *
-	 * @param ApiQuerySiteinfo $api
-	 * @param array &$data
+	 * @param ApiQuerySiteinfo $module
+	 * @param array &$results
 	 */
-	public static function onAPIQuerySiteInfoGeneralInfo( $api, array &$data ) {
-		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'cite' );
-		$data['citeresponsivereferences'] = $config->get( 'CiteResponsiveReferences' );
+	public function onAPIQuerySiteInfoGeneralInfo( $module, &$results ) {
+		$results['citeresponsivereferences'] = $module->getConfig()->get( 'CiteResponsiveReferences' );
 	}
 
 }

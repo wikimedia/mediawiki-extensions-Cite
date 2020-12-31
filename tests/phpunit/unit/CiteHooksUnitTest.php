@@ -19,7 +19,8 @@ class CiteHooksUnitTest extends \MediaWikiUnitTestCase {
 		$title->method( 'getText' )
 			->willReturn( 'Cite-tool-definition.json' );
 
-		CiteHooks::onContentHandlerDefaultModelFor( $title, $model );
+		$citeHooks = new CiteHooks();
+		$citeHooks->onContentHandlerDefaultModelFor( $title, $model );
 
 		$this->assertSame( CONTENT_MODEL_JSON, $model );
 	}

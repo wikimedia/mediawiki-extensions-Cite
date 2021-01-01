@@ -17,6 +17,9 @@ module.exports = function ( grunt ) {
 
 	grunt.initConfig( {
 		eslint: {
+			options: {
+				cache: true
+			},
 			all: [
 				'**/*.js',
 				'{.jsduck,build}/**/*.js',

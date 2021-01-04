@@ -25,7 +25,7 @@
 		]
 	},
 	"cite-desc": "Ajoute les balises <code>&lt;ref[ name=id]&gt;</code> et <code>&lt;references/&gt;</code> pour les citations",
-	"cite_error": "Erreur de référence : $1",
+	"cite_error": "Erreur de référence : $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valide, doit être <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Balise <code>&lt;ref&gt;</code> incorrecte : la valeur de l’attribut <code>name</code> ne peut être un simple entier. Utilisez un titre descriptif.",
 	"cite_error_ref_no_key": "La balise ouvrante <code>&lt;ref&gt;</code> est mal formée ou a un mauvais nom.",

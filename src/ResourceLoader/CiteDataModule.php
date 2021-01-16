@@ -16,6 +16,7 @@ use ResourceLoaderContext;
  */
 class CiteDataModule extends \ResourceLoaderModule {
 
+	/** @inheritDoc */
 	protected $targets = [ 'desktop', 'mobile' ];
 
 	/** @inheritDoc */

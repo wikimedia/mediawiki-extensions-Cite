@@ -45,7 +45,7 @@ QUnit.test( 'Diffing', function ( assert ) {
 						'</p>' +
 					'</div>' +
 					'<h2 data-diff-action="none">Notes</h2>' +
-					'<div class="ve-ui-diffElement-doc-child-change" data-diff-move="null">' +
+					'<div class="ve-ui-diffElement-doc-child-change">' +
 						'<ol start="1">' +
 							'<li><p data-diff-action="none">Foo</p></li>' +
 						'</ol>' +

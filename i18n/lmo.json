@@ -9,7 +9,7 @@
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> minga valid, el gh'hà de vesser  <code>ltr</code> o <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Eror ind l'utilizazion del marcator <code>&lt;ref&gt;</code>: el nom el po vesser minga un numer intregh. Dopra un titol descritif.",
 	"cite_error_ref_no_key": "L'avertura de l'eticheta <code>&lt;ref&gt;</code> l'è minga sgiusta o la gh'hà un nom sbagliad.",
-	"cite_error_ref_too_many_keys": "Erore ind l'utilizazzion del marcador <code>&lt;ref&gt;</code>: nom minga valid (per esempiː trop tanti)",
+	"cite_error_ref_too_many_keys": "Erore ind l'utilizazzion del marcador <code>&lt;ref&gt;</code>: nom minga valid (per esempiː trop)",
 	"cite_error_ref_nested_extends": "A se po minga estend i etichete <code>&lt;ref&gt;</code> a pussee d'un nivel de profondità",
 	"cite_error_ref_no_input": "Eror ind l'utilizazzion d'un marcador <code>&lt;ref&gt;</code>: i ref senza nom i poden minga vesser voeuj",
 	"cite_error_references_duplicate_key": "Eticheta <code>&lt;ref&gt;</code> minga valida; el nom \"$1\" l'è stad definid diverse volte con di contegnud diversi",
@@ -30,7 +30,7 @@
 	"cite_references_link_accessibility_label": "Salta",
 	"cite_references_link_many_accessibility_label": "Salta a:",
 	"cite_references_link_accessibility_back_label": "Torna in scima",
-	"cite_section_preview_references": "Previsualizzazion di riferiment",
+	"cite_section_preview_references": "Veduda antecipada di riferiment",
 	"cite_warning": "Atenzzione ind i riferiment: $1",
 	"cite_warning_sectionpreview_no_text": "l'eticheta <code>&lt;ref&gt;</code> con nom <code>$1</code> la po minga vesser fada vedè prima, perchè l'è definida foera de la sezzion atual opur l'è definida nò."
 }

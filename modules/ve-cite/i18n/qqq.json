@@ -42,7 +42,6 @@
 	"cite-ve-changedesc-reflist-group-to": "Description of a references list changing group from the general group\n\nParameters:\n* $1 – the name of the group it is now",
 	"cite-ve-changedesc-reflist-responsive-set": "Description of a references list changing responsiveness to on",
 	"cite-ve-changedesc-reflist-responsive-unset": "Description of a references list changing responsiveness to off",
-	"cite-ve-changedesc-reflist-item-id": "Description of the visible index of a reference changing",
 	"cite-ve-citationneeded-button": "Label for button in citation needed context, to add a citation",
 	"cite-ve-citationneeded-description": "Description in citation needed context, explaining that a citation is needed",
 	"cite-ve-citationneeded-reason": "Label for reason given for citation being needed.",

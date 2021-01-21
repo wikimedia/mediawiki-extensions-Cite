@@ -336,6 +336,25 @@ ve.dm.MWReferenceNode.static.cloneElement = function () {
 /**
  * @inheritdoc
  */
+ve.dm.MWReferenceNode.static.getHashObject = function ( dataElement ) {
+	// Consider all references in the same group to be comparable:
+	// References can't be usefully compared statically, as they are mostly
+	// defined by the contents of their internal item, which exists
+	// elsewhere in the document.
+	// For diffing, comparing reference indexes is not useful as
+	// they are auto-generated, and the reference list diff is
+	// already handled separately, so will show moves etc.
+	return {
+		type: dataElement.type,
+		attributes: {
+			listGroup: dataElement.attributes.listGroup
+		}
+	};
+};
+
+/**
+ * @inheritdoc
+ */
 ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 	if ( key === 'refGroup' ) {
 		if ( !change.from ) {
@@ -345,9 +364,6 @@ ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 		} else {
 			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-both', this.wrapText( 'del', change.from ), this.wrapText( 'ins', change.to ) );
 		}
-	}
-	if ( key === 'refListItemId' ) {
-		return ve.msg( 'cite-ve-changedesc-reflist-item-id' );
 	}
 };
 

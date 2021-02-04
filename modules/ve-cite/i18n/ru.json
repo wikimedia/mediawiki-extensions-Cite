@@ -50,7 +50,6 @@
 	"cite-ve-changedesc-reflist-group-to": "Группа списка примечаний изменена с общей группы на «$1»",
 	"cite-ve-changedesc-reflist-responsive-set": "Список примечаний изменён на отображение адаптивных колонок",
 	"cite-ve-changedesc-reflist-responsive-unset": "Список примечаний изменён на отображение только одной колонки",
-	"cite-ve-changedesc-reflist-item-id": "Изменился индекс сноски",
 	"cite-ve-citationneeded-button": "Добавить ссылку на источник",
 	"cite-ve-citationneeded-description": "Редактор указал, что это утверждение нуждается в ссылке на  надежный источник.",
 	"cite-ve-citationneeded-title": "Нужна ссылка на источник",

@@ -19,7 +19,6 @@
 	"cite-ve-changedesc-reflist-group-to": "Grupa liste referenci promenjena iz opšte grupe u „$1”",
 	"cite-ve-changedesc-reflist-responsive-set": "Lista referenci je promenjena da se prikazuje u prilagodljivim kolonama",
 	"cite-ve-changedesc-reflist-responsive-unset": "Lista referenci je promenjena da se prikazuje samo u jednoj koloni",
-	"cite-ve-changedesc-reflist-item-id": "Indeks reference je promenjen",
 	"cite-ve-citationneeded-button": "Dodaj izvor",
 	"cite-ve-citationneeded-description": "Urednik je ukazao na to da je ovoj tvrdnji potrebna referenca ka pouzdanom izvoru.",
 	"cite-ve-citationneeded-title": "Potrebna je referenca",

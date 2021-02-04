@@ -30,7 +30,6 @@
 	"cite-ve-changedesc-reflist-group-to": "Referencelistegruppe ændret fra den generelle gruppe til \"$1\"",
 	"cite-ve-changedesc-reflist-responsive-set": "Referenceliste ændret til at vises i responsive kolonner",
 	"cite-ve-changedesc-reflist-responsive-unset": "Referenceliste ændret til at vises i kun én kolonne",
-	"cite-ve-changedesc-reflist-item-id": "Referenceindeks ændret",
 	"cite-ve-citationneeded-button": "Tilføj en citering",
 	"cite-ve-citationneeded-description": "En bruger har angivet, at denne påstand har brug for en reference til en troværdig kilde.",
 	"cite-ve-citationneeded-title": "Citering mangler",

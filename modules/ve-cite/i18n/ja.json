@@ -35,7 +35,6 @@
 	"cite-ve-changedesc-reflist-group-to": "脚注リストのグループが一般のグループから「$1」に変更されました",
 	"cite-ve-changedesc-reflist-responsive-set": "脚注リストをレスポンシブなカラム表示に変更しました",
 	"cite-ve-changedesc-reflist-responsive-unset": "脚注リストを1列のカラム表示に変更しました",
-	"cite-ve-changedesc-reflist-item-id": "注釈のインデックスが変更されました",
 	"cite-ve-citationneeded-button": "引用を追加",
 	"cite-ve-citationneeded-description": "エディターがこの主張には信頼できる出典による引用が必要であると示しています。",
 	"cite-ve-citationneeded-title": "要出典",

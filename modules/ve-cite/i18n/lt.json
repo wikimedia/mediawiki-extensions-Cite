@@ -20,7 +20,6 @@
 	"visualeditor-cite-tool-name-journal": "Žurnalas",
 	"visualeditor-cite-tool-name-news": "Naujienos",
 	"visualeditor-cite-tool-name-web": "Tinklapis",
-	"cite-ve-changedesc-reflist-item-id": "Pakeistas išnašos indeksas",
 	"cite-ve-citationneeded-button": "Pridėti citatą",
 	"cite-ve-dialog-reference-editing-reused": "Ši nuoroda naudojama {{PLURAL:$1|kartą|2=du kartus|$1 kartus}} šiame puslapyje.",
 	"cite-ve-dialog-reference-options-group-label": "Naudoti šią grupę",

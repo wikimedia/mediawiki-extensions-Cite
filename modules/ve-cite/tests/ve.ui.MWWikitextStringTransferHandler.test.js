@@ -9,9 +9,9 @@ QUnit.module( 've.ui.MWWikitextStringTransferHandler (Cite)', QUnit.newMwEnviron
 	beforeEach: function () {
 		// Mock XHR for mw.Api()
 		this.server = this.sandbox.useFakeServer();
-		ve.test.utils.mwEnvironment.setup.call( this );
+		ve.test.utils.mwEnvironment.beforeEach.call( this );
 	},
-	afterEach: ve.test.utils.mwEnvironment.teardown
+	afterEach: ve.test.utils.mwEnvironment.afterEach
 } ) );
 
 /* Tests */

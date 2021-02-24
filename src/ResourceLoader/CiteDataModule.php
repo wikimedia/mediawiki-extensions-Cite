@@ -50,7 +50,7 @@ class CiteDataModule extends \ResourceLoaderModule {
 				[
 					'cite-tool-definition.json' => json_encode( $citationTools )
 				],
-				ResourceLoader::inDebugMode()
+				(bool)ResourceLoader::inDebugMode()
 			) . ');';
 	}
 

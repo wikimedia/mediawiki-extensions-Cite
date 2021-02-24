@@ -230,8 +230,8 @@
 		},
 		"EventLogging": {
 			"Schemas": {
-				"ReferencePreviewsBaseline": 19489336,
-				"ReferencePreviewsCite": 19489328
+				"ReferencePreviewsBaseline": "/analytics/legacy/referencepreviewsbaseline/1.0.0",
+				"ReferencePreviewsCite": "/analytics/legacy/referencepreviewscite/1.0.0"
 			}
 		},
 		"VisualEditor": {

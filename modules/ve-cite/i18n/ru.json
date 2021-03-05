@@ -52,6 +52,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "Список примечаний изменён на отображение только одной колонки",
 	"cite-ve-citationneeded-button": "Добавить ссылку на источник",
 	"cite-ve-citationneeded-description": "Редактор указал, что это утверждение нуждается в ссылке на  надежный источник.",
+	"cite-ve-citationneeded-reason": "Указанная причина:",
 	"cite-ve-citationneeded-title": "Нужна ссылка на источник",
 	"cite-ve-dialog-reference-editing-reused": "Эта ссылка используется на странице $1 {{PLURAL:$1|раз|раза|раз}}.",
 	"cite-ve-dialog-reference-editing-reused-long": "Эта ссылка используется на странице {{PLURAL:$1|однажды|2=дважды|$1 раз}}. Выполненные здесь изменения будут применены ко всем местам её использования.",

@@ -16,7 +16,7 @@
 		]
 	},
 	"visualeditor-cite-tool-name-book": "పుస్తకం",
-	"visualeditor-cite-tool-name-journal": "పత్రిక",
+	"visualeditor-cite-tool-name-journal": "వైజ్ఞానిక పత్రిక",
 	"visualeditor-cite-tool-name-news": "వార్తలు",
 	"visualeditor-cite-tool-name-web": "జాలస్థలి",
 	"cite-ve-changedesc-ref-group-both": "మూలాల గుంపును \"$1\" నుండి \"$2\" కు మార్చారు",
@@ -50,7 +50,7 @@
 	"cite-ve-dialogbutton-reference-title": "మూలం",
 	"cite-ve-dialogbutton-reference-tooltip": "ప్రాథమిక",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "మూలాల జాబితా",
-	"cite-ve-reference-input-placeholder": "ప్రస్తుతమున్న ఉల్లేఖనల్లో వెతుకండి",
+	"cite-ve-reference-input-placeholder": "ప్రస్తుతమున్న ఉల్లేఖనల్లో వెతకండి",
 	"cite-ve-referenceslist-isempty": "ఈ జాబితాలో చేర్చేందుకు, ఈ పేజీలో \"$1\" గుంపుతో మూలాలేమీ లేవు.",
 	"cite-ve-referenceslist-isempty-default": "ఈ జాబితాలో చేర్చేందుకు, ఈ పేజీలో మూలాలేమీ లేవు.",
 	"cite-ve-referenceslist-missingref": "ఈ మూలాన్ని ఒక మూస లోనో, ఇతర బ్లాకులోనో నిర్వచించారు. ప్రస్తుతానికి దీన్ని సోర్సు మోడ్‌లో మాత్రమే సవరించవచ్చు.",

@@ -6,12 +6,13 @@
 			"Dnik",
 			"MaGa",
 			"Neptune, the Mystic",
+			"Ponor",
 			"Roberta F.",
 			"SpeedyGonsales"
 		]
 	},
 	"cite-desc": "Dodaje <code>&lt;ref[ name=id]&gt;</code> i <code>&lt;references/&gt;</code> oznake, za citiranje",
-	"cite_error": "Pogrješka u citiranju: $1",
+	"cite_error": "Pogreška u citiranju: $1",
 	"cite_error_ref_numeric_key": "nevaljana <code>&lt;ref&gt;</code> oznaka; naziv ne smije biti jednostavni broj, koristite opisni naziv",
 	"cite_error_ref_no_key": "nevaljana <code>&lt;ref&gt;</code> oznaka; izvori bez sadržaja moraju imati naziv",
 	"cite_error_ref_too_many_keys": "nevaljana <code>&lt;ref&gt;</code> oznaka; loš naziv, npr. previše naziva",

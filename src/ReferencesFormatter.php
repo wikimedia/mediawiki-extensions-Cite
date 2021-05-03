@@ -101,7 +101,7 @@ class ReferencesFormatter {
 		// numbering.  Subreferences will come immediately after their parent.
 		uasort(
 			$groupRefs,
-			function ( array $a, array $b ) : int {
+			static function ( array $a, array $b ) : int {
 				$cmp = ( $a['number'] ?? 0 ) - ( $b['number'] ?? 0 );
 				return $cmp ?: ( $a['extendsIndex'] ?? 0 ) - ( $b['extendsIndex'] ?? 0 );
 			}

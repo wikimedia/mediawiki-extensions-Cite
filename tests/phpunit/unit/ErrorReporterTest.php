@@ -93,7 +93,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 			->withConsecutive( $expectedCategories );
 		$parser->method( 'getOptions' )->willReturn( $parserOptions );
 		$parser->method( 'recursiveTagParse' )->willReturnCallback(
-			function ( $content ) {
+			static function ( $content ) {
 				return '[' . $content . ']';
 			}
 		);

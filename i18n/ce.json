@@ -11,7 +11,7 @@
 	"cite_error_ref_too_many_keys": "Нийса йоцу тег <code>&lt;ref&gt;</code>;\nгӀалатан цӀерш, тӀех дукха хила мега",
 	"cite_error_ref_no_input": "Нийса йоцу тег <code>&lt;ref&gt;</code>;\nцӀе йоцу элементан чулацам хила беза.",
 	"cite_error_references_duplicate_key": "Нийса йоцу тег <code>&lt;ref&gt;</code>: «$1» цӀе, башха чулацамна маситтазза хӀотийна",
-	"cite_error_references_invalid_parameters": "Нийса йоцу тег <code>&lt;references&gt;</code>;\nпараметраш шорйина яц.\nЛелае <code>&lt;references /&gt;</code>",
+	"cite_error_references_invalid_parameters": "Нийса йоцу тег <code>&lt;references&gt;</code>;\nпараметраш шорйина йац.\nЛелайе <code>&lt;references /&gt;</code>",
 	"cite_error_references_no_backlink_label": "Хьаьркаш тоьаш дац йуха йалочу гиперхьажоргашна. Системнан хаам [[MediaWiki:Cite references link many format backlink labels]] шорбан беза",
 	"cite_error_no_link_label_group": "Тобан «$1» декъашхойн билгалонаш чекхъяьлла. Хаам [[MediaWiki:$2]] чохь билгалъе кхин тӀе ерш.",
 	"cite_error_references_no_text": "Тег <code>&lt;ref&gt;</code> нийса йац; тIетовжаран <code>$1</code> йоза йаздина дац",
@@ -28,6 +28,6 @@
 	"cite_references_link_accessibility_label": "Дехьа гӀо",
 	"cite_references_link_many_accessibility_label": "Дехьа гӀо:",
 	"cite_section_preview_references": "Билгалдахарш",
-	"cite_warning": "Цитаташ ялоран дӀахьедар: $1",
+	"cite_warning": "Цитаташ йалоран дӀахьедар: $1",
 	"cite_warning_sectionpreview_no_text": "<code>$1</code> цӀе йолу <code>&lt;ref&gt;</code> теге хьажа цало, иза хӀокху декъа чохь йа цхьанхьа а цахилар бахьнехь."
 }

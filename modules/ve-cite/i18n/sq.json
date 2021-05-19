@@ -14,7 +14,8 @@
 			"Kosovastar",
 			"Kushtrim",
 			"Liridon",
-			"Techlik"
+			"Techlik",
+			"Vyolla"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Libër",
@@ -29,7 +30,7 @@
 	"cite-ve-changedesc-reflist-group-to": "Grupi i listës së referencave u ndryshua nga grupi i përgjithshëm në \"$1\"",
 	"cite-ve-changedesc-reflist-responsive-set": "U ndryshua listë referencash për t’u shfaqur në shtylla reaguese",
 	"cite-ve-changedesc-reflist-responsive-unset": "U ndryshua listë referencash për t’u shfaqur në një shtyllë të vetme",
-	"cite-ve-citationneeded-button": "Shto një citim",
+	"cite-ve-citationneeded-button": "Shtoni një citim",
 	"cite-ve-dialog-reference-editing-reused": "Kjo referencë është përdorur {{PLURAL:$1|një herë|2=twice|$1 herë}} në këtë faqe.",
 	"cite-ve-dialog-reference-options-group-label": "Përdor këtë grup",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referenca të përgjithshme",

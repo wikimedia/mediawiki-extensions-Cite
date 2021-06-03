@@ -91,14 +91,18 @@ ve.ce.MWReferencesListNode.prototype.onSetup = function () {
  * @method
  */
 ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
+	// Parent method
+	ve.ce.MWReferencesListNode.super.prototype.onTeardown.call( this );
+
+	if ( !this.listNode ) {
+		return;
+	}
+
 	this.internalList.disconnect( this, { update: 'onInternalListUpdate' } );
 	this.listNode.disconnect( this, { update: 'onListNodeUpdate' } );
 
 	this.internalList = null;
 	this.listNode = null;
-
-	// Parent method
-	ve.ce.MWReferencesListNode.super.prototype.onTeardown.call( this );
 };
 
 /**

@@ -10,7 +10,7 @@
 	"cite-desc": "સંદર્ભો માટે <code>&lt;ref&gt;</code> અને <code>&lt;references&gt;</code> ટેગ ઉમેરો",
 	"cite_error": "સંદર્ભ ત્રુટિ: $1",
 	"cite_error_ref_invalid_dir": "અયોગ્ય <code>dir=\"$1\"</code>, <code>ltr</code> અથવા <code>rtl</code> જ હોવું જોઇએ",
-	"cite_error_ref_numeric_key": "અમાન્ય <code>&lt;ref&gt;</code> ટેગ;\nનામ માત્ર સરળ રાશિ ન હોઈ શકે, વિસ્તૃત શીર્ષક આપો",
+	"cite_error_ref_numeric_key": "અમાન્ય <code>&lt;ref&gt;</code> ટેગ; નામ માત્ર સરળ રાશિ ન હોઈ શકે, વિસ્તૃત શીર્ષક આપો",
 	"cite_error_ref_no_key": "અમાન્ય <code>&lt;ref&gt;</code> ટેગ;\nનામ વગરના refs ને કાંઈક નામ તો હોવું જ જોઈએ",
 	"cite_error_ref_too_many_keys": "અમાન્ય <code>&lt;ref&gt;</code> ચકતી;\nઅમાન્ય નામો , દા.ત. ઘણાં બધાં",
 	"cite_error_ref_no_input": "અમાન્ય <code>&lt;ref&gt;</code> ટેગ;\nનામ વગરના refs માં કાંઈક સામગ્રી હોવી જોઈએ",
@@ -27,5 +27,7 @@
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> ટેગની વ્યાખ્યા <code>&lt;references&gt;</code> માં \"$1\" નામે છે તેને કોઈ content નથી.",
 	"cite-tracking-category-cite-error": "સંદર્ભ ક્ષતિઓ ધરાવતા પાના",
 	"cite_references_link_accessibility_label": "ઉપર જાઓ",
-	"cite_references_link_many_accessibility_label": "અહીં સુધી ઉપર જાઓ:"
+	"cite_references_link_many_accessibility_label": "અહીં સુધી ઉપર જાઓ:",
+	"cite_section_preview_references": "સંદર્ભોનું પૂર્વદર્શન",
+	"cite_warning": "સંદર્ભ ક્ષતિ: $1"
 }

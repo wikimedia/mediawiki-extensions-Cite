@@ -118,7 +118,7 @@ class ReferenceStack {
 		?string $extends,
 		?string $follow,
 		?string $dir
-	) : ?array {
+	): ?array {
 		if ( !isset( $this->refs[$group] ) ) {
 			$this->refs[$group] = [];
 		}
@@ -240,7 +240,7 @@ class ReferenceStack {
 	 *
 	 * @return array[] Refs to restore under the correct context, as a list of [ $text, $argv ]
 	 */
-	public function rollbackRefs( int $count ) : array {
+	public function rollbackRefs( int $count ): array {
 		$redoStack = [];
 		while ( $count-- && $this->refCallStack ) {
 			$call = array_pop( $this->refCallStack );
@@ -289,7 +289,7 @@ class ReferenceStack {
 		?string $extends,
 		?string $text,
 		array $argv
-	) : array {
+	): array {
 		if ( !$this->hasGroup( $group ) ) {
 			throw new LogicException( "Cannot roll back ref with unknown group \"$group\"." );
 		}
@@ -358,7 +358,7 @@ class ReferenceStack {
 	 *
 	 * @return array[] The references from the removed group
 	 */
-	public function popGroup( string $group ) : array {
+	public function popGroup( string $group ): array {
 		$refs = $this->getGroupRefs( $group );
 		unset( $this->refs[$group] );
 		unset( $this->groupRefSequence[$group] );
@@ -373,7 +373,7 @@ class ReferenceStack {
 	 *
 	 * @return bool
 	 */
-	public function hasGroup( string $group ) : bool {
+	public function hasGroup( string $group ): bool {
 		return isset( $this->refs[$group] ) && $this->refs[$group];
 	}
 
@@ -382,7 +382,7 @@ class ReferenceStack {
 	 *
 	 * @return string[]
 	 */
-	public function getGroups() : array {
+	public function getGroups(): array {
 		$groups = [];
 		foreach ( $this->refs as $group => $refs ) {
 			if ( $refs ) {
@@ -399,7 +399,7 @@ class ReferenceStack {
 	 *
 	 * @return array[]
 	 */
-	public function getGroupRefs( string $group ) : array {
+	public function getGroupRefs( string $group ): array {
 		return $this->refs[$group] ?? [];
 	}
 

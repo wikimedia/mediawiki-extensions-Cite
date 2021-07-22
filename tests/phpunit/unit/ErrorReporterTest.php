@@ -59,14 +59,14 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		];
 	}
 
-	private function createLanguage() : Language {
+	private function createLanguage(): Language {
 		$language = $this->createMock( Language::class );
 		$language->method( 'getDir' )->willReturn( 'rtl' );
 		$language->method( 'getHtmlCode' )->willReturn( 'qqx' );
 		return $language;
 	}
 
-	private function createReporter( Language $language ) : ErrorReporter {
+	private function createReporter( Language $language ): ErrorReporter {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
 			function ( ...$args ) use ( $language ) {
@@ -83,7 +83,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		return new ErrorReporter( $mockMessageLocalizer );
 	}
 
-	private function createParser( Language $language, array $expectedCategories ) : Parser {
+	private function createParser( Language $language, array $expectedCategories ): Parser {
 		$parserOptions = $this->createMock( ParserOptions::class );
 		$parserOptions->method( 'getUserLangObj' )->willReturn( $language );
 

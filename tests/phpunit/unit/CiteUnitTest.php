@@ -705,7 +705,7 @@ class CiteUnitTest extends \MediaWikiUnitTestCase {
 		clone $cite;
 	}
 
-	private function newCite( bool $isSectionPreview = false ) : Cite {
+	private function newCite( bool $isSectionPreview = false ): Cite {
 		$mockOptions = $this->createMock( ParserOptions::class );
 		$mockOptions->method( 'getIsPreview' )->willReturn( false );
 		$mockOptions->method( 'getIsSectionPreview' )->willReturn( $isSectionPreview );

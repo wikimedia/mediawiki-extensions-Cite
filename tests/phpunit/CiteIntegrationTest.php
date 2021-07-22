@@ -18,7 +18,7 @@ use Wikimedia\TestingAccessWrapper;
  */
 class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->setMwGlobals( [
@@ -92,7 +92,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		];
 	}
 
-	private function newCite() : Cite {
+	private function newCite(): Cite {
 		$mockOptions = $this->createMock( ParserOptions::class );
 		$mockOptions->method( 'getIsPreview' )->willReturn( false );
 		$mockOptions->method( 'getIsSectionPreview' )->willReturn( false );

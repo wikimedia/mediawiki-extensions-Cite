@@ -68,14 +68,14 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 			'Default group' => [
 				[ '' => [ [ 'name' => 'a' ] ] ],
 				false,
-				"\n" . '<references />'
+				"\n<references />"
 			],
 			'Default group in preview' => [
 				[ '' => [ [ 'name' => 'a' ] ] ],
 				true,
 				"\n" . '<div class="mw-ext-cite-cite_section_preview_references">' .
 				'<h2 id="mw-ext-cite-cite_section_preview_references_header">' .
-				'(cite_section_preview_references)</h2>' . "\n" . '<references /></div>'
+				'(cite_section_preview_references)</h2><references /></div>'
 			],
 			'Named group' => [
 				[ 'foo' => [ [ 'name' => 'a' ] ] ],
@@ -87,7 +87,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 				true,
 				"\n" . '<div class="mw-ext-cite-cite_section_preview_references">' .
 				'<h2 id="mw-ext-cite-cite_section_preview_references_header">' .
-				'(cite_section_preview_references)</h2>' . "\n" . '<references /></div>'
+				'(cite_section_preview_references)</h2><references /></div>'
 			]
 		];
 	}

@@ -6,6 +6,7 @@
 			"Eminn",
 			"Interfase",
 			"Jduranboger",
+			"NMW03",
 			"Toghrul Rahimli",
 			"Wertuose"
 		]
@@ -23,5 +24,6 @@
 	"cite-ve-dialog-reference-useexisting-tool": "Təkrar istifadə",
 	"cite-ve-dialog-referenceslist-title": "İstinadlar siyahısı",
 	"cite-ve-dialogbutton-reference-tooltip": "Əsas",
-	"cite-ve-dialogbutton-referenceslist-tooltip": "İstinad siyahısı"
+	"cite-ve-dialogbutton-referenceslist-tooltip": "İstinad siyahısı",
+	"cite-ve-toolbar-group-label": "İstinad"
 }

@@ -13,7 +13,9 @@
 	"cite_error_ref_numeric_key": "અમાન્ય <code>&lt;ref&gt;</code> ટેગ; નામ માત્ર સરળ રાશિ ન હોઈ શકે, વિસ્તૃત શીર્ષક આપો",
 	"cite_error_ref_no_key": "પ્રથમ <code>&lt;ref&gt;</code> ટેગ અયોગ્ય છે અથવા તેને ક્ષતિવાળું નામ છે",
 	"cite_error_ref_too_many_keys": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; અયોગ્ય નામો, દા.ત. બહુ બધાં",
+	"cite_error_ref_nested_extends": "<code>&lt;ref&gt;</code> ટેગ્સ એક કરતા વધુ સ્તરથી ઊંડા વિસ્તૃત કરવાનું માન્ય નથી",
 	"cite_error_ref_no_input": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; નામ વગરના સંદર્ભમાં કંઇક સામગ્રી હોવી જ જોઈએ",
+	"cite_error_references_duplicate_key": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; નામ \"$1\" અલગ માહિતી સાથે એકથી વધુ વખત વ્યાખ્યાયિત થયું છે",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> ટેગમાં અયોગ્ય પરિમાણો",
 	"cite_error_references_no_backlink_label": "કસ્ટમ બેકલિંક લેબલ ખલાસ થઈ ગયાં. [[MediaWiki:Cite references link many format backlink labels]] સંદેશામાં વહારે લેબલ બનાવો..",
 	"cite_error_no_link_label_group": "\"$1\" સમૂહ માટે કસ્ટમ બેકલિંક લેબલ ખલાસ થઈ ગયાં. [[MediaWiki:$2]] સંદેશામાં વહારે લેબલ બનાવો..",
@@ -32,5 +34,6 @@
 	"cite_references_link_many_accessibility_label": "અહીં સુધી ઉપર જાઓ:",
 	"cite_references_link_accessibility_back_label": "ઉપર પાછા જાવ",
 	"cite_section_preview_references": "સંદર્ભોનું પૂર્વદર્શન",
-	"cite_warning": "સંદર્ભ ક્ષતિ: $1"
+	"cite_warning": "સંદર્ભ ક્ષતિ: $1",
+	"cite_warning_sectionpreview_no_text": "<code>&lt;ref&gt;</code> ટેગ <code>$1</code> નામ સાથે પૂર્વદર્શન થઇ શકશે નહી કારણકે તે હાલના વિભાગની બહાર વ્યાખ્યાયિત થયો છે અથવા વ્યાખ્યાયિત થયો જ નથી."
 }

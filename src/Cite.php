@@ -543,6 +543,7 @@ class Cite {
 
 	/**
 	 * @see https://phabricator.wikimedia.org/T240248
+	 * @return never
 	 */
 	public function __clone() {
 		throw new LogicException( 'Create a new instance please' );

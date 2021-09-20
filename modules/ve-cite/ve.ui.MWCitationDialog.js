@@ -18,6 +18,9 @@ ve.ui.MWCitationDialog = function VeUiMWCitationDialog( config ) {
 	// Parent constructor
 	ve.ui.MWCitationDialog.super.call( this, config );
 
+	// Override feature set.
+	this.useBackButton = false;
+
 	// Properties
 	this.referenceModel = null;
 	this.referenceNode = null;
@@ -26,13 +29,24 @@ ve.ui.MWCitationDialog = function VeUiMWCitationDialog( config ) {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ui.MWCitationDialog, ve.ui.MWTemplateDialog );
+OO.inheritClass( ve.ui.MWCitationDialog, ve.ui.MWTransclusionDialog );
 
 /* Static Properties */
 
 ve.ui.MWCitationDialog.static.name = 'cite';
 
 /* Methods */
+
+/**
+ * Hide the "show options" button when using the old workflow.
+ */
+ve.ui.MWCitationDialog.prototype.autoExpandSidebar = function () {
+	ve.ui.MWCitationDialog.super.prototype.autoExpandSidebar.call( this );
+
+	if ( !this.useInlineDescriptions && !this.useNewSidebar && !this.isSidebarExpanded ) {
+		this.$otherActions.toggleClass( 'oo-ui-element-hidden', true );
+	}
+};
 
 /**
  * Get the reference node to be edited.

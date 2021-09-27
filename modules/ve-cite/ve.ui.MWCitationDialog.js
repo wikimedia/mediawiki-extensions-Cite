@@ -135,27 +135,7 @@ ve.ui.MWCitationDialog.prototype.setApplicableStatus = function () {
 	// Parent method disables 'done' if no changes were made (this is okay for us), and
 	// disables 'insert' if transclusion is empty (but it is never empty in our case).
 	// Instead, disable 'insert' if no parameters were added.
-	this.actions.setAbilities( { insert: this.hasUsefulParameter() } );
-};
-
-/**
- * Works out whether there are any set parameters that aren't just placeholders
- *
- * @return {boolean}
- */
-ve.ui.MWCitationDialog.prototype.hasUsefulParameter = function () {
-	var name, page;
-
-	for ( name in this.bookletLayout.pages ) {
-		page = this.bookletLayout.pages[ name ];
-		if (
-			page instanceof ve.ui.MWParameterPage &&
-			page.valueInput.getValue() !== ''
-		) {
-			return true;
-		}
-	}
-	return false;
+	this.actions.setAbilities( { insert: this.transclusionModel.containsValuableData() } );
 };
 
 /**

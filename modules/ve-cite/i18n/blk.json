@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ninjastrikers",
 			"咽頭べさ"
 		]
 	},
@@ -11,11 +12,11 @@
 	"cite-ve-citationneeded-button": "ထဲမ်သော့ꩻ အာႏကွိုꩻချက်တဗာႏ",
 	"cite-ve-citationneeded-title": "အဝ်ႏလိုႏ အာႏကွိုꩻချက်",
 	"cite-ve-dialog-reference-options-group-label": "ထူႏသွုံꩻစွုမ်ꩻစွိုꩻယို",
-	"cite-ve-dialog-reference-options-group-placeholder": "ကဲဥ်းအာ အာႏကွိုꩻချက်ဖုံႏ",
+	"cite-ve-dialog-reference-options-group-placeholder": "ကဲဉ်းအာ အာႏကွိုꩻချက်ဖုံႏ",
 	"cite-ve-dialog-reference-options-section": "လွိုက်ရွေꩻခရာႏဖုံႏ",
 	"cite-ve-dialog-reference-title": "အာႏကွိုꩻ",
 	"cite-ve-dialog-reference-useexisting-tool": "သွုံꩻချာယင်း",
-	"cite-ve-dialog-referenceslist-contextitem-description-general": "ကဲဥ်းအာ အာႏကွိုꩻချက်ဖုံႏ စာႏရင်ꩻ",
+	"cite-ve-dialog-referenceslist-contextitem-description-general": "ကဲဉ်းအာ အာႏကွိုꩻချက်ဖုံႏ စာႏရင်ꩻ",
 	"cite-ve-dialog-referenceslist-title": "ထူႏအာႏကွိုꩻ စာႏရင်ꩻ",
 	"cite-ve-dialogbutton-reference-full-label": "ခင်ႏဖာ",
 	"cite-ve-dialogbutton-reference-title": "အာႏကွိုꩻ",

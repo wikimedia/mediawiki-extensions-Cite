@@ -44,7 +44,9 @@ ve.ui.MWCitationDialog.prototype.autoExpandSidebar = function () {
 	ve.ui.MWCitationDialog.super.prototype.autoExpandSidebar.call( this );
 
 	if ( !this.useInlineDescriptions && !this.useNewSidebar && !this.isSidebarExpanded ) {
-		this.$otherActions.toggleClass( 'oo-ui-element-hidden', true );
+		this.actions.forEach( { actions: [ 'mode' ] }, function ( action ) {
+			action.toggle( false );
+		} );
 	}
 };
 

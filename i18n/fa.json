@@ -13,6 +13,7 @@
 	},
 	"cite-desc": "برچسب‌های <code>&lt;ref&gt;</code> و <code>&lt;references&gt;</code> را برای یادکرد اضافه می‌کند",
 	"cite_error": "خطای یادکرد: $1",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> نامعتبر، باید <code>ltr</code> یا <code>rtl</code> باشد",
 	"cite_error_ref_numeric_key": "برچسب <code>&lt;ref&gt;</code> نامعتبر؛ نام نمی‌تواند یک عدد ساده باشد. یک عنوان تشریحی برگزینید",
 	"cite_error_ref_no_key": "برچسب بازکنندهٔ <code><ref></code> بدشکل است یا نام بدی دارد",
 	"cite_error_ref_too_many_keys": "برچسب <code>&lt;ref&gt;</code> نامعتبر؛ نام‌های نامعتبر، مثلاً بیش از اندازه",

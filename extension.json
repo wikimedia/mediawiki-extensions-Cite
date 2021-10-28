@@ -227,7 +227,8 @@
 	"attributes": {
 		"CodeMirror": {
 			"TagModes": {
-				"ref": "text/mediawiki"
+				"ref": "text/mediawiki",
+				"references": "text/mediawiki"
 			}
 		},
 		"EventLogging": {

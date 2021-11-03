@@ -10,7 +10,7 @@
  *
  * @class
  * @extends ve.ce.LeafNode
- * @mixins ve.ce.FocusableNode
+ * @mixin ve.ce.FocusableNode
  *
  * @constructor
  * @param {ve.dm.MWReferencesListNode} model Model to observe

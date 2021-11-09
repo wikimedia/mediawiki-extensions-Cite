@@ -134,7 +134,11 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			contentsAlreadySet = false;
 			if ( keyedNodes ) {
 				for ( i = 0, iLen = keyedNodes.length; i < iLen; i++ ) {
-					if ( keyedNodes[ i ].element === dataElement ) {
+					if (
+						ve.dm.ElementLinearData.static.compareElementsUnannotated(
+							keyedNodes[ i ].element, dataElement
+						)
+					) {
 						break;
 					}
 					if ( keyedNodes[ i ].element.attributes.contentsUsed ) {
@@ -148,7 +152,12 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			// then we attach the contents to the first reference with this key
 
 			// Check that this is the first reference with its key
-			if ( keyedNodes && dataElement === keyedNodes[ 0 ].element ) {
+			if (
+				keyedNodes &&
+				ve.dm.ElementLinearData.static.compareElementsUnannotated(
+					dataElement, keyedNodes[ 0 ].element
+				)
+			) {
 				setContents = true;
 				// Check no other reference originally defined the contents
 				// As this is keyedNodes[0] we can start at 1

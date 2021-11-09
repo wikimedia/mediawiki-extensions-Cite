@@ -69,12 +69,12 @@ ve.ui.MWCitationDialog.prototype.getReferenceNode = function () {
  * @inheritdoc
  */
 ve.ui.MWCitationDialog.prototype.getSelectedNode = function () {
-	var branches, leaves, transclusionNode,
-		referenceNode = this.getReferenceNode();
+	var referenceNode = this.getReferenceNode();
 
+	var transclusionNode;
 	if ( referenceNode ) {
-		branches = referenceNode.getInternalItem().getChildren();
-		leaves = branches &&
+		var branches = referenceNode.getInternalItem().getChildren();
+		var leaves = branches &&
 			branches.length === 1 &&
 			branches[ 0 ].canContainContent() &&
 			branches[ 0 ].getChildren();

@@ -158,20 +158,19 @@ ve.ce.MWReferencesListNode.prototype.onListNodeUpdate = function () {
  * Update the references list.
  */
 ve.ce.MWReferencesListNode.prototype.update = function () {
-	var i, iLen, index, firstNode, key, keyedNodes, modelNode, refPreview,
-		$li, internalList, refGroup, listGroup, nodes, emptyText,
-		model = this.getModel();
+	var model = this.getModel();
 
 	// Check the node hasn't been destroyed, as this method is debounced.
 	if ( !model ) {
 		return;
 	}
 
-	internalList = model.getDocument().internalList;
-	refGroup = model.getAttribute( 'refGroup' );
-	listGroup = model.getAttribute( 'listGroup' );
-	nodes = internalList.getNodeGroup( listGroup );
+	var internalList = model.getDocument().internalList;
+	var refGroup = model.getAttribute( 'refGroup' );
+	var listGroup = model.getAttribute( 'listGroup' );
+	var nodes = internalList.getNodeGroup( listGroup );
 
+	var emptyText;
 	if ( refGroup !== '' ) {
 		emptyText = ve.msg( 'cite-ve-referenceslist-isempty', refGroup );
 	} else {
@@ -211,12 +210,12 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$refmsg.text( emptyText );
 		this.$element.append( this.$refmsg );
 	} else {
-		for ( i = 0, iLen = nodes.indexOrder.length; i < iLen; i++ ) {
-			index = nodes.indexOrder[ i ];
-			firstNode = nodes.firstNodes[ index ];
+		for ( var i = 0, iLen = nodes.indexOrder.length; i < iLen; i++ ) {
+			var index = nodes.indexOrder[ i ];
+			var firstNode = nodes.firstNodes[ index ];
 
-			key = internalList.keys[ index ];
-			keyedNodes = nodes.keyedNodes[ key ];
+			var key = internalList.keys[ index ];
+			var keyedNodes = nodes.keyedNodes[ key ];
 			keyedNodes = keyedNodes.filter( function ( node ) {
 				// Exclude placeholder references
 				if ( node.getAttribute( 'placeholder' ) ) {
@@ -236,13 +235,13 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 				continue;
 			}
 
-			$li = $( '<li>' )
+			var $li = $( '<li>' )
 				.append( this.renderBacklinks( keyedNodes, refGroup ) );
 
 			// Generate reference HTML from first item in key
-			modelNode = internalList.getItemNode( firstNode.getAttribute( 'listIndex' ) );
+			var modelNode = internalList.getItemNode( firstNode.getAttribute( 'listIndex' ) );
 			if ( modelNode && modelNode.length ) {
-				refPreview = new ve.ui.MWPreviewElement( modelNode, { useView: true } );
+				var refPreview = new ve.ui.MWPreviewElement( modelNode, { useView: true } );
 				$li.append(
 					$( '<span>' )
 						.addClass( 'reference-text' )
@@ -284,12 +283,11 @@ ve.ce.MWReferencesListNode.prototype.updateClasses = function () {
  * @return {jQuery} Element containing backlinks
  */
 ve.ce.MWReferencesListNode.prototype.renderBacklinks = function ( keyedNodes, refGroup ) {
-	var j, jLen, $link, $refSpan;
-
+	var $link;
 	if ( keyedNodes.length > 1 ) {
 		// named reference with multiple usages
-		$refSpan = $( '<span>' ).attr( 'rel', 'mw:referencedBy' );
-		for ( j = 0, jLen = keyedNodes.length; j < jLen; j++ ) {
+		var $refSpan = $( '<span>' ).attr( 'rel', 'mw:referencedBy' );
+		for ( var j = 0, jLen = keyedNodes.length; j < jLen; j++ ) {
 			$link = $( '<a>' ).append(
 				$( '<span>' ).addClass( 'mw-linkback-text' )
 					.text( ( j + 1 ) + ' ' )

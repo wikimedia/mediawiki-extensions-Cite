@@ -9,7 +9,7 @@
  * MediaWiki reference model.
  *
  * @class
- * @mixins OO.EventEmitter
+ * @mixin OO.EventEmitter
  *
  * @constructor
  * @param {ve.dm.Document} parentDoc Document that contains or will contain the reference

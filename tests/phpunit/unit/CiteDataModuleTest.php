@@ -18,8 +18,7 @@ class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 		$context = $this->createResourceLoaderContext();
 
 		$this->assertSame(
-			've.init.platform.addMessages({"cite-tool-definition.json":' .
-				'"[{\"name\":\"n\",\"title\":\"t\"}]"});',
+			've.ui.mwCitationTools = [{"name":"n","title":"t"}];',
 			$module->makePrependedScript( $context )
 		);
 	}
@@ -30,7 +29,7 @@ class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 		$summary = $module->getDefinitionSummary( $context );
 
 		$this->assertStringContainsString(
-			'{\"name\":\"n\",\"title\":\"t\"}]"}',
+			'{"name":"n","title":"t"}',
 			array_pop( $summary )['script']
 		);
 	}

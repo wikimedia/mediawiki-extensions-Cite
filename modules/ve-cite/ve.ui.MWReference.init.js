@@ -71,8 +71,7 @@
 	 *
 	 */
 	( function () {
-		var limit = 5,
-			deprecatedIcons = {
+		var deprecatedIcons = {
 				'ref-cite-book': 'book',
 				'ref-cite-journal': 'journal',
 				'ref-cite-news': 'newspaper',
@@ -86,14 +85,9 @@
 				web: 'browser'
 			};
 
-		var tools;
-		try {
-			// Must use mw.message to avoid JSON being parsed as Wikitext
-			tools = JSON.parse( mw.message( 'cite-tool-definition.json' ).plain() );
-		} catch ( e ) {}
-
-		// Limit and expose
-		ve.ui.mwCitationTools = ( tools || [] ).slice( 0, limit );
+		// This is assigned server-side by CiteVisualEditorModule.php, before this file runs.
+		// Ensure it has a fallback, just in case.
+		ve.ui.mwCitationTools = ve.ui.mwCitationTools || [];
 
 		ve.ui.mwCitationTools.forEach( function ( item ) {
 			var hasOwn = Object.prototype.hasOwnProperty,

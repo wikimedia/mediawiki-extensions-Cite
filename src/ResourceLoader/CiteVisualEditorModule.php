@@ -50,11 +50,14 @@ class CiteVisualEditorModule extends \ResourceLoaderFileModule {
 			}
 		}
 
-		return 've.init.platform.addMessages(' . $context->encodeJson(
-				[
-					'cite-tool-definition.json' => json_encode( $citationTools )
-				]
-			) . ');';
+		// TODO: When this custom module is converted to adopt packageFiles, this data
+		// can be exported via a callback as a virtual "tools.json" file. Then the JS
+		// in MWReference.init.js can do `ve.ui.mwCitationTools = require( "./tools.json" )`
+
+		// Limit and expose
+		$limit = 5;
+		$citationTools = array_slice( $citationTools, 0, $limit );
+		return 've.ui.mwCitationTools = ' . $context->encodeJson( $citationTools ) . ';';
 	}
 
 	/** @inheritDoc */

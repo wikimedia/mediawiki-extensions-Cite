@@ -117,7 +117,6 @@ ve.ui.MWReferenceSearchWidget.prototype.onListNodeUpdate = function () {
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 	var groups = this.internalList.getNodeGroups();
-	var widget = this;
 
 	if ( this.built ) {
 		return;
@@ -172,7 +171,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 			// Make URLs searchable
 			// eslint-disable-next-line no-loop-func
 			view.$element.find( 'a[href]' ).each( function () {
-				text += ' ' + widget.getAttribute( 'href' );
+				text += ' ' + this.getAttribute( 'href' );
 			} );
 
 			this.index.push( {

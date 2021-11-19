@@ -129,7 +129,12 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			// node's contents.
 			if ( keyedNodes ) {
 				for ( i = 0, iLen = keyedNodes.length; i < iLen; i++ ) {
-					if ( keyedNodes[ i ].element === dataElement ) {
+					if (
+						ve.compare(
+							this.getInstanceHashObject( keyedNodes[ i ].element ),
+							this.getInstanceHashObject( dataElement )
+						)
+					) {
 						break;
 					}
 					if ( keyedNodes[ i ].element.attributes.contentsUsed ) {
@@ -143,7 +148,13 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			// then we attach the contents to the first reference with this key
 
 			// Check that this is the first reference with its key
-			if ( keyedNodes && dataElement === keyedNodes[ 0 ].element ) {
+			if (
+				keyedNodes &&
+				ve.compare(
+					this.getInstanceHashObject( dataElement ),
+					this.getInstanceHashObject( keyedNodes[ 0 ].element )
+				)
+			) {
 				setContents = true;
 				// Check no other reference originally defined the contents
 				// As this is keyedNodes[0] we can start at 1
@@ -340,12 +351,30 @@ ve.dm.MWReferenceNode.static.getHashObject = function ( dataElement ) {
 	// For diffing, comparing reference indexes is not useful as
 	// they are auto-generated, and the reference list diff is
 	// already handled separately, so will show moves etc.
+	//
+	// If you need to compare references with the same name, use
+	// #getInstanceHashObject
 	return {
 		type: dataElement.type,
 		attributes: {
 			listGroup: dataElement.attributes.listGroup
 		}
 	};
+};
+
+/**
+ * Get a hash unique to this instance of the reference
+ *
+ * As #getHashObject has been simplified to make re-used references
+ * all equal (to support visual diffing), provide access to a more
+ * typical hash that can be used to compare instances of reference
+ * which have the same "name".
+ *
+ * @param {Object} dataElement
+ * @return {Object}
+ */
+ve.dm.MWReferenceNode.static.getInstanceHashObject = function () {
+	return ve.dm.MWReferenceNode.super.static.getHashObject.apply( this, arguments );
 };
 
 /**

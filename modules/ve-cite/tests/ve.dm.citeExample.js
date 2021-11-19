@@ -339,6 +339,122 @@ ve.dm.citeExample.domToDataCases = {
 			{ type: '/internalList' }
 		]
 	},
+	'mw:Reference: Simple reference re-use (T296044)': {
+		// Wikitext:
+		// Foo<ref name="bar">[[Bar]]</ref> Baz<ref name="bar" />
+		body:
+			'<p>' +
+				'Foo' +
+				'<sup about="#mwt1" class="mw-ref reference" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;' +
+				'<a rel=\\&quot;mw:WikiLink\\&quot; href=\\&quot;./Bar\\&quot;>Bar' +
+				'</a>&quot;},&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" id="cite_ref-bar-1-1" rel="dc:references" typeof="mw:Extension/ref">' +
+					'<a href="#cite_note-bar-1">[1]</a>' +
+				'</sup>' +
+				' Baz' +
+				'<sup about="#mwt2" class="mw-ref reference" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" id="cite_ref-bar-1-3" rel="dc:references" typeof="mw:Extension/ref">' +
+					'<a href="#cite_note-bar-1">[1]</a>' +
+				'</sup>' +
+			'</p>',
+		fromDataBody:
+			'<p>' +
+				'Foo' +
+				'<sup data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;' +
+				'<a rel=\\&quot;mw:WikiLink\\&quot; href=\\&quot;./Bar\\&quot;>Bar' +
+				'</a>&quot;},&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" typeof="mw:Extension/ref">' +
+				'</sup>' +
+				' Baz' +
+				'<sup data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" typeof="mw:Extension/ref">' +
+				'</sup>' +
+			'</p>',
+		clipboardBody:
+			'<p>' +
+				'Foo' +
+				'<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;' +
+				'<a href=\\&quot;./Bar\\&quot; rel=\\&quot;mw:WikiLink\\&quot;>Bar' +
+				'</a>&quot;},&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" class="mw-ref reference">' +
+					'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>' +
+				'</sup>' +
+				' Baz' +
+				'<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;bar&quot;}}" class="mw-ref reference">' +
+					'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>' +
+				'</sup>' +
+			'</p>',
+		head: '<base href="http://example.com" />',
+		data: [
+			{ type: 'paragraph' },
+			'F', 'o', 'o',
+			{
+				type: 'mwReference',
+				attributes: {
+					listIndex: 0,
+					listGroup: 'mwReference/',
+					listKey: 'literal/bar',
+					refGroup: '',
+					mw: { name: 'ref', body: { html: '<a rel="mw:WikiLink" href="./Bar">Bar</a>' }, attrs: { name: 'bar' } },
+					originalMw: '{"name":"ref","body":{"html":"<a rel=\\"mw:WikiLink\\" href=\\"./Bar\\">Bar</a>"},"attrs":{"name":"bar"}}',
+					contentsUsed: true
+				}
+			},
+			{ type: '/mwReference' },
+			' ', 'B', 'a', 'z',
+			{
+				type: 'mwReference',
+				attributes: {
+					listIndex: 0,
+					listGroup: 'mwReference/',
+					listKey: 'literal/bar',
+					refGroup: '',
+					mw: { name: 'ref', attrs: { name: 'bar' } },
+					originalMw: '{"name":"ref","attrs":{"name":"bar"}}',
+					contentsUsed: false
+				}
+			},
+			{ type: '/mwReference' },
+			{ type: '/paragraph' },
+			{ type: 'internalList' },
+			{ type: 'internalItem', attributes: { originalHtml: '<a rel="mw:WikiLink" href="./Bar">Bar</a>' } },
+			{ type: 'paragraph', internal: { generated: 'wrapper' } },
+			[
+				'B',
+				[ {
+					type: 'link/mwInternal',
+					attributes: {
+						title: 'Bar',
+						origTitle: 'Bar',
+						normalizedTitle: 'Bar',
+						lookupTitle: 'Bar'
+					}
+				} ]
+			],
+			[
+				'a',
+				[ {
+					type: 'link/mwInternal',
+					attributes: {
+						title: 'Bar',
+						origTitle: 'Bar',
+						normalizedTitle: 'Bar',
+						lookupTitle: 'Bar'
+					}
+				} ]
+			],
+			[
+				'r',
+				[ {
+					type: 'link/mwInternal',
+					attributes: {
+						title: 'Bar',
+						origTitle: 'Bar',
+						normalizedTitle: 'Bar',
+						lookupTitle: 'Bar'
+					}
+				} ]
+			],
+			{ type: '/paragraph' },
+			{ type: '/internalItem' },
+			{ type: '/internalList' }
+		]
+	},
 	'mw:Reference with comment': {
 		body: '<p><sup about="#mwt2" class="mw-ref reference" ' +
 			'data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:' +

@@ -42,7 +42,7 @@
 	"cite-ve-changedesc-reflist-responsive-set": "Kaynak listesi hassas sütunlarda görüntülenecek şekilde değiştirildi",
 	"cite-ve-changedesc-reflist-responsive-unset": "Kaynak listesi sadece bir sütunda görünecek şekilde değiştirildi",
 	"cite-ve-citationneeded-button": "Kaynak ekle",
-	"cite-ve-citationneeded-description": "Bir editör, bu iddianın güvenilir bir kaynaktan alıntı yapılması gerektiğini belirtti.",
+	"cite-ve-citationneeded-description": "Bir düzenleyici, bu iddianın güvenilir bir kaynaktan alıntı yapılması gerektiğini belirtti.",
 	"cite-ve-citationneeded-reason": "Verilen sebep:",
 	"cite-ve-citationneeded-title": "Kaynak belirtilmeli",
 	"cite-ve-dialog-reference-editing-reused": "Bu kaynak, bu sayfada {{PLURAL:$1|bir kere|2=iki kere|$1 kere}} kullanıldı.",

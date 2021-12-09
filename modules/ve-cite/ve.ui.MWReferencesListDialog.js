@@ -125,7 +125,7 @@ ve.ui.MWReferencesListDialog.prototype.getActionProcess = function ( action ) {
 
 			if ( this.selectedNode ) {
 				// Edit existing model
-				var surfaceModel = this.getFragment().getDocument();
+				var surfaceModel = this.getFragment().getSurface();
 				var doc = surfaceModel.getDocument();
 
 				if ( this.isModified() ) {

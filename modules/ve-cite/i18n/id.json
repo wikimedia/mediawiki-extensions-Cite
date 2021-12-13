@@ -19,7 +19,8 @@
 			"Presidenvolksraad",
 			"Raynasution",
 			"Rv77ax",
-			"William Surya Permana"
+			"William Surya Permana",
+			"Daud I.F. Argana"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Buku",
@@ -35,6 +36,9 @@
 	"cite-ve-changedesc-reflist-responsive-set": "Daftar referensi diubah agar ditampilkan dalam kolom-kolom responsif",
 	"cite-ve-changedesc-reflist-responsive-unset": "Daftar referensi diubah agar ditampilkan dalam satu kolom saja",
 	"cite-ve-changedesc-reflist-item-id": "Indeks referensi diubah",
+	"cite-ve-citationneeded-button": "Tambahkan kutipan",
+	"cite-ve-citationneeded-description": "Penyunting telah mengindikasikan bahwa klaim ini memerlukan kutipan dari sumber tepercaya.",
+	"cite-ve-citationneeded-title": "Diperlukan kutipan",
 	"cite-ve-dialog-reference-editing-reused": "Referensi ini dipakai {{PLURAL:$1|sekali\n|$1 kali}} pada halaman ini.",
 	"cite-ve-dialog-reference-editing-reused-long": "Referensi ini dipakai {{PLURAL:$1|sekali|$1 kali}} pada halaman ini. Perubahan yang dilakukan di sini akan diterapkan di semua tempat referensi ini dipakai.",
 	"cite-ve-dialog-reference-options-group-label": "Pakai kelompok ini",

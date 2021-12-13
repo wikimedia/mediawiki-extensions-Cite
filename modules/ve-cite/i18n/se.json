@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jon Harald Søby (WMNO)"
+			"Jon Harald Søby (WMNO)",
+			"Yupik"
 		]
 	},
+	"visualeditor-cite-tool-name-book": "Girji",
+	"visualeditor-cite-tool-name-news": "Ođđasat",
+	"visualeditor-cite-tool-name-web": "Neahttasiidu",
 	"cite-ve-dialog-reference-useexisting-tool": "Geavat gáldu ođđasit",
 	"cite-ve-dialogbutton-reference-tooltip": "Eaŋkil",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Gáldolisttu",

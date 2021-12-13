@@ -11,7 +11,8 @@
 			"Rancher",
 			"Srdjan m",
 			"Милан Јелисавчић",
-			"Сербијана"
+			"Сербијана",
+			"Kizule"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Књига",
@@ -34,7 +35,7 @@
 	"cite-ve-dialog-reference-editing-reused-long": "Овај извор се користи {{PLURAL:$1|једном|2=два пута|$1 пута}} на овој страници. Промене направљене овде примењиваће се на свим местима где се он поново користи.",
 	"cite-ve-dialog-reference-options-group-label": "Користи ову групу",
 	"cite-ve-dialog-reference-options-group-placeholder": "Опште референце",
-	"cite-ve-dialog-reference-options-name-label": "Поново употреби под овим именом",
+	"cite-ve-dialog-reference-options-name-label": "Поново користи под овим именом",
 	"cite-ve-dialog-reference-options-responsive-label": "Прилагодљиви распоред колона",
 	"cite-ve-dialog-reference-options-section": "Опције",
 	"cite-ve-dialog-reference-placeholder": "Овде напишите или налепите референцу или уметните шаблон за референце.",

@@ -5,5 +5,10 @@
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Ǩeʹrjj",
-	"visualeditor-cite-tool-name-news": "Ođđâz"
+	"visualeditor-cite-tool-name-news": "Ođđâz",
+	"cite-ve-dialog-reference-options-group-placeholder": "Takai teâttkääiv",
+	"cite-ve-dialog-referenceslist-contextitem-description-general": "Listt takai teâttkääivain",
+	"cite-ve-dialog-referenceslist-title": "Listt teâttkääivain",
+	"cite-ve-dialogbutton-referenceslist-tooltip": "Listt teâttkääivain",
+	"visualeditor-internal-list-diff-default-group-name-mwreference": "Teâttkääiv"
 }

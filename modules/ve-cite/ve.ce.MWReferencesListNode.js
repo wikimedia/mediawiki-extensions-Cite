@@ -181,9 +181,11 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	// NB: Technically this.modified could be reset to false if this
 	// node is re-attached, but that is an unlikely edge case.
 	if ( !this.modified && model.getElement().originalDomElementsHash ) {
-		this.$originalRefList = $( model.getStore().value(
+		// Create a copy when importing to the main document, as extensions may
+		// modify DOM nodes in the main doc.
+		this.$originalRefList = $( ve.copyDomElements( model.getStore().value(
 			model.getElement().originalDomElementsHash
-		) );
+		), document ) );
 		if ( !nodes || !nodes.indexOrder.length ) {
 			this.$refmsg.text( emptyText );
 			this.$element.append( this.$refmsg );

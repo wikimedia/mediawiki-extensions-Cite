@@ -156,7 +156,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 			var matches = refModel.getListKey().match( /^literal\/([\s\S]*)$/ );
 			var name = matches && matches[ 1 ] || '';
 			// Hide previously auto-generated reference names
-			if ( name.match( /^:[0-9]+$/ ) ) {
+			if ( /^:[0-9]+$/.test( name ) ) {
 				name = '';
 			}
 

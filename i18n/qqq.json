@@ -14,7 +14,8 @@
 			"Shirayuki",
 			"Siebrand",
 			"The Evil IP address",
-			"Umherirrender"
+			"Umherirrender",
+			"Xiplus"
 		]
 	},
 	"cite-desc": "{{desc|name=Cite|url=https://www.mediawiki.org/wiki/Extension:Cite}}",
@@ -22,7 +23,7 @@
 	"cite_error_ref_invalid_dir": "Error message shown when ref tag contain dir attribute with invalid value.\n\nParameters:\n* $1 - invalid dir value",
 	"cite_error_ref_numeric_key": "Error message shown if the name of a ref tag only contains digits. Examples that cause this error are <code>&lt;ref name=\"123\"/&gt;</code> or <code>&lt;ref name=\"456\">input</ref&gt;</code>",
 	"cite_error_ref_no_key": "Error message shown when ref tags without any content (that is <code>&lt;ref/&gt;</code>) are used without a name.",
-	"cite_error_ref_too_many_keys": "Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code>&lt;ref name=\"name\" notname=\"value\"/&gt;</code> or <code>&lt;ref notname=\"value\" >input<ref&gt;</code>",
+	"cite_error_ref_too_many_keys": "Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code>&lt;ref name=\"name\" notname=\"value\"/&gt;</code> or <code>&lt;ref notname=\"value\" >input</ref&gt;</code>",
 	"cite_error_ref_nested_extends": "Error message shown when a ref tag tries to extend another ref tag that's already extended, i.e. nesting sub-refs is not allowed.\n\nParameters:\n* $1 - Name of the invalid ref\n* $2 - Name of the previous, conflicting ref",
 	"cite_error_ref_no_input": "Error message shown when ref tags without names have no content. An example that cause this error is <code>&lt;ref></ref&gt;</code>",
 	"cite_error_references_duplicate_key": "Error message shown when multiple refs with same name exist but with different content",

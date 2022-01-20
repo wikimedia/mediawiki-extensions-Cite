@@ -44,7 +44,8 @@ ve.dm.MWReferenceNode.static.matchTagNames = null;
 
 ve.dm.MWReferenceNode.static.matchRdfaTypes = [ 'mw:Extension/ref' ];
 
-ve.dm.MWReferenceNode.static.allowedRdfaTypes = [ 'dc:references' ];
+// Handle nodes with mw:Error as this probably just means the ref list doesn't exist (T299672)
+ve.dm.MWReferenceNode.static.allowedRdfaTypes = [ 'dc:references', 'mw:Error' ];
 
 ve.dm.MWReferenceNode.static.isContent = true;
 

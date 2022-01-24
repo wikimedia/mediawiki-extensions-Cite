@@ -33,12 +33,12 @@ QUnit.test( 'Diffing', function ( assert ) {
 				expected:
 					spacer +
 					'<h2 data-diff-action="none">Notes</h2>' +
-					'<div class="ve-ui-diffElement-doc-child-change">' +
+					'<div>' +
 						'<ol start="1">' +
 							'<li><p data-diff-action="none">Foo</p></li>' +
 						'</ol>' +
 						'<ol start="2">' +
-							'<li><div class="ve-ui-diffElement-doc-child-change">Bar<ins data-diff-action="insert"> ish</ins></div></li>' +
+							'<li>Bar<ins data-diff-action="insert"> ish</ins></li>' +
 						'</ol>' +
 						'<ol start="3">' +
 							'<li><p data-diff-action="none">Baz</p></li>' +

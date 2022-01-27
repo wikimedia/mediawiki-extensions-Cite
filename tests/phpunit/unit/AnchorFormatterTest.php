@@ -87,14 +87,14 @@ class AnchorFormatterTest extends \MediaWikiUnitTestCase {
 			[ '"%&/<>?[]{|}', '&quot;%&amp;/&lt;&gt;?&#91;&#93;&#123;&#124;&#125;' ],
 			[ 'ISBN', '&#73;SBN' ],
 
-			[ 'nature%20phylo', 'nature%20phylo' ],
-			[ 'Mininova%2E26%2E11%2E2009', 'Mininova%2E26%2E11%2E2009' ],
-			[ '%c8%98tiri_2019', '%c8%98tiri_2019' ],
-			[ 'play%21', 'play%21' ],
-			[ 'Terry+O%26rsquo%3BN…</ref', 'Terry+O%26rsquo%3BN…&lt;/ref' ],
+			[ 'nature%20phylo', 'nature%2520phylo' ],
+			[ 'Mininova%2E26%2E11%2E2009', 'Mininova%252E26%252E11%252E2009' ],
+			[ '%c8%98tiri_2019', '%25c8%2598tiri_2019' ],
+			[ 'play%21', 'play%2521' ],
+			[ 'Terry+O%26rsquo%3BN…</ref', 'Terry+O%2526rsquo%253BN…&lt;/ref' ],
 			[ '9&nbsp;pm', '9&amp;nbsp;pm' ],
-			[ 'n%25%32%30n', 'n%25%32%30n' ],
-			[ 'a_ %20a', 'a_%20a' ],
+			[ 'n%25%32%30n', 'n%2525%2532%2530n' ],
+			[ 'a_ %20a', 'a_%2520a' ],
 		];
 	}
 

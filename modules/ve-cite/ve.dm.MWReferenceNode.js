@@ -338,6 +338,9 @@ ve.dm.MWReferenceNode.static.cloneElement = function () {
 	delete clone.attributes.contentsUsed;
 	delete clone.attributes.mw;
 	delete clone.attributes.originalMw;
+	// HACK: Generate a fake hash so this element is never instance comparable to other elements
+	// Without originalMw this hash will not get used in toDomElements
+	clone.originalDomElementsHash = Math.random();
 	return clone;
 };
 

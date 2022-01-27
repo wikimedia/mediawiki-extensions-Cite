@@ -170,7 +170,9 @@ ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragmen
 		.insertContent( [
 			{
 				type: 'mwReference',
-				attributes: attributes
+				attributes: attributes,
+				// See ve.dm.MWReferenceNode.static.cloneElement
+				originalDomElementsHash: Math.random()
 			},
 			{ type: '/mwReference' }
 		] );

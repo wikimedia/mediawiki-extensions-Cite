@@ -20,7 +20,8 @@
 			"زكريا",
 			"فلورانس",
 			"محمد أحمد عبد الفتاح",
-			"مشعل الحربي"
+			"مشعل الحربي",
+			"SaldırganSincap"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "كتاب",
@@ -37,6 +38,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "قائمة المراجع تغيرت للعرض في عامود واحد فقط",
 	"cite-ve-citationneeded-button": "إضافة استشهاد",
 	"cite-ve-citationneeded-description": "أشار المحرر إلى أن هذا الادعاء يحتاج إلى استشهاد بمصدر موثوق.",
+	"cite-ve-citationneeded-reason": "السبب:",
 	"cite-ve-citationneeded-title": "بحاجة لمصدر",
 	"cite-ve-dialog-reference-editing-reused": "هذا المرجع مستخدم {{PLURAL:$1|مرة واحدة|مرتين|$1 مرات|$1 مرة}} في هذه الصفحة.",
 	"cite-ve-dialog-reference-editing-reused-long": "هذا المرجع مستخدم {{PLURAL:$1|مرة واحدة|2=مرتان|$1 مرات}} في هذه الصفحة، سيتم تطبيق التغييرات التي تم إجراؤها هنا في جميع الأماكن التي تتم فيها إعادة استخدام هذا المرجع.",
@@ -53,7 +55,7 @@
 	"cite-ve-dialog-referenceslist-title": "قائمة المراجع",
 	"cite-ve-dialogbutton-citation-educationpopup-text": "تحسين المحتوى بإضافة مصادر للمعلومات. يمكن الاستشهاد بالكتب والصحف ومواقع الويب.",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "الاستشهادات",
-	"cite-ve-dialogbutton-reference-full-label": "الصيغة الأساسية",
+	"cite-ve-dialogbutton-reference-full-label": "أساسي",
 	"cite-ve-dialogbutton-reference-title": "مرجع",
 	"cite-ve-dialogbutton-reference-tooltip": "أساسي",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "قائمة مراجع",

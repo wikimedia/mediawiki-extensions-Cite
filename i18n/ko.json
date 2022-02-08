@@ -18,7 +18,7 @@
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> 속성이 잘못되었습니다. <code>ltr</code> 또는 <code>rtl</code>이어야 합니다",
 	"cite_error_ref_numeric_key": "<code>&lt;ref&gt;</code> 태그가 잘못되었습니다; 이름은 숫자가 될 수 없습니다. 설명적인 이름을 사용하세요",
 	"cite_error_ref_no_key": "열린 <code>&lt;ref&gt;</code> 태그가 잘못 만들어졌거나 이름이 잘못되었습니다",
-	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;\n잘못된 이름입니다, 너무 많은 등",
+	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> 태그가 잘못되었습니다;\n잘못된 이름입니다, 예: 너무 많습니다",
 	"cite_error_ref_nested_extends": "<code>&lt;ref&gt;</code> 태그를 1단계 이상의 깊이로 확장할 수 없습니다.",
 	"cite_error_ref_no_input": "<code>&lt;ref&gt;</code> 태그가 잘못되었습니다; 이름이 없는 ref 태그는 반드시 내용이 있어야 합니다",
 	"cite_error_references_duplicate_key": "잘못된 <code>&lt;ref&gt;</code> 태그; \"$1\"이 다른 콘텐츠로 여러 번 정의되었습니다",

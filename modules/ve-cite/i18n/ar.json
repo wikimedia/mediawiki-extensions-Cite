@@ -21,7 +21,8 @@
 			"فلورانس",
 			"محمد أحمد عبد الفتاح",
 			"مشعل الحربي",
-			"SaldırganSincap"
+			"SaldırganSincap",
+			"Sonic N800"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "كتاب",
@@ -35,7 +36,7 @@
 	"cite-ve-changedesc-reflist-group-from": "مجموعة قائمة المراجع تغيرت من \"$1\" للمجموعة العامة",
 	"cite-ve-changedesc-reflist-group-to": "مجموعة قائمة المراجع تغيرت من المجموعة العامة إلى \"$1\"",
 	"cite-ve-changedesc-reflist-responsive-set": "قائمة المراجع تغيرت للعرض في مراجع مستجيبة",
-	"cite-ve-changedesc-reflist-responsive-unset": "قائمة المراجع تغيرت للعرض في عامود واحد فقط",
+	"cite-ve-changedesc-reflist-responsive-unset": "قائمة المراجع تغيرت للعرض في عمود واحد فقط",
 	"cite-ve-citationneeded-button": "إضافة استشهاد",
 	"cite-ve-citationneeded-description": "أشار المحرر إلى أن هذا الادعاء يحتاج إلى استشهاد بمصدر موثوق.",
 	"cite-ve-citationneeded-reason": "السبب:",

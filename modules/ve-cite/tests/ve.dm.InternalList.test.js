@@ -5,7 +5,7 @@
  * @license MIT
  */
 
-QUnit.module( 've.dm.InternalList (Cite)', ve.test.utils.mwEnvironment );
+QUnit.module( 've.dm.InternalList (Cite)', ve.test.utils.newMwEnvironment() );
 
 /* Tests */
 

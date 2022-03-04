@@ -5,13 +5,11 @@
  * @license MIT
  */
 
-QUnit.module( 've.ui.MWWikitextStringTransferHandler (Cite)', QUnit.newMwEnvironment( {
+QUnit.module( 've.ui.MWWikitextStringTransferHandler (Cite)', ve.test.utils.newMwEnvironment( {
 	beforeEach: function () {
 		// Mock XHR for mw.Api()
 		this.server = this.sandbox.useFakeServer();
-		ve.test.utils.mwEnvironment.beforeEach.call( this );
-	},
-	afterEach: ve.test.utils.mwEnvironment.afterEach
+	}
 } ) );
 
 /* Tests */

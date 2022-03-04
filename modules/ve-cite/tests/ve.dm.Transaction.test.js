@@ -5,7 +5,7 @@
  * @license MIT
  */
 
-QUnit.module( 've.dm.Transaction (Cite)', ve.test.utils.mwEnvironment );
+QUnit.module( 've.dm.Transaction (Cite)', ve.test.utils.newMwEnvironment() );
 
 // FIXME: Duplicates test runner; should be using a data provider
 QUnit.test( 'newFromDocumentInsertion with references', function ( assert ) {

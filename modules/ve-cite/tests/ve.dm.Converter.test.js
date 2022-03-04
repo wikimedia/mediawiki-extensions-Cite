@@ -5,7 +5,7 @@
  * @license MIT
  */
 
-QUnit.module( 've.dm.Converter (Cite)', ve.test.utils.mwEnvironment );
+QUnit.module( 've.dm.Converter (Cite)', ve.test.utils.newMwEnvironment() );
 
 QUnit.test( 'getModelFromDom', function ( assert ) {
 	var cases = ve.dm.citeExample.domToDataCases;

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Muotâ",
 			"Seipinne",
 			"Yupik"
 		]
@@ -9,11 +10,11 @@
 	"visualeditor-cite-tool-name-journal": "Lostâartikkâl",
 	"visualeditor-cite-tool-name-news": "Uđđâseh",
 	"visualeditor-cite-tool-name-web": "Nettisijđo",
-	"cite-ve-citationneeded-button": "Lasseet käldeečujos",
+	"cite-ve-citationneeded-button": "Lasseet käldeečuijoos",
 	"cite-ve-citationneeded-reason": "Adelum suijâ:",
-	"cite-ve-citationneeded-title": "Taarbâš käldeečujos",
+	"cite-ve-citationneeded-title": "Tarbâšuvvoo käldeečujos",
 	"cite-ve-dialog-reference-editing-reused": "Taat käldee lii {{PLURAL:$1|ohtii|2=kuohtii|$1 tove}} taan siijđost.",
-	"cite-ve-dialog-reference-options-group-label": "Keevti taan juávhu",
+	"cite-ve-dialog-reference-options-group-label": "Keevti taam juávhu",
 	"cite-ve-dialog-reference-options-group-placeholder": "Almoliih käldeeh",
 	"cite-ve-dialog-reference-options-name-label": "Keevti uđđâsist tain noomáin",
 	"cite-ve-dialog-reference-options-responsive-label": "Keevti responsiivsâš sárgáttâhvuáđusii stellim",

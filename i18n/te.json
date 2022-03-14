@@ -8,7 +8,7 @@
 		]
 	},
 	"cite-desc": "ఉల్లేఖనలకు <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> టాగులను చేరుస్తుంది",
-	"cite_error": "ఉదహరింపు పొరపాటు: $1",
+	"cite_error": "ఉల్లేఖన లోపం: $1",
 	"cite_error_ref_invalid_dir": "చెల్లని <code>dir=\"$1\"</code>. <code>ltr</code> గానీ, <code>rtl</code> గానీ ఉండాలి",
 	"cite_error_ref_numeric_key": "చెల్లని <code>&lt;ref&gt;</code> టాగు; పేరు కేవలం ఒక సంఖ్య అయితే కుదరదు. వివరమైన శీర్షిక వాడండి",
 	"cite_error_ref_no_key": "తెరిచే <code>&lt;ref&gt;</code> ట్యాగు సరిగ్గా లేదు, లేదా దాని పేరు సరైనది కాదు",

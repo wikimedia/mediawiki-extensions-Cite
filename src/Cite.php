@@ -44,9 +44,9 @@ class Cite {
 	public const BOOK_REF_ATTRIBUTE = 'extends';
 
 	/**
-	 * Page property key for the Book Referencing `extends` attribute.
+	 * Message key for the (localized) tracking category for pages using the `extends` attribute.
 	 */
-	public const BOOK_REF_PROPERTY = 'ref-extends';
+	public const EXTENDS_TRACKING_CATEGORY = 'cite-tracking-category-ref-extends';
 
 	private bool $isSectionPreview;
 	private FootnoteMarkFormatter $footnoteMarkFormatter;
@@ -124,9 +124,9 @@ class Cite {
 		array $argv
 	): string {
 		// Tag every page where Book Referencing has been used, whether or not the ref tag is valid.
-		// This code and the page property will be removed once the feature is stable.  See T237531.
+		// TODO: Remove this generic usage tracking once the feature is stable.  See T237531.
 		if ( array_key_exists( self::BOOK_REF_ATTRIBUTE, $argv ) ) {
-			$parser->getOutput()->setUnsortedPageProperty( self::BOOK_REF_PROPERTY );
+			$parser->addTrackingCategory( self::EXTENDS_TRACKING_CATEGORY );
 		}
 
 		$status = $this->parseArguments(

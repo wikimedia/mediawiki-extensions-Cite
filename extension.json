@@ -323,7 +323,8 @@
 		"Cite\\Tests\\": "tests/phpunit/"
 	},
 	"TrackingCategories": [
-		"cite-tracking-category-cite-error"
+		"cite-tracking-category-cite-error",
+		"cite-tracking-category-ref-extends"
 	],
 	"ParsoidModules": [ {
 		"name": "Cite",

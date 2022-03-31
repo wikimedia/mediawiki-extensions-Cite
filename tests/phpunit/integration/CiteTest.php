@@ -12,7 +12,6 @@ use Language;
 use LogicException;
 use Parser;
 use ParserOptions;
-use ParserOutput;
 use StripState;
 use Wikimedia\TestingAccessWrapper;
 
@@ -409,17 +408,14 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	/**
 	 * @covers ::guardedRef
 	 */
-	public function testGuardedRef_extendsProperty() {
+	public function testGuardedRef_extendsUsageTracking() {
 		$this->overrideConfigValue( 'CiteBookReferencing', false );
 
-		$mockOutput = $this->createMock( ParserOutput::class );
+		$mockParser = $this->createNoOpMock( Parser::class, [ 'addTrackingCategory' ] );
 		// This will be our most important assertion.
-		$mockOutput->expects( $this->once() )
-			->method( 'setUnsortedPageProperty' )
-			->with( Cite::BOOK_REF_PROPERTY );
-
-		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOutput' ] );
-		$mockParser->method( 'getOutput' )->willReturn( $mockOutput );
+		$mockParser->expects( $this->once() )
+			->method( 'addTrackingCategory' )
+			->with( Cite::EXTENDS_TRACKING_CATEGORY );
 
 		$cite = $this->newCite();
 		/** @var Cite $spy */

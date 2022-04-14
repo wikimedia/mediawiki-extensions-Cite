@@ -25,7 +25,8 @@
 			"Taha",
 			"الناز",
 			"درفش کاویانی",
-			"فلورانس"
+			"فلورانس",
+			"Beginneruser"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "کتاب",
@@ -57,7 +58,7 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "فهرست منابع عمومی",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "فهرست منابع برای گروه $1",
 	"cite-ve-dialog-referenceslist-title": "فهرست منابع",
-	"cite-ve-dialogbutton-citation-educationpopup-text": "محتویات‌تان را با افزودن اطلاعاتِ منابع استفاده‌شده، بهبود ببخشید. می‌توانید از کتاب‌ها، مجله‌ها و وب‌گاه‌ها استفاده کنید.",
+	"cite-ve-dialogbutton-citation-educationpopup-text": "محتوای خودتان را با افزودن منابع اطلاعاتی بهبود ببخشید. شما می‌توانید از کتاب‌ها، روزنامه‌ها و وب‌گاه‌ها استناد کنید.",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "یادکردها",
 	"cite-ve-dialogbutton-reference-full-label": "ابتدائی",
 	"cite-ve-dialogbutton-reference-title": "منبع",

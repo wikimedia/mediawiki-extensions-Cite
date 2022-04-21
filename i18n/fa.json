@@ -32,11 +32,11 @@
 	"cite_error_references_no_key": "برچسپ <code>&lt;ref&gt;</code> درون <code>&lt;references&gt;</code> ویژگی name را ندارد.",
 	"cite_error_empty_references_define": "برچسپ <code>&lt;ref&gt;</code> تعریف شده درون <code>&lt;references&gt;</code> با نام «$1» محتوایی ندارد.",
 	"cite-tracking-category-cite-error": "صفحه‌های دارای خطا در ارجاع",
-	"cite-tracking-category-cite-error-desc": "صفحات موجود در این رده دارای خطا در استفاده از برچسب ارجاع هستند.",
+	"cite-tracking-category-cite-error-desc": "صفحه‌های در این رده خطای استفاده از برچسب ارجاع دارند.",
 	"cite_references_link_accessibility_label": "پرش به بالا",
 	"cite_references_link_many_accessibility_label": "پرش به بالا به:",
-	"cite_references_link_accessibility_back_label": "بازگشت به پشتیبانی",
+	"cite_references_link_accessibility_back_label": "بازگشت به عقب",
 	"cite_section_preview_references": "پیش‌نمایش ارجاع‌ها",
 	"cite_warning": "هشدار یادکرد: $1",
-	"cite_warning_sectionpreview_no_text": "برچسب <code>&lt;ref&gt;</code> با نام <code>$1</code> قابل پیش‌نمایش نیست چرا که خارج از این بخش تعریف شده‌است یا کلاً تعریف نشده‌است."
+	"cite_warning_sectionpreview_no_text": "برچسب <code>&lt;ref&gt;</code> با نام <code>$1</code> قابل پیش‌نمایش نیست چرا که خارج از این بخش کنونی تعریف شده‌است یا کلاً تعریف نشده‌است."
 }

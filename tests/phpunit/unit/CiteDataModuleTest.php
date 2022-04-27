@@ -14,7 +14,7 @@ use ResourceLoaderContext;
 class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 
 	public function testGetScript() {
-		$module = new CiteVisualEditorModule();
+		$module = new CiteVisualEditorModule( [], '', '' );
 		$context = $this->createResourceLoaderContext();
 
 		$this->assertSame(
@@ -24,7 +24,7 @@ class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 	}
 
 	public function testGetDefinitionSummary() {
-		$module = new CiteVisualEditorModule();
+		$module = new CiteVisualEditorModule( [], '', '' );
 		$context = $this->createResourceLoaderContext();
 		$summary = $module->getDefinitionSummary( $context );
 

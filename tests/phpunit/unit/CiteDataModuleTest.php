@@ -3,8 +3,8 @@
 namespace Cite\Tests\Unit;
 
 use Cite\ResourceLoader\CiteVisualEditorModule;
+use MediaWiki\ResourceLoader\Context;
 use Message;
-use ResourceLoaderContext;
 
 /**
  * @covers \Cite\ResourceLoader\CiteVisualEditorModule
@@ -34,7 +34,7 @@ class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 		);
 	}
 
-	private function createResourceLoaderContext(): ResourceLoaderContext {
+	private function createResourceLoaderContext(): Context {
 		$msg = $this->createMock( Message::class );
 		$msg->method( 'inContentLanguage' )
 			->willReturnSelf();
@@ -43,7 +43,7 @@ class CiteDataModuleTest extends \MediaWikiUnitTestCase {
 		$msg->method( 'text' )
 			->willReturn( 't' );
 
-		$context = $this->createStub( ResourceLoaderContext::class );
+		$context = $this->createStub( Context::class );
 		$context->method( 'msg' )
 			->withConsecutive(
 				[ 'cite-tool-definition.json' ],

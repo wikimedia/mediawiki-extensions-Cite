@@ -64,8 +64,7 @@ class Validator {
 		}
 
 		if ( $follow && ( $name || $extends ) ) {
-			// TODO: Introduce a specific error for this case.
-			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
+			return StatusValue::newFatal( 'cite_error_ref_follow_conflicts' );
 		}
 
 		if ( $dir !== null && !in_array( strtolower( $dir ), [ 'ltr', 'rtl' ], true ) ) {

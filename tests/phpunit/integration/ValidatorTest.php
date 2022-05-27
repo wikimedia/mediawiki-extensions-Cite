@@ -91,7 +91,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'extends' => null,
 				'follow' => 'f',
 				'dir' => null,
-				'expected' => 'cite_error_ref_too_many_keys',
+				'expected' => 'cite_error_ref_follow_conflicts',
 			],
 			'Follow with extends' => [
 				'referencesStack' => [],
@@ -103,7 +103,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'extends' => 'e',
 				'follow' => 'f',
 				'dir' => null,
-				'expected' => 'cite_error_ref_too_many_keys',
+				'expected' => 'cite_error_ref_follow_conflicts',
 			],
 			// Validating <ref> outside of <references>
 			'text-only <ref>' => [

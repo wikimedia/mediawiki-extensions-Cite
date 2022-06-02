@@ -19,6 +19,12 @@ class CiteVisualEditorModule extends RL\FileModule {
 		return $this->makePrependedScript( $context ) . parent::getScript( $context );
 	}
 
+	/** @inheritDoc */
+	public function supportsURLLoading() {
+		// URL loading (in legacy debug mode) doesn't work correctly because of the prepended script (T309697)
+		return false;
+	}
+
 	/**
 	 * @internal
 	 * @param RL\Context $context

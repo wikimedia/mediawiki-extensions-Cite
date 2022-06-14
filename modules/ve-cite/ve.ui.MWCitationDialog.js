@@ -43,7 +43,7 @@ ve.ui.MWCitationDialog.static.name = 'cite';
 ve.ui.MWCitationDialog.prototype.autoExpandSidebar = function () {
 	ve.ui.MWCitationDialog.super.prototype.autoExpandSidebar.call( this );
 
-	if ( !this.useInlineDescriptions && !this.useNewSidebar && !this.isSidebarExpanded ) {
+	if ( !this.useNewSidebar && !this.isSidebarExpanded ) {
 		this.actions.forEach( { actions: [ 'mode' ] }, function ( action ) {
 			action.toggle( false );
 		} );

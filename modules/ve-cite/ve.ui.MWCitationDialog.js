@@ -18,9 +18,6 @@ ve.ui.MWCitationDialog = function VeUiMWCitationDialog( config ) {
 	// Parent constructor
 	ve.ui.MWCitationDialog.super.call( this, config );
 
-	// Override feature set.
-	this.useBackButton = false;
-
 	// Properties
 	this.referenceModel = null;
 	this.referenceNode = null;

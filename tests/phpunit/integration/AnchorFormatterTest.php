@@ -1,6 +1,6 @@
 <?php
 
-namespace Cite\Tests\Unit;
+namespace Cite\Tests\Integration;
 
 use Cite\AnchorFormatter;
 use Cite\ReferenceMessageLocalizer;
@@ -12,7 +12,7 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @license GPL-2.0-or-later
  */
-class AnchorFormatterTest extends \MediaWikiUnitTestCase {
+class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();

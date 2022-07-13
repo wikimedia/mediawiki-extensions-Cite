@@ -1,6 +1,6 @@
 <?php
 
-namespace Cite\Tests;
+namespace Cite\Tests\Integration;
 
 use Cite\AnchorFormatter;
 use Cite\ErrorReporter;
@@ -13,7 +13,7 @@ use Wikimedia\TestingAccessWrapper;
 /**
  * @coversDefaultClass \Cite\FootnoteMarkFormatter
  */
-class FootnoteMarkFormatterTest extends \MediaWikiUnitTestCase {
+class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::linkRef

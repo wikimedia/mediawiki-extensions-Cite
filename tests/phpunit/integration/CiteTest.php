@@ -1,6 +1,6 @@
 <?php
 
-namespace Cite\Tests\Unit;
+namespace Cite\Tests\Integration;
 
 use Cite\Cite;
 use Cite\ErrorReporter;
@@ -20,7 +20,7 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @license GPL-2.0-or-later
  */
-class CiteUnitTest extends \MediaWikiUnitTestCase {
+class CiteTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::validateRef

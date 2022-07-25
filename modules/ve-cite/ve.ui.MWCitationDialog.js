@@ -35,19 +35,6 @@ ve.ui.MWCitationDialog.static.name = 'cite';
 /* Methods */
 
 /**
- * Hide the "show options" button when using the old workflow.
- */
-ve.ui.MWCitationDialog.prototype.autoExpandSidebar = function () {
-	ve.ui.MWCitationDialog.super.prototype.autoExpandSidebar.call( this );
-
-	if ( !this.useNewSidebar && !this.isSidebarExpanded ) {
-		this.actions.forEach( { actions: [ 'mode' ] }, function ( action ) {
-			action.toggle( false );
-		} );
-	}
-};
-
-/**
  * Get the reference node to be edited.
  *
  * @return {ve.dm.MWReferenceNode|null} Reference node to be edited, null if none exists

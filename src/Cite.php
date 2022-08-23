@@ -260,7 +260,8 @@ class Cite {
 			// <ref> called in <references> has no content.
 			return StatusValue::newFatal(
 				'cite_error_empty_references_define',
-				Sanitizer::safeEncodeAttribute( $name )
+				Sanitizer::safeEncodeAttribute( $name ),
+				Sanitizer::safeEncodeAttribute( $group )
 			);
 		}
 
@@ -268,8 +269,11 @@ class Cite {
 		if ( !$this->isSectionPreview ) {
 			if ( !$this->referenceStack->hasGroup( $group ) ) {
 				// Called with group attribute not defined in text.
-				return StatusValue::newFatal( 'cite_error_references_missing_group',
-					Sanitizer::safeEncodeAttribute( $group ) );
+				return StatusValue::newFatal(
+					'cite_error_references_missing_group',
+					Sanitizer::safeEncodeAttribute( $group ),
+					Sanitizer::safeEncodeAttribute( $name )
+				);
 			}
 
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );

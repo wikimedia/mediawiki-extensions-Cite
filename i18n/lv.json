@@ -28,7 +28,7 @@
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> iezīme ar nosaukumu \"$2\", kas definēta <code>&lt;references&gt;</code> sadaļā ir grupas atribūts \"$1\", kas iepriekš neparādās tekstā.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> iezīme ar nosaukumu \"$1\", kas definēta <code>&lt;references&gt;</code> sadaļā, nav izmantota tekstā.",
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code> iezīmei, kas definēta <code>&lt;references&gt;</code> sadaļā nav \"name\" atribūta.",
-	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> iezīmei ar nosaukumu \"$1\", kas definēta <code>&lt;references&gt;</code> sadaļā, nav satura.",
+	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> iezīmei ar nosaukumu \"$1\", kas definēta <code>&lt;references&gt;</code> grupā \"$2\", nav satura.",
 	"cite-tracking-category-cite-error": "Lapas ar atsauču kļūdām",
 	"cite-tracking-category-cite-error-desc": "Lapās šajā kategorijā ir kļūdaini lietotas atsauču iezīmes.",
 	"cite_references_link_accessibility_label": "Pārlēkt uz augšu",

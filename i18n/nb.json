@@ -20,7 +20,7 @@
 	"cite_error_references_duplicate_key": "Ugyldig <code>&lt;ref&gt;</code>-tagg; navnet «$1» er definert flere steder med ulikt innhold",
 	"cite_error_references_invalid_parameters": "Ugyldig parameter i <code>&lt;references&gt;</code>-taggen",
 	"cite_error_references_no_backlink_label": "Gikk tom for egendefinerte tilbakelenketekster. Definer flere i beskjeden [[MediaWiki:Cite references link many format backlink labels]].",
-	"cite_error_no_link_label_group": "Gikk tom for egendefinerte lenkemerker for gruppen «$1». Definér fler i [[MediaWiki:$2]]-beskjeden.",
+	"cite_error_no_link_label_group": "Gikk tom for egendefinerte lenkemerker for gruppen «$1». Definer flere i [[MediaWiki:$2]]-beskjeden.",
 	"cite_error_references_no_text": "Ugyldig <code>&lt;ref&gt;</code>-tagg; ingen tekst ble oppgitt for referansen ved navn <code>$1</code>",
 	"cite_error_included_ref": "Avsluttende <code>&lt;/ref&gt;</code>-tagg mangler for <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Avsluttende tagg mangler for <code>&lt;references&gt;</code>",

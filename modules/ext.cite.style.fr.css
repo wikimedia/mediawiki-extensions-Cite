@@ -1,0 +1,24 @@
+/* French (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
+
+/* <ref>s with a group */
+.mw-ref a[ data-mw-group ]:after {
+	content: attr( data-mw-group ) ' ' counter( mw-Ref, decimal );
+}
+
+/* <ref>s without a group */
+.mw-ref a:after {
+	content: counter( mw-Ref, decimal );
+}
+
+/* Linkbacks from <references> to <ref>s */
+span[ rel='mw:referencedBy' ] a:before {
+	content: counter( mw-ref-linkback, lower-alpha ) ' ';
+}
+
+span[ rel='mw:referencedBy' ] a:last-child:before {
+	content: ' et ' counter( mw-ref-linkback, lower-alpha );
+}
+
+span[ rel='mw:referencedBy' ] a:nth-last-child( 2 ):before {
+	content: counter( mw-ref-linkback, lower-alpha ) ' ';
+}

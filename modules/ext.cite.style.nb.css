@@ -1,0 +1,6 @@
+/* Norwegian Bokmål (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
+
+[ rel='mw:referencedBy' ]:before {
+	content: '^ ';
+	font-weight: bold;
+}

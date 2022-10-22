@@ -70,8 +70,8 @@ span.mw-reflink-text {
 
 /* Style for linkbacks from <references> to <ref>s */
 ol.mw-references {
-	/* Resetting *any* counter on an <ol> element messes the build-in numbering in Firefox up.
-	   Explicitely resetting the build-in "list-item" counter fixes this. */
+	/* Resetting *any* counter on an <ol> element messes up the built-in numbering in Firefox.
+	   Explicitly resetting the build-in "list-item" counter fixes this. */
 	counter-reset: mw-ref-linkback list-item;
 }
 
@@ -79,8 +79,16 @@ ol.mw-references > li {
 	counter-increment: mw-ref-linkback;
 }
 
+ol[ data-mw-group='lower-alpha' ].mw-references > li {
+	list-style-type: lower-alpha;
+}
+
+ol[ data-mw-group='upper-alpha' ].mw-references > li {
+	list-style-type: upper-alpha;
+}
+
 [ rel~='mw:referencedBy' ] {
-	counter-reset: mw-ref-linkback -1;
+	counter-reset: mw-ref-linkback 0;
 }
 
 [ rel~='mw:referencedBy' ]:before {
@@ -89,7 +97,7 @@ ol.mw-references > li {
 
 span[ rel~='mw:referencedBy' ] a:before {
 	counter-increment: mw-ref-linkback;
-	content: counters( mw-ref-linkback, '.', decimal );
+	content: counter( mw-ref-linkback, lower-alpha );
 	vertical-align: super;
 	line-height: 1;
 	font-size: smaller;

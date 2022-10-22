@@ -13,6 +13,10 @@
 	content: '[' counter( mw-Ref, persian ) ']';
 }
 
+[ rel~='mw:referencedBy' ] {
+	counter-reset: mw-ref-linkback -1;
+}
+
 /* Linkbacks from <references> to <ref>s */
 span[ rel~='mw:referencedBy' ] a:before {
 	content: counters( mw-ref-linkback, '٫', persian );

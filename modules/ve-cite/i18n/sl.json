@@ -3,6 +3,7 @@
 		"authors": [
 			"Dbc334",
 			"Eleassar",
+			"GeographieMan",
 			"Pinky sl",
 			"Yerpo"
 		]
@@ -51,5 +52,5 @@
 	"cite-ve-toolbar-group-label": "Vstavi navedek",
 	"cite-ve-othergroup-item": "$1 sklic",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Sklici",
-	"visualeditor-internal-list-diff-group-name-mwreference": "Ime skupine sklicev: »$«"
+	"visualeditor-internal-list-diff-group-name-mwreference": "Ime skupine sklicev: »$1«"
 }

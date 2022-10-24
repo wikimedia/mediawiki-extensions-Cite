@@ -114,3 +114,10 @@ x-thereisnoelementwiththisname[ rel='mw:referencedBy' ]:before,
 span.mw-linkback-text {
 	display: none;
 }
+
+/* Previously, MediaWiki styled the warning class.
+ * It no longer does this, so style cite warnings through mw-ext-cite-warning. */
+.mw-ext-cite-warning {
+	font-size: larger;
+	color: #ac6600;
+}

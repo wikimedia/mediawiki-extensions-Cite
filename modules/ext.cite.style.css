@@ -1,19 +1,5 @@
 /* CSS for Parsoid Cite extension */
 
-/* Style for <ref>s */
-.mw-ref {
-	vertical-align: super;
-	line-height: 1;
-	font-size: smaller;
-	/* Do not inherit bold or italic */
-	font-weight: normal;
-	font-style: normal;
-	/* Isolation to fix references in case of RTL words at the end of a reference */
-	unicode-bidi: -moz-isolate;
-	unicode-bidi: -webkit-isolate;
-	unicode-bidi: isolate;
-}
-
 .mw-ref-follow {
 	display: none;
 }
@@ -22,41 +8,41 @@
 /* stylelint-disable value-keyword-case */
 
 /* With a group set */
-.mw-ref a[ data-mw-group ]:after {
+.reference a[ data-mw-group ]:after {
 	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, decimal ) ']';
 }
 
 /* Groups with special appearance */
-.mw-ref a[ data-mw-group='decimal' ]:after {
+.reference a[ data-mw-group='decimal' ]:after {
 	content: '[' counter( mw-Ref, decimal ) ']';
 }
 
-.mw-ref a[ data-mw-group='lower-alpha' ]:after {
+.reference a[ data-mw-group='lower-alpha' ]:after {
 	content: '[' counter( mw-Ref, lower-alpha ) ']';
 }
 
-.mw-ref a[ data-mw-group='upper-alpha' ]:after {
+.reference a[ data-mw-group='upper-alpha' ]:after {
 	content: '[' counter( mw-Ref, upper-alpha ) ']';
 }
 
-.mw-ref a[ data-mw-group='lower-greek' ]:after {
+.reference a[ data-mw-group='lower-greek' ]:after {
 	content: '[' counter( mw-Ref, lower-greek ) ']';
 }
 
-.mw-ref a[ data-mw-group='lower-roman' ]:after {
+.reference a[ data-mw-group='lower-roman' ]:after {
 	content: '[' counter( mw-Ref, lower-roman ) ']';
 }
 
-.mw-ref a[ data-mw-group='upper-roman' ]:after {
+.reference a[ data-mw-group='upper-roman' ]:after {
 	content: '[' counter( mw-Ref, upper-roman ) ']';
 }
 
-.mw-ref a[ data-mw-group='error-test' ]:after {
+.reference a[ data-mw-group='error-test' ]:after {
 	content: '[' counter( mw-Ref, symbols( cyclic 'first' 'second' 'last!' ) ) ']';
 }
 
 /* Without a group */
-.mw-ref a:after {
+.reference a:after {
 	content: '[' counter( mw-Ref, decimal ) ']';
 }
 

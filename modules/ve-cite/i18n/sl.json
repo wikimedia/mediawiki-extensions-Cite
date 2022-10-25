@@ -4,7 +4,8 @@
 			"Dbc334",
 			"Eleassar",
 			"Pinky sl",
-			"Yerpo"
+			"Yerpo",
+			"GeographieMan"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Knjiga",
@@ -51,5 +52,5 @@
 	"cite-ve-toolbar-group-label": "Vstavi navedek",
 	"cite-ve-othergroup-item": "$1 sklic",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Sklici",
-	"visualeditor-internal-list-diff-group-name-mwreference": "Ime skupine sklicev: »$«"
+	"visualeditor-internal-list-diff-group-name-mwreference": "Ime skupine sklicev: »$1«"
 }

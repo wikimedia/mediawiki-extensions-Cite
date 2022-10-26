@@ -26,6 +26,7 @@
 	"cite_error_no_link_label_group": "Понестало је прилагођених наслова веза за групу „$1”. Дефинишите их још у поруци [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Неважећа ознака <code>&lt;ref&gt;</code>; нема текста за референце под именом <code>$1</code>.",
 	"cite_error_included_ref": "Затвара <code><code>&lt;/ref&gt;</code></code> који недостаје <code>&lt;ref&gt;</code> ознаци",
+	"cite_error_included_references": "Недостаје затварајућа ознака за <code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "Постоје ознаке <code>&lt;ref&gt;</code> за групу с именом „$1“, али нема одговарајуће ознаке <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> ознака у <code>&lt;references&gt;</code> има сукобни групни параметар „$1“.",
 	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> ознака дефинисана у <code>&lt;references&gt;</code> има групни параметар „$1“ који се не појављује у ранијем тексту.",

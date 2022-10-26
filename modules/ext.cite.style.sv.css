@@ -1,0 +1,37 @@
+/* Swedish (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
+
+.reference {
+	line-height: 0;
+}
+
+/* <ref>s with a group */
+.reference a[ data-mw-group ]:after {
+	content: '[' counter( mw-Ref, lower-alpha ) ']';
+}
+
+/* Linkbacks from <references> to <ref>s */
+
+/* Single ref linkback */
+a[ rel='mw:referencedBy' ]:before {
+	content: '^';
+}
+
+/* Many ref linkbacks */
+/* See '^ <nowiki>[</nowiki>$2<nowiki>]</nowiki>' in svwiki:MediaWiki:Cite_references_link_many */
+span[ rel='mw:referencedBy' ]:before {
+	content: '^ [';
+}
+
+span[ rel='mw:referencedBy' ]:after {
+	content: ']';
+}
+
+span[ rel='mw:referencedBy' ] a:before {
+	vertical-align: middle;
+	/* See [[..|<small>$3</small>]] in svwiki:MediaWiki:Cite_references_link_many_format */
+	font-size: 80%;
+}
+
+span[ rel='mw:referencedBy' ] a:last-child:after {
+	content: '';
+}

@@ -1,0 +1,31 @@
+/* Spanish (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
+
+/* <ref>s with a group */
+.reference a[ data-mw-group ]:after {
+	content: attr( data-mw-group ) ' ' counter( mw-Ref, decimal );
+}
+
+.reference a[ data-mw-group='decimal' ]:after {
+	content: counter( mw-Ref, decimal );
+}
+
+/* <ref>s without a group */
+.reference a {
+	white-space: nowrap;
+	/* There is a &#8203; after a <sup> in MediaWiki:Cite_reference_link on eswiki.
+	 * Mediawiki:Common.css also has a sup.reference { margin-right: 0.6ch }.
+	 * For Parsoid, the rule below for sup.reference a seems to do the trick.
+	 */
+	margin-left: 0.6ch;
+}
+
+.reference a:after {
+	content: counter( mw-Ref, decimal );
+}
+
+/* Linkbacks from <references> to <ref>s */
+span[ rel='mw:referencedBy' ] a:before {
+	/* See [[..|<sup>''''$3''''</sup>]] in eswiki:MediaWiki:Cite_references_link_many_format */
+	font-style: italic;
+	font-weight: bold;
+}

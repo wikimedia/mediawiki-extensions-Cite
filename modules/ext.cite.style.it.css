@@ -1,0 +1,15 @@
+/* Italian (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
+
+/* Linkbacks from <references> to <ref>s */
+a[ rel='mw:referencedBy' ]:before {
+	content: '^';
+	font-weight: bold;
+}
+
+span[ rel='mw:referencedBy' ]:before {
+	content: '^ ';
+}
+
+span[ rel='mw:referencedBy' ] a:before {
+	font-style: italic;
+}

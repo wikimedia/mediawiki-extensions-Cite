@@ -1,0 +1,7 @@
+/* Hungarian (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
+
+span[ rel='mw:referencedBy' ] a:before {
+	/* See [[..|<sup>''''$3''''</sup>]] in huwiki:MediaWiki:Cite_references_link_many_format */
+	font-style: italic;
+	font-weight: bold;
+}

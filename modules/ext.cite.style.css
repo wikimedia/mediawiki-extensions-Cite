@@ -84,13 +84,18 @@ ol[ data-mw-group='upper-alpha' ].mw-references > li {
 span[ rel~='mw:referencedBy' ] a:before {
 	counter-increment: mw-ref-linkback;
 	content: counter( mw-ref-linkback, lower-alpha );
-	vertical-align: super;
 	line-height: 1;
-	font-size: smaller;
+	vertical-align: super; /* <sup> use in Cite */
+	font-size: smaller; /* <sup> use in Cite */
 }
 
 span[ rel~='mw:referencedBy' ] a:after {
-	content: ' ';
+	content: ' '; /* default separator outside <sup> */
+	line-height: 1;
+}
+
+span[ rel~='mw:referencedBy' ] a:last-child:after {
+	content: '';
 }
 
 /* Hide the default rendering in browsers that support content

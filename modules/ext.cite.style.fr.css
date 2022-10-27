@@ -11,14 +11,12 @@
 }
 
 /* Linkbacks from <references> to <ref>s */
-span[ rel='mw:referencedBy' ] a:before {
-	content: counter( mw-ref-linkback, lower-alpha ) ' ';
+/* Because of the <sup> in the Cite_reference_link_many message */
+span[ rel='mw:referencedBy' ] a:after {
+	font-size: smaller;
 }
 
-span[ rel='mw:referencedBy' ] a:last-child:before {
-	content: ' et ' counter( mw-ref-linkback, lower-alpha );
-}
-
-span[ rel='mw:referencedBy' ] a:nth-last-child( 2 ):before {
-	content: counter( mw-ref-linkback, lower-alpha ) ' ';
+span[ rel='mw:referencedBy' ] a:nth-last-child( 2 ):after {
+	content: ' et ';
+	vertical-align: super;
 }

@@ -10,16 +10,8 @@
 	content: '[' counter( mw-Ref, kannada ) ']';
 }
 
-[ rel='mw:referencedBy' ] {
+span[ rel='mw:referencedBy' ] {
 	counter-reset: mw-ref-linkback -1;
-}
-
-ol.mw-references {
-	counter-reset: mw-references list-item 0;
-}
-
-ol.mw-references > li {
-	counter-increment: mw-references;
 }
 
 /* Linkbacks from <references> to <ref>s */

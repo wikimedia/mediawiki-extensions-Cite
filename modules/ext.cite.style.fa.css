@@ -10,7 +10,7 @@
 	content: '[' counter( mw-Ref, persian ) ']';
 }
 
-[ rel~='mw:referencedBy' ] {
+span[ rel~='mw:referencedBy' ] {
 	counter-reset: mw-ref-linkback -1;
 }
 

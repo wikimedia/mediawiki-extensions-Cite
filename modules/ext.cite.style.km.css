@@ -1,0 +1,16 @@
+@counter-style km-counter {
+	system: numeric;
+	symbols: '០' '១' '២' '៣' '៤' '៥' '៦' '៧' '៨' '៩';
+}
+
+.mw-ref a:after {
+	content: '[' counter( mw-Ref, km-counter ) ']';
+}
+
+.mw-ref a[ data-mw-group ]:after {
+	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, km-counter ) ']';
+}
+
+span[ rel='mw:referencedBy' ] a:before {
+	content: counter( mw-references, km-counter ) ',' counter( mw-ref-linkback, km-counter );
+}

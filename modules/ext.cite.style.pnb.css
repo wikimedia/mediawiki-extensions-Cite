@@ -23,5 +23,5 @@ span[ rel~='mw:referencedBy' ] {
 }
 
 span[ rel='mw:referencedBy' ] a:before {
-	content: counter( mw-references, persian ) '٫' counter( mw-ref-linkback, persian );
+	content: counter( mw-references, persian ) '.' counter( mw-ref-linkback, persian );
 }

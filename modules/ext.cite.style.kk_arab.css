@@ -1,15 +1,3 @@
-/* @noflip */
-.mw-cite-dir-ltr {
-	direction: ltr;
-	text-align: left;
-}
-
-/* @noflip */
-.mw-cite-dir-rtl {
-	direction: rtl;
-	text-align: right;
-}
-
 span[ rel~='mw:referencedBy' ] {
 	counter-reset: mw-ref-linkback -1;
 }

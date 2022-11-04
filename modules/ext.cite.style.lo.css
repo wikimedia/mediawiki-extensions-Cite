@@ -1,0 +1,16 @@
+@counter-style lo-counter {
+	system: numeric;
+	symbols: '໐' '໑' '໒' '໓' '໔' '໕' '໖' '໗' '໘' '໙';
+}
+
+.mw-ref a:after {
+	content: '[' counter( mw-Ref, lo-counter ) ']';
+}
+
+.mw-ref a[ data-mw-group ]:after {
+	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, lo-counter ) ']';
+}
+
+span[ rel='mw:referencedBy' ] a:before {
+	content: counter( mw-references, lo-counter ) '.' counter( mw-ref-linkback, lo-counter );
+}

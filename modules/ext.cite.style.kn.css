@@ -1,12 +1,12 @@
 /* Kannada (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
 
 /* <ref>s with a group */
-.reference a[ data-mw-group ]:after {
+.mw-ref a[ data-mw-group ]:after {
 	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, kannada ) ']';
 }
 
 /* <ref>s without a group */
-.reference a:after {
+.mw-ref a:after {
 	content: '[' counter( mw-Ref, kannada ) ']';
 }
 

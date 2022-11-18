@@ -1,16 +1,16 @@
 /* Spanish (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
 
 /* <ref>s with a group */
-.reference a[ data-mw-group ]:after {
+.mw-ref a[ data-mw-group ]:after {
 	content: attr( data-mw-group ) ' ' counter( mw-Ref, decimal );
 }
 
-.reference a[ data-mw-group='decimal' ]:after {
+.mw-ref a[ data-mw-group='decimal' ]:after {
 	content: counter( mw-Ref, decimal );
 }
 
 /* <ref>s without a group */
-.reference a {
+.mw-ref a {
 	white-space: nowrap;
 	/* There is a &#8203; after a <sup> in MediaWiki:Cite_reference_link on eswiki.
 	 * Mediawiki:Common.css also has a sup.reference { margin-right: 0.6ch }.
@@ -19,7 +19,7 @@
 	margin-left: 0.6ch;
 }
 
-.reference a:after {
+.mw-ref a:after {
 	content: counter( mw-Ref, decimal );
 }
 

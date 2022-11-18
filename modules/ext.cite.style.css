@@ -8,41 +8,41 @@
 /* stylelint-disable value-keyword-case */
 
 /* With a group set */
-.reference a[ data-mw-group ]:after {
+.mw-ref a[ data-mw-group ]:after {
 	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, decimal ) ']';
 }
 
 /* Groups with special appearance */
-.reference a[ data-mw-group='decimal' ]:after {
+.mw-ref a[ data-mw-group='decimal' ]:after {
 	content: '[' counter( mw-Ref, decimal ) ']';
 }
 
-.reference a[ data-mw-group='lower-alpha' ]:after {
+.mw-ref a[ data-mw-group='lower-alpha' ]:after {
 	content: '[' counter( mw-Ref, lower-alpha ) ']';
 }
 
-.reference a[ data-mw-group='upper-alpha' ]:after {
+.mw-ref a[ data-mw-group='upper-alpha' ]:after {
 	content: '[' counter( mw-Ref, upper-alpha ) ']';
 }
 
-.reference a[ data-mw-group='lower-greek' ]:after {
+.mw-ref a[ data-mw-group='lower-greek' ]:after {
 	content: '[' counter( mw-Ref, lower-greek ) ']';
 }
 
-.reference a[ data-mw-group='lower-roman' ]:after {
+.mw-ref a[ data-mw-group='lower-roman' ]:after {
 	content: '[' counter( mw-Ref, lower-roman ) ']';
 }
 
-.reference a[ data-mw-group='upper-roman' ]:after {
+.mw-ref a[ data-mw-group='upper-roman' ]:after {
 	content: '[' counter( mw-Ref, upper-roman ) ']';
 }
 
-.reference a[ data-mw-group='error-test' ]:after {
+.mw-ref a[ data-mw-group='error-test' ]:after {
 	content: '[' counter( mw-Ref, symbols( cyclic 'first' 'second' 'last!' ) ) ']';
 }
 
 /* Without a group */
-.reference a:after {
+.mw-ref a:after {
 	content: '[' counter( mw-Ref, decimal ) ']';
 }
 

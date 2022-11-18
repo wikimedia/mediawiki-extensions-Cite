@@ -1,11 +1,11 @@
 /* Swedish (These styles favor wikipedia usage. Other projects may need overrides if they care.) */
 
-.reference {
+.mw-ref {
 	line-height: 0;
 }
 
 /* <ref>s with a group */
-.reference a[ data-mw-group ]:after {
+.mw-ref a[ data-mw-group ]:after {
 	content: '[' counter( mw-Ref, lower-alpha ) ']';
 }
 

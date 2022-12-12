@@ -1,0 +1,6 @@
+/* Temporary: This is enwiki specific.
+ * Need this for b/c till we add this to enwiki's Mediawiki:Common.css */
+
+span[ rel~='mw:referencedBy' ] a:before {
+	content: counter( mw-ref-linkback, lower-alpha );
+}

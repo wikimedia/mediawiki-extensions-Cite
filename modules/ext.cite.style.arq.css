@@ -15,13 +15,13 @@ span[ rel~='mw:referencedBy' ] {
 }
 
 .mw-ref a:after {
-	content: '[' counter( mw-Ref, persian ) ']';
+	content: '[' counter( mw-Ref, arabic-indic ) ']';
 }
 
 .mw-ref a[ data-mw-group ]:after {
-	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, persian ) ']';
+	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, arabic-indic ) ']';
 }
 
 span[ rel='mw:referencedBy' ] a:before {
-	content: counter( mw-references, persian ) '٫' counter( mw-ref-linkback, persian );
+	content: counter( mw-references, arabic-indic ) ',' counter( mw-ref-linkback, arabic-indic );
 }

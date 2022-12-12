@@ -1,0 +1,16 @@
+@counter-style gu-counter {
+	system: numeric;
+	symbols: '૦' '૧' '૨' '૩' '૪' '૫' '૬' '૭' '૮' '૯';
+}
+
+.mw-ref a:after {
+	content: '[' counter( mw-Ref, gu-counter ) ']';
+}
+
+.mw-ref a[ data-mw-group ]:after {
+	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, gu-counter ) ']';
+}
+
+span[ rel='mw:referencedBy' ] a:before {
+	content: counter( mw-references, gu-counter ) '.' counter( mw-ref-linkback, gu-counter );
+}

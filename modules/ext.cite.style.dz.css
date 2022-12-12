@@ -1,0 +1,16 @@
+@counter-style dz-counter {
+	system: numeric;
+	symbols: '༠' '༡' '༢' '༣' '༤' '༥' '༦' '༧' '༨' '༩';
+}
+
+.mw-ref a:after {
+	content: '[' counter( mw-Ref, dz-counter ) ']';
+}
+
+.mw-ref a[ data-mw-group ]:after {
+	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, dz-counter ) ']';
+}
+
+span[ rel='mw:referencedBy' ] a:before {
+	content: counter( mw-references, dz-counter ) '.' counter( mw-ref-linkback, dz-counter );
+}

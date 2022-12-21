@@ -289,7 +289,6 @@ ve.dm.citeExample.domToDataCases = {
 					type: 'link/mwInternal',
 					attributes: {
 						title: 'Bar',
-						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
 						lookupTitle: 'Bar'
 					}
@@ -301,7 +300,6 @@ ve.dm.citeExample.domToDataCases = {
 					type: 'link/mwInternal',
 					attributes: {
 						title: 'Bar',
-						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
 						lookupTitle: 'Bar'
 					}
@@ -313,7 +311,6 @@ ve.dm.citeExample.domToDataCases = {
 					type: 'link/mwInternal',
 					attributes: {
 						title: 'Bar',
-						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
 						lookupTitle: 'Bar'
 					}
@@ -420,7 +417,6 @@ ve.dm.citeExample.domToDataCases = {
 					type: 'link/mwInternal',
 					attributes: {
 						title: 'Bar',
-						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
 						lookupTitle: 'Bar'
 					}
@@ -432,7 +428,6 @@ ve.dm.citeExample.domToDataCases = {
 					type: 'link/mwInternal',
 					attributes: {
 						title: 'Bar',
-						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
 						lookupTitle: 'Bar'
 					}
@@ -444,7 +439,6 @@ ve.dm.citeExample.domToDataCases = {
 					type: 'link/mwInternal',
 					attributes: {
 						title: 'Bar',
-						origTitle: 'Bar',
 						normalizedTitle: 'Bar',
 						lookupTitle: 'Bar'
 					}

@@ -158,7 +158,7 @@ ve.dm.citeExample.domToDataCases = {
 						'</li>' +
 					'</ol>' +
 			'</div>',
-		head: '<base href="http://example.com" />',
+		head: '<base href="http://example.com/wiki/" />',
 		data: [
 			{ type: 'paragraph' },
 			'F', 'o', 'o',
@@ -379,7 +379,7 @@ ve.dm.citeExample.domToDataCases = {
 					'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>' +
 				'</sup>' +
 			'</p>',
-		head: '<base href="http://example.com" />',
+		head: '<base href="http://example.com/wiki/" />',
 		data: [
 			{ type: 'paragraph' },
 			'F', 'o', 'o',
@@ -475,7 +475,7 @@ ve.dm.citeExample.domToDataCases = {
 			'{&quot;html&quot;:&quot;Foo<!-- bar -->&quot;},&quot;name&quot;:&quot;ref&quot;}" ' +
 			' class="mw-ref reference">' +
 			'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>',
-		head: '<base href="http://example.com" />',
+		head: '<base href="http://example.com/wiki/" />',
 		data: [
 			{ type: 'paragraph' },
 			{

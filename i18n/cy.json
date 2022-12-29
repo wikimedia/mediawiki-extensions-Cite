@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Afalau",
 			"Lloffiwr",
 			"Robin Owain",
 			"Xxglennxx"
@@ -27,5 +28,6 @@
 	"cite-tracking-category-cite-error": "Dalennau gyda gwallau yn y cyfeiriadau",
 	"cite-tracking-category-cite-error-desc": "Mae gan dalennau'r categori hwn wallau yn y modd maen nhw'n defnyddio tagiau cyfeirio.",
 	"cite_references_link_accessibility_label": "Neidio am lan",
-	"cite_references_link_many_accessibility_label": "Neidio lan i:"
+	"cite_references_link_many_accessibility_label": "Neidio lan i:",
+	"cite_warning": "Rhybudd dyfyniad: $1"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Afalau",
 			"Cymrodor",
 			"DChan (WMF)",
 			"Ed g2s",
@@ -13,12 +14,15 @@
 	"visualeditor-cite-tool-name-journal": "Cyfnodolyn",
 	"visualeditor-cite-tool-name-news": "Newyddion",
 	"visualeditor-cite-tool-name-web": "Gwefan",
+	"cite-ve-citationneeded-button": "Ychwanegu dyfyniad",
+	"cite-ve-citationneeded-reason": "Rheswm a roddwyd:",
 	"cite-ve-dialog-reference-options-group-label": "Defnyddio'r grŵp hwn",
 	"cite-ve-dialog-reference-options-group-placeholder": "Cyfeirnodau cyffredinol",
 	"cite-ve-dialog-reference-options-name-label": "Ail-ddefnyddio wrth yr enw hwn",
 	"cite-ve-dialog-reference-options-section": "Dewisiadau",
 	"cite-ve-dialog-reference-title": "Cyfeirnod",
 	"cite-ve-dialog-reference-useexisting-tool": "Ail-ddefnyddio",
+	"cite-ve-dialog-referenceslist-contextitem-description-general": "Rhestr o gyfeiriadau cyffredinol",
 	"cite-ve-dialog-referenceslist-title": "Rhestr cyfeirnodau",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Cyfeirnodau",
 	"cite-ve-dialogbutton-reference-full-label": "Ffurf sylfaenol",

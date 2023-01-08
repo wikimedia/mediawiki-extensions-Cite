@@ -10,14 +10,14 @@
 	text-align: right;
 }
 
-.mw-ref a:after {
+.mw-ref > a:after {
 	content: '[' counter( mw-Ref, decimal ) ']';
 }
 
-.mw-ref a[ data-mw-group ]:after {
+.mw-ref > a[ data-mw-group ]:after {
 	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, decimal ) ']';
 }
 
-span[ rel='mw:referencedBy' ] a:before {
+span[ rel='mw:referencedBy' ] > a:before {
 	content: counter( mw-references, decimal ) '.' counter( mw-ref-linkback, decimal );
 }

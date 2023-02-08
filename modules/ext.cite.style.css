@@ -12,35 +12,6 @@
 	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, decimal ) ']';
 }
 
-/* Groups with special appearance */
-.mw-ref a[ data-mw-group='decimal' ]:after {
-	content: '[' counter( mw-Ref, decimal ) ']';
-}
-
-.mw-ref a[ data-mw-group='lower-alpha' ]:after {
-	content: '[' counter( mw-Ref, lower-alpha ) ']';
-}
-
-.mw-ref a[ data-mw-group='upper-alpha' ]:after {
-	content: '[' counter( mw-Ref, upper-alpha ) ']';
-}
-
-.mw-ref a[ data-mw-group='lower-greek' ]:after {
-	content: '[' counter( mw-Ref, lower-greek ) ']';
-}
-
-.mw-ref a[ data-mw-group='lower-roman' ]:after {
-	content: '[' counter( mw-Ref, lower-roman ) ']';
-}
-
-.mw-ref a[ data-mw-group='upper-roman' ]:after {
-	content: '[' counter( mw-Ref, upper-roman ) ']';
-}
-
-.mw-ref a[ data-mw-group='error-test' ]:after {
-	content: '[' counter( mw-Ref, symbols( cyclic 'first' 'second' 'last!' ) ) ']';
-}
-
 /* Without a group */
 .mw-ref a:after {
 	content: '[' counter( mw-Ref, decimal ) ']';

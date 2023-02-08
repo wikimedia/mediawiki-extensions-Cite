@@ -1,7 +1,3 @@
-span[ rel~='mw:referencedBy' ] {
-	counter-reset: mw-ref-linkback -1;
-}
-
 .mw-ref > a:after {
 	content: '[' counter( mw-Ref, persian ) ']';
 }

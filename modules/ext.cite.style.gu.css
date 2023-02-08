@@ -1,16 +1,11 @@
-@counter-style gu-counter {
-	system: numeric;
-	symbols: '૦' '૧' '૨' '૩' '૪' '૫' '૬' '૭' '૮' '૯';
-}
-
 .mw-ref > a:after {
-	content: '[' counter( mw-Ref, gu-counter ) ']';
+	content: '[' counter( mw-Ref, gujarati ) ']';
 }
 
 .mw-ref > a[ data-mw-group ]:after {
-	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, gu-counter ) ']';
+	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, gujarati ) ']';
 }
 
 span[ rel='mw:referencedBy' ] > a:before {
-	content: counter( mw-references, gu-counter ) '.' counter( mw-ref-linkback, gu-counter );
+	content: counter( mw-references, gujarati ) '.' counter( mw-ref-linkback, gujarati );
 }

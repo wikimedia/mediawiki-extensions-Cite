@@ -1,16 +1,11 @@
-@counter-style km-counter {
-	system: numeric;
-	symbols: '០' '១' '២' '៣' '៤' '៥' '៦' '៧' '៨' '៩';
-}
-
 .mw-ref > a:after {
-	content: '[' counter( mw-Ref, km-counter ) ']';
+	content: '[' counter( mw-Ref, khmer ) ']';
 }
 
 .mw-ref > a[ data-mw-group ]:after {
-	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, km-counter ) ']';
+	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, khmer ) ']';
 }
 
 span[ rel='mw:referencedBy' ] > a:before {
-	content: counter( mw-references, km-counter ) ',' counter( mw-ref-linkback, km-counter );
+	content: counter( mw-references, khmer ) ',' counter( mw-ref-linkback, khmer );
 }

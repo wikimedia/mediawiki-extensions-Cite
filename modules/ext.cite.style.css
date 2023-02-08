@@ -70,7 +70,7 @@ ol[ data-mw-group='upper-alpha' ].mw-references > li {
 }
 
 span[ rel~='mw:referencedBy' ] {
-	counter-reset: mw-ref-linkback 0;
+	counter-reset: mw-ref-linkback -1;
 }
 
 span[ rel~='mw:referencedBy' ] a:before {

@@ -260,6 +260,7 @@ language=sr variant=sr-ec
 <references> after <gallery> (bug 6164)
 !! options
 parsoid=wt2html,html2html
+disabled
 !! config
 wgParserEnableLegacyMediaDOM=false
 !! wikitext

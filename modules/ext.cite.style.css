@@ -57,14 +57,6 @@ ol.mw-references > li {
 	counter-increment: mw-ref-extends-parent mw-references;
 }
 
-ol[ data-mw-group='lower-alpha' ].mw-references > li {
-	list-style-type: lower-alpha;
-}
-
-ol[ data-mw-group='upper-alpha' ].mw-references > li {
-	list-style-type: upper-alpha;
-}
-
 [ rel~='mw:referencedBy' ]:before {
 	content: '↑ ';
 }

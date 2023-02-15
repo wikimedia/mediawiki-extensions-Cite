@@ -25,6 +25,6 @@
 	display: inline;
 }
 
-.ve-ce-mwReferenceNode-placeholder a:after {
+.ve-ce-mwReferenceNode-placeholder a::after {
 	content: '[…]';
 }

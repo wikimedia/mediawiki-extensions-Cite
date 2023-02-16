@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"BadDog",
 			"Kolega2357",
 			"OC Ripper",
 			"Vlad5250"
 		]
 	},
 	"cite-desc": "Dodaje oznake <code>&lt;ref&gt;</code> i <code>&lt;references/&gt;</code> za citiranja",
-	"cite_error": "Greška kod citiranja: $1",
+	"cite_error": "Greška u referenci: $1",
 	"cite_error_ref_invalid_dir": "Nevažeća oznaka <code>dir=\"$1\"</code>. Mora biti <code>ltr</code> ili <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Nevaljana oznaka <code>&lt;ref&gt;</code>; ime ne može biti broj. Upotrijebite opisni naslov",
 	"cite_error_ref_no_key": "Otvarajuća oznaka <code>&lt;ref&gt;</code> nije ispravno oblikovana ili sadrži neispravno ime",

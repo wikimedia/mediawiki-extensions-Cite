@@ -258,7 +258,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 					'follow' => 'f',
 					'text' => 't',
 				],
-				'(cite_references_no_link|f|<span class="reference-text">t</span>' . "\n)"
+				"<p id=\"f\"><span class=\"reference-text\">t</span>\n</p>"
 			],
 			'Count zero' => [
 				1,

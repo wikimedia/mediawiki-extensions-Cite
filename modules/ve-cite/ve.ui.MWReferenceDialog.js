@@ -263,15 +263,12 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 
 	var group = this.getFragment().getDocument().getInternalList()
 		.getNodeGroup( this.referenceModel.getListGroup() );
-	if ( ve.getProp( group, 'keyedNodes', this.referenceModel.getListKey(), 'length' ) > 1 ) {
-		this.$reuseWarning.removeClass( 'oo-ui-element-hidden' );
-		this.$reuseWarningText.text( mw.msg(
-			'cite-ve-dialog-reference-editing-reused-long',
-			group.keyedNodes[ this.referenceModel.getListKey() ].length
-		) );
-	} else {
-		this.$reuseWarning.addClass( 'oo-ui-element-hidden' );
-	}
+	var nodes = ve.getProp( group, 'keyedNodes', this.referenceModel.getListKey() );
+	var usages = nodes && nodes.filter( function ( node ) {
+		return !node.findParent( ve.dm.MWReferencesListNode );
+	} ).length;
+	this.$reuseWarning.toggleClass( 'oo-ui-element-hidden', usages < 2 );
+	this.$reuseWarningText.text( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
 
 	return this;
 };

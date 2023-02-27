@@ -75,13 +75,14 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 	var refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model ),
 		group = this.getFragment().getDocument().getInternalList()
 			.getNodeGroup( refModel.getListGroup() );
-	if ( ve.getProp( group, 'keyedNodes', refModel.getListKey(), 'length' ) > 1 ) {
+	var nodes = ve.getProp( group, 'keyedNodes', refModel.getListKey() );
+	var usages = nodes && nodes.filter( function ( node ) {
+		return !node.findParent( ve.dm.MWReferencesListNode );
+	} ).length;
+	if ( usages > 1 ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( mw.msg(
-				'cite-ve-dialog-reference-editing-reused',
-				group.keyedNodes[ refModel.getListKey() ].length
-			) );
+			.text( mw.msg( 'cite-ve-dialog-reference-editing-reused', usages ) );
 	}
 };
 

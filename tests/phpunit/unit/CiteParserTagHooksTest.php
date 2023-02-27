@@ -36,7 +36,7 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 	public function testRef_fails() {
 		$cite = $this->createMock( Cite::class );
 		$cite->method( 'ref' )
-			->willReturn( false );
+			->willReturn( null );
 
 		$parser = $this->createParser();
 		$parser->extCite = $cite;
@@ -80,7 +80,7 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 	public function testReferences_fails() {
 		$cite = $this->createMock( Cite::class );
 		$cite->method( 'references' )
-			->willReturn( false );
+			->willReturn( null );
 
 		$parser = $this->createParser();
 		$parser->extCite = $cite;

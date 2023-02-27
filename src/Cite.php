@@ -118,11 +118,11 @@ class Cite {
 	 * @param ?string $text Raw, untrimmed wikitext content of the <ref> tag, if any
 	 * @param string[] $argv Arguments as given in <ref name=…>, already trimmed
 	 *
-	 * @return string|false False in case a <ref> tag is not allowed in the current context
+	 * @return string|null Null in case a <ref> tag is not allowed in the current context
 	 */
-	public function ref( Parser $parser, ?string $text, array $argv ) {
+	public function ref( Parser $parser, ?string $text, array $argv ): ?string {
 		if ( $this->mInCite ) {
-			return false;
+			return null;
 		}
 
 		$this->mInCite = true;
@@ -410,11 +410,11 @@ class Cite {
 	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
 	 * @param string[] $argv Arguments as given in <references …>, already trimmed
 	 *
-	 * @return string|false False in case a <references> tag is not allowed in the current context
+	 * @return string|null Null in case a <references> tag is not allowed in the current context
 	 */
-	public function references( Parser $parser, ?string $text, array $argv ) {
+	public function references( Parser $parser, ?string $text, array $argv ): ?string {
 		if ( $this->mInCite || $this->inReferencesGroup !== null ) {
-			return false;
+			return null;
 		}
 
 		$ret = $this->guardedReferences( $parser, $text, $argv );

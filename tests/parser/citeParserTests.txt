@@ -1268,6 +1268,30 @@ Multiple definition (mixed outside/inside)
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt7\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-parsoid=&apos;{\"dsr\":[37,60,14,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\"},\"body\":{\"html\":\"def\"},\"errors\":[{\"key\":\"cite_error_references_duplicate_key\",\"params\":[\"a\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-a-1\" style=\"counter-reset: mw-Ref 1;\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">[1]&lt;/span>&lt;/a>&lt;/sup>\n"}}'><ol class="mw-references references"><li about="#cite_note-a-1" id="cite_note-a-1"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text">abc</span></li></ol></div>
 !! end
 
+!! test
+T202593: Conflicting dir attributes are currently not reported as an error
+!! wikitext
+<ref name="a" dir="ltr" />
+<ref name="a" dir="rtl">abc</ref>
+<references />
+!! html/php
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1" class="mw-cite-dir-rtl"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">abc</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","dir":"ltr"}}'><a href="./Parser_test#cite_note-a-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup>
+<sup class="mw-ref reference" id="cite_ref-a_1-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","dir":"rtl"},"body":{"id":"mw-reference-text-cite_note-a-1"}}'><a href="./Parser_test#cite_note-a-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li id="cite_note-a-1" class="mw-cite-dir-rtl"><span rel="mw:referencedBy"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text">abc</span></li>
+</ol>
+</div>
+!! end
+
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 Multiple definition (inside {{#tag:references}})

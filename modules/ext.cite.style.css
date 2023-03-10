@@ -1,5 +1,9 @@
 /* CSS for Parsoid Cite extension */
 
+/* Parsoid HTML emits <sup> tags for follows uses even though there is
+ * no visible output for follows. Parsoid does this to ensure it can
+ * roundtrip back the source wikitext after edits.
+ * However, since this HTML should not be rendered, we use CSS to hide it */
 .mw-ref-follow {
 	display: none;
 }

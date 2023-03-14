@@ -3,6 +3,10 @@ version=2
 parsoid-compatible=wt2html
 !! end
 
+# NOTE about Parsoid HTML for cite tests with follows.
+# Parsoid HTML has <sup>s for follows because it needs to be able to roundtrip it back.
+# This output is hidden from read views via CSS in ext.cite.style.css.
+
 # Force the test runner to ensure the extension is loaded
 !! hooks
 ref

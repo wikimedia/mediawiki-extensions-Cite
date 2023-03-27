@@ -5,15 +5,16 @@
  * @license MIT
  */
 
-/* Remove the styling of the preview wrapper, and any
- * generated paragraph wrappers
- */
-.ve-ce-mwReferencesListNode .ve-ui-previewElement,
-.ve-ce-mwReferencesListNode .ve-ce-generated-wrapper {
-	display: inline;
-}
+.ve-ce-mwReferencesListNode {
+	// Remove the styling of the preview wrapper, and any
+	// generated paragraph wrappers
+	.ve-ui-previewElement,
+	.ve-ce-generated-wrapper {
+		display: inline;
+	}
 
-.ve-ce-mwReferencesListNode-muted {
-	color: #72777d;
-	font-style: italic;
+	&-muted {
+		color: #72777d;
+		font-style: italic;
+	}
 }

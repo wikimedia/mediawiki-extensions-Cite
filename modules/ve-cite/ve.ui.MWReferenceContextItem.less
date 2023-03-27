@@ -5,19 +5,21 @@
  * @license MIT
  */
 
-.ve-ui-mwReferenceContextItem-muted {
-	color: #72777d;
-	font-style: italic;
-	line-height: 1.5;
-}
+.ve-ui-mwReferenceContextItem {
+	&-muted {
+		color: #72777d;
+		font-style: italic;
+		line-height: 1.5;
+	}
 
-.ve-ui-mwReferenceContextItem .ve-ui-previewElement {
-	/* Reference links can often be too long, so break them up */
-	word-break: break-word;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-}
+	.ve-ui-previewElement {
+		/* Reference links can often be too long, so break them up */
+		word-break: break-word;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 
-.ve-ui-mwReferenceContextItem .ve-ui-previewElement + .ve-ui-mwReferenceContextItem-muted {
-	margin-top: 0.5em;
+		& + .ve-ui-mwReferenceContextItem-muted {
+			margin-top: 0.5em;
+		}
+	}
 }

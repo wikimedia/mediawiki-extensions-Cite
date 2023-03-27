@@ -76,8 +76,8 @@
 				"ve.ui.MWReferencesListCommand.js"
 			],
 			"styles": [
-				"ve.ce.MWReferencesListNode.css",
-				"ve.ce.MWReferenceNode.css"
+				"ve.ce.MWReferencesListNode.less",
+				"ve.ce.MWReferenceNode.less"
 			],
 			"dependencies": [
 				"ext.visualEditor.mwcore",
@@ -119,12 +119,12 @@
 				"ve.ui.MWCitationNeededContextItem.js"
 			],
 			"styles": [
-				"ve.ui.MWReferenceDialog.css",
-				"ve.ui.MWReferenceContextItem.css",
-				"ve.ui.MWReferenceGroupInputWidget.css",
-				"ve.ui.MWReferenceResultWidget.css",
-				"ve.ui.MWReferenceSearchWidget.css",
-				"ve.ui.MWCitationDialogTool.css"
+				"ve.ui.MWReferenceDialog.less",
+				"ve.ui.MWReferenceContextItem.less",
+				"ve.ui.MWReferenceGroupInputWidget.less",
+				"ve.ui.MWReferenceResultWidget.less",
+				"ve.ui.MWReferenceSearchWidget.less",
+				"ve.ui.MWCitationDialogTool.less"
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-alerts",

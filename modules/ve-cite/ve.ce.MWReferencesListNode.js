@@ -72,6 +72,16 @@ ve.ce.MWReferencesListNode.static.getDescription = function ( model ) {
 	return model.getAttribute( 'refGroup' );
 };
 
+/**
+ * @inheritdoc ve.ce.FocusableNode
+ */
+ve.ce.MWReferencesListNode.prototype.getExtraHighlightClasses = function () {
+	var extraClasses = ve.ce.FocusableNode.prototype.getExtraHighlightClasses.apply( this, arguments );
+	return extraClasses.concat( [
+		've-ce-mwReferencesListNode-highlight'
+	] );
+};
+
 /* Methods */
 
 /**
@@ -225,8 +235,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$refmsg.text( emptyText );
 		this.$element.append( this.$refmsg );
 	} else {
-		for ( var i = 0, iLen = nodes.indexOrder.length; i < iLen; i++ ) {
-			var index = nodes.indexOrder[ i ];
+		nodes.indexOrder.forEach( function ( index ) {
 			var firstNode = nodes.firstNodes[ index ];
 
 			var key = internalList.keys[ index ];
@@ -238,7 +247,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			} );
 
 			if ( !keyedNodes.length ) {
-				continue;
+				return;
 			}
 
 			var $li = $( '<li>' )
@@ -258,11 +267,41 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 					$( '<span>' )
 						.addClass( 've-ce-mwReferencesListNode-muted' )
 						.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) )
-				);
+				).addClass( 've-ce-mwReferencesListNode-missingRef' );
+			}
+
+			if ( this.getRoot() ) {
+				var surface = this.getRoot().getSurface().getSurface();
+				$li.on( 'mousedown', function ( e ) {
+					if ( modelNode && modelNode.length ) {
+						var items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] );
+						if ( items.length ) {
+							var contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
+							if ( contextItem ) {
+								var command = surface.commandRegistry.lookup( contextItem.static.commandName );
+								if ( command ) {
+									var fragmentArgs = {
+										fragment: surface.getModel().getLinearFragment( firstNode.getOuterRange(), true ),
+										selectFragmentOnClose: false
+									};
+									var newArgs = ve.copy( command.args );
+									if ( command.name === 'reference' ) {
+										newArgs[ 1 ] = fragmentArgs;
+									} else {
+										ve.extendObject( newArgs[ 0 ], fragmentArgs );
+									}
+									command.execute( surface, newArgs );
+								}
+							}
+						}
+					}
+					e.preventDefault();
+				} );
 			}
 
 			this.$reflist.append( $li );
-		}
+		}.bind( this ) );
+
 		this.updateClasses();
 		this.$element.append( this.$reflist );
 	}

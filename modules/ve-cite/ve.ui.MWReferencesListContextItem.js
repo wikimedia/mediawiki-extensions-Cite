@@ -41,6 +41,8 @@ ve.ui.MWReferencesListContextItem.static.modelClasses = [ ve.dm.MWReferencesList
 
 ve.ui.MWReferencesListContextItem.static.commandName = 'referencesList';
 
+ve.ui.MWReferencesListContextItem.static.embeddable = false;
+
 /* Methods */
 
 /**

@@ -2,16 +2,21 @@
 	"@metadata": {
 		"authors": [
 			"Jon Harald Søby (WMNO)",
-			"Yupik"
+			"Yupik",
+			"Kimberli Mäkäräinen (WMNO)"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Girji",
 	"visualeditor-cite-tool-name-news": "Ođđasat",
 	"visualeditor-cite-tool-name-web": "Neahttasiidu",
+	"cite-ve-dialog-reference-options-group-label": "Geavat dán joavkku",
+	"cite-ve-dialog-reference-title": "Gáldu",
 	"cite-ve-dialog-reference-useexisting-tool": "Geavat gáldu ođđasit",
 	"cite-ve-dialogbutton-reference-full-label": "Álkis hápmi",
+	"cite-ve-dialogbutton-reference-title": "Gáldu",
 	"cite-ve-dialogbutton-reference-tooltip": "Eaŋkil",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Gáldolisttu",
 	"cite-ve-toolbar-group-label": "Bájut",
+	"cite-ve-othergroup-item": "$1 gáldu",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Gáldut"
 }

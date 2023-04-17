@@ -221,18 +221,9 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			var key = internalList.keys[ index ];
 			var keyedNodes = nodes.keyedNodes[ key ];
 			keyedNodes = keyedNodes.filter( function ( node ) {
-				// Exclude placeholder references
-				if ( node.getAttribute( 'placeholder' ) ) {
-					return false;
-				}
-				// Exclude references defined inside the references list node
-				do {
-					node = node.parent;
-					if ( node instanceof ve.dm.MWReferencesListNode ) {
-						return false;
-					}
-				} while ( node );
-				return true;
+				// Exclude placeholders and references defined inside the references list node
+				return !node.getAttribute( 'placeholder' ) &&
+					!node.findParent( ve.dm.MWReferencesListNode );
 			} );
 
 			if ( !keyedNodes.length ) {

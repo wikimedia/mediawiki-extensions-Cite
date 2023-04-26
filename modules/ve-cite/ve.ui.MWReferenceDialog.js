@@ -264,9 +264,9 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	var group = this.getFragment().getDocument().getInternalList()
 		.getNodeGroup( this.referenceModel.getListGroup() );
 	var nodes = ve.getProp( group, 'keyedNodes', this.referenceModel.getListKey() );
-	var usages = nodes && nodes.filter( function ( node ) {
+	var usages = nodes ? nodes.filter( function ( node ) {
 		return !node.findParent( ve.dm.MWReferencesListNode );
-	} ).length;
+	} ).length : 0;
 	this.$reuseWarning.toggleClass( 'oo-ui-element-hidden', usages < 2 );
 	this.$reuseWarningText.text( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
 

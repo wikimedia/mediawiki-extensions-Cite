@@ -41,7 +41,12 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 	this.updateDebounced = ve.debounce( this.update.bind( this ) );
 
 	// Initialization
-	this.updateDebounced();
+	// Rendering the reference list can be slow, so do it in an idle callback
+	// (i.e. after the editor has finished loading). Previously we used the
+	// Parsoid DOM rendering for the first paint, and updated only when references
+	// were modified, but this means the reference list is out of sync with the
+	// model for features such as T54750.
+	mw.requestIdleCallback( this.update.bind( this ) );
 };
 
 /* Inheritance */
@@ -169,6 +174,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	var refGroup = model.getAttribute( 'refGroup' );
 	var listGroup = model.getAttribute( 'listGroup' );
 	var nodes = internalList.getNodeGroup( listGroup );
+	var hasModelReferences = !!( nodes && nodes.indexOrder.length );
 
 	var emptyText;
 	if ( refGroup !== '' ) {
@@ -177,18 +183,23 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		emptyText = ve.msg( 'cite-ve-referenceslist-isempty-default' );
 	}
 
-	// Just use Parsoid-provided DOM for first rendering
-	// NB: Technically this.modified could be reset to false if this
-	// node is re-attached, but that is an unlikely edge case.
-	if ( !this.modified && model.getElement().originalDomElementsHash ) {
+	// Use the Parsoid-provided DOM if:
+	//
+	// * There are no references in the model
+	// * There have been no changes to the references in the model (!this.modified)
+	//
+	// In practice this is for he.wiki where references are template-generated (T187495)
+	if (
+		!hasModelReferences &&
+		!this.modified &&
+		model.getElement().originalDomElementsHash
+	) {
 		// Create a copy when importing to the main document, as extensions may
 		// modify DOM nodes in the main doc.
 		this.$originalRefList = $( ve.copyDomElements( model.getStore().value(
 			model.getElement().originalDomElementsHash
 		), document ) );
-		// Check for references in the model. If none are found do a slower check
-		// to see if $originalRefList has any, as they could all be defined in templates.
-		if ( ( nodes && nodes.indexOrder.length ) || this.$originalRefList.find( 'li' ).length ) {
+		if ( this.$originalRefList.find( 'li' ).length ) {
 			this.$element.append( this.$originalRefList );
 		} else {
 			this.$refmsg.text( emptyText );
@@ -210,7 +221,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$reflist.removeAttr( 'data-mw-group' );
 	}
 
-	if ( !nodes || !nodes.indexOrder.length ) {
+	if ( !hasModelReferences ) {
 		this.$refmsg.text( emptyText );
 		this.$element.append( this.$refmsg );
 	} else {

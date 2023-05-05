@@ -85,7 +85,7 @@
 				web: 'browser'
 			};
 
-		// This is assigned server-side by CiteVisualEditorModule.php, before this file runs.
+		// This is assigned server-side by CitationToolDefinition.php, before this file runs.
 		// Ensure it has a fallback, just in case.
 		ve.ui.mwCitationTools = ve.ui.mwCitationTools || [];
 

@@ -98,10 +98,13 @@
 			]
 		},
 		"ext.cite.visualEditor": {
-			"class": "Cite\\ResourceLoader\\CiteVisualEditorModule",
 			"localBasePath": "modules/ve-cite",
 			"remoteExtPath": "Cite/modules/ve-cite",
 			"scripts": [
+				{
+					"name": "ve.ui.MWCitationTools.js",
+					"callback": "Cite\\ResourceLoader\\CitationToolDefinition::makeScript"
+				},
 				"ve.ui.MWReferenceGroupInputWidget.js",
 				"ve.ui.MWReferenceSearchWidget.js",
 				"ve.ui.MWReferenceResultWidget.js",

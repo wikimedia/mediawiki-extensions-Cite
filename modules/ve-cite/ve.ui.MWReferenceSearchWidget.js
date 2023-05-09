@@ -122,8 +122,6 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 		return;
 	}
 
-	var text;
-
 	this.index = [];
 	var groupNames = Object.keys( groups ).sort();
 
@@ -146,10 +144,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 			// Only increment counter for real references
 			n++;
 			var refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
-			var view = new ve.ui.MWPreviewElement(
-				this.internalList.getItemNode( refModel.getListIndex() ),
-				{ useView: true }
-			);
+			var itemNode = this.internalList.getItemNode( refModel.getListIndex() );
 
 			var refGroup = refModel.getGroup();
 			var citation = ( refGroup && refGroup.length ? refGroup + ' ' : '' ) + n;
@@ -163,16 +158,25 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 			// immediately rendered, but we shouldn't trust that on principle to
 			// account for edge cases.
 
+			var $element;
 			// Make visible text, citation and reference name searchable
-			text = [ view.$element.text().toLowerCase(), citation, name ].join( ' ' );
-			// Make URLs searchable
-			// eslint-disable-next-line no-loop-func
-			view.$element.find( 'a[href]' ).each( function () {
-				text += ' ' + this.getAttribute( 'href' );
-			} );
+			var text = citation + ' ' + name;
+			if ( itemNode.length ) {
+				$element = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
+				text = $element.text().toLowerCase() + ' ' + text;
+				// Make URLs searchable
+				// eslint-disable-next-line no-loop-func
+				$element.find( 'a[href]' ).each( function () {
+					text += ' ' + this.getAttribute( 'href' );
+				} );
+			} else {
+				$element = $( '<span>' )
+					.addClass( 've-ce-mwReferencesListNode-muted' )
+					.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) );
+			}
 
 			this.index.push( {
-				$element: view.$element,
+				$element: $element,
 				text: text,
 				reference: refModel,
 				citation: citation,

@@ -58,7 +58,6 @@ ve.ui.MWReferenceSearchWidget.prototype.onQueryChange = function () {
  * @param {ve.dm.InternalList} internalList Internal list
  */
 ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalList ) {
-
 	if ( this.results.findSelectedItem() ) {
 		this.results.findSelectedItem().setSelected( false );
 	}
@@ -68,13 +67,8 @@ ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalLis
 	this.internalList.getListNode().connect( this, { update: 'onListNodeUpdate' } );
 
 	var groups = internalList.getNodeGroups();
-	var groupNames = Object.keys( groups );
-	for ( var i = 0, iLen = groupNames.length; i < iLen; i++ ) {
-		var groupName = groupNames[ i ];
-		if ( groupName.lastIndexOf( 'mwReference/' ) !== 0 ) {
-			continue;
-		}
-		if ( groups[ groupName ].indexOrder.length ) {
+	for ( var groupName in groups ) {
+		if ( groupName.indexOf( 'mwReference/' ) === 0 && groups[ groupName ].indexOrder.length ) {
 			this.indexEmpty = false;
 			return;
 		}
@@ -91,11 +85,10 @@ ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalLis
  * @param {string[]} groupsChanged A list of groups which have changed in this transaction
  */
 ve.ui.MWReferenceSearchWidget.prototype.onInternalListUpdate = function ( groupsChanged ) {
-	for ( var i = 0, len = groupsChanged.length; i < len; i++ ) {
-		if ( groupsChanged[ i ].indexOf( 'mwReference/' ) === 0 ) {
-			this.built = false;
-			break;
-		}
+	if ( groupsChanged.some( function ( groupName ) {
+		return groupName.indexOf( 'mwReference/' ) === 0;
+	} ) ) {
+		this.built = false;
 	}
 };
 
@@ -127,7 +120,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 
 	for ( var i = 0, iLen = groupNames.length; i < iLen; i++ ) {
 		var groupName = groupNames[ i ];
-		if ( groupName.lastIndexOf( 'mwReference/' ) !== 0 ) {
+		if ( groupName.indexOf( 'mwReference/' ) !== 0 ) {
 			continue;
 		}
 		var group = groups[ groupName ];

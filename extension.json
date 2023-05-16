@@ -256,10 +256,12 @@
 			"value": false
 		},
 		"CiteVisualEditorOtherGroup": {
+			"description": "If VisualEditor should list the citation features as part of the existing \"Insert\" drop-down menu instead of a top-level \"Cite\" toolbar button.",
 			"public": true,
 			"value": false
 		},
 		"CiteResponsiveReferences": {
+			"description": "If long <references /> lists with more than 10 references should behave responsive by default and be displayed in two or more columns. This can also be toggled individually with <references responsive /> to enable and <references responsive=\"0\" /> to disable it.",
 			"public": true,
 			"value": true
 		}

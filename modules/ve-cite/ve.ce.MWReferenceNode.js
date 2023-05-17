@@ -128,13 +128,9 @@ ve.ce.MWReferenceNode.prototype.executeCommand = function () {
  */
 ve.ce.MWReferenceNode.prototype.update = function () {
 	this.$text.text( this.model.getIndexLabel() );
-	this.$link.css( 'counterReset', 'mw-Ref ' + this.model.getIndex() );
-	var group = this.model.getGroup();
-	if ( group ) {
-		this.$link.attr( 'data-mw-group', group );
-	} else {
-		this.$link.removeAttr( 'data-mw-group' );
-	}
+	this.$link
+		.css( 'counterReset', 'mw-Ref ' + this.model.getIndex() )
+		.attr( 'data-mw-group', this.model.getGroup() || null );
 	this.$element.toggleClass( 've-ce-mwReferenceNode-placeholder', !!this.model.getAttribute( 'placeholder' ) );
 };
 

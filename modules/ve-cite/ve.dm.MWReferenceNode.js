@@ -240,13 +240,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		el.setAttribute( 'data-mw', JSON.stringify( mwData ) );
 
 		// HTML for the external clipboard, it will be ignored by the converter
-		var group = this.getGroup( dataElement );
-		var $link = $( '<a>', doc ).css(
-			'counterReset', 'mw-Ref ' + this.getIndex( dataElement, converter.internalList )
-		);
-		if ( group ) {
-			$link.attr( 'data-mw-group', this.getGroup( dataElement ) );
-		}
+		var $link = $( '<a>', doc )
+			.css( 'counterReset', 'mw-Ref ' + this.getIndex( dataElement, converter.internalList ) )
+			.attr( 'data-mw-group', this.getGroup( dataElement ) || null );
 		$( el ).addClass( 'mw-ref reference' ).append(
 			$link.append(
 				$( '<span>', doc ).addClass( 'mw-reflink-text' ).text( this.getIndexLabel( dataElement, converter.internalList ) )
@@ -276,7 +272,7 @@ ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, int
 		suffix = suffix ? suffix + 1 : 2;
 	}
 	if ( suffix ) {
-		dataElement.attributes.listKey = dataElement.attributes.listKey + suffix;
+		dataElement.attributes.listKey += suffix;
 	}
 };
 
@@ -289,18 +285,9 @@ ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, int
  * @return {number} Index
  */
 ve.dm.MWReferenceNode.static.getIndex = function ( dataElement, internalList ) {
-	var listIndex, listGroup, position,
-		overrideIndex = ve.getProp( dataElement, 'internal', 'overrideIndex' );
-
-	if ( overrideIndex ) {
-		return overrideIndex;
-	}
-
-	listIndex = dataElement.attributes.listIndex;
-	listGroup = dataElement.attributes.listGroup;
-	position = internalList.getIndexPosition( listGroup, listIndex );
-
-	return position + 1;
+	var overrideIndex = ve.getProp( dataElement, 'internal', 'overrideIndex' );
+	var attrs = dataElement.attributes;
+	return overrideIndex || ( internalList.getIndexPosition( attrs.listGroup, attrs.listIndex ) + 1 );
 };
 
 /**

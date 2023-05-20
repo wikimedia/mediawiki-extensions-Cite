@@ -76,7 +76,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected, $formatter->normalizeKey( $key ) );
 	}
 
-	public function provideKeyNormalizations() {
+	public static function provideKeyNormalizations() {
 		return [
 			[ 'a b', 'a_b' ],
 			[ 'a  __  b', 'a_b' ],

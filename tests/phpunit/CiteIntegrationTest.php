@@ -63,7 +63,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideCheckRefsNoReferences() {
+	public static function provideCheckRefsNoReferences() {
 		return [
 			'Default group' => [
 				[ '' => [ [ 'name' => 'a' ] ] ],

@@ -42,7 +42,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 			$reporter->halfParsed( $mockParser, 'cite_warning_example', 'first param' ) );
 	}
 
-	public function provideErrors() {
+	public static function provideErrors() {
 		return [
 			'Example error' => [
 				'cite_error_example',

@@ -56,7 +56,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideFormatReferences() {
+	public static function provideFormatReferences() {
 		return [
 			'Empty' => [
 				[],
@@ -182,7 +182,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideCloseIndention() {
+	public static function provideCloseIndention() {
 		return [
 			'No indention' => [ false, '' ],
 			'Indention string' => [ "</li>\n", "</ol></li>\n" ],
@@ -240,7 +240,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideFormatListItem() {
+	public static function provideFormatListItem() {
 		return [
 			'Success' => [
 				1,
@@ -333,7 +333,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideReferenceText() {
+	public static function provideReferenceText() {
 		return [
 			'No text, not preview' => [
 				1,
@@ -400,7 +400,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		}
 	}
 
-	public function provideReferencesFormatEntryAlternateBacklinkLabel() {
+	public static function provideReferencesFormatEntryAlternateBacklinkLabel() {
 		yield [ 'aa', 'aa ab ac', 0 ];
 		yield [ 'ab', 'aa ab ac', 1 ];
 		yield [ 'å', 'å b c', 0 ];
@@ -430,7 +430,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expectedLabel, $label );
 	}
 
-	public function provideReferencesFormatEntryNumericBacklinkLabel() {
+	public static function provideReferencesFormatEntryNumericBacklinkLabel() {
 		yield [ '1.2', 1, 2, 9 ];
 		yield [ '1.02', 1, 2, 99 ];
 		yield [ '1.002', 1, 2, 100 ];
@@ -461,7 +461,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expected, $formatter->listToText( $list ) );
 	}
 
-	public function provideLists() {
+	public static function provideLists() {
 		return [
 			[
 				[],

@@ -61,7 +61,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideLinkRef() {
+	public static function provideLinkRef() {
 		return [
 			'Default label' => [
 				'',
@@ -172,7 +172,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expectedLabel, $output );
 	}
 
-	public function provideGetLinkLabel() {
+	public static function provideGetLinkLabel() {
 		yield [ null, 1, '', null ];
 		yield [ null, 2, '', null ];
 		yield [ null, 1, 'foo', null ];

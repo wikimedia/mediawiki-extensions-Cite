@@ -60,7 +60,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		}
 	}
 
-	public function provideValidateRef() {
+	public static function provideValidateRef() {
 		return [
 			// Shared <ref> validations regardless of context
 			'Numeric name' => [
@@ -332,7 +332,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		}
 	}
 
-	public function provideParseArguments() {
+	public static function provideParseArguments() {
 		// Note: Values are guaranteed to be trimmed by the parser, see
 		// Sanitizer::decodeTagAttributes()
 		return [
@@ -415,7 +415,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expectedOutput, $output );
 	}
 
-	public function provideGuardedReferences() {
+	public static function provideGuardedReferences() {
 		return [
 			'Bare references tag' => [
 				null,
@@ -519,7 +519,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( $expectedRefs, $referenceStack->refs );
 	}
 
-	public function provideGuardedRef() {
+	public static function provideGuardedRef() {
 		return [
 			'Whitespace text' => [
 				' ',

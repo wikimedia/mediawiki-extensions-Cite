@@ -59,7 +59,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $finalCallStack, $stack->refCallStack );
 	}
 
-	public function providePushRef() {
+	public static function providePushRef() {
 		return [
 			'Anonymous ref in default group' => [
 				[
@@ -849,7 +849,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expectedRefs, $stack->refs );
 	}
 
-	public function provideRollbackRefs() {
+	public static function provideRollbackRefs() {
 		return [
 			'Empty stack' => [
 				'initialCallStack' => [],

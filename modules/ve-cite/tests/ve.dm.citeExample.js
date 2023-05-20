@@ -147,15 +147,15 @@ ve.dm.citeExample.domToDataCases = {
 				'\\&quot; class=\\&quot;mw-ref reference\\&quot;><a data-mw-group=\\&quot;g1\\&quot; style=\\&quot;counter-reset: mw-Ref 3;\\&quot;><span class=\\&quot;mw-reflink-text\\&quot;>[g1 3]</span></a></sup>&quot;}}">' +
 					'<ol class="mw-references references" data-mw-group="g1">' +
 						'<li>' +
-							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
+							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a> ' +
 							ve.dm.citeExample.refListItemClipboard( 'Quux' ) +
 						'</li>' +
 						'<li>' +
-							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
+							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a> ' +
 							ve.dm.citeExample.refListItemClipboard( 'No name' ) +
 						'</li>' +
 						'<li>' +
-							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>' +
+							'<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a> ' +
 							ve.dm.citeExample.refListItemClipboard( 'Ref in refs' ) +
 						'</li>' +
 					'</ol>' +
@@ -603,7 +603,7 @@ ve.dm.citeExample.domToDataCases = {
 			'<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{}}">' +
 				'<ol class="mw-references references">' +
 					'<li>' +
-						'<a rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a>' +
+						'<a rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> ' +
 						ve.dm.citeExample.refListItemClipboard( 'Foo' ) +
 					'</li>' +
 				'</ol>' +

@@ -251,7 +251,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			}
 
 			var $li = $( '<li>' )
-				.append( this.renderBacklinks( keyedNodes, refGroup ) );
+				.append( this.renderBacklinks( keyedNodes, refGroup ), ' ' );
 
 			// Generate reference HTML from first item in key
 			var modelNode = internalList.getItemNode( firstNode.getAttribute( 'listIndex' ) );

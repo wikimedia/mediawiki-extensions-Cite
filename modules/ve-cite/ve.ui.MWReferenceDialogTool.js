@@ -91,6 +91,8 @@ ve.ui.commandHelpRegistry.register( 'insert', 'ref', {
 
 ve.ui.mwWikitextTransferRegistry.register( 'reference', /<ref[^>]*>/ );
 
+ve.ui.HelpCompletionAction.static.toolGroups.cite = { mergeWith: 'insert' };
+
 /**
  * MediaWiki UserInterface references list tool.
  *

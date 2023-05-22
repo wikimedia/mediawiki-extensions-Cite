@@ -274,7 +274,9 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 				var surface = this.getRoot().getSurface().getSurface();
 				$li.on( 'mousedown', function ( e ) {
 					if ( modelNode && modelNode.length ) {
-						var items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] );
+						var items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] ).filter( function ( item ) {
+							return item.name !== 'mobileActions';
+						} );
 						if ( items.length ) {
 							var contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
 							if ( contextItem ) {

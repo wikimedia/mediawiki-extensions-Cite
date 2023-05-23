@@ -222,14 +222,8 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$originalRefList.remove();
 		this.$originalRefList = null;
 	}
-	this.$reflist.detach().empty();
+	this.$reflist.detach().empty().attr( 'data-mw-group', refGroup || null );
 	this.$refmsg.detach();
-
-	if ( refGroup !== '' ) {
-		this.$reflist.attr( 'data-mw-group', refGroup );
-	} else {
-		this.$reflist.removeAttr( 'data-mw-group' );
-	}
 
 	if ( !hasModelReferences ) {
 		this.$refmsg.text( emptyText );
@@ -330,32 +324,22 @@ ve.ce.MWReferencesListNode.prototype.updateClasses = function () {
  * @return {jQuery} Element containing backlinks
  */
 ve.ce.MWReferencesListNode.prototype.renderBacklinks = function ( keyedNodes, refGroup ) {
-	var $link;
-	if ( keyedNodes.length > 1 ) {
-		// named reference with multiple usages
-		var $refSpan = $( '<span>' ).attr( 'rel', 'mw:referencedBy' );
-		for ( var j = 0, jLen = keyedNodes.length; j < jLen; j++ ) {
-			$link = $( '<a>' ).append(
-				$( '<span>' ).addClass( 'mw-linkback-text' )
-					.text( ( j + 1 ) + ' ' )
-			);
-			if ( refGroup !== '' ) {
-				$link.attr( 'data-mw-group', refGroup );
-			}
-			$refSpan.append( $link );
-		}
-		return $refSpan;
-	} else {
-		// solo reference
-		$link = $( '<a>' ).attr( 'rel', 'mw:referencedBy' ).append(
-			$( '<span>' ).addClass( 'mw-linkback-text' )
-				.text( '↑ ' )
-		);
-		if ( refGroup !== '' ) {
-			$link.attr( 'data-mw-group', refGroup );
-		}
-		return $link;
+	if ( keyedNodes.length === 1 ) {
+		return $( '<a>' )
+			.attr( 'rel', 'mw:referencedBy' )
+			.attr( 'data-mw-group', refGroup || null )
+			.append( $( '<span>' ).addClass( 'mw-linkback-text' ).text( '↑ ' ) );
 	}
+
+	// named reference with multiple usages
+	var $refSpan = $( '<span>' ).attr( 'rel', 'mw:referencedBy' );
+	for ( var i = 0; i < keyedNodes.length; i++ ) {
+		$( '<a>' )
+			.attr( 'data-mw-group', refGroup || null )
+			.append( $( '<span>' ).addClass( 'mw-linkback-text' ).text( ( i + 1 ) + ' ' ) )
+			.appendTo( $refSpan );
+	}
+	return $refSpan;
 };
 
 /* Registration */

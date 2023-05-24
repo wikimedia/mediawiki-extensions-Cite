@@ -11,6 +11,11 @@
 	.ve-ui-previewElement,
 	.ve-ce-generated-wrapper {
 		display: inline;
+
+		// Disable mixin-clearfix applied by .mw-body-content (T337415)
+		&::after {
+			display: none;
+		}
 	}
 
 	&-muted {

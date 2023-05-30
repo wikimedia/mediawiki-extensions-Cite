@@ -19,6 +19,7 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
+	this.extendsRef = null;
 	this.listKey = '';
 	this.listGroup = '';
 	this.listIndex = null;
@@ -46,6 +47,7 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 		attr = node.getAttributes(),
 		ref = new ve.dm.MWReferenceModel( doc );
 
+	ref.setExtendsRef( attr.extendsRef );
 	ref.setListKey( attr.listKey );
 	ref.setListGroup( attr.listGroup );
 	ref.setListIndex( attr.listIndex );
@@ -158,6 +160,7 @@ ve.dm.MWReferenceModel.prototype.updateInternalItem = function ( surfaceModel ) 
  */
 ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragment, placeholder ) {
 	var attributes = {
+		extendsRef: this.extendsRef,
 		listKey: this.listKey,
 		listGroup: this.listGroup,
 		listIndex: this.listIndex,
@@ -244,6 +247,15 @@ ve.dm.MWReferenceModel.prototype.getDocument = function () {
  */
 ve.dm.MWReferenceModel.prototype.setListKey = function ( listKey ) {
 	this.listKey = listKey;
+};
+
+/**
+ * Set the name of the parent reference that is being extended by the current reference.
+ *
+ * @param {string} extendsRef References parent
+ */
+ve.dm.MWReferenceModel.prototype.setExtendsRef = function ( extendsRef ) {
+	this.extendsRef = extendsRef;
 };
 
 /**

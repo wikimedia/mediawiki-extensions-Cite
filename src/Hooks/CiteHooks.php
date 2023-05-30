@@ -47,6 +47,7 @@ class CiteHooks implements
 	public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ): void {
 		$vars['wgCiteVisualEditorOtherGroup'] = $config->get( 'CiteVisualEditorOtherGroup' );
 		$vars['wgCiteResponsiveReferences'] = $config->get( 'CiteResponsiveReferences' );
+		$vars['wgCiteBookReferencing'] = $config->get( 'CiteBookReferencing' );
 	}
 
 	/**

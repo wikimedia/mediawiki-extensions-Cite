@@ -74,6 +74,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	var body = ( mwData.body && mwData.body.html ) ||
 		( reflistItemId && getReflistItemHtml( reflistItemId ) ) ||
 		'';
+	var extendsRef = mw.config.get( 'wgCiteBookReferencing' ) && mwData.attrs && mwData.attrs.extends;
 	var refGroup = mwData.attrs && mwData.attrs.group || '';
 	var listGroup = this.name + '/' + refGroup;
 	var autoKeyed = !mwData.attrs || mwData.attrs.name === undefined;
@@ -96,6 +97,9 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			contentsUsed: contentsUsed
 		}
 	};
+	if ( extendsRef ) {
+		dataElement.attributes.extendsRef = extendsRef;
+	}
 	if ( reflistItemId ) {
 		dataElement.attributes.refListItemId = reflistItemId;
 	}
@@ -192,6 +196,11 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		// another VE document. T110479
 		if ( isForClipboard && itemNodeRange.isCollapsed() ) {
 			el.setAttribute( 'data-ve-ignore', 'true' );
+		}
+
+		// Set extends
+		if ( dataElement.attributes.extendsRef ) {
+			ve.setProp( mwData, 'attrs', 'extends', dataElement.attributes.extendsRef );
 		}
 
 		// Generate name

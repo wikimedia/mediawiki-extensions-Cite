@@ -87,6 +87,22 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 };
 
 /**
+ * Get a DOM rendering of a warning if this reference is an extension.
+ *
+ * @private
+ * @return {jQuery|null}
+ */
+ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
+	var refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
+
+	if ( refModel.extendsRef ) {
+		return $( '<div>' )
+			.addClass( 've-ui-mwReferenceContextItem-muted' )
+			.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) );
+	}
+};
+
+/**
  * Get the reference node in the containing document (not the internal list document)
  *
  * @return {ve.dm.InternalItemNode|null} Reference item node
@@ -113,7 +129,7 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  * @inheritdoc
  */
 ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
-	this.$body.empty().append( this.getRendering(), this.getReuseWarning() );
+	this.$body.empty().append( this.getRendering(), this.getReuseWarning(), this.getExtendsWarning() );
 };
 
 /**

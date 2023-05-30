@@ -660,6 +660,56 @@ ve.dm.citeExample.domToDataCases = {
 			{ type: '/internalItem' },
 			{ type: '/internalList' }
 		]
+	},
+	'Extend reference': {
+		body:
+			'<p><sup typeof="mw:Extension/ref" class="mw-ref reference" ' +
+			'data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;Bar&quot;},&quot;attrs&quot;:{&quot;extends&quot;:&quot;foo&quot;}}">' +
+			'</sup></p>',
+		fromDataBody:
+			'<p><sup typeof="mw:Extension/ref" ' +
+			'data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;Bar&quot;},&quot;attrs&quot;:{&quot;extends&quot;:&quot;foo&quot;}}">' +
+			'</sup></p>',
+		clipboardBody:
+			'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;' +
+			'Bar&quot;},&quot;attrs&quot;:{&quot;extends&quot;:&quot;foo&quot;}}" class="mw-ref reference">' +
+			'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>' +
+			'</sup></p>',
+		data: [
+			{ type: 'paragraph' },
+			{
+				type: 'mwReference',
+				attributes: {
+					contentsUsed: true,
+					extendsRef: 'foo',
+					listGroup: 'mwReference/',
+					listIndex: 0,
+					listKey: 'auto/0',
+					mw: {
+						attrs: { extends: 'foo' },
+						body: { html: 'Bar' },
+						name: 'ref'
+					},
+					originalMw: '{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}',
+					refGroup: ''
+				}
+			},
+			{ type: '/mwReference' },
+			{ type: '/paragraph' },
+			{ type: 'internalList' },
+			{
+				attributes: { originalHtml: 'Bar' },
+				type: 'internalItem'
+			},
+			{
+				internal: { generated: 'wrapper' },
+				type: 'paragraph'
+			},
+			'B', 'a', 'r',
+			{ type: '/paragraph' },
+			{ type: '/internalItem' },
+			{ type: '/internalList' }
+		]
 	}
 };
 

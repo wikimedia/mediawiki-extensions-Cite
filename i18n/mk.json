@@ -22,7 +22,7 @@
 	"cite_error_included_ref": "На ознаката <code>&lt;/ref&gt;</code> ѝ недостасува ознака за затворање <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Недостасува затворачка ознака за <code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "Има ознаки <code>&lt;ref&gt;</code> за група именувана како „$1“, но нема соодветна ознака <code>&lt;references group=\"$1\"/&gt;</code>",
-	"cite_error_references_group_mismatch": "Ознаката <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротиставен групен атрибут „$1“.",
+	"cite_error_references_group_mismatch": "Ознаката <code>&lt;ref&gt;</code> во <code>&lt;references&gt;</code> има спротивставен групен атрибут „$1“.",
 	"cite_error_references_missing_group": "Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;references&gt;</code> има групен атрибут „$1“ кој не се јавува во претходен текст.",
 	"cite_error_references_missing_key": "Ознаката <code>&lt;ref&gt;</code> со име „$1“ определена во <code>&lt;references&gt;</code> не се користи во претходен текст.",
 	"cite_error_references_no_key": "Ознаката <code>&lt;ref&gt;</code> определена во <code>&lt;referencesgt;</code> нема именски атрибут.",

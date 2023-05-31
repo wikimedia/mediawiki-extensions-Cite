@@ -35,6 +35,7 @@
 	"cite-ve-citationneeded-title": "Beleg wird benötigt",
 	"cite-ve-dialog-reference-editing-reused": "Dieser Einzelnachweis wird auf dieser Seite {{PLURAL:$1|einmal|2=zwei Mal|$1 Mal}} verwendet.",
 	"cite-ve-dialog-reference-editing-reused-long": "Dieser Einzelnachweis wird {{PLURAL:$1|ein|2=zwei|$1}} Mal auf dieser Seite verwendet. Hier durchgeführte Änderungen werden auf alle Orte angewandt, an denen dieser Einzelnachweis erneut verwendet wird.",
+	"cite-ve-dialog-reference-editing-extends": "Dies ist eine Erweiterung eines anderen Einzelnachweises.",
 	"cite-ve-dialog-reference-options-group-label": "Diese Gruppe verwenden",
 	"cite-ve-dialog-reference-options-group-placeholder": "Allgemeine Einzelnachweise",
 	"cite-ve-dialog-reference-options-name-label": "Diesen Namen weiterverwenden",

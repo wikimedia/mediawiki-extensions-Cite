@@ -705,19 +705,31 @@ ve.dm.citeExample.domToDataCases = {
 		]
 	},
 	'Extend reference': {
-		body:
-			'<p><sup typeof="mw:Extension/ref" class="mw-ref reference" ' +
-			'data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;Bar&quot;},&quot;attrs&quot;:{&quot;extends&quot;:&quot;foo&quot;}}">' +
-			'</sup></p>',
-		fromDataBody:
-			'<p><sup typeof="mw:Extension/ref" ' +
-			'data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;Bar&quot;},&quot;attrs&quot;:{&quot;extends&quot;:&quot;foo&quot;}}">' +
-			'</sup></p>',
-		clipboardBody:
-			'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;' +
-			'Bar&quot;},&quot;attrs&quot;:{&quot;extends&quot;:&quot;foo&quot;}}" class="mw-ref reference">' +
-			'<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>' +
-			'</sup></p>',
+		body: ve.dm.example.singleLine`
+			<p>
+				<sup typeof="mw:Extension/ref" class="mw-ref reference"
+				 data-mw='{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}'>
+				</sup>
+			</p>
+		`,
+		fromDataBody: ve.dm.example.singleLine`
+			<p>
+				<sup typeof="mw:Extension/ref"
+				 data-mw='{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}'>
+				</sup>
+			</p>
+		`,
+		clipboardBody: ve.dm.example.singleLine`
+			<p>
+				<sup typeof="mw:Extension/ref"
+				 data-mw='{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}'
+				 class="mw-ref reference">
+					<a style="counter-reset: mw-Ref 1;">
+						<span class="mw-reflink-text">[1]</span>
+					</a>
+				</sup>
+			</p>
+		`,
 		data: [
 			{ type: 'paragraph' },
 			{

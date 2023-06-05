@@ -442,7 +442,7 @@ class Cite {
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
 		if ( $text !== null && trim( $text ) !== '' ) {
-			if ( substr_count( $text, Parser::MARKER_PREFIX . "-references-" ) ) {
+			if ( str_contains( $text, Parser::MARKER_PREFIX . "-references-" ) ) {
 				return $this->errorReporter->halfParsed( $parser, 'cite_error_included_references' );
 			}
 

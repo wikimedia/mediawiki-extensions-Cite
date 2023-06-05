@@ -37,6 +37,7 @@
 	"cite-ve-dialog-reference-editing-reused": "This reference is used {{PLURAL:$1|once|2=twice|$1 times}} on this page.",
 	"cite-ve-dialog-reference-editing-reused-long": "This reference is used {{PLURAL:$1|once|2=twice|$1 times}} on this page. Changes made here will be applied in all places where this reference is reused.",
 	"cite-ve-dialog-reference-editing-extends": "This is an extension of another reference.",
+	"cite-ve-dialog-reference-editing-extends-long": "This is an extension of another reference \"$1\".",
 	"cite-ve-dialog-reference-options-group-label": "Use this group",
 	"cite-ve-dialog-reference-options-group-placeholder": "General references",
 	"cite-ve-dialog-reference-options-name-label": "Re-use by this name",

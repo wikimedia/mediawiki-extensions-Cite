@@ -40,7 +40,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		?string $dir,
 		$expected
 	) {
-		/** @var ErrorReporter $errorReporter */
 		$errorReporter = $this->createMock( ErrorReporter::class );
 		/** @var ReferenceStack $stack */
 		$stack = TestingAccessWrapper::newFromObject( new ReferenceStack( $errorReporter ) );
@@ -386,7 +385,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		global $wgCiteResponsiveReferences;
 		$wgCiteResponsiveReferences = false;
 
-		/** @var Parser $parser */
 		$parser = $this->createMock( Parser::class );
 
 		$cite = $this->newCite();
@@ -664,7 +662,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockParser->method( 'getOutput' )->willReturn( $mockOutput );
 		$mockParser->method( 'getStripState' )
 			->willReturn( $this->createMock( StripState::class ) );
-		/** @var Parser $mockParser */
 
 		$cite = $this->newCite();
 		/** @var Cite $spy */
@@ -715,7 +712,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
 		$mockParser->method( 'getContentLanguage' )->willReturn(
 			$this->createMock( Language::class ) );
-		/** @var Parser $mockParser */
 		return new Cite( $mockParser );
 	}
 

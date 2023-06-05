@@ -40,7 +40,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	) {
 		$mockStripState = $this->createMock( StripState::class );
 		$mockStripState->method( 'unstripBoth' )->willReturnArgument( 0 );
-		/** @var StripState $mockStripState */
 		$stack = $this->newStack();
 
 		for ( $i = 0; $i < count( $refs ); $i++ ) {
@@ -991,7 +990,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 		$mockStripState = $this->createMock( StripState::class );
 		$mockStripState->method( 'unstripBoth' )->willReturnArgument( 0 );
-		/** @var StripState $mockStripState */
 		$stack->pushRef(
 			$this->createMock( Parser::class ),
 			$mockStripState,
@@ -1069,7 +1067,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	private function newStack() {
 		$errorReporter = $this->createMock( ErrorReporter::class );
 		$errorReporter->method( 'plain' )->willReturnArgument( 1 );
-		/** @var ErrorReporter $errorReporter */
 		return TestingAccessWrapper::newFromObject( new ReferenceStack( $errorReporter ) );
 	}
 

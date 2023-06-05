@@ -102,7 +102,6 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
 		$mockParser->method( 'getContentLanguage' )->willReturn(
 			$this->createMock( Language::class ) );
-		/** @var Parser $mockParser */
 		return new Cite( $mockParser );
 	}
 

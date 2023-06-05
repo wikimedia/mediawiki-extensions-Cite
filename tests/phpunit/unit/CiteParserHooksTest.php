@@ -40,7 +40,6 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$parser->extCite = $this->createMock( Cite::class );
 
 		$citeParserHooks = new CiteParserHooks();
-		/** @var Parser $parser */
 		$citeParserHooks->onParserClearState( $parser );
 
 		$this->assertFalse( isset( $parser->extCite ) );
@@ -54,7 +53,6 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$parser->extCite = $this->createMock( Cite::class );
 
 		$citeParserHooks = new CiteParserHooks();
-		/** @var Parser $parser */
 		$citeParserHooks->onParserCloned( $parser );
 
 		$this->assertFalse( isset( $parser->extCite ) );

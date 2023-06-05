@@ -79,7 +79,6 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 			}
 		);
 
-		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		return new ErrorReporter( $mockMessageLocalizer );
 	}
 

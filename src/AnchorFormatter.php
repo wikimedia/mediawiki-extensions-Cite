@@ -9,14 +9,8 @@ use Sanitizer;
  */
 class AnchorFormatter {
 
-	/**
-	 * @var ReferenceMessageLocalizer
-	 */
-	private $messageLocalizer;
+	private ReferenceMessageLocalizer $messageLocalizer;
 
-	/**
-	 * @param ReferenceMessageLocalizer $messageLocalizer
-	 */
 	public function __construct( ReferenceMessageLocalizer $messageLocalizer ) {
 		$this->messageLocalizer = $messageLocalizer;
 	}

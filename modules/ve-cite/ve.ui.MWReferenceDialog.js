@@ -267,8 +267,9 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	var usages = nodes ? nodes.filter( function ( node ) {
 		return !node.findParent( ve.dm.MWReferencesListNode );
 	} ).length : 0;
-	this.$reuseWarning.toggleClass( 'oo-ui-element-hidden', usages < 2 );
-	this.$reuseWarningText.text( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
+
+	this.reuseWarning.toggle( usages > 1 )
+		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
 
 	return this;
 };
@@ -287,11 +288,11 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	} );
 	this.searchPanel = new OO.ui.PanelLayout();
 
-	this.reuseWarningIcon = new OO.ui.IconWidget( { icon: 'alert' } );
-	this.$reuseWarningText = $( '<span>' );
-	this.$reuseWarning = $( '<div>' )
-		.addClass( 've-ui-mwReferenceDialog-reuseWarning' )
-		.append( this.reuseWarningIcon.$element, this.$reuseWarningText );
+	this.reuseWarning = new OO.ui.MessageWidget( {
+		inline: true,
+		icon: 'alert',
+		classes: [ 've-ui-mwReferenceDialog-reuseWarning' ]
+	} );
 
 	var citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry ).filter( function ( command ) {
 		return command.indexOf( 'cite-' ) !== -1;
@@ -330,7 +331,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	// Initialization
 	this.panels.addItems( [ this.editPanel, this.searchPanel ] );
-	this.editPanel.$element.append( this.$reuseWarning, this.contentFieldset.$element, this.optionsFieldset.$element );
+	this.editPanel.$element.append( this.reuseWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );
 	this.optionsFieldset.addItems( [ this.referenceGroupField ] );
 	this.searchPanel.$element.append( this.search.$element );
 	this.$body.append( this.panels.$element );

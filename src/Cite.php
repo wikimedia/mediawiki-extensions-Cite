@@ -184,7 +184,7 @@ class Cite {
 			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
 		}
 
-		if ( $dir !== null && !in_array( strtolower( $dir ), [ 'ltr', 'rtl' ] ) ) {
+		if ( $dir !== null && !in_array( strtolower( $dir ), [ 'ltr', 'rtl' ], true ) ) {
 			return StatusValue::newFatal( 'cite_error_ref_invalid_dir', $dir );
 		}
 
@@ -394,7 +394,7 @@ class Cite {
 
 		if ( count( $allValues ) > $maxCount ) {
 			// A <ref> must have a name (can be null), but <references> can't have one
-			$status->fatal( in_array( 'name', $allowedAttributes )
+			$status->fatal( in_array( 'name', $allowedAttributes, true )
 				? 'cite_error_ref_too_many_keys'
 				: 'cite_error_references_invalid_parameters'
 			);

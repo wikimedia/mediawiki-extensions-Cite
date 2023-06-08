@@ -18,27 +18,10 @@ class ReferencesFormatter {
 	 * @var string[]|null
 	 */
 	private $backlinkLabels = null;
+	private ErrorReporter $errorReporter;
+	private AnchorFormatter $anchorFormatter;
+	private ReferenceMessageLocalizer $messageLocalizer;
 
-	/**
-	 * @var ErrorReporter
-	 */
-	private $errorReporter;
-
-	/**
-	 * @var AnchorFormatter
-	 */
-	private $anchorFormatter;
-
-	/**
-	 * @var ReferenceMessageLocalizer
-	 */
-	private $messageLocalizer;
-
-	/**
-	 * @param ErrorReporter $errorReporter
-	 * @param AnchorFormatter $anchorFormatter
-	 * @param ReferenceMessageLocalizer $messageLocalizer
-	 */
 	public function __construct(
 		ErrorReporter $errorReporter,
 		AnchorFormatter $anchorFormatter,

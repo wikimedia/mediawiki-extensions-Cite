@@ -41,9 +41,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$expected
 	) {
 		$errorReporter = $this->createMock( ErrorReporter::class );
-		/** @var ReferenceStack $stack */
-		$stack = TestingAccessWrapper::newFromObject( new ReferenceStack( $errorReporter ) );
-		$stack->refs = $referencesStack;
+		$stack = new ReferenceStack( $errorReporter );
+		TestingAccessWrapper::newFromObject( $stack )->refs = $referencesStack;
 
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
@@ -496,9 +495,10 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			}
 		);
 
-		/** @var ReferenceStack $referenceStack */
-		$referenceStack = TestingAccessWrapper::newFromObject( new ReferenceStack( $mockErrorReporter ) );
-		$referenceStack->refs = $initialRefs;
+		$referenceStack = new ReferenceStack( $mockErrorReporter );
+		/** @var ReferenceStack $stackSpy */
+		$stackSpy = TestingAccessWrapper::newFromObject( $referenceStack );
+		$stackSpy->refs = $initialRefs;
 
 		$mockFootnoteMarkFormatter = $this->createMock( FootnoteMarkFormatter::class );
 		$mockFootnoteMarkFormatter->method( 'linkRef' )->willReturn( '<foot />' );
@@ -514,7 +514,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$result = $spy->guardedRef( $mockParser, $text, $argv );
 		$this->assertSame( $expectOutput, $result );
 		$this->assertSame( $expectedErrors, $spy->mReferencesErrors );
-		$this->assertSame( $expectedRefs, $referenceStack->refs );
+		$this->assertSame( $expectedRefs, $stackSpy->refs );
 	}
 
 	public static function provideGuardedRef() {

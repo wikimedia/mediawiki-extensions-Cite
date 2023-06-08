@@ -44,51 +44,29 @@ class Cite {
 	 */
 	public const BOOK_REF_PROPERTY = 'ref-extends';
 
-	/**
-	 * @var bool
-	 */
-	private $isSectionPreview;
-
-	/**
-	 * @var FootnoteMarkFormatter
-	 */
-	private $footnoteMarkFormatter;
-
-	/**
-	 * @var ReferencesFormatter
-	 */
-	private $referencesFormatter;
-
-	/**
-	 * @var ErrorReporter
-	 */
-	private $errorReporter;
+	private bool $isSectionPreview;
+	private FootnoteMarkFormatter $footnoteMarkFormatter;
+	private ReferencesFormatter $referencesFormatter;
+	private ErrorReporter $errorReporter;
 
 	/**
 	 * True when a <ref> tag is being processed.
 	 * Used to avoid infinite recursion
-	 *
-	 * @var bool
 	 */
-	private $mInCite = false;
+	private bool $mInCite = false;
 
 	/**
 	 * @var null|string The current group name while parsing nested <ref> in <references>. Null when
 	 *  parsing <ref> outside of <references>. Warning, an empty string is a valid group name!
 	 */
-	private $inReferencesGroup = null;
+	private ?string $inReferencesGroup = null;
 
 	/**
 	 * Error stack used when defining refs in <references>
-	 *
 	 * @var string[]
 	 */
-	private $mReferencesErrors = [];
-
-	/**
-	 * @var ReferenceStack
-	 */
-	private $referenceStack;
+	private array $mReferencesErrors = [];
+	private ReferenceStack $referenceStack;
 
 	/**
 	 * @param Parser $parser

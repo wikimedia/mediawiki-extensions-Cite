@@ -43,9 +43,8 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 			}
 		);
 
-		/** @var ReferenceStack $referenceStack */
-		$referenceStack = TestingAccessWrapper::newFromObject( new ReferenceStack( $mockErrorReporter ) );
-		$referenceStack->refs = $initialRefs;
+		$referenceStack = new ReferenceStack( $mockErrorReporter );
+		TestingAccessWrapper::newFromObject( $referenceStack )->refs = $initialRefs;
 
 		$referencesFormatter = $this->createMock( ReferencesFormatter::class );
 		$referencesFormatter->method( 'formatReferences' )->willReturn( '<references />' );

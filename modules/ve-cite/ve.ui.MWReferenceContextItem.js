@@ -126,10 +126,26 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
 };
 
 /**
+ * Get the text of the parent reference.
+ *
+ * @private
+ * @return {string|null}
+ */
+ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
+	var refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
+	if ( !refModel.extendsRef ) {
+		return null;
+	}
+	var list = this.getFragment().getDocument().getInternalList();
+	var index = list.keys.indexOf( 'literal/' + refModel.extendsRef );
+	return list.getItemNode( index ).element.attributes.originalHtml;
+};
+
+/**
  * @inheritdoc
  */
 ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
-	this.$body.empty().append( this.getRendering(), this.getReuseWarning(), this.getExtendsWarning() );
+	this.$body.empty().append( this.getParentRef(), this.getRendering(), this.getReuseWarning(), this.getExtendsWarning() );
 };
 
 /**

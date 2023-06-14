@@ -26,6 +26,7 @@
 	"cite-ve-dialog-reference-editing-reused": "Овој навод се користи {{PLURAL:$1|еднаш|2=двапати|$1 пати}} во страницава.",
 	"cite-ve-dialog-reference-editing-reused-long": "Овој навод се користи {{PLURAL:$1|еднаш|2=двапати|$1 пати}} на страницава. Тука направените промени ќе ги засегнат сите места на неговата употреба.",
 	"cite-ve-dialog-reference-editing-extends": "Ова е дополнување на друг навод.",
+	"cite-ve-dialog-reference-editing-extends-long": "Ова е дополнување на друг навод „$1“.",
 	"cite-ve-dialog-reference-options-group-label": "Употреби ја групава",
 	"cite-ve-dialog-reference-options-group-placeholder": "Општи наводи",
 	"cite-ve-dialog-reference-options-name-label": "Преупотреби под ова име",

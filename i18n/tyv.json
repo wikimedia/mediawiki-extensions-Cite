@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Karak-Kyzyl",
 			"Riverman"
 		]
 	},
-	"cite_error": "Цитата чазыы: $1"
+	"cite_error": "Чазыглыг цитата: $1"
 }

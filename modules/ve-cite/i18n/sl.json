@@ -27,6 +27,7 @@
 	"cite-ve-dialog-reference-editing-reused": "Ta sklic je na tej strani uporabljen {{PLURAL:$1|1=enkrat|2=dvakrat|$1-krat}}.",
 	"cite-ve-dialog-reference-editing-reused-long": "Ta sklic je na tej strani uporabljen {{PLURAL:$1| enkrat|2=dvakrat|$1-krat}}. Tu narejene spremembe bodo uporabljene povsod, kjer je ta sklic znova uporabljen.",
 	"cite-ve-dialog-reference-editing-extends": "To je razširitev drugega sklica.",
+	"cite-ve-dialog-reference-editing-extends-long": "To je razširitev drugega sklica »$1«",
 	"cite-ve-dialog-reference-options-group-label": "Uporabi to skupino",
 	"cite-ve-dialog-reference-options-group-placeholder": "Splošni sklici",
 	"cite-ve-dialog-reference-options-name-label": "Znova uporabi pod tem imenom",

@@ -50,6 +50,7 @@
 	"cite-ve-dialog-reference-editing-reused": "Ten przypis jest użyty {{PLURAL:$1|raz|2=dwa razy|$1 razy}} na tej stronie.",
 	"cite-ve-dialog-reference-editing-reused-long": "Ten przypis jest użyty {{PLURAL:$1|raz|$1 razy}} na tej stronie. Zmiany tutaj wprowadzone zostaną zastosowane we wszystkich miejscach, gdzie ten przypis jest użyty.",
 	"cite-ve-dialog-reference-editing-extends": "Jest to rozszerzenie innego przypisu.",
+	"cite-ve-dialog-reference-editing-extends-long": "Jest to rozszerzenie innego przypisu „$1”.",
 	"cite-ve-dialog-reference-options-group-label": "Użyj grupy",
 	"cite-ve-dialog-reference-options-group-placeholder": "Zwykłe przypisy",
 	"cite-ve-dialog-reference-options-name-label": "Wielokrotne użycie pod taką nazwą",

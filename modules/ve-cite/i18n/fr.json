@@ -69,6 +69,7 @@
 	"cite-ve-dialog-reference-editing-reused": "Cette référence est utilisée {{PLURAL:$1|1=une seule|2=deux|$1}} fois sur cette page.",
 	"cite-ve-dialog-reference-editing-reused-long": "Cette référence est utilisée {{PLURAL:$1|1=une seule|2=deux|$1}} fois sur cette page. Les modifications faites ici vont êtres appliquées partout où cette référence est utilisée.",
 	"cite-ve-dialog-reference-editing-extends": "Ceci est une extension d’une autre référence.",
+	"cite-ve-dialog-reference-editing-extends-long": "Ceci est une extension d’une autre référence « $1 ».",
 	"cite-ve-dialog-reference-options-group-label": "Utiliser ce groupe",
 	"cite-ve-dialog-reference-options-group-placeholder": "Références générales",
 	"cite-ve-dialog-reference-options-name-label": "Réutiliser avec ce nom",

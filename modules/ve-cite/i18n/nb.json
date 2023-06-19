@@ -38,6 +38,7 @@
 	"cite-ve-dialog-reference-editing-reused": "Denne referansen er brukt {{PLURAL:$1|én gang|$1  ganger}} på denne siden.",
 	"cite-ve-dialog-reference-editing-reused-long": "Denne referansen er brukt {{PLURAL:$1|én gang|$1 ganger}} på denne siden. Endringer gjort her vil brukes {{PLURAL:$1|2=begge|alle}} stedene referansen er gjenbrukt.",
 	"cite-ve-dialog-reference-editing-extends": "Dette er en utvidelse av en annen referanse.",
+	"cite-ve-dialog-reference-editing-extends-long": "Dette er en utvidelse av en annen referanse, «$1».",
 	"cite-ve-dialog-reference-options-group-label": "Bruk denne gruppen",
 	"cite-ve-dialog-reference-options-group-placeholder": "Generelle referanser",
 	"cite-ve-dialog-reference-options-name-label": "Gjenbruk med dette navnet",

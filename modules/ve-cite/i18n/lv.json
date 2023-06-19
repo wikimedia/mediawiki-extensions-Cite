@@ -29,6 +29,8 @@
 	"cite-ve-citationneeded-title": "Nepieciešama atsauce",
 	"cite-ve-dialog-reference-editing-reused": "Šī atsauce šajā lapā ir izmantota $1 {{PLURAL:$1|reizes|reizi|reizes}}.",
 	"cite-ve-dialog-reference-editing-reused-long": "Šī atsauce šajā lapā ir izmantota {{PLURAL:$1|1=vienu|2=divas|$1 reizes|$1 reizi|$1 reizes}}. Šeit veiktās izmaiņas tiks pielietotas visās vietās, kur atsauce izmantota.",
+	"cite-ve-dialog-reference-editing-extends": "Šis ir citas atsauces paplašinājums.",
+	"cite-ve-dialog-reference-editing-extends-long": "Šis ir citas atsauces \" $1 \" paplašinājums.",
 	"cite-ve-dialog-reference-options-group-label": "Lietot šo grupu",
 	"cite-ve-dialog-reference-options-group-placeholder": "Vispārīgas atsauces",
 	"cite-ve-dialog-reference-options-name-label": "Atkalizmantot ar šo nosaukumu",

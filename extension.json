@@ -30,11 +30,15 @@
 		"ParserClearState": "parser",
 		"ParserCloned": "parser",
 		"ParserFirstCallInit": "parser",
+		"EditPage::showEditForm:initial": "main",
 		"ResourceLoaderGetConfigVars": "main"
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "Cite\\Hooks\\CiteHooks"
+			"class": "Cite\\Hooks\\CiteHooks",
+			"services": [
+				"UserOptionsLookup"
+			]
 		},
 		"parser": {
 			"class": "Cite\\Hooks\\CiteParserHooks"
@@ -179,6 +183,40 @@
 				"cite-ve-othergroup-item",
 				"parentheses",
 				"word-separator"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
+		"ext.cite.wikiEditor": {
+			"localBasePath": "modules",
+			"remoteExtPath": "Cite/modules",
+			"scripts": [
+				"ext.cite.wikiEditor.js"
+			],
+			"dependencies": [
+				"ext.wikiEditor",
+				"mediawiki.jqueryMsg",
+				"mediawiki.language"
+			],
+			"messages": [
+				"cite-wikieditor-tool-reference",
+				"cite-wikieditor-help-page-references",
+				"cite-wikieditor-help-content-reference-example-text1",
+				"cite-wikieditor-help-content-reference-example-text2",
+				"cite-wikieditor-help-content-reference-example-text3",
+				"cite-wikieditor-help-content-reference-example-ref-id",
+				"cite-wikieditor-help-content-reference-example-ref-normal",
+				"cite-wikieditor-help-content-reference-example-ref-named",
+				"cite-wikieditor-help-content-reference-example-ref-reuse",
+				"cite-wikieditor-help-content-reference-example-ref-result",
+				"cite-wikieditor-help-content-reference-example-reflist",
+				"cite-wikieditor-help-content-reference-description",
+				"cite-wikieditor-help-content-named-reference-description",
+				"cite-wikieditor-help-content-rereference-description",
+				"cite-wikieditor-help-content-showreferences-description",
+				"cite_reference_backlink_symbol"
 			],
 			"targets": [
 				"desktop",

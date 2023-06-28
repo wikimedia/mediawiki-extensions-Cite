@@ -68,7 +68,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				],
 				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n</ol></div>"
+					"\n||)</li>\n</ol></div>"
 			],
 			'Ref with extends' => [
 				[
@@ -91,11 +91,11 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				],
 				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t1</span>' . "\n" .
-					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
-					'<span class="reference-text">t2</span>' . "\n|)</li>\n" .
+					'||)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
+					'<span class="reference-text">t2</span>' . "\n||)</li>\n" .
 					"</ol></li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'</ol></div>'
 			],
 			'Subref of subref' => [
@@ -122,11 +122,11 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				],
 				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' . "\n" .
-					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
+					'||)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
 					'<span class="reference-text">t1 (cite_error_ref_nested_extends|a|b)</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t2</span>' .
-					"\n|)</li>\n</ol></li>\n" .
+					"\n||)</li>\n</ol></li>\n" .
 					'</ol></div>'
 			],
 			'Use columns' => [
@@ -138,27 +138,27 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				),
 				'<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
 					"\n" . '<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n" .
+					"\n||)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
-					"\n|)</li>\n</ol></div>"
+					"\n||)</li>\n</ol></div>"
 			],
 		];
 	}
@@ -241,7 +241,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				[
 					'text' => 't',
 				],
-				'(cite_references_link_many|1-||<span class="reference-text">t</span>' . "\n|)"
+				'(cite_references_link_many|1-||<span class="reference-text">t</span>' . "\n||)"
 			],
 			'With dir' => [
 				1,
@@ -250,7 +250,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 					'text' => 't',
 				],
 				'(cite_references_link_many|1-||<span class="reference-text">t</span>' .
-					"\n" . '| class="mw-cite-dir-rtl")'
+					"\n" . '| class="mw-cite-dir-rtl"|)'
 			],
 			'Incomplete follow' => [
 				1,
@@ -267,7 +267,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 					'key' => 5,
 					'text' => 't',
 				],
-				'(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>' . "\n|)"
+				'(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>' . "\n||)"
 			],
 			'Count negative' => [
 				1,
@@ -277,7 +277,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 					'number' => 3,
 					'text' => 't',
 				],
-				'(cite_references_link_one|5|5+|<span class="reference-text">t</span>' . "\n|)"
+				'(cite_references_link_one|5|5+|<span class="reference-text">t</span>' . "\n||)"
 			],
 			'Count positive' => [
 				1,
@@ -292,7 +292,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				'(cite_references_link_many_sep)(cite_references_link_many_format|1+5-1|3.1|' .
 				'(cite_error_references_no_backlink_label))(cite_references_link_many_and)' .
 				'(cite_references_link_many_format|1+5-2|3.2|(cite_error_references_no_backlink_label' .
-				'))|<span class="reference-text">t</span>' . "\n|)"
+				'))|<span class="reference-text">t</span>' . "\n||)"
 			],
 		];
 	}

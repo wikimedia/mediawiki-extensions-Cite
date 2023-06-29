@@ -261,8 +261,8 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	this.referenceGroupInput.setValue( this.originalGroup );
 	this.referenceGroupInput.setDisabled( false );
 
-	var list = this.getFragment().getDocument().getInternalList();
-	var group = list.getNodeGroup( this.referenceModel.getListGroup() );
+	var group = this.getFragment().getDocument().getInternalList()
+		.getNodeGroup( this.referenceModel.getListGroup() );
 	var nodes = ve.getProp( group, 'keyedNodes', this.referenceModel.getListKey() );
 	var usages = nodes ? nodes.filter( function ( node ) {
 		return !node.findParent( ve.dm.MWReferencesListNode );
@@ -270,14 +270,6 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 
 	this.reuseWarning.toggle( usages > 1 )
 		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
-
-	this.extendsWarning.toggle( !!this.referenceModel.extendsRef );
-
-	if ( this.referenceModel.extendsRef !== undefined ) {
-		var index = list.keys.indexOf( 'literal/' + this.referenceModel.extendsRef );
-		var parentRef = list.getItemNode( index ).element.attributes.originalHtml;
-		this.extendsWarning.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-extends-long', parentRef ) );
-	}
 
 	return this;
 };
@@ -299,13 +291,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	this.reuseWarning = new OO.ui.MessageWidget( {
 		inline: true,
 		icon: 'alert',
-		classes: [ 've-ui-mwReferenceDialog-warning' ]
-	} );
-
-	this.extendsWarning = new OO.ui.MessageWidget( {
-		inline: true,
-		icon: 'alert',
-		classes: [ 've-ui-mwReferenceDialog-warning' ]
+		classes: [ 've-ui-mwReferenceDialog-reuseWarning' ]
 	} );
 
 	var citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry ).filter( function ( command ) {
@@ -345,7 +331,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	// Initialization
 	this.panels.addItems( [ this.editPanel, this.searchPanel ] );
-	this.editPanel.$element.append( this.reuseWarning.$element, this.extendsWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );
+	this.editPanel.$element.append( this.reuseWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );
 	this.optionsFieldset.addItems( [ this.referenceGroupField ] );
 	this.searchPanel.$element.append( this.search.$element );
 	this.$body.append( this.panels.$element );

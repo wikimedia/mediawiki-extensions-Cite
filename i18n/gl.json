@@ -36,5 +36,11 @@
 	"cite_references_link_accessibility_back_label": "Volver ó comezo",
 	"cite_section_preview_references": "Previsualización de referencias",
 	"cite_warning": "Advertencia de cita: $1",
-	"cite_warning_sectionpreview_no_text": "A etiqueta <code>&lt;ref&gt;</code> co nome <code>$1</code> non pode previsualizarse porque está definida fóra da sección actual ou non está definida en absoluto."
+	"cite_warning_sectionpreview_no_text": "A etiqueta <code>&lt;ref&gt;</code> co nome <code>$1</code> non pode previsualizarse porque está definida fóra da sección actual ou non está definida en absoluto.",
+	"cite-wikieditor-tool-reference": "Referencia",
+	"cite-wikieditor-help-page-references": "Referencias",
+	"cite-wikieditor-help-content-reference-description": "Referencia",
+	"cite-wikieditor-help-content-named-reference-description": "Referencia con nome",
+	"cite-wikieditor-help-content-rereference-description": "Uso adicional da mesma referencia",
+	"cite-wikieditor-help-content-showreferences-description": "Amosar as referencias"
 }

@@ -47,5 +47,11 @@
 	"cite_references_link_accessibility_back_label": "跳回",
 	"cite_section_preview_references": "参考文献预览",
 	"cite_warning": "引用警告：$1",
-	"cite_warning_sectionpreview_no_text": "带名称<code>$1</code>的<code>&lt;ref&gt;</code>标签不能预览，因为它在当前章节以外定义，或完全未定义。"
+	"cite_warning_sectionpreview_no_text": "带名称<code>$1</code>的<code>&lt;ref&gt;</code>标签不能预览，因为它在当前章节以外定义，或完全未定义。",
+	"cite-wikieditor-tool-reference": "参考资料",
+	"cite-wikieditor-help-page-references": "参考",
+	"cite-wikieditor-help-content-reference-description": "参考",
+	"cite-wikieditor-help-content-named-reference-description": "命名的参考文献",
+	"cite-wikieditor-help-content-rereference-description": "复用参考资料",
+	"cite-wikieditor-help-content-showreferences-description": "显示参考资料"
 }

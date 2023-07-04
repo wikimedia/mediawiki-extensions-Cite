@@ -53,5 +53,8 @@
 	"cite-wikieditor-help-content-reference-description": "参考",
 	"cite-wikieditor-help-content-named-reference-description": "命名的参考文献",
 	"cite-wikieditor-help-content-rereference-description": "复用参考资料",
-	"cite-wikieditor-help-content-showreferences-description": "显示参考资料"
+	"cite-wikieditor-help-content-showreferences-description": "显示参考资料",
+	"cite-wikieditor-help-content-reference-example-text1": "页面文本。$1",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 链接文本]，其他文本。",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 链接文本]"
 }

@@ -14,7 +14,7 @@ $( function () {
 			group: 'insert',
 			tools: {
 				reference: {
-					label: mw.message( 'cite-wikieditor-tool-reference' ).escaped(),
+					label: mw.msg( 'cite-wikieditor-tool-reference' ),
 					filters: [ 'body.ns-subject' ],
 					type: 'button',
 					oouiIcon: 'reference',
@@ -45,12 +45,12 @@ $( function () {
 			section: 'help',
 			pages: {
 				references: {
-					label: mw.message( 'cite-wikieditor-help-page-references' ).escaped(),
+					label: mw.msg( 'cite-wikieditor-help-page-references' ),
 					layout: 'table',
 					headings: [
-						{ text: mw.message( 'wikieditor-toolbar-help-heading-description' ).escaped() },
-						{ text: mw.message( 'wikieditor-toolbar-help-heading-syntax' ).escaped() },
-						{ text: mw.message( 'wikieditor-toolbar-help-heading-result' ).escaped() }
+						{ text: mw.message( 'wikieditor-toolbar-help-heading-description' ).parse() },
+						{ text: mw.message( 'wikieditor-toolbar-help-heading-syntax' ).parse() },
+						{ text: mw.message( 'wikieditor-toolbar-help-heading-result' ).parse() }
 					],
 					rows: [
 						{

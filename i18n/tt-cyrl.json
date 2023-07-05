@@ -4,6 +4,7 @@
 			"Marat-avgust",
 			"Timming",
 			"Ерней",
+			"З. ӘЙЛЕ",
 			"Ильнар"
 		]
 	},
@@ -11,10 +12,10 @@
 	"cite_error_references_duplicate_key": "Ярамаган <code>&lt;ref&gt;</code> исемле тамга: «$1» исеме берничә тапкыр төрле эчтәлек өчен билгеләнгән",
 	"cite_references_link_accessibility_label": "Күчү",
 	"cite_references_link_many_accessibility_label": "Күчү өчен:",
-	"cite-wikieditor-tool-reference": "Искәрмә",
-	"cite-wikieditor-help-page-references": "Искәрмә",
+	"cite-wikieditor-tool-reference": "Сылтамалар",
+	"cite-wikieditor-help-page-references": "Искәрмәләр",
 	"cite-wikieditor-help-content-reference-description": "Искәрмә",
-	"cite-wikieditor-help-content-named-reference-description": "Искәрмә, исем белән",
+	"cite-wikieditor-help-content-named-reference-description": "Исемле сылтама",
 	"cite-wikieditor-help-content-rereference-description": "Бирелгән сылтаманы өстәмә куллану",
-	"cite-wikieditor-help-content-showreferences-description": "Искәрмәне күрсәтү"
+	"cite-wikieditor-help-content-showreferences-description": "Искәрмәләрне күрсәтү"
 }

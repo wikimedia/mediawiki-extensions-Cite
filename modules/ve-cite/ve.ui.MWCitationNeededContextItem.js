@@ -12,8 +12,8 @@
  * @extends ve.ui.MWDefinedTransclusionContextItem
  *
  * @constructor
- * @param {ve.ui.Context} context Context item is in
- * @param {ve.dm.Model} model Model item is related to
+ * @param {ve.ui.LinearContext} context Context the item is in
+ * @param {ve.dm.Model} model Model the item is related to
  * @param {Object} [config]
  */
 ve.ui.MWCitationNeededContextItem = function VeUiMWCitationNeededContextItem() {

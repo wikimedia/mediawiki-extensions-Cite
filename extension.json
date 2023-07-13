@@ -60,9 +60,17 @@
 				"mobile"
 			]
 		},
+		"ext.cite.parsoid.styles": {
+			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
+			"styles": "ext.cite.parsoid.styles.css",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
 		"ext.cite.style": {
 			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
-			"styles": "ext.cite.style.css",
+			"styles": "ext.cite.parsoid.styles.css",
 			"targets": [
 				"desktop",
 				"mobile"

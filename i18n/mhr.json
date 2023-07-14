@@ -1,8 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Валентина Семёнова",
 			"Венина Наталья Константиновна"
 		]
 	},
-	"cite_error": "$1 - тыште йоҥылыш"
+	"cite_error": "$1 - тыште йоҥылыш",
+	"cite-wikieditor-tool-reference": "Палемдымаш",
+	"cite-wikieditor-help-page-references": "Палемдымаш",
+	"cite-wikieditor-help-content-reference-description": "Палемдымаш",
+	"cite-wikieditor-help-content-named-reference-description": "Вуйлӱм дене палемдымаш",
+	"cite-wikieditor-help-content-rereference-description": "Тиде кылверым уэш кучылтмаш"
 }

@@ -4,5 +4,9 @@
 			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ"
 		]
 	},
-	"cite_error": "ꠛꠥꠞꠣ ꠟꠈ: $1"
+	"cite_error": "ꠛꠥꠞꠣ ꠟꠈ: $1",
+	"cite-wikieditor-tool-reference": "ꠟꠇ",
+	"cite-wikieditor-help-page-references": "ꠟꠇꠣꠁꠘ",
+	"cite-wikieditor-help-content-reference-description": "ꠟꠇ",
+	"cite-wikieditor-help-content-named-reference-description": "ꠘꠣꠝꠀꠟꠣ ꠟꠇ"
 }

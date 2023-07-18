@@ -1,11 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Lifeway",
 			"Валентина Семёнова",
 			"Венина Наталья Константиновна"
 		]
 	},
 	"cite_error": "$1 - тыште йоҥылыш",
+	"cite-tracking-category-cite-error": "Палемдымаште йоҥылыш дене велыж-влак",
+	"cite_references_link_accessibility_label": "Мӧҥгеш текст деке",
+	"cite_references_link_many_accessibility_label": "Мӧҥгеш куснаш:",
+	"cite_references_link_accessibility_back_label": "Мӧҥгеш текст деке",
 	"cite-wikieditor-tool-reference": "Палемдымаш",
 	"cite-wikieditor-help-page-references": "Палемдымаш",
 	"cite-wikieditor-help-content-reference-description": "Палемдымаш",

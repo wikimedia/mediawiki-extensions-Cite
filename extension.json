@@ -60,10 +60,6 @@
 			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
 			"styles": "ext.cite.parsoid.styles.css"
 		},
-		"ext.cite.style": {
-			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
-			"styles": "ext.cite.parsoid.styles.css"
-		},
 		"ext.cite.visualEditor.core": {
 			"localBasePath": "modules/ve-cite",
 			"remoteExtPath": "Cite/modules/ve-cite",

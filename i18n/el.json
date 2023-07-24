@@ -47,5 +47,8 @@
 	"cite-wikieditor-help-content-reference-description": "Παραπομπή",
 	"cite-wikieditor-help-content-named-reference-description": "Ονομασμένη αναφορά",
 	"cite-wikieditor-help-content-rereference-description": "Πρόσθετη χρήση της ίδιας παραπομπής",
-	"cite-wikieditor-help-content-showreferences-description": "Εμφάνιση παραπομπών"
+	"cite-wikieditor-help-content-showreferences-description": "Εμφάνιση παραπομπών",
+	"cite-wikieditor-help-content-reference-example-text1": "Κείμενο σελίδας.$1",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 Κείμενο συνδέσμου], πρόσθετο κείμενο.",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Κείμενο συνδέσμου]"
 }

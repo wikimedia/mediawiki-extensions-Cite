@@ -181,8 +181,7 @@ class ReferencesFormatter {
 				$this->anchorFormatter->getReferencesKey( $id ),
 				$backlinkId,
 				$text . $error,
-				$extraAttributes,
-				$this->messageLocalizer->msg( 'cite_reference_backlink_symbol' )->parse()
+				$extraAttributes
 			)->plain();
 		}
 
@@ -207,8 +206,7 @@ class ReferencesFormatter {
 			$this->anchorFormatter->getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) ),
 			$this->listToText( $backlinks ),
 			$text . $error,
-			$extraAttributes,
-			$this->messageLocalizer->msg( 'cite_reference_backlink_symbol' )->parse()
+			$extraAttributes
 		)->plain();
 	}
 

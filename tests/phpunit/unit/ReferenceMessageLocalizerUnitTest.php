@@ -26,9 +26,9 @@ class ReferenceMessageLocalizerUnitTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testLocalizeDigits() {
 		$mockLanguage = $this->createNoOpMock( Language::class, [ 'formatNumNoSeparators' ] );
-		$mockLanguage->method( 'formatNumNoSeparators' )->willReturn( 'ה' );
+		$mockLanguage->method( 'formatNumNoSeparators' )->willReturnArgument( 0 );
 		$messageLocalizer = new ReferenceMessageLocalizer( $mockLanguage );
-		$this->assertSame( 'ה', $messageLocalizer->localizeDigits( '5' ) );
+		$this->assertSame( '50005', $messageLocalizer->localizeDigits( '50005' ) );
 	}
 
 }

@@ -424,6 +424,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		yield [ '1.2', 1, 2, 9 ];
 		yield [ '1.02', 1, 2, 99 ];
 		yield [ '1.002', 1, 2, 100 ];
+		yield [ '1.50005', 1, 50005, 50005 ];
 		yield [ '2.1', 2, 1, 1 ];
 	}
 

@@ -384,7 +384,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		global $wgCiteResponsiveReferences;
 		$wgCiteResponsiveReferences = false;
 
-		$parser = $this->createMock( Parser::class );
+		$parser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
 
 		$cite = $this->newCite();
 		/** @var Cite $spy */
@@ -479,7 +479,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		array $expectedRefs,
 		bool $isSectionPreview = false
 	) {
-		$mockParser = $this->createMock( Parser::class );
+		$mockParser = $this->createNoOpMock( Parser::class, [ 'getStripState' ] );
 		$mockParser->method( 'getStripState' )
 			->willReturn( $this->createMock( StripState::class ) );
 
@@ -658,10 +658,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			->method( 'setPageProperty' )
 			->with( Cite::BOOK_REF_PROPERTY, '' );
 
-		$mockParser = $this->createMock( Parser::class );
+		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOutput' ] );
 		$mockParser->method( 'getOutput' )->willReturn( $mockOutput );
-		$mockParser->method( 'getStripState' )
-			->willReturn( $this->createMock( StripState::class ) );
 
 		$cite = $this->newCite();
 		/** @var Cite $spy */
@@ -675,12 +673,14 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	 * @coversNothing
 	 */
 	public function testReferencesSectionPreview() {
+		$language = $this->createNoOpMock( Language::class );
+
 		$parserOptions = $this->createMock( ParserOptions::class );
 		$parserOptions->method( 'getIsSectionPreview' )->willReturn( true );
 
-		$parser = $this->createMock( Parser::class );
+		$parser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getContentLanguage' ] );
 		$parser->method( 'getOptions' )->willReturn( $parserOptions );
-		$parser->method( 'getContentLanguage' )->willReturn( $this->createMock( Language::class ) );
+		$parser->method( 'getContentLanguage' )->willReturn( $language );
 
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( new Cite( $parser ) );
@@ -703,15 +703,14 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	private function newCite( bool $isSectionPreview = false ): Cite {
+		$language = $this->createNoOpMock( Language::class, [ '__debugInfo' ] );
+
 		$mockOptions = $this->createMock( ParserOptions::class );
-		$mockOptions->method( 'getIsPreview' )->willReturn( false );
 		$mockOptions->method( 'getIsSectionPreview' )->willReturn( $isSectionPreview );
-		$mockOptions->method( 'getUserLangObj' )->willReturn(
-			$this->createMock( Language::class ) );
-		$mockParser = $this->createMock( Parser::class );
+
+		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getContentLanguage' ] );
 		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
-		$mockParser->method( 'getContentLanguage' )->willReturn(
-			$this->createMock( Language::class ) );
+		$mockParser->method( 'getContentLanguage' )->willReturn( $language );
 		return new Cite( $mockParser );
 	}
 

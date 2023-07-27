@@ -15,7 +15,7 @@ class ReferenceMessageLocalizerUnitTest extends \MediaWikiUnitTestCase {
 	 * @covers ::__construct
 	 */
 	public function testLocalizeSeparators() {
-		$mockLanguage = $this->createMock( Language::class );
+		$mockLanguage = $this->createNoOpMock( Language::class, [ 'separatorTransformTable' ] );
 		$mockLanguage->method( 'separatorTransformTable' )->willReturn( [ '.' => ',', '0' => '' ] );
 		$messageLocalizer = new ReferenceMessageLocalizer( $mockLanguage );
 		$this->assertSame( '10,0', $messageLocalizer->localizeSeparators( '10.0' ) );
@@ -25,7 +25,7 @@ class ReferenceMessageLocalizerUnitTest extends \MediaWikiUnitTestCase {
 	 * @covers ::localizeDigits
 	 */
 	public function testLocalizeDigits() {
-		$mockLanguage = $this->createMock( Language::class );
+		$mockLanguage = $this->createNoOpMock( Language::class, [ 'formatNumNoSeparators' ] );
 		$mockLanguage->method( 'formatNumNoSeparators' )->willReturn( 'ה' );
 		$messageLocalizer = new ReferenceMessageLocalizer( $mockLanguage );
 		$this->assertSame( 'ה', $messageLocalizer->localizeDigits( '5' ) );

@@ -20,7 +20,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 	 * @covers ::onParserFirstCallInit
 	 */
 	public function testOnParserFirstCallInit() {
-		$parser = $this->createMock( Parser::class );
+		$parser = $this->createNoOpMock( Parser::class, [ 'setHook' ] );
 		$parser->expects( $this->exactly( 2 ) )
 			->method( 'setHook' )
 			->withConsecutive(

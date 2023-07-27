@@ -44,7 +44,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 		for ( $i = 0; $i < count( $refs ); $i++ ) {
 			$result = $stack->pushRef(
-				$this->createMock( Parser::class ),
+				$this->createNoOpMock( Parser::class ),
 				$mockStripState,
 				...$refs[$i]
 			);
@@ -991,7 +991,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$mockStripState = $this->createMock( StripState::class );
 		$mockStripState->method( 'unstripBoth' )->willReturnArgument( 0 );
 		$stack->pushRef(
-			$this->createMock( Parser::class ),
+			$this->createNoOpMock( Parser::class ),
 			$mockStripState,
 			'text', [],
 			'foo', null, 'a', null, 'rtl'

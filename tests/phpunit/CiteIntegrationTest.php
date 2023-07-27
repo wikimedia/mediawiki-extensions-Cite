@@ -57,8 +57,8 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		$spy->referencesFormatter = $referencesFormatter;
 		$spy->isSectionPreview = $isSectionPreview;
 
-		$output = $cite->checkRefsNoReferences(
-			$this->createMock( Parser::class ), $isSectionPreview );
+		$parser = $this->createNoOpMock( Parser::class );
+		$output = $cite->checkRefsNoReferences( $parser, $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -92,15 +92,15 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	private function newCite(): Cite {
+		$language = $this->createNoOpMock( Language::class );
+
 		$mockOptions = $this->createMock( ParserOptions::class );
 		$mockOptions->method( 'getIsPreview' )->willReturn( false );
 		$mockOptions->method( 'getIsSectionPreview' )->willReturn( false );
-		$mockOptions->method( 'getUserLangObj' )->willReturn(
-			$this->createMock( Language::class ) );
-		$mockParser = $this->createMock( Parser::class );
+
+		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getContentLanguage' ] );
 		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
-		$mockParser->method( 'getContentLanguage' )->willReturn(
-			$this->createMock( Language::class ) );
+		$mockParser->method( 'getContentLanguage' )->willReturn( $language );
 		return new Cite( $mockParser );
 	}
 

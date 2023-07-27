@@ -24,7 +24,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	 * @dataProvider provideFormatReferences
 	 */
 	public function testFormatReferences( array $refs, string $expectedOutput ) {
-		$mockParser = $this->createMock( Parser::class );
+		$mockParser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
@@ -229,8 +229,8 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			$mockMessageLocalizer
 		) );
 
-		$output = $formatter->formatListItem(
-			$this->createMock( Parser::class ), $key, $val, false );
+		$parser = $this->createNoOpMock( Parser::class );
+		$output = $formatter->formatListItem( $parser, $key, $val, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -321,8 +321,8 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			$this->createMock( ReferenceMessageLocalizer::class )
 		) );
 
-		$output = $formatter->referenceText(
-			$this->createMock( Parser::class ), $key, $text, $isSectionPreview );
+		$parser = $this->createNoOpMock( Parser::class );
+		$output = $formatter->referenceText( $parser, $key, $text, $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -384,8 +384,8 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			$mockMessageLocalizer
 		) );
 
-		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel(
-			$this->createMock( Parser::class ), $offset );
+		$parser = $this->createNoOpMock( Parser::class );
+		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel( $parser, $offset );
 		if ( $expectedLabel !== null ) {
 			$this->assertSame( $expectedLabel, $label );
 		}

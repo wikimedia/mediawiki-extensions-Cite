@@ -60,7 +60,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 	}
 
 	private function createLanguage(): Language {
-		$language = $this->createMock( Language::class );
+		$language = $this->createNoOpMock( Language::class, [ 'getDir', 'getHtmlCode' ] );
 		$language->method( 'getDir' )->willReturn( 'rtl' );
 		$language->method( 'getHtmlCode' )->willReturn( 'qqx' );
 		return $language;
@@ -86,7 +86,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		$parserOptions = $this->createMock( ParserOptions::class );
 		$parserOptions->method( 'getUserLangObj' )->willReturn( $language );
 
-		$parser = $this->createMock( Parser::class );
+		$parser = $this->createNoOpMock( Parser::class, [ 'addTrackingCategory', 'getOptions', 'recursiveTagParse' ] );
 		$parser->expects( $this->exactly( count( $expectedCategories ) ) )
 			->method( 'addTrackingCategory' )
 			->withConsecutive( $expectedCategories );

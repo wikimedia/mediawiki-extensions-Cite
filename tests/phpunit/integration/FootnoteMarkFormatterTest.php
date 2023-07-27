@@ -49,7 +49,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				return $msg;
 			}
 		);
-		$mockParser = $this->createMock( Parser::class );
+		$mockParser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		$formatter = new FootnoteMarkFormatter(
 			$mockErrorReporter,
@@ -167,8 +167,8 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 			$mockMessageLocalizer
 		) );
 
-		$output = $formatter->getLinkLabel(
-			$this->createMock( Parser::class ), $group, $offset );
+		$parser = $this->createNoOpMock( Parser::class );
+		$output = $formatter->getLinkLabel( $parser, $group, $offset );
 		$this->assertSame( $expectedLabel, $output );
 	}
 

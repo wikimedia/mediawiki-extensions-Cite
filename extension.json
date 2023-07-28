@@ -146,7 +146,7 @@
 				"oojs-ui.styles.icons-editing-citation",
 				"oojs-ui.styles.icons-interactions",
 				"ext.cite.visualEditor.core",
-				"ext.cite.style",
+				"ext.cite.parsoid.styles",
 				"ext.cite.styles",
 				"ext.visualEditor.mwtransclusion",
 				"ext.visualEditor.base",

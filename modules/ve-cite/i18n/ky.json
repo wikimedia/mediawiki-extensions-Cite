@@ -3,6 +3,7 @@
 		"authors": [
 			"Arystanbek",
 			"Askar Nazyrov",
+			"Bosogo",
 			"Chorobek",
 			"Connexx",
 			"George Animal",
@@ -12,7 +13,9 @@
 			"Викиней"
 		]
 	},
+	"visualeditor-cite-tool-name-book": "Китеп",
 	"visualeditor-cite-tool-name-news": "Жаңылыктар",
 	"visualeditor-cite-tool-name-web": "Веб-сайт",
-	"cite-ve-dialog-reference-options-section": "Ырастоолор"
+	"cite-ve-dialog-reference-options-section": "Ырастоолор",
+	"cite-ve-toolbar-group-label": "Булактар"
 }

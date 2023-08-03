@@ -26,7 +26,8 @@
 			"Zhangjintao",
 			"乌拉跨氪",
 			"佛壁灯",
-			"夢蝶葬花"
+			"夢蝶葬花",
+			"沈澄心"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "图书",
@@ -47,6 +48,8 @@
 	"cite-ve-citationneeded-title": "需要引用",
 	"cite-ve-dialog-reference-editing-reused": "此引用在本页使用了$1{{PLURAL:$1|次}}。",
 	"cite-ve-dialog-reference-editing-reused-long": "此引用在本页使用了$1{{PLURAL:$1|次}}。在此做出的更改将在复用此引用的所有页面生效。",
+	"cite-ve-dialog-reference-editing-extends": "这是另一个参考文献的扩充。",
+	"cite-ve-dialog-reference-editing-extends-long": "这是另一个参考文献“$1”的扩充。",
 	"cite-ve-dialog-reference-options-group-label": "使用该组",
 	"cite-ve-dialog-reference-options-group-placeholder": "一般参考文献",
 	"cite-ve-dialog-reference-options-name-label": "以该名称重复使用",

@@ -2,10 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Patriot Kor",
-			"Patriot Kur"
+			"Patriot Kur",
+			"Гусейн"
 		]
 	},
+	"visualeditor-cite-tool-name-book": "Kitob",
+	"visualeditor-cite-tool-name-journal": "Žurnal",
 	"visualeditor-cite-tool-name-news": "Tojə xəbon",
+	"visualeditor-cite-tool-name-web": "Vebsajt",
+	"cite-ve-citationneeded-button": "Link bə səvoni doj",
+	"cite-ve-citationneeded-reason": "Nišo doə byə səbəbː",
+	"cite-ve-citationneeded-title": "Bə səvoni link lozime",
+	"cite-ve-dialog-reference-options-group-label": "Ym grupi oko doj",
+	"cite-ve-dialog-reference-options-group-placeholder": "Umumijə linkon",
 	"cite-ve-dialog-referenceslist-title": "İstinadoni siyohi",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "İstinadon"
 }

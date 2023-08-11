@@ -12,6 +12,8 @@ use Title;
  * @license GPL-2.0-or-later
  */
 class CiteDbTest extends \MediaWikiIntegrationTestCase {
+	/** @inheritDoc */
+	protected $tablesUsed = [ 'page' ];
 
 	/**
 	 * Edge case where a parser call within `<ref>` parse clears the original parser state.

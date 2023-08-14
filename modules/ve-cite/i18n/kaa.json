@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Nurlan",
-			"Inabat Allanova"
+			"Inabat Allanova",
+			"Ajiniyaz Nurniyazov"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Kitap",
@@ -14,6 +15,8 @@
 	"cite-ve-changedesc-ref-group-to": "Maǵlıwmat toparı ulıwma topardan “$1” ǵa ózgertirildi",
 	"cite-ve-citationneeded-button": "Derek qosıw",
 	"cite-ve-citationneeded-title": "Derek kerek",
+	"cite-ve-dialog-reference-options-group-label": "Mına topardı qollanıw",
+	"cite-ve-dialog-reference-options-group-placeholder": "Ulıwma siltemeler",
 	"cite-ve-dialog-reference-options-name-label": "Usı attı qaytadan paydalanıw",
 	"cite-ve-dialog-reference-options-section": "Opciyalar",
 	"cite-ve-dialog-reference-title": "Derekler",

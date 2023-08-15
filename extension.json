@@ -54,27 +54,15 @@
 			},
 			"skinStyles": {
 				"minerva": "ext.cite.styles.minerva.less"
-			},
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			}
 		},
 		"ext.cite.parsoid.styles": {
 			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
-			"styles": "ext.cite.parsoid.styles.css",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			"styles": "ext.cite.parsoid.styles.css"
 		},
 		"ext.cite.style": {
 			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
-			"styles": "ext.cite.parsoid.styles.css",
-			"targets": [
-				"desktop",
-				"mobile"
-			]
+			"styles": "ext.cite.parsoid.styles.css"
 		},
 		"ext.cite.visualEditor.core": {
 			"localBasePath": "modules/ve-cite",
@@ -103,10 +91,6 @@
 				"cite-ve-referenceslist-missingreflist",
 				"visualeditor-internal-list-diff-default-group-name-mwreference",
 				"visualeditor-internal-list-diff-group-name-mwreference"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cite.visualEditor": {
@@ -190,10 +174,6 @@
 				"cite-ve-othergroup-item",
 				"parentheses",
 				"word-separator"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cite.wikiEditor": {
@@ -224,10 +204,6 @@
 				"cite-wikieditor-help-content-rereference-description",
 				"cite-wikieditor-help-content-showreferences-description",
 				"cite_reference_backlink_symbol"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"ext.cite.ux-enhancements": {
@@ -247,10 +223,6 @@
 				"cite_references_link_accessibility_label",
 				"cite_references_link_many_accessibility_label",
 				"cite_references_link_accessibility_back_label"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		}
 	},

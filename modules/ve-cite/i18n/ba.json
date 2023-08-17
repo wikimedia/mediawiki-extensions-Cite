@@ -15,7 +15,7 @@
 	"visualeditor-cite-tool-name-journal": "Мәҡәлә",
 	"visualeditor-cite-tool-name-news": "Яңылыҡтар",
 	"visualeditor-cite-tool-name-web": "Веб-сайт",
-	"cite-ve-dialog-reference-editing-reused": "Был иҫкәрмә биттә  {{PLURAL\n:$1|бер|2=ике|$1 тапҡыр}} ҡулланыла.",
+	"cite-ve-dialog-reference-editing-reused": "Был иҫкәрмә биттә {{PLURAL:$1|бер|2=ике|$1 тапҡыр}} ҡулланыла.",
 	"cite-ve-dialog-reference-options-group-label": "Был төркөмдө ҡулланырға",
 	"cite-ve-dialog-reference-options-group-placeholder": "Дөйөм һылтанмалар",
 	"cite-ve-dialog-reference-options-name-label": "Бирелгән исем аҫтында ҡабаттан ҡулланырға",

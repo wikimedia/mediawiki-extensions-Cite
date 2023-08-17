@@ -7,14 +7,15 @@
 			"Haqmar",
 			"Sagan",
 			"Ләйсән",
-			"Рустам Нурыев"
+			"Рустам Нурыев",
+			"З. ӘЙЛЕ"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Китап",
 	"visualeditor-cite-tool-name-journal": "Мәҡәлә",
 	"visualeditor-cite-tool-name-news": "Яңылыҡтар",
 	"visualeditor-cite-tool-name-web": "Веб-сайт",
-	"cite-ve-dialog-reference-editing-reused": "Был һылтанма биттә $1 тапҡыр {{PLURAL:$1|ҡулланыла}}.",
+	"cite-ve-dialog-reference-editing-reused": "Был иҫкәрмә биттә  {{PLURAL\n:$1|бер|2=ике|$1 тапҡыр}} ҡулланыла.",
 	"cite-ve-dialog-reference-options-group-label": "Был төркөмдө ҡулланырға",
 	"cite-ve-dialog-reference-options-group-placeholder": "Дөйөм һылтанмалар",
 	"cite-ve-dialog-reference-options-name-label": "Бирелгән исем аҫтында ҡабаттан ҡулланырға",
@@ -26,7 +27,7 @@
 	"cite-ve-dialog-referenceslist-title": "Иҫкәрмәләр исемлеге",
 	"cite-ve-dialogbutton-citation-educationpopup-text": "Яһалған мәҡәләләрҙең абруйын сығанаҡтар ярҙамында арттырырға тырышығыҙ. Һеҙ китап-гәзиттәрҙән һәм төрлө биттәрҙән кәрәкле өҙөктәрҙе ала алаһығыҙ.",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Өҙөктәр",
-	"cite-ve-dialogbutton-reference-full-label": "Ябай форма",
+	"cite-ve-dialogbutton-reference-full-label": "Төп",
 	"cite-ve-dialogbutton-reference-title": "Иҫкәрмәләр",
 	"cite-ve-dialogbutton-reference-tooltip": "Иҫкәрмәләр",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Иҫкәрмәләр исемлеге",

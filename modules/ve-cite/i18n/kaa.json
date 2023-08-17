@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Inabat Allanova",
-			"Nurlan"
+			"Nurlan",
+			"Ajiniyaz Nurniyazov"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Kitap",
@@ -15,6 +16,8 @@
 	"cite-ve-citationneeded-button": "Derek qosıw",
 	"cite-ve-citationneeded-reason": "Berilgen sebep:",
 	"cite-ve-citationneeded-title": "Derek kerek",
+	"cite-ve-dialog-reference-options-group-label": "Mına topardı qollanıw",
+	"cite-ve-dialog-reference-options-group-placeholder": "Ulıwma siltemeler",
 	"cite-ve-dialog-reference-options-name-label": "Usı attı qaytadan paydalanıw",
 	"cite-ve-dialog-reference-options-section": "Opciyalar",
 	"cite-ve-dialog-reference-title": "Derekler",

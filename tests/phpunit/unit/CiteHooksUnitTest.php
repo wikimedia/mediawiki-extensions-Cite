@@ -3,8 +3,8 @@
 namespace Cite\Tests\Unit;
 
 use Cite\Hooks\CiteHooks;
+use MediaWiki\Title\Title;
 use MediaWiki\User\StaticUserOptionsLookup;
-use Title;
 
 /**
  * @covers \Cite\Hooks\CiteHooks

@@ -3,8 +3,8 @@
 namespace Cite\Tests;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use ParserOptions;
-use Title;
 
 /**
  * @group Database

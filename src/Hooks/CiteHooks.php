@@ -14,9 +14,9 @@ use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsLookup;
 use OutputPage;
-use Title;
 
 /**
  * @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName

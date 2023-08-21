@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor MWReferencesListContextItem class.
  *
@@ -65,7 +67,7 @@ ve.ui.MWReferencesListContextItem.prototype.renderBody = function () {
  * @inheritdoc
  */
 ve.ui.MWReferencesListContextItem.prototype.getDescription = function () {
-	var group = this.model.getAttribute( 'refGroup' );
+	const group = this.model.getAttribute( 'refGroup' );
 
 	return group ?
 		ve.msg( 'cite-ve-dialog-referenceslist-contextitem-description-named', group ) :

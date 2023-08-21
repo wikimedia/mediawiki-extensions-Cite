@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Add Cite-specific functionality to the WikiEditor toolbar.
  * Adds a button to insert <ref> tags, and adds a help section
@@ -30,7 +32,7 @@ $( function () {
 		} );
 
 		/* Add reference help to the Help section */
-		var parsedRef = function ( number ) {
+		const parsedRef = function ( number ) {
 			return $( '<sup>' )
 				.addClass( 'reference' )
 				.append(

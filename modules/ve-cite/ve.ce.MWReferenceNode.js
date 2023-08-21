@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor ContentEditable MWReferenceNode class.
  *
@@ -110,12 +112,12 @@ ve.ce.MWReferenceNode.prototype.onAttributeChange = function ( key ) {
  * @inheritdoc ve.ce.FocusableNode
  */
 ve.ce.MWReferenceNode.prototype.executeCommand = function () {
-	var items = ve.ui.contextItemFactory.getRelatedItems( [ this.model ] );
+	const items = ve.ui.contextItemFactory.getRelatedItems( [ this.model ] );
 
 	if ( items.length ) {
-		var contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
+		const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
 		if ( contextItem ) {
-			var command = this.getRoot().getSurface().getSurface().commandRegistry.lookup( contextItem.static.commandName );
+			const command = this.getRoot().getSurface().getSurface().commandRegistry.lookup( contextItem.static.commandName );
 			if ( command ) {
 				command.execute( this.focusableSurface.getSurface() );
 			}

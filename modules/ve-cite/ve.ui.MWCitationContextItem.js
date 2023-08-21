@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor MWCitationContextItem class.
  *

@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor Cite-specific DiffElement tests.
  *
@@ -7,9 +9,9 @@
 QUnit.module( 've.ui.DiffElement (Cite)' );
 
 QUnit.test( 'Diffing', function ( assert ) {
-	var spacer = '<div class="ve-ui-diffElement-spacer">⋮</div>',
+	const spacer = '<div class="ve-ui-diffElement-spacer">⋮</div>',
 		ref = function ( text, num ) {
-			var dataMw = {
+			const dataMw = {
 				name: 'ref',
 				body: { html: text }
 				// attrs doesn't get set in preview mode

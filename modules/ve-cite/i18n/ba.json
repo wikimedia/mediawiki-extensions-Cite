@@ -32,8 +32,8 @@
 	"cite-ve-dialogbutton-reference-tooltip": "Төп",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Иҫкәрмәләр исемлеге",
 	"cite-ve-reference-input-placeholder": "Нимәгә һылтанырға теләйһегеҙ?",
-	"cite-ve-referenceslist-isempty": "Был биттә исемлеккә индереү өсөн \"$1\" төркөмө һылтанмалары юҡ.",
+	"cite-ve-referenceslist-isempty": "Был исемлеккә индереү өсөн был биттә \"$1\" төркөмө һылтанмалары юҡ.",
 	"cite-ve-referenceslist-isempty-default": "Был биттә исемлеккә индерер һылтанмалар юҡ.",
-	"cite-ve-referenceslist-missingref": "Был иҫкәрмә ҡалыпта йәки икенсе өлөштә билдәләнә, шуға күрә сығанаҡта ғына мөхәррирләнә ала.",
+	"cite-ve-referenceslist-missingref": "Был иҫкәрмә ҡалыпта йәки икенсе өлөштә билдәләнә, шуға күрә әлеге ваҡытта бары тик сығанаҡ кодты төҙәтеү режимында ғына мөхәррирләнә ала.",
 	"cite-ve-toolbar-group-label": "Сығанаҡ"
 }

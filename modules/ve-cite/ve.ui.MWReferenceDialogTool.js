@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor MediaWiki Reference dialog tool classes.
  *

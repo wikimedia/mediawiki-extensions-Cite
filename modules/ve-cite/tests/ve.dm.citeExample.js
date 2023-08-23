@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor DataModel Cite-specific example data sets.
  *

@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor UserInterface MWReferenceGroupInput class.
  *
@@ -38,13 +40,13 @@ OO.inheritClass( ve.ui.MWReferenceGroupInputWidget, OO.ui.ComboBoxInputWidget );
  * @param {ve.dm.InternalList} internalList Internal list with which to populate the menu
  */
 ve.ui.MWReferenceGroupInputWidget.prototype.populateMenu = function ( internalList ) {
-	var items = [ new OO.ui.MenuOptionWidget( {
+	const items = [ new OO.ui.MenuOptionWidget( {
 		data: '',
 		label: this.emptyGroupName,
 		flags: 'emptyGroupPlaceholder'
 	} ) ];
-	for ( var groupName in internalList.getNodeGroups() ) {
-		var match = groupName.match( /^mwReference\/(.+)/ );
+	for ( const groupName in internalList.getNodeGroups() ) {
+		const match = groupName.match( /^mwReference\/(.+)/ );
 		if ( match ) {
 			items.push( new OO.ui.MenuOptionWidget( { data: match[ 1 ], label: match[ 1 ] } ) );
 		}

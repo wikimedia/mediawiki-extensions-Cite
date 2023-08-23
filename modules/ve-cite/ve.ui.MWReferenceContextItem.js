@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor MWReferenceContextItem class.
  *
@@ -49,7 +51,7 @@ ve.ui.MWReferenceContextItem.static.commandName = 'reference';
  * @return {jQuery} DOM rendering of reference
  */
 ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
-	var refNode = this.getReferenceNode();
+	const refNode = this.getReferenceNode();
 	if ( refNode ) {
 		this.view = new ve.ui.MWPreviewElement( refNode );
 
@@ -72,11 +74,11 @@ ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
  * @return {jQuery|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
-	var refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model ),
-		group = this.getFragment().getDocument().getInternalList()
-			.getNodeGroup( refModel.getListGroup() );
-	var nodes = ve.getProp( group, 'keyedNodes', refModel.getListKey() );
-	var usages = nodes && nodes.filter( function ( node ) {
+	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
+	const group = this.getFragment().getDocument().getInternalList()
+		.getNodeGroup( refModel.getListGroup() );
+	const nodes = ve.getProp( group, 'keyedNodes', refModel.getListKey() );
+	const usages = nodes && nodes.filter( function ( node ) {
 		return !node.findParent( ve.dm.MWReferencesListNode );
 	} ).length;
 	if ( usages > 1 ) {
@@ -93,7 +95,7 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
  * @return {jQuery|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
-	var refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
+	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
 
 	if ( refModel.extendsRef ) {
 		return $( '<div>' )
@@ -112,7 +114,7 @@ ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
 		return null;
 	}
 	if ( !this.referenceNode ) {
-		var refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
+		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
 		this.referenceNode = this.getFragment().getDocument().getInternalList().getItemNode( refModel.getListIndex() );
 	}
 	return this.referenceNode;
@@ -132,12 +134,12 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  * @return {string|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
-	var refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
+	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
 	if ( !refModel.extendsRef ) {
 		return null;
 	}
-	var list = this.getFragment().getDocument().getInternalList();
-	var index = list.keys.indexOf( 'literal/' + refModel.extendsRef );
+	const list = this.getFragment().getDocument().getInternalList();
+	const index = list.keys.indexOf( 'literal/' + refModel.extendsRef );
 	return list.getItemNode( index ).element.attributes.originalHtml;
 };
 

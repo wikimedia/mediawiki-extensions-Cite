@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor UserInterface MWWikitextStringTransferHandler tests.
  *
@@ -15,7 +17,7 @@ QUnit.module( 've.ui.MWWikitextStringTransferHandler (Cite)', ve.test.utils.newM
 /* Tests */
 
 QUnit.test( 'convert', function ( assert ) {
-	var cases = [
+	const cases = [
 		{
 			msg: 'Simple reference',
 			pasteString: '<ref>Foo</ref>',
@@ -82,7 +84,7 @@ QUnit.test( 'convert', function ( assert ) {
 		}
 	];
 
-	var server = this.server;
+	const server = this.server;
 	cases.forEach( function ( caseItem ) {
 		ve.test.utils.runWikitextStringHandlerTest(
 			assert, server, caseItem.pasteString, caseItem.pasteType,

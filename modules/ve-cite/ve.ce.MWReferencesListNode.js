@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * VisualEditor ContentEditable MWReferencesListNode class.
  *
@@ -76,7 +78,7 @@ ve.ce.MWReferencesListNode.static.getDescription = function ( model ) {
  * @inheritdoc ve.ce.FocusableNode
  */
 ve.ce.MWReferencesListNode.prototype.getExtraHighlightClasses = function () {
-	var extraClasses = ve.ce.FocusableNode.prototype.getExtraHighlightClasses.apply( this, arguments );
+	const extraClasses = ve.ce.FocusableNode.prototype.getExtraHighlightClasses.apply( this, arguments );
 	return extraClasses.concat( [
 		've-ce-mwReferencesListNode-highlight'
 	] );
@@ -173,20 +175,20 @@ ve.ce.MWReferencesListNode.prototype.onListNodeUpdate = function () {
  * Update the references list.
  */
 ve.ce.MWReferencesListNode.prototype.update = function () {
-	var model = this.getModel();
+	const model = this.getModel();
 
 	// Check the node hasn't been destroyed, as this method is debounced.
 	if ( !model ) {
 		return;
 	}
 
-	var internalList = model.getDocument().internalList;
-	var refGroup = model.getAttribute( 'refGroup' );
-	var listGroup = model.getAttribute( 'listGroup' );
-	var nodes = internalList.getNodeGroup( listGroup );
-	var hasModelReferences = !!( nodes && nodes.indexOrder.length );
+	const internalList = model.getDocument().internalList;
+	const refGroup = model.getAttribute( 'refGroup' );
+	const listGroup = model.getAttribute( 'listGroup' );
+	const nodes = internalList.getNodeGroup( listGroup );
+	const hasModelReferences = !!( nodes && nodes.indexOrder.length );
 
-	var emptyText;
+	let emptyText;
 	if ( refGroup !== '' ) {
 		emptyText = ve.msg( 'cite-ve-referenceslist-isempty', refGroup );
 	} else {
@@ -230,10 +232,10 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$element.append( this.$refmsg );
 	} else {
 		nodes.indexOrder.forEach( function ( index ) {
-			var firstNode = nodes.firstNodes[ index ];
+			const firstNode = nodes.firstNodes[ index ];
 
-			var key = internalList.keys[ index ];
-			var keyedNodes = nodes.keyedNodes[ key ];
+			const key = internalList.keys[ index ];
+			let keyedNodes = nodes.keyedNodes[ key ];
 			keyedNodes = keyedNodes.filter( function ( node ) {
 				// Exclude placeholders and references defined inside the references list node
 				return !node.getAttribute( 'placeholder' ) &&
@@ -244,13 +246,13 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 				return;
 			}
 
-			var $li = $( '<li>' )
+			const $li = $( '<li>' )
 				.append( this.renderBacklinks( keyedNodes, refGroup ), ' ' );
 
 			// Generate reference HTML from first item in key
-			var modelNode = internalList.getItemNode( firstNode.getAttribute( 'listIndex' ) );
+			const modelNode = internalList.getItemNode( firstNode.getAttribute( 'listIndex' ) );
 			if ( modelNode && modelNode.length ) {
-				var refPreview = new ve.ui.MWPreviewElement( modelNode, { useView: true } );
+				const refPreview = new ve.ui.MWPreviewElement( modelNode, { useView: true } );
 				$li.append(
 					$( '<span>' )
 						.addClass( 'reference-text' )
@@ -265,22 +267,22 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			}
 
 			if ( this.getRoot() ) {
-				var surface = this.getRoot().getSurface().getSurface();
+				const surface = this.getRoot().getSurface().getSurface();
 				$li.on( 'mousedown', function ( e ) {
 					if ( modelNode && modelNode.length ) {
-						var items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] ).filter( function ( item ) {
+						const items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] ).filter( function ( item ) {
 							return item.name !== 'mobileActions';
 						} );
 						if ( items.length ) {
-							var contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
+							const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
 							if ( contextItem ) {
-								var command = surface.commandRegistry.lookup( contextItem.static.commandName );
+								const command = surface.commandRegistry.lookup( contextItem.static.commandName );
 								if ( command ) {
-									var fragmentArgs = {
+									const fragmentArgs = {
 										fragment: surface.getModel().getLinearFragment( firstNode.getOuterRange(), true ),
 										selectFragmentOnClose: false
 									};
-									var newArgs = ve.copy( command.args );
+									const newArgs = ve.copy( command.args );
 									if ( command.name === 'reference' ) {
 										newArgs[ 1 ] = fragmentArgs;
 									} else {
@@ -309,7 +311,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
  * Currently used to set responsive layout
  */
 ve.ce.MWReferencesListNode.prototype.updateClasses = function () {
-	var isResponsive = this.getModel().getAttribute( 'isResponsive' );
+	const isResponsive = this.getModel().getAttribute( 'isResponsive' );
 
 	this.$element
 		.toggleClass( 'mw-references-wrap', isResponsive )
@@ -332,8 +334,8 @@ ve.ce.MWReferencesListNode.prototype.renderBacklinks = function ( keyedNodes, re
 	}
 
 	// named reference with multiple usages
-	var $refSpan = $( '<span>' ).attr( 'rel', 'mw:referencedBy' );
-	for ( var i = 0; i < keyedNodes.length; i++ ) {
+	const $refSpan = $( '<span>' ).attr( 'rel', 'mw:referencedBy' );
+	for ( let i = 0; i < keyedNodes.length; i++ ) {
 		$( '<a>' )
 			.attr( 'data-mw-group', refGroup || null )
 			.append( $( '<span>' ).addClass( 'mw-linkback-text' ).text( ( i + 1 ) + ' ' ) )

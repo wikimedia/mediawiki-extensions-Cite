@@ -61,7 +61,7 @@
 	"cite-ve-referenceslist-isempty-default": "Det er ingen kildehenvisninger på denne siden som kan inkluderes i denne lista.",
 	"cite-ve-referenceslist-missingref": "Denne kildehenvisningen er definert ved hjelp av en mal eller en annen generert blokk, og kan foreløpig kun redigeres i kildemodus.",
 	"cite-ve-referenceslist-missingref-in-list": "Denne referanser defineres i en mal eller annen generert blokk, og kan for nå kun forhåndsvises i kildemodus.",
-	"cite-ve-referenceslist-missingreflist": "Denne referanselista genereres av en mal, og kan for tiden kun redigeres i kildemodus.",
+	"cite-ve-referenceslist-missingreflist": "Denne referanselista genereres av en mal.",
 	"cite-ve-toolbar-group-label": "Angi kilde",
 	"cite-ve-othergroup-item": "$1 referanse",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referanser",

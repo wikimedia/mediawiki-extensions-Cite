@@ -73,7 +73,7 @@
 	"cite-ve-referenceslist-isempty-default": "Na tej stronie nie ma żadnych przypisów, aby uwzględnić je na tej liście.",
 	"cite-ve-referenceslist-missingref": "Ten przypis jest zdefiniowany w szablonie lub wygenerowany w inny sposób. Teraz może być edytowany wyłącznie w edytorze kodu źródłowego.",
 	"cite-ve-referenceslist-missingref-in-list": "Ten przypis został zdefiniowany wewnątrz szablonu lub innego wygenerowanego bloku i na razie jest możliwy jego podgląd w trybie edycji kodu źródłowego.",
-	"cite-ve-referenceslist-missingreflist": "Ta lista przypisów jest generowana przez szablon i na razie jest możliwość edycji tylko w trybie kodu źródłowego.",
+	"cite-ve-referenceslist-missingreflist": "Ta lista przypisów jest generowana przez szablon.",
 	"cite-ve-toolbar-group-label": "Przypis",
 	"cite-ve-othergroup-item": "Przypis $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Przypisy",

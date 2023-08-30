@@ -43,5 +43,8 @@
 	"cite-wikieditor-help-content-reference-description": "Atsauce",
 	"cite-wikieditor-help-content-named-reference-description": "Nosaukta atsauce",
 	"cite-wikieditor-help-content-rereference-description": "Atkārtota jau esošas atsauces izmantošana",
-	"cite-wikieditor-help-content-showreferences-description": "Parādīt atsauces"
+	"cite-wikieditor-help-content-showreferences-description": "Parādīt atsauces",
+	"cite-wikieditor-help-content-reference-example-text1": "Lapas teksts.$1",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 Saites teksts], papildu teksts.",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Saites teksts]"
 }

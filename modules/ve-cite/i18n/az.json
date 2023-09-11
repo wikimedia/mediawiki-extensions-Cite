@@ -53,7 +53,7 @@
 	"cite-ve-referenceslist-isempty-default": "Bu səhifədə bu siyahıya daxil ediləcək heç bir istinad yoxdur.",
 	"cite-ve-referenceslist-missingref": "Bu istinad bir şablonda və ya digər yaradılan blokda təyin olunur və hələlik yalnız mənbə rejimində redaktə edilə bilər.",
 	"cite-ve-referenceslist-missingref-in-list": "Bu istinad bir şablonda və ya digər yaradılan blokda təyin olunur və hələlik yalnız mənbə rejimində önizlənə bilər.",
-	"cite-ve-referenceslist-missingreflist": "Bu istinad siyahısı bir şablon tərəfindən yaradılır və hələlik yalnız mənbə rejimində redaktə edilə bilər.",
+	"cite-ve-referenceslist-missingreflist": "Bu istinad siyahısı bir şablon tərəfindən yaradılır",
 	"cite-ve-toolbar-group-label": "İstinad",
 	"cite-ve-othergroup-item": "$1 istinad",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "İstinadlar",

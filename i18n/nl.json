@@ -47,5 +47,8 @@
 	"cite-wikieditor-help-content-reference-description": "Referentie",
 	"cite-wikieditor-help-content-named-reference-description": "Benoemde referentie",
 	"cite-wikieditor-help-content-rereference-description": "Extra gebruik van dezelfde referentie",
-	"cite-wikieditor-help-content-showreferences-description": "Referenties weergeven"
+	"cite-wikieditor-help-content-showreferences-description": "Referenties weergeven",
+	"cite-wikieditor-help-content-reference-example-text1": "Paginatekst.$1",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linktekst], aanvullende tekst.",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linktekst]"
 }

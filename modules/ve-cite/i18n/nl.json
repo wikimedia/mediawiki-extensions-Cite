@@ -58,6 +58,8 @@
 	"cite-ve-citationneeded-title": "Referentie gewenst",
 	"cite-ve-dialog-reference-editing-reused": "Deze referentie wordt $1 {{PLURAL:$1|keer}} gebruikt op deze pagina.",
 	"cite-ve-dialog-reference-editing-reused-long": "Deze referentie wordt $1 {{PLURAL:$1|keer}} gebruikt op deze pagina. Wijzigingen die u hier maakt, zijn van toepassing op alle plaatsen waar deze referentie gebruikt wordt.",
+	"cite-ve-dialog-reference-editing-extends": "Dit is een uitbreiding van een andere verwijzing.",
+	"cite-ve-dialog-reference-editing-extends-long": "Dit is een uitbreiding van een andere verwijzing “$1”.",
 	"cite-ve-dialog-reference-options-group-label": "Deze groep gebruiken",
 	"cite-ve-dialog-reference-options-group-placeholder": "Algemene referenties",
 	"cite-ve-dialog-reference-options-name-label": "Hergebruiken op naam",

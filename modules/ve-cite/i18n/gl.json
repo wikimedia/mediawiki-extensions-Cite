@@ -30,9 +30,12 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "A lista de referencias mudou para amosar só unha columna",
 	"cite-ve-citationneeded-button": "Engadir unha referencia",
 	"cite-ve-citationneeded-description": "Un editor indicou que esta afirmación precisa dunha cita a unha fonte fiable.",
+	"cite-ve-citationneeded-reason": "Motivo achegado:",
 	"cite-ve-citationneeded-title": "Cómpre referencia",
 	"cite-ve-dialog-reference-editing-reused": "Esta referencia úsase {{PLURAL:$1|unha vez|2=dúas veces|$1 veces}} nesta páxina.",
 	"cite-ve-dialog-reference-editing-reused-long": "Esta referencia utilízase {{PLURAL:$1|unha vez|2=dúas veces|$1 veces}} nesta páxina. Os cambios feitos aquí aplicaránse en tódolos sitios donde se reutiliza esta referencia.",
+	"cite-ve-dialog-reference-editing-extends": "Esta é unha extensión doutra referencia.",
+	"cite-ve-dialog-reference-editing-extends-long": "Esta é unha extensión da referencia \"$1\".",
 	"cite-ve-dialog-reference-options-group-label": "Utilizar este grupo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referencias xerais",
 	"cite-ve-dialog-reference-options-name-label": "Reutilizar por este nome",
@@ -55,9 +58,9 @@
 	"cite-ve-referenceslist-isempty-default": "Non hai referencias nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-missingref": "Esta referencia está definida nun modelo ou noutro bloque xerado; polo de agora, só se pode editar no modo fonte.",
 	"cite-ve-referenceslist-missingref-in-list": "Esta referencia está definida nun modelo ou noutro bloque xerado e só pode previsualizarse en modo fonte.",
-	"cite-ve-referenceslist-missingreflist": "Esta referencia é xerada a través dun modelo e polo momento só pode editarse en modo fonte.",
+	"cite-ve-referenceslist-missingreflist": "Esta referencia xérase a través dun modelo.",
 	"cite-ve-toolbar-group-label": "Citar",
 	"cite-ve-othergroup-item": "referencia $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencias",
-	"visualeditor-internal-list-diff-group-name-mwreference": "Grupo de referencias de nome : \"$1\""
+	"visualeditor-internal-list-diff-group-name-mwreference": "Nome do grupo de referencias: \"$1\""
 }

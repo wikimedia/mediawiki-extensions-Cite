@@ -30,6 +30,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "A lista de referencias mudou para amosar só unha columna",
 	"cite-ve-citationneeded-button": "Engadir unha referencia",
 	"cite-ve-citationneeded-description": "Un editor indicou que esta afirmación precisa dunha cita a unha fonte fiable.",
+	"cite-ve-citationneeded-reason": "Motivo achegado:",
 	"cite-ve-citationneeded-title": "Cómpre referencia",
 	"cite-ve-dialog-reference-editing-reused": "Esta referencia úsase {{PLURAL:$1|unha vez|2=dúas veces|$1 veces}} nesta páxina.",
 	"cite-ve-dialog-reference-editing-reused-long": "Esta referencia utilízase {{PLURAL:$1|unha vez|2=dúas veces|$1 veces}} nesta páxina. Os cambios feitos aquí aplicaránse en tódolos sitios donde se reutiliza esta referencia.",
@@ -59,5 +60,5 @@
 	"cite-ve-toolbar-group-label": "Citar",
 	"cite-ve-othergroup-item": "referencia $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencias",
-	"visualeditor-internal-list-diff-group-name-mwreference": "Grupo de referencias de nome : \"$1\""
+	"visualeditor-internal-list-diff-group-name-mwreference": "Nome do grupo de referencias: \"$1\""
 }

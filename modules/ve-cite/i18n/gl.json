@@ -60,5 +60,5 @@
 	"cite-ve-toolbar-group-label": "Citar",
 	"cite-ve-othergroup-item": "referencia $1",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referencias",
-	"visualeditor-internal-list-diff-group-name-mwreference": "Grupo de referencias de nome : \"$1\""
+	"visualeditor-internal-list-diff-group-name-mwreference": "Nome do grupo de referencias: \"$1\""
 }

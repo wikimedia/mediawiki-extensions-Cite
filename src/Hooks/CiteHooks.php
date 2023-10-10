@@ -97,7 +97,7 @@ class CiteHooks implements
 
 		$wikiEditorEnabled = ExtensionRegistry::getInstance()->isLoaded( 'WikiEditor' );
 
-		$user = $editPage->getArticle()->getContext()->getUser();
+		$user = $editPage->getContext()->getUser();
 
 		if (
 			$wikiEditorEnabled &&

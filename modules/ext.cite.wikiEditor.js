@@ -8,7 +8,7 @@
  * @author Jon Harald Søby
  */
 
-$( function () {
+( function () {
 	mw.hook( 'wikiEditor.toolbarReady' ).add( function ( $textarea ) {
 		/* Add the <ref></ref> button to the toolbar */
 		$textarea.wikiEditor( 'addToToolbar', {

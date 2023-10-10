@@ -91,11 +91,16 @@ class CiteHooks implements
 	 * @param OutputPage $outputPage object.
 	 */
 	public function onEditPage__showEditForm_initial( $editPage, $outputPage ) {
-		if ( $editPage->contentModel !== CONTENT_MODEL_WIKITEXT ) {
+		$extensionRegistry = ExtensionRegistry::getInstance();
+		$allowedContentModels = array_merge(
+			[ CONTENT_MODEL_WIKITEXT ],
+			$extensionRegistry->getAttribute( 'CiteAllowedContentModels' )
+		);
+		if ( !in_array( $editPage->contentModel, $allowedContentModels ) ) {
 			return;
 		}
 
-		$wikiEditorEnabled = ExtensionRegistry::getInstance()->isLoaded( 'WikiEditor' );
+		$wikiEditorEnabled = $extensionRegistry->isLoaded( 'WikiEditor' );
 
 		$user = $editPage->getContext()->getUser();
 

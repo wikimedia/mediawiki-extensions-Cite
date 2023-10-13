@@ -187,7 +187,7 @@ class ReferenceStack {
 			}
 		}
 
-		$ref['number'] = $ref['number'] ?? ++$this->groupRefSequence[$group];
+		$ref['number'] ??= ++$this->groupRefSequence[$group];
 
 		// Do not mess with a known parent a second time
 		if ( $extends && !isset( $ref['extendsIndex'] ) ) {

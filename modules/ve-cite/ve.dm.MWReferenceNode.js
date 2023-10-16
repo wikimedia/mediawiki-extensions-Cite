@@ -492,6 +492,9 @@ ve.dm.MWReferenceNode.prototype.removeFromInternalList = function () {
 };
 
 ve.dm.MWReferenceNode.prototype.onAttributeChange = function ( key, from, to ) {
+	if ( key === 'placeholder' ) {
+		this.getDocument().getInternalList().markGroupAsChanged( this.registeredListGroup );
+	}
 	if (
 		( key !== 'listGroup' && key !== 'listKey' ) ||
 		( key === 'listGroup' && this.registeredListGroup === to ) ||

@@ -9,7 +9,8 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"Rex",
-			"Sumbukompor"
+			"Sumbukompor",
+			"Veracious"
 		]
 	},
 	"cite-desc": "Menambahkan tag <code>&lt;ref&gt;</code> dan <code>&lt;references&gt;</code> untuk kutipan",
@@ -46,5 +47,6 @@
 	"cite-wikieditor-help-content-reference-description": "Referensi",
 	"cite-wikieditor-help-content-named-reference-description": "Referensi bernama",
 	"cite-wikieditor-help-content-rereference-description": "Penggunaan kembali referensi yang sama",
-	"cite-wikieditor-help-content-showreferences-description": "Menampilkan referensi"
+	"cite-wikieditor-help-content-showreferences-description": "Menampilkan referensi",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Teks pranala]"
 }

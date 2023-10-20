@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ukhant Erdemt"
+			"Ukhant Erdemt",
+			"Алия"
 		]
 	},
-	"cite_error": "Эш татсна алда: $1"
+	"cite_error": "Иш татхд һарсн алдс: $1"
 }

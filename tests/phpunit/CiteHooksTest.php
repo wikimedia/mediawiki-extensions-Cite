@@ -4,7 +4,6 @@ namespace Cite\Tests;
 
 use ApiQuerySiteinfo;
 use Cite\Hooks\CiteHooks;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\User\StaticUserOptionsLookup;
 
 /**
@@ -20,7 +19,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	public function testOnResourceLoaderGetConfigVars() {
 		$vars = [];
 
-		$config = MediaWikiServices::getInstance()->getMainConfig();
+		$config = $this->getServiceContainer()->getMainConfig();
 
 		$citeHooks = new CiteHooks( new StaticUserOptionsLookup( [] ) );
 		$citeHooks->onResourceLoaderGetConfigVars( $vars, 'vector', $config );
@@ -36,7 +35,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$api = $this->createMock( ApiQuerySiteinfo::class );
 		$api->expects( $this->once() )
 			->method( 'getConfig' )
-			->willReturn( MediaWikiServices::getInstance()->getMainConfig() );
+			->willReturn( $this->getServiceContainer()->getMainConfig() );
 
 		$data = [];
 

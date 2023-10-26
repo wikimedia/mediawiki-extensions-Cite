@@ -2,7 +2,6 @@
 
 namespace Cite\Tests;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use ParserOptions;
 
@@ -23,7 +22,7 @@ class CiteDbTest extends \MediaWikiIntegrationTestCase {
 	public function testReferenceStackError() {
 		$this->insertPage( 'Cite-tracking-category-cite-error', '{{PAGENAME}}', NS_MEDIAWIKI );
 
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		// Reset the MessageCache in order to force it to clone a new parser.
 		$services->resetServiceForTesting( 'MessageCache' );
 		$services->getMessageCache()->enable();

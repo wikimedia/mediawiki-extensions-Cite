@@ -3,7 +3,6 @@
 namespace Cite\Tests;
 
 use Cite\ResourceLoader\CiteCSSFileModule;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\ResourceLoader\Context;
 
 /**
@@ -18,7 +17,7 @@ class CiteCSSFileModuleTest extends \MediaWikiIntegrationTestCase {
 
 		$this->setService(
 			'ContentLanguage',
-			MediaWikiServices::getInstance()->getLanguageFactory()->getLanguage( 'fa' )
+			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'fa' )
 		);
 	}
 

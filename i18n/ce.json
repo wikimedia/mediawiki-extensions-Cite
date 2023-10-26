@@ -16,6 +16,7 @@
 	"cite_error_no_link_label_group": "Тобан «$1» декъашхойн билгалонаш чекхйаьлла. Хаам [[MediaWiki:$2]] чохь билгалйе кхин тӀе йерш.",
 	"cite_error_references_no_text": "<code>&lt;ref&gt;</code> тег нийса йац; кху <code>$1</code> тIетовжаран йоза йаздина дац",
 	"cite_error_included_ref": "ДӀакъовлуш йолу тег йац <code>&lt;/ref&gt;</code>",
+	"cite_error_included_references": "ДӀачӀогӀу тег йац <code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "Тобан «$1» йолуш йолу тегашца <code>&lt;ref&gt;</code> йогӀуш йолу тег <code>&lt;references group=\"$1\"/&gt;</code> ца карийна",
 	"cite_error_references_group_mismatch": "Теган <code>&lt;ref&gt;</code> <code>&lt;references&gt;</code> йукъахь нийса йоцу тобанаш йу атрибутийн «$1».",
 	"cite_error_references_missing_group": "Тег <code>&lt;ref&gt;</code>, билгалйина <code>&lt;references&gt;</code>, «$1» тобан атрибут йу, йозан йукъахь йоцу.",

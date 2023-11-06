@@ -34,6 +34,8 @@
 	"cite-ve-dialogbutton-reference-tooltip": "Коьрта",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Билгалдаккхаршан могӀам",
 	"cite-ve-reference-input-placeholder": "Муьлхачунна тӀетовжа лаьа хьуна?",
+	"cite-ve-referenceslist-isempty": "ХӀокху могӀаман йукъатоха, хӀокху агӀонгахь йац «$1» тобанца хьажоргаш.",
+	"cite-ve-referenceslist-isempty-default": "ХӀокху могӀаман йукъатоха, хӀокху агӀонгахь йац хьажоргаш.",
 	"cite-ve-toolbar-group-label": "Белгалдахарш",
 	"cite-ve-othergroup-item": "$1 билгалдаккхар",
 	"visualeditor-internal-list-diff-default-group-name-mwreference": "ТӀетовжамаш",

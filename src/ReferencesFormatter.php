@@ -155,6 +155,9 @@ class ReferencesFormatter {
 
 		if ( isset( $val['dir'] ) ) {
 			$dir = strtolower( $val['dir'] );
+			// The following classes are generated here:
+			// * mw-cite-dir-ltr
+			// * mw-cite-dir-rtl
 			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
 		}
 

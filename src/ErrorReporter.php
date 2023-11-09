@@ -102,6 +102,9 @@ class ErrorReporter {
 		return Html::rawElement(
 			'span',
 			[
+				// The following classes are generated here:
+				// * mw-ext-cite-warning
+				// * mw-ext-cite-error
 				'class' => "$type mw-ext-cite-$type" . $extraClass,
 				'lang' => $language->getHtmlCode(),
 				'dir' => $language->getDir(),

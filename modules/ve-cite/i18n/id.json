@@ -67,7 +67,5 @@
 	"cite-ve-referenceslist-missingref-in-list": "Referensi ini didefinisikan dalam templat atau blok lain, dan saat ini hanya dapat dipratinjau dalam mode sumber.",
 	"cite-ve-referenceslist-missingreflist": "Daftar referensi ini dihasilkan oleh templat, dan saat ini hanya dapat disunting dalam mode sumber.",
 	"cite-ve-toolbar-group-label": "Kutip",
-	"cite-ve-othergroup-item": "$1 referensi",
-	"visualeditor-internal-list-diff-default-group-name-mwreference": "Referensi",
-	"visualeditor-internal-list-diff-group-name-mwreference": "Nama kelompok referensi: \"$1\""
+	"cite-ve-othergroup-item": "$1 referensi"
 }

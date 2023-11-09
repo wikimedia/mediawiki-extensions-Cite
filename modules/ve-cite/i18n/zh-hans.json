@@ -75,7 +75,5 @@
 	"cite-ve-referenceslist-missingref-in-list": "该参考文献定义在模板或其他生成块中，目前只能在源代码模式下编辑。",
 	"cite-ve-referenceslist-missingreflist": "此参考资料列表由模板生成。",
 	"cite-ve-toolbar-group-label": "引用",
-	"cite-ve-othergroup-item": "$1参考文献",
-	"visualeditor-internal-list-diff-default-group-name-mwreference": "参考文献",
-	"visualeditor-internal-list-diff-group-name-mwreference": "参考文献组名：“$1”"
+	"cite-ve-othergroup-item": "$1参考文献"
 }

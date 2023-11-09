@@ -31,6 +31,5 @@
 	"cite-ve-referenceslist-isempty-default": "Það eru engar tilvísanir á þessari síðu til að taka með í þennan lista.",
 	"cite-ve-referenceslist-missingref": "Þessi tilvísun er tilgreind í sniði eða öðru tilbúnu efni, og í augnablikinu er aðeins hægt að breyta henni með frumkóðaritlinum.",
 	"cite-ve-toolbar-group-label": "Tilvísun",
-	"cite-ve-othergroup-item": "$1 tilvísun",
-	"visualeditor-internal-list-diff-default-group-name-mwreference": "Tilvísanir"
+	"cite-ve-othergroup-item": "$1 tilvísun"
 }

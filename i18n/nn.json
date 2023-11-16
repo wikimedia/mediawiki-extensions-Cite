@@ -32,5 +32,5 @@
 	"cite_references_link_accessibility_back_label": "Hopp opp att",
 	"cite_section_preview_references": "Førehandsvising av kjelder",
 	"cite_warning": "Siteringsåtvaring: $1",
-	"cite_warning_sectionpreview_no_text": "<code>&lt;ref&gt;</code>-merket med namnet <code>$1</code> kan ikkje førehandsvisast av di det er definert utanfor dette avsnittet eller av di det ikkje er definerte i det heile."
+	"cite_warning_sectionpreview_no_text": "<code>&lt;ref&gt;</code>-merket med namnet <code>$1</code> kan ikkje førehandsvisast av di det er definert utanfor dette avsnittet eller ikkje er definert i det heile."
 }

@@ -26,6 +26,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "Erreferentzia zerrenda zutabe bakarrean bistaratzeko aldatu da",
 	"cite-ve-citationneeded-button": "Erreferentzia gehitu",
 	"cite-ve-citationneeded-description": "Lankide batek adierazi du adierazpen honek iturri baliagarri bat behar duela.",
+	"cite-ve-citationneeded-reason": "Emandako arrazoia:",
 	"cite-ve-citationneeded-title": "Erreferentzia behar da",
 	"cite-ve-dialog-reference-editing-reused": "Erreferentzia hau {{PLURAL:$1|behin|2=birritan|$1 aldiz}} agertzen da orri honetan.",
 	"cite-ve-dialog-reference-editing-reused-long": "Erreferentzia hau {{PLURAL:$1|behin|2=birritan|$1 aldiz}} erabiltzen da orrialde honetan. Hemen egiten dituzun aldaketek berrerabiltzen ari diren guztietan aldatuko dira.",

@@ -89,7 +89,11 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		$parser = $this->createNoOpMock( Parser::class, [ 'addTrackingCategory', 'getOptions', 'recursiveTagParse' ] );
 		$parser->expects( $this->exactly( count( $expectedCategories ) ) )
 			->method( 'addTrackingCategory' )
-			->withConsecutive( $expectedCategories );
+			->willReturnCallback( function ( $cat ) use ( &$expectedCategories ) {
+				$catIdx = array_search( $cat, $expectedCategories, true );
+				$this->assertNotFalse( $catIdx, "Unexpected category: $cat" );
+				unset( $expectedCategories[$catIdx] );
+			} );
 		$parser->method( 'getOptions' )->willReturn( $parserOptions );
 		$parser->method( 'recursiveTagParse' )->willReturnCallback(
 			static function ( $content ) {

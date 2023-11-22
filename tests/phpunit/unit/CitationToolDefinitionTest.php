@@ -33,12 +33,11 @@ class CitationToolDefinitionTest extends \MediaWikiUnitTestCase {
 
 		$context = $this->createStub( Context::class );
 		$context->method( 'msg' )
-			->withConsecutive(
-				[ 'cite-tool-definition.json' ],
-				[ 'visualeditor-cite-tool-definition.json' ],
-				[ 'visualeditor-cite-tool-name-n' ]
-			)
-			->willReturn( $msg );
+			->willReturnMap( [
+				[ 'cite-tool-definition.json', $msg ],
+				[ 'visualeditor-cite-tool-definition.json', $msg ],
+				[ 'visualeditor-cite-tool-name-n', $msg ]
+			] );
 		$context->method( 'encodeJson' )->willReturnCallback( 'json_encode' );
 		return $context;
 	}

@@ -21,12 +21,13 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testOnParserFirstCallInit() {
 		$parser = $this->createNoOpMock( Parser::class, [ 'setHook' ] );
+		$expectedTags = [ 'ref' => true, 'references' => true ];
 		$parser->expects( $this->exactly( 2 ) )
 			->method( 'setHook' )
-			->withConsecutive(
-				[ 'ref', $this->isType( 'callable' ) ],
-				[ 'references', $this->isType( 'callable' ) ]
-			);
+			->willReturnCallback( function ( $tag ) use ( &$expectedTags ) {
+				$this->assertArrayHasKey( $tag, $expectedTags );
+				unset( $expectedTags[$tag] );
+			} );
 
 		$citeParserHooks = new CiteParserHooks();
 		$citeParserHooks->onParserFirstCallInit( $parser );

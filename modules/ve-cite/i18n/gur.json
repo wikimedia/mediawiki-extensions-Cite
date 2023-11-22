@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Akakiiri"
+		]
+	},
+	"visualeditor-cite-tool-name-book": "Gɔŋɔ",
+	"visualeditor-cite-tool-name-journal": "Gɔŋɔ",
+	"visualeditor-cite-tool-name-news": "Lasebaarɛ",
+	"visualeditor-cite-tool-name-web": "\"website\"",
+	"cite-ve-changedesc-reflist-group-from": "Viisegɔ lɔgerɔ tigere teɛ mɛ ze'ele \"$1\" ta dɛna tigekatɛ la za'an waabi",
+	"cite-ve-changedesc-reflist-group-to": "Viisegɔ lɔgerɔ yu'ura tigere la teɛ mɛ ze'ele tigekatɛ la waabi puan ta dɛna \"$1\"",
+	"cite-ve-changedesc-reflist-responsive-unset": "Viisegɔ lɔgerɔ yu'ura la teɛ mɛ ti ba diila \"column\" yiŋa ma'an puan.",
+	"cite-ve-citationneeded-button": "Dikɛ \"citation\" pa'asɛ",
+	"cite-ve-citationneeded-description": "Dɛmesa yele yeti, \"claim\" wa nari la \"citation\" ti a pa'alɛ iŋa n ze'ele zi'an na.",
+	"cite-ve-citationneeded-reason": "Bɔ sɛla n ta'asɛ la",
+	"cite-ve-citationneeded-title": "\"Citation\" ti ba ɛɛra",
+	"cite-ve-dialog-reference-editing-reused": "Ba dikɛ la viisegɔ lɔgerɔ tuna tum {{PLURAL:$1|once|2=twice|$1times}} n boi pɛgerɛ wa puan.",
+	"cite-ve-dialog-reference-editing-extends": "Iŋa wa de la viisegɔ lɔgerɔ na'arɛ dɔlegerɛ",
+	"cite-ve-dialog-reference-editing-extends-long": "Iŋa de la viisegɔ lɔgerɔ na'arɛ dɔlegerɛ diyima \"$1\".",
+	"cite-ve-dialog-reference-options-group-label": "Dikɛ tigerɛ dina wa tum",
+	"cite-ve-dialog-reference-options-group-placeholder": "Viisegɔ lɔgerɔ za'an waabi",
+	"cite-ve-dialog-reference-options-name-label": "Le malum dikɛ yudina wa tum",
+	"cite-ve-dialog-reference-options-section": "Yɔ'ɔ",
+	"cite-ve-dialog-reference-placeholder": "Gulesɛ bii dikɛ fu viisegɔ lɔgerɔ la labelɛ kala, bii kɛ'ɛsɛ \"citation template\" puan.",
+	"cite-ve-dialog-reference-title": "Viisegɔ lɔgerɔ",
+	"cite-ve-dialog-reference-useexisting-tool": "Malum dikɛ tum",
+	"cite-ve-dialog-referenceslist-contextitem-description-general": "Viisegɔ lɔgerɔ za'an waabi yura",
+	"cite-ve-dialog-referenceslist-contextitem-description-named": "Tigerɛ \"$1\" Viisegɔ lɔgerɔ yu'ura",
+	"cite-ve-dialog-referenceslist-title": "Viisegɔ lɔgerɔ yu'ura"
+}

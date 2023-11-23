@@ -62,7 +62,7 @@ class AnchorFormatter {
 	private function normalizeKey( string $key ): string {
 		// MediaWiki normalizes spaces and underscores in [[#…]] links, but not in id="…"
 		// attributes. To make them behave the same we normalize in advance.
-		return preg_replace( '/[_\s]+/', '_', $key );
+		return preg_replace( '/[_\s]+/u', '_', $key );
 	}
 
 }

@@ -18,7 +18,7 @@ wgFragmentMode=["legacy"]
 <sup id="cite_ref-.25c8.2598tiri_2019_3-0" class="reference"><a href="#cite_note-.25c8.2598tiri_2019-3">&#91;3&#93;</a></sup>
 <sup id="cite_ref-play.2521_4-0" class="reference"><a href="#cite_note-play.2521-4">&#91;4&#93;</a></sup>
 <sup id="cite_ref-Terry.2BO.2526rsquo.253BN.E2.80.A6.3C.2Fref_5-0" class="reference"><a href="#cite_note-Terry.2BO.2526rsquo.253BN.E2.80.A6.3C.2Fref-5">&#91;5&#93;</a></sup>
-<sup id="cite_ref-9.C2.A0pm_6-0" class="reference"><a href="#cite_note-9.C2.A0pm-6">&#91;6&#93;</a></sup>
+<sup id="cite_ref-9_pm_6-0" class="reference"><a href="#cite_note-9_pm-6">&#91;6&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-nature.2520phylo-1"><span class="mw-cite-backlink"><a href="#cite_ref-nature.2520phylo_1-0">↑</a></span> <span class="reference-text">A</span>
@@ -31,7 +31,7 @@ wgFragmentMode=["legacy"]
 </li>
 <li id="cite_note-Terry.2BO.2526rsquo.253BN.E2.80.A6.3C.2Fref-5"><span class="mw-cite-backlink"><a href="#cite_ref-Terry.2BO.2526rsquo.253BN.E2.80.A6.3C.2Fref_5-0">↑</a></span> <span class="reference-text">E</span>
 </li>
-<li id="cite_note-9.C2.A0pm-6"><span class="mw-cite-backlink"><a href="#cite_ref-9.C2.A0pm_6-0">↑</a></span> <span class="reference-text">F</span>
+<li id="cite_note-9_pm-6"><span class="mw-cite-backlink"><a href="#cite_ref-9_pm_6-0">↑</a></span> <span class="reference-text">F</span>
 </li>
 </ol></div>
 !! end
@@ -54,7 +54,7 @@ wgFragmentMode=["html5"]
 <sup id="cite_ref-%25c8%2598tiri_2019_3-0" class="reference"><a href="#cite_note-%25c8%2598tiri_2019-3">&#91;3&#93;</a></sup>
 <sup id="cite_ref-play%2521_4-0" class="reference"><a href="#cite_note-play%2521-4">&#91;4&#93;</a></sup>
 <sup id="cite_ref-Terry+O%2526rsquo%253BN…&lt;/ref_5-0" class="reference"><a href="#cite_note-Terry+O%2526rsquo%253BN…&lt;/ref-5">&#91;5&#93;</a></sup>
-<sup id="cite_ref-9&#160;pm_6-0" class="reference"><a href="#cite_note-9_pm-6">&#91;6&#93;</a></sup>
+<sup id="cite_ref-9_pm_6-0" class="reference"><a href="#cite_note-9_pm-6">&#91;6&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-nature%2520phylo-1"><span class="mw-cite-backlink"><a href="#cite_ref-nature%2520phylo_1-0">↑</a></span> <span class="reference-text">A</span>
@@ -67,7 +67,7 @@ wgFragmentMode=["html5"]
 </li>
 <li id="cite_note-Terry+O%2526rsquo%253BN…&lt;/ref-5"><span class="mw-cite-backlink"><a href="#cite_ref-Terry+O%2526rsquo%253BN…&lt;/ref_5-0">↑</a></span> <span class="reference-text">E</span>
 </li>
-<li id="cite_note-9&#160;pm-6"><span class="mw-cite-backlink"><a href="#cite_ref-9_pm_6-0">↑</a></span> <span class="reference-text">F</span>
+<li id="cite_note-9_pm-6"><span class="mw-cite-backlink"><a href="#cite_ref-9_pm_6-0">↑</a></span> <span class="reference-text">F</span>
 </li>
 </ol></div>
 !! end

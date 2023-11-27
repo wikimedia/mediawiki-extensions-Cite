@@ -38,11 +38,10 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$formatter = new AnchorFormatter( $mockMessageLocalizer );
 
 		$this->assertSame(
-			'(cite_reference_link_prefix)key(cite_reference_link_suffix)',
+			'(cite_reference_link_prefix)key',
 			$formatter->backLink( 'key', null ) );
 		$this->assertSame(
-			'(cite_reference_link_prefix)' .
-				'(cite_reference_link_key_with_num&#124;key&#124;2)(cite_reference_link_suffix)',
+			'(cite_reference_link_prefix)key_2',
 			$formatter->backLink( 'key', '2' ) );
 	}
 
@@ -62,7 +61,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$formatter = new AnchorFormatter( $mockMessageLocalizer );
 
 		$this->assertSame(
-			'(cite_references_link_prefix)key(cite_references_link_suffix)',
+			'(cite_references_link_prefix)key',
 			$formatter->jumpLink( 'key' ) );
 	}
 

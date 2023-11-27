@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Raizkgh",
 			"Soumaya"
 		]
 	},
@@ -8,11 +9,11 @@
 	"visualeditor-cite-tool-name-journal": "Dʋk-kẽndre",
 	"visualeditor-cite-tool-name-news": "Kibarã",
 	"visualeditor-cite-tool-name-web": "Web site wã",
-	"cite-ve-changedesc-ref-group-both": "Sõng-y n bãng-y tɩ b sẽn yãkd-b n na n maan bũmb ningã yaa sõma.",
-	"cite-ve-changedesc-ref-group-from": "Sõng-y tɩ y bãng tɩ y sẽn dat n maan bũmb ningã yaa sõma",
+	"cite-ve-changedesc-ref-group-both": "Sõss sõssã sullã toeemame n yi \"$1\" n kẽng \"$2\"",
+	"cite-ve-changedesc-ref-group-from": "Seb-teka yuya lagme-taaba tékra yé \"$1\" hal ni lagma zĩiga fãa",
 	"cite-ve-changedesc-ref-group-to": "Referans sullã sẽn yit sullã pʋgẽ n ta \"$1\"",
 	"cite-ve-changedesc-reflist-group-both": "Sõss sõssã sullã toeemame n yi \"$1\" n kẽng \"$2\"",
-	"cite-ve-changedesc-reflist-group-from": "Sõng-y tɩ y bãng tɩ y sẽn dat n maan bũmb ningã yaa sõma",
+	"cite-ve-changedesc-reflist-group-from": "Seb-teka yuya lagme-taaba tékra yé \"$1\" nɩ lagma zĩiga faa",
 	"cite-ve-changedesc-reflist-group-to": "Sõsg sõss sull sẽn yit sull ning sẽn yaa sõss sull n lebg \"$1\"",
 	"cite-ve-changedesc-reflist-responsive-set": "Sõsg sõssã sẽn na n zĩnd sõssã pʋgẽ",
 	"cite-ve-changedesc-reflist-responsive-unset": "Sõsg sõssã sẽn pa le tar sõssã pʋgẽ",
@@ -43,6 +44,7 @@
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Sõsg sõsg",
 	"cite-ve-reference-input-placeholder": "Bao-y sẽn be-b zĩig ningã",
 	"cite-ve-referenceslist-isempty": "Pa be sõss sẽn be sull ning sẽn boond tɩ \"$1\" wã zug tɩ b kẽes lisgã pʋgẽ ye.",
+	"cite-ve-referenceslist-isempty-default": "Sõsg ning sẽn be seb-kãngã pʋgẽ wã pa tar sõsg sẽn na yɩl n tall-a.",
 	"cite-ve-referenceslist-missingref": "B sẽn naan n wilg tɩ b sẽn dat n maan bũmb ningã yaa b sẽn na n maan bũmb ning fãa, b na n maana bũmb ning fãa sẽn yaa tɩlae.",
 	"cite-ve-referenceslist-missingref-in-list": "B sẽn naan n wilg tɩ b sẽn dat n wilg tɩ d pa segd n maan bũmb ning sẽn pa segd n yɩ to-to wã, b wilgame tɩ d segd n maana bũmb nins sẽn pa segd tɩ yɩ to- to wã.",
 	"cite-ve-referenceslist-missingreflist": "B sẽn yãk tɩ b naan yɩ b sẽn dat n maan bũmb ningã, b wilga b sẽn maan bũmb ningã.",

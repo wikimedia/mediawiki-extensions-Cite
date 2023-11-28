@@ -266,7 +266,6 @@ language=sr variant=sr-ec
 !! test
 <references> after <gallery> (bug 6164)
 !! options
-disabled
 parsoid=wt2html,html2html
 !! config
 wgParserEnableLegacyMediaDOM=false
@@ -282,8 +281,7 @@ wgParserEnableLegacyMediaDOM=false
 <ul class="gallery mw-gallery-traditional">
 		<li class="gallerybox" style="width: 155px">
 			<div class="thumb" style="width: 150px; height: 150px;"><span typeof="mw:File"><a href="/wiki/File:Foobar.jpg" class="mw-file-description"><img src="http://example.com/images/thumb/3/3a/Foobar.jpg/120px-Foobar.jpg" decoding="async" width="120" height="14" class="mw-file-element" srcset="http://example.com/images/thumb/3/3a/Foobar.jpg/180px-Foobar.jpg 1.5x, http://example.com/images/thumb/3/3a/Foobar.jpg/240px-Foobar.jpg 2x" /></a></span></div>
-			<div class="gallerytext">
-			</div>
+			<div class="gallerytext"></div>
 		</li>
 </ul>
 <div class="mw-references-wrap"><ol class="references">

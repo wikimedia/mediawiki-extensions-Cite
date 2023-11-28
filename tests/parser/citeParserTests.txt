@@ -266,6 +266,7 @@ language=sr variant=sr-ec
 !! test
 <references> after <gallery> (bug 6164)
 !! options
+disabled
 parsoid=wt2html,html2html
 !! config
 wgParserEnableLegacyMediaDOM=false

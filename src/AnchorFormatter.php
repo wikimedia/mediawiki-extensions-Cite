@@ -33,7 +33,7 @@ class AnchorFormatter {
 				->plain();
 		}
 
-		return $this->normalizeKey( $prefix . $key . $suffix );
+		return $this->normalizeAndEncode( $prefix . $key . $suffix );
 	}
 
 	/**
@@ -49,22 +49,20 @@ class AnchorFormatter {
 		$prefix = $this->messageLocalizer->msg( 'cite_references_link_prefix' )->plain();
 		$suffix = $this->messageLocalizer->msg( 'cite_references_link_suffix' )->plain();
 
-		return $this->normalizeKey( $prefix . $key . $suffix );
+		return $this->normalizeAndEncode( $prefix . $key . $suffix );
 	}
 
-	/**
-	 * Normalizes and sanitizes a reference key
-	 *
-	 * @param string $key
-	 *
-	 * @return string
-	 */
-	private function normalizeKey( string $key ): string {
-		$ret = Sanitizer::escapeIdForLink( $key );
-		$ret = preg_replace( '/__+/', '_', $ret );
-		$ret = Sanitizer::safeEncodeAttribute( $ret );
+	private function normalizeAndEncode( string $key ): string {
+		$key = $this->normalizeKey( $key );
+		// FIXME: This does both URL encoding (%A0) as well as HTML entity encoding (&#xA0;), but
+		// URL encoding only makes sense in links.
+		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );
+	}
 
-		return $ret;
+	private function normalizeKey( string $key ): string {
+		// MediaWiki normalizes spaces and underscores in [[#…]] links, but not in id="…"
+		// attributes. To make them behave the same we normalize in advance.
+		return preg_replace( '/[_\s]+/', '_', $key );
 	}
 
 }

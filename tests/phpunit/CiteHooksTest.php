@@ -4,7 +4,7 @@ namespace Cite\Tests;
 
 use ApiQuerySiteinfo;
 use Cite\Hooks\CiteHooks;
-use MediaWiki\User\StaticUserOptionsLookup;
+use MediaWiki\User\Options\StaticUserOptionsLookup;
 
 /**
  * @coversDefaultClass \Cite\Hooks\CiteHooks

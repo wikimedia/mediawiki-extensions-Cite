@@ -50,10 +50,7 @@ class ReferenceStack {
 	 */
 	private int $refSequence = 0;
 
-	/**
-	 * Counter for the number of refs in each group.
-	 * @var int[]
-	 */
+	/** @var int[] Counter for the number of refs in each group */
 	private array $groupRefSequence = [];
 	/** @var int[][] */
 	private array $extendsCount = [];
@@ -85,7 +82,7 @@ class ReferenceStack {
 	/**
 	 * Leave a mark in the stack which matches an invalid ref tag.
 	 */
-	public function pushInvalidRef() {
+	public function pushInvalidRef(): void {
 		$this->refCallStack[] = false;
 	}
 
@@ -363,10 +360,6 @@ class ReferenceStack {
 
 	/**
 	 * Retruns true if the group exists and contains references.
-	 *
-	 * @param string $group
-	 *
-	 * @return bool
 	 */
 	public function hasGroup( string $group ): bool {
 		return isset( $this->refs[$group] ) && $this->refs[$group];
@@ -398,12 +391,7 @@ class ReferenceStack {
 		return $this->refs[$group] ?? [];
 	}
 
-	/**
-	 * @param string $group
-	 * @param string $name
-	 * @param string $text
-	 */
-	public function appendText( string $group, string $name, string $text ) {
+	public function appendText( string $group, string $name, string $text ): void {
 		$this->refs[$group][$name]['text'] ??= '';
 		$this->refs[$group][$name]['text'] .= $text;
 	}

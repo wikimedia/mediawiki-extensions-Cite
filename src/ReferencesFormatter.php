@@ -17,7 +17,7 @@ class ReferencesFormatter {
 	 *
 	 * @var string[]|null
 	 */
-	private $backlinkLabels = null;
+	private ?array $backlinkLabels = null;
 	private ErrorReporter $errorReporter;
 	private AnchorFormatter $anchorFormatter;
 	private ReferenceMessageLocalizer $messageLocalizer;
@@ -255,11 +255,6 @@ class ReferencesFormatter {
 	 * $offset = 2; = c if $this->mBacklinkLabels = [ 'a',
 	 * 'b', 'c', ...]. Return an error if the offset > the # of
 	 * array items
-	 *
-	 * @param Parser $parser
-	 * @param int $offset
-	 *
-	 * @return string
 	 */
 	private function referencesFormatEntryAlternateBacklinkLabel(
 		Parser $parser, int $offset

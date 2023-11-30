@@ -69,9 +69,6 @@ class Cite {
 	private array $mReferencesErrors = [];
 	private ReferenceStack $referenceStack;
 
-	/**
-	 * @param Parser $parser
-	 */
 	public function __construct( Parser $parser ) {
 		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
@@ -111,16 +108,6 @@ class Cite {
 		return $ret;
 	}
 
-	/**
-	 * @param ?string $text
-	 * @param string $group
-	 * @param ?string $name
-	 * @param ?string $extends
-	 * @param ?string $follow
-	 * @param ?string $dir
-	 *
-	 * @return StatusValue
-	 */
 	private function validateRef(
 		?string $text,
 		string $group,
@@ -172,12 +159,6 @@ class Cite {
 			$this->validateRefInReferences( $text, $group, $name );
 	}
 
-	/**
-	 * @param ?string $text
-	 * @param ?string $name
-	 *
-	 * @return StatusValue
-	 */
 	private function validateRefOutsideOfReferences(
 		?string $text,
 		?string $name
@@ -212,13 +193,6 @@ class Cite {
 		return StatusValue::newGood();
 	}
 
-	/**
-	 * @param ?string $text
-	 * @param string $group
-	 * @param ?string $name
-	 *
-	 * @return StatusValue
-	 */
 	private function validateRefInReferences(
 		?string $text,
 		string $group,

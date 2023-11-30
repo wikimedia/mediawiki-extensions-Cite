@@ -111,11 +111,7 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( '<HTML>', $html );
 	}
 
-	/**
-	 * @param array $configurableMethods
-	 * @return Parser
-	 */
-	private function createParser( $configurableMethods = [] ) {
+	private function createParser( array $configurableMethods = [] ): Parser {
 		return $this->getMockBuilder( Parser::class )
 			->disableOriginalConstructor()
 			->onlyMethods( $configurableMethods )

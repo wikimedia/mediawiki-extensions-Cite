@@ -66,6 +66,13 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 					'dir="rtl">(cite_warning|(cite_warning_example|first param))</span>',
 				'expectedCategory' => null,
 			],
+			'Optional support for messages with dashes' => [
+				'key' => 'cite-warning-with-dashes',
+				'expectedHtml' => '<span class="warning mw-ext-cite-warning ' .
+					'mw-ext-cite-warning-with-dashes" lang="qqx" dir="rtl">' .
+					'(cite_warning|(cite-warning-with-dashes|first param))</span>',
+				'expectedCategory' => null,
+			],
 		];
 	}
 

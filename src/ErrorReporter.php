@@ -2,6 +2,7 @@
 
 namespace Cite;
 
+use InvalidArgumentException;
 use Language;
 use MediaWiki\Html\Html;
 use MediaWiki\Message\Message;
@@ -119,7 +120,10 @@ class ErrorReporter {
 	 * @return string[] Two elements, e.g. "error" and "ref_numeric_key"
 	 */
 	private function parseTypeAndIdFromMessageKey( string $messageKey ): array {
-		return array_slice( explode( '_', str_replace( '-', '_', $messageKey ), 3 ), 1 );
+		if ( !preg_match( '/^cite.(error|warning).(.+)/i', $messageKey, $matches ) ) {
+			throw new InvalidArgumentException( 'Unexpected message key' );
+		}
+		return array_slice( $matches, 1 );
 	}
 
 }

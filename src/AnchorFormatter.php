@@ -23,9 +23,9 @@ class AnchorFormatter {
 	 * @param string $key
 	 * @param string|null $num The number of the key
 	 *
-	 * @return string A key for use in wikitext
+	 * @return string
 	 */
-	public function refKey( string $key, string $num = null ): string {
+	private function refKey( string $key, ?string $num ): string {
 		$prefix = $this->messageLocalizer->msg( 'cite_reference_link_prefix' )->plain();
 		$suffix = $this->messageLocalizer->msg( 'cite_reference_link_suffix' )->plain();
 		if ( $num !== null ) {
@@ -33,7 +33,31 @@ class AnchorFormatter {
 				->plain();
 		}
 
-		return $this->normalizeAndEncode( $prefix . $key . $suffix );
+		return $this->normalizeKey( $prefix . $key . $suffix );
+	}
+
+	/**
+	 * @param string $key
+	 * @param string|null $num
+	 * @return string Escaped to be used as part of a [[#…]] link
+	 */
+	public function backLink( string $key, ?string $num = null ): string {
+		$key = $this->refKey( $key, $num );
+		// This does both URL encoding (e.g. %A0, which only makes sense in href="…") and HTML
+		// entity encoding (e.g. &#xA0;). The browser will decode in reverse order.
+		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );
+	}
+
+	/**
+	 * @param string $key
+	 * @param string|null $num
+	 * @return string Already escaped to be used directly in an id="…" attribute
+	 */
+	public function backLinkTarget( string $key, ?string $num ): string {
+		$key = $this->refKey( $key, $num );
+		// FIXME: This does both URL encoding (%A0) as well as HTML entity encoding (&#xA0;), but
+		// URL encoding only makes sense in links.
+		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );
 	}
 
 	/**
@@ -43,17 +67,32 @@ class AnchorFormatter {
 	 *
 	 * @param string $key
 	 *
-	 * @return string A key for use in wikitext
+	 * @return string
 	 */
-	public function getReferencesKey( string $key ): string {
+	private function getReferencesKey( string $key ): string {
 		$prefix = $this->messageLocalizer->msg( 'cite_references_link_prefix' )->plain();
 		$suffix = $this->messageLocalizer->msg( 'cite_references_link_suffix' )->plain();
 
-		return $this->normalizeAndEncode( $prefix . $key . $suffix );
+		return $this->normalizeKey( $prefix . $key . $suffix );
 	}
 
-	private function normalizeAndEncode( string $key ): string {
-		$key = $this->normalizeKey( $key );
+	/**
+	 * @param string $key
+	 * @return string Escaped to be used as part of a [[#…]] link
+	 */
+	public function jumpLink( string $key ): string {
+		$key = $this->getReferencesKey( $key );
+		// This does both URL encoding (e.g. %A0, which only makes sense in href="…") and HTML
+		// entity encoding (e.g. &#xA0;). The browser will decode in reverse order.
+		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );
+	}
+
+	/**
+	 * @param string $key
+	 * @return string Already escaped to be used directly in an id="…" attribute
+	 */
+	public function jumpLinkTarget( string $key ): string {
+		$key = $this->getReferencesKey( $key );
 		// FIXME: This does both URL encoding (%A0) as well as HTML entity encoding (&#xA0;), but
 		// URL encoding only makes sense in links.
 		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );

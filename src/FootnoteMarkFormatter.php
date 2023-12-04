@@ -56,8 +56,8 @@ class FootnoteMarkFormatter {
 		return $parser->recursiveTagParse(
 			$this->messageLocalizer->msg(
 				'cite_reference_link',
-				$this->anchorFormatter->refKey( $key, $count ),
-				$this->anchorFormatter->getReferencesKey( $key . $subkey ),
+				$this->anchorFormatter->backLinkTarget( $key, $count ),
+				$this->anchorFormatter->jumpLink( $key . $subkey ),
 				Sanitizer::safeEncodeAttribute( $label )
 			)->plain()
 		);

@@ -30,8 +30,8 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 			}
 		);
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
-		$anchorFormatter->method( 'getReferencesKey' )->willReturnArgument( 0 );
-		$anchorFormatter->method( 'refKey' )->willReturnCallback(
+		$anchorFormatter->method( 'jumpLink' )->willReturnArgument( 0 );
+		$anchorFormatter->method( 'backLinkTarget' )->willReturnCallback(
 			static function ( ...$args ) {
 				return implode( '+', $args );
 			}

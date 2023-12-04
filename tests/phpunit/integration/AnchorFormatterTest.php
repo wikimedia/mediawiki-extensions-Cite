@@ -5,6 +5,7 @@ namespace Cite\Tests\Integration;
 use Cite\AnchorFormatter;
 use Cite\ReferenceMessageLocalizer;
 use Message;
+use Sanitizer;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -23,6 +24,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::refKey
+	 * @covers ::backLink
 	 */
 	public function testRefKey() {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
@@ -37,15 +39,16 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 		$this->assertSame(
 			'(cite_reference_link_prefix)key(cite_reference_link_suffix)',
-			$formatter->refKey( 'key', null ) );
+			$formatter->backLink( 'key', null ) );
 		$this->assertSame(
 			'(cite_reference_link_prefix)' .
 				'(cite_reference_link_key_with_num&#124;key&#124;2)(cite_reference_link_suffix)',
-			$formatter->refKey( 'key', '2' ) );
+			$formatter->backLink( 'key', '2' ) );
 	}
 
 	/**
 	 * @covers ::getReferencesKey
+	 * @covers ::jumpLink
 	 */
 	public function testGetReferencesKey() {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
@@ -60,11 +63,10 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 		$this->assertSame(
 			'(cite_references_link_prefix)key(cite_references_link_suffix)',
-			$formatter->getReferencesKey( 'key' ) );
+			$formatter->jumpLink( 'key' ) );
 	}
 
 	/**
-	 * @covers ::normalizeAndEncode
 	 * @covers ::normalizeKey
 	 * @covers ::__construct
 	 * @dataProvider provideKeyNormalizations
@@ -73,7 +75,9 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		/** @var AnchorFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new AnchorFormatter(
 			$this->createMock( ReferenceMessageLocalizer::class ) ) );
-		$this->assertSame( $expected, $formatter->normalizeAndEncode( $key ) );
+		$normalized = $formatter->normalizeKey( $key );
+		$encoded = Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $normalized ) );
+		$this->assertSame( $expected, $encoded );
 	}
 
 	public static function provideKeyNormalizations() {

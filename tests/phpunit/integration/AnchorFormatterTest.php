@@ -64,6 +64,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @covers ::normalizeAndEncode
 	 * @covers ::normalizeKey
 	 * @covers ::__construct
 	 * @dataProvider provideKeyNormalizations
@@ -72,7 +73,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		/** @var AnchorFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new AnchorFormatter(
 			$this->createMock( ReferenceMessageLocalizer::class ) ) );
-		$this->assertSame( $expected, $formatter->normalizeKey( $key ) );
+		$this->assertSame( $expected, $formatter->normalizeAndEncode( $key ) );
 	}
 
 	public static function provideKeyNormalizations() {

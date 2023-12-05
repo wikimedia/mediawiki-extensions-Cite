@@ -112,7 +112,7 @@ class ErrorReporter {
 	}
 
 	/**
-	 * @param string $messageKey Expected to be a message key like "cite_error_ref_too_many_keys"
+	 * @param string $messageKey Expected to be a message key like "cite_error_ref_numeric_key"
 	 *
 	 * @return string[] Two elements, e.g. "error" and "ref_too_many_keys"
 	 */

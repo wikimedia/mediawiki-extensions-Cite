@@ -204,12 +204,12 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		);
 
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
-		$anchorFormatter->method( 'refKey' )->willReturnCallback(
+		$anchorFormatter->method( 'backLink' )->willReturnCallback(
 			static function ( ...$args ) {
 				return implode( '+', $args );
 			}
 		);
-		$anchorFormatter->method( 'getReferencesKey' )->willReturnArgument( 0 );
+		$anchorFormatter->method( 'jumpLinkTarget' )->willReturnArgument( 0 );
 
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturnArgument( 0 );

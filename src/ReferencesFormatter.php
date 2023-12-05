@@ -159,7 +159,7 @@ class ReferencesFormatter {
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
 		if ( isset( $val['follow'] ) ) {
-			return '<p id="' . $this->anchorFormatter->getReferencesKey( $val['follow'] ) . '">' . $text . '</p>';
+			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $val['follow'] ) . '">' . $text . '</p>';
 		}
 
 		// This counts the number of reuses. 0 means the reference appears only 1 time.
@@ -167,14 +167,14 @@ class ReferencesFormatter {
 			// Anonymous, auto-numbered references can't be reused and get marked with a -1.
 			if ( $val['count'] < 0 ) {
 				$id = $val['key'];
-				$backlinkId = $this->anchorFormatter->refKey( $val['key'] );
+				$backlinkId = $this->anchorFormatter->backLink( $val['key'] );
 			} else {
 				$id = $key . '-' . $val['key'];
-				$backlinkId = $this->anchorFormatter->refKey( $key, $val['key'] . '-' . $val['count'] );
+				$backlinkId = $this->anchorFormatter->backLink( $key, $val['key'] . '-' . $val['count'] );
 			}
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
-				$this->anchorFormatter->getReferencesKey( $id ),
+				$this->anchorFormatter->jumpLinkTarget( $id ),
 				$backlinkId,
 				$text . $error,
 				$extraAttributes
@@ -187,7 +187,7 @@ class ReferencesFormatter {
 		for ( $i = 0; $i <= ( $val['count'] ?? -1 ); $i++ ) {
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
-				$this->anchorFormatter->refKey( $key, $val['key'] . '-' . $i ),
+				$this->anchorFormatter->backLink( $key, $val['key'] . '-' . $i ),
 				$this->referencesFormatEntryNumericBacklinkLabel(
 					$val['number'] .
 						( isset( $val['extendsIndex'] ) ? '.' . $val['extendsIndex'] : '' ),
@@ -199,7 +199,7 @@ class ReferencesFormatter {
 		}
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
-			$this->anchorFormatter->getReferencesKey( $key . '-' . ( $val['key'] ?? '' ) ),
+			$this->anchorFormatter->jumpLinkTarget( $key . '-' . ( $val['key'] ?? '' ) ),
 			$this->listToText( $backlinks ),
 			$text . $error,
 			$extraAttributes

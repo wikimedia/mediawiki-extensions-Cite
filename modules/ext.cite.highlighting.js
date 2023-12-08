@@ -5,8 +5,7 @@
  */
 ( function () {
 	/**
-	 * Checks if the ID uses a composite format that does not only consist of a sequential number,
-	 * as specified in "cite_reference_link_key_with_num".
+	 * Checks if the ID uses a composite format that does not only consist of a sequential number.
 	 *
 	 * @param {string} id
 	 * @return {boolean}

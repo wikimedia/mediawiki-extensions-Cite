@@ -27,13 +27,10 @@ class AnchorFormatter {
 	 */
 	private function refKey( string $key, ?string $num ): string {
 		$prefix = $this->messageLocalizer->msg( 'cite_reference_link_prefix' )->plain();
-		$suffix = $this->messageLocalizer->msg( 'cite_reference_link_suffix' )->plain();
 		if ( $num !== null ) {
-			$key = $this->messageLocalizer->msg( 'cite_reference_link_key_with_num', $key, $num )
-				->plain();
+			$key .= '_' . $num;
 		}
-
-		return $this->normalizeKey( $prefix . $key . $suffix );
+		return $this->normalizeKey( $prefix . $key );
 	}
 
 	/**
@@ -71,9 +68,7 @@ class AnchorFormatter {
 	 */
 	private function getReferencesKey( string $key ): string {
 		$prefix = $this->messageLocalizer->msg( 'cite_references_link_prefix' )->plain();
-		$suffix = $this->messageLocalizer->msg( 'cite_references_link_suffix' )->plain();
-
-		return $this->normalizeKey( $prefix . $key . $suffix );
+		return $this->normalizeKey( $prefix . $key );
 	}
 
 	/**

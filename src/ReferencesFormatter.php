@@ -2,7 +2,7 @@
 
 namespace Cite;
 
-use Html;
+use MediaWiki\Html\Html;
 use Parser;
 
 /**

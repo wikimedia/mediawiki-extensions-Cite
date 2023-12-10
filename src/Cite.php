@@ -24,10 +24,10 @@
 
 namespace Cite;
 
-use Html;
 use LogicException;
+use MediaWiki\Html\Html;
+use MediaWiki\Parser\Sanitizer;
 use Parser;
-use Sanitizer;
 use StatusValue;
 
 class Cite {

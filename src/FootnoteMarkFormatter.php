@@ -2,8 +2,8 @@
 
 namespace Cite;
 
+use MediaWiki\Parser\Sanitizer;
 use Parser;
-use Sanitizer;
 
 /**
  * @license GPL-2.0-or-later

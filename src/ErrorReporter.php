@@ -2,11 +2,11 @@
 
 namespace Cite;
 
-use Html;
 use Language;
+use MediaWiki\Html\Html;
+use MediaWiki\Parser\Sanitizer;
 use Message;
 use Parser;
-use Sanitizer;
 
 /**
  * @license GPL-2.0-or-later

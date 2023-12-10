@@ -4,8 +4,8 @@ namespace Cite\Tests\Integration;
 
 use Cite\AnchorFormatter;
 use Cite\ReferenceMessageLocalizer;
+use MediaWiki\Parser\Sanitizer;
 use Message;
-use Sanitizer;
 use Wikimedia\TestingAccessWrapper;
 
 /**

@@ -11,7 +11,7 @@
 	"cite_error_ref_invalid_dir": "Неважечка ознака <code>dir=\"$1\"</code>. Мора да биде <code>ltr</code> или <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Погрешна ознака <code>&lt;ref&gt;</code>; името не може да биде број. Употребете описен наслов",
 	"cite_error_ref_no_key": "Отворачката ознака <code>&lt;ref&gt;</code> не е добро срочена или има погрешно име",
-	"cite_error_ref_too_many_keys": "Погрешна ознака<code>&lt;ref&gt;</code>; погрешни имиња, т.е. ги има премногу",
+	"cite_error_ref_too_many_keys": "Неважечки параметар во ознаката <code>&lt;ref&gt;</code>",
 	"cite_error_ref_nested_extends": "Не е дозволено зголемувањето на продорноста на ознаките  <code>&lt;ref&gt;</code> повеќе од еден степен",
 	"cite_error_ref_no_input": "Погрешна ознака <code>&lt;ref&gt;</code>; наводите без име мораат да имаат содржина",
 	"cite_error_references_duplicate_key": "Неважечка ознака <code>&lt;ref&gt;</code>; називот „$1“ е зададен повеќепати со различна содржина",

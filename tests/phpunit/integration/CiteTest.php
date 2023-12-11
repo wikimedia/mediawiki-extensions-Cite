@@ -40,6 +40,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		?string $dir,
 		$expected
 	) {
+		$this->overrideConfigValue( 'CiteBookReferencing', true );
+
 		$errorReporter = $this->createMock( ErrorReporter::class );
 		$stack = new ReferenceStack( $errorReporter );
 		TestingAccessWrapper::newFromObject( $stack )->refs = $referencesStack;
@@ -299,8 +301,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ::validateRef
 	 */
 	public function testValidateRef_noExtends() {
-		global $wgCiteBookReferencing;
-		$wgCiteBookReferencing = false;
+		$this->overrideConfigValue( 'CiteBookReferencing', false );
 
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
@@ -381,8 +382,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		bool $expectedResponsive,
 		string $expectedOutput
 	) {
-		global $wgCiteResponsiveReferences;
-		$wgCiteResponsiveReferences = false;
+		$this->overrideConfigValue( 'CiteResponsiveReferences', false );
 
 		$parser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
 
@@ -652,6 +652,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ::guardedRef
 	 */
 	public function testGuardedRef_extendsProperty() {
+		$this->overrideConfigValue( 'CiteBookReferencing', false );
+
 		$mockOutput = $this->createMock( ParserOutput::class );
 		// This will be our most important assertion.
 		$mockOutput->expects( $this->once() )

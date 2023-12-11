@@ -17,9 +17,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-
-		global $wgFragmentMode;
-		$wgFragmentMode = [ 'html5' ];
+		$this->overrideConfigValue( 'FragmentMode', [ 'html5' ] );
 	}
 
 	/**

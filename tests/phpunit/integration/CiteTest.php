@@ -545,7 +545,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'',
 				[ '' => [] ],
 				'',
-				[ '(cite_error_references_no_key)' ],
+				'expectedErrors' => [ [ 'cite_error_references_no_key' ] ],
 				[ '' => [] ]
 			],
 			'Fallback to references group' => [

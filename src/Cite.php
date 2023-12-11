@@ -420,7 +420,7 @@ class Cite {
 		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
 
 		if ( $text !== null && trim( $text ) !== '' ) {
-			if ( str_contains( $text, Parser::MARKER_PREFIX . "-references-" ) ) {
+			if ( preg_match( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:references)-}', $text ) ) {
 				return $this->errorReporter->halfParsed( $parser, 'cite_error_included_references' );
 			}
 
@@ -430,7 +430,8 @@ class Cite {
 			// all known use cases, but not strictly enforced by the parser. It is possible that
 			// some unusual combination of #tag, <references> and conditional parser functions could
 			// be created that would lead to malformed references here.
-			$count = substr_count( $text, Parser::MARKER_PREFIX . "-ref-" );
+			preg_match_all( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:ref)-}', $text, $matches );
+			$count = count( $matches[0] );
 
 			// Undo effects of calling <ref> while unaware of being contained in <references>
 			foreach ( $this->referenceStack->rollbackRefs( $count ) as $call ) {

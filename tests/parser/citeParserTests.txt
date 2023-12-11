@@ -865,7 +865,7 @@ parsoid=wt2html
 <ref name="foo" />
 
 {{#tag:references|
-<ref name="foo">BAR</ref>
+<Ref name="foo">BAR</ref>
 }}
 !! html
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
@@ -877,7 +877,7 @@ parsoid=wt2html
 !! html/parsoid
 <p><sup about="#mwt3" class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}'><a href="./Parser_test#cite_note-foo-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt6" data-parsoid='{"pi":[[{"k":"1"}]]}' data-mw='{"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"foo\">BAR&lt;/ref>\n"}},"i":0}}]}'><ol class="mw-references references"><li about="#cite_note-foo-1" id="cite_note-foo-1"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text">BAR</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt6" data-parsoid='{"pi":[[{"k":"1"}]]}' data-mw='{"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;Ref name=\"foo\">BAR&lt;/ref>\n"}},"i":0}}]}'><ol class="mw-references references"><li about="#cite_note-foo-1" id="cite_note-foo-1"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text">BAR</span></li></ol></div>
 !! end
 
 # T307741: Parsoid fails this test in both standalone and integrated modes.
@@ -888,7 +888,7 @@ T242437 - Nested references edge case, outer tag function with LDR
 {{#tag:references|
   <ref name="foo">bar</ref>
 
-  <references />
+  <References />
 }}
 !! html
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>

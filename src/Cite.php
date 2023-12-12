@@ -190,8 +190,7 @@ class Cite {
 			// FIXME: If we ever have multiple errors, these must all be presented to the user,
 			//  so they know what to correct.
 			// TODO: Make this nicer, see T238061
-			$error = $status->getErrors()[0];
-			return $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
+			return $this->errorReporter->firstError( $parser, $status );
 		}
 
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
@@ -246,8 +245,7 @@ class Cite {
 
 		$status->merge( $this->parseReferencesTagContent( $parser, $text ) );
 		if ( !$status->isGood() ) {
-			$error = $status->getErrors()[0];
-			$ret = $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
+			$ret = $this->errorReporter->firstError( $parser, $status );
 		} else {
 			$responsive = $arguments['responsive'];
 			$ret = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive );

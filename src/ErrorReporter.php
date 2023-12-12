@@ -7,6 +7,7 @@ use MediaWiki\Html\Html;
 use MediaWiki\Parser\Sanitizer;
 use Message;
 use Parser;
+use StatusValue;
 
 /**
  * @license GPL-2.0-or-later
@@ -18,6 +19,15 @@ class ErrorReporter {
 
 	public function __construct( ReferenceMessageLocalizer $messageLocalizer ) {
 		$this->messageLocalizer = $messageLocalizer;
+	}
+
+	/**
+	 * @deprecated Intermediate helper function. Long-term all errors should be rendered, not only
+	 * the first one.
+	 */
+	public function firstError( Parser $parser, StatusValue $status ): string {
+		$error = $status->getErrors()[0];
+		return $this->halfParsed( $parser, $error['message'], ...$error['params'] );
 	}
 
 	/**

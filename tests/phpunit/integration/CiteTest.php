@@ -103,7 +103,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$cite = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
-		$spy->errorReporter = $this->createMock( ErrorReporter::class );
+		$spy->errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed' ] );
 		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
 			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
@@ -195,7 +195,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockParser->method( 'getStripState' )
 			->willReturn( $this->createMock( StripState::class ) );
 
-		$errorReporter = $this->createMock( ErrorReporter::class );
+		$errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed', 'plain' ] );
 		$errorReporter->method( $this->logicalOr( 'halfParsed', 'plain' ) )->willReturnCallback(
 			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);

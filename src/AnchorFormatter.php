@@ -52,9 +52,7 @@ class AnchorFormatter {
 	 */
 	public function backLinkTarget( string $key, ?string $num ): string {
 		$key = $this->refKey( $key, $num );
-		// FIXME: This does both URL encoding (%A0) as well as HTML entity encoding (&#xA0;), but
-		// URL encoding only makes sense in links.
-		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );
+		return Sanitizer::safeEncodeAttribute( $key );
 	}
 
 	/**
@@ -88,9 +86,7 @@ class AnchorFormatter {
 	 */
 	public function jumpLinkTarget( string $key ): string {
 		$key = $this->getReferencesKey( $key );
-		// FIXME: This does both URL encoding (%A0) as well as HTML entity encoding (&#xA0;), but
-		// URL encoding only makes sense in links.
-		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );
+		return Sanitizer::safeEncodeAttribute( $key );
 	}
 
 	private function normalizeKey( string $key ): string {

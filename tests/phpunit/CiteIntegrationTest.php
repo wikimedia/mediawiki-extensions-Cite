@@ -20,10 +20,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-
-		$this->setMwGlobals( [
-			'wgLanguageCode' => 'qqx',
-		] );
+		$this->overrideConfigValue( 'LanguageCode', 'qqx' );
 	}
 
 	/**
@@ -33,8 +30,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 	public function testCheckRefsNoReferences(
 		array $initialRefs, bool $isSectionPreview, string $expectedOutput
 	) {
-		global $wgCiteResponsiveReferences;
-		$wgCiteResponsiveReferences = true;
+		$this->overrideConfigValue( 'CiteResponsiveReferences', true );
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(

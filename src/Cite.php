@@ -63,7 +63,8 @@ class Cite {
 
 	/**
 	 * Error stack used when defining refs in <references>
-	 * @var string[]
+	 * @var array[]
+	 * @phan-var non-empty-array[]
 	 */
 	private array $mReferencesErrors = [];
 	private ReferenceStack $referenceStack;
@@ -299,11 +300,7 @@ class Cite {
 
 		if ( !$status->isGood() && $this->inReferencesGroup !== null ) {
 			foreach ( $status->getErrors() as $error ) {
-				$this->mReferencesErrors[] = $this->errorReporter->halfParsed(
-					$parser,
-					$error['message'],
-					...$error['params']
-				);
+				$this->mReferencesErrors[] = [ $error['message'], ...$error['params'] ];
 			}
 			return '';
 		}
@@ -453,7 +450,11 @@ class Cite {
 
 		// Append errors generated while processing <references>
 		if ( $this->mReferencesErrors ) {
-			$s .= "\n" . implode( "<br />\n", $this->mReferencesErrors );
+			$html = [];
+			foreach ( $this->mReferencesErrors as $msg ) {
+				$html[] = $this->errorReporter->halfParsed( $parser, ...$msg );
+			}
+			$s .= "\n" . implode( "<br />\n", $html );
 			$this->mReferencesErrors = [];
 		}
 		return $s;

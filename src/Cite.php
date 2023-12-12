@@ -291,9 +291,7 @@ class Cite {
 		);
 		$arguments = $status->getValue();
 		// Use the default group, or the references group when inside one.
-		if ( $arguments['group'] === null ) {
-			$arguments['group'] = $this->inReferencesGroup ?? self::DEFAULT_GROUP;
-		}
+		$arguments['group'] ??= $this->inReferencesGroup ?? self::DEFAULT_GROUP;
 
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
 		$status->merge( $this->validateRef( $text, ...array_values( $arguments ) ) );

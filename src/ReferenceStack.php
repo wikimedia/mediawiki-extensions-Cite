@@ -111,12 +111,8 @@ class ReferenceStack {
 		?string $follow,
 		?string $dir
 	): ?array {
-		if ( !isset( $this->refs[$group] ) ) {
-			$this->refs[$group] = [];
-		}
-		if ( !isset( $this->groupRefSequence[$group] ) ) {
-			$this->groupRefSequence[$group] = 0;
-		}
+		$this->refs[$group] ??= [];
+		$this->groupRefSequence[$group] ??= 0;
 
 		$ref = [
 			'count' => $name ? 0 : -1,
@@ -403,11 +399,8 @@ class ReferenceStack {
 	 * @param string $text
 	 */
 	public function appendText( string $group, string $name, string $text ) {
-		if ( isset( $this->refs[$group][$name]['text'] ) ) {
-			$this->refs[$group][$name]['text'] .= $text;
-		} else {
-			$this->refs[$group][$name]['text'] = $text;
-		}
+		$this->refs[$group][$name]['text'] ??= '';
+		$this->refs[$group][$name]['text'] .= $text;
 	}
 
 }

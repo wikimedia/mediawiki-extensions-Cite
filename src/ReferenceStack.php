@@ -73,6 +73,11 @@ class ReferenceStack {
 	 */
 	private ErrorReporter $errorReporter;
 
+	private const ACTION_ASSIGN = 'assign';
+	private const ACTION_INCREMENT = 'increment';
+	private const ACTION_NEW_FROM_PLACEHOLDER = 'new-from-placeholder';
+	private const ACTION_NEW = 'new';
+
 	public function __construct( ErrorReporter $errorReporter ) {
 		$this->errorReporter = $errorReporter;
 	}
@@ -132,7 +137,7 @@ class ReferenceStack {
 				// Mark an incomplete follow="…" as such. This is valid e.g. in the Page:… namespace
 				// on Wikisource.
 				$this->refs[$group][] = $ref + [ 'follow' => $follow ];
-				$this->refCallStack[] = [ 'new', $this->refSequence, $group, $name, $extends, $text,
+				$this->refCallStack[] = [ self::ACTION_NEW, $this->refSequence, $group, $name, $extends, $text,
 					$argv ];
 			} elseif ( $text !== null ) {
 				// We know the parent already, so just perform the follow="…" and bail out
@@ -146,18 +151,18 @@ class ReferenceStack {
 		if ( !$name ) {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = &$ref;
-			$action = 'new';
+			$action = self::ACTION_NEW;
 		} elseif ( isset( $this->refs[$group][$name]['__placeholder__'] ) ) {
 			// Populate a placeholder.
 			unset( $this->refs[$group][$name]['__placeholder__'] );
 			unset( $ref['number'] );
 			$ref = array_merge( $ref, $this->refs[$group][$name] );
 			$this->refs[$group][$name] =& $ref;
-			$action = 'new-from-placeholder';
+			$action = self::ACTION_NEW_FROM_PLACEHOLDER;
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
 			// Valid key with first occurrence
 			$this->refs[$group][$name] = &$ref;
-			$action = 'new';
+			$action = self::ACTION_NEW;
 		} else {
 			// Change an existing entry.
 			$ref = &$this->refs[$group][$name];
@@ -169,7 +174,7 @@ class ReferenceStack {
 				$ref['text'] = $text;
 				// Use the dir parameter only from the full definition of a named ref tag
 				$ref['dir'] = $dir;
-				$action = 'assign';
+				$action = self::ACTION_ASSIGN;
 			} else {
 				if ( $text !== null
 					// T205803 different strip markers might hide the same text
@@ -183,7 +188,7 @@ class ReferenceStack {
 						$parser, 'cite_error_references_duplicate_key', $name
 					);
 				}
-				$action = 'increment';
+				$action = self::ACTION_INCREMENT;
 			}
 		}
 
@@ -316,7 +321,7 @@ class ReferenceStack {
 		}
 
 		switch ( $action ) {
-			case 'new':
+			case self::ACTION_NEW:
 				// Rollback the addition of new elements to the stack
 				unset( $this->refs[$group][$lookup] );
 				if ( !$this->refs[$group] ) {
@@ -326,16 +331,16 @@ class ReferenceStack {
 				}
 				// TODO: Don't we need to rollback extendsCount as well?
 				break;
-			case 'new-from-placeholder':
+			case self::ACTION_NEW_FROM_PLACEHOLDER:
 				$this->refs[$group][$lookup]['__placeholder__'] = true;
 				unset( $this->refs[$group][$lookup]['count'] );
 				break;
-			case 'assign':
+			case self::ACTION_ASSIGN:
 				// Rollback assignment of text to pre-existing elements
 				$this->refs[$group][$lookup]['text'] = null;
 				$this->refs[$group][$lookup]['count']--;
 				break;
-			case 'increment':
+			case self::ACTION_INCREMENT:
 				// Rollback increase in named ref occurrences
 				$this->refs[$group][$lookup]['count']--;
 				break;

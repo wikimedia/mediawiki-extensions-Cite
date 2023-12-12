@@ -24,26 +24,22 @@ class CitationToolDefinition {
 				->plain()
 		);
 
-		if ( $citationDefinition === null ) {
-			$citationDefinition = json_decode(
-				$context->msg( 'visualeditor-cite-tool-definition.json' )
-					->inContentLanguage()
-					->plain()
-			);
-		}
+		$citationDefinition ??= json_decode(
+			$context->msg( 'visualeditor-cite-tool-definition.json' )
+				->inContentLanguage()
+				->plain()
+		);
 
 		$citationTools = [];
 		if ( is_array( $citationDefinition ) ) {
 			foreach ( $citationDefinition as $tool ) {
-				if ( !isset( $tool->title ) ) {
-					// The following messages are generated here:
-					// * visualeditor-cite-tool-name-book
-					// * visualeditor-cite-tool-name-journal
-					// * visualeditor-cite-tool-name-news
-					// * visualeditor-cite-tool-name-web
-					$tool->title = $context->msg( 'visualeditor-cite-tool-name-' . $tool->name )
-						->text();
-				}
+				// The following messages are generated here:
+				// * visualeditor-cite-tool-name-book
+				// * visualeditor-cite-tool-name-journal
+				// * visualeditor-cite-tool-name-news
+				// * visualeditor-cite-tool-name-web
+				$tool->title ??= $context->msg( 'visualeditor-cite-tool-name-' . $tool->name )
+					->text();
 				$citationTools[] = $tool;
 			}
 		}

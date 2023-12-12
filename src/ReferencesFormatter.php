@@ -264,13 +264,11 @@ class ReferencesFormatter {
 	private function referencesFormatEntryAlternateBacklinkLabel(
 		Parser $parser, int $offset
 	): string {
-		if ( $this->backlinkLabels === null ) {
-			$this->backlinkLabels = preg_split(
-				'/\s+/',
-				$this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' )
-					->plain()
-			);
-		}
+		$this->backlinkLabels ??= preg_split(
+			'/\s+/',
+			$this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' )
+				->plain()
+		);
 
 		return $this->backlinkLabels[$offset]
 			?? $this->errorReporter->plain( $parser, 'cite_error_references_no_backlink_label' );

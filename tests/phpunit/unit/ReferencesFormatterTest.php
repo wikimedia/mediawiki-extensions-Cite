@@ -370,16 +370,13 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		$mockMessageLocalizer->method( 'msg' )
 			->willReturn( $mockMessage );
 
-		$mockErrorReporter = $this->createMock( ErrorReporter::class );
-		if ( $expectedLabel === null ) {
-			$mockErrorReporter->expects( $this->once() )->method( 'plain' );
-		} else {
-			$mockErrorReporter->expects( $this->never() )->method( 'plain' );
-		}
+		$errorReporter = $this->createMock( ErrorReporter::class );
+		$errorReporter->expects( $expectedLabel ? $this->never() : $this->once() )
+			->method( 'plain' );
 
 		/** @var ReferencesFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferencesFormatter(
-			$mockErrorReporter,
+			$errorReporter,
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );

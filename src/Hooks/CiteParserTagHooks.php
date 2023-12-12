@@ -90,9 +90,7 @@ class CiteParserTagHooks {
 	 * @return Cite
 	 */
 	private static function citeForParser( Parser $parser ): Cite {
-		if ( !isset( $parser->extCite ) ) {
-			$parser->extCite = new Cite( $parser );
-		}
+		$parser->extCite ??= new Cite( $parser );
 		return $parser->extCite;
 	}
 

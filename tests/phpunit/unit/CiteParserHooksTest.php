@@ -43,7 +43,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$citeParserHooks = new CiteParserHooks();
 		$citeParserHooks->onParserClearState( $parser );
 
-		$this->assertFalse( isset( $parser->extCite ) );
+		$this->assertObjectNotHasProperty( 'extCite', $parser );
 	}
 
 	/**
@@ -56,7 +56,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$citeParserHooks = new CiteParserHooks();
 		$citeParserHooks->onParserCloned( $parser );
 
-		$this->assertFalse( isset( $parser->extCite ) );
+		$this->assertObjectNotHasProperty( 'extCite', $parser );
 	}
 
 	/**

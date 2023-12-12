@@ -13,8 +13,9 @@ use Parser;
  */
 class FootnoteMarkFormatter {
 
-	/** @var string[][] */
+	/** @var array<string,string[]> In-memory cache for the cite_link_label_group-… link label lists */
 	private array $linkLabels = [];
+
 	private AnchorFormatter $anchorFormatter;
 	private ErrorReporter $errorReporter;
 	private ReferenceMessageLocalizer $messageLocalizer;
@@ -41,7 +42,7 @@ class FootnoteMarkFormatter {
 	 * @return string
 	 */
 	public function linkRef( Parser $parser, string $group, ReferenceStackItem $ref ): string {
-		$label = $this->getLinkLabel( $parser, $group, $ref->number );
+		$label = $this->fetchCustomizedLinkLabel( $parser, $group, $ref->number );
 		if ( $label === null ) {
 			$label = $this->messageLocalizer->localizeDigits( (string)$ref->number );
 			if ( $group !== Cite::DEFAULT_GROUP ) {
@@ -79,17 +80,23 @@ class FootnoteMarkFormatter {
 	 *
 	 * @return string|null Returns null if no custom labels for this group exist
 	 */
-	private function getLinkLabel( Parser $parser, string $group, int $number ): ?string {
+	private function fetchCustomizedLinkLabel( Parser $parser, string $group, int $number ): ?string {
+		if ( $group === Cite::DEFAULT_GROUP ) {
+			return null;
+		}
+
 		$message = "cite_link_label_group-$group";
-		if ( !isset( $this->linkLabels[$group] ) ) {
+		if ( !array_key_exists( $group, $this->linkLabels ) ) {
 			$msg = $this->messageLocalizer->msg( $message );
 			$this->linkLabels[$group] = $msg->isDisabled() ? [] : preg_split( '/\s+/', $msg->plain() );
 		}
 
+		// Expected behavior for groups without custom labels
 		if ( !$this->linkLabels[$group] ) {
 			return null;
 		}
 
+		// Error message in case we run out of custom labels
 		return $this->linkLabels[$group][$number - 1] ?? $this->errorReporter->plain(
 			$parser,
 			'cite_error_no_link_label_group',

@@ -257,8 +257,6 @@ class ReferenceStack {
 	/**
 	 * Partially undoes the effect of calls to stack()
 	 *
-	 * Called by guardedReferences()
-	 *
 	 * The option to define <ref> within <references> makes the
 	 * behavior of <ref> context dependent.  This is normally fine
 	 * but certain operations (especially #tag) lead to out-of-order

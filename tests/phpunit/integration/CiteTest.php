@@ -371,6 +371,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @covers ::references
 	 * @covers ::guardedReferences
 	 * @dataProvider provideGuardedReferences
 	 */
@@ -408,7 +409,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			->with( $expectedRollbackCount )
 			->willReturn( [ [ 't', [] ] ] );
 
-		$output = $spy->guardedReferences( $parser, $text, $argv );
+		$output = $cite->references( $parser, $text, $argv );
 		$this->assertSame( $expectedOutput, $output );
 	}
 

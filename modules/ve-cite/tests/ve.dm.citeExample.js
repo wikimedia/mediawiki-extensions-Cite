@@ -21,7 +21,7 @@ ve.dm.citeExample.refListItemClipboard = function ( text ) {
 		<div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output">
 			<span class="ve-ce-branchNode ve-ce-internalItemNode">
 				<p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">
-					${text}
+					${ text }
 				</p>
 			</span>
 		</div>
@@ -54,7 +54,7 @@ ve.dm.citeExample.domToDataCases = {
 					<a href="#cite_note-bar-1">[1]</a>
 				</sup>
 				 Yay
-				${/* This reference has .body.id instead of .body.html */''}
+				${ /* This reference has .body.id instead of .body.html */'' }
 				<sup about="#mwt4" class="mw-ref reference" data-mw='{"name":"ref","body":{"id":"mw-cite-3"},"attrs":{"group":"g1"}}' id="cite_ref-1-0" rel="dc:references" typeof="mw:Extension/ref">
 					<a href="#cite_note-3">[g1 2]</a>
 				</sup>
@@ -68,8 +68,8 @@ ve.dm.citeExample.domToDataCases = {
 					<a href="#cite_ref-foo-4">[g1 3]</a>
 				</sup>
 			</p>
-			${/* The HTML below is enriched to wrap reference contents in <span id="mw-cite-[...]"> */''}
-			${/* which Parsoid doesn't do yet, but T88290 asks for */''}
+			${ /* The HTML below is enriched to wrap reference contents in <span id="mw-cite-[...]"> */'' }
+			${ /* which Parsoid doesn't do yet, but T88290 asks for */'' }
 			<ol class="references" typeof="mw:Extension/references" about="#mwt7"
 				data-mw='{"name":"references","body":{
 				"html":"<sup about=\\"#mwt8\\" class=\\"mw-ref reference\\"
@@ -131,7 +131,7 @@ ve.dm.citeExample.domToDataCases = {
 					<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>
 				</sup>
 				 Yay
-				${/* This reference has .body.id instead of .body.html */''}
+				${ /* This reference has .body.id instead of .body.html */'' }
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"id":"mw-cite-3","html":"No name"},"attrs":{"group":"g1"}}' class="mw-ref reference">
 					<a data-mw-group="g1" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[g1 2]</span></a>
 				</sup>
@@ -144,8 +144,8 @@ ve.dm.citeExample.domToDataCases = {
 					<a data-mw-group="g1" style="counter-reset: mw-Ref 3;"><span class="mw-reflink-text">[g1 3]</span></a>
 				</sup>
 			</p>
-			${/* The HTML below is enriched to wrap reference contents in <span id="mw-cite-[...]"> */''}
-			${/* which Parsoid doesn't do yet, but T88290 asks for */''}
+			${ /* The HTML below is enriched to wrap reference contents in <span id="mw-cite-[...]"> */'' }
+			${ /* which Parsoid doesn't do yet, but T88290 asks for */'' }
 			<div typeof="mw:Extension/references"
 				 data-mw='{"name":"references","attrs":{"group":"g1"},"body":{
 				"html":"<sup typeof=\\"mw:Extension/ref\\"
@@ -154,15 +154,15 @@ ve.dm.citeExample.domToDataCases = {
 					<ol class="mw-references references" data-mw-group="g1">
 						<li>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>
-								 ${ve.dm.citeExample.refListItemClipboard( 'Quux' )}
+								 ${ ve.dm.citeExample.refListItemClipboard( 'Quux' ) }
 						</li>
 						<li>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>
-								 ${ve.dm.citeExample.refListItemClipboard( 'No name' )}
+								 ${ ve.dm.citeExample.refListItemClipboard( 'No name' ) }
 						</li>
 						<li>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>
-								 ${ve.dm.citeExample.refListItemClipboard( 'Ref in refs' )}
+								 ${ ve.dm.citeExample.refListItemClipboard( 'Ref in refs' ) }
 						</li>
 					</ol>
 			</div>
@@ -561,7 +561,7 @@ ve.dm.citeExample.domToDataCases = {
 		clipboardBody: ve.dm.example.singleLine`
 			<p><sup typeof="mw:Extension/ref" data-mw='{"attrs":{"group":"notes"},"body":{"id":"mw-reference-text-cite_note-1","html":"Foo"},"name":"ref"}' class="mw-ref reference"><a data-mw-group="notes" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[notes 1]</span></a></sup></p>
 			<div typeof="mw:Extension/references" data-mw='{"parts":[{"template":{"params":{"1":{"wt":"<references group=\\"notes\\" />"}},"target":{"wt":"echo","href":"./Template:Echo"},"i":0}}],"name":"references"}'>
-				${/* TODO: This should list should get populated on copy */''}
+				${ /* TODO: This should list should get populated on copy */'' }
 				<ol class="mw-references references"></ol>
 			</div>
 		`,
@@ -648,7 +648,7 @@ ve.dm.citeExample.domToDataCases = {
 				<ol class="mw-references references">
 					<li>
 						<a rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a>
-							 ${ve.dm.citeExample.refListItemClipboard( 'Foo' )}
+							 ${ ve.dm.citeExample.refListItemClipboard( 'Foo' ) }
 					</li>
 				</ol>
 			</div>

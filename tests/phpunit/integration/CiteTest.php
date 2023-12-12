@@ -38,7 +38,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		?string $extends,
 		?string $follow,
 		?string $dir,
-		$expected
+		?string $expected
 	) {
 		$this->overrideConfigValue( 'CiteBookReferencing', true );
 
@@ -53,10 +53,10 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$cite->isSectionPreview = $isSectionPreview;
 
 		$status = $cite->validateRef( $text, $group, $name, $extends, $follow, $dir );
-		if ( is_string( $expected ) ) {
-			$this->assertSame( $expected, $status->getErrors()[0]['message'] );
+		if ( $expected ) {
+			$this->assertStatusError( $expected, $status );
 		} else {
-			$this->assertSame( $expected, $status->isGood(), $status->getErrors()[0]['message'] ?? '' );
+			$this->assertStatusGood( $status );
 		}
 	}
 
@@ -134,7 +134,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'extends' => null,
 				'follow' => null,
 				'dir' => null,
-				'expected' => true,
+				'expected' => null,
 			],
 			'Whitespace or empty text' => [
 				'referencesStack' => [],
@@ -170,7 +170,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'extends' => null,
 				'follow' => null,
 				'dir' => null,
-				'expected' => true,
+				'expected' => null,
 			],
 			'contains <ref>-like text' => [
 				'referencesStack' => [],
@@ -196,7 +196,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'extends' => null,
 				'follow' => null,
 				'dir' => null,
-				'expected' => true,
+				'expected' => null,
 			],
 			'Different group than <references>' => [
 				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
@@ -280,7 +280,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'extends' => null,
 				'follow' => null,
 				'dir' => 'RTL',
-				'expected' => true,
+				'expected' => null,
 			],
 			'Bad dir' => [
 				'referencesStack' => [],
@@ -306,7 +306,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
 		$status = $cite->validateRef( 'text', '', 'name', 'a', null, null );
-		$this->assertSame( 'cite_error_ref_too_many_keys', $status->getErrors()[0]['message'] );
+		$this->assertStatusError( 'cite_error_ref_too_many_keys', $status );
 	}
 
 	/**
@@ -325,9 +325,10 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			[ 'dir', 'extends', 'follow', 'group', 'name' ]
 		);
 		$this->assertSame( $expectedValue, array_values( $status->getValue() ) );
-		$this->assertSame( !$expectedError, $status->isGood() );
 		if ( $expectedError ) {
-			$this->assertSame( $expectedError, $status->getErrors()[0]['message'] );
+			$this->assertStatusError( $expectedError, $status );
+		} else {
+			$this->assertStatusGood( $status );
 		}
 	}
 

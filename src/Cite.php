@@ -67,16 +67,15 @@ class Cite {
 
 	/**
 	 * Error stack used when defining refs in <references>
-	 * @var array[]
-	 * @phan-var non-empty-array[]
 	 */
-	private array $mReferencesErrors = [];
+	private StatusValue $mReferencesErrors;
 	private ReferenceStack $referenceStack;
 
 	public function __construct( Parser $parser ) {
 		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
 		$this->errorReporter = new ErrorReporter( $messageLocalizer );
+		$this->mReferencesErrors = StatusValue::newGood();
 		$this->referenceStack = new ReferenceStack();
 		$anchorFormatter = new AnchorFormatter();
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
@@ -155,9 +154,7 @@ class Cite {
 		if ( $this->inReferencesGroup !== null ) {
 			if ( !$status->isGood() ) {
 				// We know we are in the middle of a <references> tag and can't display errors in place
-				foreach ( $status->getErrors() as $error ) {
-					$this->mReferencesErrors[] = [ $error['message'], ...$error['params'] ];
-				}
+				$this->mReferencesErrors->merge( $status );
 			} elseif ( $text !== null ) {
 				// Validation made sure we always have group and name while in <references>
 				$this->referenceStack->setText( $arguments['group'], $arguments['name'], $text );
@@ -285,13 +282,13 @@ class Cite {
 
 	private function formatReferencesErrors( Parser $parser ): string {
 		$html = '';
-		foreach ( $this->mReferencesErrors as $msg ) {
+		foreach ( $this->mReferencesErrors->getErrors() as $error ) {
 			if ( $html ) {
 				$html .= "<br />\n";
 			}
-			$html .= $this->errorReporter->halfParsed( $parser, ...$msg );
+			$html .= $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
 		}
-		$this->mReferencesErrors = [];
+		$this->mReferencesErrors = StatusValue::newGood();
 		return $html ? "\n$html" : '';
 	}
 

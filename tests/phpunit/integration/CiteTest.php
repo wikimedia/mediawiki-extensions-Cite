@@ -218,7 +218,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		?string $inReferencesGroup,
 		array $initialRefs,
 		string $expectOutput,
-		array $expectedErrors,
+		?string $expectedError,
 		array $expectedRefs,
 		bool $isSectionPreview = false
 	) {
@@ -249,7 +249,11 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 
 		$result = $spy->guardedRef( $mockParser, $text, $argv );
 		$this->assertSame( $expectOutput, $result );
-		$this->assertSame( $expectedErrors, $spy->mReferencesErrors );
+		if ( $expectedError ) {
+			$this->assertStatusError( $expectedError, $spy->mReferencesErrors );
+		} else {
+			$this->assertStatusGood( $spy->mReferencesErrors );
+		}
 		$this->assertSame( $expectedRefs, $stackSpy->refs );
 	}
 
@@ -261,7 +265,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'inReferencesGroup' => null,
 				'initialRefs' => [],
 				'expectedOutput' => '<foot />',
-				'expectedErrors' => [],
+				'expectedError' => null,
 				'expectedRefs' => [
 					'' => [
 						'a' => [
@@ -281,7 +285,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'inReferencesGroup' => '',
 				'initialRefs' => [ '' => [] ],
 				'expectedOutput' => '',
-				'expectedErrors' => [ [ 'cite_error_references_no_key' ] ],
+				'expectedError' => 'cite_error_references_no_key',
 				'expectedRefs' => [ '' => [] ]
 			],
 			'Fallback to references group' => [
@@ -292,7 +296,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 					'foo' => [ 'a' => [] ],
 				],
 				'expectedOutput' => '',
-				'expectedErrors' => [],
+				'expectedError' => null,
 				'expectedRefs' => [
 					'foo' => [
 						'a' => [ 'text' => 'text' ],
@@ -305,7 +309,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'inReferencesGroup' => null,
 				'initialRefs' => [],
 				'expectedOutput' => '<foot />',
-				'expectedErrors' => [],
+				'expectedError' => null,
 				'expectedRefs' => [
 					'' => [
 						'a' => [
@@ -328,7 +332,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'inReferencesGroup' => null,
 				'initialRefs' => [],
 				'expectedOutput' => '(cite_error_ref_too_many_keys)',
-				'expectedErrors' => [],
+				'expectedError' => null,
 				'expectedRefs' => []
 			],
 			'Successful references ref' => [
@@ -341,7 +345,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 					]
 				],
 				'expectedOutput' => '',
-				'expectedErrors' => [],
+				'expectedError' => null,
 				'expectedRefs' => [
 					'' => [
 						'a' => [ 'text' => 'text' ],
@@ -354,7 +358,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'inReferencesGroup' => '',
 				'initialRefs' => [],
 				'expectOutput' => '',
-				'expectedErrors' => [],
+				'expectedError' => null,
 				'expectedRefs' => [
 					'' => [
 						'a' => [ 'text' => 'T245376' ],
@@ -372,7 +376,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 					]
 				],
 				'expectedOutput' => '',
-				'expectedErrors' => [],
+				'expectedError' => null,
 				'expectedRefs' => [
 					'' => [
 						'a' => [

@@ -53,7 +53,7 @@ class Cite {
 	 * True when a <ref> tag is being processed.
 	 * Used to avoid infinite recursion
 	 */
-	private bool $mInCite = false;
+	private bool $inRefTag = false;
 
 	/**
 	 * @var null|string The current group name while parsing nested <ref> in <references>. Null when
@@ -100,13 +100,13 @@ class Cite {
 	 * @return string|null Null in case a <ref> tag is not allowed in the current context
 	 */
 	public function ref( Parser $parser, ?string $text, array $argv ): ?string {
-		if ( $this->mInCite ) {
+		if ( $this->inRefTag ) {
 			return null;
 		}
 
-		$this->mInCite = true;
+		$this->inRefTag = true;
 		$ret = $this->guardedRef( $parser, $text, $argv );
-		$this->mInCite = false;
+		$this->inRefTag = false;
 
 		return $ret;
 	}
@@ -388,7 +388,7 @@ class Cite {
 	 * @return string|null Null in case a <references> tag is not allowed in the current context
 	 */
 	public function references( Parser $parser, ?string $text, array $argv ): ?string {
-		if ( $this->mInCite || $this->inReferencesGroup !== null ) {
+		if ( $this->inRefTag || $this->inReferencesGroup !== null ) {
 			return null;
 		}
 

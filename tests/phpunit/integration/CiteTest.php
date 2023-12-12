@@ -7,6 +7,7 @@ use Cite\ErrorReporter;
 use Cite\FootnoteMarkFormatter;
 use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
+use Cite\Validator;
 use Language;
 use LogicException;
 use Parser;
@@ -23,9 +24,7 @@ use Wikimedia\TestingAccessWrapper;
 class CiteTest extends \MediaWikiIntegrationTestCase {
 
 	/**
-	 * @covers ::validateRef
-	 * @covers ::validateRefOutsideOfReferences
-	 * @covers ::validateRefInReferences
+	 * @covers \Cite\Validator
 	 * @dataProvider provideValidateRef
 	 */
 	public function testValidateRef(
@@ -40,19 +39,13 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		?string $dir,
 		?string $expected
 	) {
-		$this->overrideConfigValue( 'CiteBookReferencing', true );
-
 		$errorReporter = $this->createMock( ErrorReporter::class );
 		$stack = new ReferenceStack( $errorReporter );
 		TestingAccessWrapper::newFromObject( $stack )->refs = $referencesStack;
 
-		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
-		$cite->referenceStack = $stack;
-		$cite->inReferencesGroup = $inReferencesGroup;
-		$cite->isSectionPreview = $isSectionPreview;
+		$validator = new Validator( $stack, $inReferencesGroup, $isSectionPreview, true );
 
-		$status = $cite->validateRef( $text, $group, $name, $extends, $follow, $dir );
+		$status = $validator->validateRef( $text, $group, $name, $extends, $follow, $dir );
 		if ( $expected ) {
 			$this->assertStatusError( $expected, $status );
 		} else {
@@ -298,14 +291,11 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::validateRef
+	 * @covers \Cite\Validator
 	 */
 	public function testValidateRef_noExtends() {
-		$this->overrideConfigValue( 'CiteBookReferencing', false );
-
-		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
-		$status = $cite->validateRef( 'text', '', 'name', 'a', null, null );
+		$validator = new Validator( $this->createNoOpMock( ReferenceStack::class ) );
+		$status = $validator->validateRef( 'text', '', 'name', 'a', null, null );
 		$this->assertStatusError( 'cite_error_ref_too_many_keys', $status );
 	}
 

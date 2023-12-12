@@ -26,6 +26,7 @@ namespace Cite;
 
 use LogicException;
 use MediaWiki\Html\Html;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
 use Parser;
 use StatusValue;
@@ -108,139 +109,6 @@ class Cite {
 		return $ret;
 	}
 
-	private function validateRef(
-		?string $text,
-		string $group,
-		?string $name,
-		?string $extends,
-		?string $follow,
-		?string $dir
-	): StatusValue {
-		if ( ctype_digit( (string)$name )
-			|| ctype_digit( (string)$extends )
-			|| ctype_digit( (string)$follow )
-		) {
-			// Numeric names mess up the resulting id's, potentially producing
-			// duplicate id's in the XHTML.  The Right Thing To Do
-			// would be to mangle them, but it's not really high-priority
-			// (and would produce weird id's anyway).
-			return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
-		}
-
-		if ( $extends ) {
-			// Temporary feature flag until mainstreamed, see T236255
-			global $wgCiteBookReferencing;
-			if ( !$wgCiteBookReferencing ) {
-				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
-			}
-
-			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			if ( isset( $groupRefs[$name] ) && !isset( $groupRefs[$name]['extends'] ) ) {
-				// T242141: A top-level <ref> can't be changed into a sub-reference
-				return StatusValue::newFatal( 'cite_error_references_duplicate_key', $name );
-			} elseif ( isset( $groupRefs[$extends]['extends'] ) ) {
-				// A sub-reference can not be extended a second time (no nesting)
-				return StatusValue::newFatal( 'cite_error_ref_nested_extends', $extends,
-					$groupRefs[$extends]['extends'] );
-			}
-		}
-
-		if ( $follow && ( $name || $extends ) ) {
-			// TODO: Introduce a specific error for this case.
-			return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
-		}
-
-		if ( $dir !== null && !in_array( strtolower( $dir ), [ 'ltr', 'rtl' ], true ) ) {
-			return StatusValue::newFatal( 'cite_error_ref_invalid_dir', $dir );
-		}
-
-		return $this->inReferencesGroup === null ?
-			$this->validateRefOutsideOfReferences( $text, $name ) :
-			$this->validateRefInReferences( $text, $group, $name );
-	}
-
-	private function validateRefOutsideOfReferences(
-		?string $text,
-		?string $name
-	): StatusValue {
-		if ( !$name ) {
-			if ( $text === null ) {
-				// Completely empty ref like <ref /> is forbidden.
-				return StatusValue::newFatal( 'cite_error_ref_no_key' );
-			} elseif ( trim( $text ) === '' ) {
-				// Must have content or reuse another ref by name.
-				return StatusValue::newFatal( 'cite_error_ref_no_input' );
-			}
-		}
-
-		if ( $text !== null && preg_match(
-			'/<ref(erences)?\b[^>]*+>/i',
-			preg_replace( '#<(\w++)[^>]*+>.*?</\1\s*>|<!--.*?-->#s', '', $text )
-		) ) {
-			// (bug T8199) This most likely implies that someone left off the
-			// closing </ref> tag, which will cause the entire article to be
-			// eaten up until the next <ref>.  So we bail out early instead.
-			// The fancy regex above first tries chopping out anything that
-			// looks like a comment or SGML tag, which is a crude way to avoid
-			// false alarms for <nowiki>, <pre>, etc.
-			//
-			// Possible improvement: print the warning, followed by the contents
-			// of the <ref> tag.  This way no part of the article will be eaten
-			// even temporarily.
-			return StatusValue::newFatal( 'cite_error_included_ref' );
-		}
-
-		return StatusValue::newGood();
-	}
-
-	private function validateRefInReferences(
-		?string $text,
-		string $group,
-		?string $name
-	): StatusValue {
-		if ( $group !== $this->inReferencesGroup ) {
-			// <ref> and <references> have conflicting group attributes.
-			return StatusValue::newFatal( 'cite_error_references_group_mismatch',
-				Sanitizer::safeEncodeAttribute( $group ) );
-		}
-
-		if ( !$name ) {
-			// <ref> calls inside <references> must be named
-			return StatusValue::newFatal( 'cite_error_references_no_key' );
-		}
-
-		if ( $text === null || trim( $text ) === '' ) {
-			// <ref> called in <references> has no content.
-			return StatusValue::newFatal(
-				'cite_error_empty_references_define',
-				Sanitizer::safeEncodeAttribute( $name ),
-				Sanitizer::safeEncodeAttribute( $group )
-			);
-		}
-
-		// Section previews are exempt from some rules.
-		if ( !$this->isSectionPreview ) {
-			if ( !$this->referenceStack->hasGroup( $group ) ) {
-				// Called with group attribute not defined in text.
-				return StatusValue::newFatal(
-					'cite_error_references_missing_group',
-					Sanitizer::safeEncodeAttribute( $group ),
-					Sanitizer::safeEncodeAttribute( $name )
-				);
-			}
-
-			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-
-			if ( !isset( $groupRefs[$name] ) ) {
-				// No such named ref exists in this group.
-				return StatusValue::newFatal( 'cite_error_references_missing_key',
-					Sanitizer::safeEncodeAttribute( $name ) );
-			}
-		}
-
-		return StatusValue::newGood();
-	}
-
 	/**
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <ref> tag, if any
@@ -267,8 +135,14 @@ class Cite {
 		// Use the default group, or the references group when inside one.
 		$arguments['group'] ??= $this->inReferencesGroup ?? self::DEFAULT_GROUP;
 
+		$validator = new Validator(
+			$this->referenceStack,
+			$this->inReferencesGroup,
+			$this->isSectionPreview,
+			MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteBookReferencing' )
+		);
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
-		$status->merge( $this->validateRef( $text, ...array_values( $arguments ) ) );
+		$status->merge( $validator->validateRef( $text, ...array_values( $arguments ) ) );
 
 		if ( !$status->isGood() && $this->inReferencesGroup !== null ) {
 			foreach ( $status->getErrors() as $error ) {

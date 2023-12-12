@@ -19,7 +19,7 @@ class ReferenceStack {
 	 * string for the default group) and reference name.
 	 *
 	 * References without a name get a numeric index, starting from 0. Conflicts are avoided by
-	 * disallowing numeric names (e.g. <ref name="1">) in {@see Cite::validateRef}.
+	 * disallowing numeric names (e.g. <ref name="1">) in {@see Validator::validateRef}.
 	 *
 	 * Elements (almost all are optional):
 	 * - 'name': The original name="…" of a reference (also used as the array key), or null for

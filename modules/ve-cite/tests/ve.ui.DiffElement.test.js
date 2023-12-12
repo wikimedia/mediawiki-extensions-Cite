@@ -25,17 +25,17 @@ QUnit.test( 'Diffing', function ( assert ) {
 			{
 				msg: 'Simple ref change',
 				oldDoc: ve.dm.example.singleLine`
-					<p>${ref( 'Foo' )}${ref( 'Bar' )}${ref( 'Baz' )}</p>
+					<p>${ ref( 'Foo' ) }${ ref( 'Bar' ) }${ ref( 'Baz' ) }</p>
 					<h2>Notes</h2>
 					<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;}"></div>
 				`,
 				newDoc: ve.dm.example.singleLine`
-					<p>${ref( 'Foo' )}${ref( 'Bar ish' )}${ref( 'Baz' )}</p>
+					<p>${ ref( 'Foo' ) }${ ref( 'Bar ish' ) }${ ref( 'Baz' ) }</p>
 					<h2>Notes</h2>
 					<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;}"></div>
 				`,
 				expected: ve.dm.example.singleLine`
-					${spacer}
+					${ spacer }
 					<h2 data-diff-action="none">Notes</h2>
 					<ol>
 						<li value="1"><p data-diff-action="none">Foo</p></li>

@@ -18,6 +18,7 @@
 	"cite-desc": "Adds <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> tags for citations",
 	"cite_error": "Cite error: $1",
 	"cite_error_ref_invalid_dir": "Invalid <code>dir=\"$1\"</code>, must be <code>ltr</code> or <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "One of the <code>&lt;ref&gt;</code> tags with the name \"$1\" does have a conflicting dir attribute.",
 	"cite_error_ref_numeric_key": "Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer. Use a descriptive title",
 	"cite_error_ref_no_key": "The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name",
 	"cite_error_ref_too_many_keys": "Invalid parameter in <code>&lt;ref&gt;</code> tag",

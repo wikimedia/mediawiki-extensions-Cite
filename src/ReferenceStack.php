@@ -152,6 +152,11 @@ class ReferenceStack {
 			$ref['count']++;
 			// Rollback the global counter since we won't create a new ref.
 			$this->refSequence--;
+
+			if ( $ref['dir'] && $dir && $ref['dir'] !== $dir ) {
+				$ref['warnings'][] = [ 'cite_error_ref_conflicting_dir', $name ];
+			}
+
 			if ( $ref['text'] === null && $text !== null ) {
 				// If no text was set before, use this text
 				$ref['text'] = $text;

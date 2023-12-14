@@ -74,6 +74,7 @@ class ReferenceStack {
 	private const ACTION_INCREMENT = 'increment';
 	private const ACTION_NEW_FROM_PLACEHOLDER = 'new-from-placeholder';
 	private const ACTION_NEW = 'new';
+	private const PARENT_REF_PLACEHOLDER = '__placeholder__';
 
 	public function __construct( ErrorReporter $errorReporter ) {
 		$this->errorReporter = $errorReporter;
@@ -145,9 +146,9 @@ class ReferenceStack {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = &$ref;
 			$action = self::ACTION_NEW;
-		} elseif ( isset( $this->refs[$group][$name]['__placeholder__'] ) ) {
+		} elseif ( isset( $this->refs[$group][$name][self::PARENT_REF_PLACEHOLDER] ) ) {
 			// Populate a placeholder.
-			unset( $this->refs[$group][$name]['__placeholder__'] );
+			unset( $this->refs[$group][$name][self::PARENT_REF_PLACEHOLDER] );
 			unset( $ref['number'] );
 			$ref = array_merge( $ref, $this->refs[$group][$name] );
 			$this->refs[$group][$name] =& $ref;
@@ -204,7 +205,7 @@ class ReferenceStack {
 				// Transfer my number to parent ref.
 				$this->refs[$group][$extends] = [
 					'number' => $ref['number'],
-					'__placeholder__' => true,
+					self::PARENT_REF_PLACEHOLDER => true,
 				];
 			}
 		} elseif ( $extends && $ref['extends'] !== $extends ) {
@@ -323,7 +324,7 @@ class ReferenceStack {
 				// TODO: Don't we need to rollback extendsCount as well?
 				break;
 			case self::ACTION_NEW_FROM_PLACEHOLDER:
-				$this->refs[$group][$lookup]['__placeholder__'] = true;
+				$this->refs[$group][$lookup][self::PARENT_REF_PLACEHOLDER] = true;
 				unset( $this->refs[$group][$lookup]['count'] );
 				break;
 			case self::ACTION_ASSIGN:

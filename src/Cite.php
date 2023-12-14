@@ -145,6 +145,7 @@ class Cite {
 		$status->merge( $validator->validateRef( $text, ...array_values( $arguments ) ) );
 
 		if ( !$status->isGood() && $this->inReferencesGroup !== null ) {
+			// We know we are in the middle of a <references> tag and can't display errors in place
 			foreach ( $status->getErrors() as $error ) {
 				$this->mReferencesErrors[] = [ $error['message'], ...$error['params'] ];
 			}
@@ -239,71 +240,75 @@ class Cite {
 		}
 
 		$status = $this->parseArguments( $argv, [ 'group', 'responsive' ] );
-		$this->inReferencesGroup = $status->getValue()['group'] ?? self::DEFAULT_GROUP;
-		$ret = $this->guardedReferences( $parser, $text, $status );
+		$arguments = $status->getValue();
+
+		$this->inReferencesGroup = $arguments['group'] ?? self::DEFAULT_GROUP;
+
+		$status->merge( $this->parseReferencesTagContent( $parser, $text ) );
+		if ( !$status->isGood() ) {
+			$error = $status->getErrors()[0];
+			$ret = $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
+		} else {
+			$responsive = $arguments['responsive'];
+			$ret = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive );
+			// Append errors collected while {@see parseReferencesTagContent} processed <ref> tags
+			// in <references>
+			$ret .= $this->formatReferencesErrors( $parser );
+		}
+
 		$this->inReferencesGroup = null;
 
 		return $ret;
 	}
 
 	/**
-	 * Must only be called from references(). Use that to prevent recursion.
-	 *
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
-	 * @param StatusValue $status with the arguments as given in <references …>
 	 *
-	 * @return string HTML
+	 * @return StatusValue
 	 */
-	private function guardedReferences(
-		Parser $parser,
-		?string $text,
-		StatusValue $status
-	): string {
-		$responsive = $status->getValue()['responsive'];
-
-		if ( $text !== null && trim( $text ) !== '' ) {
-			if ( preg_match( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:references)-}', $text ) ) {
-				return $this->errorReporter->halfParsed( $parser, 'cite_error_included_references' );
-			}
-
-			// Detect whether we were sent already rendered <ref>s. Mostly a side effect of using
-			// {{#tag:references}}. The following assumes that the parsed <ref>s sent within the
-			// <references> block were the most recent calls to <ref>. This assumption is true for
-			// all known use cases, but not strictly enforced by the parser. It is possible that
-			// some unusual combination of #tag, <references> and conditional parser functions could
-			// be created that would lead to malformed references here.
-			preg_match_all( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:ref)-}', $text, $matches );
-			$count = count( $matches[0] );
-
-			// Undo effects of calling <ref> while unaware of being contained in <references>
-			foreach ( $this->referenceStack->rollbackRefs( $count ) as $call ) {
-				// Rerun <ref> call with the <references> context now being known
-				$this->guardedRef( $parser, ...$call );
-			}
-
-			// Parse the <references> content to process any unparsed <ref> tags
-			$parser->recursiveTagParse( $text );
+	private function parseReferencesTagContent( Parser $parser, ?string $text ): StatusValue {
+		// Nothing to parse in an empty <references /> tag
+		if ( $text === null || trim( $text ) === '' ) {
+			return StatusValue::newGood();
 		}
 
-		if ( !$status->isGood() ) {
-			// Bail out with an error.
-			$error = $status->getErrors()[0];
-			return $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
+		if ( preg_match( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:references)-}', $text ) ) {
+			return StatusValue::newFatal( 'cite_error_included_references' );
 		}
 
-		$s = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive );
+		// Detect whether we were sent already rendered <ref>s. Mostly a side effect of using
+		// {{#tag:references}}. The following assumes that the parsed <ref>s sent within the
+		// <references> block were the most recent calls to <ref>. This assumption is true for
+		// all known use cases, but not strictly enforced by the parser. It is possible that
+		// some unusual combination of #tag, <references> and conditional parser functions could
+		// be created that would lead to malformed references here.
+		preg_match_all( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:ref)-}', $text, $matches );
+		$count = count( $matches[0] );
 
-		// Append errors generated while processing <references>
-		if ( $this->mReferencesErrors ) {
-			$html = [];
-			foreach ( $this->mReferencesErrors as $msg ) {
-				$html[] = $this->errorReporter->halfParsed( $parser, ...$msg );
+		// Undo effects of calling <ref> while unaware of being contained in <references>
+		foreach ( $this->referenceStack->rollbackRefs( $count ) as $call ) {
+			// Rerun <ref> call with the <references> context now being known
+			$this->guardedRef( $parser, ...$call );
+		}
+
+		// Parse the <references> content to process any unparsed <ref> tags, but drop the resulting
+		// HTML
+		$parser->recursiveTagParse( $text );
+
+		return StatusValue::newGood();
+	}
+
+	private function formatReferencesErrors( Parser $parser ): string {
+		$html = '';
+		foreach ( $this->mReferencesErrors as $msg ) {
+			if ( $html ) {
+				$html .= "<br />\n";
 			}
-			$s .= "\n" . implode( "<br />\n", $html );
-			$this->mReferencesErrors = [];
+			$html .= $this->errorReporter->halfParsed( $parser, ...$msg );
 		}
-		return $s;
+		$this->mReferencesErrors = [];
+		return $html ? "\n$html" : '';
 	}
 
 	/**

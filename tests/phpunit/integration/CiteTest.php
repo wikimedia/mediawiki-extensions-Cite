@@ -363,7 +363,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::references
-	 * @covers ::guardedReferences
 	 * @dataProvider provideGuardedReferences
 	 */
 	public function testGuardedReferences(

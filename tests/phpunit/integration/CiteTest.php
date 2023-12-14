@@ -393,9 +393,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $this->createMock( ErrorReporter::class );
 		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
-			static function ( Parser $parser, ...$args ) {
-				return '(' . implode( '|', $args ) . ')';
-			}
+			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 		$spy->referencesFormatter = $this->createMock( ReferencesFormatter::class );
 		$spy->referencesFormatter->method( 'formatReferences' )
@@ -462,7 +460,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				1,
 				'',
 				false,
-				'references!' . "\n" . '(cite_error_references_no_key)'
+				"references!\n(cite_error_references_no_key)"
 			],
 		];
 	}
@@ -485,19 +483,12 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockParser->method( 'getStripState' )
 			->willReturn( $this->createMock( StripState::class ) );
 
-		$mockErrorReporter = $this->createMock( ErrorReporter::class );
-		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
-			static function ( $parser, ...$args ) {
-				return '(' . implode( '|', $args ) . ')';
-			}
-		);
-		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static function ( $parser, ...$args ) {
-				return '(' . implode( '|', $args ) . ')';
-			}
+		$errorReporter = $this->createMock( ErrorReporter::class );
+		$errorReporter->method( $this->logicalOr( 'halfParsed', 'plain' ) )->willReturnCallback(
+			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
-		$referenceStack = new ReferenceStack( $mockErrorReporter );
+		$referenceStack = new ReferenceStack( $errorReporter );
 		/** @var ReferenceStack $stackSpy */
 		$stackSpy = TestingAccessWrapper::newFromObject( $referenceStack );
 		$stackSpy->refs = $initialRefs;
@@ -508,7 +499,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$cite = $this->newCite( $isSectionPreview );
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
-		$spy->errorReporter = $mockErrorReporter;
+		$spy->errorReporter = $errorReporter;
 		$spy->footnoteMarkFormatter = $mockFootnoteMarkFormatter;
 		$spy->inReferencesGroup = $inReferencesGroup;
 		$spy->referenceStack = $referenceStack;

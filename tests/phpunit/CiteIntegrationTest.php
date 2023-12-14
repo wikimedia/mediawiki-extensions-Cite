@@ -32,9 +32,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
-			static function ( $parser, ...$args ) {
-				return '(' . implode( '|', $args ) . ')';
-			}
+			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
 		$referenceStack = new ReferenceStack( $mockErrorReporter );
@@ -73,7 +71,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 			'Named group' => [
 				[ 'foo' => [ [ 'name' => 'a' ] ] ],
 				false,
-				"\n" . '<br />(cite_error_group_refs_without_references|foo)'
+				"\n<br />(cite_error_group_refs_without_references|foo)"
 			],
 			'Named group in preview' => [
 				[ 'foo' => [ [ 'name' => 'a' ] ] ],

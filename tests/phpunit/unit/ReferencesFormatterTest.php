@@ -29,9 +29,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static function ( $parser, ...$args ) {
-				return '(' . implode( '|', $args ) . ')';
-			}
+			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
@@ -131,9 +129,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			],
 			'Use columns' => [
 				array_map(
-					static function ( $i ) {
-						return [ 'key' => $i, 'text' => 't' ];
-					},
+					static fn ( $i ) => [ 'key' => $i, 'text' => 't' ],
 					range( 0, 10 )
 				),
 				'<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
@@ -198,16 +194,12 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static function ( $parser, ...$args ) {
-				return '(' . implode( '|', $args ) . ')';
-			}
+			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
 		$anchorFormatter->method( 'backLink' )->willReturnCallback(
-			static function ( ...$args ) {
-				return implode( '+', $args );
-			}
+			static fn ( ...$args ) => implode( '+', $args )
 		);
 		$anchorFormatter->method( 'jumpLinkTarget' )->willReturnArgument( 0 );
 
@@ -309,9 +301,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static function ( $parser, ...$args ) {
-				return '(' . implode( '|', $args ) . ')';
-			}
+			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
 		/** @var ReferencesFormatter $formatter */

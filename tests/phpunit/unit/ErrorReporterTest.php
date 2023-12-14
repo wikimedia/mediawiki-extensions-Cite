@@ -96,9 +96,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 			} );
 		$parser->method( 'getOptions' )->willReturn( $parserOptions );
 		$parser->method( 'recursiveTagParse' )->willReturnCallback(
-			static function ( $content ) {
-				return '[' . $content . ']';
-			}
+			static fn ( $content ) => '[' . $content . ']'
 		);
 		return $parser;
 	}

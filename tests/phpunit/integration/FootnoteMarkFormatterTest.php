@@ -25,16 +25,12 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static function ( $parser, ...$args ) {
-				return implode( '|', $args );
-			}
+			static fn ( $parser, ...$args ) => implode( '|', $args )
 		);
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
 		$anchorFormatter->method( 'jumpLink' )->willReturnArgument( 0 );
 		$anchorFormatter->method( 'backLinkTarget' )->willReturnCallback(
-			static function ( ...$args ) {
-				return implode( '+', $args );
-			}
+			static fn ( ...$args ) => implode( '+', $args )
 		);
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturnArgument( 0 );
@@ -152,9 +148,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		);
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static function ( $parser, ...$args ) {
-				return implode( '|', $args );
-			}
+			static fn ( $parser, ...$args ) => implode( '|', $args )
 		);
 		/** @var FootnoteMarkFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(

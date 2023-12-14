@@ -12,8 +12,7 @@ use ParserOptions;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \Cite\Cite
- *
+ * @covers \Cite\Cite
  * @license GPL-2.0-or-later
  */
 class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
@@ -24,7 +23,6 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::checkRefsNoReferences
 	 * @dataProvider provideCheckRefsNoReferences
 	 */
 	public function testCheckRefsNoReferences(

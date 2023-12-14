@@ -7,7 +7,6 @@ use MediaWiki\ResourceLoader\Context;
 
 /**
  * @covers \Cite\ResourceLoader\CiteCSSFileModule
- *
  * @license GPL-2.0-or-later
  */
 class CiteCSSFileModuleTest extends \MediaWikiIntegrationTestCase {

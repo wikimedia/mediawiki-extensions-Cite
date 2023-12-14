@@ -28,12 +28,8 @@ class CiteHooks implements
 	EditPage__showEditForm_initialHook
 {
 
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
+	private UserOptionsLookup $userOptionsLookup;
 
-	/**
-	 * @param UserOptionsLookup $userOptionsLookup
-	 */
 	public function __construct( UserOptionsLookup $userOptionsLookup ) {
 		$this->userOptionsLookup = $userOptionsLookup;
 	}

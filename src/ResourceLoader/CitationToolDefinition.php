@@ -13,11 +13,8 @@ use MediaWiki\ResourceLoader as RL;
  * @license MIT
  */
 class CitationToolDefinition {
-	/**
-	 * @param RL\Context $context
-	 * @return string
-	 */
-	public static function makeScript( RL\Context $context ) {
+
+	public static function makeScript( RL\Context $context ): string {
 		$citationDefinition = json_decode(
 			$context->msg( 'cite-tool-definition.json' )
 				->inContentLanguage()

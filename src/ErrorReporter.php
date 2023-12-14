@@ -71,10 +71,6 @@ class ErrorReporter {
 
 	/**
 	 * Note the startling side effect of splitting ParserCache by user interface language!
-	 *
-	 * @param Parser $parser
-	 *
-	 * @return Language
 	 */
 	private function getInterfaceLanguageAndSplitCache( Parser $parser ): Language {
 		if ( !$this->cachedInterfaceLanguage ) {
@@ -83,13 +79,6 @@ class ErrorReporter {
 		return $this->cachedInterfaceLanguage;
 	}
 
-	/**
-	 * @param string $wikitext
-	 * @param string $key
-	 * @param Language $language
-	 *
-	 * @return string
-	 */
 	private function wrapInHtmlContainer(
 		string $wikitext,
 		string $key,

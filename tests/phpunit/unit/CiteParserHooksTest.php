@@ -83,11 +83,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$citeParserHooks->onParserAfterParse( $parser, $text, $this->createMock( StripState::class ) );
 	}
 
-	/**
-	 * @param array $configurableMethods
-	 * @return Parser
-	 */
-	private function createParser( $configurableMethods = [] ) {
+	private function createParser( array $configurableMethods = [] ): Parser {
 		return $this->getMockBuilder( Parser::class )
 			->disableOriginalConstructor()
 			->onlyMethods( $configurableMethods )

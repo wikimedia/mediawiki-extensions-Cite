@@ -364,7 +364,9 @@ class Cite {
 			return null;
 		}
 
-		$ret = $this->guardedReferences( $parser, $text, $argv );
+		$status = $this->parseArguments( $argv, [ 'group', 'responsive' ] );
+		$this->inReferencesGroup = $status->getValue()['group'] ?? self::DEFAULT_GROUP;
+		$ret = $this->guardedReferences( $parser, $text, $status );
 		$this->inReferencesGroup = null;
 
 		return $ret;
@@ -375,18 +377,16 @@ class Cite {
 	 *
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
-	 * @param string[] $argv Arguments as given in <references …>, already trimmed
+	 * @param StatusValue $status with the arguments as given in <references …>
 	 *
 	 * @return string HTML
 	 */
 	private function guardedReferences(
 		Parser $parser,
 		?string $text,
-		array $argv
+		StatusValue $status
 	): string {
-		$status = $this->parseArguments( $argv, [ 'group', 'responsive' ] );
-		[ 'group' => $group, 'responsive' => $responsive ] = $status->getValue();
-		$this->inReferencesGroup = $group ?? self::DEFAULT_GROUP;
+		$responsive = $status->getValue()['responsive'];
 
 		if ( $text !== null && trim( $text ) !== '' ) {
 			if ( preg_match( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:references)-}', $text ) ) {

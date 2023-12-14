@@ -7,7 +7,7 @@ use ParserOptions;
 
 /**
  * @group Database
- *
+ * @covers \Cite\ReferenceStack
  * @license GPL-2.0-or-later
  */
 class CiteDbTest extends \MediaWikiIntegrationTestCase {
@@ -15,9 +15,8 @@ class CiteDbTest extends \MediaWikiIntegrationTestCase {
 	protected $tablesUsed = [ 'page' ];
 
 	/**
-	 * Edge case where a parser call within `<ref>` parse clears the original parser state.
+	 * Parser call within `<ref>` parse clears the original parser state.
 	 * @see https://phabricator.wikimedia.org/T240248
-	 * @covers \Cite\ReferenceStack::pushRef
 	 */
 	public function testReferenceStackError() {
 		$this->insertPage( 'Cite-tracking-category-cite-error', '{{PAGENAME}}', NS_MEDIAWIKI );

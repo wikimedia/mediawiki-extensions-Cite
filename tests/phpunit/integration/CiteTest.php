@@ -199,7 +199,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
-		$referenceStack = new ReferenceStack( $errorReporter );
+		$referenceStack = new ReferenceStack();
 		/** @var ReferenceStack $stackSpy */
 		$stackSpy = TestingAccessWrapper::newFromObject( $referenceStack );
 		$stackSpy->refs = $initialRefs;
@@ -345,7 +345,10 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				[],
 				[
 					'' => [
-						'a' => [ 'text' => 'text-1 (cite_error_references_duplicate_key|a)' ],
+						'a' => [
+							'text' => 'text-1',
+							'warnings' => [ [ 'cite_error_references_duplicate_key', 'a' ] ],
+						],
 					],
 				]
 			],

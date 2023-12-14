@@ -2,10 +2,8 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite\ErrorReporter;
 use Cite\ReferenceStack;
 use LogicException;
-use Parser;
 use StripState;
 use Wikimedia\TestingAccessWrapper;
 
@@ -38,7 +36,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 		for ( $i = 0; $i < count( $refs ); $i++ ) {
 			$result = $stack->pushRef(
-				$this->createNoOpMock( Parser::class ),
 				$mockStripState,
 				...$refs[$i]
 			);
@@ -387,8 +384,9 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'dir' => 'rtl',
 						'key' => 1,
 						'name' => 'a',
-						'text' => 'text-1 cite_error_references_duplicate_key',
+						'text' => 'text-1',
 						'number' => 1,
+						'warnings' => [ [ 'cite_error_references_duplicate_key', 'a' ] ],
 					]
 				],
 				[
@@ -398,8 +396,9 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'dir' => 'rtl',
 							'key' => 1,
 							'name' => 'a',
-							'text' => 'text-1 cite_error_references_duplicate_key',
+							'text' => 'text-1',
 							'number' => 1,
+							'warnings' => [ [ 'cite_error_references_duplicate_key', 'a' ] ],
 						]
 					]
 				],
@@ -980,7 +979,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$mockStripState = $this->createMock( StripState::class );
 		$mockStripState->method( 'unstripBoth' )->willReturnArgument( 0 );
 		$stack->pushRef(
-			$this->createNoOpMock( Parser::class ),
 			$mockStripState,
 			'text', [],
 			'foo', null, 'a', null, 'rtl'
@@ -1039,9 +1037,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	 * @return ReferenceStack
 	 */
 	private function newStack() {
-		$errorReporter = $this->createMock( ErrorReporter::class );
-		$errorReporter->method( 'plain' )->willReturnArgument( 1 );
-		return TestingAccessWrapper::newFromObject( new ReferenceStack( $errorReporter ) );
+		return TestingAccessWrapper::newFromObject( new ReferenceStack() );
 	}
 
 }

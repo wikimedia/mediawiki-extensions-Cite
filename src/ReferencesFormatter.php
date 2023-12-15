@@ -6,6 +6,9 @@ use MediaWiki\Html\Html;
 use Parser;
 
 /**
+ * Renderer for the actual list of references in place of the <references /> tag at the end of an
+ * article.
+ *
  * @license GPL-2.0-or-later
  */
 class ReferencesFormatter {

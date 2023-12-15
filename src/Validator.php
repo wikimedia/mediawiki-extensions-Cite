@@ -13,18 +13,25 @@ class Validator {
 	private ReferenceStack $referenceStack;
 	private ?string $inReferencesGroup;
 	private bool $isSectionPreview;
-	private bool $bookReferencing;
+	private bool $isExtendsEnabled;
 
+	/**
+	 * @param ReferenceStack $referenceStack
+	 * @param string|null $inReferencesGroup Group name of the <references> context to consider
+	 *  during validation. Null if we are currently not in a <references> context.
+	 * @param bool $isSectionPreview Validation is relaxed when previewing parts of a page
+	 * @param bool $isExtendsEnabled Temporary feature flag
+	 */
 	public function __construct(
 		ReferenceStack $referenceStack,
 		?string $inReferencesGroup = null,
 		bool $isSectionPreview = false,
-		bool $bookReferencing = false
+		bool $isExtendsEnabled = false
 	) {
 		$this->referenceStack = $referenceStack;
 		$this->inReferencesGroup = $inReferencesGroup;
 		$this->isSectionPreview = $isSectionPreview;
-		$this->bookReferencing = $bookReferencing;
+		$this->isExtendsEnabled = $isExtendsEnabled;
 	}
 
 	public function validateRef(
@@ -48,7 +55,7 @@ class Validator {
 
 		if ( $extends ) {
 			// Temporary feature flag until mainstreamed, see T236255
-			if ( !$this->bookReferencing ) {
+			if ( !$this->isExtendsEnabled ) {
 				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
 			}
 

@@ -17,7 +17,6 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @coversDefaultClass \Cite\Cite
- *
  * @license GPL-2.0-or-later
  */
 class CiteTest extends \MediaWikiIntegrationTestCase {

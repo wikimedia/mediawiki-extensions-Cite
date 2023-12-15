@@ -7,6 +7,7 @@ use LanguageQqx;
 
 /**
  * @covers \Cite\ReferenceMessageLocalizer
+ * @license GPL-2.0-or-later
  */
 class ReferenceMessageLocalizerTest extends \MediaWikiIntegrationTestCase {
 

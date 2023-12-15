@@ -9,7 +9,6 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \Cite\Validator
- *
  * @license GPL-2.0-or-later
  */
 class ValidatorTest extends \MediaWikiIntegrationTestCase {

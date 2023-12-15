@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki" />
+
+	<rule ref="MediaWiki.Commenting.ClassLevelLicense">
+		<properties>
+			<property name="license" value="GPL-2.0-or-later" />
+		</properties>
+		<exclude-pattern>/src/ResourceLoader/</exclude-pattern>
+	</rule>
+
 	<file>.</file>
 	<arg name="extensions" value="php" />
 	<arg name="encoding" value="UTF-8" />

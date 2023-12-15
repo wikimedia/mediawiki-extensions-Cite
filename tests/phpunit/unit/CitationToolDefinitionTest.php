@@ -8,7 +8,6 @@ use Message;
 
 /**
  * @covers \Cite\ResourceLoader\CitationToolDefinition
- *
  * @license GPL-2.0-or-later
  */
 class CitationToolDefinitionTest extends \MediaWikiUnitTestCase {

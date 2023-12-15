@@ -9,8 +9,7 @@ use Message;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \Cite\AnchorFormatter
- *
+ * @covers \Cite\AnchorFormatter
  * @license GPL-2.0-or-later
  */
 class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
@@ -20,10 +19,6 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$this->overrideConfigValue( 'FragmentMode', [ 'html5' ] );
 	}
 
-	/**
-	 * @covers ::refKey
-	 * @covers ::backLink
-	 */
 	public function testRefKey() {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
@@ -43,10 +38,6 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 			$formatter->backLink( 'key', '2' ) );
 	}
 
-	/**
-	 * @covers ::getReferencesKey
-	 * @covers ::jumpLink
-	 */
 	public function testGetReferencesKey() {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
@@ -64,8 +55,6 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::normalizeKey
-	 * @covers ::__construct
 	 * @dataProvider provideKeyNormalizations
 	 */
 	public function testNormalizeKey( $key, $expected ) {

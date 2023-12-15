@@ -5,6 +5,9 @@ namespace Cite;
 use MediaWiki\Parser\Sanitizer;
 use StatusValue;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class Validator {
 
 	private ReferenceStack $referenceStack;

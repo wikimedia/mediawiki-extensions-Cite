@@ -10,15 +10,11 @@ use ParserOutput;
 use StripState;
 
 /**
- * @coversDefaultClass \Cite\Hooks\CiteParserHooks
- *
+ * @covers \Cite\Hooks\CiteParserHooks
  * @license GPL-2.0-or-later
  */
 class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 
-	/**
-	 * @covers ::onParserFirstCallInit
-	 */
 	public function testOnParserFirstCallInit() {
 		$parser = $this->createNoOpMock( Parser::class, [ 'setHook' ] );
 		$expectedTags = [ 'ref' => true, 'references' => true ];
@@ -33,9 +29,6 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$citeParserHooks->onParserFirstCallInit( $parser );
 	}
 
-	/**
-	 * @covers ::onParserClearState
-	 */
 	public function testOnParserClearState() {
 		$parser = $this->createParser();
 		$parser->extCite = $this->createMock( Cite::class );
@@ -46,9 +39,6 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$this->assertObjectNotHasProperty( 'extCite', $parser );
 	}
 
-	/**
-	 * @covers ::onParserCloned
-	 */
 	public function testOnParserCloned() {
 		$parser = $this->createParser();
 		$parser->extCite = $this->createMock( Cite::class );
@@ -59,9 +49,6 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$this->assertObjectNotHasProperty( 'extCite', $parser );
 	}
 
-	/**
-	 * @covers ::onParserAfterParse
-	 */
 	public function testAfterParseHooks() {
 		$cite = $this->createMock( Cite::class );
 		$cite->expects( $this->once() )

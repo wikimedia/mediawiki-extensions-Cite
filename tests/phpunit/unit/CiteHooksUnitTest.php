@@ -8,7 +8,6 @@ use MediaWiki\User\Options\StaticUserOptionsLookup;
 
 /**
  * @covers \Cite\Hooks\CiteHooks
- *
  * @license GPL-2.0-or-later
  */
 class CiteHooksUnitTest extends \MediaWikiUnitTestCase {

@@ -10,16 +10,11 @@ use StripState;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \Cite\ReferenceStack
- *
+ * @covers \Cite\ReferenceStack
  * @license GPL-2.0-or-later
  */
 class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
-	/**
-	 * @covers ::__construct
-	 * @covers ::pushInvalidRef
-	 */
 	public function testPushInvalidRef() {
 		$stack = $this->newStack();
 
@@ -29,7 +24,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::pushRef
 	 * @dataProvider providePushRef
 	 */
 	public function testPushRefs(
@@ -824,8 +818,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::rollbackRefs
-	 * @covers ::rollbackRef
 	 * @dataProvider provideRollbackRefs
 	 */
 	public function testRollbackRefs(
@@ -982,9 +974,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		];
 	}
 
-	/**
-	 * @covers ::rollbackRef
-	 */
 	public function testRollbackRefs_extends() {
 		$stack = $this->newStack();
 
@@ -1003,9 +992,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( 0, $stack->extendsCount['foo']['a'] );
 	}
 
-	/**
-	 * @covers ::popGroup
-	 */
 	public function testRemovals() {
 		$stack = $this->newStack();
 		$stack->refs = [ 'group1' => [], 'group2' => [] ];
@@ -1014,9 +1000,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( [ 'group2' => [] ], $stack->refs );
 	}
 
-	/**
-	 * @covers ::getGroups
-	 */
 	public function testGetGroups() {
 		$stack = $this->newStack();
 		$stack->refs = [ 'havenot' => [], 'have' => [ [ 'ref etc' ] ] ];
@@ -1024,9 +1007,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( [ 'have' ], $stack->getGroups() );
 	}
 
-	/**
-	 * @covers ::hasGroup
-	 */
 	public function testHasGroup() {
 		$stack = $this->newStack();
 		$stack->refs = [ 'present' => [ [ 'ref etc' ] ], 'empty' => [] ];
@@ -1036,9 +1016,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$this->assertFalse( $stack->hasGroup( 'empty' ) );
 	}
 
-	/**
-	 * @covers ::getGroupRefs
-	 */
 	public function testGetGroupRefs() {
 		$stack = $this->newStack();
 		$stack->refs = [ 'present' => [ [ 'ref etc' ] ], 'empty' => [] ];
@@ -1048,9 +1025,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( [], $stack->getGroupRefs( 'empty' ) );
 	}
 
-	/**
-	 * @covers ::appendText
-	 */
 	public function testAppendText() {
 		$stack = $this->newStack();
 

@@ -9,6 +9,8 @@ use MessageSpecifier;
 
 /**
  * Interface abstracts everything a Cite needs to do with languages.
+ *
+ * @license GPL-2.0-or-later
  */
 class ReferenceMessageLocalizer implements MessageLocalizer {
 

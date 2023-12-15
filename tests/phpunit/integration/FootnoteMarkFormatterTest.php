@@ -11,13 +11,12 @@ use Parser;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \Cite\FootnoteMarkFormatter
+ * @covers \Cite\FootnoteMarkFormatter
+ * @license GPL-2.0-or-later
  */
 class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 
 	/**
-	 * @covers ::linkRef
-	 * @covers ::__construct
 	 * @dataProvider provideLinkRef
 	 */
 	public function testLinkRef( string $group, array $ref, string $expectedOutput ) {
@@ -132,8 +131,6 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getLinkLabel
-	 *
 	 * @dataProvider provideGetLinkLabel
 	 */
 	public function testGetLinkLabel( $expectedLabel, $offset, $group, $labelList ) {

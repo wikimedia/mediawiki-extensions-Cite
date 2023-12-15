@@ -31,6 +31,9 @@ use MediaWiki\Parser\Sanitizer;
 use Parser;
 use StatusValue;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class Cite {
 
 	public const DEFAULT_GROUP = '';

@@ -11,7 +11,6 @@ use ParserOptions;
 
 /**
  * @covers \Cite\ErrorReporter
- *
  * @license GPL-2.0-or-later
  */
 class ErrorReporterTest extends \MediaWikiUnitTestCase {

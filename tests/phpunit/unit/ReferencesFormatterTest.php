@@ -11,16 +11,12 @@ use Parser;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @coversDefaultClass \Cite\ReferencesFormatter
- *
+ * @covers \Cite\ReferencesFormatter
  * @license GPL-2.0-or-later
  */
 class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 
 	/**
-	 * @covers ::__construct
-	 * @covers ::formatReferences
-	 * @covers ::formatRefsList
 	 * @dataProvider provideFormatReferences
 	 */
 	public function testFormatReferences( array $refs, string $expectedOutput ) {
@@ -160,7 +156,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::closeIndention
 	 * @dataProvider provideCloseIndention
 	 */
 	public function testCloseIndention( $closingLi, $expectedOutput ) {
@@ -184,7 +179,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::formatListItem
 	 * @dataProvider provideFormatListItem
 	 */
 	public function testFormatListItem(
@@ -290,7 +284,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::referenceText
 	 * @dataProvider provideReferenceText
 	 */
 	public function testReferenceText(
@@ -346,7 +339,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::referencesFormatEntryAlternateBacklinkLabel
 	 * @dataProvider provideReferencesFormatEntryAlternateBacklinkLabel
 	 */
 	public function testReferencesFormatEntryAlternateBacklinkLabel(
@@ -386,7 +378,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::referencesFormatEntryNumericBacklinkLabel
 	 * @dataProvider provideReferencesFormatEntryNumericBacklinkLabel
 	 */
 	public function testReferencesFormatEntryNumericBacklinkLabel(
@@ -416,7 +407,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers ::listToText
 	 * @dataProvider provideLists
 	 */
 	public function testListToText( array $list, $expected ) {

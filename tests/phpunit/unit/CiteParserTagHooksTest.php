@@ -9,15 +9,11 @@ use ParserOutput;
 use PPFrame;
 
 /**
- * @coversDefaultClass \Cite\Hooks\CiteParserTagHooks
- *
+ * @covers \Cite\Hooks\CiteParserTagHooks
  * @license GPL-2.0-or-later
  */
 class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 
-	/**
-	 * @covers ::register
-	 */
 	public function testRegister() {
 		$parser = $this->createNoOpMock( Parser::class, [ 'setHook' ] );
 		$expectedTags = [ 'ref' => true, 'references' => true ];
@@ -31,9 +27,6 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 		CiteParserTagHooks::register( $parser );
 	}
 
-	/**
-	 * @covers ::ref
-	 */
 	public function testRef_fails() {
 		$cite = $this->createMock( Cite::class );
 		$cite->method( 'ref' )
@@ -48,10 +41,6 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( '&lt;ref&gt;&lt;/ref&gt;', $html );
 	}
 
-	/**
-	 * @covers ::citeForParser
-	 * @covers ::ref
-	 */
 	public function testRef() {
 		$cite = $this->createMock( Cite::class );
 		$cite->expects( $this->once() )
@@ -75,9 +64,6 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( '<HTML>', $html );
 	}
 
-	/**
-	 * @covers ::references
-	 */
 	public function testReferences_fails() {
 		$cite = $this->createMock( Cite::class );
 		$cite->method( 'references' )
@@ -92,10 +78,6 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( '&lt;references/&gt;', $html );
 	}
 
-	/**
-	 * @covers ::citeForParser
-	 * @covers ::references
-	 */
 	public function testReferences() {
 		$cite = $this->createMock( Cite::class );
 		$cite->expects( $this->once() )

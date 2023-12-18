@@ -162,21 +162,8 @@ class Cite {
 		[ 'group' => $group, 'name' => $name ] = $arguments;
 
 		if ( $this->inReferencesGroup !== null ) {
-			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			if ( $text === null ) {
-				return '';
-			}
-
-			if ( !isset( $groupRefs[$name]['text'] ) ) {
-				$this->referenceStack->appendText( $group, $name, $text );
-			} elseif ( $groupRefs[$name]['text'] !== $text ) {
-				// two refs with same key and different content
-				// adds error message to the original ref
-				$this->referenceStack->warning(
-					$group,
-					$name,
-					'cite_error_references_duplicate_key', $name
-				);
+			if ( $text !== null ) {
+				$this->referenceStack->setText( $group, $name, $text );
 			}
 			return '';
 		}

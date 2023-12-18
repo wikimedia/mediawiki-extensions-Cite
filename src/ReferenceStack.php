@@ -369,16 +369,18 @@ class ReferenceStack {
 		return $this->refs[$group] ?? [];
 	}
 
-	public function appendText( string $group, string $name, string $text ): void {
+	private function appendText( string $group, string $name, string $text ): void {
 		$this->refs[$group][$name]['text'] ??= '';
 		$this->refs[$group][$name]['text'] .= $text;
 	}
 
-	/**
-	 * @deprecated Temporary helper function
-	 */
-	public function warning( string $group, string $name, string $message, ...$parameters ): void {
-		$this->refs[$group][$name]['warnings'][] = [ $message, ...$parameters ];
+	public function setText( string $group, string $name, string $text ): void {
+		if ( !isset( $this->refs[$group][$name]['text'] ) ) {
+			$this->refs[$group][$name]['text'] = $text;
+		} elseif ( $this->refs[$group][$name]['text'] !== $text ) {
+			// two refs with same key and different content
+			$this->refs[$group][$name]['warnings'][] = [ 'cite_error_references_duplicate_key', $name ];
+		}
 	}
 
 }

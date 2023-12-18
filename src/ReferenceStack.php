@@ -3,7 +3,6 @@
 namespace Cite;
 
 use LogicException;
-use Parser;
 use StripState;
 
 /**
@@ -40,6 +39,7 @@ class ReferenceStack {
 	 * - 'text': The content inside the <ref>…</ref> tag. Null for <ref /> without content. Also
 	 *       null for <ref></ref> without any non-whitespace content.
 	 * - 'dir': Direction of the text. Should either be "ltr" or "rtl".
+	 * - 'warnings': Error messages attached to this reference.
 	 *
 	 * @var array[][]
 	 */
@@ -65,20 +65,11 @@ class ReferenceStack {
 	 */
 	private array $refCallStack = [];
 
-	/**
-	 * @deprecated We should be able to push this responsibility to calling code.
-	 */
-	private ErrorReporter $errorReporter;
-
 	private const ACTION_ASSIGN = 'assign';
 	private const ACTION_INCREMENT = 'increment';
 	private const ACTION_NEW_FROM_PLACEHOLDER = 'new-from-placeholder';
 	private const ACTION_NEW = 'new';
 	private const PARENT_REF_PLACEHOLDER = '__placeholder__';
-
-	public function __construct( ErrorReporter $errorReporter ) {
-		$this->errorReporter = $errorReporter;
-	}
 
 	/**
 	 * Leave a mark in the stack which matches an invalid ref tag.
@@ -90,7 +81,6 @@ class ReferenceStack {
 	/**
 	 * Populate $this->refs and $this->refCallStack based on input and arguments to <ref>
 	 *
-	 * @param Parser $parser
 	 * @param StripState $stripState
 	 * @param ?string $text Content from the <ref> tag
 	 * @param string[] $argv
@@ -104,7 +94,6 @@ class ReferenceStack {
 	 * @suppress PhanTypePossiblyInvalidDimOffset To many complaints about array indizes
 	 */
 	public function pushRef(
-		Parser $parser,
 		StripState $stripState,
 		?string $text,
 		array $argv,
@@ -176,11 +165,7 @@ class ReferenceStack {
 					!== $stripState->unstripBoth( $ref['text'] )
 				) {
 					// two refs with same name and different text
-					// add error message to the original ref
-					// TODO: standardize error display and move to `validateRef`.
-					$ref['text'] .= ' ' . $this->errorReporter->plain(
-						$parser, 'cite_error_references_duplicate_key', $name
-					);
+					$ref['warnings'][] = [ 'cite_error_references_duplicate_key', $name ];
 				}
 				$action = self::ACTION_INCREMENT;
 			}
@@ -210,13 +195,7 @@ class ReferenceStack {
 			}
 		} elseif ( $extends && $ref['extends'] !== $extends ) {
 			// TODO: Change the error message to talk about "conflicting content or parent"?
-			$error = $this->errorReporter->plain( $parser, 'cite_error_references_duplicate_key',
-				$name );
-			if ( isset( $ref['text'] ) ) {
-				$ref['text'] .= ' ' . $error;
-			} else {
-				$ref['text'] = $error;
-			}
+			$ref['warnings'][] = [ 'cite_error_references_duplicate_key', $name ];
 		}
 
 		$this->refCallStack[] = [ $action, $ref['key'], $group, $name, $extends, $text, $argv ];
@@ -393,6 +372,13 @@ class ReferenceStack {
 	public function appendText( string $group, string $name, string $text ): void {
 		$this->refs[$group][$name]['text'] ??= '';
 		$this->refs[$group][$name]['text'] .= $text;
+	}
+
+	/**
+	 * @deprecated Temporary helper function
+	 */
+	public function warning( string $group, string $name, string $message, ...$parameters ): void {
+		$this->refs[$group][$name]['warnings'][] = [ $message, ...$parameters ];
 	}
 
 }

@@ -77,7 +77,7 @@ class Cite {
 		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
 		$this->errorReporter = new ErrorReporter( $messageLocalizer );
-		$this->referenceStack = new ReferenceStack( $this->errorReporter );
+		$this->referenceStack = new ReferenceStack();
 		$anchorFormatter = new AnchorFormatter( $messageLocalizer );
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
 			$this->errorReporter,
@@ -172,16 +172,10 @@ class Cite {
 			} elseif ( $groupRefs[$name]['text'] !== $text ) {
 				// two refs with same key and different content
 				// adds error message to the original ref
-				// TODO: report these errors the same way as the others, rather than a
-				//  special case to append to the second one's content.
-				$this->referenceStack->appendText(
+				$this->referenceStack->warning(
 					$group,
 					$name,
-					' ' . $this->errorReporter->plain(
-						$parser,
-						'cite_error_references_duplicate_key',
-						$name
-					)
+					'cite_error_references_duplicate_key', $name
 				);
 			}
 			return '';
@@ -198,7 +192,7 @@ class Cite {
 
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
 		$ref = $this->referenceStack->pushRef(
-			$parser, $parser->getStripState(), $text, $argv, ...array_values( $arguments ) );
+			$parser->getStripState(), $text, $argv, ...array_values( $arguments ) );
 		return $ref
 			? $this->footnoteMarkFormatter->linkRef( $parser, $group, $ref )
 			: '';

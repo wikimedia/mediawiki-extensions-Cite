@@ -2,7 +2,6 @@
 
 namespace Cite\Tests\Integration;
 
-use Cite\ErrorReporter;
 use Cite\ReferenceStack;
 use Cite\Validator;
 use Wikimedia\TestingAccessWrapper;
@@ -28,8 +27,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 		?string $dir,
 		?string $expected
 	) {
-		$errorReporter = $this->createMock( ErrorReporter::class );
-		$stack = new ReferenceStack( $errorReporter );
+		$stack = new ReferenceStack();
 		TestingAccessWrapper::newFromObject( $stack )->refs = $referencesStack;
 
 		$validator = new Validator( $stack, $inReferencesGroup, $isSectionPreview, true );

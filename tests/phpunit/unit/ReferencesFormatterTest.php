@@ -305,7 +305,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
-		$output = $formatter->referenceText( $parser, $key, $text, $isSectionPreview );
+		$output = $formatter->referenceText( $parser, $key, [ 'text' => $text ], $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 

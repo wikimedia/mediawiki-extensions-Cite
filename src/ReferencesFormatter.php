@@ -95,15 +95,14 @@ class ReferencesFormatter {
 		$parserInput = "\n";
 		/** @var string|bool $indented */
 		$indented = false;
-		foreach ( $groupRefs as $key => $value ) {
+		foreach ( $groupRefs as $key => &$value ) {
 			// Make sure the parent is not a subreference.
 			// FIXME: Move to a validation function.
 			if ( isset( $value['extends'] ) &&
 				isset( $groupRefs[$value['extends']]['extends'] )
 			) {
-				$value['text'] = ( $value['text'] ?? '' ) . ' ' .
-					$this->errorReporter->plain( $parser, 'cite_error_ref_nested_extends',
-						$value['extends'], $groupRefs[$value['extends']]['extends'] );
+				$value['warnings'][] = [ 'cite_error_ref_nested_extends',
+					$value['extends'], $groupRefs[$value['extends']]['extends'] ];
 			}
 
 			if ( !$indented && isset( $value['extends'] ) ) {
@@ -147,7 +146,7 @@ class ReferencesFormatter {
 	private function formatListItem(
 		Parser $parser, $key, array $val, bool $isSectionPreview
 	): string {
-		$text = $this->referenceText( $parser, $key, $val['text'] ?? null, $isSectionPreview );
+		$text = $this->referenceText( $parser, $key, $val, $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';
 
@@ -209,19 +208,27 @@ class ReferencesFormatter {
 	/**
 	 * @param Parser $parser
 	 * @param string|int $key
-	 * @param ?string $text
+	 * @param array $ref
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string
 	 */
 	private function referenceText(
-		Parser $parser, $key, ?string $text, bool $isSectionPreview
+		Parser $parser, $key, array $ref, bool $isSectionPreview
 	): string {
+		$text = $ref['text'] ?? null;
 		if ( $text === null ) {
 			return $this->errorReporter->plain( $parser,
 				$isSectionPreview
 					? 'cite_warning_sectionpreview_no_text'
 					: 'cite_error_references_no_text', $key );
+		}
+
+		foreach ( $ref['warnings'] ?? [] as $warning ) {
+			// @phan-suppress-next-line PhanParamTooFewUnpack
+			$text .= ' ' . $this->errorReporter->plain( $parser, ...$warning );
+			// FIXME: We could use a StatusValue object to get rid of duplicates
+			break;
 		}
 
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";

@@ -15,6 +15,7 @@
 	"cite_error_ref_numeric_key": "תג <code>&lt;ref&gt;</code> לא תקין; שם (name) לא יכול להיות מספר שלם פשוט. יש להשתמש בכותרת תיאורית",
 	"cite_error_ref_no_key": "תג ה־<code>&lt;ref&gt;</code> הפותח פגום או בעל שם שגוי.",
 	"cite_error_ref_too_many_keys": "פרמטר בלתי־תקין בתג <code>&lt;ref&gt;</code>",
+	"cite_error_ref_follow_conflicts": "לא ניתן לתת שם ייחודי לתג <code>&lt;ref follow=\"…\"&gt;</code> שהוא המשך של תג קודם וגם לא ניתן להרחיב אותו",
 	"cite_error_ref_nested_extends": "הרחבת תגי <code>&lt;ref&gt;</code> לעומק של יותר מרמה אחת אסורה",
 	"cite_error_ref_no_input": "תג <code>&lt;ref&gt;</code> לא תקין; להערות שוליים ללא שם חייב להיות תוכן",
 	"cite_error_references_duplicate_key": "תג <code>&lt;ref&gt;</code> בלתי־תקין; השם \"$1\" הוגדר כמה פעמים עם תוכן שונה",

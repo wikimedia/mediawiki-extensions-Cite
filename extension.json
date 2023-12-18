@@ -264,7 +264,7 @@
 	},
 	"config": {
 		"CiteBookReferencing": {
-			"description": "Development feature flag for Book Referencing, a way to nest citations. Please don't enable in production.",
+			"description": "Temporary feature flag while the extends=\"…\" feature (a way to nest citations and e.g. reference pages in a book) is in development.",
 			"public": true,
 			"value": false
 		},

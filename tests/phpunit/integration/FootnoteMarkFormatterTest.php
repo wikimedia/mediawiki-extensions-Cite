@@ -20,8 +20,6 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideLinkRef
 	 */
 	public function testLinkRef( string $group, array $ref, string $expectedOutput ) {
-		$fooLabels = 'a b c';
-
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
 			static fn ( $parser, ...$args ) => implode( '|', $args )
@@ -31,16 +29,18 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		$anchorFormatter->method( 'backLinkTarget' )->willReturnCallback(
 			static fn ( ...$args ) => implode( '+', $args )
 		);
-		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturnArgument( 0 );
-		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) use ( $group, $fooLabels ) {
+		$messageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$messageLocalizer->method( 'localizeSeparators' )->willReturnArgument( 0 );
+		$messageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
+		$messageLocalizer->method( 'msg' )->willReturnCallback(
+			function ( $key, ...$params ) {
+				$customizedGroup = $key === 'cite_link_label_group-foo';
 				$msg = $this->createMock( Message::class );
-				$msg->method( 'isDisabled' )->willReturn( $group !== 'foo' );
-				$msg->method( 'plain' )->willReturn( $args[0] === 'cite_reference_link'
-					? '(' . implode( '|', $args ) . ')'
-					: $fooLabels );
+				$msg->method( 'isDisabled' )->willReturn( !$customizedGroup );
+				$msg->method( 'plain' )->willReturn( $customizedGroup
+					? 'a b c'
+					: "($key|" . implode( '|', $params ) . ')'
+				);
 				return $msg;
 			}
 		);
@@ -49,7 +49,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		$formatter = new FootnoteMarkFormatter(
 			$mockErrorReporter,
 			$anchorFormatter,
-			$mockMessageLocalizer
+			$messageLocalizer
 		);
 
 		$output = $formatter->linkRef( $mockParser, $group, $ref );

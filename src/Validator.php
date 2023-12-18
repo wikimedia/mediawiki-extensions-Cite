@@ -6,6 +6,8 @@ use MediaWiki\Parser\Sanitizer;
 use StatusValue;
 
 /**
+ * Context-aware, detailed validation of the arguments and content of a <ref> tag.
+ *
  * @license GPL-2.0-or-later
  */
 class Validator {

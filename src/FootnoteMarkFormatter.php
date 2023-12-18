@@ -6,6 +6,9 @@ use MediaWiki\Parser\Sanitizer;
 use Parser;
 
 /**
+ * Footnote markers in the context of the Cite extension are the numbers in the article text, e.g.
+ * [1], that can be hovered or clicked to be able to read the attached footnote.
+ *
  * @license GPL-2.0-or-later
  */
 class FootnoteMarkFormatter {

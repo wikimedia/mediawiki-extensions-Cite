@@ -5,6 +5,9 @@ namespace Cite;
 use MediaWiki\Parser\Sanitizer;
 
 /**
+ * Compiles unique identifiers and formats them as anchors for use in `href="#…"` and `id="…"`
+ * attributes.
+ *
  * @license GPL-2.0-or-later
  */
 class AnchorFormatter {

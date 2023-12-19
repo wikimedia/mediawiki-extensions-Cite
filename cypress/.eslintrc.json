@@ -1,0 +1,11 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia/server",
+		"plugin:cypress/recommended"
+	],
+	"parserOptions": {
+		"sourceType": "module"
+	}
+}
+

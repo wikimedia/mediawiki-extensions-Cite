@@ -124,7 +124,7 @@ class ReferenceStack {
 					$argv ];
 			} elseif ( $text !== null ) {
 				// We know the parent already, so just perform the follow="…" and bail out
-				$this->appendText( $group, $follow, ' ' . $text );
+				$this->resolveFollow( $group, $follow, $text );
 				$this->refSequence--;
 			}
 			// A follow="…" never gets its own footnote marker
@@ -369,9 +369,9 @@ class ReferenceStack {
 		return $this->refs[$group] ?? [];
 	}
 
-	private function appendText( string $group, string $name, string $text ): void {
-		$this->refs[$group][$name]['text'] ??= '';
-		$this->refs[$group][$name]['text'] .= $text;
+	private function resolveFollow( string $group, string $follow, string $text ): void {
+		$this->refs[$group][$follow]['text'] ??= '';
+		$this->refs[$group][$follow]['text'] .= " $text";
 	}
 
 	public function setText( string $group, string $name, string $text ): void {

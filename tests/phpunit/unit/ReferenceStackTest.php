@@ -1023,14 +1023,14 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( [], $stack->getGroupRefs( 'empty' ) );
 	}
 
-	public function testAppendText() {
+	public function testResolveFollow() {
 		$stack = $this->newStack();
 
-		$stack->appendText( 'group', 'name', 'set' );
-		$this->assertSame( [ 'text' => 'set' ], $stack->refs['group']['name'] );
+		$stack->resolveFollow( 'group', 'name', 'set' );
+		$this->assertSame( [ 'text' => ' set' ], $stack->refs['group']['name'] );
 
-		$stack->appendText( 'group', 'name', ' and append' );
-		$this->assertSame( [ 'text' => 'set and append' ], $stack->refs['group']['name'] );
+		$stack->resolveFollow( 'group', 'name', 'and append' );
+		$this->assertSame( [ 'text' => ' set and append' ], $stack->refs['group']['name'] );
 	}
 
 	/**

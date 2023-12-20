@@ -7,6 +7,7 @@
 		]
 	},
 	"cite_error": "A chirim ya: $1",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code>, tu ni di nyɛ <code> ltr</code> or <code>rtl</code> kani",
 	"cite_error_group_refs_without_references": "<code>&It;ref&gt;</code> tuma maa yi laɣingu din yuli nyɛ \"$1\", ka lee bi saɣiritiri <code>$It;references group =\"$1\"/&gt;</code> tuka maa bon nya",
 	"cite-tracking-category-cite-error": "Peejinima din kundivira bi viɛla",
 	"cite_references_link_accessibility_label": "Yiɣima",

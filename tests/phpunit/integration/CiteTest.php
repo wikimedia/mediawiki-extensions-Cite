@@ -224,13 +224,13 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	public static function provideGuardedRef() {
 		return [
 			'Whitespace text' => [
-				' ',
-				[ 'name' => 'a' ],
-				null,
-				[],
-				'<foot />',
-				[],
-				[
+				'text' => ' ',
+				'argv' => [ 'name' => 'a' ],
+				'inReferencesGroup' => null,
+				'initialRefs' => [],
+				'expectedOutput' => '<foot />',
+				'expectedErrors' => [],
+				'expectedRefs' => [
 					'' => [
 						'a' => [
 							'count' => 0,
@@ -244,39 +244,37 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				]
 			],
 			'Empty in default references' => [
-				'',
-				[],
-				'',
-				[ '' => [] ],
-				'',
+				'text' => '',
+				'argv' => [],
+				'inReferencesGroup' => '',
+				'initialRefs' => [ '' => [] ],
+				'expectedOutput' => '',
 				'expectedErrors' => [ [ 'cite_error_references_no_key' ] ],
-				[ '' => [] ]
+				'expectedRefs' => [ '' => [] ]
 			],
 			'Fallback to references group' => [
-				'text',
-				[ 'name' => 'a' ],
-				'foo',
-				[
-					'foo' => [
-						'a' => []
-					]
+				'text' => 'text',
+				'argv' => [ 'name' => 'a' ],
+				'inReferencesGroup' => 'foo',
+				'initialRefs' => [
+					'foo' => [ 'a' => [] ],
 				],
-				'',
-				[],
-				[
+				'expectedOutput' => '',
+				'expectedErrors' => [],
+				'expectedRefs' => [
 					'foo' => [
 						'a' => [ 'text' => 'text' ],
 					],
 				]
 			],
 			'Successful ref' => [
-				'text',
-				[ 'name' => 'a' ],
-				null,
-				[],
-				'<foot />',
-				[],
-				[
+				'text' => 'text',
+				'argv' => [ 'name' => 'a' ],
+				'inReferencesGroup' => null,
+				'initialRefs' => [],
+				'expectedOutput' => '<foot />',
+				'expectedErrors' => [],
+				'expectedRefs' => [
 					'' => [
 						'a' => [
 							'count' => 0,
@@ -290,29 +288,29 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				]
 			],
 			'Invalid ref' => [
-				'text',
-				[
+				'text' => 'text',
+				'argv' => [
 					'name' => 'a',
 					'badkey' => 'b',
 				],
-				null,
-				[],
-				'(cite_error_ref_too_many_keys)',
-				[],
-				[]
+				'inReferencesGroup' => null,
+				'initialRefs' => [],
+				'expectedOutput' => '(cite_error_ref_too_many_keys)',
+				'expectedErrors' => [],
+				'expectedRefs' => []
 			],
 			'Successful references ref' => [
-				'text',
-				[ 'name' => 'a' ],
-				'',
-				[
+				'text' => 'text',
+				'argv' => [ 'name' => 'a' ],
+				'inReferencesGroup' => '',
+				'initialRefs' => [
 					'' => [
 						'a' => []
 					]
 				],
-				'',
-				[],
-				[
+				'expectedOutput' => '',
+				'expectedErrors' => [],
+				'expectedRefs' => [
 					'' => [
 						'a' => [ 'text' => 'text' ],
 					],
@@ -333,17 +331,17 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'isSectionPreview' => true,
 			],
 			'Mismatched text in references' => [
-				'text-2',
-				[ 'name' => 'a' ],
-				'',
-				[
+				'text' => 'text-2',
+				'argv' => [ 'name' => 'a' ],
+				'inReferencesGroup' => '',
+				'initialRefs' => [
 					'' => [
 						'a' => [ 'text' => 'text-1' ],
 					]
 				],
-				'',
-				[],
-				[
+				'expectedOutput' => '',
+				'expectedErrors' => [],
+				'expectedRefs' => [
 					'' => [
 						'a' => [
 							'text' => 'text-1',

@@ -50,22 +50,22 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	public static function provideFormatReferences() {
 		return [
 			'Empty' => [
-				[],
-				''
+				'refs' => [],
+				'expectedOutput' => ''
 			],
 			'Minimal ref' => [
-				[
+				'refs' => [
 					0 => [
 						'key' => 1,
 						'text' => 't',
 					]
 				],
-				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
+				'expectedOutput' => '<div class="mw-references-wrap"><ol class="references">' . "\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n</ol></div>"
 			],
 			'Ref with extends' => [
-				[
+				'refs' => [
 					0 => [
 						'extends' => 'a',
 						'extendsIndex' => 1,
@@ -83,7 +83,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'text' => 't1',
 					],
 				],
-				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
+				'expectedOutput' => '<div class="mw-references-wrap"><ol class="references">' . "\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t1</span>' . "\n" .
 					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
 					'<span class="reference-text">t2</span>' . "\n|)</li>\n" .
@@ -93,7 +93,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 					'</ol></div>'
 			],
 			'Subref of subref' => [
-				[
+				'refs' => [
 					0 => [
 						'extends' => 'a',
 						'extendsIndex' => 1,
@@ -114,7 +114,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'text' => 't3',
 					],
 				],
-				'<div class="mw-references-wrap"><ol class="references">' . "\n" .
+				'expectedOutput' => '<div class="mw-references-wrap"><ol class="references">' . "\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' . "\n" .
 					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
 					'<span class="reference-text">t1 (cite_error_ref_nested_extends|a|b)</span>' .
@@ -124,11 +124,11 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 					'</ol></div>'
 			],
 			'Use columns' => [
-				array_map(
+				'refs' => array_map(
 					static fn ( $i ) => [ 'key' => $i, 'text' => 't' ],
 					range( 0, 10 )
 				),
-				'<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
+				'expectedOutput' => '<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
 					"\n" . '<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
 					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
@@ -222,51 +222,51 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	public static function provideFormatListItem() {
 		return [
 			'Success' => [
-				[
+				'ref' => [
 					'text' => 't',
 				],
-				'(cite_references_link_many|1-||<span class="reference-text">t</span>' . "\n|)"
+				'expectedOutput' => '(cite_references_link_many|1-||<span class="reference-text">t</span>' . "\n|)"
 			],
 			'With dir' => [
-				[
+				'ref' => [
 					'dir' => 'rtl',
 					'text' => 't',
 				],
-				'(cite_references_link_many|1-||<span class="reference-text">t</span>' .
+				'expectedOutput' => '(cite_references_link_many|1-||<span class="reference-text">t</span>' .
 					"\n" . '| class="mw-cite-dir-rtl")'
 			],
 			'Incomplete follow' => [
-				[
+				'ref' => [
 					'follow' => 'f',
 					'text' => 't',
 				],
-				"<p id=\"f\"><span class=\"reference-text\">t</span>\n</p>"
+				'expectedOutput' => "<p id=\"f\"><span class=\"reference-text\">t</span>\n</p>"
 			],
 			'Count zero' => [
-				[
+				'ref' => [
 					'count' => 0,
 					'key' => 5,
 					'text' => 't',
 				],
-				'(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>' . "\n|)"
+				'expectedOutput' => '(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>' . "\n|)"
 			],
 			'Count negative' => [
-				[
+				'ref' => [
 					'count' => -1,
 					'key' => 5,
 					'number' => 3,
 					'text' => 't',
 				],
-				'(cite_references_link_one|5|5+|<span class="reference-text">t</span>' . "\n|)"
+				'expectedOutput' => '(cite_references_link_one|5|5+|<span class="reference-text">t</span>' . "\n|)"
 			],
 			'Count positive' => [
-				[
+				'ref' => [
 					'count' => 2,
 					'key' => 5,
 					'number' => 3,
 					'text' => 't',
 				],
-				'(cite_references_link_many|1-5|(cite_references_link_many_format|1+5-0|3.0|' .
+				'expectedOutput' => '(cite_references_link_many|1-5|(cite_references_link_many_format|1+5-0|3.0|' .
 				'(cite_references_link_many_format_backlink_labels))' .
 				'(cite_references_link_many_sep)(cite_references_link_many_format|1+5-1|3.1|' .
 				'(cite_error_references_no_backlink_label))(cite_references_link_many_and)' .
@@ -304,24 +304,24 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	public static function provideReferenceText() {
 		return [
 			'No text, not preview' => [
-				null,
-				false,
-				'(cite_error_references_no_text|1)'
+				'text' => null,
+				'isSectionPreview' => false,
+				'expectedOutput' => '(cite_error_references_no_text|1)'
 			],
 			'No text, is preview' => [
-				null,
-				true,
-				'(cite_warning_sectionpreview_no_text|1)'
+				'text' => null,
+				'isSectionPreview' => true,
+				'expectedOutput' => '(cite_warning_sectionpreview_no_text|1)'
 			],
 			'Has text' => [
-				'text',
-				true,
-				'<span class="reference-text">text</span>' . "\n"
+				'text' => 'text',
+				'isSectionPreview' => true,
+				'expectedOutput' => '<span class="reference-text">text</span>' . "\n"
 			],
 			'Trims text' => [
-				"text\n\n",
-				true,
-				'<span class="reference-text">text</span>' . "\n"
+				'text' => "text\n\n",
+				'isSectionPreview' => true,
+				'expectedOutput' => '<span class="reference-text">text</span>' . "\n"
 			],
 		];
 	}
@@ -419,21 +419,21 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	public static function provideLists() {
 		return [
 			[
-				[],
-				''
+				'list' => [],
+				'expected' => ''
 			],
 			[
 				// This is intentionally using numbers to test the to-string cast
-				[ 1 ],
-				'1'
+				'list' => [ 1 ],
+				'expected' => '1'
 			],
 			[
-				[ 1, 2 ],
-				'1(cite_references_link_many_and)2'
+				'list' => [ 1, 2 ],
+				'expected' => '1(cite_references_link_many_and)2'
 			],
 			[
-				[ 1, 2, 3 ],
-				'1(cite_references_link_many_sep)2(cite_references_link_many_and)3'
+				'list' => [ 1, 2, 3 ],
+				'expected' => '1(cite_references_link_many_sep)2(cite_references_link_many_and)3'
 			],
 		];
 	}

@@ -44,16 +44,16 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 	public static function provideErrors() {
 		return [
 			'Example error' => [
-				'cite_error_example',
-				'<span class="error mw-ext-cite-error" lang="qqx" dir="rtl">' .
+				'key' => 'cite_error_example',
+				'expectedHtml' => '<span class="error mw-ext-cite-error" lang="qqx" dir="rtl">' .
 					'(cite_error|(cite_error_example|first param))</span>',
-				[ 'cite-tracking-category-cite-error' ]
+				'categories' => [ 'cite-tracking-category-cite-error' ]
 			],
 			'Warning error' => [
-				'cite_warning_example',
-				'<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
+				'key' => 'cite_warning_example',
+				'expectedHtml' => '<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
 					'dir="rtl">(cite_warning|(cite_warning_example|first param))</span>',
-				[]
+				'categories' => []
 			],
 		];
 	}

@@ -52,10 +52,10 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	public static function providePushRef() {
 		return [
 			'Anonymous ref in default group' => [
-				[
+				'refs' => [
 					[ 'text', [], '', null, null, null, 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => -1,
 						'dir' => 'rtl',
@@ -65,7 +65,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'' => [
 						[
 							'count' => -1,
@@ -77,15 +77,15 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, '', null, null, 'text', [] ],
 				]
 			],
 			'Anonymous ref in named group' => [
-				[
+				'refs' => [
 					[ 'text', [], 'foo', null, null, null, 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => -1,
 						'dir' => 'rtl',
@@ -95,7 +95,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						[
 							'count' => -1,
@@ -107,15 +107,15 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', null, null, 'text', [] ],
 				]
 			],
 			'Ref with text' => [
-				[
+				'refs' => [
 					[ 'text', [], 'foo', null, null, null, 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => -1,
 						'dir' => 'rtl',
@@ -125,7 +125,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						[
 							'count' => -1,
@@ -137,15 +137,15 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', null, null, 'text', [] ],
 				]
 			],
 			'Named ref with text' => [
-				[
+				'refs' => [
 					[ 'text', [], 'foo', 'name', null, null, 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -155,7 +155,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					],
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'name' => [
 							'count' => 0,
@@ -167,16 +167,16 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'name', null, 'text', [] ],
 				]
 			],
 			'Follow after base' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text-b', [], 'foo', 'b', null, 'a', 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -187,7 +187,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					],
 					null
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 0,
@@ -199,18 +199,18 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 				]
 			],
 			'Follow with no base' => [
-				[
+				'refs' => [
 					[ 'text', [], 'foo', null, null, 'a', 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					null
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						[
 							'count' => -1,
@@ -222,17 +222,17 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', null, null, 'text', [] ],
 				]
 			],
 			'Follow pointing to later ref' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text-b', [], 'foo', null, null, 'c', 'rtl' ],
 					[ 'text-c', [], 'foo', 'c', null, null, 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -251,7 +251,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 2,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 0,
@@ -279,18 +279,18 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 					[ 'new', 2, 'foo', null, null, 'text-b', [] ],
 					[ 'new', 3, 'foo', 'c', null, 'text-c', [] ],
 				]
 			],
 			'Repeated ref, text in first tag' => [
-				[
+				'refs' => [
 					[ 'text', [], 'foo', 'a', null, null, 'rtl' ],
 					[ null, [], 'foo', 'a', null, null, 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -308,7 +308,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					],
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 1,
@@ -320,17 +320,17 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, 'text', [] ],
 					[ 'increment', 1, 'foo', 'a', null, null, [] ],
 				]
 			],
 			'Repeated ref, text in second tag' => [
-				[
+				'refs' => [
 					[ null, [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text', [], 'foo', 'a', null, null, 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -348,7 +348,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 1,
@@ -360,17 +360,17 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, null, [] ],
 					[ 'assign', 1, 'foo', 'a', null, 'text', [] ],
 				]
 			],
 			'Repeated ref, mismatched text' => [
-				[
+				'refs' => [
 					[ 'text-1', [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text-2', [], 'foo', 'a', null, null, 'rtl' ]
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -389,7 +389,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'warnings' => [ [ 'cite_error_references_duplicate_key', 'a' ] ],
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 1,
@@ -402,16 +402,16 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, 'text-1', [] ],
 					[ 'increment', 1, 'foo', 'a', null, 'text-2', [] ],
 				]
 			],
 			'Named extends with no parent' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', 'a', 'b', null, 'rtl' ],
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -423,7 +423,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'extendsIndex' => 1,
 					],
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 0,
@@ -441,16 +441,16 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', 'b', 'text-a', [] ],
 				]
 			],
 			'Named extends before parent' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', 'a', 'b', null, 'rtl' ],
 					[ 'text-b', [], 'foo', 'b', null, null, 'rtl' ],
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -470,7 +470,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 0,
@@ -492,17 +492,17 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', 'b', 'text-a', [] ],
 					[ 'new-from-placeholder', 2, 'foo', 'b', null, 'text-b', [] ],
 				]
 			],
 			'Named extends after parent' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text-b', [], 'foo', 'b', 'a', null, 'rtl' ],
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -522,7 +522,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'extendsIndex' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 0,
@@ -544,16 +544,16 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 					[ 'new', 2, 'foo', 'b', 'a', 'text-b', [] ],
 				]
 			],
 			'Anonymous extends with no parent' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', null, 'b', null, 'rtl' ],
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => -1,
 						'dir' => 'rtl',
@@ -565,7 +565,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'extendsIndex' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						0 => [
 							'count' => -1,
@@ -583,16 +583,16 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					],
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', null, 'b', 'text-a', [] ],
 				]
 			],
 			'Anonymous extends before parent' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', null, 'b', null, 'rtl' ],
 					[ 'text-b', [], 'foo', 'b', null, null, 'rtl' ],
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => -1,
 						'dir' => 'rtl',
@@ -612,7 +612,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						0 => [
 							'count' => -1,
@@ -634,17 +634,17 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', null, 'b', 'text-a', [] ],
 					[ 'new-from-placeholder', 2, 'foo', 'b', null, 'text-b', [] ],
 				]
 			],
 			'Anonymous extends after parent' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text-b', [], 'foo', null, 'a', null, 'rtl' ],
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -664,7 +664,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'extendsIndex' => 1,
 					]
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 0,
@@ -686,18 +686,18 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						]
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 					[ 'new', 2, 'foo', null, 'a', 'text-b', [] ],
 				]
 			],
 			'Normal after extends' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text-b', [], 'foo', null, 'a', null, 'rtl' ],
 					[ 'text-c', [], 'foo', 'c', null, null, 'rtl' ],
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -725,7 +725,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 2,
 					],
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 0,
@@ -755,19 +755,19 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						],
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 					[ 'new', 2, 'foo', null, 'a', 'text-b', [] ],
 					[ 'new', 3, 'foo', 'c', null, 'text-c', [] ],
 				]
 			],
 			'Two incomplete follows' => [
-				[
+				'refs' => [
 					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
 					[ 'text-b', [], 'foo', null, null, 'd', 'rtl' ],
 					[ 'text-c', [], 'foo', null, null, 'd', 'rtl' ],
 				],
-				[
+				'expectedOutputs' => [
 					[
 						'count' => 0,
 						'dir' => 'rtl',
@@ -779,7 +779,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					null,
 					null
 				],
-				[
+				'finalRefs' => [
 					'foo' => [
 						'a' => [
 							'count' => 0,
@@ -807,7 +807,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						],
 					]
 				],
-				[
+				'finalCallStack' => [
 					[ 'new', 1, 'foo', 'a', null, 'text-a', [] ],
 					[ 'new', 2, 'foo', null, null, 'text-b', [] ],
 					[ 'new', 3, 'foo', null, null, 'text-c', [] ],

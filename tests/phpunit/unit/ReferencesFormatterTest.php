@@ -182,7 +182,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	 * @dataProvider provideFormatListItem
 	 */
 	public function testFormatListItem(
-		$key,
 		array $val,
 		string $expectedOutput
 	) {
@@ -216,21 +215,19 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
-		$output = $formatter->formatListItem( $parser, $key, $val, false );
+		$output = $formatter->formatListItem( $parser, 1, $val, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
 	public static function provideFormatListItem() {
 		return [
 			'Success' => [
-				1,
 				[
 					'text' => 't',
 				],
 				'(cite_references_link_many|1-||<span class="reference-text">t</span>' . "\n|)"
 			],
 			'With dir' => [
-				1,
 				[
 					'dir' => 'rtl',
 					'text' => 't',
@@ -239,7 +236,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 					"\n" . '| class="mw-cite-dir-rtl")'
 			],
 			'Incomplete follow' => [
-				1,
 				[
 					'follow' => 'f',
 					'text' => 't',
@@ -247,7 +243,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				"<p id=\"f\"><span class=\"reference-text\">t</span>\n</p>"
 			],
 			'Count zero' => [
-				1,
 				[
 					'count' => 0,
 					'key' => 5,
@@ -256,7 +251,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				'(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>' . "\n|)"
 			],
 			'Count negative' => [
-				1,
 				[
 					'count' => -1,
 					'key' => 5,
@@ -266,7 +260,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				'(cite_references_link_one|5|5+|<span class="reference-text">t</span>' . "\n|)"
 			],
 			'Count positive' => [
-				1,
 				[
 					'count' => 2,
 					'key' => 5,
@@ -287,7 +280,6 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	 * @dataProvider provideReferenceText
 	 */
 	public function testReferenceText(
-		$key,
 		?string $text,
 		bool $isSectionPreview,
 		string $expectedOutput
@@ -305,32 +297,28 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
-		$output = $formatter->referenceText( $parser, $key, [ 'text' => $text ], $isSectionPreview );
+		$output = $formatter->referenceText( $parser, 1, [ 'text' => $text ], $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
 	public static function provideReferenceText() {
 		return [
 			'No text, not preview' => [
-				1,
 				null,
 				false,
 				'(cite_error_references_no_text|1)'
 			],
 			'No text, is preview' => [
-				1,
 				null,
 				true,
 				'(cite_warning_sectionpreview_no_text|1)'
 			],
 			'Has text' => [
-				1,
 				'text',
 				true,
 				'<span class="reference-text">text</span>' . "\n"
 			],
 			'Trims text' => [
-				1,
 				"text\n\n",
 				true,
 				'<span class="reference-text">text</span>' . "\n"

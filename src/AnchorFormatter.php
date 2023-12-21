@@ -23,25 +23,25 @@ class AnchorFormatter {
 	 * optionally the number of it, used in <references>, not <ref>
 	 * (since otherwise it would link to itself)
 	 *
-	 * @param string $key
+	 * @param string|int $key
 	 * @param string|null $num The number of the key
 	 *
 	 * @return string
 	 */
-	private function refKey( string $key, ?string $num ): string {
+	private function refKey( $key, ?string $num ): string {
 		$prefix = $this->messageLocalizer->msg( 'cite_reference_link_prefix' )->plain();
 		if ( $num !== null ) {
-			$key .= '_' . $num;
+			$key = $key . '_' . $num;
 		}
 		return $this->normalizeKey( $prefix . $key );
 	}
 
 	/**
-	 * @param string $key
+	 * @param string|int $key
 	 * @param string|null $num
 	 * @return string Escaped to be used as part of a [[#…]] link
 	 */
-	public function backLink( string $key, ?string $num = null ): string {
+	public function backLink( $key, ?string $num = null ): string {
 		$key = $this->refKey( $key, $num );
 		// This does both URL encoding (e.g. %A0, which only makes sense in href="…") and HTML
 		// entity encoding (e.g. &#xA0;). The browser will decode in reverse order.
@@ -49,11 +49,11 @@ class AnchorFormatter {
 	}
 
 	/**
-	 * @param string $key
+	 * @param string|int $key
 	 * @param string|null $num
 	 * @return string Already escaped to be used directly in an id="…" attribute
 	 */
-	public function backLinkTarget( string $key, ?string $num ): string {
+	public function backLinkTarget( $key, ?string $num ): string {
 		$key = $this->refKey( $key, $num );
 		return Sanitizer::safeEncodeAttribute( $key );
 	}

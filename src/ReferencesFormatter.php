@@ -98,12 +98,12 @@ class ReferencesFormatter {
 		$parserInput = "\n";
 		/** @var string|bool $indented */
 		$indented = false;
-		foreach ( $groupRefs as $key => &$value ) {
+		foreach ( $groupRefs as $key => &$ref ) {
 			// Make sure the parent is not a subreference.
 			// FIXME: Move to a validation function.
-			$extends =& $value->extends;
+			$extends =& $ref->extends;
 			if ( isset( $extends ) && isset( $groupRefs[$extends]->extends ) ) {
-				$value->warnings[] = [ 'cite_error_ref_nested_extends',
+				$ref->warnings[] = [ 'cite_error_ref_nested_extends',
 					$extends, $groupRefs[$extends]->extends ];
 			}
 
@@ -118,7 +118,7 @@ class ReferencesFormatter {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
-			$parserInput .= $this->formatListItem( $parser, $key, $value, $isSectionPreview ) . "\n";
+			$parserInput .= $this->formatListItem( $parser, $key, $ref, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
 		return Html::rawElement( 'ol', [ 'class' => 'references' ], $parserInput );
@@ -140,39 +140,39 @@ class ReferencesFormatter {
 	/**
 	 * @param Parser $parser
 	 * @param string|int $key The key of the reference
-	 * @param ReferenceStackItem $val A single reference
+	 * @param ReferenceStackItem $ref
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
 	private function formatListItem(
-		Parser $parser, $key, ReferenceStackItem $val, bool $isSectionPreview
+		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
-		$text = $this->referenceText( $parser, $key, $val, $isSectionPreview );
+		$text = $this->referenceText( $parser, $key, $ref, $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';
 
-		if ( isset( $val->dir ) ) {
+		if ( isset( $ref->dir ) ) {
 			// The following classes are generated here:
 			// * mw-cite-dir-ltr
 			// * mw-cite-dir-rtl
-			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $val->dir ] );
+			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $ref->dir ] );
 		}
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
-		if ( isset( $val->follow ) ) {
-			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $val->follow ) . '">' . $text . '</p>';
+		if ( isset( $ref->follow ) ) {
+			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $ref->follow ) . '">' . $text . '</p>';
 		}
 
-		if ( $val->count === 1 ) {
-			if ( !isset( $val->name ) ) {
-				$id = $val->key;
-				$backlinkId = $this->anchorFormatter->backLink( $val->key );
+		if ( $ref->count === 1 ) {
+			if ( !isset( $ref->name ) ) {
+				$id = $ref->key;
+				$backlinkId = $this->anchorFormatter->backLink( $ref->key );
 			} else {
-				$id = $key . '-' . $val->key;
+				$id = $key . '-' . $ref->key;
 				// TODO: Use count without decrementing.
-				$backlinkId = $this->anchorFormatter->backLink( $key, $val->key . '-' . ( $val->count - 1 ) );
+				$backlinkId = $this->anchorFormatter->backLink( $key, $ref->key . '-' . ( $ref->count - 1 ) );
 			}
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
@@ -185,21 +185,21 @@ class ReferencesFormatter {
 
 		// Named references with >1 occurrences
 		$backlinks = [];
-		for ( $i = 0; $i < $val->count; $i++ ) {
+		for ( $i = 0; $i < $ref->count; $i++ ) {
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
-				$this->anchorFormatter->backLink( $key, $val->key . '-' . $i ),
+				$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
 				$this->referencesFormatEntryNumericBacklinkLabel(
-					$val->number .
-						( isset( $val->extendsIndex ) ? '.' . $val->extendsIndex : '' ),
+					$ref->number .
+						( isset( $ref->extendsIndex ) ? '.' . $ref->extendsIndex : '' ),
 					$i,
-					$val->count
+					$ref->count
 				),
 				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i )
 			)->plain();
 		}
-		$linkTargetId = $val->count > 0 ?
-			$this->anchorFormatter->jumpLinkTarget( $key . '-' . $val->key ) : '';
+		$linkTargetId = $ref->count > 0 ?
+			$this->anchorFormatter->jumpLinkTarget( $key . '-' . $ref->key ) : '';
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
 			$linkTargetId,

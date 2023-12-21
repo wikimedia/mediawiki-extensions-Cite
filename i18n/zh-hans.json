@@ -41,7 +41,7 @@
 	"cite_error_references_missing_key": "<code>&lt;references&gt;</code>内定义的name（名称）为“$1”的<code>&lt;ref&gt;</code>标签未在前文内使用。",
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>内定义的<code>&lt;ref&gt;</code>标签没有设置name（名称）属性。",
 	"cite_error_empty_references_define": "group（分组）为“$2”的<code>&lt;references&gt;</code>内定义的name（名称）为“$1”的<code>&lt;ref&gt;</code>标签没有内容。",
-	"cite-tracking-category-cite-error": "有参考资料错误的页面",
+	"cite-tracking-category-cite-error": "有参考文献错误的页面",
 	"cite-tracking-category-cite-error-desc": "此分类内的页面存在参考资料标签使用错误。",
 	"cite_references_link_accessibility_label": "跳转",
 	"cite_references_link_many_accessibility_label": "跳转到：",

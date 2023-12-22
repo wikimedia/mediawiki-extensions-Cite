@@ -281,6 +281,9 @@
 	"AutoloadNamespaces": {
 		"Cite\\": "src/"
 	},
+	"TestAutoloadNamespaces": {
+		"Cite\\Tests\\": "tests/phpunit/"
+	},
 	"TrackingCategories": [
 		"cite-tracking-category-cite-error"
 	],

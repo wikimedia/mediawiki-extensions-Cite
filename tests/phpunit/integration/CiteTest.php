@@ -7,6 +7,7 @@ use Cite\ErrorReporter;
 use Cite\FootnoteMarkFormatter;
 use Cite\ReferencesFormatter;
 use Cite\ReferenceStack;
+use Cite\Tests\TestUtils;
 use Language;
 use LogicException;
 use Parser;
@@ -234,7 +235,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$referenceStack = new ReferenceStack();
 		/** @var ReferenceStack $stackSpy */
 		$stackSpy = TestingAccessWrapper::newFromObject( $referenceStack );
-		$stackSpy->refs = $initialRefs;
+		$stackSpy->refs = TestUtils::refGroupsFromArray( $initialRefs );
 
 		$mockFootnoteMarkFormatter = $this->createMock( FootnoteMarkFormatter::class );
 		$mockFootnoteMarkFormatter->method( 'linkRef' )->willReturn( '<foot />' );
@@ -254,7 +255,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		} else {
 			$this->assertStatusGood( $spy->mReferencesErrors );
 		}
-		$this->assertSame( $expectedRefs, $stackSpy->refs );
+		$expectedRefs = TestUtils::refGroupsFromArray( $expectedRefs );
+		$this->assertEquals( $expectedRefs, $stackSpy->refs );
 	}
 
 	public static function provideGuardedRef() {

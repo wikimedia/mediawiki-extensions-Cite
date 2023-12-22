@@ -3,6 +3,7 @@
 namespace Cite\Tests\Unit;
 
 use Cite\ReferenceStack;
+use Cite\Tests\TestUtils;
 use LogicException;
 use StripState;
 use Wikimedia\TestingAccessWrapper;
@@ -42,10 +43,14 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 			$this->assertArrayHasKey( $i, $expectedOutputs,
 				'Bad test, not enough expected outputs in fixture.' );
-			$this->assertSame( $expectedOutputs[$i], $result );
+			$expectedOutput = $expectedOutputs[$i]
+				? (array)TestUtils::refFromArray( $expectedOutputs[$i] )
+				: null;
+			$this->assertEquals( $expectedOutput, $result );
 		}
 
-		$this->assertSame( $finalRefs, $stack->refs );
+		$finalRefs = TestUtils::refGroupsFromArray( $finalRefs );
+		$this->assertEquals( $finalRefs, $stack->refs );
 		$this->assertSame( $finalCallStack, $stack->refCallStack );
 	}
 
@@ -887,7 +892,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 	) {
 		$stack = $this->newStack();
 		$stack->refCallStack = $initialCallStack;
-		$stack->refs = $initialRefs;
+		$stack->refs = TestUtils::refGroupsFromArray( $initialRefs );
 
 		if ( is_string( $expectedResult ) ) {
 			$this->expectException( LogicException::class );
@@ -895,7 +900,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		}
 		$redoStack = $stack->rollbackRefs( $rollbackCount );
 		$this->assertSame( $expectedResult, $redoStack );
-		$this->assertSame( $expectedRefs, $stack->refs );
+		$expectedRefs = TestUtils::refGroupsFromArray( $expectedRefs );
+		$this->assertEquals( $expectedRefs, $stack->refs );
 	}
 
 	public static function provideRollbackRefs() {

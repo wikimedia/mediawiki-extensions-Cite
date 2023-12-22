@@ -48,37 +48,69 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		// Note: Values are guaranteed to be trimmed by the parser, see
 		// Sanitizer::decodeTagAttributes()
 		return [
-			[ [], [ null, null, null, null, null ] ],
+			[
+				'attributes' => [],
+				'expectedValue' => [ null, null, null, null, null ],
+			],
 
 			// One attribute only
-			[ [ 'dir' => 'invalid' ], [ 'invalid', null, null, null, null ] ],
-			[ [ 'dir' => 'rtl' ], [ 'rtl', null, null, null, null ] ],
-			[ [ 'follow' => 'f' ], [ null, null, 'f', null, null ] ],
-			[ [ 'group' => 'g' ], [ null, null, null, 'g', null ] ],
 			[
-				[ 'invalid' => 'i' ],
-				[ null, null, null, null, null ],
-				'cite_error_ref_too_many_keys'
+				'attributes' => [ 'dir' => 'invalid' ],
+				'expectedValue' => [ 'invalid', null, null, null, null ] ],
+			[
+				'attributes' => [ 'dir' => 'rtl' ],
+				'expectedValue' => [ 'rtl', null, null, null, null ] ],
+			[
+				'attributes' => [ 'follow' => 'f' ],
+				'expectedValue' => [ null, null, 'f', null, null ] ],
+			[
+				'attributes' => [ 'group' => 'g' ],
+				'expectedValue' => [ null, null, null, 'g', null ] ],
+			[
+				'attributes' => [ 'invalid' => 'i' ],
+				'expectedValue' => [ null, null, null, null, null ],
+				'expectedError' => 'cite_error_ref_too_many_keys'
 			],
 			[
-				[ 'invalid' => null ],
-				[ null, null, null, null, null ],
-				'cite_error_ref_too_many_keys'
+				'attributes' => [ 'invalid' => null ],
+				'expectedValue' => [ null, null, null, null, null ],
+				'expectedError' => 'cite_error_ref_too_many_keys'
 			],
-			[ [ 'name' => 'n' ], [ null, null, null, null, 'n' ] ],
-			[ [ 'name' => null ], [ null, null, null, null, null ] ],
-			[ [ 'extends' => 'e' ], [ null, 'e', null, null, null ] ],
+			[
+				'attributes' => [ 'name' => 'n' ],
+				'expectedValue' => [ null, null, null, null, 'n' ]
+			],
+			[
+				'attributes' => [ 'name' => null ],
+				'expectedValue' => [ null, null, null, null, null ]
+			],
+			[
+				'attributes' => [ 'extends' => 'e' ],
+				'expectedValue' => [ null, 'e', null, null, null ]
+			],
 
 			// Pairs
-			[ [ 'follow' => 'f', 'name' => 'n' ], [ null, null, 'f', null, 'n' ] ],
-			[ [ 'follow' => null, 'name' => null ], [ null, null, null, null, null ] ],
-			[ [ 'follow' => 'f', 'extends' => 'e' ], [ null, 'e', 'f', null, null ] ],
-			[ [ 'group' => 'g', 'name' => 'n' ], [ null, null, null, 'g', 'n' ] ],
+			[
+				'attributes' => [ 'follow' => 'f', 'name' => 'n' ],
+				'expectedValue' => [ null, null, 'f', null, 'n' ]
+			],
+			[
+				'attributes' => [ 'follow' => null, 'name' => null ],
+				'expectedValue' => [ null, null, null, null, null ]
+			],
+			[
+				'attributes' => [ 'follow' => 'f', 'extends' => 'e' ],
+				'expectedValue' => [ null, 'e', 'f', null, null ]
+			],
+			[
+				'attributes' => [ 'group' => 'g', 'name' => 'n' ],
+				'expectedValue' => [ null, null, null, 'g', 'n' ]
+			],
 
 			// Combinations of 3 or more attributes
 			[
-				[ 'group' => 'g', 'name' => 'n', 'extends' => 'e', 'dir' => 'rtl' ],
-				[ 'rtl', 'e', null, 'g', 'n' ]
+				'attributes' => [ 'group' => 'g', 'name' => 'n', 'extends' => 'e', 'dir' => 'rtl' ],
+				'expectedValue' => [ 'rtl', 'e', null, 'g', 'n' ]
 			],
 		];
 	}
@@ -126,52 +158,52 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	public static function provideGuardedReferences() {
 		return [
 			'Bare references tag' => [
-				null,
-				[],
-				0,
-				'',
-				false,
-				'references!'
+				'text' => null,
+				'argv' => [],
+				'expectedRollbackCount' => 0,
+				'expectedInReferencesGroup' => '',
+				'expectedResponsive' => false,
+				'expectedOutput' => 'references!'
 			],
 			'References with group' => [
-				null,
-				[ 'group' => 'g' ],
-				0,
-				'g',
-				false,
-				'references!'
+				'text' => null,
+				'argv' => [ 'group' => 'g' ],
+				'expectedRollbackCount' => 0,
+				'expectedInReferencesGroup' => 'g',
+				'expectedResponsive' => false,
+				'expectedOutput' => 'references!'
 			],
 			'Empty references tag' => [
-				'',
-				[],
-				0,
-				'',
-				false,
-				'references!'
+				'text' => '',
+				'argv' => [],
+				'expectedRollbackCount' => 0,
+				'expectedInReferencesGroup' => '',
+				'expectedResponsive' => false,
+				'expectedOutput' => 'references!'
 			],
 			'Set responsive' => [
-				'',
-				[ 'responsive' => '1' ],
-				0,
-				'',
-				true,
-				'references!'
+				'text' => '',
+				'argv' => [ 'responsive' => '1' ],
+				'expectedRollbackCount' => 0,
+				'expectedInReferencesGroup' => '',
+				'expectedResponsive' => true,
+				'expectedOutput' => 'references!'
 			],
 			'Unknown attribute' => [
-				'',
-				[ 'blargh' => '0' ],
-				0,
-				'',
-				false,
-				'(cite_error_references_invalid_parameters)',
+				'text' => '',
+				'argv' => [ 'blargh' => '0' ],
+				'expectedRollbackCount' => 0,
+				'expectedInReferencesGroup' => '',
+				'expectedResponsive' => false,
+				'expectedOutput' => '(cite_error_references_invalid_parameters)',
 			],
 			'Contains refs (which are broken)' => [
-				Parser::MARKER_PREFIX . '-ref- and ' . Parser::MARKER_PREFIX . '-notref-',
-				[],
-				1,
-				'',
-				false,
-				"references!\n(cite_error_references_no_key)"
+				'text' => Parser::MARKER_PREFIX . '-ref- and ' . Parser::MARKER_PREFIX . '-notref-',
+				'argv' => [],
+				'expectedRollbackCount' => 1,
+				'expectedInReferencesGroup' => '',
+				'expectedResponsive' => false,
+				'expectedOutput' => "references!\n(cite_error_references_no_key)"
 			],
 		];
 	}

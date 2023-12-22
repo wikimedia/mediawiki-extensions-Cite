@@ -160,7 +160,7 @@ class Cite {
 				}
 			} elseif ( $text !== null ) {
 				// Validation made sure we always have group and name while in <references>
-				$this->referenceStack->setText( $arguments['group'], $arguments['name'], $text );
+				$this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], $text );
 			}
 			return '';
 		}

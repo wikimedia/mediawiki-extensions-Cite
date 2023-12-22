@@ -36,26 +36,26 @@ class FootnoteMarkFormatter {
 	 * @suppress SecurityCheck-DoubleEscaped
 	 * @param Parser $parser
 	 * @param string $group
-	 * @param array $ref Dictionary with ReferenceStack ref format
+	 * @param ReferenceStackItem $ref
 	 *
 	 * @return string
 	 */
-	public function linkRef( Parser $parser, string $group, array $ref ): string {
-		$label = $this->getLinkLabel( $parser, $group, $ref['number'] );
+	public function linkRef( Parser $parser, string $group, ReferenceStackItem $ref ): string {
+		$label = $this->getLinkLabel( $parser, $group, $ref->number );
 		if ( $label === null ) {
-			$label = $this->messageLocalizer->localizeDigits( $ref['number'] );
+			$label = $this->messageLocalizer->localizeDigits( (string)$ref->number );
 			if ( $group !== Cite::DEFAULT_GROUP ) {
 				$label = "$group $label";
 			}
 		}
-		if ( isset( $ref['extendsIndex'] ) ) {
-			$label .= '.' . $this->messageLocalizer->localizeDigits( $ref['extendsIndex'] );
+		if ( isset( $ref->extendsIndex ) ) {
+			$label .= '.' . $this->messageLocalizer->localizeDigits( (string)$ref->extendsIndex );
 		}
 
-		$key = $ref['name'] ?? $ref['key'];
+		$key = $ref->name ?? $ref->key;
 		// TODO: Use count without decrementing.
-		$count = $ref['name'] ? $ref['key'] . '-' . ( $ref['count'] - 1 ) : null;
-		$subkey = $ref['name'] ? '-' . $ref['key'] : null;
+		$count = $ref->name ? $ref->key . '-' . ( $ref->count - 1 ) : null;
+		$subkey = $ref->name ? '-' . $ref->key : null;
 
 		return $parser->recursiveTagParse(
 			$this->messageLocalizer->msg(

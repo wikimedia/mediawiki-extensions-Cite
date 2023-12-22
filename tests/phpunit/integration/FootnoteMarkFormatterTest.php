@@ -6,6 +6,7 @@ use Cite\AnchorFormatter;
 use Cite\ErrorReporter;
 use Cite\FootnoteMarkFormatter;
 use Cite\ReferenceMessageLocalizer;
+use Cite\Tests\TestUtils;
 use Message;
 use Parser;
 use Wikimedia\TestingAccessWrapper;
@@ -52,6 +53,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 			$messageLocalizer
 		);
 
+		$ref = TestUtils::refFromArray( $ref );
 		$output = $formatter->linkRef( $mockParser, $group, $ref );
 		$this->assertSame( $expectedOutput, $output );
 	}

@@ -43,10 +43,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 			$this->assertArrayHasKey( $i, $expectedOutputs,
 				'Bad test, not enough expected outputs in fixture.' );
-			$expectedOutput = $expectedOutputs[$i]
-				? (array)TestUtils::refFromArray( $expectedOutputs[$i] )
-				: null;
-			$this->assertEquals( $expectedOutput, $result );
+			$expectedRef = TestUtils::refFromArray( $expectedOutputs[$i] );
+			$this->assertEquals( $expectedRef, $result );
 		}
 
 		$finalRefs = TestUtils::refGroupsFromArray( $finalRefs );

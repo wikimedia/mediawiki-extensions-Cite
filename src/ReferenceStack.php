@@ -68,7 +68,7 @@ class ReferenceStack {
 	 * @param ?string $follow Guaranteed to not be a numeric string
 	 * @param ?string $dir ref direction
 	 *
-	 * @return ?array ref structure, or null if no footnote marker should be rendered
+	 * @return ?ReferenceStackItem ref structure, or null if no footnote marker should be rendered
 	 */
 	public function pushRef(
 		StripState $stripState,
@@ -79,7 +79,7 @@ class ReferenceStack {
 		?string $extends,
 		?string $follow,
 		?string $dir
-	): ?array {
+	): ?ReferenceStackItem {
 		$this->refs[$group] ??= [];
 		$this->groupRefSequence[$group] ??= 0;
 
@@ -183,7 +183,7 @@ class ReferenceStack {
 		}
 
 		$this->refCallStack[] = [ $action, $ref->key, $group, $name, $extends, $text, $argv ];
-		return (array)$ref;
+		return $ref;
 	}
 
 	/**

@@ -111,6 +111,8 @@ class ReferenceStack {
 			'dir' => $dir,
 			// This assumes we are going to register a new reference, instead of reusing one
 			'key' => ++$this->refSequence,
+			// TODO: Read from this group field or deprecate it.
+			'group' => $group,
 			'name' => $name,
 			'text' => $text,
 		];

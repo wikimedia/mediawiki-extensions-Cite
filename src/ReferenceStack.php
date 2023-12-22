@@ -309,7 +309,7 @@ class ReferenceStack {
 	 *
 	 * @param string $group
 	 *
-	 * @return array[] The references from the removed group
+	 * @return array<string|int,ReferenceStackItem> The references from the removed group
 	 */
 	public function popGroup( string $group ): array {
 		$refs = $this->getGroupRefs( $group );
@@ -346,13 +346,10 @@ class ReferenceStack {
 	 *
 	 * @param string $group
 	 *
-	 * @return array[]
+	 * @return array<string|int,ReferenceStackItem>
 	 */
 	public function getGroupRefs( string $group ): array {
-		return array_map(
-			fn ( $ref ) => (array)$ref,
-			$this->refs[$group] ?? []
-		);
+		return $this->refs[$group] ?? [];
 	}
 
 	private function resolveFollow( string $group, string $follow, string $text ): void {

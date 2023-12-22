@@ -6,6 +6,7 @@ use Cite\AnchorFormatter;
 use Cite\ErrorReporter;
 use Cite\ReferenceMessageLocalizer;
 use Cite\ReferencesFormatter;
+use Cite\Tests\TestUtils;
 use Message;
 use Parser;
 use Wikimedia\TestingAccessWrapper;
@@ -43,6 +44,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			$mockMessageLocalizer
 		);
 
+		$refs = array_map( [ TestUtils::class, 'refFromArray' ], $refs );
 		$output = $formatter->formatReferences( $mockParser, $refs, true, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
@@ -193,7 +195,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 	 * @dataProvider provideFormatListItem
 	 */
 	public function testFormatListItem(
-		array $val,
+		array $ref,
 		string $expectedOutput
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
@@ -226,7 +228,8 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
-		$output = $formatter->formatListItem( $parser, 1, $val, false );
+		$ref = TestUtils::refFromArray( $ref );
+		$output = $formatter->formatListItem( $parser, 1, $ref, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -316,7 +319,8 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
-		$output = $formatter->referenceText( $parser, 1, [ 'text' => $text ], $isSectionPreview );
+		$ref = TestUtils::refFromArray( [ 'text' => $text ] );
+		$output = $formatter->referenceText( $parser, 1, $ref, $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 

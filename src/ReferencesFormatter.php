@@ -37,7 +37,7 @@ class ReferencesFormatter {
 
 	/**
 	 * @param Parser $parser
-	 * @param array[] $groupRefs
+	 * @param array<string|int,ReferenceStackItem> $groupRefs
 	 * @param bool $responsive
 	 * @param bool $isSectionPreview
 	 *
@@ -73,7 +73,7 @@ class ReferencesFormatter {
 
 	/**
 	 * @param Parser $parser
-	 * @param array[] $groupRefs
+	 * @param array<string|int,ReferenceStackItem> $groupRefs
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string Wikitext
@@ -87,9 +87,9 @@ class ReferencesFormatter {
 		// numbering.  Subreferences will come immediately after their parent.
 		uasort(
 			$groupRefs,
-			static function ( array $a, array $b ): int {
-				$cmp = ( $a['number'] ?? 0 ) - ( $b['number'] ?? 0 );
-				return $cmp ?: ( $a['extendsIndex'] ?? 0 ) - ( $b['extendsIndex'] ?? 0 );
+			static function ( ReferenceStackItem $a, ReferenceStackItem $b ): int {
+				$cmp = ( $a->number ?? 0 ) - ( $b->number ?? 0 );
+				return $cmp ?: ( $a->extendsIndex ?? 0 ) - ( $b->extendsIndex ?? 0 );
 			}
 		);
 
@@ -101,10 +101,10 @@ class ReferencesFormatter {
 		foreach ( $groupRefs as $key => &$value ) {
 			// Make sure the parent is not a subreference.
 			// FIXME: Move to a validation function.
-			$extends =& $value['extends'];
-			if ( isset( $extends ) && isset( $groupRefs[$extends]['extends'] ) ) {
-				$value['warnings'][] = [ 'cite_error_ref_nested_extends', $extends,
-					$groupRefs[$extends]['extends'] ];
+			$extends =& $value->extends;
+			if ( isset( $extends ) && isset( $groupRefs[$extends]->extends ) ) {
+				$value->warnings[] = [ 'cite_error_ref_nested_extends',
+					$extends, $groupRefs[$extends]->extends ];
 			}
 
 			if ( !$indented && isset( $extends ) ) {
@@ -140,39 +140,39 @@ class ReferencesFormatter {
 	/**
 	 * @param Parser $parser
 	 * @param string|int $key The key of the reference
-	 * @param array $val A single reference as documented at {@see ReferenceStack::$refs}
+	 * @param ReferenceStackItem $val A single reference
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
 	private function formatListItem(
-		Parser $parser, $key, array $val, bool $isSectionPreview
+		Parser $parser, $key, ReferenceStackItem $val, bool $isSectionPreview
 	): string {
 		$text = $this->referenceText( $parser, $key, $val, $isSectionPreview );
 		$error = '';
 		$extraAttributes = '';
 
-		if ( isset( $val['dir'] ) ) {
+		if ( isset( $val->dir ) ) {
 			// The following classes are generated here:
 			// * mw-cite-dir-ltr
 			// * mw-cite-dir-rtl
-			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $val['dir'] ] );
+			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $val->dir ] );
 		}
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
-		if ( isset( $val['follow'] ) ) {
-			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $val['follow'] ) . '">' . $text . '</p>';
+		if ( isset( $val->follow ) ) {
+			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $val->follow ) . '">' . $text . '</p>';
 		}
 
-		if ( $val['count'] === 1 ) {
-			if ( !isset( $val['name'] ) ) {
-				$id = $val['key'];
-				$backlinkId = $this->anchorFormatter->backLink( $val['key'] );
+		if ( $val->count === 1 ) {
+			if ( !isset( $val->name ) ) {
+				$id = $val->key;
+				$backlinkId = $this->anchorFormatter->backLink( $val->key );
 			} else {
-				$id = $key . '-' . $val['key'];
+				$id = $key . '-' . $val->key;
 				// TODO: Use count without decrementing.
-				$backlinkId = $this->anchorFormatter->backLink( $key, $val['key'] . '-' . ( $val['count'] - 1 ) );
+				$backlinkId = $this->anchorFormatter->backLink( $key, $val->key . '-' . ( $val->count - 1 ) );
 			}
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
@@ -185,21 +185,21 @@ class ReferencesFormatter {
 
 		// Named references with >1 occurrences
 		$backlinks = [];
-		for ( $i = 0; $i < $val['count']; $i++ ) {
+		for ( $i = 0; $i < $val->count; $i++ ) {
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
-				$this->anchorFormatter->backLink( $key, $val['key'] . '-' . $i ),
+				$this->anchorFormatter->backLink( $key, $val->key . '-' . $i ),
 				$this->referencesFormatEntryNumericBacklinkLabel(
-					$val['number'] .
-						( isset( $val['extendsIndex'] ) ? '.' . $val['extendsIndex'] : '' ),
+					$val->number .
+						( isset( $val->extendsIndex ) ? '.' . $val->extendsIndex : '' ),
 					$i,
-					$val['count']
+					$val->count
 				),
 				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i )
 			)->plain();
 		}
-		$linkTargetId = $val['count'] > 0 ?
-			$this->anchorFormatter->jumpLinkTarget( $key . '-' . ( $val['key'] ?? '' ) ) : '';
+		$linkTargetId = $val->count > 0 ?
+			$this->anchorFormatter->jumpLinkTarget( $key . '-' . $val->key ) : '';
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
 			$linkTargetId,
@@ -212,15 +212,15 @@ class ReferencesFormatter {
 	/**
 	 * @param Parser $parser
 	 * @param string|int $key
-	 * @param array $ref
+	 * @param ReferenceStackItem $ref
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string
 	 */
 	private function referenceText(
-		Parser $parser, $key, array $ref, bool $isSectionPreview
+		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
-		$text = $ref['text'] ?? null;
+		$text = $ref->text ?? null;
 		if ( $text === null ) {
 			return $this->errorReporter->plain( $parser,
 				$isSectionPreview
@@ -228,7 +228,7 @@ class ReferencesFormatter {
 					: 'cite_error_references_no_text', $key );
 		}
 
-		foreach ( $ref['warnings'] ?? [] as $warning ) {
+		foreach ( $ref->warnings as $warning ) {
 			// @phan-suppress-next-line PhanParamTooFewUnpack
 			$text .= ' ' . $this->errorReporter->plain( $parser, ...$warning );
 			// FIXME: We could use a StatusValue object to get rid of duplicates

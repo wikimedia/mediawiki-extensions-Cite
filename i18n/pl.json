@@ -17,6 +17,7 @@
 	"cite-desc": "Dodaje znaczniki <code>&lt;ref&gt;</code> oraz <code>&lt;references&gt;</code> ułatwiające podawanie źródeł cytatów",
 	"cite_error": "Błąd rozszerzenia ''cite'': $1",
 	"cite_error_ref_invalid_dir": "Nieprawidłowa wartość <code>dir=\"$1\"</code>. Musi zawierać <code>ltr</code> lub <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "Jeden ze znaczników <code>&lt;ref&gt;</code> z nazwą „$1” posiada konfliktujący atrybut „dir”.",
 	"cite_error_ref_numeric_key": "Nieprawidłowy znacznik <code>&lt;ref&gt;</code>; nazwa nie może być liczbą. Użyj nazwy opisowej.",
 	"cite_error_ref_no_key": "Otwierający znacznik <code>&lt;ref&gt;</code> jest nieprawidłowy lub ma błędną nazwę.",
 	"cite_error_ref_too_many_keys": "Nieprawidłowy parametr w znaczniku <code>&lt;ref&gt;</code>",

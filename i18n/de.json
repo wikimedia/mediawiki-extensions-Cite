@@ -16,6 +16,7 @@
 	"cite-desc": "Ermöglicht Referenzierungen mittels <code>&lt;ref&gt;</code> und <code>&lt;references&gt;</code>",
 	"cite_error": "Referenzfehler: $1",
 	"cite_error_ref_invalid_dir": "Ungültiges Tag <code>dir=\"$1\"</code>, muss <code>ltr</code> oder <code>rtl</code> sein.",
+	"cite_error_ref_conflicting_dir": "Einer der <code>&lt;ref&gt;</code>-Tags mit dem Namen „$1“ weist ein widersprüchliches dir-Attribut auf.",
 	"cite_error_ref_numeric_key": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „name“ darf kein reiner Zahlenwert sein. Benutze einen beschreibenden Namen.",
 	"cite_error_ref_no_key": "Das öffnende <code>&lt;ref&gt;</code>-Tag ist beschädigt oder hat einen ungültigen Namen",
 	"cite_error_ref_too_many_keys": "Ungültiger Parameter in <code>&lt;ref&gt;</code>.",

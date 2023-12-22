@@ -16,6 +16,7 @@
 	"cite-desc": "Voegt <code>&lt;ref&gt;</code>- en <code>&lt;references&gt;</code>-labels toe voor citaten",
 	"cite_error": "Citefout: $1",
 	"cite_error_ref_invalid_dir": "Ongeldig <code>dir=\"$1\"</code>, moet <code>ltr</code> of <code>rtl</code> zijn.",
+	"cite_error_ref_conflicting_dir": "Eén van de <code>&lt;ref&gt;</code>-tags met de naam “$1” heeft een conflicterend dir-attribuut.",
 	"cite_error_ref_numeric_key": "Onjuist label <code>&lt;ref&gt;</code>; de naam mag niet slechts een geheel getal zijn. Gebruik een beschrijvende titel",
 	"cite_error_ref_no_key": "Het openingslabel <code>&lt;ref&gt;</code> is onjuist opgemaakt of heeft een verkeerde naam.",
 	"cite_error_ref_too_many_keys": "Onjuiste parameter in de tag <code>&lt;ref&gt;</code>",

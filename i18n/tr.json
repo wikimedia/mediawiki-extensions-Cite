@@ -16,6 +16,7 @@
 	"cite-desc": "Kaynaklar için, <code>&lt;ref&gt;</code> ve <code>&lt;references&gt;</code> etiketlerini ekler",
 	"cite_error": "Kaynak hatası: $1",
 	"cite_error_ref_invalid_dir": "Geçersiz <code>dir=\"$1\"</code>, <code>ltr</code> veya <code>rtl</code> olmalıdır",
+	"cite_error_ref_conflicting_dir": "\"$1\" adındaki <code>&lt;ref&gt;</code> etiketlerinden birinin çakışan dizin özelliği var.",
 	"cite_error_ref_numeric_key": "Geçersiz <code>&lt;ref&gt;</code> etiketi; isim basit bir tamsayı olamaz. Açıklayıcı bir başlık kullanın",
 	"cite_error_ref_no_key": "Açılış <code>&lt;ref&gt;</code> etiketi hatalı biçimlendirilmiş veya hatalı bir ada sahip",
 	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> etiketinde geçersiz değişken",

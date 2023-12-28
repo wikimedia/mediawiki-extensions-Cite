@@ -12,6 +12,7 @@
 	"cite-desc": "Legger til <code>&lt;ref&gt;</code>- og <code>&lt;references/&gt;</code>-tagger for referanser",
 	"cite_error": "Siteringsfeil: $1",
 	"cite_error_ref_invalid_dir": "Ugyldig <code>dir=\"$1</code>, må være <code>ltr</code> eller <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "Én av <code>&lt;ref&gt;</code>-taggene med navn «$1» har et motstridende dir-attributt.",
 	"cite_error_ref_numeric_key": "Ugyldig <code>&lt;ref&gt;</code>-kode; navnet kan ikke være et enkelt heltall. Bruk en beskrivende tittel",
 	"cite_error_ref_no_key": "Åpningstaggen <code>&lt;ref&gt;</code> er ugyldig eller har et ugyldig navn",
 	"cite_error_ref_too_many_keys": "Ugyldig parameter i <code>&lt;ref&gt;</code>-taggen",

@@ -18,7 +18,7 @@
 	"cite_error": "Грешка код цитирања: $1",
 	"cite_error_ref_numeric_key": "Неважећа ознака <code>&lt;ref&gt;</code>; име не може да буде једноставан цели број. Користите описни наслов.",
 	"cite_error_ref_no_key": "Почетка ознака <code>&lt;ref&gt;</code> није исправно обликована или садржи неисправан назив",
-	"cite_error_ref_too_many_keys": "Неважећа ознака <code>&lt;ref&gt;</code>; неваљана имена, нпр. има их превише.",
+	"cite_error_ref_too_many_keys": "Неважећи параметар у ознаци <code>&lt;references&gt;</code>",
 	"cite_error_ref_no_input": "Неважећа ознака <code>&lt;ref&gt;</code>; референце без имена морају имати садржај.",
 	"cite_error_references_duplicate_key": "Неисправна ознака <code>&lt;ref&gt;</code>; назив „$1” је дефинисано више пута с различитим садржајем",
 	"cite_error_references_invalid_parameters": "Невалидан параметар у тагу <code>&lt;references&gt;</code>",

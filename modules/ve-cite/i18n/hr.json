@@ -18,6 +18,7 @@
 	"visualeditor-cite-tool-name-web": "Mrežne stranice",
 	"cite-ve-citationneeded-button": "Dodaj izvor",
 	"cite-ve-dialog-reference-editing-reused": "Ova je referencija rabljena {{PLURAL:$1|jednom|2=dvaput|$1 puta}} na ovoj stranici.",
+	"cite-ve-dialog-reference-editing-reused-long": "Ova je referenca na ovoj stranici rabljena {{PLURAL:$1|jednom|2=dvaput|$1 puta}}. Promjene učinjene ovdje biti će primijenjene na svim mjestima gdje se ova referenca opet rabi.",
 	"cite-ve-dialog-reference-options-group-label": "Koristi ovu grupu",
 	"cite-ve-dialog-reference-options-group-placeholder": "Opće referencije",
 	"cite-ve-dialog-reference-options-name-label": "Ponovno koristi pod ovim imenom",

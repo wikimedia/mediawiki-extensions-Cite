@@ -4,6 +4,7 @@
 			"2nd-player",
 			"Afaz",
 			"Anonymoususer12321",
+			"Ant176",
 			"Aotake",
 			"Ficell",
 			"Fryed-peach",
@@ -50,5 +51,8 @@
 	"cite-wikieditor-help-content-reference-description": "注釈",
 	"cite-wikieditor-help-content-named-reference-description": "名前付き注釈",
 	"cite-wikieditor-help-content-rereference-description": "同じ注釈の追加利用",
-	"cite-wikieditor-help-content-showreferences-description": "脚注の表示"
+	"cite-wikieditor-help-content-showreferences-description": "脚注の表示",
+	"cite-wikieditor-help-content-reference-example-text1": "ページ本文$1。",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 リンクタイトル]、追加テキスト",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 リンクタイトル]"
 }

@@ -49,9 +49,9 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( function ( $textarea ) {
 				label: mw.msg( 'cite-wikieditor-help-page-references' ),
 				layout: 'table',
 				headings: [
-					{ text: mw.message( 'wikieditor-toolbar-help-heading-description' ).parse() },
-					{ text: mw.message( 'wikieditor-toolbar-help-heading-syntax' ).parse() },
-					{ text: mw.message( 'wikieditor-toolbar-help-heading-result' ).parse() }
+					{ html: mw.message( 'wikieditor-toolbar-help-heading-description' ).parse() },
+					{ html: mw.message( 'wikieditor-toolbar-help-heading-syntax' ).parse() },
+					{ html: mw.message( 'wikieditor-toolbar-help-heading-result' ).parse() }
 				],
 				rows: [
 					{

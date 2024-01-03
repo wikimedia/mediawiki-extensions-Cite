@@ -259,7 +259,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'name' => 'n',
 				'extends' => null,
 				'follow' => null,
-				'dir' => 'RTL',
+				'dir' => 'rtl',
 				'expected' => null,
 			],
 			'Bad dir' => [

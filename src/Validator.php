@@ -76,7 +76,7 @@ class Validator {
 			return StatusValue::newFatal( 'cite_error_ref_follow_conflicts' );
 		}
 
-		if ( $dir !== null && !in_array( strtolower( $dir ), [ 'ltr', 'rtl' ], true ) ) {
+		if ( $dir !== null && $dir !== 'rtl' && $dir !== 'ltr' ) {
 			return StatusValue::newFatal( 'cite_error_ref_invalid_dir', $dir );
 		}
 

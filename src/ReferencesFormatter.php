@@ -154,11 +154,10 @@ class ReferencesFormatter {
 		$extraAttributes = '';
 
 		if ( isset( $val['dir'] ) ) {
-			$dir = strtolower( $val['dir'] );
 			// The following classes are generated here:
 			// * mw-cite-dir-ltr
 			// * mw-cite-dir-rtl
-			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $dir ] );
+			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $val['dir'] ] );
 		}
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on

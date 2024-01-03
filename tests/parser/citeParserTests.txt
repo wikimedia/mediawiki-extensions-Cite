@@ -1324,7 +1324,7 @@ T202593: Conflicting dir attributes with the full ref first
 !! test
 T202593: Identical dir attributes are pointless, but should not generate an error
 !! wikitext
-<ref name="a" dir="rtl" />
+<ref name="a" dir="RTL" />
 <ref name="a" dir="rtl">abc</ref>
 <references />
 !! html/php

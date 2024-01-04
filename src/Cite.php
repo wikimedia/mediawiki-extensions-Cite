@@ -193,11 +193,16 @@ class Cite {
 	 * parsed or default values.  Missing attributes will be `null`.
 	 */
 	private function parseArguments( array $argv, array $allowedAttributes ): StatusValue {
-		$maxCount = count( $allowedAttributes );
+		$expected = count( $allowedAttributes );
 		$allValues = array_merge( array_fill_keys( $allowedAttributes, null ), $argv );
-		$status = StatusValue::newGood( array_slice( $allValues, 0, $maxCount ) );
+		if ( isset( $allValues['dir'] ) ) {
+			// @phan-suppress-next-line PhanTypeMismatchArgumentNullableInternal False positive
+			$allValues['dir'] = strtolower( $allValues['dir'] );
+		}
 
-		if ( count( $allValues ) > $maxCount ) {
+		$status = StatusValue::newGood( array_slice( $allValues, 0, $expected ) );
+
+		if ( count( $allValues ) > $expected ) {
 			// A <ref> must have a name (can be null), but <references> can't have one
 			$status->fatal( in_array( 'name', $allowedAttributes, true )
 				? 'cite_error_ref_too_many_keys'

@@ -12,12 +12,6 @@ use MediaWiki\Parser\Sanitizer;
  */
 class AnchorFormatter {
 
-	private ReferenceMessageLocalizer $messageLocalizer;
-
-	public function __construct( ReferenceMessageLocalizer $messageLocalizer ) {
-		$this->messageLocalizer = $messageLocalizer;
-	}
-
 	/**
 	 * Return an id for use in wikitext output based on a key and
 	 * optionally the number of it, used in <references>, not <ref>
@@ -29,11 +23,10 @@ class AnchorFormatter {
 	 * @return string
 	 */
 	private function refKey( $key, ?string $num ): string {
-		$prefix = $this->messageLocalizer->msg( 'cite_reference_link_prefix' )->plain();
 		if ( $num !== null ) {
 			$key = $key . '_' . $num;
 		}
-		return $this->normalizeKey( $prefix . $key );
+		return $this->normalizeKey( "cite_ref-$key" );
 	}
 
 	/**
@@ -68,8 +61,7 @@ class AnchorFormatter {
 	 * @return string
 	 */
 	private function getReferencesKey( string $key ): string {
-		$prefix = $this->messageLocalizer->msg( 'cite_references_link_prefix' )->plain();
-		return $this->normalizeKey( $prefix . $key );
+		return $this->normalizeKey( "cite_note-$key" );
 	}
 
 	/**

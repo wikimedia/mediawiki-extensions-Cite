@@ -213,7 +213,6 @@
 				"ext.cite.highlighting.css"
 			],
 			"messages": [
-				"cite_reference_link_prefix",
 				"cite_references_link_accessibility_label",
 				"cite_references_link_many_accessibility_label",
 				"cite_references_link_accessibility_back_label"

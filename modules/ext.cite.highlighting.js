@@ -11,10 +11,8 @@
 	 * @return {boolean}
 	 */
 	function isNamedReference( id ) {
-		const prefix = mw.msg( 'cite_reference_link_prefix' );
-
 		// Note: This assumes IDs start with the prefix; this is guaranteed by the parser function
-		return /\D/.test( id.slice( prefix.length ) );
+		return /^cite_ref-\D/.test( id );
 	}
 
 	/**

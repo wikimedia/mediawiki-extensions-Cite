@@ -3,9 +3,7 @@
 namespace Cite\Tests\Integration;
 
 use Cite\AnchorFormatter;
-use Cite\ReferenceMessageLocalizer;
 use MediaWiki\Parser\Sanitizer;
-use Message;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -20,37 +18,21 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testRefKey() {
-		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) {
-				$msg = $this->createMock( Message::class );
-				$msg->method( 'plain' )->willReturn( '(' . implode( '|', $args ) . ')' );
-				return $msg;
-			}
-		);
-		$formatter = new AnchorFormatter( $mockMessageLocalizer );
+		$formatter = new AnchorFormatter();
 
 		$this->assertSame(
-			'(cite_reference_link_prefix)key',
+			'cite_ref-key',
 			$formatter->backLink( 'key', null ) );
 		$this->assertSame(
-			'(cite_reference_link_prefix)key_2',
+			'cite_ref-key_2',
 			$formatter->backLink( 'key', '2' ) );
 	}
 
 	public function testGetReferencesKey() {
-		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) {
-				$msg = $this->createMock( Message::class );
-				$msg->method( 'plain' )->willReturn( '(' . implode( '|', $args ) . ')' );
-				return $msg;
-			}
-		);
-		$formatter = new AnchorFormatter( $mockMessageLocalizer );
+		$formatter = new AnchorFormatter();
 
 		$this->assertSame(
-			'(cite_references_link_prefix)key',
+			'cite_note-key',
 			$formatter->jumpLink( 'key' ) );
 	}
 
@@ -59,8 +41,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testNormalizeKey( $key, $expected ) {
 		/** @var AnchorFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new AnchorFormatter(
-			$this->createMock( ReferenceMessageLocalizer::class ) ) );
+		$formatter = TestingAccessWrapper::newFromObject( new AnchorFormatter() );
 		$normalized = $formatter->normalizeKey( $key );
 		$encoded = Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $normalized ) );
 		$this->assertSame( $expected, $encoded );

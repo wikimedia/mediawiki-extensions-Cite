@@ -78,7 +78,7 @@ class Cite {
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
 		$this->errorReporter = new ErrorReporter( $messageLocalizer );
 		$this->referenceStack = new ReferenceStack();
-		$anchorFormatter = new AnchorFormatter( $messageLocalizer );
+		$anchorFormatter = new AnchorFormatter();
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
 			$this->errorReporter,
 			$anchorFormatter,

@@ -69,7 +69,6 @@ class ReferenceStack {
 	private const ACTION_INCREMENT = 'increment';
 	private const ACTION_NEW_FROM_PLACEHOLDER = 'new-from-placeholder';
 	private const ACTION_NEW = 'new';
-	public const PARENT_REF_PLACEHOLDER = '__placeholder__';
 
 	/**
 	 * Leave a mark in the stack which matches an invalid ref tag.
@@ -137,9 +136,9 @@ class ReferenceStack {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = &$ref;
 			$action = self::ACTION_NEW;
-		} elseif ( isset( $this->refs[$group][$name][self::PARENT_REF_PLACEHOLDER] ) ) {
+		} elseif ( isset( $this->refs[$group][$name]['placeholder'] ) ) {
 			// Populate a placeholder.
-			unset( $this->refs[$group][$name][self::PARENT_REF_PLACEHOLDER] );
+			unset( $this->refs[$group][$name]['placeholder'] );
 			unset( $ref['number'] );
 			$ref = array_merge( $ref, $this->refs[$group][$name] );
 			$this->refs[$group][$name] =& $ref;
@@ -198,7 +197,7 @@ class ReferenceStack {
 				$this->refs[$group][$extends] = [
 					'name' => $extends,
 					'number' => $ref['number'],
-					self::PARENT_REF_PLACEHOLDER => true,
+					'placeholder' => true,
 				];
 			}
 		} elseif ( $extends && $ref['extends'] !== $extends ) {
@@ -311,7 +310,7 @@ class ReferenceStack {
 				// TODO: Don't we need to rollback extendsCount as well?
 				break;
 			case self::ACTION_NEW_FROM_PLACEHOLDER:
-				$this->refs[$group][$lookup][self::PARENT_REF_PLACEHOLDER] = true;
+				$this->refs[$group][$lookup]['placeholder'] = true;
 				unset( $this->refs[$group][$lookup]['count'] );
 				break;
 			case self::ACTION_ASSIGN:
@@ -383,8 +382,8 @@ class ReferenceStack {
 	}
 
 	public function listDefinedRef( string $group, string $name, string $text ): void {
-		if ( isset( $this->refs[$group][$name][self::PARENT_REF_PLACEHOLDER] ) ) {
-			unset( $this->refs[$group][$name][self::PARENT_REF_PLACEHOLDER] );
+		if ( isset( $this->refs[$group][$name]['placeholder'] ) ) {
+			unset( $this->refs[$group][$name]['placeholder'] );
 		}
 		if ( !isset( $this->refs[$group][$name]['text'] ) ) {
 			$this->refs[$group][$name]['text'] = $text;

@@ -147,23 +147,20 @@ class Cite {
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
 		$status->merge( $validator->validateRef( $text, ...array_values( $arguments ) ) );
 
-		if ( !$status->isGood() && $this->inReferencesGroup !== null ) {
-			// We know we are in the middle of a <references> tag and can't display errors in place
-			foreach ( $status->getErrors() as $error ) {
-				$this->mReferencesErrors[] = [ $error['message'], ...$error['params'] ];
-			}
-			return '';
-		}
-
 		// Validation cares about the difference between null and empty, but from here on we don't
 		if ( $text !== null && trim( $text ) === '' ) {
 			$text = null;
 		}
-		[ 'group' => $group, 'name' => $name ] = $arguments;
 
 		if ( $this->inReferencesGroup !== null ) {
-			if ( $text !== null ) {
-				$this->referenceStack->setText( $group, $name, $text );
+			if ( !$status->isGood() ) {
+				// We know we are in the middle of a <references> tag and can't display errors in place
+				foreach ( $status->getErrors() as $error ) {
+					$this->mReferencesErrors[] = [ $error['message'], ...$error['params'] ];
+				}
+			} elseif ( $text !== null ) {
+				// Validation made sure we always have group and name while in <references>
+				$this->referenceStack->setText( $arguments['group'], $arguments['name'], $text );
 			}
 			return '';
 		}
@@ -181,7 +178,7 @@ class Cite {
 		$ref = $this->referenceStack->pushRef(
 			$parser->getStripState(), $text, $argv, ...array_values( $arguments ) );
 		return $ref
-			? $this->footnoteMarkFormatter->linkRef( $parser, $group, $ref )
+			? $this->footnoteMarkFormatter->linkRef( $parser, $arguments['group'], $ref )
 			: '';
 	}
 

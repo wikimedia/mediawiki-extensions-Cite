@@ -373,7 +373,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Base and book reference in different groups
+T236256 - Base and book reference in different groups don't collide
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -397,7 +397,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Extending in the unnamed default group
+T236256 - Extending in the unnamed default group doesn't collide with refs from other groups
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -420,7 +420,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Base in the unnamed default group
+T236256 - Extends in named group doesn't conflict with default group
 !! config
 wgCiteBookReferencing=true
 !! wikitext

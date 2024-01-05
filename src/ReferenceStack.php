@@ -69,7 +69,7 @@ class ReferenceStack {
 	private const ACTION_INCREMENT = 'increment';
 	private const ACTION_NEW_FROM_PLACEHOLDER = 'new-from-placeholder';
 	private const ACTION_NEW = 'new';
-	private const PARENT_REF_PLACEHOLDER = '__placeholder__';
+	public const PARENT_REF_PLACEHOLDER = '__placeholder__';
 
 	/**
 	 * Leave a mark in the stack which matches an invalid ref tag.
@@ -194,6 +194,7 @@ class ReferenceStack {
 			} else {
 				// Transfer my number to parent ref.
 				$this->refs[$group][$extends] = [
+					'name' => $extends,
 					'number' => $ref['number'],
 					self::PARENT_REF_PLACEHOLDER => true,
 				];
@@ -380,6 +381,9 @@ class ReferenceStack {
 	}
 
 	public function listDefinedRef( string $group, string $name, string $text ): void {
+		if ( isset( $this->refs[$group][$name][self::PARENT_REF_PLACEHOLDER] ) ) {
+			unset( $this->refs[$group][$name][self::PARENT_REF_PLACEHOLDER] );
+		}
 		if ( !isset( $this->refs[$group][$name]['text'] ) ) {
 			$this->refs[$group][$name]['text'] = $text;
 		} elseif ( $this->refs[$group][$name]['text'] !== $text ) {

@@ -56,17 +56,19 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			'Minimal ref' => [
 				'refs' => [
 					0 => [
+						'count' => -1,
 						'key' => 1,
 						'text' => 't',
 					]
 				],
 				'expectedOutput' => '<div class="mw-references-wrap"><ol class="references">' . "\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n</ol></div>"
 			],
 			'Ref with extends' => [
 				'refs' => [
 					0 => [
+						'count' => -1,
 						'extends' => 'a',
 						'extendsIndex' => 1,
 						'key' => 2,
@@ -74,27 +76,31 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'text' => 't2',
 					],
 					1 => [
+						'count' => -1,
+						'key' => 3,
 						'number' => 11,
 						'text' => 't3',
 					],
 					'a' => [
+						'count' => 0,
 						'key' => 1,
 						'number' => 9,
 						'text' => 't1',
 					],
 				],
 				'expectedOutput' => '<div class="mw-references-wrap"><ol class="references">' . "\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t1</span>' . "\n" .
-					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t1</span>' . "\n" .
+					'|)<ol class="mw-extended-references"><li>(cite_references_link_one|||' .
 					'<span class="reference-text">t2</span>' . "\n|)</li>\n" .
 					"</ol></li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t3</span>' .
 					"\n|)</li>\n" .
 					'</ol></div>'
 			],
 			'Subref of subref' => [
 				'refs' => [
 					0 => [
+						'count' => -1,
 						'extends' => 'a',
 						'extendsIndex' => 1,
 						'key' => 1,
@@ -102,6 +108,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'text' => 't1',
 					],
 					'a' => [
+						'count' => 0,
 						'extends' => 'b',
 						'extendsIndex' => 1,
 						'key' => 2,
@@ -109,47 +116,48 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'text' => 't2',
 					],
 					'b' => [
+						'count' => 0,
 						'key' => 3,
 						'number' => 1,
 						'text' => 't3',
 					],
 				],
 				'expectedOutput' => '<div class="mw-references-wrap"><ol class="references">' . "\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t3</span>' . "\n" .
-					'|)<ol class="mw-extended-references"><li>(cite_references_link_many|||' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t3</span>' . "\n" .
+					'|)<ol class="mw-extended-references"><li>(cite_references_link_one|||' .
 					'<span class="reference-text">t1 (cite_error_ref_nested_extends|a|b)</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t2</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t2</span>' .
 					"\n|)</li>\n</ol></li>\n" .
 					'</ol></div>'
 			],
 			'Use columns' => [
 				'refs' => array_map(
-					static fn ( $i ) => [ 'key' => $i, 'text' => 't' ],
+					static fn ( $i ) => [ 'count' => -1, 'key' => $i, 'text' => 't' ],
 					range( 0, 10 )
 				),
 				'expectedOutput' => '<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
-					"\n" . '<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					"\n" . '<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n" .
-					'<li>(cite_references_link_many|||<span class="reference-text">t</span>' .
+					'<li>(cite_references_link_one|||<span class="reference-text">t</span>' .
 					"\n|)</li>\n</ol></div>"
 			],
 		];
@@ -223,21 +231,26 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		return [
 			'Success' => [
 				'ref' => [
+					'count' => -1,
+					'key' => 1,
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_many|1-||<span class="reference-text">t</span>' . "\n|)"
+				'expectedOutput' => '(cite_references_link_one|1|1+|<span class="reference-text">t</span>' . "\n|)"
 			],
 			'With dir' => [
 				'ref' => [
+					'count' => -1,
 					'dir' => 'rtl',
+					'key' => 1,
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_many|1-||<span class="reference-text">t</span>' .
+				'expectedOutput' => '(cite_references_link_one|1|1+|<span class="reference-text">t</span>' .
 					"\n" . '| class="mw-cite-dir-rtl")'
 			],
 			'Incomplete follow' => [
 				'ref' => [
 					'follow' => 'f',
+					'key' => 1,
 					'text' => 't',
 				],
 				'expectedOutput' => "<p id=\"f\"><span class=\"reference-text\">t</span>\n</p>"
@@ -246,9 +259,11 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				'ref' => [
 					'count' => 0,
 					'key' => 5,
+					'name' => 'a',
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>' . "\n|)"
+				'expectedOutput' => '(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>'
+					. "\n|)"
 			],
 			'Count negative' => [
 				'ref' => [

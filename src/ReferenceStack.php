@@ -379,7 +379,7 @@ class ReferenceStack {
 		$this->refs[$group][$follow]['text'] .= " $text";
 	}
 
-	public function setText( string $group, string $name, string $text ): void {
+	public function listDefinedRef( string $group, string $name, string $text ): void {
 		if ( !isset( $this->refs[$group][$name]['text'] ) ) {
 			$this->refs[$group][$name]['text'] = $text;
 		} elseif ( $this->refs[$group][$name]['text'] !== $text ) {

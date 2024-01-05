@@ -201,9 +201,11 @@ class ReferencesFormatter {
 				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i )
 			)->plain();
 		}
+		$linkTargetId = isset( $val['count'] ) ?
+			$this->anchorFormatter->jumpLinkTarget( $key . '-' . ( $val['key'] ?? '' ) ) : '';
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
-			$this->anchorFormatter->jumpLinkTarget( $key . '-' . ( $val['key'] ?? '' ) ),
+			$linkTargetId,
 			$this->listToText( $backlinks ),
 			$text . $error,
 			$extraAttributes

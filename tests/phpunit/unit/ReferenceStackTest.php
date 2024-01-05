@@ -465,7 +465,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'b' => [
 							'name' => 'b',
 							'number' => 1,
-							'__placeholder__' => true,
+							'placeholder' => true,
 						]
 					]
 				],
@@ -618,7 +618,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'b' => [
 							'name' => 'b',
 							'number' => 1,
-							'__placeholder__' => true,
+							'placeholder' => true,
 						]
 					],
 				],

@@ -84,6 +84,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 					'a' => [
 						'count' => 0,
 						'key' => 1,
+						'name' => 'a',
 						'number' => 9,
 						'text' => 't1',
 					],
@@ -112,12 +113,14 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'extends' => 'b',
 						'extendsIndex' => 1,
 						'key' => 2,
+						'name' => 'a',
 						'number' => 1,
 						'text' => 't2',
 					],
 					'b' => [
 						'count' => 0,
 						'key' => 3,
+						'name' => 'b',
 						'number' => 1,
 						'text' => 't3',
 					],

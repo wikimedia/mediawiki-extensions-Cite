@@ -945,16 +945,18 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Safely ignore placeholder' => [
 				'initialCallStack' => [
-					[ 'increment', 1, 'foo', null, null, null, [] ],
+					[ 'increment', 2, 'foo', null, null, null, [] ],
 				],
 				'initialRefs' => [ 'foo' => [
 					[
+						'count' => -1,
+						'key' => 1,
 						'placeholder' => true,
 						'number' => 10,
 					],
 					[
 						'count' => 2,
-						'key' => 1,
+						'key' => 2,
 					],
 				] ],
 				'rollbackCount' => 1,
@@ -963,12 +965,14 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedRefs' => [ 'foo' => [
 					[
+						'count' => -1,
+						'key' => 1,
 						'placeholder' => true,
 						'number' => 10,
 					],
 					[
 						'count' => 1,
-						'key' => 1,
+						'key' => 2,
 					],
 				] ],
 			],

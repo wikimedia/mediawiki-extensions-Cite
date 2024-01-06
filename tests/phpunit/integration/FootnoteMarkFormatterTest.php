@@ -101,8 +101,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'name' => 'a',
 					'number' => 3,
 					'key' => 4,
-					// Count is only meaningful on named refs; 0 means not reused
-					'count' => 0,
+					'count' => 1,
 				],
 				'(cite_reference_link|a+4-0|a-4|3)'
 			],
@@ -114,7 +113,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'key' => 4,
 					'count' => 50002,
 				],
-				'(cite_reference_link|a+4-50002|a-4|3)'
+				'(cite_reference_link|a+4-50001|a-4|3)'
 			],
 			'Subreference' => [
 				'',

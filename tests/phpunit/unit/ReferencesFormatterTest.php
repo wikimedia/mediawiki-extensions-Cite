@@ -56,7 +56,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			'Minimal ref' => [
 				'refs' => [
 					0 => [
-						'count' => -1,
+						'count' => 1,
 						'key' => 1,
 						'text' => 't',
 					]
@@ -68,7 +68,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			'Ref with extends' => [
 				'refs' => [
 					0 => [
-						'count' => -1,
+						'count' => 1,
 						'extends' => 'a',
 						'extendsIndex' => 1,
 						'key' => 2,
@@ -76,13 +76,13 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'text' => 't2',
 					],
 					1 => [
-						'count' => -1,
+						'count' => 1,
 						'key' => 3,
 						'number' => 11,
 						'text' => 't3',
 					],
 					'a' => [
-						'count' => 0,
+						'count' => 1,
 						'key' => 1,
 						'name' => 'a',
 						'number' => 9,
@@ -101,7 +101,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			'Subref of subref' => [
 				'refs' => [
 					0 => [
-						'count' => -1,
+						'count' => 1,
 						'extends' => 'a',
 						'extendsIndex' => 1,
 						'key' => 1,
@@ -109,7 +109,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'text' => 't1',
 					],
 					'a' => [
-						'count' => 0,
+						'count' => 1,
 						'extends' => 'b',
 						'extendsIndex' => 1,
 						'key' => 2,
@@ -118,7 +118,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 						'text' => 't2',
 					],
 					'b' => [
-						'count' => 0,
+						'count' => 1,
 						'key' => 3,
 						'name' => 'b',
 						'number' => 1,
@@ -136,7 +136,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			],
 			'Use columns' => [
 				'refs' => array_map(
-					static fn ( $i ) => [ 'count' => -1, 'key' => $i, 'text' => 't' ],
+					static fn ( $i ) => [ 'count' => 1, 'key' => $i, 'text' => 't' ],
 					range( 0, 10 )
 				),
 				'expectedOutput' => '<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
@@ -234,7 +234,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 		return [
 			'Success' => [
 				'ref' => [
-					'count' => -1,
+					'count' => 1,
 					'key' => 1,
 					'text' => 't',
 				],
@@ -242,7 +242,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			],
 			'With dir' => [
 				'ref' => [
-					'count' => -1,
+					'count' => 1,
 					'dir' => 'rtl',
 					'key' => 1,
 					'text' => 't',
@@ -258,9 +258,9 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutput' => "<p id=\"f\"><span class=\"reference-text\">t</span>\n</p>"
 			],
-			'Count zero' => [
+			'Count one' => [
 				'ref' => [
-					'count' => 0,
+					'count' => 1,
 					'key' => 5,
 					'name' => 'a',
 					'text' => 't',
@@ -270,16 +270,16 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 			],
 			'Anonymous' => [
 				'ref' => [
-					'count' => -1,
+					'count' => 1,
 					'key' => 5,
 					'number' => 3,
 					'text' => 't',
 				],
 				'expectedOutput' => '(cite_references_link_one|5|5+|<span class="reference-text">t</span>' . "\n|)"
 			],
-			'Count positive' => [
+			'Count many' => [
 				'ref' => [
-					'count' => 2,
+					'count' => 3,
 					'key' => 5,
 					'name' => 'a',
 					'number' => 3,

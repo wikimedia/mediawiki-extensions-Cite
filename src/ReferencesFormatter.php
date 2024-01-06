@@ -165,10 +165,8 @@ class ReferencesFormatter {
 			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $val['follow'] ) . '">' . $text . '</p>';
 		}
 
-		// This counts the number of reuses. 0 means the reference appears only 1 time.
 		if ( isset( $val['count'] ) && $val['count'] < 1 ) {
-			// Anonymous, auto-numbered references can't be reused and get marked with a -1.
-			if ( $val['count'] < 0 ) {
+			if ( !isset( $val['name'] ) ) {
 				$id = $val['key'];
 				$backlinkId = $this->anchorFormatter->backLink( $val['key'] );
 			} else {

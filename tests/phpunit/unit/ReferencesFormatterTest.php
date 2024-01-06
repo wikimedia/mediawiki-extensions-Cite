@@ -268,7 +268,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				'expectedOutput' => '(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>'
 					. "\n|)"
 			],
-			'Count negative' => [
+			'Anonymous' => [
 				'ref' => [
 					'count' => -1,
 					'key' => 5,
@@ -281,6 +281,7 @@ class ReferencesFormatterTest extends \MediaWikiUnitTestCase {
 				'ref' => [
 					'count' => 2,
 					'key' => 5,
+					'name' => 'a',
 					'number' => 3,
 					'text' => 't',
 				],

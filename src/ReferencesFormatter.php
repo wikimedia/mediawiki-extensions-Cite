@@ -101,21 +101,20 @@ class ReferencesFormatter {
 		foreach ( $groupRefs as $key => &$value ) {
 			// Make sure the parent is not a subreference.
 			// FIXME: Move to a validation function.
-			if ( isset( $value['extends'] ) &&
-				isset( $groupRefs[$value['extends']]['extends'] )
-			) {
-				$value['warnings'][] = [ 'cite_error_ref_nested_extends',
-					$value['extends'], $groupRefs[$value['extends']]['extends'] ];
+			$extends =& $value['extends'];
+			if ( isset( $extends ) && isset( $groupRefs[$extends]['extends'] ) ) {
+				$value['warnings'][] = [ 'cite_error_ref_nested_extends', $extends,
+					$groupRefs[$extends]['extends'] ];
 			}
 
-			if ( !$indented && isset( $value['extends'] ) ) {
+			if ( !$indented && isset( $extends ) ) {
 				// The nested <ol> must be inside the parent's <li>
 				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
 					$parserInput = substr( $parserInput, 0, $matches[0][1] );
 				}
 				$parserInput .= Html::openElement( 'ol', [ 'class' => 'mw-extended-references' ] );
 				$indented = $matches[0][0] ?? true;
-			} elseif ( $indented && !isset( $value['extends'] ) ) {
+			} elseif ( $indented && !isset( $extends ) ) {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}

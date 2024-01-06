@@ -293,6 +293,7 @@ class ReferenceStack {
 			throw new LogicException(
 				"Cannot roll back corrupt named ref \"$lookup\" which should have had key $key." );
 		}
+		$ref =& $this->refs[$group][$lookup];
 
 		if ( $extends ) {
 			$this->extendsCount[$group][$extends]--;
@@ -310,17 +311,17 @@ class ReferenceStack {
 				// TODO: Don't we need to rollback extendsCount as well?
 				break;
 			case self::ACTION_NEW_FROM_PLACEHOLDER:
-				$this->refs[$group][$lookup]['placeholder'] = true;
-				unset( $this->refs[$group][$lookup]['count'] );
+				$ref['placeholder'] = true;
+				unset( $ref['count'] );
 				break;
 			case self::ACTION_ASSIGN:
 				// Rollback assignment of text to pre-existing elements
-				$this->refs[$group][$lookup]['text'] = null;
-				$this->refs[$group][$lookup]['count']--;
+				$ref['text'] = null;
+				$ref['count']--;
 				break;
 			case self::ACTION_INCREMENT:
 				// Rollback increase in named ref occurrences
-				$this->refs[$group][$lookup]['count']--;
+				$ref['count']--;
 				break;
 			default:
 				throw new LogicException( "Unknown call stack action \"$action\"" );
@@ -377,19 +378,19 @@ class ReferenceStack {
 	}
 
 	private function resolveFollow( string $group, string $follow, string $text ): void {
-		$this->refs[$group][$follow]['text'] ??= '';
-		$this->refs[$group][$follow]['text'] .= " $text";
+		$previousRef =& $this->refs[$group][$follow];
+		$previousRef['text'] ??= '';
+		$previousRef['text'] .= " $text";
 	}
 
 	public function listDefinedRef( string $group, string $name, string $text ): void {
-		if ( isset( $this->refs[$group][$name]['placeholder'] ) ) {
-			unset( $this->refs[$group][$name]['placeholder'] );
-		}
-		if ( !isset( $this->refs[$group][$name]['text'] ) ) {
-			$this->refs[$group][$name]['text'] = $text;
-		} elseif ( $this->refs[$group][$name]['text'] !== $text ) {
+		$ref =& $this->refs[$group][$name];
+		unset( $ref['placeholder'] );
+		if ( !isset( $ref['text'] ) ) {
+			$ref['text'] = $text;
+		} elseif ( $ref['text'] !== $text ) {
 			// two refs with same key and different content
-			$this->refs[$group][$name]['warnings'][] = [ 'cite_error_references_duplicate_key', $name ];
+			$ref['warnings'][] = [ 'cite_error_references_duplicate_key', $name ];
 		}
 	}
 

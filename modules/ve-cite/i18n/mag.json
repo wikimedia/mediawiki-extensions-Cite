@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"ऐक्टिवेटेड्"
+		]
+	},
+	"cite-ve-citationneeded-button": "उद्धरण जोड़ी",
+	"cite-ve-citationneeded-reason": "कारण देल गेल :",
+	"cite-ve-citationneeded-title": "उद्धरणके आवश्यकता हे",
+	"cite-ve-dialog-reference-options-group-label": "ई समूहके प्रयोग करी",
+	"cite-ve-dialog-reference-options-group-placeholder": "सामान्य सन्दर्भ",
+	"cite-ve-dialog-reference-options-name-label": "ई नामके पुनरुपयोग करी",
+	"cite-ve-dialog-reference-options-section": "बिकल्प",
+	"cite-ve-dialog-reference-title": "सन्दर्भ",
+	"cite-ve-dialog-reference-useexisting-tool": "पुनरुपयोग",
+	"cite-ve-dialogbutton-citation-educationpopup-title": "उद्धरण",
+	"cite-ve-dialogbutton-reference-full-label": "मूलभूत",
+	"cite-ve-dialogbutton-reference-title": "सन्दर्भ",
+	"cite-ve-dialogbutton-reference-tooltip": "मूलभूत",
+	"cite-ve-dialogbutton-referenceslist-tooltip": "सन्दर्भसूची",
+	"cite-ve-reference-input-placeholder": "बर्तमान उद्धरणमे खोजी",
+	"cite-ve-toolbar-group-label": "उद्धृत करी",
+	"cite-ve-othergroup-item": "$1 सन्दर्भ"
+}

@@ -165,13 +165,14 @@ class ReferencesFormatter {
 			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $val['follow'] ) . '">' . $text . '</p>';
 		}
 
-		if ( isset( $val['count'] ) && $val['count'] < 1 ) {
+		if ( $val['count'] === 1 ) {
 			if ( !isset( $val['name'] ) ) {
 				$id = $val['key'];
 				$backlinkId = $this->anchorFormatter->backLink( $val['key'] );
 			} else {
 				$id = $key . '-' . $val['key'];
-				$backlinkId = $this->anchorFormatter->backLink( $key, $val['key'] . '-' . $val['count'] );
+				// TODO: Use count without decrementing.
+				$backlinkId = $this->anchorFormatter->backLink( $key, $val['key'] . '-' . ( $val['count'] - 1 ) );
 			}
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
@@ -184,8 +185,7 @@ class ReferencesFormatter {
 
 		// Named references with >1 occurrences
 		$backlinks = [];
-		// There is no count in case of a section preview
-		for ( $i = 0; $i <= ( $val['count'] ?? -1 ); $i++ ) {
+		for ( $i = 0; $i < $val['count']; $i++ ) {
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
 				$this->anchorFormatter->backLink( $key, $val['key'] . '-' . $i ),
@@ -198,7 +198,7 @@ class ReferencesFormatter {
 				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i )
 			)->plain();
 		}
-		$linkTargetId = isset( $val['count'] ) ?
+		$linkTargetId = $val['count'] > 0 ?
 			$this->anchorFormatter->jumpLinkTarget( $key . '-' . ( $val['key'] ?? '' ) ) : '';
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',

@@ -269,7 +269,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedRefs' => [
 					'' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => null,
 							'key' => 1,
 							'group' => '',
@@ -300,7 +300,10 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedError' => null,
 				'expectedRefs' => [
 					'foo' => [
-						'a' => [ 'text' => 'text' ],
+						'a' => [
+							'text' => 'text',
+							'count' => 0,
+						],
 					],
 				]
 			],
@@ -314,7 +317,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedRefs' => [
 					'' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => null,
 							'key' => 1,
 							'group' => '',
@@ -350,7 +353,10 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedError' => null,
 				'expectedRefs' => [
 					'' => [
-						'a' => [ 'text' => 'text' ],
+						'a' => [
+							'text' => 'text',
+							'count' => 0,
+						],
 					],
 				]
 			],
@@ -363,7 +369,10 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedError' => null,
 				'expectedRefs' => [
 					'' => [
-						'a' => [ 'text' => 'T245376' ],
+						'a' => [
+							'text' => 'T245376',
+							'count' => 0,
+						],
 					],
 				],
 				'isSectionPreview' => true,
@@ -374,7 +383,10 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'inReferencesGroup' => '',
 				'initialRefs' => [
 					'' => [
-						'a' => [ 'text' => 'text-1' ],
+						'a' => [
+							'text' => 'text-1',
+							'count' => 1,
+						],
 					]
 				],
 				'expectedOutput' => '',
@@ -383,6 +395,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 					'' => [
 						'a' => [
 							'text' => 'text-1',
+							'count' => 1,
 							'warnings' => [ [ 'cite_error_references_duplicate_key', 'a' ] ],
 						],
 					],

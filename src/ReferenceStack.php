@@ -29,8 +29,8 @@ class ReferenceStack {
 	 *       marker.
 	 * - 'extendsIndex': Sequence number for sub-references with the same extends="…", starting
 	 *       from 1. Used in addition to the 'number' in [1.1] footnote markers.
-	 * - 'count': How often a reference is reused. 0 means not reused, i.e. the reference appears
-	 *       only one time. -1 for anonymous references that cannot be reused.
+	 * - 'count': How often a reference footnote mark appears.  Can be 0 in the case of
+	 *       not-yet-used or unused list-defined references, or sub-ref parents.
 	 * - 'extends': Marks a sub-reference. Points to the parent reference by name.
 	 * - 'follow': Marks an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 	 *       Wikisource.
@@ -106,7 +106,7 @@ class ReferenceStack {
 		$this->groupRefSequence[$group] ??= 0;
 
 		$ref = [
-			'count' => $name ? 0 : -1,
+			'count' => 1,
 			'dir' => $dir,
 			// This assumes we are going to register a new reference, instead of reusing one
 			'key' => ++$this->refSequence,
@@ -139,6 +139,8 @@ class ReferenceStack {
 		} elseif ( isset( $this->refs[$group][$name]['placeholder'] ) ) {
 			// Populate a placeholder.
 			unset( $this->refs[$group][$name]['placeholder'] );
+			// Ignore count=0 from the placeholder, the resulting ref should have count=1
+			unset( $this->refs[$group][$name]['count'] );
 			unset( $ref['number'] );
 			$ref = array_merge( $ref, $this->refs[$group][$name] );
 			$this->refs[$group][$name] =& $ref;
@@ -193,8 +195,9 @@ class ReferenceStack {
 				// Roll back the group sequence number.
 				--$this->groupRefSequence[$group];
 			} else {
-				// Transfer my number to parent ref.
+				// Create a placeholder for the missing parent.  Give it my number.
 				$this->refs[$group][$extends] = [
+					'count' => 0,
 					'name' => $extends,
 					'number' => $ref['number'],
 					'placeholder' => true,
@@ -312,7 +315,7 @@ class ReferenceStack {
 				break;
 			case self::ACTION_NEW_FROM_PLACEHOLDER:
 				$ref['placeholder'] = true;
-				unset( $ref['count'] );
+				$ref['count'] = 0;
 				break;
 			case self::ACTION_ASSIGN:
 				// Rollback assignment of text to pre-existing elements
@@ -392,6 +395,7 @@ class ReferenceStack {
 			// two refs with same key and different content
 			$ref['warnings'][] = [ 'cite_error_references_duplicate_key', $name ];
 		}
+		$ref['count'] ??= 0;
 	}
 
 }

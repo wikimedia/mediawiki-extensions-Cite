@@ -57,7 +57,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => -1,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => '',
@@ -69,7 +69,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'' => [
 						[
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => '',
@@ -89,7 +89,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => -1,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -101,7 +101,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						[
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -121,7 +121,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => -1,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -133,7 +133,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						[
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -153,7 +153,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -165,7 +165,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'name' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -186,7 +186,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -199,7 +199,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -223,7 +223,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						[
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -245,7 +245,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -255,7 +255,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					],
 					null,
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 3,
 						'group' => 'foo',
@@ -267,7 +267,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -276,7 +276,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'number' => 1,
 						],
 						0 => [
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 2,
 							'group' => 'foo',
@@ -285,7 +285,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'follow' => 'c',
 						],
 						'c' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 3,
 							'group' => 'foo',
@@ -308,7 +308,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -317,7 +317,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					],
 					[
-						'count' => 1,
+						'count' => 2,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -329,7 +329,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 1,
+							'count' => 2,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -351,7 +351,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -360,7 +360,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					],
 					[
-						'count' => 1,
+						'count' => 2,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -372,7 +372,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 1,
+							'count' => 2,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -394,7 +394,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -403,7 +403,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					],
 					[
-						'count' => 1,
+						'count' => 2,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -416,7 +416,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 1,
+							'count' => 2,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -438,7 +438,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -452,7 +452,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -463,6 +463,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'extendsIndex' => 1,
 						],
 						'b' => [
+							'count' => 0,
 							'name' => 'b',
 							'number' => 1,
 							'placeholder' => true,
@@ -480,7 +481,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -491,7 +492,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'extendsIndex' => 1,
 					],
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 2,
 						'group' => 'foo',
@@ -503,7 +504,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -514,7 +515,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'extendsIndex' => 1,
 						],
 						'b' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 2,
 							'group' => 'foo',
@@ -536,7 +537,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -545,7 +546,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					],
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 2,
 						'group' => 'foo',
@@ -559,7 +560,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -568,7 +569,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'number' => 1,
 						],
 						'b' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 2,
 							'group' => 'foo',
@@ -591,7 +592,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => -1,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -605,7 +606,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						0 => [
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -616,6 +617,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'extendsIndex' => 1,
 						],
 						'b' => [
+							'count' => 0,
 							'name' => 'b',
 							'number' => 1,
 							'placeholder' => true,
@@ -633,7 +635,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => -1,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -644,7 +646,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'extendsIndex' => 1,
 					],
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 2,
 						'group' => 'foo',
@@ -656,7 +658,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						0 => [
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -667,7 +669,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'extendsIndex' => 1,
 						],
 						'b' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 2,
 							'group' => 'foo',
@@ -689,7 +691,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -698,7 +700,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					],
 					[
-						'count' => -1,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 2,
 						'group' => 'foo',
@@ -712,7 +714,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -721,7 +723,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'number' => 1,
 						],
 						0 => [
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 2,
 							'group' => 'foo',
@@ -746,7 +748,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -755,7 +757,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'number' => 1,
 					],
 					[
-						'count' => -1,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 2,
 						'group' => 'foo',
@@ -766,7 +768,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'extendsIndex' => 1,
 					],
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 3,
 						'group' => 'foo',
@@ -778,7 +780,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -787,7 +789,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'number' => 1,
 						],
 						0 => [
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 2,
 							'group' => 'foo',
@@ -798,7 +800,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'extendsIndex' => 1,
 						],
 						'c' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 3,
 							'group' => 'foo',
@@ -822,7 +824,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutputs' => [
 					[
-						'count' => 0,
+						'count' => 1,
 						'dir' => 'rtl',
 						'key' => 1,
 						'group' => 'foo',
@@ -836,7 +838,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 0,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',
@@ -845,7 +847,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'number' => 1,
 						],
 						0 => [
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 2,
 							'group' => 'foo',
@@ -854,7 +856,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'follow' => 'd',
 						],
 						1 => [
-							'count' => -1,
+							'count' => 1,
 							'dir' => 'rtl',
 							'key' => 3,
 							'group' => 'foo',
@@ -1004,13 +1006,13 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'initialRefs' => [ 'foo' => [
 					[
-						'count' => -1,
+						'count' => 0,
 						'key' => 1,
 						'placeholder' => true,
 						'number' => 10,
 					],
 					[
-						'count' => 2,
+						'count' => 3,
 						'key' => 2,
 					],
 				] ],
@@ -1020,13 +1022,13 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedRefs' => [ 'foo' => [
 					[
-						'count' => -1,
+						'count' => 0,
 						'key' => 1,
 						'placeholder' => true,
 						'number' => 10,
 					],
 					[
-						'count' => 1,
+						'count' => 2,
 						'key' => 2,
 					],
 				] ],

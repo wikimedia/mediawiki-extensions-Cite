@@ -53,7 +53,8 @@ class FootnoteMarkFormatter {
 		}
 
 		$key = $ref['name'] ?? $ref['key'];
-		$count = $ref['name'] ? $ref['key'] . '-' . $ref['count'] : null;
+		// TODO: Use count without decrementing.
+		$count = $ref['name'] ? $ref['key'] . '-' . ( $ref['count'] - 1 ) : null;
 		$subkey = $ref['name'] ? '-' . $ref['key'] : null;
 
 		return $parser->recursiveTagParse(

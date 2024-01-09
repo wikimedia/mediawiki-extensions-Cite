@@ -136,6 +136,10 @@ class ReferenceStack {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = &$ref;
 			$action = self::ACTION_NEW;
+		} elseif ( !isset( $this->refs[$group][$name] ) ) {
+			// Valid key with first occurrence
+			$this->refs[$group][$name] = &$ref;
+			$action = self::ACTION_NEW;
 		} elseif ( isset( $this->refs[$group][$name]['placeholder'] ) ) {
 			// Populate a placeholder.
 			unset( $this->refs[$group][$name]['placeholder'] );
@@ -145,10 +149,6 @@ class ReferenceStack {
 			$ref = array_merge( $ref, $this->refs[$group][$name] );
 			$this->refs[$group][$name] =& $ref;
 			$action = self::ACTION_NEW_FROM_PLACEHOLDER;
-		} elseif ( !isset( $this->refs[$group][$name] ) ) {
-			// Valid key with first occurrence
-			$this->refs[$group][$name] = &$ref;
-			$action = self::ACTION_NEW;
 		} else {
 			// Change an existing entry.
 			$ref = &$this->refs[$group][$name];

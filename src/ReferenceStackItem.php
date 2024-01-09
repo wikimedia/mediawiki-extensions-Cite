@@ -23,6 +23,11 @@ class ReferenceStackItem {
 	 */
 	public ?string $extends = null;
 	/**
+	 * @var ?int Count how many subreferences point to a parent.  Corresponds to
+	 *   the last {@see extendsIndex} but this field belongs to the parent.
+	 */
+	public ?int $extendsCount = null;
+	/**
 	 * @var ?int Sequence number for sub-references with the same extends
 	 * attribute value, starting from 1. {@see number} and this extends index are
 	 * combined to render a footnote marker like "[1.1]".

@@ -31,8 +31,6 @@ class ReferenceStack {
 
 	/** @var int[] Counter for the number of refs in each group */
 	private array $groupRefSequence = [];
-	/** @var int[][] */
-	private array $extendsCount = [];
 
 	/**
 	 * <ref> call stack
@@ -100,8 +98,7 @@ class ReferenceStack {
 				$incomplete = clone $ref;
 				$incomplete->follow = $follow;
 				$this->refs[$group][] = $incomplete;
-				$this->refCallStack[] = [ self::ACTION_NEW, $this->refSequence, $group, $name, $extends, $text,
-					$argv ];
+				$this->refCallStack[] = [ self::ACTION_NEW, $this->refSequence, $group, $name, $text, $argv ];
 			} elseif ( $text !== null ) {
 				// We know the parent already, so just perform the follow="…" and bail out
 				$this->resolveFollow( $group, $follow, $text );
@@ -121,6 +118,7 @@ class ReferenceStack {
 			$action = self::ACTION_NEW;
 		} elseif ( $this->refs[$group][$name]->placeholder ) {
 			// Populate a placeholder.
+			$ref->extendsCount = $this->refs[$group][$name]->extendsCount;
 			$ref->number = $this->refs[$group][$name]->number;
 			$this->refs[$group][$name] =& $ref;
 			$action = self::ACTION_NEW_FROM_PLACEHOLDER;
@@ -170,18 +168,15 @@ class ReferenceStack {
 				// Roll back the group sequence number.
 				--$this->groupRefSequence[$group];
 			}
-
-			$this->extendsCount[$group][$extends] =
-				( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
-
+			$parentRef->extendsCount ??= 0;
 			$ref->extends = $extends;
-			$ref->extendsIndex = $this->extendsCount[$group][$extends];
+			$ref->extendsIndex = ++$parentRef->extendsCount;
 		} elseif ( $extends && $ref->extends !== $extends ) {
 			// TODO: Change the error message to talk about "conflicting content or parent"?
 			$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];
 		}
 
-		$this->refCallStack[] = [ $action, $ref->key, $group, $name, $extends, $text, $argv ];
+		$this->refCallStack[] = [ $action, $ref->key, $group, $name, $text, $argv ];
 		return $ref;
 	}
 
@@ -228,7 +223,6 @@ class ReferenceStack {
 	 * @param int $key Autoincrement counter for this ref.
 	 * @param string $group
 	 * @param ?string $name The name attribute passed in the ref tag.
-	 * @param ?string $extends
 	 * @param ?string $text
 	 * @param array $argv
 	 *
@@ -239,7 +233,6 @@ class ReferenceStack {
 		int $key,
 		string $group,
 		?string $name,
-		?string $extends,
 		?string $text,
 		array $argv
 	): array {
@@ -269,10 +262,6 @@ class ReferenceStack {
 		}
 		$ref =& $this->refs[$group][$lookup];
 
-		if ( $extends ) {
-			$this->extendsCount[$group][$extends]--;
-		}
-
 		switch ( $action ) {
 			case self::ACTION_NEW:
 				// Rollback the addition of new elements to the stack
@@ -282,7 +271,9 @@ class ReferenceStack {
 				} elseif ( isset( $this->groupRefSequence[$group] ) ) {
 					$this->groupRefSequence[$group]--;
 				}
-				// TODO: Don't we need to rollback extendsCount as well?
+				if ( $ref->extends ) {
+					$this->refs[$group][$ref->extends]->extendsCount--;
+				}
 				break;
 			case self::ACTION_NEW_FROM_PLACEHOLDER:
 				$ref->placeholder = true;
@@ -314,7 +305,6 @@ class ReferenceStack {
 		$refs = $this->getGroupRefs( $group );
 		unset( $this->refs[$group] );
 		unset( $this->groupRefSequence[$group] );
-		unset( $this->extendsCount[$group] );
 		return $refs;
 	}
 

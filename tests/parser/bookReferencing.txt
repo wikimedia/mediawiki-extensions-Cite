@@ -802,6 +802,41 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
+Reused sub-references can be rolled back without messing up numbering
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name="a1" extends="a" />
+<ref group="g" name="a1" extends="a" />
+{{#tag:references|
+<ref name="a">a in group</ref>
+<ref name="a1" extends="a">a1 in group</ref>
+|group=g}}
+<ref name="a1" extends="a">a1</ref>
+<references>
+<ref name="a">a</ref>
+</references>
+!! html
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<sup id="cite_ref-a1_2-0" class="reference"><a href="#cite_note-a1-2">&#91;g 1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a in group</span>
+<ol class="mw-extended-references"><li id="cite_note-a1-2"><span class="mw-cite-backlink"><a href="#cite_ref-a1_2-0">↑</a></span> <span class="reference-text">a1 in group</span>
+</li>
+</ol></li>
+</ol></div>
+<p><sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a in group <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+!! test
 T242110: Bad extends attributes on reused sub-references should report an error
 !! config
 wgCiteBookReferencing=true

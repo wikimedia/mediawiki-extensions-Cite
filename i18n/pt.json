@@ -16,9 +16,11 @@
 	"cite-desc": "Adiciona elementos <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para uso em citações",
 	"cite_error": "Erro de citação: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> inválido, deve ser <code>ltr</code> ou <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "Uma das etiquetas <code>&lt;ref&gt;</code> com o nome \"$1\" tem um atributo 'dir' em conflito.",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> inválida; o nome não pode ser um número inteiro. Use um título descritivo",
 	"cite_error_ref_no_key": "Elemento de abertura <code>&lt;ref&gt;</code> está mal formado ou tem um nome inválido",
-	"cite_error_ref_too_many_keys": "Etiqueta <code>&lt;ref&gt;</code> inválida; nomes inválidos, por exemplo, demasiados nomes",
+	"cite_error_ref_too_many_keys": "Parâmetro inválido na etiqueta <code>&lt;ref&gt;</code>",
+	"cite_error_ref_follow_conflicts": "Uma etiqueta <code>&lt;ref follow=\"…\"&gt;</code> que está na continuação de outra anterior não pode ser nomeada individualmente nem extendida",
 	"cite_error_ref_nested_extends": "Não é permitido estender as etiquetas <code>&lt;ref&gt;</code> a mais do que um nível de profundidade",
 	"cite_error_ref_no_input": "Etiqueta <code>&lt;ref&gt;</code> inválida; ''refs'' sem parâmetro de nome devem ter conteúdo associado",
 	"cite_error_references_duplicate_key": "Código <code>&lt;ref&gt;</code> inválido; o nome \"$1\" é definido mais de uma vez com conteúdos diferentes",
@@ -47,5 +49,8 @@
 	"cite-wikieditor-help-content-reference-description": "Referência",
 	"cite-wikieditor-help-content-named-reference-description": "Referência nomeada",
 	"cite-wikieditor-help-content-rereference-description": "Reutilização da mesma referência",
-	"cite-wikieditor-help-content-showreferences-description": "Mostrar referências"
+	"cite-wikieditor-help-content-showreferences-description": "Mostrar referências",
+	"cite-wikieditor-help-content-reference-example-text1": "Texto da página.$1",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texto da hiperligação], texto adicional.",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto da hiperligação]"
 }

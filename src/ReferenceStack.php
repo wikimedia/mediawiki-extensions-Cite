@@ -158,25 +158,24 @@ class ReferenceStack {
 
 		// Do not mess with a known parent a second time
 		if ( $extends && !isset( $ref->extendsIndex ) ) {
+			$parentRef =& $this->refs[$group][$extends];
+			if ( !isset( $parentRef ) ) {
+				// Create a new placeholder and give it the current sequence number.
+				$parentRef = new ReferenceStackItem();
+				$parentRef->name = $extends;
+				$parentRef->number = $ref->number;
+				$parentRef->placeholder = true;
+			} else {
+				$ref->number = $parentRef->number;
+				// Roll back the group sequence number.
+				--$this->groupRefSequence[$group];
+			}
+
 			$this->extendsCount[$group][$extends] =
 				( $this->extendsCount[$group][$extends] ?? 0 ) + 1;
 
 			$ref->extends = $extends;
 			$ref->extendsIndex = $this->extendsCount[$group][$extends];
-
-			if ( isset( $this->refs[$group][$extends]->number ) ) {
-				// Adopt the parent's number.
-				$ref->number = $this->refs[$group][$extends]->number;
-				// Roll back the group sequence number.
-				--$this->groupRefSequence[$group];
-			} else {
-				// Transfer my number to parent ref.
-				$placeholder = new ReferenceStackItem();
-				$placeholder->name = $ref->extends;
-				$placeholder->number = $ref->number;
-				$placeholder->placeholder = true;
-				$this->refs[$group][$extends] = $placeholder;
-			}
 		} elseif ( $extends && $ref->extends !== $extends ) {
 			// TODO: Change the error message to talk about "conflicting content or parent"?
 			$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];

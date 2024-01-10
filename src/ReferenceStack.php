@@ -95,9 +95,8 @@ class ReferenceStack {
 			if ( !isset( $this->refs[$group][$follow] ) ) {
 				// Mark an incomplete follow="…" as such. This is valid e.g. in the Page:… namespace
 				// on Wikisource.
-				$incomplete = clone $ref;
-				$incomplete->follow = $follow;
-				$this->refs[$group][] = $incomplete;
+				$ref->follow = $follow;
+				$this->refs[$group][] = $ref;
 				$this->refCallStack[] = [ self::ACTION_NEW, $this->refSequence, $group, $name, $text, $argv ];
 			} elseif ( $text !== null ) {
 				// We know the parent already, so just perform the follow="…" and bail out

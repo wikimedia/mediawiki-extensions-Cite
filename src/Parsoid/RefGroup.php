@@ -12,6 +12,7 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
 
 /**
  * Helper class used by `<references>` implementation.
+ * @license GPL-2.0-or-later
  */
 class RefGroup {
 

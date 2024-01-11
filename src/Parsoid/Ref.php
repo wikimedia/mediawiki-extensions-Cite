@@ -1,5 +1,6 @@
 <?php
 declare( strict_types = 1 );
+// phpcs:disable MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 
 namespace Wikimedia\Parsoid\Ext\Cite;
 
@@ -16,6 +17,7 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
 
 /**
  * Simple token transform version of the Ref extension tag.
+ * @license GPL-2.0-or-later
  */
 class Ref extends ExtensionTagHandler {
 

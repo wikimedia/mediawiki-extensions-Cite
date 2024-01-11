@@ -8,6 +8,7 @@ use Wikimedia\Parsoid\Ext\ExtensionModule;
 /**
  * Native Parsoid implementation of the Cite extension
  * that ties together `<ref>` and `<references>`.
+ * @license GPL-2.0-or-later
  */
 class Cite implements ExtensionModule {
 	/** @inheritDoc */

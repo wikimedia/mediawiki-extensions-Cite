@@ -1,5 +1,6 @@
 <?php
 declare( strict_types = 1 );
+// phpcs:disable MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 
 namespace Wikimedia\Parsoid\Ext\Cite;
 
@@ -19,6 +20,9 @@ use Wikimedia\Parsoid\NodeData\DataMw;
 use Wikimedia\Parsoid\NodeData\DataParsoid;
 use Wikimedia\Parsoid\Utils\DOMCompat;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class References extends ExtensionTagHandler {
 
 	private static function hasRef( Node $node ): bool {

@@ -10,6 +10,7 @@ use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 
 /**
  * wt -> html DOM PostProcessor
+ * @license GPL-2.0-or-later
  */
 class RefProcessor extends DOMProcessor {
 

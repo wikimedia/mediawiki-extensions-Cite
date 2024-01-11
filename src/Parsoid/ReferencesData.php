@@ -7,6 +7,9 @@ use stdClass;
 use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class ReferencesData {
 
 	/**

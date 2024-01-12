@@ -31,7 +31,8 @@
 		"ParserCloned": "parser",
 		"ParserFirstCallInit": "parser",
 		"EditPage::showEditForm:initial": "main",
-		"ResourceLoaderGetConfigVars": "main"
+		"ResourceLoaderGetConfigVars": "main",
+		"ResourceLoaderRegisterModules": "main"
 	},
 	"HookHandlers": {
 		"main": {
@@ -226,21 +227,29 @@
 		"remoteExtPath": "Cite/modules"
 	},
 	"QUnitTestModule": {
-		"localBasePath": "modules/ve-cite/tests",
-		"remoteExtPath": "Cite/modules/ve-cite/tests",
+		"localBasePath": "",
+		"remoteExtPath": "Cite",
 		"scripts": [
-			"ve.dm.citeExample.js",
-			"ve.dm.Converter.test.js",
-			"ve.dm.InternalList.test.js",
-			"ve.dm.MWReferenceModel.test.js",
-			"ve.dm.Transaction.test.js",
-			"ve.ui.DiffElement.test.js",
-			"ve.ui.MWWikitextStringTransferHandler.test.js"
+			"modules/ve-cite/tests/ve.dm.citeExample.js",
+			"modules/ve-cite/tests/ve.dm.Converter.test.js",
+			"modules/ve-cite/tests/ve.dm.InternalList.test.js",
+			"modules/ve-cite/tests/ve.dm.MWReferenceModel.test.js",
+			"modules/ve-cite/tests/ve.dm.Transaction.test.js",
+			"modules/ve-cite/tests/ve.ui.DiffElement.test.js",
+			"modules/ve-cite/tests/ve.ui.MWWikitextStringTransferHandler.test.js",
+			"tests/qunit/ext.cite.referencePreviews/createReferenceGateway.test.js",
+			"tests/qunit/ext.cite.referencePreviews/isReferencePreviewsEnabled.test.js",
+			"tests/qunit/ext.cite.referencePreviews/renderer.test.js",
+			"tests/qunit/ext.cite.referencePreviews/setUserConfigFlags.test.js"
 		],
 		"dependencies": [
 			"ext.cite.visualEditor",
 			"test.VisualEditor"
-		]
+		],
+		"optionalDependencies": {
+			"Popups": "ext.cite.referencePreviews"
+		},
+		"factory": "Cite\\ResourceLoader\\OptionalLoader::addOptionalDependencies"
 	},
 	"attributes": {
 		"CodeMirror": {
@@ -248,6 +257,11 @@
 				"ref": "text/mediawiki",
 				"references": "text/mediawiki"
 			}
+		},
+		"Popups": {
+			"PluginModules": [
+				"ext.cite.referencePreviews"
+			]
 		},
 		"VisualEditor": {
 			"PluginModules": [

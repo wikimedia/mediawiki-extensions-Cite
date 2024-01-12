@@ -115,3 +115,21 @@ export function verifyBacklinkHrefContent( refName, rowNumber, index ) {
 		.eq( index )
 		.should( 'have.attr', 'href', expectedHref );
 }
+
+export function abandonReference( id ) {
+	cy.get( `:not(.reference-text) > #${ id } a` )
+		.trigger( 'mouseout' );
+	// Wait for the 300ms default ABANDON_END_DELAY.
+	// eslint-disable-next-line cypress/no-unnecessary-waiting
+	cy.wait( 500 );
+}
+
+export function dwellReference( id ) {
+	cy.get( `:not(.reference-text) > #${ id } a` )
+		.trigger( 'mouseover' );
+}
+
+export function assertPreviewIsScrollable( isScrollable ) {
+	cy.get( '.mwe-popups-extract .mwe-popups-scroll' )
+		.should( ( $el ) => isScrollable === ( $el.prop( 'scrollHeight' ) > $el.prop( 'offsetHeight' ) ) );
+}

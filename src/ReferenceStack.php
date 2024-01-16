@@ -84,8 +84,6 @@ class ReferenceStack {
 		$ref = new ReferenceStackItem();
 		$ref->count = 1;
 		$ref->dir = $dir;
-		// This assumes we are going to register a new reference, instead of reusing one
-		$ref->key = ++$this->refSequence;
 		// TODO: Read from this group field or deprecate it.
 		$ref->group = $group;
 		$ref->name = $name;
@@ -96,12 +94,12 @@ class ReferenceStack {
 				// Mark an incomplete follow="…" as such. This is valid e.g. in the Page:… namespace
 				// on Wikisource.
 				$ref->follow = $follow;
+				$ref->key = $this->nextRefSequence();
 				$this->refs[$group][] = $ref;
-				$this->refCallStack[] = [ self::ACTION_NEW, $this->refSequence, $group, $name, $text, $argv ];
+				$this->refCallStack[] = [ self::ACTION_NEW, $ref->key, $group, $name, $text, $argv ];
 			} elseif ( $text !== null ) {
 				// We know the parent already, so just perform the follow="…" and bail out
 				$this->resolveFollow( $group, $follow, $text );
-				$this->refSequence--;
 			}
 			// A follow="…" never gets its own footnote marker
 			return null;
@@ -110,14 +108,17 @@ class ReferenceStack {
 		if ( !$name ) {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = &$ref;
+			$ref->key = $this->nextRefSequence();
 			$action = self::ACTION_NEW;
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
 			// Valid key with first occurrence
 			$this->refs[$group][$name] = &$ref;
+			$ref->key = $this->nextRefSequence();
 			$action = self::ACTION_NEW;
 		} elseif ( $this->refs[$group][$name]->placeholder ) {
 			// Populate a placeholder.
 			$ref->extendsCount = $this->refs[$group][$name]->extendsCount;
+			$ref->key = $this->nextRefSequence();
 			$ref->number = $this->refs[$group][$name]->number;
 			$this->refs[$group][$name] =& $ref;
 			$action = self::ACTION_NEW_FROM_PLACEHOLDER;
@@ -125,8 +126,6 @@ class ReferenceStack {
 			// Change an existing entry.
 			$ref = &$this->refs[$group][$name];
 			$ref->count++;
-			// Rollback the global counter since we won't create a new ref.
-			$this->refSequence--;
 
 			if ( $ref->dir && $dir && $ref->dir !== $dir ) {
 				$ref->warnings[] = [ 'cite_error_ref_conflicting_dir', $name ];
@@ -356,6 +355,10 @@ class ReferenceStack {
 			// two refs with same key and different content
 			$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];
 		}
+	}
+
+	private function nextRefSequence() {
+		return ++$this->refSequence;
 	}
 
 }

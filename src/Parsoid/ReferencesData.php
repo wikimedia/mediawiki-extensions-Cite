@@ -1,7 +1,7 @@
 <?php
 declare( strict_types = 1 );
 
-namespace Wikimedia\Parsoid\Ext\Cite;
+namespace Cite\Parsoid;
 
 use stdClass;
 use Wikimedia\Parsoid\Core\Sanitizer;

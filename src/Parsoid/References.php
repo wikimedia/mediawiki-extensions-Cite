@@ -2,7 +2,7 @@
 declare( strict_types = 1 );
 // phpcs:disable MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 
-namespace Wikimedia\Parsoid\Ext\Cite;
+namespace Cite\Parsoid;
 
 use Closure;
 use stdClass;
@@ -127,6 +127,7 @@ class References extends ExtensionTagHandler {
 		// only added when the wrapper is a template sibling.
 		$about = DOMCompat::getAttribute( $node, 'about' ) ??
 			DOMCompat::getAttribute( $c, 'about' );
+		'@phan-var string $about'; // assert that $about is non-null
 
 		// FIXME(SSS): Need to clarify semantics here.
 		// If both the containing <references> elt as well as the nested <ref>
@@ -492,6 +493,7 @@ class References extends ExtensionTagHandler {
 						self::addErrorsToNode( $node, $errs );
 					}
 					foreach ( $ref->embeddedNodes as $about ) {
+						'@phan-var string $about'; // $about is non-null
 						$refsData->embeddedErrors[$about] = $errs;
 					}
 				}
@@ -538,6 +540,7 @@ class References extends ExtensionTagHandler {
 			}
 			$refsNode = $refsNode->firstChild;
 		}
+		DOMUtils::assertElt( $refsNode );
 
 		// Remove all children from the references node
 		//
@@ -689,6 +692,7 @@ class References extends ExtensionTagHandler {
 				if ( DOMUtils::hasTypeOf( $child, 'mw:Extension/ref' ) ) {
 					$processBodyHtml( $child );
 					$about = DOMCompat::getAttribute( $child, 'about' );
+					'@phan-var string $about'; // assert $about is non-null
 					$errs = $refsData->embeddedErrors[$about] ?? null;
 					if ( $errs ) {
 						self::addErrorsToNode( $child, $errs );

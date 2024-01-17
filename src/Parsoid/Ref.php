@@ -2,7 +2,7 @@
 declare( strict_types = 1 );
 // phpcs:disable MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
 
-namespace Wikimedia\Parsoid\Ext\Cite;
+namespace Cite\Parsoid;
 
 use Closure;
 use Exception;

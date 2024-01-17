@@ -21,7 +21,8 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.{js,json}',
-				'!{vendor,node_modules}/**'
+				'!{vendor,node_modules}/**',
+				'!cypress/screenshots/**/*.js'
 			]
 		},
 		banana: conf.MessagesDirs,

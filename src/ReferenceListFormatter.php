@@ -38,7 +38,12 @@ class ReferenceListFormatter {
 
 		$wikitext = $this->formatRefsList( $groupRefs );
 		$html = $parser->recursiveTagParse( $wikitext );
-		$html = Html::rawElement( 'ol', [ 'class' => 'references' ], $html );
+
+		$firstRef = reset( $groupRefs );
+		$html = Html::rawElement( 'ol', [
+			'class' => 'references',
+			'data-mw-group' => $firstRef->group === Cite::DEFAULT_GROUP ? null : $firstRef->group,
+		], $html );
 
 		if ( $responsive ) {
 			$wrapClasses = [ 'mw-references-wrap' ];
@@ -54,7 +59,7 @@ class ReferenceListFormatter {
 	}
 
 	/**
-	 * @param array<string|int,ReferenceStackItem> $groupRefs
+	 * @param non-empty-array<string|int,ReferenceStackItem> $groupRefs
 	 * @return string Wikitext
 	 */
 	private function formatRefsList( array $groupRefs ): string {

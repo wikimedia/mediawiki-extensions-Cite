@@ -246,12 +246,6 @@
 				"references": "text/mediawiki"
 			}
 		},
-		"EventLogging": {
-			"Schemas": {
-				"ReferencePreviewsBaseline": "/analytics/legacy/referencepreviewsbaseline/1.0.0",
-				"ReferencePreviewsCite": "/analytics/legacy/referencepreviewscite/1.0.0"
-			}
-		},
 		"VisualEditor": {
 			"PluginModules": [
 				"ext.cite.visualEditor"

@@ -287,5 +287,35 @@
 	"TrackingCategories": [
 		"cite-tracking-category-cite-error"
 	],
+	"ParsoidModules": [ {
+		"name": "Cite",
+		"domProcessors": [
+			"Cite\\Parsoid\\RefProcessor"
+		],
+		"tags": [
+			{
+				"name": "ref",
+				"handler": "Cite\\Parsoid\\Ref",
+				"options": {
+					"wt2html": {
+						"unpackOutput": false,
+						"embedsHTMLInAttributes": true
+					},
+					"outputHasCoreMwDomSpecMarkup": true
+				}
+			},
+			{
+				"name": "references",
+				"handler": "Cite\\Parsoid\\References",
+				"options": {
+					"wt2html": {
+						"embedsHTMLInAttributes": true
+					},
+					"html2wt": { "format": "block" },
+					"outputHasCoreMwDomSpecMarkup": true
+				}
+			}
+		]
+	} ],
 	"manifest_version": 2
 }

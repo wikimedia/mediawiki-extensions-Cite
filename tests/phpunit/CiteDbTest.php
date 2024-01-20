@@ -11,9 +11,6 @@ use ParserOptions;
  * @license GPL-2.0-or-later
  */
 class CiteDbTest extends \MediaWikiIntegrationTestCase {
-	/** @inheritDoc */
-	protected $tablesUsed = [ 'page' ];
-
 	/**
 	 * Parser call within `<ref>` parse clears the original parser state.
 	 * @see https://phabricator.wikimedia.org/T240248

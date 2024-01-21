@@ -47,8 +47,8 @@
 	"ResourceModules": {
 		"ext.cite.styles": {
 			"styles": {
-				"ext.cite.styles.css": {},
-				"ext.cite.print.css": {
+				"ext.cite.styles.less": {},
+				"ext.cite.print.less": {
 					"media": "print"
 				}
 			},
@@ -58,7 +58,7 @@
 		},
 		"ext.cite.parsoid.styles": {
 			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
-			"styles": "ext.cite.parsoid.styles.css"
+			"styles": "ext.cite.parsoid.styles.less"
 		},
 		"ext.cite.visualEditor.core": {
 			"localBasePath": "modules/ve-cite",
@@ -209,8 +209,8 @@
 				"ext.cite.tracking.js"
 			],
 			"styles": [
-				"ext.cite.a11y.css",
-				"ext.cite.highlighting.css"
+				"ext.cite.a11y.less",
+				"ext.cite.highlighting.less"
 			],
 			"messages": [
 				"cite_references_link_accessibility_label",

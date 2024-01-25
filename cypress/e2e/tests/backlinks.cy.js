@@ -18,19 +18,22 @@ describe( 'Cite backlinks test', () => {
 
 		// Rely on the retry behavior of Cypress assertions to use this as a "wait" until the specified conditions are met.
 		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
-		cy.window().then( async ( win ) => {
-
-			await win.mw.loader.using( 'mediawiki.api' ).then(
-				async function () {
-					await new win.mw.Api().create( title, {}, wikiText );
-				}
-			);
+		cy.window().then( ( win ) => {
+			win.mw.loader.using( 'mediawiki.api' ).then( () => {
+				new win.mw.Api().create( title, {}, wikiText );
+			} );
 		} );
 	} );
 
 	beforeEach( () => {
-		// cy.visit( `/wiki/${ encodedTitle }` );
 		cy.visit( `/index.php?title=${ encodedTitle }` );
+
+		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
+		cy.window().then( async ( win ) => {
+			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
+				await win.mw.hook( 'wikipage.content' ).add( function () {} );
+			} );
+		} );
 	} );
 
 	it( 'hides clickable up arrow by default when there are multiple backlinks', () => {

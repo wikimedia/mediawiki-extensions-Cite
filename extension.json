@@ -230,6 +230,7 @@
 			"ve.dm.citeExample.js",
 			"ve.dm.Converter.test.js",
 			"ve.dm.InternalList.test.js",
+			"ve.dm.MWReferenceModel.test.js",
 			"ve.dm.Transaction.test.js",
 			"ve.ui.DiffElement.test.js",
 			"ve.ui.MWWikitextStringTransferHandler.test.js"

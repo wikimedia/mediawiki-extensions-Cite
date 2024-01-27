@@ -890,10 +890,12 @@ T242437 - Nested references edge case, outer tag function with LDR
 
   <References />
 }}
-!! html
+!! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Closing tag missing for <code>&lt;references&gt;</code></span>
 </p>
+!! html/parsoid
+Parsoid fails this right now
 !! end
 
 # T307741: Parsoid fails this test in both standalone and integrated modes.
@@ -906,10 +908,12 @@ T242437 - Nested references edge case, outer tag function, inner LDR
     <ref name="foo">bar</ref>
   </references>
 }}
-!! html
+!! html/php
 <p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Closing tag missing for <code>&lt;references&gt;</code></span>
 </p>
+!! html/parsoid
+Parsoid fails this right now
 !! end
 
 !! test
@@ -1351,13 +1355,15 @@ Multiple definition (inside {{#tag:references}})
 <ref name="a">def</ref>
 }}
 <references />
-!! html
+!! html/php
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">abc <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
 </li>
 </ol></div>
+!! html/parsoid
+Parsoid fails this right now
 !! end
 
 # Parsoid doesn't rt cleanly because name attribute is actually broken

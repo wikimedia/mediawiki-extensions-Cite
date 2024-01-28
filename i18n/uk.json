@@ -18,9 +18,11 @@
 	"cite-desc": "Додає теги <code>&lt;ref&gt;</code> і <code>&lt;references/&gt;</code> для виносок",
 	"cite_error": "Помилка цитування: $1",
 	"cite_error_ref_invalid_dir": "Недійсний <code>dir=\"$1\"</code>, має бути <code>ltr</code> або <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "Один з тегів <code>&lt;ref&gt;</code> з назвою «$1» має конфліктуючий атрибут dir.",
 	"cite_error_ref_numeric_key": "Неправильний виклик тегу <code>&lt;ref&gt;</code>: <code>name</code> не може містити лише цифри. Використовуйте описові назви",
 	"cite_error_ref_no_key": "Відкривальний тег <code>&lt;ref&gt;</code> неправильний або містить хибну назву.",
-	"cite_error_ref_too_many_keys": "Неправильний виклик тегу <code>&lt;ref&gt;</code>: вказано неправильні значення <code>name</code>, наприклад, таких значень забагато",
+	"cite_error_ref_too_many_keys": "Недійсний параметр у тезі <code>&lt;ref&gt;</code>",
+	"cite_error_ref_follow_conflicts": "Тег <code>&lt;ref follow=\"…\"&gt;</code>, який є продовженням попереднього, не може ні мати власної назви, ні бути розширеним",
 	"cite_error_ref_nested_extends": "Розширення тегів <code>&lt;ref&gt;</code> більш ніж на один рівень у глибину не дозволено",
 	"cite_error_ref_no_input": "Неправильний виклик тегу <code>&lt;ref&gt;</code>: теги без назви повинні мати якийсь вміст",
 	"cite_error_references_duplicate_key": "Некоректний тег <code>&lt;ref&gt;</code>; назва «$1» визначена кілька разів з різним вмістом",
@@ -51,5 +53,8 @@
 	"cite-wikieditor-help-content-reference-description": "Виноска",
 	"cite-wikieditor-help-content-named-reference-description": "Іменоване посилання",
 	"cite-wikieditor-help-content-rereference-description": "Додаткове використання тієї ж виноски",
-	"cite-wikieditor-help-content-showreferences-description": "Показати виноски"
+	"cite-wikieditor-help-content-showreferences-description": "Показати виноски",
+	"cite-wikieditor-help-content-reference-example-text1": "Текст сторінки.$1",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 Текст посилання], додатковий текст.",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Текст посилання]"
 }

@@ -20,3 +20,14 @@ export function getFragmentFromLink( linkElement ) {
 		return href.split( '#' )[ 1 ];
 	} );
 }
+export function getVEFootnoteMarker( refName, sequenceNumber, index ) {
+	return cy.get( `sup.ve-ce-mwReferenceNode#cite_ref-${ refName }_${ sequenceNumber }-${ index - 1 }` );
+}
+
+export function getVEReferencePopup() {
+	return cy.get( '.oo-ui-popupWidget-popup .ve-ui-mwReferenceContextItem .mw-content-ltr' );
+}
+
+export function getVEDialog() {
+	return cy.get( '.oo-ui-dialog-content .oo-ui-fieldsetLayout .ve-ui-mwTargetWidget .ve-ce-generated-wrapper' );
+}

@@ -9,19 +9,20 @@ function getTestString( prefix = '' ) {
 
 describe( 'Cite backlinks test', () => {
 	before( () => {
-		cy.visit( '/' );
+		cy.visit( '/index.php' );
 
 		const wikiText = 'This is reference #1: <ref name="a">This is citation #1 for reference #1 and #2</ref><br> ' +
 			'This is reference #2: <ref name="a" /><br>' +
 			'This is reference #3: <ref>This is citation #2</ref><br>' +
 			'<references />';
 
-		// Rely on the retry behavior of Cypress assertions to use this as a "wait" until the specified conditions are met.
+		// Rely on the retry behavior of Cypress assertions to use this as a "wait"
+		// until the specified conditions are met.
 		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
-		cy.window().then( ( win ) => {
-			win.mw.loader.using( 'mediawiki.api' ).then( () => {
-				new win.mw.Api().create( title, {}, wikiText );
-			} );
+		cy.window().then( async ( win ) => {
+			await win.mw.loader.using( 'mediawiki.api' );
+			const response = await new win.mw.Api().create( title, {}, wikiText );
+			expect( response.result ).to.equal( 'Success' );
 		} );
 	} );
 

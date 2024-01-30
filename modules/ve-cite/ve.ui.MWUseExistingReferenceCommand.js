@@ -33,8 +33,9 @@ OO.inheritClass( ve.ui.MWUseExistingReferenceCommand, ve.ui.Command );
  * @inheritdoc
  */
 ve.ui.MWUseExistingReferenceCommand.prototype.isExecutable = function ( fragment ) {
-	// Parent method
-	if ( !ve.ui.MWUseExistingReferenceCommand.super.prototype.isExecutable.apply( this, arguments ) ) {
+	if ( !ve.ui.MWUseExistingReferenceCommand.super.prototype
+		.isExecutable.apply( this, arguments )
+	) {
 		return false;
 	}
 

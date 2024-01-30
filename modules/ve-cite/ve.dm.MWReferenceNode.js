@@ -181,7 +181,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 				itemNode.getDocument().getFullData( itemNodeRange, 'roundTrip' ),
 				itemNodeWrapper
 			);
-			const itemNodeHtml = itemNodeWrapper.innerHTML; // Returns '' if itemNodeWrapper is empty
+			// Returns '' if itemNodeWrapper is empty
+			const itemNodeHtml = itemNodeWrapper.innerHTML;
 			const originalHtml = ve.getProp( mwData, 'body', 'html' ) ||
 				( ve.getProp( mwData, 'body', 'id' ) !== undefined && itemNode.getAttribute( 'originalHtml' ) ) ||
 				'';
@@ -244,7 +245,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Return the original DOM elements if possible
 		if ( dataElement.originalDomElementsHash !== undefined ) {
-			return ve.copyDomElements( converter.getStore().value( dataElement.originalDomElementsHash ), doc );
+			return ve.copyDomElements(
+				converter.getStore().value( dataElement.originalDomElementsHash ), doc );
 		}
 	} else {
 		el.setAttribute( 'data-mw', JSON.stringify( mwData ) );
@@ -263,7 +265,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	return [ el ];
 };
 
-ve.dm.MWReferenceNode.static.remapInternalListIndexes = function ( dataElement, mapping, internalList ) {
+ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
+	dataElement, mapping, internalList
+) {
 	// Remap listIndex
 	dataElement.attributes.listIndex = mapping[ dataElement.attributes.listIndex ];
 
@@ -296,7 +300,8 @@ ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, int
 ve.dm.MWReferenceNode.static.getIndex = function ( dataElement, internalList ) {
 	const overrideIndex = ve.getProp( dataElement, 'internal', 'overrideIndex' );
 	const attrs = dataElement.attributes;
-	return overrideIndex || ( internalList.getIndexPosition( attrs.listGroup, attrs.listIndex ) + 1 );
+	return overrideIndex ||
+		( internalList.getIndexPosition( attrs.listGroup, attrs.listIndex ) + 1 );
 };
 
 /**
@@ -437,7 +442,8 @@ ve.dm.MWReferenceNode.prototype.getGroup = function () {
  * @return {string} Reference label
  */
 ve.dm.MWReferenceNode.prototype.getIndexLabel = function () {
-	return this.constructor.static.getIndexLabel( this.element, this.getDocument().getInternalList() );
+	return this.constructor.static.getIndexLabel(
+		this.element, this.getDocument().getInternalList() );
 };
 
 /**

@@ -77,9 +77,11 @@ ve.dm.MWReferencesListNode.static.matchFunction = function ( domElement ) {
 			domElement.nextElementSibling &&
 			domElement.nextElementSibling.getAttribute( 'about' ) === domElement.getAttribute( 'about' ) &&
 			// A div-wrapped reference list
-			domElement.nextElementSibling.children.length === 1 && isRefList( domElement.nextElementSibling.children[ 0 ] )
-			// TODO: We should probably check there aren't subsequent elements. This and the above
-			// checks would be easier if the matchFunction was passed all the elements in the about group.
+			domElement.nextElementSibling.children.length === 1 &&
+			isRefList( domElement.nextElementSibling.children[ 0 ] )
+			// TODO: We should probably check there aren't subsequent elements. This
+			// and the above checks would be easier if the matchFunction was passed
+			// all the elements in the about group.
 		);
 };
 
@@ -135,10 +137,12 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	const dataElement = data[ 0 ];
 	const attrs = dataElement.attributes;
 
-	// If we are sending a template generated ref back to Parsoid, output it as a template.
-	// This works because the dataElement already has mw, originalMw and originalDomIndex properties.
+	// If we are sending a template generated ref back to Parsoid, output it as a
+	// template.  This works because the dataElement already has mw, originalMw
+	// and originalDomIndex properties.
 	if ( attrs.templateGenerated && isForParser ) {
-		return ve.dm.MWTransclusionNode.static.toDomElements.call( this, dataElement, doc, converter );
+		return ve.dm.MWTransclusionNode.static
+			.toDomElements.call( this, dataElement, doc, converter );
 	}
 
 	let els;
@@ -152,11 +156,13 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		viewNode.update();
 		els = [ doc.createElement( 'div' ) ];
 		els[ 0 ].appendChild( viewNode.$reflist[ 0 ] );
-		// Destroy the view node so it doesn't try to update the DOM node later (e.g. updateDebounced)
+		// Destroy the view node so it doesn't try to update the DOM node later
+		// (e.g. updateDebounced)
 		viewNode.destroy();
 	} else if ( dataElement.originalDomElementsHash !== undefined ) {
 		// If there's more than 1 element, preserve entire array, not just first element
-		els = ve.copyDomElements( converter.getStore().value( dataElement.originalDomElementsHash ), doc );
+		els = ve.copyDomElements(
+			converter.getStore().value( dataElement.originalDomElementsHash ), doc );
 	} else {
 		els = [ doc.createElement( 'div' ) ];
 	}

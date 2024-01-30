@@ -15,13 +15,15 @@ mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		const $links = $( this ).find( 'a' );
 
 		if ( $links.length > 1 ) {
-			// This citation is used multiple times. Let's only set the accessibility label on the first link, the
-			// following ones should then be self-explaining. This is needed to make sure this isn't getting
-			// too wordy.
+			// This citation is used multiple times. Let's only set the accessibility
+			// label on the first link, the following ones should then be
+			// self-explaining. This is needed to make sure this isn't getting too
+			// wordy.
 			$links.eq( 0 ).prepend(
 				$( '<span>' )
 					.addClass( 'cite-accessibility-label' )
-					// Also make sure we have at least one space between the accessibility label and the visual one
+					// Also make sure we have at least one space between the accessibility
+					// label and the visual one
 					.text( accessibilityLabelMany + ' ' )
 			);
 		} else {

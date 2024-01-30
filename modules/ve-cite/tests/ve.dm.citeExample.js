@@ -12,7 +12,8 @@ ve.dm.citeExample = {};
 ve.dm.citeExample.baseUri = 'http://example.com/wiki/';
 
 ve.dm.citeExample.createExampleDocument = function ( name, store, base ) {
-	return ve.dm.example.createExampleDocumentFromObject( name, store, ve.dm.citeExample, base || ve.dm.citeExample.baseUri );
+	return ve.dm.example.createExampleDocumentFromObject(
+		name, store, ve.dm.citeExample, base || ve.dm.citeExample.baseUri );
 };
 
 ve.dm.citeExample.refListItemClipboard = function ( text ) {

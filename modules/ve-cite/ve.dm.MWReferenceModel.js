@@ -148,10 +148,12 @@ ve.dm.MWReferenceModel.prototype.updateInternalItem = function ( surfaceModel ) 
 	}
 	// Update internal node content
 	const itemNodeRange = internalList.getItemNode( this.listIndex ).getRange();
-	surfaceModel.change( ve.dm.TransactionBuilder.static.newFromRemoval( doc, itemNodeRange, true ) );
 	surfaceModel.change(
-		ve.dm.TransactionBuilder.static.newFromDocumentInsertion( doc, itemNodeRange.start, this.getDocument() )
-	);
+		ve.dm.TransactionBuilder.static
+			.newFromRemoval( doc, itemNodeRange, true ) );
+	surfaceModel.change(
+		ve.dm.TransactionBuilder.static
+			.newFromDocumentInsertion( doc, itemNodeRange.start, this.getDocument() ) );
 };
 
 /**

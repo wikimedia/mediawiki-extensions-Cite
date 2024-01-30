@@ -55,8 +55,8 @@ ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
 	if ( refNode ) {
 		this.view = new ve.ui.MWPreviewElement( refNode );
 
-		// The $element property may be rendered into asynchronously, update the context's size when the
-		// rendering is complete if that's the case
+		// The $element property may be rendered into asynchronously, update the
+		// context's size when the rendering is complete if that's the case
 		this.view.once( 'render', this.context.updateDimensions.bind( this.context ) );
 
 		return this.view.$element;
@@ -115,7 +115,8 @@ ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
 	}
 	if ( !this.referenceNode ) {
 		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
-		this.referenceNode = this.getFragment().getDocument().getInternalList().getItemNode( refModel.getListIndex() );
+		this.referenceNode = this.getFragment().getDocument().getInternalList()
+			.getItemNode( refModel.getListIndex() );
 	}
 	return this.referenceNode;
 };
@@ -147,7 +148,12 @@ ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
  * @inheritdoc
  */
 ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
-	this.$body.empty().append( this.getParentRef(), this.getRendering(), this.getReuseWarning(), this.getExtendsWarning() );
+	this.$body.empty().append(
+		this.getParentRef(),
+		this.getRendering(),
+		this.getReuseWarning(),
+		this.getExtendsWarning()
+	);
 };
 
 /**

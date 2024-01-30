@@ -78,10 +78,9 @@ ve.ce.MWReferencesListNode.static.getDescription = function ( model ) {
  * @inheritdoc ve.ce.FocusableNode
  */
 ve.ce.MWReferencesListNode.prototype.getExtraHighlightClasses = function () {
-	const extraClasses = ve.ce.FocusableNode.prototype.getExtraHighlightClasses.apply( this, arguments );
-	return extraClasses.concat( [
-		've-ce-mwReferencesListNode-highlight'
-	] );
+	return ve.ce.FocusableNode.prototype
+		.getExtraHighlightClasses.apply( this, arguments )
+		.concat( [ 've-ce-mwReferencesListNode-highlight' ] );
 };
 
 /* Methods */
@@ -270,16 +269,17 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 				const surface = this.getRoot().getSurface().getSurface();
 				$li.on( 'mousedown', function ( e ) {
 					if ( modelNode && modelNode.length ) {
-						const items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] ).filter( function ( item ) {
-							return item.name !== 'mobileActions';
-						} );
+						const items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] )
+							.filter( ( item ) => item.name !== 'mobileActions' );
 						if ( items.length ) {
 							const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
 							if ( contextItem ) {
-								const command = surface.commandRegistry.lookup( contextItem.static.commandName );
+								const command = surface.commandRegistry
+									.lookup( contextItem.static.commandName );
 								if ( command ) {
 									const fragmentArgs = {
-										fragment: surface.getModel().getLinearFragment( firstNode.getOuterRange(), true ),
+										fragment: surface.getModel()
+											.getLinearFragment( firstNode.getOuterRange(), true ),
 										selectFragmentOnClose: false
 									};
 									const newArgs = ve.copy( command.args );

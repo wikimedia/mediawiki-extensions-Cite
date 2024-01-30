@@ -160,10 +160,12 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 				// We had a reference, but no template node (or wrong kind of template node)
 				if ( dialog.referenceModel && !dialog.selectedNode ) {
 					const refDoc = dialog.referenceModel.getDocument();
-					// Empty the existing reference, whatever it contained. This allows the dialog to be
-					// used for arbitrary references (to replace their contents with a citation).
+					// Empty the existing reference, whatever it contained. This allows
+					// the dialog to be used for arbitrary references (to replace their
+					// contents with a citation).
 					refDoc.commit(
-						ve.dm.TransactionBuilder.static.newFromRemoval( refDoc, refDoc.getDocumentRange(), true )
+						ve.dm.TransactionBuilder.static
+							.newFromRemoval( refDoc, refDoc.getDocumentRange(), true )
 					);
 				}
 
@@ -183,13 +185,14 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 						);
 					} else if ( obj !== null ) {
 						dialog.transclusionModel.insertTransclusionNode(
-							// HACK: This is trying to place the cursor inside the first content branch
-							// node but this theoretically not a safe assumption - in practice, the
-							// citation dialog will only reach this code if we are inserting (not
-							// updating) a transclusion, so the referenceModel will have already
-							// initialized the internal node with a paragraph - getting the range of the
-							// item covers the entire paragraph so we have to get the range of it's
-							// first (and empty) child
+							// HACK: This is trying to place the cursor inside the first
+							// content branch node but this theoretically not a safe
+							// assumption - in practice, the citation dialog will only reach
+							// this code if we are inserting (not updating) a transclusion, so
+							// the referenceModel will have already initialized the internal
+							// node with a paragraph - getting the range of the item covers
+							// the entire paragraph so we have to get the range of it's first
+							// (and empty) child
 							dialog.getFragment().clone(
 								new ve.dm.LinearSelection( item.getChildren()[ 0 ].getRange() )
 							),
@@ -198,8 +201,9 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 					}
 				}
 
-				// HACK: Scorch the earth - this is only needed because without it, the references list
-				// won't re-render properly, and can be removed once someone fixes that
+				// HACK: Scorch the earth - this is only needed because without it, the
+				// references list won't re-render properly, and can be removed once
+				// someone fixes that
 				dialog.referenceModel.setDocument(
 					doc.cloneFromRange(
 						internalList.getItemNode( dialog.referenceModel.getListIndex() ).getRange()

@@ -23,7 +23,10 @@ ve.ui.MWReferenceGroupInputWidget = function VeUiMWReferenceGroupInputWidget( co
 	this.emptyGroupName = config.emptyGroupName;
 
 	// Parent constructor
-	ve.ui.MWReferenceGroupInputWidget.super.call( this, ve.extendObject( { placeholder: config.emptyGroupName }, config ) );
+	ve.ui.MWReferenceGroupInputWidget.super.call(
+		this,
+		ve.extendObject( { placeholder: config.emptyGroupName }, config )
+	);
 
 	this.$element.addClass( 've-ui-mwReferenceGroupInputWidget' );
 };

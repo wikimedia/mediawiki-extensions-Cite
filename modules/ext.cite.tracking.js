@@ -1,7 +1,8 @@
 'use strict';
 
 /**
- * @file Temporary tracking to evaluate the impact of Reference Previews on users' interaction with references.
+ * @file Temporary tracking to evaluate the impact of Reference Previews on
+ * users' interaction with references.
  *
  * @see https://phabricator.wikimedia.org/T214493
  * @see https://phabricator.wikimedia.org/T231529

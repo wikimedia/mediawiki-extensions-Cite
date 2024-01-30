@@ -117,7 +117,8 @@ ve.ce.MWReferenceNode.prototype.executeCommand = function () {
 	if ( items.length ) {
 		const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
 		if ( contextItem ) {
-			const command = this.getRoot().getSurface().getSurface().commandRegistry.lookup( contextItem.static.commandName );
+			const command = this.getRoot().getSurface().getSurface().commandRegistry
+				.lookup( contextItem.static.commandName );
 			if ( command ) {
 				command.execute( this.focusableSurface.getSurface() );
 			}

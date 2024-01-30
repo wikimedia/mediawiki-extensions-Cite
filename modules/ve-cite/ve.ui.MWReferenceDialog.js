@@ -296,9 +296,8 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 		classes: [ 've-ui-mwReferenceDialog-reuseWarning' ]
 	} );
 
-	const citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry ).filter( function ( command ) {
-		return command.indexOf( 'cite-' ) !== -1;
-	} );
+	const citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry )
+		.filter( ( command ) => command.indexOf( 'cite-' ) !== -1 );
 	this.referenceTarget = ve.init.target.createTargetWidget(
 		{
 			includeCommands: this.constructor.static.includeCommands,
@@ -333,7 +332,8 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	// Initialization
 	this.panels.addItems( [ this.editPanel, this.searchPanel ] );
-	this.editPanel.$element.append( this.reuseWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );
+	this.editPanel.$element.append(
+		this.reuseWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );
 	this.optionsFieldset.addItems( [ this.referenceGroupField ] );
 	this.searchPanel.$element.append( this.search.$element );
 	this.$body.append( this.panels.$element );
@@ -411,7 +411,8 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				done: false
 			} );
 
-			this.referenceGroupInput.populateMenu( this.getFragment().getDocument().getInternalList() );
+			this.referenceGroupInput.populateMenu(
+				this.getFragment().getDocument().getInternalList() );
 
 			this.trackedInputChange = false;
 		}, this );

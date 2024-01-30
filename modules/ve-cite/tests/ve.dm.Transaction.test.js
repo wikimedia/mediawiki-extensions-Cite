@@ -79,7 +79,8 @@ QUnit.test( 'newFromDocumentInsertion with references', function ( assert ) {
 		} else if ( caseItem.range ) {
 			doc2 = doc.cloneFromRange( caseItem.range );
 			caseItem.modify( doc2 );
-			const removalTx = ve.dm.TransactionBuilder.static.newFromRemoval( doc, caseItem.range, true );
+			const removalTx = ve.dm.TransactionBuilder.static
+				.newFromRemoval( doc, caseItem.range, true );
 			doc.commit( removalTx );
 			removalOps = removalTx.getOperations();
 		}

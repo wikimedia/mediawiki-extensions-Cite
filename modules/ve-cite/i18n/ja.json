@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"2nd-player",
+			"Ant176",
 			"Delim",
 			"Foomin10",
 			"Fryed-peach",
@@ -64,7 +65,7 @@
 	"cite-ve-referenceslist-isempty-default": "このページには、この一覧に含められる脚注がありません。",
 	"cite-ve-referenceslist-missingref": "この脚注はテンプレート内または別途生成されたブロック内で定義されているため、現時点ではソースモードでのみ編集できます。",
 	"cite-ve-referenceslist-missingref-in-list": "この脚注はテンプレート内または別途生成されたブロック内で定義されているため、現時点ではソースモードでのみプレビューできます。",
-	"cite-ve-referenceslist-missingreflist": "この脚注リストはテンプレートにより生成されているため、現時点ではソースモードでのみ編集できます。",
+	"cite-ve-referenceslist-missingreflist": "この脚注リストはテンプレートにより生成されています。",
 	"cite-ve-toolbar-group-label": "引用",
 	"cite-ve-othergroup-item": "$1 脚注"
 }

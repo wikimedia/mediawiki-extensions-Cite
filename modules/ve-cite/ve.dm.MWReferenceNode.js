@@ -65,7 +65,7 @@ ve.dm.MWReferenceNode.static.listKeyRegex = /^(auto|literal)\/([\s\S]*)$/;
 ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter ) {
 	function getReflistItemHtml( id ) {
 		const elem = converter.getHtmlDocument().getElementById( id );
-		return elem && elem.innerHTML || '';
+		return ( elem && elem.innerHTML ) || '';
 	}
 
 	const mwDataJSON = domElements[ 0 ].getAttribute( 'data-mw' );

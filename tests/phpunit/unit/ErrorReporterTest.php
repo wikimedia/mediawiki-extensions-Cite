@@ -21,11 +21,11 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 	public function testPlain(
 		string $key,
 		string $expectedHtml,
-		array $expectedCategories
+		?string $expectedCategory
 	) {
 		$language = $this->createLanguage();
 		$reporter = $this->createReporter( $language );
-		$mockParser = $this->createParser( $language, $expectedCategories );
+		$mockParser = $this->createParser( $language, $expectedCategory );
 		$this->assertSame(
 			$expectedHtml,
 			$reporter->plain( $mockParser, $key, 'first param' ) );
@@ -34,7 +34,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 	public function testHalfParsed() {
 		$language = $this->createLanguage();
 		$reporter = $this->createReporter( $language );
-		$mockParser = $this->createParser( $language, [] );
+		$mockParser = $this->createParser( $language );
 		$this->assertSame(
 			'<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
 				'dir="rtl">[(cite_warning|(cite_warning_example|first param))]</span>',
@@ -47,13 +47,13 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 				'key' => 'cite_error_example',
 				'expectedHtml' => '<span class="error mw-ext-cite-error" lang="qqx" dir="rtl">' .
 					'(cite_error|(cite_error_example|first param))</span>',
-				'categories' => [ 'cite-tracking-category-cite-error' ]
+				'expectedCategory' => 'cite-tracking-category-cite-error',
 			],
 			'Warning error' => [
 				'key' => 'cite_warning_example',
 				'expectedHtml' => '<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
 					'dir="rtl">(cite_warning|(cite_warning_example|first param))</span>',
-				'categories' => []
+				'expectedCategory' => null,
 			],
 		];
 	}
@@ -81,18 +81,14 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		return new ErrorReporter( $mockMessageLocalizer );
 	}
 
-	private function createParser( Language $language, array $expectedCategories ): Parser {
+	private function createParser( Language $language, string $expectedCategory = null ): Parser {
 		$parserOptions = $this->createMock( ParserOptions::class );
 		$parserOptions->method( 'getUserLangObj' )->willReturn( $language );
 
 		$parser = $this->createNoOpMock( Parser::class, [ 'addTrackingCategory', 'getOptions', 'recursiveTagParse' ] );
-		$parser->expects( $this->exactly( count( $expectedCategories ) ) )
+		$parser->expects( $expectedCategory ? $this->once() : $this->never() )
 			->method( 'addTrackingCategory' )
-			->willReturnCallback( function ( $cat ) use ( &$expectedCategories ) {
-				$catIdx = array_search( $cat, $expectedCategories, true );
-				$this->assertNotFalse( $catIdx, "Unexpected category: $cat" );
-				unset( $expectedCategories[$catIdx] );
-			} );
+			->with( $expectedCategory );
 		$parser->method( 'getOptions' )->willReturn( $parserOptions );
 		$parser->method( 'recursiveTagParse' )->willReturnCallback(
 			static fn ( $content ) => '[' . $content . ']'

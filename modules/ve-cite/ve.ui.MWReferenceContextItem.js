@@ -74,10 +74,9 @@ ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
  * @return {jQuery|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
-	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
 	const group = this.getFragment().getDocument().getInternalList()
-		.getNodeGroup( refModel.getListGroup() );
-	const nodes = ve.getProp( group, 'keyedNodes', refModel.getListKey() );
+		.getNodeGroup( this.model.getAttribute( 'listGroup' ) );
+	const nodes = ve.getProp( group, 'keyedNodes', this.model.getAttribute( 'listKey' ) );
 	const usages = nodes && nodes.filter( function ( node ) {
 		return !node.findParent( ve.dm.MWReferencesListNode );
 	} ).length;
@@ -95,9 +94,7 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
  * @return {jQuery|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
-	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
-
-	if ( refModel.extendsRef ) {
+	if ( this.model.getAttribute( 'extendsRef' ) ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
 			.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) );
@@ -114,9 +111,8 @@ ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
 		return null;
 	}
 	if ( !this.referenceNode ) {
-		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
 		this.referenceNode = this.getFragment().getDocument().getInternalList()
-			.getItemNode( refModel.getListIndex() );
+			.getItemNode( this.model.getAttribute( 'listIndex' ) );
 	}
 	return this.referenceNode;
 };
@@ -135,12 +131,12 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  * @return {string|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
-	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
-	if ( !refModel.extendsRef ) {
+	const extendsRef = this.model.getAttribute( 'extendsRef' );
+	if ( !extendsRef ) {
 		return null;
 	}
 	const list = this.getFragment().getDocument().getInternalList();
-	const index = list.keys.indexOf( 'literal/' + refModel.extendsRef );
+	const index = list.keys.indexOf( 'literal/' + extendsRef );
 	return list.getItemNode( index ).element.attributes.originalHtml;
 };
 

@@ -11,7 +11,7 @@ use Parser;
  *
  * @license GPL-2.0-or-later
  */
-class ReferencesFormatter {
+class ReferenceListFormatter {
 
 	/**
 	 * The backlinks, in order, to pass as $3 to

@@ -50,7 +50,7 @@ class Cite {
 
 	private bool $isSectionPreview;
 	private FootnoteMarkFormatter $footnoteMarkFormatter;
-	private ReferencesFormatter $referencesFormatter;
+	private ReferenceListFormatter $referenceListFormatter;
 	private ErrorReporter $errorReporter;
 
 	/**
@@ -83,7 +83,7 @@ class Cite {
 			$anchorFormatter,
 			$messageLocalizer
 		);
-		$this->referencesFormatter = new ReferencesFormatter(
+		$this->referenceListFormatter = new ReferenceListFormatter(
 			$this->errorReporter,
 			$anchorFormatter,
 			$messageLocalizer
@@ -306,7 +306,7 @@ class Cite {
 	): string {
 		global $wgCiteResponsiveReferences;
 
-		return $this->referencesFormatter->formatReferences(
+		return $this->referenceListFormatter->formatReferences(
 			$parser,
 			$this->referenceStack->popGroup( $group ),
 			$responsive !== null ? $responsive !== '0' : $wgCiteResponsiveReferences,

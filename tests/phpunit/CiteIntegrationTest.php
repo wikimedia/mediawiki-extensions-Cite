@@ -4,7 +4,7 @@ namespace Cite\Tests;
 
 use Cite\Cite;
 use Cite\ErrorReporter;
-use Cite\ReferencesFormatter;
+use Cite\ReferenceListFormatter;
 use Cite\ReferenceStack;
 use Language;
 use Parser;
@@ -38,15 +38,15 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		$referenceStack = new ReferenceStack();
 		TestingAccessWrapper::newFromObject( $referenceStack )->refs = $initialRefs;
 
-		$referencesFormatter = $this->createMock( ReferencesFormatter::class );
-		$referencesFormatter->method( 'formatReferences' )->willReturn( '<references />' );
+		$formatter = $this->createMock( ReferenceListFormatter::class );
+		$formatter->method( 'formatReferences' )->willReturn( '<references />' );
 
 		$cite = $this->newCite();
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->referenceStack = $referenceStack;
 		$spy->errorReporter = $mockErrorReporter;
-		$spy->referencesFormatter = $referencesFormatter;
+		$spy->referenceListFormatter = $formatter;
 		$spy->isSectionPreview = $isSectionPreview;
 
 		$parser = $this->createNoOpMock( Parser::class );

@@ -5,7 +5,7 @@ namespace Cite\Tests\Integration;
 use Cite\Cite;
 use Cite\ErrorReporter;
 use Cite\FootnoteMarkFormatter;
-use Cite\ReferencesFormatter;
+use Cite\ReferenceListFormatter;
 use Cite\ReferenceStack;
 use Cite\Tests\TestUtils;
 use Language;
@@ -139,8 +139,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
 			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
-		$spy->referencesFormatter = $this->createMock( ReferencesFormatter::class );
-		$spy->referencesFormatter->method( 'formatReferences' )
+		$spy->referenceListFormatter = $this->createMock( ReferenceListFormatter::class );
+		$spy->referenceListFormatter->method( 'formatReferences' )
 			->with( $parser, [], $expectedResponsive, false )
 			->willReturn( 'references!' );
 		$spy->isSectionPreview = false;

@@ -54,9 +54,7 @@ class ReferenceListFormatter {
 		}
 
 		$wikitext = $this->formatRefsList( $parser, $groupRefs, $isSectionPreview );
-
-		// Live hack: parse() adds two newlines on WM, can't reproduce it locally -ævar
-		$html = rtrim( $parser->recursiveTagParse( $wikitext ), "\n" );
+		$html = $parser->recursiveTagParse( $wikitext );
 
 		if ( $responsive ) {
 			$wrapClasses = [ 'mw-references-wrap' ];
@@ -215,7 +213,7 @@ class ReferenceListFormatter {
 	 * @param ReferenceStackItem $ref
 	 * @param bool $isSectionPreview
 	 *
-	 * @return string
+	 * @return string Wikitext
 	 */
 	private function referenceText(
 		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
@@ -289,7 +287,7 @@ class ReferenceListFormatter {
 	 *
 	 * @param string[] $arr The array to format
 	 *
-	 * @return string
+	 * @return string Wikitext
 	 */
 	private function listToText( array $arr ): string {
 		$lastElement = array_pop( $arr );

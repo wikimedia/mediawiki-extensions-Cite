@@ -147,7 +147,6 @@ class ReferenceListFormatter {
 		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
 		$text = $this->referenceText( $parser, $key, $ref, $isSectionPreview );
-		$error = '';
 		$extraAttributes = '';
 
 		if ( isset( $ref->dir ) ) {
@@ -176,7 +175,7 @@ class ReferenceListFormatter {
 				'cite_references_link_one',
 				$this->anchorFormatter->jumpLinkTarget( $id ),
 				$backlinkId,
-				$text . $error,
+				$text,
 				$extraAttributes
 			)->plain();
 		}
@@ -202,7 +201,7 @@ class ReferenceListFormatter {
 			'cite_references_link_many',
 			$linkTargetId,
 			$this->listToText( $backlinks ),
-			$text . $error,
+			$text,
 			$extraAttributes
 		)->plain();
 	}

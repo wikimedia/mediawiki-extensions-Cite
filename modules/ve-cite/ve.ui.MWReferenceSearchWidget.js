@@ -138,13 +138,13 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 			}
 			// Only increment counter for real references
 			n++;
-			const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
-			const itemNode = this.internalList.getItemNode( refModel.getListIndex() );
+			const itemNode = this.internalList.getItemNode( refNode.getAttribute( 'listIndex' ) );
 
-			const refGroup = refModel.getGroup();
+			const refGroup = refNode.getAttribute( 'refGroup' );
 			const citation = ( refGroup && refGroup.length ? refGroup + ' ' : '' ) + n;
 			// Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
-			const matches = refModel.getListKey().match( /^literal\/([\s\S]*)$/ );
+			// TODO: pass through mw-data name instead
+			const matches = refNode.getAttribute( 'listKey' ).match( /^literal\/([\s\S]*)$/ );
 			const name = matches && matches[ 1 ] || '';
 
 			// TODO: At some point we need to make sure this text is updated in
@@ -172,7 +172,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 			this.index.push( {
 				$element: $element,
 				text: text,
-				reference: refModel,
+				reference: refNode,
 				citation: citation,
 				name: name
 			} );

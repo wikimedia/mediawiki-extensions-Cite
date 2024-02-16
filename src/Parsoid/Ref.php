@@ -35,7 +35,7 @@ class Ref extends ExtensionTagHandler {
 		// function.  However, we're overly permissive here since we can't
 		// distinguish when that's nested in another template.
 		// The php preprocessor did our expansion.
-		$allowNestedRef = !empty( $extApi->inTemplate() );
+		$allowNestedRef = $extApi->inTemplate();
 
 		return $extApi->extTagToDOM(
 			$extArgs,

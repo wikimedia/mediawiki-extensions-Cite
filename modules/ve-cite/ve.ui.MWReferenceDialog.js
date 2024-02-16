@@ -197,7 +197,7 @@ ve.ui.MWReferenceDialog.prototype.onReferenceGroupInputChange = function () {
  * @param {ve.ui.MWReferenceResultWidget} item Chosen item
  */
 ve.ui.MWReferenceDialog.prototype.onSearchResultsChoose = function ( item ) {
-	const ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( item.getData() );
+	const ref = item.getData();
 
 	if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
 		this.getFragment().removeContent();

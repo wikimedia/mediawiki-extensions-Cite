@@ -65,7 +65,7 @@ ve.dm.MWReferenceNode.static.listKeyRegex = /^(auto|literal)\/([\s\S]*)$/;
 ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter ) {
 	function getReflistItemHtml( id ) {
 		const elem = converter.getHtmlDocument().getElementById( id );
-		return ( elem && elem.innerHTML ) || '';
+		return elem && elem.innerHTML;
 	}
 
 	const mwDataJSON = domElements[ 0 ].getAttribute( 'data-mw' );
@@ -75,30 +75,27 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	const body = ve.getProp( mwData, 'body', 'html' ) ||
 		( reflistItemId && getReflistItemHtml( reflistItemId ) ) ||
 		'';
-	const extendsRef = mw.config.get( 'wgCiteBookReferencing' ) && mwAttrs.extends;
 	const refGroup = mwAttrs.group || '';
 	const listGroup = this.name + '/' + refGroup;
 	const listKey = !mwAttrs.name ?
 		'auto/' + converter.internalList.getNextUniqueNumber() :
 		'literal/' + mwAttrs.name;
 	const queueResult = converter.internalList.queueItemHtml( listGroup, listKey, body );
-	const listIndex = queueResult.index;
-	const contentsUsed = ( body !== '' && queueResult.isNew );
 
 	const dataElement = {
 		type: this.name,
 		attributes: {
 			mw: mwData,
 			originalMw: mwDataJSON,
-			listIndex: listIndex,
+			listIndex: queueResult.index,
 			listGroup: listGroup,
 			listKey: listKey,
 			refGroup: refGroup,
-			contentsUsed: contentsUsed
+			contentsUsed: body !== '' && queueResult.isNew
 		}
 	};
-	if ( extendsRef ) {
-		dataElement.attributes.extendsRef = extendsRef;
+	if ( mwAttrs.extends && mw.config.get( 'wgCiteBookReferencing' ) ) {
+		dataElement.attributes.extendsRef = mwAttrs.extends;
 	}
 	if ( reflistItemId ) {
 		dataElement.attributes.refListItemId = reflistItemId;

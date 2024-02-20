@@ -2,8 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Bikarhêner",
-			"Guherto"
+			"Guherto",
+			"Balyozxane"
 		]
 	},
-	"cite_error": "Xeletiya çavkanî: $1"
+	"cite_error": "Xeletiya çavkanî: $1",
+	"cite_error_ref_no_input": "Etîketa <code>&lt;ref&gt;</code> ne derbasdar e; eger navê wî nehatibe nivîsin, divê di referansan de naverok hebe."
 }

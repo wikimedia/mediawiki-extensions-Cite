@@ -72,17 +72,17 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 
 	const mwDataJSON = domElements[ 0 ].getAttribute( 'data-mw' );
 	const mwData = mwDataJSON ? JSON.parse( mwDataJSON ) : {};
-	const reflistItemId = mwData.body && mwData.body.id;
-	const body = ( mwData.body && mwData.body.html ) ||
+	const mwAttrs = mwData.attrs || {};
+	const reflistItemId = ve.getProp( mwData, 'body', 'id' );
+	const body = ve.getProp( mwData, 'body', 'html' ) ||
 		( reflistItemId && getReflistItemHtml( reflistItemId ) ) ||
 		'';
-	const extendsRef = mw.config.get( 'wgCiteBookReferencing' ) && mwData.attrs && mwData.attrs.extends;
-	const refGroup = mwData.attrs && mwData.attrs.group || '';
+	const extendsRef = mw.config.get( 'wgCiteBookReferencing' ) && mwAttrs.extends;
+	const refGroup = mwAttrs.group || '';
 	const listGroup = this.name + '/' + refGroup;
-	const autoKeyed = !mwData.attrs || mwData.attrs.name === undefined;
-	const listKey = autoKeyed ?
+	const listKey = !mwAttrs.name ?
 		'auto/' + converter.internalList.getNextUniqueNumber() :
-		'literal/' + mwData.attrs.name;
+		'literal/' + mwAttrs.name;
 	const queueResult = converter.internalList.queueItemHtml( listGroup, listKey, body );
 	const listIndex = queueResult.index;
 	const contentsUsed = ( body !== '' && queueResult.isNew );

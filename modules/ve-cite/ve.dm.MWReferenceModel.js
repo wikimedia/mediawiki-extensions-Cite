@@ -48,17 +48,17 @@ OO.mixinClass( ve.dm.MWReferenceModel, OO.EventEmitter );
 ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 	const doc = node.getDocument();
 	const internalList = doc.getInternalList();
-	const attr = node.getAttributes();
+	const attributes = node.getAttributes();
 	const ref = new ve.dm.MWReferenceModel();
 
-	ref.extendsRef = attr.extendsRef;
-	ref.listKey = attr.listKey;
-	ref.listGroup = attr.listGroup;
-	ref.listIndex = attr.listIndex;
-	ref.group = attr.refGroup;
+	ref.extendsRef = attributes.extendsRef;
+	ref.listKey = attributes.listKey;
+	ref.listGroup = attributes.listGroup;
+	ref.listIndex = attributes.listIndex;
+	ref.group = attributes.refGroup;
 	ref.deferDoc = function () {
 		// cloneFromRange is very expensive, so lazy evaluate it
-		return doc.cloneFromRange( internalList.getItemNode( attr.listIndex ).getRange() );
+		return doc.cloneFromRange( internalList.getItemNode( attributes.listIndex ).getRange() );
 	};
 
 	return ref;

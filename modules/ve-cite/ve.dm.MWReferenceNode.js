@@ -294,9 +294,9 @@ ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, int
  */
 ve.dm.MWReferenceNode.static.getIndex = function ( dataElement, internalList ) {
 	const overrideIndex = ve.getProp( dataElement, 'internal', 'overrideIndex' );
-	const attrs = dataElement.attributes;
+	const attributes = dataElement.attributes;
 	return overrideIndex ||
-		( internalList.getIndexPosition( attrs.listGroup, attrs.listIndex ) + 1 );
+		( internalList.getIndexPosition( attributes.listGroup, attributes.listIndex ) + 1 );
 };
 
 /**
@@ -468,9 +468,10 @@ ve.dm.MWReferenceNode.prototype.onUnroot = function ( oldRoot ) {
  */
 ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
 	if ( this.getRoot() === this.getDocument().getDocumentNode() ) {
-		this.registeredListGroup = this.element.attributes.listGroup;
-		this.registeredListKey = this.element.attributes.listKey;
-		this.registeredListIndex = this.element.attributes.listIndex;
+		const attributes = this.element.attributes;
+		this.registeredListGroup = attributes.listGroup;
+		this.registeredListKey = attributes.listKey;
+		this.registeredListIndex = attributes.listIndex;
 		this.getDocument().getInternalList().addNode(
 			this.registeredListGroup,
 			this.registeredListKey,

@@ -134,12 +134,12 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {
 	const isForParser = converter.isForParser();
 	const dataElement = data[ 0 ];
-	const attrs = dataElement.attributes;
+	const attributes = dataElement.attributes;
 
 	// If we are sending a template generated ref back to Parsoid, output it as a
 	// template.  This works because the dataElement already has mw, originalMw
 	// and originalDomIndex properties.
-	if ( attrs.templateGenerated && isForParser ) {
+	if ( attributes.templateGenerated && isForParser ) {
 		return ve.dm.MWTransclusionNode.static
 			.toDomElements.call( this, dataElement, doc, converter );
 	}
@@ -166,27 +166,27 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		els = [ doc.createElement( 'div' ) ];
 	}
 
-	const mwData = attrs.mw ? ve.copy( attrs.mw ) : {};
+	const mwData = attributes.mw ? ve.copy( attributes.mw ) : {};
 
 	mwData.name = 'references';
 
-	if ( attrs.refGroup ) {
-		ve.setProp( mwData, 'attrs', 'group', attrs.refGroup );
+	if ( attributes.refGroup ) {
+		ve.setProp( mwData, 'attrs', 'group', attributes.refGroup );
 	} else if ( mwData.attrs ) {
 		delete mwData.attrs.group;
 	}
 
-	const originalMw = attrs.originalMw;
+	const originalMw = attributes.originalMw;
 	const originalMwData = originalMw && JSON.parse( originalMw );
 	const originalResponsiveAttr = ve.getProp( originalMwData, 'attrs', 'responsive' );
 	const isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' );
 
 	if ( !(
 		// The original "responsive" attribute hasn't had its meaning changed
-		originalResponsiveAttr !== undefined && ( originalResponsiveAttr !== '0' ) === attrs.isResponsive
+		originalResponsiveAttr !== undefined && ( originalResponsiveAttr !== '0' ) === attributes.isResponsive
 	) ) {
-		if ( attrs.isResponsive !== isResponsiveDefault ) {
-			ve.setProp( mwData, 'attrs', 'responsive', attrs.isResponsive ? '' : '0' );
+		if ( attributes.isResponsive !== isResponsiveDefault ) {
+			ve.setProp( mwData, 'attrs', 'responsive', attributes.isResponsive ? '' : '0' );
 		} else if ( mwData.attrs ) {
 			delete mwData.attrs.responsive;
 		}
@@ -267,13 +267,14 @@ ve.dm.MWReferencesListNode.static.describeChange = function ( key, change ) {
 };
 
 ve.dm.MWReferencesListNode.static.getHashObject = function ( dataElement ) {
+	const attributes = dataElement.attributes;
 	return {
 		type: dataElement.type,
 		attributes: {
-			refGroup: dataElement.attributes.refGroup,
-			listGroup: dataElement.attributes.listGroup,
-			isResponsive: dataElement.attributes.isResponsive,
-			templateGenerated: dataElement.attributes.templateGenerated
+			refGroup: attributes.refGroup,
+			listGroup: attributes.listGroup,
+			isResponsive: attributes.isResponsive,
+			templateGenerated: attributes.templateGenerated
 		}
 	};
 };

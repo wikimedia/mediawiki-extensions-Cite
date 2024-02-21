@@ -232,7 +232,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		if ( dataElement.attributes.refGroup !== '' ) {
 			ve.setProp( mwData, 'attrs', 'group', dataElement.attributes.refGroup );
 		} else if ( mwData.attrs ) {
-			delete mwData.attrs.refGroup;
+			delete mwData.attrs.group;
 		}
 	}
 

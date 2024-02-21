@@ -174,7 +174,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	if ( attrs.refGroup ) {
 		ve.setProp( mwData, 'attrs', 'group', attrs.refGroup );
 	} else if ( mwData.attrs ) {
-		delete mwData.attrs.refGroup;
+		delete mwData.attrs.group;
 	}
 
 	const originalMw = attrs.originalMw;

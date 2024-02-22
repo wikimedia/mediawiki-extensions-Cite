@@ -5,23 +5,19 @@ QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnviron
 QUnit.test( 'buildIndex', function ( assert ) {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 	widget.internalList = { getNodeGroups: () => ( {} ) };
-	assert.false( widget.built );
+	assert.strictEqual( widget.index, null );
 
 	widget.buildIndex();
-	assert.true( widget.built );
 	assert.deepEqual( widget.index, [] );
 
 	widget.onInternalListUpdate( [ 'mwReference/' ] );
-	assert.false( widget.built );
-	assert.deepEqual( widget.index, [] );
+	assert.strictEqual( widget.index, null );
 
 	widget.buildIndex();
-	assert.true( widget.built );
 	assert.deepEqual( widget.index, [] );
 
 	widget.onListNodeUpdate();
-	assert.false( widget.built );
-	assert.deepEqual( widget.index, [] );
+	assert.strictEqual( widget.index, null );
 } );
 
 QUnit.test( 'buildSearchIndex when empty', function ( assert ) {

@@ -13,6 +13,7 @@
  * @constructor
  * @extends OO.ui.SearchWidget
  * @param {Object} [config] Configuration options
+ * @property {Object[]|null} index Null when the index needs to be rebuild
  */
 ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	// Configuration initialization
@@ -24,9 +25,8 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	ve.ui.MWReferenceSearchWidget.super.call( this, config );
 
 	// Properties
-	this.index = [];
+	this.index = null;
 	this.indexEmpty = true;
-	this.built = false;
 
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceSearchWidget' );
@@ -86,7 +86,7 @@ ve.ui.MWReferenceSearchWidget.prototype.onInternalListUpdate = function ( groups
 	if ( groupsChanged.some( function ( groupName ) {
 		return groupName.indexOf( 'mwReference/' ) === 0;
 	} ) ) {
-		this.built = false;
+		this.index = null;
 	}
 };
 
@@ -96,19 +96,14 @@ ve.ui.MWReferenceSearchWidget.prototype.onInternalListUpdate = function ( groups
  * This will occur after changes to any InternalItemNode.
  */
 ve.ui.MWReferenceSearchWidget.prototype.onListNodeUpdate = function () {
-	this.built = false;
+	this.index = null;
 };
 
 /**
- * Build a searchable index of references.
+ * Manually re-populates the list of search results after {@see setInternalList} was called.
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
-	if ( !this.built ) {
-		this.index = this.buildSearchIndex();
-		this.built = true;
-		// Re-populate
-		this.onQueryChange();
-	}
+	this.onQueryChange();
 };
 
 /**
@@ -199,6 +194,10 @@ ve.ui.MWReferenceSearchWidget.prototype.isIndexEmpty = function () {
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchResults = function ( query ) {
 	query = query.trim().toLowerCase();
 	const items = [];
+
+	if ( !this.index ) {
+		this.index = this.buildSearchIndex();
+	}
 
 	for ( let i = 0; i < this.index.length; i++ ) {
 		const item = this.index[ i ];

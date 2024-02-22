@@ -142,7 +142,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 			const itemNode = this.internalList.getItemNode( refModel.getListIndex() );
 
 			const refGroup = refModel.getGroup();
-			const citation = ( refGroup && refGroup.length ? refGroup + ' ' : '' ) + n;
+			const citation = ( refGroup ? refGroup + ' ' : '' ) + n;
 			// Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
 			const matches = refModel.getListKey().match( /^literal\/([\s\S]*)$/ );
 			const name = matches && matches[ 1 ] || '';

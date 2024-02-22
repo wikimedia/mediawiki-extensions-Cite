@@ -66,14 +66,9 @@ QUnit.test( 'isIndexEmpty', function ( assert ) {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 	assert.true( widget.isIndexEmpty() );
 
-	// XXX: This is a regression test with a fragile setup. Please feel free to delete this test
-	// when you feel like it doesn't make sense to update it.
-	const internalList = {
-		connect: () => null,
-		getListNode: () => ( { connect: () => null } ),
+	widget.internalList = {
 		getNodeGroups: () => ( { 'mwReference/': { indexOrder: [ 0 ] } } )
 	};
-	widget.setInternalList( internalList );
 	assert.false( widget.isIndexEmpty() );
 } );
 

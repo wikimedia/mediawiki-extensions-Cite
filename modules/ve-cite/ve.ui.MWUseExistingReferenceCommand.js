@@ -31,19 +31,8 @@ OO.inheritClass( ve.ui.MWUseExistingReferenceCommand, ve.ui.Command );
  * @override
  */
 ve.ui.MWUseExistingReferenceCommand.prototype.isExecutable = function ( fragment ) {
-	if ( !ve.ui.MWUseExistingReferenceCommand.super.prototype
-		.isExecutable.apply( this, arguments )
-	) {
-		return false;
-	}
-
-	const groups = fragment.getDocument().getInternalList().getNodeGroups();
-	for ( const groupName in groups ) {
-		if ( groupName.indexOf( 'mwReference/' ) === 0 && groups[ groupName ].indexOrder.length ) {
-			return true;
-		}
-	}
-	return false;
+	return ve.ui.MWUseExistingReferenceCommand.super.prototype.isExecutable.apply( this, arguments ) &&
+		!ve.ui.MWReferenceSearchWidget.static.isIndexEmpty( fragment.getDocument().getInternalList() );
 };
 
 /* Registration */

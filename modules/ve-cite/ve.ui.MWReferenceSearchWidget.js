@@ -26,7 +26,6 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 
 	// Properties
 	this.index = null;
-	this.indexEmpty = true;
 	this.wasUsedActively = false;
 
 	// Initialization
@@ -37,6 +36,23 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 /* Inheritance */
 
 OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
+
+/* Static Methods */
+
+/**
+ * @param {ve.dm.InternalList} internalList
+ * @return {boolean}
+ */
+ve.ui.MWReferenceSearchWidget.static.isIndexEmpty = function ( internalList ) {
+	const groups = internalList.getNodeGroups();
+	// Doing this live every time is cheap because it stops on the first non-empty group
+	for ( const groupName in groups ) {
+		if ( groupName.indexOf( 'mwReference/' ) === 0 && groups[ groupName ].indexOrder.length ) {
+			return false;
+		}
+	}
+	return true;
+};
 
 /* Methods */
 
@@ -82,15 +98,6 @@ ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalLis
 	this.internalList = internalList;
 	this.internalList.connect( this, { update: 'onInternalListUpdate' } );
 	this.internalList.getListNode().connect( this, { update: 'onListNodeUpdate' } );
-
-	const groups = internalList.getNodeGroups();
-	for ( const groupName in groups ) {
-		if ( groupName.indexOf( 'mwReference/' ) === 0 && groups[ groupName ].indexOrder.length ) {
-			this.indexEmpty = false;
-			return;
-		}
-	}
-	this.indexEmpty = true;
 };
 
 /**
@@ -201,7 +208,8 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
  * @return {boolean} Index is empty
  */
 ve.ui.MWReferenceSearchWidget.prototype.isIndexEmpty = function () {
-	return this.indexEmpty;
+	return !this.internalList ||
+		ve.ui.MWReferenceSearchWidget.static.isIndexEmpty( this.internalList );
 };
 
 /**

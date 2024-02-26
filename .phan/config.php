@@ -11,19 +11,19 @@ $cfg['suppress_issue_types'][] = 'PhanUndeclaredProperty';
  * @param ?array &$result Where to put the result
  */
 function wfCollectPhpFiles( string $dir, ?array &$result = [] ) {
-		if ( !is_dir( $dir ) ) {
-				return;
+	if ( !is_dir( $dir ) ) {
+		return;
+	}
+	foreach ( scandir( $dir ) as $f ) {
+		if ( $f === '.' || $f === '..' ) {
+			continue;
 		}
-		foreach ( scandir( $dir ) as $f ) {
-				if ( $f === '.' || $f === '..' ) {
-						continue;
-				}
-				$fullName = $dir . DIRECTORY_SEPARATOR . $f;
-				wfCollectPhpFiles( $fullName, $result );
-				if ( is_file( $fullName ) && preg_match( '/\.php$/D', $fullName ) ) {
-						$result[] = $fullName;
-				}
+		$fullName = $dir . DIRECTORY_SEPARATOR . $f;
+		wfCollectPhpFiles( $fullName, $result );
+		if ( is_file( $fullName ) && preg_match( '/\.php$/D', $fullName ) ) {
+			$result[] = $fullName;
 		}
+	}
 }
 
 // Exclude src/DOM in favour of .phan/stubs/DomImpl.php

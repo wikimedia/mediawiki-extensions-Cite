@@ -5,6 +5,7 @@
 		"selenium-daily": "npm run selenium-test",
 		"selenium-test": "cypress run",
 		"cypress:open": "cypress open",
+		"doc": "jsdoc -c jsdoc.json",
 		"test": "grunt test",
 		"lint:fix": "grunt test --fix"
 	},
@@ -21,6 +22,8 @@
 		"grunt-banana-checker": "0.11.1",
 		"grunt-eslint": "24.3.0",
 		"grunt-stylelint": "0.19.0",
+		"jsdoc": "^4.0.2",
+		"jsdoc-wmf-theme": "^0.0.12",
 		"stylelint-config-wikimedia": "0.16.1",
 		"wdio-mediawiki": "2.3.0"
 	}

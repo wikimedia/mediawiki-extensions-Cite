@@ -28,3 +28,4 @@ sftp-config.json
 /cypress/videos
 /cypress/screenshots
 /cypress/downloads
+/docs/js

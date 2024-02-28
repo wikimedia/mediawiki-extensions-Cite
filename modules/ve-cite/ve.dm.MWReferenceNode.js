@@ -10,11 +10,9 @@
 /**
  * DataModel MediaWiki reference node.
  *
- * @class
- * @extends ve.dm.LeafNode
- * @mixin ve.dm.FocusableNode
- *
  * @constructor
+ * @extends ve.dm.LeafNode
+ * @mixes ve.dm.FocusableNode
  * @param {Object} [element] Reference to element in linear model
  */
 ve.dm.MWReferenceNode = function VeDmMWReferenceNode() {
@@ -332,7 +330,8 @@ ve.dm.MWReferenceNode.static.getIndexLabel = function ( dataElement, internalLis
 };
 
 /**
- * @inheritdoc
+ * @override
+ * @see ve.dm.Node
  */
 ve.dm.MWReferenceNode.static.cloneElement = function () {
 	const clone = ve.dm.MWReferenceNode.super.static.cloneElement.apply( this, arguments );
@@ -346,7 +345,8 @@ ve.dm.MWReferenceNode.static.cloneElement = function () {
 };
 
 /**
- * @inheritdoc
+ * @override
+ * @see ve.dm.LeafNode
  */
 ve.dm.MWReferenceNode.static.getHashObject = function ( dataElement ) {
 	// Consider all references in the same group to be comparable:
@@ -383,7 +383,8 @@ ve.dm.MWReferenceNode.static.getInstanceHashObject = function () {
 };
 
 /**
- * @inheritdoc
+ * @override
+ * @see ve.dm.Model
  */
 ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 	if ( key === 'refGroup' ) {
@@ -402,7 +403,8 @@ ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 /**
  * Don't allow reference nodes to be edited if we can't find their contents.
  *
- * @inheritdoc
+ * @override
+ * @see ve.dm.Model
  */
 ve.dm.MWReferenceNode.prototype.isEditable = function () {
 	const internalItem = this.getInternalItem();

@@ -10,10 +10,8 @@
 /**
  * MediaWiki reference model.
  *
- * @class
- * @mixin OO.EventEmitter
- *
  * @constructor
+ * @mixes OO.EventEmitter
  * @param {ve.dm.Document} parentDoc Document that contains or will contain the reference
  */
 ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {

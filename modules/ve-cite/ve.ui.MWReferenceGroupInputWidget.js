@@ -10,10 +10,8 @@
 /**
  * Creates an ve.ui.MWReferenceGroupInput object.
  *
- * @class
- * @extends OO.ui.ComboBoxInputWidget
- *
  * @constructor
+ * @extends OO.ui.ComboBoxInputWidget
  * @param {Object} [config] Configuration options
  * @cfg {string} emptyGroupName Label of the placeholder item
  */

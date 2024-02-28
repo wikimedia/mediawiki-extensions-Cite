@@ -12,9 +12,8 @@
  *
  * Opens the {@see ve.ui.MWCitationDialog} (via it's name "cite") in VisualEditor.
  *
- * @class
- * @extends ve.ui.Action
  * @constructor
+ * @extends ve.ui.Action
  * @param {ve.ui.Surface} surface Surface to act on
  */
 ve.ui.MWCitationAction = function VeUiMWCitationAction() {

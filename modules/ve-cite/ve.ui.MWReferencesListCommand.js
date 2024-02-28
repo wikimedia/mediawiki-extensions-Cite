@@ -13,10 +13,8 @@
  * If a references list node is selected, opens the dialog to edit it.
  * Otherwise inserts the references list for the default group.
  *
- * @class
- * @extends ve.ui.Command
- *
  * @constructor
+ * @extends ve.ui.Command
  */
 ve.ui.MWReferencesListCommand = function VeUiMWReferencesListCommand() {
 	// Parent constructor
@@ -33,7 +31,7 @@ OO.inheritClass( ve.ui.MWReferencesListCommand, ve.ui.Command );
 /* Methods */
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWReferencesListCommand.prototype.execute = function ( surface ) {
 	const fragment = surface.getModel().getFragment();

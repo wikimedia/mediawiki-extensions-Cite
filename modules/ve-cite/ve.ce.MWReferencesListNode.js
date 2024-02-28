@@ -10,11 +10,9 @@
 /**
  * ContentEditable MediaWiki references list node.
  *
- * @class
- * @extends ve.ce.LeafNode
- * @mixin ve.ce.FocusableNode
- *
  * @constructor
+ * @extends ve.ce.LeafNode
+ * @mixes ve.ce.FocusableNode
  * @param {ve.dm.MWReferencesListNode} model Model to observe
  * @param {Object} [config] Configuration options
  */
@@ -68,14 +66,16 @@ ve.ce.MWReferencesListNode.static.primaryCommandName = 'referencesList';
 /* Static Methods */
 
 /**
- * @inheritdoc
+ * @override
+ * @see ve.ce.LeafNode
  */
 ve.ce.MWReferencesListNode.static.getDescription = function ( model ) {
 	return model.getAttribute( 'refGroup' );
 };
 
 /**
- * @inheritdoc ve.ce.FocusableNode
+ * @override
+ * @see ve.ce.FocusableNode
  */
 ve.ce.MWReferencesListNode.prototype.getExtraHighlightClasses = function () {
 	return ve.ce.FocusableNode.prototype

@@ -10,11 +10,9 @@
 /**
  * DataModel MediaWiki references list node.
  *
- * @class
- * @extends ve.dm.BranchNode
- * @mixin ve.dm.FocusableNode
- *
  * @constructor
+ * @extends ve.dm.BranchNode
+ * @mixes ve.dm.FocusableNode
  * @param {Object} [element] Reference to element in linear model
  * @param {ve.dm.Node[]} [children]
  */

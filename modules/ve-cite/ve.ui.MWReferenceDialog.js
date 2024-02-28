@@ -10,10 +10,8 @@
 /**
  * Dialog for editing MediaWiki references.
  *
- * @class
- * @extends ve.ui.NodeDialog
- *
  * @constructor
+ * @extends ve.ui.NodeDialog
  * @param {Object} [config] Configuration options
  */
 ve.ui.MWReferenceDialog = function VeUiMWReferenceDialog( config ) {
@@ -210,7 +208,7 @@ ve.ui.MWReferenceDialog.prototype.onSearchResultsChoose = function ( item ) {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWReferenceDialog.prototype.getReadyProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getReadyProcess.call( this, data )
@@ -224,7 +222,7 @@ ve.ui.MWReferenceDialog.prototype.getReadyProcess = function ( data ) {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWReferenceDialog.prototype.getBodyHeight = function () {
 	// Clamp value to between 300 and 400px height, preferring the actual height if available
@@ -277,7 +275,7 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	// Parent method
@@ -350,7 +348,7 @@ ve.ui.MWReferenceDialog.prototype.useExistingReference = function () {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
@@ -379,7 +377,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 };
 
 /**
- * @inheritdoc
+ * @override
  * @param {Object} [data] Setup data
  * @param {boolean} [data.useExistingReference] Open the dialog in "use existing reference" mode
  */
@@ -419,7 +417,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getTeardownProcess.call( this, data )

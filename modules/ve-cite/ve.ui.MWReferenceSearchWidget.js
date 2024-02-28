@@ -10,10 +10,8 @@
 /**
  * Creates an ve.ui.MWReferenceSearchWidget object.
  *
- * @class
- * @extends OO.ui.SearchWidget
- *
  * @constructor
+ * @extends OO.ui.SearchWidget
  * @param {Object} [config] Configuration options
  */
 ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {

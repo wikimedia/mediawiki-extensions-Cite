@@ -10,10 +10,8 @@
 /**
  * Dialog for inserting and editing MediaWiki citations.
  *
- * @class
- * @extends ve.ui.MWTemplateDialog
- *
  * @constructor
+ * @extends ve.ui.MWTemplateDialog
  * @param {Object} [config] Configuration options
  */
 ve.ui.MWCitationDialog = function VeUiMWCitationDialog( config ) {
@@ -52,7 +50,7 @@ ve.ui.MWCitationDialog.prototype.getReferenceNode = function () {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWCitationDialog.prototype.getSelectedNode = function () {
 	const referenceNode = this.getReferenceNode();
@@ -79,7 +77,7 @@ ve.ui.MWCitationDialog.prototype.getSelectedNode = function () {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWCitationDialog.prototype.initialize = function ( data ) {
 	// Parent method
@@ -92,7 +90,7 @@ ve.ui.MWCitationDialog.prototype.initialize = function ( data ) {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWCitationDialog.super.prototype.getSetupProcess.call( this, data )
@@ -118,7 +116,7 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWCitationDialog.prototype.updateTitle = function () {
 	if ( this.citationTitle ) {
@@ -130,7 +128,7 @@ ve.ui.MWCitationDialog.prototype.updateTitle = function () {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWCitationDialog.prototype.setApplicableStatus = function () {
 	ve.ui.MWCitationDialog.super.prototype.setApplicableStatus.call( this );
@@ -141,7 +139,7 @@ ve.ui.MWCitationDialog.prototype.setApplicableStatus = function () {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 	const dialog = this;
@@ -223,7 +221,7 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWCitationDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWCitationDialog.super.prototype.getTeardownProcess.call( this, data )

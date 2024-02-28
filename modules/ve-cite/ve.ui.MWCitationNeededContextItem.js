@@ -10,10 +10,8 @@
 /**
  * Context item for a citation needed template.
  *
- * @class
- * @extends ve.ui.MWDefinedTransclusionContextItem
- *
  * @constructor
+ * @extends ve.ui.MWDefinedTransclusionContextItem
  * @param {ve.ui.LinearContext} context Context the item is in
  * @param {ve.dm.Model} model Model the item is related to
  * @param {Object} [config]
@@ -105,7 +103,7 @@ ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 };
 
 /**
- * @inheritdoc
+ * @override
  */
 ve.ui.MWCitationNeededContextItem.prototype.renderBody = function () {
 	const date = this.getCanonicalParam( 'date' );

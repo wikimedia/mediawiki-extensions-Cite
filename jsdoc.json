@@ -19,7 +19,7 @@
 		},
 		"wmf": {
 			"linkMap": {
-				"jQuery": "https://api.jquery.com/jQuery",
+				"jQuery": "https://api.jquery.com/Types/#jQuery",
 				"jQuery.Event": "https://api.jquery.com/category/events/event-object/",
 				"OO.EventEmitter": "https://doc.wikimedia.org/oojs/master/OO.EventEmitter.html",
 				"OO.ui.ComboBoxInputWidget": "https://doc.wikimedia.org/oojs-ui/master/js/OO.ui.ComboBoxInputWidget.html",

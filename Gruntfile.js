@@ -21,7 +21,7 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.{js,json}',
-				'!{vendor,node_modules}/**',
+				'!{docs,vendor,node_modules}/**',
 				'!cypress/screenshots/**/*.js'
 			]
 		},
@@ -30,8 +30,7 @@ module.exports = function ( grunt ) {
 			all: [
 				'**/*.css',
 				'**/*.less',
-				'!node_modules/**',
-				'!vendor/**'
+				'!{docs,node_modules,vendor}/**'
 			]
 		}
 	} );

@@ -15,19 +15,10 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
  */
 class RefGroup {
 
-	/**
-	 * @var string
-	 */
-	public $name;
-
-	/**
-	 * @var RefGroupItem[]
-	 */
+	public string $name;
+	/** @var RefGroupItem[] */
 	public array $refs = [];
-
-	/**
-	 * @var RefGroupItem[]
-	 */
+	/** @var array<string,RefGroupItem> Lookup map only for named refs */
 	public array $indexByName = [];
 
 	public function __construct( string $group = '' ) {
@@ -36,27 +27,20 @@ class RefGroup {
 
 	/**
 	 * Generate leading linkbacks
-	 * @param ParsoidExtensionAPI $extApi
-	 * @param string $href
-	 * @param ?string $group
-	 * @param string $text
-	 * @param Document $ownerDoc
-	 * @return Element
 	 */
 	private static function createLinkback(
-		ParsoidExtensionAPI $extApi, string $href, ?string $group,
+		ParsoidExtensionAPI $extApi, string $target, ?string $group,
 		string $text, Document $ownerDoc
 	): Element {
 		$a = $ownerDoc->createElement( 'a' );
-		$s = $ownerDoc->createElement( 'span' );
-		$textNode = $ownerDoc->createTextNode( $text . ' ' );
-		$a->setAttribute( 'href', $extApi->getPageUri() . '#' . $href );
-		$s->setAttribute( 'class', 'mw-linkback-text' );
+		$span = $ownerDoc->createElement( 'span' );
+		$a->setAttribute( 'href', $extApi->getPageUri() . '#' . $target );
+		$span->setAttribute( 'class', 'mw-linkback-text' );
 		if ( $group ) {
 			$a->setAttribute( 'data-mw-group', $group );
 		}
-		$s->appendChild( $textNode );
-		$a->appendChild( $s );
+		$span->appendChild( $ownerDoc->createTextNode( $text . ' ' ) );
+		$a->appendChild( $span );
 		return $a;
 	}
 

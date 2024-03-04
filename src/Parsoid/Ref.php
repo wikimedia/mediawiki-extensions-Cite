@@ -90,7 +90,6 @@ class Ref extends ExtensionTagHandler {
 	) {
 		$startTagSrc = $extApi->extStartTagToWikitext( $node );
 		$dataMw = DOMDataUtils::getDataMw( $node );
-		$html = null;
 		if ( !isset( $dataMw->body ) ) {
 			return $startTagSrc; // We self-closed this already.
 		}

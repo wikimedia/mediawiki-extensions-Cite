@@ -11,24 +11,14 @@ use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
  */
 class ReferencesData {
 
-	/**
-	 * @var int
-	 */
-	private $index = 0;
-
-	/**
-	 * @var RefGroup[]
-	 */
-	private $refGroups = [];
-
-	/** @var array */
-	public $embeddedErrors = [];
-
-	/** @var array */
-	private $inEmbeddedContent = [];
-
-	/** @var string */
-	public $referencesGroup = '';
+	private int $index = 0;
+	/** @var array<string,RefGroup> indexed by group name */
+	private array $refGroups = [];
+	/** @var array<string,array[]> */
+	public array $embeddedErrors = [];
+	/** @var string[] */
+	private array $inEmbeddedContent = [];
+	public string $referencesGroup = '';
 
 	public function inReferencesContent(): bool {
 		return $this->inEmbeddedContent( 'references' );
@@ -38,7 +28,7 @@ class ReferencesData {
 		if ( $needle ) {
 			return in_array( $needle, $this->inEmbeddedContent, true );
 		} else {
-			return count( $this->inEmbeddedContent ) > 0;
+			return $this->inEmbeddedContent !== [];
 		}
 	}
 
@@ -53,8 +43,8 @@ class ReferencesData {
 	public function getRefGroup(
 		string $groupName, bool $allocIfMissing = false
 	): ?RefGroup {
-		if ( !isset( $this->refGroups[$groupName] ) && $allocIfMissing ) {
-			$this->refGroups[$groupName] = new RefGroup( $groupName );
+		if ( $allocIfMissing ) {
+			$this->refGroups[$groupName] ??= new RefGroup( $groupName );
 		}
 		return $this->refGroups[$groupName] ?? null;
 	}
@@ -80,7 +70,7 @@ class ReferencesData {
 		ParsoidExtensionAPI $extApi, string $groupName, string $refName, string $refDir
 	): RefGroupItem {
 		$group = $this->getRefGroup( $groupName, true );
-		$hasRefName = strlen( $refName ) > 0;
+		$hasRefName = $refName !== '';
 
 		// The ids produced Cite.php have some particulars:
 		// Simple refs get 'cite_ref-' + index
@@ -96,7 +86,7 @@ class ReferencesData {
 		$noteId = 'cite_note-' . ( $hasRefName ? $refNameSanitized . '-' . $refKey : $refKey );
 
 		// bump index
-		$this->index += 1;
+		$this->index++;
 
 		$ref = new RefGroupItem();
 		$ref->dir = $refDir;

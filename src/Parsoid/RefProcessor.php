@@ -23,7 +23,7 @@ class RefProcessor extends DOMProcessor {
 		$refsData = new ReferencesData();
 		References::processRefs( $extApi, $refsData, $node );
 		References::insertMissingReferencesIntoDOM( $extApi, $refsData, $node );
-		if ( count( $refsData->embeddedErrors ) > 0 ) {
+		if ( $refsData->embeddedErrors ) {
 			References::addEmbeddedErrors( $extApi, $refsData, $node );
 		}
 	}
@@ -35,9 +35,6 @@ class RefProcessor extends DOMProcessor {
 	 *
 	 * But, for example, as part of some future functionality, this could be used to
 	 * reconstitute page-level information from local annotations left behind by editing clients.
-	 *
-	 * @param ParsoidExtensionAPI $extApi
-	 * @param Element $root
 	 */
 	public function htmlPreprocess( ParsoidExtensionAPI $extApi, Element $root ): void {
 		// TODO

@@ -236,7 +236,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'extends' => null,
 				'follow' => null,
 				'dir' => null,
-				'expected' => 'cite_error_references_missing_group',
+				'expected' => 'cite_error_references_missing_key',
 			],
 			'Ref never used' => [
 				'referencesStack' => [ 'g' => [ 'n' => [] ] ],

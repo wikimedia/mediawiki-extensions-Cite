@@ -147,15 +147,6 @@ class Validator {
 
 		// Section previews are exempt from some rules.
 		if ( !$this->isSectionPreview ) {
-			if ( $group !== Cite::DEFAULT_GROUP && !$this->referenceStack->hasGroup( $group ) ) {
-				// Called with group attribute not defined in text.
-				return StatusValue::newFatal(
-					'cite_error_references_missing_group',
-					Sanitizer::safeEncodeAttribute( $group ),
-					Sanitizer::safeEncodeAttribute( $name )
-				);
-			}
-
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );
 
 			if ( !isset( $groupRefs[$name] ) ) {

@@ -2797,7 +2797,7 @@ T269531: Special case when a named group is entirely unused in the text
 <ref name="a" group="g">a</ref>
 </references>
 !! html/php
-<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "a" defined in <code>&lt;references&gt;</code> has group attribute "g" which does not appear in prior text.</span>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "a" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
 </p>
 !! html/parsoid
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{"group":"g"},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\",\"group\":\"g\"},\"body\":{\"id\":\"mw-reference-text-cite_note-a-1\"},\"errors\":[{\"key\":\"cite_error_references_missing_key\",\"params\":[\"a\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-a-1\" style=\"counter-reset: mw-Ref 1;\" data-mw-group=\"g\">&lt;span class=\"mw-reflink-text\">[g 1]&lt;/span>&lt;/a>&lt;/sup>\n"}}'>

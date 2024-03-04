@@ -82,11 +82,11 @@ class Validator {
 		}
 
 		return $this->inReferencesGroup === null ?
-			$this->validateRefOutsideOfReferences( $text, $name ) :
-			$this->validateRefInReferences( $text, $group, $name );
+			$this->validateRefOutsideOfReferenceList( $text, $name ) :
+			$this->validateRefInReferenceList( $text, $group, $name );
 	}
 
-	private function validateRefOutsideOfReferences(
+	private function validateRefOutsideOfReferenceList(
 		?string $text,
 		?string $name
 	): StatusValue {
@@ -120,7 +120,7 @@ class Validator {
 		return StatusValue::newGood();
 	}
 
-	private function validateRefInReferences(
+	private function validateRefInReferenceList(
 		?string $text,
 		string $group,
 		?string $name
@@ -147,7 +147,7 @@ class Validator {
 
 		// Section previews are exempt from some rules.
 		if ( !$this->isSectionPreview ) {
-			if ( !$this->referenceStack->hasGroup( $group ) ) {
+			if ( $group !== Cite::DEFAULT_GROUP && !$this->referenceStack->hasGroup( $group ) ) {
 				// Called with group attribute not defined in text.
 				return StatusValue::newFatal(
 					'cite_error_references_missing_group',

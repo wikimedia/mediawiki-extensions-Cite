@@ -2777,18 +2777,34 @@ Hi ho
 
 !! end
 
-# TODO: Return a more helpful error, this is because the reference is never used, not about the group attribute.
 !! test
-Confusing error
+T269531: Generic error message when a list-defined reference is not used in the text
 !! wikitext
 <references>
 <ref name="foo">foo</ref>
 </references>
 !! html/php
-<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "foo" defined in <code>&lt;references&gt;</code> has group attribute "" which does not appear in prior text.</span>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "foo" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
 </p>
 !! html/parsoid
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt3\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"foo\"},\"body\":{\"id\":\"mw-reference-text-cite_note-foo-1\"},\"errors\":[{\"key\":\"cite_error_references_missing_key\",\"params\":[\"foo\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-foo-1\" style=\"counter-reset: mw-Ref 1;\">&lt;span class=\"mw-reflink-text\">[1]&lt;/span>&lt;/a>&lt;/sup>\n"}}'><ol class="mw-references references"><li about="#cite_note-foo-1" id="cite_note-foo-1"><span rel="mw:referencedBy"></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text">foo</span></li></ol></div>
+!! end
+
+!! test
+T269531: Special case when a named group is entirely unused in the text
+!! wikitext
+<references group="g">
+<ref name="a" group="g">a</ref>
+</references>
+!! html/php
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "a" defined in <code>&lt;references&gt;</code> has group attribute "g" which does not appear in prior text.</span>
+</p>
+!! html/parsoid
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{"group":"g"},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\",\"group\":\"g\"},\"body\":{\"id\":\"mw-reference-text-cite_note-a-1\"},\"errors\":[{\"key\":\"cite_error_references_missing_key\",\"params\":[\"a\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-a-1\" style=\"counter-reset: mw-Ref 1;\" data-mw-group=\"g\">&lt;span class=\"mw-reflink-text\">[g 1]&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
+<ol class="mw-references references" data-mw-group="g">
+<li id="cite_note-a-1"><span rel="mw:referencedBy"></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text">a</span></li>
+</ol>
+</div>
 !! end
 
 # T307741: Parsoid fails this test in both standalone and integrated modes.

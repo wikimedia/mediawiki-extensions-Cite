@@ -3,7 +3,6 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
-use stdClass;
 use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\DOM\Element;
 use Wikimedia\Parsoid\Ext\DOMUtils;
@@ -22,12 +21,12 @@ class RefGroup {
 	public $name;
 
 	/**
-	 * @var stdClass[]
+	 * @var RefGroupItem[]
 	 */
 	public array $refs = [];
 
 	/**
-	 * @var stdClass[]
+	 * @var RefGroupItem[]
 	 */
 	public array $indexByName = [];
 
@@ -62,7 +61,7 @@ class RefGroup {
 	}
 
 	public function renderLine(
-		ParsoidExtensionAPI $extApi, Element $refsList, stdClass $ref
+		ParsoidExtensionAPI $extApi, Element $refsList, RefGroupItem $ref
 	): void {
 		$ownerDoc = $refsList->ownerDocument;
 

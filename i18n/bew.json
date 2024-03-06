@@ -21,7 +21,6 @@
 	"cite_error_included_references": "Tenger penutup kaga' ada <code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "Ada tenger <code>&lt;ref&gt;</code> bakal kelompok nyang namanya \"$1\", cuman kaga' ketemu tenger <code>&lt;references group=\"$1\"/&gt;</code> nyang bekaètan",
 	"cite_error_references_group_mismatch": "Tenger <code>&lt;ref&gt;</code> di <code>&lt;references&gt;</code> ada terèmpèlan kelompok \"$1\" nyang bentrok.",
-	"cite_error_references_missing_group": "Tenger <code>&lt;ref&gt;</code> dengen nama \"$2\" nyang dita'rip di <code>&lt;references&gt;</code> ada punya terèmpèlan \"$1\" nyang kaga' nongol di tèks sebelonnya.",
 	"cite_error_references_missing_key": "Tenger <code>&lt;ref&gt;</code> dengen nama \"$1\" nyang dita'rip di <code>&lt;references&gt;</code> kaga' dipaké di tèks sebelonnya.",
 	"cite_error_references_no_key": "Tenger <code>&lt;ref&gt;</code> nyang dita'rip di <code>&lt;references&gt;</code> kaga' punya terèmpèlan nama.",
 	"cite_error_empty_references_define": "Tenger <code>&lt;ref&gt;</code> dengen nama \"$1\" nyang dita'rip di kelompok <code>&lt;references&gt;</code> \"$2\" kaga' punya isi.",

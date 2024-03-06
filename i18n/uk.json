@@ -34,7 +34,6 @@
 	"cite_error_included_references": "Відсутній закривальний тег для <code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "Теги <code>&lt;ref&gt;</code> існують для групи під назвою «$1», але не знайдено відповідного тегу <code>&lt;references group=\"$1\"/&gt;</code>",
 	"cite_error_references_group_mismatch": "Тег <code>&lt;ref&gt;</code> в <code>&lt;references&gt;</code> має конфліктуючий атрибут групи \"$1\".",
-	"cite_error_references_missing_group": "Тег <code>&lt;ref&gt;</code> з назвою «$2», заданий в <code>&lt;references&gt;</code>, має атрибут групи «$1», який не фігурує в попередньому тексті.",
 	"cite_error_references_missing_key": "Тег <code>&lt;ref&gt;</code> з назвою \"$1\", визначений у <code>&lt;references&gt;</code>, не використовується в попередньому тексті.",
 	"cite_error_references_no_key": "Тег <code>&lt;ref&gt;</code>, визначений у <code>&lt;references&gt;</code>, не має атрибута назви.",
 	"cite_error_empty_references_define": "Тег <code>&lt;ref&gt;</code> з назвою «$1», визначений у <code>&lt;references&gt;</code> в групі «$2», нічого не містить.",

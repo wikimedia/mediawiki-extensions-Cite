@@ -23,7 +23,6 @@
 	"cite_error_included_references": "B sẽn pa yãend tɩ b sẽn dat n gʋlsã yaa \"<code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code> tagsã be neb sẽn boond tɩ \"$1\" sullã yĩnga, la b pa yã tags ning sẽn zemse <code>&lt;references group=\"$1\"/&gt;</code> ye",
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code> tag<code>&Lt; references&gt;</code> a pʋgẽ wã tara sull tagr sẽn kɩɩsd taab n boond tɩ \"$1\".",
-	"cite_error_references_missing_group": "<code>&lt;ref&gt;</code> tag sẽn boond tɩ \"$2\" sẽn be <code> &lt;references&gt; </code> pʋgẽ wã tara sull tag \"$1\" sẽn pa be pĩnd sõssã pʋgẽ ye.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code> tag sẽn tar yʋʋr sẽn boond tɩ \"$1\" sẽn be <code> &lt;references&gt; </code> pʋgẽ pa be b sẽn da gʋlsd-a wã pʋgẽ ye.",
 	"cite_error_references_no_key": "<code>&lt;ref&gt;</code> tag sẽn be <code>&lt;references&gt;</code> pʋgẽ wã pa tar yʋy wã zʋll ye.",
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> tag sẽn boond tɩ \"$1\" sẽn be <code>&lt;references&gt;</code> sull \"$2\" pʋgẽ wã pa tar sõss ye.",

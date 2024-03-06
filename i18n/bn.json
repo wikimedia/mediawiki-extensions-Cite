@@ -26,7 +26,6 @@
 	"cite_error_included_references": "<code>&lt;references&gt;</code>-এর জন্য বন্ধকরণ ট্যাগ পাওয়া যায়নি",
 	"cite_error_group_refs_without_references": "\"$1\" নামক গ্রুপের জন্য <code>&lt;ref&gt;</code> ট্যাগ রয়েছে, কিন্তু এর জন্য কোন সঙ্গতিপূর্ণ <code>&lt;references group=\"$1\"/&gt;</code> ট্যাগ পাওয়া যায়নি",
 	"cite_error_references_group_mismatch": "\"$1\" গ্রুপের ক্ষেত্রে <code>&lt;ref&gt;</code> ট্যাগ <code>&lt;references&gt;</code> ট্যাগের অংশে ব্যবহারে সমস্যা সৃষ্টি হয়েছে।",
-	"cite_error_references_missing_group": "<code>&lt;references&gt;</code>-এ সংজ্ঞায়িত \"$2\" নামসহ <code>&lt;ref&gt;</code> ট্যাগে আরোপ গ্রুপ \"$1\" রয়েছে যা পূর্ববর্তী লেখায় প্রদর্শিত হয়নি।",
 	"cite_error_references_missing_key": "<code>&lt;references&gt;</code>-এ সংজ্ঞায়িত \"$1\" নামসহ <code>&lt;ref&gt;</code> ট্যাগ পূর্ববর্তী লেখায় ব্যবহৃত হয়নি।",
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>-এ সংজ্ঞায়িত <code>&lt;ref&gt;</code> ট্যাগে কোন নাম আরোপ করা হয়নি।",
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code> গ্রুপ $2-এ সংজ্ঞায়িত \"$1\" নামসহ <code>&lt;ref&gt;</code> ট্যাগে কোন বিষয়বস্তু নেই।",

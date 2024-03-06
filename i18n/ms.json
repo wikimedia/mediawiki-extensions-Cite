@@ -21,7 +21,6 @@
 	"cite_error_included_ref": "Tag <code>&lt;ref&gt;</code> tidak ditutup dengan <code>&lt;/ref&gt;</code>",
 	"cite_error_group_refs_without_references": "Tag <code>&lt;ref&gt;</code> untuk kumpulan \"$1\" ada tetapi tag <code>&lt;references group=\"$1\"/&gt;</code> yang sepadan tidak disertakan",
 	"cite_error_references_group_mismatch": "Tag <code>&lt;ref&gt;</code> dalam <code>&lt;references&gt;</code> mempunyai atribut kumpulan yang bercanggah, \"$1\".",
-	"cite_error_references_missing_group": "Tag <code>&lt;ref&gt;</code> yang ditentukan dalam <code>&lt;references&gt;</code> mempunyai atribut kumpulan \"$1\" yang tiada dalam teks sebelumnya.",
 	"cite_error_references_missing_key": "Tag <code>&lt;ref&gt;</code> dengan nama \"$1\" yang ditentukan dalam <code>&lt;references&gt;</code> tidak digunakan dalam teks sebelumnya.",
 	"cite_error_references_no_key": "Tag <code>&lt;ref&gt;</code> yang ditentukan dalam <code>&lt;references&gt;</code> tiada atribut nama.",
 	"cite_error_empty_references_define": "Tag <code>&lt;ref&gt;</code> yang ditentukan dalam <code>&lt;references&gt;</code> dengan nama \"$1\" tiada kandungan.",

@@ -25,7 +25,6 @@
 	"cite_error_included_references": "Manjka zaključna značka za <code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "Za skupino »$1« obstajajo značke <code>&lt;ref&gt;</code>, vendar ustrezne značke <code>&lt;references group=\"$1\"/&gt;</code> ni bilo mogoče najti.",
 	"cite_error_references_group_mismatch": "Značka <code>&lt;ref&gt;</code> v <code>&lt;references&gt;</code> vsebuje navzkrižni atribut skupine »$1«.",
-	"cite_error_references_missing_group": "Značka <code>&lt;ref&gt;</code> z imenom »$2«, opredeljena v <code>&lt;references&gt;</code>, ima atribut skupine »$1«, ki se ne pojavi v predhodnem besedilu.",
 	"cite_error_references_missing_key": "Značka <code>&lt;ref&gt;</code> z imenom »$1«, opredeljena v <code>&lt;references&gt;</code>, ni bila uporabljena v predhodnem besedilu.",
 	"cite_error_references_no_key": "Značka <code>&lt;ref&gt;</code>, določena v <code>&lt;references&gt;</code>, nima lastnosti »name«.",
 	"cite_error_empty_references_define": "Značka <code>&lt;ref&gt;</code> z imenom »$1«, določena v <code>&lt;references&gt;</code> skupine »$2«, nima vsebine.",

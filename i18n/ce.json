@@ -19,7 +19,6 @@
 	"cite_error_included_references": "ДӀачӀогӀу тег йац <code>&lt;references&gt;</code>",
 	"cite_error_group_refs_without_references": "Тобан «$1» йолуш йолу тегашца <code>&lt;ref&gt;</code> йогӀуш йолу тег <code>&lt;references group=\"$1\"/&gt;</code> ца карийна",
 	"cite_error_references_group_mismatch": "Теган <code>&lt;ref&gt;</code> <code>&lt;references&gt;</code> йукъахь нийса йоцу тобанаш йу атрибутийн «$1».",
-	"cite_error_references_missing_group": "Тег <code>&lt;ref&gt;</code>, билгалйина <code>&lt;references&gt;</code>, «$1» тобан атрибут йу, йозан йукъахь йоцу.",
 	"cite_error_references_missing_key": "Тег <code>&lt;ref&gt;</code> «$1» цӀарца, кху <code>&lt;references&gt;</code> йукъахь билгалйина йолу, хьалха хилла йозан йукъахь йац.",
 	"cite_error_references_no_key": "Тег <code>&lt;ref&gt;</code>, <code>&lt;references&gt;</code> йукъахь билгалйина йолу, цӀеран атрибут йац.",
 	"cite_error_empty_references_define": "Тег <code>&lt;ref&gt;</code>, <code>&lt;references&gt;</code> йукъахь билгалйина йолу, «$1» цӀарца чулацам боцуш йу.",

@@ -21,7 +21,6 @@
 	"cite_error_included_references": "ป้ายระบุปิดสําหรับ <code>&lt;references&gt;</code> หายไป",
 	"cite_error_group_refs_without_references": "มีป้ายระบุ <code>&lt;ref&gt;</code> สำหรับกลุ่มชื่อ \"$1\" แต่ไม่พบป้ายระบุ <code>&lt;references group=\"$1\"/&gt;</code> ที่สอดคล้องกัน",
 	"cite_error_references_group_mismatch": "ป้ายระบุ <code>&lt;ref&gt;</code> ใน <code>&lt;references&gt;</code> มีลักษณะกลุ่มขัดแย้ง \"$1\"",
-	"cite_error_references_missing_group": "ป้ายระบุ <code>&lt;ref&gt;</code> ด้วยชื่อ \"$2\" ที่นิยามใน <code>&lt;references&gt;</code> มีลักษณะกลุ่ม \"$1\" ซึ่งไม่ปรากฏในข้อความก่อนหน้า",
 	"cite_error_references_missing_key": "ป้ายระบุ <code>&lt;ref&gt;</code> ชื่อ \"$1\" ซึ่งนิยามใน  <code>&lt;references&gt;</code> ไม่ถูกใช้ในข้อความก่อนหน้า",
 	"cite_error_references_no_key": "ป้ายระบุ <code>&lt;ref&gt;</code> ที่นิยามใน <code>&lt;references&gt;</code> ไม่มีลักษณะชื่อ",
 	"cite_error_empty_references_define": "ป้ายระบุ <code>&lt;ref&gt;</code> ด้วยชื่อ \"$1\" ที่นิยามในกลุ่ม <code>&lt;references&gt;</code> ไม่มีเนื้อหา $2",

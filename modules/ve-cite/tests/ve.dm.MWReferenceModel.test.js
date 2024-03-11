@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-QUnit.module( 've.dm.MWReferenceModel', ve.test.utils.newMwEnvironment() );
+QUnit.module( 've.dm.MWReferenceModel (Cite)', ve.test.utils.newMwEnvironment() );
 
 /* Tests */
 

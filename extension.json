@@ -57,6 +57,8 @@
 			}
 		},
 		"ext.cite.parsoid.styles": {
+			"localBasePath": "modules/parsoid-styles",
+			"remoteExtPath": "Cite/modules/parsoid-styles",
 			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
 			"styles": "ext.cite.parsoid.styles.less"
 		},

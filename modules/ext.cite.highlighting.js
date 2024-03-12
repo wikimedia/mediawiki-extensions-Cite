@@ -1,6 +1,7 @@
 'use strict';
 
 /**
+ * @file Dynamic highlighting while reading an article
  * @author Thiemo Kreuz
  */
 ( function () {

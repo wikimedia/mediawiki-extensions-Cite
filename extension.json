@@ -116,7 +116,6 @@
 			"styles": [
 				"ve.ui.MWReferenceDialog.less",
 				"ve.ui.MWReferenceContextItem.less",
-				"ve.ui.MWReferenceGroupInputWidget.less",
 				"ve.ui.MWReferenceResultWidget.less",
 				"ve.ui.MWReferenceSearchWidget.less",
 				"ve.ui.MWCitationDialogTool.less"

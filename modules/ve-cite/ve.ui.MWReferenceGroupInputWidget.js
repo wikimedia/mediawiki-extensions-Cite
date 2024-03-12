@@ -43,8 +43,7 @@ OO.inheritClass( ve.ui.MWReferenceGroupInputWidget, OO.ui.ComboBoxInputWidget );
 ve.ui.MWReferenceGroupInputWidget.prototype.populateMenu = function ( internalList ) {
 	const items = [ new OO.ui.MenuOptionWidget( {
 		data: '',
-		label: this.emptyGroupName,
-		flags: 'emptyGroupPlaceholder'
+		label: this.emptyGroupName
 	} ) ];
 	for ( const groupName in internalList.getNodeGroups() ) {
 		const match = groupName.match( /^mwReference\/(.+)/ );

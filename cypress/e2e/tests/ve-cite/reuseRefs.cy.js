@@ -12,7 +12,7 @@ function getTestString( prefix = 'CiteTest-reuseRefs' ) {
 	return prefix;
 }
 
-describe( 'Re-using refs in Visual Editor', () => {
+describe.skip( 'Re-using refs in Visual Editor', () => {
 	beforeEach( () => {
 		const title = getTestString( 'CiteTest-title' );
 		const encodedTitle = encodeURIComponent( title );

@@ -8,8 +8,10 @@
 @import 'mediawiki.skin.variables.less';
 
 .ve-ui-mwReferenceResultWidget {
-	position: relative;
 	padding: 1em;
+	// Limit extremely large references to not overflow the dialog
+	max-height: 12em;
+	overflow: hidden;
 	border-bottom: @border-width-base @border-style-base @border-color-muted;
 
 	&:last-child {
@@ -24,7 +26,8 @@
 
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
 		white-space: normal;
-		// Disable click events in the preview
+		// Ignore clicks on e.g. <a> elements that are part of the reference's text
 		pointer-events: none;
+		word-wrap: break-word;
 	}
 }

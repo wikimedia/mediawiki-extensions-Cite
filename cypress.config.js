@@ -16,6 +16,7 @@ module.exports = defineConfig( {
 	},
 
 	retries: 2,
+	defaultCommandTimeout: 5000, // ms; default is 4000ms
 
 	screenshotsFolder: envLogDir || 'cypress/screenshots',
 	video: true,

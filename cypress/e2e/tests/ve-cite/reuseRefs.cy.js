@@ -8,45 +8,28 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 `This is reference #3 <ref>${ refText2 }</ref><br>` +
 '<references />';
 
-function getTestString( prefix = 'CiteTest-reuseRefs' ) {
-	return prefix;
-}
-
 describe( 'Re-using refs in Visual Editor', () => {
 	beforeEach( () => {
-		const title = getTestString( 'CiteTest-title' );
-		const encodedTitle = encodeURIComponent( title );
+		const title = helpers.getTestString( 'CiteTest-reuseRefs' );
 
 		cy.clearCookies();
 		cy.visit( '/index.php' );
 
-		// Rely on the retry behavior of Cypress assertions to use this as a "wait"
-		// until the specified conditions are met.
-		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
+		helpers.editPage( title, wikiText );
 		cy.window().then( async ( win ) => {
-			await win.mw.loader.using( 'mediawiki.api' );
-			const response = await new win.mw.Api().postWithEditToken( {
-				action: 'edit',
-				title: title,
-				text: wikiText,
-				formatversion: '2'
-			} );
-			expect( response.edit.result ).to.equal( 'Success' );
-			// Disable welcome dialog when entering edit mode
 			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
 		} );
 
-		cy.visit( `/index.php?title=${ encodedTitle }` );
+		helpers.visitTitle( title );
 
-		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
+		helpers.waitForMWLoader();
 		cy.window().then( async ( win ) => {
 			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
 				await win.mw.hook( 'wikipage.content' ).add( function () {} );
 			} );
 		} );
 
-		// Open Ve edit mode
-		cy.visit( `/index.php?title=${ encodedTitle }&veaction=edit` );
+		helpers.visitTitle( title, { veaction: 'edit' } );
 
 		helpers.waitForVEToLoad();
 	} );

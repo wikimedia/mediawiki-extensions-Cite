@@ -1,33 +1,21 @@
 import * as helpers from '../utils/functions.helper.js';
 
-const title = getTestString( 'CiteTest-title' );
-const encodedTitle = encodeURIComponent( title );
-
-function getTestString( prefix = '' ) {
-	return prefix + Math.random().toString();
-}
+const title = helpers.getTestString( 'CiteTest-title' );
 
 describe( 'Cite backlinks test', () => {
 	before( () => {
-		cy.visit( '/index.php' );
+		helpers.visitTitle( '' );
 
 		const wikiText = 'This is reference #1: <ref name="a">This is citation #1 for reference #1 and #2</ref><br> ' +
 			'This is reference #2: <ref name="a" /><br>' +
 			'This is reference #3: <ref>This is citation #2</ref><br>' +
 			'<references />';
 
-		// Rely on the retry behavior of Cypress assertions to use this as a "wait"
-		// until the specified conditions are met.
-		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
-		cy.window().then( async ( win ) => {
-			await win.mw.loader.using( 'mediawiki.api' );
-			const response = await new win.mw.Api().create( title, {}, wikiText );
-			expect( response.result ).to.equal( 'Success' );
-		} );
+		helpers.editPage( title, wikiText );
 	} );
 
 	beforeEach( () => {
-		cy.visit( `/index.php?title=${ encodedTitle }` );
+		helpers.visitTitle( title );
 
 		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
 		cy.window().then( async ( win ) => {

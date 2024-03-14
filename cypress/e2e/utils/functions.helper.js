@@ -1,6 +1,41 @@
+import querystring from 'querystring';
+
 export function waitForVEToLoad() {
 	cy.get( '.ve-init-mw-desktopArticleTarget-toolbar-open', { timeout: 7000 } )
 		.should( 'be.visible' );
+}
+
+export function getTestString( prefix = '' ) {
+	return prefix + Math.random().toString();
+}
+
+export function visitTitle( title, query = {} ) {
+	cy.visit( `/index.php?title=${ encodeURIComponent( title ) }&${ querystring.stringify( query ) }` );
+}
+
+export function waitForMWLoader() {
+	// Rely on the retry behavior of Cypress assertions to use this as a "wait"
+	// until the specified conditions are met.
+	cy.window()
+		.should( 'have.property', 'mw' )
+		.and( 'have.property', 'loader' )
+		.and( 'have.property', 'using' );
+}
+
+export function editPage( title, wikiText ) {
+	waitForMWLoader();
+	cy.window().then( async ( win ) => {
+		await win.mw.loader.using( 'mediawiki.api' );
+		const response = await new win.mw.Api().create( title, {}, wikiText );
+		expect( response.result ).to.equal( 'Success' );
+	} );
+}
+
+export function loginAsAdmin() {
+	visitTitle( 'Special:UserLogin' );
+	cy.get( '#wpName1' ).type( cy.config( 'mediawikiAdminUsername' ) );
+	cy.get( '#wpPassword1' ).type( cy.config( 'mediawikiAdminPassword' ) );
+	cy.get( '#wpLoginAttempt' ).click();
 }
 
 export function getMWSuccessNotification() {

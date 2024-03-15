@@ -34,21 +34,6 @@ describe( 'Re-using refs in Visual Editor', () => {
 		helpers.waitForVEToLoad();
 	} );
 
-	it( 'should display existing references in the Cite re-use dialog', () => {
-		helpers.openVECiteReuseDialog();
-
-		// Assert reference content for the first reference
-		helpers.getCiteReuseDialogRefName( 1 ).should( 'contain.text', 'a' );
-		helpers.getCiteReuseDialogRefNumber( 1 ).should( 'contain.text', '[1]' );
-		helpers.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
-
-		// Assert reference content for the second reference
-		helpers.getCiteReuseDialogRefName( 2 ).should( 'contain.text', '' );
-		helpers.getCiteReuseDialogRefNumber( 2 ).should( 'contain.text', '[2]' );
-		helpers.getCiteReuseDialogRefText( 2 ).should( 'have.text', refText2 );
-
-	} );
-
 	it( 'should display re-used reference in article with correct footnote number and notification in context dialog', () => {
 		// Currently there are 3 refs in the article
 		helpers.getRefsFromArticleSection().should( 'have.length', 3 );

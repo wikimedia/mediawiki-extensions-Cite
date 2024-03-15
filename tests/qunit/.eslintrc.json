@@ -1,0 +1,16 @@
+{
+	"root": true,
+	"extends": [
+		"../../modules/.eslintrc.json",
+		"wikimedia/qunit"
+	],
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"env": {
+		"commonjs": true
+	},
+	"rules": {
+		"no-jquery/no-class-state": "off"
+	}
+}

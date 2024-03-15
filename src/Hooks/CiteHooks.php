@@ -14,6 +14,8 @@ use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
+use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
@@ -25,6 +27,7 @@ use MediaWiki\User\Options\UserOptionsLookup;
 class CiteHooks implements
 	ContentHandlerDefaultModelForHook,
 	ResourceLoaderGetConfigVarsHook,
+	ResourceLoaderRegisterModulesHook,
 	APIQuerySiteInfoGeneralInfoHook,
 	EditPage__showEditForm_initialHook
 {
@@ -65,6 +68,36 @@ class CiteHooks implements
 		$vars['wgCiteVisualEditorOtherGroup'] = $config->get( 'CiteVisualEditorOtherGroup' );
 		$vars['wgCiteResponsiveReferences'] = $config->get( 'CiteResponsiveReferences' );
 		$vars['wgCiteBookReferencing'] = $config->get( 'CiteBookReferencing' );
+	}
+
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
+	 */
+	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'Popups' ) ) {
+			$dir = dirname( __DIR__, 2 ) . '/modules/';
+			$resourceLoader->register( [
+				'ext.cite.referencePreviews' => [
+					'localBasePath' => $dir . '/ext.cite.referencePreviews',
+					'remoteExtPath' => 'Cite/modules/ext.cite.referencePreviews',
+					'dependencies' => [
+						'ext.popups.main',
+					],
+					'styles' => [
+						'referencePreview.less',
+					],
+					'packageFiles' => [
+						'index.js',
+						'constants.js',
+						'createReferenceGateway.js',
+						'createReferencePreview.js',
+						'isReferencePreviewsEnabled.js',
+						'referencePreviewsInstrumentation.js',
+						'setUserConfigFlags.js'
+					]
+				]
+			] );
+		}
 	}
 
 	/**

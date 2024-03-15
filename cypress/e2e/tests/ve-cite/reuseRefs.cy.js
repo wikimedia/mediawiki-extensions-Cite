@@ -12,7 +12,7 @@ function getTestString( prefix = 'CiteTest-reuseRefs' ) {
 	return prefix;
 }
 
-describe.skip( 'Re-using refs in Visual Editor', () => {
+describe( 'Re-using refs in Visual Editor', () => {
 	beforeEach( () => {
 		const title = getTestString( 'CiteTest-title' );
 		const encodedTitle = encodeURIComponent( title );
@@ -48,6 +48,7 @@ describe.skip( 'Re-using refs in Visual Editor', () => {
 		// Open Ve edit mode
 		cy.visit( `/index.php?title=${ encodedTitle }&veaction=edit` );
 
+		helpers.waitForVEToLoad();
 	} );
 
 	it( 'should display existing references in the Cite re-use dialog', () => {

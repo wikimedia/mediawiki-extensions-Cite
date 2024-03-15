@@ -1,3 +1,8 @@
+export function waitForVEToLoad() {
+	cy.get( '.ve-init-mw-desktopArticleTarget-toolbar-open', { timeout: 7000 } )
+		.should( 'be.visible' );
+}
+
 export function getMWSuccessNotification() {
 	return cy.get( '.mw-notification-visible .oo-ui-icon-success' );
 }

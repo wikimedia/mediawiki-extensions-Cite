@@ -840,8 +840,6 @@ parsoid=wt2html
 
 !! test
 <ref> defined in <references>
-!! options
-disabled
 !! wikitext
 <ref name="foo" />
 
@@ -863,8 +861,6 @@ disabled
 
 !! test
 <ref> defined in <references> called with #tag
-!! options
-disabled
 !! wikitext
 <ref name="foo" />
 
@@ -881,14 +877,12 @@ disabled
 !! html/parsoid
 <p><sup about="#mwt3" class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}'><a href="./Parser_test#cite_note-foo-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt6" data-parsoid='{"pi":[[{"k":"1"}]]}' data-mw='{"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;Ref name=\"foo\">BAR&lt;/ref>\n"}},"i":0}}]}'><ol class="mw-references references"><li about="#cite_note-foo-1" id="cite_note-foo-1"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text">BAR</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt6" data-parsoid='{"pi":[[{"k":"1"}]]}' data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n&lt;Ref name=\"foo\">BAR&lt;/ref>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;Ref name=\"foo\">BAR&lt;/ref>\n"}},"i":0}}]}'><ol class="mw-references references"><li about="#cite_note-foo-1" id="cite_note-foo-1"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text">BAR</span></li></ol></div>
 !! end
 
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 T242437 - Nested references edge case, outer tag function with LDR
-!! options
-disabled
 !! wikitext
 <ref name="foo" />
 {{#tag:references|
@@ -907,8 +901,6 @@ Parsoid fails this right now
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 T242437 - Nested references edge case, outer tag function, inner LDR
-!! options
-disabled
 !! wikitext
 <ref name="foo" />
 {{#tag:references|
@@ -1096,8 +1088,6 @@ Consecutive whitespace in custom link label message should not create empty []
 
 !! test
 Bug 31374 regression check: nested strip items
-!! options
-disabled
 !! wikitext
 {{#tag:ref|note<ref>reference</ref>|group=Note}}
 <references group="Note" />
@@ -1114,7 +1104,7 @@ disabled
 </li>
 </ol></div>
 !! html/parsoid
-<p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"note&lt;ref>reference&lt;/ref>"},"group":{"wt":"Note"}},"i":0}}]}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 1;" data-mw-group="Note"><span class="mw-reflink-text">[Note 1]</span></a></sup></p>
+<p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"Note"},"body":{"extsrc":"note&lt;ref>reference&lt;/ref>"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"note&lt;ref>reference&lt;/ref>"},"group":{"wt":"Note"}},"i":0}}]}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 1;" data-mw-group="Note"><span class="mw-reflink-text">[Note 1]</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt10" data-mw='{"name":"references","attrs":{"group":"Note"}}'><ol class="mw-references references" data-mw-group="Note"><li about="#cite_note_2" id="cite_note-2"><a href="./Parser_test#cite_ref-2" data-mw-group="Note" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-2" class="mw-reference-text">note<sup about="#mwt6" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></span></li></ol></div>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt13" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">reference</span></li></ol></div>
 !! end
@@ -1145,8 +1135,6 @@ foo
 
 !! test
 <ref> with no name and no content.
-!! options
-disabled
 !! wikitext
 Bla.<ref></ref>
 foo.<ref />
@@ -1160,7 +1148,7 @@ zero<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The op
 !! html/parsoid
 <p>Bla.<sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{},"body":{"html":""},"errors":[{"key":"cite_error_ref_no_input"}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup>
 foo.<sup about="#mwt6" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{},"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[2]</span></a></sup>
-zero<sup about="#mwt8" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref mw:Error" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;ref />"}},"i":0}}],"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-3" style="counter-reset: mw-Ref 3;"><span class="mw-reflink-text">[3]</span></a></sup></p>
+zero<sup about="#mwt8" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{},"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;ref />"}},"i":0}}],"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-3" style="counter-reset: mw-Ref 3;"><span class="mw-reflink-text">[3]</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt13" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text"></span></li><li about="#cite_note-2" id="cite_note-2"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-2" class="mw-reference-text"></span></li><li about="#cite_note-3" id="cite_note-3"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-3" class="mw-reference-text"></span></li></ol></div>
 !! end
 
@@ -1232,8 +1220,6 @@ Hi <sup about="#mwt6" class="mw-ref reference" id="cite_ref-ho_1-1" rel="dc:refe
 
 !! test
 Multiple definition (outside <references/>)
-!! options
-disabled
 !! wikitext
 <ref name="a">abc</ref>
 <ref name="a">def</ref>
@@ -1362,8 +1348,6 @@ T202593: Identical dir attributes are pointless, but should not generate an erro
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 Multiple definition (inside {{#tag:references}})
-!! options
-disabled
 !! wikitext
 <ref name="a" />
 {{#tag:references|
@@ -1984,8 +1968,6 @@ B <sup about="#mwt4" class="mw-ref reference" id="cite_ref-b_2-0" rel="dc:refere
 
 !! test
 References: 6. <references /> from a transclusion
-!! options
-disabled
 !! wikitext
 <ref>Foo</ref> {{1x|<references />}}
 !! html/php
@@ -1994,7 +1976,7 @@ disabled
 </li>
 </ol></div>
 !! html/parsoid
-<p><sup about="#mwt6" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup> </p><div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt3" data-parsoid='{"pi":[[{"k":"1"}]]}' data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;references />"}},"i":0}}]}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">Foo</span></li></ol></div>
+<p><sup about="#mwt6" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup> </p><div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt3" data-parsoid='{"pi":[[{"k":"1"}]]}' data-mw='{"name":"references","attrs":{},"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;references />"}},"i":0}}]}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">Foo</span></li></ol></div>
 
 !! end
 
@@ -2064,13 +2046,11 @@ TEN<sup about="#mwt54" class="mw-ref reference" id="cite_ref-foo_9-0" rel="dc:re
 
 !! test
 References: 8. T88019: Remove <meta>s from templates inside <ref> that's itself inside a template
-!! options
-disabled
 !! wikitext
 X{{1x|<ref>foo {{1x|<b>bar</b>}} and {{1x|baz}} boo</ref>}}
 <references />
 !! html/parsoid
-<p>X<sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;ref>foo {{1x|&lt;b>bar&lt;/b>}} and {{1x|baz}} boo&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></span></p>
+<p>X<sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"extsrc":"foo {{1x|&lt;b>bar&lt;/b>}} and {{1x|baz}} boo"},"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;ref>foo {{1x|&lt;b>bar&lt;/b>}} and {{1x|baz}} boo&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></span></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">foo <b data-parsoid='{"stx":"html"}'>bar</b> and baz boo</span></li>
 </ol></div>
 !! end
@@ -2304,8 +2284,6 @@ test <ref>hi {{refinref|ho}}</ref>
 
 !! test
 Ref in ref: top level ref nested in transclusion
-!! options
-disabled
 !! wikitext
 test {{refinref|456<ref>123</ref>}}
 <references />
@@ -2317,7 +2295,7 @@ test {{refinref|456<ref>123</ref>}}
 </li>
 </ol></div>
 !! html/parsoid
-<p>test <sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"parts":[{"template":{"target":{"wt":"refinref","href":"./Template:Refinref"},"params":{"1":{"wt":"456&lt;ref>123&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
+<p>test <sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"extsrc":"{{{1}}}"},"parts":[{"template":{"target":{"wt":"refinref","href":"./Template:Refinref"},"params":{"1":{"wt":"456&lt;ref>123&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references">
 <li id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">{{{1}}}</span></li>
 </ol></div>
@@ -2329,8 +2307,6 @@ test {{refinref|456<ref>123</ref>}}
 ## processed by the time the parser gets to the outer ref's contents.
 !! test
 Ref in ref: top level ref nested in parser function
-!! options
-disabled
 !! wikitext
 test {{#tag:ref|456<ref>123</ref>}}
 <references />
@@ -2344,14 +2320,12 @@ test {{#tag:ref|456<ref>123</ref>}}
 </li>
 </ol></div>
 !! html/parsoid
-<p>test <sup about="#mwt2" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-parsoid='{"pi":[[{"k":"1"}]]}' data-mw='{"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"456&lt;ref>123&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[2]</span></a></sup></p>
+<p>test <sup about="#mwt2" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-parsoid='{"pi":[[{"k":"1"}]]}' data-mw='{"name":"ref","attrs":{},"body":{"extsrc":"456&lt;ref>123&lt;/ref>"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"456&lt;ref>123&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[2]</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt10" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">123</span></li><li about="#cite_note-2" id="cite_note-2"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-2" class="mw-reference-text">456<sup about="#mwt6" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-parsoid='{"src":"&lt;ref>123&lt;/ref>"}' data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></span></li></ol></div>
 !! end
 
 !! test
 Ref in ref: Multiple levels of nesting in parser function
-!! options
-disabled
 !! wikitext
 one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 !! html/php
@@ -2366,7 +2340,7 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 </li>
 </ol></div>
 !! html/parsoid+integrated
-<p>one<sup class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"two{{#tag:ref|three&lt;ref>four&lt;/ref>}}"}},"i":0}}]}'><a href="./Parser_test#cite_note-3" style="counter-reset: mw-Ref 3;"><span class="mw-reflink-text">[3]</span></a></sup></p>
+<p>one<sup class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"extsrc":"two&lt;ref>three&lt;ref>four&lt;/ref>&lt;/ref>"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"two{{#tag:ref|three&lt;ref>four&lt;/ref>}}"}},"i":0}}]}'><a href="./Parser_test#cite_note-3" style="counter-reset: mw-Ref 3;"><span class="mw-reflink-text">[3]</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'>
 <ol class="mw-references references">
 <li id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">four</span></li>
@@ -2401,13 +2375,11 @@ Template:nestedrefslash
 ## Just a regression test for Parsoid
 !! test
 Nested ref with forward slash
-!! options
-disabled
 !! wikitext
 test {{nestedrefslash}}
 <references />
 !! html/parsoid
-<p>test <sup about="#mwt1" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"parts":[{"template":{"target":{"wt":"nestedrefslash","href":"./Template:Nestedrefslash"},"params":{},"i":0}}]}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[2]</span></a></sup></p>
+<p>test <sup about="#mwt1" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"extsrc":"&lt;ref name=\"RDEN PRE/1355/2005\">three&lt;/ref>"},"parts":[{"template":{"target":{"wt":"nestedrefslash","href":"./Template:Nestedrefslash"},"params":{},"i":0}}]}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[2]</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-RDEN_PRE/1355/2005-1" id="cite_note-RDEN_PRE/1355/2005-1"><a href="./Parser_test#cite_ref-RDEN_PRE/1355/2005_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-RDEN_PRE/1355/2005-1" class="mw-reference-text">three</span></li><li about="#cite_note-2" id="cite_note-2"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-2" class="mw-reference-text"><sup about="#mwt4" class="mw-ref reference" id="cite_ref-RDEN_PRE/1355/2005_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"RDEN PRE/1355/2005"},"body":{"id":"mw-reference-text-cite_note-RDEN_PRE/1355/2005-1"}}'><a href="./Parser_test#cite_note-RDEN_PRE/1355/2005-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></span></li></ol></div>
 !! end
 
@@ -2838,8 +2810,6 @@ T269531: Special case when a named group is entirely unused in the text
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 T242437 - Blank ref name in #tag regression
-!! options
-disabled
 !! wikitext
 {{#tag:references|
 <ref name="">foo</ref>
@@ -2855,8 +2825,6 @@ disabled
 # Tracked in T307741.
 !! test
 T48140 - Make sure rollback/redo does not consume numbers
-!! options
-disabled
 !! wikitext
 <ref>should be [1]</ref>
 <ref name="a" group="g" />
@@ -2883,7 +2851,7 @@ disabled
 !! html/parsoid
 <p><sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup>
 <sup about="#mwt6" class="mw-ref reference" id="cite_ref-a_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","group":"g"}}'><a href="./Parser_test#cite_note-a-2" style="counter-reset: mw-Ref 1;" data-mw-group="g"><span class="mw-reflink-text">[g 1]</span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt9" data-parsoid='{"group":"g","pi":[[{"k":"1"},{"k":"group","named":true}]]}' data-mw='{"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"a\">a&lt;/ref>\n"},"group":{"wt":"g"}},"i":0}}]}'><ol class="mw-references references" data-mw-group="g"><li about="#cite_note-a-2" id="cite_note-a-2"><a href="./Parser_test#cite_ref-a_2-0" data-mw-group="g" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-a-2" class="mw-reference-text">a</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt9" data-parsoid='{"group":"g","pi":[[{"k":"1"},{"k":"group","named":true}]]}' data-mw='{"name":"references","attrs":{"group":"g"},"body":{"extsrc":"\n&lt;ref name=\"a\">a&lt;/ref>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"a\">a&lt;/ref>\n"},"group":{"wt":"g"}},"i":0}}]}'><ol class="mw-references references" data-mw-group="g"><li about="#cite_note-a-2" id="cite_note-a-2"><a href="./Parser_test#cite_ref-a_2-0" data-mw-group="g" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-a-2" class="mw-reference-text">a</span></li></ol></div>
 <p><sup about="#mwt18" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-3"}}'><a href="./Parser_test#cite_note-3" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[2]</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt19" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">should be [1]</span></li><li about="#cite_note-3" id="cite_note-3"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-3" class="mw-reference-text">should be [2]</span></li></ol></div>
 !! end
@@ -2894,8 +2862,6 @@ disabled
 # Tracked in T307741.
 !! test
 Numbers in the default group need to start with 1, independent from other groups
-!! options
-disabled
 !! wikitext
 <ref name="a" group="g" />
 {{#tag:references|
@@ -2917,7 +2883,7 @@ disabled
 </ol></div>
 !! html/parsoid
 <p><sup about="#mwt3" class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","group":"g"}}'><a href="./Parser_test#cite_note-a-1" style="counter-reset: mw-Ref 1;" data-mw-group="g"><span class="mw-reflink-text">[g 1]</span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt6" data-mw='{"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"a\">a&lt;/ref>\n"},"group":{"wt":"g"}},"i":0}}]}'><ol class="mw-references references" data-mw-group="g"><li about="#cite_note-a-1" id="cite_note-a-1"><a href="./Parser_test#cite_ref-a_1-0" data-mw-group="g" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text">a</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt6" data-mw='{"name":"references","attrs":{"group":"g"},"body":{"extsrc":"\n&lt;ref name=\"a\">a&lt;/ref>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"a\">a&lt;/ref>\n"},"group":{"wt":"g"}},"i":0}}]}'><ol class="mw-references references" data-mw-group="g"><li about="#cite_note-a-1" id="cite_note-a-1"><a href="./Parser_test#cite_ref-a_1-0" data-mw-group="g" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text">a</span></li></ol></div>
 <p><sup about="#mwt15" class="mw-ref reference" id="cite_ref-c_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"c"},"body":{"id":"mw-reference-text-cite_note-c-2"}}'><a href="./Parser_test#cite_note-c-2" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt16" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'><ol class="mw-references references"><li about="#cite_note-c-2" id="cite_note-c-2"><a href="./Parser_test#cite_ref-c_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-c-2" class="mw-reference-text">c</span></li></ol></div>
 !! end
@@ -2937,8 +2903,6 @@ hi ho
 ## Edge case bugs in Parsoid from T93580
 !! test
 T93580: 1. Templated <ref> inside block images
-!! options
-disabled
 !! config
 wgParserEnableLegacyMediaDOM=false
 !! wikitext
@@ -2952,15 +2916,13 @@ wgParserEnableLegacyMediaDOM=false
 </li>
 </ol></div>
 !! html/parsoid
-<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="./File:Foobar.jpg" class="mw-file-description"><img resource="./File:Foobar.jpg" src="http://example.com/images/thumb/3/3a/Foobar.jpg/180px-Foobar.jpg" decoding="async" data-file-width="1941" data-file-height="220" data-file-type="bitmap" height="20" width="180" srcset="http://example.com/images/thumb/3/3a/Foobar.jpg/270px-Foobar.jpg 1.5x, http://example.com/images/thumb/3/3a/Foobar.jpg/360px-Foobar.jpg 2x" class="mw-file-element"/></a><figcaption>Caption with templated ref: <sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;ref>foo&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></figcaption></figure>
+<figure class="mw-default-size" typeof="mw:File/Thumb"><a href="./File:Foobar.jpg" class="mw-file-description"><img resource="./File:Foobar.jpg" src="http://example.com/images/thumb/3/3a/Foobar.jpg/180px-Foobar.jpg" decoding="async" data-file-width="1941" data-file-height="220" data-file-type="bitmap" height="20" width="180" srcset="http://example.com/images/thumb/3/3a/Foobar.jpg/270px-Foobar.jpg 1.5x, http://example.com/images/thumb/3/3a/Foobar.jpg/360px-Foobar.jpg 2x" class="mw-file-element"/></a><figcaption>Caption with templated ref: <sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"extsrc":"foo"},"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;ref>foo&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></figcaption></figure>
 
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">foo</span></li></ol></div>
 !! end
 
 !! test
 T93580: 2. <ref> inside inline images
-!! options
-disabled
 !! config
 wgParserEnableLegacyMediaDOM=false
 !! wikitext
@@ -2982,8 +2944,6 @@ wgParserEnableLegacyMediaDOM=false
 
 !! test
 T93580: 3. Templated <ref> inside inline images
-!! options
-disabled
 !! config
 wgParserEnableLegacyMediaDOM=false
 !! wikitext
@@ -2998,7 +2958,7 @@ wgParserEnableLegacyMediaDOM=false
 </li>
 </ol></div>
 !! html/parsoid
-<p><span class="mw-default-size" typeof="mw:File" data-parsoid='{"optList":[{"ck":"caption","ak":"Undisplayed caption in inline image with ref: {{1x|&lt;ref>{{1x|foo}}&lt;/ref>}}"}]}' data-mw='{"caption":"Undisplayed caption in inline image with ref: &lt;sup about=\"#mwt2\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Transclusion mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[64,92,null,null],\"pi\":[[{\"k\":\"1\"}]]}&apos; data-mw=&apos;{\"parts\":[{\"template\":{\"target\":{\"wt\":\"1x\",\"href\":\"./Template:1x\"},\"params\":{\"1\":{\"wt\":\"&amp;lt;ref>{{1x|foo}}&amp;lt;/ref>\"}},\"i\":0}}]}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">[1]&lt;/span>&lt;/a>&lt;/sup>"}'><a href="./File:Foobar.jpg" class="mw-file-description" title="Undisplayed caption in inline image with ref:"><img alt="Undisplayed caption in inline image with ref:" resource="./File:Foobar.jpg" src="http://example.com/images/3/3a/Foobar.jpg" decoding="async" data-file-width="1941" data-file-height="220" data-file-type="bitmap" height="220" width="1941" data-parsoid='{"a":{"resource":"./File:Foobar.jpg","height":"220","width":"1941"},"sa":{"resource":"File:Foobar.jpg"}}' class="mw-file-element"/></a></span></p>
+<p><span class="mw-default-size" typeof="mw:File" data-parsoid='{"optList":[{"ck":"caption","ak":"Undisplayed caption in inline image with ref: {{1x|&lt;ref>{{1x|foo}}&lt;/ref>}}"}]}' data-mw='{"caption":"Undisplayed caption in inline image with ref: &lt;sup about=\"#mwt2\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Transclusion mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[64,92,null,null],\"pi\":[[{\"k\":\"1\"}]]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"extsrc\":\"{{1x|foo}}\"},\"parts\":[{\"template\":{\"target\":{\"wt\":\"1x\",\"href\":\"./Template:1x\"},\"params\":{\"1\":{\"wt\":\"&amp;lt;ref>{{1x|foo}}&amp;lt;/ref>\"}},\"i\":0}}]}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">[1]&lt;/span>&lt;/a>&lt;/sup>"}'><a href="./File:Foobar.jpg" class="mw-file-description" title="Undisplayed caption in inline image with ref:"><img alt="Undisplayed caption in inline image with ref:" resource="./File:Foobar.jpg" src="http://example.com/images/3/3a/Foobar.jpg" decoding="async" data-file-width="1941" data-file-height="220" data-file-type="bitmap" height="220" width="1941" data-parsoid='{"a":{"resource":"./File:Foobar.jpg","height":"220","width":"1941"},"sa":{"resource":"File:Foobar.jpg"}}' class="mw-file-element"/></a></span></p>
 
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span rel="mw:referencedBy"></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">foo</span></li></ol></div>
 !! end
@@ -3147,8 +3107,6 @@ parsoid={
 
 !! test
 Red links in templated references
-!! options
-disabled
 !! wikitext
 <ref>[[Not_existing_article]]</ref>
 
@@ -3156,7 +3114,7 @@ disabled
 !! html/parsoid
 <p><sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt5" data-parsoid='{"selfClose":true,"pi":[[{"k":"1"}]]}' data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;references />"}},"i":0}}]}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text"><a rel="mw:WikiLink" href="./Not_existing_article?action=edit&amp;redlink=1" title="Not existing article" class="new" typeof="mw:LocalizedAttrs" data-parsoid='{"stx":"simple","a":{"href":"./Not_existing_article"},"sa":{"href":"Not_existing_article"}}' data-mw-i18n='{"title":{"lang":"x-page","key":"red-link-title","params":["Not existing article"]}}'>Not_existing_article</a></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt5" data-parsoid='{"selfClose":true,"pi":[[{"k":"1"}]]}' data-mw='{"name":"references","attrs":{},"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;references />"}},"i":0}}]}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text"><a rel="mw:WikiLink" href="./Not_existing_article?action=edit&amp;redlink=1" title="Not existing article" class="new" typeof="mw:LocalizedAttrs" data-parsoid='{"stx":"simple","a":{"href":"./Not_existing_article"},"sa":{"href":"Not_existing_article"}}' data-mw-i18n='{"title":{"lang":"x-page","key":"red-link-title","params":["Not existing article"]}}'>Not_existing_article</a></span></li></ol></div>
 !! end
 
 

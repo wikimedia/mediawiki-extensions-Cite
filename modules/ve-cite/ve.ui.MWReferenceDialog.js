@@ -329,6 +329,8 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	this.referenceTarget.connect( this, { change: 'onTargetChange' } );
 
 	// Initialization
+	this.$content.addClass( 've-ui-mwReferenceDialog' );
+
 	this.panels.addItems( [ this.editPanel, this.searchPanel ] );
 	this.editPanel.$element.append(
 		this.reuseWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );

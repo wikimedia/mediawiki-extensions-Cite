@@ -29,15 +29,15 @@ describe( 'Visual Editor Cite Integration', () => {
 		helpers.getVEFootnoteMarker( 'a', 1, 1 ).click();
 
 		// Popup appears containing ref content
-		helpers.getVEReferencePopup()
+		helpers.getVEReferenceContextItem()
 			.should( 'be.visible' )
 			.should( 'contain.text', refText1 );
 
-		// Open edit popup
-		cy.contains( '.oo-ui-buttonElement-button', 'Edit' ).click();
+		// Open reference edit dialog
+		helpers.getVEReferenceContextItemEdit().click();
 
 		// Dialog appears with ref content
-		helpers.getVEDialog()
+		helpers.getVEReferenceEditDialog()
 			.should( 'be.visible' )
 			.should( 'contain.text', refText1 );
 	} );
@@ -46,13 +46,13 @@ describe( 'Visual Editor Cite Integration', () => {
 		helpers.openVECiteReuseDialog();
 
 		// Assert reference content for the first reference
-		helpers.getCiteReuseDialogRefName( 1 ).should( 'contain.text', 'a' );
-		helpers.getCiteReuseDialogRefNumber( 1 ).should( 'contain.text', '[1]' );
+		helpers.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
+		helpers.getCiteReuseDialogRefResultCitation( 1 ).should( 'have.text', '[1]' );
 		helpers.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
 
 		// Assert reference content for the second reference
-		helpers.getCiteReuseDialogRefName( 2 ).should( 'contain.text', '' );
-		helpers.getCiteReuseDialogRefNumber( 2 ).should( 'contain.text', '[2]' );
+		helpers.getCiteReuseDialogRefResultName( 2 ).should( 'have.text', '' );
+		helpers.getCiteReuseDialogRefResultCitation( 2 ).should( 'have.text', '[2]' );
 		helpers.getCiteReuseDialogRefText( 2 ).should( 'have.text', refText2 );
 
 	} );

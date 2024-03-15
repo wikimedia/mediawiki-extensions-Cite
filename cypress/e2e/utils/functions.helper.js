@@ -68,17 +68,21 @@ export function getVEFootnoteMarker( refName, sequenceNumber, index ) {
 	return cy.get( `sup.ve-ce-mwReferenceNode#cite_ref-${ refName }_${ sequenceNumber }-${ index - 1 }` );
 }
 
-export function getVEReferencePopup() {
-	return cy.get( '.oo-ui-popupWidget-popup .ve-ui-mwReferenceContextItem .mw-content-ltr' );
+export function getVEReferenceContextItem() {
+	return cy.get( '.ve-ui-context-menu .ve-ui-mwReferenceContextItem' );
 }
 
-export function getVEDialog() {
-	return cy.get( '.oo-ui-dialog-content .oo-ui-fieldsetLayout .ve-ui-mwTargetWidget .ve-ce-generated-wrapper' );
+export function getVEReferenceContextItemEdit() {
+	return cy.get( '.ve-ui-context-menu .ve-ui-mwReferenceContextItem .oo-ui-buttonElement-button' );
+}
+
+export function getVEReferenceEditDialog() {
+	return cy.get( '.ve-ui-mwReferenceDialog' );
 }
 
 export function openVECiteReuseDialog() {
-	cy.get( '.ve-ui-toolbar-group-cite.oo-ui-widget-enabled .oo-ui-popupToolGroup-handle' ).click();
-	cy.get( '.oo-ui-tool-name-reference-existing.oo-ui-widget-enabled > a' ).click();
+	cy.get( '.ve-ui-toolbar-group-cite' ).click();
+	cy.get( '.ve-ui-toolbar .oo-ui-tool-name-reference-existing' ).click();
 }
 
 export function getVEUIToolbarSaveButton() {
@@ -86,27 +90,31 @@ export function getVEUIToolbarSaveButton() {
 }
 
 export function getSaveChangesDialogConfirmButton() {
-	return cy.contains( '.oo-ui-labelElement-label', 'Save changes' );
+	return cy.get( '.ve-ui-mwSaveDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonWidget' );
 }
 
-export function getCiteReuseDialogRefWidget( rowNumber ) {
-	return cy.get( '.ve-ui-mwReferenceSearchWidget .oo-ui-selectWidget .ve-ui-mwReferenceResultWidget' ).eq( rowNumber - 1 );
+export function getCiteReuseDialogRefResult( rowNumber ) {
+	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget' )
+		.eq( rowNumber - 1 );
 }
 
-export function getCiteReuseDialogRefName( rowNumber ) {
-	return cy.get( '.oo-ui-widget.oo-ui-widget-enabled .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceSearchWidget-name' ).eq( rowNumber - 1 );
+export function getCiteReuseDialogRefResultName( rowNumber ) {
+	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceSearchWidget-name' )
+		.eq( rowNumber - 1 );
 }
 
-export function getCiteReuseDialogRefNumber( rowNumber ) {
-	return cy.get( '.oo-ui-widget.oo-ui-widget-enabled .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceSearchWidget-citation' ).eq( rowNumber - 1 );
+export function getCiteReuseDialogRefResultCitation( rowNumber ) {
+	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceSearchWidget-citation' )
+		.eq( rowNumber - 1 );
 }
 
 export function getCiteReuseDialogRefText( rowNumber ) {
-	return cy.get( '.oo-ui-widget.oo-ui-widget-enabled .ve-ui-mwReferenceResultWidget .ve-ce-paragraphNode' ).eq( rowNumber - 1 );
+	return cy.get( '.oo-ui-widget.oo-ui-widget-enabled .ve-ui-mwReferenceResultWidget .ve-ce-paragraphNode' )
+		.eq( rowNumber - 1 );
 }
 
 export function backlinksIdShouldMatchFootnoteId( supIndex, backlinkIndex, rowNumber ) {
-	return cy.get( '#mw-content-text p sup' )
+	return getRefsFromArticleSection()
 		.eq( supIndex )
 		.invoke( 'attr', 'id' )
 		.then( ( id ) => {
@@ -139,7 +147,7 @@ export function getRefsFromReferencesSection() {
 }
 
 export function getRefFromReferencesSection( rowNumber ) {
-	return cy.get( `#mw-content-text .references li:eq(${ rowNumber - 1 })` );
+	return getRefsFromReferencesSection().eq( rowNumber - 1 );
 }
 
 export function referenceSectionRefIdContainsRefName( rowNumber, refName ) {

@@ -44,7 +44,7 @@ describe( 'Re-using refs in Visual Editor', () => {
 		helpers.openVECiteReuseDialog();
 
 		// Re-use second ref
-		helpers.getCiteReuseDialogRefWidget( 2 ).click();
+		helpers.getCiteReuseDialogRefResult( 2 ).click();
 		// The context dialog on one of the references shows it's being used twice
 		cy.get( '.mw-reflink-text' ).contains( '[2]' ).click();
 		cy.get( '.oo-ui-popupWidget-popup .ve-ui-mwReferenceContextItem-muted' ).should( 'have.text', 'This reference is used twice on this page.' );
@@ -80,8 +80,8 @@ describe( 'Re-using refs in Visual Editor', () => {
 		helpers.openVECiteReuseDialog();
 		// reuse first ref which has the name 'a'
 		helpers.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
-		helpers.getCiteReuseDialogRefName( 1 ).should( 'have.text', 'a' );
-		helpers.getCiteReuseDialogRefWidget( 1 ).click();
+		helpers.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
+		helpers.getCiteReuseDialogRefResult( 1 ).click();
 
 		helpers.getVEUIToolbarSaveButton().click();
 		helpers.getSaveChangesDialogConfirmButton().click();

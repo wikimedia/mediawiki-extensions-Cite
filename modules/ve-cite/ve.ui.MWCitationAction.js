@@ -37,7 +37,6 @@ ve.ui.MWCitationAction.static.methods = [ 'open' ];
  * When opening a citation, send the dialog a property of the surface
  * dialog name.
  *
- * @method
  * @param {Object} windowData Data to send to the dialog
  * @return {boolean} Action was executed
  */

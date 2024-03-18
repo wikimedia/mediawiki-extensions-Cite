@@ -41,7 +41,6 @@ OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
 /**
  * Handle query change events.
  *
- * @method
  * @param {string} value New value
  */
 ve.ui.MWReferenceSearchWidget.prototype.onQueryChange = function () {
@@ -81,7 +80,6 @@ ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalLis
  *
  * This will occur after a document transaction.
  *
- * @method
  * @param {string[]} groupsChanged A list of groups which have changed in this transaction
  */
 ve.ui.MWReferenceSearchWidget.prototype.onInternalListUpdate = function ( groupsChanged ) {
@@ -96,8 +94,6 @@ ve.ui.MWReferenceSearchWidget.prototype.onInternalListUpdate = function ( groups
  * Handle the updating of the InternalListNode.
  *
  * This will occur after changes to any InternalItemNode.
- *
- * @method
  */
 ve.ui.MWReferenceSearchWidget.prototype.onListNodeUpdate = function () {
 	this.built = false;
@@ -105,8 +101,6 @@ ve.ui.MWReferenceSearchWidget.prototype.onListNodeUpdate = function () {
 
 /**
  * Build a searchable index of references.
- *
- * @method
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 	const groups = this.internalList.getNodeGroups();
@@ -192,11 +186,6 @@ ve.ui.MWReferenceSearchWidget.prototype.isIndexEmpty = function () {
 	return this.indexEmpty;
 };
 
-/**
- * Handle media query response events.
- *
- * @method
- */
 ve.ui.MWReferenceSearchWidget.prototype.addResults = function () {
 	const query = this.query.getValue().trim().toLowerCase();
 	const items = [];

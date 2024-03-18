@@ -87,8 +87,6 @@ ve.ce.MWReferencesListNode.prototype.getExtraHighlightClasses = function () {
 
 /**
  * Handle setup events.
- *
- * @method
  */
 ve.ce.MWReferencesListNode.prototype.onSetup = function () {
 	this.internalList = this.getModel().getDocument().getInternalList();
@@ -103,8 +101,6 @@ ve.ce.MWReferencesListNode.prototype.onSetup = function () {
 
 /**
  * Handle teardown events.
- *
- * @method
  */
 ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
 	// Parent method
@@ -126,7 +122,6 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
  *
  * This will occur after a document transaction.
  *
- * @method
  * @param {string[]} groupsChanged A list of groups which have changed in this transaction
  */
 ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsChanged ) {
@@ -160,8 +155,6 @@ ve.ce.MWReferencesListNode.prototype.onAttributeChange = function ( key ) {
  * Handle the updating of the InternalListNode.
  *
  * This will occur after changes to any InternalItemNode.
- *
- * @method
  */
 ve.ce.MWReferencesListNode.prototype.onListNodeUpdate = function () {
 	// When the list node updates we're not sure which list group the item

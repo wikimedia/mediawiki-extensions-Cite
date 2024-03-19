@@ -42,9 +42,8 @@ export function getVEDialog() {
 }
 
 export function openVECiteReuseDialog() {
-	cy.contains( '.oo-ui-labelElement-label', 'Cite' ).click();
-	cy.get( '.oo-ui-tool-name-reference-existing > a.oo-ui-tool-link' )
-		.contains( 'Re-use' ).click();
+	cy.get( '.ve-ui-toolbar-group-cite.oo-ui-widget-enabled .oo-ui-popupToolGroup-handle' ).click();
+	cy.get( '.oo-ui-tool-name-reference-existing.oo-ui-widget-enabled > a' ).click();
 }
 
 export function getVEUIToolbarSaveButton() {

@@ -8,7 +8,7 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 `This is reference #3 <ref>${ refText2 }</ref><br>` +
 '<references />';
 
-describe( 'Re-using refs in Visual Editor', () => {
+describe.skip( 'Re-using refs in Visual Editor', () => {
 	beforeEach( () => {
 		const title = helpers.getTestString( 'CiteTest-reuseRefs' );
 

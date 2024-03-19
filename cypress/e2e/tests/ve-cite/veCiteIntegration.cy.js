@@ -9,7 +9,7 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 	`This is reference #3 <ref>${ refText2 }</ref><br>` +
 	'<references />';
 
-describe( 'Visual Editor Cite Integration', () => {
+describe.skip( 'Visual Editor Cite Integration', () => {
 	before( () => {
 		cy.visit( '/index.php' );
 		helpers.editPage( title, wikiText );

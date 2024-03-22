@@ -12,12 +12,10 @@
  *
  * @constructor
  * @extends OO.ui.ComboBoxInputWidget
- * @param {Object} [config] Configuration options
+ * @param {Object} config Configuration options
  * @cfg {string} emptyGroupName Label of the placeholder item
  */
 ve.ui.MWReferenceGroupInputWidget = function VeUiMWReferenceGroupInputWidget( config ) {
-	config = config || {};
-
 	this.emptyGroupName = config.emptyGroupName;
 
 	// Parent constructor

@@ -1,3 +1,5 @@
+@import 'mediawiki.skin.variables.less';
+
 .mw-cite-backlink,
 .cite-accessibility-label {
 	-moz-user-select: none;
@@ -73,7 +75,7 @@ sup.reference {
 /* Highlight clicked reference in blue to help navigation */
 ol.references li:target,
 sup.reference:target {
-	background-color: #eaf3ff;
+	background-color: @background-color-progressive-subtle;
 }
 
 /* Make cite errors "strong" */

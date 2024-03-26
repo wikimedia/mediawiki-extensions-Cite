@@ -23,6 +23,7 @@ describe.skip( 'Visual Editor Cite Integration', () => {
 		} );
 
 		helpers.visitTitle( title, { veaction: 'edit' } );
+		helpers.waitForVEToLoad();
 	} );
 
 	it( 'should edit and verify reference content in Visual Editor', () => {

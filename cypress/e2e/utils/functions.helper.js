@@ -5,6 +5,17 @@ export function waitForVEToLoad() {
 		.should( 'be.visible' );
 }
 
+function clickUntilVisible( clickElement, expectedSelector ) {
+	cy.get( expectedSelector ).then( ( $element ) => {
+		if ( $element.is( ':visible' ) ) {
+			return;
+		}
+
+		clickElement.click();
+		clickUntilVisible( clickElement, expectedSelector );
+	} );
+}
+
 export function getTestString( prefix = '' ) {
 	return prefix + Math.random().toString();
 }
@@ -81,7 +92,10 @@ export function getVEReferenceEditDialog() {
 }
 
 export function openVECiteReuseDialog() {
-	cy.get( '.ve-ui-toolbar-group-cite' ).click();
+	clickUntilVisible(
+		cy.get( '.ve-ui-toolbar-group-cite' ),
+		'.ve-ui-toolbar .oo-ui-tool-name-reference-existing'
+	);
 	cy.get( '.ve-ui-toolbar .oo-ui-tool-name-reference-existing' ).click();
 }
 

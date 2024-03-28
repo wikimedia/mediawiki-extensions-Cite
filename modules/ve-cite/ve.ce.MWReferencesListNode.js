@@ -268,7 +268,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			if ( this.getRoot() ) {
 				const surface = this.getRoot().getSurface().getSurface();
 				$li.on( 'mousedown', function ( e ) {
-					if ( modelNode && modelNode.length ) {
+					if ( ve.isUnmodifiedLeftClick( e ) && modelNode && modelNode.length ) {
 						const items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] )
 							.filter( ( item ) => item.name !== 'mobileActions' );
 						if ( items.length ) {

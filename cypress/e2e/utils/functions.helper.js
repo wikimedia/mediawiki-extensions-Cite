@@ -5,15 +5,21 @@ export function waitForVEToLoad() {
 		.should( 'be.visible' );
 }
 
-function clickUntilVisible( clickElement, expectedSelector ) {
-	cy.get( expectedSelector ).then( ( $element ) => {
-		if ( $element.is( ':visible' ) ) {
-			return;
-		}
+function clickUntilVisible( clickElement, expectedSelector, timeout = 5000 ) {
+	const timeoutTime = Date.now() + timeout;
 
-		clickElement.click();
-		clickUntilVisible( clickElement, expectedSelector );
-	} );
+	function clickUntilVisibleWithinTime() {
+		cy.get( expectedSelector ).then( ( $element ) => {
+			if ( Date.now() > timeoutTime || $element.is( ':visible' ) ) {
+				return;
+			}
+
+			clickElement.click();
+			clickUntilVisibleWithinTime();
+		} );
+	}
+
+	clickUntilVisibleWithinTime();
 }
 
 export function getTestString( prefix = '' ) {

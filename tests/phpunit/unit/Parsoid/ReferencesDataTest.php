@@ -4,6 +4,7 @@ namespace Cite\Tests\Unit;
 
 use Cite\Cite;
 use Cite\Parsoid\ReferencesData;
+use Cite\Parsoid\RefGroupItem;
 use MediaWikiUnitTestCase;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 
@@ -58,25 +59,14 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 			''
 		);
 
-		$expected = [
-			'contentId' => null,
-			'cachedHtml' => null,
-			'dir' => '',
-			'group' => '',
-			'groupIndex' => 1,
-			'index' => 0,
-			'key' => 'cite_ref-1',
-			'id' => 'cite_ref-1',
-			'linkbacks' => [],
-			'name' => '',
-			'target' => 'cite_note-1',
-			'nodes' => [],
-			'embeddedNodes' => [],
-		];
-		$this->assertSame( $expected, (array)$ref );
+		$expected = new RefGroupItem();
+		$expected->key = 'cite_ref-1';
+		$expected->id = 'cite_ref-1';
+		$expected->target = 'cite_note-1';
+		$this->assertEquals( $expected, $ref );
 
 		$group = $data->getRefGroup( Cite::DEFAULT_GROUP );
-		$this->assertEquals( [ (object)$expected ], $group->refs );
+		$this->assertEquals( [ $expected ], $group->refs );
 		$this->assertSame( [], $group->indexByName );
 	}
 
@@ -89,26 +79,18 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 			'rtl'
 		);
 
-		$expected = [
-			'contentId' => null,
-			'cachedHtml' => null,
-			'dir' => 'rtl',
-			'group' => 'note',
-			'groupIndex' => 1,
-			'index' => 0,
-			'key' => 'cite_ref-wales_1',
-			'id' => 'cite_ref-wales_1-0',
-			'linkbacks' => [],
-			'name' => 'wales',
-			'target' => 'cite_note-wales-1',
-			'nodes' => [],
-			'embeddedNodes' => [],
-		];
-		$this->assertSame( $expected, (array)$ref );
+		$expected = new RefGroupItem();
+		$expected->dir = 'rtl';
+		$expected->group = 'note';
+		$expected->key = 'cite_ref-wales_1';
+		$expected->id = 'cite_ref-wales_1-0';
+		$expected->name = 'wales';
+		$expected->target = 'cite_note-wales-1';
+		$this->assertEquals( $expected, $ref );
 
 		$group = $data->getRefGroup( 'note' );
-		$this->assertEquals( [ (object)$expected ], $group->refs );
-		$this->assertEquals( [ 'wales' => (object)$expected ], $group->indexByName );
+		$this->assertEquals( [ $expected ], $group->refs );
+		$this->assertEquals( [ 'wales' => $expected ], $group->indexByName );
 	}
 
 }

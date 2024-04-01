@@ -3,7 +3,6 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
-use stdClass;
 use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 
@@ -79,7 +78,7 @@ class ReferencesData {
 
 	public function add(
 		ParsoidExtensionAPI $extApi, string $groupName, string $refName, string $refDir
-	): stdClass {
+	): RefGroupItem {
 		$group = $this->getRefGroup( $groupName, true );
 		$hasRefName = strlen( $refName ) > 0;
 
@@ -99,28 +98,15 @@ class ReferencesData {
 		// bump index
 		$this->index += 1;
 
-		$ref = (object)[
-			// Pointer to the contents of the ref, accessible with the
-			// $extApi->getContentDOM(), to be used when serializing the
-			// references group.  It gets set when extracting the ref from a
-			// node and not $missingContent.  Note that that might not
-			// be the first one for named refs.  Also, for named refs, it's
-			// used to detect multiple conflicting definitions.
-			'contentId' => null,
-			// Just used for comparison when we have multiples
-			'cachedHtml' => null,
-			'dir' => $refDir,
-			'group' => $group->name,
-			'groupIndex' => count( $group->refs ) + 1,
-			'index' => $n,
-			'key' => $refIdBase,
-			'id' => $hasRefName ? $refIdBase . '-0' : $refIdBase,
-			'linkbacks' => [],
-			'name' => $refName,
-			'target' => $noteId,
-			'nodes' => [],
-			'embeddedNodes' => [],
-		];
+		$ref = new RefGroupItem();
+		$ref->dir = $refDir;
+		$ref->group = $group->name;
+		$ref->groupIndex = count( $group->refs ) + 1;
+		$ref->index = $n;
+		$ref->key = $refIdBase;
+		$ref->id = $hasRefName ? $refIdBase . '-0' : $refIdBase;
+		$ref->name = $refName;
+		$ref->target = $noteId;
 
 		$group->refs[] = $ref;
 

@@ -190,6 +190,7 @@ class References extends ExtensionTagHandler {
 				// HTML inline for all of them.
 				if ( $ref->contentId ) {
 					if ( $ref->cachedHtml === null ) {
+						// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 						$refContent = $extApi->getContentDOM( $ref->contentId )->firstChild;
 						$ref->cachedHtml = $extApi->domToHtml( $refContent, true, false );
 					}
@@ -253,6 +254,7 @@ class References extends ExtensionTagHandler {
 		if ( $validFollow ) {
 			// Migrate content from the follow to the ref
 			if ( $ref->contentId ) {
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 				$refContent = $extApi->getContentDOM( $ref->contentId )->firstChild;
 				DOMUtils::migrateChildren( $c, $refContent );
 			} else {
@@ -495,7 +497,6 @@ class References extends ExtensionTagHandler {
 						self::addErrorsToNode( $node, $errs );
 					}
 					foreach ( $ref->embeddedNodes as $about ) {
-						'@phan-var string $about'; // $about is non-null
 						$refsData->embeddedErrors[$about] = $errs;
 					}
 				}

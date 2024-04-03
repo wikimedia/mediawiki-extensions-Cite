@@ -24,8 +24,8 @@ sublime-*
 sftp-config.json
 .eslintcache
 
-/cypress/.cache
-/cypress/videos
-/cypress/screenshots
-/cypress/downloads
+/tests/cypress/.cache
+/tests/cypress/videos
+/tests/cypress/screenshots
+/tests/cypress/downloads
 /docs/js

@@ -3,8 +3,8 @@
 	"private": true,
 	"scripts": {
 		"selenium-daily": "npm run selenium-test",
-		"selenium-test": "CYPRESS_CACHE_FOLDER=./cypress/.cache cypress run",
-		"cypress:open": "CYPRESS_CACHE_FOLDER=./cypress/.cache cypress open",
+		"selenium-test": "CYPRESS_CACHE_FOLDER=./tests/cypress/.cache cypress run --config-file tests/cypress/cypress.config.js",
+		"cypress:open": "CYPRESS_CACHE_FOLDER=./tests/cypress/.cache cypress open --config-file tests/cypress/cypress.config.js",
 		"doc": "jsdoc -c jsdoc.json",
 		"test": "grunt test",
 		"lint:fix": "grunt test --fix"

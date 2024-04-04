@@ -57,7 +57,8 @@ describe( 'Re-using refs in Visual Editor', () => {
 		// ARTICLE SECTION
 		// Ref has been added to article, there are now 4 refs in the article
 		helpers.getRefsFromArticleSection().should( 'have.length', 4 );
-		// Ref #2 now appears twice in the article with corresponding IDs matching the backlinks in the references section
+		// Ref #2 now appears twice in the article with corresponding IDs matching the backlinks in
+		// the references section
 		helpers.backlinksIdShouldMatchFootnoteId( 2, 0, 2 );
 		helpers.backlinksIdShouldMatchFootnoteId( 3, 1, 2 );
 

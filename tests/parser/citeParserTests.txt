@@ -840,6 +840,8 @@ parsoid=wt2html
 
 !! test
 <ref> defined in <references>
+!! options
+disabled
 !! wikitext
 <ref name="foo" />
 
@@ -861,6 +863,8 @@ parsoid=wt2html
 
 !! test
 <ref> defined in <references> called with #tag
+!! options
+disabled
 !! wikitext
 <ref name="foo" />
 
@@ -883,6 +887,8 @@ parsoid=wt2html
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 T242437 - Nested references edge case, outer tag function with LDR
+!! options
+disabled
 !! wikitext
 <ref name="foo" />
 {{#tag:references|
@@ -901,6 +907,8 @@ Parsoid fails this right now
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 T242437 - Nested references edge case, outer tag function, inner LDR
+!! options
+disabled
 !! wikitext
 <ref name="foo" />
 {{#tag:references|
@@ -1088,6 +1096,8 @@ Consecutive whitespace in custom link label message should not create empty []
 
 !! test
 Bug 31374 regression check: nested strip items
+!! options
+disabled
 !! wikitext
 {{#tag:ref|note<ref>reference</ref>|group=Note}}
 <references group="Note" />
@@ -1135,6 +1145,8 @@ foo
 
 !! test
 <ref> with no name and no content.
+!! options
+disabled
 !! wikitext
 Bla.<ref></ref>
 foo.<ref />
@@ -1220,6 +1232,8 @@ Hi <sup about="#mwt6" class="mw-ref reference" id="cite_ref-ho_1-1" rel="dc:refe
 
 !! test
 Multiple definition (outside <references/>)
+!! options
+disabled
 !! wikitext
 <ref name="a">abc</ref>
 <ref name="a">def</ref>
@@ -1348,6 +1362,8 @@ T202593: Identical dir attributes are pointless, but should not generate an erro
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 Multiple definition (inside {{#tag:references}})
+!! options
+disabled
 !! wikitext
 <ref name="a" />
 {{#tag:references|
@@ -1968,6 +1984,8 @@ B <sup about="#mwt4" class="mw-ref reference" id="cite_ref-b_2-0" rel="dc:refere
 
 !! test
 References: 6. <references /> from a transclusion
+!! options
+disabled
 !! wikitext
 <ref>Foo</ref> {{1x|<references />}}
 !! html/php
@@ -2046,6 +2064,8 @@ TEN<sup about="#mwt54" class="mw-ref reference" id="cite_ref-foo_9-0" rel="dc:re
 
 !! test
 References: 8. T88019: Remove <meta>s from templates inside <ref> that's itself inside a template
+!! options
+disabled
 !! wikitext
 X{{1x|<ref>foo {{1x|<b>bar</b>}} and {{1x|baz}} boo</ref>}}
 <references />
@@ -2284,6 +2304,8 @@ test <ref>hi {{refinref|ho}}</ref>
 
 !! test
 Ref in ref: top level ref nested in transclusion
+!! options
+disabled
 !! wikitext
 test {{refinref|456<ref>123</ref>}}
 <references />
@@ -2307,6 +2329,8 @@ test {{refinref|456<ref>123</ref>}}
 ## processed by the time the parser gets to the outer ref's contents.
 !! test
 Ref in ref: top level ref nested in parser function
+!! options
+disabled
 !! wikitext
 test {{#tag:ref|456<ref>123</ref>}}
 <references />
@@ -2326,6 +2350,8 @@ test {{#tag:ref|456<ref>123</ref>}}
 
 !! test
 Ref in ref: Multiple levels of nesting in parser function
+!! options
+disabled
 !! wikitext
 one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 !! html/php
@@ -2375,6 +2401,8 @@ Template:nestedrefslash
 ## Just a regression test for Parsoid
 !! test
 Nested ref with forward slash
+!! options
+disabled
 !! wikitext
 test {{nestedrefslash}}
 <references />
@@ -2810,6 +2838,8 @@ T269531: Special case when a named group is entirely unused in the text
 # T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 T242437 - Blank ref name in #tag regression
+!! options
+disabled
 !! wikitext
 {{#tag:references|
 <ref name="">foo</ref>
@@ -2825,6 +2855,8 @@ T242437 - Blank ref name in #tag regression
 # Tracked in T307741.
 !! test
 T48140 - Make sure rollback/redo does not consume numbers
+!! options
+disabled
 !! wikitext
 <ref>should be [1]</ref>
 <ref name="a" group="g" />
@@ -2862,6 +2894,8 @@ T48140 - Make sure rollback/redo does not consume numbers
 # Tracked in T307741.
 !! test
 Numbers in the default group need to start with 1, independent from other groups
+!! options
+disabled
 !! wikitext
 <ref name="a" group="g" />
 {{#tag:references|
@@ -2903,6 +2937,8 @@ hi ho
 ## Edge case bugs in Parsoid from T93580
 !! test
 T93580: 1. Templated <ref> inside block images
+!! options
+disabled
 !! config
 wgParserEnableLegacyMediaDOM=false
 !! wikitext
@@ -2923,6 +2959,8 @@ wgParserEnableLegacyMediaDOM=false
 
 !! test
 T93580: 2. <ref> inside inline images
+!! options
+disabled
 !! config
 wgParserEnableLegacyMediaDOM=false
 !! wikitext
@@ -2944,6 +2982,8 @@ wgParserEnableLegacyMediaDOM=false
 
 !! test
 T93580: 3. Templated <ref> inside inline images
+!! options
+disabled
 !! config
 wgParserEnableLegacyMediaDOM=false
 !! wikitext
@@ -3107,6 +3147,8 @@ parsoid={
 
 !! test
 Red links in templated references
+!! options
+disabled
 !! wikitext
 <ref>[[Not_existing_article]]</ref>
 

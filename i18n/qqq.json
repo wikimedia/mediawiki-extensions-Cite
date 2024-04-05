@@ -62,14 +62,17 @@
 	"cite-wikieditor-help-content-reference-description": "Row header in WikiEditor's reference help section.\n\n{{doc-jqueryMsg}}",
 	"cite-wikieditor-help-content-named-reference-description": "Row header in WikiEditor's reference help section.\n\n{{doc-jqueryMsg}}",
 	"cite-wikieditor-help-content-rereference-description": "Row header in WikiEditor's reference help section.\n\n{{doc-jqueryMsg}}",
+	"cite-wikieditor-help-content-extended-reference-description": "Row header in WikiEditor's reference help section.\n\n{{doc-jqueryMsg}}",
 	"cite-wikieditor-help-content-showreferences-description": "Row header in WikiEditor's reference help section.\n\n{{doc-jqueryMsg}}",
 	"cite-wikieditor-help-content-reference-example-text1": "Short sample text with a reference.\n\nParameters:\n* $1 - a &lt;ref&gt; tag\n\n{{doc-jqueryMsg}}",
 	"cite-wikieditor-help-content-reference-example-text2": "Short sample of something that can be put between &lt;ref&gt; tags.\n\nParameters:\n* $1 - a URL\n\n{{doc-jqueryMsg}}",
 	"cite-wikieditor-help-content-reference-example-text3": "Short sample of external link syntax.\n\nParameters:\n* $1 - a URL\n\n{{doc-jqueryMsg}}",
 	"cite-wikieditor-help-content-reference-example-ref-id": "{{optional}}\nUsed as an example of a name for a reference.",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Used as an example for additional footnote content within a <ref> tag",
 	"cite-wikieditor-help-content-reference-example-ref-normal": "{{ignored}}",
 	"cite-wikieditor-help-content-reference-example-ref-named": "{{ignored}}",
 	"cite-wikieditor-help-content-reference-example-ref-reuse": "{{ignored}}",
+	"cite-wikieditor-help-content-reference-example-ref-extends": "{{ignored}}",
 	"cite-wikieditor-help-content-reference-example-ref-result": "{{ignored}}",
 	"cite-wikieditor-help-content-reference-example-reflist": "{{ignored}}"
 }

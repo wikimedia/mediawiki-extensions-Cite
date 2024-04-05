@@ -58,14 +58,17 @@
 	"cite-wikieditor-help-content-reference-description": "Reference",
 	"cite-wikieditor-help-content-named-reference-description": "Named reference",
 	"cite-wikieditor-help-content-rereference-description": "Additional use of the same reference",
+	"cite-wikieditor-help-content-extended-reference-description": "Additional use of the same reference, with extra details",
 	"cite-wikieditor-help-content-showreferences-description": "Display references",
 	"cite-wikieditor-help-content-reference-example-text1": "Page text.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Link text], additional text.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Link text]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "test",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Extra details",
 	"cite-wikieditor-help-content-reference-example-ref-normal": "<ref>$1</ref>",
 	"cite-wikieditor-help-content-reference-example-ref-named": "<ref name=\"$1\">$2</ref>",
 	"cite-wikieditor-help-content-reference-example-ref-reuse": "<ref name=\"$1\" />",
+	"cite-wikieditor-help-content-reference-example-ref-extends": "<ref extends=\"$1\">$2</ref>",
 	"cite-wikieditor-help-content-reference-example-ref-result": "[$1]",
 	"cite-wikieditor-help-content-reference-example-reflist": "<references />"
 }

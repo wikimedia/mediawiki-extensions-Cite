@@ -125,7 +125,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 		for ( let j = 0; j < indexOrder.length; j++ ) {
 			const refNode = firstNodes[ indexOrder[ j ] ];
 			// Exclude placeholder references
-			if ( refNode.getAttribute( 'placeholder' ) ) {
+			if ( !refNode || refNode.getAttribute( 'placeholder' ) ) {
 				continue;
 			}
 			// Only increment counter for real references

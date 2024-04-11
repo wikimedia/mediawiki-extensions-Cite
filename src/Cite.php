@@ -126,7 +126,7 @@ class Cite {
 		// Tag every page where Book Referencing has been used, whether or not the ref tag is valid.
 		// This code and the page property will be removed once the feature is stable.  See T237531.
 		if ( array_key_exists( self::BOOK_REF_ATTRIBUTE, $argv ) ) {
-			$parser->getOutput()->setPageProperty( self::BOOK_REF_PROPERTY, '' );
+			$parser->getOutput()->setUnsortedPageProperty( self::BOOK_REF_PROPERTY );
 		}
 
 		$status = $this->parseArguments(

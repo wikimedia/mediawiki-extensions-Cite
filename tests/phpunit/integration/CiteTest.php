@@ -415,8 +415,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockOutput = $this->createMock( ParserOutput::class );
 		// This will be our most important assertion.
 		$mockOutput->expects( $this->once() )
-			->method( 'setPageProperty' )
-			->with( Cite::BOOK_REF_PROPERTY, '' );
+			->method( 'setUnsortedPageProperty' )
+			->with( Cite::BOOK_REF_PROPERTY );
 
 		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOutput' ] );
 		$mockParser->method( 'getOutput' )->willReturn( $mockOutput );

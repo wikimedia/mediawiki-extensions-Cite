@@ -48,8 +48,10 @@
 	"cite-wikieditor-help-content-reference-description": "Einzelnachweis",
 	"cite-wikieditor-help-content-named-reference-description": "Benannter Einzelnachweis",
 	"cite-wikieditor-help-content-rereference-description": "Den gleichen Einzelnachweis erneut verwenden",
+	"cite-wikieditor-help-content-extended-reference-description": "Zusätzliche Verwendung des gleichen Einzelnachweises mit zusätzlichen Details",
 	"cite-wikieditor-help-content-showreferences-description": "Einzelnachweise anzeigen",
 	"cite-wikieditor-help-content-reference-example-text1": "Seitentext.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linktext], zusätzlicher Text.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linktext]"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linktext]",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Weitere Details"
 }

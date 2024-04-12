@@ -30,23 +30,23 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 	}
 
 	public function testOnParserClearState() {
-		$parser = $this->createNoOpMock( Parser::class );
+		$parser = $this->createNoOpMock( Parser::class, [ '__isset' ] );
 		$parser->extCite = $this->createMock( Cite::class );
 
 		$citeParserHooks = new CiteParserHooks();
 		$citeParserHooks->onParserClearState( $parser );
 
-		$this->assertObjectNotHasProperty( 'extCite', $parser );
+		$this->assertNull( $parser->extCite ?? null );
 	}
 
 	public function testOnParserCloned() {
-		$parser = $this->createNoOpMock( Parser::class );
+		$parser = $this->createNoOpMock( Parser::class, [ '__isset' ] );
 		$parser->extCite = $this->createMock( Cite::class );
 
 		$citeParserHooks = new CiteParserHooks();
 		$citeParserHooks->onParserCloned( $parser );
 
-		$this->assertObjectNotHasProperty( 'extCite', $parser );
+		$this->assertNull( $parser->extCite ?? null );
 	}
 
 	public function testAfterParseHooks() {

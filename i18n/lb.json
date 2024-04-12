@@ -3,7 +3,8 @@
 		"authors": [
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"cite-desc": "Setzt <code>&lt;ref[ name=id]&gt;</code> an <code>&lt;references/&gt;</code> Tagge fir Referenzen derbäi.",
@@ -33,5 +34,6 @@
 	"cite-wikieditor-help-content-reference-description": "Referenz",
 	"cite-wikieditor-help-content-named-reference-description": "Referenz mat engem Numm",
 	"cite-wikieditor-help-content-rereference-description": "Zousätzleche Gebrauch vun derselwëschter Referenz",
-	"cite-wikieditor-help-content-showreferences-description": "Referenze weisen"
+	"cite-wikieditor-help-content-showreferences-description": "Referenze weisen",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Weider Detailer"
 }

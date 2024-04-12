@@ -9,6 +9,7 @@
 			"Dgstranz",
 			"Drini",
 			"Erdemaslancan",
+			"Eulalio",
 			"Fitoschido",
 			"Gustronico",
 			"Ihojose",
@@ -58,7 +59,9 @@
 	"cite-wikieditor-help-content-reference-description": "Referencia",
 	"cite-wikieditor-help-content-named-reference-description": "Referencia nombrada",
 	"cite-wikieditor-help-content-rereference-description": "Uso adicional de la misma referencia",
+	"cite-wikieditor-help-content-extended-reference-description": "Uso adicional de la misma referencia, con detalles adicionales.",
 	"cite-wikieditor-help-content-showreferences-description": "Mostrar referencias",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto del enlace]",
-	"cite-wikieditor-help-content-reference-example-ref-id": "prueba"
+	"cite-wikieditor-help-content-reference-example-ref-id": "prueba",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Detalles adicionales"
 }

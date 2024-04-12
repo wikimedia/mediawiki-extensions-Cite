@@ -4,6 +4,7 @@
 			"Ahonc",
 			"Alexandr Efremov",
 			"Dim Grits",
+			"Dirruw'o",
 			"Facenapalm",
 			"Ferrer",
 			"Iltever",
@@ -57,5 +58,7 @@
 	"cite-wikieditor-help-content-reference-description": "Примечание",
 	"cite-wikieditor-help-content-named-reference-description": "Сноска с названием",
 	"cite-wikieditor-help-content-rereference-description": "Дополнительное использование той же ссылки",
-	"cite-wikieditor-help-content-showreferences-description": "Показывать примечания"
+	"cite-wikieditor-help-content-extended-reference-description": "Дополнительное использование той же ссылки с дополнительными подробностями",
+	"cite-wikieditor-help-content-showreferences-description": "Показывать примечания",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Очень подробные детали"
 }

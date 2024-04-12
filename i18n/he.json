@@ -44,9 +44,11 @@
 	"cite-wikieditor-help-content-reference-description": "הערת שוליים",
 	"cite-wikieditor-help-content-named-reference-description": "הערת שוליים עם שם",
 	"cite-wikieditor-help-content-rereference-description": "שימוש נוסף באותה הערת שוליים",
+	"cite-wikieditor-help-content-extended-reference-description": "שימוש נוסף באותה הערת השוליים, עם פרטים נוספים",
 	"cite-wikieditor-help-content-showreferences-description": "הצגת הערות שוליים",
 	"cite-wikieditor-help-content-reference-example-text1": "טקסט בדף.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 טקסט הקישור], טקסט נוסף.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 טקסט הקישור]",
-	"cite-wikieditor-help-content-reference-example-ref-id": "בדיקה"
+	"cite-wikieditor-help-content-reference-example-ref-id": "בדיקה",
+	"cite-wikieditor-help-content-reference-example-extra-details": "פרטים נוספים"
 }

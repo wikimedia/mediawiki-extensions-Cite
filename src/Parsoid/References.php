@@ -804,13 +804,13 @@ class References extends ExtensionTagHandler {
 	/** @inheritDoc */
 	public function lintHandler(
 		ParsoidExtensionAPI $extApi, Element $refs, callable $defaultHandler
-	): ?Node {
+	): bool {
 		$dataMw = DOMDataUtils::getDataMw( $refs );
 		if ( isset( $dataMw->body->html ) ) {
 			$fragment = $extApi->htmlToDom( $dataMw->body->html );
 			$defaultHandler( $fragment );
 		}
-		return $refs->nextSibling;
+		return true;
 	}
 
 	/** @inheritDoc */

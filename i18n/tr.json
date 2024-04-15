@@ -49,8 +49,10 @@
 	"cite-wikieditor-help-content-reference-description": "Kaynak",
 	"cite-wikieditor-help-content-named-reference-description": "Adlandırılmış kaynak",
 	"cite-wikieditor-help-content-rereference-description": "Aynı kaynağın ek kullanımı",
+	"cite-wikieditor-help-content-extended-reference-description": "Aynı kaynağın, daha çok ayrıntıyla birlikte ek kullanımı",
 	"cite-wikieditor-help-content-showreferences-description": "Kaynakçayı görüntüle",
 	"cite-wikieditor-help-content-reference-example-text1": "Sayfa metni.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Bağlantı yazısı], ek yazı.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Bağlantı yazısı]"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Bağlantı yazısı]",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Daha çok ayrıntı"
 }

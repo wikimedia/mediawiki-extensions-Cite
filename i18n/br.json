@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adriendelucca",
 			"Fohanno",
 			"Fulup",
 			"Huñvreüs",
@@ -33,5 +34,6 @@
 	"cite-wikieditor-help-content-reference-description": "Daveenn",
 	"cite-wikieditor-help-content-named-reference-description": "Dave anvet",
 	"cite-wikieditor-help-content-rereference-description": "Adimplij eus an hevelep daveenn",
-	"cite-wikieditor-help-content-showreferences-description": "Diskwel an daveennoù"
+	"cite-wikieditor-help-content-showreferences-description": "Diskwel an daveennoù",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Munudoù all"
 }

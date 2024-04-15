@@ -28,7 +28,7 @@ mw.loader.using( 'ext.eventLogging' ).then( function () {
 		// FIXME: This might be obsolete when the code moves to the this extension
 		mw.trackSubscribe( REFERENCE_PREVIEWS_LOGGING_SCHEMA, function ( type, data ) {
 			if ( data.action.indexOf( 'anonymous' ) !== -1 ) {
-				mw.config.set( 'wgPopupsReferencePreviewsVisible', data.action === 'anonymousEnabled' );
+				mw.config.set( 'wgCiteReferencePreviewsVisible', data.action === 'anonymousEnabled' );
 			}
 		} );
 
@@ -46,7 +46,7 @@ mw.loader.using( 'ext.eventLogging' ).then( function () {
 					// FIXME: This might be obsolete when the code moves to the this extension and
 					//  we get state directly.
 					// eslint-disable-next-line camelcase
-					with_ref_previews: mw.config.get( 'wgPopupsReferencePreviewsVisible' )
+					with_ref_previews: mw.config.get( 'wgCiteReferencePreviewsVisible' )
 				} );
 			}
 		);

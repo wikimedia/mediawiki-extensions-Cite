@@ -304,12 +304,12 @@ class Cite {
 		string $group,
 		string $responsive = null
 	): string {
-		global $wgCiteResponsiveReferences;
+		$responsiveReferences = MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteResponsiveReferences' );
 
 		return $this->referenceListFormatter->formatReferences(
 			$parser,
 			$this->referenceStack->popGroup( $group ),
-			$responsive !== null ? $responsive !== '0' : $wgCiteResponsiveReferences,
+			$responsive !== null ? $responsive !== '0' : $responsiveReferences,
 			$this->isSectionPreview
 		);
 	}

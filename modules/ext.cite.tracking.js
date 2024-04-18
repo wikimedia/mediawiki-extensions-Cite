@@ -11,10 +11,10 @@
  * @see https://meta.wikimedia.org/wiki/Schema:ReferencePreviewsCite
  */
 
+const isReferencePreviewsEnabled =
+	require( './ext.cite.referencePreviews/isReferencePreviewsEnabled.js' );
+
 const CITE_BASELINE_LOGGING_SCHEMA = 'ext.cite.baseline';
-// Same as in the Popups extension
-// FIXME: Could be an extension wide constant when Reference Previews is merged into this code base
-const REFERENCE_PREVIEWS_LOGGING_SCHEMA = 'event.ReferencePreviewsPopups';
 
 // EventLogging may not be installed
 mw.loader.using( 'ext.eventLogging' ).then( function () {
@@ -25,28 +25,24 @@ mw.loader.using( 'ext.eventLogging' ).then( function () {
 			return;
 		}
 
-		// FIXME: This might be obsolete when the code moves to the this extension
-		mw.trackSubscribe( REFERENCE_PREVIEWS_LOGGING_SCHEMA, function ( type, data ) {
-			if ( data.action.indexOf( 'anonymous' ) !== -1 ) {
-				mw.config.set( 'wgPopupsReferencePreviewsVisible', data.action === 'anonymousEnabled' );
-			}
-		} );
-
 		// eslint-disable-next-line no-jquery/no-global-selector
 		$( '#mw-content-text' ).on(
 			'click',
 			// Footnote links, references block in VisualEditor, and reference content links.
 			'.reference a[ href*="#" ], .mw-reference-text a, .reference-text a',
 			function () {
+				const referencePreviewsState = isReferencePreviewsEnabled(
+					mw.user,
+					mw.popups.isEnabled,
+					mw.config
+				);
 				const isInReferenceBlock = $( this ).parents( '.references' ).length > 0;
 				mw.eventLog.dispatch( CITE_BASELINE_LOGGING_SCHEMA, {
 					action: ( isInReferenceBlock ?
 						'clickedReferenceContentLink' :
 						'clickedFootnote' ),
-					// FIXME: This might be obsolete when the code moves to the this extension and
-					//  we get state directly.
 					// eslint-disable-next-line camelcase
-					with_ref_previews: mw.config.get( 'wgPopupsReferencePreviewsVisible' )
+					with_ref_previews: referencePreviewsState
 				} );
 			}
 		);

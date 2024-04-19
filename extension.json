@@ -31,6 +31,7 @@
 		"ParserCloned": "parser",
 		"ParserFirstCallInit": "parser",
 		"EditPage::showEditForm:initial": "main",
+		"MakeGlobalVariablesScript": "main",
 		"ResourceLoaderGetConfigVars": "main",
 		"ResourceLoaderRegisterModules": "main"
 	},
@@ -251,8 +252,7 @@
 			"tests/qunit/ve-cite/ve.ui.MWWikitextStringTransferHandler.test.js",
 			"tests/qunit/ext.cite.referencePreviews/createReferenceGateway.test.js",
 			"tests/qunit/ext.cite.referencePreviews/isReferencePreviewsEnabled.test.js",
-			"tests/qunit/ext.cite.referencePreviews/renderer.test.js",
-			"tests/qunit/ext.cite.referencePreviews/setUserConfigFlags.test.js"
+			"tests/qunit/ext.cite.referencePreviews/renderer.test.js"
 		],
 		"dependencies": [
 			"ext.cite.visualEditor",
@@ -299,6 +299,18 @@
 			"description": "If long <references /> lists with more than 10 references should behave responsive by default and be displayed in two or more columns. This can also be toggled individually with <references responsive /> to enable and <references responsive=\"0\" /> to disable it.",
 			"public": true,
 			"value": true
+		},
+		"CiteReferencePreviews": {
+			"description": "Feature flag to enable or disable the popups provided by the Popups extension for <ref> tags.",
+			"value": true
+		},
+		"CiteReferencePreviewsConflictingNavPopupsGadgetName": {
+			"description": "@var string: Name of a gadget that would cause duplicate reference preview popups. Should usually be identical to wgPopupsConflictingNavPopupsGadgetName in the Popups extension.",
+			"value": "Navigation_popups"
+		},
+		"CiteReferencePreviewsConflictingRefTooltipsGadgetName": {
+			"description": "@var string: Name of a gadget that would cause duplicate reference preview popups. Known conflicting gadgets include \"ReferenceTooltips\", \"CiteTooltip\" alias \"RefTooltip\", \"ReferencePopups\", and \"tooltipRef\" (see T274353).",
+			"value": "ReferenceTooltips"
 		}
 	},
 	"AutoloadNamespaces": {

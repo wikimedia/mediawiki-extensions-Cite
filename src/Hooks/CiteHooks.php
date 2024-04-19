@@ -7,11 +7,13 @@
 namespace Cite\Hooks;
 
 use ApiQuerySiteinfo;
+use Cite\ReferencePreviews\ReferencePreviewsContext;
 use ExtensionRegistry;
 use MediaWiki\Api\Hook\APIQuerySiteInfoGeneralInfoHook;
 use MediaWiki\Config\Config;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
+use MediaWiki\Output\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
@@ -26,6 +28,7 @@ use MediaWiki\User\Options\UserOptionsLookup;
  */
 class CiteHooks implements
 	ContentHandlerDefaultModelForHook,
+	MakeGlobalVariablesScriptHook,
 	ResourceLoaderGetConfigVarsHook,
 	ResourceLoaderRegisterModulesHook,
 	APIQuerySiteInfoGeneralInfoHook,
@@ -56,6 +59,21 @@ class CiteHooks implements
 		) {
 			$model = CONTENT_MODEL_JSON;
 		}
+	}
+
+	/**
+	 * @param array &$vars
+	 * @param OutputPage $out
+	 */
+	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
+		$referencePreviewsContext = new ReferencePreviewsContext(
+			$out->getConfig(),
+			$this->userOptionsLookup
+		);
+		$vars['wgCiteReferencePreviews'] = $referencePreviewsContext->isReferencePreviewsEnabled(
+			$out->getUser(),
+			$out->getSkin()
+		);
 	}
 
 	/**
@@ -92,8 +110,7 @@ class CiteHooks implements
 						'createReferenceGateway.js',
 						'createReferencePreview.js',
 						'isReferencePreviewsEnabled.js',
-						'referencePreviewsInstrumentation.js',
-						'setUserConfigFlags.js'
+						'referencePreviewsInstrumentation.js'
 					]
 				]
 			] );

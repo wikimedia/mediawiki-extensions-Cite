@@ -3,9 +3,7 @@ const { initReferencePreviewsInstrumentation, LOGGING_SCHEMA } = require( './ref
 const createReferenceGateway = require( './createReferenceGateway.js' );
 const renderFn = require( './createReferencePreview.js' );
 const { TYPE_REFERENCE, FETCH_DELAY_REFERENCE_TYPE } = require( './constants.js' );
-const setUserConfigFlags = require( './setUserConfigFlags.js' );
 
-setUserConfigFlags( mw.config );
 const referencePreviewsState = isReferencePreviewsEnabled(
 	mw.user,
 	mw.popups.isEnabled,
@@ -40,7 +38,6 @@ if ( typeof QUnit !== 'undefined' ) {
 	module.exports = { private: {
 		createReferenceGateway: require( './createReferenceGateway.js' ),
 		createReferencePreview: require( './createReferencePreview.js' ),
-		isReferencePreviewsEnabled: require( './isReferencePreviewsEnabled.js' ),
-		setUserConfigFlags: require( './setUserConfigFlags.js' )
+		isReferencePreviewsEnabled: require( './isReferencePreviewsEnabled.js' )
 	} };
 }

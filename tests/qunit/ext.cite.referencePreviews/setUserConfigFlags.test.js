@@ -10,8 +10,8 @@ QUnit.test( 'reference preview config settings are successfully set from bitmask
 
 	assert.deepEqual(
 		[
-			config.get( 'wgPopupsConflictsWithRefTooltipsGadget' ),
-			config.get( 'wgPopupsReferencePreviews' )
+			config.get( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget' ),
+			config.get( 'wgCiteReferencePreviews' )
 		],
 		[ true, true ]
 	);
@@ -21,8 +21,8 @@ QUnit.test( 'reference preview config settings are successfully set from bitmask
 
 	assert.deepEqual(
 		[
-			config.get( 'wgPopupsConflictsWithRefTooltipsGadget' ),
-			config.get( 'wgPopupsReferencePreviews' )
+			config.get( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget' ),
+			config.get( 'wgCiteReferencePreviews' )
 		],
 		[ true, false ]
 	);
@@ -32,8 +32,8 @@ QUnit.test( 'reference preview config settings are successfully set from bitmask
 
 	assert.deepEqual(
 		[
-			config.get( 'wgPopupsConflictsWithRefTooltipsGadget' ),
-			config.get( 'wgPopupsReferencePreviews' )
+			config.get( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget' ),
+			config.get( 'wgCiteReferencePreviews' )
 		],
 		[ false, true ]
 	);
@@ -43,8 +43,8 @@ QUnit.test( 'reference preview config settings are successfully set from bitmask
 
 	assert.deepEqual(
 		[
-			config.get( 'wgPopupsConflictsWithRefTooltipsGadget' ),
-			config.get( 'wgPopupsReferencePreviews' )
+			config.get( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget' ),
+			config.get( 'wgCiteReferencePreviews' )
 		],
 		[ false, false ]
 	);

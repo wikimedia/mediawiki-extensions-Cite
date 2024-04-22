@@ -18,11 +18,11 @@ module.exports = function setUserConfigFlags( config ) {
 
 	/* eslint-disable no-bitwise */
 	config.set(
-		'wgPopupsConflictsWithRefTooltipsGadget',
+		'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget',
 		!!( popupsFlags & REF_TOOLTIPS_ENABLED )
 	);
 	config.set(
-		'wgPopupsReferencePreviews',
+		'wgCiteReferencePreviews',
 		!!( popupsFlags & REFERENCE_PREVIEWS_ENABLED )
 	);
 	/* eslint-enable no-bitwise */

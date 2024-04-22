@@ -16,13 +16,13 @@ const { TYPE_REFERENCE } = require( './constants.js' );
  */
 function isReferencePreviewsEnabled( user, isPreviewTypeEnabled, config ) {
 	// TODO: This and the final `mw.user.options` check are currently redundant. Only this here
-	// should be removed when the wgPopupsReferencePreviews feature flag is not needed any more.
-	if ( !config.get( 'wgPopupsReferencePreviews' ) ) {
+	// should be removed when the wgCiteReferencePreviews feature flag is not needed any more.
+	if ( !config.get( 'wgCiteReferencePreviews' ) ) {
 		return null;
 	}
 
 	// T265872: Unavailable when in conflict with (one of the) reference tooltips gadgets.
-	if ( config.get( 'wgPopupsConflictsWithRefTooltipsGadget' ) ||
+	if ( config.get( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget' ) ||
 		config.get( 'wgPopupsConflictsWithNavPopupGadget' ) ||
 		// T243822: Temporarily disabled in the mobile skin
 		config.get( 'skin' ) === 'minerva'

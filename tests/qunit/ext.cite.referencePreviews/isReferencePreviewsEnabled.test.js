@@ -28,8 +28,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 	[
 		{
 			testCase: 'enabled for an anonymous user',
-			wgPopupsReferencePreviews: true,
-			wgPopupsConflictsWithRefTooltipsGadget: false,
+			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: false,
 			isMobile: false,
 			isAnon: true,
 			enabledByAnon: true,
@@ -38,8 +38,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			testCase: 'turned off via the feature flag (anonymous user)',
-			wgPopupsReferencePreviews: false,
-			wgPopupsConflictsWithRefTooltipsGadget: false,
+			wgCiteReferencePreviews: false,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: false,
 			isMobile: false,
 			isAnon: true,
 			enabledByAnon: true,
@@ -48,8 +48,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			testCase: 'not available because of a conflicting gadget (anonymous user)',
-			wgPopupsReferencePreviews: true,
-			wgPopupsConflictsWithRefTooltipsGadget: true,
+			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: true,
 			isMobile: false,
 			isAnon: true,
 			enabledByAnon: true,
@@ -58,8 +58,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			testCase: 'not available in the mobile skin (anonymous user)',
-			wgPopupsReferencePreviews: true,
-			wgPopupsConflictsWithRefTooltipsGadget: false,
+			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: false,
 			isMobile: true,
 			isAnon: true,
 			enabledByAnon: true,
@@ -68,8 +68,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			testCase: 'manually disabled by the anonymous user',
-			wgPopupsReferencePreviews: true,
-			wgPopupsConflictsWithRefTooltipsGadget: false,
+			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: false,
 			isMobile: false,
 			isAnon: true,
 			enabledByAnon: false,
@@ -78,8 +78,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			testCase: 'enabled for a registered user',
-			wgPopupsReferencePreviews: true,
-			wgPopupsConflictsWithRefTooltipsGadget: false,
+			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: false,
 			isMobile: false,
 			isAnon: false,
 			enabledByAnon: false,
@@ -88,8 +88,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			testCase: 'turned off via the feature flag (registered user)',
-			wgPopupsReferencePreviews: false,
-			wgPopupsConflictsWithRefTooltipsGadget: false,
+			wgCiteReferencePreviews: false,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: false,
 			isMobile: false,
 			isAnon: false,
 			enabledByAnon: true,
@@ -98,8 +98,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			testCase: 'not available because of a conflicting gadget (registered user)',
-			wgPopupsReferencePreviews: true,
-			wgPopupsConflictsWithRefTooltipsGadget: true,
+			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: true,
 			isMobile: false,
 			isAnon: false,
 			enabledByAnon: true,
@@ -108,8 +108,8 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			testCase: 'not available in the mobile skin (registered user)',
-			wgPopupsReferencePreviews: true,
-			wgPopupsConflictsWithRefTooltipsGadget: false,
+			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: false,
 			isMobile: true,
 			isAnon: false,
 			enabledByAnon: true,
@@ -118,10 +118,10 @@ QUnit.test( 'all relevant combinations of flags', ( assert ) => {
 		},
 		{
 			// TODO: This combination will make much more sense when the server-side
-			// wgPopupsReferencePreviews flag doesn't include the user's setting any more
+			// wgCiteReferencePreviews flag doesn't include the user's setting any more
 			testCase: 'manually disabled by the registered user',
-			wgPopupsReferencePreviews: true,
-			wgPopupsConflictsWithRefTooltipsGadget: false,
+			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsConflictsWithRefTooltipsGadget: false,
 			isMobile: false,
 			isAnon: false,
 			enabledByAnon: true,
@@ -165,8 +165,8 @@ QUnit.test( 'it should display reference previews when conditions are fulfilled'
 		userSettings = createStubUserSettings( false ),
 		config = new Map();
 
-	config.set( 'wgPopupsReferencePreviews', true );
-	config.set( 'wgPopupsConflictsWithRefTooltipsGadget', false );
+	config.set( 'wgCiteReferencePreviews', true );
+	config.set( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget', false );
 
 	assert.true(
 		require( 'ext.cite.referencePreviews' ).private.isReferencePreviewsEnabled( user, userSettings, config ),
@@ -179,8 +179,8 @@ QUnit.test( 'it should handle the conflict with the Reference Tooltips Gadget', 
 		userSettings = createStubUserSettings( false ),
 		config = new Map();
 
-	config.set( 'wgPopupsReferencePreviews', true );
-	config.set( 'wgPopupsConflictsWithRefTooltipsGadget', true );
+	config.set( 'wgCiteReferencePreviews', true );
+	config.set( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget', true );
 
 	assert.strictEqual(
 		require( 'ext.cite.referencePreviews' ).private.isReferencePreviewsEnabled( user, userSettings, config ),
@@ -194,8 +194,8 @@ QUnit.test( 'it should not be enabled when the global is disabling it', ( assert
 		userSettings = createStubUserSettings( false ),
 		config = new Map();
 
-	config.set( 'wgPopupsReferencePreviews', false );
-	config.set( 'wgPopupsConflictsWithRefTooltipsGadget', false );
+	config.set( 'wgCiteReferencePreviews', false );
+	config.set( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget', false );
 
 	assert.strictEqual(
 		require( 'ext.cite.referencePreviews' ).private.isReferencePreviewsEnabled( user, userSettings, config ),
@@ -209,8 +209,8 @@ QUnit.test( 'it should not be enabled when minerva skin used', ( assert ) => {
 		userSettings = createStubUserSettings( false ),
 		config = new Map();
 
-	config.set( 'wgPopupsReferencePreviews', true );
-	config.set( 'wgPopupsConflictsWithRefTooltipsGadget', false );
+	config.set( 'wgCiteReferencePreviews', true );
+	config.set( 'wgCiteReferencePreviewsConflictsWithRefTooltipsGadget', false );
 	config.set( 'skin', 'minerva' );
 
 	assert.strictEqual(

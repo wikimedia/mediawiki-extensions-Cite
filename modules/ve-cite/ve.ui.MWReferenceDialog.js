@@ -347,6 +347,9 @@ ve.ui.MWReferenceDialog.prototype.useExistingReference = function () {
 	this.search.buildIndex();
 	this.panels.setItem( this.searchPanel );
 	this.search.getQuery().focus().select();
+
+	// https://phabricator.wikimedia.org/T362347
+	ve.track( 'activity.' + this.constructor.static.name, { action: 'dialog-open-reuse' } );
 };
 
 /**

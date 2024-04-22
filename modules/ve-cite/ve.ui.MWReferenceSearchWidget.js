@@ -27,9 +27,11 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	// Properties
 	this.index = null;
 	this.indexEmpty = true;
+	this.wasUsedActively = false;
 
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceSearchWidget' );
+	this.$results.on( 'scroll', this.trackActiveUsage.bind( this ) );
 };
 
 /* Inheritance */
@@ -38,17 +40,35 @@ OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
 
 /* Methods */
 
-/**
- * Handle query change events.
- *
- * @param {string} value New value
- */
 ve.ui.MWReferenceSearchWidget.prototype.onQueryChange = function () {
 	// Parent method
 	ve.ui.MWReferenceSearchWidget.super.prototype.onQueryChange.call( this );
 
 	// Populate
 	this.getResults().addItems( this.buildSearchResults( this.getQuery().getValue() ) );
+};
+
+/**
+ * @param {jQuery.Event} e Key down event
+ */
+ve.ui.MWReferenceSearchWidget.prototype.onQueryKeydown = function ( e ) {
+	// Parent method
+	ve.ui.MWReferenceSearchWidget.super.prototype.onQueryKeydown.call( this, e );
+
+	this.trackActiveUsage();
+};
+
+/**
+ * Track when the user looks for references to reuse using scrolling or filtering results
+ */
+ve.ui.MWReferenceSearchWidget.prototype.trackActiveUsage = function () {
+	if ( this.wasUsedActively ) {
+		return;
+	}
+
+	// https://phabricator.wikimedia.org/T362347
+	ve.track( 'activity.' + this.constructor.static.name, { action: 'reuse-dialog-use' } );
+	this.wasUsedActively = true;
 };
 
 /**

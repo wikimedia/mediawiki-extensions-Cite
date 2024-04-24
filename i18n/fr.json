@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alien333",
 			"Cedric31",
 			"Crochet.david",
 			"Derugon",
@@ -28,9 +29,11 @@
 	"cite-desc": "Ajoute les balises <code>&lt;ref[ name=id]&gt;</code> et <code>&lt;references/&gt;</code> pour les citations",
 	"cite_error": "Erreur de référence : $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valide, doit être <code>ltr</code> ou <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "Une des balises <code>&lt;ref&gt;</code> avec le nom \"$1\" a un attribut dir en conflit.",
 	"cite_error_ref_numeric_key": "Balise <code>&lt;ref&gt;</code> incorrecte : la valeur de l’attribut <code>name</code> ne peut être un simple entier. Utilisez un titre descriptif.",
 	"cite_error_ref_no_key": "La balise ouvrante <code>&lt;ref&gt;</code> est mal formée ou a un mauvais nom.",
 	"cite_error_ref_too_many_keys": "Paramètre invalide dans la balise <code>&lt;ref&gt;</code>",
+	"cite_error_ref_follow_conflicts": "Une balise &lt;<code>&lt;ref follow=\"…\"&gt;</code>=\"...\"&gt; qui est la continuation d'une précédente ne peut être ni nommée individuellement ni étendue",
 	"cite_error_ref_nested_extends": "L’extension des balises <code>&lt;ref&gt;</code> au-delà d’un niveau de profondeur n’est pas autorisée.",
 	"cite_error_ref_no_input": "Balise <code>&lt;ref&gt;</code> incorrecte : les références sans nom doivent avoir un contenu.",
 	"cite_error_references_duplicate_key": "Balise <code>&lt;ref&gt;</code> incorrecte : le nom « $1 » est défini plusieurs fois avec des contenus différents.",
@@ -60,8 +63,10 @@
 	"cite-wikieditor-help-content-reference-description": "Référence",
 	"cite-wikieditor-help-content-named-reference-description": "Référence nommée",
 	"cite-wikieditor-help-content-rereference-description": "Utilisation additionnelle de la même référence",
+	"cite-wikieditor-help-content-extended-reference-description": "Utilisation supplémentaire de la même référence, avec des détails supplémentaires",
 	"cite-wikieditor-help-content-showreferences-description": "Afficher les références",
 	"cite-wikieditor-help-content-reference-example-text1": "Texte de la page.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texte du lien], texte supplémentaire.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texte du lien]"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texte du lien]",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Détails supplémentaires"
 }

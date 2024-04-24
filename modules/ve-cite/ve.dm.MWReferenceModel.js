@@ -47,11 +47,11 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 	const attr = node.getAttributes();
 	const ref = new ve.dm.MWReferenceModel( doc );
 
-	ref.setExtendsRef( attr.extendsRef );
-	ref.setListKey( attr.listKey );
-	ref.setListGroup( attr.listGroup );
-	ref.setListIndex( attr.listIndex );
-	ref.setGroup( attr.refGroup );
+	ref.extendsRef = attr.extendsRef;
+	ref.listKey = attr.listKey;
+	ref.listGroup = attr.listGroup;
+	ref.listIndex = attr.listIndex;
+	ref.group = attr.refGroup;
 	ref.deferDoc = function () {
 		// cloneFromRange is very expensive, so lazy evaluate it
 		return doc.cloneFromRange( internalList.getItemNode( attr.listIndex ).getRange() );
@@ -89,13 +89,13 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
 	const internalList = doc.getInternalList();
 
 	// Fill in data
-	this.setListKey( 'auto/' + internalList.getNextUniqueNumber() );
-	this.setListGroup( 'mwReference/' + this.group );
+	this.listKey = 'auto/' + internalList.getNextUniqueNumber();
+	this.listGroup = 'mwReference/' + this.group;
 
 	// Insert internal reference item into document
 	const item = internalList.getItemInsertion( this.listGroup, this.listKey, [] );
 	surfaceModel.change( item.transaction );
-	this.setListIndex( item.index );
+	this.listIndex = item.index;
 
 	// Inject reference document into internal reference item
 	surfaceModel.change(
@@ -240,46 +240,6 @@ ve.dm.MWReferenceModel.prototype.getDocument = function () {
 		}
 	}
 	return this.doc;
-};
-
-/**
- * Set key of reference in list.
- *
- * @private
- * @param {string} listKey Reference's list key
- */
-ve.dm.MWReferenceModel.prototype.setListKey = function ( listKey ) {
-	this.listKey = listKey;
-};
-
-/**
- * Set the name of the parent reference that is being extended by the current reference.
- *
- * @private
- * @param {string} extendsRef References parent
- */
-ve.dm.MWReferenceModel.prototype.setExtendsRef = function ( extendsRef ) {
-	this.extendsRef = extendsRef;
-};
-
-/**
- * Set name of the group a references list is in.
- *
- * @private
- * @param {string} listGroup References list's group
- */
-ve.dm.MWReferenceModel.prototype.setListGroup = function ( listGroup ) {
-	this.listGroup = listGroup;
-};
-
-/**
- * Set the index of reference in list.
- *
- * @private
- * @param {string} listIndex Reference's list index
- */
-ve.dm.MWReferenceModel.prototype.setListIndex = function ( listIndex ) {
-	this.listIndex = listIndex;
 };
 
 /**

@@ -245,6 +245,7 @@ ve.dm.MWReferenceModel.prototype.getDocument = function () {
 /**
  * Set key of reference in list.
  *
+ * @private
  * @param {string} listKey Reference's list key
  */
 ve.dm.MWReferenceModel.prototype.setListKey = function ( listKey ) {
@@ -254,6 +255,7 @@ ve.dm.MWReferenceModel.prototype.setListKey = function ( listKey ) {
 /**
  * Set the name of the parent reference that is being extended by the current reference.
  *
+ * @private
  * @param {string} extendsRef References parent
  */
 ve.dm.MWReferenceModel.prototype.setExtendsRef = function ( extendsRef ) {
@@ -263,6 +265,7 @@ ve.dm.MWReferenceModel.prototype.setExtendsRef = function ( extendsRef ) {
 /**
  * Set name of the group a references list is in.
  *
+ * @private
  * @param {string} listGroup References list's group
  */
 ve.dm.MWReferenceModel.prototype.setListGroup = function ( listGroup ) {
@@ -272,6 +275,7 @@ ve.dm.MWReferenceModel.prototype.setListGroup = function ( listGroup ) {
 /**
  * Set the index of reference in list.
  *
+ * @private
  * @param {string} listIndex Reference's list index
  */
 ve.dm.MWReferenceModel.prototype.setListIndex = function ( listIndex ) {

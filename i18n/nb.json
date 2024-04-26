@@ -46,8 +46,10 @@
 	"cite-wikieditor-help-content-reference-description": "Referanse",
 	"cite-wikieditor-help-content-named-reference-description": "Navngitt referanse",
 	"cite-wikieditor-help-content-rereference-description": "Ytterligere bruk av samme referanse",
+	"cite-wikieditor-help-content-extended-reference-description": "Ytterligere bruk av samme referanse, med ekstra detaljer",
 	"cite-wikieditor-help-content-showreferences-description": "Vis referanser",
 	"cite-wikieditor-help-content-reference-example-text1": "Sidetekst.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Lenketekst], ekstra tekst.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Lenketekst]"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Lenketekst]",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Ekstra detaljer"
 }

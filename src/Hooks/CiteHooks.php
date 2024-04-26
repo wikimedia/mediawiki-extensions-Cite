@@ -92,29 +92,32 @@ class CiteHooks implements
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'Popups' ) ) {
-			$dir = dirname( __DIR__, 2 ) . '/modules/';
-			$resourceLoader->register( [
-				'ext.cite.referencePreviews' => [
-					'localBasePath' => $dir . '/ext.cite.referencePreviews',
-					'remoteExtPath' => 'Cite/modules/ext.cite.referencePreviews',
-					'dependencies' => [
-						'ext.popups.main',
-					],
-					'styles' => [
-						'referencePreview.less',
-					],
-					'packageFiles' => [
-						'index.js',
-						'constants.js',
-						'createReferenceGateway.js',
-						'createReferencePreview.js',
-						'isReferencePreviewsEnabled.js',
-						'referencePreviewsInstrumentation.js'
-					]
-				]
-			] );
+		if ( !$resourceLoader->getConfig()->get( 'CiteReferencePreviews' ) ||
+			!ExtensionRegistry::getInstance()->isLoaded( 'Popups' )
+		) {
+			return;
 		}
+
+		$resourceLoader->register( [
+			'ext.cite.referencePreviews' => [
+				'localBasePath' => dirname( __DIR__, 2 ) . '/modules/ext.cite.referencePreviews',
+				'remoteExtPath' => 'Cite/modules/ext.cite.referencePreviews',
+				'dependencies' => [
+					'ext.popups.main',
+				],
+				'styles' => [
+					'referencePreview.less',
+				],
+				'packageFiles' => [
+					'index.js',
+					'constants.js',
+					'createReferenceGateway.js',
+					'createReferencePreview.js',
+					'isReferencePreviewsEnabled.js',
+					'referencePreviewsInstrumentation.js'
+				]
+			]
+		] );
 	}
 
 	/**

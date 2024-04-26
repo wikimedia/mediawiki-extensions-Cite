@@ -38,6 +38,8 @@ class ReferencePreviewsContext {
 		if (
 			// T243822: Temporarily disabled in the mobile skin
 			$skin->getSkinName() === 'minerva' ||
+			// The feature flag is also checked in the ResourceLoaderRegisterModules hook handler
+			// and technically redundant here, but it's cheap; better safe than sorry
 			!$this->config->get( 'CiteReferencePreviews' ) ||
 			$this->gadgetsIntegration->isRefToolTipsGadgetEnabled( $user ) ||
 			$this->gadgetsIntegration->isNavPopupsGadgetEnabled( $user )

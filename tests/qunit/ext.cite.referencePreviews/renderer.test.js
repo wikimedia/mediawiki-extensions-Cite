@@ -36,7 +36,7 @@ QUnit.test( 'createReferencePreview(model)', ( assert ) => {
 
 	assert.strictEqual(
 		$( preview.el ).find( '.mwe-popups-title' ).text().trim(),
-		'<popups-refpreview-web>'
+		'<cite-reference-previews-web>'
 	);
 	assert.strictEqual(
 		$( preview.el ).find( '.mw-parser-output' ).text().trim(),
@@ -59,7 +59,7 @@ QUnit.test( 'createReferencePreview default title', ( assert ) => {
 
 	assert.strictEqual(
 		$( preview.el ).find( '.mwe-popups-title' ).text().trim(),
-		'<popups-refpreview-reference>'
+		'<cite-reference-previews-reference>'
 	);
 } );
 
@@ -92,6 +92,6 @@ QUnit.test( 'createReferencePreview collapsible/sortable handling', ( assert ) =
 	assert.strictEqual( $( preview.el ).find( 'th' ).attr( 'title' ), undefined );
 	assert.strictEqual(
 		$( preview.el ).find( '.mwe-collapsible-placeholder' ).text(),
-		'<popups-refpreview-collapsible-placeholder>'
+		'<cite-reference-previews-collapsible-placeholder>'
 	);
 } );

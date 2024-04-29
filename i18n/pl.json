@@ -49,8 +49,10 @@
 	"cite-wikieditor-help-content-reference-description": "Przypis",
 	"cite-wikieditor-help-content-named-reference-description": "Nazwany przypis",
 	"cite-wikieditor-help-content-rereference-description": "Kolejne użycie nazwanego przypisu",
+	"cite-wikieditor-help-content-extended-reference-description": "Ponowne użycie tego samego przypisu z dodatkowymi szczegółami",
 	"cite-wikieditor-help-content-showreferences-description": "Wyświetl przypisy",
 	"cite-wikieditor-help-content-reference-example-text1": "Treść strony.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Treść linku], dodatkowy tekst.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Treść linku]"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Treść linku]",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Dodatkowe szczegóły"
 }

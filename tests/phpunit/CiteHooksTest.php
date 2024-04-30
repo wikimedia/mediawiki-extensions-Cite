@@ -4,6 +4,8 @@ namespace Cite\Tests;
 
 use ApiQuerySiteinfo;
 use Cite\Hooks\CiteHooks;
+use MediaWiki\Config\HashConfig;
+use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\User\Options\StaticUserOptionsLookup;
 
 /**
@@ -12,30 +14,64 @@ use MediaWiki\User\Options\StaticUserOptionsLookup;
  */
 class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 
-	public function testOnResourceLoaderGetConfigVars() {
+	/**
+	 * @dataProvider provideBooleans
+	 */
+	public function testOnResourceLoaderGetConfigVars( bool $enabled ) {
 		$vars = [];
 
-		$config = $this->getServiceContainer()->getMainConfig();
+		$config = new HashConfig( [
+			'CiteVisualEditorOtherGroup' => $enabled,
+			'CiteResponsiveReferences' => $enabled,
+			'CiteBookReferencing' => $enabled,
+		] );
 
 		$citeHooks = new CiteHooks( new StaticUserOptionsLookup( [] ) );
 		$citeHooks->onResourceLoaderGetConfigVars( $vars, 'vector', $config );
 
-		$this->assertArrayHasKey( 'wgCiteVisualEditorOtherGroup', $vars );
-		$this->assertArrayHasKey( 'wgCiteResponsiveReferences', $vars );
+		$this->assertSame( [
+			'wgCiteVisualEditorOtherGroup' => $enabled,
+			'wgCiteResponsiveReferences' => $enabled,
+			'wgCiteBookReferencing' => $enabled,
+		], $vars );
 	}
 
-	public function testOnAPIQuerySiteInfoGeneralInfo() {
+	/**
+	 * @dataProvider provideBooleans
+	 */
+	public function testOnResourceLoaderRegisterModules( bool $enabled ) {
+		$this->markTestSkippedIfExtensionNotLoaded( 'Popups' );
+
+		$resourceLoader = $this->createMock( ResourceLoader::class );
+		$resourceLoader->method( 'getConfig' )
+			->willReturn( new HashConfig( [ 'CiteReferencePreviews' => $enabled ] ) );
+		$resourceLoader->expects( $this->exactly( (int)$enabled ) )
+			->method( 'register' );
+
+		$citeHooks = new CiteHooks( new StaticUserOptionsLookup( [] ) );
+		$citeHooks->onResourceLoaderRegisterModules( $resourceLoader );
+	}
+
+	/**
+	 * @dataProvider provideBooleans
+	 */
+	public function testOnAPIQuerySiteInfoGeneralInfo( bool $enabled ) {
 		$api = $this->createMock( ApiQuerySiteinfo::class );
 		$api->expects( $this->once() )
 			->method( 'getConfig' )
-			->willReturn( $this->getServiceContainer()->getMainConfig() );
+			->willReturn( new HashConfig( [ 'CiteResponsiveReferences' => $enabled ] ) );
 
 		$data = [];
 
 		$citeHooks = new CiteHooks( new StaticUserOptionsLookup( [] ) );
 		$citeHooks->onAPIQuerySiteInfoGeneralInfo( $api, $data );
 
-		$this->assertArrayHasKey( 'citeresponsivereferences', $data );
+		$this->assertSame( [ 'citeresponsivereferences' => $enabled ], $data );
+	}
+
+	public static function provideBooleans() {
+		yield [ true ];
+		yield [ false ];
 	}
 
 }

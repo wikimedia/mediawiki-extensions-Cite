@@ -13,19 +13,16 @@ use Wikimedia\Services\NoSuchServiceException;
 /**
  * Gadgets integration
  *
- * @package ReferencePreviews
  * @license GPL-2.0-or-later
  */
 class ReferencePreviewsGadgetsIntegration {
 
 	public const CONFIG_NAVIGATION_POPUPS_NAME = 'CiteReferencePreviewsConflictingNavPopupsGadgetName';
-
 	public const CONFIG_REFERENCE_TOOLTIPS_NAME = 'CiteReferencePreviewsConflictingRefTooltipsGadgetName';
 
 	private ?GadgetRepo $gadgetRepo;
 
 	private string $navPopupsGadgetName;
-
 	private string $refTooltipsGadgetName;
 
 	public function __construct( Config $config ) {

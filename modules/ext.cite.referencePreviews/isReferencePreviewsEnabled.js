@@ -15,7 +15,7 @@ const { TYPE_REFERENCE } = require( './constants.js' );
  * @return {boolean|null} Null when there is no way the popup type can be enabled at run-time.
  */
 function isReferencePreviewsEnabled( user, isPreviewTypeEnabled, config ) {
-	if ( !config.get( 'wgCiteReferencePreviews' ) ) {
+	if ( !config.get( 'wgCiteReferencePreviewsActive' ) ) {
 		return null;
 	}
 

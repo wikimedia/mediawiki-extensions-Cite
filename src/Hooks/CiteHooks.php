@@ -70,7 +70,7 @@ class CiteHooks implements
 			$out->getConfig(),
 			$this->userOptionsLookup
 		);
-		$vars['wgCiteReferencePreviews'] = $referencePreviewsContext->isReferencePreviewsEnabled(
+		$vars['wgCiteReferencePreviewsActive'] = $referencePreviewsContext->isReferencePreviewsEnabled(
 			$out->getUser(),
 			$out->getSkin()
 		);

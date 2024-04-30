@@ -6,7 +6,7 @@ const LOGGING_SCHEMA = 'event.ReferencePreviewsPopups';
  * Run once the preview is initialized.
  */
 function initReferencePreviewsInstrumentation() {
-	if ( mw.config.get( 'wgCiteReferencePreviews' ) &&
+	if ( mw.config.get( 'wgCiteReferencePreviewsActive' ) &&
 		navigator.sendBeacon &&
 		mw.config.get( 'wgIsArticle' ) &&
 		!isTracking

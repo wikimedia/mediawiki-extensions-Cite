@@ -28,21 +28,21 @@ QUnit.test( 'relevant combinations of anonymous flags', ( assert ) => {
 	[
 		{
 			testCase: 'enabled for an anonymous user',
-			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsActive: true,
 			isAnon: true,
 			enabledByAnon: true,
 			expected: true
 		},
 		{
 			testCase: 'turned off via the feature flag (anonymous user)',
-			wgCiteReferencePreviews: false,
+			wgCiteReferencePreviewsActive: false,
 			isAnon: true,
 			enabledByAnon: true,
 			expected: null
 		},
 		{
 			testCase: 'manually disabled by the anonymous user',
-			wgCiteReferencePreviews: true,
+			wgCiteReferencePreviewsActive: true,
 			isAnon: true,
 			enabledByAnon: false,
 			expected: false
@@ -62,7 +62,7 @@ QUnit.test( 'relevant combinations of anonymous flags', ( assert ) => {
 				return data.enabledByAnon;
 			},
 			config = new Map();
-		config.set( 'wgCiteReferencePreviews', data.wgCiteReferencePreviews );
+		config.set( 'wgCiteReferencePreviewsActive', data.wgCiteReferencePreviewsActive );
 
 		if ( data.isAnon ) {
 			user.options.get = () => assert.true( false, 'not expected to be called 2' );
@@ -83,7 +83,7 @@ QUnit.test( 'it should display reference previews when conditions are fulfilled'
 		userSettings = createStubUserSettings( false ),
 		config = new Map();
 
-	config.set( 'wgCiteReferencePreviews', true );
+	config.set( 'wgCiteReferencePreviewsActive', true );
 
 	assert.true(
 		require( 'ext.cite.referencePreviews' ).private.isReferencePreviewsEnabled( user, userSettings, config ),
@@ -96,7 +96,7 @@ QUnit.test( 'it should not be enabled when the global is disabling it', ( assert
 		userSettings = createStubUserSettings( false ),
 		config = new Map();
 
-	config.set( 'wgCiteReferencePreviews', false );
+	config.set( 'wgCiteReferencePreviewsActive', false );
 
 	assert.strictEqual(
 		require( 'ext.cite.referencePreviews' ).private.isReferencePreviewsEnabled( user, userSettings, config ),

@@ -24,6 +24,48 @@ QUnit.test( 'buildIndex', function ( assert ) {
 	assert.deepEqual( widget.index, [] );
 } );
 
+QUnit.test( 'buildSearchIndex when empty', function ( assert ) {
+	const widget = new ve.ui.MWReferenceSearchWidget();
+	widget.internalList = { getNodeGroups: () => ( {} ) };
+
+	const index = widget.buildSearchIndex();
+	assert.deepEqual( index, [] );
+} );
+
+QUnit.test( 'buildSearchIndex with a placeholder', function ( assert ) {
+	const widget = new ve.ui.MWReferenceSearchWidget();
+	const placeholder = true;
+	const node = { getAttribute: () => placeholder };
+	const groups = { 'mwReference/': { indexOrder: [ 0 ], firstNodes: [ node ] } };
+	widget.internalList = { getNodeGroups: () => groups, getItemNode: () => [] };
+
+	const index = widget.buildSearchIndex();
+	assert.deepEqual( index, [] );
+} );
+
+QUnit.test( 'buildSearchIndex', function ( assert ) {
+	const widget = new ve.ui.MWReferenceSearchWidget();
+
+	// XXX: This is a regression test with a fragile setup. Please feel free to delete this test
+	// when you feel like it doesn't make sense to update it.
+	const placeholder = false;
+	const node = {
+		getDocument: () => ( {
+			getInternalList: () => null
+		} ),
+		getAttributes: () => ( { listKey: 'literal/foo' } ),
+		getAttribute: () => placeholder
+	};
+	const groups = { 'mwReference/': { indexOrder: [ 0 ], firstNodes: [ node ] } };
+	widget.internalList = { getNodeGroups: () => groups, getItemNode: () => [] };
+
+	const index = widget.buildSearchIndex();
+	assert.deepEqual( index.length, 1 );
+	assert.deepEqual( index[ 0 ].citation, '1' );
+	assert.deepEqual( index[ 0 ].name, 'foo' );
+	assert.deepEqual( index[ 0 ].text, '1 foo' );
+} );
+
 QUnit.test( 'isIndexEmpty', function ( assert ) {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 	assert.true( widget.isIndexEmpty() );
@@ -39,12 +81,12 @@ QUnit.test( 'isIndexEmpty', function ( assert ) {
 	assert.false( widget.isIndexEmpty() );
 } );
 
-QUnit.test( 'addResults', function ( assert ) {
+QUnit.test( 'buildSearchResults', function ( assert ) {
 	const widget = new ve.ui.MWReferenceSearchWidget();
-	widget.getQuery().setValue( 'a' );
-	widget.index = [ { text: 'a' }, { text: 'b' } ];
+	widget.index = [ { text: 'a', reference: 'model-a' }, { text: 'b' } ];
 
 	assert.strictEqual( widget.getResults().getItemCount(), 0 );
-	widget.addResults();
-	assert.strictEqual( widget.getResults().getItemCount(), 1 );
+	const results = widget.buildSearchResults( 'A' );
+	assert.strictEqual( results.length, 1 );
+	assert.strictEqual( results[ 0 ].getData(), 'model-a' );
 } );

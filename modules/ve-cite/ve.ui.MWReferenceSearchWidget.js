@@ -48,7 +48,7 @@ ve.ui.MWReferenceSearchWidget.prototype.onQueryChange = function () {
 	ve.ui.MWReferenceSearchWidget.super.prototype.onQueryChange.call( this );
 
 	// Populate
-	this.addResults();
+	this.getResults().addItems( this.buildSearchResults( this.getQuery().getValue() ) );
 };
 
 /**
@@ -103,13 +103,21 @@ ve.ui.MWReferenceSearchWidget.prototype.onListNodeUpdate = function () {
  * Build a searchable index of references.
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
-	const groups = this.internalList.getNodeGroups();
-
-	if ( this.built ) {
-		return;
+	if ( !this.built ) {
+		this.index = this.buildSearchIndex();
+		this.built = true;
+		// Re-populate
+		this.onQueryChange();
 	}
+};
 
-	this.index = [];
+/**
+ * @private
+ * @return {Object[]}
+ */
+ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
+	const groups = this.internalList.getNodeGroups();
+	const index = [];
 	const groupNames = Object.keys( groups ).sort();
 
 	for ( let i = 0; i < groupNames.length; i++ ) {
@@ -161,7 +169,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 					.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) );
 			}
 
-			this.index.push( {
+			index.push( {
 				$element: $element,
 				text: text,
 				reference: refModel,
@@ -171,10 +179,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 		}
 	}
 
-	// Re-populate
-	this.onQueryChange();
-
-	this.built = true;
+	return index;
 };
 
 /**
@@ -186,8 +191,13 @@ ve.ui.MWReferenceSearchWidget.prototype.isIndexEmpty = function () {
 	return this.indexEmpty;
 };
 
-ve.ui.MWReferenceSearchWidget.prototype.addResults = function () {
-	const query = this.query.getValue().trim().toLowerCase();
+/**
+ * @private
+ * @param {string} query
+ * @return {ve.ui.MWReferenceResultWidget[]}
+ */
+ve.ui.MWReferenceSearchWidget.prototype.buildSearchResults = function ( query ) {
+	query = query.trim().toLowerCase();
 	const items = [];
 
 	for ( let i = 0; i < this.index.length; i++ ) {
@@ -209,5 +219,5 @@ ve.ui.MWReferenceSearchWidget.prototype.addResults = function () {
 		}
 	}
 
-	this.results.addItems( items );
+	return items;
 };

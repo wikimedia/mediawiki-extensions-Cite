@@ -100,8 +100,9 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 
 	const mwDataJSON = refListNode.getAttribute( 'data-mw' );
 	const mwData = mwDataJSON ? JSON.parse( mwDataJSON ) : {};
-	const refGroup = ve.getProp( mwData, 'attrs', 'group' ) || '';
-	const responsiveAttr = ve.getProp( mwData, 'attrs', 'responsive' );
+	const mwAttrs = mwData.attrs || {};
+	const refGroup = mwAttrs.group || '';
+	const responsiveAttr = mwAttrs.responsive;
 	const listGroup = 'mwReference/' + refGroup;
 	const templateGenerated = type.indexOf( 'mw:Transclusion' ) !== -1;
 	const isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' );

@@ -93,9 +93,7 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
  * @return {jQuery|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
-	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
-
-	if ( refModel.extendsRef ) {
+	if ( this.model.getAttribute( 'extendsRef' ) ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
 			.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) );
@@ -133,12 +131,12 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  * @return {string|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
-	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
-	if ( !refModel.extendsRef ) {
+	const extendsRef = this.model.getAttribute( 'extendsRef' );
+	if ( !extendsRef ) {
 		return null;
 	}
 	const list = this.getFragment().getDocument().getInternalList();
-	const index = list.keys.indexOf( 'literal/' + refModel.extendsRef );
+	const index = list.keys.indexOf( 'literal/' + extendsRef );
 	return list.getItemNode( index ).element.attributes.originalHtml;
 };
 

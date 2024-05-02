@@ -4,14 +4,17 @@
 			"Anakmalaysia",
 			"Aviator",
 			"CyberTroopers",
-			"Izzudin"
+			"Izzudin",
+			"Hakimi97"
 		]
 	},
 	"cite-desc": "Menambah tag <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> untuk pemetikan",
 	"cite_error": "Ralat petik: $1",
-	"cite_error_ref_numeric_key": "Tag <code>&lt;ref&gt;</code> tidak sah; nombor ringkas tidak dibenarkan, sila masukkan tajuk yang lebih terperinci",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> tidak sah, mestilah <code>ltr</code> atau <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "Salah satu teg <code>&lt;ref&gt;</code> dengan nama \"$1\" memang mempunyai atribut dir yang bercanggah.",
+	"cite_error_ref_numeric_key": "Teg <code>&lt;ref&gt;</code> tidak sah; nama tidak boleh menjadi integer mudah. Gunakan tajuk deskriptif",
 	"cite_error_ref_no_key": "Pembukaan tag <code>&lt;ref&gt;</code> tidak tidak berfungsi atau mempunyai nama yang salah.",
-	"cite_error_ref_too_many_keys": "Tag <code>&lt;ref&gt;</code> tidak sah; nama-nama tidak sah, misalnya terlalu banyak",
+	"cite_error_ref_too_many_keys": "Parameter tidak sah dalam teg <code>&lt;ref&gt;</code>",
 	"cite_error_ref_no_input": "'Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa nama mestilah mempunyai kandungan",
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> tidak sah, nama \"$1\" digunakan secara berulang dengan kandungan yang berbeza",
 	"cite_error_references_invalid_parameters": "Parameter tidak sah dalam tag <code>&lt;references&gt;</code>",
@@ -29,6 +32,7 @@
 	"cite-wikieditor-tool-reference": "Rujukan",
 	"cite-wikieditor-help-page-references": "Rujukan",
 	"cite-wikieditor-help-content-reference-description": "Rujukan",
+	"cite-wikieditor-help-content-named-reference-description": "Rujukan bernama",
 	"cite-wikieditor-help-content-rereference-description": "Penggunaan rujukan sama",
 	"cite-wikieditor-help-content-showreferences-description": "Paparkan senarai rujukan"
 }

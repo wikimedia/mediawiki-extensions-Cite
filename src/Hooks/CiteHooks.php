@@ -108,6 +108,15 @@ class CiteHooks implements
 				'styles' => [
 					'referencePreview.less',
 				],
+				'messages' => [
+					'popups-refpreview-reference',
+					'popups-refpreview-book',
+					'popups-refpreview-journal',
+					'popups-refpreview-news',
+					'popups-refpreview-note',
+					'popups-refpreview-web',
+					'popups-refpreview-collapsible-placeholder',
+				],
 				'packageFiles' => [
 					'index.js',
 					'constants.js',

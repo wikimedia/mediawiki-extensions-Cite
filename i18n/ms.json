@@ -4,12 +4,14 @@
 			"Anakmalaysia",
 			"Aviator",
 			"CyberTroopers",
-			"Izzudin"
+			"Izzudin",
+			"Hakimi97"
 		]
 	},
 	"cite-desc": "Menambah tag <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> untuk pemetikan",
 	"cite_error": "Ralat petik: $1",
-	"cite_error_ref_numeric_key": "Tag <code>&lt;ref&gt;</code> tidak sah; nombor ringkas tidak dibenarkan, sila masukkan tajuk yang lebih terperinci",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> tidak sah, mestilah <code>ltr</code> atau <code>rtl</code>",
+	"cite_error_ref_numeric_key": "Teg <code>&lt;ref&gt;</code> tidak sah; nama tidak boleh menjadi integer mudah. Gunakan tajuk deskriptif",
 	"cite_error_ref_no_key": "Pembukaan tag <code>&lt;ref&gt;</code> tidak tidak berfungsi atau mempunyai nama yang salah.",
 	"cite_error_ref_too_many_keys": "Tag <code>&lt;ref&gt;</code> tidak sah; nama-nama tidak sah, misalnya terlalu banyak",
 	"cite_error_ref_no_input": "'Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa nama mestilah mempunyai kandungan",

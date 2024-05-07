@@ -77,9 +77,7 @@ ve.ui.MWReferenceSearchWidget.prototype.trackActiveUsage = function () {
  * @param {ve.dm.InternalList} internalList Internal list
  */
 ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalList ) {
-	if ( this.results.findSelectedItem() ) {
-		this.results.findSelectedItem().setSelected( false );
-	}
+	this.results.unselectItem();
 
 	this.internalList = internalList;
 	this.internalList.connect( this, { update: 'onInternalListUpdate' } );

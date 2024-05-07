@@ -42,8 +42,10 @@
 	"cite-wikieditor-help-content-reference-description": "İstinad",
 	"cite-wikieditor-help-content-named-reference-description": "Adlı istinad",
 	"cite-wikieditor-help-content-rereference-description": "Eyni istinaddan istifadənin əlavəsi",
+	"cite-wikieditor-help-content-extended-reference-description": "Əlavə detallarla eyni istinaddan əlavə istifadə",
 	"cite-wikieditor-help-content-showreferences-description": "İstinadları göstər",
 	"cite-wikieditor-help-content-reference-example-text1": "Səhifə mətni.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Keçidin mətni], əlavə mətn.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Keçid mətni]"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Keçid mətni]",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Əlavə detallar"
 }

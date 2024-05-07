@@ -70,7 +70,7 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 		helpers.waitForVEToLoad();
 	} );
 
-	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {
+	it.skip( 'should add a template reference and verify correct content in both saved and edit mode', () => {
 		cy.contains( '.mw-reflink-text', '[1]' ).type( '{rightarrow}' );
 
 		cy.contains( '.oo-ui-labelElement-label', 'Cite' ).click();

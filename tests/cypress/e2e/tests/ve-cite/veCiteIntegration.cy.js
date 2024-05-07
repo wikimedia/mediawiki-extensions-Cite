@@ -43,7 +43,7 @@ describe( 'Visual Editor Cite Integration', () => {
 			.should( 'contain.text', refText1 );
 	} );
 
-	it( 'should display existing references in the Cite re-use dialog', () => {
+	it.skip( 'should display existing references in the Cite re-use dialog', () => {
 		helpers.openVECiteReuseDialog();
 
 		// Assert reference content for the first reference

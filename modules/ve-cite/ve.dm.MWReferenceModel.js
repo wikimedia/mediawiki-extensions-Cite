@@ -12,7 +12,7 @@
  *
  * @constructor
  * @mixes OO.EventEmitter
- * @param {ve.dm.Document} parentDoc Document that contains or will contain the reference
+ * @param {ve.dm.Document} [parentDoc] Document that contains or will contain the reference
  */
 ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	// Mixin constructors
@@ -25,8 +25,12 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	this.listIndex = null;
 	this.group = '';
 	this.doc = null;
-	this.parentDoc = parentDoc;
-	this.deferDoc = null;
+	this.deferDoc = () => parentDoc.cloneWithData( [
+		{ type: 'paragraph', internal: { generated: 'wrapper' } },
+		{ type: '/paragraph' },
+		{ type: 'internalList' },
+		{ type: '/internalList' }
+	] );
 };
 
 /* Inheritance */
@@ -45,7 +49,7 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 	const doc = node.getDocument();
 	const internalList = doc.getInternalList();
 	const attr = node.getAttributes();
-	const ref = new ve.dm.MWReferenceModel( doc );
+	const ref = new ve.dm.MWReferenceModel();
 
 	ref.extendsRef = attr.extendsRef;
 	ref.listKey = attr.listKey;
@@ -228,16 +232,8 @@ ve.dm.MWReferenceModel.prototype.getGroup = function () {
  */
 ve.dm.MWReferenceModel.prototype.getDocument = function () {
 	if ( !this.doc ) {
-		if ( this.deferDoc ) {
-			this.doc = this.deferDoc();
-		} else {
-			this.doc = this.parentDoc.cloneWithData( [
-				{ type: 'paragraph', internal: { generated: 'wrapper' } },
-				{ type: '/paragraph' },
-				{ type: 'internalList' },
-				{ type: '/internalList' }
-			] );
-		}
+		this.doc = this.deferDoc();
+		delete this.deferDoc;
 	}
 	return this.doc;
 };

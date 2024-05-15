@@ -12,7 +12,10 @@
  *
  * @constructor
  * @mixes OO.EventEmitter
- * @param {ve.dm.Document} [parentDoc] Document that contains or will contain the reference
+ * @param {ve.dm.Document} [parentDoc] The parent Document we can use to auto-generate a blank
+ *  Document for the reference in case {@see setDocument} was never called
+ * @property {ve.dm.Document|Function|undefined} doc Might be deferred via a function, to be
+ *  lazy-evaluated when {@see getDocument} is called
  */
 ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	// Mixin constructors
@@ -24,13 +27,14 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	this.listGroup = '';
 	this.listIndex = null;
 	this.group = '';
-	this.doc = null;
-	this.deferDoc = () => parentDoc.cloneWithData( [
-		{ type: 'paragraph', internal: { generated: 'wrapper' } },
-		{ type: '/paragraph' },
-		{ type: 'internalList' },
-		{ type: '/internalList' }
-	] );
+	if ( parentDoc ) {
+		this.doc = () => parentDoc.cloneWithData( [
+			{ type: 'paragraph', internal: { generated: 'wrapper' } },
+			{ type: '/paragraph' },
+			{ type: 'internalList' },
+			{ type: '/internalList' }
+		] );
+	}
 };
 
 /* Inheritance */
@@ -56,7 +60,7 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 	ref.listGroup = attributes.listGroup;
 	ref.listIndex = attributes.listIndex;
 	ref.group = attributes.refGroup;
-	ref.deferDoc = function () {
+	ref.doc = function () {
 		// cloneFromRange is very expensive, so lazy evaluate it
 		return doc.cloneFromRange( internalList.getItemNode( attributes.listIndex ).getRange() );
 	};
@@ -228,12 +232,11 @@ ve.dm.MWReferenceModel.prototype.getGroup = function () {
  *
  * Auto-generates a blank document if no document exists.
  *
- * @return {ve.dm.Document} Reference document
+ * @return {ve.dm.Document} The (small) document with the content of the reference
  */
 ve.dm.MWReferenceModel.prototype.getDocument = function () {
-	if ( !this.doc ) {
-		this.doc = this.deferDoc();
-		delete this.deferDoc;
+	if ( typeof this.doc === 'function' ) {
+		this.doc = this.doc();
 	}
 	return this.doc;
 };
@@ -250,7 +253,7 @@ ve.dm.MWReferenceModel.prototype.setGroup = function ( group ) {
 /**
  * Set the reference document.
  *
- * @param {ve.dm.Document} doc Reference document
+ * @param {ve.dm.Document} doc The (small) document with the content of the reference
  */
 ve.dm.MWReferenceModel.prototype.setDocument = function ( doc ) {
 	this.doc = doc;

@@ -12,7 +12,7 @@ use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 
 /**
- * @coversDefaultClass \Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration
+ * @covers \Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration
  * @license GPL-2.0-or-later
  */
 class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCase {
@@ -38,11 +38,6 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 		] );
 	}
 
-	/**
-	 * @covers ::isNavPopupsGadgetEnabled
-	 * @covers ::__construct
-	 * @covers ::sanitizeGadgetName
-	 */
 	public function testConflictsWithNavPopupsGadgetIfGadgetsExtensionIsNotLoaded() {
 		$integration = new ReferencePreviewsGadgetsIntegration( $this->getConfig() );
 		$this->assertFalse(
@@ -51,10 +46,9 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 		);
 	}
 
-	/**
-	 * @covers ::isNavPopupsGadgetEnabled
-	 */
 	public function testConflictsWithNavPopupsGadgetIfGadgetNotExists() {
+		$this->markTestSkippedIfExtensionNotLoaded( 'Gadgets' );
+
 		$gadgetRepoMock = $this->createMock( GadgetRepo::class );
 		$gadgetRepoMock->expects( $this->once() )
 			->method( 'getGadgetIds' )
@@ -68,10 +62,9 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 		);
 	}
 
-	/**
-	 * @covers ::isNavPopupsGadgetEnabled
-	 */
 	public function testConflictsWithNavPopupsGadgetIfGadgetExists() {
+		$this->markTestSkippedIfExtensionNotLoaded( 'Gadgets' );
+
 		$user = $this->createMock( User::class );
 
 		$gadgetMock = $this->createMock( Gadget::class );
@@ -99,9 +92,10 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 
 	/**
 	 * Test the edge case when GadgetsRepo::getGadget throws an exception
-	 * @covers ::isNavPopupsGadgetEnabled
 	 */
 	public function testConflictsWithNavPopupsGadgetWhenGadgetNotExists() {
+		$this->markTestSkippedIfExtensionNotLoaded( 'Gadgets' );
+
 		$gadgetRepoMock = $this->createMock( GadgetRepo::class );
 		$gadgetRepoMock->expects( $this->once() )
 			->method( 'getGadgetIds' )
@@ -120,10 +114,11 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 	}
 
 	/**
-	 * @covers ::sanitizeGadgetName
 	 * @dataProvider provideGadgetNamesWithSanitizedVersion
 	 */
 	public function testConflictsWithNavPopupsGadgetNameSanitization( string $gadgetName, string $sanitized ) {
+		$this->markTestSkippedIfExtensionNotLoaded( 'Gadgets' );
+
 		$gadgetMock = $this->createMock( Gadget::class );
 		$gadgetMock->expects( $this->once() )
 			->method( 'isEnabled' )

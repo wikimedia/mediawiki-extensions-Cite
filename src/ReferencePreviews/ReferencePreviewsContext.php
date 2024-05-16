@@ -13,9 +13,7 @@ use Skin;
 class ReferencePreviewsContext {
 
 	private Config $config;
-
 	private ReferencePreviewsGadgetsIntegration $gadgetsIntegration;
-
 	private UserOptionsLookup $userOptionsLookup;
 
 	public function __construct(
@@ -34,6 +32,11 @@ class ReferencePreviewsContext {
 	 */
 	public const REFERENCE_PREVIEWS_PREFERENCE_NAME = 'popups-reference-previews';
 
+	/**
+	 * If the client-side code for Reference Previews should continue loading
+	 * (see isReferencePreviewsEnabled.js), incorporating decisions we can only make after the
+	 * ResourceLoader module was registered via {@see CiteHooks::onResourceLoaderRegisterModules}.
+	 */
 	public function isReferencePreviewsEnabled( User $user, Skin $skin ): bool {
 		if (
 			// T243822: Temporarily disabled in the mobile skin
@@ -47,6 +50,7 @@ class ReferencePreviewsContext {
 			return false;
 		}
 
+		// Anonymous users can (de)activate the feature via a cookie at runtime, hence it must load
 		return !$user->isNamed() || $this->userOptionsLookup->getBoolOption(
 				$user, self::REFERENCE_PREVIEWS_PREFERENCE_NAME
 			);

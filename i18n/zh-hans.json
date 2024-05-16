@@ -17,11 +17,12 @@
 			"Zhuyifei1999",
 			"乌拉跨氪",
 			"列维劳德",
-			"沈澄心"
+			"沈澄心",
+			"Lakejason0"
 		]
 	},
 	"cite-desc": "添加用于引证的<code>&lt;ref&gt;</code>和<code>&lt;references&gt;</code>标签",
-	"cite_error": "引证错误：$1",
+	"cite_error": "引用错误：$1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"<code>无效，值必须为<code>ltr</code>或<code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "一个name（名称）为“$1”的<code>&lt;ref&gt;</code>标签有冲突的dir（书写方向）属性。",
 	"cite_error_ref_numeric_key": "<code>&lt;ref&gt;</code>标签无效；name（名称）不能是单纯整数，请使用描述性标题",

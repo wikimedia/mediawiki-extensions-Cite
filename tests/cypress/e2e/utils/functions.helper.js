@@ -105,6 +105,14 @@ export function openVECiteReuseDialog() {
 	cy.get( '.ve-ui-toolbar .oo-ui-tool-name-reference-existing' ).click();
 }
 
+export function openVECiteoidReuseDialog() {
+	cy.get( '.ve-ui-toolbar-group-citoid' ).click();
+	// TODO: Sometimes enabling the tab does not work right away.
+	// eslint-disable-next-line cypress/no-unnecessary-waiting
+	cy.wait( 500 );
+	cy.get( '.oo-ui-labelElement-label' ).contains( 'Re-use' ).click();
+}
+
 export function getVEUIToolbarSaveButton() {
 	return cy.get( '.ve-ui-toolbar-saveButton' );
 }

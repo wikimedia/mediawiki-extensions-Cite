@@ -9,6 +9,8 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 	`This is reference #3 <ref>${ refText2 }</ref><br>` +
 	'<references />';
 
+let citoidLoaded;
+
 describe( 'Visual Editor Cite Integration', () => {
 	before( () => {
 		cy.visit( '/index.php' );
@@ -17,9 +19,12 @@ describe( 'Visual Editor Cite Integration', () => {
 
 	beforeEach( () => {
 		helpers.visitTitle( title );
+		helpers.waitForMWLoader();
 
 		cy.window().then( async ( win ) => {
+			citoidLoaded = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
+			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
 
 		helpers.visitTitle( title, { veaction: 'edit' } );
@@ -43,8 +48,13 @@ describe( 'Visual Editor Cite Integration', () => {
 			.should( 'contain.text', refText1 );
 	} );
 
-	it.skip( 'should display existing references in the Cite re-use dialog', () => {
-		helpers.openVECiteReuseDialog();
+	it( 'should display existing references in the Cite re-use dialog', () => {
+		if ( citoidLoaded ) {
+			helpers.openVECiteoidReuseDialog();
+
+		} else {
+			helpers.openVECiteReuseDialog();
+		}
 
 		// Assert reference content for the first reference
 		helpers.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );

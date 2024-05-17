@@ -8,6 +8,8 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 `This is reference #3 <ref>${ refText2 }</ref><br>` +
 '<references />';
 
+let citoidLoaded;
+
 describe( 'Re-using refs in Visual Editor', () => {
 	beforeEach( () => {
 		const title = helpers.getTestString( 'CiteTest-reuseRefs' );
@@ -17,7 +19,9 @@ describe( 'Re-using refs in Visual Editor', () => {
 
 		helpers.editPage( title, wikiText );
 		cy.window().then( async ( win ) => {
+			citoidLoaded = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
+			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
 
 		helpers.visitTitle( title );
@@ -27,6 +31,7 @@ describe( 'Re-using refs in Visual Editor', () => {
 			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
 				await win.mw.hook( 'wikipage.content' ).add( function () {} );
 			} );
+
 		} );
 
 		helpers.visitTitle( title, { veaction: 'edit' } );
@@ -41,7 +46,11 @@ describe( 'Re-using refs in Visual Editor', () => {
 		// Place cursor next to ref #2 in order to add re-use ref next to it
 		cy.contains( '.mw-reflink-text', '[2]' ).type( '{rightarrow}' );
 
-		helpers.openVECiteReuseDialog();
+		if ( citoidLoaded ) {
+			helpers.openVECiteoidReuseDialog();
+		} else {
+			helpers.openVECiteReuseDialog();
+		}
 
 		// Re-use second ref
 		helpers.getCiteReuseDialogRefResult( 2 ).click();
@@ -78,7 +87,12 @@ describe( 'Re-using refs in Visual Editor', () => {
 		// Place cursor next to ref #1 in order to add re-used ref next to it
 		cy.contains( '.mw-reflink-text', '[1]' ).first().type( '{rightarrow}' );
 
-		helpers.openVECiteReuseDialog();
+		if ( citoidLoaded ) {
+			helpers.openVECiteoidReuseDialog();
+		} else {
+			helpers.openVECiteReuseDialog();
+		}
+
 		// reuse first ref which has the name 'a'
 		helpers.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
 		helpers.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );

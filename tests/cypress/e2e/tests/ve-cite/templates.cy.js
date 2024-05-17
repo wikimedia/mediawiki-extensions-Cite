@@ -11,13 +11,15 @@ const refText1 = 'This is citation #1 for reference #1';
 const wikiText = `${ wikiText1 } <ref name="a">${ refText1 }</ref><br> ` +
 	'<references />';
 
+let citoidLoaded;
+
 describe( 'Re-using refs in Visual Editor using templates', () => {
 
 	before( () => {
 		cy.clearCookies();
 		helpers.loginAsAdmin();
 
-		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
+		helpers.waitForMWLoader();
 		cy.window().then( async ( win ) => {
 			await win.mw.loader.using( 'mediawiki.api' );
 			const response = await new win.mw.Api().postWithEditToken( {
@@ -50,10 +52,10 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 			} );
 			expect( response.edit.result ).to.equal( 'Success' );
 			cy.log( 'SUCCESS' );
-			// Disable welcome dialog when entering edit mode
-			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
 		} );
 
+		// Logout Admin account
+		cy.clearCookies();
 	} );
 
 	beforeEach( () => {
@@ -63,23 +65,38 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
 				await win.mw.hook( 'wikipage.content' ).add( function () { } );
 			} );
+			citoidLoaded = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
+			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
+			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
 
 		// Open VE edit mode
-		helpers.visitTitle( title, { veaction: 'edit', vehidebetadialog: 1 } );
+		helpers.visitTitle( title, { veaction: 'edit' } );
 		helpers.waitForVEToLoad();
 	} );
 
-	it.skip( 'should add a template reference and verify correct content in both saved and edit mode', () => {
+	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {
 		cy.contains( '.mw-reflink-text', '[1]' ).type( '{rightarrow}' );
 
-		cy.contains( '.oo-ui-labelElement-label', 'Cite' ).click();
-		cy.contains( '.oo-ui-tool-name-cite-Webseite', 'Webseite' )
-			.should( 'be.visible' );
-		cy.contains( '.oo-ui-tool-name-cite-Literatur', 'Literatur' )
-			.should( 'be.visible' );
+		if ( citoidLoaded ) {
+			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 
-		cy.get( '.oo-ui-tool-name-cite-Webseite' ).click();
+			// Switch to Manual tab
+			// TODO: Sometimes enabling the tab does not work right away.
+			// eslint-disable-next-line cypress/no-unnecessary-waiting
+			cy.wait( 500 );
+			cy.get( '.oo-ui-labelElement-label' ).contains( 'Manual' ).click();
+
+			cy.get( '.oo-ui-labelElement-label' ).contains( 'Literatur' )
+				.should( 'be.visible' );
+			cy.get( '.oo-ui-labelElement-label' ).contains( 'Webseite' ).click();
+
+		} else {
+			cy.get( '.ve-ui-toolbar-group-cite' ).click();
+			cy.get( '.oo-ui-tool-name-cite-Literatur' ).contains( 'Literatur' )
+				.should( 'be.visible' );
+			cy.get( '.oo-ui-tool-name-cite-Webseite' ).contains( 'Webseite' ).click();
+		}
 
 		// Tempalte dialog is displayed with correct content
 		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-title' )

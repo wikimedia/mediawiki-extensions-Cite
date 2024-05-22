@@ -2,11 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Lifeway",
+			"Mxalexandrov86",
 			"Валентина Семёнова",
 			"Венина Наталья Константиновна"
 		]
 	},
 	"cite_error": "$1 - тыште йоҥылыш",
+	"cite_error_ref_too_many_keys": " <code>&lt;ref&gt;</code> тегыште йӧрыдымӧ параметр",
+	"cite_error_ref_no_input": "Йӧрыдымӧ тег <code>&lt;ref&gt;</code> ; лӱм деч посна элементын содержанийже лийшашлык",
 	"cite-tracking-category-cite-error": "Палемдымаште йоҥылыш дене велыж-влак",
 	"cite_references_link_accessibility_label": "Мӧҥгеш текст деке",
 	"cite_references_link_many_accessibility_label": "Мӧҥгеш куснаш:",

@@ -83,22 +83,25 @@ class RefGroup {
 		}
 		$li->appendChild( $reftextSpan );
 
+		// mw:referencedBy is added to the <span> for the named refs case
+		// and to the <a> tag to the unnamed refs case. This difference
+		// is used by CSS to style backlinks in MediaWiki:Common.css
+		// of various wikis.
+		$linkbackSpan = $ownerDoc->createElement( 'span' );
 		if ( count( $ref->linkbacks ) === 1 ) {
 			$linkback = self::createLinkback( $extApi, $ref->id, $refGroup, "↑", $ownerDoc );
 			DOMUtils::addRel( $linkback, 'mw:referencedBy' );
-			$li->insertBefore( $linkback, $reftextSpan );
+			$linkbackSpan->appendChild( $linkback );
 		} else {
-			// 'mw:referencedBy' span wrapper
-			$span = $ownerDoc->createElement( 'span' );
-			DOMUtils::addRel( $span, 'mw:referencedBy' );
-			$li->insertBefore( $span, $reftextSpan );
-
+			DOMUtils::addRel( $linkbackSpan, 'mw:referencedBy' );
 			foreach ( $ref->linkbacks as $i => $lb ) {
-				$span->appendChild(
+				$linkbackSpan->appendChild(
 					self::createLinkback( $extApi, $lb, $refGroup, (string)( $i + 1 ), $ownerDoc )
 				);
 			}
 		}
+		DOMCompat::getClassList( $linkbackSpan )->add( 'mw-cite-backlink' );
+		$li->insertBefore( $linkbackSpan, $reftextSpan );
 
 		// Space before content node
 		$li->insertBefore( $ownerDoc->createTextNode( ' ' ), $reftextSpan );

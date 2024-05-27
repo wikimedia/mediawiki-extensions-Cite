@@ -31,6 +31,17 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 			$reporter->plain( $mockParser, $key, 'first param' ) );
 	}
 
+	public function testDisabledWrapperMessages() {
+		$language = $this->createLanguage();
+		$reporter = $this->createReporter( $language, true );
+		$mockParser = $this->createParser( $language );
+		$this->assertSame(
+			'<span class="warning mw-ext-cite-warning mw-ext-cite-warning-a" lang="qqx" ' .
+				'dir="rtl">(cite_warning_a)</span>',
+			$reporter->plain( $mockParser, 'cite_warning_a' )
+		);
+	}
+
 	public function testHalfParsed() {
 		$language = $this->createLanguage();
 		$reporter = $this->createReporter( $language );
@@ -65,11 +76,12 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		return $language;
 	}
 
-	private function createReporter( Language $language ): ErrorReporter {
+	private function createReporter( Language $language, bool $disabled = false ): ErrorReporter {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) use ( $language ) {
+			function ( ...$args ) use ( $language, $disabled ) {
 				$message = $this->createMock( Message::class );
+				$message->method( 'isDisabled' )->willReturn( $disabled );
 				$message->method( 'getKey' )->willReturn( $args[0] );
 				$message->method( 'plain' )->willReturn( '(' . implode( '|', $args ) . ')' );
 				$message->method( 'inLanguage' )->with( $language )->willReturnSelf();

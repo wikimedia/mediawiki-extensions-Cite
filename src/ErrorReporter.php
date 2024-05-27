@@ -75,8 +75,9 @@ class ErrorReporter {
 			$parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 		}
 
-		// Messages: cite_error, cite_warning
-		return $this->messageLocalizer->msg( "cite_$type", $msg->plain() )->inLanguage( $language );
+		// Optional wrapper messages: cite_error, cite_warning
+		$wrapper = $this->messageLocalizer->msg( "cite_$type", $msg->plain() )->inLanguage( $language );
+		return $wrapper->isDisabled() ? $msg : $wrapper;
 	}
 
 	/**
@@ -116,7 +117,7 @@ class ErrorReporter {
 	/**
 	 * @param string $messageKey Expected to be a message key like "cite_error_ref_numeric_key"
 	 *
-	 * @return string[] Two elements, e.g. "error" and "ref_too_many_keys"
+	 * @return string[] Two elements, e.g. "error" and "ref_numeric_key"
 	 */
 	private function parseTypeAndIdFromMessageKey( string $messageKey ): array {
 		return array_slice( explode( '_', str_replace( '-', '_', $messageKey ), 3 ), 1 );

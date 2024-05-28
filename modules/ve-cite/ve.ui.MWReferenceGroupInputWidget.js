@@ -10,10 +10,12 @@
 /**
  * Creates an ve.ui.MWReferenceGroupInput object.
  *
- * @constructor
+ * @class
  * @extends OO.ui.ComboBoxInputWidget
- * @param {Object} config Configuration options
- * @cfg {string} emptyGroupName Label of the placeholder item
+ *
+ * @constructor
+ * @param {Object} config
+ * @param {string} config.emptyGroupName Label of the placeholder item
  */
 ve.ui.MWReferenceGroupInputWidget = function VeUiMWReferenceGroupInputWidget( config ) {
 	this.emptyGroupName = config.emptyGroupName;

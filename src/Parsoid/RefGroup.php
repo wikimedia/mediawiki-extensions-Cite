@@ -67,7 +67,9 @@ class RefGroup {
 			$reftextSpan,
 			[
 				'id' => 'mw-reference-text-' . $refTarget,
-				'class' => 'mw-reference-text',
+				// Add both mw-reference-text & reference-text for b/c.
+				// We will remove duplicate classes in the future.
+				'class' => 'mw-reference-text reference-text',
 			]
 		);
 		if ( $refContentId ) {

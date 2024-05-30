@@ -8,7 +8,7 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 `This is reference #3 <ref>${ refText2 }</ref><br>` +
 '<references />';
 
-let citoidLoaded;
+let usesCitoid;
 
 describe( 'Re-using refs in Visual Editor', () => {
 	beforeEach( () => {
@@ -19,7 +19,7 @@ describe( 'Re-using refs in Visual Editor', () => {
 
 		helpers.editPage( title, wikiText );
 		cy.window().then( async ( win ) => {
-			citoidLoaded = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
+			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
 			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
@@ -34,9 +34,7 @@ describe( 'Re-using refs in Visual Editor', () => {
 
 		} );
 
-		helpers.visitTitle( title, { veaction: 'edit' } );
-
-		helpers.waitForVEToLoad();
+		helpers.openVEForEditingReferences( title, usesCitoid );
 	} );
 
 	it( 'should display re-used reference in article with correct footnote number and notification in context dialog', () => {
@@ -46,7 +44,7 @@ describe( 'Re-using refs in Visual Editor', () => {
 		// Place cursor next to ref #2 in order to add re-use ref next to it
 		cy.contains( '.mw-reflink-text', '[2]' ).type( '{rightarrow}' );
 
-		if ( citoidLoaded ) {
+		if ( usesCitoid ) {
 			helpers.openVECiteoidReuseDialog();
 		} else {
 			helpers.openVECiteReuseDialog();
@@ -87,7 +85,7 @@ describe( 'Re-using refs in Visual Editor', () => {
 		// Place cursor next to ref #1 in order to add re-used ref next to it
 		cy.contains( '.mw-reflink-text', '[1]' ).first().type( '{rightarrow}' );
 
-		if ( citoidLoaded ) {
+		if ( usesCitoid ) {
 			helpers.openVECiteoidReuseDialog();
 		} else {
 			helpers.openVECiteReuseDialog();

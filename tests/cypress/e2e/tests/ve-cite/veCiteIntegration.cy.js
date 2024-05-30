@@ -9,7 +9,7 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 	`This is reference #3 <ref>${ refText2 }</ref><br>` +
 	'<references />';
 
-let citoidLoaded;
+let usesCitoid;
 
 describe( 'Visual Editor Cite Integration', () => {
 	before( () => {
@@ -22,13 +22,12 @@ describe( 'Visual Editor Cite Integration', () => {
 		helpers.waitForMWLoader();
 
 		cy.window().then( async ( win ) => {
-			citoidLoaded = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
+			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
 			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
 
-		helpers.visitTitle( title, { veaction: 'edit' } );
-		helpers.waitForVEToLoad();
+		helpers.openVEForEditingReferences( title, usesCitoid );
 	} );
 
 	it( 'should edit and verify reference content in Visual Editor', () => {
@@ -49,7 +48,7 @@ describe( 'Visual Editor Cite Integration', () => {
 	} );
 
 	it( 'should display existing references in the Cite re-use dialog', () => {
-		if ( citoidLoaded ) {
+		if ( usesCitoid ) {
 			helpers.openVECiteoidReuseDialog();
 
 		} else {

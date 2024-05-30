@@ -1,8 +1,35 @@
 import querystring from 'querystring';
 
-export function waitForVEToLoad() {
+export function openVEForEditingReferences( title, usesCitoid ) {
+	visitTitle( title, { veaction: 'edit' } );
+	waitForVECiteToLoad();
+	if ( usesCitoid ) {
+		waitForVECitoidToLoad();
+	}
+}
+
+export function waitForVECiteToLoad() {
 	cy.get( '.ve-init-mw-desktopArticleTarget-toolbar-open', { timeout: 7000 } )
 		.should( 'be.visible' );
+	cy.window()
+		.should( 'have.property', 'mw' )
+		.and( 'have.property', 'loader' )
+		.and( 'have.property', 'getState' );
+	cy.window()
+		.should(
+			( win ) => win.mw.loader.getState( 'ext.cite.visualEditor' ) === 'ready'
+		);
+}
+
+export function waitForVECitoidToLoad() {
+	cy.window()
+		.should( 'have.property', 'mw' )
+		.and( 'have.property', 'loader' )
+		.and( 'have.property', 'getState' );
+	cy.window()
+		.should(
+			( win ) => win.mw.loader.getState( 'ext.citoid.visualEditor' ) === 'ready'
+		);
 }
 
 function clickUntilVisible( clickElement, expectedSelector, timeout = 5000 ) {

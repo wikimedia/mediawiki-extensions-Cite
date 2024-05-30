@@ -11,7 +11,7 @@ const refText1 = 'This is citation #1 for reference #1';
 const wikiText = `${ wikiText1 } <ref name="a">${ refText1 }</ref><br> ` +
 	'<references />';
 
-let citoidLoaded;
+let usesCitoid;
 
 describe( 'Re-using refs in Visual Editor using templates', () => {
 
@@ -65,20 +65,18 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
 				await win.mw.hook( 'wikipage.content' ).add( function () { } );
 			} );
-			citoidLoaded = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
+			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
 			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
 
-		// Open VE edit mode
-		helpers.visitTitle( title, { veaction: 'edit' } );
-		helpers.waitForVEToLoad();
+		helpers.openVEForEditingReferences( title, usesCitoid );
 	} );
 
 	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {
 		cy.contains( '.mw-reflink-text', '[1]' ).type( '{rightarrow}' );
 
-		if ( citoidLoaded ) {
+		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 
 			// Switch to Manual tab

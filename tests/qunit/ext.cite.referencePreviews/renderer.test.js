@@ -8,9 +8,7 @@ QUnit.module.skip( 'ext.cite.referencePreviews#renderer', {
 	},
 	beforeEach() {
 		mw.msg = ( key ) => `<${ key }>`;
-		mw.message = ( key ) => {
-			return { exists: () => !key.endsWith( 'generic' ), text: () => `<${ key }>` };
-		};
+		mw.message = ( key ) => ( { exists: () => !key.endsWith( 'generic' ), text: () => `<${ key }>` } );
 
 		mw.html = {
 			escape: ( str ) => str && str.replace( /'/g, '&apos;' ).replace( /</g, '&lt;' )

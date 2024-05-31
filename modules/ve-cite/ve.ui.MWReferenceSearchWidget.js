@@ -108,9 +108,7 @@ ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalLis
  * @param {string[]} groupsChanged A list of groups which have changed in this transaction
  */
 ve.ui.MWReferenceSearchWidget.prototype.onInternalListUpdate = function ( groupsChanged ) {
-	if ( groupsChanged.some( function ( groupName ) {
-		return groupName.indexOf( 'mwReference/' ) === 0;
-	} ) ) {
+	if ( groupsChanged.some( ( groupName ) => groupName.indexOf( 'mwReference/' ) === 0 ) ) {
 		this.index = null;
 	}
 };
@@ -180,8 +178,8 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 				$element = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 				text = $element.text().toLowerCase() + ' ' + text;
 				// Make URLs searchable
-				$element.find( 'a[href]' ).each( function () {
-					text += ' ' + this.getAttribute( 'href' );
+				$element.find( 'a[href]' ).each( ( k, element ) => {
+					text += ' ' + element.getAttribute( 'href' );
 				} );
 			} else {
 				$element = $( '<span>' )

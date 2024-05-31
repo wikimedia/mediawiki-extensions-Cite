@@ -130,7 +130,7 @@ function renderReferencePreview(
 		} );
 	}
 
-	el.querySelector( '.mwe-popups-scroll' ).addEventListener( 'scroll', function ( e ) {
+	el.querySelector( '.mwe-popups-scroll' ).addEventListener( 'scroll', ( e ) => {
 		const element = e.target,
 			// We are dealing with floating point numbers here when the page is zoomed!
 			scrolledToBottom = element.scrollTop >= element.scrollHeight - element.clientHeight - 1;

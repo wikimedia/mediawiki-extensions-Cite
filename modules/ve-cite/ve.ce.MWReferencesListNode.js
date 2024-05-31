@@ -223,16 +223,15 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$refmsg.text( emptyText );
 		this.$element.append( this.$refmsg );
 	} else {
-		nodes.indexOrder.forEach( function ( index ) {
+		nodes.indexOrder.forEach( ( index ) => {
 			const firstNode = nodes.firstNodes[ index ];
 
 			const key = internalList.keys[ index ];
 			let keyedNodes = nodes.keyedNodes[ key ];
-			keyedNodes = keyedNodes.filter( function ( node ) {
+			keyedNodes = keyedNodes.filter(
 				// Exclude placeholders and references defined inside the references list node
-				return !node.getAttribute( 'placeholder' ) &&
-					!node.findParent( ve.dm.MWReferencesListNode );
-			} );
+				( node ) => !node.getAttribute( 'placeholder' ) && !node.findParent( ve.dm.MWReferencesListNode )
+			);
 
 			if ( !keyedNodes.length ) {
 				return;
@@ -260,7 +259,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 
 			if ( this.getRoot() ) {
 				const surface = this.getRoot().getSurface().getSurface();
-				$li.on( 'mousedown', function ( e ) {
+				$li.on( 'mousedown', ( e ) => {
 					if ( ve.isUnmodifiedLeftClick( e ) && modelNode && modelNode.length ) {
 						const items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] )
 							.filter( ( item ) => item.name !== 'mobileActions' );
@@ -291,7 +290,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 			}
 
 			this.$reflist.append( $li );
-		}.bind( this ) );
+		} );
 
 		this.updateClasses();
 		this.$element.append( this.$reflist );

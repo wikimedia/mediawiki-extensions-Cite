@@ -2,7 +2,7 @@
 
 QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
-QUnit.test( 'buildIndex', function ( assert ) {
+QUnit.test( 'buildIndex', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 	widget.internalList = { getNodeGroups: () => ( {} ) };
 	assert.strictEqual( widget.index, null );
@@ -20,7 +20,7 @@ QUnit.test( 'buildIndex', function ( assert ) {
 	assert.strictEqual( widget.index, null );
 } );
 
-QUnit.test( 'buildSearchIndex when empty', function ( assert ) {
+QUnit.test( 'buildSearchIndex when empty', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 	widget.internalList = { getNodeGroups: () => ( {} ) };
 
@@ -28,7 +28,7 @@ QUnit.test( 'buildSearchIndex when empty', function ( assert ) {
 	assert.deepEqual( index, [] );
 } );
 
-QUnit.test( 'buildSearchIndex with a placeholder', function ( assert ) {
+QUnit.test( 'buildSearchIndex with a placeholder', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 	const placeholder = true;
 	const node = { getAttribute: () => placeholder };
@@ -39,7 +39,7 @@ QUnit.test( 'buildSearchIndex with a placeholder', function ( assert ) {
 	assert.deepEqual( index, [] );
 } );
 
-QUnit.test( 'buildSearchIndex', function ( assert ) {
+QUnit.test( 'buildSearchIndex', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 
 	// XXX: This is a regression test with a fragile setup. Please feel free to delete this test
@@ -62,7 +62,7 @@ QUnit.test( 'buildSearchIndex', function ( assert ) {
 	assert.deepEqual( index[ 0 ].text, '1 foo' );
 } );
 
-QUnit.test( 'isIndexEmpty', function ( assert ) {
+QUnit.test( 'isIndexEmpty', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 	assert.true( widget.isIndexEmpty() );
 
@@ -72,7 +72,7 @@ QUnit.test( 'isIndexEmpty', function ( assert ) {
 	assert.false( widget.isIndexEmpty() );
 } );
 
-QUnit.test( 'buildSearchResults', function ( assert ) {
+QUnit.test( 'buildSearchResults', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
 	widget.index = [ { text: 'a', reference: 'model-a' }, { text: 'b' } ];
 

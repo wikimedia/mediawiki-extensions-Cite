@@ -1,15 +1,9 @@
 import * as helpers from './../../utils/functions.helper.js';
 import * as veHelpers from './../../utils/ve.helper.js';
 
-function getTestString( prefix = 'CiteTest-templates' ) {
-	return prefix;
-}
-const title = getTestString( 'CiteTest-title' );
-
-const wikiText1 = 'This is reference #1:';
 const refText1 = 'This is citation #1 for reference #1';
 
-const wikiText = `${ wikiText1 } <ref name="a">${ refText1 }</ref><br> ` +
+const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` +
 	'<references />';
 
 let usesCitoid;
@@ -20,48 +14,26 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 		cy.clearCookies();
 		helpers.loginAsAdmin();
 
-		helpers.waitForMWLoader();
-		cy.window().then( async ( win ) => {
-			await win.mw.loader.using( 'mediawiki.api' );
-			const response = await new win.mw.Api().postWithEditToken( {
-				action: 'edit',
-				title: title,
-				text: wikiText,
-				formatversion: '2'
-			} );
-
-			expect( response.edit.result ).to.equal( 'Success' );
-
-			await new win.mw.Api().postWithEditToken( {
-				action: 'edit',
-				title: 'MediaWiki:Cite-tool-definition.json',
-
-				text: JSON.stringify(
-					[
-						{
-							name: 'Webseite',
-							icon: 'ref-cite-web',
-							template: 'Internetquelle'
-						},
-						{
-							name: 'Literatur',
-							icon: 'ref-cite-book',
-							template: 'Literatur'
-						}
-					] ),
-				formatversion: '2'
-			} );
-			expect( response.edit.result ).to.equal( 'Success' );
-			cy.log( 'SUCCESS' );
-		} );
-
-		// Logout Admin account
-		cy.clearCookies();
+		helpers.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
+			{
+				name: 'Webseite',
+				icon: 'ref-cite-web',
+				template: 'Internetquelle'
+			},
+			{
+				name: 'Literatur',
+				icon: 'ref-cite-book',
+				template: 'Literatur'
+			}
+		] ) );
 	} );
 
 	beforeEach( () => {
-		helpers.visitTitle( title );
-		helpers.waitForMWLoader();
+		const title = helpers.getTestString( 'CiteTest-templates' );
+
+		cy.clearCookies();
+		helpers.editPage( title, wikiText );
+
 		cy.window().then( async ( win ) => {
 			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
 				await win.mw.hook( 'wikipage.content' ).add( function () { } );

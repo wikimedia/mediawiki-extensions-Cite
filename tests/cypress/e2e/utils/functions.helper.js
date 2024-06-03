@@ -35,11 +35,18 @@ export function waitForMWLoader() {
 }
 
 export function editPage( title, wikiText ) {
+	visitTitle( '' );
 	waitForMWLoader();
 	cy.window().then( async ( win ) => {
 		await win.mw.loader.using( 'mediawiki.api' );
-		const response = await new win.mw.Api().create( title, {}, wikiText );
-		expect( response.result ).to.equal( 'Success' );
+		const response = await new win.mw.Api().postWithEditToken( {
+			action: 'edit',
+			title: title,
+			text: wikiText,
+			formatversion: '2'
+		} );
+
+		expect( response.edit.result ).to.equal( 'Success' );
 	} );
 }
 

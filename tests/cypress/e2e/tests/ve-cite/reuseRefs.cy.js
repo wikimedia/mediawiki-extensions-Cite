@@ -1,3 +1,4 @@
+require( '@cypress/skip-test/support' );
 import * as helpers from './../../utils/functions.helper.js';
 
 const refText1 = 'This is citation #1 for reference #1 and #2';
@@ -38,6 +39,9 @@ describe( 'Re-using refs in Visual Editor', () => {
 	} );
 
 	it( 'should display re-used reference in article with correct footnote number and notification in context dialog', () => {
+		// TODO: Renable test with Citoid when they're stable in CI
+		cy.skipOn( usesCitoid );
+
 		// Currently there are 3 refs in the article
 		helpers.getRefsFromArticleSection().should( 'have.length', 3 );
 
@@ -82,6 +86,9 @@ describe( 'Re-using refs in Visual Editor', () => {
 	} );
 
 	it( 'should display correct ref content and name attribute for re-used ref with existing name attribute', () => {
+		// TODO: Renable test with Citoid when they're stable in CI
+		cy.skipOn( usesCitoid );
+
 		// Place cursor next to ref #1 in order to add re-used ref next to it
 		cy.contains( '.mw-reflink-text', '[1]' ).first().type( '{rightarrow}' );
 

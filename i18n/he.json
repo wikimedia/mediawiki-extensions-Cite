@@ -33,6 +33,8 @@
 	"cite_error_empty_references_define": "התג <code>&lt;ref&gt;</code> בעל השם \"$1\" המוגדר בתוך קבוצת ה־<code>&lt;references&gt;</code> בשם \"$2\" אינו מכיל תוכן.",
 	"cite-tracking-category-cite-error": "דפים עם שגיאות בהערה",
 	"cite-tracking-category-cite-error-desc": "דפים בקטגוריה הזאת כוללים שגיאות בשימוש בתגי הערות שוליים.",
+	"cite-tracking-category-ref-extends": "דפים שמשתמשים בהערות שוליים מורחבות",
+	"cite-tracking-category-ref-extends-desc": "דפים בקטגוריה הזאת משתמשים בתכונה \"extends\" של התג &lt;ref&gt;.",
 	"cite_references_link_accessibility_label": "לקפוץ מעלה",
 	"cite_references_link_many_accessibility_label": "לקפוץ מעלה אל:",
 	"cite_references_link_accessibility_back_label": "קפיצה חזרה למעלה",

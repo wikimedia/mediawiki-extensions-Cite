@@ -37,6 +37,8 @@
 	"cite_error_empty_references_define": "Het label <code>&lt;ref&gt;</code> met de naam \"$1\", dat is gedefinieerd in de <code>&lt;references&gt;</code>-groep \"$2\", heeft geen inhoud.",
 	"cite-tracking-category-cite-error": "Pagina's met referentiefouten",
 	"cite-tracking-category-cite-error-desc": "Pagina's in deze categorie hebben fouten in het gebruik van references tags.",
+	"cite-tracking-category-ref-extends": "Pagina's die uitgebreide referenties gebruiken",
+	"cite-tracking-category-ref-extends-desc": "De pagina’s in deze categorie gebruiken het attribuut “extends” van de tag &lt;ref&gt;.",
 	"cite_references_link_accessibility_label": "Omhoog",
 	"cite_references_link_many_accessibility_label": "Omhoog naar:",
 	"cite_references_link_accessibility_back_label": "Weer omhoog",

@@ -28,6 +28,8 @@
 	"cite_error_empty_references_define": "Le etiquetta <code>&lt;ref&gt;</code> con nomine \"$1\", definite in le gruppo de <code>&lt;references&gt;</code> \"$2\", non ha contento.",
 	"cite-tracking-category-cite-error": "Paginas con errores de referentias",
 	"cite-tracking-category-cite-error-desc": "Le paginas in iste categoria ha errores in le uso de etiquettas de referentias.",
+	"cite-tracking-category-ref-extends": "Paginas que usa referentias extendite",
+	"cite-tracking-category-ref-extends-desc": "Le paginas in iste categoria usa le attributo “extends” del etiquetta &lt;ref&gt;.",
 	"cite_references_link_accessibility_label": "Retornar",
 	"cite_references_link_many_accessibility_label": "Retornar a:",
 	"cite_references_link_accessibility_back_label": "Retornar in alto",

@@ -27,10 +27,9 @@ describe( 'Visual Editor Cite Integration', () => {
 				await win.mw.hook( 'wikipage.content' ).add( function () { } );
 			} );
 			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
-			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
-			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
 
+		veHelpers.setVECookiesToDisableDialogs();
 		veHelpers.openVEForEditingReferences( title, usesCitoid );
 	} );
 

@@ -34,6 +34,17 @@ export function waitForMWLoader() {
 		.and( 'have.property', 'using' );
 }
 
+export function waitForModuleReady( moduleName ) {
+	cy.window()
+		.should( 'have.property', 'mw' )
+		.and( 'have.property', 'loader' )
+		.and( 'have.property', 'getState' );
+	cy.window()
+		.should(
+			( win ) => win.mw.loader.getState( moduleName ) === 'ready'
+		);
+}
+
 export function editPage( title, wikiText ) {
 	visitTitle( '' );
 	waitForMWLoader();

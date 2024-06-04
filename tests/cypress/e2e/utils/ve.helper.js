@@ -1,5 +1,13 @@
 import * as helpers from './functions.helper.js';
 
+export function setVECookiesToDisableDialogs() {
+	cy.window().then( async ( win ) => {
+		win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
+		// don't show the VE education popups with the blue pulsating dots (ve.ui.MWEducationPopupWidget)
+		win.localStorage.setItem( 've-hideusered', 1 );
+	} );
+}
+
 export function openVEForEditingReferences( title, usesCitoid ) {
 	helpers.visitTitle( title, { veaction: 'edit' } );
 	waitForVECiteToLoad();
@@ -11,25 +19,11 @@ export function openVEForEditingReferences( title, usesCitoid ) {
 export function waitForVECiteToLoad() {
 	cy.get( '.ve-init-mw-desktopArticleTarget-toolbar-open', { timeout: 7000 } )
 		.should( 'be.visible' );
-	cy.window()
-		.should( 'have.property', 'mw' )
-		.and( 'have.property', 'loader' )
-		.and( 'have.property', 'getState' );
-	cy.window()
-		.should(
-			( win ) => win.mw.loader.getState( 'ext.cite.visualEditor' ) === 'ready'
-		);
+	helpers.waitForModuleReady( 'ext.cite.visualEditor' );
 }
 
 export function waitForVECitoidToLoad() {
-	cy.window()
-		.should( 'have.property', 'mw' )
-		.and( 'have.property', 'loader' )
-		.and( 'have.property', 'getState' );
-	cy.window()
-		.should(
-			( win ) => win.mw.loader.getState( 'ext.citoid.visualEditor' ) === 'ready'
-		);
+	helpers.waitForModuleReady( 'ext.citoid.visualEditor' );
 }
 
 export function getVEFootnoteMarker( refName, sequenceNumber, index ) {

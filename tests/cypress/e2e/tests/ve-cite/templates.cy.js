@@ -1,4 +1,5 @@
 import * as helpers from './../../utils/functions.helper.js';
+import * as veHelpers from './../../utils/ve.helper.js';
 
 function getTestString( prefix = 'CiteTest-templates' ) {
 	return prefix;
@@ -70,7 +71,7 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
 
-		helpers.openVEForEditingReferences( title, usesCitoid );
+		veHelpers.openVEForEditingReferences( title, usesCitoid );
 	} );
 
 	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {

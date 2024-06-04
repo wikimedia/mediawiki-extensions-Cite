@@ -1,5 +1,6 @@
 require( '@cypress/skip-test/support' );
 import * as helpers from './../../utils/functions.helper.js';
+import * as veHelpers from './../../utils/ve.helper.js';
 
 const refText1 = 'This is citation #1 for reference #1 and #2';
 const refText2 = 'This is citation #2 for reference #3';
@@ -35,7 +36,7 @@ describe( 'Re-using refs in Visual Editor', () => {
 
 		} );
 
-		helpers.openVEForEditingReferences( title, usesCitoid );
+		veHelpers.openVEForEditingReferences( title, usesCitoid );
 	} );
 
 	it( 'should display re-used reference in article with correct footnote number and notification in context dialog', () => {
@@ -49,19 +50,19 @@ describe( 'Re-using refs in Visual Editor', () => {
 		cy.contains( '.mw-reflink-text', '[2]' ).type( '{rightarrow}' );
 
 		if ( usesCitoid ) {
-			helpers.openVECiteoidReuseDialog();
+			veHelpers.openVECiteoidReuseDialog();
 		} else {
-			helpers.openVECiteReuseDialog();
+			veHelpers.openVECiteReuseDialog();
 		}
 
 		// Re-use second ref
-		helpers.getCiteReuseDialogRefResult( 2 ).click();
+		veHelpers.getCiteReuseDialogRefResult( 2 ).click();
 		// The context dialog on one of the references shows it's being used twice
 		cy.get( '.mw-reflink-text' ).contains( '[2]' ).click();
 		cy.get( '.oo-ui-popupWidget-popup .ve-ui-mwReferenceContextItem-muted' ).should( 'have.text', 'This reference is used twice on this page.' );
 
-		helpers.getVEUIToolbarSaveButton().click();
-		helpers.getSaveChangesDialogConfirmButton().click();
+		veHelpers.getVEUIToolbarSaveButton().click();
+		veHelpers.getSaveChangesDialogConfirmButton().click();
 
 		helpers.getMWSuccessNotification().should( 'be.visible' );
 
@@ -93,18 +94,18 @@ describe( 'Re-using refs in Visual Editor', () => {
 		cy.contains( '.mw-reflink-text', '[1]' ).first().type( '{rightarrow}' );
 
 		if ( usesCitoid ) {
-			helpers.openVECiteoidReuseDialog();
+			veHelpers.openVECiteoidReuseDialog();
 		} else {
-			helpers.openVECiteReuseDialog();
+			veHelpers.openVECiteReuseDialog();
 		}
 
 		// reuse first ref which has the name 'a'
-		helpers.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
-		helpers.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
-		helpers.getCiteReuseDialogRefResult( 1 ).click();
+		veHelpers.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
+		veHelpers.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
+		veHelpers.getCiteReuseDialogRefResult( 1 ).click();
 
-		helpers.getVEUIToolbarSaveButton().click();
-		helpers.getSaveChangesDialogConfirmButton().click();
+		veHelpers.getVEUIToolbarSaveButton().click();
+		veHelpers.getSaveChangesDialogConfirmButton().click();
 
 		helpers.getMWSuccessNotification().should( 'be.visible' );
 

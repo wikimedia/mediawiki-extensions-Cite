@@ -1,4 +1,6 @@
 import * as helpers from './../../utils/functions.helper.js';
+import * as veHelpers from './../../utils/ve.helper.js';
+
 const title = helpers.getTestString( 'CiteTest-title' );
 
 const refText1 = 'This is citation #1 for reference #1 and #2';
@@ -27,43 +29,43 @@ describe( 'Visual Editor Cite Integration', () => {
 			win.localStorage.setItem( 've-hideusered', 1 );
 		} );
 
-		helpers.openVEForEditingReferences( title, usesCitoid );
+		veHelpers.openVEForEditingReferences( title, usesCitoid );
 	} );
 
 	it( 'should edit and verify reference content in Visual Editor', () => {
-		helpers.getVEFootnoteMarker( 'a', 1, 1 ).click();
+		veHelpers.getVEFootnoteMarker( 'a', 1, 1 ).click();
 
 		// Popup appears containing ref content
-		helpers.getVEReferenceContextItem()
+		veHelpers.getVEReferenceContextItem()
 			.should( 'be.visible' )
 			.should( 'contain.text', refText1 );
 
 		// Open reference edit dialog
-		helpers.getVEReferenceContextItemEdit().click();
+		veHelpers.getVEReferenceContextItemEdit().click();
 
 		// Dialog appears with ref content
-		helpers.getVEReferenceEditDialog()
+		veHelpers.getVEReferenceEditDialog()
 			.should( 'be.visible' )
 			.should( 'contain.text', refText1 );
 	} );
 
 	it( 'should display existing references in the Cite re-use dialog', () => {
 		if ( usesCitoid ) {
-			helpers.openVECiteoidReuseDialog();
+			veHelpers.openVECiteoidReuseDialog();
 
 		} else {
-			helpers.openVECiteReuseDialog();
+			veHelpers.openVECiteReuseDialog();
 		}
 
 		// Assert reference content for the first reference
-		helpers.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
-		helpers.getCiteReuseDialogRefResultCitation( 1 ).should( 'have.text', '[1]' );
-		helpers.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
+		veHelpers.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
+		veHelpers.getCiteReuseDialogRefResultCitation( 1 ).should( 'have.text', '[1]' );
+		veHelpers.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
 
 		// Assert reference content for the second reference
-		helpers.getCiteReuseDialogRefResultName( 2 ).should( 'have.text', '' );
-		helpers.getCiteReuseDialogRefResultCitation( 2 ).should( 'have.text', '[2]' );
-		helpers.getCiteReuseDialogRefText( 2 ).should( 'have.text', refText2 );
+		veHelpers.getCiteReuseDialogRefResultName( 2 ).should( 'have.text', '' );
+		veHelpers.getCiteReuseDialogRefResultCitation( 2 ).should( 'have.text', '[2]' );
+		veHelpers.getCiteReuseDialogRefText( 2 ).should( 'have.text', refText2 );
 
 	} );
 

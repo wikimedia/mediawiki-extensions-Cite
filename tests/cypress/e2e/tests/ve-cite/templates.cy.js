@@ -1,5 +1,5 @@
-import * as helpers from './../../utils/functions.helper.js';
-import * as veHelpers from './../../utils/ve.helper.js';
+import * as helper from './../../utils/functions.helper.js';
+import * as veHelper from './../../utils/ve.helper.js';
 
 const refText1 = 'This is citation #1 for reference #1';
 
@@ -12,9 +12,9 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 
 	before( () => {
 		cy.clearCookies();
-		helpers.loginAsAdmin();
+		helper.loginAsAdmin();
 
-		helpers.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
+		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
 			{
 				name: 'Webseite',
 				icon: 'ref-cite-web',
@@ -29,20 +29,17 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 	} );
 
 	beforeEach( () => {
-		const title = helpers.getTestString( 'CiteTest-templates' );
+		const title = helper.getTestString( 'CiteTest-templates' );
 
 		cy.clearCookies();
-		helpers.editPage( title, wikiText );
+		helper.editPage( title, wikiText );
 
 		cy.window().then( async ( win ) => {
-			await win.mw.loader.using( 'mediawiki.base' ).then( async () => {
-				await win.mw.hook( 'wikipage.content' ).add( () => { } );
-			} );
 			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 		} );
 
-		veHelpers.setVECookiesToDisableDialogs();
-		veHelpers.openVEForEditingReferences( title, usesCitoid );
+		veHelper.setVECookiesToDisableDialogs();
+		veHelper.openVEForEditingReferences( title, usesCitoid );
 	} );
 
 	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {
@@ -89,6 +86,6 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 		cy.get( '.mw-notification-visible .oo-ui-icon-success' ).should( 'be.visible' );
 
 		// Ref has been added to references section and has correct content
-		helpers.getRefFromReferencesSection( 2 ).find( '.reference-text' ).should( 'have.text', 'Template:Internetquelle' );
+		helper.getRefFromReferencesSection( 2 ).find( '.reference-text' ).should( 'have.text', 'Template:Internetquelle' );
 	} );
 } );

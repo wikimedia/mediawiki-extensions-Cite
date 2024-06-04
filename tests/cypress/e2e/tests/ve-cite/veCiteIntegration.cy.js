@@ -15,7 +15,6 @@ let usesCitoid;
 
 describe( 'Visual Editor Cite Integration', () => {
 	before( () => {
-		cy.visit( '/index.php' );
 		helpers.editPage( title, wikiText );
 	} );
 
@@ -24,6 +23,9 @@ describe( 'Visual Editor Cite Integration', () => {
 		helpers.waitForMWLoader();
 
 		cy.window().then( async ( win ) => {
+			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
+				await win.mw.hook( 'wikipage.content' ).add( function () { } );
+			} );
 			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
 			win.localStorage.setItem( 've-hideusered', 1 );

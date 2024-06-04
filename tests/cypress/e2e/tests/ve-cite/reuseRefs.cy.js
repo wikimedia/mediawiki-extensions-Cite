@@ -6,9 +6,9 @@ const refText1 = 'This is citation #1 for reference #1 and #2';
 const refText2 = 'This is citation #2 for reference #3';
 
 const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` +
-'This is reference #2 <ref name="a" /><br>' +
-`This is reference #3 <ref>${ refText2 }</ref><br>` +
-'<references />';
+	'This is reference #2 <ref name="a" /><br>' +
+	`This is reference #3 <ref>${ refText2 }</ref><br>` +
+	'<references />';
 
 let usesCitoid;
 
@@ -17,23 +17,15 @@ describe( 'Re-using refs in Visual Editor', () => {
 		const title = helpers.getTestString( 'CiteTest-reuseRefs' );
 
 		cy.clearCookies();
-		cy.visit( '/index.php' );
-
 		helpers.editPage( title, wikiText );
+
 		cy.window().then( async ( win ) => {
+			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
+				await win.mw.hook( 'wikipage.content' ).add( function () { } );
+			} );
 			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 			win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
 			win.localStorage.setItem( 've-hideusered', 1 );
-		} );
-
-		helpers.visitTitle( title );
-
-		helpers.waitForMWLoader();
-		cy.window().then( async ( win ) => {
-			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
-				await win.mw.hook( 'wikipage.content' ).add( function () {} );
-			} );
-
 		} );
 
 		veHelpers.openVEForEditingReferences( title, usesCitoid );

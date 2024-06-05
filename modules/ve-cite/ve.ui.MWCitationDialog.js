@@ -55,22 +55,21 @@ ve.ui.MWCitationDialog.prototype.getReferenceNode = function () {
 ve.ui.MWCitationDialog.prototype.getSelectedNode = function () {
 	const referenceNode = this.getReferenceNode();
 
-	let transclusionNode;
 	if ( referenceNode ) {
 		const branches = referenceNode.getInternalItem().getChildren();
 		const leaves = branches &&
 			branches.length === 1 &&
 			branches[ 0 ].canContainContent() &&
 			branches[ 0 ].getChildren();
-		transclusionNode = leaves &&
+		const transclusionNode = leaves &&
 			leaves.length === 1 &&
 			leaves[ 0 ] instanceof ve.dm.MWTransclusionNode &&
 			leaves[ 0 ];
-	}
 
-	// Only use the selected node if it is the same template as this dialog expects
-	if ( transclusionNode && transclusionNode.isSingleTemplate( this.citationTemplate ) ) {
-		return transclusionNode;
+		// Only use the selected node if it is the same template as this dialog expects
+		if ( transclusionNode && transclusionNode.isSingleTemplate( this.citationTemplate ) ) {
+			return transclusionNode;
+		}
 	}
 
 	return null;

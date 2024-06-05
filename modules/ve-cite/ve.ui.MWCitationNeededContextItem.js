@@ -48,7 +48,6 @@ ve.ui.MWCitationNeededContextItem.static.label = OO.ui.deferMsg( 'cite-ve-citati
 /* Methods */
 
 ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
-	const contextItem = this;
 	const surface = this.context.getSurface();
 	const encapsulatedWikitext = this.getCanonicalParam( 'encapsulate' );
 
@@ -86,7 +85,7 @@ ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 				return true;
 			} );
 		promise.always( () => {
-			contextItem.addButton.setDisabled( false );
+			this.addButton.setDisabled( false );
 		} );
 	} else {
 		promise = ve.createDeferred().resolve( false ).promise();

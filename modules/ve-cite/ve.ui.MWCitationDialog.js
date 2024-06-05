@@ -142,22 +142,21 @@ ve.ui.MWCitationDialog.prototype.setApplicableStatus = function () {
  * @override
  */
 ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
-	const dialog = this;
 	if (
 		this.inDialog !== 'reference' &&
 		( action === 'done' || action === 'insert' )
 	) {
 		return new OO.ui.Process( () => {
 			const deferred = $.Deferred();
-			dialog.checkRequiredParameters().done( () => {
-				const surfaceModel = dialog.getFragment().getSurface();
+			this.checkRequiredParameters().done( () => {
+				const surfaceModel = this.getFragment().getSurface();
 				const doc = surfaceModel.getDocument();
 				const internalList = doc.getInternalList();
-				const obj = dialog.transclusionModel.getPlainObject();
+				const obj = this.transclusionModel.getPlainObject();
 
 				// We had a reference, but no template node (or wrong kind of template node)
-				if ( dialog.referenceModel && !dialog.selectedNode ) {
-					const refDoc = dialog.referenceModel.getDocument();
+				if ( this.referenceModel && !this.selectedNode ) {
+					const refDoc = this.referenceModel.getDocument();
 					// Empty the existing reference, whatever it contained. This allows
 					// the dialog to be used for arbitrary references (to replace their
 					// contents with a citation).
@@ -167,22 +166,22 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 					);
 				}
 
-				if ( !dialog.referenceModel ) {
-					// Collapse returns a new fragment, so update dialog.fragment
-					dialog.fragment = dialog.getFragment().collapseToEnd();
-					dialog.referenceModel = new ve.dm.MWReferenceModel( doc );
-					dialog.referenceModel.insertInternalItem( surfaceModel );
-					dialog.referenceModel.insertReferenceNode( dialog.getFragment() );
+				if ( !this.referenceModel ) {
+					// Collapse returns a new fragment, so update this.fragment
+					this.fragment = this.getFragment().collapseToEnd();
+					this.referenceModel = new ve.dm.MWReferenceModel( doc );
+					this.referenceModel.insertInternalItem( surfaceModel );
+					this.referenceModel.insertReferenceNode( this.getFragment() );
 				}
 
-				const item = dialog.referenceModel.findInternalItem( surfaceModel );
+				const item = this.referenceModel.findInternalItem( surfaceModel );
 				if ( item ) {
-					if ( dialog.selectedNode ) {
-						dialog.transclusionModel.updateTransclusionNode(
-							surfaceModel, dialog.selectedNode
+					if ( this.selectedNode ) {
+						this.transclusionModel.updateTransclusionNode(
+							surfaceModel, this.selectedNode
 						);
 					} else if ( obj !== null ) {
-						dialog.transclusionModel.insertTransclusionNode(
+						this.transclusionModel.insertTransclusionNode(
 							// HACK: This is trying to place the cursor inside the first
 							// content branch node but this theoretically not a safe
 							// assumption - in practice, the citation dialog will only reach
@@ -191,7 +190,7 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 							// node with a paragraph - getting the range of the item covers
 							// the entire paragraph so we have to get the range of it's first
 							// (and empty) child
-							dialog.getFragment().clone(
+							this.getFragment().clone(
 								new ve.dm.LinearSelection( item.getChildren()[ 0 ].getRange() )
 							),
 							'inline'
@@ -202,14 +201,14 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 				// HACK: Scorch the earth - this is only needed because without it, the
 				// references list won't re-render properly, and can be removed once
 				// someone fixes that
-				dialog.referenceModel.setDocument(
+				this.referenceModel.setDocument(
 					doc.cloneFromRange(
-						internalList.getItemNode( dialog.referenceModel.getListIndex() ).getRange()
+						internalList.getItemNode( this.referenceModel.getListIndex() ).getRange()
 					)
 				);
-				dialog.referenceModel.updateInternalItem( surfaceModel );
+				this.referenceModel.updateInternalItem( surfaceModel );
 
-				dialog.close( { action: action } );
+				this.close( { action: action } );
 			} ).always( deferred.resolve );
 
 			return deferred;

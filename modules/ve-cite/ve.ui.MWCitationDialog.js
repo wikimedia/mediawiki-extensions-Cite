@@ -94,15 +94,15 @@ ve.ui.MWCitationDialog.prototype.initialize = function ( data ) {
  */
 ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWCitationDialog.super.prototype.getSetupProcess.call( this, data )
-		.first( function () {
+		.first( () => {
 			data = data || {};
 			this.inDialog = data.inDialog;
 			this.citationTemplate = data.template;
 			this.citationTitle = data.title;
 
 			this.trackedCitationInputChange = false;
-		}, this )
-		.next( function () {
+		} )
+		.next( () => {
 			this.updateTitle();
 
 			// Initialization
@@ -112,7 +112,7 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 					this.referenceNode
 				);
 			}
-		}, this );
+		} );
 };
 
 /**
@@ -147,9 +147,9 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 		this.inDialog !== 'reference' &&
 		( action === 'done' || action === 'insert' )
 	) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			const deferred = $.Deferred();
-			dialog.checkRequiredParameters().done( function () {
+			dialog.checkRequiredParameters().done( () => {
 				const surfaceModel = dialog.getFragment().getSurface();
 				const doc = surfaceModel.getDocument();
 				const internalList = doc.getInternalList();
@@ -225,11 +225,11 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
  */
 ve.ui.MWCitationDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWCitationDialog.super.prototype.getTeardownProcess.call( this, data )
-		.first( function () {
+		.first( () => {
 			// Cleanup
 			this.referenceModel = null;
 			this.referenceNode = null;
-		}, this );
+		} );
 };
 
 /**

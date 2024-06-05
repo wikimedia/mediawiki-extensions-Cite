@@ -2,7 +2,7 @@
 
 QUnit.module( 've.ui.MWReferenceDialog (Cite)', ve.test.utils.newMwEnvironment() );
 
-QUnit.test( 'useReference', function ( assert ) {
+QUnit.test( 'useReference', ( assert ) => {
 	const dialog = new ve.ui.MWReferenceDialog();
 
 	dialog.referenceGroupInput = new ve.ui.MWReferenceGroupInputWidget( {} );

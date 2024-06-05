@@ -69,16 +69,14 @@ ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
  * Get a DOM rendering of a warning if this reference is reused.
  *
  * @private
- * @return {jQuery|null}
+ * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
 	const group = this.getFragment().getDocument().getInternalList()
 		.getNodeGroup( refModel.getListGroup() );
 	const nodes = ve.getProp( group, 'keyedNodes', refModel.getListKey() );
-	const usages = nodes && nodes.filter( function ( node ) {
-		return !node.findParent( ve.dm.MWReferencesListNode );
-	} ).length;
+	const usages = nodes && nodes.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) ).length;
 	if ( usages > 1 ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
@@ -90,7 +88,7 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
  * Get a DOM rendering of a warning if this reference is an extension.
  *
  * @private
- * @return {jQuery|null}
+ * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
 	if ( this.model.getAttribute( 'extendsRef' ) ) {

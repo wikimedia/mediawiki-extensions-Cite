@@ -2,14 +2,14 @@
 
 QUnit.module( 've.ui.MWUseExistingReferenceCommand (Cite)', ve.test.utils.newMwEnvironment() );
 
-QUnit.test( 'Constructor', function ( assert ) {
+QUnit.test( 'Constructor', ( assert ) => {
 	const command = new ve.ui.MWUseExistingReferenceCommand();
 	assert.strictEqual( command.name, 'reference/existing' );
 	assert.strictEqual( command.action, 'window' );
 	assert.strictEqual( command.method, 'open' );
 } );
 
-QUnit.test( 'isExecutable', function ( assert ) {
+QUnit.test( 'isExecutable', ( assert ) => {
 	const command = new ve.ui.MWUseExistingReferenceCommand();
 
 	// XXX: This is a regression test with a fragile setup. Please feel free to delete this test

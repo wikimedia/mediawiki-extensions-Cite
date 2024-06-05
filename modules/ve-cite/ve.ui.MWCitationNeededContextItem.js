@@ -68,9 +68,7 @@ ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 						response.visualeditor.content,
 						surface.getModel().getDocument()
 					);
-				const nodes = dmDoc.getDocumentNode().children.filter( function ( node ) {
-					return !node.isInternal();
-				} );
+				const nodes = dmDoc.getDocumentNode().children.filter( ( node ) => !node.isInternal() );
 				let range;
 
 				// Unwrap single content branch nodes to match internal copy/paste behaviour
@@ -87,7 +85,7 @@ ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 					.insertDocument( dmDoc, range ).collapseToEnd().select();
 				return true;
 			} );
-		promise.always( function () {
+		promise.always( () => {
 			contextItem.addButton.setDisabled( false );
 		} );
 	} else {
@@ -96,7 +94,7 @@ ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 
 	// TODO: This assumes Citoid is installed...
 	const action = ve.ui.actionFactory.create( 'citoid', surface );
-	promise.then( function ( inStaging ) {
+	promise.then( ( inStaging ) => {
 		action.open( true, undefined, inStaging );
 	} );
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'context-add-citation' } );

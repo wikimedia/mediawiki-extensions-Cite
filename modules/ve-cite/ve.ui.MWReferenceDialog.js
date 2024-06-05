@@ -212,13 +212,13 @@ ve.ui.MWReferenceDialog.prototype.onSearchResultsChoose = function ( item ) {
  */
 ve.ui.MWReferenceDialog.prototype.getReadyProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getReadyProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			if ( this.useExisting ) {
 				this.search.getQuery().focus().select();
 			} else {
 				this.referenceTarget.focus();
 			}
-		}, this );
+		} );
 };
 
 /**
@@ -264,9 +264,7 @@ ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
 	const group = this.getFragment().getDocument().getInternalList()
 		.getNodeGroup( this.referenceModel.getListGroup() );
 	const nodes = ve.getProp( group, 'keyedNodes', this.referenceModel.getListKey() );
-	const usages = nodes ? nodes.filter( function ( node ) {
-		return !node.findParent( ve.dm.MWReferencesListNode );
-	} ).length : 0;
+	const usages = nodes ? nodes.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) ).length : 0;
 
 	this.reuseWarning.toggle( usages > 1 )
 		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
@@ -357,7 +355,7 @@ ve.ui.MWReferenceDialog.prototype.useExistingReference = function () {
  */
 ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			const surfaceModel = this.getFragment().getSurface();
 
 			this.referenceModel.setGroup( this.referenceGroupInput.getValue() );
@@ -376,7 +374,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 			this.referenceModel.updateInternalItem( surfaceModel );
 
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	return ve.ui.MWReferenceDialog.super.prototype.getActionProcess.call( this, action );
 };
@@ -389,7 +387,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.panels.setItem( this.editPanel );
 			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
 				this.useReference(
@@ -418,7 +416,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.getFragment().getDocument().getInternalList() );
 
 			this.trackedInputChange = false;
-		}, this );
+		} );
 };
 
 /**
@@ -426,12 +424,12 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
  */
 ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getTeardownProcess.call( this, data )
-		.first( function () {
+		.first( () => {
 			this.referenceTarget.getSurface().getModel().disconnect( this );
 			this.search.getQuery().setValue( '' );
 			this.referenceTarget.clear();
 			this.referenceModel = null;
-		}, this );
+		} );
 };
 
 /* Registration */

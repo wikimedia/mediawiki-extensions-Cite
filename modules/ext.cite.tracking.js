@@ -17,8 +17,8 @@ const CITE_BASELINE_LOGGING_SCHEMA = 'ext.cite.baseline';
 const REFERENCE_PREVIEWS_LOGGING_SCHEMA = 'event.ReferencePreviewsPopups';
 
 // EventLogging may not be installed
-mw.loader.using( 'ext.eventLogging' ).then( function () {
-	$( function () {
+mw.loader.using( 'ext.eventLogging' ).then( () => {
+	$( () => {
 		if ( !navigator.sendBeacon ||
 			!mw.config.get( 'wgIsArticle' )
 		) {
@@ -26,7 +26,7 @@ mw.loader.using( 'ext.eventLogging' ).then( function () {
 		}
 
 		// FIXME: This might be obsolete when the code moves to the this extension
-		mw.trackSubscribe( REFERENCE_PREVIEWS_LOGGING_SCHEMA, function ( type, data ) {
+		mw.trackSubscribe( REFERENCE_PREVIEWS_LOGGING_SCHEMA, ( type, data ) => {
 			if ( data.action.indexOf( 'anonymous' ) !== -1 ) {
 				mw.config.set( 'wgCiteReferencePreviewsVisible', data.action === 'anonymousEnabled' );
 			}

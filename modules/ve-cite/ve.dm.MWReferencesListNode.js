@@ -107,7 +107,7 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 	const templateGenerated = type.indexOf( 'mw:Transclusion' ) !== -1;
 	const isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' );
 
-	let referencesListData = {
+	const referencesListElement = {
 		type: this.name,
 		attributes: {
 			mw: mwData,
@@ -124,11 +124,13 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 		const contentsDiv = domElements[ 0 ].ownerDocument.createElement( 'div' );
 		contentsDiv.innerHTML = mwData.body.html;
 		const contentsData = converter.getDataFromDomClean( contentsDiv );
-		referencesListData = [ referencesListData ]
-			.concat( contentsData )
-			.concat( [ { type: '/' + this.name } ] );
+		return [
+			referencesListElement,
+			...contentsData,
+			{ type: '/' + this.name }
+		];
 	}
-	return referencesListData;
+	return referencesListElement;
 };
 
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {

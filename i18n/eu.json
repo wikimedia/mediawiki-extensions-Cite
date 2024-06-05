@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"An13sa",
+			"Iñaki LL",
 			"Sator",
 			"Subi"
 		]
@@ -9,6 +10,13 @@
 	"cite-desc": "<code>&lt;ref[ name=id]&gt;</code> eta <code>&lt;references/&gt;</code> etiketak gehitzen ditu, aipuentzako",
 	"cite_error": "Aipamen errorea: $1",
 	"cite-tracking-category-cite-error": "Erreferentziatan akatsak dituzten orrialdeak",
+	"popups-refpreview-reference": "Erreferentzia",
+	"popups-refpreview-book": "Liburu erreferentzia",
+	"popups-refpreview-journal": "Aldizkari erreferentzia",
+	"popups-refpreview-news": "Albiste erreferentzia",
+	"popups-refpreview-note": "Oharra",
+	"popups-refpreview-web": "Internet erreferentzia",
+	"popups-refpreview-collapsible-placeholder": "Erreferentzia honek aurrebistan sartzen ez den grafiko bat du.",
 	"cite_section_preview_references": "Erreferentzien aurreikuspena",
 	"cite-wikieditor-tool-reference": "Erreferentzia",
 	"cite-wikieditor-help-page-references": "Erreferentziak",

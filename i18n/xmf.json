@@ -1,9 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"Narazeni",
 			"Silovan"
 		]
 	},
 	"cite_error": "ციტირაფაშ ჩილათა $1",
+	"popups-refpreview-reference": "სქოლიო",
+	"popups-refpreview-book": "სქოლიო კჷრიბიშე",
+	"popups-refpreview-journal": "სქოლიო ჟურნალ-გაზეთიშე",
+	"popups-refpreview-news": "სქოლიო ახალი ამბეეფშე",
+	"popups-refpreview-note": "ხვილაფა",
+	"popups-refpreview-web": "ინტერნეტსქოლიო",
+	"popups-refpreview-collapsible-placeholder": "ათე სქოლიოს რე ელემენტი, ნამუთ ათაქ ვენმინტირენ.",
 	"cite-wikieditor-tool-reference": "სქოლიო"
 }

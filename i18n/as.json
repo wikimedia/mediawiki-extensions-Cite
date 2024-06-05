@@ -4,7 +4,8 @@
 			"Bishnu Saikia",
 			"Dibya Dutta",
 			"Gitartha.bordoloi",
-			"Reedy"
+			"Reedy",
+			"Simbu123"
 		]
 	},
 	"cite-desc": "উদ্ধৃতিৰ বাবে <code>&lt;ref[ name=id]&gt;</code> আৰু <code>&lt;references/&gt;</code> টেগ্‌সমূহ যোগ কৰে",
@@ -24,6 +25,13 @@
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>ত দিয়া <code>&lt;ref&gt;</code> টেগৰ কোনো নাম আবণ্টন নাই।",
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>ত দিয়া \"$1\" নামৰ <code>&lt;ref&gt;</code> টেগৰ কোনো সমল নাই।",
 	"cite-tracking-category-cite-error": "তথ্যসূত্ৰৰ ত্ৰুটি থকা পৃষ্ঠা",
+	"popups-refpreview-reference": "তথ্যসূত্ৰ",
+	"popups-refpreview-book": "কিতাপৰ তথ্যসূত্ৰ",
+	"popups-refpreview-journal": "জাৰ্নেলৰ তথ্যসূত্ৰ",
+	"popups-refpreview-news": "বাতৰিৰ তথ্যসূত্ৰ",
+	"popups-refpreview-note": "টোকা",
+	"popups-refpreview-web": "ৱেব তথ্যসূত্ৰ",
+	"popups-refpreview-collapsible-placeholder": "এই তথ্যসূত্ৰত এটি চিত্ৰ আছে যাক প্ৰাকদৰ্শনত প্ৰদৰ্শন কৰিব পৰা নাযায়।",
 	"cite_references_link_accessibility_label": "যাওক",
 	"cite_references_link_many_accessibility_label": "ইয়ালৈ যাওক:",
 	"cite_section_preview_references": "তথ্যসূত্ৰৰ প্ৰাক্‌দৰ্শন",

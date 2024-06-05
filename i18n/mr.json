@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Goresm",
 			"Kaajawa",
 			"Kaustubh",
 			"Mahitgar",
 			"Rahuldeshmukh101",
 			"Sureshkhole",
+			"Tiven2240",
 			"V.narsikar"
 		]
 	},
@@ -28,6 +30,13 @@
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code>खूणपताकेत नमूद गोष्टींना, <code>&lt;references&gt;</code> ज्या  \"$1\" ह्या नावाने संबोधल्या आहेत, त्यात माहिती नाही.",
 	"cite-tracking-category-cite-error": "संदर्भ चुका असणारी पाने",
 	"cite-tracking-category-cite-error-desc": "या वर्गात असणाऱ्या पानांत संदर्भ खूणपताकासंबंधी चुका आहेत.",
+	"popups-refpreview-reference": "स्रोत",
+	"popups-refpreview-book": "पुस्तक स्रोत",
+	"popups-refpreview-journal": "नियतकालिक स्रोत",
+	"popups-refpreview-news": "बातमी स्रोत",
+	"popups-refpreview-note": "नोंद",
+	"popups-refpreview-web": "संकेतस्थळ स्रोत",
+	"popups-refpreview-collapsible-placeholder": "या संदर्भात एक रंगकला दडलेली आहे, जी या पूर्वावलोकनात दृश्य होऊ शकत नाही.",
 	"cite_references_link_accessibility_label": "वर जा",
 	"cite_references_link_many_accessibility_label": "यावर जा",
 	"cite_section_preview_references": "संदर्भांची झलक दाखवा",

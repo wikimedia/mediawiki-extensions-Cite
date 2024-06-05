@@ -5,7 +5,8 @@
 			"Aviator",
 			"CyberTroopers",
 			"Hakimi97",
-			"Izzudin"
+			"Izzudin",
+			"Tofeiku"
 		]
 	},
 	"cite-desc": "Menambah tag <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> untuk pemetikan",
@@ -32,6 +33,7 @@
 	"cite_error_empty_references_define": "Tag <code>&lt;ref&gt;</code> dengan nama dengan nama \"$1\" yang ditentukan dalam kumpulan <code>&lt;references&gt;</code> \"$2\" tidak mempunyai kandungan.",
 	"cite-tracking-category-cite-error": "Laman dengan ralat rujukan",
 	"cite-tracking-category-cite-error-desc": "Laman dalam kategori ini mempunyai ralat dari segi penggunaan tag rujukan.",
+	"popups-refpreview-note": "Catatan",
 	"cite_references_link_accessibility_label": "Panjat",
 	"cite_references_link_many_accessibility_label": "Panjat ke:",
 	"cite_references_link_accessibility_back_label": "Kembali ke atas",

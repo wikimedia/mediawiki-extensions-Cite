@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ciell",
 			"Dinosaur918",
 			"Elroy",
 			"Flightmare",
@@ -39,6 +40,13 @@
 	"cite-tracking-category-cite-error-desc": "Pagina's in deze categorie hebben fouten in het gebruik van references tags.",
 	"cite-tracking-category-ref-extends": "Pagina's die uitgebreide referenties gebruiken",
 	"cite-tracking-category-ref-extends-desc": "De pagina’s in deze categorie gebruiken het attribuut “extends” van de tag &lt;ref&gt;.",
+	"popups-refpreview-reference": "Verwijzing",
+	"popups-refpreview-book": "Boekreferentie",
+	"popups-refpreview-journal": "Tijdschriftreferentie",
+	"popups-refpreview-news": "Nieuwsreferentie",
+	"popups-refpreview-note": "Voetnoot",
+	"popups-refpreview-web": "Webreferentie",
+	"popups-refpreview-collapsible-placeholder": "Deze referentie bevat een figuur dat niet in de voorvertoning past.",
 	"cite_references_link_accessibility_label": "Omhoog",
 	"cite_references_link_many_accessibility_label": "Omhoog naar:",
 	"cite_references_link_accessibility_back_label": "Weer omhoog",

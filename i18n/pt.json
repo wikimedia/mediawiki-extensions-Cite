@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			555,
 			"Crazymadlover",
 			"Fúlvio",
 			"Giro720",
@@ -9,8 +10,7 @@
 			"Mansil alfalb",
 			"Opraco",
 			"Vitorvicentevalente",
-			"Waldir",
-			555
+			"Waldir"
 		]
 	},
 	"cite-desc": "Adiciona elementos <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para uso em citações",
@@ -37,6 +37,13 @@
 	"cite_error_empty_references_define": "A etiqueta <code>&lt;ref&gt;</code> com o nome \"$1\" definida no grupo <code>&lt;references&gt;</code> \"$2\" não tem conteúdo.",
 	"cite-tracking-category-cite-error": "Páginas com erros em referências",
 	"cite-tracking-category-cite-error-desc": "As páginas nesta categoria contêm erros no uso dos elementos de referências.",
+	"popups-refpreview-reference": "Referência",
+	"popups-refpreview-book": "Referência de livro",
+	"popups-refpreview-journal": "Referência de revista",
+	"popups-refpreview-news": "Referência de notícias",
+	"popups-refpreview-note": "Nota",
+	"popups-refpreview-web": "Referência da Internet",
+	"popups-refpreview-collapsible-placeholder": "Esta referência inclui uma figura que não cabe na antevisão.",
 	"cite_references_link_accessibility_label": "Ir para cima",
 	"cite_references_link_many_accessibility_label": "Ir para:",
 	"cite_references_link_accessibility_back_label": "Voltar acima",

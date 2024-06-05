@@ -7,6 +7,7 @@
 			"Matěj Grabovský",
 			"Matěj Suchánek",
 			"Mormegil",
+			"Patrik L.",
 			"Sp5uhe"
 		]
 	},
@@ -32,6 +33,13 @@
 	"cite_error_empty_references_define": "U značky <code>&lt;ref&gt;</code> s názvem „$1“ definované uvnitř <code>&lt;references&gt;</code> chybí obsah.",
 	"cite-tracking-category-cite-error": "Stránky s chybami v referencích",
 	"cite-tracking-category-cite-error-desc": "Stránky v této kategorii obsahují chyby v použití značek pro reference.",
+	"popups-refpreview-reference": "Reference",
+	"popups-refpreview-book": "Knižní reference",
+	"popups-refpreview-journal": "Časopisová reference",
+	"popups-refpreview-news": "Zpravodajská reference",
+	"popups-refpreview-note": "Poznámka",
+	"popups-refpreview-web": "Webová reference",
+	"popups-refpreview-collapsible-placeholder": "Tato reference obsahuje prvek, který se do náhledu nevejde.",
 	"cite_references_link_accessibility_label": "Skočit nahoru",
 	"cite_references_link_many_accessibility_label": "Skočit nahoru k:",
 	"cite_references_link_accessibility_back_label": "Skočit zpátky nahoru",

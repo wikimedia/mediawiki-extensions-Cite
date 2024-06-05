@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"Xelgen",
 			"Աշոտ1997"
 		]
 	},
 	"cite_error": "Քաղվածելու սխալ՝ $1",
+	"popups-refpreview-reference": "Ծանոթագրություն",
+	"popups-refpreview-note": "Նշում",
 	"cite_section_preview_references": "Ծանոթագրությունների նախադիտում",
 	"cite-wikieditor-tool-reference": "Ծանոթագրություն",
 	"cite-wikieditor-help-page-references": "Ծանոթագրություններ",

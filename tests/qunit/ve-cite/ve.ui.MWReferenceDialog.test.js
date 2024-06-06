@@ -2,7 +2,7 @@
 
 QUnit.module( 've.ui.MWReferenceDialog (Cite)', ve.test.utils.newMwEnvironment() );
 
-QUnit.test( 'useReference', ( assert ) => {
+QUnit.test( 'setReferenceForEditing', ( assert ) => {
 	const dialog = new ve.ui.MWReferenceDialog();
 
 	dialog.referenceGroupInput = new ve.ui.MWReferenceGroupInputWidget( {} );
@@ -26,7 +26,7 @@ QUnit.test( 'useReference', ( assert ) => {
 	};
 	const ref = new ve.dm.MWReferenceModel( parentDoc );
 	ref.setGroup( 'g' );
-	dialog.useReference( ref );
+	dialog.setReferenceForEditing( ref );
 
 	assert.strictEqual( dialog.referenceModel, ref );
 	assert.strictEqual( dialog.originalGroup, 'g' );

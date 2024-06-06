@@ -201,7 +201,7 @@ ve.ui.MWReferenceDialog.prototype.onSearchResultsChoose = function ( item ) {
 		this.getFragment().removeContent();
 		this.selectedNode = null;
 	}
-	this.useReference( ref );
+	this.setReferenceForEditing( ref );
 	this.executeAction( 'insert' );
 
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'reuse-choose' } );
@@ -238,38 +238,48 @@ ve.ui.MWReferenceDialog.prototype.getBodyHeight = function () {
 /**
  * Work on a specific reference.
  *
- * @param {ve.dm.MWReferenceModel} [ref] Reference model, omit to work on a new reference
+ * @param {ve.dm.MWReferenceModel} ref
  * @return {ve.ui.MWReferenceDialog}
  * @chainable
  */
-ve.ui.MWReferenceDialog.prototype.useReference = function ( ref ) {
-	// Properties
-	if ( ref instanceof ve.dm.MWReferenceModel ) {
-		// Use an existing reference
-		this.referenceModel = ref;
-	} else {
-		// Create a new reference
-		this.referenceModel = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
-	}
+ve.ui.MWReferenceDialog.prototype.setReferenceForEditing = function ( ref ) {
+	this.referenceModel = ref;
 
-	this.referenceTarget.setDocument( this.referenceModel.getDocument() );
+	this.setFormFieldsFromRef( this.referenceModel );
+	this.updateReuseWarningFromRef( this.referenceModel );
 
-	// Initialization
-	this.originalGroup = this.referenceModel.getGroup();
+	return this;
+};
+
+/**
+ * @private
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceDialog.prototype.setFormFieldsFromRef = function ( ref ) {
+	this.referenceTarget.setDocument( ref.getDocument() );
+
+	this.originalGroup = ref.getGroup();
 	// Set the group input while it's disabled, so this doesn't pop up the group-picker menu
 	this.referenceGroupInput.setDisabled( true );
 	this.referenceGroupInput.setValue( this.originalGroup );
 	this.referenceGroupInput.setDisabled( false );
+};
 
+/**
+ * @private
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceDialog.prototype.updateReuseWarningFromRef = function ( ref ) {
 	const group = this.getFragment().getDocument().getInternalList()
-		.getNodeGroup( this.referenceModel.getListGroup() );
-	const nodes = ve.getProp( group, 'keyedNodes', this.referenceModel.getListKey() );
-	const usages = nodes ? nodes.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) ).length : 0;
+		.getNodeGroup( ref.getListGroup() );
+	const nodes = ve.getProp( group, 'keyedNodes', ref.getListKey() );
+	const usages = nodes ? nodes.filter(
+		( node ) => !node.findParent( ve.dm.MWReferencesListNode )
+	).length : 0;
 
-	this.reuseWarning.toggle( usages > 1 )
+	this.reuseWarning
+		.toggle( usages > 1 )
 		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
-
-	return this;
 };
 
 /**
@@ -390,11 +400,9 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 		.next( () => {
 			this.panels.setItem( this.editPanel );
 			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
-				this.useReference(
-					ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode )
-				);
+				this.setReferenceForEditing( ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode ) );
 			} else {
-				this.useReference( null );
+				this.setReferenceForEditing( new ve.dm.MWReferenceModel( this.getFragment().getDocument() ) );
 				this.actions.setAbilities( { done: false, insert: false } );
 			}
 

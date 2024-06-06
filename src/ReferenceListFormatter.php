@@ -55,6 +55,7 @@ class ReferenceListFormatter {
 
 		$wikitext = $this->formatRefsList( $parser, $groupRefs, $isSectionPreview );
 		$html = $parser->recursiveTagParse( $wikitext );
+		$html = Html::rawElement( 'ol', [ 'class' => 'references' ], $html );
 
 		if ( $responsive ) {
 			$wrapClasses = [ 'mw-references-wrap' ];
@@ -119,7 +120,7 @@ class ReferenceListFormatter {
 			$parserInput .= $this->formatListItem( $parser, $key, $ref, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
-		return Html::rawElement( 'ol', [ 'class' => 'references' ], $parserInput );
+		return $parserInput;
 	}
 
 	/**

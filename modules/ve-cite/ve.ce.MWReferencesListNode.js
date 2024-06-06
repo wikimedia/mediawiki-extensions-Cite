@@ -187,6 +187,12 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		emptyText = ve.msg( 'cite-ve-referenceslist-isempty-default' );
 	}
 
+	let originalDomElements;
+	if ( model.getElement().originalDomElementsHash ) {
+		originalDomElements = model.getStore().value(
+			model.getElement().originalDomElementsHash
+		);
+	}
 	// Use the Parsoid-provided DOM if:
 	//
 	// * There are no references in the model
@@ -196,13 +202,11 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	if (
 		!hasModelReferences &&
 		!this.modified &&
-		model.getElement().originalDomElementsHash
+		originalDomElements
 	) {
 		// Create a copy when importing to the main document, as extensions may
+		this.$originalRefList = $( ve.copyDomElements( originalDomElements, document ) );
 		// modify DOM nodes in the main doc.
-		this.$originalRefList = $( ve.copyDomElements( model.getStore().value(
-			model.getElement().originalDomElementsHash
-		), document ) );
 		if ( this.$originalRefList.find( 'li' ).length ) {
 			this.$element.append( this.$originalRefList );
 		} else {
@@ -216,6 +220,17 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$originalRefList.remove();
 		this.$originalRefList = null;
 	}
+	// Copy CSS to dynamic ref list
+	if ( originalDomElements ) {
+		// Get first container, e.g. skipping TemplateStyles
+		const divs = originalDomElements.filter( ( element ) => element.tagName === 'DIV' );
+		if ( divs.length ) {
+			// eslint-disable-next-line mediawiki/class-doc
+			this.$element.addClass( divs[ 0 ].getAttribute( 'class' ) );
+			this.$element.attr( 'style', divs[ 0 ].getAttribute( 'style' ) );
+		}
+	}
+
 	this.$reflist.detach().empty().attr( 'data-mw-group', refGroup || null );
 	this.$refmsg.detach();
 

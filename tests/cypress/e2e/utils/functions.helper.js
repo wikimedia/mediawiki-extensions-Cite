@@ -90,9 +90,7 @@ export function getCiteSingleBacklink( num ) {
 }
 
 export function getFragmentFromLink( linkElement ) {
-	return linkElement.invoke( 'attr', 'href' ).then( ( href ) => {
-		return href.split( '#' )[ 1 ];
-	} );
+	return linkElement.invoke( 'attr', 'href' ).then( ( href ) => href.split( '#' )[ 1 ] );
 }
 
 export function backlinksIdShouldMatchFootnoteId( supIndex, backlinkIndex, rowNumber ) {

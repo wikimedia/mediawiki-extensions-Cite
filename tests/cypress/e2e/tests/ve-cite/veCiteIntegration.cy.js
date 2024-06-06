@@ -23,8 +23,8 @@ describe( 'Visual Editor Cite Integration', () => {
 		helpers.waitForMWLoader();
 
 		cy.window().then( async ( win ) => {
-			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
-				await win.mw.hook( 'wikipage.content' ).add( function () { } );
+			await win.mw.loader.using( 'mediawiki.base' ).then( async () => {
+				await win.mw.hook( 'wikipage.content' ).add( () => { } );
 			} );
 			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
 		} );

@@ -19,8 +19,8 @@ describe( 'Cite backlinks test', () => {
 
 		cy.window().should( 'have.property', 'mw' ).and( 'have.property', 'loader' ).and( 'have.property', 'using' );
 		cy.window().then( async ( win ) => {
-			await win.mw.loader.using( 'mediawiki.base' ).then( async function () {
-				await win.mw.hook( 'wikipage.content' ).add( function () {} );
+			await win.mw.loader.using( 'mediawiki.base' ).then( async () => {
+				await win.mw.hook( 'wikipage.content' ).add( () => {} );
 			} );
 		} );
 	} );

@@ -124,6 +124,10 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			.getNodeGroup( dataElement.attributes.listGroup )
 			.keyedNodes[ dataElement.attributes.listKey ];
 
+		const extendsNodes = converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.filter(
+			( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
+		);
+
 		let contentsAlreadySet = false;
 		if ( setContents ) {
 			// Check if a previous node has already set the content. If so, we don't overwrite this
@@ -200,8 +204,13 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			let extendsAttr;
 			const extendsKeyParts = dataElement.attributes.extendsRef.match( this.listKeyRegex );
 			if ( extendsKeyParts[ 1 ] === 'auto' ) {
-				// TODO auto generated names that match the parent
-				extendsAttr = ':0-FIXME-T367031';
+				// Allocate a unique list key, then strip the 'literal/'' prefix
+				extendsAttr = converter.internalList.getUniqueListKey(
+					dataElement.attributes.listGroup,
+					dataElement.attributes.extendsRef,
+					// Generate a name starting with ':' to distinguish it from normal names
+					'literal/:'
+				).slice( 'literal/'.length );
 			} else {
 				extendsAttr = extendsKeyParts[ 2 ];
 			}
@@ -213,7 +222,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		const listKeyParts = dataElement.attributes.listKey.match( this.listKeyRegex );
 		if ( listKeyParts[ 1 ] === 'auto' ) {
 			// Only render a name if this key was reused
-			if ( keyedNodes.length > 1 ) {
+			if ( keyedNodes.length > 1 || extendsNodes.length ) {
 				// Allocate a unique list key, then strip the 'literal/'' prefix
 				name = converter.internalList.getUniqueListKey(
 					dataElement.attributes.listGroup,

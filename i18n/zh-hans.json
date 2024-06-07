@@ -50,6 +50,7 @@
 	"cite-tracking-category-cite-error": "有参考文献错误的页面",
 	"cite-tracking-category-cite-error-desc": "此分类内的页面存在参考资料标签使用错误。",
 	"cite-tracking-category-ref-extends": "使用扩展式引用的页面",
+	"cite-tracking-category-ref-extends-desc": "此分类中的页面使用&lt;ref&gt;标签的\"extends\"属性。",
 	"popups-refpreview-reference": "参考文献",
 	"popups-refpreview-book": "书籍参考文献",
 	"popups-refpreview-journal": "期刊参考文献",

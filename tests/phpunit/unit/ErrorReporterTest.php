@@ -5,8 +5,8 @@ namespace Cite\Tests\Unit;
 use Cite\ErrorReporter;
 use Cite\ReferenceMessageLocalizer;
 use Language;
-use Message;
-use Parser;
+use MediaWiki\Message\Message;
+use MediaWiki\Parser\Parser;
 use ParserOptions;
 
 /**

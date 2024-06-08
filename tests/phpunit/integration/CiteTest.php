@@ -10,7 +10,7 @@ use Cite\ReferenceStack;
 use Cite\Tests\TestUtils;
 use Language;
 use LogicException;
-use Parser;
+use MediaWiki\Parser\Parser;
 use ParserOptions;
 use StripState;
 use Wikimedia\TestingAccessWrapper;

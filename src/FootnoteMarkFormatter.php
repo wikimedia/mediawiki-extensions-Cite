@@ -2,8 +2,8 @@
 
 namespace Cite;
 
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
-use Parser;
 
 /**
  * Footnote markers in the context of the Cite extension are the numbers in the article text, e.g.

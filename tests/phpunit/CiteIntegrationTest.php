@@ -7,7 +7,7 @@ use Cite\ErrorReporter;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceStack;
 use Language;
-use Parser;
+use MediaWiki\Parser\Parser;
 use ParserOptions;
 use Wikimedia\TestingAccessWrapper;
 

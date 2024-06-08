@@ -4,9 +4,9 @@ namespace Cite;
 
 use Language;
 use MediaWiki\Html\Html;
+use MediaWiki\Message\Message;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
-use Message;
-use Parser;
 use StatusValue;
 
 /**

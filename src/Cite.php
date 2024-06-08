@@ -27,8 +27,8 @@ namespace Cite;
 use LogicException;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
-use Parser;
 use StatusValue;
 
 /**

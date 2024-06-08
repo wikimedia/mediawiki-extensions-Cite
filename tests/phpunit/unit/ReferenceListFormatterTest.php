@@ -7,8 +7,8 @@ use Cite\ErrorReporter;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceMessageLocalizer;
 use Cite\Tests\TestUtils;
-use Message;
-use Parser;
+use MediaWiki\Message\Message;
+use MediaWiki\Parser\Parser;
 use Wikimedia\TestingAccessWrapper;
 
 /**

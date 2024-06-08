@@ -3,7 +3,7 @@
 namespace Cite;
 
 use Language;
-use Message;
+use MediaWiki\Message\Message;
 use MessageLocalizer;
 use MessageSpecifier;
 

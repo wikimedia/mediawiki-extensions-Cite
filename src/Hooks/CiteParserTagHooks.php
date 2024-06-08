@@ -3,7 +3,7 @@
 namespace Cite\Hooks;
 
 use Cite\Cite;
-use Parser;
+use MediaWiki\Parser\Parser;
 use PPFrame;
 
 /**

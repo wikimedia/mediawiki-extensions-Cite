@@ -3,7 +3,7 @@
 namespace Cite;
 
 use MediaWiki\Html\Html;
-use Parser;
+use MediaWiki\Parser\Parser;
 
 /**
  * Renderer for the actual list of references in place of the <references /> tag at the end of an

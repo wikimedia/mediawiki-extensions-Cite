@@ -4,9 +4,9 @@ namespace Cite\Tests\Unit;
 
 use Cite\Cite;
 use Cite\Hooks\CiteParserHooks;
-use Parser;
+use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOutput;
 use ParserOptions;
-use ParserOutput;
 use StripState;
 
 /**

@@ -1,9 +1,14 @@
 let isTracking = false;
 
+/**
+ * @memberof module:ext.cite.referencePreviews
+ */
 const LOGGING_SCHEMA = 'event.ReferencePreviewsPopups';
 
 /**
  * Run once the preview is initialized.
+ *
+ * @memberof module:ext.cite.referencePreviews
  */
 function initReferencePreviewsInstrumentation() {
 	if ( mw.config.get( 'wgCiteReferencePreviewsActive' ) &&
@@ -16,6 +21,10 @@ function initReferencePreviewsInstrumentation() {
 	}
 }
 
+/**
+ * @memberof module:ext.cite.referencePreviews
+ * @return {boolean}
+ */
 function isTrackingEnabled() {
 	return isTracking;
 }

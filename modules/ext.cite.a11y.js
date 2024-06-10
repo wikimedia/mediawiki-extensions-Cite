@@ -1,7 +1,8 @@
 'use strict';
 
 /**
- * @file Adds accessibility attributes to citation links.
+ * Adds accessibility attributes to citation links.
+ *
  * @see https://phabricator.wikimedia.org/T40141
  * @author Marius Hoch <hoo@online.de>
  */

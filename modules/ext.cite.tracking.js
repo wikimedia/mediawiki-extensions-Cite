@@ -1,9 +1,10 @@
 'use strict';
 
 /**
- * @file Temporary tracking to evaluate the impact of Reference Previews on
+ * Temporary tracking to evaluate the impact of Reference Previews on
  * users' interaction with references.
  *
+ * @memberof module:ext.cite.ux-enhancements
  * @see https://phabricator.wikimedia.org/T214493
  * @see https://phabricator.wikimedia.org/T231529
  * @see https://phabricator.wikimedia.org/T353798

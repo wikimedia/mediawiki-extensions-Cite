@@ -739,7 +739,7 @@ ve.dm.citeExample.domToDataCases = {
 				type: 'mwReference',
 				attributes: {
 					contentsUsed: true,
-					extendsRef: 'foo',
+					extendsRef: 'literal/foo',
 					listGroup: 'mwReference/',
 					listIndex: 0,
 					listKey: 'auto/0',

@@ -134,8 +134,10 @@ ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
 		return null;
 	}
 	const list = this.getFragment().getDocument().getInternalList();
-	const index = list.keys.indexOf( 'literal/' + extendsRef );
-	return list.getItemNode( index ).element.attributes.originalHtml;
+	const itemNode = list.getItemNode( list.keys.indexOf( extendsRef ) );
+	const $element = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
+
+	return $element.text();
 };
 
 /**

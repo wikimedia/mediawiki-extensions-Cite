@@ -95,7 +95,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		}
 	};
 	if ( mwAttrs.extends && mw.config.get( 'wgCiteBookReferencing' ) ) {
-		dataElement.attributes.extendsRef = mwAttrs.extends;
+		dataElement.attributes.extendsRef = mwAttrs.extends ? 'literal/' + mwAttrs.extends : null;
 	}
 	if ( reflistItemId ) {
 		dataElement.attributes.refListItemId = reflistItemId;
@@ -197,7 +197,15 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Set extends
 		if ( dataElement.attributes.extendsRef ) {
-			ve.setProp( mwData, 'attrs', 'extends', dataElement.attributes.extendsRef );
+			let extendsAttr;
+			const extendsKeyParts = dataElement.attributes.extendsRef.match( this.listKeyRegex );
+			if ( extendsKeyParts[ 1 ] === 'auto' ) {
+				// TODO auto generated names that match the parent
+				extendsAttr = ':0-FIXME-T367031';
+			} else {
+				extendsAttr = extendsKeyParts[ 2 ];
+			}
+			ve.setProp( mwData, 'attrs', 'extends', extendsAttr );
 		}
 
 		// Generate name

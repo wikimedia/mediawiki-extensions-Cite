@@ -126,7 +126,7 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  * Get the text of the parent reference.
  *
  * @private
- * @return {string|null}
+ * @return {jQuery|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
 	const extendsRef = this.model.getAttribute( 'extendsRef' );
@@ -135,9 +135,7 @@ ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
 	}
 	const list = this.getFragment().getDocument().getInternalList();
 	const itemNode = list.getItemNode( list.keys.indexOf( extendsRef ) );
-	const $element = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
-
-	return $element.text();
+	return new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 };
 
 /**

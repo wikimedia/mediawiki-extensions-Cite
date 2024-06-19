@@ -238,78 +238,83 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$refmsg.text( emptyText );
 		this.$element.append( this.$refmsg );
 	} else {
-		nodes.indexOrder.forEach( ( index ) => {
-			const firstNode = nodes.firstNodes[ index ];
-
-			const key = internalList.keys[ index ];
-			let keyedNodes = nodes.keyedNodes[ key ];
-			keyedNodes = keyedNodes.filter(
-				// Exclude placeholders and references defined inside the references list node
-				( node ) => !node.getAttribute( 'placeholder' ) && !node.findParent( ve.dm.MWReferencesListNode )
-			);
-
-			if ( !keyedNodes.length ) {
-				return;
-			}
-
-			const $li = $( '<li>' )
-				.append( this.renderBacklinks( keyedNodes, refGroup ), ' ' );
-
-			// Generate reference HTML from first item in key
-			const modelNode = internalList.getItemNode( firstNode.getAttribute( 'listIndex' ) );
-			if ( modelNode && modelNode.length ) {
-				const refPreview = new ve.ui.MWPreviewElement( modelNode, { useView: true } );
-				$li.append(
-					$( '<span>' )
-						.addClass( 'reference-text' )
-						.append( refPreview.$element )
-				);
-			} else {
-				$li.append(
-					$( '<span>' )
-						.addClass( 've-ce-mwReferencesListNode-muted' )
-						.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) )
-				).addClass( 've-ce-mwReferencesListNode-missingRef' );
-			}
-
-			if ( this.getRoot() ) {
-				const surface = this.getRoot().getSurface().getSurface();
-				$li.on( 'mousedown', ( e ) => {
-					if ( ve.isUnmodifiedLeftClick( e ) && modelNode && modelNode.length ) {
-						const items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] )
-							.filter( ( item ) => item.name !== 'mobileActions' );
-						if ( items.length ) {
-							const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
-							if ( contextItem ) {
-								const command = surface.commandRegistry
-									.lookup( contextItem.static.commandName );
-								if ( command ) {
-									const fragmentArgs = {
-										fragment: surface.getModel()
-											.getLinearFragment( firstNode.getOuterRange(), true ),
-										selectFragmentOnClose: false
-									};
-									const newArgs = ve.copy( command.args );
-									if ( command.name === 'reference' ) {
-										newArgs[ 1 ] = fragmentArgs;
-									} else {
-										ve.extendObject( newArgs[ 0 ], fragmentArgs );
-									}
-									command.execute( surface, newArgs );
-								}
-							}
-						}
-					}
-					e.preventDefault();
-				} );
-			}
-
-			this.$reflist.append( $li );
-		} );
+		this.$reflist.append(
+			nodes.indexOrder.map( ( index ) => this.renderListItem(
+				nodes, internalList, refGroup, index
+			) )
+		);
 
 		this.updateClasses();
 		this.$element.append( this.$reflist );
 	}
+};
+
+/**
+ * @private
+ */
+ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, refGroup, index ) {
+	const key = internalList.keys[ index ];
+	const keyedNodes = ( nodes.keyedNodes[ key ] || [] )
+		.filter(
+			// Exclude placeholders and references defined inside the references list node
+			( backRefNode ) => !backRefNode.getAttribute( 'placeholder' ) && !backRefNode.findParent( ve.dm.MWReferencesListNode )
+		);
+
+	const $li = $( '<li>' )
+		.append( this.renderBacklinks( keyedNodes, refGroup ), ' ' );
+
+	// Generate reference HTML from first item in key
+	const modelNode = internalList.getItemNode( index );
+	if ( modelNode && modelNode.length ) {
+		const refPreview = new ve.ui.MWPreviewElement( modelNode, { useView: true } );
+		$li.append(
+			$( '<span>' )
+				.addClass( 'reference-text' )
+				.append( refPreview.$element )
+		);
+
+		if ( this.getRoot() ) {
+			const surface = this.getRoot().getSurface().getSurface();
+			// TODO: attach to the singleton click handler on the surface
+			$li.on( 'mousedown', ( e ) => {
+				if ( ve.isUnmodifiedLeftClick( e ) && modelNode && modelNode.length ) {
+					const firstNode = nodes.firstNodes[ index ];
+					const items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] )
+						.filter( ( item ) => item.name !== 'mobileActions' );
+					if ( items.length ) {
+						const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
+						if ( contextItem ) {
+							const command = surface.commandRegistry
+								.lookup( contextItem.static.commandName );
+							if ( command ) {
+								const fragmentArgs = {
+									fragment: surface.getModel()
+										.getLinearFragment( firstNode.getOuterRange(), true ),
+									selectFragmentOnClose: false
+								};
+								const newArgs = ve.copy( command.args );
+								if ( command.name === 'reference' ) {
+									newArgs[ 1 ] = fragmentArgs;
+								} else {
+									ve.extendObject( newArgs[ 0 ], fragmentArgs );
+								}
+								command.execute( surface, newArgs );
+							}
+						}
+					}
+				}
+				e.preventDefault();
+			} );
+		}
+	} else {
+		$li.append(
+			$( '<span>' )
+				.addClass( 've-ce-mwReferencesListNode-muted' )
+				.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) )
+		).addClass( 've-ce-mwReferencesListNode-missingRef' );
+	}
+
+	return $li;
 };
 
 /**
@@ -345,6 +350,7 @@ ve.ce.MWReferencesListNode.prototype.renderBacklinks = function ( keyedNodes, re
 	for ( let i = 0; i < keyedNodes.length; i++ ) {
 		$( '<a>' )
 			.attr( 'data-mw-group', refGroup || null )
+			// FIXME: i18n backlink numbering
 			.append( $( '<span>' ).addClass( 'mw-linkback-text' ).text( ( i + 1 ) + ' ' ) )
 			.appendTo( $refSpan );
 	}

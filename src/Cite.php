@@ -174,9 +174,12 @@ class Cite {
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
 		$ref = $this->referenceStack->pushRef(
 			$parser->getStripState(), $text, $argv, ...array_values( $arguments ) );
-		return $ref
-			? $this->footnoteMarkFormatter->linkRef( $parser, $ref )
-			: '';
+		if ( !$ref ) {
+			// Rare edge-cases like follow="…" don't render a footnote marker in-place
+			return '';
+		}
+
+		return $this->footnoteMarkFormatter->linkRef( $parser, $ref );
 	}
 
 	/**

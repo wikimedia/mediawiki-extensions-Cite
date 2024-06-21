@@ -7,6 +7,7 @@ use MediaWiki\Html\Html;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
+use ParserOptions;
 use StatusValue;
 
 /**
@@ -65,10 +66,10 @@ class ErrorReporter {
 	 * @return Message
 	 */
 	private function msg( Parser $parser, string $key, ...$params ): Message {
-		$language = $this->getInterfaceLanguageAndSplitCache( $parser );
+		$language = $this->getInterfaceLanguageAndSplitCache( $parser->getOptions() );
 		$msg = $this->messageLocalizer->msg( $key, ...$params )->inLanguage( $language );
 
-		[ $type ] = $this->parseTypeAndIdFromMessageKey( $msg->getKey() );
+		[ $type ] = $this->parseTypeAndIdFromMessageKey( $key );
 
 		if ( $type === 'error' ) {
 			// Take care; this is a sideeffect that might not belong to this class.
@@ -83,10 +84,8 @@ class ErrorReporter {
 	/**
 	 * Note the startling side effect of splitting ParserCache by user interface language!
 	 */
-	private function getInterfaceLanguageAndSplitCache( Parser $parser ): Language {
-		if ( !$this->cachedInterfaceLanguage ) {
-			$this->cachedInterfaceLanguage = $parser->getOptions()->getUserLangObj();
-		}
+	private function getInterfaceLanguageAndSplitCache( ParserOptions $parserOptions ): Language {
+		$this->cachedInterfaceLanguage ??= $parserOptions->getUserLangObj();
 		return $this->cachedInterfaceLanguage;
 	}
 

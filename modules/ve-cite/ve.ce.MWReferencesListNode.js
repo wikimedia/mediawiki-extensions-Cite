@@ -250,7 +250,14 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 };
 
 /**
+ * Render a reference list item
+ *
  * @private
+ * @param {Object} nodes Node group object, containing nodes and key order array
+ * @param {ve.dm.InternalList} internalList Internal list
+ * @param {string} refGroup Reference group
+ * @param {number} index Item index
+ * @return {jQuery} List item
  */
 ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, refGroup, index ) {
 	const key = internalList.keys[ index ];

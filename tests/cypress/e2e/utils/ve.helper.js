@@ -3,7 +3,8 @@ import * as helpers from './functions.helper.js';
 export function setVECookiesToDisableDialogs() {
 	cy.window().then( async ( win ) => {
 		win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
-		// don't show the VE education popups with the blue pulsating dots (ve.ui.MWEducationPopupWidget)
+		// Don't show the VE education popups with the blue
+		// pulsating dots (ve.ui.MWEducationPopupWidget)
 		win.localStorage.setItem( 've-hideusered', 1 );
 	} );
 }

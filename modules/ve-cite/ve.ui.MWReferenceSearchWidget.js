@@ -83,7 +83,7 @@ ve.ui.MWReferenceSearchWidget.prototype.trackActiveUsage = function () {
 	}
 
 	// https://phabricator.wikimedia.org/T362347
-	ve.track( 'activity.' + this.constructor.static.name, { action: 'reuse-dialog-use' } );
+	ve.track( 'activity.reference', { action: 'reuse-dialog-use' } );
 	this.wasUsedActively = true;
 };
 

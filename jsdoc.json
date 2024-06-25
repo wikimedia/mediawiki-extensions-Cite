@@ -1,16 +1,12 @@
 {
 	"opts": {
 		"destination": "docs/js",
-		"pedantic": true,
+		"pedantic": false,
 		"recurse": true,
 		"template": "node_modules/jsdoc-wmf-theme"
 	},
 	"plugins": [
-		"node_modules/jsdoc-wmf-theme/plugins/allow-dots-in-modules",
-		"plugins/markdown",
-		"node_modules/jsdoc-wmf-theme/plugins/externals",
-		"node_modules/jsdoc-wmf-theme/plugins/summarize",
-		"node_modules/jsdoc-wmf-theme/plugins/betterlinks"
+		"node_modules/jsdoc-wmf-theme/plugins/default"
 	],
 	"source": {
 		"include": [ "modules", "package.json", "README.md" ]
@@ -23,25 +19,20 @@
 		"wmf": {
 			"repository": "https://gerrit.wikimedia.org/g/mediawiki/extensions/Cite/",
 			"prefixMap": {
-				"OO.ui.": "https://doc.wikimedia.org/oojs-ui/master/js/{type}.html",
-				"OO.": "https://doc.wikimedia.org/oojs/master/{type}.html",
 				"ve.": "https://doc.wikimedia.org/visualeditor-standalone/master/{type}.html",
-				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html"
+				"ve.dm.MW": "https://doc.wikimedia.org/VisualEditor/master/js/{type}.html",
+				"ve.ce.MW": "https://doc.wikimedia.org/VisualEditor/master/js/{type}.html",
+				"ve.ui.MW": "https://doc.wikimedia.org/VisualEditor/master/js/{type}.html",
+				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html",
+				"ve.dm.MWDocumentReferences": true,
+				"ve.dm.MWReference": true,
+				"ve.ce.MWReference": true,
+				"ve.ui.MWReference": true
 			},
-			"prefixMapIgnore": [
-				"ve.dm.MWDocumentReferences",
-				"ve.dm.MWReference",
-				"ve.ce.MWReference",
-				"ve.ui.MWReference"
-			],
 			"linkMap": {
 				"ext.popups.Preview": "https://doc.wikimedia.org/Popups/master/js/js/Popups/module-preview.html",
 				"ext.popups.PreviewModel": "https://doc.wikimedia.org/Popups/master/js/js/Popups/module-preview_model.html",
-				"Gateway": "https://doc.wikimedia.org/Popups/master/js/js/Popups/module-gateway.html",
-				"HTMLAnchorElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement",
-				"HTMLElement": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement",
-				"jQuery": "https://api.jquery.com/Types/#jQuery",
-				"jQuery.Event": "https://api.jquery.com/category/events/event-object/"
+				"Gateway": "https://doc.wikimedia.org/Popups/master/js/js/Popups/module-gateway.html"
 			}
 		}
 	}

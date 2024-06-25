@@ -41,6 +41,7 @@
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code> グループ「$2」で定義されている、nameが「$1」の <code>&lt;ref&gt;</code> タグに内容がありません。",
 	"cite-tracking-category-cite-error": "参照エラーのあるページ",
 	"cite-tracking-category-cite-error-desc": "このカテゴリにあるページは、参照タグの使用にエラーがあります。",
+	"cite-tracking-category-ref-extends-desc": "このカテゴリにあるページは、&lt;ref&gt;タグの\"extends\"属性を使用しています。",
 	"popups-refpreview-reference": "参考資料",
 	"popups-refpreview-book": "書籍の出典",
 	"popups-refpreview-journal": "定期刊行物の出典",

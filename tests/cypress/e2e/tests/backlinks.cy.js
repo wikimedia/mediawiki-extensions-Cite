@@ -30,7 +30,7 @@ describe( 'Cite backlinks test', () => {
 		helper.getCiteMultiBacklink( 1 ).should( 'not.be.visible' );
 	} );
 
-	it.skip( 'shows clickable up arrow when jumping to multiple used references', () => {
+	it( 'shows clickable up arrow when jumping to multiple used references', () => {
 		helper.getReference( 2 ).click();
 		helper.getCiteMultiBacklink( 1 ).should( 'be.visible' );
 

@@ -41,7 +41,7 @@ export function waitForModuleReady( moduleName ) {
 		.and( 'have.property', 'getState' );
 	cy.window()
 		.should(
-			( win ) => win.mw.loader.getState( moduleName ) === 'ready'
+			( win ) => expect( win.mw.loader.getState( moduleName ) ).to.eq( 'ready' )
 		);
 }
 

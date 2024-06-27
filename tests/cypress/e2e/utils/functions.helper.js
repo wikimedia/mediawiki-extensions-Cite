@@ -68,10 +68,6 @@ export function loginAsAdmin() {
 	cy.get( '#wpLoginAttempt' ).click();
 }
 
-export function getMWSuccessNotification() {
-	return cy.get( '.mw-notification-visible .oo-ui-icon-success' );
-}
-
 export function getReference( num ) {
 	return cy.get( `#mw-content-text .reference:nth-of-type(${ num })` );
 

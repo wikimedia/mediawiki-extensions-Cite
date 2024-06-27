@@ -59,12 +59,13 @@ export function openVECiteoidReuseDialog() {
 	cy.get( '.oo-ui-labelElement-label' ).contains( 'Re-use' ).click();
 }
 
-export function getVEUIToolbarSaveButton() {
-	return cy.get( '.ve-ui-toolbar-saveButton' );
-}
-
-export function getSaveChangesDialogConfirmButton() {
-	return cy.get( '.ve-ui-mwSaveDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonWidget' );
+export function saveEdits() {
+	// TODO: Even if the button is enabled it seems we need a delay before we can click it.
+	// eslint-disable-next-line cypress/no-unnecessary-waiting
+	cy.wait( 500 );
+	cy.get( '.ve-ui-toolbar-saveButton' ).click();
+	cy.get( '.ve-ui-mwSaveDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonWidget' ).click();
+	cy.get( '.mw-notification-visible .oo-ui-icon-success' ).should( 'be.visible' );
 }
 
 export function getCiteReuseDialogRefResult( rowNumber ) {

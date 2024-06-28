@@ -45,14 +45,13 @@ describe( 'Re-using refs in Visual Editor', () => {
 
 		// Re-use second ref
 		veHelper.getCiteReuseDialogRefResult( 2 ).click();
+
 		// The context dialog on one of the references shows it's being used twice
 		cy.get( '.mw-reflink-text' ).contains( '[2]' ).click();
-		cy.get( '.oo-ui-popupWidget-popup .ve-ui-mwReferenceContextItem-muted' ).should( 'have.text', 'This reference is used twice on this page.' );
+		cy.get( '.oo-ui-popupWidget-popup .ve-ui-mwReferenceContextItem-muted' )
+			.should( 'have.text', 'This reference is used twice on this page.' );
 
-		veHelper.getVEUIToolbarSaveButton().click();
-		veHelper.getSaveChangesDialogConfirmButton().click();
-
-		helper.getMWSuccessNotification().should( 'be.visible' );
+		veHelper.saveEdits();
 
 		// ARTICLE SECTION
 		// Ref has been added to article, there are now 4 refs in the article
@@ -92,10 +91,7 @@ describe( 'Re-using refs in Visual Editor', () => {
 		veHelper.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
 		veHelper.getCiteReuseDialogRefResult( 1 ).click();
 
-		veHelper.getVEUIToolbarSaveButton().click();
-		veHelper.getSaveChangesDialogConfirmButton().click();
-
-		helper.getMWSuccessNotification().should( 'be.visible' );
+		veHelper.saveEdits();
 
 		// ARTICLE SECTION
 		// Ref name 'a' has been added correctly

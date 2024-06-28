@@ -1,4 +1,3 @@
-require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
@@ -13,6 +12,25 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 let usesCitoid;
 
 describe( 'Re-using refs in Visual Editor', () => {
+
+	before( () => {
+		cy.clearCookies();
+		helper.loginAsAdmin();
+
+		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
+			{
+				name: 'Webseite',
+				icon: 'ref-cite-web',
+				template: 'Internetquelle'
+			},
+			{
+				name: 'Literatur',
+				icon: 'ref-cite-book',
+				template: 'Literatur'
+			}
+		] ) );
+	} );
+
 	beforeEach( () => {
 		const title = helper.getTestString( 'CiteTest-reuseRefs' );
 
@@ -28,9 +46,6 @@ describe( 'Re-using refs in Visual Editor', () => {
 	} );
 
 	it( 'should display re-used reference in article with correct footnote number and notification in context dialog', () => {
-		// TODO: Renable test with Citoid when they're stable in CI
-		cy.skipOn( usesCitoid );
-
 		// Currently there are 3 refs in the article
 		helper.getRefsFromArticleSection().should( 'have.length', 3 );
 
@@ -74,9 +89,6 @@ describe( 'Re-using refs in Visual Editor', () => {
 	} );
 
 	it( 'should display correct ref content and name attribute for re-used ref with existing name attribute', () => {
-		// TODO: Renable test with Citoid when they're stable in CI
-		cy.skipOn( usesCitoid );
-
 		// Place cursor next to ref #1 in order to add re-used ref next to it
 		cy.contains( '.mw-reflink-text', '[1]' ).first().type( '{rightarrow}' );
 

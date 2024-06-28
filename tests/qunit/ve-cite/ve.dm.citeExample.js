@@ -119,30 +119,30 @@ ve.dm.citeExample.domToDataCases = {
 			<p>
 				Foo
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"bar"}}' class="mw-ref reference">
-					<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>
+					<a><span class="mw-reflink-text">[1]</span></a>
 				</sup>
 				 Baz
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"Quux"},"attrs":{"group":"g1","name":":0"}}' class="mw-ref reference">
-					<a data-mw-group="g1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[g1 1]</span></a>
+					<a data-mw-group="g1"><span class="mw-reflink-text">[g1 1]</span></a>
 				</sup>
 				 Whee
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"
 				<a href=\\"./Bar\\" rel=\\"mw:WikiLink\\">Bar
 				</a>"},"attrs":{"name":"bar"}}' class="mw-ref reference">
-					<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>
+					<a><span class="mw-reflink-text">[1]</span></a>
 				</sup>
 				 Yay
 				${ /* This reference has .body.id instead of .body.html */'' }
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"id":"mw-cite-3","html":"No name"},"attrs":{"group":"g1"}}' class="mw-ref reference">
-					<a data-mw-group="g1" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text">[g1 2]</span></a>
+					<a data-mw-group="g1"><span class="mw-reflink-text">[g1 2]</span></a>
 				</sup>
 				 Quux
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"Different content"},"attrs":{"name":"bar"}}' class="mw-ref reference">
-					<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>
+					<a><span class="mw-reflink-text">[1]</span></a>
 				</sup>
 				 Foo
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"g1","name":"foo"}}' class="mw-ref reference">
-					<a data-mw-group="g1" style="counter-reset: mw-Ref 3;"><span class="mw-reflink-text">[g1 3]</span></a>
+					<a data-mw-group="g1"><span class="mw-reflink-text">[g1 3]</span></a>
 				</sup>
 			</p>
 			${ /* The HTML below is enriched to wrap reference contents in <span id="mw-cite-[...]"> */'' }
@@ -151,17 +151,17 @@ ve.dm.citeExample.domToDataCases = {
 				 data-mw='{"name":"references","attrs":{"group":"g1"},"body":{
 				"html":"<sup typeof=\\"mw:Extension/ref\\"
 				 data-mw=&apos;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;group&amp;quot;:&amp;quot;g1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;html&amp;quot;:&amp;quot;Ref in refs&amp;quot;}}
-				&apos; class=\\"mw-ref reference\\"><a data-mw-group=\\"g1\\" style=\\"counter-reset: mw-Ref 3;\\"><span class=\\"mw-reflink-text\\">[g1 3]</span></a></sup>"}}'>
+				&apos; class=\\"mw-ref reference\\"><a data-mw-group=\\"g1\\"><span class=\\"mw-reflink-text\\">[g1 3]</span></a></sup>"}}'>
 					<ol class="mw-references references" data-mw-group="g1">
-						<li>
+						<li style='--footnote-number: "1.";'>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>
 								 ${ ve.dm.citeExample.refListItemClipboard( 'Quux' ) }
 						</li>
-						<li>
+						<li style='--footnote-number: "2.";'>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>
 								 ${ ve.dm.citeExample.refListItemClipboard( 'No name' ) }
 						</li>
-						<li>
+						<li style='--footnote-number: "3.";'>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑ </span></a>
 								 ${ ve.dm.citeExample.refListItemClipboard( 'Ref in refs' ) }
 						</li>
@@ -384,11 +384,11 @@ ve.dm.citeExample.domToDataCases = {
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"
 				<a href=\\"./Bar\\" rel=\\"mw:WikiLink\\">Bar
 				</a>"},"attrs":{"name":"bar"}}' class="mw-ref reference">
-					<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>
+					<a><span class="mw-reflink-text">[1]</span></a>
 				</sup>
 				 Baz
 				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"bar"}}' class="mw-ref reference">
-					<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>
+					<a><span class="mw-reflink-text">[1]</span></a>
 				</sup>
 			</p>
 		`,
@@ -489,7 +489,7 @@ ve.dm.citeExample.domToDataCases = {
 				 data-mw='{"attrs":{},"body":
 			{"html":"Foo<span rel=\\"ve:Comment\\" data-ve-comment=\\" bar \\">&amp;nbsp;</span>"},"name":"ref"}'
 			 class="mw-ref reference">
-					<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>
+					<a><span class="mw-reflink-text">[1]</span></a>
 				</sup>
 			</p>
 		`,
@@ -499,7 +499,7 @@ ve.dm.citeExample.domToDataCases = {
 				 data-mw='{"attrs":{},"body":
 				{"html":"Foo<!-- bar -->"},"name":"ref"}'
 				 class="mw-ref reference">
-					<a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a>
+					<a><span class="mw-reflink-text">[1]</span></a>
 				</sup>
 			</p>
 		`,
@@ -548,7 +548,7 @@ ve.dm.citeExample.domToDataCases = {
 	},
 	'Template generated reflist': {
 		body: ve.dm.example.singleLine`
-			<p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"id":"mw-reference-text-cite_note-1"},"attrs":{"group":"notes"}}'><a href="./Main_Page#cite_note-1" style="counter-reset: mw-Ref 1;" data-mw-group="notes"><span class="mw-reflink-text">[notes 1]</span></a></sup></p>
+			<p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"id":"mw-reference-text-cite_note-1"},"attrs":{"group":"notes"}}'><a href="./Main_Page#cite_note-1" data-mw-group="notes"><span class="mw-reflink-text">[notes 1]</span></a></sup></p>
 			<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt4" data-mw='{"parts":[{"template":{"target":{"wt":"echo","href":"./Template:Echo"},"params":{"1":{"wt":"<references group=\\"notes\\" />"}},"i":0}}]}'>
 				<ol class="mw-references references" data-mw-group="notes">
 					<li about="#cite_note-1" id="cite_note-1"><a href="./Main_Page#cite_ref-1" data-mw-group="notes" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span id="mw-reference-text-cite_note-1" class="mw-reference-text">Foo</span></li>
@@ -560,7 +560,7 @@ ve.dm.citeExample.domToDataCases = {
 			<span typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"echo","href":"./Template:Echo"},"params":{"1":{"wt":"<references group=\\"notes\\" />"}},"i":0}}]}'></span>
 		`,
 		clipboardBody: ve.dm.example.singleLine`
-			<p><sup typeof="mw:Extension/ref" data-mw='{"attrs":{"group":"notes"},"body":{"id":"mw-reference-text-cite_note-1","html":"Foo"},"name":"ref"}' class="mw-ref reference"><a data-mw-group="notes" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[notes 1]</span></a></sup></p>
+			<p><sup typeof="mw:Extension/ref" data-mw='{"attrs":{"group":"notes"},"body":{"id":"mw-reference-text-cite_note-1","html":"Foo"},"name":"ref"}' class="mw-ref reference"><a data-mw-group="notes"><span class="mw-reflink-text">[notes 1]</span></a></sup></p>
 			<div typeof="mw:Extension/references" data-mw='{"parts":[{"template":{"params":{"1":{"wt":"<references group=\\"notes\\" />"}},"target":{"wt":"echo","href":"./Template:Echo"},"i":0}}],"name":"references"}'>
 				${ /* TODO: This should list should get populated on copy */'' }
 				<ol class="mw-references references"></ol>
@@ -630,7 +630,7 @@ ve.dm.citeExample.domToDataCases = {
 	},
 	'Template generated reflist (div wrapped)': {
 		body: ve.dm.example.singleLine`
-			<p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"id":"mw-reference-text-cite_note-1"},"attrs":{}}'><a href="./Main_Page#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
+			<p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"id":"mw-reference-text-cite_note-1"},"attrs":{}}'><a href="./Main_Page#cite_note-1"><span class="mw-reflink-text">[1]</span></a></sup></p>
 			<div about="#mwt3" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"reflist","href":"./Template:Reflist"},"params":{},"i":0}}]}'>
 				<div typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{}}'>
 					<ol class="mw-references references">
@@ -644,10 +644,10 @@ ve.dm.citeExample.domToDataCases = {
 			<span typeof="mw:Transclusion" data-mw='{"name":"references","attrs":{}}'></span>
 		`,
 		clipboardBody: ve.dm.example.singleLine`
-			<p><sup typeof="mw:Extension/ref" data-mw='{"attrs":{},"body":{"id":"mw-reference-text-cite_note-1","html":"Foo"},"name":"ref"}' class="mw-ref reference"><a style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text">[1]</span></a></sup></p>
+			<p><sup typeof="mw:Extension/ref" data-mw='{"attrs":{},"body":{"id":"mw-reference-text-cite_note-1","html":"Foo"},"name":"ref"}' class="mw-ref reference"><a><span class="mw-reflink-text">[1]</span></a></sup></p>
 			<div typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 				<ol class="mw-references references">
-					<li>
+					<li style='--footnote-number: "1.";'>
 						<a rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a>
 							 ${ ve.dm.citeExample.refListItemClipboard( 'Foo' ) }
 					</li>
@@ -727,7 +727,7 @@ ve.dm.citeExample.domToDataCases = {
 				<sup typeof="mw:Extension/ref"
 				 data-mw='{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}'
 				 class="mw-ref reference">
-					<a style="counter-reset: mw-Ref 1;">
+					<a>
 						<span class="mw-reflink-text">[1]</span>
 					</a>
 				</sup>

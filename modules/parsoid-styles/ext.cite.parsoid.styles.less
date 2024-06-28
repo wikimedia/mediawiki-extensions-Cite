@@ -10,7 +10,7 @@
 
 /* Upstream bug in stylelint makes it complain aboout the case of 'mw-Ref' */
 
-.mw-ref a {
+.mw-ref > a[ style~='mw-Ref' ] {
 	/* With a group set */
 	&[ data-mw-group ]::after {
 		content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, decimal ) ']';
@@ -20,14 +20,14 @@
 	&::after {
 		content: '[' counter( mw-Ref, decimal ) ']';
 	}
-}
 
-/* Hide the default rendering in browsers that support content
- * generation by selecting for :after pseudo-element. */
-/* stylelint-disable-next-line selector-type-no-unknown */
-x-thereisnoelementwiththisname::after,
-span.mw-reflink-text {
-	display: none;
+	/* Hide the default rendering in browsers that support content
+	 * generation by selecting for :after pseudo-element. */
+	/* stylelint-disable-next-line selector-type-no-unknown */
+	x-thereisnoelementwiththisname::after,
+	span.mw-reflink-text {
+		display: none;
+	}
 }
 
 /* Style for linkbacks from <references> to <ref>s */

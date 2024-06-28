@@ -19,6 +19,10 @@ ve.dm.MWDocumentReferences = function VeDmMWDocumentReferences( doc ) {
 
 	// Properties
 	this.doc = doc;
+	this.cachedByGroup = {};
+
+	doc.getInternalList().connect( this, { update: 'updateGroups' } );
+	this.updateAllGroups();
 };
 
 /* Inheritance */
@@ -40,6 +44,78 @@ ve.dm.MWDocumentReferences.static.refsForDoc = function ( doc ) {
 		doc.setStorage( 'document-references-store', docRefs );
 	}
 	return docRefs;
+};
+
+/**
+ * @private
+ */
+ve.dm.MWDocumentReferences.prototype.updateAllGroups = function () {
+	const nodes = this.doc.getInternalList().getNodeGroups();
+	this.updateGroups( Object.keys( nodes ) );
+};
+
+/**
+ * @private
+ * @param {string[]} groupsChanged A list of group names which have changed in
+ *  this transaction
+ */
+ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
+	groupsChanged.forEach( ( groupName ) => this.updateGroup( groupName ) );
+};
+
+/**
+ * @private
+ * @param {string[]} groupName Name of the reference group which needs to be
+ *  updated
+ */
+ve.dm.MWDocumentReferences.prototype.updateGroup = function ( groupName ) {
+	const refsByParent = this.getGroupRefsByParents( groupName );
+	const topLevelNodes = refsByParent[ '' ] || [];
+
+	const indexNumberLookup = {};
+	for ( let i = 0; i < topLevelNodes.length; i++ ) {
+		const topLevelNode = topLevelNodes[ i ];
+		const topLevelKey = topLevelNode.getAttribute( 'listKey' );
+		indexNumberLookup[ topLevelKey ] = ve.dm.MWDocumentReferences.static.contentLangDigits( i + 1 );
+		const subrefs = ( refsByParent[ topLevelKey ] || [] );
+		for ( let j = 0; j < subrefs.length; j++ ) {
+			const subrefNode = subrefs[ j ];
+			const subrefKey = subrefNode.getAttribute( 'listKey' );
+			// FIXME: RTL, and customization of the separator like with mw:referencedBy
+			indexNumberLookup[ subrefKey ] = `${ ve.dm.MWDocumentReferences.static.contentLangDigits( i + 1 ) }.${ ve.dm.MWDocumentReferences.static.contentLangDigits( j + 1 ) }`;
+		}
+	}
+	this.cachedByGroup[ groupName ] = indexNumberLookup;
+};
+
+/**
+ * Return a formatted number, in the content script, with no separators.
+ *
+ * Partial clone of mw.language.convertNumber .
+ *
+ * @param {number} num
+ * @return {string}
+ */
+ve.dm.MWDocumentReferences.static.contentLangDigits = function ( num ) {
+	const contentLang = mw.config.get( 'wgContentLanguage' );
+	const digitLookup = mw.language.getData( contentLang, 'digitTransformTable' );
+	const numString = String( num );
+	if ( !digitLookup ) {
+		return numString;
+	}
+	return numString.split( '' ).map( ( numChar ) => digitLookup[ numChar ] ).join( '' );
+};
+
+/**
+ * @deprecated Should be refactored to store index numbers as a simple property
+ *  in each ref node after document transaction.
+ * @param {string} groupName Ref group without prefix
+ * @param {string} listKey Ref key with prefix
+ * @return {string} Rendered index number string which can be used as a footnote
+ *  marker or reflist item number.
+ */
+ve.dm.MWDocumentReferences.prototype.getIndexNumber = function ( groupName, listKey ) {
+	return ( this.cachedByGroup[ 'mwReference/' + groupName ] || {} )[ listKey ];
 };
 
 /**

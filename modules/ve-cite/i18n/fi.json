@@ -57,8 +57,8 @@
 	"cite-ve-reference-input-placeholder": "Etsi nykyisistä viitteistä",
 	"cite-ve-referenceslist-isempty": "Tällä sivulla ei ole ryhmän ”$1” lähteitä listaan sisällytettäväksi.",
 	"cite-ve-referenceslist-isempty-default": "Tällä sivulla ei ole lähteitä, joita sisällyttää listassa.",
-	"cite-ve-referenceslist-missingref": "Tämä lähde on määritelty mallineessa tai automaattisesti luotu ja sitä voi muokata vain wikitekstitilassa.",
-	"cite-ve-referenceslist-missingref-in-list": "Tämä lähde on määritelty mallineessa tai automaattisesti luotu ja sitä voi tarkastella vain wikitekstitilassa.",
+	"cite-ve-referenceslist-missingref": "Tämä lähde on määritelty mallineessa tai automaattisesti luotu, ja sitä voi muokata vain wikitekstitilassa.",
+	"cite-ve-referenceslist-missingref-in-list": "Tämä lähde on määritelty mallineessa tai automaattisesti luotu, ja sitä voi tarkastella vain wikitekstitilassa.",
 	"cite-ve-referenceslist-missingreflist": "Tämä viiteluettelo on luotu mallineella.",
 	"cite-ve-toolbar-group-label": "Viite",
 	"cite-ve-othergroup-item": "$1 viite"

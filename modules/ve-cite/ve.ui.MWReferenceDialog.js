@@ -249,6 +249,7 @@ ve.ui.MWReferenceDialog.prototype.setReferenceForEditing = function ( ref ) {
 
 	this.setFormFieldsFromRef( this.referenceModel );
 	this.updateReuseWarningFromRef( this.referenceModel );
+	this.updateExtendsWarningFromRef( this.referenceModel );
 
 	return this;
 };
@@ -285,6 +286,24 @@ ve.ui.MWReferenceDialog.prototype.updateReuseWarningFromRef = function ( ref ) {
 };
 
 /**
+ * @private
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceDialog.prototype.updateExtendsWarningFromRef = function ( ref ) {
+	if ( ref.extendsRef ) {
+		const list = this.getFragment().getDocument().getInternalList();
+		const itemNode = list.getItemNode( list.keys.indexOf( ref.extendsRef ) );
+		const parentRefText = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element.text();
+		// TODO extends i18n
+		this.extendsWarning.setLabel(
+			`This is an extension of another reference: ${ parentRefText }`
+		);
+	}
+
+	this.extendsWarning.toggle( !!ref.extendsRef );
+};
+
+/**
  * @override
  */
 ve.ui.MWReferenceDialog.prototype.initialize = function () {
@@ -304,8 +323,16 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 		classes: [ 've-ui-mwReferenceDialog-reuseWarning' ]
 	} );
 
+	// Icon message widget
+	this.extendsWarning = new OO.ui.MessageWidget( {
+		icon: 'alert',
+		inline: true,
+		classes: [ 've-ui-mwReferenceDialog-extendsWarning' ]
+	} );
+
 	const citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry )
 		.filter( ( command ) => command.indexOf( 'cite-' ) !== -1 );
+
 	this.referenceTarget = ve.init.target.createTargetWidget(
 		{
 			includeCommands: this.constructor.static.includeCommands,
@@ -343,7 +370,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	this.panels.addItems( [ this.editPanel, this.searchPanel ] );
 	this.editPanel.$element.append(
-		this.reuseWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );
+		this.reuseWarning.$element, this.extendsWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );
 	this.optionsFieldset.addItems( [ this.referenceGroupField ] );
 	this.searchPanel.$element.append( this.search.$element );
 	this.$body.append( this.panels.$element );
@@ -402,7 +429,9 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 		.next( () => {
 			this.panels.setItem( this.editPanel );
 			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
-				this.setReferenceForEditing( ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode ) );
+				this.setReferenceForEditing(
+					ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode )
+				);
 			} else {
 				this.setReferenceForEditing( new ve.dm.MWReferenceModel( this.getFragment().getDocument() ) );
 				this.actions.setAbilities( { done: false, insert: false } );

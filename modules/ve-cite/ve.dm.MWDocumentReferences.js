@@ -55,14 +55,33 @@ ve.dm.MWDocumentReferences.static.refsForDoc = function ( doc ) {
  */
 ve.dm.MWDocumentReferences.prototype.getGroupRefsByParents = function ( groupName ) {
 	const nodeGroup = this.doc.getInternalList().getNodeGroup( groupName );
-	return ( nodeGroup ? nodeGroup.indexOrder : [] )
-		.reduce( ( acc, index ) => {
-			const node = nodeGroup.firstNodes[ index ];
-			const extendsRef = node.element.attributes.extendsRef || '';
-			if ( acc[ extendsRef ] === undefined ) {
-				acc[ extendsRef ] = [];
-			}
-			acc[ extendsRef ].push( node );
-			return acc;
-		}, {} );
+	const indexOrder = ( nodeGroup ? nodeGroup.indexOrder : [] );
+	// Compile a list of all top-level node names so that we can handle orphans
+	// while keeping them in document order.
+	const seenTopLevelNames = new Set(
+		indexOrder
+			.map( ( index ) => nodeGroup.firstNodes[ index ] )
+			.filter( ( node ) => !node.element.attributes.extendsRef )
+			.map( ( node ) => node.element.attributes.listKey )
+			.filter( ( listKey ) => listKey )
+	);
+	// Group nodes by parent ref, while iterating in order of document appearance.
+	return indexOrder.reduce( ( acc, index ) => {
+		const node = nodeGroup.firstNodes[ index ];
+		let extendsRef = node.element.attributes.extendsRef || '';
+
+		if ( !seenTopLevelNames.has( extendsRef ) ) {
+			// Promote orphaned subrefs to become top-level refs.
+			// TODO: Ideally this would be handled by creating placeholder error
+			// nodes as is done by the renderer.
+			extendsRef = '';
+		}
+
+		if ( acc[ extendsRef ] === undefined ) {
+			acc[ extendsRef ] = [];
+		}
+		acc[ extendsRef ].push( node );
+
+		return acc;
+	}, {} );
 };

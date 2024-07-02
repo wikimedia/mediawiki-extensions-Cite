@@ -8,7 +8,7 @@
  */
 
 /**
- * Dialog for editing MediaWiki references.
+ * Dialog for inserting, editing and re-using MediaWiki references.
  *
  * @constructor
  * @extends ve.ui.NodeDialog
@@ -20,7 +20,7 @@ ve.ui.MWReferenceDialog = function VeUiMWReferenceDialog( config ) {
 
 	// Properties
 	this.referenceModel = null;
-	this.useExisting = false;
+	this.reuseReference = false;
 };
 
 /* Inheritance */
@@ -194,7 +194,7 @@ ve.ui.MWReferenceDialog.prototype.onReferenceGroupInputChange = function () {
  *
  * @param {ve.ui.MWReferenceResultWidget} item Chosen item
  */
-ve.ui.MWReferenceDialog.prototype.onSearchResultsChoose = function ( item ) {
+ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsChoose = function ( item ) {
 	const ref = item.getData();
 
 	if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
@@ -215,8 +215,8 @@ ve.ui.MWReferenceDialog.prototype.onSearchResultsChoose = function ( item ) {
 ve.ui.MWReferenceDialog.prototype.getReadyProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getReadyProcess.call( this, data )
 		.next( () => {
-			if ( this.useExisting ) {
-				this.search.getQuery().focus().select();
+			if ( this.reuseReference ) {
+				this.reuseSearch.getQuery().focus().select();
 			} else {
 				this.referenceTarget.focus();
 			}
@@ -315,7 +315,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	this.editPanel = new OO.ui.PanelLayout( {
 		scrollable: true, padded: true
 	} );
-	this.searchPanel = new OO.ui.PanelLayout();
+	this.reuseSearchPanel = new OO.ui.PanelLayout();
 
 	this.reuseWarning = new OO.ui.MessageWidget( {
 		inline: true,
@@ -359,31 +359,31 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 		align: 'top',
 		label: ve.msg( 'cite-ve-dialog-reference-options-group-label' )
 	} );
-	this.search = new ve.ui.MWReferenceSearchWidget();
+	this.reuseSearch = new ve.ui.MWReferenceSearchWidget();
 
 	// Events
-	this.search.getResults().connect( this, { choose: 'onSearchResultsChoose' } );
+	this.reuseSearch.getResults().connect( this, { choose: 'onReuseSearchResultsChoose' } );
 	this.referenceTarget.connect( this, { change: 'onTargetChange' } );
 
 	// Initialization
 	this.$content.addClass( 've-ui-mwReferenceDialog' );
 
-	this.panels.addItems( [ this.editPanel, this.searchPanel ] );
+	this.panels.addItems( [ this.editPanel, this.reuseSearchPanel ] );
 	this.editPanel.$element.append(
 		this.reuseWarning.$element, this.extendsWarning.$element, this.contentFieldset.$element, this.optionsFieldset.$element );
 	this.optionsFieldset.addItems( [ this.referenceGroupField ] );
-	this.searchPanel.$element.append( this.search.$element );
+	this.reuseSearchPanel.$element.append( this.reuseSearch.$element );
 	this.$body.append( this.panels.$element );
 };
 
 /**
  * Switches dialog to use existing reference mode.
  */
-ve.ui.MWReferenceDialog.prototype.useExistingReference = function () {
+ve.ui.MWReferenceDialog.prototype.openReusePanel = function () {
 	this.actions.setMode( 'insert-select' );
-	this.search.buildIndex();
-	this.panels.setItem( this.searchPanel );
-	this.search.getQuery().focus().select();
+	this.reuseSearch.buildIndex();
+	this.panels.setItem( this.reuseSearchPanel );
+	this.reuseSearch.getQuery().focus().select();
 
 	// https://phabricator.wikimedia.org/T362347
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'dialog-open-reuse' } );
@@ -421,7 +421,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 /**
  * @override
  * @param {Object} [data] Setup data
- * @param {boolean} [data.useExistingReference] Open the dialog in "use existing reference" mode
+ * @param {boolean} [data.reuseReference=false] Open the dialog in "use existing reference" mode
  */
 ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
@@ -437,16 +437,16 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.actions.setAbilities( { done: false, insert: false } );
 			}
 
-			this.search.setInternalList( this.getFragment().getDocument().getInternalList() );
+			this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
 
 			const isReadOnly = this.isReadOnly();
 			this.referenceTarget.setReadOnly( isReadOnly );
 			this.referenceGroupInput.setReadOnly( isReadOnly );
 
-			if ( data.useExisting ) {
-				this.useExistingReference();
+			this.reuseReference = !!data.reuseReference;
+			if ( this.reuseReference ) {
+				this.openReusePanel();
 			}
-			this.useExisting = !!data.useExisting;
 			this.actions.setAbilities( {
 				done: false
 			} );
@@ -465,7 +465,7 @@ ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( () => {
 			this.referenceTarget.getSurface().getModel().disconnect( this );
-			this.search.getQuery().setValue( '' );
+			this.reuseSearch.getQuery().setValue( '' );
 			this.referenceTarget.clear();
 			this.referenceModel = null;
 		} );

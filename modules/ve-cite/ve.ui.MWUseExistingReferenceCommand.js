@@ -8,7 +8,7 @@
  */
 
 /**
- * Use existing reference command.
+ * Reuse existing reference command.
  *
  * @constructor
  * @extends ve.ui.Command
@@ -17,7 +17,7 @@ ve.ui.MWUseExistingReferenceCommand = function VeUiMWUseExistingReferenceCommand
 	// Parent constructor
 	ve.ui.MWUseExistingReferenceCommand.super.call(
 		this, 'reference/existing', 'window', 'open',
-		{ args: [ 'reference', { useExisting: true } ], supportedSelections: [ 'linear' ] }
+		{ args: [ 'reference', { reuseReference: true } ], supportedSelections: [ 'linear' ] }
 	);
 };
 

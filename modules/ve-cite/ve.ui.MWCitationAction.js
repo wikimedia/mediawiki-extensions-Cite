@@ -8,8 +8,6 @@
  */
 
 /**
- * Citation action.
- *
  * Opens the {@see ve.ui.MWCitationDialog} (via it's name "cite") in VisualEditor.
  *
  * @constructor

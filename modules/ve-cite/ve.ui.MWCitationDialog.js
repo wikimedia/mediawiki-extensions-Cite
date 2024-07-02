@@ -8,7 +8,8 @@
  */
 
 /**
- * Dialog for inserting and editing MediaWiki citations.
+ * Dialog for inserting and editing MediaWiki citations that use the templates that are set up for
+ * the VisualEditor citation tool.
  *
  * @constructor
  * @extends ve.ui.MWTemplateDialog

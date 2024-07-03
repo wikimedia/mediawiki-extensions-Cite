@@ -244,7 +244,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		const topLevelNodes = groupedByParent[ '' ] || [];
 		this.$reflist.append(
 			topLevelNodes.map( ( node ) => this.renderListItem(
-				nodes, internalList, refGroup, node
+				nodes, internalList, groupedByParent, refGroup, node
 			) )
 		);
 
@@ -259,11 +259,13 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
  * @private
  * @param {Object} nodes Node group object, containing nodes and key order array
  * @param {ve.dm.InternalList} internalList Internal list
+ * @param {Object.<string, ve.dm.MWReferenceNode[]>} groupedByParent Mapping
+ *  from parent ref name (or '' for top-level) to refs
  * @param {string} refGroup Reference group
  * @param {ve.dm.MWReferenceNode} node Reference node to render as a footnote body
  * @return {jQuery} Rendered list item
  */
-ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, refGroup, node ) {
+ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, groupedByParent, refGroup, node ) {
 	const listIndex = node.getAttribute( 'listIndex' );
 	const key = internalList.keys[ listIndex ];
 	const keyedNodes = ( nodes.keyedNodes[ key ] || [] )
@@ -316,6 +318,17 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 				}
 				e.preventDefault();
 			} );
+		}
+		const listKey = node.getAttribute( 'listKey' );
+		const subrefs = groupedByParent[ listKey ] || [];
+		if ( subrefs.length ) {
+			$li.append(
+				$( '<ol>' ).append(
+					subrefs.map( ( subNode ) => this.renderListItem(
+						nodes, internalList, groupedByParent, refGroup, subNode
+					) )
+				)
+			);
 		}
 	} else {
 		$li.append(

@@ -27,6 +27,7 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 	this.internalList = null;
 	this.listNode = null;
 	this.modified = false;
+	this.docRefs = null;
 
 	// DOM changes
 	this.$element.addClass( 've-ce-mwReferencesListNode' );
@@ -174,6 +175,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		return;
 	}
 
+	this.docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( model.getDocument() );
 	const internalList = model.getDocument().internalList;
 	const refGroup = model.getAttribute( 'refGroup' );
 	const listGroup = model.getAttribute( 'listGroup' );
@@ -238,9 +240,11 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$refmsg.text( emptyText );
 		this.$element.append( this.$refmsg );
 	} else {
+		const groupedByParent = this.docRefs.getGroupRefsByParents( listGroup );
+		const topLevelNodes = groupedByParent[ '' ] || [];
 		this.$reflist.append(
-			nodes.indexOrder.map( ( index ) => this.renderListItem(
-				nodes, internalList, refGroup, index
+			topLevelNodes.map( ( node ) => this.renderListItem(
+				nodes, internalList, refGroup, node
 			) )
 		);
 
@@ -256,11 +260,12 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
  * @param {Object} nodes Node group object, containing nodes and key order array
  * @param {ve.dm.InternalList} internalList Internal list
  * @param {string} refGroup Reference group
- * @param {number} index Item index
- * @return {jQuery} List item
+ * @param {ve.dm.MWReferenceNode} node Reference node to render as a footnote body
+ * @return {jQuery} Rendered list item
  */
-ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, refGroup, index ) {
-	const key = internalList.keys[ index ];
+ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, refGroup, node ) {
+	const listIndex = node.getAttribute( 'listIndex' );
+	const key = internalList.keys[ listIndex ];
 	const keyedNodes = ( nodes.keyedNodes[ key ] || [] )
 		.filter(
 			// Exclude placeholders and references defined inside the references list node
@@ -271,7 +276,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 		.append( this.renderBacklinks( keyedNodes, refGroup ), ' ' );
 
 	// Generate reference HTML from first item in key
-	const modelNode = internalList.getItemNode( index );
+	const modelNode = internalList.getItemNode( listIndex );
 	if ( modelNode && modelNode.length ) {
 		const refPreview = new ve.ui.MWPreviewElement( modelNode, { useView: true } );
 		$li.append(
@@ -285,8 +290,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 			// TODO: attach to the singleton click handler on the surface
 			$li.on( 'mousedown', ( e ) => {
 				if ( ve.isUnmodifiedLeftClick( e ) && modelNode && modelNode.length ) {
-					const firstNode = nodes.firstNodes[ index ];
-					const items = ve.ui.contextItemFactory.getRelatedItems( [ firstNode ] )
+					const items = ve.ui.contextItemFactory.getRelatedItems( [ node ] )
 						.filter( ( item ) => item.name !== 'mobileActions' );
 					if ( items.length ) {
 						const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
@@ -296,7 +300,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 							if ( command ) {
 								const fragmentArgs = {
 									fragment: surface.getModel()
-										.getLinearFragment( firstNode.getOuterRange(), true ),
+										.getLinearFragment( node.getOuterRange(), true ),
 									selectFragmentOnClose: false
 								};
 								const newArgs = ve.copy( command.args );

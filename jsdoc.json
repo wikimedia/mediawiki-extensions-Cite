@@ -29,6 +29,7 @@
 				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html"
 			},
 			"prefixMapIgnore": [
+				"ve.dm.MWDocumentReferences",
 				"ve.dm.MWReference",
 				"ve.ce.MWReference",
 				"ve.ui.MWReference"

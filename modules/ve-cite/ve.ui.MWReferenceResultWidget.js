@@ -20,10 +20,7 @@ ve.ui.MWReferenceResultWidget = function VeUiMWReferenceResultWidget() {
 
 	// Initialization
 	this.$element
-		.addClass( 've-ui-mwReferenceResultWidget' )
-		.append(
-			$( '<div>' ).addClass( 've-ui-mwReferenceResultWidget-shield' )
-		);
+		.addClass( 've-ui-mwReferenceResultWidget' );
 };
 
 /* Inheritance */

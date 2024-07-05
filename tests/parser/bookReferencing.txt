@@ -129,6 +129,73 @@ wgCiteBookReferencing=true
 </p>
 !! end
 
+# TODO: T367749 - We are misusing an existing error message here that is super confusing
+!! test
+T367749 - Turning a top-level ref into a subref is forbidden, even if the content is the same
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name=p20>page 20</ref>
+<ref extends=book name=p20>page 20</ref>
+<references>
+<ref name=book>book</ref>
+</references>
+!! html
+<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "p20" defined multiple times with different content</span>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-p20-1"><span class="mw-cite-backlink"><a href="#cite_ref-p20_1-0">↑</a></span> <span class="reference-text">page 20</span>
+</li>
+</ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
+</p>
+!! end
+
+!! test
+T367749 - Turning a top-level ref into a subref is forbidden, especially when the content conflicts
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name=p20>page 20</ref>
+<ref extends=book name=p20>different content</ref>
+<references>
+<ref name=book>book</ref>
+</references>
+!! html
+<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "p20" defined multiple times with different content</span>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-p20-1"><span class="mw-cite-backlink"><a href="#cite_ref-p20_1-0">↑</a></span> <span class="reference-text">page 20</span>
+</li>
+</ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
+</p>
+!! end
+
+# TODO: T367749 - We want this to render successfully
+!! test
+T367749 - Turning a top-level ref into a subref is fine when the content is an empty string
+!! config
+wgCiteBookReferencing=true
+!! wikitext
+<ref name=p20></ref>
+<ref extends=book name=p20>page 20</ref>
+<references>
+<ref name=book>book</ref>
+</references>
+!! html
+<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1">&#91;1&#93;</a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "p20" defined multiple times with different content</span>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-p20-1"><span class="mw-cite-backlink"><a href="#cite_ref-p20_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>p20</code></span></li>
+</ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
+</p>
+!! end
+
 !! test
 T236256 - Naming book references is fine
 !! config

@@ -36,17 +36,16 @@ class FootnoteMarkFormatter {
 	 *
 	 * @suppress SecurityCheck-DoubleEscaped
 	 * @param Parser $parser
-	 * @param string $group
 	 * @param ReferenceStackItem $ref
 	 *
 	 * @return string
 	 */
-	public function linkRef( Parser $parser, string $group, ReferenceStackItem $ref ): string {
-		$label = $this->fetchCustomizedLinkLabel( $parser, $group, $ref->number );
+	public function linkRef( Parser $parser, ReferenceStackItem $ref ): string {
+		$label = $this->fetchCustomizedLinkLabel( $parser, $ref->group, $ref->number );
 		if ( $label === null ) {
 			$label = $this->messageLocalizer->localizeDigits( (string)$ref->number );
-			if ( $group !== Cite::DEFAULT_GROUP ) {
-				$label = "$group $label";
+			if ( $ref->group !== Cite::DEFAULT_GROUP ) {
+				$label = $ref->group . ' ' . $label;
 			}
 		}
 		if ( isset( $ref->extendsIndex ) ) {

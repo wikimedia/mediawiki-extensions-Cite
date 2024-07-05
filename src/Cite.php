@@ -175,7 +175,7 @@ class Cite {
 		$ref = $this->referenceStack->pushRef(
 			$parser->getStripState(), $text, $argv, ...array_values( $arguments ) );
 		return $ref
-			? $this->footnoteMarkFormatter->linkRef( $parser, $arguments['group'], $ref )
+			? $this->footnoteMarkFormatter->linkRef( $parser, $ref )
 			: '';
 	}
 

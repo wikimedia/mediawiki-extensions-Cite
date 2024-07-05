@@ -7,6 +7,7 @@ QUnit.test( 'setReferenceForEditing', ( assert ) => {
 
 	dialog.referenceGroupInput = new ve.ui.MWReferenceGroupInputWidget( {} );
 	dialog.reuseWarning = new OO.ui.MessageWidget();
+	dialog.extendsWarning = new OO.ui.MessageWidget();
 
 	// XXX: This is a regression test with a fragile setup. Please feel free to delete this test
 	// when you feel like it doesn't make sense to update it.

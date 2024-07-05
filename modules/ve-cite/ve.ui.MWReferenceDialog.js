@@ -201,7 +201,9 @@ ve.ui.MWReferenceDialog.prototype.onSearchResultsChoose = function ( item ) {
 		this.getFragment().removeContent();
 		this.selectedNode = null;
 	}
-	this.setReferenceForEditing( ref );
+
+	this.setFormFieldsFromRef( ref );
+	this.referenceModel = ref;
 	this.executeAction( 'insert' );
 
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'reuse-choose' } );

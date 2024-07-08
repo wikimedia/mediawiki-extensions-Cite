@@ -4,5 +4,7 @@
 			"Zolgoyo"
 		]
 	},
-	"cite_error": "Alıntı hatası: $1"
+	"cite_error": "Alıntı hatası: $1",
+	"popups-refpreview-reference": "Memba",
+	"popups-refpreview-book": "Kitap membası"
 }

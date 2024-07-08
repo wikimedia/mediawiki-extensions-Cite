@@ -175,14 +175,14 @@ EOT;
 		$this->assertTrue( isset( $result[1]['params'] ), $desc );
 		$this->assertEquals( 'b', $result[1]['params']['name'], $desc );
 		$this->assertTrue( isset( $result[1]['templateInfo'] ), $desc );
-		// $this->assertEquals( 'Template:1x', $result[1]['templateInfo']['name'], $desc );
+		$this->assertEquals( 'Template:1x', $result[1]['templateInfo']['name'], $desc );
 
 		$this->assertEquals( 'missing-end-tag', $result[2]['type'], $desc );
 		$this->assertEquals( [ 43, 67, null, null ], $result[2]['dsr'], $desc );
 		$this->assertTrue( isset( $result[2]['params'] ), $desc );
 		$this->assertEquals( 'b', $result[2]['params']['name'], $desc );
 		$this->assertTrue( isset( $result[2]['templateInfo'] ), $desc );
-		// $this->assertEquals( 'Template:1x', $result[2]['templateInfo']['name'], $desc );
+		$this->assertEquals( 'Template:1x', $result[2]['templateInfo']['name'], $desc );
 
 		$desc = "should attribute linter issues properly when ref " .
 			"tags are in non-templated references tag";
@@ -201,7 +201,7 @@ EOT;
 		$this->assertTrue( isset( $result[1]['params'] ), $desc );
 		$this->assertEquals( 'b', $result[1]['params']['name'], $desc );
 		$this->assertTrue( isset( $result[1]['templateInfo'] ), $desc );
-		// $this->assertEquals( 'Template:1x', $result[1]['templateInfo']['name'], $desc );
+		$this->assertEquals( 'Template:1x', $result[1]['templateInfo']['name'], $desc );
 
 		$desc = "should lint inside ref with redefinition";
 		$wt = "<ref name=\"test\">123</ref>\n" .

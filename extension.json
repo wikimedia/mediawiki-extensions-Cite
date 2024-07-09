@@ -117,7 +117,11 @@
 				"ve.ui.MWCitationContextItem.js",
 				"ve.ui.MWCitationAction.js",
 				"ve.ui.MWReference.init.js",
-				"ve.ui.MWCitationNeededContextItem.js"
+				"ve.ui.MWCitationNeededContextItem.js",
+				{
+					"name": "ve.ui.contentLanguage.js",
+					"callback": "Cite\\ResourceLoader\\ContentLanguage::makeScript"
+				}
 			],
 			"styles": [
 				"ve.ui.MWReferenceDialog.less",

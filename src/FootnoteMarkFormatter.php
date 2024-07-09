@@ -38,19 +38,10 @@ class FootnoteMarkFormatter {
 	 * @param Parser $parser
 	 * @param ReferenceStackItem $ref
 	 *
-	 * @return string
+	 * @return string HTML
 	 */
 	public function linkRef( Parser $parser, ReferenceStackItem $ref ): string {
-		$label = $this->fetchCustomizedLinkLabel( $parser, $ref->group, $ref->number );
-		if ( $label === null ) {
-			$label = $this->messageLocalizer->localizeDigits( (string)$ref->number );
-			if ( $ref->group !== Cite::DEFAULT_GROUP ) {
-				$label = $ref->group . ' ' . $label;
-			}
-		}
-		if ( isset( $ref->extendsIndex ) ) {
-			$label .= '.' . $this->messageLocalizer->localizeDigits( (string)$ref->extendsIndex );
-		}
+		$label = $this->makeLabel( $ref, $parser );
 
 		$key = $ref->name ?? $ref->key;
 		// TODO: Use count without decrementing.
@@ -65,6 +56,20 @@ class FootnoteMarkFormatter {
 				Sanitizer::safeEncodeAttribute( $label )
 			)->plain()
 		);
+	}
+
+	private function makeLabel( ReferenceStackItem $ref, Parser $parser ): string {
+		$label = $this->fetchCustomizedLinkLabel( $parser, $ref->group, $ref->number ) ??
+			$this->makeDefaultLabel( $ref );
+		if ( isset( $ref->extendsIndex ) ) {
+			$label .= '.' . $this->messageLocalizer->localizeDigits( (string)$ref->extendsIndex );
+		}
+		return $label;
+	}
+
+	private function makeDefaultLabel( ReferenceStackItem $ref ): string {
+		$label = $this->messageLocalizer->localizeDigits( (string)$ref->number );
+		return $ref->group === Cite::DEFAULT_GROUP ? $label : "$ref->group $label";
 	}
 
 	/**

@@ -23,7 +23,7 @@ class CiteCSSFileModuleTest extends \MediaWikiIntegrationTestCase {
 	public function testModule() {
 		$module = new CiteCSSFileModule( [], __DIR__ . '/../../modules/parsoid-styles' );
 		$styles = $module->getStyleFiles( $this->createMock( Context::class ) );
-		$this->assertSame( [ 'ext.cite.style.fa.css' ], $styles['all'] );
+		$this->assertSame( [ 'ext.cite.style.fa.less' ], $styles['all'] );
 	}
 
 }

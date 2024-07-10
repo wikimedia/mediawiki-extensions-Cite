@@ -9,11 +9,3 @@
 	direction: rtl;
 	text-align: right;
 }
-
-.mw-ref > a[ style~='mw-Ref' ]::after {
-	content: '[' counter( mw-Ref, decimal ) ']';
-}
-
-.mw-ref > a[ style~='mw-Ref' ][ data-mw-group ]::after {
-	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, decimal ) ']';
-}

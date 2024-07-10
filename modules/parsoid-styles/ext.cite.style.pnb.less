@@ -1,14 +1,4 @@
-/* @noflip */
-.mw-cite-dir-ltr {
-	direction: ltr;
-	text-align: left;
-}
-
-/* @noflip */
-.mw-cite-dir-rtl {
-	direction: rtl;
-	text-align: right;
-}
+@import 'ext.cite.parsoid.rtl.less';
 
 .mw-ref > a[ style~='mw-Ref' ]::after {
 	content: '[' counter( mw-Ref, persian ) ']';

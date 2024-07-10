@@ -7,6 +7,7 @@ use Cite\ErrorReporter;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceStack;
 use Language;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Parser\Parser;
 use ParserOptions;
 use Wikimedia\TestingAccessWrapper;
@@ -19,7 +20,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->overrideConfigValue( 'LanguageCode', 'qqx' );
+		$this->overrideConfigValue( MainConfigNames::LanguageCode, 'qqx' );
 	}
 
 	/**

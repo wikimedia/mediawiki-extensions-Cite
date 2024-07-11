@@ -52,7 +52,7 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 			// TODO: Sometimes enabling the tab does not work right away.
 			// eslint-disable-next-line cypress/no-unnecessary-waiting
 			cy.wait( 500 );
-			cy.get( '.oo-ui-labelElement-label' ).contains( 'Manual' ).click();
+			cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label' ).contains( 'Manual' ).click();
 
 			cy.get( '.oo-ui-labelElement-label' ).contains( 'Literatur' )
 				.should( 'be.visible' );

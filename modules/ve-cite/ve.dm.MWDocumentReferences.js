@@ -61,7 +61,7 @@ ve.dm.MWDocumentReferences.prototype.getGroupRefsByParents = function ( groupNam
 	const seenTopLevelNames = new Set(
 		indexOrder
 			.map( ( index ) => nodeGroup.firstNodes[ index ] )
-			.filter( ( node ) => !node.element.attributes.extendsRef )
+			.filter( ( node ) => node && !node.element.attributes.extendsRef )
 			.map( ( node ) => node.element.attributes.listKey )
 			.filter( ( listKey ) => listKey )
 	);

@@ -265,7 +265,6 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// HTML for the external clipboard, it will be ignored by the converter
 		const $link = $( '<a>', doc )
-			.css( 'counterReset', 'mw-Ref ' + this.getIndex( dataElement, converter.internalList ) )
 			.attr( 'data-mw-group', this.getGroup( dataElement ) || null );
 		$( el ).addClass( 'mw-ref reference' ).append(
 			$link.append(
@@ -302,21 +301,6 @@ ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, int
 };
 
 /**
- * Gets the index for the reference
- *
- * @static
- * @param {Object} dataElement Element data
- * @param {ve.dm.InternalList} internalList Internal list
- * @return {number} Index
- */
-ve.dm.MWReferenceNode.static.getIndex = function ( dataElement, internalList ) {
-	const overrideIndex = ve.getProp( dataElement, 'internal', 'overrideIndex' );
-	const attributes = dataElement.attributes;
-	return overrideIndex ||
-		( internalList.getIndexPosition( attributes.listGroup, attributes.listIndex ) + 1 );
-};
-
-/**
  * Gets the group for the reference
  *
  * @static
@@ -337,10 +321,24 @@ ve.dm.MWReferenceNode.static.getGroup = function ( dataElement ) {
  */
 ve.dm.MWReferenceNode.static.getIndexLabel = function ( dataElement, internalList ) {
 	const refGroup = dataElement.attributes.refGroup;
-	const index = dataElement.attributes.placeholder ? '…' :
-		ve.dm.MWReferenceNode.static.getIndex( dataElement, internalList );
+	const indexNumber = dataElement.attributes.placeholder ? '…' :
+		ve.dm.MWReferenceNode.static.findIndexNumber( dataElement, internalList );
 
-	return '[' + ( refGroup ? refGroup + ' ' : '' ) + index + ']';
+	return '[' + ( refGroup ? refGroup + ' ' : '' ) + indexNumber + ']';
+};
+
+/**
+ * TODO: replace with a simple property
+ *
+ * @private
+ * @param {Object} dataElement data for the node to be looked up
+ * @param {ve.dm.InternalList} internalList document internalList
+ * @return {string} footnote number ready for rendering
+ */
+ve.dm.MWReferenceNode.static.findIndexNumber = function ( dataElement, internalList ) {
+	return ve.getProp( dataElement, 'internal', 'overrideIndex' ) ||
+		ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() )
+			.getIndexNumber( dataElement.attributes.refGroup, dataElement.attributes.listKey );
 };
 
 /**
@@ -460,6 +458,15 @@ ve.dm.MWReferenceNode.prototype.getGroup = function () {
 ve.dm.MWReferenceNode.prototype.getIndexLabel = function () {
 	return this.constructor.static.getIndexLabel(
 		this.element, this.getDocument().getInternalList() );
+};
+
+/**
+ * FIXME: This will be replaced by a simple property.
+ *
+ * @return {string} Footnote number ready for rendering
+ */
+ve.dm.MWReferenceNode.prototype.getIndexNumber = function () {
+	return this.constructor.static.findIndexNumber( this.element, this.getDocument().getInternalList() );
 };
 
 /**

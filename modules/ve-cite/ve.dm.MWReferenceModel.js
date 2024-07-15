@@ -8,7 +8,9 @@
  */
 
 /**
- * MediaWiki reference model.
+ * Corresponds to one ref and its metadata, chosen for an action.
+ *
+ * TODO: Distinguish this module from ve.dm.MWReferenceNode
  *
  * @constructor
  * @mixes OO.EventEmitter

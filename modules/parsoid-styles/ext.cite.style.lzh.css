@@ -3,11 +3,11 @@
 	symbols: '〇' '一' '二' '三' '四' '五' '六' '七' '八' '九';
 }
 
-.mw-ref > a::after {
+.mw-ref > a[ style~='mw-Ref' ]::after {
 	content: '[' counter( mw-Ref, lzh-counter ) ']';
 }
 
-.mw-ref > a[ data-mw-group ]::after {
+.mw-ref > a[ style~='mw-Ref' ][ data-mw-group ]::after {
 	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, lzh-counter ) ']';
 }
 

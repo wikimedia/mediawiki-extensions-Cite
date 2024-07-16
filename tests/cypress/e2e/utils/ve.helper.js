@@ -56,7 +56,7 @@ export function openVECiteoidReuseDialog() {
 	// TODO: Sometimes enabling the tab does not work right away.
 	// eslint-disable-next-line cypress/no-unnecessary-waiting
 	cy.wait( 500 );
-	cy.get( '.oo-ui-labelElement-label' ).contains( 'Re-use' ).click();
+	cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label' ).contains( 'Re-use' ).click();
 }
 
 export function saveEdits() {

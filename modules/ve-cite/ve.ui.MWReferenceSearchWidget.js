@@ -74,6 +74,11 @@ ve.ui.MWReferenceSearchWidget.prototype.onQueryKeydown = function ( e ) {
 	this.trackActiveUsage();
 };
 
+ve.ui.MWReferenceSearchWidget.prototype.clearSearch = function () {
+	this.getQuery().setValue( '' );
+	this.wasUsedActively = false;
+};
+
 /**
  * Track when the user looks for references to reuse using scrolling or filtering results
  */

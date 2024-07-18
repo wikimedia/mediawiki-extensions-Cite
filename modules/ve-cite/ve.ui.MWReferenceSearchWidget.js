@@ -48,6 +48,7 @@ ve.ui.MWReferenceSearchWidget.static.isIndexEmpty = function ( internalList ) {
 	// Doing this live every time is cheap because it stops on the first non-empty group
 	for ( const groupName in groups ) {
 		if ( groupName.indexOf( 'mwReference/' ) === 0 && groups[ groupName ].indexOrder.length ) {
+			// No need to filter subrefs here, as it's impossible to have subrefs without parents
 			return false;
 		}
 	}
@@ -143,6 +144,10 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 	const index = [];
 	const groupNames = Object.keys( groups ).sort();
 
+	// FIXME: Temporary hack, to be removed soon
+	// eslint-disable-next-line no-jquery/no-class-state
+	const filterExtends = this.$element.hasClass( 've-ui-citoidInspector-extends' );
+
 	for ( let i = 0; i < groupNames.length; i++ ) {
 		const groupName = groupNames[ i ];
 		if ( groupName.indexOf( 'mwReference/' ) !== 0 ) {
@@ -157,6 +162,10 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			const refNode = firstNodes[ indexOrder[ j ] ];
 			// Exclude placeholder references
 			if ( !refNode || refNode.getAttribute( 'placeholder' ) ) {
+				continue;
+			}
+			// FIXME: This might miss subrefs that are reused without repeating the extends attribute
+			if ( filterExtends && refNode.getAttribute( 'extendsRef' ) ) {
 				continue;
 			}
 			// Only increment counter for real references

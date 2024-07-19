@@ -16,6 +16,12 @@
 		border-bottom: 0;
 	}
 
+	&.oo-ui-optionWidget-highlighted {
+		// OOUI's SearchWidget doesn't come with a style for this, so we copy MenuOptionWidget
+		background-color: @background-color-interactive;
+		color: @color-emphasized;
+	}
+
 	&.oo-ui-labelElement .oo-ui-labelElement-label {
 		white-space: normal;
 		// Disable click events in the preview

@@ -187,7 +187,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 
 			let $element;
 			// Make visible text, citation and reference name searchable
-			let text = citation + ' ' + name;
+			let text = ( citation + ' ' + name ).toLowerCase();
 			if ( itemNode.length ) {
 				$element = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 				text = $element.text().toLowerCase() + ' ' + text;

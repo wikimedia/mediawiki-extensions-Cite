@@ -1,11 +1,4 @@
-.mw-ref > a[ style~='mw-Ref' ]::after {
-	content: '[' counter( mw-Ref, khmer ) ']';
-}
-
-.mw-ref > a[ style~='mw-Ref' ][ data-mw-group ]::after {
-	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, khmer ) ']';
-}
-
-span[ rel='mw:referencedBy' ] > a::before {
-	content: counter( mw-references, khmer ) ',' counter( mw-ref-linkback, khmer );
+:root {
+	--cite-backlink-separator: ',';
+	--cite-counter-style: khmer;
 }

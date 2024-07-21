@@ -68,15 +68,13 @@ ve.ui.MWReferenceDialog.prototype.documentHasContent = function () {
 	return this.referenceModel && this.referenceModel.getDocument().data.hasContent();
 };
 
-/*
+/**
  * Determine whether any changes have been made (and haven't been undone).
  *
  * @return {boolean} Changes have been made
  */
 ve.ui.MWReferenceDialog.prototype.isModified = function () {
-	return this.documentHasContent() &&
-		( this.editPanel.referenceTarget.hasBeenModified() ||
-		this.editPanel.referenceGroupInput.getValue() !== this.originalGroup );
+	return this.documentHasContent() && this.editPanel.isModified();
 };
 
 /**
@@ -123,8 +121,8 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsChoose = function ( item )
 		this.selectedNode = null;
 	}
 
-	this.setFormFieldsFromRef( ref );
 	this.referenceModel = ref;
+	this.editPanel.setFormFieldsFromRef( ref );
 	this.executeAction( 'insert' );
 
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'reuse-choose' } );
@@ -156,73 +154,6 @@ ve.ui.MWReferenceDialog.prototype.getBodyHeight = function () {
 			Math.ceil( this.panels.getCurrentItem().$element[ 0 ].scrollHeight )
 		)
 	);
-};
-
-/**
- * Work on a specific reference.
- *
- * @param {ve.dm.MWReferenceModel} ref
- * @return {ve.ui.MWReferenceDialog}
- * @chainable
- */
-ve.ui.MWReferenceDialog.prototype.setReferenceForEditing = function ( ref ) {
-	this.referenceModel = ref;
-
-	this.setFormFieldsFromRef( this.referenceModel );
-	this.updateReuseWarningFromRef( this.referenceModel );
-	this.updateExtendsWarningFromRef( this.referenceModel );
-
-	return this;
-};
-
-/**
- * @private
- * @param {ve.dm.MWReferenceModel} ref
- */
-ve.ui.MWReferenceDialog.prototype.setFormFieldsFromRef = function ( ref ) {
-	this.editPanel.referenceTarget.setDocument( ref.getDocument() );
-
-	this.originalGroup = ref.getGroup();
-	// Set the group input while it's disabled, so this doesn't pop up the group-picker menu
-	this.editPanel.referenceGroupInput.setDisabled( true );
-	this.editPanel.referenceGroupInput.setValue( this.originalGroup );
-	this.editPanel.referenceGroupInput.setDisabled( false );
-};
-
-/**
- * @private
- * @param {ve.dm.MWReferenceModel} ref
- */
-ve.ui.MWReferenceDialog.prototype.updateReuseWarningFromRef = function ( ref ) {
-	const group = this.getFragment().getDocument().getInternalList()
-		.getNodeGroup( ref.getListGroup() );
-	const nodes = ve.getProp( group, 'keyedNodes', ref.getListKey() );
-	const usages = nodes ? nodes.filter(
-		( node ) => !node.findParent( ve.dm.MWReferencesListNode )
-	).length : 0;
-
-	this.editPanel.reuseWarning
-		.toggle( usages > 1 )
-		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
-};
-
-/**
- * @private
- * @param {ve.dm.MWReferenceModel} ref
- */
-ve.ui.MWReferenceDialog.prototype.updateExtendsWarningFromRef = function ( ref ) {
-	if ( ref.extendsRef ) {
-		const list = this.getFragment().getDocument().getInternalList();
-		const itemNode = list.getItemNode( list.keys.indexOf( ref.extendsRef ) );
-		const $parentRefPreview = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
-		this.editPanel.extendsWarning.setLabel(
-			$( '<p>' )
-				.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) )
-				.append( $parentRefPreview )
-		);
-	}
-
-	this.editPanel.extendsWarning.toggle( !!ref.extendsRef );
 };
 
 /**
@@ -304,20 +235,18 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( () => {
 			this.panels.setItem( this.editPanel );
+			this.editPanel.setInternalList( this.getFragment().getDocument().getInternalList() );
+
 			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
-				this.setReferenceForEditing(
-					ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode )
-				);
+				this.referenceModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 			} else {
-				this.setReferenceForEditing( new ve.dm.MWReferenceModel( this.getFragment().getDocument() ) );
+				this.referenceModel = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
 				this.actions.setAbilities( { done: false, insert: false } );
 			}
+			this.editPanel.setReferenceForEditing( this.referenceModel );
+			this.editPanel.setReadOnly( this.isReadOnly() );
 
 			this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
-
-			const isReadOnly = this.isReadOnly();
-			this.editPanel.referenceTarget.setReadOnly( isReadOnly );
-			this.editPanel.referenceGroupInput.setReadOnly( isReadOnly );
 
 			this.reuseReference = !!data.reuseReference;
 			if ( this.reuseReference ) {
@@ -326,9 +255,6 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			this.actions.setAbilities( {
 				done: false
 			} );
-
-			this.editPanel.referenceGroupInput.populateMenu(
-				this.getFragment().getDocument().getInternalList() );
 
 			this.trackedInputChange = false;
 		} );
@@ -341,8 +267,8 @@ ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( () => {
 			this.editPanel.referenceTarget.getSurface().getModel().disconnect( this );
+			this.editPanel.clear();
 			this.reuseSearch.clearSearch();
-			this.editPanel.referenceTarget.clear();
 			this.referenceModel = null;
 		} );
 };

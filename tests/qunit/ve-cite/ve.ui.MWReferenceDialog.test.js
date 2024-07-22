@@ -5,13 +5,14 @@ QUnit.module( 've.ui.MWReferenceDialog (Cite)', ve.test.utils.newMwEnvironment()
 QUnit.test( 'setReferenceForEditing', ( assert ) => {
 	const dialog = new ve.ui.MWReferenceDialog();
 
-	dialog.referenceGroupInput = new ve.ui.MWReferenceGroupInputWidget( {} );
-	dialog.reuseWarning = new OO.ui.MessageWidget();
-	dialog.extendsWarning = new OO.ui.MessageWidget();
+	dialog.editPanel = {};
+	dialog.editPanel.referenceGroupInput = new ve.ui.MWReferenceGroupInputWidget( {} );
+	dialog.editPanel.reuseWarning = new OO.ui.MessageWidget();
+	dialog.editPanel.extendsWarning = new OO.ui.MessageWidget();
 
 	// XXX: This is a regression test with a fragile setup. Please feel free to delete this test
 	// when you feel like it doesn't make sense to update it.
-	dialog.referenceTarget = {
+	dialog.editPanel.referenceTarget = {
 		setDocument: () => null
 	};
 	dialog.fragment = {
@@ -31,7 +32,7 @@ QUnit.test( 'setReferenceForEditing', ( assert ) => {
 
 	assert.strictEqual( dialog.referenceModel, ref );
 	assert.strictEqual( dialog.originalGroup, 'g' );
-	assert.strictEqual( dialog.referenceGroupInput.getValue(), 'g' );
-	assert.false( dialog.referenceGroupInput.isDisabled() );
-	assert.false( dialog.reuseWarning.isVisible() );
+	assert.strictEqual( dialog.editPanel.referenceGroupInput.getValue(), 'g' );
+	assert.false( dialog.editPanel.referenceGroupInput.isDisabled() );
+	assert.false( dialog.editPanel.reuseWarning.isVisible() );
 } );

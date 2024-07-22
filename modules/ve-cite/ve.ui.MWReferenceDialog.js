@@ -216,7 +216,7 @@ ve.ui.MWReferenceDialog.prototype.updateExtendsWarningFromRef = function ( ref )
 		const itemNode = list.getItemNode( list.keys.indexOf( ref.extendsRef ) );
 		const parentRefText = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element.text();
 		// TODO extends i18n
-		this.extendsWarning.setLabel( new OO.ui.HtmlSnippet(
+		this.editPanel.extendsWarning.setLabel( new OO.ui.HtmlSnippet(
 			`${ mw.msg( 'cite-ve-dialog-reference-editing-extends' ) }</br>${ parentRefText }`
 		) );
 	}

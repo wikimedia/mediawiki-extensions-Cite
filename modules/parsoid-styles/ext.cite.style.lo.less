@@ -1,11 +1,4 @@
-.mw-ref > a[ style~='mw-Ref' ]::after {
-	content: '[' counter( mw-Ref, lao ) ']';
-}
-
-.mw-ref > a[ style~='mw-Ref' ][ data-mw-group ]::after {
-	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, lao ) ']';
-}
-
-span[ rel='mw:referencedBy' ] > a::before {
-	content: counter( mw-references, lao ) '.' counter( mw-ref-linkback, lao );
+:root {
+	--cite-backlink-separator: '.';
+	--cite-counter-style: lao;
 }

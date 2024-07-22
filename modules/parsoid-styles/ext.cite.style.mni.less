@@ -3,14 +3,7 @@
 	symbols: '꯰' '꯱' '꯲' '꯳' '꯴' '꯵' '꯶' '꯷' '꯸' '꯹';
 }
 
-.mw-ref > a[ style~='mw-Ref' ]::after {
-	content: '[' counter( mw-Ref, mni-counter ) ']';
-}
-
-.mw-ref > a[ style~='mw-Ref' ][ data-mw-group ]::after {
-	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, mni-counter ) ']';
-}
-
-span[ rel='mw:referencedBy' ] > a::before {
-	content: counter( mw-references, mni-counter ) '.' counter( mw-ref-linkback, mni-counter );
+:root {
+	--cite-backlink-separator: '.';
+	--cite-counter-style: mni-counter;
 }

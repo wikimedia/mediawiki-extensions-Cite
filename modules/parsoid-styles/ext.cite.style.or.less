@@ -1,11 +1,4 @@
-.mw-ref > a[ style~='mw-Ref' ]::after {
-	content: '[' counter( mw-Ref, oriya ) ']';
-}
-
-.mw-ref > a[ style~='mw-Ref' ][ data-mw-group ]::after {
-	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, oriya ) ']';
-}
-
-span[ rel='mw:referencedBy' ] > a::before {
-	content: counter( mw-references, oriya ) '.' counter( mw-ref-linkback, oriya );
+:root {
+	--cite-backlink-separator: '.';
+	--cite-counter-style: oriya;
 }

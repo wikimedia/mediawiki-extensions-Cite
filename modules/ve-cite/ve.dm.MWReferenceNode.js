@@ -266,9 +266,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		// HTML for the external clipboard, it will be ignored by the converter
 		const $link = $( '<a>', doc )
 			.attr( 'data-mw-group', this.getGroup( dataElement ) || null );
-		$( el ).addClass( 'mw-ref reference' ).append(
+		$( el ).addClass( 'mw-ref reference' ).html(
 			$link.append(
-				$( '<span>', doc ).addClass( 'mw-reflink-text' ).text( this.getIndexLabel( dataElement, converter.internalList ) )
+				$( '<span>', doc ).addClass( 'mw-reflink-text' ).html( this.getIndexLabel( dataElement, converter.internalList ) )
 			)
 		);
 	}
@@ -317,14 +317,15 @@ ve.dm.MWReferenceNode.static.getGroup = function ( dataElement ) {
  * @static
  * @param {Object} dataElement Element data
  * @param {ve.dm.InternalList} internalList Internal list
- * @return {string} Reference label
+ * @return {string} Reference label as HTML
  */
 ve.dm.MWReferenceNode.static.getIndexLabel = function ( dataElement, internalList ) {
 	const refGroup = dataElement.attributes.refGroup;
 	const indexNumber = dataElement.attributes.placeholder ? '…' :
 		ve.dm.MWReferenceNode.static.findIndexNumber( dataElement, internalList );
+	const label = ( refGroup ? refGroup + ' ' : '' ) + indexNumber;
 
-	return '[' + ( refGroup ? refGroup + ' ' : '' ) + indexNumber + ']';
+	return `<span class="cite-bracket">[</span>${ label }<span class="cite-bracket">]</span>`;
 };
 
 /**

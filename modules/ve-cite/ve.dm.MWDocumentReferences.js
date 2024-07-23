@@ -98,7 +98,8 @@ ve.dm.MWDocumentReferences.prototype.updateGroup = function ( groupName ) {
  */
 ve.dm.MWDocumentReferences.static.contentLangDigits = function ( num ) {
 	const contentLang = mw.config.get( 'wgContentLanguage' );
-	const digitLookup = mw.language.getData( contentLang, 'digitTransformTable' );
+	const digitLookup = mw.config.get( 'wgTranslateNumerals' ) &&
+		mw.language.getData( contentLang, 'digitTransformTable' );
 	const numString = String( num );
 	if ( !digitLookup ) {
 		return numString;

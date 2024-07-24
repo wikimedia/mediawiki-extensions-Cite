@@ -2,11 +2,35 @@
 
 QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
+function getInternalListMock( groups, mockWithNode ) {
+	const node = mockWithNode ? {
+		getAttribute: () => ( 'literal/foo' ),
+		getAttributes: () => ( {} )
+	} : {};
+	const refDocMock = {
+		getGroupRefsByParents: () => ( { '': [ node ] } ),
+		getIndexNumber: () => ( 1 ),
+		getItemNode: () => ( node )
+	};
+	const docMock = {
+		getStorage: () => ( refDocMock )
+	};
+	const mockInternalList = {
+		getDocument: () => ( docMock ),
+		getNodeGroups: () => ( groups || {} ),
+		getItemNode: () => ( node )
+	};
+	docMock.getInternalList = () => ( mockInternalList );
+	node.getDocument = () => ( docMock );
+
+	return mockInternalList;
+}
+
 QUnit.test( 'buildIndex', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
-	widget.internalList = { getNodeGroups: () => ( {} ) };
-	assert.strictEqual( widget.index, null );
+	widget.internalList = getInternalListMock();
 
+	assert.strictEqual( widget.index, null );
 	widget.buildIndex();
 	assert.deepEqual( widget.index, [] );
 
@@ -22,18 +46,7 @@ QUnit.test( 'buildIndex', ( assert ) => {
 
 QUnit.test( 'buildSearchIndex when empty', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
-	widget.internalList = { getNodeGroups: () => ( {} ) };
-
-	const index = widget.buildSearchIndex();
-	assert.deepEqual( index, [] );
-} );
-
-QUnit.test( 'buildSearchIndex with a placeholder', ( assert ) => {
-	const widget = new ve.ui.MWReferenceSearchWidget();
-	const placeholder = true;
-	const node = { getAttribute: () => placeholder };
-	const groups = { 'mwReference/': { indexOrder: [ 0 ], firstNodes: [ node ] } };
-	widget.internalList = { getNodeGroups: () => groups, getItemNode: () => [] };
+	widget.internalList = getInternalListMock();
 
 	const index = widget.buildSearchIndex();
 	assert.deepEqual( index, [] );
@@ -41,19 +54,8 @@ QUnit.test( 'buildSearchIndex with a placeholder', ( assert ) => {
 
 QUnit.test( 'buildSearchIndex', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
-
-	// XXX: This is a regression test with a fragile setup. Please feel free to delete this test
-	// when you feel like it doesn't make sense to update it.
-	const placeholder = false;
-	const node = {
-		getDocument: () => ( {
-			getInternalList: () => null
-		} ),
-		getAttributes: () => ( { listKey: 'literal/foo' } ),
-		getAttribute: () => placeholder
-	};
-	const groups = { 'mwReference/': { indexOrder: [ 0 ], firstNodes: [ node ] } };
-	widget.internalList = { getNodeGroups: () => groups, getItemNode: () => [] };
+	const groups = { 'mwReference/': {} };
+	widget.internalList = getInternalListMock( groups, true );
 
 	const index = widget.buildSearchIndex();
 	assert.deepEqual( index.length, 1 );

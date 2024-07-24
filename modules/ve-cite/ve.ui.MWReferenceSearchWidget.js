@@ -140,54 +140,48 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
  * @return {Object[]}
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
+	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( this.internalList.getDocument() );
 	const groups = this.internalList.getNodeGroups();
-	const index = [];
 	const groupNames = Object.keys( groups ).sort();
 
 	// FIXME: Temporary hack, to be removed soon
 	// eslint-disable-next-line no-jquery/no-class-state
 	const filterExtends = this.$element.hasClass( 've-ui-citoidInspector-extends' );
 
+	let index = [];
 	for ( let i = 0; i < groupNames.length; i++ ) {
 		const groupName = groupNames[ i ];
 		if ( groupName.indexOf( 'mwReference/' ) !== 0 ) {
+			// FIXME: Should be impossible to reach
 			continue;
 		}
-		const group = groups[ groupName ];
-		const firstNodes = group.firstNodes;
-		const indexOrder = group.indexOrder;
+		const groupedByParent = docRefs.getGroupRefsByParents( groupName );
+		let flatNodes = [];
+		if ( filterExtends ) {
+			flatNodes = ( groupedByParent[ '' ] || [] );
+		} else {
+			// flatMap
+			( groupedByParent[ '' ] || [] ).forEach( ( parentNode ) => {
+				flatNodes.push( parentNode );
+				flatNodes = flatNodes.concat( groupedByParent[ parentNode.getAttribute( 'listKey' ) ] || [] );
+			} );
+		}
 
-		let n = 0;
-		for ( let j = 0; j < indexOrder.length; j++ ) {
-			const refNode = firstNodes[ indexOrder[ j ] ];
-			// Exclude placeholder references
-			if ( !refNode || refNode.getAttribute( 'placeholder' ) ) {
-				continue;
-			}
-			// FIXME: This might miss subrefs that are reused without repeating the extends attribute
-			if ( filterExtends && refNode.getAttribute( 'extendsRef' ) ) {
-				continue;
-			}
-			// Only increment counter for real references
-			n++;
-			const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
-			const itemNode = this.internalList.getItemNode( refModel.getListIndex() );
+		index = index.concat( flatNodes.map( ( node ) => {
+			const listKey = node.getAttribute( 'listKey' );
+			// remove `mwReference/` prefix
+			const group = groupName.slice( 12 );
+			const footnoteNumber = docRefs.getIndexNumber( group, listKey );
+			const citation = ( group ? group + ' ' : '' ) + footnoteNumber;
 
-			const refGroup = refModel.getGroup();
-			const citation = ( refGroup ? refGroup + ' ' : '' ) + n;
 			// Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
-			const matches = refModel.getListKey().match( /^literal\/([\s\S]*)$/ );
+			const matches = listKey.match( /^literal\/([\s\S]*)$/ );
 			const name = matches && matches[ 1 ] || '';
-
-			// TODO: At some point we need to make sure this text is updated in
-			// case the view node is still rendering. This shouldn't happen because
-			// all references are supposed to be in the store and therefore are
-			// immediately rendered, but we shouldn't trust that on principle to
-			// account for edge cases.
 
 			let $element;
 			// Make visible text, citation and reference name searchable
 			let text = ( citation + ' ' + name ).toLowerCase();
+			const itemNode = this.internalList.getItemNode( node.getAttribute( 'listIndex' ) );
 			if ( itemNode.length ) {
 				$element = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 				text = $element.text().toLowerCase() + ' ' + text;
@@ -201,14 +195,15 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 					.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) );
 			}
 
-			index.push( {
+			return {
 				$element: $element,
 				text: text,
-				reference: refModel,
+				// TODO: return a simple node
+				reference: ve.dm.MWReferenceModel.static.newFromReferenceNode( node ),
 				citation: citation,
 				name: name
-			} );
-		}
+			};
+		} ) );
 	}
 
 	return index;

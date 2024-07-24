@@ -214,11 +214,12 @@ ve.ui.MWReferenceDialog.prototype.updateExtendsWarningFromRef = function ( ref )
 	if ( ref.extendsRef ) {
 		const list = this.getFragment().getDocument().getInternalList();
 		const itemNode = list.getItemNode( list.keys.indexOf( ref.extendsRef ) );
-		const parentRefText = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element.text();
-		// TODO extends i18n
-		this.editPanel.extendsWarning.setLabel( new OO.ui.HtmlSnippet(
-			`${ mw.msg( 'cite-ve-dialog-reference-editing-extends' ) }</br>${ parentRefText }`
-		) );
+		const $parentRefPreview = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
+		this.editPanel.extendsWarning.setLabel(
+			$( '<p>' )
+				.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) )
+				.append( $parentRefPreview )
+		);
 	}
 
 	this.editPanel.extendsWarning.toggle( !!ref.extendsRef );

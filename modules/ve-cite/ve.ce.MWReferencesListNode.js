@@ -275,7 +275,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 		);
 
 	const $li = $( '<li>' )
-		.css( '--footnote-number', `"${ this.docRefs.getIndexNumber( refGroup, key ) }."` )
+		.css( '--footnote-number', `"${ this.docRefs.getIndexLabel( refGroup, key ) }."` )
 		.append( this.renderBacklinks( keyedNodes, refGroup ), ' ' );
 
 	// Generate reference HTML from first item in key

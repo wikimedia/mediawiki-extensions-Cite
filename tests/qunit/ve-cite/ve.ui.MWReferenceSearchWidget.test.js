@@ -11,7 +11,7 @@ function getInternalListMock( groups, mockWithNode ) {
 	const refDocMock = {
 		getAllGroupNames: () => ( Object.keys( groups ) ),
 		getGroupRefsByParents: () => ( { '': [ node ] } ),
-		getIndexNumber: () => ( 1 ),
+		getIndexLabel: () => ( '1' ),
 		getItemNode: () => ( node )
 	};
 	const docMock = {

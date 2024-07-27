@@ -57,49 +57,17 @@ ve.ui.MWReferenceDialog.static.actions = [
 ve.ui.MWReferenceDialog.static.modelClasses = [ ve.dm.MWReferenceNode ];
 
 /* Methods */
-
 /**
- * Determine whether the reference document we're editing has any content.
+ * Handle ve.ui.MWReferenceEditPanel#change events
  *
- * @return {boolean} Document has content
+ * @param {Object} change
+ * @param {boolean} [change.isModified] If changes to the original content or values have been made
+ * @param {boolean} [change.hasContent] If there's non empty content set
  */
-ve.ui.MWReferenceDialog.prototype.documentHasContent = function () {
-	// TODO: Check for other types of empty, e.g. only whitespace?
-	return this.referenceModel && this.referenceModel.getDocument().data.hasContent();
-};
-
-/**
- * Determine whether any changes have been made (and haven't been undone).
- *
- * @return {boolean} Changes have been made
- */
-ve.ui.MWReferenceDialog.prototype.isModified = function () {
-	return this.documentHasContent() && this.editPanel.isModified();
-};
-
-/**
- * Handle reference target widget change events
- */
-ve.ui.MWReferenceDialog.prototype.onTargetChange = function () {
-	const hasContent = this.documentHasContent();
-
+ve.ui.MWReferenceDialog.prototype.onEditPanelInputChange = function ( change ) {
 	this.actions.setAbilities( {
-		done: this.isModified(),
-		insert: hasContent
-	} );
-
-	if ( !this.trackedInputChange ) {
-		ve.track( 'activity.' + this.constructor.static.name, { action: 'input' } );
-		this.trackedInputChange = true;
-	}
-};
-
-/**
- * Handle reference group input change events.
- */
-ve.ui.MWReferenceDialog.prototype.onReferenceGroupInputChange = function () {
-	this.actions.setAbilities( {
-		done: this.isModified()
+		done: change.isModified,
+		insert: change.hasContent
 	} );
 
 	if ( !this.trackedInputChange ) {
@@ -137,7 +105,7 @@ ve.ui.MWReferenceDialog.prototype.getReadyProcess = function ( data ) {
 			if ( this.reuseReference ) {
 				this.reuseSearch.getQuery().focus().select();
 			} else {
-				this.editPanel.referenceTarget.focus();
+				this.editPanel.focus();
 			}
 		} );
 };
@@ -172,8 +140,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	// Events
 	this.reuseSearch.getResults().connect( this, { choose: 'onReuseSearchResultsChoose' } );
-	this.editPanel.referenceTarget.connect( this, { change: 'onTargetChange' } );
-	this.editPanel.referenceGroupInput.connect( this, { change: 'onReferenceGroupInputChange' } );
+	this.editPanel.connect( this, { change: 'onEditPanelInputChange' } );
 
 	// Initialization
 	this.$content.addClass( 've-ui-mwReferenceDialog' );
@@ -190,7 +157,6 @@ ve.ui.MWReferenceDialog.prototype.openReusePanel = function () {
 	this.actions.setMode( 'insert-select' );
 	this.reuseSearch.buildIndex();
 	this.panels.setItem( this.reuseSearchPanel );
-	this.reuseSearch.getQuery().focus().select();
 
 	// https://phabricator.wikimedia.org/T362347
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'dialog-open-reuse' } );
@@ -244,12 +210,15 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 		.next( () => {
 			this.panels.setItem( this.editPanel );
 			this.editPanel.setInternalList( this.getFragment().getDocument().getInternalList() );
+			this.actions.setAbilities( { done: false } );
 
 			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
+				// edit an existing reference
 				this.referenceModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 			} else {
+				// create a new reference
 				this.referenceModel = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
-				this.actions.setAbilities( { done: false, insert: false } );
+				this.actions.setAbilities( { insert: false } );
 			}
 			this.editPanel.setReferenceForEditing( this.referenceModel );
 			this.editPanel.setReadOnly( this.isReadOnly() );
@@ -260,9 +229,6 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			if ( this.reuseReference ) {
 				this.openReusePanel();
 			}
-			this.actions.setAbilities( {
-				done: false
-			} );
 
 			this.trackedInputChange = false;
 		} );

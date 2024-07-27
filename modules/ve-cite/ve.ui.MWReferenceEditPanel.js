@@ -29,6 +29,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	this.$element.addClass( 've-ui-mwReferenceEditPanel' );
 
 	// Properties
+	this.referenceModel = null;
 	this.originalGroup = null;
 	this.internalList = null;
 	this.referenceModel = null;
@@ -76,6 +77,9 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 		classes: [ 've-ui-mwReferenceDialog-extendsWarning' ]
 	} );
 
+	this.referenceTarget.connect( this, { change: 'onInputChange' } );
+	this.referenceGroupInput.connect( this, { change: 'onInputChange' } );
+
 	// Append to panel element
 	this.$element.append(
 		this.reuseWarning.$element,
@@ -88,6 +92,16 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 /* Inheritance */
 
 OO.inheritClass( ve.ui.MWReferenceEditPanel, OO.ui.PanelLayout );
+
+/* Events */
+/**
+ * A `change` event is emitted whenever the content or value of field is changed.
+ *
+ * @event ve.ui.MWReferenceEditPanel#change
+ * @param {Object} change
+ * @param {boolean} [change.isModified] If changes to the original content or values have been made
+ * @param {boolean} [change.hasContent] If there's non empty content set
+ */
 
 /* Static Properties */
 ve.ui.MWReferenceEditPanel.static.excludeCommands = [
@@ -194,6 +208,7 @@ ve.ui.MWReferenceEditPanel.prototype.setInternalList = function ( internalList )
  */
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.referenceModel = ref;
+
 	this.setFormFieldsFromRef( ref );
 	this.updateReuseWarningFromRef( ref );
 	this.updateExtendsWarningFromRef( ref );
@@ -261,13 +276,42 @@ ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( re
 };
 
 /**
+ * Handle reference change events
+ *
+ * @fires ve.ui.MWReferenceEditPanel#change
+ */
+ve.ui.MWReferenceEditPanel.prototype.onInputChange = function () {
+	this.emit( 'change', {
+		isModified: this.isModified(),
+		hasContent: this.documentHasContent()
+	} );
+};
+
+/**
+ * Determine whether the reference document we're editing has any content.
+ *
+ * @return {boolean} Document has content
+ */
+ve.ui.MWReferenceEditPanel.prototype.documentHasContent = function () {
+	// TODO: Check for other types of empty, e.g. only whitespace?
+	return this.referenceModel && this.referenceModel.getDocument().data.hasContent();
+};
+
+/**
  * Determine whether any changes have been made (and haven't been undone).
  *
  * @return {boolean} Changes have been made
  */
 ve.ui.MWReferenceEditPanel.prototype.isModified = function () {
-	return this.referenceTarget.hasBeenModified() ||
-			this.referenceGroupInput.getValue() !== this.originalGroup;
+	return this.documentHasContent() && ( this.referenceTarget.hasBeenModified() ||
+			this.referenceGroupInput.getValue() !== this.originalGroup );
+};
+
+/**
+ * Focus the edit panel
+ */
+ve.ui.MWReferenceEditPanel.prototype.focus = function () {
+	this.referenceTarget.focus();
 };
 
 /**
@@ -280,4 +324,5 @@ ve.ui.MWReferenceEditPanel.prototype.setReadOnly = function ( readOnly ) {
 
 ve.ui.MWReferenceEditPanel.prototype.clear = function () {
 	this.referenceTarget.clear();
+	this.referenceModel = null;
 };

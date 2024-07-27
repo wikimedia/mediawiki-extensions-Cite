@@ -15,6 +15,10 @@ QUnit.test( 'setReferenceForEditing', ( assert ) => {
 	const ref = new ve.dm.MWReferenceModel( emptyDoc );
 
 	editPanel.setInternalList( emptyDoc.getInternalList() );
+
+	const changeHandlerStub = sinon.stub();
+	editPanel.connect( changeHandlerStub );
+
 	ref.setGroup( 'g' );
 	editPanel.setReferenceForEditing( ref );
 
@@ -24,6 +28,8 @@ QUnit.test( 'setReferenceForEditing', ( assert ) => {
 	assert.false( editPanel.reuseWarning.isVisible() );
 	assert.false( editPanel.extendsWarning.isVisible() );
 	assert.strictEqual( editPanel.getReferenceFromEditing().getGroup(), 'g' );
+
+	sinon.assert.notCalled( changeHandlerStub );
 } );
 
 QUnit.test( 'sub refs', ( assert ) => {

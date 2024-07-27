@@ -141,8 +141,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( this.internalList.getDocument() );
-	const groups = this.internalList.getNodeGroups();
-	const groupNames = Object.keys( groups ).sort();
+	const groupNames = docRefs.getAllGroupNames().sort();
 
 	// FIXME: Temporary hack, to be removed soon
 	// eslint-disable-next-line no-jquery/no-class-state

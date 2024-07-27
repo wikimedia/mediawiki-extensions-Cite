@@ -53,8 +53,7 @@ ve.dm.MWDocumentReferences.static.refsForDoc = function ( fragment ) {
  * @private
  */
 ve.dm.MWDocumentReferences.prototype.updateAllGroups = function () {
-	const nodes = this.doc.getInternalList().getNodeGroups();
-	this.updateGroups( Object.keys( nodes ) );
+	this.updateGroups( this.getAllGroupNames() );
 };
 
 /**
@@ -89,6 +88,10 @@ ve.dm.MWDocumentReferences.prototype.updateGroup = function ( groupName ) {
 		}
 	}
 	this.cachedByGroup[ groupName ] = indexNumberLookup;
+};
+
+ve.dm.MWDocumentReferences.prototype.getAllGroupNames = function () {
+	return Object.keys( this.doc.getInternalList().getNodeGroups() );
 };
 
 /**

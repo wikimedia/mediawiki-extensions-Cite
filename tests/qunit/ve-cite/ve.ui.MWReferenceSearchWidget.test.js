@@ -3,11 +3,13 @@
 QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
 function getInternalListMock( groups, mockWithNode ) {
+	groups = groups || {};
 	const node = mockWithNode ? {
 		getAttribute: () => ( 'literal/foo' ),
 		getAttributes: () => ( {} )
 	} : {};
 	const refDocMock = {
+		getAllGroupNames: () => ( Object.keys( groups ) ),
 		getGroupRefsByParents: () => ( { '': [ node ] } ),
 		getIndexNumber: () => ( 1 ),
 		getItemNode: () => ( node )
@@ -18,7 +20,7 @@ function getInternalListMock( groups, mockWithNode ) {
 	};
 	const mockInternalList = {
 		getDocument: () => ( docMock ),
-		getNodeGroups: () => ( groups || {} ),
+		getNodeGroups: () => ( groups ),
 		getItemNode: () => ( node )
 	};
 	docMock.getInternalList = () => ( mockInternalList );

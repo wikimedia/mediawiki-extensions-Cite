@@ -252,7 +252,7 @@
 			"tests/qunit/ve-cite/ve.ui.DiffElement.test.js",
 			"tests/qunit/ve-cite/ve.ui.MWCitationDialogTool.test.js",
 			"tests/qunit/ve-cite/ve.ui.MWReferenceContextItem.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWReferenceDialog.test.js",
+			"tests/qunit/ve-cite/ve.ui.MWReferenceEditPanel.test.js",
 			"tests/qunit/ve-cite/ve.ui.MWReferenceGroupInputWidget.test.js",
 			"tests/qunit/ve-cite/ve.ui.MWReferenceResultWidget.test.js",
 			"tests/qunit/ve-cite/ve.ui.MWReferenceSearchWidget.test.js",

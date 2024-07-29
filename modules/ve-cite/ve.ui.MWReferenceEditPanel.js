@@ -29,6 +29,8 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	this.$element.addClass( 've-ui-mwReferenceEditPanel' );
 
 	// Properties
+	this.originalGroup = null;
+	this.internalList = null;
 
 	// Create content editor
 	this.referenceTarget = ve.init.target.createTargetWidget(
@@ -124,7 +126,7 @@ ve.ui.MWReferenceEditPanel.static.excludeCommands = [
  * all Cite related commands to disencourage nesting of references.
  *
  * @see ve.dm.ElementLinearData#sanitize
- * @return {Object} Import rules
+ * @return {string[]} List of commands to exclude
  */
 ve.ui.MWReferenceEditPanel.static.getExcludeCommands = function () {
 	const citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry )
@@ -176,4 +178,93 @@ ve.ui.MWReferenceEditPanel.static.getImportRules = function () {
 			}
 		}
 	);
+};
+
+/**
+ * @param {ve.dm.InternalList} internalList
+ */
+ve.ui.MWReferenceEditPanel.prototype.setInternalList = function ( internalList ) {
+	this.internalList = internalList;
+	this.referenceGroupInput.populateMenu( this.internalList );
+};
+
+/**
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
+	this.setFormFieldsFromRef( ref );
+	this.updateReuseWarningFromRef( ref );
+	this.updateExtendsWarningFromRef( ref );
+};
+
+/**
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
+	this.referenceTarget.setDocument( ref.getDocument() );
+
+	this.originalGroup = ref.getGroup();
+
+	// Set the group input while it's disabled, so this doesn't pop up the group-picker menu
+	this.referenceGroupInput.setDisabled( true );
+	this.referenceGroupInput.setValue( this.originalGroup );
+	this.referenceGroupInput.setDisabled( false );
+};
+
+/**
+ * @private
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref ) {
+	const group = this.internalList.getNodeGroup( ref.getListGroup() );
+	const nodes = ve.getProp( group, 'keyedNodes', ref.getListKey() );
+	const usages = nodes ? nodes.filter(
+		( node ) => !node.findParent( ve.dm.MWReferencesListNode )
+	).length : 0;
+
+	this.reuseWarning
+		.toggle( usages > 1 )
+		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
+};
+
+/**
+ * @private
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( ref ) {
+	if ( ref.extendsRef ) {
+		const itemNode = this.internalList.getItemNode(
+			this.internalList.keys.indexOf( ref.extendsRef )
+		);
+		const $parentRefPreview = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
+		this.extendsWarning.setLabel(
+			$( '<p>' )
+				.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) )
+				.append( $parentRefPreview )
+		);
+	}
+
+	this.extendsWarning.toggle( !!ref.extendsRef );
+};
+
+/**
+ * Determine whether any changes have been made (and haven't been undone).
+ *
+ * @return {boolean} Changes have been made
+ */
+ve.ui.MWReferenceEditPanel.prototype.isModified = function () {
+	return this.referenceTarget.hasBeenModified() ||
+			this.referenceGroupInput.getValue() !== this.originalGroup;
+};
+
+/**
+ * @param {boolean} [readOnly=false]
+ */
+ve.ui.MWReferenceEditPanel.prototype.setReadOnly = function ( readOnly ) {
+	this.referenceTarget.setReadOnly( !!readOnly );
+	this.referenceGroupInput.setReadOnly( !!readOnly );
+};
+
+ve.ui.MWReferenceEditPanel.prototype.clear = function () {
+	this.referenceTarget.clear();
 };

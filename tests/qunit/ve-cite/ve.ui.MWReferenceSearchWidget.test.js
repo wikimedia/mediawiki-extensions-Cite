@@ -13,7 +13,8 @@ function getInternalListMock( groups, mockWithNode ) {
 		getItemNode: () => ( node )
 	};
 	const docMock = {
-		getStorage: () => ( refDocMock )
+		getStorage: () => ( refDocMock ),
+		getOriginalDocument: () => ( null )
 	};
 	const mockInternalList = {
 		getDocument: () => ( docMock ),

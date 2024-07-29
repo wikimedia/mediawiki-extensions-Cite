@@ -243,6 +243,7 @@
 		"scripts": [
 			"tests/qunit/ve-cite/ve.dm.citeExample.js",
 			"tests/qunit/ve-cite/ve.dm.Converter.test.js",
+			"tests/qunit/ve-cite/ve.dm.MWDocumentReferences.test.js",
 			"tests/qunit/ve-cite/ve.dm.InternalList.test.js",
 			"tests/qunit/ve-cite/ve.dm.MWReferenceModel.test.js",
 			"tests/qunit/ve-cite/ve.dm.MWReferenceNode.test.js",

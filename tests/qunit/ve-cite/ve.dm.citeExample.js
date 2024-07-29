@@ -994,3 +994,54 @@ ve.dm.citeExample.complexInternalData.internalItems = [
 ];
 
 ve.dm.citeExample.complexInternalData.internalListNextUniqueNumber = 1;
+
+ve.dm.citeExample.extends = [
+	{ type: 'paragraph' },
+	{ type: 'mwReference', attributes: {
+		extendsRef: 'literal/ldr',
+		listIndex: 0,
+		listGroup: 'mwReference/',
+		listKey: 'auto/0',
+		refGroup: ''
+	} },
+	{ type: '/mwReference' },
+	{ type: 'mwReference', attributes: {
+		listIndex: 1,
+		listGroup: 'mwReference/',
+		listKey: 'auto/1',
+		refGroup: ''
+	} },
+	{ type: '/mwReference' },
+	{ type: '/paragraph' },
+	{ type: 'mwReferencesList', attributes: {
+		listGroup: 'mwReference/',
+		refGroup: ''
+	} },
+	{ type: 'paragraph' },
+	{ type: 'mwReference', attributes: {
+		listIndex: 2,
+		listGroup: 'mwReference/',
+		listKey: 'literal/ldr',
+		refGroup: ''
+	} },
+	{ type: '/mwReference' },
+	{ type: '/paragraph' },
+	{ type: '/mwReferencesList' },
+	{ type: 'internalList' },
+	{ type: 'internalItem' },
+	{ type: 'paragraph' },
+	'S', 'u', 'b', 'r', 'e', 'f',
+	{ type: '/paragraph' },
+	{ type: '/internalItem' },
+	{ type: 'internalItem' },
+	{ type: 'paragraph' },
+	'O', 't', 'h', 'e', 'r',
+	{ type: '/paragraph' },
+	{ type: '/internalItem' },
+	{ type: 'internalItem' },
+	{ type: 'paragraph' },
+	'L', 'i', 's', 't', '-', 'd', 'e', 'f', 'i', 'n', 'e', 'd',
+	{ type: '/paragraph' },
+	{ type: '/internalItem' },
+	{ type: '/internalList' }
+];

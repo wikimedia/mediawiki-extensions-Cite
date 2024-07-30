@@ -3,6 +3,7 @@
 		"authors": [
 			"Aftab1995",
 			"Aftabuzzaman",
+			"Amire80",
 			"Bellayet",
 			"Nasir8891",
 			"Yahya",
@@ -16,7 +17,7 @@
 	"cite_error_ref_numeric_key": "<code>&lt;ref&gt;</code> ট্যাগ বৈধ নয়; নাম কোন সরল পূর্ণসংখ্যা হতে পারবে না। একটি বিবরণমূলক শিরোনাম ব্যবহার করুন",
 	"cite_error_ref_no_key": "শুরুর <code>&lt;ref&gt;</code> ট্যাগটি সঠিক নয় বা ভুল নামে রয়েছে",
 	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> ট্যাগে অবৈধ প্যারামিটার",
-	"cite_error_ref_nested_extends": "একের অধিক গভীর স্তরে <code><ref></code> ট্যাগ প্রসারিত করা অনুমোদিত নয়",
+	"cite_error_ref_nested_extends": "একের অধিক গভীর স্তরে <code>&lt;ref&gt;</code> ট্যাগ প্রসারিত করা অনুমোদিত নয়",
 	"cite_error_ref_no_input": "<code>&lt;ref&gt;</code> ট্যাগ বৈধ নয়; নামবিহীন ref সমূহের অবশ্যই বিষয়বস্তু থাকতে হবে",
 	"cite_error_references_duplicate_key": "<code>&lt;ref&gt;</code> ট্যাগ বৈধ নয়; আলাদা বিষয়বস্তুর সঙ্গে \"$1\" নামটি একাধিক বার সংজ্ঞায়িত করা হয়েছে",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> ট্যাগে অবৈধ প্যারামিটার",
@@ -32,6 +33,7 @@
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code> গ্রুপ $2-এ সংজ্ঞায়িত \"$1\" নামসহ <code>&lt;ref&gt;</code> ট্যাগে কোন বিষয়বস্তু নেই।",
 	"cite-tracking-category-cite-error": "তথ্যসূত্র ত্রুটিসহ পাতা",
 	"cite-tracking-category-cite-error-desc": "এই বিষয়শ্রেণীতে অন্তর্ভুক্ত নিবন্ধসমূহে তথ্যসূত্র ট্যাগ ব্যবহারে ত্রুটি আছে।",
+	"cite-tracking-category-ref-extends": "বর্ধিত তথ্যসূত্র ব্যবহার করা পাতা",
 	"cite-reference-previews-reference": "তথ্যসূত্র",
 	"cite-reference-previews-book": "বইয়ের তথ্যসূত্র",
 	"cite-reference-previews-journal": "সাময়িকীর তথ্যসূত্র",
@@ -51,9 +53,11 @@
 	"cite-wikieditor-help-content-reference-description": "তথ্যসূত্র",
 	"cite-wikieditor-help-content-named-reference-description": "নামযুক্ত তথ্যসূত্র",
 	"cite-wikieditor-help-content-rereference-description": "একই তথ্যসূত্রের একাধিক ব্যবহার",
+	"cite-wikieditor-help-content-extended-reference-description": "অতিরিক্ত বিবরণসহ একই তথ্যসূত্রের অতিরিক্ত ব্যবহার",
 	"cite-wikieditor-help-content-showreferences-description": "তথ্যসূত্র প্রদর্শন করো",
 	"cite-wikieditor-help-content-reference-example-text1": "পাতার পাঠ্য।$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 লিঙ্কের পাঠ্য], অতিরিক্ত পাঠ্য।",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 লিঙ্কের পাঠ্য]",
-	"cite-wikieditor-help-content-reference-example-ref-id": "পরীক্ষা"
+	"cite-wikieditor-help-content-reference-example-ref-id": "পরীক্ষা",
+	"cite-wikieditor-help-content-reference-example-extra-details": "অতিরিক্ত বিবরণ"
 }

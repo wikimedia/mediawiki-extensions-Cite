@@ -37,6 +37,8 @@
 	"cite-ve-citationneeded-title": "Lähdepyyntö",
 	"cite-ve-dialog-reference-editing-reused": "Tätä lähdettä käytetään {{PLURAL:$1|kerran|2=kahdesti|$1 kertaa}} tällä sivulla.",
 	"cite-ve-dialog-reference-editing-reused-long": "Tätä lähdettä käytetään {{PLURAL:$1|kerran|2=kahdesti|$1 kertaa}} tällä sivulla. Tähän tehdyt muutokset näkyvät kaikissa kohdissa, joissa tätä lähdettä uudelleenkäytetään.",
+	"cite-ve-dialog-reference-editing-extends": "Tämä on toisen lähteen jatke.",
+	"cite-ve-dialog-reference-editing-extends-long": "Tämä on toisen lähteen ”$1” jatke.",
 	"cite-ve-dialog-reference-options-group-label": "Käytä tätä ryhmää",
 	"cite-ve-dialog-reference-options-group-placeholder": "Yleiset lähteet",
 	"cite-ve-dialog-reference-options-name-label": "Käytä uudelleen tällä nimellä",

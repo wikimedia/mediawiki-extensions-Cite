@@ -198,6 +198,7 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 };
 
 /**
+ * @private
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {

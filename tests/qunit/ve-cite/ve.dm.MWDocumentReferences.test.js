@@ -29,7 +29,7 @@ QUnit.test( 'extends test', ( assert ) => {
 
 	assert.strictEqual( Object.keys( groupedRefs ).length, 2 );
 
-	assert.strictEqual( groupedRefs[ '' ].length, 2 );
+	assert.strictEqual( groupedRefs[ '' ].length, 3 );
 	assert.strictEqual( groupedRefs[ 'literal/ldr' ].length, 1 );
 
 	const firstListKey = groupedRefs[ '' ][ 0 ].getAttribute( 'listKey' );
@@ -37,8 +37,17 @@ QUnit.test( 'extends test', ( assert ) => {
 	// FIXME: Documents incorrect behavior, should be '2'.
 	assert.strictEqual( docRefs.getIndexLabel( '', firstListKey ), '1' );
 
+	const secondListKey = groupedRefs[ '' ][ 1 ].getAttribute( 'listKey' );
+	assert.strictEqual( secondListKey, 'literal/orphaned' );
+	assert.strictEqual( docRefs.getIndexLabel( '', secondListKey ), '2' );
+
+	const thirdListKey = groupedRefs[ '' ][ 2 ].getAttribute( 'listKey' );
+	assert.strictEqual( thirdListKey, 'literal/ldr' );
+	// FIXME: Documents incorrect behavior, should be '1'.
+	assert.strictEqual( docRefs.getIndexLabel( '', thirdListKey ), '3' );
+
 	const subrefListKey = groupedRefs[ 'literal/ldr' ][ 0 ].getAttribute( 'listKey' );
 	assert.strictEqual( subrefListKey, 'auto/0' );
 	// FIXME: Documents incorrect behavior, should be '1.1'.
-	assert.strictEqual( docRefs.getIndexLabel( '', subrefListKey ), '2.1' );
+	assert.strictEqual( docRefs.getIndexLabel( '', subrefListKey ), '3.1' );
 } );

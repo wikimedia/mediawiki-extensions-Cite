@@ -1012,6 +1012,14 @@ ve.dm.citeExample.extends = [
 		refGroup: ''
 	} },
 	{ type: '/mwReference' },
+	{ type: 'mwReference', attributes: {
+		extendsRef: 'literal/nonexistent',
+		listIndex: 2,
+		listGroup: 'mwReference/',
+		listKey: 'literal/orphaned',
+		refGroup: ''
+	} },
+	{ type: '/mwReference' },
 	{ type: '/paragraph' },
 	{ type: 'mwReferencesList', attributes: {
 		listGroup: 'mwReference/',
@@ -1019,7 +1027,7 @@ ve.dm.citeExample.extends = [
 	} },
 	{ type: 'paragraph' },
 	{ type: 'mwReference', attributes: {
-		listIndex: 2,
+		listIndex: 3,
 		listGroup: 'mwReference/',
 		listKey: 'literal/ldr',
 		refGroup: ''

@@ -339,7 +339,7 @@ ve.dm.MWReferenceNode.static.getIndexLabel = function ( dataElement, internalLis
 ve.dm.MWReferenceNode.static.findIndexNumber = function ( dataElement, internalList ) {
 	return ve.getProp( dataElement, 'internal', 'overrideIndex' ) ||
 		ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() )
-			.getIndexNumber( dataElement.attributes.refGroup, dataElement.attributes.listKey );
+			.getIndexLabel( dataElement.attributes.refGroup, dataElement.attributes.listKey );
 };
 
 /**

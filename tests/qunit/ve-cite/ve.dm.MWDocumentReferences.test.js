@@ -17,8 +17,8 @@ QUnit.test( 'first simple test', ( assert ) => {
 
 	assert.strictEqual( firstListKey, 'auto/0' );
 	assert.strictEqual( fooGroupListKey, 'auto/2' );
-	assert.strictEqual( docRefs.getIndexNumber( '', firstListKey ), '1' );
-	assert.strictEqual( docRefs.getIndexNumber( 'foo', fooGroupListKey ), '1' );
+	assert.strictEqual( docRefs.getIndexLabel( '', firstListKey ), '1' );
+	assert.strictEqual( docRefs.getIndexLabel( 'foo', fooGroupListKey ), '1' );
 } );
 
 QUnit.test( 'extends test', ( assert ) => {
@@ -35,10 +35,10 @@ QUnit.test( 'extends test', ( assert ) => {
 	const firstListKey = groupedRefs[ '' ][ 0 ].getAttribute( 'listKey' );
 	assert.strictEqual( firstListKey, 'auto/1' );
 	// FIXME: Documents incorrect behavior, should be '2'.
-	assert.strictEqual( docRefs.getIndexNumber( '', firstListKey ), '1' );
+	assert.strictEqual( docRefs.getIndexLabel( '', firstListKey ), '1' );
 
 	const subrefListKey = groupedRefs[ 'literal/ldr' ][ 0 ].getAttribute( 'listKey' );
 	assert.strictEqual( subrefListKey, 'auto/0' );
 	// FIXME: Documents incorrect behavior, should be '1.1'.
-	assert.strictEqual( docRefs.getIndexNumber( '', subrefListKey ), '2.1' );
+	assert.strictEqual( docRefs.getIndexLabel( '', subrefListKey ), '2.1' );
 } );

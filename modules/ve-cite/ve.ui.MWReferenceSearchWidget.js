@@ -170,7 +170,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			const listKey = node.getAttribute( 'listKey' );
 			// remove `mwReference/` prefix
 			const group = groupName.slice( 12 );
-			const footnoteNumber = docRefs.getIndexNumber( group, listKey );
+			const footnoteNumber = docRefs.getIndexLabel( group, listKey );
 			const citation = ( group ? group + ' ' : '' ) + footnoteNumber;
 
 			// Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)

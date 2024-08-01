@@ -8,7 +8,7 @@ wgCiteBookReferencing=false
 <ref name="parent">[foo]</ref>
 <ref extends="parent">[bar]</ref>
 !! html/php
-<p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid parameter in <code>&lt;ref&gt;</code> tag</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -25,8 +25,8 @@ wgCiteBookReferencing=true
 <ref name="parent">[foo]</ref>
 <ref extends="parent">[bar]</ref>
 !! html/php
-<p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-parent_1-0" class="reference"><a href="#cite_note-parent-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-parent-1"><span class="mw-cite-backlink"><a href="#cite_ref-parent_1-0">↑</a></span> <span class="reference-text">[foo]</span>
@@ -48,9 +48,9 @@ wgCiteBookReferencing=true
 <ref extends="a">page 3</ref>
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;1.2&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>1.2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -73,9 +73,9 @@ wgCiteBookReferencing=true
 <ref extends="a" name="b">page 2</ref>
 <ref name="b" />
 !! html
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -94,9 +94,9 @@ wgCiteBookReferencing=true
 <ref name="b" extends="a">page 2</ref>
 <ref name="a">book</ref>
 !! html
-<p><sup id="cite_ref-b_1-0" class="reference"><a href="#cite_note-b-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-b_1-0" class="reference"><a href="#cite_note-b-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span>
-<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2">&#91;2&#93;</a></sup>
+<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-b-1"><span class="mw-cite-backlink"><a href="#cite_ref-b_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>b</code></span></li>
@@ -117,8 +117,8 @@ wgCiteBookReferencing=true
 <ref name="a">book</ref>
 </references>
 !! html
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -141,7 +141,7 @@ wgCiteBookReferencing=true
 <ref name=book>book</ref>
 </references>
 !! html
-<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "p20" defined multiple times with different content</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -163,7 +163,7 @@ wgCiteBookReferencing=true
 <ref name=book>book</ref>
 </references>
 !! html
-<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "p20" defined multiple times with different content</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -186,7 +186,7 @@ wgCiteBookReferencing=true
 <ref name=book>book</ref>
 </references>
 !! html
-<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-p20_1-0" class="reference"><a href="#cite_note-p20-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "p20" defined multiple times with different content</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -208,11 +208,11 @@ wgCiteBookReferencing=true
 <ref name="c" />
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-c_3-0" class="reference"><a href="#cite_note-c-3">&#91;1.2&#93;</a></sup>
-<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-c_3-1" class="reference"><a href="#cite_note-c-3">&#91;1.2&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-c_3-0" class="reference"><a href="#cite_note-c-3"><span class="cite-bracket">&#91;</span>1.2<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-c_3-1" class="reference"><a href="#cite_note-c-3"><span class="cite-bracket">&#91;</span>1.2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -231,7 +231,7 @@ wgCiteBookReferencing=true
 !! wikitext
 <ref extends="a">page 1</ref>
 !! html/php
-<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">page 1</span>
@@ -248,8 +248,8 @@ wgCiteBookReferencing=true
 <ref>book</ref>
 <ref extends="a">page 1</ref>
 !! html/php
-<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2.1&#93;</a></sup>
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">book</span>
@@ -269,9 +269,9 @@ wgCiteBookReferencing=true
 <ref name="a">magazine</ref>
 <ref extends="a">page 1</ref>
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-a_1-1" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text">book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
@@ -291,9 +291,9 @@ wgCiteBookReferencing=true
 <ref extends="a" name="b">page 3</ref>
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -313,8 +313,8 @@ wgCiteBookReferencing=true
 <ref extends="b">section 3</ref>
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Extending <code>&lt;ref&gt;</code> tags more than one level deep is not allowed</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -335,9 +335,9 @@ wgCiteBookReferencing=true
 <ref name="a">book</ref>
 <references />
 !! html/php
-<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "b" defined multiple times with different content</span>
-<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2">&#91;2&#93;</a></sup>
+<sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>b</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">section 3</span>
@@ -356,8 +356,8 @@ wgCiteBookReferencing=true
 <ref name="a" />
 <ref extends="a">page 1</ref>
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
@@ -374,7 +374,7 @@ wgCiteBookReferencing=true
 <ref name="foo">book</ref>
 <ref extends="foo" />
 !! html/php
-<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -391,7 +391,7 @@ wgCiteBookReferencing=true
 <ref name="foo">book</ref>
 <ref extends="foo"></ref>
 !! html/php
-<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -408,7 +408,7 @@ wgCiteBookReferencing=true
 <ref name="foo">book</ref>
 <ref extends="foo"> </ref>
 !! html/php
-<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -427,9 +427,9 @@ wgCiteBookReferencing=true
 <ref group="g1" name="b" />
 <references group="g1"/>
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;g1 1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;g1 1.1&#93;</a></sup>
-<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2">&#91;g1 1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>g1 1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>g1 1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-1" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>g1 1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -449,8 +449,8 @@ wgCiteBookReferencing=true
 <references group="g1"/>
 <references group="g2"/>
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;g1 1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;g2 1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>g1 1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>g2 1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -472,8 +472,8 @@ wgCiteBookReferencing=true
 <ref extends="a">page</ref>
 <references group="g1"/>
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;g1 1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>g1 1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -495,8 +495,8 @@ wgCiteBookReferencing=true
 <ref group="g1" extends="a">page</ref>
 <references group="g1"/>
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;g1 1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>g1 1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
@@ -519,8 +519,8 @@ wgCiteBookReferencing=true
 <ref extends="a">ok</ref>
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-</p><p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">part 1 part 2</span>
@@ -541,8 +541,8 @@ wgCiteBookReferencing=true
 <ref follow="b">and page 3 the same time?</ref>
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -561,7 +561,7 @@ wgCiteBookReferencing=true
 <ref follow="a" extends="a">huh?</ref>
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref follow="…"&gt;</code> tag that is the continuation of a previous one can neither be named individually nor extended</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -580,8 +580,8 @@ wgCiteBookReferencing=true
 <ref follow="a" extends="b">huh?</ref>
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2">&#91;2&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b_2-0" class="reference"><a href="#cite_note-b-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref follow="…"&gt;</code> tag that is the continuation of a previous one can neither be named individually nor extended</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
@@ -602,7 +602,7 @@ wgCiteBookReferencing=true
 <ref name="a">Book</ref>
 </references>
 !! html
-<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
@@ -622,7 +622,7 @@ wgCiteBookReferencing=true
 <ref name="a">Book</ref>
 }}
 !! html
-<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
@@ -643,8 +643,8 @@ wgCiteBookReferencing=true
 <ref name="footwo" extends="foo">p. 10</ref>
 }}
 !! html
-<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-footwo_2-0" class="reference"><a href="#cite_note-footwo-2">&#91;2&#93;</a></sup>
+<p><sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-footwo_2-0" class="reference"><a href="#cite_note-footwo-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text">BAR</span>
@@ -665,9 +665,9 @@ wgCiteBookReferencing=true
 <ref name="foo">book name</ref>
 }}
 !! html
-<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-footwo_2-0" class="reference"><a href="#cite_note-footwo-2">&#91;2.1&#93;</a></sup>
-<sup id="cite_ref-foo_3-0" class="reference"><a href="#cite_note-foo-3">&#91;2&#93;</a></sup>
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-footwo_2-0" class="reference"><a href="#cite_note-footwo-2"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-foo_3-0" class="reference"><a href="#cite_note-foo-3"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">BAR</span>
@@ -691,10 +691,10 @@ wgCiteBookReferencing=true
 <ref extends="c">page d</ref>
 <references />
 !! html
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-c_2-0" class="reference"><a href="#cite_note-c-2">&#91;2&#93;</a></sup>
-</p><p><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;2.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-c_2-0" class="reference"><a href="#cite_note-c-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
+</p><p><sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">text-a</span>
@@ -721,8 +721,8 @@ wgCiteBookReferencing=true
 <ref extends="c">page d</ref>
 <references />
 !! html
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">text-a</span>
@@ -730,8 +730,8 @@ wgCiteBookReferencing=true
 </li>
 </ol></li>
 </ol></div>
-<p><sup id="cite_ref-c_3-0" class="reference"><a href="#cite_note-c-3">&#91;1&#93;</a></sup>
-<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-c_3-0" class="reference"><a href="#cite_note-c-3"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-c-3"><span class="mw-cite-backlink"><a href="#cite_ref-c_3-0">↑</a></span> <span class="reference-text">text-c</span>
@@ -754,8 +754,8 @@ wgCiteBookReferencing=true
 <ref extends="a">page d</ref>
 <references />
 !! html
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">text-a</span>
@@ -763,8 +763,8 @@ wgCiteBookReferencing=true
 </li>
 </ol></li>
 </ol></div>
-<p><sup id="cite_ref-a_3-0" class="reference"><a href="#cite_note-a-3">&#91;1&#93;</a></sup>
-<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_3-0" class="reference"><a href="#cite_note-a-3"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-3"><span class="mw-cite-backlink"><a href="#cite_ref-a_3-0">↑</a></span> <span class="reference-text">text-c</span>
@@ -785,9 +785,9 @@ wgCiteBookReferencing=true
 
 <references />
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
-<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">book</span>
@@ -810,9 +810,9 @@ wgCiteBookReferencing=true
 <ref name="c">text-c</ref>
 <references />
 !! html
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1">&#91;1&#93;</a></sup>
-<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;1.1&#93;</a></sup>
-</p><p><sup id="cite_ref-c_3-0" class="reference"><a href="#cite_note-c-3">&#91;2&#93;</a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p><sup id="cite_ref-c_3-0" class="reference"><a href="#cite_note-c-3"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">text-a</span>
@@ -835,8 +835,8 @@ wgCiteBookReferencing=true
 <ref name="a">a</ref>
 </references>
 !! html
-<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
@@ -857,8 +857,8 @@ wgCiteBookReferencing=true
 <ref name="a">a</ref>
 </references>
 !! html
-<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
@@ -884,8 +884,8 @@ wgCiteBookReferencing=true
 <ref name="a">a</ref>
 </references>
 !! html
-<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-a1_2-0" class="reference"><a href="#cite_note-a1-2">&#91;g 1.1&#93;</a></sup>
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-a1_2-0" class="reference"><a href="#cite_note-a1-2"><span class="cite-bracket">&#91;</span>g 1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a in group</span>
@@ -893,7 +893,7 @@ wgCiteBookReferencing=true
 </li>
 </ol></li>
 </ol></div>
-<p><sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a in group <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
@@ -914,8 +914,8 @@ wgCiteBookReferencing=true
 <ref name="a">a</ref>
 </references>
 !! html
-<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
@@ -942,12 +942,12 @@ wgCiteBookReferencing=true
 <ref name="c">a</ref>
 </references>
 !! html
-<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1">&#91;1.1&#93;</a></sup>
-<sup id="cite_ref-b1_2-0" class="reference"><a href="#cite_note-b1-2">&#91;2.1&#93;</a></sup>
-<sup id="cite_ref-b1_2-1" class="reference"><a href="#cite_note-b1-2">&#91;2.1&#93;</a></sup>
-<sup id="cite_ref-c1_3-0" class="reference"><a href="#cite_note-c1-3">&#91;3.1&#93;</a></sup>
-<sup id="cite_ref-c1_3-1" class="reference"><a href="#cite_note-c1-3">&#91;3.1&#93;</a></sup>
+<p><sup id="cite_ref-a1_1-0" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b1_2-0" class="reference"><a href="#cite_note-b1-2"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-b1_2-1" class="reference"><a href="#cite_note-b1-2"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-c1_3-0" class="reference"><a href="#cite_note-c1-3"><span class="cite-bracket">&#91;</span>3.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-c1_3-1" class="reference"><a href="#cite_note-c1-3"><span class="cite-bracket">&#91;</span>3.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>

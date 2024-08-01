@@ -49,7 +49,7 @@
 	"cite-reference-previews-web": "Web reference",
 	"cite-reference-previews-collapsible-placeholder": "This reference includes a figure which does not fit in the preview.",
 	"cite_reference_backlink_symbol": "↑",
-	"cite_reference_link": "<sup id=\"$1\" class=\"reference\">[[#$2|&#91;$3&#93;]]</sup>",
+	"cite_reference_link": "<sup id=\"$1\" class=\"reference\">[[#$2|<span class=\"cite-bracket\">&#91;</span>$3<span class=\"cite-bracket\">&#93;</span>]]</sup>",
 	"cite_references_link_one": "<li id=\"$1\"$4><span class=\"mw-cite-backlink\">[[#$2|↑]]</span> $3</li>",
 	"cite_references_link_many": "<li id=\"$1\"$4><span class=\"mw-cite-backlink\">↑ $2</span> $3</li>",
 	"cite_references_link_many_format": "<sup>[[#$1|$2]]</sup>",

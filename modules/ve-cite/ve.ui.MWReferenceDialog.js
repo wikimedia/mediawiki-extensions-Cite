@@ -121,11 +121,11 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsChoose = function ( item )
 		this.selectedNode = null;
 	}
 
-	this.referenceModel = ref;
-	this.editPanel.setFormFieldsFromRef( ref );
-	this.executeAction( 'insert' );
+	this.insertReference( ref );
 
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'reuse-choose' } );
+
+	this.close( { action: 'insert' } );
 };
 
 /**
@@ -197,27 +197,35 @@ ve.ui.MWReferenceDialog.prototype.openReusePanel = function () {
 };
 
 /**
+ * Insert a reference at the end of the selection, could also be a reuse of an exising reference
+ *
+ * @private
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceDialog.prototype.insertReference = function ( ref ) {
+	const surfaceModel = this.getFragment().getSurface();
+
+	if ( !ref.findInternalItem( surfaceModel ) ) {
+		ref.insertInternalItem( surfaceModel );
+	}
+	// Collapse returns a new fragment, so update this.fragment
+	this.fragment = this.getFragment().collapseToEnd();
+	ref.insertReferenceNode( this.getFragment() );
+};
+
+/**
  * @override
  */
 ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
 		return new OO.ui.Process( () => {
-			const surfaceModel = this.getFragment().getSurface();
-
 			this.referenceModel.setGroup( this.editPanel.referenceGroupInput.getValue() );
 
-			// Insert reference (will auto-create an internal item if needed)
 			if ( !( this.selectedNode instanceof ve.dm.MWReferenceNode ) ) {
-				if ( !this.referenceModel.findInternalItem( surfaceModel ) ) {
-					this.referenceModel.insertInternalItem( surfaceModel );
-				}
-				// Collapse returns a new fragment, so update this.fragment
-				this.fragment = this.getFragment().collapseToEnd();
-				this.referenceModel.insertReferenceNode( this.getFragment() );
+				this.insertReference( this.referenceModel );
 			}
 
-			// Update internal item
-			this.referenceModel.updateInternalItem( surfaceModel );
+			this.referenceModel.updateInternalItem( this.getFragment().getSurface() );
 
 			this.close( { action: action } );
 		} );

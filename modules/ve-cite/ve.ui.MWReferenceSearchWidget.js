@@ -154,17 +154,9 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			// FIXME: Should be impossible to reach
 			continue;
 		}
-		const groupedByParent = docRefs.getGroupRefsByParents( groupName );
-		let flatNodes = [];
-		if ( filterExtends ) {
-			flatNodes = ( groupedByParent[ '' ] || [] );
-		} else {
-			// flatMap
-			( groupedByParent[ '' ] || [] ).forEach( ( parentNode ) => {
-				flatNodes.push( parentNode );
-				flatNodes = flatNodes.concat( groupedByParent[ parentNode.getAttribute( 'listKey' ) ] || [] );
-			} );
-		}
+		const groupRefs = docRefs.getGroupRefs( groupName );
+		const flatNodes = groupRefs.getAllRefsInDocumentOrder()
+			.filter( ( node ) => !filterExtends || !node.getAttribute( 'extendsRef' ) );
 
 		index = index.concat( flatNodes.map( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );

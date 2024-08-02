@@ -15,14 +15,16 @@ function getInternalListMock( hasNode ) {
 	} : {};
 	const groups = hasNode ? {
 		'mwReference/': {
-			indexOrder: [ 0 ]
+			indexOrder: [ 0 ],
+			firstNodes: [ node ],
+			keyedNodes: { [ listKey ]: [ node ] }
 		}
 	} : {};
 	const docRefsMock = {
 		getAllGroupNames: () => ( Object.keys( groups ) ),
-		getGroupRefsByParents: () => ( { '': [ node ] } ),
 		getIndexLabel: () => ( '1' ),
-		getItemNode: () => ( node )
+		getItemNode: () => ( node ),
+		getGroupRefs: ( groupName ) => ( ve.dm.MWGroupReferences.static.makeGroupRefs( groups[ groupName ] ) )
 	};
 	const docMock = {
 		getStorage: () => ( docRefsMock ),
@@ -31,7 +33,8 @@ function getInternalListMock( hasNode ) {
 	const mockInternalList = {
 		getDocument: () => ( docMock ),
 		getNodeGroups: () => ( groups ),
-		getItemNode: () => ( node )
+		getItemNode: () => ( node ),
+		getNodeGroup: ( groupName ) => ( groups[ groupName ] )
 	};
 	docMock.getInternalList = () => ( mockInternalList );
 	node.getDocument = () => ( docMock );

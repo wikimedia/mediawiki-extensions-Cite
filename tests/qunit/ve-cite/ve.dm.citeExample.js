@@ -728,7 +728,7 @@ ve.dm.citeExample.domToDataCases = {
 				 data-mw='{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}'
 				 class="mw-ref reference">
 					<a>
-						<span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span>
+						<span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span>
 					</a>
 				</sup>
 			</p>

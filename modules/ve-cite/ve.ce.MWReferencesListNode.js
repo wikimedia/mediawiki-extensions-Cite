@@ -240,12 +240,15 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$refmsg.text( emptyText );
 		this.$element.append( this.$refmsg );
 	} else {
-		const groupedByParent = this.docRefs.getGroupRefsByParents( listGroup );
-		const topLevelNodes = groupedByParent[ '' ] || [];
+		const groupRefs = this.docRefs.getGroupRefs( listGroup );
 		this.$reflist.append(
-			topLevelNodes.map( ( node ) => this.renderListItem(
-				nodes, internalList, groupedByParent, refGroup, node
-			) )
+			// FIXME: Clean up access functions.
+			Object.keys( groupRefs.footnoteNumberLookup )
+				.filter( ( listKey ) => groupRefs.footnoteNumberLookup[ listKey ][ 1 ] === -1 )
+				.sort( ( aKey, bKey ) => groupRefs.footnoteNumberLookup[ aKey ][ 0 ] - groupRefs.footnoteNumberLookup[ bKey ][ 0 ] )
+				.map( ( listKey ) => this.renderListItem(
+					nodes, internalList, groupRefs, refGroup, listKey
+				) )
 		);
 
 		this.updateClasses();
@@ -259,24 +262,23 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
  * @private
  * @param {Object} nodes Node group object, containing nodes and key order array
  * @param {ve.dm.InternalList} internalList Internal list
- * @param {Object.<string, ve.dm.MWReferenceNode[]>} groupedByParent Mapping
- *  from parent ref name (or '' for top-level) to refs
+ * @param {ve.dm.MWGroupReferences} groupRefs object holding calculated information about all group refs
  * @param {string} refGroup Reference group
- * @param {ve.dm.MWReferenceNode} node Reference node to render as a footnote body
+ * @param {string} key top-level reference key, doesn't necessarily exist
  * @return {jQuery} Rendered list item
  */
-ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, groupedByParent, refGroup, node ) {
-	const listIndex = node.getAttribute( 'listIndex' );
-	const key = internalList.keys[ listIndex ];
-	const keyedNodes = ( nodes.keyedNodes[ key ] || [] )
-		.filter(
-			// Exclude placeholders and references defined inside the references list node
-			( backRefNode ) => !backRefNode.getAttribute( 'placeholder' ) && !backRefNode.findParent( ve.dm.MWReferencesListNode )
-		);
+ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, groupRefs, refGroup, key ) {
+	const keyedNodes = nodes.keyedNodes[ key ] || [];
+	const node = keyedNodes ? keyedNodes[ 0 ] : null;
+	const listIndex = node ? node.getAttribute( 'listIndex' ) : null;
+	const backlinkNodes = keyedNodes.filter(
+		// Exclude placeholders and references defined inside the references list node
+		( backRefNode ) => !backRefNode.getAttribute( 'placeholder' ) && !backRefNode.findParent( ve.dm.MWReferencesListNode )
+	);
 
 	const $li = $( '<li>' )
-		.css( '--footnote-number', `"${ this.docRefs.getIndexLabel( refGroup, key ) }."` )
-		.append( this.renderBacklinks( keyedNodes, refGroup ), ' ' );
+		.css( '--footnote-number', `"${ groupRefs.getIndexLabel( key ) }."` )
+		.append( this.renderBacklinks( backlinkNodes, refGroup ), ' ' );
 
 	// Generate reference HTML from first item in key
 	const modelNode = internalList.getItemNode( listIndex );
@@ -320,23 +322,24 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 				e.preventDefault();
 			} );
 		}
-		const listKey = node.getAttribute( 'listKey' );
-		const subrefs = groupedByParent[ listKey ] || [];
-		if ( subrefs.length ) {
-			$li.append(
-				$( '<ol>' ).append(
-					subrefs.map( ( subNode ) => this.renderListItem(
-						nodes, internalList, groupedByParent, refGroup, subNode
-					) )
-				)
-			);
-		}
 	} else {
+		// TODO: Special rendering for missing parent of orphaned subrefs?
 		$li.append(
 			$( '<span>' )
 				.addClass( 've-ce-mwReferencesListNode-muted' )
 				.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) )
 		).addClass( 've-ce-mwReferencesListNode-missingRef' );
+	}
+
+	const subrefs = groupRefs.getSubrefs( key );
+	if ( subrefs.length ) {
+		$li.append(
+			$( '<ol>' ).append(
+				subrefs.map( ( subNode ) => this.renderListItem(
+					nodes, internalList, groupRefs, refGroup, subNode.getAttribute( 'listKey' )
+				) )
+			)
+		);
 	}
 
 	return $li;

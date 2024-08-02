@@ -72,6 +72,7 @@
 			"remoteExtPath": "Cite/modules/ve-cite",
 			"scripts": [
 				"ve.dm.MWDocumentReferences.js",
+				"ve.dm.MWGroupReferences.js",
 				"ve.dm.MWReferenceModel.js",
 				"ve.dm.MWReferencesListNode.js",
 				"ve.dm.MWReferenceNode.js",

@@ -233,10 +233,9 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( ref ) {
-	if ( ref.extendsRef ) {
-		const itemNode = this.internalList.getItemNode(
-			this.internalList.keys.indexOf( ref.extendsRef )
-		);
+	const mainRefId = this.internalList.keys.indexOf( ref.extendsRef );
+	if ( mainRefId !== -1 ) {
+		const itemNode = this.internalList.getItemNode( mainRefId );
 		const $parentRefPreview = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 		this.extendsWarning.setLabel(
 			$( '<p>' )
@@ -245,7 +244,7 @@ ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( re
 		);
 	}
 
-	this.extendsWarning.toggle( !!ref.extendsRef );
+	this.extendsWarning.toggle( mainRefId !== -1 );
 };
 
 /**

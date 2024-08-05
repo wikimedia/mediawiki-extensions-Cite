@@ -353,11 +353,10 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 	 * @dataProvider provideReferencesFormatEntryAlternateBacklinkLabel
 	 */
 	public function testReferencesFormatEntryAlternateBacklinkLabel(
-		?string $expectedLabel, ?string $labelList, int $offset
+		?string $expectedLabel, string $labelList, int $offset
 	) {
-		$mockMessage = $this->createMock( Message::class );
-		$mockMessage->method( 'exists' )->willReturn( (bool)$labelList );
-		$mockMessage->method( 'plain' )->willReturn( $labelList ?? '<missing-junk>' );
+		$mockMessage = $this->createNoOpMock( Message::class, [ 'plain' ] );
+		$mockMessage->method( 'plain' )->willReturn( $labelList );
 
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )

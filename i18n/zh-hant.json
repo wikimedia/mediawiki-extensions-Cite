@@ -61,5 +61,6 @@
 	"cite-wikieditor-help-content-showreferences-description": "顯示參考來源",
 	"cite-wikieditor-help-content-reference-example-text1": "頁面文字。$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 連結文字]，其他文字。",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 連結文字]"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 連結文字]",
+	"cite-wikieditor-help-content-reference-example-extra-details": "額外詳細資料"
 }

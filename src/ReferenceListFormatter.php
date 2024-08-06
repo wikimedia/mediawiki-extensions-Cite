@@ -184,16 +184,16 @@ class ReferenceListFormatter {
 		// Named references with >1 occurrences
 		$backlinks = [];
 		for ( $i = 0; $i < $ref->count; $i++ ) {
+			$numericLabel = $this->referencesFormatEntryNumericBacklinkLabel(
+				$ref->number . ( $ref->extendsIndex ? '.' . $ref->extendsIndex : '' ),
+				$i,
+				$ref->count
+			);
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
 				$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
-				$this->referencesFormatEntryNumericBacklinkLabel(
-					$ref->number .
-						( isset( $ref->extendsIndex ) ? '.' . $ref->extendsIndex : '' ),
-					$i,
-					$ref->count
-				),
-				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i )
+				$numericLabel,
+				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i ) ?? $numericLabel
 			)->plain();
 		}
 		$linkTargetId = $ref->count > 0 ?
@@ -267,12 +267,16 @@ class ReferenceListFormatter {
 	 */
 	private function referencesFormatEntryAlternateBacklinkLabel(
 		Parser $parser, int $offset
-	): string {
-		$this->backlinkLabels ??= preg_split(
-			'/\s+/',
-			$this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' )
-				->plain()
-		);
+	): ?string {
+		if ( !isset( $this->backlinkLabels ) ) {
+			$msg = $this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' );
+			$this->backlinkLabels = $msg->isDisabled() ? [] : preg_split( '/\s+/', $msg->plain() );
+		}
+
+		// Disabling the message just disables the feature
+		if ( !$this->backlinkLabels ) {
+			return null;
+		}
 
 		return $this->backlinkLabels[$offset]
 			?? $this->errorReporter->plain( $parser, 'cite_error_references_no_backlink_label' );

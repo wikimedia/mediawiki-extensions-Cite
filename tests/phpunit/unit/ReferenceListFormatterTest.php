@@ -199,9 +199,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		string $expectedOutput
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
-		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
-		);
+		$mockErrorReporter->method( 'plain' )->willReturnArgument( 1 );
 
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
 		$anchorFormatter->method( 'backLink' )->willReturnCallback(
@@ -291,9 +289,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 				'expectedOutput' => '(cite_references_link_many|1-5|(cite_references_link_many_format|1+5-0|3.0|' .
 				'(cite_references_link_many_format_backlink_labels))' .
 				'(cite_references_link_many_sep)(cite_references_link_many_format|1+5-1|3.1|' .
-				'(cite_error_references_no_backlink_label))(cite_references_link_many_and)' .
-				'(cite_references_link_many_format|1+5-2|3.2|(cite_error_references_no_backlink_label' .
-				'))|<span class="reference-text">t</span>' . "\n|)"
+				'cite_error_references_no_backlink_label)(cite_references_link_many_and)' .
+				'(cite_references_link_many_format|1+5-2|3.2|cite_error_references_no_backlink_label' .
+				')|<span class="reference-text">t</span>' . "\n|)"
 			],
 		];
 	}

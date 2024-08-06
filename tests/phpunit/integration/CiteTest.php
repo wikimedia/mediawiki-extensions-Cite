@@ -135,9 +135,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed' ] );
-		$spy->errorReporter->method( 'halfParsed' )->willReturnCallback(
-			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
-		);
+		$spy->errorReporter->method( 'halfParsed' )->willReturnArgument( 1 );
 		$spy->referenceListFormatter = $this->createMock( ReferenceListFormatter::class );
 		$spy->referenceListFormatter->method( 'formatReferences' )
 			->with( $parser, [], $expectedResponsive, false )
@@ -195,7 +193,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedRollbackCount' => 0,
 				'expectedInReferencesGroup' => '',
 				'expectedResponsive' => false,
-				'expectedOutput' => '(cite_error_references_invalid_parameters)',
+				'expectedOutput' => 'cite_error_references_invalid_parameters',
 			],
 			'Contains refs (which are broken)' => [
 				'text' => Parser::MARKER_PREFIX . '-ref- and ' . Parser::MARKER_PREFIX . '-notref-',
@@ -203,7 +201,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedRollbackCount' => 1,
 				'expectedInReferencesGroup' => '',
 				'expectedResponsive' => false,
-				'expectedOutput' => "references!\n(cite_error_references_no_key)"
+				'expectedOutput' => "references!\ncite_error_references_no_key"
 			],
 		];
 	}
@@ -226,10 +224,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockParser->method( 'getStripState' )
 			->willReturn( $this->createMock( StripState::class ) );
 
-		$errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed', 'plain' ] );
-		$errorReporter->method( $this->logicalOr( 'halfParsed', 'plain' ) )->willReturnCallback(
-			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
-		);
+		$errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed' ] );
+		$errorReporter->method( 'halfParsed' )->willReturnArgument( 1 );
 
 		$referenceStack = new ReferenceStack();
 		/** @var ReferenceStack $stackSpy */
@@ -337,7 +333,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				],
 				'inReferencesGroup' => null,
 				'initialRefs' => [],
-				'expectedOutput' => '(cite_error_ref_too_many_keys)',
+				'expectedOutput' => 'cite_error_ref_too_many_keys',
 				'expectedError' => null,
 				'expectedRefs' => []
 			],

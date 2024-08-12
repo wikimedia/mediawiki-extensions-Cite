@@ -274,7 +274,6 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( () => {
-			this.editPanel.referenceTarget.getSurface().getModel().disconnect( this );
 			this.editPanel.clear();
 			this.reuseSearch.clearSearch();
 			this.referenceModel = null;

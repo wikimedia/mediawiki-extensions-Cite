@@ -23,9 +23,11 @@
 	"cite-desc": "Tarjoaa <code>&lt;ref&gt;</code>- ja <code>&lt;references&gt;</code>-elementit viittauksien tekemiseen.",
 	"cite_error": "Viittausvirhe: $1",
 	"cite_error_ref_invalid_dir": "Virheellinen <code>dir=\"$1\"</code>, tulee olla <code>ltr</code> tai <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "Yhdessä nimellä ”$1” olevista <code>&lt;ref&gt;</code>-elementeistä on ristiriitainen dir-attribuutti",
 	"cite_error_ref_numeric_key": "Virheellinen <code>&lt;ref&gt;</code>-elementti; nimi ei voi olla luku. Käytä kuvaavampaa nimeä",
 	"cite_error_ref_no_key": "Avaava <code>&lt;ref&gt;</code>-elementti on väärän muotoinen tai sillä on virheellinen nimi",
 	"cite_error_ref_too_many_keys": "Virheellinen parametri <code>&lt;ref&gt;</code>-elementissä",
+	"cite_error_ref_nested_extends": "<code>&lt;ref&gt;</code>-elementtien jatkaminen yli yhden tason syvyyteen ei ole sallittua",
 	"cite_error_ref_no_input": "Virheellinen <code>&lt;ref&gt;</code>-elementti; viitteillä ilman nimiä täytyy olla sisältöä",
 	"cite_error_references_duplicate_key": "Virheellinen <code>&lt;ref&gt;</code>-elementti; nimi ”$1” on määritetty usean kerran eri sisällöillä",
 	"cite_error_references_invalid_parameters": "Virheellinen parametri <code>&lt;references&gt;</code>-elementissä",
@@ -41,6 +43,8 @@
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä nimellä ”$1” ei ole sisältöä.",
 	"cite-tracking-category-cite-error": "Sivut, joissa on viittausvirheitä",
 	"cite-tracking-category-cite-error-desc": "Tässä luokassa olevissa sivuissa on virheitä viite-elementtien käytössä.",
+	"cite-tracking-category-ref-extends": "Sivut, jotka käyttävät lähteiden jatkeita",
+	"cite-tracking-category-ref-extends-desc": "Tässä luokassa olevat sivut käyttävät &lt;ref&gt;-elementin ”extends”-attribuuttia.",
 	"cite-reference-previews-reference": "Viite",
 	"cite-reference-previews-book": "Kirjaviite",
 	"cite-reference-previews-journal": "Lehtiviite",
@@ -59,5 +63,9 @@
 	"cite-wikieditor-help-content-reference-description": "Viite",
 	"cite-wikieditor-help-content-named-reference-description": "Nimetty viite",
 	"cite-wikieditor-help-content-rereference-description": "Saman viitteen lisäkäyttö",
-	"cite-wikieditor-help-content-showreferences-description": "Näytä viitteet"
+	"cite-wikieditor-help-content-extended-reference-description": "Saman viitteen lisäkäyttö lisätiedoilla",
+	"cite-wikieditor-help-content-showreferences-description": "Näytä viitteet",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linkin teksti], lisäteksti.",
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linkin teksti]",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Lisätiedot"
 }

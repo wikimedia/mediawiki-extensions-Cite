@@ -24,3 +24,27 @@ QUnit.test( 'setReferenceForEditing', ( assert ) => {
 	assert.false( editPanel.reuseWarning.isVisible() );
 	assert.false( editPanel.extendsWarning.isVisible() );
 } );
+
+QUnit.test( 'sub refs', ( assert ) => {
+	ve.init.target.surface = { commandRegistry: { registry: {} } };
+	const editPanel = new ve.ui.MWReferenceEditPanel();
+
+	const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+	const ref = new ve.dm.MWReferenceModel( doc );
+
+	editPanel.setInternalList( doc.getInternalList() );
+	// does exist in the example document
+	ref.extendsRef = 'literal/bar';
+	editPanel.setReferenceForEditing( ref );
+
+	assert.false( editPanel.reuseWarning.isVisible() );
+	assert.true( editPanel.extendsWarning.isVisible() );
+	assert.true( !!editPanel.extendsWarning.getLabel().text().indexOf( 'Bar' ) );
+
+	// test sub ref with missing main ref
+	ref.extendsRef = 'literal/notexist';
+	editPanel.setReferenceForEditing( ref );
+
+	assert.false( editPanel.reuseWarning.isVisible() );
+	assert.false( editPanel.extendsWarning.isVisible() );
+} );

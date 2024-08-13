@@ -278,6 +278,7 @@ ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( re
 /**
  * Handle reference change events
  *
+ * @private
  * @fires ve.ui.MWReferenceEditPanel#change
  */
 ve.ui.MWReferenceEditPanel.prototype.onInputChange = function () {
@@ -290,6 +291,7 @@ ve.ui.MWReferenceEditPanel.prototype.onInputChange = function () {
 /**
  * Determine whether the reference document we're editing has any content.
  *
+ * @private
  * @return {boolean} Document has content
  */
 ve.ui.MWReferenceEditPanel.prototype.documentHasContent = function () {
@@ -300,6 +302,7 @@ ve.ui.MWReferenceEditPanel.prototype.documentHasContent = function () {
 /**
  * Determine whether any changes have been made (and haven't been undone).
  *
+ * @private
  * @return {boolean} Changes have been made
  */
 ve.ui.MWReferenceEditPanel.prototype.isModified = function () {

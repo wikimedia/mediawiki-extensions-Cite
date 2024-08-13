@@ -31,6 +31,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	// Properties
 	this.originalGroup = null;
 	this.internalList = null;
+	this.referenceModel = null;
 
 	// Create content editor
 	this.referenceTarget = ve.init.target.createTargetWidget(
@@ -192,9 +193,21 @@ ve.ui.MWReferenceEditPanel.prototype.setInternalList = function ( internalList )
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
+	this.referenceModel = ref;
 	this.setFormFieldsFromRef( ref );
 	this.updateReuseWarningFromRef( ref );
 	this.updateExtendsWarningFromRef( ref );
+};
+
+/**
+ * @return {ve.dm.MWReferenceModel|null} Updated reference
+ */
+ve.ui.MWReferenceEditPanel.prototype.getReferenceFromEditing = function () {
+	if ( this.referenceModel ) {
+		this.referenceModel.setGroup( this.referenceGroupInput.getValue() );
+	}
+
+	return this.referenceModel;
 };
 
 /**

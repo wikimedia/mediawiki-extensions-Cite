@@ -23,6 +23,7 @@ QUnit.test( 'setReferenceForEditing', ( assert ) => {
 	assert.false( editPanel.referenceGroupInput.isDisabled() );
 	assert.false( editPanel.reuseWarning.isVisible() );
 	assert.false( editPanel.extendsWarning.isVisible() );
+	assert.strictEqual( editPanel.getReferenceFromEditing().getGroup(), 'g' );
 } );
 
 QUnit.test( 'sub refs', ( assert ) => {

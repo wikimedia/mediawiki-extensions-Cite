@@ -219,7 +219,7 @@ ve.ui.MWReferenceDialog.prototype.insertReference = function ( ref ) {
 ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
 		return new OO.ui.Process( () => {
-			this.referenceModel.setGroup( this.editPanel.referenceGroupInput.getValue() );
+			this.referenceModel = this.editPanel.getReferenceFromEditing();
 
 			if ( !( this.selectedNode instanceof ve.dm.MWReferenceNode ) ) {
 				this.insertReference( this.referenceModel );

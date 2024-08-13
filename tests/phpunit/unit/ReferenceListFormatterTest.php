@@ -389,10 +389,10 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 	 * @dataProvider provideReferencesFormatEntryNumericBacklinkLabel
 	 */
 	public function testReferencesFormatEntryNumericBacklinkLabel(
-		string $expectedLabel, int $base, int $offset, int $max
+		string $expectedLabel, string $base, int $offset, int $max
 	) {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturnArgument( 0 );
+		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturn( ',' );
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
 
 		/** @var ReferenceListFormatter $formatter */
@@ -407,11 +407,12 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 	}
 
 	public static function provideReferencesFormatEntryNumericBacklinkLabel() {
-		yield [ '1.2', 1, 2, 9 ];
-		yield [ '1.02', 1, 2, 99 ];
-		yield [ '1.002', 1, 2, 100 ];
-		yield [ '1.50005', 1, 50005, 50005 ];
-		yield [ '2.1', 2, 1, 1 ];
+		yield [ '1,2', '1', 2, 9 ];
+		yield [ '1,02', '1', 2, 99 ];
+		yield [ '1,002', '1', 2, 100 ];
+		yield [ '1,50005', '1', 50005, 50005 ];
+		yield [ '2,1', '2', 1, 1 ];
+		yield [ '3.2,1', '3.2', 1, 1 ];
 	}
 
 	/**

@@ -174,9 +174,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 	public function testCloseIndention( $closingLi, $expectedOutput ) {
 		/** @var ReferenceListFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
-			$this->createMock( ErrorReporter::class ),
-			$this->createMock( AnchorFormatter::class ),
-			$this->createMock( ReferenceMessageLocalizer::class )
+			$this->createNoOpMock( ErrorReporter::class ),
+			$this->createNoOpMock( AnchorFormatter::class ),
+			$this->createNoOpMock( ReferenceMessageLocalizer::class )
 		) );
 
 		$output = $formatter->closeIndention( $closingLi );
@@ -312,8 +312,8 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		/** @var ReferenceListFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$mockErrorReporter,
-			$this->createMock( AnchorFormatter::class ),
-			$this->createMock( ReferenceMessageLocalizer::class )
+			$this->createNoOpMock( AnchorFormatter::class ),
+			$this->createNoOpMock( ReferenceMessageLocalizer::class )
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
@@ -367,7 +367,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		/** @var ReferenceListFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$errorReporter,
-			$this->createMock( AnchorFormatter::class ),
+			$this->createNoOpMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 
@@ -397,8 +397,8 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 
 		/** @var ReferenceListFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
-			$this->createMock( ErrorReporter::class ),
-			$this->createMock( AnchorFormatter::class ),
+			$this->createNoOpMock( ErrorReporter::class ),
+			$this->createNoOpMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 
@@ -429,8 +429,8 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 
 		/** @var ReferenceListFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
-			$this->createMock( ErrorReporter::class ),
-			$this->createMock( AnchorFormatter::class ),
+			$this->createNoOpMock( ErrorReporter::class ),
+			$this->createNoOpMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 		$this->assertSame( $expected, $formatter->listToText( $list ) );

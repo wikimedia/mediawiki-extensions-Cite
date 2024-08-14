@@ -19,7 +19,6 @@ ve.ui.MWReferenceDialog = function VeUiMWReferenceDialog( config ) {
 	ve.ui.MWReferenceDialog.super.call( this, config );
 
 	// Properties
-	this.referenceModel = null;
 	this.reuseReference = false;
 };
 
@@ -185,13 +184,13 @@ ve.ui.MWReferenceDialog.prototype.insertReference = function ( ref ) {
 ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
 		return new OO.ui.Process( () => {
-			this.referenceModel = this.editPanel.getReferenceFromEditing();
+			const ref = this.editPanel.getReferenceFromEditing();
 
 			if ( !( this.selectedNode instanceof ve.dm.MWReferenceNode ) ) {
-				this.insertReference( this.referenceModel );
+				this.insertReference( ref );
 			}
 
-			this.referenceModel.updateInternalItem( this.getFragment().getSurface() );
+			ref.updateInternalItem( this.getFragment().getSurface() );
 
 			this.close( { action: action } );
 		} );
@@ -212,15 +211,16 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			this.editPanel.setInternalList( this.getFragment().getDocument().getInternalList() );
 			this.actions.setAbilities( { done: false } );
 
+			let ref;
 			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
 				// edit an existing reference
-				this.referenceModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
+				ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 			} else {
 				// create a new reference
-				this.referenceModel = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
+				ref = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
 				this.actions.setAbilities( { insert: false } );
 			}
-			this.editPanel.setReferenceForEditing( this.referenceModel );
+			this.editPanel.setReferenceForEditing( ref );
 			this.editPanel.setReadOnly( this.isReadOnly() );
 
 			this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
@@ -242,7 +242,6 @@ ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 		.first( () => {
 			this.editPanel.clear();
 			this.reuseSearch.clearSearch();
-			this.referenceModel = null;
 		} );
 };
 

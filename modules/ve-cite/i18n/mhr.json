@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Lifeway",
+			"Mxalexandrov86",
 			"Валентина Семёнова"
 		]
 	},
@@ -18,6 +19,7 @@
 	"cite-ve-citationneeded-button": "Цитатым ешараш",
 	"cite-ve-citationneeded-reason": "Ончыктымо амал:",
 	"cite-ve-citationneeded-title": "Важыш кылвер кӱлеш",
+	"cite-ve-dialog-reference-editing-extends-long": "Тиде вес \"$1\" кылверым шуйымаш",
 	"cite-ve-dialog-reference-options-group-label": "Тиде тӱшкам кучылташ",
 	"cite-ve-dialog-reference-options-section": "Параметр-влак",
 	"cite-ve-dialog-reference-title": "Палемдымаш",

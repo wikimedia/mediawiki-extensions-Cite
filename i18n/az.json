@@ -31,6 +31,8 @@
 	"cite_error_references_missing_key": "<references> daxilindəki \"$1\" adlı <ref> teqi əvvəlki mətndə istifadə olunmur",
 	"cite-tracking-category-cite-error": "İstinad xətası olan səhifələr",
 	"cite-tracking-category-cite-error-desc": "Bu kateqoriyadakı səhifələrdə istinad teqlərinin istifadəsində səhvlər var.",
+	"cite-tracking-category-ref-extends": "Genişləndirilmiş istinadlardan istifadə edən səhifələr",
+	"cite-tracking-category-ref-extends-desc": "Bu kateqoriyadakı səhifələr &lt;ref&gt; teqinin \"extends\" atributundan istifadə edir.",
 	"cite-reference-previews-reference": "İstinad",
 	"cite-reference-previews-book": "Kitab istinadı",
 	"cite-reference-previews-journal": "Jurnal istinadı",

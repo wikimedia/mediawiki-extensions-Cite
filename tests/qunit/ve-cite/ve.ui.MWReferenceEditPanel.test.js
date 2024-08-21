@@ -46,12 +46,13 @@ QUnit.test( 'sub refs', ( assert ) => {
 
 	assert.false( editPanel.reuseWarning.isVisible() );
 	assert.true( editPanel.extendsWarning.isVisible() );
-	assert.true( !!editPanel.extendsWarning.getLabel().text().indexOf( 'Bar' ) );
+	assert.true( editPanel.extendsWarning.getLabel().text().indexOf( 'Bar' ) !== -1 );
 
 	// test sub ref with missing main ref
 	ref.extendsRef = 'literal/notexist';
 	editPanel.setReferenceForEditing( ref );
 
 	assert.false( editPanel.reuseWarning.isVisible() );
-	assert.false( editPanel.extendsWarning.isVisible() );
+	assert.true( editPanel.extendsWarning.isVisible() );
+	assert.true( editPanel.extendsWarning.getLabel().text().indexOf( 'cite-ve-dialog-reference-missing-parent-ref' ) !== -1 );
 } );

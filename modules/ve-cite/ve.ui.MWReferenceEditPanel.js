@@ -261,18 +261,21 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( ref ) {
-	const mainRefId = this.internalList.keys.indexOf( ref.extendsRef );
-	if ( mainRefId !== -1 ) {
-		const itemNode = this.internalList.getItemNode( mainRefId );
-		const $parentRefPreview = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
+	if ( ref.extendsRef ) {
+		const mainRefId = this.internalList.keys.indexOf( ref.extendsRef );
 		this.extendsWarning.setLabel(
 			$( '<p>' )
 				.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) )
-				.append( $parentRefPreview )
+				.append( mainRefId === -1 ?
+					$( '<div>' )
+						.addClass( 've-ui-mwReferenceContextItem-muted' )
+						.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) ) :
+					new ve.ui.MWPreviewElement( this.internalList.getItemNode( mainRefId ), { useView: true } ).$element )
 		);
+		this.extendsWarning.toggle( true );
+	} else {
+		this.extendsWarning.toggle( false );
 	}
-
-	this.extendsWarning.toggle( mainRefId !== -1 );
 };
 
 /**

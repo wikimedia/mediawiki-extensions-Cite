@@ -275,6 +275,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 		// Exclude placeholders and references defined inside the references list node
 		( backRefNode ) => !backRefNode.getAttribute( 'placeholder' ) && !backRefNode.findParent( ve.dm.MWReferencesListNode )
 	);
+	const subrefs = groupRefs.subRefsByParent[ key ] || [];
 
 	const $li = $( '<li>' )
 		.css( '--footnote-number', `"${ groupRefs.getIndexLabel( key ) }."` )
@@ -323,15 +324,14 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 			} );
 		}
 	} else {
-		// TODO: Special rendering for missing parent of orphaned subrefs?
 		$li.append(
 			$( '<span>' )
 				.addClass( 've-ce-mwReferencesListNode-muted' )
-				.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) )
+				.text( subrefs.length ? ve.msg( 'cite-ve-referenceslist-missing-parent' ) :
+					ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) )
 		).addClass( 've-ce-mwReferencesListNode-missingRef' );
 	}
 
-	const subrefs = groupRefs.getSubrefs( key );
 	if ( subrefs.length ) {
 		$li.append(
 			$( '<ol>' ).append(

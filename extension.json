@@ -90,6 +90,7 @@
 			"messages": [
 				"cite-ve-referenceslist-isempty",
 				"cite-ve-referenceslist-isempty-default",
+				"cite-ve-referenceslist-missing-parent",
 				"cite-ve-referenceslist-missingref",
 				"cite-ve-referenceslist-missingref-in-list",
 				"cite-ve-referenceslist-missingreflist"

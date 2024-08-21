@@ -2,20 +2,30 @@
 
 QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
-function getInternalListMock( groups, mockWithNode ) {
-	groups = groups || {};
-	const node = mockWithNode ? {
-		getAttribute: () => ( 'literal/foo' ),
+function getInternalListMock( hasNode ) {
+	const listKey = 'literal/foo';
+	const node = hasNode ? {
+		getAttribute: ( name ) => {
+			switch ( name ) {
+				case 'listKey': return listKey;
+				default: return undefined;
+			}
+		},
 		getAttributes: () => ( {} )
 	} : {};
-	const refDocMock = {
+	const groups = hasNode ? {
+		'mwReference/': {
+			indexOrder: [ 0 ]
+		}
+	} : {};
+	const docRefsMock = {
 		getAllGroupNames: () => ( Object.keys( groups ) ),
 		getGroupRefsByParents: () => ( { '': [ node ] } ),
 		getIndexLabel: () => ( '1' ),
 		getItemNode: () => ( node )
 	};
 	const docMock = {
-		getStorage: () => ( refDocMock ),
+		getStorage: () => ( docRefsMock ),
 		getOriginalDocument: () => ( null )
 	};
 	const mockInternalList = {
@@ -57,8 +67,7 @@ QUnit.test( 'buildSearchIndex when empty', ( assert ) => {
 
 QUnit.test( 'buildSearchIndex', ( assert ) => {
 	const widget = new ve.ui.MWReferenceSearchWidget();
-	const groups = { 'mwReference/': {} };
-	widget.internalList = getInternalListMock( groups, true );
+	widget.internalList = getInternalListMock( true );
 
 	const index = widget.buildSearchIndex();
 	assert.deepEqual( index.length, 1 );

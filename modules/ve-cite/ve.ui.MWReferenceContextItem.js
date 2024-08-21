@@ -135,7 +135,10 @@ ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
 	}
 	const list = this.getFragment().getDocument().getInternalList();
 	const itemNode = list.getItemNode( list.keys.indexOf( extendsRef ) );
-	return new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
+	return itemNode ? new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element :
+		$( '<div>' )
+			.addClass( 've-ui-mwReferenceContextItem-muted' )
+			.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) );
 };
 
 /**

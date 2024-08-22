@@ -15,7 +15,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.42.0"
+		"MediaWiki": ">= 1.43"
 	},
 	"MessagesDirs": {
 		"Cite": [
@@ -333,35 +333,39 @@
 		"cite-tracking-category-cite-error",
 		"cite-tracking-category-ref-extends"
 	],
-	"ParsoidModules": [ {
-		"name": "Cite",
-		"domProcessors": [
-			"Cite\\Parsoid\\RefProcessor"
-		],
-		"tags": [
-			{
-				"name": "ref",
-				"handler": "Cite\\Parsoid\\Ref",
-				"options": {
-					"wt2html": {
-						"unpackOutput": false,
-						"embedsHTMLInAttributes": true
-					},
-					"outputHasCoreMwDomSpecMarkup": true
+	"ParsoidModules": [
+		{
+			"name": "Cite",
+			"domProcessors": [
+				"Cite\\Parsoid\\RefProcessor"
+			],
+			"tags": [
+				{
+					"name": "ref",
+					"handler": "Cite\\Parsoid\\Ref",
+					"options": {
+						"wt2html": {
+							"unpackOutput": false,
+							"embedsHTMLInAttributes": true
+						},
+						"outputHasCoreMwDomSpecMarkup": true
+					}
+				},
+				{
+					"name": "references",
+					"handler": "Cite\\Parsoid\\References",
+					"options": {
+						"wt2html": {
+							"embedsHTMLInAttributes": true
+						},
+						"html2wt": {
+							"format": "block"
+						},
+						"outputHasCoreMwDomSpecMarkup": true
+					}
 				}
-			},
-			{
-				"name": "references",
-				"handler": "Cite\\Parsoid\\References",
-				"options": {
-					"wt2html": {
-						"embedsHTMLInAttributes": true
-					},
-					"html2wt": { "format": "block" },
-					"outputHasCoreMwDomSpecMarkup": true
-				}
-			}
-		]
-	} ],
+			]
+		}
+	],
 	"manifest_version": 2
 }

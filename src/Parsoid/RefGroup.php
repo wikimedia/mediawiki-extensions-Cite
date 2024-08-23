@@ -108,5 +108,8 @@ class RefGroup {
 
 		// Add it to the ref list
 		$refsList->appendChild( $li );
+
+		// Backward-compatibility: add newline (T372889)
+		$refsList->appendChild( $ownerDoc->createTextNode( "\n" ) );
 	}
 }

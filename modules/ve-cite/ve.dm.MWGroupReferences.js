@@ -11,7 +11,6 @@
  * This structure is persisted in memory until a document change affects a ref
  * tag from this group, at which point it will be fully recalculated.
  *
- * @private
  * @constructor
  */
 ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
@@ -19,13 +18,33 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 	OO.EventEmitter.call( this );
 
 	// Properties
+	/**
+	 * Lookup from listKey to a pair of integers which are the [major, minor] footnote numbers
+	 * that will be rendered on the ref in some digit system.  Note that top-level refs always
+	 * have minor number `-1`.
+	 *
+	 * @member {Object.<string, number[]>}
+	 */
 	this.footnoteNumberLookup = {};
-	// FIXME: push labeling to presentation code and drop from here.
+	/**
+	 * Lookup from listKey to a rendered footnote number or subref number like "1.2", in the
+	 * local content language.
+	 *
+	 * FIXME: push labeling to presentation code and drop from here.
+	 *
+	 * @member {Object.<string, string>}
+	 */
 	this.footnoteLabelLookup = {};
+	/**
+	 * Lookup from parent listKey to subrefs.
+	 *
+	 * @member {Object.<string, ve.dm.MWReferenceNode[]>}
+	 */
 	this.subRefsByParent = {};
 
 	/** @private */
 	this.topLevelCounter = 1;
+	/** @private */
 	this.nodeGroup = null;
 };
 
@@ -100,6 +119,20 @@ ve.dm.MWGroupReferences.prototype.addSubref = function ( parentKey, listKey, sub
 };
 
 /**
+ * Check whether the group has any references.
+ *
+ * @return {boolean}
+ */
+ve.dm.MWGroupReferences.prototype.isEmpty = function () {
+	// Use an internal shortcut, otherwise we could do something like
+	// !!nodes.indexOrder.length
+	return this.topLevelCounter === 1;
+};
+
+/**
+ * List all document references in the order they first appear, ignoring reuses
+ * and placeholders.
+ *
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getAllRefsInDocumentOrder = function () {
@@ -108,6 +141,64 @@ ve.dm.MWGroupReferences.prototype.getAllRefsInDocumentOrder = function () {
 		.map( ( listKey ) => this.nodeGroup.keyedNodes[ listKey ] )
 		.filter( ( nodes ) => !!nodes )
 		.map( ( nodes ) => nodes[ 0 ] );
+};
+
+/**
+ * List all reference listKeys in the order they appear in the reflist including
+ * named refs, unnamed refs, and those that don't resolve
+ *
+ * @return {string[]} Reference listKeys
+ */
+ve.dm.MWGroupReferences.prototype.getTopLevelKeysInReflistOrder = function () {
+	return Object.keys( this.footnoteNumberLookup )
+		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] )
+		// TODO: Function could be split here, if a use case is found for a list of
+		// all numbers including subrefs.
+		.filter( ( listKey ) => this.footnoteNumberLookup[ listKey ][ 1 ] === -1 );
+};
+
+/**
+ * Return the defining reference node for this key
+ *
+ * @see #getInternalModelNode
+ *
+ * @param {string} key in listKey format
+ * @return {ve.dm.MWReferenceNode|undefined}
+ */
+ve.dm.MWGroupReferences.prototype.getRefNode = function ( key ) {
+	const keyedNodes = this.nodeGroup.keyedNodes[ key ];
+	return keyedNodes && keyedNodes[ 0 ];
+};
+
+/**
+ * Return the internalList internal item if it exists.
+ *
+ * @see #getRefNode
+ *
+ * @param {string} key in listKey format
+ * @return {ve.dm.InternalItemNode|undefined}
+ */
+ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( key ) {
+	const ref = this.getRefNode( key );
+	return ref && ref.getInternalItem();
+};
+
+/**
+ * Return document nodes for each usage of a ref key.  This excludes usages
+ * under the `<references>` section, so note that nested references won't behave
+ * as expected.  The reflist item for a ref is not counted as a reference,
+ * either.
+ *
+ * FIXME: Implement backlinks from within a nested ref within the footnote body.
+ *
+ * @param {string} key in listKey format
+ * @return {ve.dm.MWReferenceNode[]}
+ */
+ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
+	return ( this.nodeGroup.keyedNodes[ key ] || [] )
+		.filter( ( node ) => !node.getAttribute( 'placeholder' ) &&
+				!node.findParent( ve.dm.MWReferencesListNode )
+		);
 };
 
 /**

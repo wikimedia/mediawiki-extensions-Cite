@@ -27,7 +27,6 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 	this.internalList = null;
 	this.listNode = null;
 	this.modified = false;
-	this.docRefs = null;
 
 	// DOM changes
 	this.$element.addClass( 've-ce-mwReferencesListNode' );
@@ -175,12 +174,11 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		return;
 	}
 
-	this.docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( model.getDocument() );
-	const internalList = model.getDocument().internalList;
 	const refGroup = model.getAttribute( 'refGroup' );
-	const listGroup = model.getAttribute( 'listGroup' );
-	const nodes = internalList.getNodeGroup( listGroup );
-	const hasModelReferences = !!( nodes && nodes.indexOrder.length );
+
+	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( model.getDocument() );
+	const groupRefs = docRefs.getGroupRefs( refGroup );
+	const hasModelReferences = !groupRefs.isEmpty();
 
 	let emptyText;
 	if ( refGroup !== '' ) {
@@ -240,14 +238,11 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$refmsg.text( emptyText );
 		this.$element.append( this.$refmsg );
 	} else {
-		const groupRefs = this.docRefs.getGroupRefs( listGroup );
+		// Render all at once.
 		this.$reflist.append(
-			// FIXME: Clean up access functions.
-			Object.keys( groupRefs.footnoteNumberLookup )
-				.filter( ( listKey ) => groupRefs.footnoteNumberLookup[ listKey ][ 1 ] === -1 )
-				.sort( ( aKey, bKey ) => groupRefs.footnoteNumberLookup[ aKey ][ 0 ] - groupRefs.footnoteNumberLookup[ bKey ][ 0 ] )
+			groupRefs.getTopLevelKeysInReflistOrder()
 				.map( ( listKey ) => this.renderListItem(
-					nodes, internalList, groupRefs, refGroup, listKey
+					groupRefs, refGroup, listKey
 				) )
 		);
 
@@ -260,31 +255,22 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
  * Render a reference list item
  *
  * @private
- * @param {Object} nodes Node group object, containing nodes and key order array
- * @param {ve.dm.InternalList} internalList Internal list
  * @param {ve.dm.MWGroupReferences} groupRefs object holding calculated information about all group refs
  * @param {string} refGroup Reference group
  * @param {string} key top-level reference key, doesn't necessarily exist
  * @return {jQuery} Rendered list item
  */
-ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internalList, groupRefs, refGroup, key ) {
-	const keyedNodes = nodes.keyedNodes[ key ] || [];
-	const node = keyedNodes ? keyedNodes[ 0 ] : null;
-	const listIndex = node ? node.getAttribute( 'listIndex' ) : null;
-	const backlinkNodes = keyedNodes.filter(
-		// Exclude placeholders and references defined inside the references list node
-		( backRefNode ) => !backRefNode.getAttribute( 'placeholder' ) && !backRefNode.findParent( ve.dm.MWReferencesListNode )
-	);
-	const subrefs = groupRefs.subRefsByParent[ key ] || [];
+ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refGroup, key ) {
+	const ref = groupRefs.getInternalModelNode( key );
+	const backlinkNodes = groupRefs.getRefUsages( key );
+	const subrefs = groupRefs.getSubrefs( key );
 
 	const $li = $( '<li>' )
 		.css( '--footnote-number', `"${ groupRefs.getIndexLabel( key ) }."` )
 		.append( this.renderBacklinks( backlinkNodes, refGroup ), ' ' );
 
-	// Generate reference HTML from first item in key
-	const modelNode = internalList.getItemNode( listIndex );
-	if ( modelNode && modelNode.length ) {
-		const refPreview = new ve.ui.MWPreviewElement( modelNode, { useView: true } );
+	if ( ref && ref.length ) {
+		const refPreview = new ve.ui.MWPreviewElement( ref, { useView: true } );
 		$li.append(
 			$( '<span>' )
 				.addClass( 'reference-text' )
@@ -295,7 +281,8 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 			const surface = this.getRoot().getSurface().getSurface();
 			// TODO: attach to the singleton click handler on the surface
 			$li.on( 'mousedown', ( e ) => {
-				if ( ve.isUnmodifiedLeftClick( e ) && modelNode && modelNode.length ) {
+				if ( ve.isUnmodifiedLeftClick( e ) ) {
+					const node = groupRefs.getRefNode( key );
 					const items = ve.ui.contextItemFactory.getRelatedItems( [ node ] )
 						.filter( ( item ) => item.name !== 'mobileActions' );
 					if ( items.length ) {
@@ -336,7 +323,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( nodes, internal
 		$li.append(
 			$( '<ol>' ).append(
 				subrefs.map( ( subNode ) => this.renderListItem(
-					nodes, internalList, groupRefs, refGroup, subNode.getAttribute( 'listKey' )
+					groupRefs, refGroup, subNode.getAttribute( 'listKey' )
 				) )
 			)
 		);

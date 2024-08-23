@@ -85,7 +85,8 @@ ve.dm.MWDocumentReferences.prototype.updateGroup = function ( groupName ) {
  * @return {ve.dm.MWGroupReferences}
  */
 ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( groupName ) {
-	return this.cachedByGroup[ groupName.startsWith( 'mwReference/' ) ? groupName : 'mwReference/' + groupName ];
+	return this.cachedByGroup[ groupName.startsWith( 'mwReference/' ) ? groupName : 'mwReference/' + groupName ] ||
+		new ve.dm.MWGroupReferences();
 };
 
 ve.dm.MWDocumentReferences.prototype.getAllGroupNames = function () {

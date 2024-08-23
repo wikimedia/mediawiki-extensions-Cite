@@ -25,6 +25,7 @@
 				"ve.ui.MW": "https://doc.wikimedia.org/VisualEditor/master/js/{type}.html",
 				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html",
 				"ve.dm.MWDocumentReferences": true,
+				"ve.dm.MWGroupReferences": true,
 				"ve.dm.MWReference": true,
 				"ve.ce.MWReference": true,
 				"ve.ui.MWReference": true

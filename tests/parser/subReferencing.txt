@@ -1,7 +1,7 @@
 !! version 2
 
 !! test
-Book Referencing attribute rejected by default
+Sub-referencing attribute rejected by default
 !! config
 wgCiteBookReferencing=false
 !! wikitext
@@ -18,7 +18,7 @@ wgCiteBookReferencing=false
 !! end
 
 !! test
-Book Referencing attribute allowed with feature flag set
+Sub-referencing attribute allowed with feature flag set
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -37,7 +37,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Extending the same base multiple times is fine
+T236256 - Sub-referencing the same parent multiple times is fine
 !! options
 language=de
 !! config
@@ -63,7 +63,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Extended references can be reused
+Sub-references can be reused
 !! options
 language=de
 !! config
@@ -106,7 +106,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T240424 - Extended reference reused before defined in the <references> section
+T240424 - Sub-reference reused before defined in the <references> section
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -197,7 +197,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Naming book references is fine
+T236256 - Naming sub-references is fine
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -225,7 +225,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Extending a reference that doesn't exist #1
+T236256 - Sub-referencing a reference that doesn't exist #1
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -241,7 +241,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Extending a reference that doesn't exist #2
+T236256 - Sub-referencing a reference that doesn't exist #2
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -282,7 +282,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Can't reuse a name for two book references
+T236256 - Cannot reuse a name for two sub-references
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -304,7 +304,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Can't extend a book reference (no nesting)
+T236256 - Cannot sub-reference a sub-reference (no nesting)
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -326,7 +326,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Can't extend a book reference (no nesting), specified in reverse order
+T236256 - Cannot sub-reference a sub-reference (no nesting), specified in reverse order
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -367,7 +367,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - No text for a book reference
+T236256 - No text for a sub-reference
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -384,7 +384,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Empty text for a book reference
+T236256 - Empty text for a sub-reference
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -401,7 +401,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - De-facto empty text for a book reference
+T236256 - De-facto empty text for a sub-reference
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -440,7 +440,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Base and book reference in different groups don't collide
+T236256 - Sub-reference in named group cannot access parent from another named group
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -464,7 +464,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Extending in the unnamed default group doesn't collide with refs from other groups
+T236256 - Sub-reference in the unnamed default group doesn't collide with refs from other groups
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -487,7 +487,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Extends in named group doesn't conflict with default group
+T236256 - Sub-reference in named group cannot access parent from unnamed default group
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -510,7 +510,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Extending a multi-part ref should be fine
+T236256 - Sub-referencing a multi-part parent should be fine
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -532,7 +532,7 @@ wgCiteBookReferencing=true
 
 # TODO: T242227 - Should render an error at the third reference.
 !! test
-T236256 - Dont allow splitting a book reference for now
+T236256 - Dont allow splitting a sub-reference for now
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -553,7 +553,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Can't be a follow up and a book reference the same time
+T236256 - Cannot be a follow up and a sub-reference the same time
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -571,7 +571,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T236256 - Can't be a follow up and a book reference the same time, even when referencing 2 different bases
+T236256 - Cannot be a follow up and a sub-reference the same time, even when referencing different parents
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -593,7 +593,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Extending a <ref> that doesn't appear in the text, but in <references>
+Sub-referencing a list-defined parent that doesn't appear in the text, but in <references>
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -613,7 +613,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T239810: Extending a <ref> that doesn't appear in the text, but in {{#tag:references}}
+T239810: Sub-referencing a list-defined parent that doesn't appear in the text, but in {{#tag:references}}
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -633,7 +633,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Extends <ref> defined in <references> called with #tag
+A list-defined sub-reference when the <references> tag is created using #tag
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -654,7 +654,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Extends parent <ref> defined in <references> called with #tag
+Sub-referencing a list-defined parent when the <references> tag is created using #tag
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -680,7 +680,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Interleaved extends groups
+Interleaved sub-reference groups
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -709,7 +709,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Multiple groups with extends
+Multiple groups with sub-references
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -742,7 +742,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Multiple groups with extends, duplicated names across groups
+Multiple groups with sub-references, duplicated names across groups
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -775,7 +775,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Intervening ref before extends
+Intervening ref before sub-reference
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -800,7 +800,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-Normal refs after extends
+Normal ref after sub-reference
 !! config
 wgCiteBookReferencing=true
 !! wikitext
@@ -904,7 +904,7 @@ wgCiteBookReferencing=true
 !! end
 
 !! test
-T242110: Bad extends attributes on reused sub-references should report an error
+T242110: Bad sub-referencing attributes on reused sub-references should report an error
 !! config
 wgCiteBookReferencing=true
 !! wikitext

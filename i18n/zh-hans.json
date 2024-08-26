@@ -69,9 +69,11 @@
 	"cite-wikieditor-help-content-reference-description": "参考资料",
 	"cite-wikieditor-help-content-named-reference-description": "命名参考资料",
 	"cite-wikieditor-help-content-rereference-description": "复用参考资料",
+	"cite-wikieditor-help-content-extended-reference-description": "再次使用相同的参考资料，并附加更多详细信息",
 	"cite-wikieditor-help-content-showreferences-description": "显示参考资料列表",
 	"cite-wikieditor-help-content-reference-example-text1": "页面文本。$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 链接文本]，其他文本。",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 链接文本]",
-	"cite-wikieditor-help-content-reference-example-ref-id": "测试"
+	"cite-wikieditor-help-content-reference-example-ref-id": "测试",
+	"cite-wikieditor-help-content-reference-example-extra-details": "额外详细信息"
 }

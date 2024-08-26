@@ -52,6 +52,7 @@
 	"cite-ve-dialog-reference-editing-reused-long": "此参考资料在此页面上使用了{{PLURAL:$1|$1次}}。此处所作更改会应用到此参考资料的所有复用处。",
 	"cite-ve-dialog-reference-editing-extends": "这是另一参考资料的扩展。",
 	"cite-ve-dialog-reference-editing-extends-long": "这是另一参考资料“$1”的扩展。",
+	"cite-ve-dialog-reference-missing-parent-ref": "找不到此子引用的父引用。",
 	"cite-ve-dialog-reference-options-group-label": "使用此分组",
 	"cite-ve-dialog-reference-options-group-placeholder": "常规参考资料",
 	"cite-ve-dialog-reference-options-name-label": "以此名称复用",

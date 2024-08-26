@@ -37,6 +37,7 @@
 	"cite-ve-dialog-reference-editing-reused-long": "Esta referencia utilízase {{PLURAL:$1|unha vez|2=dúas veces|$1 veces}} nesta páxina. Os cambios feitos aquí aplicaránse en tódolos sitios donde se reutiliza esta referencia.",
 	"cite-ve-dialog-reference-editing-extends": "Esta é unha extensión doutra referencia.",
 	"cite-ve-dialog-reference-editing-extends-long": "Esta é unha extensión da referencia \"$1\".",
+	"cite-ve-dialog-reference-missing-parent-ref": "Non se pode atopar a referencia principal para esta subreferencia.",
 	"cite-ve-dialog-reference-options-group-label": "Utilizar este grupo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referencias xerais",
 	"cite-ve-dialog-reference-options-name-label": "Reutilizar por este nome",

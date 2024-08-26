@@ -38,10 +38,8 @@ class Cite {
 
 	public const DEFAULT_GROUP = '';
 
-	/**
-	 * Wikitext attribute name for Book Referencing.
-	 */
-	public const BOOK_REF_ATTRIBUTE = 'extends';
+	/** Attribute name for the sub-referencing feature in <ref …> */
+	public const SUBREF_ATTRIBUTE = 'extends';
 
 	/**
 	 * Message key for the (localized) tracking category for pages using the `extends` attribute.
@@ -123,15 +121,15 @@ class Cite {
 		?string $text,
 		array $argv
 	): string {
-		// Tag every page where Book Referencing has been used, whether or not the ref tag is valid.
+		// Tag every page where sub-referencing has been used, whether or not the ref tag is valid.
 		// TODO: Remove this generic usage tracking once the feature is stable.  See T237531.
-		if ( array_key_exists( self::BOOK_REF_ATTRIBUTE, $argv ) ) {
+		if ( array_key_exists( self::SUBREF_ATTRIBUTE, $argv ) ) {
 			$parser->addTrackingCategory( self::EXTENDS_TRACKING_CATEGORY );
 		}
 
 		$status = $this->parseArguments(
 			$argv,
-			[ 'group', 'name', self::BOOK_REF_ATTRIBUTE, 'follow', 'dir' ]
+			[ 'group', 'name', self::SUBREF_ATTRIBUTE, 'follow', 'dir' ]
 		);
 		$arguments = $status->getValue();
 		// Use the default group, or the references group when inside one.

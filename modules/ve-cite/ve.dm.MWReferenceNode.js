@@ -94,7 +94,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			contentsUsed: body !== '' && queueResult.isNew
 		}
 	};
-	if ( mwAttrs.extends && mw.config.get( 'wgCiteBookReferencing' ) ) {
+	if ( mwAttrs.extends && mw.config.get( 'wgCiteSubReferencing' ) ) {
 		dataElement.attributes.extendsRef = mwAttrs.extends ? 'literal/' + mwAttrs.extends : null;
 	}
 	if ( reflistItemId ) {

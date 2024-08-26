@@ -72,15 +72,14 @@ ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
-	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
-	const group = this.getFragment().getDocument().getInternalList()
-		.getNodeGroup( refModel.getListGroup() );
-	const nodes = ve.getProp( group, 'keyedNodes', refModel.getListKey() );
-	const usages = nodes && nodes.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) ).length;
-	if ( usages > 1 ) {
+	const usageCount = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
+		.getGroupRefs( this.model.getAttribute( 'listGroup' ) )
+		.getRefUsages( this.model.getAttribute( 'listKey' ) )
+		.length;
+	if ( usageCount > 1 ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( mw.msg( 'cite-ve-dialog-reference-editing-reused', usages ) );
+			.text( mw.msg( 'cite-ve-dialog-reference-editing-reused', usageCount ) );
 	}
 };
 
@@ -108,9 +107,9 @@ ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
 		return null;
 	}
 	if ( !this.referenceNode ) {
-		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
-		this.referenceNode = this.getFragment().getDocument().getInternalList()
-			.getItemNode( refModel.getListIndex() );
+		this.referenceNode = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
+			.getGroupRefs( this.model.getAttribute( 'listGroup' ) )
+			.getInternalModelNode( this.model.getAttribute( 'listKey' ) );
 	}
 	return this.referenceNode;
 };
@@ -133,9 +132,10 @@ ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
 	if ( !extendsRef ) {
 		return null;
 	}
-	const list = this.getFragment().getDocument().getInternalList();
-	const itemNode = list.getItemNode( list.keys.indexOf( extendsRef ) );
-	return itemNode ? new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element :
+	const parentNode = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
+		.getGroupRefs( this.model.getAttribute( 'listGroup' ) )
+		.getInternalModelNode( extendsRef );
+	return parentNode ? new ve.ui.MWPreviewElement( parentNode, { useView: true } ).$element :
 		$( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
 			.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) );

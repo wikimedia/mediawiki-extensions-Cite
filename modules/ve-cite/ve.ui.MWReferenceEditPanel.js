@@ -246,15 +246,13 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref ) {
-	const group = this.internalList.getNodeGroup( ref.getListGroup() );
-	const nodes = ve.getProp( group, 'keyedNodes', ref.getListKey() );
-	const usages = nodes ? nodes.filter(
-		( node ) => !node.findParent( ve.dm.MWReferencesListNode )
-	).length : 0;
-
+	const usageCount = ve.dm.MWDocumentReferences.static.refsForDoc( this.internalList.getDocument() )
+		.getGroupRefs( ref.getListGroup() )
+		.getRefUsages( ref.getListKey() )
+		.length;
 	this.reuseWarning
-		.toggle( usages > 1 )
-		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usages ) );
+		.toggle( usageCount > 1 )
+		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usageCount ) );
 };
 
 /**
@@ -263,15 +261,18 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
  */
 ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( ref ) {
 	if ( ref.extendsRef ) {
-		const mainRefId = this.internalList.keys.indexOf( ref.extendsRef );
+		const parentNode = ve.dm.MWDocumentReferences.static.refsForDoc( this.internalList.getDocument() )
+			.getGroupRefs( ref.getListGroup() )
+			.getInternalModelNode( ref.extendsRef );
 		this.extendsWarning.setLabel(
 			$( '<p>' )
 				.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) )
-				.append( mainRefId === -1 ?
+				.append( parentNode ?
+					new ve.ui.MWPreviewElement( parentNode, { useView: true } ).$element :
 					$( '<div>' )
 						.addClass( 've-ui-mwReferenceContextItem-muted' )
-						.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) ) :
-					new ve.ui.MWPreviewElement( this.internalList.getItemNode( mainRefId ), { useView: true } ).$element )
+						.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) )
+				)
 		);
 		this.extendsWarning.toggle( true );
 	} else {

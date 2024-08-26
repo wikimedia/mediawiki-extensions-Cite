@@ -11,7 +11,8 @@ function getInternalListMock( hasNode ) {
 				default: return undefined;
 			}
 		},
-		getAttributes: () => ( {} )
+		getAttributes: () => ( {} ),
+		getInternalItem: () => ( {} )
 	} : {};
 	const groups = hasNode ? {
 		'mwReference/': {

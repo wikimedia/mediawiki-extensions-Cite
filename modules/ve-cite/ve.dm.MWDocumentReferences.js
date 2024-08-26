@@ -19,6 +19,11 @@ ve.dm.MWDocumentReferences = function VeDmMWDocumentReferences( doc ) {
 
 	// Properties
 	this.doc = doc;
+	/**
+	 * Holds the information calculated for each group.
+	 *
+	 * @member {Object.<string, ve.dm.MWGroupReferences>}
+	 */
 	this.cachedByGroup = {};
 
 	doc.getInternalList().connect( this, { update: 'updateGroups' } );
@@ -68,26 +73,19 @@ ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
 /**
  * @private
  * @param {string[]} groupName Name of the reference group which needs to be
- *  updated
+ *  updated, with prefix
  */
 ve.dm.MWDocumentReferences.prototype.updateGroup = function ( groupName ) {
-	const refsByParent = this.getGroupRefsByParents( groupName );
-	const topLevelNodes = refsByParent[ '' ] || [];
+	const nodeGroup = this.doc.getInternalList().getNodeGroup( groupName );
+	this.cachedByGroup[ groupName ] = ve.dm.MWGroupReferences.static.makeGroupRefs( nodeGroup );
+};
 
-	const indexNumberLookup = {};
-	for ( let i = 0; i < topLevelNodes.length; i++ ) {
-		const topLevelNode = topLevelNodes[ i ];
-		const topLevelKey = topLevelNode.getAttribute( 'listKey' );
-		indexNumberLookup[ topLevelKey ] = ve.dm.MWDocumentReferences.static.contentLangDigits( i + 1 );
-		const subrefs = ( refsByParent[ topLevelKey ] || [] );
-		for ( let j = 0; j < subrefs.length; j++ ) {
-			const subrefNode = subrefs[ j ];
-			const subrefKey = subrefNode.getAttribute( 'listKey' );
-			// FIXME: RTL, and customization of the separator like with mw:referencedBy
-			indexNumberLookup[ subrefKey ] = `${ ve.dm.MWDocumentReferences.static.contentLangDigits( i + 1 ) }.${ ve.dm.MWDocumentReferences.static.contentLangDigits( j + 1 ) }`;
-		}
-	}
-	this.cachedByGroup[ groupName ] = indexNumberLookup;
+/**
+ * @param {string} groupName with or without prefix
+ * @return {ve.dm.MWGroupReferences}
+ */
+ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( groupName ) {
+	return this.cachedByGroup[ groupName.startsWith( 'mwReference/' ) ? groupName : 'mwReference/' + groupName ];
 };
 
 ve.dm.MWDocumentReferences.prototype.getAllGroupNames = function () {
@@ -122,54 +120,5 @@ ve.dm.MWDocumentReferences.static.contentLangDigits = function ( num ) {
  *  marker or reflist item number.
  */
 ve.dm.MWDocumentReferences.prototype.getIndexLabel = function ( groupName, listKey ) {
-	return ( this.cachedByGroup[ 'mwReference/' + groupName ] || {} )[ listKey ];
-};
-
-/**
- * Get all refs for a group, organized by parent ref
- *
- * This is appropriate when rendering a reflist organized hierarchically by
- * subrefs using the `extends` feature.
- *
- * @param {string} groupName Filter by this group.
- * @return {Object.<string, ve.dm.MWReferenceNode[]>} Mapping from parent ref
- * name to a list of its subrefs.  Note that the top-level refs are under the
- * `null` value.
- */
-ve.dm.MWDocumentReferences.prototype.getGroupRefsByParents = function ( groupName ) {
-	const nodeGroup = this.doc.getInternalList().getNodeGroup( groupName );
-	const indexOrder = ( nodeGroup ? nodeGroup.indexOrder : [] );
-	// Compile a list of all top-level node names so that we can handle orphans
-	// while keeping them in document order.
-	const seenTopLevelNames = new Set(
-		indexOrder
-			.map( ( index ) => nodeGroup.firstNodes[ index ] )
-			.filter( ( node ) => node && !node.element.attributes.extendsRef && !node.element.attributes.placeholder )
-			.map( ( node ) => node.element.attributes.listKey )
-			.filter( ( listKey ) => listKey )
-	);
-
-	// Group nodes by parent ref, while iterating in order of document appearance.
-	return indexOrder.reduce( ( acc, index ) => {
-		const node = nodeGroup.firstNodes[ index ];
-		if ( !node || node.element.attributes.placeholder ) {
-			return acc;
-		}
-
-		let extendsRef = node.element.attributes.extendsRef || '';
-
-		if ( !seenTopLevelNames.has( extendsRef ) ) {
-			// Promote orphaned subrefs to become top-level refs.
-			// TODO: Ideally this would be handled by creating placeholder error
-			// nodes as is done by the renderer.
-			extendsRef = '';
-		}
-
-		if ( acc[ extendsRef ] === undefined ) {
-			acc[ extendsRef ] = [];
-		}
-		acc[ extendsRef ].push( node );
-
-		return acc;
-	}, {} );
+	return this.getGroupRefs( groupName ).getIndexLabel( listKey );
 };

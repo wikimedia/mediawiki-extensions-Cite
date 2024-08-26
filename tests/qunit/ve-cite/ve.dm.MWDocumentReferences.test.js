@@ -17,9 +17,8 @@ QUnit.test( 'extends test', ( assert ) => {
 	const doc = ve.dm.citeExample.createExampleDocument( 'extends' );
 	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc );
 
-	// FIXME: Shows that the class doesn't handle orphans correctly
-	assert.strictEqual( docRefs.getIndexLabel( '', 'auto/0' ), '3.1' );
-	assert.strictEqual( docRefs.getIndexLabel( '', 'auto/1' ), '1' );
-	assert.strictEqual( docRefs.getIndexLabel( '', 'literal/orphaned' ), '2' );
-	assert.strictEqual( docRefs.getIndexLabel( '', 'literal/ldr' ), '3' );
+	assert.strictEqual( docRefs.getIndexLabel( '', 'auto/0' ), '1.1' );
+	assert.strictEqual( docRefs.getIndexLabel( '', 'auto/1' ), '2' );
+	assert.strictEqual( docRefs.getIndexLabel( '', 'literal/orphaned' ), '3.1' );
+	assert.strictEqual( docRefs.getIndexLabel( '', 'literal/ldr' ), '1' );
 } );

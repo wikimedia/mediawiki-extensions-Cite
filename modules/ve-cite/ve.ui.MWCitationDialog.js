@@ -151,8 +151,6 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 			this.checkRequiredParameters().done( () => {
 				const surfaceModel = this.getFragment().getSurface();
 				const doc = surfaceModel.getDocument();
-				const internalList = doc.getInternalList();
-				const obj = this.transclusionModel.getPlainObject();
 
 				// We had a reference, but no template node (or wrong kind of template node)
 				if ( this.referenceModel && !this.selectedNode ) {
@@ -180,7 +178,7 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 						this.transclusionModel.updateTransclusionNode(
 							surfaceModel, this.selectedNode
 						);
-					} else if ( obj !== null ) {
+					} else if ( this.transclusionModel.getPlainObject() !== null ) {
 						this.transclusionModel.insertTransclusionNode(
 							// HACK: This is trying to place the cursor inside the first
 							// content branch node but this theoretically not a safe
@@ -203,7 +201,7 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 				// someone fixes that
 				this.referenceModel.setDocument(
 					doc.cloneFromRange(
-						internalList.getItemNode( this.referenceModel.getListIndex() ).getRange()
+						doc.getInternalList().getItemNode( this.referenceModel.getListIndex() ).getRange()
 					)
 				);
 				this.referenceModel.updateInternalItem( surfaceModel );

@@ -318,7 +318,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 
 		$parser = $this->createNoOpMock( Parser::class );
 		$ref = TestUtils::refFromArray( [ 'text' => $text ] );
-		$output = $formatter->referenceText( $parser, 1, $ref, $isSectionPreview );
+		$output = $formatter->renderTextAndWarnings( $parser, 1, $ref, $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 

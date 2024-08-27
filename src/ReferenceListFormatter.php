@@ -147,20 +147,21 @@ class ReferenceListFormatter {
 	private function formatListItem(
 		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
-		$text = $this->referenceText( $parser, $key, $ref, $isSectionPreview );
-		$extraAttributes = '';
-
-		if ( isset( $ref->dir ) ) {
-			// The following classes are generated here:
-			// * mw-cite-dir-ltr
-			// * mw-cite-dir-rtl
-			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $ref->dir ] );
-		}
+		$text = $this->renderTextAndWarnings( $parser, $key, $ref, $isSectionPreview );
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
 		if ( isset( $ref->follow ) ) {
 			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $ref->follow ) . '">' . $text . '</p>';
+		}
+
+		// Parameter $4 in the cite_references_link_one and cite_references_link_many messages
+		$extraAttributes = '';
+		if ( isset( $ref->dir ) ) {
+			// The following classes are generated here:
+			// * mw-cite-dir-ltr
+			// * mw-cite-dir-rtl
+			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $ref->dir ] );
 		}
 
 		if ( $ref->count === 1 ) {
@@ -181,7 +182,6 @@ class ReferenceListFormatter {
 			)->plain();
 		}
 
-		// Named references with >1 occurrences
 		$backlinks = [];
 		for ( $i = 0; $i < $ref->count; $i++ ) {
 			$backlinks[] = $this->messageLocalizer->msg(
@@ -196,6 +196,8 @@ class ReferenceListFormatter {
 				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i )
 			)->plain();
 		}
+
+		// The parent of a subref might actually be unused and therefor have zero backlinks
 		$linkTargetId = $ref->count > 0 ?
 			$this->anchorFormatter->jumpLinkTarget( $key . '-' . $ref->key ) : '';
 		return $this->messageLocalizer->msg(
@@ -215,17 +217,17 @@ class ReferenceListFormatter {
 	 *
 	 * @return string Wikitext
 	 */
-	private function referenceText(
+	private function renderTextAndWarnings(
 		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
-		$text = $ref->text ?? null;
-		if ( $text === null ) {
+		if ( !isset( $ref->text ) ) {
 			return $this->errorReporter->plain( $parser,
 				$isSectionPreview
 					? 'cite_warning_sectionpreview_no_text'
 					: 'cite_error_references_no_text', $key );
 		}
 
+		$text = $ref->text ?? '';
 		foreach ( $ref->warnings as $warning ) {
 			// @phan-suppress-next-line PhanParamTooFewUnpack
 			$text .= ' ' . $this->errorReporter->plain( $parser, ...$warning );

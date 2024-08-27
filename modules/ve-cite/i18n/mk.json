@@ -48,6 +48,7 @@
 	"cite-ve-reference-input-placeholder": "Пребарајте по тековните наводи",
 	"cite-ve-referenceslist-isempty": "На страницава нема наводи со групата „$1“ што би ги ставил во списоков.",
 	"cite-ve-referenceslist-isempty-default": "На страницава нема наводи што би ги ставил во списоков.",
+	"cite-ve-referenceslist-missing-parent": "Има поднаводи без матичен навод.",
 	"cite-ve-referenceslist-missingref": "Овој навод се задава во предлошка или друг самосоздаден блок. Засега може да се уредува само непосредно во изворот.",
 	"cite-ve-referenceslist-missingref-in-list": "Овој навод се задава во предлошка или друг создаден блок. Засега може да се прегледува само во изворен режим.",
 	"cite-ve-referenceslist-missingreflist": "Овој список со наводи е создаден од предлошка.",

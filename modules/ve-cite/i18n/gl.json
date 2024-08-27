@@ -58,9 +58,10 @@
 	"cite-ve-reference-input-placeholder": "Procurar dentro das referencias actuais",
 	"cite-ve-referenceslist-isempty": "Non hai referencias co grupo \"$1\" nesta páxina para incluílas nesta lista.",
 	"cite-ve-referenceslist-isempty-default": "Non hai referencias nesta páxina para incluílas nesta lista.",
+	"cite-ve-referenceslist-missing-parent": "Hai subreferencias ás que lles falta unha referencia principal.",
 	"cite-ve-referenceslist-missingref": "Esta referencia está definida nun modelo ou noutro bloque xerado; polo de agora, só se pode editar no modo fonte.",
 	"cite-ve-referenceslist-missingref-in-list": "Esta referencia está definida nun modelo ou noutro bloque xerado e só pode previsualizarse en modo fonte.",
 	"cite-ve-referenceslist-missingreflist": "Esta referencia xérase a través dun modelo.",
 	"cite-ve-toolbar-group-label": "Citar",
-	"cite-ve-othergroup-item": "referencia $1"
+	"cite-ve-othergroup-item": "Referencia $1"
 }

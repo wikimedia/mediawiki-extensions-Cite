@@ -71,6 +71,7 @@
 	"cite-ve-reference-input-placeholder": "Mevcut kaynaklar içinde ara",
 	"cite-ve-referenceslist-isempty": "Bu sayfada bu listeye dahil edilecek \"$1\" grubuyla ilgili kaynakça yok.",
 	"cite-ve-referenceslist-isempty-default": "Bu sayfada bu listeye dahil edilecek kaynakça yok.",
+	"cite-ve-referenceslist-missing-parent": "Üst kaynağı eksik olan alt kaynaklar var.",
 	"cite-ve-referenceslist-missingref": "Bu kaynakça, bir şablonda veya oluşturulmuş başka bir blokta tanımlanır ve şimdilik sadece kaynak modunda düzenlenebilir.",
 	"cite-ve-referenceslist-missingref-in-list": "Bu kaynak, bir şablonda veya diğer oluşturulmuş bir blokta tanımlanmıştır ve şimdilik sadece kaynak modunda ön izlenebilir.",
 	"cite-ve-referenceslist-missingreflist": "Bu kaynakça listesi, bir şablon tarafından oluşturulmuştur.",

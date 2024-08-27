@@ -241,14 +241,14 @@ class ReferenceListFormatter {
 	 * offset, e.g. $base = 1, $offset = 2; = 1.2
 	 * Since bug #5525, it correctly does 1.9 -> 1.10 as well as 1.099 -> 1.100
 	 *
-	 * @param int|string $base
+	 * @param string $base
 	 * @param int $offset
 	 * @param int $max Maximum value expected.
 	 *
 	 * @return string
 	 */
 	private function referencesFormatEntryNumericBacklinkLabel(
-		$base,
+		string $base,
 		int $offset,
 		int $max
 	): string {

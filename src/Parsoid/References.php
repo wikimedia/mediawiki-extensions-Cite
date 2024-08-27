@@ -308,7 +308,7 @@ class References extends ExtensionTagHandler {
 			// gets the error "cite_error_references_no_key" above, so protect against that.
 			if ( $refsData->inReferencesContent() ) {
 				$errs[] = [ 'key' => 'cite_error_empty_references_define',
-					'params' => [ $refDmw->attrs->name ?? '' ] ];
+					'params' => [ $refDmw->attrs->name ?? '', $refDmw->attrs->group ?? '' ] ];
 			} elseif ( !$hasRefName ) {
 				if ( !empty( $cDp->selfClose ) ) {
 					$errs[] = [ 'key' => 'cite_error_ref_no_key' ];
@@ -489,7 +489,10 @@ class References extends ExtensionTagHandler {
 				if ( ( $ref->name !== '' ) && $ref->contentId === null ) {
 					// TODO: Since this error is being placed on the ref,
 					// the key should arguably be "cite_error_ref_no_text"
-					$errs[] = [ 'key' => 'cite_error_references_no_text' ];
+					$errs[] = [
+						'key' => 'cite_error_references_no_text',
+						'params' => [ $ref->name ]
+					];
 				}
 				if ( $errs ) {
 					foreach ( $ref->nodes as $node ) {

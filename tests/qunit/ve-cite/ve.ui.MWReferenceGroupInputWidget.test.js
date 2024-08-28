@@ -11,12 +11,10 @@ QUnit.test( 'Constructor', ( assert ) => {
 } );
 
 QUnit.test( 'populateMenu', ( assert ) => {
-	const doc = ve.dm.citeExample.createExampleDocument( 'references' );
-
 	const widget = new ve.ui.MWReferenceGroupInputWidget( {
 		emptyGroupName: 'empty'
 	} );
-	widget.populateMenu( doc.getInternalList() );
+	widget.populateMenu( [ 'mwReference/', 'mwReference/foo' ] );
 
 	assert.strictEqual( widget.getMenu().getItemCount(), 2 );
 

@@ -168,7 +168,8 @@ ve.ui.MWReferencesListDialog.prototype.getSetupProcess = function ( data ) {
 			}
 
 			this.groupInput.setValue( this.selectedNode.getAttribute( 'refGroup' ) );
-			this.groupInput.populateMenu( this.getFragment().getDocument().getInternalList() );
+			const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() );
+			this.groupInput.populateMenu( docRefs.getAllGroupNames() );
 
 			this.responsiveCheckbox.setSelected( this.selectedNode.getAttribute( 'isResponsive' ) );
 

@@ -200,7 +200,8 @@ ve.ui.MWReferenceEditPanel.static.getImportRules = function () {
  */
 ve.ui.MWReferenceEditPanel.prototype.setInternalList = function ( internalList ) {
 	this.internalList = internalList;
-	this.referenceGroupInput.populateMenu( this.internalList );
+	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() );
+	this.referenceGroupInput.populateMenu( docRefs.getAllGroupNames() );
 };
 
 /**

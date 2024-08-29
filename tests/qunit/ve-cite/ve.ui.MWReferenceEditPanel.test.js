@@ -6,15 +6,9 @@ QUnit.test( 'setReferenceForEditing', ( assert ) => {
 	ve.init.target.surface = { commandRegistry: { registry: {} } };
 	const editPanel = new ve.ui.MWReferenceEditPanel();
 
-	const emptyDoc = new ve.dm.Document( [
-		{ type: 'paragraph', internal: { generated: 'empty' } },
-		{ type: '/paragraph' },
-		{ type: 'internalList' },
-		{ type: '/internalList' }
-	] );
-	const ref = new ve.dm.MWReferenceModel( emptyDoc );
-
-	editPanel.setInternalList( emptyDoc.getInternalList() );
+	const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+	const ref = new ve.dm.MWReferenceModel( doc );
+	editPanel.setInternalList( doc.getInternalList() );
 
 	const changeHandlerStub = sinon.stub();
 	editPanel.connect( changeHandlerStub );

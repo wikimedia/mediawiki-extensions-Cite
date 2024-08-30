@@ -55,7 +55,6 @@
 	"cite-ve-dialog-reference-missing-parent-ref": "Message that appears in popup dialogs when a subreference is missing its parent reference.",
 	"cite-ve-dialog-reference-options-group-label": "Label for the reference group input",
 	"cite-ve-dialog-reference-options-group-placeholder": "Placeholder for the reference group input",
-	"cite-ve-dialog-reference-options-name-label": "Label for the reference name input",
 	"cite-ve-dialog-reference-options-responsive-label": "Label for the responsive layout checkbox",
 	"cite-ve-dialog-reference-options-section": "Label for the reference options sub-section.\n{{Identical|Options}}",
 	"cite-ve-dialog-reference-placeholder": "Placeholder text shown in a basic reference when no text has yet been entered.",

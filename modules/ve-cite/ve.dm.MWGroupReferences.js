@@ -195,7 +195,8 @@ ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( key ) {
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
-	return ( this.nodeGroup.keyedNodes[ key ] || [] )
+	// T373661: This might never have been set in source mode
+	return ( this.nodeGroup && this.nodeGroup.keyedNodes[ key ] || [] )
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) &&
 				!node.findParent( ve.dm.MWReferencesListNode )
 		);

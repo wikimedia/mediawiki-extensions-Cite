@@ -93,6 +93,10 @@ ve.dm.MWDocumentReferences.prototype.getAllGroupNames = function () {
 	return Object.keys( this.doc.getInternalList().getNodeGroups() );
 };
 
+ve.dm.MWDocumentReferences.prototype.hasRefs = function () {
+	return this.getAllGroupNames().some( ( groupName ) => !this.getGroupRefs( groupName ).isEmpty() );
+};
+
 /**
  * Return a formatted number, in the content script, with no separators.
  *

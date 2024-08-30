@@ -25,6 +25,7 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	ve.ui.MWReferenceSearchWidget.super.call( this, config );
 
 	// Properties
+	this.docRefs = null;
 	this.index = null;
 	this.wasUsedActively = false;
 
@@ -36,24 +37,6 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 /* Inheritance */
 
 OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
-
-/* Static Methods */
-
-/**
- * @param {ve.dm.InternalList} internalList
- * @return {boolean}
- */
-ve.ui.MWReferenceSearchWidget.static.isIndexEmpty = function ( internalList ) {
-	const groups = internalList.getNodeGroups();
-	// Doing this live every time is cheap because it stops on the first non-empty group
-	for ( const groupName in groups ) {
-		if ( groupName.indexOf( 'mwReference/' ) === 0 && groups[ groupName ].indexOrder.length ) {
-			// No need to filter subrefs here, as it's impossible to have subrefs without parents
-			return false;
-		}
-	}
-	return true;
-};
 
 /* Methods */
 
@@ -96,42 +79,29 @@ ve.ui.MWReferenceSearchWidget.prototype.trackActiveUsage = function () {
 /**
  * Set the internal list and check if it contains any references
  *
- * @param {ve.dm.InternalList} internalList Internal list
+ * @param {ve.dm.MWDocumentReferences} docRefs handle to all refs in the original document
  */
-ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalList ) {
+ve.ui.MWReferenceSearchWidget.prototype.setDocumentRefs = function ( docRefs ) {
 	this.results.unselectItem();
 
-	this.internalList = internalList;
-	this.internalList.connect( this, { update: 'onInternalListUpdate' } );
-	this.internalList.getListNode().connect( this, { update: 'onListNodeUpdate' } );
+	this.docRefs = docRefs;
 };
 
 /**
- * Handle the updating of the InternalList object.
+ * Set the internal list and check if it contains any references
  *
- * This will occur after a document transaction.
- *
- * @param {string[]} groupsChanged A list of groups which have changed in this transaction
+ * @deprecated use #setDocumentRefs instead.
+ * @param {ve.dm.InternalList} internalList
  */
-ve.ui.MWReferenceSearchWidget.prototype.onInternalListUpdate = function ( groupsChanged ) {
-	if ( groupsChanged.some( ( groupName ) => groupName.indexOf( 'mwReference/' ) === 0 ) ) {
-		this.index = null;
-	}
+ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalList ) {
+	this.setDocumentRefs( ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() ) );
 };
 
 /**
- * Handle the updating of the InternalListNode.
- *
- * This will occur after changes to any InternalItemNode.
- */
-ve.ui.MWReferenceSearchWidget.prototype.onListNodeUpdate = function () {
-	this.index = null;
-};
-
-/**
- * Manually re-populates the list of search results after {@see setInternalList} was called.
+ * Manually re-build the index and re-populate the list of search results.
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
+	this.index = null;
 	this.onQueryChange();
 };
 
@@ -140,8 +110,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
  * @return {Object[]}
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
-	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( this.internalList.getDocument() );
-	const groupNames = docRefs.getAllGroupNames().sort();
+	const groupNames = this.docRefs.getAllGroupNames().sort();
 
 	// FIXME: Temporary hack, to be removed soon
 	// eslint-disable-next-line no-jquery/no-class-state
@@ -154,7 +123,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			// FIXME: Should be impossible to reach
 			continue;
 		}
-		const groupRefs = docRefs.getGroupRefs( groupName );
+		const groupRefs = this.docRefs.getGroupRefs( groupName );
 		const flatNodes = groupRefs.getAllRefsInDocumentOrder()
 			.filter( ( node ) => !filterExtends || !node.getAttribute( 'extendsRef' ) );
 
@@ -162,7 +131,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			const listKey = node.getAttribute( 'listKey' );
 			// remove `mwReference/` prefix
 			const group = groupName.slice( 12 );
-			const footnoteNumber = docRefs.getIndexLabel( group, listKey );
+			const footnoteNumber = this.docRefs.getIndexLabel( group, listKey );
 			const citation = ( group ? group + ' ' : '' ) + footnoteNumber;
 
 			// Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
@@ -201,13 +170,13 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 };
 
 /**
- * Check whether buildIndex will create an empty index based on the current internalList.
+ * Check whether buildIndex will create an empty index based on the current document
  *
+ * @deprecated Move logic to caller.
  * @return {boolean} Index is empty
  */
 ve.ui.MWReferenceSearchWidget.prototype.isIndexEmpty = function () {
-	return !this.internalList ||
-		ve.ui.MWReferenceSearchWidget.static.isIndexEmpty( this.internalList );
+	return !this.docRefs.hasRefs();
 };
 
 /**

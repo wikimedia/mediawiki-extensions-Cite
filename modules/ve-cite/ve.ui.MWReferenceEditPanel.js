@@ -29,11 +29,18 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	this.$element.addClass( 've-ui-mwReferenceEditPanel' );
 
 	// Properties
-	this.referenceModel = null;
-	this.originalGroup = null;
-	/** @member {ve.dm.MWDocumentReferences} */
+	/**
+	 * @member {ve.dm.MWDocumentReferences|null}
+	 */
 	this.docRefs = null;
+	/**
+	 * @member {ve.dm.MWReferenceModel|null}
+	 */
 	this.referenceModel = null;
+	/**
+	 * @member {string|null}
+	 */
+	this.originalGroup = null;
 
 	// Create content editor
 	this.referenceTarget = ve.init.target.createTargetWidget(

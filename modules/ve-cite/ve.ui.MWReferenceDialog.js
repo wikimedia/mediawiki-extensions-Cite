@@ -208,7 +208,10 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( () => {
 			this.panels.setItem( this.editPanel );
-			this.editPanel.setInternalList( this.getFragment().getDocument().getInternalList() );
+			const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
+				this.getFragment().getDocument()
+			);
+			this.editPanel.setDocumentReferences( docRefs );
 			this.actions.setAbilities( { done: false } );
 
 			let ref;

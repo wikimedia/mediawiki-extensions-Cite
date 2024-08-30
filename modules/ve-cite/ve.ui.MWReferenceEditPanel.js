@@ -31,7 +31,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	// Properties
 	this.referenceModel = null;
 	this.originalGroup = null;
-	this.internalList = null;
+	this.docRefs = null;
 	this.referenceModel = null;
 
 	// Create content editor
@@ -196,11 +196,10 @@ ve.ui.MWReferenceEditPanel.static.getImportRules = function () {
 };
 
 /**
- * @param {ve.dm.InternalList} internalList
+ * @param {ve.ui.MWReferenceEditPanel} docRefs
  */
-ve.ui.MWReferenceEditPanel.prototype.setInternalList = function ( internalList ) {
-	this.internalList = internalList;
-	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() );
+ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs ) {
+	this.docRefs = docRefs;
 	this.referenceGroupInput.populateMenu( docRefs.getAllGroupNames() );
 };
 
@@ -246,7 +245,7 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref ) {
-	const usageCount = ve.dm.MWDocumentReferences.static.refsForDoc( this.internalList.getDocument() )
+	const usageCount = this.docRefs
 		.getGroupRefs( ref.getListGroup() )
 		.getRefUsages( ref.getListKey() )
 		.length;
@@ -261,7 +260,7 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
  */
 ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( ref ) {
 	if ( ref.extendsRef ) {
-		const parentNode = ve.dm.MWDocumentReferences.static.refsForDoc( this.internalList.getDocument() )
+		const parentNode = this.docRefs
 			.getGroupRefs( ref.getListGroup() )
 			.getInternalModelNode( ref.extendsRef );
 		this.extendsWarning.setLabel(

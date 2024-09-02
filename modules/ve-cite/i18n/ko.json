@@ -47,7 +47,6 @@
 	"cite-ve-dialog-reference-editing-reused-long": "이 인용은 이 문서에서 {{PLURAL:$1|한 번|2=두 번|$1회}} 사용됐습니다. 여기서 변경한 내용은 이 인용이 재사용된 모든 곳에 반영됩니다.",
 	"cite-ve-dialog-reference-options-group-label": "이 그룹 사용",
 	"cite-ve-dialog-reference-options-group-placeholder": "일반 각주",
-	"cite-ve-dialog-reference-options-name-label": "이 이름으로 다시 사용",
 	"cite-ve-dialog-reference-options-responsive-label": "반응형 컬럼 레이아웃 사용",
 	"cite-ve-dialog-reference-options-section": "선택 사항",
 	"cite-ve-dialog-reference-placeholder": "각주를 여기에 입력하거나 붙여넣거나, 인용 틀을 추가하십시오.",

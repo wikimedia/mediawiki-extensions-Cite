@@ -50,7 +50,6 @@
 	"cite-ve-dialog-reference-editing-reused-long": "Questo riferimento è usato {{PLURAL:$1|1 volta|$1 volte}} su questa pagina. Le modifiche fatte qui saranno applicate ovunque questo riferimento sia riusato.",
 	"cite-ve-dialog-reference-options-group-label": "Usa questo gruppo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Note generali",
-	"cite-ve-dialog-reference-options-name-label": "Riutilizza questo nome",
 	"cite-ve-dialog-reference-options-responsive-label": "Utilizza il layout della colonna adattivo",
 	"cite-ve-dialog-reference-options-section": "Opzioni",
 	"cite-ve-dialog-reference-placeholder": "Scrivi o copia la tua nota qui, oppure inserisci un template per le citazioni.",

@@ -20,6 +20,8 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	// Parent constructor
 	ve.ui.MWReferenceContextItem.super.apply( this, arguments );
 	this.view = null;
+	/** @member {ve.dm.MWGroupReferences} */
+	this.groupRefs = null;
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceContextItem' );
 };
@@ -72,10 +74,7 @@ ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
-	const usageCount = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
-		.getGroupRefs( this.model.getAttribute( 'listGroup' ) )
-		.getRefUsages( this.model.getAttribute( 'listKey' ) )
-		.length;
+	const usageCount = this.groupRefs.getRefUsages( this.model.getAttribute( 'listKey' ) ).length;
 	if ( usageCount > 1 ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
@@ -107,9 +106,7 @@ ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
 		return null;
 	}
 	if ( !this.referenceNode ) {
-		this.referenceNode = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
-			.getGroupRefs( this.model.getAttribute( 'listGroup' ) )
-			.getInternalModelNode( this.model.getAttribute( 'listKey' ) );
+		this.referenceNode = this.groupRefs.getInternalModelNode( this.model.getAttribute( 'listKey' ) );
 	}
 	return this.referenceNode;
 };
@@ -132,13 +129,22 @@ ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
 	if ( !extendsRef ) {
 		return null;
 	}
-	const parentNode = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
-		.getGroupRefs( this.model.getAttribute( 'listGroup' ) )
-		.getInternalModelNode( extendsRef );
+	const parentNode = this.groupRefs.getInternalModelNode( extendsRef );
 	return parentNode ? new ve.ui.MWPreviewElement( parentNode, { useView: true } ).$element :
 		$( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
 			.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) );
+};
+
+/**
+ * @override
+ */
+ve.ui.MWReferenceContextItem.prototype.setup = function () {
+	this.groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
+		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
+
+	// Parent method
+	return ve.ui.MWReferenceContextItem.super.prototype.setup.apply( this, arguments );
 };
 
 /**

@@ -44,7 +44,12 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 
 	/** @private */
 	this.topLevelCounter = 1;
-	/** @private */
+	/**
+	 * InternalList node group, or null if no such group exists.
+	 *
+	 * @member {Object|null}
+	 * @private
+	 */
 	this.nodeGroup = null;
 };
 
@@ -166,7 +171,7 @@ ve.dm.MWGroupReferences.prototype.getTopLevelKeysInReflistOrder = function () {
  * @return {ve.dm.MWReferenceNode|undefined}
  */
 ve.dm.MWGroupReferences.prototype.getRefNode = function ( key ) {
-	const keyedNodes = this.nodeGroup.keyedNodes[ key ];
+	const keyedNodes = this.nodeGroup && this.nodeGroup.keyedNodes[ key ];
 	return keyedNodes && keyedNodes[ 0 ];
 };
 
@@ -195,7 +200,6 @@ ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( key ) {
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
-	// T373661: This might never have been set in source mode
 	return ( this.nodeGroup && this.nodeGroup.keyedNodes[ key ] || [] )
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) &&
 				!node.findParent( ve.dm.MWReferencesListNode )

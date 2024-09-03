@@ -2,6 +2,22 @@
 
 QUnit.module( 've.ui.MWUseExistingReferenceCommand (Cite)', ve.test.utils.newMwEnvironment() );
 
+function getFragementMock( hasRefs ) {
+	const docRefsMock = {
+		hasRefs: () => hasRefs
+	};
+
+	return {
+		getDocument: () => ( {
+			getOriginalDocument: () => undefined,
+			getStorage: () => docRefsMock
+		} ),
+		getSelection: () => ( {
+			getName: () => 'linear'
+		} )
+	};
+}
+
 QUnit.test( 'Constructor', ( assert ) => {
 	const command = new ve.ui.MWUseExistingReferenceCommand();
 	assert.strictEqual( command.name, 'reference/existing' );
@@ -12,21 +28,6 @@ QUnit.test( 'Constructor', ( assert ) => {
 QUnit.test( 'isExecutable', ( assert ) => {
 	const command = new ve.ui.MWUseExistingReferenceCommand();
 
-	// XXX: This is a regression test with a fragile setup. Please feel free to delete this test
-	// when you feel like it doesn't make sense to update it.
-	const groups = {};
-	const fragment = {
-		getDocument: () => ( {
-			getInternalList: () => ( {
-				getNodeGroups: () => groups
-			} )
-		} ),
-		getSelection: () => ( {
-			getName: () => 'linear'
-		} )
-	};
-	assert.false( command.isExecutable( fragment ) );
-
-	groups[ 'mwReference/' ] = { indexOrder: [ 0 ] };
-	assert.true( command.isExecutable( fragment ) );
+	assert.false( command.isExecutable( getFragementMock( false ) ) );
+	assert.true( command.isExecutable( getFragementMock( true ) ) );
 } );

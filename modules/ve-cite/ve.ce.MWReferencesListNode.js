@@ -24,8 +24,6 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 	ve.ce.FocusableNode.call( this );
 
 	// Properties
-	this.internalList = null;
-	this.listNode = null;
 	this.modified = false;
 
 	// DOM changes
@@ -89,11 +87,11 @@ ve.ce.MWReferencesListNode.prototype.getExtraHighlightClasses = function () {
  * Handle setup events.
  */
 ve.ce.MWReferencesListNode.prototype.onSetup = function () {
-	this.internalList = this.getModel().getDocument().getInternalList();
-	this.listNode = this.internalList.getListNode();
+	const internalList = this.getModel().getDocument().getInternalList();
+	const listNode = internalList.getListNode();
 
-	this.internalList.connect( this, { update: 'onInternalListUpdate' } );
-	this.listNode.connect( this, { update: 'onListNodeUpdate' } );
+	internalList.connect( this, { update: 'onInternalListUpdate' } );
+	listNode.connect( this, { update: 'onListNodeUpdate' } );
 
 	// Parent method
 	ve.ce.MWReferencesListNode.super.prototype.onSetup.call( this );
@@ -106,15 +104,11 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
 	// Parent method
 	ve.ce.MWReferencesListNode.super.prototype.onTeardown.call( this );
 
-	if ( !this.listNode ) {
-		return;
-	}
+	const internalList = this.getModel().getDocument().getInternalList();
+	const listNode = internalList.getListNode();
 
-	this.internalList.disconnect( this, { update: 'onInternalListUpdate' } );
-	this.listNode.disconnect( this, { update: 'onListNodeUpdate' } );
-
-	this.internalList = null;
-	this.listNode = null;
+	internalList.disconnect( this, { update: 'onInternalListUpdate' } );
+	listNode.disconnect( this, { update: 'onListNodeUpdate' } );
 };
 
 /**

@@ -31,6 +31,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	// Properties
 	this.referenceModel = null;
 	this.originalGroup = null;
+	/** @member {ve.dm.MWDocumentReferences} */
 	this.docRefs = null;
 	this.referenceModel = null;
 
@@ -196,7 +197,7 @@ ve.ui.MWReferenceEditPanel.static.getImportRules = function () {
 };
 
 /**
- * @param {ve.ui.MWReferenceEditPanel} docRefs
+ * @param {ve.dm.MWDocumentReferences} docRefs
  */
 ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs ) {
 	this.docRefs = docRefs;

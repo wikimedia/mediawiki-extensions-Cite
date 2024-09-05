@@ -7,7 +7,7 @@
 	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc );
 	const plainGroupRefs = docRefs.getGroupRefs( '' );
 	const fooGroupRefs = docRefs.getGroupRefs( 'foo' );
-	const emptyGroupRefs = docRefs.getGroupRefs( 'doenotexist' );
+	const emptyGroupRefs = docRefs.getGroupRefs( 'doesnotexist' );
 
 	QUnit.test( 'isEmpty', ( assert ) => {
 		assert.false( plainGroupRefs.isEmpty() );
@@ -55,13 +55,13 @@
 
 	QUnit.test( 'getRefNode', ( assert ) => {
 		assert.strictEqual( plainGroupRefs.getRefNode( 'auto/0' ).getAttribute( 'listKey' ), 'auto/0' );
-		assert.strictEqual( plainGroupRefs.getRefNode( 'doenotexist' ), undefined );
+		assert.strictEqual( plainGroupRefs.getRefNode( 'doesnotexist' ), undefined );
 	} );
 
 	QUnit.test( 'getInternalModelNode', ( assert ) => {
 		// TODO: assert something that makes sense
 		// assert.strictEqual( plainGroupRefs.getInternalModelNode( 'auto/0' ), undefined );
-		assert.strictEqual( plainGroupRefs.getInternalModelNode( 'doenotexist' ), undefined );
+		assert.strictEqual( plainGroupRefs.getInternalModelNode( 'doesnotexist' ), undefined );
 	} );
 
 	QUnit.test( 'getRefUsages', ( assert ) => {
@@ -72,7 +72,17 @@
 				'literal/bar'
 			]
 		);
-		assert.deepEqual( plainGroupRefs.getRefUsages( 'doenotexist' ), [] );
+		assert.deepEqual( plainGroupRefs.getRefUsages( 'doesnotexist' ), [] );
+	} );
+
+	QUnit.test( 'getTotalUsageCount', ( assert ) => {
+		const mockListKey = 'literal/bar';
+
+		// The total usage count should be the sum of main refs and subrefs
+		assert.strictEqual(
+			plainGroupRefs.getTotalUsageCount( mockListKey ),
+			plainGroupRefs.getRefUsages( mockListKey ).length + plainGroupRefs.getSubrefs( mockListKey ).length
+		);
 	} );
 
 	QUnit.test( 'sub-references', ( assert ) => {

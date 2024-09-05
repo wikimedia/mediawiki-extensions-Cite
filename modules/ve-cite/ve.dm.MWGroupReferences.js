@@ -207,6 +207,24 @@ ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
 };
 
 /**
+ * Get the total number of usages for a reference, including sub-references.
+ *
+ * @param {string} listKey Full key of the reference
+ * @return {number} Total usage count of main refs and subrefs
+ */
+ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listKey ) {
+	const mainRefs = this.getRefUsages( listKey );
+	const mainRefsCount = mainRefs.length;
+
+	const subrefs = this.getSubrefs( listKey );
+	const subrefsCount = subrefs.length;
+
+	const totalUsageCount = mainRefsCount + subrefsCount;
+
+	return totalUsageCount;
+};
+
+/**
  * @param {string} parentKey parent ref key
  * @return {ve.dm.MWReferenceNode[]} List of subrefs for this parent
  */

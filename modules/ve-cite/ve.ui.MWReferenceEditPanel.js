@@ -253,13 +253,12 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref ) {
-	const usageCount = this.docRefs
+	const totalUsageCount = this.docRefs
 		.getGroupRefs( ref.getListGroup() )
-		.getRefUsages( ref.getListKey() )
-		.length;
+		.getTotalUsageCount( ref.getListKey() );
 	this.reuseWarning
-		.toggle( usageCount > 1 )
-		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', usageCount ) );
+		.toggle( totalUsageCount > 1 )
+		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', totalUsageCount ) );
 };
 
 /**

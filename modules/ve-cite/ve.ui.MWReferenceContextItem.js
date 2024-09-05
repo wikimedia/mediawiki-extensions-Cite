@@ -74,11 +74,13 @@ ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
-	const usageCount = this.groupRefs.getRefUsages( this.model.getAttribute( 'listKey' ) ).length;
-	if ( usageCount > 1 ) {
+	const listKey = this.model.getAttribute( 'listKey' );
+	const totalUsageCount = this.groupRefs.getTotalUsageCount( listKey );
+
+	if ( totalUsageCount > 1 ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( mw.msg( 'cite-ve-dialog-reference-editing-reused', usageCount ) );
+			.text( mw.msg( 'cite-ve-dialog-reference-editing-reused', totalUsageCount ) );
 	}
 };
 

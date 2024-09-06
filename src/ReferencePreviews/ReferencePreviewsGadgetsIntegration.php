@@ -5,10 +5,8 @@ namespace Cite\ReferencePreviews;
 use InvalidArgumentException;
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
-use Wikimedia\Services\NoSuchServiceException;
 
 /**
  * Gadgets integration
@@ -25,17 +23,13 @@ class ReferencePreviewsGadgetsIntegration {
 	private string $navPopupsGadgetName;
 	private string $refTooltipsGadgetName;
 
-	public function __construct( Config $config ) {
+	public function __construct( Config $config, ?GadgetRepo $gadgetRepo ) {
 		$this->navPopupsGadgetName = $this->sanitizeGadgetName(
 			$config->get( self::CONFIG_NAVIGATION_POPUPS_NAME ) );
 		$this->refTooltipsGadgetName = $this->sanitizeGadgetName(
 			$config->get( self::CONFIG_REFERENCE_TOOLTIPS_NAME ) );
 
-		try {
-			$this->gadgetRepo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
-		} catch ( NoSuchServiceException $e ) {
-			$this->gadgetRepo = null;
-		}
+		$this->gadgetRepo = $gadgetRepo;
 	}
 
 	private function sanitizeGadgetName( string $gadgetName ): string {

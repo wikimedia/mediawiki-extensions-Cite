@@ -18,12 +18,12 @@ class ReferencePreviewsContext {
 
 	public function __construct(
 		Config $config,
+		ReferencePreviewsGadgetsIntegration $gadgetsIntegration,
 		UserOptionsLookup $userOptionsLookup
 	) {
-		$this->gadgetsIntegration = new ReferencePreviewsGadgetsIntegration( $config );
-		$this->userOptionsLookup = $userOptionsLookup;
-
 		$this->config = $config;
+		$this->gadgetsIntegration = $gadgetsIntegration;
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**

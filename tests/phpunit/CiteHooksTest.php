@@ -26,8 +26,11 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			'CiteBookReferencing' => $enabled,
 		] );
 
-		$citeHooks = new CiteHooks( new StaticUserOptionsLookup( [] ) );
-		$citeHooks->onResourceLoaderGetConfigVars( $vars, 'vector', $config );
+		( new CiteHooks(
+			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
+			new StaticUserOptionsLookup( [] )
+		) )
+			->onResourceLoaderGetConfigVars( $vars, 'vector', $config );
 
 		$this->assertSame( [
 			'wgCiteVisualEditorOtherGroup' => $enabled,
@@ -48,8 +51,11 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$resourceLoader->expects( $this->exactly( (int)$enabled ) )
 			->method( 'register' );
 
-		$citeHooks = new CiteHooks( new StaticUserOptionsLookup( [] ) );
-		$citeHooks->onResourceLoaderRegisterModules( $resourceLoader );
+		( new CiteHooks(
+			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
+			new StaticUserOptionsLookup( [] )
+		) )
+			->onResourceLoaderRegisterModules( $resourceLoader );
 	}
 
 	/**
@@ -63,8 +69,11 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 
 		$data = [];
 
-		$citeHooks = new CiteHooks( new StaticUserOptionsLookup( [] ) );
-		$citeHooks->onAPIQuerySiteInfoGeneralInfo( $api, $data );
+		( new CiteHooks(
+			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
+			new StaticUserOptionsLookup( [] )
+		) )
+			->onAPIQuerySiteInfoGeneralInfo( $api, $data );
 
 		$this->assertSame( [ 'citeresponsivereferences' => $enabled ], $data );
 	}

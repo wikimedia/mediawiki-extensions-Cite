@@ -79,7 +79,7 @@ export function getCiteReuseDialogRefResultName( rowNumber ) {
 }
 
 export function getCiteReuseDialogRefResultCitation( rowNumber ) {
-	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceSearchWidget-citation' )
+	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceSearchWidget-footnote' )
 		.eq( rowNumber - 1 );
 }
 

@@ -57,9 +57,9 @@
 
 		const index = widget.buildSearchIndex();
 		assert.deepEqual( index.length, 1 );
-		assert.deepEqual( index[ 0 ].citation, '1' );
+		assert.deepEqual( index[ 0 ].footnoteLabel, '1' );
 		assert.deepEqual( index[ 0 ].name, 'foo' );
-		assert.deepEqual( index[ 0 ].text, '1 foo' );
+		assert.deepEqual( index[ 0 ].searchableText, '1 foo' );
 	} );
 
 	QUnit.test( 'isIndexEmpty', ( assert ) => {
@@ -73,7 +73,7 @@
 
 	QUnit.test( 'buildSearchResults', ( assert ) => {
 		const widget = new ve.ui.MWReferenceSearchWidget();
-		widget.index = [ { text: 'a', reference: 'model-a' }, { text: 'b' } ];
+		widget.index = [ { searchableText: 'a', reference: 'model-a' }, { searchableText: 'b' } ];
 
 		assert.strictEqual( widget.getResults().getItemCount(), 0 );
 		const results = widget.buildSearchResults( 'A' );

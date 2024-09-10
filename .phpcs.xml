@@ -9,6 +9,8 @@
 		<exclude-pattern>/src/ResourceLoader/</exclude-pattern>
 	</rule>
 
+	<exclude-pattern>/tests/cypress/.cache/</exclude-pattern>
+
 	<file>.</file>
 	<arg name="extensions" value="php" />
 	<arg name="encoding" value="UTF-8" />

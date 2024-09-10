@@ -35,9 +35,14 @@ class CiteHooks implements
 	EditPage__showEditForm_initialHook
 {
 
+	private ReferencePreviewsContext $referencePreviewsContext;
 	private UserOptionsLookup $userOptionsLookup;
 
-	public function __construct( UserOptionsLookup $userOptionsLookup ) {
+	public function __construct(
+		ReferencePreviewsContext $referencePreviewsContext,
+		UserOptionsLookup $userOptionsLookup
+	) {
+		$this->referencePreviewsContext = $referencePreviewsContext;
 		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
@@ -66,11 +71,7 @@ class CiteHooks implements
 	 * @param OutputPage $out
 	 */
 	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
-		$referencePreviewsContext = new ReferencePreviewsContext(
-			$out->getConfig(),
-			$this->userOptionsLookup
-		);
-		$vars['wgCiteReferencePreviewsActive'] = $referencePreviewsContext->isReferencePreviewsEnabled(
+		$vars['wgCiteReferencePreviewsActive'] = $this->referencePreviewsContext->isReferencePreviewsEnabled(
 			$out->getUser(),
 			$out->getSkin()
 		);

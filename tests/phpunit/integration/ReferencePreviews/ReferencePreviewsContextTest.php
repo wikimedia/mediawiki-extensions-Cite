@@ -31,8 +31,6 @@ class ReferencePreviewsContextTest extends MediaWikiIntegrationTestCase {
 		] );
 		$userOptLookup = $this->createNoOpMock( UserOptionsLookup::class );
 
-		$context = new ReferencePreviewsContext( $config, $userOptLookup );
-
 		$user = $this->createMock( User::class );
 		$user->method( 'isNamed' )->willReturn( false );
 
@@ -40,7 +38,11 @@ class ReferencePreviewsContextTest extends MediaWikiIntegrationTestCase {
 		$skin->method( 'getSkinName' )->willReturn( $skinName );
 
 		$this->assertSame( $expected,
-			$context->isReferencePreviewsEnabled( $user, $skin ),
+			( new ReferencePreviewsContext(
+				$config,
+				$userOptLookup
+			) )
+				->isReferencePreviewsEnabled( $user, $skin ),
 			( $expected ? 'A' : 'No' ) . ' module is sent to the user.' );
 	}
 
@@ -73,12 +75,14 @@ class ReferencePreviewsContextTest extends MediaWikiIntegrationTestCase {
 			'CiteReferencePreviewsConflictingRefTooltipsGadgetName' => '',
 		] );
 
-		$context = new ReferencePreviewsContext( $config, $userOptLookup );
-
 		$skin = $this->createMock( Skin::class );
 
 		$this->assertSame( $expected,
-			$context->isReferencePreviewsEnabled( $user, $skin ),
+			( new ReferencePreviewsContext(
+				$config,
+				$userOptLookup
+			) )
+				->isReferencePreviewsEnabled( $user, $skin ),
 			( $expected ? 'A' : 'No' ) . ' module is sent to the user.' );
 	}
 

@@ -2,7 +2,7 @@
 
 QUnit.module( 've.ui.MWUseExistingReferenceCommand (Cite)', ve.test.utils.newMwEnvironment() );
 
-function getFragementMock( hasRefs ) {
+function getFragmentMock( hasRefs ) {
 	const docRefsMock = {
 		hasRefs: () => hasRefs
 	};
@@ -10,7 +10,8 @@ function getFragementMock( hasRefs ) {
 	return {
 		getDocument: () => ( {
 			getOriginalDocument: () => undefined,
-			getStorage: () => docRefsMock
+			getStorage: () => docRefsMock,
+			setStorage: () => undefined
 		} ),
 		getSelection: () => ( {
 			getName: () => 'linear'
@@ -28,6 +29,6 @@ QUnit.test( 'Constructor', ( assert ) => {
 QUnit.test( 'isExecutable', ( assert ) => {
 	const command = new ve.ui.MWUseExistingReferenceCommand();
 
-	assert.false( command.isExecutable( getFragementMock( false ) ) );
-	assert.true( command.isExecutable( getFragementMock( true ) ) );
+	assert.false( command.isExecutable( getFragmentMock( false ) ) );
+	assert.true( command.isExecutable( getFragmentMock( true ) ) );
 } );

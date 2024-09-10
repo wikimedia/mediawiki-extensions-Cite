@@ -39,16 +39,22 @@ OO.mixinClass( ve.dm.MWDocumentReferences, OO.EventEmitter );
 /**
  * Singleton MWDocumentReferences for a document.
  *
- * @param {ve.dm.Document} fragment Source document associated with the
- * singleton, may be a fragment in which case we step up to the original
- * document.
+ * @param {ve.dm.Document} doc Source document associated with the
+ * singleton. May be a fragment in which case we only look at refs included in
+ * the fragment.
+ *
  * @return {ve.dm.MWDocumentReferences} Singleton docRefs
  */
-ve.dm.MWDocumentReferences.static.refsForDoc = function ( fragment ) {
-	const doc = fragment.getOriginalDocument() || fragment;
-	let docRefs = doc.getStorage( 'document-references-store' );
+ve.dm.MWDocumentReferences.static.refsForDoc = function ( doc ) {
+	let docRefs;
+	if ( !doc.getOriginalDocument() ) {
+		// Only use cache if we're working with the full document.
+		docRefs = doc.getStorage( 'document-references-store' );
+	}
 	if ( docRefs === undefined ) {
 		docRefs = new ve.dm.MWDocumentReferences( doc );
+	}
+	if ( !doc.getOriginalDocument() ) {
 		doc.setStorage( 'document-references-store', docRefs );
 	}
 	return docRefs;

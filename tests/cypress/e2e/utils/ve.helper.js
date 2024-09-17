@@ -17,8 +17,16 @@ export function openVEForEditingReferences( title, usesCitoid ) {
 	}
 }
 
+export function openVEForSourceEditingReferences( title, usesCitoid ) {
+	helpers.visitTitle( title, { veaction: 'editsource' } );
+	waitForVECiteToLoad();
+	if ( usesCitoid ) {
+		waitForVECitoidToLoad();
+	}
+}
+
 export function waitForVECiteToLoad() {
-	cy.get( '.ve-init-mw-desktopArticleTarget-toolbar-open', { timeout: 7000 } )
+	cy.get( '.ve-init-mw-desktopArticleTarget-toolbar-open', { timeout: 20000 } )
 		.should( 'be.visible' );
 	helpers.waitForModuleReady( 'ext.cite.visualEditor' );
 }

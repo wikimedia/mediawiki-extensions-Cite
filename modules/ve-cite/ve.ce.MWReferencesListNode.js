@@ -104,6 +104,9 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
 	// Parent method
 	ve.ce.MWReferencesListNode.super.prototype.onTeardown.call( this );
 
+	if ( !this.getModel() || !this.getModel().getDocument() ) {
+		return;
+	}
 	const internalList = this.getModel().getDocument().getInternalList();
 	const listNode = internalList.getListNode();
 
@@ -119,6 +122,9 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
  * @param {string[]} groupsChanged A list of groups which have changed in this transaction
  */
 ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsChanged ) {
+	if ( !this.getModel() ) {
+		return;
+	}
 	// Only update if this group has been changed
 	if ( groupsChanged.indexOf( this.getModel().getAttribute( 'listGroup' ) ) !== -1 ) {
 		this.modified = true;

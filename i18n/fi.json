@@ -40,7 +40,7 @@
 	"cite_error_references_group_mismatch": "<code>&lt;ref&gt;</code>-elementti <code>&lt;references&gt;</code>-elementin sisällä sisältää ristiriitaisen ryhmämääritteen ”$1”.",
 	"cite_error_references_missing_key": "<code>&lt;ref&gt;</code>-elementin nimeä ”$1”, johon viitataan elementissä <code>&lt;references&gt;</code> ei käytetä edeltävässä tekstissä.",
 	"cite_error_references_no_key": "<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä ei ole nimimääritettä.",
-	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>-elementissä määritetyllä <code>&lt;ref&gt;</code>-elementillä nimellä ”$1” ei ole sisältöä.",
+	"cite_error_empty_references_define": "<code>&lt;references&gt;</code>-ryhmässä ”$2” määritetyllä <code>&lt;ref&gt;</code>-elementillä nimeltä ”$1” ei ole sisältöä.",
 	"cite-tracking-category-cite-error": "Sivut, joissa on viittausvirheitä",
 	"cite-tracking-category-cite-error-desc": "Tässä luokassa olevissa sivuissa on virheitä viite-elementtien käytössä.",
 	"cite_references_link_accessibility_label": "Siirry ylös",

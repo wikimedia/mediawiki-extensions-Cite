@@ -234,33 +234,32 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( () => {
-			this.panels.setItem( this.editPanel );
-			const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
-				this.getFragment().getDocument()
-			);
-			this.editPanel.setDocumentReferences( docRefs );
-			this.actions.setAbilities( { done: false } );
-
-			let ref;
-			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
-				// edit an existing reference
-				ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
-				if ( ref.extendsRef ) {
-					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-edit-details' ) );
-				}
-			} else {
-				// create a new reference
-				ref = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
-				this.actions.setAbilities( { insert: false } );
-			}
-			this.editPanel.setReferenceForEditing( ref );
-			this.editPanel.setReadOnly( this.isReadOnly() );
-
-			this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
-
 			this.reuseReference = !!data.reuseReference;
 			if ( this.reuseReference ) {
+				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
 				this.openReusePanel();
+			} else {
+				this.panels.setItem( this.editPanel );
+				const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
+					this.getFragment().getDocument()
+				);
+				this.editPanel.setDocumentReferences( docRefs );
+
+				let ref;
+				if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
+					// edit an existing reference
+					ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
+					if ( ref.extendsRef ) {
+						this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-edit-details' ) );
+					}
+					this.actions.setAbilities( { done: false } );
+				} else {
+					// create a new reference
+					ref = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
+					this.actions.setAbilities( { insert: false } );
+				}
+				this.editPanel.setReferenceForEditing( ref );
+				this.editPanel.setReadOnly( this.isReadOnly() );
 			}
 
 			this.trackedInputChange = false;

@@ -1,9 +1,9 @@
 'use strict';
 
 /*!
- * VisualEditor UserInterface MWReferenceResultWidget class.
+ * VisualEditor UserInterface MWReferenceEditPanel class.
  *
- * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
+ * @copyright 2024 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
  * @license MIT
  */
 

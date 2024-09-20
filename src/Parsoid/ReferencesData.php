@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use stdClass;
 use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 
@@ -14,7 +15,7 @@ class ReferencesData {
 	private int $index = 0;
 	/** @var array<string,RefGroup> indexed by group name */
 	private array $refGroups = [];
-	/** @var array<string,array[]> */
+	/** @var array<string,stdClass[]> */
 	public array $embeddedErrors = [];
 	/** @var string[] */
 	private array $inEmbeddedContent = [];

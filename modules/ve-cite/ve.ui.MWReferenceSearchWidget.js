@@ -12,7 +12,8 @@
  *
  * @constructor
  * @extends OO.ui.SearchWidget
- * @param {Object} [config] Configuration options
+ * @param {Object} config Configuration options
+ * @param {jQuery} config.$overlay Layer to render reuse submenu outside of the parent dialog
  * @property {Object[]|null} index Null when the index needs to be rebuild
  */
 ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
@@ -28,11 +29,17 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	this.docRefs = null;
 	this.index = null;
 	this.wasUsedActively = false;
+	this.$overlay = config.$overlay;
 
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceSearchWidget' );
 	this.$results.on( 'scroll', this.trackActiveUsage.bind( this ) );
 	this.getResults().connect( this, { choose: 'onChoose' } );
+
+	// FIXME: T375053 Should just be temporary to test some UI changes
+	if ( mw.config.get( 'wgCiteBookReferencing' ) ) {
+		this.$element.addClass( 've-ui-mwReferenceSearchReuseHacks' );
+	}
 };
 
 /* Inheritance */
@@ -45,6 +52,13 @@ OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
  * User chose a ref for reuse
  *
  * @event ve.ui.MWReferenceSearchWidget#reuse
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+
+/**
+ * Extends popup menu item was clicked
+ *
+ * @event ve.ui.MWReferenceSearchWidget#extends
  * @param {ve.dm.MWReferenceModel} ref
  */
 
@@ -175,6 +189,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 				// TODO: return a simple node
 				reference: ve.dm.MWReferenceModel.static.newFromReferenceNode( node ),
 				footnoteLabel: footnoteLabel,
+				isSubRef: !!node.getAttribute( 'extendsRef' ),
 				name: name
 			};
 		} ) );
@@ -184,13 +199,54 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 };
 
 /**
- * Check whether buildIndex will create an empty index based on the current document
- *
- * @deprecated Move logic to caller.
  * @return {boolean} Index is empty
  */
 ve.ui.MWReferenceSearchWidget.prototype.isIndexEmpty = function () {
 	return !this.docRefs.hasRefs();
+};
+
+/**
+ * @private
+ * @return {OO.ui.Toolbar}
+ * @param {ve.dm.MWReferenceModel} ref
+ */
+ve.ui.MWReferenceSearchWidget.prototype.buildReuseOptionsMenu = function ( ref ) {
+	// TODO: Select the row on menu button click, so we don't have to wire ref
+	// through the closure.
+	const reuseOptionsMenu = new OO.ui.ButtonMenuSelectWidget( {
+		classes: [ 've-ui-mwReferenceResultsReuseOptions' ],
+		framed: false,
+		icon: 'ellipsis',
+		invisibleLabel: true,
+		menu: {
+			horizontalPosition: 'end',
+			items: [
+				new OO.ui.MenuOptionWidget( {
+					data: 'reuse',
+					label: ve.msg( 'cite-ve-dialog-reference-useexisting-long-tool' )
+				} ),
+				new OO.ui.MenuOptionWidget( {
+					data: 'extends',
+					label: ve.msg( 'cite-ve-dialog-reference-extend-long-tool' )
+				} )
+			]
+		},
+		// FIXME: Overlay clips to the dialog, should be full-screen.
+		$overlay: this.$overlay
+	} );
+
+	// Hack to prevent a menu button click from being handled by the top-level
+	// select item.
+	reuseOptionsMenu.$element.on( 'mousedown', ( e ) => {
+		e.stopPropagation();
+	} );
+
+	reuseOptionsMenu.getMenu().on( 'choose', ( menuOption ) => {
+		// Emit 'reuse' or 'extends' events, with the chosen ref.
+		this.emit( menuOption.getData(), ref );
+	} );
+
+	return reuseOptionsMenu;
 };
 
 /**
@@ -209,7 +265,12 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchResults = function ( query ) 
 	for ( let i = 0; i < this.index.length; i++ ) {
 		const item = this.index[ i ];
 		if ( item.searchableText.indexOf( query ) >= 0 ) {
-			results.push( new ve.ui.MWReferenceResultWidget( { item: item } ) );
+			results.push(
+				new ve.ui.MWReferenceResultWidget( {
+					item: item,
+					reuseMenu: item.isSubRef ? undefined : this.buildReuseOptionsMenu( item.reference )
+				} )
+			);
 		}
 	}
 

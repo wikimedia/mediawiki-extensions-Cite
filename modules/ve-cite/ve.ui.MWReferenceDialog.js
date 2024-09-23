@@ -94,6 +94,32 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 };
 
 /**
+ * Handle search results popup menu extends events.
+ *
+ * @param {ve.dm.MWReferenceModel} originalRef
+ */
+ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsExtends = function ( originalRef ) {
+	const newRef = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
+	newRef.extendsRef = originalRef.getListKey();
+	newRef.group = originalRef.getGroup();
+
+	this.getManager()
+		.openWindow( 'setExtendsContent', {
+			originalRef: originalRef,
+			newRef: newRef,
+			internalList: this.getFragment().getDocument().getInternalList()
+		} )
+		.closing.then( ( data ) => {
+			if ( data && data.action && data.action === 'insert' ) {
+				newRef.insertInternalItem( this.getFragment().getSurface() );
+				newRef.insertReferenceNode( this.getFragment() );
+
+				this.close( { action: 'extends-choose' } );
+			}
+		} );
+};
+
+/**
  * @override
  */
 ve.ui.MWReferenceDialog.prototype.getReadyProcess = function ( data ) {
@@ -133,10 +159,13 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	this.editPanel = new ve.ui.MWReferenceEditPanel( { $overlay: this.$overlay } );
 	this.reuseSearchPanel = new OO.ui.PanelLayout();
 
-	this.reuseSearch = new ve.ui.MWReferenceSearchWidget();
+	this.reuseSearch = new ve.ui.MWReferenceSearchWidget( { $overlay: this.$overlay } );
 
 	// Events
-	this.reuseSearch.connect( this, { reuse: 'onReuseSearchResultsReuse' } );
+	this.reuseSearch.connect( this, {
+		reuse: 'onReuseSearchResultsReuse',
+		extends: 'onReuseSearchResultsExtends'
+	} );
 	this.editPanel.connect( this, { change: 'onEditPanelInputChange' } );
 
 	// Initialization

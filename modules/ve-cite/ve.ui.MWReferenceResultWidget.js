@@ -14,8 +14,13 @@
  * @extends OO.ui.OptionWidget
  * @param {Object} config Configuration options
  * @param {Object} config.item Result item
+ * @param {Object} config.reuseMenu
  */
 ve.ui.MWReferenceResultWidget = function VeUiMWReferenceResultWidget( config ) {
+	config = ve.extendObject( {
+		title: ve.msg( 'cite-ve-dialog-reference-useexisting-long-tool' )
+	}, config );
+
 	// Parent constructor
 	ve.ui.MWReferenceResultWidget.super.apply( this, arguments );
 
@@ -39,6 +44,10 @@ ve.ui.MWReferenceResultWidget = function VeUiMWReferenceResultWidget( config ) {
 
 	this.setLabel( $footnoteLabel.add( $name ).add( item.$refContent ) );
 	this.setData( item.reference );
+
+	if ( mw.config.get( 'wgCiteBookReferencing' ) && config.reuseMenu ) {
+		this.$element.append( config.reuseMenu.$element );
+	}
 };
 
 /* Inheritance */

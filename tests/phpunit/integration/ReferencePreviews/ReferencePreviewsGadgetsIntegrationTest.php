@@ -39,9 +39,12 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 	}
 
 	public function testConflictsWithNavPopupsGadgetIfGadgetsExtensionIsNotLoaded() {
-		$integration = new ReferencePreviewsGadgetsIntegration( $this->getConfig() );
 		$this->assertFalse(
-			$integration->isNavPopupsGadgetEnabled( $this->createNoOpMock( User::class ) ),
+			( new ReferencePreviewsGadgetsIntegration(
+				$this->getConfig(),
+				null
+			) )
+				->isNavPopupsGadgetEnabled( $this->createNoOpMock( User::class ) ),
 			'No conflict is identified.'
 		);
 	}
@@ -153,12 +156,13 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 		GadgetRepo $repoMock,
 		bool $expected
 	): void {
-		$this->setService( 'GadgetsRepo', $repoMock );
-
-		$integration = new ReferencePreviewsGadgetsIntegration( $config );
 		$this->assertSame(
 			$expected,
-			$integration->isNavPopupsGadgetEnabled( $user ),
+			( new ReferencePreviewsGadgetsIntegration(
+				$config,
+				$repoMock
+			) )
+				->isNavPopupsGadgetEnabled( $user ),
 			( $expected ? 'A' : 'No' ) . ' conflict is identified.'
 		);
 	}

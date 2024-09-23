@@ -8,6 +8,7 @@ namespace Cite\Hooks;
 
 use ApiQuerySiteinfo;
 use Cite\ReferencePreviews\ReferencePreviewsContext;
+use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
 use ExtensionRegistry;
 use MediaWiki\Api\Hook\APIQuerySiteInfoGeneralInfoHook;
 use MediaWiki\Config\Config;
@@ -21,6 +22,7 @@ use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
+use MediaWiki\User\User;
 
 /**
  * @license GPL-2.0-or-later
@@ -36,13 +38,16 @@ class CiteHooks implements
 {
 
 	private ReferencePreviewsContext $referencePreviewsContext;
+	private ReferencePreviewsGadgetsIntegration $gadgetsIntegration;
 	private UserOptionsLookup $userOptionsLookup;
 
 	public function __construct(
 		ReferencePreviewsContext $referencePreviewsContext,
+		ReferencePreviewsGadgetsIntegration $gadgetsIntegration,
 		UserOptionsLookup $userOptionsLookup
 	) {
 		$this->referencePreviewsContext = $referencePreviewsContext;
+		$this->gadgetsIntegration = $gadgetsIntegration;
 		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
@@ -169,6 +174,54 @@ class CiteHooks implements
 			$this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' )
 		) {
 			$outputPage->addModules( 'ext.cite.wikiEditor' );
+		}
+	}
+
+	/**
+	 * Add options to user Preferences page
+	 *
+	 * @param User $user User whose preferences are being modified
+	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object
+	 */
+	public function onGetPreferences( $user, &$prefs ) {
+		$option = [
+			'type' => 'toggle',
+			'label-message' => 'popups-refpreview-user-preference-label',
+			// FIXME: This message is unnecessary and unactionable since we already
+			// detect specific gadget conflicts.
+			'help-message' => 'popups-prefs-conflicting-gadgets-info',
+			// FIXME: copied from Popups
+			'section' => 'rendering/reading',
+		];
+		$isNavPopupsGadgetEnabled = $this->gadgetsIntegration->isNavPopupsGadgetEnabled( $user );
+		$isRefTooltipsGadgetEnabled = $this->gadgetsIntegration->isRefTooltipsGadgetEnabled( $user );
+		if ( $isNavPopupsGadgetEnabled && $isRefTooltipsGadgetEnabled ) {
+			$option[ 'disabled' ] = true;
+			$option[ 'help-message' ] = [ 'popups-prefs-reftooltips-and-navpopups-gadget-conflict-info',
+				'Special:Preferences#mw-prefsection-gadgets' ];
+		} elseif ( $isNavPopupsGadgetEnabled ) {
+			$option[ 'disabled' ] = true;
+			$option[ 'help-message' ] = [ 'popups-prefs-navpopups-gadget-conflict-info',
+				'Special:Preferences#mw-prefsection-gadgets' ];
+		} elseif ( $isRefTooltipsGadgetEnabled ) {
+			$option[ 'disabled' ] = true;
+			$option[ 'help-message' ] = [ 'popups-prefs-reftooltips-gadget-conflict-info',
+				'Special:Preferences#mw-prefsection-gadgets' ];
+		}
+
+		$prefs += [
+			ReferencePreviewsContext::REFERENCE_PREVIEWS_PREFERENCE_NAME => $option
+		];
+	}
+
+	/**
+	 * See https://www.mediawiki.org/wiki/Manual:Hooks/UserGetDefaultOptions
+	 * @param array &$defaultOptions Array of preference keys and their default values.
+	 */
+	public static function onUserGetDefaultOptions( &$defaultOptions ) {
+		// FIXME: Move to extension.json once migration is complete.  See T363162
+		if ( !isset( $defaultOptions[ ReferencePreviewsContext::REFERENCE_PREVIEWS_PREFERENCE_NAME ] ) ) {
+			$defaultOptions[ ReferencePreviewsContext::REFERENCE_PREVIEWS_PREFERENCE_NAME ] = '1';
 		}
 	}
 

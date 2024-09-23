@@ -26,6 +26,7 @@
 	"Hooks": {
 		"APIQuerySiteInfoGeneralInfo": "main",
 		"ContentHandlerDefaultModelFor": "main",
+		"GetPreferences": "main",
 		"ParserAfterParse": "parser",
 		"ParserClearState": "parser",
 		"ParserCloned": "parser",
@@ -33,13 +34,15 @@
 		"EditPage::showEditForm:initial": "main",
 		"MakeGlobalVariablesScript": "main",
 		"ResourceLoaderGetConfigVars": "main",
-		"ResourceLoaderRegisterModules": "main"
+		"ResourceLoaderRegisterModules": "main",
+		"UserGetDefaultOptions": "main"
 	},
 	"HookHandlers": {
 		"main": {
 			"class": "Cite\\Hooks\\CiteHooks",
 			"services": [
 				"Cite.ReferencePreviewsContext",
+				"Cite.GadgetsIntegration",
 				"UserOptionsLookup"
 			]
 		},

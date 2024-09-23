@@ -40,6 +40,7 @@ class ReferencePreviewsContextTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected,
 			( new ReferencePreviewsContext(
 				$config,
+				$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
 				$userOptLookup
 			) )
 				->isReferencePreviewsEnabled( $user, $skin ),
@@ -80,6 +81,7 @@ class ReferencePreviewsContextTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected,
 			( new ReferencePreviewsContext(
 				$config,
+				$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
 				$userOptLookup
 			) )
 				->isReferencePreviewsEnabled( $user, $skin ),

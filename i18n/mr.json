@@ -47,5 +47,6 @@
 	"cite-wikieditor-help-content-reference-description": "संदर्भ",
 	"cite-wikieditor-help-content-named-reference-description": "नामित संदर्भ",
 	"cite-wikieditor-help-content-rereference-description": "याच संदर्भाचा अतिरिक्त वापर",
-	"cite-wikieditor-help-content-showreferences-description": "संदर्भ दर्शवा"
+	"cite-wikieditor-help-content-showreferences-description": "संदर्भ दर्शवा",
+	"popups-refpreview-user-preference-label": "संदर्भाचे पूर्वावलोकन सक्षम करा (पान वाचत असताना संदर्भाचे तात्काळ पूर्वावलोकन मिळवा."
 }

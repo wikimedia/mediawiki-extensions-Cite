@@ -64,5 +64,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Sayfa metni.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Bağlantı yazısı], ek yazı.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Bağlantı yazısı]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Daha çok ayrıntı"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Daha çok ayrıntı",
+	"popups-prefs-navpopups-gadget-conflict-info": "[[$1|Dolaşım pencereleri]] aracını etkinleştirdiniz, bu özellikle sağlanan önizlemeleri göremeyeceksiniz. Vikinize bağlı olarak, küçük aracın adı biraz farklı olabilir. Sorun yaşamaya devam ederseniz, küçük araçları ve kullanıcı betiklerini, küresel olanlar da dahil, gözden geçirin.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "[[$1|Dolaşım pencereleri]] ve [[$1|Kaynak İpuçları]] araçlarını etkinleştirdiniz, bu özellikle sağlanan önizlemeleri göremeyeceksiniz. Vikinize bağlı olarak, küçük araçların adı biraz farklı olabilir. Sorun yaşamaya devam ederseniz, küçük araçları ve kullanıcı betiklerini, küresel olanlar da dahil, gözden geçirin.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "[[$1|Kaynak İpuçları]] aracını etkinleştirdiniz, kaynak önizlemelerini göremeyeceksiniz, ancak sayfa önizlemelerini hala görebileceksiniz. Vikinize bağlı olarak, küçük aracın adı biraz farklı olabilir. Sorun yaşamaya devam ederseniz, küçük araçları ve kullanıcı betiklerini, küresel olanlar da dahil, gözden geçirin.",
+	"popups-refpreview-user-preference-label": "Kaynak önizlemelerini etkinleştir (bir sayfayı okurken kaynağın hızlı önizlemelerini alın)"
 }

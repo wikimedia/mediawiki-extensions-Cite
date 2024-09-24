@@ -9,7 +9,8 @@
 			"Horcrux92",
 			"Nemo bis",
 			"Pietrodn",
-			"Tizven"
+			"Tizven",
+			"Valepert"
 		]
 	},
 	"cite-desc": "Aggiunge i tag <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> per gestire le citazioni",
@@ -52,5 +53,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Testo della pagina.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Testo del collegamento], testo aggiuntivo.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Testo del collegamento]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Dettagli aggiuntivi"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Dettagli aggiuntivi",
+	"popups-prefs-navpopups-gadget-conflict-info": "Hai abilitato l'accessorio [[$1|Popup di navigazione]] quindi non vedrai le anteprime mostrate da questa preferenza. Se riscontri problemi, verifica i tuoi accessori e la personalizzazione del tema, incluso quello globale.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Hai abilitato gli accessori [[$1|Popup di navigazione]] e [[$1|Reference Tooltips]] quindi non vedrai le anteprime. In base alla tua wiki, gli accessori potrebbero avere un nome differente. Se riscontri problemi, verifica i tuoi accessori e la personalizzazione del tema, incluso quello globale.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Hai abilitato l'accessorio [[$1|Reference Tooltips]] quindi non vedrai l'anteprima delle note, ma continuerai a ottenere l'anteprima delle pagine. In base alla tua wiki, l'accessorio potrebbe avere un nome differente. Se riscontri problemi, verifica i tuoi accessori e la personalizzazione del tema, incluso quello globale.",
+	"popups-refpreview-user-preference-label": "Abilita l'anteprima delle note (ottieni una veloce anteprima di un riferimento mentre leggi una pagina)"
 }

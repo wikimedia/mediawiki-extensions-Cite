@@ -43,5 +43,6 @@
 	"cite-wikieditor-help-content-reference-description": "Bilješke",
 	"cite-wikieditor-help-content-named-reference-description": "Imenovana referenca",
 	"cite-wikieditor-help-content-rereference-description": "Dodatno korištenje iste bilješke",
-	"cite-wikieditor-help-content-showreferences-description": "Prikazivanje bilješki"
+	"cite-wikieditor-help-content-showreferences-description": "Prikazivanje bilješki",
+	"popups-refpreview-user-preference-label": "Omogući pretpregled referenci (brzi pregled fusnota pri čitanju stranice)"
 }

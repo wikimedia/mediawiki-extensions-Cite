@@ -56,5 +56,6 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Lingi tekst], täiendav tekst.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Lingi tekst]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "katse",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Täiendavad üksikasjad"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Täiendavad üksikasjad",
+	"popups-refpreview-user-preference-label": "Luba viidete eelvaade (näita lehekülje lugemisel viite kiiret eelvaadet)"
 }

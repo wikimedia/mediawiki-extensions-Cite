@@ -14,6 +14,7 @@
 			"Waihorace",
 			"Wbxshiori",
 			"Winston Sung",
+			"Xiplus",
 			"乌拉跨氪"
 		]
 	},
@@ -66,5 +67,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "頁面文字。$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 連結文字]，其他文字。",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 連結文字]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "額外詳細資料"
+	"cite-wikieditor-help-content-reference-example-extra-details": "額外詳細資料",
+	"popups-prefs-navpopups-gadget-conflict-info": "您已啟用[[$1|導航Popup]]小工具，因此您將無法看到本功能顯示的預覽。在您的wiki上，該小工具可能具有些微不同的名稱。如果您繼續遇到問題，請檢查您的小工具和使用者指令碼（包括全域指令碼）。",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "您已啟用[[$1|導航Popup]]和[[$1|參考文獻提示]]小工具，因此您將無法看到本功能顯示的預覽。在您的wiki上，這兩個小工具可能具有些微不同的名稱。如果您繼續遇到問題，請檢查您的小工具和使用者指令碼（包括全域指令碼）。",
+	"popups-prefs-reftooltips-gadget-conflict-info": "您已啟用[[$1|參考文獻提示]]小工具，因此您將無法看到參考文獻預覽，但頁面預覽不受影響。在您的wiki上，該小工具可能具有些微不同的名稱。如果您繼續遇到問題，請檢查您的小工具和使用者指令碼（包括全域指令碼）。",
+	"popups-refpreview-user-preference-label": "啟用參考文獻預覽（在閱讀頁面時取得參考文獻的快速預覽）"
 }

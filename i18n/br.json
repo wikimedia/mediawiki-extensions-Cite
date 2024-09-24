@@ -42,5 +42,9 @@
 	"cite-wikieditor-help-content-named-reference-description": "Dave anvet",
 	"cite-wikieditor-help-content-rereference-description": "Adimplij eus an hevelep daveenn",
 	"cite-wikieditor-help-content-showreferences-description": "Diskwel an daveennoù",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Munudoù all"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Munudoù all",
+	"popups-prefs-navpopups-gadget-conflict-info": "Gweredekaet eo ar bitrak [[$1|Navigation popups]], neuze ne weloc’h ket rakweloù pourchaset gant an arc’hwel-mañ. Gallout a rafe ar bitrak-mañ kaout un anv all en ho wiki. Ma kendalc’hit da gaout kudennoù, arsellit mar plij ho pitrakoù hag ho skriptoù implijer, re hollek hag all.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Gweredekaet eo ar bitrakoù [[$1|Navigation popups]] ha [[Reference Tooltips]], neuze ne weloc’h ket rakweloù pourchaset gant an arc’hwel-mañ. Gallout a rafe ar bitrakoù-mañ kaout un anv all en ho wiki. Ma kendalc’hit da gaout kudennoù, arsellit mar plij ho pitrakoù hag ho skriptoù implijer, re hollek hag all.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Gweredekaet eo ar bitrak [[$1|Reference Tooltips]], neuze ne weloc’h ket rakweloù daveoù met gwelout a reoc’h rakweloù pajennoù. Gallout a rafe ar bitrak-mañ kaout un anv all en ho wiki. Ma kendalc’hit da gaout kudennoù, arsellit mar plij ho pitrakoù hag ho skriptoù implijer, re hollek hag all.",
+	"popups-refpreview-user-preference-label": "Gweredekaat rakwel daveoù (kaout rakweloù prim eus un dave en ul lenn ur bajenn)"
 }

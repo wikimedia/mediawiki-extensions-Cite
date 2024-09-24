@@ -65,7 +65,12 @@
 	"cite-wikieditor-help-content-rereference-description": "Saman viitteen lisäkäyttö",
 	"cite-wikieditor-help-content-extended-reference-description": "Saman viitteen lisäkäyttö lisätiedoilla",
 	"cite-wikieditor-help-content-showreferences-description": "Näytä viitteet",
+	"cite-wikieditor-help-content-reference-example-text1": "Sivun teksti.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linkin teksti], lisäteksti.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linkin teksti]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Lisätiedot"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Lisätiedot",
+	"popups-prefs-navpopups-gadget-conflict-info": "Sinulla on käytössä [[$1|Navigation popups]] -pienoisohjelma, joten et näe esikatseluja tämän toiminnon kautta. Wikistä riippuen pienoisohjelmalla voi olla erilainen nimi. Jos sinulla on edelleen ongelmia, tarkista käyttämäsi pienoisohjelmat ja käyttäjäskriptit, myös järjestelmänlaajuiset.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Sinulla on käytössä pienoisohjelmat [[$1|Navigation popups]] ja [[$1|Reference Tooltips]], ja siksi et näe tämän toiminnon mahdollistamia esikatseluja. Wikistä riippuen pienoisohjelmilla voi olla erilaiset nimet. Jos sinulla on edelleen ongelmia, tarkista käyttämäsi pienoisohjelmat ja käyttäjäskriptit, myös järjestelmänlaajuiset.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Sinulla on käytössä [[$1|Reference Tooltips]] -pienoisohjelma, joten et näe viitteiden esikatseluita mutta näet sivujen esikatselut. Wikistä riippuen pienoisohjelmalla voi olla erilainen nimi. Jos sinulla on edelleen ongelmia, tarkista käyttämäsi pienoisohjelmat ja käyttäjäskriptit, myös järjestelmänlaajuiset.",
+	"popups-refpreview-user-preference-label": "Ota käyttöön viitteiden esikatselut (näe viitteen pikaesikatselu sivua lukiessasi)"
 }

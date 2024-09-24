@@ -64,5 +64,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Treść strony.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Treść linku], dodatkowy tekst.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Treść linku]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Dodatkowe szczegóły"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Dodatkowe szczegóły",
+	"popups-prefs-navpopups-gadget-conflict-info": "Gadżet [[$1|navigation popups]] jest włączony, co oznacza, że nie zobaczysz poglądów dostarczanych przez tę funkcję. W zależności od wiki, na jakiej się znajdujesz, gadżet ten może nazywać się inaczej. Jeśli problem wciąż będzie występował, sprawdź swoje gadżety oraz skrypty, włączając również te globalne.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Gadżety [[$1|navigation popups]] i [[$1|Reference Tooltips]] są włączone, co oznacza, że nie zobaczysz poglądów dostarczanych przez tę funkcję. W zależności od wiki, na jakiej się znajdujesz, gadżety te mogą nazywać się inaczej. Jeśli problem wciąż będzie występował, sprawdź swoje gadżety oraz skrypty, włączając również te globalne.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Gadżet [[$1|Reference Tooltips]] jest włączony, co oznacza, że nie zobaczysz poglądów przypisów dostarczanych przez tę funkcję. W zależności od wiki, na jakiej się znajdujesz, gadżet ten może nazywać się inaczej. Jeśli problem wciąż będzie występował, sprawdź swoje gadżety oraz skrypty, włączając również te globalne.",
+	"popups-refpreview-user-preference-label": "Włącz podgląd przypisów (szybki podgląd przypisów podczas czytania strony)"
 }

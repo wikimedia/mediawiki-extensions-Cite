@@ -11,6 +11,7 @@
 			"Fryed-peach",
 			"JtFuruhata",
 			"Kkairri",
+			"Marine-Blue",
 			"Omotecho",
 			"Otokoume",
 			"RYOUMA1117",
@@ -64,5 +65,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "ページ本文$1。",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 リンクタイトル]、追加テキスト",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 リンクタイトル]",
-	"cite-wikieditor-help-content-reference-example-ref-id": "テスト"
+	"cite-wikieditor-help-content-reference-example-ref-id": "テスト",
+	"popups-prefs-navpopups-gadget-conflict-info": "[[$1|ナビゲーションポップアップ]]ガジェットが有効になっているため、この機能によって提供されるプレビューは表示されません。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください。",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "[[$1|ナビゲーションポップアップ]]および[[$1|参照ツールチップ]]ガジェットが有効になっているため、この機能によって提供されるプレビューは表示されません。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください",
+	"popups-prefs-reftooltips-gadget-conflict-info": "[[$1|参照ツールチップ]]ガジェットが有効になっているため、参照プレビューは表示されませんが、ページプレビューは表示されます。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください。",
+	"popups-refpreview-user-preference-label": "参考文献のプレビューを有効にする（ページを読んでいるときに参考文献のクイックプレビューを有効にする）"
 }

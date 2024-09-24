@@ -23,5 +23,9 @@
 	"cite-wikieditor-help-content-reference-description": "Erreferentzia",
 	"cite-wikieditor-help-content-named-reference-description": "Izendun erreferentzia",
 	"cite-wikieditor-help-content-rereference-description": "Erreferentzia beraren erabilera gehiago",
-	"cite-wikieditor-help-content-showreferences-description": "Erreferentziak erakutsi"
+	"cite-wikieditor-help-content-showreferences-description": "Erreferentziak erakutsi",
+	"popups-prefs-navpopups-gadget-conflict-info": "[[$1|Laster-nabigazioa]] gadgeta gaitua duzu; ondorioz ez dituzu ikusiko eginbide honek eskaintzen dituen aurrebistak. Zure wikiaren arabera, gadgetak izen zertxobait desberdina izango du. Arazo horiek izaten jarraitzen baduzu, mesedez berrikusi zure gadgetak eta erabiltzaile scriptak, baita orokorrak ere.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "[[$1|Laster-nabigazioa]] eta [[$1|Erreferentzien argibideak]] gadgetak gaituak dituzu; ondorioz ez dituzu ikusiko eginbide honek eskaintzen dituen aurrebistak. Zure wikiaren arabera, gadgetak izen zertxobait desberdina izango du. Arazo horiek izaten jarraitzen baduzu, mesedez berrikusi zure gadgetak eta erabiltzaile scriptak, baita orokorrak ere.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "[[$1|Erreferentzien argibideak]] gadgeta gaitua duzu; ondorioz ez dituzu ikusiko erreferentzien aurrebistak, baina bai orriko aurrebistak. Zure wikiaren arabera, gadgetak izen zertxobait desberdina izango du. Arazo horiek izaten jarraitzen baduzu, mesedez berrikusi zure gadgetak eta erabiltzaile scriptak, baita orokorrak ere.",
+	"popups-refpreview-user-preference-label": "Gaitu erreferentzien aurrebistak (aurrebistak berehala ikusiko dituzu orri bat irakurtzean)"
 }

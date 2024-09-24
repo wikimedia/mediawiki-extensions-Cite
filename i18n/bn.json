@@ -59,5 +59,7 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 লিঙ্কের পাঠ্য], অতিরিক্ত পাঠ্য।",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 লিঙ্কের পাঠ্য]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "পরীক্ষা",
-	"cite-wikieditor-help-content-reference-example-extra-details": "অতিরিক্ত বিবরণ"
+	"cite-wikieditor-help-content-reference-example-extra-details": "অতিরিক্ত বিবরণ",
+	"popups-prefs-navpopups-gadget-conflict-info": "আপনার [[$1|নেভিগেশন পপআপ]] গ্যাজেটটি সক্রিয় করা, তাই আপনি এই বৈশিষ্ট্যদ্বারা প্রদত্ত প্রাকদর্শন দেখতে পাবেন না। আপনার উইকির উপর নির্ভর করে, গ্যাজেটটির নাম কিছুটা ভিন্ন হতে পারে। আপনার যদি সমস্যাগুলি চলমান থাকে, তবে দয়া করে আপনার বৈশ্বিক স্ক্রিপ্টসহ আপনার গ্যাজেট এবং ব্যবহারকারী স্ক্রিপ্ট পর্যালোচনা করুন।",
+	"popups-refpreview-user-preference-label": "তথ্যসূত্র প্রাকদর্শন সক্রিয় করুন (একটি পাতা পড়ার সময় তথ্যসূত্রের দ্রুত পূর্বরূপ দেখুন)"
 }

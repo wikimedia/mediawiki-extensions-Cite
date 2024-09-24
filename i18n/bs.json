@@ -4,6 +4,7 @@
 			"CERminator",
 			"KWiki",
 			"Reedy",
+			"Semina x",
 			"Semso98",
 			"Srdjan m",
 			"Srđan"
@@ -43,5 +44,6 @@
 	"cite-wikieditor-help-content-reference-description": "Reference",
 	"cite-wikieditor-help-content-named-reference-description": "Imenovana referenca",
 	"cite-wikieditor-help-content-rereference-description": "Dodatna upotreba istog izvora",
-	"cite-wikieditor-help-content-showreferences-description": "Prikaži izvore"
+	"cite-wikieditor-help-content-showreferences-description": "Prikaži izvore",
+	"popups-refpreview-user-preference-label": "Pregled reference (brzi pregled futnota)"
 }

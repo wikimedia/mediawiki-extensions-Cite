@@ -86,7 +86,7 @@
 	"cite-wikieditor-help-content-reference-example-ref-result": "{{ignored}}",
 	"cite-wikieditor-help-content-reference-example-reflist": "{{ignored}}",
 	"popups-prefs-navpopups-gadget-conflict-info": "Help message telling to disable the \"Navigation popups\" gadget in order to allow page and reference previews. The word \"Gadgets\" should be based on {{msg-mw|prefs-gadgets}}.\n\nParameters:\n* $1 – Link to the Gadgets tab in the user's preferences",
-	"popups-prefs-reftooltips-gadget-conflict-info": "Help message telling to disable the \"Reference Tooltips\" gadget in order to allow reference previews. The word \"Gadgets\" should be based on {{msg-mw|prefs-gadgets}}.\n\nParameters:\n* $1 – Link to the Gadgets tab in the user's preferences",
 	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Help message telling to disable the \"Navigation popups\" and \"Reference Tooltips\" gadgets in order to allow page and reference previews. The word \"Gadgets\" should be based on {{msg-mw|prefs-gadgets}}.\n\nParameters:\n* $1 – Link to the Gadgets tab in the user's preferences",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Help message telling to disable the \"Reference Tooltips\" gadget in order to allow reference previews. The word \"Gadgets\" should be based on {{msg-mw|prefs-gadgets}}.\n\nParameters:\n* $1 – Link to the Gadgets tab in the user's preferences",
 	"popups-refpreview-user-preference-label": "Label for the user option to enable or disable reference preview popups"
 }

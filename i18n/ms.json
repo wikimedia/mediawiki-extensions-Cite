@@ -58,5 +58,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Teks laman.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Teks pautan], teks tambahan.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Teks pautan]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Butiran tambahan"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Butiran tambahan",
+	"popups-prefs-navpopups-gadget-conflict-info": "Anda mempunyai gajet [[$1|kotak timbul navigasi]], jadi anda tidak akan nampak pralihat yang disediakan oleh ciri ini. Bergantung pada wiki anda, beberapa alat mungkin mempunyai nama yang sedikit berbeza. Jika anda terus mengalami masalah, sila semak alat dan skrip pengguna anda, termasuk yang global.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Anda mempunyai gajet [[$1|kotak timbul navigasi]] dan gajet [[$1|Reference Tooltips]], jadi anda tidak akan nampak pralihat yang disediakan oleh ciri ini. Bergantung pada wiki anda, beberapa alat mungkin mempunyai nama yang sedikit berbeza. Jika anda terus mengalami masalah, sila semak alat dan skrip pengguna anda, termasuk yang global.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Anda mempunyai gajet [[$1|Reference Tooltips]], jadi anda tidak akan nampak pralihat yang disediakan oleh ciri ini. Bergantung pada wiki anda, beberapa alat mungkin mempunyai nama yang sedikit berbeza. Jika anda terus mengalami masalah, sila semak alat dan skrip pengguna anda, termasuk yang global.",
+	"popups-refpreview-user-preference-label": "Dayakan pralihat rujukan (dapat pralihat pantas berkaitan sesebuah rujukan apabila sedang membaca suatu laman)"
 }

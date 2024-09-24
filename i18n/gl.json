@@ -59,5 +59,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Texto da páxina.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texto da ligazón], texto adicional.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto da ligazón]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Detalles suplementarios"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Detalles suplementarios",
+	"popups-prefs-navpopups-gadget-conflict-info": "Tes o [[$1|trebello das ventás emerxentes de navegación]] activado, así que non verás as vistas previas proporcionadas por esta funcionalidade. Dependendo do teu wiki, o trebello pode ter un nome lixeiramente diferente. Se atopas algún problema, revisa os teus trebellos e secuencias de ordes de usuario, incluíndo os globais.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Tes o [[$1|trebello das ventás emerxentes de navegación]] e o [[$1|trebello da vista previa das notas]] activados, así que non verás as vistas previas proporcionadas por esta funcionalidade. Dependendo do teu wiki, os trebellos poden ter nomes lixeiramente diferentes. Se atopas algún problema, revisa os teus trebellos e secuencias de ordes de usuario, incluíndo os globais.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Tes o [[$1|trebello da vista previa das notas]] activado, así que non verás as vistas previas das referencias proporcionadas por esta funcionalidade. Dependendo do teu wiki, o trebello pode ter un nome lixeiramente diferente. Se atopas algún problema, revisa os teus trebellos e secuencias de ordes de usuario, incluíndo os globais.",
+	"popups-refpreview-user-preference-label": "Activar as vistas previas das referencias (obter vistas previas rápidas dunha referencia mentres estás a ler unha páxina)"
 }

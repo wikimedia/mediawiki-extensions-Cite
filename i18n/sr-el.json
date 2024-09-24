@@ -45,5 +45,6 @@
 	"cite-wikieditor-help-content-reference-description": "Referenca",
 	"cite-wikieditor-help-content-named-reference-description": "Imenovana referenca",
 	"cite-wikieditor-help-content-rereference-description": "Dodatna upotreba iste reference",
-	"cite-wikieditor-help-content-showreferences-description": "Prikazivanje referenci"
+	"cite-wikieditor-help-content-showreferences-description": "Prikazivanje referenci",
+	"popups-refpreview-user-preference-label": "Pregledi referenci (brzi pregledi fusnota)"
 }

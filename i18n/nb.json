@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abuluntu",
 			"Audun",
 			"Chameleon222",
 			"Cocu",
@@ -60,5 +61,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Sidetekst.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Lenketekst], ekstra tekst.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Lenketekst]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Ekstra detaljer"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Ekstra detaljer",
+	"popups-prefs-navpopups-gadget-conflict-info": "Du har tilleggsfunksjonen «[[$1|Navigation popups]]» aktivert slik at du ikke ser forhåndsvisningene du har aktivert. Avhengig av din wiki kan det være at tilleggsfunksjonen har en variant av navnet. Hvis du fortsatt opplever problemer bør du se gjennom dine tilleggsfunksjoner og brukerskript, også de som er globale.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Du har slått på tilleggsfunksjonene [[$1|Navigation Popups]] og [[$1|Reference Tooltips]], så du vil ikke se forhåndsvisningene som denne funksjonen tilbyr. Avhengig av hvilken wiki du er på kan tilleggsfunksjonene ha litt andre navn. Hvis du fortsatt skulle oppleve problemer bør du gå gjennom hvilke tilleggsfunksjoner og brukerskript du har slått på, inkludert de globale.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Du har tilleggsfunksjonen [[$1|Reference Tooltips]] slått på, så du vil ikke se forhåndsvisninger av referanser, men vil fortsatt se forhåndsvisninger av sider. Avhengig av wikien din kan tilleggsfunksjonen ha et annet navn. Hvis du fortsatt skulle oppleve problemer bør du gå gjennom hvilke tilleggsfunksjoner og brukerskript du har slått på (inkludert de globale).",
+	"popups-refpreview-user-preference-label": "Slå på referanseforhåndsvisninger (få raske forhåndsvisninger av fotnoter mens man leser en side)"
 }

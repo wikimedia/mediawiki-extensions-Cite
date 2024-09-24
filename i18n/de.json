@@ -4,6 +4,7 @@
 			"Brettchenweber",
 			"Debenben",
 			"HajFunk",
+			"Inkowik",
 			"Johanna Strodt (WMDE)",
 			"Kghbln",
 			"Metalhead64",
@@ -64,5 +65,9 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Seitentext.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linktext], zusätzlicher Text.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linktext]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Weitere Details"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Weitere Details",
+	"popups-prefs-navpopups-gadget-conflict-info": "Du hast das Helferlein [[$1|Navigations-Popups]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellte Vorschau sehen wirst. Dieses Helferlein kann abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
+	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Du hast die Helferlein [[$1|Navigations-Popups]] und [[$1|Fußnoten-Tooltip]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellten Vorschauen sehen wirst. Diese Helferlein können abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Du hast das Helferlein [[$1|Fußnoten-Tooltip]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellte Fußnoten-Vorschau sehen wirst. Dieses Helferlein kann abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
+	"popups-refpreview-user-preference-label": "Einzelnachweisvorschau aktivieren (schnelle Vorschau eines Einzelnachweises während des Lesens einer Seite)"
 }

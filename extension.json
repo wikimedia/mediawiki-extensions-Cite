@@ -317,9 +317,14 @@
 			"value": false
 		},
 		"CiteResponsiveReferences": {
-			"description": "If long <references /> lists with more than 10 references should behave responsive by default and be displayed in two or more columns. This can also be toggled individually with <references responsive /> to enable and <references responsive=\"0\" /> to disable it.",
+			"description": "If long <references /> lists with more than $wgCiteResponsiveReferencesThreshold references should behave responsive by default and be displayed in two or more columns. This can also be toggled individually with <references responsive /> to enable and <references responsive=\"0\" /> to disable it.",
 			"public": true,
 			"value": true
+		},
+		"CiteResponsiveReferencesThreshold": {
+			"description": "The number of references at which CiteResponsiveReferences is enabled.",
+			"public": true,
+			"value": 10
 		},
 		"CiteReferencePreviews": {
 			"description": "Feature flag to enable or disable the popups provided by the Popups extension for <ref> tags.",
@@ -348,7 +353,12 @@
 		{
 			"name": "Cite",
 			"domProcessors": [
-				"Cite\\Parsoid\\RefProcessor"
+				{
+					"class": "Cite\\Parsoid\\RefProcessor",
+					"services": [
+						"MainConfig"
+					]
+				}
 			],
 			"tags": [
 				{
@@ -364,7 +374,12 @@
 				},
 				{
 					"name": "references",
-					"handler": "Cite\\Parsoid\\References",
+					"handler": {
+						"class": "Cite\\Parsoid\\References",
+						"services": [
+							"MainConfig"
+						]
+					},
 					"options": {
 						"wt2html": {
 							"embedsHTMLInAttributes": true

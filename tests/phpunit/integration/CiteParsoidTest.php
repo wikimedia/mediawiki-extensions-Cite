@@ -23,6 +23,13 @@ use Wikimedia\Parsoid\Utils\DOMUtils;
  */
 class CiteParsoidTest extends \MediaWikiIntegrationTestCase {
 
+	protected function setUp(): void {
+		// Ensure these tests are independent of LocalSettings
+		parent::setUp();
+		$this->overrideConfigValue( 'CiteResponsiveReferences', true );
+		$this->overrideConfigValue( 'CiteResponsiveReferencesThreshold', 10 );
+	}
+
 	private function getSiteConfig( $options ) {
 		$siteConfig = new class( $options ) extends MockSiteConfig {
 			public function getObjectFactory(): ObjectFactory {

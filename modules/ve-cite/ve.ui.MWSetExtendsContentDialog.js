@@ -32,7 +32,7 @@ ve.ui.MWSetExtendsContentDialog.static.name = 'setExtendsContent';
 ve.ui.MWSetExtendsContentDialog.static.size = 'medium';
 
 // TODO extends i18n
-ve.ui.MWSetExtendsContentDialog.static.title = 'Extend a reference';
+ve.ui.MWSetExtendsContentDialog.static.title = OO.ui.deferMsg( 'cite-ve-dialog-reference-title-add-details' );
 
 ve.ui.MWSetExtendsContentDialog.static.actions = [
 	{
@@ -61,12 +61,9 @@ ve.ui.MWSetExtendsContentDialog.prototype.initialize = function () {
 		scrollable: true, padded: true
 	} );
 
-	// Icon message widget
-	this.extendsWarning = new OO.ui.MessageWidget( {
-		icon: 'alert',
-		inline: true,
-		classes: [ 've-ui-setExtendsContentDialog-warning' ]
-	} );
+	this.$extendsNote = $( '<div>' )
+		.addClass( 've-ui-setExtendsContentDialog-note' )
+		.text( ve.msg( 'cite-ve-dialog-reference-editing-add-details' ) );
 
 	this.referenceTarget = ve.init.target.createTargetWidget(
 		{
@@ -74,15 +71,14 @@ ve.ui.MWSetExtendsContentDialog.prototype.initialize = function () {
 			excludeCommands: ve.ui.MWReferenceEditPanel.static.getExcludeCommands(),
 			importRules: ve.ui.MWReferenceEditPanel.static.getImportRules(),
 			inDialog: this.constructor.static.name,
-			// TODO extends i18n
-			placeholder: 'Write or paste the content for the extension here'
+			placeholder: OO.ui.deferMsg( 'cite-ve-dialog-reference-editing-add-details-placeholder' )
 		}
 	);
 
 	this.contentFieldset = new OO.ui.FieldsetLayout();
 	this.contentFieldset.$element.append( this.referenceTarget.$element );
 
-	this.editPanel.$element.append( this.extendsWarning.$element, this.contentFieldset.$element );
+	this.editPanel.$element.append( this.$extendsNote, this.contentFieldset.$element );
 
 	this.$body.append( this.editPanel.$element );
 };
@@ -98,11 +94,7 @@ ve.ui.MWSetExtendsContentDialog.prototype.getSetupProcess = function ( data ) {
 
 			const parentItemNode = data.internalList.getItemNode( this.originalRef.getListIndex() );
 			const $parentRefPreview = new ve.ui.MWPreviewElement( parentItemNode, { useView: true } ).$element;
-			this.extendsWarning.setLabel(
-				$( '<p>' )
-					.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) )
-					.append( $parentRefPreview )
-			);
+			this.$extendsNote.append( $parentRefPreview );
 
 			this.referenceTarget.setDocument( this.newRef.getDocument() );
 		} );

@@ -55,6 +55,7 @@
 	"cite-wikieditor-help-content-named-reference-description": "Nimetty viite",
 	"cite-wikieditor-help-content-rereference-description": "Saman viitteen lisäkäyttö",
 	"cite-wikieditor-help-content-showreferences-description": "Näytä viitteet",
+	"cite-wikieditor-help-content-reference-example-text1": "Sivun teksti.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linkin teksti], lisäteksti.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linkin teksti]"
 }

@@ -80,7 +80,7 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 	if ( totalUsageCount > 1 ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( mw.msg( 'cite-ve-dialog-reference-editing-reused', totalUsageCount ) );
+			.text( ve.msg( 'cite-ve-dialog-reference-editing-reused', totalUsageCount ) );
 	}
 };
 
@@ -94,7 +94,7 @@ ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
 	if ( this.model.getAttribute( 'extendsRef' ) ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( mw.msg( 'cite-ve-dialog-reference-contextitem-extends' ) );
+			.text( ve.msg( 'cite-ve-dialog-reference-contextitem-extends' ) );
 	}
 };
 

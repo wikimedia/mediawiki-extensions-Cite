@@ -71,7 +71,7 @@ ve.ui.MWSetExtendsContentDialog.prototype.initialize = function () {
 			excludeCommands: ve.ui.MWReferenceEditPanel.static.getExcludeCommands(),
 			importRules: ve.ui.MWReferenceEditPanel.static.getImportRules(),
 			inDialog: this.constructor.static.name,
-			placeholder: OO.ui.deferMsg( 'cite-ve-dialog-reference-editing-add-details-placeholder' )
+			placeholder: ve.msg( 'cite-ve-dialog-reference-editing-add-details-placeholder' )
 		}
 	);
 

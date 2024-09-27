@@ -57,12 +57,7 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 		cy.get( '.ve-ui-mwWikitextSurface' ).should( 'contain.text', '<ref>Basic ref</ref>' );
 
 		// Save changes
-		cy.get( '.ve-ui-toolbar-saveButton' ).click();
-		cy.wait( 500 );
-		cy.get( '.oo-ui-labelElement-label' ).contains( 'Save changes' ).click( { force: true } );
-
-		// Success notification should be visible
-		cy.get( '.mw-notification-visible .oo-ui-icon-success' ).should( 'be.visible' );
+		veHelper.saveEdits();
 
 		// Ref has been added to references section and has correct content
 		helper.getRefFromReferencesSection( 1 ).find( '.reference-text' ).should( 'have.text', 'Basic ref' );
@@ -91,18 +86,12 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 		cy.get( '.ve-ui-mwParameterPage-field' ).type( 't' );
 		// Click on insert button
 		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
-		cy.get( '.ve-ui-toolbar-saveButton' ).click();
 
 		// Ref tag with template and added parameter has been created
 		cy.get( '.ve-ui-mwWikitextSurface' ).should( 'contain.text', '<ref>{{Internetquelle|t=t}}</ref>' );
 
 		// Save changes
-		cy.get( '.ve-ui-toolbar-saveButton' ).click();
-		cy.wait( 500 );
-		cy.get( '.oo-ui-labelElement-label' ).contains( 'Save changes' ).click( { force: true } );
-
-		// Success notification should be visible
-		cy.get( '.mw-notification-visible .oo-ui-icon-success' ).should( 'be.visible' );
+		veHelper.saveEdits();
 
 		// Ref has been added to references section and has correct content
 		helper.getRefFromReferencesSection( 1 ).find( '.reference-text' ).should( 'have.text', 'Template:Internetquelle' );

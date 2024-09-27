@@ -94,7 +94,7 @@ ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
 	if ( this.model.getAttribute( 'extendsRef' ) ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) );
+			.text( mw.msg( 'cite-ve-dialog-reference-contextitem-extends' ) );
 	}
 };
 

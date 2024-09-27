@@ -218,6 +218,9 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
 				// edit an existing reference
 				ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
+				if ( ref.extendsRef ) {
+					this.title.setLabel( OO.ui.deferMsg( 'cite-ve-dialog-reference-title-edit-details' ) );
+				}
 			} else {
 				// create a new reference
 				ref = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );

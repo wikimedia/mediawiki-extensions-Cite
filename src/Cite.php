@@ -25,8 +25,8 @@
 namespace Cite;
 
 use LogicException;
+use MediaWiki\Config\Config;
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 use StatusValue;
@@ -70,8 +70,9 @@ class Cite {
 	 */
 	private StatusValue $mReferencesErrors;
 	private ReferenceStack $referenceStack;
+	private Config $config;
 
-	public function __construct( Parser $parser ) {
+	public function __construct( Parser $parser, Config $config ) {
 		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
 		$this->errorReporter = new ErrorReporter( $messageLocalizer );
@@ -88,6 +89,7 @@ class Cite {
 			$anchorFormatter,
 			$messageLocalizer
 		);
+		$this->config = $config;
 	}
 
 	/**
@@ -141,7 +143,7 @@ class Cite {
 			$this->referenceStack,
 			$this->inReferencesGroup,
 			$this->isSectionPreview,
-			MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteBookReferencing' )
+			$this->config->get( 'CiteBookReferencing' )
 		);
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
 		$status->merge( $validator->validateRef( $text, ...array_values( $arguments ) ) );
@@ -307,7 +309,7 @@ class Cite {
 		string $group,
 		string $responsive = null
 	): string {
-		$responsiveReferences = MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteResponsiveReferences' );
+		$responsiveReferences = $this->config->get( 'CiteResponsiveReferences' );
 
 		return $this->referenceListFormatter->formatReferences(
 			$parser,

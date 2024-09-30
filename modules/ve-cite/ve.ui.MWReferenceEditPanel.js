@@ -258,7 +258,7 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
 		.getTotalUsageCount( ref.getListKey() );
 	this.reuseWarning
 		.toggle( totalUsageCount > 1 )
-		.setLabel( mw.msg( 'cite-ve-dialog-reference-editing-reused-long', totalUsageCount ) );
+		.setLabel( ve.msg( 'cite-ve-dialog-reference-editing-reused-long', totalUsageCount ) );
 };
 
 /**
@@ -272,7 +272,7 @@ ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( re
 			.getInternalModelNode( ref.extendsRef );
 		this.extendsWarning.setLabel(
 			$( '<p>' )
-				.text( mw.msg( 'cite-ve-dialog-reference-editing-extends' ) )
+				.text( ve.msg( 'cite-ve-dialog-reference-editing-extends' ) )
 				.append( parentNode ?
 					new ve.ui.MWPreviewElement( parentNode, { useView: true } ).$element :
 					$( '<div>' )

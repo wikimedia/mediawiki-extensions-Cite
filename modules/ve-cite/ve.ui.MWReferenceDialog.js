@@ -76,13 +76,11 @@ ve.ui.MWReferenceDialog.prototype.onEditPanelInputChange = function ( change ) {
 };
 
 /**
- * Handle search results choose events.
+ * Handle search results ref reuse events.
  *
- * @param {ve.ui.MWReferenceResultWidget} item Chosen item
+ * @param {ve.dm.MWReferenceModel} ref
  */
-ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsChoose = function ( item ) {
-	const ref = item.getData();
-
+ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 	if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
 		this.getFragment().removeContent();
 		this.selectedNode = null;
@@ -138,7 +136,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	this.reuseSearch = new ve.ui.MWReferenceSearchWidget();
 
 	// Events
-	this.reuseSearch.getResults().connect( this, { choose: 'onReuseSearchResultsChoose' } );
+	this.reuseSearch.connect( this, { reuse: 'onReuseSearchResultsReuse' } );
 	this.editPanel.connect( this, { change: 'onEditPanelInputChange' } );
 
 	// Initialization

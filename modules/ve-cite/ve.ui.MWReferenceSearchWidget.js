@@ -32,11 +32,21 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceSearchWidget' );
 	this.$results.on( 'scroll', this.trackActiveUsage.bind( this ) );
+	this.getResults().connect( this, { choose: 'onChoose' } );
 };
 
 /* Inheritance */
 
 OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
+
+/* Events */
+
+/**
+ * User chose a ref for reuse
+ *
+ * @event ve.ui.MWReferenceSearchWidget#reuse
+ * @param {ve.dm.MWReferenceModel} ref
+ */
 
 /* Methods */
 
@@ -74,6 +84,10 @@ ve.ui.MWReferenceSearchWidget.prototype.trackActiveUsage = function () {
 	// https://phabricator.wikimedia.org/T362347
 	ve.track( 'activity.reference', { action: 'reuse-dialog-use' } );
 	this.wasUsedActively = true;
+};
+
+ve.ui.MWReferenceSearchWidget.prototype.onChoose = function ( item ) {
+	this.emit( 'reuse', item.getData() );
 };
 
 /**

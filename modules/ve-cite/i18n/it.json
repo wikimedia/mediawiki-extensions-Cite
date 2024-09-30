@@ -46,6 +46,7 @@
 	"cite-ve-citationneeded-button": "Aggiungi una fonte",
 	"cite-ve-citationneeded-reason": "Motivo fornito:",
 	"cite-ve-citationneeded-title": "Citazione necessaria",
+	"cite-ve-dialog-reference-contextitem-extends": "Questo riferimento è un riutilizzo con dettagli aggiuntivi.",
 	"cite-ve-dialog-reference-editing-reused": "Questo riferimento è usato {{PLURAL:$1|una volta|2=due volte|$1 volte}} su questa pagina.",
 	"cite-ve-dialog-reference-editing-reused-long": "Questo riferimento è usato {{PLURAL:$1|1 volta|$1 volte}} su questa pagina. Le modifiche fatte qui saranno applicate ovunque questo riferimento sia riusato.",
 	"cite-ve-dialog-reference-options-group-label": "Usa questo gruppo",

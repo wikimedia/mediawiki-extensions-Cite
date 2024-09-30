@@ -40,5 +40,6 @@
 	"cite-wikieditor-help-page-references": "Referencie",
 	"cite-wikieditor-help-content-reference-description": "Referencie",
 	"cite-wikieditor-help-content-rereference-description": "Ďalšie použitie rovnakej referencie",
-	"cite-wikieditor-help-content-showreferences-description": "Zobraziť referencie"
+	"cite-wikieditor-help-content-showreferences-description": "Zobraziť referencie",
+	"popups-refpreview-user-preference-label": "Zapnúť náhľady referencií (pri čítaní stránky poskytne rýchle náhľady referencií)"
 }

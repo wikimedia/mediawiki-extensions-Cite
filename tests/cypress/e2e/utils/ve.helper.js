@@ -82,12 +82,12 @@ export function getCiteReuseDialogRefResult( rowNumber ) {
 }
 
 export function getCiteReuseDialogRefResultName( rowNumber ) {
-	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceSearchWidget-name' )
+	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceResultWidget-name' )
 		.eq( rowNumber - 1 );
 }
 
 export function getCiteReuseDialogRefResultCitation( rowNumber ) {
-	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceSearchWidget-footnote' )
+	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget .ve-ui-mwReferenceResultWidget-footnote' )
 		.eq( rowNumber - 1 );
 }
 

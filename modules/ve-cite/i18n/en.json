@@ -34,7 +34,7 @@
 	"cite-ve-citationneeded-description": "An editor has indicated that this claim needs a citation to a reliable source.",
 	"cite-ve-citationneeded-reason": "Reason given:",
 	"cite-ve-citationneeded-title": "Citation needed",
-	"cite-ve-dialog-reference-contextitem-extends": "This reference is a re-use with additional details.",
+	"cite-ve-dialog-reference-contextitem-extends": "This reference is a re-use with additional details:",
 	"cite-ve-dialog-reference-editing-add-details": "You're adding additional details to this reference:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Write or paste the information you would like to add to this reference here.",
 	"cite-ve-dialog-reference-editing-reused": "This reference is used {{PLURAL:$1|once|2=twice|$1 times}} on this page.",

@@ -94,6 +94,7 @@ ve.ui.MWSetExtendsContentDialog.prototype.getSetupProcess = function ( data ) {
 
 			const parentItemNode = data.internalList.getItemNode( this.originalRef.getListIndex() );
 			const $parentRefPreview = new ve.ui.MWPreviewElement( parentItemNode, { useView: true } ).$element;
+			this.$extendsNote.find( '.ve-ui-mwPreviewElement' ).remove();
 			this.$extendsNote.append( $parentRefPreview );
 
 			this.referenceTarget.setDocument( this.newRef.getDocument() );

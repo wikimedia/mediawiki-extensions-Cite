@@ -5,7 +5,6 @@ namespace Cite\ReferencePreviews;
 use InvalidArgumentException;
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
-use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 
 /**
@@ -50,11 +49,11 @@ class ReferencePreviewsGadgetsIntegration {
 		return false;
 	}
 
-	public function isNavPopupsGadgetEnabled( User $user ): bool {
+	public function isNavPopupsGadgetEnabled( UserIdentity $user ): bool {
 		return $this->isGadgetEnabled( $user, $this->navPopupsGadgetName );
 	}
 
-	public function isRefTooltipsGadgetEnabled( User $user ): bool {
+	public function isRefTooltipsGadgetEnabled( UserIdentity $user ): bool {
 		return $this->isGadgetEnabled( $user, $this->refTooltipsGadgetName );
 	}
 

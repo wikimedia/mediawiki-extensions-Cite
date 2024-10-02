@@ -240,6 +240,8 @@ ve.ui.MWReferenceEditPanel.prototype.getReferenceFromEditing = function () {
 ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
 	this.referenceTarget.setDocument( ref.getDocument() );
 
+	this.optionsFieldset.toggle( !ref.extendsRef );
+
 	this.originalGroup = ref.getGroup();
 
 	// Set the group input while it's disabled, so this doesn't pop up the group-picker menu

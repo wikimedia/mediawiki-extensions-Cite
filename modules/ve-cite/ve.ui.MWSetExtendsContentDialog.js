@@ -140,7 +140,14 @@ ve.ui.MWSetExtendsContentDialog.prototype.getTeardownProcess = function ( data )
  * @inheritdoc
  */
 ve.ui.MWSetExtendsContentDialog.prototype.getBodyHeight = function () {
-	return 250;
+	// Temporarily copy-pasted from ve.ui.MWReferenceDialog.getBodyHeight, keep in sync!
+	return Math.min(
+		400,
+		Math.max(
+			300,
+			Math.ceil( this.editPanel.$element[ 0 ].scrollHeight )
+		)
+	);
 };
 
 /* Registration */

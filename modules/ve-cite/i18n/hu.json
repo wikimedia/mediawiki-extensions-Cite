@@ -9,7 +9,8 @@
 			"Misibacsi",
 			"Nyuszika7H",
 			"Tacsipacsi",
-			"ViDam"
+			"ViDam",
+			"Ewithu"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Könyv",
@@ -22,6 +23,8 @@
 	"cite-ve-changedesc-reflist-group-both": "Forráslista-csoport megváltozott erről: „$1” erre: „$2”",
 	"cite-ve-changedesc-reflist-group-from": "Forráslista-csoport megváltozott erről: „$1” az általános csoportra",
 	"cite-ve-changedesc-reflist-group-to": "Forráslista-csoport megváltozott az általános csoportról erre: „$1”",
+	"cite-ve-changedesc-reflist-responsive-set": "A hivatkozások listája változott adaptív több oszlopos megjelenésre",
+	"cite-ve-changedesc-reflist-responsive-unset": "A hivatkozások listája változott egy oszlopos megjelenésre",
 	"cite-ve-citationneeded-button": "Forráshivatkozás hozzáadása",
 	"cite-ve-citationneeded-description": "Egy szerkesztő jelezte, hogy ehhez az állításhoz hiányzik egy megbízható forrásra való hivatkozás.",
 	"cite-ve-citationneeded-reason": "Indoklás:",
@@ -49,6 +52,8 @@
 	"cite-ve-referenceslist-isempty": "Nincsenek megjeleníthető forráshivatkozások a(z) „$1” csoportban ezen az oldalon.",
 	"cite-ve-referenceslist-isempty-default": "Nincs a lapon forráshivatkozás a lapon, amit szerepelhetne ebben a listában.",
 	"cite-ve-referenceslist-missingref": "Ez a forráshivatkozás egy sablonban vagy más generált blokkban van definiálva, és jelenleg csak forrásnézetben szerkeszthető.",
+	"cite-ve-referenceslist-missingref-in-list": "Ez a forráshivatkozás egy sablonban vagy más generált blokkban van definiálva, és jelenleg csak forrásnézetben szerkeszthető.",
 	"cite-ve-referenceslist-missingreflist": "Ez a forráshivatkozás-lista egy sablonnal készült.",
-	"cite-ve-toolbar-group-label": "Forráshivatkozás"
+	"cite-ve-toolbar-group-label": "Forráshivatkozás",
+	"cite-ve-othergroup-item": "$1 hivatkozás"
 }

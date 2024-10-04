@@ -207,8 +207,8 @@ ve.ui.MWReferenceSearchWidget.prototype.isIndexEmpty = function () {
 
 /**
  * @private
- * @return {OO.ui.Toolbar}
  * @param {ve.dm.MWReferenceModel} ref
+ * @return {OO.ui.ButtonMenuSelectWidget}
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildReuseOptionsMenu = function ( ref ) {
 	// TODO: Select the row on menu button click, so we don't have to wire ref

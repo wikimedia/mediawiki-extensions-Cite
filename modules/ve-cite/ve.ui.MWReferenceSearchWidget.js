@@ -217,6 +217,8 @@ ve.ui.MWReferenceSearchWidget.prototype.buildReuseOptionsMenu = function ( ref )
 		classes: [ 've-ui-mwReferenceResultsReuseOptions' ],
 		framed: false,
 		icon: 'ellipsis',
+		// TODO: The […] button should have its own title, see T375053
+		title: '',
 		invisibleLabel: true,
 		menu: {
 			horizontalPosition: 'end',

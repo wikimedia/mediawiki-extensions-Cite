@@ -5,7 +5,6 @@ declare( strict_types = 1 );
 namespace Cite\Tests\Integration;
 
 use ExtensionRegistry;
-use MediaWiki\MediaWikiServices;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\Parsoid\Core\SelserData;
 use Wikimedia\Parsoid\DOM\Element;
@@ -31,9 +30,20 @@ class CiteParsoidTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	private function getSiteConfig( $options ) {
-		$siteConfig = new class( $options ) extends MockSiteConfig {
+		$objectFactory = $this->getServiceContainer()->getObjectFactory();
+		$siteConfig = new class( $options, $objectFactory ) extends MockSiteConfig {
+			private ObjectFactory $objectFactory;
+
+			public function __construct(
+				array $opts,
+				ObjectFactory $objectFactory
+			) {
+				parent::__construct( $opts );
+				$this->objectFactory = $objectFactory;
+			}
+
 			public function getObjectFactory(): ObjectFactory {
-				return MediaWikiServices::getInstance()->getObjectFactory();
+				return $this->objectFactory;
 			}
 		};
 		// Ensure that the Cite module is registered!

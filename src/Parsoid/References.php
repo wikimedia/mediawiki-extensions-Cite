@@ -20,6 +20,7 @@ use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Ext\PHPUtils;
 use Wikimedia\Parsoid\Ext\WTUtils;
 use Wikimedia\Parsoid\NodeData\DataMw;
+use Wikimedia\Parsoid\NodeData\DataMwError;
 use Wikimedia\Parsoid\NodeData\DataParsoid;
 use Wikimedia\Parsoid\Utils\DOMCompat;
 
@@ -146,8 +147,10 @@ class References extends ExtensionTagHandler {
 			$refsData->inReferencesContent() &&
 			$groupName !== $refsData->referencesGroup
 		) {
-			$errs[] = (object)[ 'key' => 'cite_error_references_group_mismatch',
-				'params' => [ $refDmw->attrs->group ] ];
+			$errs[] = new DataMwError(
+				'cite_error_references_group_mismatch',
+				[ $refDmw->attrs->group ]
+			);
 		}
 
 		// NOTE: This will have been trimmed in Utils::getExtArgInfo()'s call
@@ -185,7 +188,7 @@ class References extends ExtensionTagHandler {
 		if ( $hasRefName ) {
 			if ( $hasFollow ) {
 				// Presumably, "name" has higher precedence
-				$errs[] = (object)[ 'key' => 'cite_error_ref_follow_conflicts' ];
+				$errs[] = new DataMwError( 'cite_error_ref_follow_conflicts' );
 			}
 			if ( isset( $group->indexByName[$refName] ) ) {
 				$ref = $group->indexByName[$refName];
@@ -207,10 +210,10 @@ class References extends ExtensionTagHandler {
 				}
 			} else {
 				if ( $refsData->inReferencesContent() ) {
-					$errs[] = (object)[
-						'key' => 'cite_error_references_missing_key',
-						'params' => [ $refDmw->attrs->name ]
-					];
+					$errs[] = new DataMwError(
+						'cite_error_references_missing_key',
+						[ $refDmw->attrs->name ]
+					);
 				}
 			}
 		} else {
@@ -226,11 +229,13 @@ class References extends ExtensionTagHandler {
 					// section and it's the $followName we care about, but the
 					// extension to the legacy parser doesn't have an
 					// equivalent key and just outputs something wacky.
-					$errs[] = (object)[ 'key' => 'cite_error_references_missing_key',
-						'params' => [ $refDmw->attrs->follow ] ];
+					$errs[] = new DataMwError(
+						'cite_error_references_missing_key',
+						[ $refDmw->attrs->follow ]
+					);
 				}
 			} elseif ( $refsData->inReferencesContent() ) {
-				$errs[] = (object)[ 'key' => 'cite_error_references_no_key' ];
+				$errs[] = new DataMwError( 'cite_error_references_no_key' );
 			}
 		}
 
@@ -289,9 +294,9 @@ class References extends ExtensionTagHandler {
 
 		if ( isset( $refDmw->attrs->dir ) ) {
 			if ( $refDir !== 'rtl' && $refDir !== 'ltr' ) {
-				$errs[] = (object)[ 'key' => 'cite_error_ref_invalid_dir', 'params' => [ $refDir ] ];
+				$errs[] = new DataMwError( 'cite_error_ref_invalid_dir', [ $refDir ] );
 			} elseif ( $ref->dir !== '' && $ref->dir !== $refDir ) {
-				$errs[] = (object)[ 'key' => 'cite_error_ref_conflicting_dir', 'params' => [ $ref->name ] ];
+				$errs[] = new DataMwError( 'cite_error_ref_conflicting_dir', [ $ref->name ] );
 			}
 		}
 
@@ -299,7 +304,7 @@ class References extends ExtensionTagHandler {
 		// supports numerals as a name without it being an actual error, but core Cite does not.
 		// Follow refs do not duplicate the error which can be correlated with the original ref.
 		if ( ctype_digit( $refName ) ) {
-			$errs[] = (object)[ 'key' => 'cite_error_ref_numeric_key' ];
+			$errs[] = new DataMwError( 'cite_error_ref_numeric_key' );
 		}
 
 		// Check for missing content, added ?? '' to fix T259676 crasher
@@ -313,13 +318,15 @@ class References extends ExtensionTagHandler {
 			// is an error.  It's possible that no name is present (!hasRefName), which also
 			// gets the error "cite_error_references_no_key" above, so protect against that.
 			if ( $refsData->inReferencesContent() ) {
-				$errs[] = (object)[ 'key' => 'cite_error_empty_references_define',
-					'params' => [ $refDmw->attrs->name ?? '', $refDmw->attrs->group ?? '' ] ];
+				$errs[] = new DataMwError(
+					'cite_error_empty_references_define',
+					[ $refDmw->attrs->name ?? '', $refDmw->attrs->group ?? '' ]
+				);
 			} elseif ( !$hasRefName ) {
 				if ( !empty( $cDp->selfClose ) ) {
-					$errs[] = (object)[ 'key' => 'cite_error_ref_no_key' ];
+					$errs[] = new DataMwError( 'cite_error_ref_no_key' );
 				} else {
-					$errs[] = (object)[ 'key' => 'cite_error_ref_no_input' ];
+					$errs[] = new DataMwError( 'cite_error_ref_no_input' );
 				}
 			}
 
@@ -340,10 +347,10 @@ class References extends ExtensionTagHandler {
 			if ( $contentDiffers ) {
 				// TODO: Since this error is being placed on the ref, the
 				// key should arguably be "cite_error_ref_duplicate_key"
-				$errs[] = (object)[
-					'key' => 'cite_error_references_duplicate_key',
-					'params' => [ $refDmw->attrs->name ]
-				];
+				$errs[] = new DataMwError(
+					'cite_error_references_duplicate_key',
+					[ $refDmw->attrs->name ]
+				);
 				$refDmw->body = (object)[ 'html' => $html ];
 			} else {
 				$refDmw->body = (object)[ 'id' => 'mw-reference-text-' . $ref->target ];
@@ -461,6 +468,10 @@ class References extends ExtensionTagHandler {
 		$dataParsoid->dsr = new DomSourceRange( $offset, $offset, null, null );
 	}
 
+	/**
+	 * @param Element $node
+	 * @param list<DataMwError> $errs
+	 */
 	private static function addErrorsToNode( Element $node, array $errs ): void {
 		DOMUtils::addTypeOf( $node, 'mw:Error' );
 		$dmw = DOMDataUtils::getDataMw( $node );
@@ -488,17 +499,19 @@ class References extends ExtensionTagHandler {
 				$errs = [];
 				// Mark all refs that are part of a group that is autogenerated
 				if ( $autoGeneratedWithGroup ) {
-					$errs[] = (object)[ 'key' => 'cite_error_group_refs_without_references',
-						'params' => [ $group ] ];
+					$errs[] = new DataMwError(
+						'cite_error_group_refs_without_references',
+						[ $group ]
+					);
 				}
 				// Mark all refs that are named without content
 				if ( ( $ref->name !== '' ) && $ref->contentId === null ) {
 					// TODO: Since this error is being placed on the ref,
 					// the key should arguably be "cite_error_ref_no_text"
-					$errs[] = (object)[
-						'key' => 'cite_error_references_no_text',
-						'params' => [ $ref->name ]
-					];
+					$errs[] = new DataMwError(
+						'cite_error_references_no_text',
+						[ $ref->name ]
+					);
 				}
 				if ( $errs ) {
 					foreach ( $ref->nodes as $node ) {

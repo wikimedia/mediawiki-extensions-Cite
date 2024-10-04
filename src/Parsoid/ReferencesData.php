@@ -3,9 +3,9 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
-use stdClass;
 use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
+use Wikimedia\Parsoid\NodeData\DataMwError;
 
 /**
  * @license GPL-2.0-or-later
@@ -15,7 +15,7 @@ class ReferencesData {
 	private int $index = 0;
 	/** @var array<string,RefGroup> indexed by group name */
 	private array $refGroups = [];
-	/** @var array<string,stdClass[]> */
+	/** @var array<string,list<DataMwError>> */
 	public array $embeddedErrors = [];
 	/** @var string[] */
 	private array $inEmbeddedContent = [];

@@ -4,6 +4,7 @@ namespace Cite\Tests\Unit;
 
 use Cite\Cite;
 use Cite\Hooks\CiteParserHooks;
+use MediaWiki\Config\Config;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
 use ParserOptions;
@@ -15,6 +16,12 @@ use StripState;
  */
 class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 
+	private function newCiteParserHooks() {
+		return new CiteParserHooks(
+			$this->createNoOpMock( Config::class )
+		);
+	}
+
 	public function testOnParserFirstCallInit() {
 		$parser = $this->createNoOpMock( Parser::class, [ 'setHook' ] );
 		$expectedTags = [ 'ref' => true, 'references' => true ];
@@ -25,7 +32,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 				unset( $expectedTags[$tag] );
 			} );
 
-		$citeParserHooks = new CiteParserHooks();
+		$citeParserHooks = $this->newCiteParserHooks();
 		$citeParserHooks->onParserFirstCallInit( $parser );
 	}
 
@@ -33,7 +40,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$parser = $this->createNoOpMock( Parser::class, [ '__isset' ] );
 		$parser->extCite = $this->createMock( Cite::class );
 
-		$citeParserHooks = new CiteParserHooks();
+		$citeParserHooks = $this->newCiteParserHooks();
 		$citeParserHooks->onParserClearState( $parser );
 
 		$this->assertNull( $parser->extCite ?? null );
@@ -43,7 +50,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$parser = $this->createNoOpMock( Parser::class, [ '__isset' ] );
 		$parser->extCite = $this->createMock( Cite::class );
 
-		$citeParserHooks = new CiteParserHooks();
+		$citeParserHooks = $this->newCiteParserHooks();
 		$citeParserHooks->onParserCloned( $parser );
 
 		$this->assertNull( $parser->extCite ?? null );
@@ -66,7 +73,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$parser->extCite = $cite;
 
 		$text = '';
-		$citeParserHooks = new CiteParserHooks();
+		$citeParserHooks = $this->newCiteParserHooks();
 		$citeParserHooks->onParserAfterParse( $parser, $text, $this->createMock( StripState::class ) );
 	}
 

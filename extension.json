@@ -47,7 +47,10 @@
 			]
 		},
 		"parser": {
-			"class": "Cite\\Hooks\\CiteParserHooks"
+			"class": "Cite\\Hooks\\CiteParserHooks",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"ResourceModules": {

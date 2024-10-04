@@ -434,8 +434,9 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$parser->method( 'getOptions' )->willReturn( $parserOptions );
 		$parser->method( 'getContentLanguage' )->willReturn( $language );
 
+		$config = $this->getServiceContainer()->getMainConfig();
 		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( new Cite( $parser ) );
+		$cite = TestingAccessWrapper::newFromObject( new Cite( $parser, $config ) );
 		// Assume the currently parsed <ref> is wrapped in <references>
 		$cite->inReferencesGroup = '';
 
@@ -463,7 +464,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getContentLanguage' ] );
 		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
 		$mockParser->method( 'getContentLanguage' )->willReturn( $language );
-		return new Cite( $mockParser );
+		$config = $this->getServiceContainer()->getMainConfig();
+		return new Cite( $mockParser, $config );
 	}
 
 }

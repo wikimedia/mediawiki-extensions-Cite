@@ -12,9 +12,12 @@
  *
  * @constructor
  * @extends OO.ui.OptionWidget
- * @param {Object} config Configuration options
- * @param {Object} config.item Result item
- * @param {Object} config.reuseMenu
+ * @param {Object} config
+ * @param {Object} config.item An item from the search index in ve.ui.MWReferenceSearchWidget
+ * @param {ve.dm.MWReferenceModel} config.item.reference
+ * @param {string} config.item.name
+ * @param {string} config.item.footnoteLabel e.g. "note 1"
+ * @param {OO.ui.Element} [config.reuseMenu]
  */
 ve.ui.MWReferenceResultWidget = function VeUiMWReferenceResultWidget( config ) {
 	config = ve.extendObject( {

@@ -8,7 +8,7 @@ use MediaWiki\Config\Config;
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -44,7 +44,7 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 				$this->getConfig(),
 				null
 			) )
-				->isNavPopupsGadgetEnabled( $this->createNoOpMock( User::class ) ),
+				->isNavPopupsGadgetEnabled( $this->createNoOpMock( UserIdentity::class ) ),
 			'No conflict is identified.'
 		);
 	}
@@ -58,7 +58,7 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 			->willReturn( [] );
 
 		$this->executeIsNavPopupsGadgetEnabled(
-			$this->createNoOpMock( User::class ),
+			$this->createNoOpMock( UserIdentity::class ),
 			$this->getConfig(),
 			$gadgetRepoMock,
 			self::GADGET_DISABLED
@@ -68,7 +68,7 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 	public function testConflictsWithNavPopupsGadgetIfGadgetExists() {
 		$this->markTestSkippedIfExtensionNotLoaded( 'Gadgets' );
 
-		$user = $this->createMock( User::class );
+		$user = $this->createMock( UserIdentity::class );
 
 		$gadgetMock = $this->createMock( Gadget::class );
 		$gadgetMock->expects( $this->once() )
@@ -109,7 +109,7 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 			->willThrowException( new InvalidArgumentException() );
 
 		$this->executeIsNavPopupsGadgetEnabled(
-			$this->createNoOpMock( User::class ),
+			$this->createNoOpMock( UserIdentity::class ),
 			$this->getConfig(),
 			$gadgetRepoMock,
 			self::GADGET_DISABLED
@@ -137,7 +137,7 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 			->willReturn( $gadgetMock );
 
 		$this->executeIsNavPopupsGadgetEnabled(
-			$this->createNoOpMock( User::class ),
+			$this->createNoOpMock( UserIdentity::class ),
 			$this->getConfig( $gadgetName ),
 			$gadgetRepoMock,
 			self::GADGET_ENABLED
@@ -151,7 +151,7 @@ class ReferencePreviewsGadgetsIntegrationTest extends MediaWikiIntegrationTestCa
 	}
 
 	private function executeIsNavPopupsGadgetEnabled(
-		User $user,
+		UserIdentity $user,
 		Config $config,
 		GadgetRepo $repoMock,
 		bool $expected

@@ -52,7 +52,7 @@ class ReferencePreviewsContext {
 
 		// Anonymous users can (de)activate the feature via a cookie at runtime, hence it must load
 		return !$user->isNamed() || $this->userOptionsLookup->getBoolOption(
-				$user, self::REFERENCE_PREVIEWS_PREFERENCE_NAME
-			);
+			$user, self::REFERENCE_PREVIEWS_PREFERENCE_NAME
+		);
 	}
 }

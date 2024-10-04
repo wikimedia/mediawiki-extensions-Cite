@@ -219,6 +219,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildReuseOptionsMenu = function ( ref )
 		icon: 'ellipsis',
 		invisibleLabel: true,
 		menu: {
+			classes: [ 've-ui-mwReferenceResultsReuseOptionsItem' ],
 			horizontalPosition: 'end',
 			items: [
 				new OO.ui.MenuOptionWidget( {

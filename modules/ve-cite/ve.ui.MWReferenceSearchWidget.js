@@ -221,6 +221,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildReuseOptionsMenu = function ( ref )
 		title: '',
 		invisibleLabel: true,
 		menu: {
+			classes: [ 've-ui-mwReferenceResultsReuseOptionsItem' ],
 			horizontalPosition: 'end',
 			items: [
 				new OO.ui.MenuOptionWidget( {

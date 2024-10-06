@@ -103,20 +103,21 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsExtends = function ( origi
 	newRef.extendsRef = originalRef.getListKey();
 	newRef.group = originalRef.getGroup();
 
-	this.getManager()
-		.openWindow( 'setExtendsContent', {
-			originalRef: originalRef,
-			newRef: newRef,
-			internalList: this.getFragment().getDocument().getInternalList()
-		} )
-		.closing.then( ( data ) => {
-			if ( data && data.action && data.action === 'insert' ) {
-				newRef.insertInternalItem( this.getFragment().getSurface() );
-				newRef.insertReferenceNode( this.getFragment() );
+	this.actions.setMode( 'insert' );
+	this.panels.setItem( this.editPanel );
+	this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-add-details' ) );
 
-				this.close( { action: 'extends-choose' } );
-			}
-		} );
+	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
+		this.getFragment().getDocument()
+	);
+	this.editPanel.setDocumentReferences( docRefs );
+
+	this.actions.setAbilities( { insert: false } );
+
+	this.editPanel.setReferenceForEditing( newRef );
+	this.editPanel.setReadOnly( this.isReadOnly() );
+
+	this.trackedInputChange = false;
 };
 
 /**

@@ -418,7 +418,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $this->createMock( ErrorReporter::class );
 
-		$spy->guardedRef( $mockParser, 'text', [ Cite::BOOK_REF_ATTRIBUTE => 'a' ] );
+		$spy->guardedRef( $mockParser, 'text', [ Cite::SUBREF_ATTRIBUTE => 'a' ] );
 	}
 
 	/**

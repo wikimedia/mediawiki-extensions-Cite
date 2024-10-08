@@ -186,7 +186,7 @@ class CiteHooks implements
 	public function onGetPreferences( $user, &$prefs ) {
 		$option = [
 			'type' => 'toggle',
-			'label-message' => 'popups-refpreview-user-preference-label',
+			'label-message' => 'cite-reference-previews-preference-label',
 			// FIXME: This message is unnecessary and unactionable since we already
 			// detect specific gadget conflicts.
 			'help-message' => 'popups-prefs-conflicting-gadgets-info',
@@ -197,15 +197,15 @@ class CiteHooks implements
 		$isRefTooltipsGadgetEnabled = $this->gadgetsIntegration->isRefTooltipsGadgetEnabled( $user );
 		if ( $isNavPopupsGadgetEnabled && $isRefTooltipsGadgetEnabled ) {
 			$option[ 'disabled' ] = true;
-			$option[ 'help-message' ] = [ 'popups-prefs-reftooltips-and-navpopups-gadget-conflict-info',
+			$option[ 'help-message' ] = [ 'cite-reference-previews-gadget-conflict-info-navpopups-reftooltips',
 				'Special:Preferences#mw-prefsection-gadgets' ];
 		} elseif ( $isNavPopupsGadgetEnabled ) {
 			$option[ 'disabled' ] = true;
-			$option[ 'help-message' ] = [ 'popups-prefs-navpopups-gadget-conflict-info',
+			$option[ 'help-message' ] = [ 'cite-reference-previews-gadget-conflict-info-navpopups',
 				'Special:Preferences#mw-prefsection-gadgets' ];
 		} elseif ( $isRefTooltipsGadgetEnabled ) {
 			$option[ 'disabled' ] = true;
-			$option[ 'help-message' ] = [ 'popups-prefs-reftooltips-gadget-conflict-info',
+			$option[ 'help-message' ] = [ 'cite-reference-previews-gadget-conflict-info-reftooltips',
 				'Special:Preferences#mw-prefsection-gadgets' ];
 		}
 

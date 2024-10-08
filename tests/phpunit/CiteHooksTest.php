@@ -92,7 +92,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$expected = [
 			'popups-reference-previews' => [
 				'type' => 'toggle',
-				'label-message' => 'popups-refpreview-user-preference-label',
+				'label-message' => 'cite-reference-previews-preference-label',
 				'help-message' => 'popups-prefs-conflicting-gadgets-info',
 				'section' => 'rendering/reading'
 			]
@@ -112,10 +112,9 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$expected = [
 			'popups-reference-previews' => [
 				'type' => 'toggle',
-				'label-message' => 'popups-refpreview-user-preference-label',
-				// 'help-message' => 'popups-prefs-conflicting-gadgets-info',
+				'label-message' => 'cite-reference-previews-preference-label',
 				'help-message' => [
-					'popups-prefs-navpopups-gadget-conflict-info',
+					'cite-reference-previews-gadget-conflict-info-navpopups',
 					'Special:Preferences#mw-prefsection-gadgets',
 				],
 				'section' => 'rendering/reading',

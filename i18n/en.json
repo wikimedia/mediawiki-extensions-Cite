@@ -49,6 +49,10 @@
 	"cite-reference-previews-note": "Note",
 	"cite-reference-previews-web": "Web reference",
 	"cite-reference-previews-collapsible-placeholder": "This reference includes a figure which does not fit in the preview.",
+	"cite-reference-previews-gadget-conflict-info-navpopups": "You have the [[$1|Navigation popups]] gadget enabled, so you won't see previews provided by this feature. Depending on your wiki, the gadget may have a slightly different name. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",
+	"cite-reference-previews-gadget-conflict-info-reftooltips": "You have the [[$1|Reference Tooltips]] gadget enabled, so you won't see reference previews but will still see page previews. Depending on your wiki, the gadget may have a slightly different name. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",
+	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "You have the [[$1|Navigation popups]] and [[$1|Reference Tooltips]] gadgets enabled, so you won't see previews provided by this feature. Depending on your wiki, the gadgets may have slightly different names. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",
+	"cite-reference-previews-preference-label": "Enable reference previews (get quick previews of a reference while reading a page)",
 	"cite_reference_backlink_symbol": "↑",
 	"cite_reference_link": "<sup id=\"$1\" class=\"reference\">[[#$2|<span class=\"cite-bracket\">&#91;</span>$3<span class=\"cite-bracket\">&#93;</span>]]</sup>",
 	"cite_references_link_one": "<li id=\"$1\"$4><span class=\"mw-cite-backlink\">[[#$2|↑]]</span> $3</li>",
@@ -80,9 +84,5 @@
 	"cite-wikieditor-help-content-reference-example-ref-reuse": "<ref name=\"$1\" />",
 	"cite-wikieditor-help-content-reference-example-ref-extends": "<ref extends=\"$1\">$2</ref>",
 	"cite-wikieditor-help-content-reference-example-ref-result": "[$1]",
-	"cite-wikieditor-help-content-reference-example-reflist": "<references />",
-	"popups-prefs-navpopups-gadget-conflict-info": "You have the [[$1|Navigation popups]] gadget enabled, so you won't see previews provided by this feature. Depending on your wiki, the gadget may have a slightly different name. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",
-	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "You have the [[$1|Navigation popups]] and [[$1|Reference Tooltips]] gadgets enabled, so you won't see previews provided by this feature. Depending on your wiki, the gadgets may have slightly different names. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",
-	"popups-prefs-reftooltips-gadget-conflict-info": "You have the [[$1|Reference Tooltips]] gadget enabled, so you won't see reference previews but will still see page previews. Depending on your wiki, the gadget may have a slightly different name. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",
-	"popups-refpreview-user-preference-label": "Enable reference previews (get quick previews of a reference while reading a page)"
+	"cite-wikieditor-help-content-reference-example-reflist": "<references />"
 }

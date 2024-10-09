@@ -230,6 +230,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
  * @override
  * @param {Object} [data] Setup data
  * @param {boolean} [data.reuseReference=false] Open the dialog in "use existing reference" mode
+ * @param {ve.dm.MWReferenceModel} [data.createSubRef] Open the dialog to add additional details to a reuse
  */
 ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
@@ -239,6 +240,12 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			if ( this.reuseReference ) {
 				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
 				this.openReusePanel();
+			} else if ( data.createSubRef ) {
+				if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
+					this.getFragment().removeContent();
+					this.selectedNode = null;
+				}
+				this.onReuseSearchResultsExtends( data.createSubRef );
 			} else {
 				this.panels.setItem( this.editPanel );
 				const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(

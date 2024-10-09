@@ -41,6 +41,13 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	 * @member {string|null}
 	 */
 	this.originalGroup = null;
+	/**
+	 * If the edit panel is used to insert a sub-reference
+	 *
+	 * @member {boolean}
+	 * @private
+	 */
+	this.isInsertingSubRef = false;
 
 	// Create content editor
 	this.referenceTarget = ve.init.target.createTargetWidget(
@@ -216,6 +223,7 @@ ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs 
  */
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.referenceModel = ref;
+	this.isInsertingSubRef = ref.extendsRef && !ref.getDocument().data.hasContent();
 
 	this.setFormFieldsFromRef( ref );
 	this.updateReuseWarningFromRef( ref );
@@ -239,6 +247,12 @@ ve.ui.MWReferenceEditPanel.prototype.getReferenceFromEditing = function () {
  */
 ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
 	this.referenceTarget.setDocument( ref.getDocument() );
+
+	if ( this.isInsertingSubRef ) {
+		this.referenceTarget.getSurface().setPlaceholder(
+			ve.msg( 'cite-ve-dialog-reference-editing-add-details-placeholder' )
+		);
+	}
 
 	this.optionsFieldset.toggle( !ref.extendsRef );
 
@@ -274,7 +288,10 @@ ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( re
 			.getInternalModelNode( ref.extendsRef );
 		this.extendsWarning.setLabel(
 			$( '<p>' )
-				.text( ve.msg( 'cite-ve-dialog-reference-editing-extends' ) )
+				.text( ve.msg( this.isInsertingSubRef ?
+					'cite-ve-dialog-reference-editing-add-details' :
+					'cite-ve-dialog-reference-editing-extends'
+				) )
 				.append( parentNode ?
 					new ve.ui.MWPreviewElement( parentNode, { useView: true } ).$element :
 					$( '<div>' )
@@ -282,6 +299,7 @@ ve.ui.MWReferenceEditPanel.prototype.updateExtendsWarningFromRef = function ( re
 						.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) )
 				)
 		);
+		this.extendsWarning.setIcon( this.isInsertingSubRef ? null : 'alert' );
 		this.extendsWarning.toggle( true );
 	} else {
 		this.extendsWarning.toggle( false );

@@ -93,7 +93,10 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
 	if ( this.model.getAttribute( 'extendsRef' ) ) {
 		return $( '<div>' )
-			.addClass( 've-ui-mwReferenceContextItem-muted' )
+			.addClass( [
+				've-ui-mwReferenceContextItem-muted',
+				've-ui-mwReferenceContextItemSubNote'
+			] )
 			.text( ve.msg( 'cite-ve-dialog-reference-contextitem-extends' ) );
 	}
 };
@@ -155,9 +158,9 @@ ve.ui.MWReferenceContextItem.prototype.setup = function () {
 ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
 	this.$body.empty().append(
 		this.getParentRef(),
+		this.getExtendsWarning(),
 		this.getRendering(),
-		this.getReuseWarning(),
-		this.getExtendsWarning()
+		this.getReuseWarning()
 	);
 };
 

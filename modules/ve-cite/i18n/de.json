@@ -34,7 +34,7 @@
 	"cite-ve-citationneeded-description": "Ein Autor hat darauf hingewiesen, dass für diese Behauptung eine zuverlässige Quelle als Beleg erforderlich ist.",
 	"cite-ve-citationneeded-reason": "Begründung:",
 	"cite-ve-citationneeded-title": "Beleg wird benötigt",
-	"cite-ve-dialog-reference-contextitem-extends": "Bei diesem Einzelnachweis handelt es sich um eine Wiederverwendung mit zusätzlichen Details.",
+	"cite-ve-dialog-reference-contextitem-extends": "Bei diesem Einzelnachweis handelt es sich um eine Wiederverwendung mit zusätzlichen Details:",
 	"cite-ve-dialog-reference-editing-add-details": "Du fügst diesem Einzelnachweis zusätzliche Details hinzu:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Schreibe oder füge hier die Informationen ein, die du diesem Einzelnachweis hinzufügen möchtest.",
 	"cite-ve-dialog-reference-editing-reused": "Dieser Einzelnachweis wird auf dieser Seite {{PLURAL:$1|einmal|2=zwei Mal|$1 Mal}} verwendet.",

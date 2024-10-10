@@ -300,6 +300,11 @@
 				"references": "text/mediawiki"
 			}
 		},
+		"EventLogging": {
+			"Schemas": {
+				"ReferencePreviewsPopups": "/analytics/legacy/referencepreviewspopups/1.1.0"
+			}
+		},
 		"Popups": {
 			"PluginModules": [
 				"ext.cite.referencePreviews"

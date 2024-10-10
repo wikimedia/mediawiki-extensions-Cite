@@ -241,10 +241,14 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
 				this.openReusePanel();
 			} else if ( data.createSubRef ) {
-				if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
+				if ( this.selectedNode instanceof ve.dm.MWReferenceNode &&
+					this.selectedNode.getAttribute( 'placeholder' ) ) {
+					// remove the placeholder node from Citoid
 					this.getFragment().removeContent();
-					this.selectedNode = null;
+
 				}
+				// we never want to edit an existing node here
+				this.selectedNode = null;
 				this.onReuseSearchResultsExtends( data.createSubRef );
 			} else {
 				this.panels.setItem( this.editPanel );

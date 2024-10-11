@@ -127,7 +127,6 @@
 				"ve.ui.MWCitationAction.js",
 				"ve.ui.MWReference.init.js",
 				"ve.ui.MWCitationNeededContextItem.js",
-				"ve.ui.MWSetExtendsContentDialog.js",
 				{
 					"name": "ve.ui.contentLanguage.js",
 					"callback": "Cite\\ResourceLoader\\ContentLanguage::makeScript"
@@ -137,8 +136,7 @@
 				"ve.ui.MWReferenceDialog.less",
 				"ve.ui.MWReferenceContextItem.less",
 				"ve.ui.MWReferenceResultWidget.less",
-				"ve.ui.MWCitationDialogTool.less",
-				"ve.ui.MWSetExtendsContentDialog.less"
+				"ve.ui.MWCitationDialogTool.less"
 			],
 			"dependencies": [
 				"oojs-ui.styles.icons-alerts",

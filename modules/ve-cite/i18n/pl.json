@@ -48,7 +48,7 @@
 	"cite-ve-citationneeded-description": "Edytor wykrył, że to stwierdzenie wymaga przypisu do wiarygodnego źródła.",
 	"cite-ve-citationneeded-reason": "Podany powód:",
 	"cite-ve-citationneeded-title": "Potrzebny przypis",
-	"cite-ve-dialog-reference-contextitem-extends": "To odniesienie jest wykorzystane ponownie, z dodanymi szczegółami",
+	"cite-ve-dialog-reference-contextitem-extends": "To odniesienie jest wykorzystane ponownie, z dodanymi szczegółami:",
 	"cite-ve-dialog-reference-editing-add-details": "Uzupełniasz dodatkowe szczegóły do tego odniesienia:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Tu wpisz lub wklej informacje, które chcesz dodać do odniesienia",
 	"cite-ve-dialog-reference-editing-reused": "Ten przypis jest użyty {{PLURAL:$1|raz|2=dwa razy|$1 razy}} na tej stronie.",

@@ -28,7 +28,7 @@
 	"cite-ve-citationneeded-description": "Bir istifadəçi bu iddianın etibarlı bir mənbəyə istinad edilməsinə ehtiyac olduğunu bildirib.",
 	"cite-ve-citationneeded-reason": "Verilmiş səbəb:",
 	"cite-ve-citationneeded-title": "İstinad lazımdır",
-	"cite-ve-dialog-reference-contextitem-extends": "Bu istinad əlavə detallarla təkrar istifadə edilir.",
+	"cite-ve-dialog-reference-contextitem-extends": "Bu istinad əlavə detallarla təkrar istifadə edilir:",
 	"cite-ve-dialog-reference-editing-add-details": "Bu istinada əlavə detallar əlavə edirsiniz:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Bu istinada əlavə etmək istədiyiniz məlumatı buraya yazın və ya yapışdırın.",
 	"cite-ve-dialog-reference-editing-reused": "Bu istinad bu səhifədə {{PLURAL:$1|1 dəfə|2=2 dəfə|$1 dəfə}} istifadə edilib.",

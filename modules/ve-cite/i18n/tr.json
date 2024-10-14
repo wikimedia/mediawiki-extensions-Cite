@@ -46,7 +46,7 @@
 	"cite-ve-citationneeded-description": "Bir düzenleyici, bu iddianın güvenilir bir kaynaktan alıntı yapılması gerektiğini belirtti.",
 	"cite-ve-citationneeded-reason": "Verilen sebep:",
 	"cite-ve-citationneeded-title": "Kaynak belirtilmeli",
-	"cite-ve-dialog-reference-contextitem-extends": "Bu kaynak ek ayrıntılarla yeniden kullanılmıştır.",
+	"cite-ve-dialog-reference-contextitem-extends": "Bu kaynak ek ayrıntılarla yeniden kullanılmıştır:",
 	"cite-ve-dialog-reference-editing-add-details": "Bu kaynağa ek ayrıntılar ekliyorsunuz:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Bu kaynağa eklemek istediğiniz bilgileri buraya yazın ya da yapıştırın.",
 	"cite-ve-dialog-reference-editing-reused": "Bu kaynak, bu sayfada {{PLURAL:$1|bir kere|2=iki kere|$1 kere}} kullanıldı.",

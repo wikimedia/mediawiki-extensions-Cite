@@ -21,7 +21,8 @@
 			"SunAfterRain",
 			"Vincent Liu",
 			"Waihorace",
-			"Zhxy 519"
+			"Zhxy 519",
+			"沈澄心"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "書籍",
@@ -47,7 +48,7 @@
 	"cite-ve-dialog-reference-editing-reused-long": "此參考文獻在此頁面上被使用了 {{PLURAL:$1|1|2=2|$1}} 次。在此做出的更改將會套用到該參考文獻所有被重複引用到的地方。",
 	"cite-ve-dialog-reference-extend-long-tool": "再使用此參考並附加細節",
 	"cite-ve-dialog-reference-editing-extends": "此為帶有附加細節的再利用參考資料。在這裡您只能編輯細節。",
-	"cite-ve-dialog-reference-missing-parent-ref": "這些細節連結到缺失的參考資料。請從頁面移除掉，或是在來源模式下修正問題。",
+	"cite-ve-dialog-reference-missing-parent-ref": "這些細節連結到缺失的參考資料。請從頁面移除掉，或是在原始碼模式下修正問題。",
 	"cite-ve-dialog-reference-options-group-label": "使用此群組",
 	"cite-ve-dialog-reference-options-group-placeholder": "一般參考文獻",
 	"cite-ve-dialog-reference-options-responsive-label": "使用響應式欄位佈局",

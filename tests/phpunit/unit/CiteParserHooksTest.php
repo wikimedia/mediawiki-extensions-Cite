@@ -6,9 +6,9 @@ use Cite\Cite;
 use Cite\Hooks\CiteParserHooks;
 use MediaWiki\Config\Config;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
-use ParserOptions;
-use StripState;
+use MediaWiki\Parser\StripState;
 
 /**
  * @covers \Cite\Hooks\CiteParserHooks

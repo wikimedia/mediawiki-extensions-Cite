@@ -8,11 +8,11 @@ use Cite\FootnoteMarkFormatter;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceStack;
 use Cite\Tests\TestUtils;
-use Language;
 use LogicException;
+use MediaWiki\Language\Language;
 use MediaWiki\Parser\Parser;
-use ParserOptions;
-use StripState;
+use MediaWiki\Parser\ParserOptions;
+use MediaWiki\Parser\StripState;
 use Wikimedia\TestingAccessWrapper;
 
 /**

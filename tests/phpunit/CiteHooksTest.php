@@ -2,9 +2,9 @@
 
 namespace Cite\Tests;
 
-use ApiQuerySiteinfo;
 use Cite\Hooks\CiteHooks;
 use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
+use MediaWiki\Api\ApiQuerySiteinfo;
 use MediaWiki\Config\HashConfig;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\User\Options\StaticUserOptionsLookup;

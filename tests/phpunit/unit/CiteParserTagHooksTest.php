@@ -7,7 +7,7 @@ use Cite\Hooks\CiteParserTagHooks;
 use MediaWiki\Config\Config;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
-use PPFrame;
+use MediaWiki\Parser\PPFrame;
 
 /**
  * @covers \Cite\Hooks\CiteParserTagHooks

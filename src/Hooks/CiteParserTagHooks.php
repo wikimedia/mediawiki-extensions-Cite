@@ -5,7 +5,7 @@ namespace Cite\Hooks;
 use Cite\Cite;
 use MediaWiki\Config\Config;
 use MediaWiki\Parser\Parser;
-use PPFrame;
+use MediaWiki\Parser\PPFrame;
 
 /**
  * @license GPL-2.0-or-later

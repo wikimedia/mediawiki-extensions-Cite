@@ -6,10 +6,10 @@ use Cite\Cite;
 use Cite\ErrorReporter;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceStack;
-use Language;
+use MediaWiki\Language\Language;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Parser\Parser;
-use ParserOptions;
+use MediaWiki\Parser\ParserOptions;
 use Wikimedia\TestingAccessWrapper;
 
 /**

@@ -4,7 +4,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Tests\Integration;
 
-use ExtensionRegistry;
+use MediaWiki\Registration\ExtensionRegistry;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\Parsoid\Core\SelserData;
 use Wikimedia\Parsoid\DOM\Element;

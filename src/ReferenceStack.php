@@ -3,7 +3,7 @@
 namespace Cite;
 
 use LogicException;
-use StripState;
+use MediaWiki\Parser\StripState;
 
 /**
  * Encapsulates most of Cite state during parsing.  This includes metadata about each ref tag,

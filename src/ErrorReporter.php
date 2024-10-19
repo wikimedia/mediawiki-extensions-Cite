@@ -3,12 +3,12 @@
 namespace Cite;
 
 use InvalidArgumentException;
-use Language;
 use MediaWiki\Html\Html;
+use MediaWiki\Language\Language;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\Sanitizer;
-use ParserOptions;
 use StatusValue;
 
 /**

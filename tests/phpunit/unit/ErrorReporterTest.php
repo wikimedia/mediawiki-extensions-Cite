@@ -4,10 +4,10 @@ namespace Cite\Tests\Unit;
 
 use Cite\ErrorReporter;
 use Cite\ReferenceMessageLocalizer;
-use Language;
+use MediaWiki\Language\Language;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Parser;
-use ParserOptions;
+use MediaWiki\Parser\ParserOptions;
 
 /**
  * @covers \Cite\ErrorReporter

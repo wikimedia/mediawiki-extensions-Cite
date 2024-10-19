@@ -9,7 +9,7 @@ use MediaWiki\Hook\ParserClearStateHook;
 use MediaWiki\Hook\ParserClonedHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Parser;
-use StripState;
+use MediaWiki\Parser\StripState;
 
 /**
  * @license GPL-2.0-or-later

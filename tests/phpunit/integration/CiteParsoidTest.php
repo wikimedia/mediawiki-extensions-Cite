@@ -4,16 +4,21 @@ declare( strict_types = 1 );
 
 namespace Cite\Tests\Integration;
 
+use Cite\Parsoid\References;
+use MediaWiki\Config\Config;
 use MediaWiki\Registration\ExtensionRegistry;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\Parsoid\Core\SelserData;
 use Wikimedia\Parsoid\DOM\Element;
+use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Mocks\MockDataAccess;
 use Wikimedia\Parsoid\Mocks\MockPageConfig;
 use Wikimedia\Parsoid\Mocks\MockPageContent;
 use Wikimedia\Parsoid\Mocks\MockSiteConfig;
+use Wikimedia\Parsoid\NodeData\DataMw;
 use Wikimedia\Parsoid\Parsoid;
 use Wikimedia\Parsoid\Utils\DOMCompat;
+use Wikimedia\Parsoid\Utils\DOMDataUtils;
 use Wikimedia\Parsoid\Utils\DOMUtils;
 
 /**
@@ -236,5 +241,24 @@ EOT;
 			"{{#tag:ref|<ref name='y' />|name='x'}}{{#tag:ref|<ref name='x' />|name='y'}}<ref name='x' />"
 		);
 		$this->wtToLint( "<ref name='x' />{{#tag:ref|<ref name='x' />|name=x}}" );
+	}
+
+	/**
+	 * @covers \Cite\Parsoid\References::processAttributeEmbeddedHTML
+	 */
+	public function testProcessAttributeEmbeddedHTML() {
+		$doc = DOMUtils::parseHTML( '' );
+		DOMDataUtils::prepareDoc( $doc );
+		$elt = $doc->createElement( 'a' );
+		DOMDataUtils::setDataMw( $elt, new DataMw( [ 'body' => (object)[ 'html' => 'old' ] ] ) );
+
+		$refs = new References( $this->createNoOpMock( Config::class ) );
+		$refs->processAttributeEmbeddedHTML(
+			$this->createNoOpMock( ParsoidExtensionAPI::class ),
+			$elt,
+			fn () => 'new'
+		);
+
+		$this->assertSame( 'new', DOMDataUtils::getDataMw( $elt )->body->html );
 	}
 }

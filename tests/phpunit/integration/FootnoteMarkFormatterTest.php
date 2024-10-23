@@ -3,13 +3,12 @@
 namespace Cite\Tests\Integration;
 
 use Cite\AnchorFormatter;
-use Cite\Cite;
 use Cite\FootnoteMarkFormatter;
+use Cite\MarkSymbolRenderer;
 use Cite\ReferenceMessageLocalizer;
 use Cite\Tests\TestUtils;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Parser;
-use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \Cite\FootnoteMarkFormatter
@@ -41,10 +40,12 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				return $msg;
 			}
 		);
+		$markSymbolRenderer = new MarkSymbolRenderer( $messageLocalizer );
 		$mockParser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		$formatter = new FootnoteMarkFormatter(
 			$anchorFormatter,
+			$markSymbolRenderer,
 			$messageLocalizer
 		);
 
@@ -124,50 +125,4 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 			],
 		];
 	}
-
-	/**
-	 * @dataProvider provideCustomizedLinkLabels
-	 */
-	public function testFetchCustomizedLinkLabel( $expectedLabel, $offset, $group, $labelList ) {
-		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) use ( $labelList ) {
-				$msg = $this->createMock( Message::class );
-				$msg->method( 'isDisabled' )->willReturn( $labelList === null );
-				$msg->method( 'plain' )->willReturn( $labelList );
-				return $msg;
-			}
-		);
-		/** @var FootnoteMarkFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
-			$this->createMock( AnchorFormatter::class ),
-			$mockMessageLocalizer
-		) );
-
-		$output = $formatter->fetchCustomizedLinkLabel( $group, $offset );
-		$this->assertSame( $expectedLabel, $output );
-	}
-
-	public static function provideCustomizedLinkLabels() {
-		yield [ null, 1, '', null ];
-		yield [ null, 2, '', null ];
-		yield [ null, 1, 'foo', null ];
-		yield [ null, 2, 'foo', null ];
-		yield [ 'a', 1, 'foo', 'a b c' ];
-		yield [ 'b', 2, 'foo', 'a b c' ];
-		yield [ 'å', 1, 'foo', 'å β' ];
-		yield [ null, 4, 'foo', 'a b c' ];
-	}
-
-	public function testDefaultGroupCannotHaveCustomLinkLabels() {
-		/** @var FootnoteMarkFormatter $formatter */
-		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
-			$this->createNoOpMock( AnchorFormatter::class ),
-			// Assert that ReferenceMessageLocalizer::msg( 'cite_link_label_group-' ) isn't called
-			$this->createNoOpMock( ReferenceMessageLocalizer::class )
-		) );
-
-		$this->assertNull( $formatter->fetchCustomizedLinkLabel( Cite::DEFAULT_GROUP, 1 ) );
-	}
-
 }

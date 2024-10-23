@@ -6,8 +6,10 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use Cite\MarkSymbolRenderer;
 use Closure;
 use MediaWiki\Config\Config;
+use MediaWiki\MediaWikiServices;
 use stdClass;
 use Wikimedia\Parsoid\Core\DomSourceRange;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
@@ -29,9 +31,12 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
  */
 class References extends ExtensionTagHandler {
 	private Config $mainConfig;
+	private MarkSymbolRenderer $markSymbolRenderer;
 
 	public function __construct( Config $mainConfig ) {
 		$this->mainConfig = $mainConfig;
+
+		$this->markSymbolRenderer = MediaWikiServices::getInstance()->getService( 'Cite.MarkSymbolRenderer' );
 	}
 
 	private static function hasRef( Node $node ): bool {
@@ -411,7 +416,7 @@ class References extends ExtensionTagHandler {
 		$refLinkSpan = $doc->createElement( 'span' );
 		$refLinkSpan->setAttribute( 'class', 'mw-reflink-text' );
 		$refLinkSpan->appendChild( $doc->createTextNode(
-			'[' . ( $ref->group ? $ref->group . ' ' : '' ) . $ref->groupIndex . ']'
+			'[' . $this->markSymbolRenderer->makeLabel( $ref->group, $ref->groupIndex ) . ']'
 		) );
 
 		$refLink->appendChild( $refLinkSpan );

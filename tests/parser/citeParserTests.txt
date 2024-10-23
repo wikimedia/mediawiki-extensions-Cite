@@ -1039,11 +1039,6 @@ MediaWiki:cite_link_label_group-klingon
 wa'  cha' wej loS vagh jav Soch chorgh Hut wa'maH
 !! endarticle
 
-## Parsoid doesn't use messages for i18n. It relies on Cite-specific CSS rules
-## to localize. This CSS is expected to be added to a wiki's
-## MediaWiki:Common.css page.
-## As such, Parsoid's output will differ for klingon i18n label tests.
-## T308094: document this transition.
 !! test
 <ref> with custom group link with number names in Klingon
 !! wikitext
@@ -1058,12 +1053,11 @@ Wikipedia rocks!<ref group="klingon">Proceeds of Rockology, vol. XXI</ref>
 </li>
 </ol></div>
 !! html/parsoid
-<p>Wikipedia rocks!<sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"klingon"},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;" data-mw-group="klingon"><span class="mw-reflink-text">[klingon 1]</span></a></sup></p>
+<p>Wikipedia rocks!<sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"klingon"},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;" data-mw-group="klingon"><span class="mw-reflink-text">[wa']</span></a></sup></p>
 
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{"group":"klingon"}}'><ol class="mw-references references" data-mw-group="klingon"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" data-mw-group="klingon" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">Proceeds of Rockology, vol. XXI</span></li></ol></div>
 !! end
 
-# See above: Parsoid uses a different mechanism for custom link labels
 !! test
 Consecutive whitespace in custom link label message should not create empty []
 !! wikitext
@@ -1081,8 +1075,8 @@ Consecutive whitespace in custom link label message should not create empty []
 </li>
 </ol></div>
 !! html/parsoid
-<p><sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"klingon"},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;" data-mw-group="klingon"><span class="mw-reflink-text">[klingon 1]</span></a></sup>
-<sup about="#mwt6" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"klingon"},"body":{"id":"mw-reference-text-cite_note-2"}}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 2;" data-mw-group="klingon"><span class="mw-reflink-text">[klingon 2]</span></a></sup></p>
+<p><sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"klingon"},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;" data-mw-group="klingon"><span class="mw-reflink-text">[wa']</span></a></sup>
+<sup about="#mwt6" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"klingon"},"body":{"id":"mw-reference-text-cite_note-2"}}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 2;" data-mw-group="klingon"><span class="mw-reflink-text">[cha']</span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{"group":"klingon"}}'><ol class="mw-references references" data-mw-group="klingon"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" data-mw-group="klingon" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">1st</span></li><li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" data-mw-group="klingon" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">2nd</span></li></ol></div>
 !! end
 

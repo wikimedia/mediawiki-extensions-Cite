@@ -4,7 +4,6 @@ namespace Cite\Tests\Integration;
 
 use Cite\AnchorFormatter;
 use Cite\Cite;
-use Cite\ErrorReporter;
 use Cite\FootnoteMarkFormatter;
 use Cite\ReferenceMessageLocalizer;
 use Cite\Tests\TestUtils;
@@ -22,10 +21,6 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideLinkRef
 	 */
 	public function testLinkRef( array $ref, string $expectedOutput ) {
-		$mockErrorReporter = $this->createMock( ErrorReporter::class );
-		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static fn ( $parser, ...$args ) => implode( '|', $args )
-		);
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
 		$anchorFormatter->method( 'jumpLink' )->willReturnArgument( 0 );
 		$anchorFormatter->method( 'backLinkTarget' )->willReturnCallback(
@@ -49,7 +44,6 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		$mockParser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		$formatter = new FootnoteMarkFormatter(
-			$mockErrorReporter,
 			$anchorFormatter,
 			$messageLocalizer
 		);
@@ -95,8 +89,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'number' => 10,
 					'key' => 4,
 				],
-				'(cite_reference_link|4+|4|' .
-					'cite_error_no_link_label_group&#124;foo&#124;cite_link_label_group-foo)'
+				'(cite_reference_link|4+|4|foo 10)'
 			],
 			'Named ref' => [
 				[
@@ -145,19 +138,13 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				return $msg;
 			}
 		);
-		$mockErrorReporter = $this->createMock( ErrorReporter::class );
-		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static fn ( $parser, ...$args ) => implode( '|', $args )
-		);
 		/** @var FootnoteMarkFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
-			$mockErrorReporter,
 			$this->createMock( AnchorFormatter::class ),
 			$mockMessageLocalizer
 		) );
 
-		$parser = $this->createNoOpMock( Parser::class );
-		$output = $formatter->fetchCustomizedLinkLabel( $parser, $group, $offset );
+		$output = $formatter->fetchCustomizedLinkLabel( $group, $offset );
 		$this->assertSame( $expectedLabel, $output );
 	}
 
@@ -169,20 +156,18 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		yield [ 'a', 1, 'foo', 'a b c' ];
 		yield [ 'b', 2, 'foo', 'a b c' ];
 		yield [ 'å', 1, 'foo', 'å β' ];
-		yield [ 'cite_error_no_link_label_group|foo|cite_link_label_group-foo', 4, 'foo', 'a b c' ];
+		yield [ null, 4, 'foo', 'a b c' ];
 	}
 
 	public function testDefaultGroupCannotHaveCustomLinkLabels() {
 		/** @var FootnoteMarkFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new FootnoteMarkFormatter(
-			$this->createNoOpMock( ErrorReporter::class ),
 			$this->createNoOpMock( AnchorFormatter::class ),
 			// Assert that ReferenceMessageLocalizer::msg( 'cite_link_label_group-' ) isn't called
 			$this->createNoOpMock( ReferenceMessageLocalizer::class )
 		) );
 
-		$parser = $this->createNoOpMock( Parser::class );
-		$this->assertNull( $formatter->fetchCustomizedLinkLabel( $parser, Cite::DEFAULT_GROUP, 1 ) );
+		$this->assertNull( $formatter->fetchCustomizedLinkLabel( Cite::DEFAULT_GROUP, 1 ) );
 	}
 
 }

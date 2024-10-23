@@ -17,16 +17,13 @@ class FootnoteMarkFormatter {
 	private array $linkLabels = [];
 
 	private AnchorFormatter $anchorFormatter;
-	private ErrorReporter $errorReporter;
 	private ReferenceMessageLocalizer $messageLocalizer;
 
 	public function __construct(
-		ErrorReporter $errorReporter,
 		AnchorFormatter $anchorFormatter,
 		ReferenceMessageLocalizer $messageLocalizer
 	) {
 		$this->anchorFormatter = $anchorFormatter;
-		$this->errorReporter = $errorReporter;
 		$this->messageLocalizer = $messageLocalizer;
 	}
 
@@ -41,7 +38,7 @@ class FootnoteMarkFormatter {
 	 * @return string HTML
 	 */
 	public function linkRef( Parser $parser, ReferenceStackItem $ref ): string {
-		$label = $this->makeLabel( $ref, $parser );
+		$label = $this->makeLabel( $ref->group, $ref->number, $ref->extendsIndex );
 
 		$key = $ref->name ?? $ref->key;
 		// TODO: Use count without decrementing.
@@ -58,18 +55,19 @@ class FootnoteMarkFormatter {
 		);
 	}
 
-	private function makeLabel( ReferenceStackItem $ref, Parser $parser ): string {
-		$label = $this->fetchCustomizedLinkLabel( $parser, $ref->group, $ref->number ) ??
-			$this->makeDefaultLabel( $ref );
-		if ( $ref->extendsIndex !== null ) {
-			$label .= '.' . $this->messageLocalizer->localizeDigits( (string)$ref->extendsIndex );
+	public function makeLabel( string $group, int $number, ?int $extendsIndex = null ): string {
+		$label = $this->fetchCustomizedLinkLabel( $group, $number ) ??
+			$this->makeDefaultLabel( $group, $number );
+		if ( $extendsIndex !== null ) {
+			// TODO: design better behavior, especially when using custom group markers.
+			$label .= '.' . $this->messageLocalizer->localizeDigits( (string)$extendsIndex );
 		}
 		return $label;
 	}
 
-	private function makeDefaultLabel( ReferenceStackItem $ref ): string {
-		$label = $this->messageLocalizer->localizeDigits( (string)$ref->number );
-		return $ref->group === Cite::DEFAULT_GROUP ? $label : "$ref->group $label";
+	public function makeDefaultLabel( string $group, int $number ): string {
+		$label = $this->messageLocalizer->localizeDigits( (string)$number );
+		return $group === Cite::DEFAULT_GROUP ? $label : "$group $label";
 	}
 
 	/**
@@ -78,13 +76,12 @@ class FootnoteMarkFormatter {
 	 * [ 'a', 'b', 'c', ...].
 	 * Return an error if the offset > the # of array items
 	 *
-	 * @param Parser $parser
-	 * @param string $group The group name
-	 * @param int $number Expected to start at 1
+	 * @param string $group
+	 * @param int $number
 	 *
-	 * @return string|null Returns null if no custom labels for this group exist
+	 * @return ?string Returns null if no custom label can be found
 	 */
-	private function fetchCustomizedLinkLabel( Parser $parser, string $group, int $number ): ?string {
+	private function fetchCustomizedLinkLabel( string $group, int $number ): ?string {
 		if ( $group === Cite::DEFAULT_GROUP ) {
 			return null;
 		}
@@ -101,12 +98,7 @@ class FootnoteMarkFormatter {
 		}
 
 		// Error message in case we run out of custom labels
-		return $this->linkLabels[$group][$number - 1] ?? $this->errorReporter->plain(
-			$parser,
-			'cite_error_no_link_label_group',
-			$group,
-			$message
-		);
+		return $this->linkLabels[$group][$number - 1] ?? null;
 	}
 
 }

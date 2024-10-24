@@ -398,9 +398,15 @@ class References extends ExtensionTagHandler {
 		// for browsers that don't support counters
 		$refLinkSpan = $doc->createElement( 'span' );
 		$refLinkSpan->setAttribute( 'class', 'mw-reflink-text' );
+		$openBracket = $doc->createElement( 'span', '[' );
+		$openBracket->setAttribute( 'class', 'cite-bracket' );
+		$refLinkSpan->appendChild( $openBracket );
 		$refLinkSpan->appendChild( $doc->createTextNode(
-			'[' . $this->markSymbolRenderer->makeLabel( $ref->group, $ref->groupIndex ) . ']'
+			$this->markSymbolRenderer->makeLabel( $ref->group, $ref->groupIndex )
 		) );
+		$closeBracket = $doc->createElement( 'span', ']' );
+		$closeBracket->setAttribute( 'class', 'cite-bracket' );
+		$refLinkSpan->appendChild( $closeBracket );
 
 		$refLink->appendChild( $refLinkSpan );
 		$linkBackSup->appendChild( $refLink );

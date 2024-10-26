@@ -100,7 +100,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		return new ErrorReporter( $mockMessageLocalizer );
 	}
 
-	private function createParser( Language $language, string $expectedCategory = null ): Parser {
+	private function createParser( Language $language, ?string $expectedCategory = null ): Parser {
 		$parserOptions = $this->createMock( ParserOptions::class );
 		$parserOptions->method( 'getUserLangObj' )->willReturn( $language );
 

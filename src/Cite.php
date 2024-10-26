@@ -305,7 +305,7 @@ class Cite {
 	private function formatReferences(
 		Parser $parser,
 		string $group,
-		string $responsive = null
+		?string $responsive = null
 	): string {
 		$responsiveReferences = $this->config->get( 'CiteResponsiveReferences' );
 

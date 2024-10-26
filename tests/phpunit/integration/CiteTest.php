@@ -28,7 +28,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	public function testParseArguments(
 		array $attributes,
 		array $expectedValue,
-		string $expectedError = null
+		?string $expectedError = null
 	) {
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );

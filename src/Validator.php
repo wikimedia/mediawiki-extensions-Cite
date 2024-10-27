@@ -63,7 +63,7 @@ class Validator {
 
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );
 			// @phan-suppress-next-line PhanTypeMismatchDimFetchNullable false positive
-			if ( isset( $groupRefs[$name] ) && !isset( $groupRefs[$name]->extends ) ) {
+			if ( isset( $groupRefs[$name] ) && $groupRefs[$name]->extends === null ) {
 				// T242141: A top-level <ref> can't be changed into a sub-reference
 				return StatusValue::newFatal( 'cite_error_references_duplicate_key', $name );
 			} elseif ( isset( $groupRefs[$extends]->extends ) ) {

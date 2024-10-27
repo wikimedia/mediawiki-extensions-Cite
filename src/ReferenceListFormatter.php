@@ -101,19 +101,19 @@ class ReferenceListFormatter {
 			// Make sure the parent is not a subreference.
 			// FIXME: Move to a validation function.
 			$extends =& $ref->extends;
-			if ( isset( $extends ) && isset( $groupRefs[$extends]->extends ) ) {
+			if ( $extends !== null && isset( $groupRefs[$extends]->extends ) ) {
 				$ref->warnings[] = [ 'cite_error_ref_nested_extends',
 					$extends, $groupRefs[$extends]->extends ];
 			}
 
-			if ( !$indented && isset( $extends ) ) {
+			if ( !$indented && $extends !== null ) {
 				// The nested <ol> must be inside the parent's <li>
 				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
 					$parserInput = substr( $parserInput, 0, $matches[0][1] );
 				}
 				$parserInput .= Html::openElement( 'ol', [ 'class' => 'mw-extended-references' ] );
 				$indented = $matches[0][0] ?? true;
-			} elseif ( $indented && !isset( $extends ) ) {
+			} elseif ( $indented && $extends === null ) {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
@@ -151,13 +151,13 @@ class ReferenceListFormatter {
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
-		if ( isset( $ref->follow ) ) {
+		if ( $ref->follow !== null ) {
 			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $ref->follow ) . '">' . $text . '</p>';
 		}
 
 		// Parameter $4 in the cite_references_link_one and cite_references_link_many messages
 		$extraAttributes = '';
-		if ( isset( $ref->dir ) ) {
+		if ( $ref->dir !== null ) {
 			// The following classes are generated here:
 			// * mw-cite-dir-ltr
 			// * mw-cite-dir-rtl
@@ -165,7 +165,7 @@ class ReferenceListFormatter {
 		}
 
 		if ( $ref->count === 1 ) {
-			if ( !isset( $ref->name ) ) {
+			if ( $ref->name === null ) {
 				$id = $ref->key;
 				$backlinkId = $this->anchorFormatter->backLink( $ref->key );
 			} else {
@@ -220,7 +220,7 @@ class ReferenceListFormatter {
 	private function renderTextAndWarnings(
 		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
-		if ( !isset( $ref->text ) ) {
+		if ( $ref->text === null ) {
 			return $this->errorReporter->plain( $parser,
 				$isSectionPreview
 					? 'cite_warning_sectionpreview_no_text'
@@ -270,7 +270,7 @@ class ReferenceListFormatter {
 	private function referencesFormatEntryAlternateBacklinkLabel(
 		Parser $parser, int $offset
 	): ?string {
-		if ( !isset( $this->backlinkLabels ) ) {
+		if ( $this->backlinkLabels === null ) {
 			$msg = $this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' );
 			$this->backlinkLabels = $msg->isDisabled() ? [] : preg_split( '/\s+/', $msg->plain() );
 		}

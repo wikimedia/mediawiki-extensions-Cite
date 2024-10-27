@@ -61,7 +61,7 @@ class FootnoteMarkFormatter {
 	private function makeLabel( ReferenceStackItem $ref, Parser $parser ): string {
 		$label = $this->fetchCustomizedLinkLabel( $parser, $ref->group, $ref->number ) ??
 			$this->makeDefaultLabel( $ref );
-		if ( isset( $ref->extendsIndex ) ) {
+		if ( $ref->extendsIndex !== null ) {
 			$label .= '.' . $this->messageLocalizer->localizeDigits( (string)$ref->extendsIndex );
 		}
 		return $label;

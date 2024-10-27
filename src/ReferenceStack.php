@@ -153,9 +153,9 @@ class ReferenceStack {
 		$ref->number ??= ++$this->groupRefSequence[$group];
 
 		// Do not mess with a known parent a second time
-		if ( $extends && !isset( $ref->extendsIndex ) ) {
+		if ( $extends && $ref->extendsIndex === null ) {
 			$parentRef =& $this->refs[$group][$extends];
-			if ( !isset( $parentRef ) ) {
+			if ( $parentRef === null ) {
 				// Create a new placeholder and give it the current sequence number.
 				$parentRef = new ReferenceStackItem();
 				$parentRef->name = $extends;
@@ -347,7 +347,7 @@ class ReferenceStack {
 		$ref =& $this->refs[$group][$name];
 		$ref ??= new ReferenceStackItem();
 		$ref->placeholder = false;
-		if ( !isset( $ref->text ) ) {
+		if ( $ref->text === null ) {
 			$ref->text = $text;
 		} elseif ( $ref->text !== $text ) {
 			// two refs with same key and different content

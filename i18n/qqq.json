@@ -44,6 +44,8 @@
 	"cite_error_empty_references_define": "Error message shown when there is a <code>&lt;ref&gt;</code> inside <code>&lt;references&gt;</code>, but it does not have any content, e.g.\n<pre>\n<references>\n<ref name=\"foo\" />\n</references>\n</pre>\nParameters:\n* $1 - the <code><nowiki>name</nowiki></code> of the erroneous <code>&lt;ref&gt;</code> (in the above example, “foo”)",
 	"cite-tracking-category-cite-error": "{{tracking category name}}\nTracking category name.",
 	"cite-tracking-category-cite-error-desc": "Tracking category description.",
+	"cite-tracking-category-cite-diffing-error": "{{tracking category name}}\nTracking category name for pages with reference errors that trigger visual diffs.",
+	"cite-tracking-category-cite-diffing-error-desc": "Tracking category description for pages with reference errors that trigger visual diffs.",
 	"cite-tracking-category-ref-extends": "{{tracking category name}}\nThe [[:mw:Special:MyLanguage/Help:Tracking categories|tracking category]] to add to the article if it uses <code>&lt;ref&gt;</code> tags with an <code>extends</code> attribute.",
 	"cite-tracking-category-ref-extends-desc": "Description of the <code>extends</code> feature tracking category. (See {{msg-mw|Cite-tracking-category-ref-extends}}.)",
 	"cite-reference-previews-reference": "Default heading for popups that show previews of references as provided by the Cite extension's <ref> tags (also known as footnotes).\n{{Identical|Reference}}",

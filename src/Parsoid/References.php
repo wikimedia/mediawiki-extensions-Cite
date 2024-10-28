@@ -6,11 +6,13 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use Cite\Cite;
 use Cite\MarkSymbolRenderer;
 use Closure;
 use MediaWiki\Config\Config;
 use MediaWiki\MediaWikiServices;
 use stdClass;
+use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\Core\DomSourceRange;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
 use Wikimedia\Parsoid\DOM\Element;
@@ -156,6 +158,18 @@ class References extends ExtensionTagHandler {
 				'cite_error_references_group_mismatch',
 				[ $refDmw->attrs->group ]
 			);
+		}
+
+		static $validAttributes = [
+			'group' => true,
+			'name' => true,
+			Cite::SUBREF_ATTRIBUTE => true,
+			'follow' => true,
+			'dir' => true
+		];
+
+		if ( array_diff_key( (array)$refDmw->attrs, $validAttributes ) !== [] ) {
+			$errs[] = new DataMwError( 'cite_error_ref_too_many_keys' );
 		}
 
 		// NOTE: This will have been trimmed in Utils::getExtArgInfo()'s call
@@ -764,6 +778,7 @@ class References extends ExtensionTagHandler {
 		foreach ( $refsOpts as $key => $value ) {
 			if ( !in_array( strtolower( (string)$key ), $knownAttributes, true ) ) {
 				$extApi->pushError( 'cite_error_references_invalid_parameters' );
+				$error = new MessageValue( 'cite_error_references_invalid_parameters' );
 				break;
 			}
 		}
@@ -782,6 +797,14 @@ class References extends ExtensionTagHandler {
 			}
 		);
 		$domFragment->appendChild( $frag );
+
+		if ( isset( $error ) ) {
+			$errorFragment = ErrorUtils::renderParsoidErrorSpan( $extApi, $error );
+			// we're pushing it after the reference block while it tends to be before in legacy (error + rerender)
+			$extApi->addTrackingCategory( 'cite-tracking-category-cite-diffing-error' );
+			$frag->appendChild( $errorFragment );
+		}
+
 		return $domFragment;
 	}
 

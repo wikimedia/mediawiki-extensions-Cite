@@ -8,6 +8,8 @@ use Cite\Parsoid\References;
 use MediaWiki\Config\Config;
 use MediaWiki\Registration\ExtensionRegistry;
 use Wikimedia\ObjectFactory\ObjectFactory;
+use Wikimedia\Parsoid\Config\PageConfig;
+use Wikimedia\Parsoid\Core\ContentMetadataCollector;
 use Wikimedia\Parsoid\Core\SelserData;
 use Wikimedia\Parsoid\DOM\Element;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
@@ -20,6 +22,7 @@ use Wikimedia\Parsoid\Parsoid;
 use Wikimedia\Parsoid\Utils\DOMCompat;
 use Wikimedia\Parsoid\Utils\DOMDataUtils;
 use Wikimedia\Parsoid\Utils\DOMUtils;
+use Wikimedia\Parsoid\Utils\TitleValue;
 
 /**
  * @coversDefaultClass \Cite\Parsoid\Cite
@@ -91,7 +94,21 @@ class CiteParsoidTest extends \MediaWikiIntegrationTestCase {
 
 		$siteOptions = [ 'linting' => true ] + $options;
 		$siteConfig = $this->getSiteConfig( $siteOptions );
-		$dataAccess = new MockDataAccess( $siteConfig, [] );
+		$dataAccess = new class( $siteConfig, [] ) extends MockDataAccess {
+			/** @inheritDoc */
+			public function addTrackingCategory(
+				PageConfig $pageConfig,
+				ContentMetadataCollector $metadata,
+				string $key
+			): void {
+				if ( $key === 'cite-tracking-category-cite-error' ) {
+					$tv = TitleValue::tryNew( 14, 'Pages with reference errors' );
+					$metadata->addCategory( $tv );
+					return;
+				}
+				parent::addTrackingCategory( $pageConfig, $metadata, $key );
+			}
+		};
 		$parsoid = new Parsoid( $siteConfig, $dataAccess );
 
 		$content = new MockPageContent( [ $opts['pageName'] => $wt ] );

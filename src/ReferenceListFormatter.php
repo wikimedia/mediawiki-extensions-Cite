@@ -101,7 +101,7 @@ class ReferenceListFormatter {
 			// Make sure the parent is not a subreference.
 			// FIXME: Move to a validation function.
 			$extends =& $ref->extends;
-			if ( $extends !== null && isset( $groupRefs[$extends]->extends ) ) {
+			if ( $extends !== null && isset( $groupRefs[$extends] ) && $groupRefs[$extends]->extends !== null ) {
 				$ref->warnings[] = [ 'cite_error_ref_nested_extends',
 					$extends, $groupRefs[$extends]->extends ];
 			}

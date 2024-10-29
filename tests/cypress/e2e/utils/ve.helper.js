@@ -23,6 +23,7 @@ export function openVEForSourceEditingReferences( title, usesCitoid ) {
 	if ( usesCitoid ) {
 		waitForVECitoidToLoad();
 	}
+	cy.get( '.ve-ce-surface' ).click();
 }
 
 export function waitForVECiteToLoad() {

@@ -163,6 +163,7 @@ class References extends ExtensionTagHandler {
 		$refName = $refDmw->attrs->name ?? '';
 		$followName = $refDmw->attrs->follow ?? '';
 		$refDir = strtolower( $refDmw->attrs->dir ?? '' );
+		$extendsRef = $refDmw->attrs->extends ?? null;
 
 		// Add ref-index linkback
 		$linkBack = $doc->createElement( 'sup' );
@@ -285,7 +286,7 @@ class References extends ExtensionTagHandler {
 			// Even worse would be if it tried to redefine itself!
 
 			if ( !$ref ) {
-				$ref = $refsData->add( $extApi, $groupName, $refName, $refDir );
+				$ref = $refsData->add( $extApi, $groupName, $refName, $extendsRef, $refDir );
 			}
 
 			// Handle linkbacks

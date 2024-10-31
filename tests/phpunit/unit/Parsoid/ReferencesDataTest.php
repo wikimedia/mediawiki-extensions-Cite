@@ -56,6 +56,7 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 			$this->createNoOpMock( ParsoidExtensionAPI::class ),
 			Cite::DEFAULT_GROUP,
 			'',
+			null,
 			''
 		);
 
@@ -76,6 +77,7 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 			$this->createNoOpMock( ParsoidExtensionAPI::class ),
 			'note',
 			'wales',
+			'main',
 			'rtl'
 		);
 
@@ -85,6 +87,7 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 		$expected->key = 'cite_ref-wales_1';
 		$expected->id = 'cite_ref-wales_1-0';
 		$expected->name = 'wales';
+		$expected->extendsRef = 'main';
 		$expected->target = 'cite_note-wales-1';
 		$this->assertEquals( $expected, $ref );
 

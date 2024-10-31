@@ -27,6 +27,7 @@ class RefGroupItem {
 	public string $dir = '';
 	public string $group = '';
 	public int $groupIndex = 1;
+	public ?string $extendsRef = null;
 	public int $index = 0;
 	public string $key;
 	public string $id;

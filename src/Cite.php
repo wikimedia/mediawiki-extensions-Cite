@@ -78,7 +78,6 @@ class Cite {
 		$this->referenceStack = new ReferenceStack();
 		$anchorFormatter = new AnchorFormatter();
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
-			$this->errorReporter,
 			$anchorFormatter,
 			$messageLocalizer
 		);

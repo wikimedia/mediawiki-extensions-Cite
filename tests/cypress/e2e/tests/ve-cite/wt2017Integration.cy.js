@@ -64,8 +64,7 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 
 	} );
 
-	// Disable flaky test T377666
-	it.skip( 'should be able to create a VE-Cite tool template', () => {
+	it( 'should be able to create a VE-Cite tool template', () => {
 		// FIXME: Replace this wait with a trigger when VE is fully initialized.
 		cy.wait( 1000 );
 		if ( usesCitoid ) {

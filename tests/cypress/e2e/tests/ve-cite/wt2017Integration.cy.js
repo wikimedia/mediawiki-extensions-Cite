@@ -36,8 +36,6 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 	} );
 
 	it( 'should be able to create a basic reference', () => {
-		// FIXME: Fix application logic to only render once fully initialized.
-		cy.wait( 1000 );
 		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 			cy.wait( 500 );
@@ -65,8 +63,6 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 	} );
 
 	it( 'should be able to create a VE-Cite tool template', () => {
-		// FIXME: Replace this wait with a trigger when VE is fully initialized.
-		cy.wait( 1000 );
 		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 			cy.wait( 500 );

@@ -34,6 +34,9 @@ export function waitForVECiteToLoad() {
 
 export function waitForVECitoidToLoad() {
 	helpers.waitForModuleReady( 'ext.citoid.visualEditor' );
+	// FIXME: Fix application logic to only render once fully initialized.
+	// eslint-disable-next-line cypress/no-unnecessary-waiting
+	cy.wait( 1000 );
 }
 
 export function getVEFootnoteMarker( refName, sequenceNumber, index ) {

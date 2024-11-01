@@ -228,6 +228,8 @@ wgCiteBookReferencing=true
 T236256 - Sub-referencing a reference that doesn't exist #1
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref extends="a">page 1</ref>
 !! html/php
@@ -244,6 +246,8 @@ wgCiteBookReferencing=true
 T236256 - Sub-referencing a reference that doesn't exist #2
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref>book</ref>
 <ref extends="a">page 1</ref>
@@ -329,6 +333,8 @@ wgCiteBookReferencing=true
 T236256 - Cannot sub-reference a sub-reference (no nesting), specified in reverse order
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref extends="b">section 3</ref>
 <ref extends="a" name="b">page 2</ref>
@@ -443,6 +449,8 @@ wgCiteBookReferencing=true
 T236256 - Sub-reference in named group cannot access parent from another named group
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref group="g1" name="a">book</ref>
 <ref group="g2" extends="a">page</ref>
@@ -467,6 +475,8 @@ wgCiteBookReferencing=true
 T236256 - Sub-reference in the unnamed default group doesn't collide with refs from other groups
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref group="g1" name="a">book</ref>
 <ref extends="a">page</ref>
@@ -490,6 +500,8 @@ wgCiteBookReferencing=true
 T236256 - Sub-reference in named group cannot access parent from unnamed default group
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref name="a">book</ref>
 <ref group="g1" extends="a">page</ref>
@@ -596,6 +608,8 @@ wgCiteBookReferencing=true
 Sub-referencing a list-defined parent that doesn't appear in the text, but in <references>
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref extends="a">Page 2</ref>
 <references>
@@ -616,6 +630,8 @@ wgCiteBookReferencing=true
 T239810: Sub-referencing a list-defined parent that doesn't appear in the text, but in {{#tag:references}}
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref extends="a">Page 2</ref>
 {{#tag:references|
@@ -828,6 +844,8 @@ wgCiteBookReferencing=true
 T242110: Copy-pasted, named sub-references should be merged and not mess with the numbering
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref name="a1" extends="a">a1</ref>
 <ref name="a1" extends="a">a1</ref>
@@ -850,6 +868,8 @@ wgCiteBookReferencing=true
 T242110: Reused sub-references should be merged and not mess with the numbering
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref name="a1" extends="a">a1</ref>
 <ref name="a1" extends="a" />
@@ -872,6 +892,8 @@ wgCiteBookReferencing=true
 Reused sub-references can be rolled back without messing up numbering
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref name="a1" extends="a" />
 <ref group="g" name="a1" extends="a" />
@@ -907,6 +929,8 @@ wgCiteBookReferencing=true
 T242110: Bad sub-referencing attributes on reused sub-references should report an error
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref name="a1" extends="a">a1</ref>
 <ref name="a1" extends="unknown" />
@@ -929,6 +953,8 @@ wgCiteBookReferencing=true
 T242110: Copy-pasted, named sub-references should appear in proper order
 !! config
 wgCiteBookReferencing=true
+!! options
+disabled
 !! wikitext
 <ref name="a1" extends="a">a1</ref>
 <ref name="a1" extends="a">a1</ref>

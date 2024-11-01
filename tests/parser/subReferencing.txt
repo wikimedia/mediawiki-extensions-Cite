@@ -228,15 +228,13 @@ wgCiteBookReferencing=true
 T236256 - Sub-referencing a reference that doesn't exist #1
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref extends="a">page 1</ref>
 !! html/php
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">page 1</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 </ol></li>
 </ol></div>
@@ -246,8 +244,6 @@ disabled
 T236256 - Sub-referencing a reference that doesn't exist #2
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref>book</ref>
 <ref extends="a">page 1</ref>
@@ -258,7 +254,7 @@ disabled
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">book</span>
 </li>
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 </ol></li>
 </ol></div>
@@ -333,8 +329,6 @@ wgCiteBookReferencing=true
 T236256 - Cannot sub-reference a sub-reference (no nesting), specified in reverse order
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref extends="b">section 3</ref>
 <ref extends="a" name="b">page 2</ref>
@@ -346,7 +340,7 @@ disabled
 <sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>b</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">section 3</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>b</code></span><ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">section 3</span>
 </li>
 </ol></li>
 <li id="cite_note-a-2"><span class="mw-cite-backlink"><a href="#cite_ref-a_2-0">↑</a></span> <span class="reference-text">book</span>
@@ -449,8 +443,6 @@ wgCiteBookReferencing=true
 T236256 - Sub-reference in named group cannot access parent from another named group
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref group="g1" name="a">book</ref>
 <ref group="g2" extends="a">page</ref>
@@ -465,7 +457,7 @@ disabled
 </li>
 </ol></div>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
 </li>
 </ol></li>
 </ol></div>
@@ -475,8 +467,6 @@ disabled
 T236256 - Sub-reference in the unnamed default group doesn't collide with refs from other groups
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref group="g1" name="a">book</ref>
 <ref extends="a">page</ref>
@@ -490,7 +480,7 @@ disabled
 </li>
 </ol></div>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
 </li>
 </ol></li>
 </ol></div>
@@ -500,8 +490,6 @@ disabled
 T236256 - Sub-reference in named group cannot access parent from unnamed default group
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref name="a">book</ref>
 <ref group="g1" extends="a">page</ref>
@@ -511,7 +499,7 @@ disabled
 <sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>g1 1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-extended-references"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page</span>
 </li>
 </ol></li>
 </ol></div>
@@ -608,8 +596,6 @@ wgCiteBookReferencing=true
 Sub-referencing a list-defined parent that doesn't appear in the text, but in <references>
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref extends="a">Page 2</ref>
 <references>
@@ -619,7 +605,7 @@ disabled
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
 <ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Page 2</span>
 </li>
 </ol></li>
@@ -630,8 +616,6 @@ disabled
 T239810: Sub-referencing a list-defined parent that doesn't appear in the text, but in {{#tag:references}}
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref extends="a">Page 2</ref>
 {{#tag:references|
@@ -641,7 +625,7 @@ disabled
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
 <ol class="mw-extended-references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Page 2</span>
 </li>
 </ol></li>
@@ -844,8 +828,6 @@ wgCiteBookReferencing=true
 T242110: Copy-pasted, named sub-references should be merged and not mess with the numbering
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref name="a1" extends="a">a1</ref>
 <ref name="a1" extends="a">a1</ref>
@@ -857,7 +839,7 @@ disabled
 <sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
 <ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
 </li>
 </ol></li>
@@ -868,8 +850,6 @@ disabled
 T242110: Reused sub-references should be merged and not mess with the numbering
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref name="a1" extends="a">a1</ref>
 <ref name="a1" extends="a" />
@@ -881,7 +861,7 @@ disabled
 <sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
 <ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
 </li>
 </ol></li>
@@ -892,8 +872,6 @@ disabled
 Reused sub-references can be rolled back without messing up numbering
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref name="a1" extends="a" />
 <ref group="g" name="a1" extends="a" />
@@ -910,7 +888,7 @@ disabled
 <sup id="cite_ref-a1_2-0" class="reference"><a href="#cite_note-a1-2"><span class="cite-bracket">&#91;</span>g 1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a in group</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a in group</span>
 <ol class="mw-extended-references"><li id="cite_note-a1-2"><span class="mw-cite-backlink"><a href="#cite_ref-a1_2-0">↑</a></span> <span class="reference-text">a1 in group</span>
 </li>
 </ol></li>
@@ -918,7 +896,7 @@ disabled
 <p><sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a in group <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a in group <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
 <ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
 </li>
 </ol></li>
@@ -929,8 +907,6 @@ disabled
 T242110: Bad sub-referencing attributes on reused sub-references should report an error
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref name="a1" extends="a">a1</ref>
 <ref name="a1" extends="unknown" />
@@ -942,7 +918,7 @@ disabled
 <sup id="cite_ref-a1_1-1" class="reference"><a href="#cite_note-a1-1"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
 <ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a1" defined multiple times with different content</span></span>
 </li>
 </ol></li>
@@ -953,8 +929,6 @@ disabled
 T242110: Copy-pasted, named sub-references should appear in proper order
 !! config
 wgCiteBookReferencing=true
-!! options
-disabled
 !! wikitext
 <ref name="a1" extends="a">a1</ref>
 <ref name="a1" extends="a">a1</ref>
@@ -976,15 +950,15 @@ disabled
 <sup id="cite_ref-c1_3-1" class="reference"><a href="#cite_note-c1-3"><span class="cite-bracket">&#91;</span>3.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
 <ol class="mw-extended-references"><li id="cite_note-a1-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a1_1-0">1.1.0</a></sup> <sup><a href="#cite_ref-a1_1-1">1.1.1</a></sup></span> <span class="reference-text">a1</span>
 </li>
 </ol></li>
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
 <ol class="mw-extended-references"><li id="cite_note-b1-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-b1_2-0">2.1.0</a></sup> <sup><a href="#cite_ref-b1_2-1">2.1.1</a></sup></span> <span class="reference-text">b1</span>
 </li>
 </ol></li>
-<li id=""><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
 <ol class="mw-extended-references"><li id="cite_note-c1-3"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-c1_3-0">3.1.0</a></sup> <sup><a href="#cite_ref-c1_3-1">3.1.1</a></sup></span> <span class="reference-text">c1</span>
 </li>
 </ol></li>

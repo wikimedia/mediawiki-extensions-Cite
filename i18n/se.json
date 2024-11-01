@@ -20,7 +20,6 @@
 	"cite_error_references_duplicate_key": "Dohkkemeahttumis <code>&lt;ref&gt;</code>-gilkor; «$1»-namma lea meroštallojuvvon máŋggain sajiin main lea iešguđetgelágan sisdoallu",
 	"cite_error_references_invalid_parameters": "Gilkoris <code>&lt;references&gt;</code> lea boastu paramehter",
 	"cite_error_references_no_backlink_label": "Nohke sierrameroštallojuvvon ruovttoluottaliŋkateavsttat. Meroštala eanet, dieđu bokte [[MediaWiki:Cite references link many format backlink labels]].",
-	"cite_error_no_link_label_group": "Nohke sierrameroštallojuvvon liŋkamearkkat «$1»-joavkkus. Meroštala eanet [[MediaWiki:$2]]-dieđus.",
 	"cite_error_references_no_text": "Dohkkemeahttumis <code>&lt;ref&gt;</code>-gilkor; ii almmuhuvvon oktage teaksta referánsii mas lea namma <code>$1</code>",
 	"cite_error_included_ref": "Loahpalaš <code>&lt;/ref&gt;</code>-gilkor váilu <code>&lt;ref&gt;</code>:i.",
 	"cite_error_included_references": "Loahpalaš gilkor váilu <code>&lt;references&gt;</code>:i",

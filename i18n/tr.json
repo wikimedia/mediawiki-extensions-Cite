@@ -27,7 +27,6 @@
 	"cite_error_references_duplicate_key": "Geçersiz <code>&lt;ref&gt;</code> etiketi: \"$1\" adı farklı içerikte birden fazla tanımlanmış",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> etiketinde geçersiz parametre",
 	"cite_error_references_no_backlink_label": "Özel geri bağlantı etiketleri kalmadı. [[MediaWiki:Cite references link many format backlink labels]] mesajında daha fazla tanımlayın.",
-	"cite_error_no_link_label_group": "\"$1\" grubu için özel bağlantı etiketleri bitti. [[MediaWiki:$2]] mesajında daha fazla tanımlayın.",
 	"cite_error_references_no_text": "Geçersiz <code>&lt;ref&gt;</code> etiketi; <code>$1</code> isimli refler için metin sağlanmadı",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> etiketi için <code>&lt;/ref&gt;</code> kapanışı eksik",
 	"cite_error_included_references": "<code>&lt;references&gt;</code> için kapanış etiketi eksik",

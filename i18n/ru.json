@@ -37,7 +37,6 @@
 	"cite_error_references_duplicate_key": "Неверный тег <code>&lt;ref&gt;</code>: название «$1» определено несколько раз для различного содержимого",
 	"cite_error_references_invalid_parameters": "Недопустимый параметр в теге <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "Не хватает символов для возвратных гиперссылок. Следует расширить системное сообщение [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "Закончились отметки пользовательских ссылок для группы «$1». Определите дополнительные в сообщении [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Неверный тег <code>&lt;ref&gt;</code>; для сносок <code>$1</code> не указан текст",
 	"cite_error_included_ref": "Отсутствует закрывающий тег <code>&lt;/ref&gt;</code>",
 	"cite_error_included_references": "Отсутствует закрывающий тег для <code>&lt;references&gt;</code>",

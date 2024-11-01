@@ -22,7 +22,6 @@
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> tidak sah, nama \"$1\" digunakan secara berulang dengan kandungan yang berbeza",
 	"cite_error_references_invalid_parameters": "Parameter tidak sah dalam tag <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "Kehabisan label pautan balik tempahan. Sila tambah label dalam pesanan [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "Kehabisan label pautan tempahan untuk kumpulan \"$1\". Tentukan lagi dalam mesej [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Tag <code>&lt;ref&gt;</code> tidak sah; tiada teks disediakan bagi rujukan yang bernama <code>$1</code>",
 	"cite_error_included_ref": "Tag <code>&lt;ref&gt;</code> tidak ditutup dengan <code>&lt;/ref&gt;</code>",
 	"cite_error_included_references": "Tag penutup hilang untuk <code>&lt;references&gt;</code>",

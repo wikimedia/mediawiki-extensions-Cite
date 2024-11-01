@@ -19,7 +19,6 @@
 	"cite_error_references_duplicate_key": "చెల్లని <code>&lt;ref&gt;</code> ట్యాగు; \"$1\" అనే పేరును విభిన్న కంటెంటుతో అనేక సార్లు నిర్వచించారు",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> ట్యాగులో చెల్లని పరామితి ఉంది",
 	"cite_error_references_no_backlink_label": "మీ స్వంత బ్యాక్‌లింకు లేబుళ్ళు అయిపోయాయి. [[MediaWiki:Cite references link many format backlink labels]] సందేశంలో మరిన్ని లేబుళ్ళను నిర్వచించుకోండి.",
-	"cite_error_no_link_label_group": "\"$1\"గుంపుకు కస్టమ్ లింకు లేబుళ్ళు అయిపోయాయి. [[MediaWiki:$2]] సందేశంలో ఇంకొన్నిటిని నిర్వచించండి.",
 	"cite_error_references_no_text": "చెల్లని <code>&lt;ref&gt;</code> ట్యాగు; <code>$1</code> అనే పేరుగల ref లలో పాఠ్యమేమీ ఇవ్వలేదు",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> ట్యాగుకు, మూసే <code>&lt;/ref&gt;</code> లేదు.",
 	"cite_error_included_references": "<code>&lt;references&gt;</code> కు మూసివేత ట్యాగు లేదు",

@@ -28,7 +28,6 @@
 	"cite_error_references_duplicate_key": "Taggen <code>&lt;ref&gt;</code> är ogiltig; namnet \"$1\" definieras flera gånger med olika innehåll",
 	"cite_error_references_invalid_parameters": "Ogiltig parameter i <code>&lt;references&gt;</code>-tagg",
 	"cite_error_references_no_backlink_label": "De anpassade etiketterna för tillbaka-länkar har tagit slut. Definiera fler etiketter i systemmeddelandet [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "Anpassade länketiketter för gruppen \"$1\" tog slut. Definera fler i [[MediaWiki:$2]]-meddelandet.",
 	"cite_error_references_no_text": "Ogiltig <code>&lt;ref&gt;</code>-tagg; ingen text har angivits för referensen med namnet <code>$1</code>",
 	"cite_error_included_ref": "Avslutande <code>&lt;/ref&gt;</code> saknas för <code>&lt;ref&gt;</code>-tagg",
 	"cite_error_included_references": "Avslutande tagg saknades för <code>&lt;references&gt;</code>",

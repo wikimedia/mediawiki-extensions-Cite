@@ -29,7 +29,6 @@
 	"cite_error_references_duplicate_key": "وسم <code>&lt;ref&gt;</code> غير صالح؛ الاسم \"$1\" معرف أكثر من مرة بمحتويات مختلفة.",
 	"cite_error_references_invalid_parameters": "محدد غير صحيح في وسم <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "نفدت علامات الوصلات الراجعة المخصصة. عرف المزيد في رسالة [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "تم الانتهاء من تسمية الارتباطات المخصصة لمجموعة \"$1\". \nللحصول على تعريف أكثر انظر هذه [[MediaWiki:$2]] الرسالة.",
 	"cite_error_references_no_text": "وسم <code>&lt;ref&gt;</code> غير صحيح؛ لا نص تم توفيره للمراجع المسماة <code>$1</code>",
 	"cite_error_included_ref": "إغلاق <code>&lt;/ref&gt;</code> مفقود لوسم <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "وسم الإغلاق مفقود ل<code>&lt;references&gt;</code>",

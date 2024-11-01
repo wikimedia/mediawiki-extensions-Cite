@@ -17,7 +17,6 @@
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> invalide; 'u nome \"$1\" definite cchiù vote cu condenute diverse",
 	"cite_error_references_invalid_parameters": "'U tag <code>&lt;references&gt;</code> tène 'nu parametre invalide",
 	"cite_error_references_no_backlink_label": "Le etichette personalizzate pe le collegaminde de rrete onne spicciate. Definiscene otre jndr'à 'u messàgge [[MediaWiki:Cite references link many format backlink labels]].",
-	"cite_error_no_link_label_group": "Le etichette personalizzate de le collegaminde pu gruppe \"$1\" onne spicciate. Definiscene otre jndr'à 'u messàgge [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Tag <code>&lt;ref&gt;</code> invalide; nisciune teste ha state date pe le referimende nnomenate <code>$1</code>",
 	"cite_error_included_ref": "Stè 'u tag <code>&lt;/ref&gt;</code> ma manghe <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Chiusure d'u tag mangande pe <code>&lt;references&gt;</code>",

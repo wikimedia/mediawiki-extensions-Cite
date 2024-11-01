@@ -27,7 +27,6 @@
 	"cite_error_references_duplicate_key": "Ongeldig label <code>&lt;ref&gt;</code>; de naam \"$1\" wordt meerdere keren met andere inhoud gedefinieerd.",
 	"cite_error_references_invalid_parameters": "Onjuiste parameter in <code>&lt;references&gt;</code>-tag",
 	"cite_error_references_no_backlink_label": "Het aantal beschikbare backlinklabels is opgebruikt. Geef meer labels op in het bericht [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "Het aantal aangepaste koppelinglabels voor de group \"$1\" is uitgeput. U kunt er meer instellen in het systeembericht [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Onjuist label <code>&lt;ref&gt;</code>; er is geen tekst opgegeven voor referenties met de naam <code>$1</code>",
 	"cite_error_included_ref": "Na het label <code>&lt;ref&gt;</code> ontbreekt het afsluitende label <code>&lt;/ref&gt;</code>",
 	"cite_error_included_references": "Er ontbreekt een afsluitend label voor <code>&lt;references&gt;</code>",

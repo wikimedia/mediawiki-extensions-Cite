@@ -22,7 +22,6 @@
 	"cite_error_references_duplicate_key": "תג <code>&lt;ref&gt;</code> בלתי־תקין; השם \"$1\" הוגדר כמה פעמים עם תוכן שונה",
 	"cite_error_references_invalid_parameters": "פרמטר בלתי־תקין בתג <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "אזלו תוויות הקישורים המותאמות אישית. נא להגדיר עוד תוויות בהודעת המערכת [[MediaWiki:Cite references link many format backlink labels]].",
-	"cite_error_no_link_label_group": "אזלו תוויות קישורים מותאמות אישית לקבוצה \"$1\". נא להגדיר עוד תוויות בהודעת המערכת [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "תג <code>&lt;ref&gt;</code> לא תקין; לא נכתב טקסט עבור הערות השוליים בשם <code>$1</code>",
 	"cite_error_included_ref": "חסר תג <code>&lt;/ref&gt;</code> סוגר בשביל תג <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "חסר תג סוגר עבור <code>&lt;references&gt;</code>",

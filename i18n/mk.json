@@ -19,7 +19,6 @@
 	"cite_error_references_duplicate_key": "Неважечка ознака <code>&lt;ref&gt;</code>; називот „$1“ е зададен повеќепати со различна содржина",
 	"cite_error_references_invalid_parameters": "Неважечки параметар во ознаката <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "Нема доволно натписи за повратни врски. Определете уште натписи во [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "Се потрошија натписите на прилагодените врски за групата „$1“. Определете уште во пораката [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Погрешна ознака <code>&lt;ref&gt;</code>; нема зададено текст за наводите по име <code>$1</code>",
 	"cite_error_included_ref": "На ознаката <code>&lt;/ref&gt;</code> ѝ недостасува ознака за затворање <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Недостасува затворачка ознака за <code>&lt;references&gt;</code>",

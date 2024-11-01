@@ -29,7 +29,6 @@
 	"cite_error_references_duplicate_key": "Некоректний тег <code>&lt;ref&gt;</code>; назва «$1» визначена кілька разів з різним вмістом",
 	"cite_error_references_invalid_parameters": "Недійсний параметр у тегу <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "Недостатньо символів для зворотних гіперпосилань. Потрібно розширити системну змінну [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "Закінчилися позначки користувацьких посилань для групи \"$1\". Визначте додаткові в повідомленні [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Неправильний виклик тегу <code>&lt;ref&gt;</code>: для виносок під назвою <code>$1</code> не вказано текст",
 	"cite_error_included_ref": "Відсутній тег <code>&lt;/ref&gt;</code> за наявності тегу <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Відсутній закривальний тег для <code>&lt;references&gt;</code>",

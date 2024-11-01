@@ -23,7 +23,6 @@
 	"cite_error_references_duplicate_key": "Xətalı <code>&lt;ref&gt;</code> etiketi; \"$1\" adı bir neçə dəfə müxtəlif məzmunla verilib",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> teqində yanlış parametr",
 	"cite_error_references_no_backlink_label": "Fərdi geri keçid etiketləri tükəndi. [[MediaWiki:Cite references link many format backlink labels]] səhifəsindən artıra bilərsiniz.",
-	"cite_error_no_link_label_group": "\"$1\" qrupu üçün fərdi link etiketləri bitdi. [[MediaWiki:$2]] səhifəsindən artıra bilərsiniz.",
 	"cite_error_references_no_text": "Yanlış <code>&lt;ref&gt;</code> teqi; <code>$1</code> adlı istinad üçün mətn göstərilməyib",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> teqi üçün bağlanma <code>&lt;ref&gt;</code> yoxdur",
 	"cite_error_included_references": "<code>&lt;references&gt;</code> üçün bağlanma teqi yoxdur",

@@ -32,7 +32,6 @@
 	"cite_error_references_duplicate_key": "Virheellinen <code>&lt;ref&gt;</code>-elementti; nimi ”$1” on määritetty usean kerran eri sisällöillä",
 	"cite_error_references_invalid_parameters": "Virheellinen parametri <code>&lt;references&gt;</code>-elementissä",
 	"cite_error_references_no_backlink_label": "Määritetyt takaisinviittausnimikkeet loppuivat kesken. Niitä voi määritellä lisää sivulla [[MediaWiki:Cite references link many format backlink labels]].",
-	"cite_error_no_link_label_group": "Mukautettujen linkkikirjainten määrä ryhmälle ”$1” loppui. Määritä niitä lisää viestissä [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Virheellinen <code>&lt;ref&gt;</code>-elementti; viitettä <code>$1</code> ei löytynyt",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code>-elementin sulkeva <code>&lt;/ref&gt;</code>-elementti puuttuu",
 	"cite_error_included_references": "<code>&lt;references&gt;</code>-elementin sulkeva elementti puuttuu",

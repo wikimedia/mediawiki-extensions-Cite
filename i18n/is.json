@@ -16,7 +16,6 @@
 	"cite_error_ref_no_input": "Villa í <code>&lt;ref&gt;</code> tag; tilvísunin verður annaðhvort að hafa nafn eða innihald.",
 	"cite_error_references_duplicate_key": "Ógilt <code>&lt;ref&gt;</code> tag; nafnið \"$1\" gefið nokkrum sinnum með mismunandi innihaldi",
 	"cite_error_references_invalid_parameters": "Ógild færibreyta í <code>&lt;references&gt;</code> merkinu",
-	"cite_error_no_link_label_group": "Uppurin sérstök merki fyrir hóp \"$1\". Skilgreindu fleiri í [[MediaWiki:$2]] skilaboðunum.",
 	"cite_error_references_no_text": "Villa í <code>&lt;ref&gt;</code> tag; tilgreindu texta fyrir tilvísun með nafnið <code>$1</code>",
 	"cite_error_included_ref": "Loka þarf tilvísunni með <code>&lt;/ref&gt;</code> tagi",
 	"cite_error_included_references": "Lokunar tag vantar fyrir <code>&lt;references&gt;</code>",

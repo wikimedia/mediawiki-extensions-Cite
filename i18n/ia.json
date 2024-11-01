@@ -17,7 +17,6 @@
 	"cite_error_references_duplicate_key": "Etiquetta <code>&lt;ref&gt;</code> invalide; le nomine \"$1\" es definite plure vices con contento differente",
 	"cite_error_references_invalid_parameters": "Parametro invalide in etiquetta <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "Le etiquettas de retroligamine personalisate es exhaurite. Defini plus in le message [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "Exhauriva le etiquettas de ligamine personalisabile pro le gruppo \"$1\". Defini plus de istes in le message [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Etiquetta <code>&lt;ref&gt;</code> invalide; nulle texto esseva fornite pro le refs nominate <code>$1</code>",
 	"cite_error_included_ref": "Le clausura <code>&lt;/ref&gt;</code> manca pro le etiquetta <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Manca un etiquetta de clausura pro <code>&lt;references&gt;</code>",

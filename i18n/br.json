@@ -17,7 +17,6 @@
 	"cite_error_references_duplicate_key": "Balizenn <code>&lt;ref&gt;</code> faziek; anv \"$1$ spisaet meur a wech gant danvez disheñvel",
 	"cite_error_references_invalid_parameters": "Arventenn faziek e balizenn <code>&lt;references&gt;</code>",
 	"cite_error_references_no_backlink_label": "N'eus ket a dikedennoù personelaet mui. Spisait un niver brasoc'h anezho er gemennadenn [[MediaWiki:Cite references link many format backlink labels]]",
-	"cite_error_no_link_label_group": "Tikedenn liamm bersonelaet ebet ken evit ar strollad \"$1\". Termenit re all e kemennadenn [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Balizenn <code>&lt;ref&gt;</code> faziek ; ne oa bet lakaet tamm testenn ebet evit an daveennoù anvet <code>$1</code>",
 	"cite_error_included_ref": "Kod digeriñ <code>&lt;/ref&gt;</code> hep kod serriñ <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Balizenn serriñ a vank evit <code>&lt;references&gt;</code>",

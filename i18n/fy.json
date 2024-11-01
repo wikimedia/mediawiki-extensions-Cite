@@ -17,7 +17,6 @@
 	"cite_error_references_duplicate_key": "Unjildige <code>&lt;ref&gt;</code>-oantsjutting; de namme \"$1\" ferskate kearen definiearre mei oare ynhâld",
 	"cite_error_references_invalid_parameters": "Unjildige parameter yn <code>&lt;references&gt;</code>-oantsjutting",
 	"cite_error_references_no_backlink_label": "De oanpaste ferwizingslebels werom binne opbrûkt. Jou der mear op yn it systeemberjocht [[MediaWiki:Cite references link many format backlink labels]].",
-	"cite_error_no_link_label_group": "De oanpaste ferwizingslebels foar groep \"$1\" binne opbrûkt. Jou der mear op yn it systeemberjocht [[MediaWiki:$2]].",
 	"cite_error_references_no_text": "Unjildige <code>&lt;ref&gt;</code>-oantsjutting; der is gjin tekst opjûn foar referinsjes mei de namme <code>$1</code>",
 	"cite_error_included_ref": "In ôfslutende <code>&lt;/ref&gt;</code>-oantsjutting foar <code>&lt;ref&gt;</code> mist",
 	"cite_error_included_references": "In ôfslutende oantsjutting foar <code>&lt;references&gt;</code> mist",

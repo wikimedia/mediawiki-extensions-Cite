@@ -38,6 +38,8 @@
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> tag with name \"$1\" defined in <code>&lt;references&gt;</code> group \"$2\" has no content.",
 	"cite-tracking-category-cite-error": "Pages with reference errors",
 	"cite-tracking-category-cite-error-desc": "Pages in this category have errors in the usage of references tags.",
+	"cite-tracking-category-cite-diffing-error": "Pages with reference errors that trigger visual diffs",
+	"cite-tracking-category-cite-diffing-error-desc": "Pages in this category have errors in the usage of references tags, and these errors are not rendered in the same way in the legacy parser and in Parsoid.",
 	"cite-tracking-category-ref-extends": "Pages that use extended references",
 	"cite-tracking-category-ref-extends-desc": "Pages in this category use the \"extends\" attribute of the &lt;ref&gt; tag.",
 	"cite-reference-previews-reference": "Reference",

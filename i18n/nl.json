@@ -37,6 +37,8 @@
 	"cite_error_empty_references_define": "Het label <code>&lt;ref&gt;</code> met de naam \"$1\", dat is gedefinieerd in de <code>&lt;references&gt;</code>-groep \"$2\", heeft geen inhoud.",
 	"cite-tracking-category-cite-error": "Pagina's met referentiefouten",
 	"cite-tracking-category-cite-error-desc": "Pagina's in deze categorie hebben fouten in het gebruik van references tags.",
+	"cite-tracking-category-cite-diffing-error": "Pagina's met referentiefouten die visuele verschillen veroorzaken",
+	"cite-tracking-category-cite-diffing-error-desc": "De pagina's in deze categorie bevatten fouten in het gebruik van referentietags. Deze fouten worden in de oude parser en in Parsoid niet op dezelfde manier weergegeven.",
 	"cite-tracking-category-ref-extends": "Pagina's die uitgebreide referenties gebruiken",
 	"cite-tracking-category-ref-extends-desc": "De pagina’s in deze categorie gebruiken het attribuut “extends” van de tag &lt;ref&gt;.",
 	"cite-reference-previews-reference": "Verwijzing",

@@ -33,6 +33,8 @@
 	"cite_error_empty_references_define": "A etiqueta <code>&lt;ref&gt;</code> co nome \"$1\" definida no grupo \"$2\" de <code>&lt;references&gt;</code> non ten contido.",
 	"cite-tracking-category-cite-error": "Páxinas con erros de referencia",
 	"cite-tracking-category-cite-error-desc": "As páxinas nesta categoría teñen erros no uso das etiquetas de referencias.",
+	"cite-tracking-category-cite-diffing-error": "Páxinas con erros de referencia que provocan diferenzas visuais",
+	"cite-tracking-category-cite-diffing-error-desc": "As páxinas nesta categoría teñen erros no uso das etiquetas de referencia e estes erros non se representan do mesmo xeito no analizador herdado e en Parsoid.",
 	"cite-tracking-category-ref-extends": "Páxinas que utilizan referencias estendidas",
 	"cite-tracking-category-ref-extends-desc": "As páxinas nesta categoría utilizan o atributo \"extends\" da etiqueta &lt;ref&gt;.",
 	"cite-reference-previews-reference": "Referencia",

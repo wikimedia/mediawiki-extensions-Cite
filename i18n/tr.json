@@ -37,6 +37,8 @@
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code> grubunda \"$2\" içinde tanımlanan \"$1\" adlı <code>&lt;ref&gt;</code> etiketinin içeriği yok.",
 	"cite-tracking-category-cite-error": "Kaynak gösterme hatası bulunan maddeler",
 	"cite-tracking-category-cite-error-desc": "Bu kategorideki maddelerde kaynak etiketinin kullanımında hata bulunmaktadır.",
+	"cite-tracking-category-cite-diffing-error": "Görsel farklılıkları tetikleyen kaynak hataları olan sayfalar",
+	"cite-tracking-category-cite-diffing-error-desc": "Bu kategorideki sayfalarda kaynak etiketlerinin kullanımında hatalar var ve bu hatalar eski ayrıştırıcıda ve Parsoid'de aynı şekilde işlenmiyor.",
 	"cite-tracking-category-ref-extends": "Genişletilmiş kaynakça kullanan sayfalar",
 	"cite-tracking-category-ref-extends-desc": "Bu kategorideki sayfalar &lt;ref&gt; etiketinin \"genişlet\" özelliğini kullanır.",
 	"cite-reference-previews-reference": "Kaynak",

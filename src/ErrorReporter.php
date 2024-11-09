@@ -2,6 +2,7 @@
 
 namespace Cite;
 
+use Cite\Parsoid\ErrorUtils;
 use InvalidArgumentException;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
@@ -75,6 +76,9 @@ class ErrorReporter {
 		if ( $type === 'error' ) {
 			// Take care; this is a sideeffect that might not belong to this class.
 			$parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
+			if ( ErrorUtils::isDiffingError( $key ) ) {
+				$parser->addTrackingCategory( 'cite-tracking-category-cite-diffing-error' );
+			}
 		}
 
 		// Optional wrapper messages: cite_error, cite_warning
@@ -125,5 +129,4 @@ class ErrorReporter {
 		}
 		return array_slice( $matches, 1 );
 	}
-
 }

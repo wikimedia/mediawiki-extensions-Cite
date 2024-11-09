@@ -5,6 +5,7 @@ namespace Cite\Parsoid;
 
 use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\DOM\Element;
+use Wikimedia\Parsoid\Ext\DOMDataUtils;
 use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Utils\DOMCompat;
@@ -82,6 +83,16 @@ class RefGroup {
 			$extApi->clearContentDOM( $refContentId );
 		}
 		$li->appendChild( $reftextSpan );
+
+		foreach ( $ref->nodes as $node ) {
+			foreach ( DOMDataUtils::getDataMw( $node )->errors ?? [] as $error ) {
+				$errorFragment = ErrorUtils::renderParsoidError( $extApi, $error->key, $error->params );
+				$li->appendChild( $errorFragment );
+				if ( ErrorUtils::isDiffingError( $error->key ) ) {
+					$extApi->addTrackingCategory( 'cite-tracking-category-cite-diffing-error' );
+				}
+			}
+		}
 
 		// mw:referencedBy is added to the <span> for the named refs case
 		// and to the <a> tag to the unnamed refs case. This difference

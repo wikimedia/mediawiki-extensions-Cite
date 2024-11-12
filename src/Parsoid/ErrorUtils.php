@@ -58,18 +58,16 @@ class ErrorUtils {
 			return;
 		}
 
-		$processEmbeddedErrors = function ( string $html ) use ( $refsData ) {
-			// Similar to processEmbeddedRefs
-			$domFragment = $this->extApi->htmlToDom( $html );
+		$processEmbeddedErrors = function ( DocumentFragment $domFragment ) use ( $refsData ) {
 			$this->addEmbeddedErrors( $refsData, $domFragment );
-			return $this->extApi->domToHtml( $domFragment, true, true );
+			return true;
 		};
 
 		$child = $node->firstChild;
 		while ( $child ) {
 			$nextChild = $child->nextSibling;
 			if ( $child instanceof Element ) {
-				$this->extApi->processAttributeEmbeddedHTML( $child, $processEmbeddedErrors );
+				$this->extApi->processAttributeEmbeddedDom( $child, $processEmbeddedErrors );
 				if ( DOMUtils::hasTypeOf( $child, 'mw:Extension/ref' ) ) {
 					$about = DOMCompat::getAttribute( $child, 'about' );
 					'@phan-var string $about';

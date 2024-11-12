@@ -707,32 +707,20 @@ class References extends ExtensionTagHandler {
 			$this->addEmbeddedErrors( $extApi, $refsData, $domFragment );
 			return $extApi->domToHtml( $domFragment, true, true );
 		};
-		$processBodyHtml = static function ( Element $n ) use ( $processEmbeddedErrors ) {
-			$dataMw = DOMDataUtils::getDataMw( $n );
-			if ( isset( $dataMw->body->html ) ) {
-				$dataMw->body->html = $processEmbeddedErrors(
-					$dataMw->body->html
-				);
-			}
-		};
 		$child = $node->firstChild;
 		while ( $child !== null ) {
 			$nextChild = $child->nextSibling;
 			if ( $child instanceof Element ) {
+				$extApi->processAttributeEmbeddedHTML(
+					$child, $processEmbeddedErrors
+				);
 				if ( DOMUtils::hasTypeOf( $child, 'mw:Extension/ref' ) ) {
-					$processBodyHtml( $child );
 					$about = DOMCompat::getAttribute( $child, 'about' );
 					'@phan-var string $about'; // assert $about is non-null
 					$errs = $refsData->embeddedErrors[$about] ?? null;
 					if ( $errs ) {
 						self::addErrorsToNode( $child, $errs );
 					}
-				} elseif ( DOMUtils::hasTypeOf( $child, 'mw:Extension/references' ) ) {
-					$processBodyHtml( $child );
-				} else {
-					$extApi->processAttributeEmbeddedHTML(
-						$child, $processEmbeddedErrors
-					);
 				}
 				if ( $child->hasChildNodes() ) {
 					$this->addEmbeddedErrors( $extApi, $refsData, $child );

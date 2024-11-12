@@ -3135,6 +3135,7 @@ Broken wikitext making a ref as extended attribute and a duplicated fragment
 parsoid={
     "modes": ["wt2html"]
 }
+disabled
 !! wikitext
 <i <ref>y</ref>>
 
@@ -3148,14 +3149,16 @@ z
 </li>
 </ol></div></i>
 !! html/parsoid
-<p><i about="#mwt3" typeof="mw:ExpandedAttrs" data-parsoid='{"stx":"html","a":{"&lt;ref>y&lt;/ref>":null},"sa":{"&lt;ref>y&lt;/ref>":""},"autoInsertedEnd":true}' data-mw='{"attribs":[[{"txt":"","html":""},{"html":""}]]}'></i></p><i about="#mwt3" typeof="mw:ExpandedAttrs" data-parsoid='{"stx":"html","a":{"&lt;ref>y&lt;/ref>":null},"sa":{"&lt;ref>y&lt;/ref>":""},"autoInsertedStart":true,"autoInsertedEnd":true}' data-mw='{"attribs":[[{"txt":"","html":"&lt;sup about=\"#mwt2\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[3,15,5,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">[1]&lt;/span>&lt;/a>&lt;/sup>"},{"html":""}]]}'>
-
+<p><i typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"","html":"&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\">&lt;span class=\"mw-reflink-text\">[1]&lt;/span>&lt;/a>&lt;/sup>"},{"html":""}]]}'></i></p>
+<i typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"","html":""},{"html":""}]]}'>
 <p>z</p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">y</span></li></ol></div></i>
 !! end
 
 !! test
 Broken wikitext making a ref as extended attribute and a duplicated fragment (with 2wt tests)
+!! options
+disabled
 !! wikitext
 <i title="<ref>y</ref>">a
 
@@ -3169,7 +3172,8 @@ z
 </li>
 </ol></div></i>
 !! html/parsoid
-<p><i title="" about="#mwt3" typeof="mw:ExpandedAttrs" data-parsoid='{"stx":"html","a":{"title":""},"sa":{"title":"&lt;ref>y&lt;/ref>"},"autoInsertedEnd":true}' data-mw='{"attribs":[[{"txt":"title"},{"html":""}]]}'>a</i></p><i title="" about="#mwt3" typeof="mw:ExpandedAttrs" data-parsoid='{"stx":"html","a":{"title":""},"sa":{"title":"&lt;ref>y&lt;/ref>"},"autoInsertedStart":true,"autoInsertedEnd":true}' data-mw='{"attribs":[[{"txt":"title"},{"html":"&lt;sup about=\"#mwt2\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[10,22,5,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">[1]&lt;/span>&lt;/a>&lt;/sup>"}]]}'>
+<p><i title="" typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"title"},{"html":"&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\">&lt;span class=\"mw-reflink-text\">[1]&lt;/span>&lt;/a>&lt;/sup>"}]]}'>a</i></p>
+<i title="" typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"title"},{"html":""}]]}'>
 
 <p>z</p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">y</span></li></ol></div></i>

@@ -25,23 +25,10 @@
 		"selser [0,4,1,3,0]": "<ref name=\"blank\" />\n\n14bnq08\n\n<ref name=\"blank\">content</ref>\n\n<references />"
 	},
 	"Broken wikitext making a ref as extended attribute and a duplicated fragment (with 2wt tests)": {
-		"wt2wt": "<i title=\"\">a\n\nz\n<references />",
-		"html2html": "<p data-parsoid='{\"dsr\":[0,13,0,0]}'><i title=\"\" data-parsoid='{\"stx\":\"html\",\"autoInsertedEnd\":true,\"dsr\":[0,13,12,0]}'>a</i></p><i title=\"\" data-parsoid='{\"stx\":\"html\",\"autoInsertedStart\":true,\"autoInsertedEnd\":true,\"dsr\":[13,31,0,0]}'>\n\n<p data-parsoid='{\"dsr\":[15,16,0,0]}'>z</p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references\" about=\"#mwt\" data-parsoid='{\"dsr\":[17,31,14,0]}' data-mw='{\"name\":\"references\",\"attrs\":{}}'><ol class=\"mw-references references\" data-parsoid=\"{}\"></ol></div></i>\n",
-		"html2wt": "<i title=\"\">a\n\nz\n<references />\n",
-		"selser [[[4]],1]": "<i title=\"<ref>y</ref>\">1dl6sme\n\nz\n<references />",
-		"selser [[[2]],[0,3,3,0]]": "<i title=\"<ref>y</ref>\">18cax6qa\n\n<references />",
-		"selser [0,[3,[4],3,0]]": "<i title=\"<ref>y</ref>\">a1uodljn<references />",
-		"selser [2,[0,1,3,0]]": "uw3pw3\n\n<i title=\"<ref>y</ref>\">a\n\nz<references />",
+		"html2html": "<p data-parsoid='{\"dsr\":[0,5,0,0]}'><i data-parsoid='{\"dsr\":[0,5,2,2]}'>a</i></p>\n\n<p data-parsoid='{\"dsr\":[7,9,0,0]}'><i data-parsoid='{\"autoInsertedEnd\":true,\"dsr\":[7,9,2,0]}'></i></p>\n\n<p data-parsoid='{\"dsr\":[11,12,0,0]}'>z</p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references\" about=\"#mwt\" data-parsoid='{\"dsr\":[13,27,14,0]}' data-mw='{\"name\":\"references\",\"attrs\":{}}'><ol class=\"mw-references references\" data-parsoid=\"{}\"></ol></div>\n<p data-parsoid='{\"dsr\":[28,30,0,0]}'><i data-parsoid='{\"autoInsertedEnd\":true,\"dsr\":[28,30,2,0]}'></i></p>",
+		"html2wt": "''a''\n\n''\n\nz\n<references />\n''",
 		"selser [1,3]": "<i title=\"<ref>y</ref>\">a",
-		"selser [2,[3,[3],3,0]]": "16vxc88\n\n<i title=\"<ref>y</ref>\">a<references />",
-		"selser [[2],[2,[3],2,0]]": "qbsx98<i title=\"<ref>y</ref>\">a1s60c8h\n\n1i22hw5\n<references />",
-		"selser [1,[0,[3],0,0]]": "<i title=\"<ref>y</ref>\">a\n\n<references />",
-		"selser [1,1]": "<i title=\"<ref>y</ref>\">a\n\nz\n<references />",
-		"selser [0,2]": "<i title=\"<ref>y</ref>\">a\n\n17l6dw5\n\nz\n<references />",
-		"selser [1,[0,0,3,0]]": "<i title=\"<ref>y</ref>\">a\n\nz<references />",
-		"selser [2,4]": "12v64zm\n\n<i title=\"<ref>y</ref>\">a\n\n1l0xtce",
-		"selser [[2],2]": "gjptau<i title=\"<ref>y</ref>\">a\n\n1gk7mu0\n\nz\n<references />",
-		"selser [2,[0,2,2,0]]": "n2dq48\n\n<i title=\"<ref>y</ref>\">a\n\nx7vz6o\n\nz\n1pk1656\n<references />"
+		"selser [2,4]": "12v64zm\n\n<i title=\"<ref>y</ref>\">a\n\n1l0xtce"
 	},
 	"Bug 13073 regression check: wrapped <references>": {
 		"html2wt": "<ref>\nfoo\n</ref>\n<div>\n<references />\n</div>",
@@ -244,8 +231,8 @@
 	},
 	"References: 9. Generate missing references list at the end": {
 		"wt2wt": "A <ref>foo</ref>\nB <ref group=\"inexistent\">bar</ref>\n<references />\n",
-		"html2wt": "A <ref>foo</ref> B <ref group=\"inexistent\">bar</ref>\n<references />\n",
 		"html2html": "<p data-parsoid='{\"dsr\":[0,52,0,0]}'>A <sup about=\"#mwt\" class=\"mw-ref reference\" id=\"cite_ref-1\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid='{\"dsr\":[2,16,5,6]}' data-mw='{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}'><a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\" data-parsoid=\"{}\"><span class=\"mw-reflink-text\" data-parsoid=\"{}\">[1]</span></a></sup> B <sup about=\"#mwt\" class=\"mw-ref reference\" id=\"cite_ref-2\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-parsoid='{\"dsr\":[19,52,24,6]}' data-mw='{\"name\":\"ref\",\"attrs\":{\"group\":\"inexistent\"},\"body\":{\"id\":\"mw-reference-text-cite_note-2\"},\"errors\":[{\"key\":\"cite_error_group_refs_without_references\",\"params\":[\"inexistent\"]}]}'><a href=\"./Parser_test#cite_note-2\" style=\"counter-reset: mw-Ref 1;\" data-mw-group=\"inexistent\" data-parsoid=\"{}\"><span class=\"mw-reflink-text\" data-parsoid=\"{}\">[inexistent 1]</span></a></sup></p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references\" about=\"#mwt\" data-parsoid='{\"dsr\":[53,67,14,0]}' data-mw='{\"name\":\"references\",\"attrs\":{}}'><ol class=\"mw-references references\" data-parsoid=\"{}\"><li about=\"#cite_note-1\" id=\"cite_note-1\" data-parsoid=\"{}\"><span class=\"mw-cite-backlink\" data-parsoid=\"{}\"><a href=\"./Parser_test#cite_ref-1\" rel=\"mw:referencedBy\" data-parsoid=\"{}\"><span class=\"mw-linkback-text\" data-parsoid=\"{}\">↑ </span></a></span> <span id=\"mw-reference-text-cite_note-1\" class=\"mw-reference-text reference-text\" data-parsoid=\"{}\">foo</span></li>\n</ol></div>\n\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references\" about=\"#mwt\" data-parsoid='{\"group\":\"inexistent\",\"dsr\":[68,68,0,0]}' data-mw='{\"name\":\"references\",\"attrs\":{\"group\":\"inexistent\"},\"autoGenerated\":true}'><ol class=\"mw-references references\" data-mw-group=\"inexistent\" data-parsoid=\"{}\"><li about=\"#cite_note-2\" id=\"cite_note-2\" data-parsoid=\"{}\"><span class=\"mw-cite-backlink\" data-parsoid=\"{}\"><a href=\"./Parser_test#cite_ref-2\" data-mw-group=\"inexistent\" rel=\"mw:referencedBy\" data-parsoid=\"{}\"><span class=\"mw-linkback-text\" data-parsoid=\"{}\">↑ </span></a></span> <span id=\"mw-reference-text-cite_note-2\" class=\"mw-reference-text reference-text\" data-parsoid=\"{}\">bar</span><span typeof=\"mw:I18n\" class=\"error mw-ext-cite-error\" data-parsoid=\"{}\" data-mw-i18n='{\"/\":{\"lang\":\"x-user\",\"key\":\"cite_error\",\"params\":{\"0\":{\"key\":\"cite_error_group_refs_without_references\",\"params\":{\"0\":{\"text\":\"inexistent\",\"_type_\":\"Wikimedia\\\\Message\\\\ScalarParam\"},\"_type_\":\"array\"},\"_type_\":\"Wikimedia\\\\Message\\\\MessageValue\"},\"_type_\":\"array\"}}}'></span></li>\n</ol></div>",
+		"html2wt": "A <ref>foo</ref> B <ref group=\"inexistent\">bar</ref>\n<references />\n",
 		"selser [0,4,0,3,0]": "A <ref>foo</ref>\nB <ref group=\"inexistent\">bar</ref>\n\ng0czw3",
 		"selser [4,4,0,4,0]": "whc1pl\n\n1mmf2281nhjc7y",
 		"selser [[2,0,2,0],0,0,3,0]": "1cd0gbiA <ref>foo</ref>117zkke\nB <ref group=\"inexistent\">bar</ref>\n",

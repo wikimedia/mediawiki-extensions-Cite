@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Automatik",
 			"Benoit Rochon",
 			"Boniface",
@@ -49,7 +48,8 @@
 			"Wyz",
 			"Zarisi",
 			"Zebulon84",
-			"Zetud"
+			"Zetud",
+			"Mahabarata"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Livre",
@@ -68,7 +68,7 @@
 	"cite-ve-citationneeded-description": "Un contributeur a indiqué que cette affirmation nécessite une référence à une source fiable.",
 	"cite-ve-citationneeded-reason": "Motif fourni :",
 	"cite-ve-citationneeded-title": "Référence nécessaire",
-	"cite-ve-dialog-reference-contextitem-extends": "Cette référence est une réutilisation avec des détails supplémentaires.",
+	"cite-ve-dialog-reference-contextitem-extends": "Cette référence est une réutilisation avec des détails supplémentaires :",
 	"cite-ve-dialog-reference-editing-add-details": "Vous êtes en train d'ajouter des détails supplémentaires à cette référence :",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Écrivez ou collez ici les informations que vous souhaitez ajouter à cette référence.",
 	"cite-ve-dialog-reference-editing-reused": "Cette référence est utilisée {{PLURAL:$1|1=une seule|2=deux|$1}} fois sur cette page.",

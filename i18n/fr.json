@@ -24,7 +24,8 @@
 			"Verdy p",
 			"Wladek92",
 			"Wyz",
-			"Zetud"
+			"Zetud",
+			"Mahabarata"
 		]
 	},
 	"cite-desc": "Ajoute les balises <code>&lt;ref[ name=id]&gt;</code> et <code>&lt;references/&gt;</code> pour les citations",
@@ -51,6 +52,8 @@
 	"cite_error_empty_references_define": "La balise <code>&lt;ref&gt;</code> avec le nom « $1 » définie dans le groupe <code>&lt;references&gt;</code> « $2 » n’a aucun contenu.",
 	"cite-tracking-category-cite-error": "Pages avec des erreurs de référence",
 	"cite-tracking-category-cite-error-desc": "Les pages dans cette catégorie ont des erreurs dans l’utilisation des balises de référence.",
+	"cite-tracking-category-ref-extends": "Pages qui utilisent des références étendues",
+	"cite-tracking-category-ref-extends-desc": "Les pages de cette catégorie utilisent l'attribut « extends » de la balise &lt;ref&gt;.",
 	"cite-reference-previews-reference": "Référence",
 	"cite-reference-previews-book": "Référence de livre",
 	"cite-reference-previews-journal": "Référence de revue",

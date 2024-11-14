@@ -54,7 +54,7 @@ class ErrorUtils {
 	): DocumentFragment {
 		$extApi->addTrackingCategory( 'cite-tracking-category-cite-error' );
 		$fragment = $extApi->createInterfaceI18nFragment( 'cite_error', [ $error ] );
-		$fragSpan = DOMCompat::getLastElementChild( $fragment );
+		$fragSpan = DOMCompat::getFirstElementChild( $fragment );
 		DOMUtils::addAttributes( $fragSpan, [ 'class' => 'error mw-ext-cite-error' ] );
 		return $fragment;
 	}

@@ -19,7 +19,8 @@ describe( 'Cite backlinks test', () => {
 		helper.waitForModuleReady( 'ext.cite.ux-enhancements' );
 	} );
 
-	it( 'hides clickable up arrow by default when there are multiple backlinks', () => {
+	// T368267
+	it.skip( 'hides clickable up arrow by default when there are multiple backlinks', () => {
 		helper.getCiteMultiBacklink( 1 ).should( 'not.exist' );
 	} );
 

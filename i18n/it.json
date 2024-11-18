@@ -32,6 +32,7 @@
 	"cite_error_empty_references_define": "Il tag <code>&lt;ref&gt;</code> con nome \"$1\" definito nel <code>&lt;references&gt;</code> gruppo \"$2\" non ha alcun contenuto.",
 	"cite-tracking-category-cite-error": "Pagine con errori nelle note",
 	"cite-tracking-category-cite-error-desc": "Le pagine in questa categoria hanno errori nell'uso dei tag per le note.",
+	"cite-tracking-category-cite-diffing-error": "Pagine con errori nelle note che causano differenze visive",
 	"cite-reference-previews-reference": "Riferimento",
 	"cite-reference-previews-book": "Riferimento a libro",
 	"cite-reference-previews-news": "Riferimento a notizie",

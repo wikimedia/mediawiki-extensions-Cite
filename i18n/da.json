@@ -14,9 +14,11 @@
 			"Zakawer2"
 		]
 	},
-	"cite-desc": "Tilføjer <code>&lt;ref[ name=id]&gt;</code> og <code>&lt;references/&gt;</code>-elementer til referencer.",
+	"cite-desc": "Tilføjer <code>&lt;ref&gt</code> og <code>&lt;references&gt;</code>-elementer til referencer.",
 	"cite_error": "Referencefejl: $1",
-	"cite_error_ref_numeric_key": "Ugyldigt <code>&lt;ref&gt;</code>-tag; \"name\" kan ikke være et simpelt heltal, brug en beskrivende titel",
+	"cite_error_ref_invalid_dir": "Ugyldig <code>dir=\"$1\"</code>, skal være <code>ltr</code> eller <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "En af <code>&lt;ref&gt;</code>-taggene med navnet \"$1\" har et modstridende dir-attribut.",
+	"cite_error_ref_numeric_key": "Ugyldigt <code>&lt;ref&gt;</code>-tag; \"name\" kan ikke være et simpelt heltal. Brug en beskrivende titel",
 	"cite_error_ref_no_key": "Det indledende <code>&lt;ref&gt;</code>-tag har en forkert form eller har et ugyldigt navn",
 	"cite_error_ref_too_many_keys": "Ugyldig parameter i <code>&lt;references&gt;</code>-tag",
 	"cite_error_ref_follow_conflicts": "Et <code><ref follow=\"…\"></code>-tag som er fortsættelse af et tidligere tag kan hverken navngives individuelt eller udvides",
@@ -33,6 +35,7 @@
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code>-tag defineret inden i <code>&lt;references&gt;</code> med navnet \"$1\" har ikke noget indhold.",
 	"cite-tracking-category-cite-error": "Sider med fejl i referencer",
 	"cite-tracking-category-cite-error-desc": "Sider i denne kategori har fejl i brugen af reference-tags.",
+	"cite-tracking-category-cite-diffing-error": "Sider med referencefejl, der udløser visuelle forskelle",
 	"cite-tracking-category-ref-extends": "Sider, der bruger udvidede referencer",
 	"cite-reference-previews-reference": "Reference",
 	"cite-reference-previews-book": "Bogreference",

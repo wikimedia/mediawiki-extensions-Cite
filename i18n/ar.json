@@ -40,6 +40,7 @@
 	"cite_error_empty_references_define": "علامة <code><ref></code> بالاسم \" $1 \" المحددة في مجموعة <code><references></code> \" $2 \" لا تحتوي على محتوى.",
 	"cite-tracking-category-cite-error": "صفحات بأخطاء في المراجع",
 	"cite-tracking-category-cite-error-desc": "الصفحات في هذا التصنيف بها أخطاء في استخدام وسوم المراجع.",
+	"cite-tracking-category-ref-extends": "الصفحات التي تستخدم المراجع الموسعة",
 	"cite-reference-previews-reference": "مرجع",
 	"cite-reference-previews-book": "مرجع كتاب",
 	"cite-reference-previews-journal": "مرجع دورية",

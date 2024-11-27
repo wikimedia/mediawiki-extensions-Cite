@@ -18,6 +18,7 @@
 			"Ihojose",
 			"Jakeukalane",
 			"Joaquin1001",
+			"Josuert",
 			"Locos epraix",
 			"Macofe",
 			"Manuelt15",
@@ -86,6 +87,6 @@
 	"cite-wikieditor-help-content-reference-example-extra-details": "Detalles adicionales",
 	"popups-prefs-navpopups-gadget-conflict-info": "Tienes habilitado el accesorio [[$1|Popups de navegación]], por lo que no verás las vistas previas proporcionadas por esta funcionalidad. Dependiendo de tu wiki, el accesorio puede tener un nombre ligeramente diferente. Si sigues teniendo problemas, revisa tus accesorios y scripts de usuario, incluidos los globales.",
 	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Tienes habilitados los accesorios [[$1|Popups de navegación]] y [[$1|Tooltips de referencia]], por lo que no verás las vistas previas proporcionadas por esta funcionalidad. Dependiendo de tu wiki, el accesorio puede tener un nombre ligeramente diferente. Si sigues teniendo problemas, revisa tus accesorios y scripts de usuario, incluidos los globales.",
-	"popups-prefs-reftooltips-gadget-conflict-info": "Tienes habilitado el accesorio [[$1|Tooltips de referencia]], por lo que no verás las vistas previas proporcionadas por esta funcionalidad. Dependiendo de tu wiki, el accesorio puede tener un nombre ligeramente diferente. Si sigues teniendo problemas, revisa tus accesorios y scripts de usuario, incluidos los globales.",
+	"popups-prefs-reftooltips-gadget-conflict-info": "Tienes habilitado el accesorio [[$1|Tooltips de referencia]], por lo que no verás las vistas previas de referencias proporcionadas por esta funcionalidad. Dependiendo de tu wiki, el accesorio puede tener un nombre ligeramente diferente. Si sigues teniendo problemas, por favor revisa tus accesorios y scripts de usuario, incluidos los globales.",
 	"popups-refpreview-user-preference-label": "Habilita las vistas previas de referencias (obtenga vistas previas rápidas de una referencia mientras lee una página):"
 }

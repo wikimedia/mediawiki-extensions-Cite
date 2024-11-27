@@ -10,7 +10,6 @@ use Cite\Cite;
 use Cite\MarkSymbolRenderer;
 use Closure;
 use MediaWiki\Config\Config;
-use MediaWiki\HtmlHelper;
 use MediaWiki\MediaWikiServices;
 use stdClass;
 use Wikimedia\Message\MessageValue;
@@ -28,7 +27,6 @@ use Wikimedia\Parsoid\NodeData\DataMw;
 use Wikimedia\Parsoid\NodeData\DataMwError;
 use Wikimedia\Parsoid\NodeData\DataParsoid;
 use Wikimedia\Parsoid\Utils\DOMCompat;
-use Wikimedia\RemexHtml\Serializer\SerializerNode;
 
 /**
  * @license GPL-2.0-or-later
@@ -228,7 +226,7 @@ class References extends ExtensionTagHandler {
 					// Ideally, we should strip the mw:Cite/Follow wrappers before comparing
 					// But, we are going to ignore this edge case as not worth the complexity.
 					$html = $extApi->domToHtml( $c, true, false );
-					$contentDiffers = ( $this->normalizeRef( $html ) !== $this->normalizeRef( $ref->cachedHtml ) );
+					$contentDiffers = ( $html !== $ref->cachedHtml );
 				}
 			} else {
 				if ( $refsData->inReferencesContent() ) {
@@ -879,18 +877,5 @@ class References extends ExtensionTagHandler {
 		// more normalization
 
 		return false;
-	}
-
-	private function normalizeRef( string $s ): string {
-		return HtmlHelper::modifyElements( $s,
-			static function ( SerializerNode $node ): bool {
-				return isset( $node->attrs['data-parsoid'] ) || isset( $node->attrs['about'] );
-			},
-			static function ( SerializerNode $node ): SerializerNode {
-				unset( $node->attrs['data-parsoid'] );
-				unset( $node->attrs['about'] );
-				return $node;
-			}
-		);
 	}
 }

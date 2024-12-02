@@ -33,7 +33,7 @@
 	"cite-ve-citationneeded-description": "Un editor indicou que esta afirmación precisa dunha cita a unha fonte fiable.",
 	"cite-ve-citationneeded-reason": "Motivo achegado:",
 	"cite-ve-citationneeded-title": "Cómpre cita",
-	"cite-ve-dialog-reference-contextitem-extends": "Esta referencia é unha reutilización con detalles adicionais.",
+	"cite-ve-dialog-reference-contextitem-extends": "Esta referencia é unha reutilización con detalles adicionais:",
 	"cite-ve-dialog-reference-editing-add-details": "Estás a engadir detalles adicionais a esta referencia:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Escribe ou pega aquí a información que queres engadir a esta referencia.",
 	"cite-ve-dialog-reference-editing-reused": "Esta referencia úsase {{PLURAL:$1|unha vez|2=dúas veces|$1 veces}} nesta páxina.",

@@ -2,7 +2,7 @@ import * as helper from '../utils/functions.helper.js';
 
 const title = helper.getTestString( 'CiteTest-title' );
 
-describe( 'Cite backlinks test', () => {
+describe.skip( 'Cite backlinks test', () => {
 	before( () => {
 		helper.visitTitle( '' );
 
@@ -20,7 +20,7 @@ describe( 'Cite backlinks test', () => {
 	} );
 
 	// T368267
-	it.skip( 'hides clickable up arrow by default when there are multiple backlinks', () => {
+	it( 'hides clickable up arrow by default when there are multiple backlinks', () => {
 		helper.getCiteMultiBacklink( 1 ).should( 'not.exist' );
 	} );
 

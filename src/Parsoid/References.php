@@ -120,7 +120,7 @@ class References extends ExtensionTagHandler {
 	}
 
 	private function extractRefFromNode(
-		ParsoidExtensionAPI $extApi, Element $node, ReferencesData $refsData
+		ParsoidExtensionAPI $extApi, Element $node, ReferencesData $referencesData
 	): void {
 		$doc = $node->ownerDocument;
 		$errs = [];
@@ -128,35 +128,35 @@ class References extends ExtensionTagHandler {
 		// This is data-parsoid from the dom fragment node that's gone through
 		// dsr computation and template wrapping.
 		$nodeDp = DOMDataUtils::getDataParsoid( $node );
-		$isTplWrapper = DOMUtils::hasTypeOf( $node, 'mw:Transclusion' );
+		$isTemplateWrapper = DOMUtils::hasTypeOf( $node, 'mw:Transclusion' );
 		$contentId = $nodeDp->html;
-		$tplDmw = $isTplWrapper ? DOMDataUtils::getDataMw( $node ) : null;
+		$templateDataMw = $isTemplateWrapper ? DOMDataUtils::getDataMw( $node ) : null;
 
 		// This is the <sup> that's the meat of the sealed fragment
-		$c = $extApi->getContentDOM( $contentId )->firstChild;
-		DOMUtils::assertElt( $c );
-		$cDp = DOMDataUtils::getDataParsoid( $c );
-		$refDmw = DOMDataUtils::getDataMw( $c );
+		$refFragment = $extApi->getContentDOM( $contentId )->firstChild;
+		DOMUtils::assertElt( $refFragment );
+		$refFragmentDp = DOMDataUtils::getDataParsoid( $refFragment );
+		$refDataMw = DOMDataUtils::getDataMw( $refFragment );
 
 		// Use the about attribute on the wrapper with priority, since it's
 		// only added when the wrapper is a template sibling.
 		$about = DOMCompat::getAttribute( $node, 'about' ) ??
-			DOMCompat::getAttribute( $c, 'about' );
+			DOMCompat::getAttribute( $refFragment, 'about' );
 		'@phan-var string $about'; // assert that $about is non-null
 
 		// FIXME(SSS): Need to clarify semantics here.
 		// If both the containing <references> elt as well as the nested <ref>
 		// elt has a group attribute, what takes precedence?
-		$groupName = $refDmw->attrs->group ?? $refsData->referencesGroup;
-		$group = $refsData->getRefGroup( $groupName );
+		$groupName = $refDataMw->attrs->group ?? $referencesData->referencesGroup;
+		$refGroup = $referencesData->getRefGroup( $groupName );
 
 		if (
-			$refsData->inReferencesContent() &&
-			$groupName !== $refsData->referencesGroup
+			$referencesData->inReferencesContent() &&
+			$groupName !== $referencesData->referencesGroup
 		) {
 			$errs[] = new DataMwError(
 				'cite_error_references_group_mismatch',
-				[ $refDmw->attrs->group ]
+				[ $refDataMw->attrs->group ]
 			);
 		}
 
@@ -168,50 +168,45 @@ class References extends ExtensionTagHandler {
 			'dir' => true
 		];
 
-		if ( array_diff_key( (array)$refDmw->attrs, $validAttributes ) !== [] ) {
+		if ( array_diff_key( (array)$refDataMw->attrs, $validAttributes ) !== [] ) {
 			$errs[] = new DataMwError( 'cite_error_ref_too_many_keys' );
 		}
 
 		// NOTE: This will have been trimmed in Utils::getExtArgInfo()'s call
 		// to TokenUtils::kvToHash() and ExtensionHandler::normalizeExtOptions()
-		$refName = $refDmw->attrs->name ?? '';
-		$followName = $refDmw->attrs->follow ?? '';
-		$refDir = strtolower( $refDmw->attrs->dir ?? '' );
-		$extendsRef = $refDmw->attrs->extends ?? null;
+		$refName = $refDataMw->attrs->name ?? '';
+		$followName = $refDataMw->attrs->follow ?? '';
+		$refDir = strtolower( $refDataMw->attrs->dir ?? '' );
+		$extendsRef = $refDataMw->attrs->extends ?? null;
 
-		// Add ref-index linkback
-		$linkBack = $doc->createElement( 'sup' );
-
-		$ref = null;
-
-		$hasRefName = strlen( $refName ) > 0;
+		$hasName = strlen( $refName ) > 0;
 		$hasFollow = strlen( $followName ) > 0;
-
-		$validFollow = false;
 
 		if ( $hasFollow ) {
 			// Always wrap follows content so that there's no ambiguity
 			// where to find it when roundtripping
-			$span = $doc->createElement( 'span' );
-			DOMUtils::addTypeOf( $span, 'mw:Cite/Follow' );
-			$span->setAttribute( 'about', $about );
-			$span->appendChild(
+			$followSpan = $doc->createElement( 'span' );
+			DOMUtils::addTypeOf( $followSpan, 'mw:Cite/Follow' );
+			$followSpan->setAttribute( 'about', $about );
+			$followSpan->appendChild(
 				$doc->createTextNode( ' ' )
 			);
-			DOMUtils::migrateChildren( $c, $span );
-			$c->appendChild( $span );
+			DOMUtils::migrateChildren( $refFragment, $followSpan );
+			$refFragment->appendChild( $followSpan );
 		}
 
-		$html = '';
-		$contentDiffers = false;
+		$ref = null;
+		$refFragmentHtml = '';
+		$hasDifferingContent = false;
+		$hasValidFollow = false;
 
-		if ( $hasRefName ) {
+		if ( $hasName ) {
 			if ( $hasFollow ) {
 				// Presumably, "name" has higher precedence
 				$errs[] = new DataMwError( 'cite_error_ref_follow_conflicts' );
 			}
-			if ( isset( $group->indexByName[$refName] ) ) {
-				$ref = $group->indexByName[$refName];
+			if ( isset( $refGroup->indexByName[$refName] ) ) {
+				$ref = $refGroup->indexByName[$refName];
 				// If there are multiple <ref>s with the same name, but different content,
 				// the content of the first <ref> shows up in the <references> section.
 				// in order to ensure lossless RT-ing for later <refs>, we have to record
@@ -222,14 +217,14 @@ class References extends ExtensionTagHandler {
 						$refContent = $extApi->getContentDOM( $ref->contentId )->firstChild;
 						$ref->cachedHtml = $extApi->domToHtml( $refContent, true, false );
 					}
-					$html = $extApi->domToHtml( $c, true, false );
-					$contentDiffers = ( $html !== $ref->cachedHtml );
+					$refFragmentHtml = $extApi->domToHtml( $refFragment, true, false );
+					$hasDifferingContent = ( $refFragmentHtml !== $ref->cachedHtml );
 				}
 			} else {
-				if ( $refsData->inReferencesContent() ) {
+				if ( $referencesData->inReferencesContent() ) {
 					$errs[] = new DataMwError(
 						'cite_error_references_missing_key',
-						[ $refDmw->attrs->name ]
+						[ $refDataMw->attrs->name ]
 					);
 				}
 			}
@@ -237,9 +232,9 @@ class References extends ExtensionTagHandler {
 			if ( $hasFollow ) {
 				// This is a follows ref, so check that a named ref has already
 				// been defined
-				if ( isset( $group->indexByName[$followName] ) ) {
-					$validFollow = true;
-					$ref = $group->indexByName[$followName];
+				if ( isset( $refGroup->indexByName[$followName] ) ) {
+					$hasValidFollow = true;
+					$ref = $refGroup->indexByName[$followName];
 				} else {
 					// FIXME: This key isn't exactly appropriate since this
 					// is more general than just being in a <references>
@@ -248,10 +243,10 @@ class References extends ExtensionTagHandler {
 					// equivalent key and just outputs something wacky.
 					$errs[] = new DataMwError(
 						'cite_error_references_missing_key',
-						[ $refDmw->attrs->follow ]
+						[ $refDataMw->attrs->follow ]
 					);
 				}
-			} elseif ( $refsData->inReferencesContent() ) {
+			} elseif ( $referencesData->inReferencesContent() ) {
 				$errs[] = new DataMwError( 'cite_error_references_no_key' );
 			}
 		}
@@ -260,13 +255,13 @@ class References extends ExtensionTagHandler {
 		//
 		// Do this before possibly adding the a ref below or
 		// migrating contents out of $c if we have a valid follow
-		if ( empty( $cDp->empty ) && self::hasRef( $c ) ) {
-			if ( $contentDiffers ) {
-				$refsData->pushEmbeddedContentFlag();
+		if ( empty( $refFragmentDp->empty ) && self::hasRef( $refFragment ) ) {
+			if ( $hasDifferingContent ) {
+				$referencesData->pushEmbeddedContentFlag();
 			}
-			$this->processRefs( $extApi, $refsData, $c );
-			if ( $contentDiffers ) {
-				$refsData->popEmbeddedContentFlag();
+			$this->processRefs( $extApi, $referencesData, $refFragment );
+			if ( $hasDifferingContent ) {
+				$referencesData->popEmbeddedContentFlag();
 				// If we have refs and the content differs, we need to
 				// reserialize now that we processed the refs.  Unfortunately,
 				// the cachedHtml we compared against already had its refs
@@ -274,16 +269,19 @@ class References extends ExtensionTagHandler {
 				// always be considered a redefinition.  The implementation for
 				// the legacy parser also considers this a redefinition so
 				// there is likely little content out there like this :)
-				$html = $extApi->domToHtml( $c, true, true );
+				$refFragmentHtml = $extApi->domToHtml( $refFragment, true, true );
 			}
 		}
 
-		if ( $validFollow ) {
+		// Add ref-index linkback
+		$linkBackSup = $doc->createElement( 'sup' );
+
+		if ( $hasValidFollow ) {
 			// Migrate content from the follow to the ref
 			if ( $ref->contentId ) {
 				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 				$refContent = $extApi->getContentDOM( $ref->contentId )->firstChild;
-				DOMUtils::migrateChildren( $c, $refContent );
+				DOMUtils::migrateChildren( $refFragment, $refContent );
 			} else {
 				// Otherwise, we have a follow that comes after a named
 				// ref without content so use the follow fragment as
@@ -297,19 +295,19 @@ class References extends ExtensionTagHandler {
 			// Even worse would be if it tried to redefine itself!
 
 			if ( !$ref ) {
-				$ref = $refsData->add( $extApi, $groupName, $refName, $extendsRef, $refDir );
+				$ref = $referencesData->add( $extApi, $groupName, $refName, $extendsRef, $refDir );
 			}
 
 			// Handle linkbacks
-			if ( $refsData->inEmbeddedContent() ) {
+			if ( $referencesData->inEmbeddedContent() ) {
 				$ref->embeddedNodes[] = $about;
 			} else {
-				$ref->nodes[] = $linkBack;
+				$ref->nodes[] = $linkBackSup;
 				$ref->linkbacks[] = $ref->key . '-' . count( $ref->linkbacks );
 			}
 		}
 
-		if ( isset( $refDmw->attrs->dir ) ) {
+		if ( isset( $refDataMw->attrs->dir ) ) {
 			if ( $refDir !== 'rtl' && $refDir !== 'ltr' ) {
 				$errs[] = new DataMwError( 'cite_error_ref_invalid_dir', [ $refDir ] );
 			} elseif ( $ref->dir !== '' && $ref->dir !== $refDir ) {
@@ -326,71 +324,71 @@ class References extends ExtensionTagHandler {
 
 		// Check for missing content, added ?? '' to fix T259676 crasher
 		// FIXME: See T260082 for a more complete description of cause and deeper fix
-		$missingContent = ( !empty( $cDp->empty ) || trim( $refDmw->body->extsrc ?? '' ) === '' );
+		$hasMissingContent = ( !empty( $refFragmentDp->empty ) || trim( $refDataMw->body->extsrc ?? '' ) === '' );
 
-		if ( $missingContent ) {
+		if ( $hasMissingContent ) {
 			// Check for missing name and content to generate error code
 			//
 			// In references content, refs should be used for definition so missing content
 			// is an error.  It's possible that no name is present (!hasRefName), which also
 			// gets the error "cite_error_references_no_key" above, so protect against that.
-			if ( $refsData->inReferencesContent() ) {
+			if ( $referencesData->inReferencesContent() ) {
 				$errs[] = new DataMwError(
 					'cite_error_empty_references_define',
-					[ $refDmw->attrs->name ?? '', $refDmw->attrs->group ?? '' ]
+					[ $refDataMw->attrs->name ?? '', $refDataMw->attrs->group ?? '' ]
 				);
-			} elseif ( !$hasRefName ) {
-				if ( !empty( $cDp->selfClose ) ) {
+			} elseif ( !$hasName ) {
+				if ( !empty( $refFragmentDp->selfClose ) ) {
 					$errs[] = new DataMwError( 'cite_error_ref_no_key' );
 				} else {
 					$errs[] = new DataMwError( 'cite_error_ref_no_input' );
 				}
 			}
 
-			if ( !empty( $cDp->selfClose ) ) {
-				unset( $refDmw->body );
+			if ( !empty( $refFragmentDp->selfClose ) ) {
+				unset( $refDataMw->body );
 			} else {
 				// Empty the <sup> since we've serialized its children and
 				// removing it below asserts everything has been migrated out
-				DOMCompat::replaceChildren( $c );
-				$refDmw->body = (object)[ 'html' => $refDmw->body->extsrc ?? '' ];
+				DOMCompat::replaceChildren( $refFragment );
+				$refDataMw->body = (object)[ 'html' => $refDataMw->body->extsrc ?? '' ];
 			}
 		} else {
-			if ( $ref->contentId && !$validFollow ) {
+			if ( $ref->contentId && !$hasValidFollow ) {
 				// Empty the <sup> since we've serialized its children and
 				// removing it below asserts everything has been migrated out
-				DOMCompat::replaceChildren( $c );
+				DOMCompat::replaceChildren( $refFragment );
 			}
-			if ( $contentDiffers ) {
+			if ( $hasDifferingContent ) {
 				// TODO: Since this error is being placed on the ref, the
 				// key should arguably be "cite_error_ref_duplicate_key"
 				$errs[] = new DataMwError(
 					'cite_error_references_duplicate_key',
-					[ $refDmw->attrs->name ]
+					[ $refDataMw->attrs->name ]
 				);
-				$refDmw->body = (object)[ 'html' => $html ];
+				$refDataMw->body = (object)[ 'html' => $refFragmentHtml ];
 			} else {
-				$refDmw->body = (object)[ 'id' => 'mw-reference-text-' . $ref->target ];
+				$refDataMw->body = (object)[ 'id' => 'mw-reference-text-' . $ref->target ];
 			}
 		}
 
 		$class = 'mw-ref reference';
-		if ( $validFollow ) {
+		if ( $hasValidFollow ) {
 			$class .= ' mw-ref-follow';
 		}
 
-		$lastLinkback = $ref->linkbacks[count( $ref->linkbacks ) - 1] ?? null;
-		DOMUtils::addAttributes( $linkBack, [
+		$lastlinkBack = $ref->linkbacks[count( $ref->linkbacks ) - 1] ?? null;
+		DOMUtils::addAttributes( $linkBackSup, [
 				'about' => $about,
 				'class' => $class,
-				'id' => ( $refsData->inEmbeddedContent() || $validFollow ) ?
-					null : ( $ref->name ? $lastLinkback : $ref->id ),
+				'id' => ( $referencesData->inEmbeddedContent() || $hasValidFollow ) ?
+					null : ( $ref->name ? $lastlinkBack : $ref->id ),
 				'rel' => 'dc:references',
 				'typeof' => DOMCompat::getAttribute( $node, 'typeof' ),
 			]
 		);
-		DOMUtils::removeTypeOf( $linkBack, 'mw:DOMFragment/sealed/ref' );
-		DOMUtils::addTypeOf( $linkBack, 'mw:Extension/ref' );
+		DOMUtils::removeTypeOf( $linkBackSup, 'mw:DOMFragment/sealed/ref' );
+		DOMUtils::addTypeOf( $linkBackSup, 'mw:Extension/ref' );
 
 		$dataParsoid = new DataParsoid;
 		if ( isset( $nodeDp->src ) ) {
@@ -402,15 +400,17 @@ class References extends ExtensionTagHandler {
 		if ( isset( $nodeDp->pi ) ) {
 			$dataParsoid->pi = $nodeDp->pi;
 		}
-		DOMDataUtils::setDataParsoid( $linkBack, $dataParsoid );
+		DOMDataUtils::setDataParsoid( $linkBackSup, $dataParsoid );
 
-		$dmw = $isTplWrapper ? $tplDmw : $refDmw;
-		DOMDataUtils::setDataMw( $linkBack, $dmw );
+		DOMDataUtils::setDataMw(
+			$linkBackSup,
+			$isTemplateWrapper ? $templateDataMw : $refDataMw
+		);
 
 		// FIXME(T214241): Should the errors be added to data-mw if
 		// $isTplWrapper?  Here and other calls to addErrorsToNode.
 		if ( $errs ) {
-			self::addErrorsToNode( $linkBack, $errs );
+			self::addErrorsToNode( $linkBackSup, $errs );
 		}
 
 		// refLink is the link to the citation
@@ -432,7 +432,7 @@ class References extends ExtensionTagHandler {
 		) );
 
 		$refLink->appendChild( $refLinkSpan );
-		$linkBack->appendChild( $refLink );
+		$linkBackSup->appendChild( $refLink );
 
 		// Checking if the <ref> is nested in a link
 		$aParent = DOMUtils::findAncestorOfName( $node, 'a' );
@@ -447,31 +447,31 @@ class References extends ExtensionTagHandler {
 			) {
 				$insertionPoint = $insertionPoint->nextSibling;
 			}
-			$aParent->parentNode->insertBefore( $linkBack, $insertionPoint );
+			$aParent->parentNode->insertBefore( $linkBackSup, $insertionPoint );
 			// set misnested to true and DSR to zero-sized to avoid round-tripping issues
 			$dsrOffset = DOMDataUtils::getDataParsoid( $aParent )->dsr->end ?? null;
 			// we created that node hierarchy above, so we know that it only contains these nodes,
 			// hence there's no need for a visitor
-			self::setMisnested( $linkBack, $dsrOffset );
+			self::setMisnested( $linkBackSup, $dsrOffset );
 			self::setMisnested( $refLink, $dsrOffset );
 			self::setMisnested( $refLinkSpan, $dsrOffset );
 			$parentAbout = DOMCompat::getAttribute( $aParent, 'about' );
 			if ( $parentAbout !== null ) {
-				$linkBack->setAttribute( 'about', $parentAbout );
+				$linkBackSup->setAttribute( 'about', $parentAbout );
 			}
 			$node->parentNode->removeChild( $node );
 		} else {
 			// if not, we insert it where we planned in the first place
-			$node->parentNode->replaceChild( $linkBack, $node );
+			$node->parentNode->replaceChild( $linkBackSup, $node );
 		}
 
 		// Keep the first content to compare multiple <ref>s with the same name.
-		if ( $ref->contentId === null && !$missingContent ) {
+		if ( $ref->contentId === null && !$hasMissingContent ) {
 			$ref->contentId = $contentId;
 			// Use the dir parameter only from the full definition of a named ref tag
 			$ref->dir = $refDir;
 		} else {
-			DOMCompat::remove( $c );
+			DOMCompat::remove( $refFragment );
 			$extApi->clearContentDOM( $contentId );
 		}
 	}
@@ -500,10 +500,10 @@ class References extends ExtensionTagHandler {
 		ParsoidExtensionAPI $extApi, Element $refsNode,
 		ReferencesData $refsData, bool $autoGenerated = false
 	): void {
-		$isTplWrapper = DOMUtils::hasTypeOf( $refsNode, 'mw:Transclusion' );
-		$dp = DOMDataUtils::getDataParsoid( $refsNode );
-		$group = $dp->group ?? '';
-		$refGroup = $refsData->getRefGroup( $group );
+		$isTemplateWrapper = DOMUtils::hasTypeOf( $refsNode, 'mw:Transclusion' );
+		$nodeDp = DOMDataUtils::getDataParsoid( $refsNode );
+		$groupName = $nodeDp->group ?? '';
+		$refGroup = $refsData->getRefGroup( $groupName );
 
 		// Iterate through the ref list to back-patch typeof and data-mw error
 		// information into ref for errors only known at time of references
@@ -511,14 +511,14 @@ class References extends ExtensionTagHandler {
 		// whereas embedded refs will be gathered for batch processing, since
 		// we need to parse embedded content to find them.
 		if ( $refGroup ) {
-			$autoGeneratedWithGroup = ( $autoGenerated && $group !== '' );
+			$autoGeneratedWithGroup = ( $autoGenerated && $groupName !== '' );
 			foreach ( $refGroup->refs as $ref ) {
 				$errs = [];
 				// Mark all refs that are part of a group that is autogenerated
 				if ( $autoGeneratedWithGroup ) {
 					$errs[] = new DataMwError(
 						'cite_error_group_refs_without_references',
-						[ $group ]
+						[ $groupName ]
 					);
 				}
 				// Mark all refs that are named without content
@@ -554,7 +554,7 @@ class References extends ExtensionTagHandler {
 			) )
 		);
 
-		if ( !$isTplWrapper ) {
+		if ( !$isTemplateWrapper ) {
 			$dataMw = DOMDataUtils::getDataMw( $refsNode );
 			// Mark this auto-generated so that we can skip this during
 			// html -> wt and so that clients can strip it if necessary.
@@ -562,12 +562,12 @@ class References extends ExtensionTagHandler {
 				$dataMw->autoGenerated = true;
 			} elseif ( $nestedRefsHTML ) {
 				$dataMw->body = (object)[ 'html' => "\n" . implode( $nestedRefsHTML ) ];
-			} elseif ( empty( $dp->selfClose ) ) {
+			} elseif ( empty( $nodeDp->selfClose ) ) {
 				$dataMw->body = (object)[ 'html' => '' ];
 			} else {
 				unset( $dataMw->body );
 			}
-			unset( $dp->selfClose );
+			unset( $nodeDp->selfClose );
 		}
 
 		// Deal with responsive wrapper
@@ -597,7 +597,7 @@ class References extends ExtensionTagHandler {
 		}
 
 		// Remove the group from refsData
-		$refsData->removeRefGroup( $group );
+		$refsData->removeRefGroup( $groupName );
 	}
 
 	/**
@@ -606,16 +606,16 @@ class References extends ExtensionTagHandler {
 	 * the end of the DOM.
 	 *
 	 * @param ParsoidExtensionAPI $extApi
-	 * @param ReferencesData $refsData
+	 * @param ReferencesData $referencesData
 	 * @param Node $node
 	 */
 	public function insertMissingReferencesIntoDOM(
-		ParsoidExtensionAPI $extApi, ReferencesData $refsData, Node $node
+		ParsoidExtensionAPI $extApi, ReferencesData $referencesData, Node $node
 	): void {
 		$doc = $node->ownerDocument;
-		foreach ( $refsData->getRefGroups() as $groupName => $refsGroup ) {
+		foreach ( $referencesData->getRefGroups() as $groupName => $refsGroup ) {
 			$domFragment = $doc->createDocumentFragment();
-			$frag = $this->createReferences(
+			$refFragment = $this->createReferences(
 				$extApi,
 				$domFragment,
 				[
@@ -639,9 +639,9 @@ class References extends ExtensionTagHandler {
 			// Add a \n before the <ol> so that when serialized to wikitext,
 			// each <references /> tag appears on its own line.
 			$node->appendChild( $doc->createTextNode( "\n" ) );
-			$node->appendChild( $frag );
+			$node->appendChild( $refFragment );
 
-			$this->insertReferencesIntoDOM( $extApi, $frag, $refsData, true );
+			$this->insertReferencesIntoDOM( $extApi, $refFragment, $referencesData, true );
 		}
 	}
 

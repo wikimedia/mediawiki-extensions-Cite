@@ -372,38 +372,17 @@ class References extends ExtensionTagHandler {
 			}
 		}
 
-		$class = 'mw-ref reference';
-		if ( $hasValidFollow ) {
-			$class .= ' mw-ref-follow';
-		}
-
-		$lastlinkBack = $ref->linkbacks[count( $ref->linkbacks ) - 1] ?? null;
-		DOMUtils::addAttributes( $linkBackSup, [
-				'about' => $about,
-				'class' => $class,
-				'id' => ( $referencesData->inEmbeddedContent() || $hasValidFollow ) ?
-					null : ( $ref->name ? $lastlinkBack : $ref->id ),
-				'rel' => 'dc:references',
-				'typeof' => DOMCompat::getAttribute( $node, 'typeof' ),
-			]
-		);
-		DOMUtils::removeTypeOf( $linkBackSup, 'mw:DOMFragment/sealed/ref' );
-		DOMUtils::addTypeOf( $linkBackSup, 'mw:Extension/ref' );
-
-		$dataParsoid = new DataParsoid;
-		if ( isset( $nodeDp->src ) ) {
-			$dataParsoid->src = $nodeDp->src;
-		}
-		if ( isset( $nodeDp->dsr ) ) {
-			$dataParsoid->dsr = $nodeDp->dsr;
-		}
-		if ( isset( $nodeDp->pi ) ) {
-			$dataParsoid->pi = $nodeDp->pi;
-		}
-		DOMDataUtils::setDataParsoid( $linkBackSup, $dataParsoid );
-
-		DOMDataUtils::setDataMw(
+		$this->addLinkBackAttributes(
 			$linkBackSup,
+			$this->getLinkbackId( $ref, $referencesData, $hasValidFollow ),
+			DOMCompat::getAttribute( $node, 'typeof' ),
+			$about,
+			$hasValidFollow
+		);
+
+		$this->addLinkBackData(
+			$linkBackSup,
+			$nodeDp,
 			$isTemplateWrapper ? $templateDataMw : $refDataMw
 		);
 
@@ -875,4 +854,60 @@ class References extends ExtensionTagHandler {
 
 		return false;
 	}
+
+	private function addLinkBackData(
+		Element $linkBackSup,
+		DataParsoid $nodeDp,
+		?DataMw $dataMw
+	): void {
+		$dataParsoid = new DataParsoid();
+		if ( isset( $nodeDp->src ) ) {
+			$dataParsoid->src = $nodeDp->src;
+		}
+		if ( isset( $nodeDp->dsr ) ) {
+			$dataParsoid->dsr = $nodeDp->dsr;
+		}
+		if ( isset( $nodeDp->pi ) ) {
+			$dataParsoid->pi = $nodeDp->pi;
+		}
+		DOMDataUtils::setDataParsoid( $linkBackSup, $dataParsoid );
+		DOMDataUtils::setDataMw( $linkBackSup, $dataMw );
+	}
+
+	private function addLinkBackAttributes(
+		Element $linkBackSup,
+		?string $id,
+		?string $typeof,
+		?string $about,
+		bool $hasValidFollow
+	): void {
+		$class = 'mw-ref reference';
+		if ( $hasValidFollow ) {
+			$class .= ' mw-ref-follow';
+		}
+
+		DOMUtils::addAttributes( $linkBackSup, [
+			'about' => $about,
+			'class' => $class,
+			'id' => $id,
+			'rel' => 'dc:references',
+			'typeof' => $typeof,
+		] );
+		DOMUtils::removeTypeOf( $linkBackSup, 'mw:DOMFragment/sealed/ref' );
+		DOMUtils::addTypeOf( $linkBackSup, 'mw:Extension/ref' );
+	}
+
+	private function getLinkbackId(
+		?RefGroupItem $ref,
+		ReferencesData $refsData,
+		bool $hasValidFollow
+	): ?string {
+		if ( $refsData->inEmbeddedContent() || $hasValidFollow ) {
+			return null;
+		}
+
+		$lastLinkBack = $ref->linkbacks[count( $ref->linkbacks ) - 1] ?? null;
+		return $ref->name ? $lastLinkBack : $ref->id;
+	}
+
 }

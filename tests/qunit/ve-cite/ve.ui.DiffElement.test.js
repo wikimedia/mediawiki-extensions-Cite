@@ -39,7 +39,7 @@ QUnit.test( 'Diffing', ( assert ) => {
 					<h2 data-diff-action="none">Notes</h2>
 					<ol>
 						<li value="1"><p data-diff-action="none">Foo</p></li>
-						<li value="2"><p>Bar<ins data-diff-action="insert"> ish</ins></p></li>
+						<li value="2">Bar<ins data-diff-action="insert"> ish</ins></li>
 						<li value="3"><p data-diff-action="none">Baz</p></li>
 					</ol>
 				`

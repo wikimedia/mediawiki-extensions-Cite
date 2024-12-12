@@ -81,6 +81,8 @@ class RefGroup {
 			'@phan-var Element $sup';  /** @var Element $sup */
 			DOMCompat::remove( $sup );
 			$extApi->clearContentDOM( $refContentId );
+		} elseif ( $ref->externalFragment ) {
+			DOMUtils::migrateChildren( $ref->externalFragment, $reftextSpan );
 		}
 		$li->appendChild( $reftextSpan );
 

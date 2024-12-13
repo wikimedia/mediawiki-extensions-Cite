@@ -280,9 +280,11 @@
 			"tests/qunit/ve-cite/ve.ui.MWWikitextStringTransferHandler.test.js",
 			"tests/qunit/ext.cite.referencePreviews/createReferenceGateway.test.js",
 			"tests/qunit/ext.cite.referencePreviews/isReferencePreviewsEnabled.test.js",
-			"tests/qunit/ext.cite.referencePreviews/renderer.test.js"
+			"tests/qunit/ext.cite.referencePreviews/renderer.test.js",
+			"tests/qunit/ext.cite.highlighting.test.js"
 		],
 		"dependencies": [
+			"ext.cite.ux-enhancements",
 			"ext.cite.visualEditor",
 			"test.VisualEditor"
 		],

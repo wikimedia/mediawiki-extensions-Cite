@@ -33,6 +33,8 @@
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code>-taggen med navnet «$1» i <code>&lt;references&gt;</code> gruppe «$2» har ikke noe innhold.",
 	"cite-tracking-category-cite-error": "Sider med feil i referanser",
 	"cite-tracking-category-cite-error-desc": "Sider i denne kategorien har feil i bruk av referansetagger",
+	"cite-tracking-category-cite-diffing-error": "Sider med referansefeil som utløser visuelle forskjeller",
+	"cite-tracking-category-cite-diffing-error-desc": "Sider i denne kategorien har feil i bruken av referansetagger, og disse feilene vises ikke på samme måte i den gamle parseren som i Parsoid.",
 	"cite-tracking-category-ref-extends": "Sider som bruker utvidede referanser",
 	"cite-tracking-category-ref-extends-desc": "Sider i denne kategorien bruker «extends»-attributtet i &lt;ref&gt;-taggen.",
 	"cite-reference-previews-reference": "Referanse",

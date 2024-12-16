@@ -23,7 +23,7 @@
 	"cite-ve-citationneeded-description": "Некој уредник има укажано дека на ова тврдење му треба навод до доверлив извор.",
 	"cite-ve-citationneeded-reason": "Укажана причина:",
 	"cite-ve-citationneeded-title": "Се бара навод",
-	"cite-ve-dialog-reference-contextitem-extends": "Овој навод е преупотреба со дополнителни поединости.",
+	"cite-ve-dialog-reference-contextitem-extends": "Овој навод е преупотреба со дополнителни поединости:",
 	"cite-ve-dialog-reference-editing-add-details": "Додавате дополнителни поединости во овој навод:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Тука напишете или прекопирајте ги информациите што сакате да ги додадете во овој навод.",
 	"cite-ve-dialog-reference-editing-reused": "Овој навод се користи {{PLURAL:$1|еднаш|2=двапати|$1 пати}} во страницава.",

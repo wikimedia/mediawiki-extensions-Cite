@@ -2,7 +2,7 @@
  * @module gateway/reference
  */
 
-const { TYPE_REFERENCE } = require( './constants.js' );
+const TYPE_REFERENCE = 'reference';
 
 /**
  * @return {Gateway}

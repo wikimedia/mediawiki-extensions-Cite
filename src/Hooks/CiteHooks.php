@@ -291,10 +291,8 @@ class CiteHooks implements
 				],
 				'packageFiles' => [
 					'index.js',
-					'constants.js',
 					'createReferenceGateway.js',
 					'createReferencePreview.js',
-					'isReferencePreviewsEnabled.js',
 					'referencePreviewsInstrumentation.js'
 				]
 			]

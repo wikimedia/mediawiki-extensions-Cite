@@ -128,8 +128,8 @@ class References extends ExtensionTagHandler {
 		// This is data-parsoid from the dom fragment node that's gone through
 		// dsr computation and template wrapping.
 		$nodeDp = DOMDataUtils::getDataParsoid( $node );
-		$isTemplateWrapper = DOMUtils::hasTypeOf( $node, 'mw:Transclusion' );
 		$contentId = $nodeDp->html;
+		$isTemplateWrapper = DOMUtils::hasTypeOf( $node, 'mw:Transclusion' );
 		$templateDataMw = $isTemplateWrapper ? DOMDataUtils::getDataMw( $node ) : null;
 
 		// This is the <sup> that's the meat of the sealed fragment
@@ -138,47 +138,36 @@ class References extends ExtensionTagHandler {
 		$refFragmentDp = DOMDataUtils::getDataParsoid( $refFragment );
 		$refDataMw = DOMDataUtils::getDataMw( $refFragment );
 
+		// read and validate the used attribute keys
+		$attributes = $refDataMw->attrs;
+		$attributesErrorMessage = $this->validateAttributeKeys( (array)$attributes );
+		if ( $attributesErrorMessage ) {
+			$errs[] = $attributesErrorMessage;
+		}
+
+		// read and store the attributes
+		// NOTE: This will have been trimmed in Utils::getExtArgInfo()'s call
+		// to TokenUtils::kvToHash() and ExtensionHandler::normalizeExtOptions()
+		$refName = $attributes->name ?? '';
+		$followName = $attributes->follow ?? '';
+		$refDir = strtolower( $attributes->dir ?? '' );
+		$extendsRef = $attributes->extends ?? null;
+
+		// read and validate the group of the ref
+		$groupName = $attributes->group ?? $referencesData->referencesGroup;
+		$groupErrorMessage = $this->validateGroup( $groupName, $referencesData );
+		if ( $groupErrorMessage ) {
+			$errs[] = $groupErrorMessage;
+		}
+		$refGroup = $referencesData->getRefGroup( $groupName );
+
 		// Use the about attribute on the wrapper with priority, since it's
 		// only added when the wrapper is a template sibling.
 		$about = DOMCompat::getAttribute( $node, 'about' ) ??
 			DOMCompat::getAttribute( $refFragment, 'about' );
 		'@phan-var string $about'; // assert that $about is non-null
 
-		// FIXME(SSS): Need to clarify semantics here.
-		// If both the containing <references> elt as well as the nested <ref>
-		// elt has a group attribute, what takes precedence?
-		$groupName = $refDataMw->attrs->group ?? $referencesData->referencesGroup;
-		$refGroup = $referencesData->getRefGroup( $groupName );
-
-		if (
-			$referencesData->inReferencesContent() &&
-			$groupName !== $referencesData->referencesGroup
-		) {
-			$errs[] = new DataMwError(
-				'cite_error_references_group_mismatch',
-				[ $refDataMw->attrs->group ]
-			);
-		}
-
-		static $validAttributes = [
-			'group' => true,
-			'name' => true,
-			Cite::SUBREF_ATTRIBUTE => true,
-			'follow' => true,
-			'dir' => true
-		];
-
-		if ( array_diff_key( (array)$refDataMw->attrs, $validAttributes ) !== [] ) {
-			$errs[] = new DataMwError( 'cite_error_ref_too_many_keys' );
-		}
-
-		// NOTE: This will have been trimmed in Utils::getExtArgInfo()'s call
-		// to TokenUtils::kvToHash() and ExtensionHandler::normalizeExtOptions()
-		$refName = $refDataMw->attrs->name ?? '';
-		$followName = $refDataMw->attrs->follow ?? '';
-		$refDir = strtolower( $refDataMw->attrs->dir ?? '' );
-		$extendsRef = $refDataMw->attrs->extends ?? null;
-
+		// check the attributes name and follow
 		$hasName = strlen( $refName ) > 0;
 		$hasFollow = strlen( $followName ) > 0;
 
@@ -224,7 +213,7 @@ class References extends ExtensionTagHandler {
 				if ( $referencesData->inReferencesContent() ) {
 					$errs[] = new DataMwError(
 						'cite_error_references_missing_key',
-						[ $refDataMw->attrs->name ]
+						[ $attributes->name ]
 					);
 				}
 			}
@@ -243,7 +232,7 @@ class References extends ExtensionTagHandler {
 					// equivalent key and just outputs something wacky.
 					$errs[] = new DataMwError(
 						'cite_error_references_missing_key',
-						[ $refDataMw->attrs->follow ]
+						[ $attributes->follow ]
 					);
 				}
 			} elseif ( $referencesData->inReferencesContent() ) {
@@ -307,7 +296,7 @@ class References extends ExtensionTagHandler {
 			}
 		}
 
-		if ( isset( $refDataMw->attrs->dir ) ) {
+		if ( isset( $attributes->dir ) ) {
 			if ( $refDir !== 'rtl' && $refDir !== 'ltr' ) {
 				$errs[] = new DataMwError( 'cite_error_ref_invalid_dir', [ $refDir ] );
 			} elseif ( $ref->dir !== '' && $ref->dir !== $refDir ) {
@@ -335,7 +324,7 @@ class References extends ExtensionTagHandler {
 			if ( $referencesData->inReferencesContent() ) {
 				$errs[] = new DataMwError(
 					'cite_error_empty_references_define',
-					[ $refDataMw->attrs->name ?? '', $refDataMw->attrs->group ?? '' ]
+					[ $attributes->name ?? '', $attributes->group ?? '' ]
 				);
 			} elseif ( !$hasName ) {
 				if ( !empty( $refFragmentDp->selfClose ) ) {
@@ -364,7 +353,7 @@ class References extends ExtensionTagHandler {
 				// key should arguably be "cite_error_ref_duplicate_key"
 				$errs[] = new DataMwError(
 					'cite_error_references_duplicate_key',
-					[ $refDataMw->attrs->name ]
+					[ $attributes->name ]
 				);
 				$refDataMw->body = (object)[ 'html' => $refFragmentHtml ];
 			} else {
@@ -453,6 +442,36 @@ class References extends ExtensionTagHandler {
 			DOMCompat::remove( $refFragment );
 			$extApi->clearContentDOM( $contentId );
 		}
+	}
+
+	private function validateAttributeKeys( array $attributes ): ?DataMwError {
+		static $validAttributes = [
+			'group' => true,
+			'name' => true,
+			Cite::SUBREF_ATTRIBUTE => true,
+			'follow' => true,
+			'dir' => true
+		];
+
+		if ( array_diff_key( $attributes, $validAttributes ) !== [] ) {
+			return new DataMwError( 'cite_error_ref_too_many_keys' );
+		}
+
+		return null;
+	}
+
+	private function validateGroup( string $groupName, ReferencesData $referencesData ): ?DataMwError {
+		if (
+			$referencesData->inReferencesContent() &&
+			$groupName !== $referencesData->referencesGroup
+		) {
+			return new DataMwError(
+				'cite_error_references_group_mismatch',
+				[ $groupName ]
+			);
+		}
+
+		return null;
 	}
 
 	/**

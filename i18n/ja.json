@@ -51,6 +51,10 @@
 	"cite-reference-previews-note": "注釈",
 	"cite-reference-previews-web": "ウェブサイトの出典",
 	"cite-reference-previews-collapsible-placeholder": "このリファレンスには、プレビューに収まらない図が含まれています。",
+	"cite-reference-previews-gadget-conflict-info-navpopups": "[[$1|ナビゲーションポップアップ]]ガジェットが有効になっているため、この機能によって提供されるプレビューは表示されません。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください。",
+	"cite-reference-previews-gadget-conflict-info-reftooltips": "[[$1|参照ツールチップ]]ガジェットが有効になっているため、参照プレビューは表示されませんが、ページプレビューは表示されます。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください。",
+	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "[[$1|ナビゲーションポップアップ]]および[[$1|参照ツールチップ]]ガジェットが有効になっているため、この機能によって提供されるプレビューは表示されません。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください",
+	"cite-reference-previews-preference-label": "参考文献のプレビューを有効にする（ページを読んでいるときに参考文献のクイックプレビューを有効にする）",
 	"cite_references_link_accessibility_label": "元の位置に戻る",
 	"cite_references_link_many_accessibility_label": "以下の位置に戻る:",
 	"cite_references_link_accessibility_back_label": "最後の位置に戻る",
@@ -66,9 +70,5 @@
 	"cite-wikieditor-help-content-reference-example-text1": "ページ本文$1。",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 リンクタイトル]、追加テキスト",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 リンクタイトル]",
-	"cite-wikieditor-help-content-reference-example-ref-id": "テスト",
-	"popups-prefs-navpopups-gadget-conflict-info": "[[$1|ナビゲーションポップアップ]]ガジェットが有効になっているため、この機能によって提供されるプレビューは表示されません。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください。",
-	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "[[$1|ナビゲーションポップアップ]]および[[$1|参照ツールチップ]]ガジェットが有効になっているため、この機能によって提供されるプレビューは表示されません。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください",
-	"popups-prefs-reftooltips-gadget-conflict-info": "[[$1|参照ツールチップ]]ガジェットが有効になっているため、参照プレビューは表示されませんが、ページプレビューは表示されます。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください。",
-	"popups-refpreview-user-preference-label": "参考文献のプレビューを有効にする（ページを読んでいるときに参考文献のクイックプレビューを有効にする）"
+	"cite-wikieditor-help-content-reference-example-ref-id": "テスト"
 }

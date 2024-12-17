@@ -35,6 +35,7 @@
 	"cite-reference-previews-news": "వార్త మూలం",
 	"cite-reference-previews-web": "అంతర్జాల మూలం",
 	"cite-reference-previews-collapsible-placeholder": "ఈ మూలంలో వున్న చిత్రం మునుజూపు పరిధి దాటుతుంది.",
+	"cite-reference-previews-preference-label": "మూలాల మునుజూపులు(పాదసూచికల త్వరిత మునుజూపులు పొందు)",
 	"cite_reference_backlink_symbol": "↑",
 	"cite_references_link_many_and": "&#32;",
 	"cite_references_link_accessibility_label": "పైకి దూకు",
@@ -45,6 +46,5 @@
 	"cite_warning_sectionpreview_no_text": "<code>$1</code> పేరుతో ఉన్న <code>&lt;ref&gt;</code> ట్యాగును మునుజూపులో చూపలేం. ఎందుకంటే అది ప్రస్తుత విభాగానికి బయటైనా ఉండి ఉండాలి, లేదా అసలు దాన్ని నిర్వచించకపోయి అయినా ఉండాలి.",
 	"cite-wikieditor-tool-reference": "మూలాలు",
 	"cite-wikieditor-help-page-references": "మూలాలు",
-	"cite-wikieditor-help-content-reference-description": "సాక్ష్యాలు",
-	"popups-refpreview-user-preference-label": "మూలాల మునుజూపులు(పాదసూచికల త్వరిత మునుజూపులు పొందు)"
+	"cite-wikieditor-help-content-reference-description": "సాక్ష్యాలు"
 }

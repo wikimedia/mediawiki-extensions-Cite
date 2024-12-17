@@ -35,6 +35,7 @@
 	"cite-reference-previews-journal": "Източник от периодичен печат",
 	"cite-reference-previews-news": "Източник от новина",
 	"cite-reference-previews-web": "Източник от уеб сайт",
+	"cite-reference-previews-preference-label": "Включване на преглед на източници (бърз преглед на бележките, докато четете страница)",
 	"cite_references_link_accessibility_label": "Нагоре",
 	"cite_references_link_many_accessibility_label": "Нагоре към:",
 	"cite_references_link_accessibility_back_label": "Обратно нагоре",
@@ -46,6 +47,5 @@
 	"cite-wikieditor-help-content-reference-description": "Източник",
 	"cite-wikieditor-help-content-named-reference-description": "Наименован източник/бележка",
 	"cite-wikieditor-help-content-rereference-description": "Множествена употреба на един и същ източник",
-	"cite-wikieditor-help-content-showreferences-description": "Извеждане на източниците",
-	"popups-refpreview-user-preference-label": "Включване на преглед на източници (бърз преглед на бележките, докато четете страница)"
+	"cite-wikieditor-help-content-showreferences-description": "Извеждане на източниците"
 }

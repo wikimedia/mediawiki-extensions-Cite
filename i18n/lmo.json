@@ -32,6 +32,10 @@
 	"cite-reference-previews-note": "Nota",
 	"cite-reference-previews-web": "Riferiment a un sit de la red",
 	"cite-reference-previews-collapsible-placeholder": "Quel riferment chì el gh'hà dent un'imagin che l'è minga adatta per la pagina de veduda antecipada",
+	"cite-reference-previews-gadget-conflict-info-navpopups": "Te gh'heet el dispositiv [[$1|popap de navigazzion]] ativad, donca te vedaret no i vedude antecipade fornide de questa fonzion chì. A segonda del wiki, el dispositiv el podariss ciamass in d'una manera on zich diversa. Se te sutet a havegh di problema, controla i to dispositiv e i script utent, compres quei globai.",
+	"cite-reference-previews-gadget-conflict-info-reftooltips": "Te gh'heet el dispositiv [[$1|sugeriment de navigazzion]] ativad, donca te vedaret no i vedude antecipade di riferiment ma te vedareet anmò i vedude antecipade di pagine. A segonda del wiki, el dispositiv el podariss ciamass in d'una manera on zich diversa. Se te sutet a havegh di problema, controla i to dispositiv e i script utent, compres quei globai.",
+	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "Te gh'heet el dispositiv [[$1| sugeriment de navigazzion]] ativad, donca te vedaret no i vedude antecipade fornide de quella fonzion chì. A segonda del wiki, el dispositiv el podariss ciamass in d'una manera on zich diversa. Se te sutet a havegh di problema, controla i to dispositiv e i script utent, compres quei globai.",
+	"cite-reference-previews-preference-label": "Ativa la veduda antecipada di riferiment (oten subit una veduda antecipada di riferiment intanta che te see 'dree a leger una pagina)",
 	"cite_references_link_accessibility_label": "Salta",
 	"cite_references_link_many_accessibility_label": "Salta a:",
 	"cite_references_link_accessibility_back_label": "Torna in scima",
@@ -43,9 +47,5 @@
 	"cite-wikieditor-help-content-reference-description": "Riferiment",
 	"cite-wikieditor-help-content-named-reference-description": "Riferiment cont un nom",
 	"cite-wikieditor-help-content-rereference-description": "Un'altr'utilizazzion de l'istess riferiment",
-	"cite-wikieditor-help-content-showreferences-description": "Mostra i riferiment",
-	"popups-prefs-navpopups-gadget-conflict-info": "Te gh'heet el dispositiv [[$1|popap de navigazzion]] ativad, donca te vedaret no i vedude antecipade fornide de questa fonzion chì. A segonda del wiki, el dispositiv el podariss ciamass in d'una manera on zich diversa. Se te sutet a havegh di problema, controla i to dispositiv e i script utent, compres quei globai.",
-	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Te gh'heet el dispositiv [[$1| sugeriment de navigazzion]] ativad, donca te vedaret no i vedude antecipade fornide de quella fonzion chì. A segonda del wiki, el dispositiv el podariss ciamass in d'una manera on zich diversa. Se te sutet a havegh di problema, controla i to dispositiv e i script utent, compres quei globai.",
-	"popups-prefs-reftooltips-gadget-conflict-info": "Te gh'heet el dispositiv [[$1|sugeriment de navigazzion]] ativad, donca te vedaret no i vedude antecipade di riferiment ma te vedareet anmò i vedude antecipade di pagine. A segonda del wiki, el dispositiv el podariss ciamass in d'una manera on zich diversa. Se te sutet a havegh di problema, controla i to dispositiv e i script utent, compres quei globai.",
-	"popups-refpreview-user-preference-label": "Ativa la veduda antecipada di riferiment (oten subit una veduda antecipada di riferiment intanta che te see 'dree a leger una pagina)"
+	"cite-wikieditor-help-content-showreferences-description": "Mostra i riferiment"
 }

@@ -32,6 +32,7 @@
 	"cite-reference-previews-journal": "Referencia a revista",
 	"cite-reference-previews-news": "Referencia a noticies",
 	"cite-reference-previews-web": "Referencia web",
+	"cite-reference-previews-preference-label": "Vistes previes de referencia (recibir vistes previes rápides de notes al pie)",
 	"cite_references_link_accessibility_label": "Saltar arriba",
 	"cite_references_link_many_accessibility_label": "Saltar a:",
 	"cite_references_link_accessibility_back_label": "Volver al principiu",
@@ -43,6 +44,5 @@
 	"cite-wikieditor-help-content-reference-description": "Referencia",
 	"cite-wikieditor-help-content-named-reference-description": "Referencia con nome",
 	"cite-wikieditor-help-content-rereference-description": "Otros usos de la mesma referencia",
-	"cite-wikieditor-help-content-showreferences-description": "Amosar les referencies",
-	"popups-refpreview-user-preference-label": "Vistes previes de referencia (recibir vistes previes rápides de notes al pie)"
+	"cite-wikieditor-help-content-showreferences-description": "Amosar les referencies"
 }

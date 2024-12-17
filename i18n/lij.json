@@ -37,6 +37,7 @@
 	"cite-reference-previews-note": "Nòtta",
 	"cite-reference-previews-web": "Nòtta da scîto web",
 	"cite-reference-previews-collapsible-placeholder": "Sta nòtta chi a l'inclùdde 'na figûa ch'a no l'ìntra inte l'anteprìmma.",
+	"cite-reference-previews-preference-label": "Anteprimma di rifeimenti (otegni 'na rappida anteprimma de notte a pê de paggina)",
 	"cite_references_link_accessibility_label": "Sâta",
 	"cite_references_link_many_accessibility_label": "Sâta a:",
 	"cite_references_link_accessibility_back_label": "Tórna in çìmma",
@@ -53,6 +54,5 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Tèsto da pàgina.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Tèsto do ligàmme], tèsto de ciù.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Tèsto do ligàmme]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Detàggi de ciù",
-	"popups-refpreview-user-preference-label": "Anteprimma di rifeimenti (otegni 'na rappida anteprimma de notte a pê de paggina)"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Detàggi de ciù"
 }

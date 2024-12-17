@@ -32,6 +32,7 @@
 	"cite-reference-previews-note": "Catetan",
 	"cite-reference-previews-web": "Ruju'an jala",
 	"cite-reference-previews-collapsible-placeholder": "Ni ruju'an nyerèntain gambar bèbèr nyang kaga' muat di terawangan.",
+	"cite-reference-previews-preference-label": "Nyalain terawangan halaman (dapetin terawangan lekas deri ruju'an pas ngebaca halaman)",
 	"cite_references_link_accessibility_label": "Taèk",
 	"cite_references_link_many_accessibility_label": "Taèk ke:",
 	"cite_references_link_accessibility_back_label": "Balik ke atas",
@@ -46,6 +47,5 @@
 	"cite-wikieditor-help-content-showreferences-description": "Pampangin ruju'an",
 	"cite-wikieditor-help-content-reference-example-text1": "Halaman tèks.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Tèks sènggètan], tèks tambahan.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Tèks sènggètan]",
-	"popups-refpreview-user-preference-label": "Nyalain terawangan halaman (dapetin terawangan lekas deri ruju'an pas ngebaca halaman)"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Tèks sènggètan]"
 }

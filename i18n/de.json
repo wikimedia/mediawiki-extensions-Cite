@@ -50,6 +50,10 @@
 	"cite-reference-previews-note": "Anmerkung",
 	"cite-reference-previews-web": "Internetquelle",
 	"cite-reference-previews-collapsible-placeholder": "Diese Referenz enthält eine Abbildung, die nicht in die Vorschau passt.",
+	"cite-reference-previews-gadget-conflict-info-navpopups": "Du hast das Helferlein [[$1|Navigations-Popups]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellte Vorschau sehen wirst. Dieses Helferlein kann abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
+	"cite-reference-previews-gadget-conflict-info-reftooltips": "Du hast das Helferlein [[$1|Fußnoten-Tooltip]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellte Fußnoten-Vorschau sehen wirst. Dieses Helferlein kann abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
+	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "Du hast die Helferlein [[$1|Navigations-Popups]] und [[$1|Fußnoten-Tooltip]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellten Vorschauen sehen wirst. Diese Helferlein können abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
+	"cite-reference-previews-preference-label": "Einzelnachweisvorschau aktivieren (schnelle Vorschau eines Einzelnachweises während des Lesens einer Seite)",
 	"cite_references_link_accessibility_label": "Hochspringen",
 	"cite_references_link_many_accessibility_label": "Hochspringen nach:",
 	"cite_references_link_accessibility_back_label": "Zurück nach oben springen",
@@ -66,9 +70,5 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Seitentext.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linktext], zusätzlicher Text.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linktext]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Weitere Details",
-	"popups-prefs-navpopups-gadget-conflict-info": "Du hast das Helferlein [[$1|Navigations-Popups]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellte Vorschau sehen wirst. Dieses Helferlein kann abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
-	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Du hast die Helferlein [[$1|Navigations-Popups]] und [[$1|Fußnoten-Tooltip]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellten Vorschauen sehen wirst. Diese Helferlein können abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
-	"popups-prefs-reftooltips-gadget-conflict-info": "Du hast das Helferlein [[$1|Fußnoten-Tooltip]] aktiviert, sodass du keine durch diese Funktion zur Verfügung gestellte Fußnoten-Vorschau sehen wirst. Dieses Helferlein kann abhängig von deinem Wiki einen leicht abweichenden Namen haben. Wenn du weiterhin Probleme hast, prüfe bitte deine Helferlein und Benutzerskripte, inklusive den globalen.",
-	"popups-refpreview-user-preference-label": "Einzelnachweisvorschau aktivieren (schnelle Vorschau eines Einzelnachweises während des Lesens einer Seite)"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Weitere Details"
 }

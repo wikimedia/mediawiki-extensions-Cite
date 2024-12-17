@@ -44,6 +44,10 @@
 	"cite-reference-previews-note": "Qeyd",
 	"cite-reference-previews-web": "Veb istinadı",
 	"cite-reference-previews-collapsible-placeholder": "Bu istinad önizləməyə uyğun gəlməyən rəqəmi ehtiva edir.",
+	"cite-reference-previews-gadget-conflict-info-navpopups": "Sizdə [[$1|Naviqasiya pop-upları]] qadceti aktivdir, ona görə də bu funksiyanın təqdim etdiyi önizləmələri görməyəcəksiniz. Vikidən asılı olaraq, qadcetin fərqli adı ola bilər. Problemlərlə üzləşməyə davam etsəniz, qlobal olanlar da daxil olmaqla qadcetlərinizi və istifadəçi skriptlərinizi nəzərdən keçirin.",
+	"cite-reference-previews-gadget-conflict-info-reftooltips": "Sizdə [[$1|İstinad aləti]] qadceti aktivdir, ona görə də siz istinad önizləmələrini görməyəcəksiniz, lakin səhifənin önizləmələrini hələ də görəcəksiniz. Vikidən asılı olaraq, qadcetin fərqli adı ola bilər. Problemlərlə üzləşməyə davam etsəniz, qlobal olanlar da daxil olmaqla qadcetlərinizi və istifadəçi skriptlərinizi nəzərdən keçirin.",
+	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "Sizdə [[$1|Naviqasiya pop-upları]] [[$1|İstinad aləti]] qadcetləri aktivdir, ona görə də siz istinad önizləmələrini görməyəcəksiniz, lakin səhifənin önizləmələrini hələ də görəcəksiniz. Vikidən asılı olaraq, qadcetin fərqli adı ola bilər. Problemlərlə üzləşməyə davam etsəniz, qlobal olanlar da daxil olmaqla qadcetlərinizi və istifadəçi skriptlərinizi nəzərdən keçirin.",
+	"cite-reference-previews-preference-label": "İstinad önizləmələrini aktivləşdirin (səhifəni oxuyarkən istinadın sürətli önizləmələrini əldə edin)",
 	"cite_references_link_accessibility_label": "Yuxarı get",
 	"cite_references_link_many_accessibility_label": "Yuxarıda get:",
 	"cite_references_link_accessibility_back_label": "Aşağı get",
@@ -60,9 +64,5 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Səhifə mətni.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Keçidin mətni], əlavə mətn.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Keçid mətni]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Əlavə detallar",
-	"popups-prefs-navpopups-gadget-conflict-info": "Sizdə [[$1|Naviqasiya pop-upları]] qadceti aktivdir, ona görə də bu funksiyanın təqdim etdiyi önizləmələri görməyəcəksiniz. Vikidən asılı olaraq, qadcetin fərqli adı ola bilər. Problemlərlə üzləşməyə davam etsəniz, qlobal olanlar da daxil olmaqla qadcetlərinizi və istifadəçi skriptlərinizi nəzərdən keçirin.",
-	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Sizdə [[$1|Naviqasiya pop-upları]] [[$1|İstinad aləti]] qadcetləri aktivdir, ona görə də siz istinad önizləmələrini görməyəcəksiniz, lakin səhifənin önizləmələrini hələ də görəcəksiniz. Vikidən asılı olaraq, qadcetin fərqli adı ola bilər. Problemlərlə üzləşməyə davam etsəniz, qlobal olanlar da daxil olmaqla qadcetlərinizi və istifadəçi skriptlərinizi nəzərdən keçirin.",
-	"popups-prefs-reftooltips-gadget-conflict-info": "Sizdə [[$1|İstinad aləti]] qadceti aktivdir, ona görə də siz istinad önizləmələrini görməyəcəksiniz, lakin səhifənin önizləmələrini hələ də görəcəksiniz. Vikidən asılı olaraq, qadcetin fərqli adı ola bilər. Problemlərlə üzləşməyə davam etsəniz, qlobal olanlar da daxil olmaqla qadcetlərinizi və istifadəçi skriptlərinizi nəzərdən keçirin.",
-	"popups-refpreview-user-preference-label": "İstinad önizləmələrini aktivləşdirin (səhifəni oxuyarkən istinadın sürətli önizləmələrini əldə edin)"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Əlavə detallar"
 }

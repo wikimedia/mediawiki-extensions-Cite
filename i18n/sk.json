@@ -30,6 +30,7 @@
 	"cite-reference-previews-journal": "Časopisová referencia",
 	"cite-reference-previews-news": "Spravodajská referencia",
 	"cite-reference-previews-web": "Webová referencia",
+	"cite-reference-previews-preference-label": "Zapnúť náhľady referencií (pri čítaní stránky poskytne rýchle náhľady referencií)",
 	"cite_references_link_accessibility_label": "Prejsť nahor",
 	"cite_references_link_many_accessibility_label": "Prejsť nahor k:",
 	"cite_section_preview_references": "Náhľad referencií",
@@ -39,6 +40,5 @@
 	"cite-wikieditor-help-page-references": "Referencie",
 	"cite-wikieditor-help-content-reference-description": "Referencie",
 	"cite-wikieditor-help-content-rereference-description": "Ďalšie použitie rovnakej referencie",
-	"cite-wikieditor-help-content-showreferences-description": "Zobraziť referencie",
-	"popups-refpreview-user-preference-label": "Zapnúť náhľady referencií (pri čítaní stránky poskytne rýchle náhľady referencií)"
+	"cite-wikieditor-help-content-showreferences-description": "Zobraziť referencie"
 }

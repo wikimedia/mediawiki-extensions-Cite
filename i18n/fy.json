@@ -34,6 +34,10 @@
 	"cite-reference-previews-note": "Noat",
 	"cite-reference-previews-web": "Webreferinsje",
 	"cite-reference-previews-collapsible-placeholder": "Dizze referinsje befettet in yllustraasje dy't net yn it proefbyld past.",
+	"cite-reference-previews-gadget-conflict-info-navpopups": "Jo hawwe it 'lytsark' [[$1|Navigation popups]] ynskeakele, dat jo sille de proefbylden fan dizze funksje net sjen. Ofhinklik fan jo wiki, kin it lytsark in wat oare namme hawwe. At jo fierders noch problemen ûnderfine, besjoch dan jo lytsark- en meidoggerskripts, ek dy't globaal binne.",
+	"cite-reference-previews-gadget-conflict-info-reftooltips": "Jo hawwe it 'lytsark' [[$1|Reference Tooltips]] ynskeakele, dat jo sille de referinsjeproefbylden net sjen mar de sideproefbylden al. Ofhinklik fan jo wiki, kin it lytsark in wat oare namme hawwe. At jo fierders noch problemen ûnderfine, besjoch dan jo lytsark- en meidoggerskripts, ek dy't globaal binne.",
+	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "Jo hawwe it 'lytsark' [[$1|Navigation popups]] en [[$1|Reference Tooltips]] ynskeakele, dat jo sille de proefbylden fan dizze funksje net sjen. Ofhinklik fan jo wiki, kin it lytsark wat oare nammen hawwe. At jo fierders noch problemen ûnderfine, besjoch dan jo lytsark- en meidoggerskripts, ek dy't globaal binne.",
+	"cite-reference-previews-preference-label": "Proefbylden fan referinsjes ynskeakelje (jout flugge foarfertoanings fan referinsjes ûnder it lêzen)",
 	"cite_references_link_accessibility_label": "Omheechspringe",
 	"cite_references_link_many_accessibility_label": "Omheechspringe nei:",
 	"cite_references_link_accessibility_back_label": "Wer omheechspringe",
@@ -45,9 +49,5 @@
 	"cite-wikieditor-help-content-reference-description": "Referinsje",
 	"cite-wikieditor-help-content-named-reference-description": "Neamde referinsje",
 	"cite-wikieditor-help-content-rereference-description": "Fierder gebrûk fan deselde referinsje",
-	"cite-wikieditor-help-content-showreferences-description": "Referinsjes werjaan",
-	"popups-prefs-navpopups-gadget-conflict-info": "Jo hawwe it 'lytsark' [[$1|Navigation popups]] ynskeakele, dat jo sille de proefbylden fan dizze funksje net sjen. Ofhinklik fan jo wiki, kin it lytsark in wat oare namme hawwe. At jo fierders noch problemen ûnderfine, besjoch dan jo lytsark- en meidoggerskripts, ek dy't globaal binne.",
-	"popups-prefs-reftooltips-and-navpopups-gadget-conflict-info": "Jo hawwe it 'lytsark' [[$1|Navigation popups]] en [[$1|Reference Tooltips]] ynskeakele, dat jo sille de proefbylden fan dizze funksje net sjen. Ofhinklik fan jo wiki, kin it lytsark wat oare nammen hawwe. At jo fierders noch problemen ûnderfine, besjoch dan jo lytsark- en meidoggerskripts, ek dy't globaal binne.",
-	"popups-prefs-reftooltips-gadget-conflict-info": "Jo hawwe it 'lytsark' [[$1|Reference Tooltips]] ynskeakele, dat jo sille de referinsjeproefbylden net sjen mar de sideproefbylden al. Ofhinklik fan jo wiki, kin it lytsark in wat oare namme hawwe. At jo fierders noch problemen ûnderfine, besjoch dan jo lytsark- en meidoggerskripts, ek dy't globaal binne.",
-	"popups-refpreview-user-preference-label": "Proefbylden fan referinsjes ynskeakelje (jout flugge foarfertoanings fan referinsjes ûnder it lêzen)"
+	"cite-wikieditor-help-content-showreferences-description": "Referinsjes werjaan"
 }

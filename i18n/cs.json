@@ -39,6 +39,8 @@
 	"cite-reference-previews-note": "Poznámka",
 	"cite-reference-previews-web": "Webová reference",
 	"cite-reference-previews-collapsible-placeholder": "Tato reference obsahuje prvek, který se do náhledu nevejde.",
+	"cite-reference-previews-gadget-conflict-info-reftooltips": "Máte zapnuté udělátko [[$1|Vyskakovací reference]], takže neuvidíte náhledy referencí, ale i tak uvidíte náhledy stránek. V závislosti na vaší wiki se může udělátko jmenovat i mírně jinak. Pokud budete mít i nadále problémy, zkontrolujte prosím svá udělátka a uživatelské skripty včetně těch globálních.",
+	"cite-reference-previews-preference-label": "Zapnout náhledy referencí (při čtení stránky poskytne rychlé náhledy referencí)",
 	"cite_references_link_accessibility_label": "Skočit nahoru",
 	"cite_references_link_many_accessibility_label": "Skočit nahoru k:",
 	"cite_references_link_accessibility_back_label": "Skočit zpátky nahoru",
@@ -53,7 +55,5 @@
 	"cite-wikieditor-help-content-showreferences-description": "Zobrazení referencí",
 	"cite-wikieditor-help-content-reference-example-text1": "Text článku.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Text odkazu], další text.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Text odkazu]",
-	"popups-prefs-reftooltips-gadget-conflict-info": "Máte zapnuté udělátko [[$1|Vyskakovací reference]], takže neuvidíte náhledy referencí, ale i tak uvidíte náhledy stránek. V závislosti na vaší wiki se může udělátko jmenovat i mírně jinak. Pokud budete mít i nadále problémy, zkontrolujte prosím svá udělátka a uživatelské skripty včetně těch globálních.",
-	"popups-refpreview-user-preference-label": "Zapnout náhledy referencí (při čtení stránky poskytne rychlé náhledy referencí)"
+	"cite-wikieditor-help-content-reference-example-text3": "[$1 Text odkazu]"
 }

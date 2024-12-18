@@ -13,6 +13,7 @@ use MediaWiki\MediaWikiServices;
 use stdClass;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\Core\DomSourceRange;
+use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
 use Wikimedia\Parsoid\DOM\Element;
 use Wikimedia\Parsoid\DOM\Node;
@@ -127,34 +128,32 @@ class References extends ExtensionTagHandler {
 		$errs = [];
 
 		// This is data-parsoid from the dom fragment node that's gone through
-		// dsr computation and template wrapping.
+		// DomSourceRange computation and template wrapping.
 		$nodeDp = DOMDataUtils::getDataParsoid( $node );
 		$contentId = $nodeDp->html;
 		$isTemplateWrapper = DOMUtils::hasTypeOf( $node, 'mw:Transclusion' );
 		$templateDataMw = $isTemplateWrapper ? DOMDataUtils::getDataMw( $node ) : null;
 
-		// This is the <sup> that's the meat of the sealed fragment
+		// Extract the ref fragment and ensure it's valid
 		$refFragment = $extApi->getContentDOM( $contentId )->firstChild;
 		DOMUtils::assertElt( $refFragment );
 		$refFragmentDp = DOMDataUtils::getDataParsoid( $refFragment );
 		$refDataMw = DOMDataUtils::getDataMw( $refFragment );
 
-		// read and validate the used attribute keys
+		// Validate attribute keys
 		$attributes = $refDataMw->attrs;
 		$attributesErrorMessage = $this->validateAttributeKeys( (array)$attributes );
 		if ( $attributesErrorMessage ) {
 			$errs[] = $attributesErrorMessage;
 		}
 
-		// read and store the attributes
-		// NOTE: This will have been trimmed in Utils::getExtArgInfo()'s call
-		// to TokenUtils::kvToHash() and ExtensionHandler::normalizeExtOptions()
+		// Extract and validate attribute values
 		$refName = $attributes->name ?? '';
 		$followName = $attributes->follow ?? '';
 		$refDir = strtolower( $attributes->dir ?? '' );
 		$extendsRef = $attributes->extends ?? null;
 
-		// read and validate the group of the ref
+		// Validate the reference group
 		$groupName = $attributes->group ?? $referencesData->referencesGroup;
 		$groupErrorMessage = $this->validateGroup( $groupName, $referencesData );
 		if ( $groupErrorMessage ) {
@@ -162,27 +161,22 @@ class References extends ExtensionTagHandler {
 		}
 		$refGroup = $referencesData->getRefGroup( $groupName );
 
-		// Use the about attribute on the wrapper with priority, since it's
+		// Handle 'about' attribute with priority since it's
 		// only added when the wrapper is a template sibling.
 		$about = DOMCompat::getAttribute( $node, 'about' ) ??
 			DOMCompat::getAttribute( $refFragment, 'about' );
 		'@phan-var string $about'; // assert that $about is non-null
 
-		// check the attributes name and follow
+		// Check the presence of 'name' and 'follow' attributes
 		$hasName = strlen( $refName ) > 0;
 		$hasFollow = strlen( $followName ) > 0;
 
-		if ( $hasFollow ) {
-			// Always wrap follows content so that there's no ambiguity
-			// where to find it when roundtripping
-			$followSpan = $doc->createElement( 'span' );
-			DOMUtils::addTypeOf( $followSpan, 'mw:Cite/Follow' );
-			$followSpan->setAttribute( 'about', $about );
-			$followSpan->appendChild(
-				$doc->createTextNode( ' ' )
-			);
-			DOMUtils::migrateChildren( $refFragment, $followSpan );
-			$refFragment->appendChild( $followSpan );
+		// Handle error cases for the attributes 'name' and 'follow'
+		if ( $hasName && $hasFollow ) {
+			$errs[] = new DataMwError( 'cite_error_ref_follow_conflicts' );
+		}
+		if ( !$hasFollow && !$hasName && $referencesData->inReferencesContent() ) {
+			$errs[] = new DataMwError( 'cite_error_references_no_key' );
 		}
 
 		$ref = null;
@@ -190,12 +184,19 @@ class References extends ExtensionTagHandler {
 		$hasDifferingContent = false;
 		$hasValidFollow = false;
 
+		// Wrap the attribute 'follow'
+		if ( $hasFollow ) {
+			$followSpan = $this->wrapFollower( $doc, $refFragment );
+			$followSpan->setAttribute( 'about', $about );
+			$refFragment->appendChild( $followSpan );
+		}
+
+		// Handle the attributes 'name' and 'follow'
 		if ( $hasName ) {
-			if ( $hasFollow ) {
-				// Presumably, "name" has higher precedence
-				$errs[] = new DataMwError( 'cite_error_ref_follow_conflicts' );
-			}
-			if ( isset( $refGroup->indexByName[$refName] ) ) {
+			$nameErrorMessage = $this->validateName( $refName, $refGroup, $referencesData );
+			if ( $nameErrorMessage ) {
+				$errs[] = $nameErrorMessage;
+			} elseif ( isset( $refGroup->indexByName[$refName] ) ) {
 				$ref = $refGroup->indexByName[$refName];
 				// If there are multiple <ref>s with the same name, but different content,
 				// the content of the first <ref> shows up in the <references> section.
@@ -210,41 +211,21 @@ class References extends ExtensionTagHandler {
 					$refFragmentHtml = $extApi->domToHtml( $refFragment, true, false );
 					$hasDifferingContent = ( $this->normalizeRef( $refFragmentHtml ) !== $ref->cachedHtml );
 				}
-			} else {
-				if ( $referencesData->inReferencesContent() ) {
-					$errs[] = new DataMwError(
-						'cite_error_references_missing_key',
-						[ $attributes->name ]
-					);
-				}
 			}
 		} else {
 			if ( $hasFollow ) {
-				// This is a follows ref, so check that a named ref has already
-				// been defined
-				if ( isset( $refGroup->indexByName[$followName] ) ) {
+				// Check that the followed ref exists
+				$followErrorMessage = $this->validateFollow( $followName, $refGroup );
+				if ( $followErrorMessage ) {
+					$errs[] = $followErrorMessage;
+				} else {
 					$hasValidFollow = true;
 					$ref = $refGroup->indexByName[$followName];
-				} else {
-					// FIXME: This key isn't exactly appropriate since this
-					// is more general than just being in a <references>
-					// section and it's the $followName we care about, but the
-					// extension to the legacy parser doesn't have an
-					// equivalent key and just outputs something wacky.
-					$errs[] = new DataMwError(
-						'cite_error_references_missing_key',
-						[ $attributes->follow ]
-					);
 				}
-			} elseif ( $referencesData->inReferencesContent() ) {
-				$errs[] = new DataMwError( 'cite_error_references_no_key' );
 			}
 		}
 
 		// Process nested ref-in-ref
-		//
-		// Do this before possibly adding the a ref below or
-		// migrating contents out of $c if we have a valid follow
 		if ( empty( $refFragmentDp->empty ) && self::hasRef( $refFragment ) ) {
 			if ( $hasDifferingContent ) {
 				$referencesData->pushEmbeddedContentFlag();
@@ -455,7 +436,7 @@ class References extends ExtensionTagHandler {
 		static $validAttributes = [
 			'group' => true,
 			'name' => true,
-			Cite::SUBREF_ATTRIBUTE => true,
+			Cite::SUBREF_ATTRIBUTE => true, // extends
 			'follow' => true,
 			'dir' => true
 		];
@@ -475,6 +456,50 @@ class References extends ExtensionTagHandler {
 			return new DataMwError(
 				'cite_error_references_group_mismatch',
 				[ $groupName ]
+			);
+		}
+
+		return null;
+	}
+
+	/**
+	 * wrap the content of the follow attribute
+	 * so that there is no ambiguity
+	 * where to find it when round tripping
+	 */
+	private function wrapFollower( Document $doc, Node $refFragment ): Element {
+		$followSpan = $doc->createElement( 'span' );
+		DOMUtils::addTypeOf( $followSpan, 'mw:Cite/Follow' );
+
+		$followSpan->appendChild(
+			$doc->createTextNode( ' ' )
+		);
+		DOMUtils::migrateChildren( $refFragment, $followSpan );
+
+		return $followSpan;
+	}
+
+	private function validateName( string $name, ?RefGroup $refGroup, ReferencesData $referencesData ): ?DataMwError {
+		if ( !isset( $refGroup->indexByName[$name] ) && $referencesData->inReferencesContent() ) {
+			return new DataMwError(
+				'cite_error_references_missing_key',
+				[ $name ]
+			);
+		}
+
+		return null;
+	}
+
+	private function validateFollow( string $followName, ?RefGroup $refGroup ): ?DataMwError {
+		if ( !isset( $refGroup->indexByName[$followName] ) ) {
+			// FIXME: This key isn't exactly appropriate since this
+			// is more general than just being in a <references>
+			// section and it's the $followName we care about, but the
+			// extension to the legacy parser doesn't have an
+			// equivalent key and just outputs something wacky.
+			return new DataMwError(
+				'cite_error_references_missing_key',
+				[ $followName ]
 			);
 		}
 
@@ -759,9 +784,9 @@ class References extends ExtensionTagHandler {
 		);
 
 		$refsOpts = $extApi->extArgsToArray( $extArgs ) + [
-			'group' => null,
-			'responsive' => null,
-		];
+				'group' => null,
+				'responsive' => null,
+			];
 
 		// Detect invalid parameters on the references tag
 		$knownAttributes = [ 'group', 'responsive' ];

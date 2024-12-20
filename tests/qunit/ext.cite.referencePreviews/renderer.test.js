@@ -7,18 +7,13 @@ const previewTypes = { TYPE_REFERENCE: 'reference' };
 	before() {
 		createReferencePreview = require( 'ext.cite.referencePreviews' ).private.createReferencePreview;
 	},
-	beforeEach() {
-		mw.msg = ( key ) => `<${ key }>`;
-		mw.message = ( key ) => ( { exists: () => !key.endsWith( 'generic' ), text: () => `<${ key }>` } );
-
-		mw.html = {
-			escape: ( str ) => str && str.replace( /'/g, '&apos;' ).replace( /</g, '&lt;' )
-		};
-	},
-	afterEach() {
-		mw.msg = null;
-		mw.message = null;
-		mw.html = null;
+	beforeEach: function () {
+		this.sandbox.stub( mw, 'msg', ( key ) => `<${ key }>` );
+		this.sandbox.stub( mw, 'message', ( key ) => ( {
+			exists: () => !key.endsWith( 'generic' ),
+			text: () => `<${ key }>`
+		} ) );
+		this.sandbox.stub( mw.html, 'escape', ( str ) => str && str.replace( /'/g, '&apos;' ).replace( /</g, '&lt;' ) );
 	}
 } );
 

@@ -9,13 +9,12 @@ function createStubTitle( fragment = null ) {
 ( mw.loader.getModuleNames().indexOf( 'ext.popups.main' ) !== -1 ?
 	QUnit.module :
 	QUnit.module.skip )( 'ext.cite.referencePreviews#createReferenceGateway', {
-	beforeEach() {
-		// FIXME: Is this needed?
-		// global.CSS = {
-		// escape: ( str ) => $.escapeSelector( str )
-		// };
-		mw.msg = ( key ) => `<${ key }>`;
-		mw.message = ( key ) => ( { exists: () => !key.endsWith( 'generic' ), text: () => `<${ key }>` } );
+	beforeEach: function () {
+		this.sandbox.stub( mw, 'msg', ( key ) => `<${ key }>` );
+		this.sandbox.stub( mw, 'message', ( key ) => ( {
+			exists: () => !key.endsWith( 'generic' ),
+			text: () => `<${ key }>`
+		} ) );
 
 		this.$sourceElement = $( '<a>' ).appendTo(
 			$( '<sup>' ).attr( 'id', 'cite_ref-1' ).appendTo( document.body )
@@ -49,8 +48,6 @@ function createStubTitle( fragment = null ) {
 		).appendTo( document.body );
 	},
 	afterEach() {
-		mw.msg = null;
-		mw.message = null;
 		this.$sourceElement.parent().remove();
 		this.$references.remove();
 	}

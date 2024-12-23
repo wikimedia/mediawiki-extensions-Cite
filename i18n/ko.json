@@ -36,6 +36,7 @@
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code> 태그 안에 정의된 \"$1\"이라는 이름을 가진 <code>&lt;ref&gt;</code> 태그에 내용이 없습니다.",
 	"cite-tracking-category-cite-error": "참조 오류가 있는 문서",
 	"cite-tracking-category-cite-error-desc": "이 분류가 있는 문서는 참조 태그 사용에 오류가 있습니다.",
+	"cite-tracking-category-cite-diffing-error": "시각 차이를 일으키는 참조 오류가 있는 문서",
 	"cite-reference-previews-reference": "각주",
 	"cite-reference-previews-book": "서적 참고 문헌",
 	"cite-reference-previews-journal": "저널 참조",

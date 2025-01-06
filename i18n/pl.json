@@ -38,6 +38,8 @@
 	"cite_error_empty_references_define": "Znacznik <code>&lt;ref&gt;</code> o nazwie „$1”, zdefiniowany w <code>&lt;references&gt;</code> (grupa „$2”) nie ma treści.",
 	"cite-tracking-category-cite-error": "Strony z zepsutymi przypisami",
 	"cite-tracking-category-cite-error-desc": "Strony w tej kategorii zawierają błędy w użyciu znaczników przypisów.",
+	"cite-tracking-category-cite-diffing-error": "Strony z błędami przypisów, które powodują różnice wizualne",
+	"cite-tracking-category-cite-diffing-error-desc": "Na stronach w tej kategorii występują błędy w stosowaniu znaczników przypisów. Sposób ich renderowania różni się pomiędzy starszym parserem a Parsoidem.",
 	"cite-tracking-category-ref-extends": "Strony wykorzystujące rozszerzane przypisy",
 	"cite-tracking-category-ref-extends-desc": "Strony w tej kategorii wykorzystują atrybut „extends” znacznika &lt;ref&gt;.",
 	"cite-reference-previews-reference": "Przypis",

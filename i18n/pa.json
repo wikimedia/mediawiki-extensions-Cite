@@ -6,5 +6,8 @@
 			"Cabal"
 		]
 	},
-	"cite_error": "ਹਵਾਲੇ ਵਿੱਚ ਗ਼ਲਤੀ:$1"
+	"cite_error": "ਹਵਾਲੇ ਵਿੱਚ ਗ਼ਲਤੀ:$1",
+	"cite-tracking-category-cite-error": "ਹਵਾਲੇ ਦੀਆਂ ਗਲਤੀਆਂ ਵਾਲੇ ਸਫ਼ੇ",
+	"cite_section_preview_references": "ਹਵਾਲਿਆਂ ਦੀ ਝਲਕ",
+	"cite_warning": "ਖ਼ਬਰਦਾਰੀ ਦਾ ਹਵਾਲਾ ਦਿਓ: $1"
 }

@@ -783,8 +783,6 @@ class References extends ExtensionTagHandler {
 
 		if ( isset( $error ) ) {
 			$errorFragment = ErrorUtils::renderParsoidErrorSpan( $extApi, $error );
-			// we're pushing it after the reference block while it tends to be before in legacy (error + rerender)
-			$extApi->addTrackingCategory( 'cite-tracking-category-cite-diffing-error' );
 			$frag->appendChild( $errorFragment );
 		}
 

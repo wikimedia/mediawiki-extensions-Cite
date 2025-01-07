@@ -86,24 +86,17 @@ class RefGroup {
 
 		// It seems counter-productive to go through hoops to not display all the errors considering that rendering
 		// only the first one is considered deprecated in the legacy code. However, displaying the same error
-		// multiple times for the same reference is also useless.
-		// Hence, we avoid displaying the same error multiple times, and keep count of multiple errors under this
-		// constraint; if we still display multiple errors where the legacy parser would only display one, we add
-		// the page to the cite-tracking-category-cite-diffing-error category.
+		// multiple times for the same reference is also useless. Hence, we avoid displaying the same error
+		// multiple times.
 		$reported = [];
-		$errorCount = 0;
 		foreach ( $ref->nodes as $node ) {
 			foreach ( DOMDataUtils::getDataMw( $node )->errors ?? [] as $error ) {
 				if ( in_array( $error, $reported ) ) {
 					continue;
 				}
 				$reported[] = $error;
-				$errorCount++;
 				$errorFragment = ErrorUtils::renderParsoidError( $extApi, $error->key, $error->params );
 				$li->appendChild( $errorFragment );
-				if ( ErrorUtils::isDiffingError( $error->key ) || $errorCount > 1 ) {
-					$extApi->addTrackingCategory( 'cite-tracking-category-cite-diffing-error' );
-				}
 			}
 		}
 

@@ -8,5 +8,10 @@
 	"visualeditor-cite-tool-name-journal": "Periodico",
 	"visualeditor-cite-tool-name-news": "Noticia",
 	"visualeditor-cite-tool-name-web": "Website",
-	"cite-ve-toolbar-group-label": "Cita"
+	"cite-ve-citationneeded-button": "Omenta citacion",
+	"cite-ve-citationneeded-reason": "Ya dale rason:",
+	"cite-ve-dialog-reference-title": "Referencia",
+	"cite-ve-dialogbutton-citation-educationpopup-title": "Maga citacion",
+	"cite-ve-toolbar-group-label": "Cita",
+	"cite-ve-othergroup-item": "referencia $1"
 }

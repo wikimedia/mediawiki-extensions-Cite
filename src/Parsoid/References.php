@@ -10,6 +10,7 @@ use Cite\Cite;
 use Cite\MarkSymbolRenderer;
 use Closure;
 use MediaWiki\Config\Config;
+use MediaWiki\Html\HtmlHelper;
 use MediaWiki\MediaWikiServices;
 use stdClass;
 use Wikimedia\Message\MessageValue;
@@ -27,6 +28,8 @@ use Wikimedia\Parsoid\NodeData\DataMw;
 use Wikimedia\Parsoid\NodeData\DataMwError;
 use Wikimedia\Parsoid\NodeData\DataParsoid;
 use Wikimedia\Parsoid\Utils\DOMCompat;
+use Wikimedia\RemexHtml\HTMLData;
+use Wikimedia\RemexHtml\Serializer\SerializerNode;
 
 /**
  * @license GPL-2.0-or-later
@@ -204,10 +207,10 @@ class References extends ExtensionTagHandler {
 					if ( $ref->cachedHtml === null ) {
 						// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 						$refContent = $extApi->getContentDOM( $ref->contentId )->firstChild;
-						$ref->cachedHtml = $extApi->domToHtml( $refContent, true, false );
+						$ref->cachedHtml = $this->normalizeRef( $extApi->domToHtml( $refContent, true, false ) );
 					}
 					$refFragmentHtml = $extApi->domToHtml( $refFragment, true, false );
-					$hasDifferingContent = ( $refFragmentHtml !== $ref->cachedHtml );
+					$hasDifferingContent = ( $this->normalizeRef( $refFragmentHtml ) !== $ref->cachedHtml );
 				}
 			} else {
 				if ( $referencesData->inReferencesContent() ) {
@@ -927,6 +930,33 @@ class References extends ExtensionTagHandler {
 
 		$lastLinkBack = $ref->linkbacks[count( $ref->linkbacks ) - 1] ?? null;
 		return $ref->name ? $lastLinkBack : $ref->id;
+	}
+
+	/**
+	 * This method removes the data-parsoid and about attributes from the HTML string passed in parameters, so
+	 * that it doesn't interfere for the comparison of identical references.
+	 * Remex does not implement the removal of "foreign" attributes, which means that these attributes cannot be
+	 * removed on math and svg elements (T380977), and that trying to do so crashes the rendering.
+	 * To avoid this, we only apply the normalization to nodes in the HTML namespace. This is wider than the
+	 * exact definition of foreign attributes in Remex, but the other integration points of non-foreign content
+	 * would be embedded in foreign content anyway - whose data-parsoid/about attributes would not be stripped
+	 * anyway, so there's no need to process them.
+	 * This means that identical references containing math or svg tags will be detected as being different.
+	 * This is probably a rare enough corner case. If it is not, implementing the handling of foreign attributes
+	 * (as started in Idf30b3afa00743fd78b015ff080cac29e1673f09) is a path to re-consider.
+	 */
+	private function normalizeRef( string $s ): string {
+		return HtmlHelper::modifyElements( $s,
+			static function ( SerializerNode $node ): bool {
+				return $node->namespace == HTMLData::NS_HTML
+					&& ( isset( $node->attrs['data-parsoid'] ) || isset( $node->attrs['about'] ) );
+			},
+			static function ( SerializerNode $node ): SerializerNode {
+				unset( $node->attrs['data-parsoid'] );
+				unset( $node->attrs['about'] );
+				return $node;
+			}
+		);
 	}
 
 }

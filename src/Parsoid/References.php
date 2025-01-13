@@ -1,8 +1,6 @@
 <?php
 declare( strict_types = 1 );
 // phpcs:disable MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment
-// @phan-file-suppress MediaWikiNoEmptyIfDefined Phan thinks the @property docs in the DataParsoid
-// class are a guarantee, but they aren't
 
 namespace Cite\Parsoid;
 

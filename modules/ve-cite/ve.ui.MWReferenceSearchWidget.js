@@ -168,13 +168,13 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 
 			let $refContent;
 			// Make visible text, footnoteLabel and reference name searchable
-			let refText = ( footnoteLabel + ' ' + name ).toLowerCase();
+			let refText = footnoteLabel + ' ' + name;
 			const itemNode = groupRefs.getInternalModelNode( listKey );
 			if ( itemNode.length ) {
 				$refContent = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
-				refText = $refContent.text().toLowerCase() + ' ' + refText;
+				refText = $refContent.text() + ' ' + refText;
 				// Make URLs searchable
-				$refContent.find( 'a[href]' ).each( ( k, element ) => {
+				$refContent.find( 'a[href]' ).each( ( _, element ) => {
 					refText += ' ' + element.getAttribute( 'href' );
 				} );
 			} else {
@@ -185,7 +185,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 
 			return {
 				$refContent: $refContent,
-				searchableText: refText,
+				searchableText: refText.toLowerCase(),
 				// TODO: return a simple node
 				reference: ve.dm.MWReferenceModel.static.newFromReferenceNode( node ),
 				footnoteLabel: footnoteLabel,

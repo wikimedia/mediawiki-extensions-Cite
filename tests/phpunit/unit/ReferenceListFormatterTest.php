@@ -2,11 +2,15 @@
 
 namespace Cite\Tests\Unit;
 
+use Cite\AlphabetsProvider;
 use Cite\AnchorFormatter;
 use Cite\ErrorReporter;
+use Cite\MarkSymbolRenderer;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceMessageLocalizer;
 use Cite\Tests\TestUtils;
+use MediaWiki\Config\Config;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Parser;
 use Wikimedia\TestingAccessWrapper;
@@ -41,7 +45,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$formatter = new ReferenceListFormatter(
 			$mockErrorReporter,
 			$this->createMock( AnchorFormatter::class ),
-			$mockMessageLocalizer
+			$this->createNoOpMock( MarkSymbolRenderer::class ),
+			$mockMessageLocalizer,
+			$this->createNoOpMock( Config::class )
 		);
 
 		$refs = array_map( [ TestUtils::class, 'refFromArray' ], $refs );
@@ -176,7 +182,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$this->createNoOpMock( ErrorReporter::class ),
 			$this->createNoOpMock( AnchorFormatter::class ),
-			$this->createNoOpMock( ReferenceMessageLocalizer::class )
+			$this->createNoOpMock( MarkSymbolRenderer::class ),
+			$this->createNoOpMock( ReferenceMessageLocalizer::class ),
+			$this->createNoOpMock( Config::class )
 		) );
 
 		$output = $formatter->closeIndention( $closingLi );
@@ -218,11 +226,22 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			}
 		);
 
+		$config = new HashConfig( [
+			'CiteDefaultBacklinkAlphabet' => false,
+			'CiteUseNumericBacklinkLabels' => true,
+		] );
+
 		/** @var ReferenceListFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$mockErrorReporter,
 			$anchorFormatter,
-			$mockMessageLocalizer
+			new MarkSymbolRenderer(
+				$mockMessageLocalizer,
+				$this->createNoOpMock( AlphabetsProvider::class ),
+				$config
+			),
+			$mockMessageLocalizer,
+			$config
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
@@ -313,7 +332,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$mockErrorReporter,
 			$this->createNoOpMock( AnchorFormatter::class ),
-			$this->createNoOpMock( ReferenceMessageLocalizer::class )
+			$this->createNoOpMock( MarkSymbolRenderer::class ),
+			$this->createNoOpMock( ReferenceMessageLocalizer::class ),
+			$this->createNoOpMock( Config::class )
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
@@ -368,7 +389,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$errorReporter,
 			$this->createNoOpMock( AnchorFormatter::class ),
-			$mockMessageLocalizer
+			$this->createNoOpMock( MarkSymbolRenderer::class ),
+			$mockMessageLocalizer,
+			$this->createNoOpMock( Config::class )
 		) );
 
 		$parser = $this->createNoOpMock( Parser::class );
@@ -398,7 +421,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$this->createNoOpMock( ErrorReporter::class ),
 			$this->createNoOpMock( AnchorFormatter::class ),
-			$mockMessageLocalizer
+			$this->createNoOpMock( MarkSymbolRenderer::class ),
+			$mockMessageLocalizer,
+			$this->createNoOpMock( Config::class )
 		) );
 
 		$label = $formatter->referencesFormatEntryNumericBacklinkLabel( $base, $offset, $max );
@@ -431,7 +456,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$this->createNoOpMock( ErrorReporter::class ),
 			$this->createNoOpMock( AnchorFormatter::class ),
-			$mockMessageLocalizer
+			$this->createNoOpMock( MarkSymbolRenderer::class ),
+			$mockMessageLocalizer,
+			$this->createNoOpMock( Config::class )
 		) );
 		$this->assertSame( $expected, $formatter->listToText( $list ) );
 	}

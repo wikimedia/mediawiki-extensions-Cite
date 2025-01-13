@@ -2,6 +2,7 @@
 
 namespace Cite;
 
+use MediaWiki\Config\Config;
 use MediaWiki\Html\Html;
 use MediaWiki\Parser\Parser;
 
@@ -24,15 +25,21 @@ class ReferenceListFormatter {
 	private ErrorReporter $errorReporter;
 	private AnchorFormatter $anchorFormatter;
 	private ReferenceMessageLocalizer $messageLocalizer;
+	private MarkSymbolRenderer $markSymbolRenderer;
+	private Config $config;
 
 	public function __construct(
 		ErrorReporter $errorReporter,
 		AnchorFormatter $anchorFormatter,
-		ReferenceMessageLocalizer $messageLocalizer
+		MarkSymbolRenderer $markSymbolRenderer,
+		ReferenceMessageLocalizer $messageLocalizer,
+		Config $config
 	) {
 		$this->errorReporter = $errorReporter;
 		$this->anchorFormatter = $anchorFormatter;
 		$this->messageLocalizer = $messageLocalizer;
+		$this->markSymbolRenderer = $markSymbolRenderer;
+		$this->config = $config;
 	}
 
 	/**
@@ -183,17 +190,35 @@ class ReferenceListFormatter {
 		}
 
 		$backlinks = [];
+		if ( !$this->config->get( 'CiteUseNumericBacklinkLabels' ) ) {
+			$backlinkAlphabet = $this->markSymbolRenderer->getBacklinkAlphabet(
+				$parser->getContentLanguage()->getCode()
+			);
+		}
 		for ( $i = 0; $i < $ref->count; $i++ ) {
 			$numericLabel = $this->referencesFormatEntryNumericBacklinkLabel(
 				$ref->number . ( $ref->extendsIndex ? '.' . $ref->extendsIndex : '' ),
 				$i,
 				$ref->count
 			);
+
+			if ( isset( $backlinkAlphabet ) ) {
+				$alphaBacklinkLabel = $this->markSymbolRenderer->makeBacklinkLabel(
+					$backlinkAlphabet,
+					$i + 1
+				);
+			}
+
+			// TODO Allow transition away from the numeric default labels
+			$backlinkLabel = $alphaBacklinkLabel ?? $numericLabel;
+
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
 				$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
-				$numericLabel,
-				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i ) ?? $numericLabel
+				// TODO Eventually we'll make $2 and $3 behave the same and remove
+				// `cite_references_link_many_format_backlink_labels`
+				$backlinkLabel,
+				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i ) ?? $backlinkLabel
 			)->plain();
 		}
 

@@ -27,7 +27,7 @@ mw.loader.using( 'ext.eventLogging' ).then( () => {
 		}
 
 		// FIXME: This might be obsolete when the code moves to the this extension
-		mw.trackSubscribe( REFERENCE_PREVIEWS_LOGGING_SCHEMA, ( type, data ) => {
+		mw.trackSubscribe( REFERENCE_PREVIEWS_LOGGING_SCHEMA, ( _, data ) => {
 			if ( data.action.indexOf( 'anonymous' ) !== -1 ) {
 				mw.config.set( 'wgCiteReferencePreviewsVisible', data.action === 'anonymousEnabled' );
 			}

@@ -51,7 +51,7 @@
 		fixTarget( ve.init.mw.targetFactory.lookup( n ) );
 	}
 
-	ve.init.mw.targetFactory.on( 'register', ( name, target ) => {
+	ve.init.mw.targetFactory.on( 'register', ( _name, target ) => {
 		fixTarget( target );
 	} );
 

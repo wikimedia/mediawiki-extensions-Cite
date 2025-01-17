@@ -480,7 +480,6 @@ Erroneous refs
 cat
 !! metadata
 cat=Pages_with_reference_errors sort=
-cat=Pages_with_reference_errors_that_trigger_visual_diffs sort=
 !! wikitext
 <ref name="0">Zero</ref>
 

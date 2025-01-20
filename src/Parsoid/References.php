@@ -154,7 +154,7 @@ class References extends ExtensionTagHandler {
 		$extendsRef = $attributes->extends ?? null;
 
 		// Validate the reference group
-		$groupName = $attributes->group ?? $referencesData->referencesGroup;
+		$groupName = $attributes->group ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
 		$groupErrorMessage = $this->validateGroup( $groupName, $referencesData );
 		if ( $groupErrorMessage ) {
 			$errs[] = $groupErrorMessage;
@@ -175,7 +175,12 @@ class References extends ExtensionTagHandler {
 		if ( $hasName && $hasFollow ) {
 			$errs[] = new DataMwError( 'cite_error_ref_follow_conflicts' );
 		}
-		if ( !$hasFollow && !$hasName && $referencesData->inReferencesContent() ) {
+		if (
+			!$hasFollow &&
+			!$hasName &&
+			!$referencesData->inRefContent() &&
+			$referencesData->inReferencesContent()
+		) {
 			$errs[] = new DataMwError( 'cite_error_references_no_key' );
 		}
 
@@ -230,7 +235,15 @@ class References extends ExtensionTagHandler {
 			if ( $hasDifferingContent ) {
 				$referencesData->pushEmbeddedContentFlag();
 			}
+
+			// This prevents nested list-defined references from erroneously
+			// giving "group mismatch" errors.
+			$referencesData->incrementRefDepth();
+
 			$this->processRefs( $extApi, $referencesData, $refFragment );
+
+			$referencesData->decrementRefDepth();
+
 			if ( $hasDifferingContent ) {
 				$referencesData->popEmbeddedContentFlag();
 				// If we have refs and the content differs, we need to
@@ -451,6 +464,7 @@ class References extends ExtensionTagHandler {
 	private function validateGroup( string $groupName, ReferencesData $referencesData ): ?DataMwError {
 		if (
 			$referencesData->inReferencesContent() &&
+			!$referencesData->inRefContent() &&
 			$groupName !== $referencesData->referencesGroup
 		) {
 			return new DataMwError(

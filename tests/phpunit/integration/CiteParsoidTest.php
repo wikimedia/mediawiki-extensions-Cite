@@ -4,7 +4,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Tests\Integration;
 
-use Cite\Parsoid\References;
+use Cite\Parsoid\ReferenceListTagHandler;
 use MediaWiki\Config\Config;
 use MediaWiki\Registration\ExtensionRegistry;
 use Wikimedia\ObjectFactory\ObjectFactory;
@@ -147,7 +147,7 @@ class CiteParsoidTest extends \MediaWikiIntegrationTestCase {
 	 * incompatibility.  This test asserts that selser will restore content
 	 * for invalid follows that would otherwise be dropped since it wasn't
 	 * span wrapped.
-	 * @covers \Cite\Parsoid\Ref::domToWikitext
+	 * @covers \Cite\Parsoid\RefTagHandler::domToWikitext
 	 */
 	public function testSelserFollowsWrap(): void {
 		$wt = 'Hi ho <ref follow="123">hi ho</ref>';
@@ -261,7 +261,7 @@ EOT;
 	}
 
 	/**
-	 * @covers \Cite\Parsoid\References::processAttributeEmbeddedHTML
+	 * @covers \Cite\Parsoid\ReferenceListTagHandler::processAttributeEmbeddedHTML
 	 */
 	public function testProcessAttributeEmbeddedHTML() {
 		$doc = DOMUtils::parseHTML( '' );
@@ -269,7 +269,7 @@ EOT;
 		$elt = $doc->createElement( 'a' );
 		DOMDataUtils::setDataMw( $elt, new DataMw( [ 'body' => (object)[ 'html' => 'old' ] ] ) );
 
-		$refs = new References( $this->createNoOpMock( Config::class ) );
+		$refs = new ReferenceListTagHandler( $this->createNoOpMock( Config::class ) );
 		$refs->processAttributeEmbeddedHTML(
 			$this->createNoOpMock( ParsoidExtensionAPI::class ),
 			$elt,

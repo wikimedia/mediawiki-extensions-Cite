@@ -74,7 +74,7 @@ class RefGroup {
 			]
 		);
 		if ( $refContentId ) {
-			// `sup` is the wrapper created by Ref::sourceToDom()'s call to
+			// `sup` is the wrapper created by RefTagHandler::sourceToDom()'s call to
 			// `extApi->extTagToDOM()`.  Only its contents are relevant.
 			$sup = $extApi->getContentDOM( $refContentId )->firstChild;
 			DOMUtils::migrateChildren( $sup, $reftextSpan );

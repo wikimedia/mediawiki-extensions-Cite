@@ -10,10 +10,10 @@ use Wikimedia\Parsoid\Ext\DOMProcessor;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 
 /**
- * wt -> html DOM PostProcessor
+ * Wikitext → HTML DOM PostProcessor
  * @license GPL-2.0-or-later
  */
-class RefProcessor extends DOMProcessor {
+class CiteDocumentPostProcessor extends DOMProcessor {
 	private Config $mainConfig;
 
 	public function __construct( Config $mainConfig ) {
@@ -36,7 +36,7 @@ class RefProcessor extends DOMProcessor {
 	}
 
 	/**
-	 * html -> wt DOM PreProcessor
+	 * HTML → Wikitext DOM PreProcessor
 	 *
 	 * Nothing to do right now.
 	 *
@@ -44,6 +44,5 @@ class RefProcessor extends DOMProcessor {
 	 * reconstitute page-level information from local annotations left behind by editing clients.
 	 */
 	public function htmlPreprocess( ParsoidExtensionAPI $extApi, Element $root ): void {
-		// TODO
 	}
 }

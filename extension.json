@@ -369,7 +369,7 @@
 			"name": "Cite",
 			"domProcessors": [
 				{
-					"class": "Cite\\Parsoid\\RefProcessor",
+					"class": "Cite\\Parsoid\\CiteDocumentPostProcessor",
 					"services": [
 						"MainConfig"
 					]

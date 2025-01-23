@@ -142,8 +142,6 @@ ve.ui.MWReferenceEditPanel.static.excludeCommands = [
 	'bulletWrapOnce',
 	'number',
 	'numberWrapOnce',
-	'indent',
-	'outdent',
 	// References
 	'reference',
 	'reference/existing',

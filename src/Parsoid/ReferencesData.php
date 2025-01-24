@@ -20,9 +20,14 @@ class ReferencesData {
 	/** @var string[] */
 	private array $inEmbeddedContent = [];
 	public string $referencesGroup = '';
+	private int $nestedRefsDepth = 0;
 
 	public function inReferencesContent(): bool {
 		return $this->inEmbeddedContent( 'references' );
+	}
+
+	public function inRefContent(): bool {
+		return $this->nestedRefsDepth > 0;
 	}
 
 	public function inEmbeddedContent( ?string $needle = null ): bool {
@@ -39,6 +44,14 @@ class ReferencesData {
 
 	public function popEmbeddedContentFlag() {
 		array_shift( $this->inEmbeddedContent );
+	}
+
+	public function incrementRefDepth(): void {
+		$this->nestedRefsDepth++;
+	}
+
+	public function decrementRefDepth(): void {
+		$this->nestedRefsDepth--;
 	}
 
 	public function getRefGroup(

@@ -2,11 +2,13 @@
 
 namespace Cite\Tests\Integration;
 
+use Cite\AlphabetsProvider;
 use Cite\AnchorFormatter;
 use Cite\FootnoteMarkFormatter;
 use Cite\MarkSymbolRenderer;
 use Cite\ReferenceMessageLocalizer;
 use Cite\Tests\TestUtils;
+use MediaWiki\Config\Config;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Parser;
 
@@ -40,7 +42,11 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				return $msg;
 			}
 		);
-		$markSymbolRenderer = new MarkSymbolRenderer( $messageLocalizer );
+		$markSymbolRenderer = new MarkSymbolRenderer(
+			$messageLocalizer,
+			$this->createNoOpMock( AlphabetsProvider::class ),
+			$this->createNoOpMock( Config::class )
+		);
 		$mockParser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
 		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		$formatter = new FootnoteMarkFormatter(

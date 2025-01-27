@@ -27,6 +27,7 @@ namespace Cite;
 use LogicException;
 use MediaWiki\Config\Config;
 use MediaWiki\Html\Html;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 use StatusValue;
@@ -77,15 +78,22 @@ class Cite {
 		$this->mReferencesErrors = StatusValue::newGood();
 		$this->referenceStack = new ReferenceStack();
 		$anchorFormatter = new AnchorFormatter();
+		$markSymbolRenderer = new MarkSymbolRenderer(
+			$messageLocalizer,
+			MediaWikiServices::getInstance()->getService( 'Cite.AlphabetsProvider' ),
+			$config
+		);
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(
 			$anchorFormatter,
-			new MarkSymbolRenderer( $messageLocalizer ),
+			$markSymbolRenderer,
 			$messageLocalizer
 		);
 		$this->referenceListFormatter = new ReferenceListFormatter(
 			$this->errorReporter,
 			$anchorFormatter,
-			$messageLocalizer
+			$markSymbolRenderer,
+			$messageLocalizer,
+			$config
 		);
 		$this->config = $config;
 	}

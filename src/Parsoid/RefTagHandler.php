@@ -18,7 +18,7 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
  * Simple token transform version of the Ref extension tag.
  * @license GPL-2.0-or-later
  */
-class Ref extends ExtensionTagHandler {
+class RefTagHandler extends ExtensionTagHandler {
 
 	/** @inheritDoc */
 	public function sourceToDom(

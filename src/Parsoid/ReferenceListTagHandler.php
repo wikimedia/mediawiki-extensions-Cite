@@ -52,7 +52,7 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 		}
 
 		$referenceList = new References( $this->mainConfig );
-		$frag = $referenceList->createReferenceListDOM(
+		$frag = $referenceList->createEmptyReferenceListFragment(
 			$extApi,
 			$domFragment,
 			$refsOpts,

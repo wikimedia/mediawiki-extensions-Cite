@@ -3463,3 +3463,24 @@ cat=Pages_with_reference_errors sort=
 </ol>
 </div>
 !! end
+
+!! test
+3. Multiple definition with the same complex content, but one is templated
+!! wikitext
+{{1x|<ref name="ref">{{1x|<span>txt</span>}}</ref>}} <ref name="ref">{{1x|<span>txt</span>}}</ref>
+<references />
+!! html/php
+<p><sup id="cite_ref-ref_1-0" class="reference"><a href="#cite_note-ref-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> <sup id="cite_ref-ref_1-1" class="reference"><a href="#cite_note-ref-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-ref-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-ref_1-0">1.0</a></sup> <sup><a href="#cite_ref-ref_1-1">1.1</a></sup></span> <span class="reference-text"><span>txt</span></span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup class="mw-ref reference" id="cite_ref-ref_1-0" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"ref"},"body":{"extsrc":"{{1x|&lt;span>txt&lt;/span>}}"},"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;ref name=\"ref\">{{1x|&lt;span>txt&lt;/span>}}&lt;/ref>"}},"i":0}}]}'><a href="./Parser_test#cite_note-ref-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference" id="cite_ref-ref_1-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"ref"},"body":{"html":"&lt;span typeof=\"mw:Transclusion\" data-mw=&apos;{\"parts\":[{\"template\":{\"target\":{\"wt\":\"1x\",\"href\":\"./Template:1x\"},\"params\":{\"1\":{\"wt\":\"&amp;lt;span>txt&amp;lt;/span>\"}},\"i\":0}}]}&apos;>txt&lt;/span>"}}'><a href="./Parser_test#cite_note-ref-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li id="cite_note-ref-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-ref_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-ref_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-ref-1" class="mw-reference-text reference-text"><span>txt</span></span></li>
+</ol>
+</div>
+!! end 

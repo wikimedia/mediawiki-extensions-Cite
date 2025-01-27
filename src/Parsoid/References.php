@@ -183,6 +183,7 @@ class References {
 
 		$ref = null;
 		$refFragmentHtml = '';
+		$hasDifferingHtml = false;
 		$hasDifferingContent = false;
 		$hasValidFollow = false;
 
@@ -211,7 +212,11 @@ class References {
 						$ref->cachedHtml = $this->normalizeRef( $extApi->domToHtml( $refContent, true, false ) );
 					}
 					$refFragmentHtml = $extApi->domToHtml( $refFragment, true, false );
-					$hasDifferingContent = ( $this->normalizeRef( $refFragmentHtml ) !== $ref->cachedHtml );
+					$hasDifferingHtml = ( $this->normalizeRef( $refFragmentHtml ) !== $ref->cachedHtml );
+					if ( $hasDifferingHtml ) {
+						$hasDifferingContent = $this->normalizeRef( $refFragmentHtml, true ) !==
+							$this->normalizeRef( $ref->cachedHtml, true );
+					}
 				}
 			}
 		} else {
@@ -229,7 +234,7 @@ class References {
 
 		// Process nested ref-in-ref
 		if ( empty( $refFragmentDp->empty ) && self::hasRef( $refFragment ) ) {
-			if ( $hasDifferingContent ) {
+			if ( $hasDifferingHtml ) {
 				$referencesData->pushEmbeddedContentFlag();
 			}
 
@@ -241,7 +246,7 @@ class References {
 
 			$referencesData->decrementRefDepth();
 
-			if ( $hasDifferingContent ) {
+			if ( $hasDifferingHtml ) {
 				$referencesData->popEmbeddedContentFlag();
 				// If we have refs and the content differs, we need to
 				// reserialize now that we processed the refs.  Unfortunately,
@@ -340,13 +345,10 @@ class References {
 				// removing it below asserts everything has been migrated out
 				DOMCompat::replaceChildren( $refFragment );
 			}
-			if ( $hasDifferingContent ) {
-				// TODO: Since this error is being placed on the ref, the
-				// key should arguably be "cite_error_ref_duplicate_key"
-				$errs[] = new DataMwError(
-					'cite_error_references_duplicate_key',
-					[ $attributes->name ]
-				);
+			if ( $hasDifferingHtml ) {
+				if ( $refFragmentHtml != '' && $hasDifferingContent ) {
+					$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $attributes->name ] );
+				}
 				$refDataMw->body = (object)[ 'html' => $refFragmentHtml ];
 			} else {
 				$refDataMw->body = (object)[ 'id' => 'mw-reference-text-' . $ref->target ];
@@ -849,16 +851,30 @@ class References {
 	 * This means that identical references containing math or svg tags will be detected as being different.
 	 * This is probably a rare enough corner case. If it is not, implementing the handling of foreign attributes
 	 * (as started in Idf30b3afa00743fd78b015ff080cac29e1673f09) is a path to re-consider.
+	 * The extra parameter $checkContent allows to further suppress error messages for references that are not
+	 * technically identical from a round-tripping perspective (hence the need to still consider them distinct) but
+	 * "close enough" to not bother editors with a confusing error message. This is in particular the case for
+	 * references that involve various levels of templating, which means involve different variation of
+	 * data-mw presence/absence.
 	 */
-	private function normalizeRef( string $s ): string {
+	private function normalizeRef( string $s, bool $checkContent = false ): string {
 		return HtmlHelper::modifyElements( $s,
-			static function ( SerializerNode $node ): bool {
+			static function ( SerializerNode $node ) use ( $checkContent ): bool {
 				return $node->namespace == HTMLData::NS_HTML
-					&& ( isset( $node->attrs['data-parsoid'] ) || isset( $node->attrs['about'] ) );
+					&& ( isset( $node->attrs['data-parsoid'] )
+						|| isset( $node->attrs['about'] )
+						|| ( $checkContent
+							&& ( isset( $node->attrs['data-mw'] ) || isset( $node->attrs['typeof'] ) )
+						)
+					);
 			},
-			static function ( SerializerNode $node ): SerializerNode {
+			static function ( SerializerNode $node ) use ( $checkContent ): SerializerNode {
 				unset( $node->attrs['data-parsoid'] );
 				unset( $node->attrs['about'] );
+				if ( $checkContent ) {
+					unset( $node->attrs['data-mw'] );
+					unset( $node->attrs['typeof'] );
+				}
 				return $node;
 			}
 		);

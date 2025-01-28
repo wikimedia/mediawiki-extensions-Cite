@@ -52,7 +52,11 @@ class CiteEditorCapability extends AbstractEditorCapability {
 		$out->setPageTitleMsg( $this->msg( 'cite-configuration-title' ) );
 		$out->addSubtitle( $this->msg( 'cite-configuration-subtitle' )->escaped() );
 
-		// TODO: add the codex setup here
+		// codex setup
+		$out->addModules( 'ext.cite.community-configuration' );
+		$out->addHTML(
+			'<div id="ext-cite-configuration-vue-root" class="ext-cite-configuration-page">'
+		);
 
 		// get the stored value and forward to JS
 		$this->provider = $this->providerFactory->newProvider( $subpage );

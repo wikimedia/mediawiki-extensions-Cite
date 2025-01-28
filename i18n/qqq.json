@@ -93,6 +93,9 @@
 	"cite-wikieditor-help-content-reference-example-reflist": "{{ignored}}",
 	"cite-configuration-title": "{{notranslate}}\nPage title for the Community Configuration page on Special:CommunityConfiguration/Cite",
 	"cite-configuration-subtitle": "{{notranslate}}\nSubtitle for the Community Configuration page on Special:CommunityConfiguration/Cite",
+	"cite-configuration-backlink-marker-title": "{{notranslate}}\nTitle for the backlink marker setting in the Cite community configuration",
+	"cite-configuration-backlink-marker-description": "{{notranslate}}\nIntroduction text for the backlink marker setting in the Cite community configuration",
+	"cite-configuration-backlink-marker-help": "{{notranslate}}\nHelptext for the input of the backlink marker setting in the Cite community configuration",
 	"communityconfiguration-cite-title": "{{notranslate}}\nTitle for the Community Configuration provider on Special:CommunityConfiguration",
 	"communityconfiguration-cite-description": "{{notranslate}}\nDescription for the Community Configuration on Special:CommunityConfiguration"
 }

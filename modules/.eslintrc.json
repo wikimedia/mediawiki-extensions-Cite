@@ -4,5 +4,30 @@
 		"wikimedia/client",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
+	],
+	"overrides": [
+		{
+			"files": "**/*.vue",
+			"extends": [
+				"wikimedia/client-common",
+				"wikimedia/vue3-es6"
+			],
+			"rules": {
+				"max-len": "off",
+				"template-curly-spacing": "off",
+				"vue/component-name-in-template-casing": [
+					"error",
+					"kebab-case"
+				],
+				"vue/max-len": [
+					"error",
+					{
+						"code": 120,
+						"template": 120,
+						"comments": 120
+					}
+				]
+			}
+		}
 	]
 }

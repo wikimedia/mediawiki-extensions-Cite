@@ -25,6 +25,7 @@
 	},
 	"Hooks": {
 		"APIQuerySiteInfoGeneralInfo": "main",
+		"CommunityConfigurationProvider_initList": "communityconfiguration",
 		"ContentHandlerDefaultModelFor": "main",
 		"GetPreferences": "main",
 		"ParserAfterParse": "parser",
@@ -38,6 +39,9 @@
 		"UserGetDefaultOptions": "main"
 	},
 	"HookHandlers": {
+		"communityconfiguration": {
+			"class": "Cite\\Config\\CommunityConfigurationHooks"
+		},
 		"main": {
 			"class": "Cite\\Hooks\\CiteHooks",
 			"services": [
@@ -356,6 +360,11 @@
 			"description": "Feature flag to be able to migrate away from numeric backlink labels.",
 			"public": true,
 			"value": true
+		},
+		"CiteBacklinkCommunityConfiguration": {
+			"description": "Feature flag to enable the Cite community configuration.",
+			"public": true,
+			"value": false
 		},
 		"CiteDefaultBacklinkAlphabet": {
 			"description": "List of letters in the Alphabet to be used to auto-generate backlink labels. Separated by spaces. Defaults to English Alphabet \"a\" to \"z\" when not specified. Currently only used when CiteUseNumericBacklinkLabels is set to false.",

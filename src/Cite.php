@@ -79,6 +79,10 @@ class Cite {
 		$this->referenceStack = new ReferenceStack();
 		$anchorFormatter = new AnchorFormatter();
 		$markSymbolRenderer = new MarkSymbolRenderer(
+			$messageLocalizer
+		);
+		$backlinkMarkRenderer = new BacklinkMarkRenderer(
+			$parser->getContentLanguage()->getCode(),
 			$messageLocalizer,
 			MediaWikiServices::getInstance()->getService( 'Cite.AlphabetsProvider' ),
 			$config
@@ -91,9 +95,8 @@ class Cite {
 		$this->referenceListFormatter = new ReferenceListFormatter(
 			$this->errorReporter,
 			$anchorFormatter,
-			$markSymbolRenderer,
-			$messageLocalizer,
-			$config
+			$backlinkMarkRenderer,
+			$messageLocalizer
 		);
 		$this->config = $config;
 	}

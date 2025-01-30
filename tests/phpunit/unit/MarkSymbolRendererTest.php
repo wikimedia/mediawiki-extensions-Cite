@@ -7,7 +7,6 @@ use Cite\Cite;
 use Cite\MarkSymbolRenderer;
 use Cite\ReferenceMessageLocalizer;
 use MediaWiki\Config\Config;
-use MediaWiki\Config\HashConfig;
 use MediaWiki\Message\Message;
 
 /**
@@ -72,53 +71,6 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 		);
 
 		$this->assertSame( '1', $renderer->makeLabel( Cite::DEFAULT_GROUP, 1 ) );
-	}
-
-	/**
-	 * @dataProvider provideGetBacklinkAlphabet
-	 */
-	public function testGetBacklinkAlphabet( $configAlpha, ?array $indexChars, array $resultAlpha ) {
-		$mockAlphabets = $this->createMock( AlphabetsProvider::class );
-		$mockAlphabets->method( 'getIndexCharacters' )->willReturn(
-			$indexChars
-		);
-
-		$config = new HashConfig( [
-			'CiteDefaultBacklinkAlphabet' => $configAlpha,
-		] );
-
-		$renderer = new MarkSymbolRenderer(
-			$this->createNoOpMock( ReferenceMessageLocalizer::class ),
-			$mockAlphabets,
-			$config
-		);
-
-		$this->assertSame( $resultAlpha, $renderer->getBacklinkAlphabet( '' ) );
-	}
-
-	public static function provideGetBacklinkAlphabet() {
-		$fallback = range( 'a', 'z' );
-		yield [ null, null, $fallback ];
-		yield [ false, null, $fallback ];
-		yield [ '', null, $fallback ];
-		yield [ ' ', null, $fallback ];
-		yield [ 'abc', null, [ 'abc' ] ];
-		yield [ 'b a r', null, [ 'b', 'a', 'r' ] ];
-		yield [ 'b a r', [ 'f', 'o' ], [ 'b', 'a', 'r' ] ];
-		yield [ null, [ 'f', 'o' ], [ 'f', 'o' ] ];
-		yield [ null, [ 'F', 'O' ], [ 'f', 'o' ] ];
-	}
-
-	public function testMakeBacklinkLabel() {
-		$renderer = new MarkSymbolRenderer(
-			$this->createNoOpMock( ReferenceMessageLocalizer::class ),
-			$this->createNoOpMock( AlphabetsProvider::class ),
-			$this->createNoOpMock( Config::class )
-		);
-
-		$this->assertSame( 'ab', $renderer->makeBacklinkLabel( [ 'a', 'b', 'c' ], 5 ) );
-		$this->assertSame( 'abcabcabcabcabc', $renderer->makeBacklinkLabel( [ 'abc' ], 5 ) );
-		$this->assertSame( '', $renderer->makeBacklinkLabel( [], 5 ) );
 	}
 
 }

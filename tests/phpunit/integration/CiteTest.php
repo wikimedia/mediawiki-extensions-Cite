@@ -425,7 +425,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	 * @coversNothing
 	 */
 	public function testReferencesSectionPreview() {
-		$language = $this->createNoOpMock( Language::class );
+		$language = $this->createMock( Language::class );
+		$language->method( 'getCode' )->willReturn( 'en' );
 
 		$parserOptions = $this->createMock( ParserOptions::class );
 		$parserOptions->method( 'getIsSectionPreview' )->willReturn( true );
@@ -456,7 +457,8 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	private function newCite( bool $isSectionPreview = false ): Cite {
-		$language = $this->createNoOpMock( Language::class, [ '__debugInfo' ] );
+		$language = $this->createNoOpMock( Language::class, [ '__debugInfo', 'getCode' ] );
+		$language->method( 'getCode' )->willReturn( 'en' );
 
 		$mockOptions = $this->createMock( ParserOptions::class );
 		$mockOptions->method( 'getIsSectionPreview' )->willReturn( $isSectionPreview );

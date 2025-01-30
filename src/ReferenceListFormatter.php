@@ -2,7 +2,6 @@
 
 namespace Cite;
 
-use MediaWiki\Config\Config;
 use MediaWiki\Html\Html;
 use MediaWiki\Parser\Parser;
 
@@ -14,32 +13,21 @@ use MediaWiki\Parser\Parser;
  */
 class ReferenceListFormatter {
 
-	/**
-	 * The backlinks, in order, to pass as $3 to
-	 * 'cite_references_link_many_format', defined in
-	 * 'cite_references_link_many_format_backlink_labels
-	 *
-	 * @var string[]|null
-	 */
-	private ?array $backlinkLabels = null;
 	private ErrorReporter $errorReporter;
 	private AnchorFormatter $anchorFormatter;
 	private ReferenceMessageLocalizer $messageLocalizer;
-	private MarkSymbolRenderer $markSymbolRenderer;
-	private Config $config;
+	private BacklinkMarkRenderer $backlinkMarkRenderer;
 
 	public function __construct(
 		ErrorReporter $errorReporter,
 		AnchorFormatter $anchorFormatter,
-		MarkSymbolRenderer $markSymbolRenderer,
-		ReferenceMessageLocalizer $messageLocalizer,
-		Config $config
+		BacklinkMarkRenderer $backlinkMarkRenderer,
+		ReferenceMessageLocalizer $messageLocalizer
 	) {
 		$this->errorReporter = $errorReporter;
 		$this->anchorFormatter = $anchorFormatter;
 		$this->messageLocalizer = $messageLocalizer;
-		$this->markSymbolRenderer = $markSymbolRenderer;
-		$this->config = $config;
+		$this->backlinkMarkRenderer = $backlinkMarkRenderer;
 	}
 
 	/**
@@ -190,42 +178,32 @@ class ReferenceListFormatter {
 		}
 
 		$backlinks = [];
-		if ( !$this->config->get( 'CiteUseLegacyBacklinkLabels' ) ) {
-			$backlinkAlphabet = $this->markSymbolRenderer->getBacklinkAlphabet(
-				$parser->getContentLanguage()->getCode()
-			);
-		}
-
 		for ( $i = 0; $i < $ref->count; $i++ ) {
-			$numericLabel = $this->referencesFormatEntryNumericBacklinkLabel(
-				$ref->number . ( $ref->extendsIndex ? '.' . $ref->extendsIndex : '' ),
-				$i,
-				$ref->count
-			);
+			if ( $this->backlinkMarkRenderer->isLegacyMode() ) {
+				// FIXME: parent mark should be explicitly markSymbolRenderer'd if it
+				// stays here.
+				$parentLabel = $this->messageLocalizer->localizeDigits( (string)$ref->number
+					. ( $ref->extendsIndex ? '.' . $ref->extendsIndex : '' ) );
 
-			if ( isset( $backlinkAlphabet ) ) {
-				$alphaBacklinkLabel = $this->markSymbolRenderer->makeBacklinkLabel(
-					$backlinkAlphabet,
-					$i + 1
-				);
+				$backlinks[] = $this->messageLocalizer->msg(
+					'cite_references_link_many_format',
+					$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
+					$this->backlinkMarkRenderer->getLegacyNumericMarker( $i, $ref->count, $parentLabel ),
+					$this->backlinkMarkRenderer->getLegacyAlphabeticMarker( $i + 1, $ref->count, $parentLabel )
+				)->plain();
+			} else {
+				$backlinkLabel = $this->backlinkMarkRenderer->getBacklinkMarker( $i + 1 );
+
+				$backlinks[] = $this->messageLocalizer->msg(
+					'cite_references_link_many_format',
+					$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
+					$backlinkLabel,
+					$backlinkLabel
+				)->plain();
 			}
-
-			// TODO Allow transition away from the numeric default labels
-			$backlinkLabel = $alphaBacklinkLabel ?? $numericLabel;
-			$alternateLabel = $this->referencesFormatEntryAlternateBacklinkLabel( $i );
-
-			$backlinks[] = $this->messageLocalizer->msg(
-				'cite_references_link_many_format',
-				$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
-				// TODO Eventually we'll make $2 and $3 behave the same and remove
-				// `cite_references_link_many_format_backlink_labels`
-				$backlinkLabel,
-				// Fallback when we run out of alternate labels or they are disabled
-				$alternateLabel ?? $backlinkLabel
-			)->plain();
 		}
 
-		// The parent of a subref might actually be unused and therefor have zero backlinks
+		// The parent of a subref might actually be unused and therefore have zero backlinks
 		$linkTargetId = $ref->count > 0 ?
 			$this->anchorFormatter->jumpLinkTarget( $key . '-' . $ref->key ) : '';
 		return $this->messageLocalizer->msg(
@@ -264,47 +242,6 @@ class ReferenceListFormatter {
 		}
 
 		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";
-	}
-
-	/**
-	 * Generate a numeric backlink given a base number and an
-	 * offset, e.g. $base = 1, $offset = 2; = 1.2
-	 * Since bug #5525, it correctly does 1.9 -> 1.10 as well as 1.099 -> 1.100
-	 *
-	 * @param string $base
-	 * @param int $offset
-	 * @param int $max Maximum value expected.
-	 *
-	 * @return string
-	 */
-	private function referencesFormatEntryNumericBacklinkLabel(
-		string $base,
-		int $offset,
-		int $max
-	): string {
-		return $this->messageLocalizer->localizeDigits( $base ) .
-			$this->messageLocalizer->localizeSeparators( '.' ) .
-			$this->messageLocalizer->localizeDigits(
-				str_pad( (string)$offset, strlen( (string)$max ), '0', STR_PAD_LEFT )
-			);
-	}
-
-	/**
-	 * Return one of the custom backlink labels from the list in the message
-	 * [[MediaWiki:Cite_references_link_many_format_backlink_labels]].
-	 *
-	 * @return string|null Null when we run out of alternate labels or they are disabled
-	 */
-	private function referencesFormatEntryAlternateBacklinkLabel(
-		int $offset
-	): ?string {
-		if ( $this->backlinkLabels === null ) {
-			$msg = $this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' );
-			// Disabling the message just disables the feature
-			$this->backlinkLabels = $msg->isDisabled() ? [] : preg_split( '/\s+/', $msg->plain() );
-		}
-
-		return $this->backlinkLabels[$offset] ?? null;
 	}
 
 	/**

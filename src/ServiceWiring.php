@@ -1,6 +1,7 @@
 <?php
 
 use Cite\AlphabetsProvider;
+use Cite\BacklinkMarkRenderer;
 use Cite\MarkSymbolRenderer;
 use Cite\ReferenceMessageLocalizer;
 use Cite\ReferencePreviews\ReferencePreviewsContext;
@@ -15,6 +16,16 @@ return [
 	'Cite.AlphabetsProvider' => static function (): AlphabetsProvider {
 		return new AlphabetsProvider();
 	},
+	'Cite.BacklinkMarkRenderer' => static function ( MediaWikiServices $services ): BacklinkMarkRenderer {
+		return new BacklinkMarkRenderer(
+			$services->getContentLanguage()->getCode(),
+			new ReferenceMessageLocalizer(
+				$services->getContentLanguage()
+			),
+			$services->getService( 'Cite.AlphabetsProvider' ),
+			$services->getMainConfig()
+		);
+	},
 	'Cite.GadgetsIntegration' => static function ( MediaWikiServices $services ): ReferencePreviewsGadgetsIntegration {
 		return new ReferencePreviewsGadgetsIntegration(
 			$services->getMainConfig(),
@@ -27,9 +38,7 @@ return [
 		return new MarkSymbolRenderer(
 			new ReferenceMessageLocalizer(
 				$services->getContentLanguage()
-			),
-			$services->getService( 'Cite.AlphabetsProvider' ),
-			$services->getMainConfig()
+			)
 		);
 	},
 	'Cite.ReferencePreviewsContext' => static function ( MediaWikiServices $services ): ReferencePreviewsContext {

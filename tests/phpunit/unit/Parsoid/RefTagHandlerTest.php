@@ -25,7 +25,7 @@ class RefTagHandlerTest extends MediaWikiUnitTestCase {
 		$group->processAttributeEmbeddedHTML(
 			$this->createNoOpMock( ParsoidExtensionAPI::class ),
 			$elt,
-			fn () => 'new'
+			static fn () => 'new'
 		);
 
 		$this->assertSame( 'new', DOMDataUtils::getDataMw( $elt )->body->html );

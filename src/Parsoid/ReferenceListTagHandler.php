@@ -150,7 +150,7 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 				$editedDataMw->body->html, $editedNode->ownerDocument,
 				[ 'markNew' => true ]
 			);
-			return call_user_func( $domDiff, $origFragment, $editedFragment );
+			return $domDiff( $origFragment, $editedFragment );
 		}
 
 		// FIXME: Similar to DOMDiff::subtreeDiffers, maybe $editNode should

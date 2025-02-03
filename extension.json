@@ -304,6 +304,34 @@
 				"references": "text/mediawiki"
 			}
 		},
+		"CommunityConfiguration": {
+			"EditorCapabilities": {
+				"citeEditor": {
+
+					"class": "Cite\\Config\\CiteEditorCapability",
+					"services": [
+						"CommunityConfiguration.ProviderFactory",
+						"CommunityConfiguration.MediaWikiConfigReader"
+					]
+				}
+			},
+			"Providers": {
+				"Cite": {
+					"store": {
+						"type": "wikipage",
+						"args": [ "MediaWiki:CiteConfig.json" ]
+					},
+					"validator": {
+						"type": "jsonschema",
+						"args": [ "Cite\\Config\\Schemas\\CiteSchema" ]
+					},
+					"type": "mw-config",
+					"options": {
+						"editorCapability": "citeEditor"
+					}
+				}
+			}
+		},
 		"EventLogging": {
 			"Schemas": {
 				"ReferencePreviewsPopups": "/analytics/legacy/referencepreviewspopups/1.1.0"

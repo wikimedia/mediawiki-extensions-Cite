@@ -90,5 +90,9 @@
 	"cite-wikieditor-help-content-reference-example-ref-reuse": "{{ignored}}",
 	"cite-wikieditor-help-content-reference-example-ref-extends": "{{ignored}}",
 	"cite-wikieditor-help-content-reference-example-ref-result": "{{ignored}}",
-	"cite-wikieditor-help-content-reference-example-reflist": "{{ignored}}"
+	"cite-wikieditor-help-content-reference-example-reflist": "{{ignored}}",
+	"cite-configuration-title": "{{notranslate}}\nPage title for the Community Configuration page on Special:CommunityConfiguration/Cite",
+	"cite-configuration-subtitle": "{{notranslate}}\nSubtitle for the Community Configuration page on Special:CommunityConfiguration/Cite",
+	"communityconfiguration-cite-title": "{{notranslate}}\nTitle for the Community Configuration provider on Special:CommunityConfiguration",
+	"communityconfiguration-cite-description": "{{notranslate}}\nDescription for the Community Configuration on Special:CommunityConfiguration"
 }

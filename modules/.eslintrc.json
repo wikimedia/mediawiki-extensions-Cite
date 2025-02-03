@@ -4,8 +4,5 @@
 		"wikimedia/client",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
-	],
-	"rules": {
-		"max-len": "off"
-	}
+	]
 }

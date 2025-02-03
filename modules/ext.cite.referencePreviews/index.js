@@ -4,16 +4,16 @@ const createReferencePreview = require( './createReferencePreview.js' );
 const TYPE_REFERENCE = 'reference';
 
 /**
-* Given the global state of the application, creates a function that gets
-* whether or not the user should have Reference Previews enabled.
-*
-* @param {mw.user} user The `mw.user` singleton instance
-* @param {Function} isPreviewTypeEnabled check whether preview has been disabled or enabled.
-* @param {mw.Map} config
-*
-* @return {boolean|null} Null when there is no way the popup type can be enabled at run-time.
-* @memberof module:ext.cite.referencePreviews
-*/
+ * Given the global state of the application, creates a function that gets
+ * whether or not the user should have Reference Previews enabled.
+ *
+ * @param {mw.user} user The `mw.user` singleton instance
+ * @param {Function} isPreviewTypeEnabled check whether preview has been disabled or enabled.
+ * @param {mw.Map} config
+ *
+ * @return {boolean|null} Null when there is no way the popup type can be enabled at run-time.
+ * @memberof module:ext.cite.referencePreviews
+ */
 function isReferencePreviewsEnabled( user, isPreviewTypeEnabled, config ) {
 	if ( !config.get( 'wgCiteReferencePreviewsActive' ) ) {
 		return null;

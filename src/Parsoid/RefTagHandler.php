@@ -202,7 +202,7 @@ class RefTagHandler extends ExtensionTagHandler {
 				$editedDataMw->body->html, $editedNode->ownerDocument,
 				[ 'markNew' => true ]
 			);
-			return call_user_func( $domDiff, $origFragment, $editedFragment );
+			return $domDiff( $origFragment, $editedFragment );
 		} elseif ( isset( $origDataMw->body->id ) && isset( $editedDataMw->body->id ) ) {
 			$origId = $origDataMw->body->id;
 			$editedId = $editedDataMw->body->id;
@@ -218,7 +218,7 @@ class RefTagHandler extends ExtensionTagHandler {
 			$editedHtml = DOMCompat::getElementById( $editedNode->ownerDocument, $editedId );
 
 			if ( $origHtml && $editedHtml ) {
-				return call_user_func( $domDiff, $origHtml, $editedHtml );
+				return $domDiff( $origHtml, $editedHtml );
 			} else {
 				// Log error
 				if ( !$origHtml ) {

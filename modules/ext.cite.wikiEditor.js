@@ -122,7 +122,8 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 			}
 		};
 
-		// Insert extendedRefObj right after the row for named refs with the description message key "Additional use of the same reference"
+		// Insert extendedRefObj right after the row for named refs with the description message key
+		// "Additional use of the same reference"
 		const indexOfNamedRefItem = helpRows.findIndex( ( obj ) => mw.message( 'cite-wikieditor-help-content-rereference-description' ).plain() === obj.description.html );
 		helpRows.splice( indexOfNamedRefItem + 1, 0, extendedRefObj );
 	}

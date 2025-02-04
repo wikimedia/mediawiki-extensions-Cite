@@ -95,9 +95,12 @@
 	"cite-configuration-title": "Page title for the Community Configuration page on Special:CommunityConfiguration/Cite",
 	"cite-configuration-info": "Subtitle for the Community Configuration page on Special:CommunityConfiguration/Cite",
 	"cite-configuration-submit": "Submit button for the Community Configuration page on Special:CommunityConfiguration/Cite",
-	"cite-configuration-backlink-marker-title": "Title for the backlink marker setting in the Cite community configuration",
-	"cite-configuration-backlink-marker-description": "Introduction text for the backlink marker setting in the Cite community configuration",
-	"cite-configuration-backlink-marker-help": "Helptext for the input of the backlink marker setting in the Cite community configuration",
+	"cite-configuration-backlink-title": "Title for backlink settings on the Community Configuration page on Special:CommunityConfiguration/Cite",
+	"cite-configuration-backlink-description": "Introduction text for the backlink settings on the Community Configuration page on Special:CommunityConfiguration/Cite",
+	"cite-configuration-backlink-alpha-suggestion": "Description for the alphabet suggestion box on the Community Configuration page on Special:CommunityConfiguration/Cite",
+	"cite-configuration-backlink-marker-label": "Label for the backlink marker symbols setting on the Community Configuration page on Special:CommunityConfiguration/Cite",
+	"cite-configuration-backlink-marker-description": "Description for the backlink marker symbols setting on the Community Configuration page on Special:CommunityConfiguration/Cite",
+	"cite-configuration-backlink-marker-help": "Helptext for the input of the backlink marker symbols setting on the Community Configuration page on Special:CommunityConfiguration/Cite",
 	"communityconfiguration-cite-title": "Title for the Community Configuration provider on Special:CommunityConfiguration",
 	"communityconfiguration-cite-description": "Description for the Community Configuration on Special:CommunityConfiguration"
 }

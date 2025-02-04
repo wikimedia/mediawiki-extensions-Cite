@@ -47,6 +47,7 @@ mw.trackSubscribe( 'Popups.SettingChange', ( data ) => {
  * Create the relevant config to register the preview type in the Popups extension.
  *
  * @see mw.popups.register()
+ * @return {Object}
  * @memberof module:ext.cite.referencePreviews
  */
 function createReferencePreviewsType() {

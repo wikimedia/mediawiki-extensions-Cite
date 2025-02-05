@@ -38,7 +38,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$this->assertSame( [
 			'wgCiteVisualEditorOtherGroup' => $enabled,
 			'wgCiteResponsiveReferences' => $enabled,
-			'wgCiteBookReferencing' => $enabled,
+			'wgCiteSubReferencing' => $enabled,
 		], $vars );
 	}
 

@@ -214,18 +214,13 @@ ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
  */
 ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listKey ) {
 	const mainRefs = this.getRefUsages( listKey );
-	const mainRefsCount = mainRefs.length;
+	let usageCount = mainRefs.length;
 
-	const subrefs = this.getSubrefs( listKey );
-
-	let subrefsCount = 0;
-	subrefs.forEach( ( node ) => {
-		subrefsCount += this.getRefUsages( node.getAttribute( 'listKey' ) ).length;
+	this.getSubrefs( listKey ).forEach( ( node ) => {
+		usageCount += this.getRefUsages( node.getAttribute( 'listKey' ) ).length;
 	} );
 
-	const totalUsageCount = mainRefsCount + subrefsCount;
-
-	return totalUsageCount;
+	return usageCount;
 };
 
 /**

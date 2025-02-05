@@ -522,7 +522,7 @@ ve.dm.MWReferenceNode.prototype.removeFromInternalList = function () {
 	);
 };
 
-ve.dm.MWReferenceNode.prototype.onAttributeChange = function ( key, from, to ) {
+ve.dm.MWReferenceNode.prototype.onAttributeChange = function ( key, _from, to ) {
 	if ( key === 'placeholder' ) {
 		this.getDocument().getInternalList().markGroupAsChanged( this.registeredListGroup );
 	}

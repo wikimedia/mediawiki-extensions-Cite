@@ -15,37 +15,31 @@ class Validator {
 	private ReferenceStack $referenceStack;
 	private ?string $inReferencesGroup;
 	private bool $isSectionPreview;
-	private bool $isExtendsEnabled;
 
 	/**
 	 * @param ReferenceStack $referenceStack
 	 * @param string|null $inReferencesGroup Group name of the <references> context to consider
 	 *  during validation. Null if we are currently not in a <references> context.
 	 * @param bool $isSectionPreview Validation is relaxed when previewing parts of a page
-	 * @param bool $isExtendsEnabled Temporary feature flag
 	 */
 	public function __construct(
 		ReferenceStack $referenceStack,
 		?string $inReferencesGroup = null,
-		bool $isSectionPreview = false,
-		bool $isExtendsEnabled = false
+		bool $isSectionPreview = false
 	) {
 		$this->referenceStack = $referenceStack;
 		$this->inReferencesGroup = $inReferencesGroup;
 		$this->isSectionPreview = $isSectionPreview;
-		$this->isExtendsEnabled = $isExtendsEnabled;
 	}
 
 	public function validateRef(
 		?string $text,
 		string $group,
 		?string $name,
-		?string $extends,
 		?string $follow,
 		?string $dir
 	): StatusValue {
 		if ( ctype_digit( (string)$name )
-			|| ctype_digit( (string)$extends )
 			|| ctype_digit( (string)$follow )
 		) {
 			// Numeric names mess up the resulting id's, potentially producing
@@ -55,24 +49,7 @@ class Validator {
 			return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
 		}
 
-		if ( $extends ) {
-			// Temporary feature flag until mainstreamed, see T236255
-			if ( !$this->isExtendsEnabled ) {
-				return StatusValue::newFatal( 'cite_error_ref_too_many_keys' );
-			}
-
-			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			if ( $name !== null && isset( $groupRefs[$name] ) && $groupRefs[$name]->extends === null ) {
-				// T242141: A top-level <ref> can't be changed into a sub-reference
-				return StatusValue::newFatal( 'cite_error_references_duplicate_key', $name );
-			} elseif ( isset( $groupRefs[$extends] ) && $groupRefs[$extends]->extends !== null ) {
-				// A sub-reference can not be extended a second time (no nesting)
-				return StatusValue::newFatal( 'cite_error_ref_nested_extends', $extends,
-					$groupRefs[$extends]->extends ?? '' );
-			}
-		}
-
-		if ( $follow && ( $name || $extends ) ) {
+		if ( $follow && $name ) {
 			return StatusValue::newFatal( 'cite_error_ref_follow_conflicts' );
 		}
 

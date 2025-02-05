@@ -222,13 +222,11 @@
 				"cite-wikieditor-help-content-reference-example-ref-normal",
 				"cite-wikieditor-help-content-reference-example-ref-named",
 				"cite-wikieditor-help-content-reference-example-ref-reuse",
-				"cite-wikieditor-help-content-reference-example-ref-extends",
 				"cite-wikieditor-help-content-reference-example-ref-result",
 				"cite-wikieditor-help-content-reference-example-reflist",
 				"cite-wikieditor-help-content-reference-description",
 				"cite-wikieditor-help-content-named-reference-description",
 				"cite-wikieditor-help-content-rereference-description",
-				"cite-wikieditor-help-content-extended-reference-description",
 				"cite-wikieditor-help-content-showreferences-description",
 				"cite_reference_backlink_symbol"
 			]
@@ -393,7 +391,7 @@
 	},
 	"config": {
 		"CiteBookReferencing": {
-			"description": "Temporary feature flag while the extends=\"…\" feature (a way to nest citations and e.g. reference pages in a book) is in development.",
+			"description": "Temporary feature flag while the sub-referencing feature (a way to nest citations and e.g. reference pages in a book) is in development.",
 			"public": true,
 			"value": false
 		},
@@ -448,8 +446,7 @@
 	},
 	"TrackingCategories": [
 		"cite-tracking-category-cite-diffing-error",
-		"cite-tracking-category-cite-error",
-		"cite-tracking-category-ref-extends"
+		"cite-tracking-category-cite-error"
 	],
 	"ParsoidModules": [
 		{

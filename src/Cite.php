@@ -42,11 +42,6 @@ class Cite {
 	/** Attribute name for the sub-referencing feature in <ref …> */
 	public const SUBREF_ATTRIBUTE = 'extends';
 
-	/**
-	 * Message key for the (localized) tracking category for pages using the `extends` attribute.
-	 */
-	public const EXTENDS_TRACKING_CATEGORY = 'cite-tracking-category-ref-extends';
-
 	private bool $isSectionPreview;
 	private FootnoteMarkFormatter $footnoteMarkFormatter;
 	private ReferenceListFormatter $referenceListFormatter;
@@ -134,15 +129,9 @@ class Cite {
 		?string $text,
 		array $argv
 	): string {
-		// Tag every page where sub-referencing has been used, whether or not the ref tag is valid.
-		// TODO: Remove this generic usage tracking once the feature is stable.  See T237531.
-		if ( array_key_exists( self::SUBREF_ATTRIBUTE, $argv ) ) {
-			$parser->addTrackingCategory( self::EXTENDS_TRACKING_CATEGORY );
-		}
-
 		$status = $this->parseArguments(
 			$argv,
-			[ 'group', 'name', self::SUBREF_ATTRIBUTE, 'follow', 'dir' ]
+			[ 'group', 'name', 'follow', 'dir' ]
 		);
 		$arguments = $status->getValue();
 		// Use the default group, or the references group when inside one.
@@ -151,8 +140,7 @@ class Cite {
 		$validator = new Validator(
 			$this->referenceStack,
 			$this->inReferencesGroup,
-			$this->isSectionPreview,
-			$this->config->get( 'CiteBookReferencing' )
+			$this->isSectionPreview
 		);
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
 		$status->merge( $validator->validateRef( $text, ...array_values( $arguments ) ) );

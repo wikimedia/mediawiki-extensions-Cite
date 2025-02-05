@@ -83,38 +83,16 @@ class ReferenceListFormatter {
 			$groupRefs,
 			static function ( ReferenceStackItem $a, ReferenceStackItem $b ): int {
 				$cmp = ( $a->number ?? 0 ) - ( $b->number ?? 0 );
-				return $cmp ?: ( $a->extendsIndex ?? 0 ) - ( $b->extendsIndex ?? 0 );
+				return $cmp;
 			}
 		);
 
 		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).
 		// Note: This builds a string of wikitext, not html.
 		$parserInput = "\n";
-		/** @var string|bool $indented */
-		$indented = false;
-		foreach ( $groupRefs as $key => &$ref ) {
-			// Make sure the parent is not a subreference.
-			// FIXME: Move to a validation function.
-			$extends =& $ref->extends;
-			if ( $extends !== null && isset( $groupRefs[$extends] ) && $groupRefs[$extends]->extends !== null ) {
-				$ref->warnings[] = [ 'cite_error_ref_nested_extends',
-					$extends, $groupRefs[$extends]->extends ];
-			}
-
-			if ( !$indented && $extends !== null ) {
-				// The nested <ol> must be inside the parent's <li>
-				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
-					$parserInput = substr( $parserInput, 0, $matches[0][1] );
-				}
-				$parserInput .= Html::openElement( 'ol', [ 'class' => 'mw-extended-references' ] );
-				$indented = $matches[0][0] ?? true;
-			} elseif ( $indented && $extends === null ) {
-				$parserInput .= $this->closeIndention( $indented );
-				$indented = false;
-			}
+		foreach ( $groupRefs as $key => $ref ) {
 			$parserInput .= $this->formatListItem( $parser, $key, $ref, $isSectionPreview ) . "\n";
 		}
-		$parserInput .= $this->closeIndention( $indented );
 		return $parserInput;
 	}
 
@@ -182,8 +160,7 @@ class ReferenceListFormatter {
 			if ( $this->backlinkMarkRenderer->isLegacyMode() ) {
 				// FIXME: parent mark should be explicitly markSymbolRenderer'd if it
 				// stays here.
-				$parentLabel = $this->messageLocalizer->localizeDigits( (string)$ref->number
-					. ( $ref->extendsIndex ? '.' . $ref->extendsIndex : '' ) );
+				$parentLabel = $this->messageLocalizer->localizeDigits( (string)$ref->number );
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',

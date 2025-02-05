@@ -44,7 +44,6 @@ class ReferenceStack {
 
 	private const ACTION_ASSIGN = 'assign';
 	private const ACTION_INCREMENT = 'increment';
-	private const ACTION_NEW_FROM_PLACEHOLDER = 'new-from-placeholder';
 	private const ACTION_NEW = 'new';
 
 	/**
@@ -62,7 +61,6 @@ class ReferenceStack {
 	 * @param string[] $argv
 	 * @param string $group
 	 * @param ?string $name
-	 * @param ?string $extends
 	 * @param ?string $follow Guaranteed to not be a numeric string
 	 * @param ?string $dir ref direction
 	 *
@@ -74,7 +72,6 @@ class ReferenceStack {
 		array $argv,
 		string $group,
 		?string $name,
-		?string $extends,
 		?string $follow,
 		?string $dir
 	): ?ReferenceStackItem {
@@ -115,13 +112,6 @@ class ReferenceStack {
 			$this->refs[$group][$name] = &$ref;
 			$ref->key = $this->nextRefSequence();
 			$action = self::ACTION_NEW;
-		} elseif ( $this->refs[$group][$name]->placeholder ) {
-			// Populate a placeholder.
-			$ref->extendsCount = $this->refs[$group][$name]->extendsCount;
-			$ref->key = $this->nextRefSequence();
-			$ref->number = $this->refs[$group][$name]->number;
-			$this->refs[$group][$name] =& $ref;
-			$action = self::ACTION_NEW_FROM_PLACEHOLDER;
 		} else {
 			// Change an existing entry.
 			$ref = &$this->refs[$group][$name];
@@ -151,28 +141,6 @@ class ReferenceStack {
 		}
 
 		$ref->number ??= ++$this->groupRefSequence[$group];
-
-		// Do not mess with a known parent a second time
-		if ( $extends && $ref->extendsIndex === null ) {
-			$parentRef =& $this->refs[$group][$extends];
-			if ( $parentRef === null ) {
-				// Create a new placeholder and give it the current sequence number.
-				$parentRef = new ReferenceStackItem();
-				$parentRef->name = $extends;
-				$parentRef->number = $ref->number;
-				$parentRef->placeholder = true;
-			} else {
-				$ref->number = $parentRef->number;
-				// Roll back the group sequence number.
-				--$this->groupRefSequence[$group];
-			}
-			$parentRef->extendsCount ??= 0;
-			$ref->extends = $extends;
-			$ref->extendsIndex = ++$parentRef->extendsCount;
-		} elseif ( $extends && $ref->extends !== $extends ) {
-			// TODO: Change the error message to talk about "conflicting content or parent"?
-			$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];
-		}
 
 		$this->refCallStack[] = [ $action, $ref->key, $group, $name, $text, $argv ];
 		return $ref;
@@ -269,13 +237,6 @@ class ReferenceStack {
 				} elseif ( isset( $this->groupRefSequence[$group] ) ) {
 					$this->groupRefSequence[$group]--;
 				}
-				if ( $ref->extends ) {
-					$this->refs[$group][$ref->extends]->extendsCount--;
-				}
-				break;
-			case self::ACTION_NEW_FROM_PLACEHOLDER:
-				$ref->placeholder = true;
-				$ref->count = 0;
 				break;
 			case self::ACTION_ASSIGN:
 				// Rollback assignment of text to pre-existing elements
@@ -346,7 +307,6 @@ class ReferenceStack {
 	public function listDefinedRef( string $group, string $name, string $text ): void {
 		$ref =& $this->refs[$group][$name];
 		$ref ??= new ReferenceStackItem();
-		$ref->placeholder = false;
 		if ( $ref->text === null ) {
 			$ref->text = $text;
 		} elseif ( $ref->text !== $text ) {

@@ -22,7 +22,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 		?string $text,
 		?string $group,
 		?string $name,
-		?string $extends,
 		?string $follow,
 		?string $dir,
 		?string $expected
@@ -30,9 +29,9 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 		$stack = new ReferenceStack();
 		TestingAccessWrapper::newFromObject( $stack )->refs = $referencesStack;
 
-		$validator = new Validator( $stack, $inReferencesGroup, $isSectionPreview, true );
+		$validator = new Validator( $stack, $inReferencesGroup, $isSectionPreview );
 
-		$status = $validator->validateRef( $text, $group, $name, $extends, $follow, $dir );
+		$status = $validator->validateRef( $text, $group, $name, $follow, $dir );
 		if ( $expected ) {
 			$this->assertStatusError( $expected, $status );
 		} else {
@@ -50,7 +49,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => null,
 				'group' => '',
 				'name' => '1',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_ref_numeric_key',
@@ -62,20 +60,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 't',
 				'group' => '',
 				'name' => null,
-				'extends' => null,
 				'follow' => '1',
-				'dir' => null,
-				'expected' => 'cite_error_ref_numeric_key',
-			],
-			'Numeric extends' => [
-				'referencesStack' => [],
-				'inReferencesGroup' => null,
-				'isSectionPreview' => false,
-				'text' => 't',
-				'group' => '',
-				'name' => null,
-				'extends' => '1',
-				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_ref_numeric_key',
 			],
@@ -86,19 +71,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 't',
 				'group' => '',
 				'name' => 'n',
-				'extends' => null,
-				'follow' => 'f',
-				'dir' => null,
-				'expected' => 'cite_error_ref_follow_conflicts',
-			],
-			'Follow with extends' => [
-				'referencesStack' => [],
-				'inReferencesGroup' => null,
-				'isSectionPreview' => false,
-				'text' => 't',
-				'group' => '',
-				'name' => null,
-				'extends' => 'e',
 				'follow' => 'f',
 				'dir' => null,
 				'expected' => 'cite_error_ref_follow_conflicts',
@@ -111,7 +83,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 't',
 				'group' => '',
 				'name' => null,
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => null,
@@ -123,7 +94,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => '',
 				'group' => '',
 				'name' => null,
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_ref_no_input',
@@ -135,7 +105,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => null,
 				'group' => '',
 				'name' => null,
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_ref_no_key',
@@ -147,7 +116,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 't',
 				'group' => '',
 				'name' => '',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => null,
@@ -159,7 +127,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 'Foo <ref name="bar">',
 				'group' => '',
 				'name' => 'n',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_included_ref',
@@ -173,7 +140,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 'not empty',
 				'group' => 'g',
 				'name' => 'n',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => null,
@@ -185,7 +151,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 't',
 				'group' => 'g2',
 				'name' => 'n',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_references_group_mismatch',
@@ -197,7 +162,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 't',
 				'group' => 'g',
 				'name' => null,
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_references_no_key',
@@ -209,7 +173,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 't',
 				'group' => 'g',
 				'name' => '',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_references_no_key',
@@ -221,7 +184,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => '',
 				'group' => 'g',
 				'name' => 'n',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_empty_references_define',
@@ -233,7 +195,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 'not empty',
 				'group' => 'g',
 				'name' => 'n',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_references_missing_key',
@@ -245,7 +206,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 'not empty',
 				'group' => 'g',
 				'name' => 'n2',
-				'extends' => null,
 				'follow' => null,
 				'dir' => null,
 				'expected' => 'cite_error_references_missing_key',
@@ -257,7 +217,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 'not empty',
 				'group' => '',
 				'name' => 'n',
-				'extends' => null,
 				'follow' => null,
 				'dir' => 'rtl',
 				'expected' => null,
@@ -269,18 +228,11 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'text' => 'not empty',
 				'group' => '',
 				'name' => 'n',
-				'extends' => null,
 				'follow' => null,
 				'dir' => 'foobar',
 				'expected' => 'cite_error_ref_invalid_dir',
 			],
 		];
-	}
-
-	public function testValidateRef_noExtends() {
-		$validator = new Validator( $this->createNoOpMock( ReferenceStack::class ) );
-		$status = $validator->validateRef( 'text', '', 'name', 'a', null, null );
-		$this->assertStatusError( 'cite_error_ref_too_many_keys', $status );
 	}
 
 }

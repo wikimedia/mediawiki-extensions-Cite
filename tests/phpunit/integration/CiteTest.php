@@ -34,7 +34,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
 		$status = $cite->parseArguments(
 			$attributes,
-			[ 'dir', 'extends', 'follow', 'group', 'name' ]
+			[ 'dir', 'follow', 'group', 'name' ]
 		);
 		$this->assertSame( $expectedValue, array_values( $status->getValue() ) );
 		if ( $expectedError ) {
@@ -50,67 +50,59 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		return [
 			[
 				'attributes' => [],
-				'expectedValue' => [ null, null, null, null, null ],
+				'expectedValue' => [ null, null, null, null ],
 			],
 
 			// One attribute only
 			[
 				'attributes' => [ 'dir' => 'invalid' ],
-				'expectedValue' => [ 'invalid', null, null, null, null ] ],
+				'expectedValue' => [ 'invalid', null, null, null ] ],
 			[
 				'attributes' => [ 'dir' => 'RTL' ],
-				'expectedValue' => [ 'rtl', null, null, null, null ] ],
+				'expectedValue' => [ 'rtl', null, null, null ] ],
 			[
 				'attributes' => [ 'follow' => 'f' ],
-				'expectedValue' => [ null, null, 'f', null, null ] ],
+				'expectedValue' => [ null, 'f', null, null ] ],
 			[
 				'attributes' => [ 'group' => 'g' ],
-				'expectedValue' => [ null, null, null, 'g', null ] ],
+				'expectedValue' => [ null, null, 'g', null ] ],
 			[
 				'attributes' => [ 'invalid' => 'i' ],
-				'expectedValue' => [ null, null, null, null, null ],
+				'expectedValue' => [ null, null, null, null ],
 				'expectedError' => 'cite_error_ref_too_many_keys'
 			],
 			[
 				'attributes' => [ 'invalid' => null ],
-				'expectedValue' => [ null, null, null, null, null ],
+				'expectedValue' => [ null, null, null, null ],
 				'expectedError' => 'cite_error_ref_too_many_keys'
 			],
 			[
 				'attributes' => [ 'name' => 'n' ],
-				'expectedValue' => [ null, null, null, null, 'n' ]
+				'expectedValue' => [ null, null, null, 'n' ]
 			],
 			[
 				'attributes' => [ 'name' => null ],
-				'expectedValue' => [ null, null, null, null, null ]
-			],
-			[
-				'attributes' => [ 'extends' => 'e' ],
-				'expectedValue' => [ null, 'e', null, null, null ]
+				'expectedValue' => [ null, null, null, null ]
 			],
 
 			// Pairs
 			[
 				'attributes' => [ 'follow' => 'f', 'name' => 'n' ],
-				'expectedValue' => [ null, null, 'f', null, 'n' ]
+				'expectedValue' => [ null, 'f', null, 'n' ]
 			],
 			[
 				'attributes' => [ 'follow' => null, 'name' => null ],
-				'expectedValue' => [ null, null, null, null, null ]
-			],
-			[
-				'attributes' => [ 'follow' => 'f', 'extends' => 'e' ],
-				'expectedValue' => [ null, 'e', 'f', null, null ]
+				'expectedValue' => [ null, null, null, null ]
 			],
 			[
 				'attributes' => [ 'group' => 'g', 'name' => 'n' ],
-				'expectedValue' => [ null, null, null, 'g', 'n' ]
+				'expectedValue' => [ null, null, 'g', 'n' ]
 			],
 
 			// Combinations of 3 or more attributes
 			[
-				'attributes' => [ 'group' => 'g', 'name' => 'n', 'extends' => 'e', 'dir' => 'rtl' ],
-				'expectedValue' => [ 'rtl', 'e', null, 'g', 'n' ]
+				'attributes' => [ 'group' => 'g', 'name' => 'n', 'dir' => 'rtl' ],
+				'expectedValue' => [ 'rtl', null, 'g', 'n' ]
 			],
 		];
 	}
@@ -399,26 +391,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				]
 			],
 		];
-	}
-
-	/**
-	 * @covers ::guardedRef
-	 */
-	public function testGuardedRef_extendsUsageTracking() {
-		$this->overrideConfigValue( 'CiteBookReferencing', false );
-
-		$mockParser = $this->createNoOpMock( Parser::class, [ 'addTrackingCategory' ] );
-		// This will be our most important assertion.
-		$mockParser->expects( $this->once() )
-			->method( 'addTrackingCategory' )
-			->with( Cite::EXTENDS_TRACKING_CATEGORY );
-
-		$cite = $this->newCite();
-		/** @var Cite $spy */
-		$spy = TestingAccessWrapper::newFromObject( $cite );
-		$spy->errorReporter = $this->createMock( ErrorReporter::class );
-
-		$spy->guardedRef( $mockParser, 'text', [ Cite::SUBREF_ATTRIBUTE => 'a' ] );
 	}
 
 	/**

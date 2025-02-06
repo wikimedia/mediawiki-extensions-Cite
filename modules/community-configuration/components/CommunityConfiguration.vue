@@ -7,7 +7,7 @@
 		weight="primary"
 		@click="onSubmit"
 	>
-		Submit
+		{{ $i18n( 'cite-configuration-submit' ).text() }}
 	</cdx-button>
 </template>
 
@@ -15,6 +15,7 @@
 const BacklinkSettings = require( './BacklinkSettings.vue' );
 const { CdxButton } = require( '../codex.js' );
 let backlinkAlphabetText = mw.config.get( 'wgCiteBacklinkAlphabet' );
+
 /**
  * Cite special page providing a front-end to community configuration.
  */

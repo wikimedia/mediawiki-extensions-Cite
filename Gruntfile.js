@@ -20,7 +20,7 @@ module.exports = function ( grunt ) {
 				fix: grunt.option( 'fix' )
 			},
 			all: [
-				'**/*.{js,json}',
+				'**/*.{js,json,vue}',
 				'!{docs,vendor,node_modules}/**',
 				'!tests/cypress/screenshots/**/*.js'
 			]
@@ -31,8 +31,7 @@ module.exports = function ( grunt ) {
 				cache: true
 			},
 			all: [
-				'**/*.css',
-				'**/*.less',
+				'**/*.{css,less,vue}',
 				'!{docs,node_modules,vendor}/**'
 			]
 		}

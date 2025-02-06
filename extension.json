@@ -250,6 +250,45 @@
 				"cite_references_link_many_accessibility_label",
 				"cite_references_link_accessibility_back_label"
 			]
+		},
+		"ext.cite.community-configuration": {
+			"localBasePath": "modules/community-configuration",
+			"remoteExtPath": "Cite/modules/community-configuration",
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"dependencies": [
+				"vue"
+			],
+			"messages": [
+				"cite-configuration-title",
+				"cite-configuration-subtitle",
+				"cite-configuration-backlink-marker-title",
+				"cite-configuration-backlink-marker-description",
+				"cite-configuration-backlink-marker-help"
+			],
+			"packageFiles": [
+				"init.js",
+				"components/BacklinkSettings.vue",
+				"components/CommunityConfiguration.vue",
+				{
+					"name": "icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconAdd",
+						"cdxIconTrash"
+					]
+				}
+			],
+			"codexComponents": [
+				"CdxButton",
+				"CdxIcon",
+				"CdxField",
+				"CdxTextInput",
+				"CdxLookup",
+				"CdxToggleSwitch",
+				"CdxLabel",
+				"CdxTextArea",
+				"CdxCard"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {

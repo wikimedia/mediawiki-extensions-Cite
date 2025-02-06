@@ -84,5 +84,9 @@
 	"cite-wikieditor-help-content-reference-example-ref-reuse": "<ref name=\"$1\" />",
 	"cite-wikieditor-help-content-reference-example-ref-extends": "<ref extends=\"$1\">$2</ref>",
 	"cite-wikieditor-help-content-reference-example-ref-result": "[$1]",
-	"cite-wikieditor-help-content-reference-example-reflist": "<references />"
+	"cite-wikieditor-help-content-reference-example-reflist": "<references />",
+	"cite-configuration-title": "Cite configuration",
+	"cite-configuration-subtitle": "These settings affect all articles that utilize Cite. Only administrators can modify these settings.",
+	"communityconfiguration-cite-title": "Cite",
+	"communityconfiguration-cite-description": "Customize the format and appearance of references."
 }

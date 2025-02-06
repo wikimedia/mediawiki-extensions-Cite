@@ -356,8 +356,8 @@
 			"description": "@var string: Name of a gadget that would cause duplicate reference preview popups. Known conflicting gadgets include \"ReferenceTooltips\", \"CiteTooltip\" alias \"RefTooltip\", \"ReferencePopups\", and \"tooltipRef\" (see T274353).",
 			"value": "ReferenceTooltips"
 		},
-		"CiteUseNumericBacklinkLabels": {
-			"description": "Feature flag to be able to migrate away from numeric backlink labels.",
+		"CiteUseLegacyBacklinkLabels": {
+			"description": "Feature flag switching between numeric and legacy i18n backlink labels (true) and new-style Community Configuration and CLDR alphabet sequences (false).",
 			"public": true,
 			"value": true
 		},
@@ -367,7 +367,7 @@
 			"value": false
 		},
 		"CiteDefaultBacklinkAlphabet": {
-			"description": "List of letters in the Alphabet to be used to auto-generate backlink labels. Separated by spaces. Defaults to English Alphabet \"a\" to \"z\" when not specified. Currently only used when CiteUseNumericBacklinkLabels is set to false.",
+			"description": "List of letters in the Alphabet to be used to auto-generate backlink labels. Separated by spaces. Defaults to English Alphabet \"a\" to \"z\" when not specified. Currently only used when CiteUseLegacyBacklinkLabels is set to false.",
 			"public": true,
 			"value": null
 		}

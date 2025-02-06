@@ -228,7 +228,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 
 		$config = new HashConfig( [
 			'CiteDefaultBacklinkAlphabet' => false,
-			'CiteUseNumericBacklinkLabels' => true,
+			'CiteUseLegacyBacklinkLabels' => true,
 		] );
 
 		/** @var ReferenceListFormatter $formatter */

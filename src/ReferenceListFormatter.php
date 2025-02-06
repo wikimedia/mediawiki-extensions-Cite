@@ -190,7 +190,7 @@ class ReferenceListFormatter {
 		}
 
 		$backlinks = [];
-		if ( !$this->config->get( 'CiteUseNumericBacklinkLabels' ) ) {
+		if ( !$this->config->get( 'CiteUseLegacyBacklinkLabels' ) ) {
 			$backlinkAlphabet = $this->markSymbolRenderer->getBacklinkAlphabet(
 				$parser->getContentLanguage()->getCode()
 			);

@@ -260,7 +260,6 @@
 			],
 			"messages": [
 				"cite-configuration-title",
-				"cite-configuration-subtitle",
 				"cite-configuration-submit",
 				"cite-configuration-backlink-marker-title",
 				"cite-configuration-backlink-marker-description",
@@ -351,7 +350,8 @@
 					"class": "Cite\\Config\\CiteEditorCapability",
 					"services": [
 						"CommunityConfiguration.ProviderFactory",
-						"CommunityConfiguration.MediaWikiConfigReader"
+						"CommunityConfiguration.MediaWikiConfigReader",
+						"LinkRenderer"
 					]
 				}
 			},

@@ -86,7 +86,7 @@
 	"cite-wikieditor-help-content-reference-example-ref-result": "[$1]",
 	"cite-wikieditor-help-content-reference-example-reflist": "<references />",
 	"cite-configuration-title": "Cite configuration",
-	"cite-configuration-subtitle": "These settings affect all the pages that utilize Cite. Only administrators can modify these settings.",
+	"cite-configuration-info": "These settings affect all the pages that utilize Cite. Only administrators can modify these settings.",
 	"cite-configuration-submit": "Save changes",
 	"cite-configuration-backlink-marker-title": "Backlink settings",
 	"cite-configuration-backlink-marker-description": "Backlinks appear in the reference list and point back to the footnotes in the page. When a reference is used more than once, its backlinks are numbered. Configuration allows a custom alphabet to be used for this purpose.",

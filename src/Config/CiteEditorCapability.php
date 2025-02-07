@@ -8,6 +8,8 @@ use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\CommunityConfiguration\EditorCapabilities\AbstractEditorCapability;
 use MediaWiki\Extension\CommunityConfiguration\Provider\ConfigurationProviderFactory;
 use MediaWiki\Extension\CommunityConfiguration\Provider\IConfigurationProvider;
+use MediaWiki\Html\Html;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Title\Title;
 
 /**
@@ -18,17 +20,20 @@ class CiteEditorCapability extends AbstractEditorCapability {
 	private ConfigurationProviderFactory $providerFactory;
 	private IConfigurationProvider $provider;
 	private Config $config;
+	private LinkRenderer $linkRenderer;
 
 	public function __construct(
 		IContextSource $ctx,
 		Title $parentTitle,
 		ConfigurationProviderFactory $providerFactory,
-		Config $config
+		Config $config,
+		LinkRenderer $linkRenderer
 	) {
 		parent::__construct( $ctx, $parentTitle );
 
 		$this->providerFactory = $providerFactory;
 		$this->config = $config;
+		$this->linkRenderer = $linkRenderer;
 	}
 
 	/**
@@ -50,7 +55,15 @@ class CiteEditorCapability extends AbstractEditorCapability {
 		// header
 		$out = $this->getContext()->getOutput();
 		$out->setPageTitleMsg( $this->msg( 'cite-configuration-title' ) );
-		$out->addSubtitle( $this->msg( 'cite-configuration-subtitle' )->escaped() );
+		$out->addSubtitle( '&lt; ' . $this->linkRenderer->makeLink(
+				$this->getParentTitle()
+			) );
+
+		$out->addHTML( Html::rawElement(
+			'div',
+			[ 'class' => 'communityconfiguration-info-section' ],
+			$this->msg( 'cite-configuration-info' )->parseAsBlock()
+		) );
 
 		// codex setup
 		$out->addModules( 'ext.cite.community-configuration' );

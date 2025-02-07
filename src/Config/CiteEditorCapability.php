@@ -55,7 +55,7 @@ class CiteEditorCapability extends AbstractEditorCapability {
 		// codex setup
 		$out->addModules( 'ext.cite.community-configuration' );
 		$out->addHTML(
-			'<div id="ext-cite-configuration-vue-root" class="ext-cite-configuration-page">'
+			'<div id="ext-cite-configuration-vue-root" class="ext-cite-configuration-page" />'
 		);
 
 		// get the stored value and forward to JS

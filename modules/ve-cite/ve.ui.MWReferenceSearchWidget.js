@@ -37,7 +37,7 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	this.getResults().connect( this, { choose: 'onChoose' } );
 
 	// FIXME: T375053 Should just be temporary to test some UI changes
-	if ( mw.config.get( 'wgCiteBookReferencing' ) ) {
+	if ( mw.config.get( 'wgCiteSubReferencing' ) ) {
 		this.$element.addClass( 've-ui-mwReferenceSearchReuseHacks' );
 	}
 };

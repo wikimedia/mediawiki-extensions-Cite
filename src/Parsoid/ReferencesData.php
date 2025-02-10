@@ -82,7 +82,7 @@ class ReferencesData {
 	}
 
 	public function add(
-		ParsoidExtensionAPI $extApi, string $groupName, string $refName, ?string $extendsRef, string $refDir
+		ParsoidExtensionAPI $extApi, string $groupName, string $refName, string $refDir
 	): RefGroupItem {
 		$group = $this->getRefGroup( $groupName, true );
 		$hasRefName = $refName !== '';
@@ -108,9 +108,6 @@ class ReferencesData {
 		$ref->group = $group->name;
 		// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
 		$ref->numberInGroup = count( $group->refs ) + 1;
-		if ( $extendsRef ) {
-			$ref->extendsRef = $extendsRef;
-		}
 		$ref->index = $n;
 		$ref->key = $refIdBase;
 		$ref->id = $hasRefName ? $refIdBase . '-0' : $refIdBase;

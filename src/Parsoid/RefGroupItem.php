@@ -34,7 +34,6 @@ class RefGroupItem {
 	 * e.g. "[1]".
 	 */
 	public int $numberInGroup = 1;
-	public ?string $extendsRef = null;
 	/**
 	 * Global, unique sequence number for each <ref>, no matter which group, starting from 0.
 	 * Currently unused.

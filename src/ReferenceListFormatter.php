@@ -83,16 +83,32 @@ class ReferenceListFormatter {
 			$groupRefs,
 			static function ( ReferenceStackItem $a, ReferenceStackItem $b ): int {
 				$cmp = ( $a->number ?? 0 ) - ( $b->number ?? 0 );
-				return $cmp;
+				return $cmp ?: ( $a->subrefIndex ?? 0 ) - ( $b->subrefIndex ?? 0 );
 			}
 		);
 
 		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).
 		// Note: This builds a string of wikitext, not html.
 		$parserInput = "\n";
+		/** @var string|bool $indented */
+		$indented = false;
 		foreach ( $groupRefs as $key => $ref ) {
+			if ( !$indented && $ref->parentRefKey !== null ) {
+				// Create nested list before processing the first subref.
+				// The nested <ol> must be inside the parent's <li>
+				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
+					$parserInput = substr( $parserInput, 0, $matches[0][1] );
+				}
+				$parserInput .= Html::openElement( 'ol', [ 'class' => 'mw-subreference-list' ] );
+				$indented = $matches[0][0] ?? true;
+			} elseif ( $indented && $ref->parentRefKey === null ) {
+				// End nested list.
+				$parserInput .= $this->closeIndention( $indented );
+				$indented = false;
+			}
 			$parserInput .= $this->formatListItem( $parser, $key, $ref, $isSectionPreview ) . "\n";
 		}
+		$parserInput .= $this->closeIndention( $indented );
 		return $parserInput;
 	}
 

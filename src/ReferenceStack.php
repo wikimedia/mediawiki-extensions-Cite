@@ -63,8 +63,10 @@ class ReferenceStack {
 	 * @param ?string $name
 	 * @param ?string $follow Guaranteed to not be a numeric string
 	 * @param ?string $dir ref direction
+	 * @param ?string $subrefDetails subreference details
 	 *
-	 * @return ?ReferenceStackItem ref structure, or null if no footnote marker should be rendered
+	 * @return ?ReferenceStackItem ref to render at the site of usage, or null
+	 * if no footnote marker should be rendered
 	 */
 	public function pushRef(
 		StripState $stripState,
@@ -73,7 +75,8 @@ class ReferenceStack {
 		string $group,
 		?string $name,
 		?string $follow,
-		?string $dir
+		?string $dir,
+		?string $subrefDetails
 	): ?ReferenceStackItem {
 		$this->refs[$group] ??= [];
 		$this->groupRefSequence[$group] ??= 0;
@@ -142,8 +145,29 @@ class ReferenceStack {
 
 		$ref->number ??= ++$this->groupRefSequence[$group];
 
-		$this->refCallStack[] = [ $action, $ref->key, $group, $name, $text, $argv ];
-		return $ref;
+		if ( $subrefDetails ) {
+			$parentRef = $ref;
+
+			// Create the parent ref if new.
+			if ( $parentRef->count === 1 ) {
+				$parentRef->subrefCount ??= 0;
+				$this->refCallStack[] = [ $action, $parentRef->key, $group, $name, $text, $argv ];
+			}
+
+			// Extract subref
+			$subRef = clone $ref;
+			$subRef->key = $this->nextRefSequence();
+			$subRef->name = null;
+			$subRef->parentRefKey = $parentRef->key;
+			$subRef->subrefIndex = ++$parentRef->subrefCount;
+			$subRef->text = $subrefDetails;
+			$this->refs[$group][] = $subRef;
+			$this->refCallStack[] = [ $action, $subRef->key, $group, null, $subrefDetails, $argv ];
+			return $subRef;
+		} else {
+			$this->refCallStack[] = [ $action, $ref->key, $group, $name, $text, $argv ];
+			return $ref;
+		}
 	}
 
 	/**

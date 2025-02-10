@@ -259,6 +259,17 @@ class References {
 			}
 		}
 
+		$supParent = DOMUtils::findAncestorOfName( $node, 'sup' );
+		while ( $supParent ) {
+			$supDmw = DOMDataUtils::getDataMw( $supParent );
+			if ( isset( $supDmw->attrs->name ) && $supDmw->attrs->name === $refName ) {
+				$errs[] = new DataMwError( 'cite_error_included_ref' );
+				self::addErrorsToNode( $supParent, $errs );
+				return;
+			}
+			$supParent = DOMUtils::findAncestorOfName( $supParent, 'sup' );
+		}
+
 		// Add ref-index linkback
 		$linkBackSup = $doc->createElement( 'sup' );
 

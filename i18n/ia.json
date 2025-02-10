@@ -58,5 +58,13 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Texto del pagina.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texto del ligamine], texto additional.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto del ligamine]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Detalios supplementari"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Detalios supplementari",
+	"cite-configuration-title": "Configuration de Cite",
+	"cite-configuration-subtitle": "Iste parametros influentia tote le articulos que utilisa Cite. Solmente administratores pote modificar iste parametros.",
+	"cite-configuration-submit": "Salveguardar modificationes",
+	"cite-configuration-backlink-marker-title": "Configuration de retroligamines",
+	"cite-configuration-backlink-marker-description": "Le retroligamines appare in le lista de referentias e puncta retro verso le notas al pede del articulo. Quando un referentia es usate plus de un vice, su retroligamines es numerate. Le configuration permitte le uso de un alphabeto personalisate pro iste scopo.",
+	"cite-configuration-backlink-marker-help": "Insere tu insimul de characteres personalisate, con un spatio inter cata character. Assecura te que le contentor contine characteres XX.",
+	"communityconfiguration-cite-title": "Citar",
+	"communityconfiguration-cite-description": "Personalisar le formato e apparentia de referentias."
 }

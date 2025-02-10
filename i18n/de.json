@@ -70,5 +70,13 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Seitentext.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linktext], zusätzlicher Text.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linktext]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Weitere Details"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Weitere Details",
+	"cite-configuration-title": "Konfiguration der Belegfunktion",
+	"cite-configuration-subtitle": "Diese Einstellungen wirken sich auf alle Artikel aus, die Cite verwenden. Nur Administratoren können diese Einstellungen ändern.",
+	"cite-configuration-submit": "Änderungen speichern",
+	"cite-configuration-backlink-marker-title": "Backlink-Einstellungen",
+	"cite-configuration-backlink-marker-description": "Backlinks erscheinen im Literaturverzeichnis und verweisen auf die Fußnoten im Artikel. Wenn ein Einzelnachweis mehr als einmal verwendet wird, werden deren Backlinks nummeriert. Die Konfiguration ermöglicht die Verwendung eines benutzerdefinierten Alphabets für diesen Zweck.",
+	"cite-configuration-backlink-marker-help": "Gib einen benutzerdefinierten Zeichensatz mit einem Leerzeichen zwischen den einzelnen Zeichen ein. Stelle sicher, dass der Container XX Zeichen enthält.",
+	"communityconfiguration-cite-title": "Belegen",
+	"communityconfiguration-cite-description": "Format und Aussehen der Einzelnachweise können angepasst werden."
 }

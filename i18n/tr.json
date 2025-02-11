@@ -69,5 +69,13 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Sayfa metni.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Bağlantı yazısı], ek yazı.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Bağlantı yazısı]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Daha çok ayrıntı"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Daha çok ayrıntı",
+	"cite-configuration-title": "Alıntı yapılandırması",
+	"cite-configuration-subtitle": "Bu ayarlar Alıntı kullanan tüm sayfaları etkiler. Bu ayarları yalnızca hizmetliler değiştirebilir.",
+	"cite-configuration-submit": "Değişiklikleri sakla",
+	"cite-configuration-backlink-marker-title": "Geri bağlantı ayarları",
+	"cite-configuration-backlink-marker-description": "Geri bağlantılar kaynak listesinde görünür ve sayfadaki dipnotlara geri işaret eder. Bir kaynak birden fazla kullanıldığında, geri bağlantıları numaralandırılır. Yapılandırma, bu amaçla özel bir alfabenin kullanılmasına izin verir.",
+	"cite-configuration-backlink-marker-help": "Her karakter arasında boşluk bırakarak özel karakter setinizi girin. Setin XX karakter içerdiğinden emin olun.",
+	"communityconfiguration-cite-title": "Alıntı",
+	"communityconfiguration-cite-description": "Kaynakça biçimini ve görünümünü özelleştirin."
 }

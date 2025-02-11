@@ -31,6 +31,7 @@
 	"cite_error_empty_references_define": "<code>&lt;ref&gt;</code> iezīmei ar nosaukumu \"$1\", kas definēta <code>&lt;references&gt;</code> grupā \"$2\", nav satura.",
 	"cite-tracking-category-cite-error": "Lapas ar atsauču kļūdām",
 	"cite-tracking-category-cite-error-desc": "Lapās šajā kategorijā ir kļūdaini lietotas atsauču iezīmes.",
+	"cite-tracking-category-cite-diffing-error": "Lapas ar atsauču kļūdām, kas izraisa vizuālas atšķirības",
 	"cite-tracking-category-ref-extends": "Lapas, kurās tiek izmantotas paplašinātās atsauces",
 	"cite-tracking-category-ref-extends-desc": "Šīs kategorijas lapās tiek izmantots iezīmes <ref> atribūts \"extends\".",
 	"cite-reference-previews-reference": "Atsauce",
@@ -57,5 +58,6 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Lapas teksts.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Saites teksts], papildu teksts.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Saites teksts]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Papildu informācija"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Papildu informācija",
+	"cite-configuration-submit": "Saglabāt izmaiņas"
 }

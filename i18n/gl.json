@@ -11,7 +11,7 @@
 		]
 	},
 	"cite-desc": "Engade as etiquetas <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para as citas",
-	"cite_error": "Erro no código da cita: $1",
+	"cite_error": "Erro na cita: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non válido, debe ser <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "Unha das etiquetas <code>&lt;ref&gt;</code> co nome \"$1\" ten un atributo \"dir\" conflitivo.",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple número enteiro. Use un título descritivo",
@@ -52,7 +52,7 @@
 	"cite_references_link_many_accessibility_label": "Saltar a:",
 	"cite_references_link_accessibility_back_label": "Volver ó comezo",
 	"cite_section_preview_references": "Previsualización de referencias",
-	"cite_warning": "Advertencia de cita: $1",
+	"cite_warning": "Advertencia da cita: $1",
 	"cite_warning_sectionpreview_no_text": "A etiqueta <code>&lt;ref&gt;</code> co nome <code>$1</code> non pode previsualizarse porque está definida fóra da sección actual ou non está definida en absoluto.",
 	"cite-wikieditor-tool-reference": "Referencia",
 	"cite-wikieditor-help-page-references": "Referencias",
@@ -64,5 +64,13 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Texto da páxina.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texto da ligazón], texto adicional.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto da ligazón]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Detalles suplementarios"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Detalles suplementarios",
+	"cite-configuration-title": "Configuración das citas",
+	"cite-configuration-subtitle": "Esta configuración afecta a todas as páxinas que utilizan Cite. Só a administración pode modificar esta configuración.",
+	"cite-configuration-submit": "Gardar os cambios",
+	"cite-configuration-backlink-marker-title": "Configuración das ligazóns de retroceso",
+	"cite-configuration-backlink-marker-description": "As ligazóns de retroceso aparecen na lista de referencias e apuntan ás notas ao pé da páxina. Cando unha referencia se usa máis dunha vez, a súas ligazóns de retroceso están numeradas. A configuración permite utilizar un alfabeto personalizado para este fin.",
+	"cite-configuration-backlink-marker-help": "Introduce o teu conxunto de caracteres personalizado, cun espazo entre cada carácter. Asegúrate de que o recipiente conteña caracteres XX.",
+	"communityconfiguration-cite-title": "Cita",
+	"communityconfiguration-cite-description": "Personaliza o formato e a aparencia das referencias."
 }

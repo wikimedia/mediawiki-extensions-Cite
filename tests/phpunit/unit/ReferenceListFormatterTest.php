@@ -8,6 +8,7 @@ use Cite\ErrorReporter;
 use Cite\MarkSymbolRenderer;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceMessageLocalizer;
+use Cite\ReferenceStackItem;
 use Cite\Tests\TestUtils;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\HashConfig;
@@ -308,9 +309,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 				'expectedOutput' => '(cite_references_link_many|1-5|(cite_references_link_many_format|1+5-0|3.0|' .
 				'(cite_references_link_many_format_backlink_labels))' .
 				'(cite_references_link_many_sep)(cite_references_link_many_format|1+5-1|3.1|' .
-				'cite_error_references_no_backlink_label)(cite_references_link_many_and)' .
-				'(cite_references_link_many_format|1+5-2|3.2|cite_error_references_no_backlink_label' .
-				')|<span class="reference-text">t</span>' . "\n|)"
+				'3.1)(cite_references_link_many_and)' .
+				'(cite_references_link_many_format|1+5-2|3.2|3.2)|' .
+				"<span class=\"reference-text\">t cite_error_references_no_backlink_label</span>\n|)"
 			],
 		];
 	}
@@ -394,9 +395,14 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			$this->createNoOpMock( Config::class )
 		) );
 
-		$parser = $this->createNoOpMock( Parser::class );
-		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel( $parser, $offset );
-		$this->assertSame( $expectedLabel, $label );
+		$ref = new ReferenceStackItem();
+		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel( $ref, $offset );
+		if ( $ref->warnings ) {
+			$this->assertSame( [ [ $expectedLabel ] ], $ref->warnings );
+			$this->assertNull( $label );
+		} else {
+			$this->assertSame( $expectedLabel, $label );
+		}
 	}
 
 	public static function provideReferencesFormatEntryAlternateBacklinkLabel() {

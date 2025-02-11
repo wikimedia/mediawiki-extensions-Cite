@@ -195,6 +195,8 @@ class ReferenceListFormatter {
 				$parser->getContentLanguage()->getCode()
 			);
 		}
+
+		$alternateLabel = '';
 		for ( $i = 0; $i < $ref->count; $i++ ) {
 			$numericLabel = $this->referencesFormatEntryNumericBacklinkLabel(
 				$ref->number . ( $ref->extendsIndex ? '.' . $ref->extendsIndex : '' ),
@@ -212,15 +214,24 @@ class ReferenceListFormatter {
 			// TODO Allow transition away from the numeric default labels
 			$backlinkLabel = $alphaBacklinkLabel ?? $numericLabel;
 
+			// Stop trying after the first failure, critical so the error appears only once
+			if ( $alternateLabel !== null ) {
+				$alternateLabel = $this->referencesFormatEntryAlternateBacklinkLabel( $ref, $i );
+			}
+
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
 				$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
 				// TODO Eventually we'll make $2 and $3 behave the same and remove
 				// `cite_references_link_many_format_backlink_labels`
 				$backlinkLabel,
-				$this->referencesFormatEntryAlternateBacklinkLabel( $parser, $i ) ?? $backlinkLabel
+				// Fallback when we run out of alternate labels or they are disabled
+				$alternateLabel ?? $backlinkLabel
 			)->plain();
 		}
+
+		// Duplicate call required for the rendering to include all new errors
+		$text = $this->renderTextAndWarnings( $parser, $key, $ref, $isSectionPreview );
 
 		// The parent of a subref might actually be unused and therefor have zero backlinks
 		$linkTargetId = $ref->count > 0 ?
@@ -287,26 +298,26 @@ class ReferenceListFormatter {
 	}
 
 	/**
-	 * Generate a custom format backlink given an offset, e.g.
-	 * $offset = 2; = c if $this->mBacklinkLabels = [ 'a',
-	 * 'b', 'c', ...]. Return an error if the offset > the # of
-	 * array items
+	 * Return one of the custom backlink labels from the list in the message
+	 * [[MediaWiki:Cite_references_link_many_format_backlink_labels]].
+	 *
+	 * @return string|null Null when we run out of alternate labels or they are disabled
 	 */
 	private function referencesFormatEntryAlternateBacklinkLabel(
-		Parser $parser, int $offset
+		ReferenceStackItem $ref,
+		int $offset
 	): ?string {
 		if ( $this->backlinkLabels === null ) {
 			$msg = $this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' );
+			// Disabling the message just disables the feature
 			$this->backlinkLabels = $msg->isDisabled() ? [] : preg_split( '/\s+/', $msg->plain() );
 		}
 
-		// Disabling the message just disables the feature
-		if ( !$this->backlinkLabels ) {
-			return null;
+		if ( $this->backlinkLabels && !isset( $this->backlinkLabels[$offset] ) ) {
+			$ref->warnings[] = [ 'cite_error_references_no_backlink_label' ];
 		}
 
-		return $this->backlinkLabels[$offset]
-			?? $this->errorReporter->plain( $parser, 'cite_error_references_no_backlink_label' );
+		return $this->backlinkLabels[$offset] ?? null;
 	}
 
 	/**

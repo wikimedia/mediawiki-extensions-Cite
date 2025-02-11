@@ -2,6 +2,7 @@
 
 namespace Cite\Config;
 
+use Cite\AlphabetsProvider;
 use LogicException;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\IContextSource;
@@ -9,6 +10,7 @@ use MediaWiki\Extension\CommunityConfiguration\EditorCapabilities\AbstractEditor
 use MediaWiki\Extension\CommunityConfiguration\Provider\ConfigurationProviderFactory;
 use MediaWiki\Extension\CommunityConfiguration\Provider\IConfigurationProvider;
 use MediaWiki\Html\Html;
+use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Title\Title;
 
@@ -17,22 +19,28 @@ use MediaWiki\Title\Title;
  */
 class CiteEditorCapability extends AbstractEditorCapability {
 
+	private AlphabetsProvider $alphabetsProvider;
 	private ConfigurationProviderFactory $providerFactory;
-	private IConfigurationProvider $provider;
 	private Config $config;
+	private IConfigurationProvider $provider;
+	private Language $contentLanguage;
 	private LinkRenderer $linkRenderer;
 
 	public function __construct(
 		IContextSource $ctx,
 		Title $parentTitle,
+		AlphabetsProvider $alphabetsProvider,
 		ConfigurationProviderFactory $providerFactory,
 		Config $config,
+		Language $contentLanguage,
 		LinkRenderer $linkRenderer
 	) {
 		parent::__construct( $ctx, $parentTitle );
 
+		$this->alphabetsProvider = $alphabetsProvider;
 		$this->providerFactory = $providerFactory;
 		$this->config = $config;
+		$this->contentLanguage = $contentLanguage;
 		$this->linkRenderer = $linkRenderer;
 	}
 
@@ -80,9 +88,15 @@ class CiteEditorCapability extends AbstractEditorCapability {
 
 		$backlinkAlphabet = $value->Cite_Settings->backlinkAlphabet ?? '';
 
+		// check for CLDR alphabet
+		$cldrAlphabet = $this->alphabetsProvider->getIndexCharacters(
+			$this->contentLanguage->getCode()
+		);
+
 		$out->addJsConfigVars( [
 			'wgCiteBacklinkAlphabet' => $backlinkAlphabet,
-			'wgCiteProviderId' => $citeProviderId
+			'wgCiteProviderId' => $citeProviderId,
+			'wgCldrAlphabet' => $cldrAlphabet,
 		] );
 	}
 }

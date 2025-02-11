@@ -1,6 +1,9 @@
 <template>
 	<div class="ext-cite-configuration">
-		<backlink-settings :backlink-alphabet="backlinkAlphabet" @update="updateBacklinkAlphabet"></backlink-settings>
+		<backlink-settings
+			:cldr-alphabet="cldrAlphabet"
+			:backlink-alphabet="backlinkAlphabet"
+			@update="updateBacklinkAlphabet"></backlink-settings>
 	</div>
 	<cdx-button
 		action="progressive"
@@ -29,6 +32,7 @@ module.exports = {
 	setup() {
 		return {
 			backlinkAlphabet: backlinkAlphabetText,
+			cldrAlphabet: mw.config.get( 'wgCldrAlphabet' ),
 			providerId: mw.config.get( 'wgCiteProviderId' ),
 			mwApi: new mw.Api()
 		};

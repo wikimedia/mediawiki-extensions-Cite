@@ -87,8 +87,11 @@
 	"cite-configuration-title": "Cite configuration",
 	"cite-configuration-info": "These settings affect all the pages that utilize Cite. Only administrators can modify these settings.",
 	"cite-configuration-submit": "Save changes",
-	"cite-configuration-backlink-marker-title": "Backlink settings",
-	"cite-configuration-backlink-marker-description": "Backlinks appear in the reference list and point back to the footnotes in the page. When a reference is used more than once, its backlinks are numbered. Configuration allows a custom alphabet to be used for this purpose.",
+	"cite-configuration-backlink-title": "Backlink settings",
+	"cite-configuration-backlink-description": "Backlinks appear in the reference list and point back to the footnotes in the page. When a reference is used more than once, its backlinks are numbered. Configuration allows a custom alphabet to be used for this purpose.",
+	"cite-configuration-backlink-alpha-suggestion": "Cite has detected an alphabet for your wiki's language. If you would like to use it, please copy and paste the the text below as a base for your backlink markers. You are free to edit or rearrange the sequence.",
+	"cite-configuration-backlink-marker-label": "Backlink symbol set",
+	"cite-configuration-backlink-marker-description": "The characters below will be used for backlinks on your wiki.",
 	"cite-configuration-backlink-marker-help": "Input your custom character set, with a space between each character. Make sure the container contains XX characters.",
 	"communityconfiguration-cite-title": "Cite",
 	"communityconfiguration-cite-description": "Customize the format and appearance of references."

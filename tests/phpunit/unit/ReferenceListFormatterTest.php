@@ -8,7 +8,6 @@ use Cite\ErrorReporter;
 use Cite\MarkSymbolRenderer;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceMessageLocalizer;
-use Cite\ReferenceStackItem;
 use Cite\Tests\TestUtils;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\HashConfig;
@@ -311,7 +310,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 				'(cite_references_link_many_sep)(cite_references_link_many_format|1+5-1|3.1|' .
 				'3.1)(cite_references_link_many_and)' .
 				'(cite_references_link_many_format|1+5-2|3.2|3.2)|' .
-				"<span class=\"reference-text\">t cite_error_references_no_backlink_label</span>\n|)"
+				"<span class=\"reference-text\">t</span>\n|)"
 			],
 		];
 	}
@@ -395,21 +394,15 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			$this->createNoOpMock( Config::class )
 		) );
 
-		$ref = new ReferenceStackItem();
-		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel( $ref, $offset );
-		if ( $ref->warnings ) {
-			$this->assertSame( [ [ $expectedLabel ] ], $ref->warnings );
-			$this->assertNull( $label );
-		} else {
-			$this->assertSame( $expectedLabel, $label );
-		}
+		$label = $formatter->referencesFormatEntryAlternateBacklinkLabel( $offset );
+		$this->assertSame( $expectedLabel, $label );
 	}
 
 	public static function provideReferencesFormatEntryAlternateBacklinkLabel() {
 		yield [ 'aa', 'aa ab ac', 0 ];
 		yield [ 'ab', 'aa ab ac', 1 ];
 		yield [ 'å', 'å b c', 0 ];
-		yield [ 'cite_error_references_no_backlink_label', 'a b c', 10 ];
+		yield [ null, 'a b c', 10 ];
 		yield [ null, '', 0 ];
 	}
 

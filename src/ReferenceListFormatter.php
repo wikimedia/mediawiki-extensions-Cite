@@ -196,7 +196,6 @@ class ReferenceListFormatter {
 			);
 		}
 
-		$alternateLabel = '';
 		for ( $i = 0; $i < $ref->count; $i++ ) {
 			$numericLabel = $this->referencesFormatEntryNumericBacklinkLabel(
 				$ref->number . ( $ref->extendsIndex ? '.' . $ref->extendsIndex : '' ),
@@ -213,11 +212,7 @@ class ReferenceListFormatter {
 
 			// TODO Allow transition away from the numeric default labels
 			$backlinkLabel = $alphaBacklinkLabel ?? $numericLabel;
-
-			// Stop trying after the first failure, critical so the error appears only once
-			if ( $alternateLabel !== null ) {
-				$alternateLabel = $this->referencesFormatEntryAlternateBacklinkLabel( $ref, $i );
-			}
+			$alternateLabel = $this->referencesFormatEntryAlternateBacklinkLabel( $i );
 
 			$backlinks[] = $this->messageLocalizer->msg(
 				'cite_references_link_many_format',
@@ -229,9 +224,6 @@ class ReferenceListFormatter {
 				$alternateLabel ?? $backlinkLabel
 			)->plain();
 		}
-
-		// Duplicate call required for the rendering to include all new errors
-		$text = $this->renderTextAndWarnings( $parser, $key, $ref, $isSectionPreview );
 
 		// The parent of a subref might actually be unused and therefor have zero backlinks
 		$linkTargetId = $ref->count > 0 ?
@@ -304,17 +296,12 @@ class ReferenceListFormatter {
 	 * @return string|null Null when we run out of alternate labels or they are disabled
 	 */
 	private function referencesFormatEntryAlternateBacklinkLabel(
-		ReferenceStackItem $ref,
 		int $offset
 	): ?string {
 		if ( $this->backlinkLabels === null ) {
 			$msg = $this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' );
 			// Disabling the message just disables the feature
 			$this->backlinkLabels = $msg->isDisabled() ? [] : preg_split( '/\s+/', $msg->plain() );
-		}
-
-		if ( $this->backlinkLabels && !isset( $this->backlinkLabels[$offset] ) ) {
-			$ref->warnings[] = [ 'cite_error_references_no_backlink_label' ];
 		}
 
 		return $this->backlinkLabels[$offset] ?? null;

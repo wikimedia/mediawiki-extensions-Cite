@@ -1,17 +1,19 @@
 <template>
 	<cdx-field>
-		<template #label>
-			{{ $i18n( 'cite-configuration-backlink-marker-title' ).text() }}
-		</template>
-		<template #description>
-			<p>{{ $i18n( 'cite-configuration-backlink-marker-description' ).text() }}</p>
-			<p>{{ $i18n( 'cite-configuration-backlink-marker-help' ).text() }}</p>
-		</template>
 		<cdx-text-area
 			v-model="backlinkAlphabetText"
 			placeholder="a b c d e f g h i j k l m n o p q r s t u v w x y z"
 			@input="newValue"
 		></cdx-text-area>
+		<template #label>
+			{{ $i18n( 'cite-configuration-backlink-marker-title' ).text() }}
+		</template>
+		<template #description>
+			{{ $i18n( 'cite-configuration-backlink-marker-description' ).parse() }}
+		</template>
+		<template #help-text>
+			{{ $i18n( 'cite-configuration-backlink-marker-help' ).parse() }}
+		</template>
 	</cdx-field>
 </template>
 

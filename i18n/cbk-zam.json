@@ -4,6 +4,7 @@
 			"Aristorkle"
 		]
 	},
+	"cite_error": "Error de cita: $1",
 	"cite-wikieditor-tool-reference": "Referencia",
 	"cite-wikieditor-help-page-references": "Maga referencias",
 	"cite-wikieditor-help-content-reference-description": "Referencia"

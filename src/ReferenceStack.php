@@ -147,15 +147,23 @@ class ReferenceStack {
 
 		if ( $subrefDetails ) {
 			$parentRef = $ref;
+			// Turns out this is not a reused parent; undo parts of what happened above
+			if ( $name ) {
+				$parentRef->count--;
+			}
+
+			// Make a clone of the sub-reference before we start manipulating the parent
+			$subRef = clone $ref;
+
+			$parentRef->subrefCount ??= 0;
 
 			// Create the parent ref if new.
-			if ( $parentRef->count === 1 ) {
-				$parentRef->subrefCount ??= 0;
+			if ( !$parentRef->count ) {
 				$this->refCallStack[] = [ $action, $parentRef->key, $group, $name, $text, $argv ];
 			}
 
-			// Extract subref
-			$subRef = clone $ref;
+			// FIXME: At the moment it's impossible to reuse sub-references in any way
+			$subRef->count = 1;
 			$subRef->key = $this->nextRefSequence();
 			$subRef->name = null;
 			$subRef->parentRefKey = $parentRef->key;

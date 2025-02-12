@@ -41,3 +41,61 @@ wgCiteSubReferencing=true
 </ol></li>
 </ol></div>
 !! end
+
+!! test
+Parent reference used before sub-reference
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref name=book>The book</ref>
+<ref name=book details="p. 1" />
+!! html
+<p><sup id="cite_ref-book_1-0" class="reference"><a href="#cite_note-book-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">The book</span>
+<ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p. 1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+!! test
+Parent reference used after sub-reference
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref name=book details="p. 1" />
+<ref name=book>The book</ref>
+!! html
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-book_1-0" class="reference"><a href="#cite_note-book-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">The book</span>
+<ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p. 1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+!! test
+Unused, list-defined parent reference
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref name=book details="p. 1" />
+<references>
+<ref name=book>The book</ref>
+</references>
+!! html
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">The book</span>
+<ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p. 1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end

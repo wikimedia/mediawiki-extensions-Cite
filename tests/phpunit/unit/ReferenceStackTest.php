@@ -511,7 +511,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'finalRefs' => [
 					'foo' => [
 						'a' => [
-							'count' => 1,
+							'count' => 0,
 							'dir' => 'rtl',
 							'key' => 1,
 							'group' => 'foo',

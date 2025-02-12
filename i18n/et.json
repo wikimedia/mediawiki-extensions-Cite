@@ -17,7 +17,6 @@
 	"cite_error_ref_no_input": "Vigane <code>&lt;ref&gt;</code>-silt. Nimeta viitamissiltidel peab olema sisu.",
 	"cite_error_references_duplicate_key": "Vigane <code>&lt;ref&gt;</code>-silt; nime \"$1\" on määratud mitu korda erineva sisuga.",
 	"cite_error_references_invalid_parameters": "Sildi <code>&lt;references&gt;</code> vigane parameeter",
-	"cite_error_references_no_backlink_label": "Kohandatud tagasilinkide sildid said otsa. Lisa neid sõnumisse [[MediaWiki:Cite references link many format backlink labels]].",
 	"cite_error_references_no_text": "Vigane <code>&lt;ref&gt;</code>-silt. Viide nimega <code>$1</code> on ilma tekstita.",
 	"cite_error_included_ref": "Sulgemissilt <code>&lt;/ref&gt;</code> puudub.",
 	"cite_error_included_references": "<code>&lt;references&gt;</code> ilma sulgemissildita",

@@ -17,7 +17,6 @@
 	"cite_error_ref_no_input": "Baliz <code>&lt;ref&gt;</code> pa valab ; ref yo ki pa gen yon non dwe gen kontni nan yo",
 	"cite_error_references_duplicate_key": "Baliz <code>&lt;ref&gt;</code> pa valab ; yo defini non « $1 » plizyè fwa ak kontni diferan",
 	"cite_error_references_invalid_parameters": "Paramèt ki pa valab nan baliz <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Pa genyen etikèt lyen pèsonalize ankò. Presize yon kantite ki pi gwo nan mesaj [[MediaWiki:Cite references link many format backlink labels]].",
 	"cite_error_references_no_text": "Baliz <code>&lt;ref&gt;</code> pa valab ; nou pa bay tèks pou ref yo ki rele <code>$1</code>",
 	"cite-tracking-category-cite-error": "Paj ki gen erè referans yo",
 	"cite-tracking-category-cite-error-desc": "Paj nan kategori sa a gen erè  nan itilizasyon baliz referans yo.",

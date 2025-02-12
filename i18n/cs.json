@@ -21,7 +21,6 @@
 	"cite_error_ref_no_input": "Chyba v tagu <code>&lt;ref&gt;</code>; citace bez názvu musí mít vlastní obsah",
 	"cite_error_references_duplicate_key": "Neplatná značka <code>&lt;ref&gt;</code>; název „$1“ použit vícekrát s různým obsahem",
 	"cite_error_references_invalid_parameters": "Neplatný parametr v tagu <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Došla označení zpětných odkazů, přidejte jich několik do zprávy [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_references_no_text": "Chyba v tagu <code>&lt;ref&gt;</code>; citaci označené <code>$1</code> není určen žádný text",
 	"cite_error_included_ref": "Chybí ukončovací <code>&lt;/ref&gt;</code> k&nbsp;tagu <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Chybí uzavírací značka k <code>&lt;references&gt;</code>",

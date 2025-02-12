@@ -17,7 +17,6 @@
 	"cite_error_ref_no_input": "Tag <code>&lt;ref&gt;</code> no vàlido; i ref sénsa nómme no pêuan êse vêui",
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> no vàlido; o nómme \"$1\" o l'é stæto definîo ciù vòtte con di contegnûi despægi",
 	"cite_error_references_invalid_parameters": "Paràmetro no vàlido inte l'etichétta <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Etichétte de rimàndo personalizæ ezaorîe. Aomentâne o nùmero into mesàggio [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_references_no_text": "Marcatô <code>&lt;ref&gt;</code> no vàlido; no l'é stæto indicòu nisciùn tèsto pò-u marcatô <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> finâ mancànte pò-u marcatô <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Gh'amànca l'etichétta finâ pe <code>&lt;references&gt;</code>",

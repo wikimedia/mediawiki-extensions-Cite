@@ -22,7 +22,6 @@
 	"cite_error_ref_no_input": "Etichetă <code>&lt;ref&gt;</code> invalidă; referințele fără nume trebuie să aibă conținut",
 	"cite_error_references_duplicate_key": "Etichetă <code>&lt;ref&gt;</code> invalidă; numele \"$1\" este definit de mai multe ori cu conținut diferit",
 	"cite_error_references_invalid_parameters": "Parametru invalid în eticheta <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "S-au epuizat etichetele pentru legături personalizate. Definiți mai multe etichete în cadrul mesajului [[MediaWiki:Cite references link many format backlink labels]].",
 	"cite_error_references_no_text": "Etichetă <code>&lt;ref&gt;</code> invalidă; niciun text nu a fost furnizat pentru referințele numite <code>$1</code>",
 	"cite_error_included_ref": "Eticheta de închidere <code>&lt;/ref&gt;</code> lipsește pentru eticheta <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Lipsește eticheta de închidere pentru <code>&lt;references&gt;</code>",

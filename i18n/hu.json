@@ -17,7 +17,6 @@
 	"cite_error_ref_no_input": "Érvénytelen <code>&lt;ref&gt;</code> címke; a név (name) nélküli lábjegyzeteknek adni kell valamilyen tartalmat",
 	"cite_error_references_duplicate_key": "Érvénytelen <code>&lt;ref&gt;</code> címke, „$1” nevű forráshivatkozás többször van definiálva eltérő tartalommal",
 	"cite_error_references_invalid_parameters": "Érvénytelen paraméter a <code>&lt;references&gt;</code> címkében",
-	"cite_error_references_no_backlink_label": "Elfogytak a visszahivatkozásra használt címkék, adj meg többet a [[MediaWiki:Cite references link many format backlink labels]] üzenetben",
 	"cite_error_references_no_text": "Érvénytelen <code>&lt;ref&gt;</code> címke; nincs megadva szöveg a(z) <code>$1</code> nevű lábjegyzeteknek",
 	"cite_error_included_ref": "Egy <code>&lt;ref&gt;</code> címke lezáró <code>&lt;/ref&gt;</code> része hiányzik",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code> címkék léteznek a(z) „$1” csoporthoz, de nincs hozzá <code>&lt;references group=\"$1\"/&gt;</code>",

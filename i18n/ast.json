@@ -17,7 +17,6 @@
 	"cite_error_ref_no_input": "La etiqueta <code>&lt;ref&gt;</code> nun ye válida; les referencies ensin nome han tener conteníu",
 	"cite_error_references_duplicate_key": "La etiqueta <code>&lt;ref&gt;</code> ye inválida; el nome «$1» ta definíu delles vegaes con distintu conteníu",
 	"cite_error_references_invalid_parameters": "Parámetru inválidu na etiqueta <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Etiquetes personalizaes agotaes. Defini más nel mensaxe [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_references_no_text": "La etiqueta <code>&lt;ref&gt;</code> nun ye válida; nun se conseñó testu pa les referencies nomaes <code>$1</code>",
 	"cite_error_included_ref": "Falta <code>&lt;/ref&gt;</code> pa la etiqueta <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Falta la etiqueta final de <code>&lt;references&gt;</code>",

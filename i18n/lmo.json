@@ -14,7 +14,6 @@
 	"cite_error_ref_no_input": "Eror in l'utilizazzion d'un marcador <code>&lt;ref&gt;</code>: i ref senza nom i poden minga vesser voeuj",
 	"cite_error_references_duplicate_key": "Eticheta <code>&lt;ref&gt;</code> minga valida; el nom \"$1\" l'è stad definid diverse volte con di contegnud diversi",
 	"cite_error_references_invalid_parameters": "Parametro minga valid in de l'eticheta <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Etichete de conligement personalizzade finide foeura. Definiss di alter etichete in del messagg [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_references_no_text": "Eror in l'utilizazzion del marcador <code>&lt;ref&gt;</code>: a l'è stad indicad nissun test per el marcador <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> de saradura mancant per el marcador <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Ghe manca l'eticheta de saradura per <code>&lt;references&gt;</code>",

@@ -18,7 +18,6 @@
 	"cite_error_ref_no_input": "Nevaljana oznaka <code>&lt;ref&gt;</code>;\nreference bez naziva moraju imati sadržaj",
 	"cite_error_references_duplicate_key": "Neispravna oznaka <code>&lt;ref&gt;</code>; naziv \"$1\" definiran je nekoliko puta s različitim sadržajem",
 	"cite_error_references_invalid_parameters": "Neispravan parametar u oznaci <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Ponestalo je prilagođenih naslova backlinkova. Definirajte ih još u [[MediaWiki:Cite references link many format backlink labels]] poruci",
 	"cite_error_references_no_text": "Nevaljana oznaka <code>&lt;ref&gt;</code>;\nnije naveden tekst za reference s imenom <code>$1</code>",
 	"cite_error_included_ref": "Nedostaje oznaka za zatvaranje <code>&lt;/ref&gt;</code> nakon <code>&lt;ref&gt;</code>",
 	"cite_error_group_refs_without_references": "<code>&lt;ref&gt;</code> oznake postoje za grupu pod imenom \"$1\", ali nije pronađena pripadajuća <code>&lt;references group=\"$1\"/&gt;</code> oznaka, ili zatvarajući <code>&lt;/ref&gt;</code> nedostaje",

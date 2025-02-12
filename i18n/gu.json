@@ -17,7 +17,6 @@
 	"cite_error_ref_no_input": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; નામ વગરના સંદર્ભમાં કંઇક સામગ્રી હોવી જ જોઈએ",
 	"cite_error_references_duplicate_key": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; નામ \"$1\" અલગ માહિતી સાથે એકથી વધુ વખત વ્યાખ્યાયિત થયું છે",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> ટેગમાં અયોગ્ય પરિમાણો",
-	"cite_error_references_no_backlink_label": "કસ્ટમ બેકલિંક લેબલ ખલાસ થઈ ગયાં. [[MediaWiki:Cite references link many format backlink labels]] સંદેશામાં વહારે લેબલ બનાવો..",
 	"cite_error_references_no_text": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; <code>$1</code>નામના સંદર્ભ માટે કોઈ પણ સામગ્રી નથી",
 	"cite_error_included_ref": "<code>&lt;ref&gt;</code> ટેગને બંધ કરતું <code>&lt;/ref&gt;</code> ખૂટે છે",
 	"cite_error_included_references": "<code>&lt;references&gt;</code>માં બંધ કરવાનો ટેગ ખૂટે છે",

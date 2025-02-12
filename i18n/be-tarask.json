@@ -17,7 +17,6 @@
 	"cite_error_ref_no_input": "Няслушны тэг <code>&lt;ref&gt;</code>; крыніцы бяз назваў мусяць мець зьмест",
 	"cite_error_references_duplicate_key": "Няслушны тэг <code>&lt;ref&gt;</code>; назва «$1» вызначаная некалькі разоў з розным зьместам",
 	"cite_error_references_invalid_parameters": "Няслушны парамэтар у тэгу <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Скончыліся нестандартныя меткі для адваротных спасылак. Неабходна пашырыць сыстэмнае паведамленьне [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_references_no_text": "Няслушны тэг <code>&lt;ref&gt;</code>; няма тэксту ў назьве зносак <code>$1</code>",
 	"cite_error_included_ref": "Няма закрываючага тэга  <code>&lt;/ref&gt;</code> пасьля адкрытага тэга <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Адсутнічае закрываючы тэг для <code>&lt;references&gt;</code>",

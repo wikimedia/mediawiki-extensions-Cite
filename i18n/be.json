@@ -19,7 +19,6 @@
 	"cite_error_ref_no_input": "Няслушны тэг <code>&lt;ref&gt;</code>; крыніцы без назваў мусяць мець змест",
 	"cite_error_references_duplicate_key": "памылковы тэг <code>&lt;ref&gt;</code>; імя \"$1\" вызначана некалькі разоў з розным зместам",
 	"cite_error_references_invalid_parameters": "Няправільныя параметры ў тэгу <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Скончыліся ўласныя меткі для адваротных спасылак. Неабходна пашырыць паведамленне [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_references_no_text": "Няслушны тэг <code>&lt;ref&gt;</code>; для зносак <code>$1</code> няма тэксту",
 	"cite_error_included_ref": "Няма завяршальнага тэга <code>&lt;/ref&gt;</code> пасля пачатковага тэга <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Няма завяршальнага тэга для <code>&lt;references&gt;</code>",

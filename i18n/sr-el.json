@@ -15,7 +15,6 @@
 	"cite_error_ref_no_input": "Nevažeća oznaka <code>&lt;ref&gt;</code>; reference bez imena moraju imati sadržaj.",
 	"cite_error_references_duplicate_key": "Neispravna oznaka <code>&lt;ref&gt;</code>; naziv „$1” je definisano više puta s različitim sadržajem",
 	"cite_error_references_invalid_parameters": "Nevalidan parametar u tagu <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Ponestalo je prilagođenih naslova povratnih linkova. Definišite ih još u poruci [[MediaWiki:Cite references link many format backlink labels]].",
 	"cite_error_references_no_text": "Nevažeća oznaka <code>&lt;ref&gt;</code>; nema teksta za reference pod imenom <code>$1</code>.",
 	"cite_error_included_ref": "Zatvara <code><code>&lt;/ref&gt;</code></code> koji nedostaje <code>&lt;ref&gt;</code> oznaci",
 	"cite_error_included_references": "Nedostaje zatvarajuća oznaka za <code>&lt;references&gt;</code>",

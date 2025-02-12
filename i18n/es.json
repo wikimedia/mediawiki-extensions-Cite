@@ -45,7 +45,6 @@
 	"cite_error_ref_no_input": "Etiqueta <code>&lt;ref&gt;</code> no válida; las referencias sin nombre deben tener contenido",
 	"cite_error_references_duplicate_key": "Etiqueta <code>&lt;ref&gt;</code> no válida; el nombre «$1» está definido varias veces con contenidos diferentes",
 	"cite_error_references_invalid_parameters": "Parámetro no válido en la etiqueta de <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Se han acabado las etiquetas personalizadas de vínculos de retroceso. Define más en [[MediaWiki:Cite references link many format backlink labels]].",
 	"cite_error_references_no_text": "Etiqueta <code>&lt;ref&gt;</code> no válida; no se ha definido el contenido de las referencias llamadas <code>$1</code>",
 	"cite_error_included_ref": "Etiqueta de apertura <code>&lt;ref&gt;</code> sin su correspondiente cierre <code>&lt;/ref&gt;</code>",
 	"cite_error_included_references": "Falta la etiqueta de cierra de <code>&lt;references&gt;</code>",

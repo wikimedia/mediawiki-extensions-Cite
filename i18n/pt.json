@@ -25,7 +25,6 @@
 	"cite_error_ref_no_input": "Etiqueta <code>&lt;ref&gt;</code> inválida; ''refs'' sem parâmetro de nome devem ter conteúdo associado",
 	"cite_error_references_duplicate_key": "Código <code>&lt;ref&gt;</code> inválido; o nome \"$1\" é definido mais de uma vez com conteúdos diferentes",
 	"cite_error_references_invalid_parameters": "Parâmetro inválido na etiqueta <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Esgotamento das legendas personalizadas para backlinks. Defina mais na mensagem [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_references_no_text": "Etiqueta <code>&lt;ref&gt;</code> inválida; não foi fornecido texto para as ''refs'' de nome <code>$1</code>",
 	"cite_error_included_ref": "Elemento de fecho <code>&lt;/ref&gt;</code> em falta para o elemento <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Falta a etiqueta de fecho de <code>&lt;references&gt;</code>",

@@ -19,7 +19,6 @@
 	"cite_error_ref_no_input": "Neveljavna značka <code>&lt;ref&gt;</code>; sklici brez imena morajo imeti vsebino",
 	"cite_error_references_duplicate_key": "Neveljavna značka <code>&lt;ref&gt;</code>; ime »$1« je z različno vsebino opredeljeno večkrat",
 	"cite_error_references_invalid_parameters": "Neveljaven parameter v znački <code>&lt;references&gt;</code>",
-	"cite_error_references_no_backlink_label": "Zmanjkalo je oznak za povratne povezave. Določite jih več v sporočilu [[MediaWiki:Cite references link many format backlink labels]].",
 	"cite_error_references_no_text": "Neveljavna značka <code>&lt;ref&gt;</code>; sklici, imenovani <code>$1</code>, ne vsebujejo nobenega besedila",
 	"cite_error_included_ref": "Za značko <code>&lt;ref&gt;</code> manjka zaključek <code>&lt;/ref&gt;</code>",
 	"cite_error_included_references": "Manjka zaključna značka za <code>&lt;references&gt;</code>",

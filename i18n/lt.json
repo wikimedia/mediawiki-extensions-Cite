@@ -21,7 +21,6 @@
 	"cite_error_ref_no_input": "Neleistina <code>&lt;ref&gt;</code> gairė; nuorodos be vardo turi turėti turinį",
 	"cite_error_references_duplicate_key": "Netinkama <code>&lt;ref&gt;</code> žymė; vardas \"$1\" apibrėžtas keletą kartų su skirtingu turiniu",
 	"cite_error_references_invalid_parameters": "Neleistinas parametras <code>&lt;references&gt;</code> gairėje",
-	"cite_error_references_no_backlink_label": "Baigėsi antraštės. Nurodykite daugiau [[MediaWiki:Cite references link many format backlink labels]] sisteminiame tekste",
 	"cite_error_references_no_text": "Netinkama <code>&lt;ref&gt;</code> žymė; nebuvo pateiktas tekstas nuorodoms su pavadinimu <code>$1</code>",
 	"cite_error_included_ref": "Trūksta uždaromojo <code>&lt;/ref&gt;</code> žymei <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Trūksta <code>&lt;references&gt;</code> uždarymo žymos",

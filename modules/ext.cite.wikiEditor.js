@@ -106,27 +106,6 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 
 	];
 
-	if ( mw.config.get( 'wgCiteSubReferencing' ) ) {
-		const extendedRefObj = {
-			description: {
-				html: mw.message( 'cite-wikieditor-help-content-extended-reference-description' ).parse()
-			},
-			syntax: {
-				html: mw.html.escape(
-					mw.message( 'cite-wikieditor-help-content-reference-example-text1', mw.message( 'cite-wikieditor-help-content-reference-example-ref-extends', mw.message( 'cite-wikieditor-help-content-reference-example-ref-id' ).plain(), mw.message( 'cite-wikieditor-help-content-reference-example-extra-details' ).plain() ).plain() ).plain()
-				)
-			},
-			result: {
-				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1', parsedRef( 2.1 ) ).parse()
-			}
-		};
-
-		// Insert extendedRefObj right after the row for named refs with the description message key
-		// "Additional use of the same reference"
-		const indexOfNamedRefItem = helpRows.findIndex( ( obj ) => mw.message( 'cite-wikieditor-help-content-rereference-description' ).plain() === obj.description.html );
-		helpRows.splice( indexOfNamedRefItem + 1, 0, extendedRefObj );
-	}
-
 	$textarea.wikiEditor( 'addToToolbar', {
 		section: 'help',
 		pages: {

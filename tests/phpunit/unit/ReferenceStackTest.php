@@ -56,7 +56,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		return [
 			'Anonymous ref in default group' => [
 				'refs' => [
-					[ 'text', [], '', null, null, null, 'rtl' ]
+					[ 'text', [], '', null, null, 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -88,7 +88,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Anonymous ref in named group' => [
 				'refs' => [
-					[ 'text', [], 'foo', null, null, null, 'rtl' ]
+					[ 'text', [], 'foo', null, null, 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -120,7 +120,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Ref with text' => [
 				'refs' => [
-					[ 'text', [], 'foo', null, null, null, 'rtl' ]
+					[ 'text', [], 'foo', null, null, 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -152,7 +152,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Named ref with text' => [
 				'refs' => [
-					[ 'text', [], 'foo', 'name', null, null, 'rtl' ]
+					[ 'text', [], 'foo', 'name', null, 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -184,8 +184,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Follow after base' => [
 				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
-					[ 'text-b', [], 'foo', 'b', null, 'a', 'rtl' ]
+					[ 'text-a', [], 'foo', 'a', null, 'rtl' ],
+					[ 'text-b', [], 'foo', 'b', 'a', 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -218,7 +218,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Follow with no base' => [
 				'refs' => [
-					[ 'text', [], 'foo', null, null, 'a', 'rtl' ]
+					[ 'text', [], 'foo', null, 'a', 'rtl' ]
 				],
 				'expectedOutputs' => [
 					null
@@ -242,9 +242,9 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Follow pointing to later ref' => [
 				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
-					[ 'text-b', [], 'foo', null, null, 'c', 'rtl' ],
-					[ 'text-c', [], 'foo', 'c', null, null, 'rtl' ]
+					[ 'text-a', [], 'foo', 'a', null, 'rtl' ],
+					[ 'text-b', [], 'foo', null, 'c', 'rtl' ],
+					[ 'text-c', [], 'foo', 'c', null, 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -306,8 +306,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Repeated ref, text in first tag' => [
 				'refs' => [
-					[ 'text', [], 'foo', 'a', null, null, 'rtl' ],
-					[ null, [], 'foo', 'a', null, null, 'rtl' ]
+					[ 'text', [], 'foo', 'a', null, 'rtl' ],
+					[ null, [], 'foo', 'a', null, 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -349,8 +349,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Repeated ref, text in second tag' => [
 				'refs' => [
-					[ null, [], 'foo', 'a', null, null, 'rtl' ],
-					[ 'text', [], 'foo', 'a', null, null, 'rtl' ]
+					[ null, [], 'foo', 'a', null, 'rtl' ],
+					[ 'text', [], 'foo', 'a', null, 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -392,8 +392,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Repeated ref, mismatched text' => [
 				'refs' => [
-					[ 'text-1', [], 'foo', 'a', null, null, 'rtl' ],
-					[ 'text-2', [], 'foo', 'a', null, null, 'rtl' ]
+					[ 'text-1', [], 'foo', 'a', null, 'rtl' ],
+					[ 'text-2', [], 'foo', 'a', null, 'rtl' ]
 				],
 				'expectedOutputs' => [
 					[
@@ -435,404 +435,11 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[ 'increment', 1, 'foo', 'a', 'text-2', [] ],
 				]
 			],
-			'Named extends with no parent' => [
-				'refs' => [
-					[ 'text-a', [], 'foo', 'a', 'b', null, 'rtl' ],
-				],
-				'expectedOutputs' => [
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 1,
-						'group' => 'foo',
-						'name' => 'a',
-						'text' => 'text-a',
-						'number' => 1,
-						'extends' => 'b',
-						'extendsIndex' => 1,
-					],
-				],
-				'finalRefs' => [
-					'foo' => [
-						'a' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'key' => 1,
-							'group' => 'foo',
-							'name' => 'a',
-							'text' => 'text-a',
-							'number' => 1,
-							'extends' => 'b',
-							'extendsIndex' => 1,
-						],
-						'b' => [
-							'count' => 0,
-							'extendsCount' => 1,
-							'name' => 'b',
-							'number' => 1,
-							'placeholder' => true,
-						]
-					]
-				],
-				'finalCallStack' => [
-					[ 'new', 1, 'foo', 'a', 'text-a', [] ],
-				]
-			],
-			'Named extends before parent' => [
-				'refs' => [
-					[ 'text-a', [], 'foo', 'a', 'b', null, 'rtl' ],
-					[ 'text-b', [], 'foo', 'b', null, null, 'rtl' ],
-				],
-				'expectedOutputs' => [
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 1,
-						'group' => 'foo',
-						'name' => 'a',
-						'text' => 'text-a',
-						'number' => 1,
-						'extends' => 'b',
-						'extendsIndex' => 1,
-					],
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'extendsCount' => 1,
-						'key' => 2,
-						'group' => 'foo',
-						'name' => 'b',
-						'text' => 'text-b',
-						'number' => 1,
-					]
-				],
-				'finalRefs' => [
-					'foo' => [
-						'a' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'key' => 1,
-							'group' => 'foo',
-							'name' => 'a',
-							'text' => 'text-a',
-							'number' => 1,
-							'extends' => 'b',
-							'extendsIndex' => 1,
-						],
-						'b' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'extendsCount' => 1,
-							'key' => 2,
-							'group' => 'foo',
-							'name' => 'b',
-							'text' => 'text-b',
-							'number' => 1,
-						]
-					]
-				],
-				'finalCallStack' => [
-					[ 'new', 1, 'foo', 'a', 'text-a', [] ],
-					[ 'new-from-placeholder', 2, 'foo', 'b', 'text-b', [] ],
-				]
-			],
-			'Named extends after parent' => [
-				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
-					[ 'text-b', [], 'foo', 'b', 'a', null, 'rtl' ],
-				],
-				'expectedOutputs' => [
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 1,
-						'group' => 'foo',
-						'name' => 'a',
-						'text' => 'text-a',
-						'number' => 1,
-					],
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 2,
-						'group' => 'foo',
-						'name' => 'b',
-						'text' => 'text-b',
-						'number' => 1,
-						'extends' => 'a',
-						'extendsIndex' => 1,
-					]
-				],
-				'finalRefs' => [
-					'foo' => [
-						'a' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'extendsCount' => 1,
-							'key' => 1,
-							'group' => 'foo',
-							'name' => 'a',
-							'text' => 'text-a',
-							'number' => 1,
-						],
-						'b' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'key' => 2,
-							'group' => 'foo',
-							'name' => 'b',
-							'text' => 'text-b',
-							'number' => 1,
-							'extends' => 'a',
-							'extendsIndex' => 1,
-						]
-					]
-				],
-				'finalCallStack' => [
-					[ 'new', 1, 'foo', 'a', 'text-a', [] ],
-					[ 'new', 2, 'foo', 'b', 'text-b', [] ],
-				]
-			],
-			'Anonymous extends with no parent' => [
-				'refs' => [
-					[ 'text-a', [], 'foo', null, 'b', null, 'rtl' ],
-				],
-				'expectedOutputs' => [
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 1,
-						'group' => 'foo',
-						'name' => null,
-						'text' => 'text-a',
-						'number' => 1,
-						'extends' => 'b',
-						'extendsIndex' => 1,
-					]
-				],
-				'finalRefs' => [
-					'foo' => [
-						0 => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'key' => 1,
-							'group' => 'foo',
-							'name' => null,
-							'text' => 'text-a',
-							'number' => 1,
-							'extends' => 'b',
-							'extendsIndex' => 1,
-						],
-						'b' => [
-							'count' => 0,
-							'extendsCount' => 1,
-							'name' => 'b',
-							'number' => 1,
-							'placeholder' => true,
-						]
-					],
-				],
-				'finalCallStack' => [
-					[ 'new', 1, 'foo', null, 'text-a', [] ],
-				]
-			],
-			'Anonymous extends before parent' => [
-				'refs' => [
-					[ 'text-a', [], 'foo', null, 'b', null, 'rtl' ],
-					[ 'text-b', [], 'foo', 'b', null, null, 'rtl' ],
-				],
-				'expectedOutputs' => [
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 1,
-						'group' => 'foo',
-						'name' => null,
-						'text' => 'text-a',
-						'number' => 1,
-						'extends' => 'b',
-						'extendsIndex' => 1,
-					],
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'extendsCount' => 1,
-						'key' => 2,
-						'group' => 'foo',
-						'name' => 'b',
-						'text' => 'text-b',
-						'number' => 1,
-					]
-				],
-				'finalRefs' => [
-					'foo' => [
-						0 => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'key' => 1,
-							'group' => 'foo',
-							'name' => null,
-							'text' => 'text-a',
-							'number' => 1,
-							'extends' => 'b',
-							'extendsIndex' => 1,
-						],
-						'b' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'extendsCount' => 1,
-							'key' => 2,
-							'group' => 'foo',
-							'name' => 'b',
-							'text' => 'text-b',
-							'number' => 1,
-						]
-					]
-				],
-				'finalCallStack' => [
-					[ 'new', 1, 'foo', null, 'text-a', [] ],
-					[ 'new-from-placeholder', 2, 'foo', 'b', 'text-b', [] ],
-				]
-			],
-			'Anonymous extends after parent' => [
-				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
-					[ 'text-b', [], 'foo', null, 'a', null, 'rtl' ],
-				],
-				'expectedOutputs' => [
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 1,
-						'group' => 'foo',
-						'name' => 'a',
-						'text' => 'text-a',
-						'number' => 1,
-					],
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 2,
-						'group' => 'foo',
-						'name' => null,
-						'text' => 'text-b',
-						'number' => 1,
-						'extends' => 'a',
-						'extendsIndex' => 1,
-					]
-				],
-				'finalRefs' => [
-					'foo' => [
-						'a' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'extendsCount' => 1,
-							'key' => 1,
-							'group' => 'foo',
-							'name' => 'a',
-							'text' => 'text-a',
-							'number' => 1,
-						],
-						0 => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'key' => 2,
-							'group' => 'foo',
-							'name' => null,
-							'text' => 'text-b',
-							'number' => 1,
-							'extends' => 'a',
-							'extendsIndex' => 1,
-						]
-					]
-				],
-				'finalCallStack' => [
-					[ 'new', 1, 'foo', 'a', 'text-a', [] ],
-					[ 'new', 2, 'foo', null, 'text-b', [] ],
-				]
-			],
-			'Normal after extends' => [
-				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
-					[ 'text-b', [], 'foo', null, 'a', null, 'rtl' ],
-					[ 'text-c', [], 'foo', 'c', null, null, 'rtl' ],
-				],
-				'expectedOutputs' => [
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 1,
-						'group' => 'foo',
-						'name' => 'a',
-						'text' => 'text-a',
-						'number' => 1,
-					],
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 2,
-						'group' => 'foo',
-						'name' => null,
-						'text' => 'text-b',
-						'number' => 1,
-						'extends' => 'a',
-						'extendsIndex' => 1,
-					],
-					[
-						'count' => 1,
-						'dir' => 'rtl',
-						'key' => 3,
-						'group' => 'foo',
-						'name' => 'c',
-						'text' => 'text-c',
-						'number' => 2,
-					],
-				],
-				'finalRefs' => [
-					'foo' => [
-						'a' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'extendsCount' => 1,
-							'key' => 1,
-							'group' => 'foo',
-							'name' => 'a',
-							'text' => 'text-a',
-							'number' => 1,
-						],
-						0 => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'key' => 2,
-							'group' => 'foo',
-							'name' => null,
-							'text' => 'text-b',
-							'number' => 1,
-							'extends' => 'a',
-							'extendsIndex' => 1,
-						],
-						'c' => [
-							'count' => 1,
-							'dir' => 'rtl',
-							'key' => 3,
-							'group' => 'foo',
-							'name' => 'c',
-							'text' => 'text-c',
-							'number' => 2,
-						],
-					]
-				],
-				'finalCallStack' => [
-					[ 'new', 1, 'foo', 'a', 'text-a', [] ],
-					[ 'new', 2, 'foo', null, 'text-b', [] ],
-					[ 'new', 3, 'foo', 'c', 'text-c', [] ],
-				]
-			],
 			'Two incomplete follows' => [
 				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, null, 'rtl' ],
-					[ 'text-b', [], 'foo', null, null, 'd', 'rtl' ],
-					[ 'text-c', [], 'foo', null, null, 'd', 'rtl' ],
+					[ 'text-a', [], 'foo', 'a', null, 'rtl' ],
+					[ 'text-b', [], 'foo', null, 'd', 'rtl' ],
+					[ 'text-c', [], 'foo', null, 'd', 'rtl' ],
 				],
 				'expectedOutputs' => [
 					[
@@ -1013,64 +620,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					],
 				] ],
 			],
-			'Safely ignore placeholder' => [
-				'initialCallStack' => [
-					[ 'increment', 2, 'foo', null, null, [] ],
-				],
-				'initialRefs' => [ 'foo' => [
-					[
-						'count' => 0,
-						'key' => 1,
-						'placeholder' => true,
-						'number' => 10,
-					],
-					[
-						'count' => 3,
-						'key' => 2,
-					],
-				] ],
-				'rollbackCount' => 1,
-				'expectedResult' => [
-					[ null, [] ],
-				],
-				'expectedRefs' => [ 'foo' => [
-					[
-						'count' => 0,
-						'key' => 1,
-						'placeholder' => true,
-						'number' => 10,
-					],
-					[
-						'count' => 2,
-						'key' => 2,
-					],
-				] ],
-			],
 		];
-	}
-
-	public function testRollbackRefs_extends() {
-		$stack = $this->newStack();
-
-		$mockStripState = $this->createMock( StripState::class );
-		$mockStripState->method( 'unstripBoth' )->willReturnArgument( 0 );
-		$stack->pushRef(
-			$mockStripState,
-			'text', [],
-			'foo', null, 'a', null, 'rtl'
-		);
-		$stack->rollbackRefs( 1 );
-		$this->assertEquals(
-			TestUtils::refFromArray( [
-				'count' => 0,
-				'extendsCount' => 0,
-				'name' => 'a',
-				'number' => 1,
-				'placeholder' => true,
-				'warnings' => []
-			] ),
-			$stack->refs['foo']['a']
-		);
 	}
 
 	public function testRemovals() {

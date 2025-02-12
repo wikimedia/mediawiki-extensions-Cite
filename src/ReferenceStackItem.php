@@ -19,21 +19,6 @@ class ReferenceStackItem {
 	 */
 	public ?string $dir = null;
 	/**
-	 * @var ?string Marks a sub-reference. Points to the parent reference by name.
-	 */
-	public ?string $extends = null;
-	/**
-	 * @var ?int Count how many subreferences point to a parent.  Corresponds to
-	 *   the last {@see extendsIndex} but this field belongs to the parent.
-	 */
-	public ?int $extendsCount = null;
-	/**
-	 * @var ?int Sequence number for sub-references with the same extends
-	 * attribute value, starting from 1. {@see number} and this extends index are
-	 * combined to render a footnote marker like "[1.1]".
-	 */
-	public ?int $extendsIndex = null;
-	/**
 	 * @var ?string Marks a "follow" ref which continues the ref text from a
 	 * previous page, e.g. in the Page:… namespace on Wikisource.
 	 */
@@ -58,11 +43,6 @@ class ReferenceStackItem {
 	 * footnote marker, eg "[1]".
 	 */
 	public ?int $number = null;
-	/**
-	 * @var bool Temporarily marks an incomplete parent ref referenced via
-	 * {@see extends} before it exists.
-	 */
-	public bool $placeholder = false;
 	/**
 	 * @var ?string The content inside the <ref>…</ref> tag. Null for a
 	 * self-closing <ref /> without content. Also null for <ref></ref> without any

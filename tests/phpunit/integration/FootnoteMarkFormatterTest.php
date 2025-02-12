@@ -118,17 +118,6 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				],
 				'(cite_reference_link|a+4-50001|a-4|3)'
 			],
-			'Subreference' => [
-				[
-					'name' => null,
-					'group' => '',
-					'number' => 3,
-					'key' => 4,
-					'extends' => 'b',
-					'extendsIndex' => 50002,
-				],
-				'(cite_reference_link|4+|4|3.50002)'
-			],
 		];
 	}
 }

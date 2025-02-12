@@ -145,7 +145,7 @@ class ReferenceStack {
 
 		$ref->number ??= ++$this->groupRefSequence[$group];
 
-		if ( $subrefDetails ) {
+		if ( ( $subrefDetails ?? '' ) !== '' ) {
 			$parentRef = $ref;
 			// Turns out this is not a reused parent; undo parts of what happened above
 			if ( $name ) {

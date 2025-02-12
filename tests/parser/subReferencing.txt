@@ -5,15 +5,30 @@ Subreferencing attribute allowed with feature flag set
 !! config
 wgCiteSubReferencing=true
 !! wikitext
-<ref details="abc">def</ref>
+<ref details="0">def</ref>
 !! html/php
 <p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">def</span>
-<ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">abc</span>
+<ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">0</span>
 </li>
 </ol></li>
+</ol></div>
+!! end
+
+!! test
+Empty sub-referencing attribute with no meaningfull content
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref details="   ">def</ref>
+!! html/php
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">def</span>
+</li>
 </ol></div>
 !! end
 

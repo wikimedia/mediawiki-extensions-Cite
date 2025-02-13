@@ -177,7 +177,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 
 		$parser = $this->createNoOpMock( Parser::class );
 		$ref = TestUtils::refFromArray( $ref );
-		$output = $formatter->formatListItem( $parser, 1, $ref, false );
+		$output = $formatter->formatListItem( $parser, $ref, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -216,7 +216,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'name' => 'a',
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_one|1-5|1+5-0|<span class="reference-text">t</span>'
+				'expectedOutput' => '(cite_references_link_one|a-5|a+5-0|<span class="reference-text">t</span>'
 					. "\n|)"
 			],
 			'Anonymous' => [
@@ -236,11 +236,11 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'numberInGroup' => 3,
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_many|1-5|(cite_references_link_many_format|1+5-0|3.0|' .
+				'expectedOutput' => '(cite_references_link_many|a-5|(cite_references_link_many_format|a+5-0|3.0|' .
 				'(cite_references_link_many_format_backlink_labels))' .
-				'(cite_references_link_many_sep)(cite_references_link_many_format|1+5-1|3.1|' .
+				'(cite_references_link_many_sep)(cite_references_link_many_format|a+5-1|3.1|' .
 				'3.2)(cite_references_link_many_and)' .
-				'(cite_references_link_many_format|1+5-2|3.2|3.3' .
+				'(cite_references_link_many_format|a+5-2|3.2|3.3' .
 				')|<span class="reference-text">t</span>' . "\n|)"
 			],
 		];
@@ -269,7 +269,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 
 		$parser = $this->createNoOpMock( Parser::class );
 		$ref = TestUtils::refFromArray( [ 'text' => $text ] );
-		$output = $formatter->renderTextAndWarnings( $parser, 1, $ref, $isSectionPreview );
+		$output = $formatter->renderTextAndWarnings( $parser, $ref, $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -278,12 +278,12 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			'No text, not preview' => [
 				'text' => null,
 				'isSectionPreview' => false,
-				'expectedOutput' => '(cite_error_references_no_text|1)'
+				'expectedOutput' => '(cite_error_references_no_text|)'
 			],
 			'No text, is preview' => [
 				'text' => null,
 				'isSectionPreview' => true,
-				'expectedOutput' => '(cite_warning_sectionpreview_no_text|1)'
+				'expectedOutput' => '(cite_warning_sectionpreview_no_text|)'
 			],
 			'Has text' => [
 				'text' => 'text',

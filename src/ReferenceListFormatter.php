@@ -92,7 +92,7 @@ class ReferenceListFormatter {
 		$parserInput = "\n";
 		/** @var string|bool $indented */
 		$indented = false;
-		foreach ( $groupRefs as $key => $ref ) {
+		foreach ( $groupRefs as $ref ) {
 			if ( !$indented && $ref->parentRefGlobalId !== null ) {
 				// Create nested list before processing the first subref.
 				// The nested <ol> must be inside the parent's <li>
@@ -106,7 +106,7 @@ class ReferenceListFormatter {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
-			$parserInput .= $this->formatListItem( $parser, $key, $ref, $isSectionPreview ) . "\n";
+			$parserInput .= $this->formatListItem( $parser, $ref, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
 		return $parserInput;
@@ -127,16 +127,15 @@ class ReferenceListFormatter {
 
 	/**
 	 * @param Parser $parser
-	 * @param string|int $key The key of the reference
 	 * @param ReferenceStackItem $ref
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
 	private function formatListItem(
-		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
+		Parser $parser, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
-		$text = $this->renderTextAndWarnings( $parser, $key, $ref, $isSectionPreview );
+		$text = $this->renderTextAndWarnings( $parser, $ref, $isSectionPreview );
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
@@ -158,9 +157,12 @@ class ReferenceListFormatter {
 				$id = $ref->globalId;
 				$backlinkId = $this->anchorFormatter->backLink( $ref->globalId );
 			} else {
-				$id = $key . '-' . $ref->globalId;
-				// TODO: Use count without decrementing.
-				$backlinkId = $this->anchorFormatter->backLink( $key, $ref->globalId . '-' . ( $ref->count - 1 ) );
+				$id = $ref->name . '-' . $ref->globalId;
+				$backlinkId = $this->anchorFormatter->backLink(
+					(string)$ref->name,
+					// TODO: Use count without decrementing.
+					$ref->globalId . '-' . ( $ref->count - 1 )
+				);
 			}
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
@@ -180,7 +182,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backLink( $key, $ref->globalId . '-' . $i ),
+					$this->anchorFormatter->backLink( (string)$ref->name, $ref->globalId . '-' . $i ),
 					$this->backlinkMarkRenderer->getLegacyNumericMarker( $i, $ref->count, $parentLabel ),
 					$this->backlinkMarkRenderer->getLegacyAlphabeticMarker( $i + 1, $ref->count, $parentLabel )
 				)->plain();
@@ -189,7 +191,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backLink( $key, $ref->globalId . '-' . $i ),
+					$this->anchorFormatter->backLink( (string)$ref->name, $ref->globalId . '-' . $i ),
 					$backlinkLabel,
 					$backlinkLabel
 				)->plain();
@@ -198,7 +200,7 @@ class ReferenceListFormatter {
 
 		// The parent of a subref might actually be unused and therefore have zero backlinks
 		$linkTargetId = $ref->count > 0 ?
-			$this->anchorFormatter->jumpLinkTarget( $key . '-' . $ref->globalId ) : '';
+			$this->anchorFormatter->jumpLinkTarget( $ref->name . '-' . $ref->globalId ) : '';
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
 			$linkTargetId,
@@ -210,20 +212,19 @@ class ReferenceListFormatter {
 
 	/**
 	 * @param Parser $parser
-	 * @param string|int $key
 	 * @param ReferenceStackItem $ref
 	 * @param bool $isSectionPreview
 	 *
 	 * @return string Wikitext
 	 */
 	private function renderTextAndWarnings(
-		Parser $parser, $key, ReferenceStackItem $ref, bool $isSectionPreview
+		Parser $parser, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
 		if ( $ref->text === null ) {
 			return $this->errorReporter->plain( $parser,
 				$isSectionPreview
 					? 'cite_warning_sectionpreview_no_text'
-					: 'cite_error_references_no_text', $key );
+					: 'cite_error_references_no_text', $ref->name );
 		}
 
 		$text = $ref->text ?? '';

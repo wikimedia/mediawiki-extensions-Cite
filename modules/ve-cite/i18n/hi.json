@@ -18,7 +18,8 @@
 			"Venky2834",
 			"Wikiuser13",
 			"संजीव कुमार",
-			"AnupamM"
+			"AnupamM",
+			"Bunnypranav"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "पुस्तक",
@@ -61,7 +62,7 @@
 	"cite-ve-referenceslist-isempty-default": "इस पृष्ठ पर कोई सन्दर्भ नहीं है जो इस सूची में जोड़े जा सकें।",
 	"cite-ve-referenceslist-missingref": "यह सन्दर्भ किसी साँचे या दूसरे ब्लॉक का इस्तेमाल करता है, और इसलिए अभी सिर्फ स्रोत सम्पादन में सम्पादित किया जा सकता है।",
 	"cite-ve-referenceslist-missingref-in-list": "यह सन्दर्भ किसी साँचे या दूसरे ब्लॉक का इस्तेमाल करता है, और इसलिए अभी सिर्फ स्रोत सम्पादन में सम्पादित किया जा सकता है।",
-	"cite-ve-referenceslist-missingreflist": "यह सन्दर्भ सूची एक साँचे द्वारा बनाई गई है, और इसलिए अभी सिर्फ स्रोत सम्पादन में सम्पादित की जा सकती है।",
+	"cite-ve-referenceslist-missingreflist": "यह सन्दर्भ सूची एक साँचे द्वारा बनाई गई है।",
 	"cite-ve-toolbar-group-label": "उद्धृत करें",
 	"cite-ve-othergroup-item": "$1 सन्दर्भ"
 }

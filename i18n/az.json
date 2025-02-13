@@ -17,7 +17,7 @@
 	"cite_error_ref_numeric_key": "Xətalı <code>&lt;ref&gt;</code> etiketi; istinad adlandırması yalnız rəqəm ola bilməz. Daha yaxşı başlıqdan istifadə edin",
 	"cite_error_ref_no_key": "<code>&lt;ref&gt;</code> açılış teqi səhv formalaşdırılıb və ya adı etibarsızdır",
 	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> teqində yanlış parametr",
-	"cite_error_ref_follow_conflicts": "Əvvəlkinin davamı olan <code>&lt;ref follow=\"…\"&gt;</code> teqi nə fərdi olaraq adlandırıla, nə də genişləndirilə bilər.",
+	"cite_error_ref_follow_conflicts": "Əvvəlkinin davamı olan <code>&lt;ref follow=\"…\"&gt;</code> teqi fərdi olaraq adlandırıla bilməz.",
 	"cite_error_ref_nested_extends": "<code>&lt;ref&gt;</code> teqlərinin bir səviyyədən çox dərinliyinə uzadılmasına icazə verilmir",
 	"cite_error_ref_no_input": "Yanlış <code>&lt;ref&gt;</code>teqi; adsız istinadlar məzmuna sahib olmalıdır",
 	"cite_error_references_duplicate_key": "Xətalı <code>&lt;ref&gt;</code> etiketi; \"$1\" adı bir neçə dəfə müxtəlif məzmunla verilib",

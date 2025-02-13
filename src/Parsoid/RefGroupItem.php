@@ -25,6 +25,9 @@ class RefGroupItem {
 	public ?string $cachedHtml = null;
 
 	public string $dir = '';
+	/**
+	 * Name of the group (or empty for the default group) which this <ref> belongs to.
+	 */
 	public string $group = '';
 	/**
 	 * Sequence number per {@see $group}, starting from 1. To be used in the footnote marker,
@@ -32,12 +35,30 @@ class RefGroupItem {
 	 */
 	public int $numberInGroup = 1;
 	public ?string $extendsRef = null;
+	/**
+	 * Global, unique sequence number for each <ref>, no matter which group, starting from 0.
+	 * Currently unused.
+	 */
 	public int $index = 0;
+	/**
+	 * Same as {@see id}, but without the "-0" suffix
+	 */
 	public string $key;
+	/**
+	 * The clickable href="#…" backlink and id="…" target to jump from the reference list back up
+	 * to the corresponding footnote marker
+	 */
 	public string $id;
 	/** @var array<int,string> */
 	public array $linkbacks = [];
+	/**
+	 * The original name="…" attribute of a <ref>, or empty for anonymous references.
+	 */
 	public string $name = '';
+	/**
+	 * The clickable href="#…" link and id="…" target to jump down from a footnote marker to the
+	 * item in the reference list
+	 */
 	public string $target;
 
 	/** @var Element[] */

@@ -63,7 +63,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 				'refs' => [
 					0 => [
 						'count' => 1,
-						'key' => 1,
+						'globalId' => 1,
 						'text' => 't',
 					]
 				],
@@ -73,7 +73,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			],
 			'Use columns' => [
 				'refs' => array_map(
-					static fn ( $i ) => [ 'count' => 1, 'key' => $i, 'text' => 't' ],
+					static fn ( $i ) => [ 'count' => 1, 'globalId' => $i, 'text' => 't' ],
 					range( 0, 10 )
 				),
 				'expectedOutput' => '<div class="mw-references-wrap mw-references-columns"><ol class="references">' .
@@ -186,7 +186,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			'Success' => [
 				'ref' => [
 					'count' => 1,
-					'key' => 1,
+					'globalId' => 1,
 					'text' => 't',
 				],
 				'expectedOutput' => '(cite_references_link_one|1|1+|<span class="reference-text">t</span>' . "\n|)"
@@ -195,7 +195,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 				'ref' => [
 					'count' => 1,
 					'dir' => 'rtl',
-					'key' => 1,
+					'globalId' => 1,
 					'text' => 't',
 				],
 				'expectedOutput' => '(cite_references_link_one|1|1+|<span class="reference-text">t</span>' .
@@ -204,7 +204,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			'Incomplete follow' => [
 				'ref' => [
 					'follow' => 'f',
-					'key' => 1,
+					'globalId' => 1,
 					'text' => 't',
 				],
 				'expectedOutput' => "<p id=\"f\"><span class=\"reference-text\">t</span>\n</p>"
@@ -212,7 +212,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			'Count one' => [
 				'ref' => [
 					'count' => 1,
-					'key' => 5,
+					'globalId' => 5,
 					'name' => 'a',
 					'text' => 't',
 				],
@@ -222,7 +222,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			'Anonymous' => [
 				'ref' => [
 					'count' => 1,
-					'key' => 5,
+					'globalId' => 5,
 					'numberInGroup' => 3,
 					'text' => 't',
 				],
@@ -231,7 +231,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			'Count many' => [
 				'ref' => [
 					'count' => 3,
-					'key' => 5,
+					'globalId' => 5,
 					'name' => 'a',
 					'numberInGroup' => 3,
 					'text' => 't',

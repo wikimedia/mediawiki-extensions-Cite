@@ -24,11 +24,8 @@ class ReferenceStack {
 	 */
 	private array $refs = [];
 
-	/**
-	 * Auto-incrementing sequence number for all <ref>, no matter which group
-	 */
+	/** Global, auto-incrementing sequence number for all <ref>, no matter which group */
 	private int $refSequence = 0;
-
 	/** @var array<string,int> Auto-incrementing sequence numbers per group */
 	private array $groupRefSequence = [];
 
@@ -94,9 +91,9 @@ class ReferenceStack {
 				// Mark an incomplete follow="…" as such. This is valid e.g. in the Page:… namespace
 				// on Wikisource.
 				$ref->follow = $follow;
-				$ref->key = $this->nextRefSequence();
+				$ref->globalId = $this->nextRefSequence();
 				$this->refs[$group][] = $ref;
-				$this->refCallStack[] = [ self::ACTION_NEW, $ref->key, $group, $name, $text, $argv ];
+				$this->refCallStack[] = [ self::ACTION_NEW, $ref->globalId, $group, $name, $text, $argv ];
 			} elseif ( $text !== null ) {
 				// We know the parent already, so just perform the follow="…" and bail out
 				$this->resolveFollow( $group, $follow, $text );
@@ -108,12 +105,12 @@ class ReferenceStack {
 		if ( !$name ) {
 			// This is an anonymous reference, which will be given a numeric index.
 			$this->refs[$group][] = &$ref;
-			$ref->key = $this->nextRefSequence();
+			$ref->globalId = $this->nextRefSequence();
 			$action = self::ACTION_NEW;
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
-			// Valid key with first occurrence
+			// First occurrence of a named <ref>
 			$this->refs[$group][$name] = &$ref;
-			$ref->key = $this->nextRefSequence();
+			$ref->globalId = $this->nextRefSequence();
 			$action = self::ACTION_NEW;
 		} else {
 			// Change an existing entry.
@@ -136,7 +133,7 @@ class ReferenceStack {
 					&& $stripState->unstripBoth( $text )
 					!== $stripState->unstripBoth( $ref->text )
 				) {
-					// two refs with same name and different text
+					// Two <ref> with same group and name, but different content
 					$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];
 				}
 				$action = self::ACTION_INCREMENT;
@@ -159,21 +156,21 @@ class ReferenceStack {
 
 			// Create the parent ref if new.
 			if ( !$parentRef->count ) {
-				$this->refCallStack[] = [ $action, $parentRef->key, $group, $name, $text, $argv ];
+				$this->refCallStack[] = [ $action, $parentRef->globalId, $group, $name, $text, $argv ];
 			}
 
 			// FIXME: At the moment it's impossible to reuse sub-references in any way
 			$subRef->count = 1;
-			$subRef->key = $this->nextRefSequence();
+			$subRef->globalId = $this->nextRefSequence();
 			$subRef->name = null;
-			$subRef->parentRefKey = $parentRef->key;
+			$subRef->parentRefGlobalId = $parentRef->globalId;
 			$subRef->subrefIndex = ++$parentRef->subrefCount;
 			$subRef->text = $subrefDetails;
 			$this->refs[$group][] = $subRef;
-			$this->refCallStack[] = [ $action, $subRef->key, $group, null, $subrefDetails, $argv ];
+			$this->refCallStack[] = [ $action, $subRef->globalId, $group, null, $subrefDetails, $argv ];
 			return $subRef;
 		} else {
-			$this->refCallStack[] = [ $action, $ref->key, $group, $name, $text, $argv ];
+			$this->refCallStack[] = [ $action, $ref->globalId, $group, $name, $text, $argv ];
 			return $ref;
 		}
 	}
@@ -218,7 +215,7 @@ class ReferenceStack {
 	 * corrupting certain links.
 	 *
 	 * @param string $action
-	 * @param int $key Autoincrement counter for this ref.
+	 * @param int $globalId
 	 * @param string $group
 	 * @param ?string $name The name attribute passed in the ref tag.
 	 * @param ?string $text
@@ -228,7 +225,7 @@ class ReferenceStack {
 	 */
 	private function rollbackRef(
 		string $action,
-		int $key,
+		int $globalId,
 		string $group,
 		?string $name,
 		?string $text,
@@ -240,9 +237,9 @@ class ReferenceStack {
 
 		$lookup = $name ?: null;
 		if ( $lookup === null ) {
-			// Find anonymous ref by key.
+			// Find unnamed <ref> by global, unique id
 			foreach ( $this->refs[$group] as $k => $v ) {
-				if ( $v->key === $key ) {
+				if ( $v->globalId === $globalId ) {
 					$lookup = $k;
 					break;
 				}
@@ -251,12 +248,12 @@ class ReferenceStack {
 
 		// Obsessive sanity checks that the specified element exists.
 		if ( $lookup === null ) {
-			throw new LogicException( "Cannot roll back unknown ref by key $key." );
+			throw new LogicException( "Cannot roll back unknown ref by id $globalId." );
 		} elseif ( !isset( $this->refs[$group][$lookup] ) ) {
 			throw new LogicException( "Cannot roll back missing named ref \"$lookup\"." );
-		} elseif ( $this->refs[$group][$lookup]->key !== $key ) {
+		} elseif ( $this->refs[$group][$lookup]->globalId !== $globalId ) {
 			throw new LogicException(
-				"Cannot roll back corrupt named ref \"$lookup\" which should have had key $key." );
+				"Cannot roll back corrupt named ref \"$lookup\" which should have had id $globalId." );
 		}
 		$ref =& $this->refs[$group][$lookup];
 
@@ -342,7 +339,7 @@ class ReferenceStack {
 		if ( $ref->text === null ) {
 			$ref->text = $text;
 		} elseif ( $ref->text !== $text ) {
-			// two refs with same key and different content
+			// Two <ref> with same group and name, but different content
 			$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];
 		}
 	}

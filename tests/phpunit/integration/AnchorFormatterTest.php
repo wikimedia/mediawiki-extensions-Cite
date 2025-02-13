@@ -18,7 +18,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$this->overrideConfigValue( MainConfigNames::FragmentMode, [ 'html5' ] );
 	}
 
-	public function testRefKey() {
+	public function testBackLink() {
 		$formatter = new AnchorFormatter();
 
 		$this->assertSame(
@@ -29,7 +29,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 			$formatter->backLink( 'key', '2' ) );
 	}
 
-	public function testGetReferencesKey() {
+	public function testJumpLink() {
 		$formatter = new AnchorFormatter();
 
 		$this->assertSame(

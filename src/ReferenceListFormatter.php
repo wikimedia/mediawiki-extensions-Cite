@@ -93,7 +93,7 @@ class ReferenceListFormatter {
 		/** @var string|bool $indented */
 		$indented = false;
 		foreach ( $groupRefs as $key => $ref ) {
-			if ( !$indented && $ref->parentRefKey !== null ) {
+			if ( !$indented && $ref->parentRefGlobalId !== null ) {
 				// Create nested list before processing the first subref.
 				// The nested <ol> must be inside the parent's <li>
 				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
@@ -101,7 +101,7 @@ class ReferenceListFormatter {
 				}
 				$parserInput .= Html::openElement( 'ol', [ 'class' => 'mw-subreference-list' ] );
 				$indented = $matches[0][0] ?? true;
-			} elseif ( $indented && $ref->parentRefKey === null ) {
+			} elseif ( $indented && $ref->parentRefGlobalId === null ) {
 				// End nested list.
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
@@ -155,12 +155,12 @@ class ReferenceListFormatter {
 
 		if ( $ref->count === 1 ) {
 			if ( $ref->name === null ) {
-				$id = $ref->key;
-				$backlinkId = $this->anchorFormatter->backLink( $ref->key );
+				$id = $ref->globalId;
+				$backlinkId = $this->anchorFormatter->backLink( $ref->globalId );
 			} else {
-				$id = $key . '-' . $ref->key;
+				$id = $key . '-' . $ref->globalId;
 				// TODO: Use count without decrementing.
-				$backlinkId = $this->anchorFormatter->backLink( $key, $ref->key . '-' . ( $ref->count - 1 ) );
+				$backlinkId = $this->anchorFormatter->backLink( $key, $ref->globalId . '-' . ( $ref->count - 1 ) );
 			}
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
@@ -180,7 +180,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
+					$this->anchorFormatter->backLink( $key, $ref->globalId . '-' . $i ),
 					$this->backlinkMarkRenderer->getLegacyNumericMarker( $i, $ref->count, $parentLabel ),
 					$this->backlinkMarkRenderer->getLegacyAlphabeticMarker( $i + 1, $ref->count, $parentLabel )
 				)->plain();
@@ -189,7 +189,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backLink( $key, $ref->key . '-' . $i ),
+					$this->anchorFormatter->backLink( $key, $ref->globalId . '-' . $i ),
 					$backlinkLabel,
 					$backlinkLabel
 				)->plain();
@@ -198,7 +198,7 @@ class ReferenceListFormatter {
 
 		// The parent of a subref might actually be unused and therefore have zero backlinks
 		$linkTargetId = $ref->count > 0 ?
-			$this->anchorFormatter->jumpLinkTarget( $key . '-' . $ref->key ) : '';
+			$this->anchorFormatter->jumpLinkTarget( $key . '-' . $ref->globalId ) : '';
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
 			$linkTargetId,

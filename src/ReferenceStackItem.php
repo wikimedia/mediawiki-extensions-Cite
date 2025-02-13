@@ -29,13 +29,12 @@ class ReferenceStackItem {
 	 */
 	public string $group;
 	/**
-	 * @var int Sequence number for all references, no matter which group, starting
-	 * from 1. Used to generate IDs and anchors.
+	 * Global, unique sequence number for each <ref>, no matter which group, starting from 1.
+	 * Used to generate ids and anchors.
 	 */
-	public int $key;
+	public int $globalId;
 	/**
-	 * @var ?string The original name attribute of a reference, or null for anonymous
-	 * references.
+	 * The original name="…" attribute of a <ref>, or null for anonymous references.
 	 */
 	public ?string $name = null;
 	/**
@@ -50,9 +49,9 @@ class ReferenceStackItem {
 	 */
 	public ?string $text = null;
 	/**
-	 * @var ?int Subreference pointer to parent `$key`, or null for top-level refs.
+	 * A sub-reference's pointer to the parent's {@see $globalId}, or null for top-level <ref>
 	 */
-	public ?int $parentRefKey = null;
+	public ?int $parentRefGlobalId = null;
 	/**
 	 * @var ?int Count how many subreferences point to a parent.  Corresponds to
 	 *   the last {@see subrefIndex} but this field belongs to the parent.

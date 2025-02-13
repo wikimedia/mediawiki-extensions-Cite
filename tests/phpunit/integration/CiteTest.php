@@ -260,7 +260,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 						'a' => [
 							'count' => 1,
 							'dir' => null,
-							'key' => 1,
+							'globalId' => 1,
 							'group' => '',
 							'name' => 'a',
 							'text' => null,
@@ -308,7 +308,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 						'a' => [
 							'count' => 1,
 							'dir' => null,
-							'key' => 1,
+							'globalId' => 1,
 							'group' => '',
 							'name' => 'a',
 							'text' => 'text',

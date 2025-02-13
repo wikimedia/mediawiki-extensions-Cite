@@ -62,7 +62,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => '',
 						'name' => null,
 						'text' => 'text',
@@ -74,7 +74,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						[
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => '',
 							'name' => null,
 							'text' => 'text',
@@ -94,7 +94,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => null,
 						'text' => 'text',
@@ -106,7 +106,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						[
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => null,
 							'text' => 'text',
@@ -126,7 +126,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => null,
 						'text' => 'text',
@@ -138,7 +138,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						[
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => null,
 							'text' => 'text',
@@ -158,7 +158,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'name',
 						'text' => 'text',
@@ -170,7 +170,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'name' => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => 'name',
 							'text' => 'text',
@@ -191,7 +191,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-a',
@@ -204,7 +204,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'a' => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-a text-b',
@@ -228,7 +228,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						[
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => null,
 							'text' => 'text',
@@ -250,7 +250,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-a',
@@ -260,7 +260,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 3,
+						'globalId' => 3,
 						'group' => 'foo',
 						'name' => 'c',
 						'text' => 'text-c',
@@ -272,7 +272,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'a' => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-a',
@@ -281,7 +281,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						0 => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 2,
+							'globalId' => 2,
 							'group' => 'foo',
 							'name' => null,
 							'text' => 'text-b',
@@ -290,7 +290,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'c' => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 3,
+							'globalId' => 3,
 							'group' => 'foo',
 							'name' => 'c',
 							'text' => 'text-c',
@@ -313,7 +313,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text',
@@ -322,7 +322,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 2,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text',
@@ -334,7 +334,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'a' => [
 							'count' => 2,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text',
@@ -356,7 +356,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => null,
@@ -365,7 +365,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 2,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text',
@@ -377,7 +377,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'a' => [
 							'count' => 2,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text',
@@ -399,7 +399,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-1',
@@ -408,7 +408,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 2,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-1',
@@ -421,7 +421,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'a' => [
 							'count' => 2,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-1',
@@ -445,7 +445,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 1,
+						'globalId' => 1,
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-a',
@@ -459,7 +459,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'a' => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-a',
@@ -468,7 +468,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						0 => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 2,
+							'globalId' => 2,
 							'group' => 'foo',
 							'name' => null,
 							'text' => 'text-b',
@@ -477,7 +477,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						1 => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 3,
+							'globalId' => 3,
 							'group' => 'foo',
 							'name' => null,
 							'text' => 'text-c',
@@ -499,11 +499,11 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[
 						'count' => 1,
 						'dir' => 'rtl',
-						'key' => 2,
+						'globalId' => 2,
 						'group' => 'foo',
 						'text' => 'text-details',
 						'numberInGroup' => 1,
-						'parentRefKey' => 1,
+						'parentRefGlobalId' => 1,
 						'subrefCount' => 0,
 						'subrefIndex' => 1,
 					],
@@ -513,7 +513,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'a' => [
 							'count' => 0,
 							'dir' => 'rtl',
-							'key' => 1,
+							'globalId' => 1,
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-parent',
@@ -523,11 +523,11 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						0 => [
 							'count' => 1,
 							'dir' => 'rtl',
-							'key' => 2,
+							'globalId' => 2,
 							'group' => 'foo',
 							'text' => 'text-details',
 							'numberInGroup' => 1,
-							'parentRefKey' => 1,
+							'parentRefGlobalId' => 1,
 							'subrefCount' => 0,
 							'subrefIndex' => 1,
 						],
@@ -596,13 +596,13 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'rollbackCount' => 1,
 				'expectedResult' => 'Cannot roll back ref with unknown group "foo".',
 			],
-			'Find anonymous ref by key' => [
+			'Find anonymous ref by id' => [
 				'initialCallStack' => [
 					[ 'new', 1, 'foo', null, 'text', [] ],
 				],
 				'initialRefs' => [ 'foo' => [
 					[
-						'key' => 1,
+						'globalId' => 1,
 					],
 				] ],
 				'rollbackCount' => 1,
@@ -617,11 +617,11 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'initialRefs' => [ 'foo' => [
 					[
-						'key' => 2,
+						'globalId' => 2,
 					],
 				] ],
 				'rollbackCount' => 1,
-				'expectedResult' => 'Cannot roll back unknown ref by key 1.',
+				'expectedResult' => 'Cannot roll back unknown ref by id 1.',
 			],
 			'Assign text' => [
 				'initialCallStack' => [
@@ -630,7 +630,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'initialRefs' => [ 'foo' => [
 					[
 						'count' => 2,
-						'key' => 1,
+						'globalId' => 1,
 						'text' => 'text-1',
 					],
 				] ],
@@ -641,7 +641,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'expectedRefs' => [ 'foo' => [
 					[
 						'count' => 1,
-						'key' => 1,
+						'globalId' => 1,
 						'text' => null,
 					],
 				] ],
@@ -653,7 +653,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'initialRefs' => [ 'foo' => [
 					[
 						'count' => 2,
-						'key' => 1,
+						'globalId' => 1,
 					],
 				] ],
 				'rollbackCount' => 1,
@@ -663,7 +663,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'expectedRefs' => [ 'foo' => [
 					[
 						'count' => 1,
-						'key' => 1,
+						'globalId' => 1,
 					],
 				] ],
 			],

@@ -40,10 +40,10 @@ class FootnoteMarkFormatter {
 	public function linkRef( Parser $parser, ReferenceStackItem $ref ): string {
 		$label = $this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup, $ref->subrefIndex );
 
-		$key = $ref->name ?? $ref->key;
+		$key = $ref->name ?? $ref->globalId;
 		// TODO: Use count without decrementing.
-		$count = $ref->name ? $ref->key . '-' . ( $ref->count - 1 ) : null;
-		$subkey = $ref->name ? '-' . $ref->key : null;
+		$count = $ref->name ? $ref->globalId . '-' . ( $ref->count - 1 ) : null;
+		$subkey = $ref->name ? '-' . $ref->globalId : null;
 
 		return $parser->recursiveTagParse(
 			$this->messageLocalizer->msg(

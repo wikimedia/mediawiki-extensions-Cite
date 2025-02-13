@@ -12,6 +12,7 @@ use Wikimedia\Parsoid\NodeData\DataMwError;
  */
 class ReferencesData {
 
+	/** Global, auto-incrementing sequence number for all <ref>, no matter which group */
 	private int $index = 0;
 	/** @var array<string,RefGroup> indexed by group name */
 	private array $refGroups = [];

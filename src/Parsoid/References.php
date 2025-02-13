@@ -312,12 +312,13 @@ class References {
 				$ref->linkbacks[] = $ref->key . '-' . count( $ref->linkbacks );
 			}
 		}
+		// Guaranteed from this point on
+		'@phan-var RefGroupItem $ref';
 
 		if ( isset( $attributes->dir ) ) {
-			if ( $refDir !== 'rtl' && $refDir !== 'ltr' ) {
-				$errs[] = new DataMwError( 'cite_error_ref_invalid_dir', [ $refDir ] );
-			} elseif ( $ref->dir !== '' && $ref->dir !== $refDir ) {
-				$errs[] = new DataMwError( 'cite_error_ref_conflicting_dir', [ $ref->name ] );
+			$dirError = $this->validateDir( $refDir, $ref );
+			if ( $dirError ) {
+				$errs[] = $dirError;
 			}
 		}
 
@@ -492,6 +493,15 @@ class References {
 			);
 		}
 
+		return null;
+	}
+
+	private function validateDir( string $refDir, RefGroupItem $ref ): ?DataMwError {
+		if ( $refDir !== 'rtl' && $refDir !== 'ltr' ) {
+			return new DataMwError( 'cite_error_ref_invalid_dir', [ $refDir ] );
+		} elseif ( $ref->dir !== '' && $ref->dir !== $refDir ) {
+			return new DataMwError( 'cite_error_ref_conflicting_dir', [ $ref->name ] );
+		}
 		return null;
 	}
 

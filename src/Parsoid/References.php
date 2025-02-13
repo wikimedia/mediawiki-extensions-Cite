@@ -118,6 +118,39 @@ class References {
 		return $frag;
 	}
 
+	private function processNestedRefInRef(
+		ParsoidExtensionAPI $extApi,
+		Element $refFragment,
+		ReferencesData $referencesData,
+		bool $hasDifferingHtml
+	): ?string {
+		$refFragmentDp = DOMDataUtils::getDataParsoid( $refFragment );
+		if ( !empty( $refFragmentDp->empty ) || !self::hasRef( $refFragment ) ) {
+			return null;
+		}
+
+		if ( $hasDifferingHtml ) {
+			$referencesData->pushEmbeddedContentFlag();
+		}
+
+		// This prevents nested list-defined references from erroneously giving "group mismatch"
+		// errors.
+		$referencesData->incrementRefDepth();
+		$this->processRefs( $extApi, $referencesData, $refFragment );
+		$referencesData->decrementRefDepth();
+
+		if ( $hasDifferingHtml ) {
+			$referencesData->popEmbeddedContentFlag();
+			// If we have refs and the content differs, we need to reserialize now that we processed
+			// the refs.  Unfortunately, the cachedHtml we compared against already had its refs
+			// processed so that would presumably never match and this will always be considered a
+			// redefinition.  The implementation for the legacy parser also considers this a
+			// redefinition so there is likely little content out there like this :)
+			return $extApi->domToHtml( $refFragment, true, true );
+		}
+		return null;
+	}
+
 	private function extractRefFromNode(
 		ParsoidExtensionAPI $extApi, Element $node, ReferencesData $referencesData
 	): void {
@@ -232,32 +265,8 @@ class References {
 			}
 		}
 
-		// Process nested ref-in-ref
-		if ( empty( $refFragmentDp->empty ) && self::hasRef( $refFragment ) ) {
-			if ( $hasDifferingHtml ) {
-				$referencesData->pushEmbeddedContentFlag();
-			}
-
-			// This prevents nested list-defined references from erroneously
-			// giving "group mismatch" errors.
-			$referencesData->incrementRefDepth();
-
-			$this->processRefs( $extApi, $referencesData, $refFragment );
-
-			$referencesData->decrementRefDepth();
-
-			if ( $hasDifferingHtml ) {
-				$referencesData->popEmbeddedContentFlag();
-				// If we have refs and the content differs, we need to
-				// reserialize now that we processed the refs.  Unfortunately,
-				// the cachedHtml we compared against already had its refs
-				// processed so that would presumably never match and this will
-				// always be considered a redefinition.  The implementation for
-				// the legacy parser also considers this a redefinition so
-				// there is likely little content out there like this :)
-				$refFragmentHtml = $extApi->domToHtml( $refFragment, true, true );
-			}
-		}
+		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
+			$hasDifferingHtml ) ?? $refFragmentHtml;
 
 		$supParent = DOMUtils::findAncestorOfName( $node, 'sup' );
 		while ( $supParent ) {

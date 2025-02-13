@@ -25,7 +25,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$config = new HashConfig( [
 			'CiteVisualEditorOtherGroup' => $enabled,
 			'CiteResponsiveReferences' => $enabled,
-			'CiteBookReferencing' => $enabled,
+			'CiteSubReferencing' => $enabled,
 		] );
 
 		( new CiteHooks(

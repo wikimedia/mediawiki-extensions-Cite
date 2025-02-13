@@ -23,9 +23,13 @@ class MarkSymbolRenderer {
 		$this->messageLocalizer = $messageLocalizer;
 	}
 
-	public function makeLabel( string $group, int $number ): string {
+	public function makeLabel( string $group, int $number, ?int $extendsIndex = null ): string {
 		$label = $this->fetchLegacyCustomLinkLabel( $group, $number ) ??
 		$this->makeDefaultLabel( $group, $number );
+		if ( $extendsIndex !== null ) {
+			// TODO: design better behavior, especially when using custom group markers.
+			$label .= '.' . $this->messageLocalizer->localizeDigits( (string)$extendsIndex );
+		}
 		return $label;
 	}
 

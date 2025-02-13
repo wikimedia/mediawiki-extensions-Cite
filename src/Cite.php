@@ -131,7 +131,7 @@ class Cite {
 	): string {
 		$status = $this->parseArguments(
 			$argv,
-			[ 'group', 'name', 'follow', 'dir' ]
+			[ 'group', 'name', 'follow', 'dir', 'details' ]
 		);
 		$arguments = $status->getValue();
 		// Use the default group, or the references group when inside one.
@@ -144,6 +144,11 @@ class Cite {
 		);
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
 		$status->merge( $validator->validateRef( $text, ...array_values( $arguments ) ) );
+
+		// Temporary feature flag, intentionally outside of the validator
+		if ( isset( $argv['details'] ) && !$this->config->get( 'CiteSubReferencing' ) ) {
+			$status->fatal( 'cite_error_ref_too_many_keys' );
+		}
 
 		// Validation cares about the difference between null and empty, but from here on we don't
 		if ( $text !== null && trim( $text ) === '' ) {

@@ -50,6 +50,21 @@ class ReferenceStackItem {
 	 */
 	public ?string $text = null;
 	/**
+	 * @var ?int Subreference pointer to parent `$key`, or null for top-level refs.
+	 */
+	public ?int $parentRefKey = null;
+	/**
+	 * @var ?int Count how many subreferences point to a parent.  Corresponds to
+	 *   the last {@see subrefIndex} but this field belongs to the parent.
+	 */
+	public ?int $subrefCount = null;
+	/**
+	 * @var ?int Sequence number for sub-references with the same details
+	 * attribute, starting from 1. {@see $number} and this details index are
+	 * combined to render a footnote marker like "[1.1]".
+	 */
+	public ?int $subrefIndex = null;
+	/**
 	 * @var array Error messages attached to this reference.
 	 */
 	public array $warnings = [];

@@ -38,7 +38,7 @@ class FootnoteMarkFormatter {
 	 * @return string HTML
 	 */
 	public function linkRef( Parser $parser, ReferenceStackItem $ref ): string {
-		$label = $this->markSymbolRenderer->makeLabel( $ref->group, $ref->number );
+		$label = $this->markSymbolRenderer->makeLabel( $ref->group, $ref->number, $ref->subrefIndex );
 
 		$key = $ref->name ?? $ref->key;
 		// TODO: Use count without decrementing.

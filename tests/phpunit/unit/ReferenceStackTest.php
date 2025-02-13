@@ -56,7 +56,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		return [
 			'Anonymous ref in default group' => [
 				'refs' => [
-					[ 'text', [], '', null, null, 'rtl' ]
+					[ 'text', [], '', null, null, 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -88,7 +88,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Anonymous ref in named group' => [
 				'refs' => [
-					[ 'text', [], 'foo', null, null, 'rtl' ]
+					[ 'text', [], 'foo', null, null, 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -120,7 +120,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Ref with text' => [
 				'refs' => [
-					[ 'text', [], 'foo', null, null, 'rtl' ]
+					[ 'text', [], 'foo', null, null, 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -152,7 +152,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Named ref with text' => [
 				'refs' => [
-					[ 'text', [], 'foo', 'name', null, 'rtl' ]
+					[ 'text', [], 'foo', 'name', null, 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -184,8 +184,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Follow after base' => [
 				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, 'rtl' ],
-					[ 'text-b', [], 'foo', 'b', 'a', 'rtl' ]
+					[ 'text-a', [], 'foo', 'a', null, 'rtl', null ],
+					[ 'text-b', [], 'foo', 'b', 'a', 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -218,7 +218,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Follow with no base' => [
 				'refs' => [
-					[ 'text', [], 'foo', null, 'a', 'rtl' ]
+					[ 'text', [], 'foo', null, 'a', 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					null
@@ -242,9 +242,9 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Follow pointing to later ref' => [
 				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, 'rtl' ],
-					[ 'text-b', [], 'foo', null, 'c', 'rtl' ],
-					[ 'text-c', [], 'foo', 'c', null, 'rtl' ]
+					[ 'text-a', [], 'foo', 'a', null, 'rtl', null ],
+					[ 'text-b', [], 'foo', null, 'c', 'rtl', null ],
+					[ 'text-c', [], 'foo', 'c', null, 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -306,8 +306,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Repeated ref, text in first tag' => [
 				'refs' => [
-					[ 'text', [], 'foo', 'a', null, 'rtl' ],
-					[ null, [], 'foo', 'a', null, 'rtl' ]
+					[ 'text', [], 'foo', 'a', null, 'rtl', null ],
+					[ null, [], 'foo', 'a', null, 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -349,8 +349,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Repeated ref, text in second tag' => [
 				'refs' => [
-					[ null, [], 'foo', 'a', null, 'rtl' ],
-					[ 'text', [], 'foo', 'a', null, 'rtl' ]
+					[ null, [], 'foo', 'a', null, 'rtl', null ],
+					[ 'text', [], 'foo', 'a', null, 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -392,8 +392,8 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Repeated ref, mismatched text' => [
 				'refs' => [
-					[ 'text-1', [], 'foo', 'a', null, 'rtl' ],
-					[ 'text-2', [], 'foo', 'a', null, 'rtl' ]
+					[ 'text-1', [], 'foo', 'a', null, 'rtl', null ],
+					[ 'text-2', [], 'foo', 'a', null, 'rtl', null ]
 				],
 				'expectedOutputs' => [
 					[
@@ -437,9 +437,9 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Two incomplete follows' => [
 				'refs' => [
-					[ 'text-a', [], 'foo', 'a', null, 'rtl' ],
-					[ 'text-b', [], 'foo', null, 'd', 'rtl' ],
-					[ 'text-c', [], 'foo', null, 'd', 'rtl' ],
+					[ 'text-a', [], 'foo', 'a', null, 'rtl', null ],
+					[ 'text-b', [], 'foo', null, 'd', 'rtl', null ],
+					[ 'text-c', [], 'foo', null, 'd', 'rtl', null ],
 				],
 				'expectedOutputs' => [
 					[
@@ -489,6 +489,53 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					[ 'new', 1, 'foo', 'a', 'text-a', [] ],
 					[ 'new', 2, 'foo', null, 'text-b', [] ],
 					[ 'new', 3, 'foo', null, 'text-c', [] ],
+				]
+			],
+			'One subreference with inline parent' => [
+				'refs' => [
+					[ 'text-parent', [], 'foo', 'a', null, 'rtl', 'text-details' ],
+				],
+				'expectedOutputs' => [
+					[
+						'count' => 1,
+						'dir' => 'rtl',
+						'key' => 2,
+						'group' => 'foo',
+						'text' => 'text-details',
+						'number' => 1,
+						'parentRefKey' => 1,
+						'subrefCount' => 0,
+						'subrefIndex' => 1,
+					],
+				],
+				'finalRefs' => [
+					'foo' => [
+						'a' => [
+							'count' => 1,
+							'dir' => 'rtl',
+							'key' => 1,
+							'group' => 'foo',
+							'name' => 'a',
+							'text' => 'text-parent',
+							'number' => 1,
+							'subrefCount' => 1,
+						],
+						0 => [
+							'count' => 1,
+							'dir' => 'rtl',
+							'key' => 2,
+							'group' => 'foo',
+							'text' => 'text-details',
+							'number' => 1,
+							'parentRefKey' => 1,
+							'subrefCount' => 0,
+							'subrefIndex' => 1,
+						],
+					]
+				],
+				'finalCallStack' => [
+					[ 'new', 1, 'foo', 'a', 'text-parent', [] ],
+					[ 'new', 2, 'foo', null, 'text-details', [] ],
 				]
 			],
 		];

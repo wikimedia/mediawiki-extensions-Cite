@@ -390,7 +390,7 @@ class References {
 		$refLink = $doc->createElement( 'a' );
 		DOMUtils::addAttributes( $refLink, [
 			'href' => $extApi->getPageUri() . '#' . $ref->target,
-			'style' => 'counter-reset: mw-Ref ' . $ref->groupIndex . ';',
+			'style' => 'counter-reset: mw-Ref ' . $ref->numberInGroup . ';',
 		] );
 		if ( $ref->group ) {
 			$refLink->setAttribute( 'data-mw-group', $ref->group );
@@ -404,7 +404,7 @@ class References {
 		$openBracket->setAttribute( 'class', 'cite-bracket' );
 		$refLinkSpan->appendChild( $openBracket );
 		$refLinkSpan->appendChild( $doc->createTextNode(
-			$this->markSymbolRenderer->makeLabel( $ref->group, $ref->groupIndex )
+			$this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup )
 		) );
 		$closeBracket = $doc->createElement( 'span', ']' );
 		$closeBracket->setAttribute( 'class', 'cite-bracket' );

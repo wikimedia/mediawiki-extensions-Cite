@@ -223,7 +223,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 				'ref' => [
 					'count' => 1,
 					'key' => 5,
-					'number' => 3,
+					'numberInGroup' => 3,
 					'text' => 't',
 				],
 				'expectedOutput' => '(cite_references_link_one|5|5+|<span class="reference-text">t</span>' . "\n|)"
@@ -233,7 +233,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'count' => 3,
 					'key' => 5,
 					'name' => 'a',
-					'number' => 3,
+					'numberInGroup' => 3,
 					'text' => 't',
 				],
 				'expectedOutput' => '(cite_references_link_many|1-5|(cite_references_link_many_format|1+5-0|3.0|' .

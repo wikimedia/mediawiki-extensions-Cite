@@ -66,7 +66,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => '',
 						'name' => null,
 						'text' => 'text',
-						'number' => 1,
+						'numberInGroup' => 1,
 					]
 				],
 				'finalRefs' => [
@@ -78,7 +78,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => '',
 							'name' => null,
 							'text' => 'text',
-							'number' => 1,
+							'numberInGroup' => 1,
 						]
 					]
 				],
@@ -98,7 +98,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => null,
 						'text' => 'text',
-						'number' => 1,
+						'numberInGroup' => 1,
 					]
 				],
 				'finalRefs' => [
@@ -110,7 +110,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => null,
 							'text' => 'text',
-							'number' => 1,
+							'numberInGroup' => 1,
 						]
 					]
 				],
@@ -130,7 +130,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => null,
 						'text' => 'text',
-						'number' => 1,
+						'numberInGroup' => 1,
 					]
 				],
 				'finalRefs' => [
@@ -142,7 +142,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => null,
 							'text' => 'text',
-							'number' => 1,
+							'numberInGroup' => 1,
 						]
 					]
 				],
@@ -162,7 +162,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'name',
 						'text' => 'text',
-						'number' => 1,
+						'numberInGroup' => 1,
 					],
 				],
 				'finalRefs' => [
@@ -174,7 +174,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'name',
 							'text' => 'text',
-							'number' => 1,
+							'numberInGroup' => 1,
 						]
 					]
 				],
@@ -195,7 +195,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-a',
-						'number' => 1,
+						'numberInGroup' => 1,
 					],
 					null
 				],
@@ -208,7 +208,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-a text-b',
-							'number' => 1,
+							'numberInGroup' => 1,
 						]
 					]
 				],
@@ -254,7 +254,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-a',
-						'number' => 1,
+						'numberInGroup' => 1,
 					],
 					null,
 					[
@@ -264,7 +264,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'c',
 						'text' => 'text-c',
-						'number' => 2,
+						'numberInGroup' => 2,
 					]
 				],
 				'finalRefs' => [
@@ -276,7 +276,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-a',
-							'number' => 1,
+							'numberInGroup' => 1,
 						],
 						0 => [
 							'count' => 1,
@@ -294,7 +294,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'c',
 							'text' => 'text-c',
-							'number' => 2,
+							'numberInGroup' => 2,
 						]
 					]
 				],
@@ -317,7 +317,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text',
-						'number' => 1,
+						'numberInGroup' => 1,
 					],
 					[
 						'count' => 2,
@@ -326,7 +326,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text',
-						'number' => 1,
+						'numberInGroup' => 1,
 					],
 				],
 				'finalRefs' => [
@@ -338,7 +338,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text',
-							'number' => 1,
+							'numberInGroup' => 1,
 						]
 					]
 				],
@@ -360,7 +360,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => null,
-						'number' => 1,
+						'numberInGroup' => 1,
 					],
 					[
 						'count' => 2,
@@ -369,7 +369,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text',
-						'number' => 1,
+						'numberInGroup' => 1,
 					]
 				],
 				'finalRefs' => [
@@ -381,7 +381,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text',
-							'number' => 1,
+							'numberInGroup' => 1,
 						]
 					]
 				],
@@ -403,7 +403,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-1',
-						'number' => 1,
+						'numberInGroup' => 1,
 					],
 					[
 						'count' => 2,
@@ -412,7 +412,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-1',
-						'number' => 1,
+						'numberInGroup' => 1,
 						'warnings' => [ [ 'cite_error_references_duplicate_key', 'a' ] ],
 					]
 				],
@@ -425,7 +425,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-1',
-							'number' => 1,
+							'numberInGroup' => 1,
 							'warnings' => [ [ 'cite_error_references_duplicate_key', 'a' ] ],
 						]
 					]
@@ -449,7 +449,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'name' => 'a',
 						'text' => 'text-a',
-						'number' => 1,
+						'numberInGroup' => 1,
 					],
 					null,
 					null
@@ -463,7 +463,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-a',
-							'number' => 1,
+							'numberInGroup' => 1,
 						],
 						0 => [
 							'count' => 1,
@@ -502,7 +502,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'key' => 2,
 						'group' => 'foo',
 						'text' => 'text-details',
-						'number' => 1,
+						'numberInGroup' => 1,
 						'parentRefKey' => 1,
 						'subrefCount' => 0,
 						'subrefIndex' => 1,
@@ -517,7 +517,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'name' => 'a',
 							'text' => 'text-parent',
-							'number' => 1,
+							'numberInGroup' => 1,
 							'subrefCount' => 1,
 						],
 						0 => [
@@ -526,7 +526,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'key' => 2,
 							'group' => 'foo',
 							'text' => 'text-details',
-							'number' => 1,
+							'numberInGroup' => 1,
 							'parentRefKey' => 1,
 							'subrefCount' => 0,
 							'subrefIndex' => 1,

@@ -29,7 +29,7 @@ class ReferenceStack {
 	 */
 	private int $refSequence = 0;
 
-	/** @var int[] Counter for the number of refs in each group */
+	/** @var array<string,int> Auto-incrementing sequence numbers per group */
 	private array $groupRefSequence = [];
 
 	/**
@@ -143,7 +143,7 @@ class ReferenceStack {
 			}
 		}
 
-		$ref->number ??= ++$this->groupRefSequence[$group];
+		$ref->numberInGroup ??= ++$this->groupRefSequence[$group];
 
 		if ( $subrefDetails ) {
 			$parentRef = $ref;

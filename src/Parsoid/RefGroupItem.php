@@ -26,7 +26,11 @@ class RefGroupItem {
 
 	public string $dir = '';
 	public string $group = '';
-	public int $groupIndex = 1;
+	/**
+	 * Sequence number per {@see $group}, starting from 1. To be used in the footnote marker,
+	 * e.g. "[1]".
+	 */
+	public int $numberInGroup = 1;
 	public ?string $extendsRef = null;
 	public int $index = 0;
 	public string $key;

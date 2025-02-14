@@ -866,7 +866,7 @@ class References {
 		}
 
 		$lastLinkBack = $ref->linkbacks[count( $ref->linkbacks ) - 1] ?? null;
-		return $ref->name ? $lastLinkBack : $ref->firstBackLinkId;
+		return $ref->name !== '' ? $lastLinkBack : $ref->backLinkIdBase;
 	}
 
 	/**

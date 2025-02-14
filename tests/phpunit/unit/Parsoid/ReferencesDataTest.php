@@ -62,7 +62,6 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 
 		$expected = new RefGroupItem();
 		$expected->backLinkIdBase = 'cite_ref-1';
-		$expected->firstBackLinkId = 'cite_ref-1';
 		$expected->target = 'cite_note-1';
 		$this->assertEquals( $expected, $ref );
 
@@ -85,7 +84,6 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 		$expected->dir = 'rtl';
 		$expected->group = 'note';
 		$expected->backLinkIdBase = 'cite_ref-wales_1';
-		$expected->firstBackLinkId = 'cite_ref-wales_1-0';
 		$expected->name = 'wales';
 		$expected->extendsRef = 'main';
 		$expected->target = 'cite_note-wales-1';

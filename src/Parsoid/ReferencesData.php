@@ -113,7 +113,6 @@ class ReferencesData {
 		}
 		$ref->index = $n;
 		$ref->backLinkIdBase = $refIdBase;
-		$ref->firstBackLinkId = $hasRefName ? $refIdBase . '-0' : $refIdBase;
 		$ref->name = $refName;
 		$ref->target = $noteId;
 

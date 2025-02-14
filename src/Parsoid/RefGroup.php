@@ -105,7 +105,7 @@ class RefGroup {
 		// is used by CSS to style backlinks in MediaWiki:Common.css
 		// of various wikis.
 		$linkbackSpan = $ownerDoc->createElement( 'span' );
-		if ( count( $ref->linkbacks ) === 1 ) {
+		if ( count( $ref->nodes ) === 1 ) {
 			$lb = $ref->backLinkIdBase;
 			// Can be an unnamed reference or a named one that's just never reused
 			if ( $ref->name !== '' ) {
@@ -116,7 +116,8 @@ class RefGroup {
 			$linkbackSpan->appendChild( $linkback );
 		} else {
 			DOMUtils::addRel( $linkbackSpan, 'mw:referencedBy' );
-			foreach ( $ref->linkbacks as $i => $lb ) {
+			for ( $i = 0; $i < count( $ref->nodes ); $i++ ) {
+				$lb = $ref->backLinkIdBase . '-' . $i;
 				$linkbackSpan->appendChild(
 					self::createLinkback( $extApi, $lb, $refGroup, (string)( $i + 1 ), $ownerDoc )
 				);

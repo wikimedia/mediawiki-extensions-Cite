@@ -38,17 +38,17 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideKeyNormalizations
+	 * @dataProvider provideFragmentIdentifierNormalizations
 	 */
-	public function testNormalizeKey( $key, $expected ) {
+	public function testFragmentIdentifierNormalization( string $id, string $expected ) {
 		/** @var AnchorFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new AnchorFormatter() );
-		$normalized = $formatter->normalizeKey( $key );
+		$normalized = $formatter->normalizeFragmentIdentifier( $id );
 		$encoded = Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $normalized ) );
 		$this->assertSame( $expected, $encoded );
 	}
 
-	public static function provideKeyNormalizations() {
+	public static function provideFragmentIdentifierNormalizations() {
 		return [
 			[ 'a b', 'a_b' ],
 			[ 'a  __  b', 'a_b' ],

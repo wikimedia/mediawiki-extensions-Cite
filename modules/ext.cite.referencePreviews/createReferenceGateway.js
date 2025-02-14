@@ -29,11 +29,11 @@ module.exports = function createReferenceGateway() {
 	 * @return {HTMLElement|null}
 	 */
 	function findParentReferenceTextElement( el ) {
-		// This finds either the inner <ol class="mw-extended-references">, or the outer
+		// This finds either the inner <ol class="mw-subreference-list">, or the outer
 		// <ol class="references">
 		const ol = el.closest( 'ol' );
 
-		return ol && ol.classList.contains( 'mw-extended-references' ) ?
+		return ol && ol.classList.contains( 'mw-subreference-list' ) ?
 			ol.parentElement.querySelector( '.mw-reference-text, .reference-text' ) :
 			null;
 	}

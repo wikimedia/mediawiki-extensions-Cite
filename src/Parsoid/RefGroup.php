@@ -106,7 +106,8 @@ class RefGroup {
 		// of various wikis.
 		$linkbackSpan = $ownerDoc->createElement( 'span' );
 		if ( count( $ref->linkbacks ) === 1 ) {
-			$linkback = self::createLinkback( $extApi, $ref->id, $refGroup, "↑", $ownerDoc );
+			// Can be an unnamed reference or a named one that's just never reused
+			$linkback = self::createLinkback( $extApi, $ref->firstBackLinkId, $refGroup, "↑", $ownerDoc );
 			DOMUtils::addRel( $linkback, 'mw:referencedBy' );
 			$linkbackSpan->appendChild( $linkback );
 		} else {

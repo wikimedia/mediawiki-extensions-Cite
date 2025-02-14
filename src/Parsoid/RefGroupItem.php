@@ -41,15 +41,22 @@ class RefGroupItem {
 	 */
 	public int $index = 0;
 	/**
-	 * Same as {@see id}, but without the "-0" suffix
+	 * The clickable href="#…" backlink and id="…" target to jump from the reference list back up to
+	 * the corresponding footnote marker. Same as {@see $firstBackLinkId}, but without the "-0"
+	 * suffix. Only needed for named <ref> that can have multiple backlinks.
 	 */
-	public string $key;
+	public string $backLinkIdBase;
 	/**
-	 * The clickable href="#…" backlink and id="…" target to jump from the reference list back up
-	 * to the corresponding footnote marker
+	 * The clickable href="#…" backlink and id="…" target to jump from the reference list back up to
+	 * the footnote marker. Technically redundant as it's identical to {@see $backLinkIdBase}, just
+	 * with the first "-0" suffix hard-coded in case it's a named reference, or without a suffix in
+	 * case it's an unnamed reference that cannot be reused.
 	 */
-	public string $id;
-	/** @var array<int,string> */
+	public string $firstBackLinkId;
+	/**
+	 * @var array<int,string> List of backlink identifiers, starting from 0. Technically redundant
+	 * as the list can be re-generated from {@see $backLinkIdBase} and the number of backlinks.
+	 */
 	public array $linkbacks = [];
 	/**
 	 * The original name="…" attribute of a <ref>, or empty for anonymous references.

@@ -112,8 +112,8 @@ class ReferencesData {
 			$ref->extendsRef = $extendsRef;
 		}
 		$ref->index = $n;
-		$ref->key = $refIdBase;
-		$ref->id = $hasRefName ? $refIdBase . '-0' : $refIdBase;
+		$ref->backLinkIdBase = $refIdBase;
+		$ref->firstBackLinkId = $hasRefName ? $refIdBase . '-0' : $refIdBase;
 		$ref->name = $refName;
 		$ref->target = $noteId;
 

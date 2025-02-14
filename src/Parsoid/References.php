@@ -309,7 +309,7 @@ class References {
 				$ref->embeddedNodes[] = $about;
 			} else {
 				$ref->nodes[] = $linkBackSup;
-				$ref->linkbacks[] = $ref->key . '-' . count( $ref->linkbacks );
+				$ref->linkbacks[] = $ref->backLinkIdBase . '-' . count( $ref->linkbacks );
 			}
 		}
 		// Guaranteed from this point on
@@ -866,7 +866,7 @@ class References {
 		}
 
 		$lastLinkBack = $ref->linkbacks[count( $ref->linkbacks ) - 1] ?? null;
-		return $ref->name ? $lastLinkBack : $ref->id;
+		return $ref->name ? $lastLinkBack : $ref->firstBackLinkId;
 	}
 
 	/**

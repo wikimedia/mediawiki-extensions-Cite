@@ -105,7 +105,8 @@ class ReferencesData {
 		$ref = new RefGroupItem();
 		$ref->dir = $refDir;
 		$ref->group = $group->name;
-		$ref->groupIndex = count( $group->refs ) + 1;
+		// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
+		$ref->numberInGroup = count( $group->refs ) + 1;
 		if ( $extendsRef ) {
 			$ref->extendsRef = $extendsRef;
 		}

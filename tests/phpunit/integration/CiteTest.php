@@ -264,7 +264,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 							'group' => '',
 							'name' => 'a',
 							'text' => null,
-							'number' => 1,
+							'numberInGroup' => 1,
 						],
 					],
 				]
@@ -312,7 +312,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 							'group' => '',
 							'name' => 'a',
 							'text' => 'text',
-							'number' => 1,
+							'numberInGroup' => 1,
 						],
 					],
 				]

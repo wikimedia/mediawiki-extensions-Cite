@@ -82,7 +82,7 @@ class ReferenceListFormatter {
 		uasort(
 			$groupRefs,
 			static function ( ReferenceStackItem $a, ReferenceStackItem $b ): int {
-				$cmp = ( $a->number ?? 0 ) - ( $b->number ?? 0 );
+				$cmp = ( $a->numberInGroup ?? 0 ) - ( $b->numberInGroup ?? 0 );
 				return $cmp ?: ( $a->subrefIndex ?? 0 ) - ( $b->subrefIndex ?? 0 );
 			}
 		);
@@ -176,7 +176,7 @@ class ReferenceListFormatter {
 			if ( $this->backlinkMarkRenderer->isLegacyMode() ) {
 				// FIXME: parent mark should be explicitly markSymbolRenderer'd if it
 				// stays here.
-				$parentLabel = $this->messageLocalizer->localizeDigits( (string)$ref->number );
+				$parentLabel = $this->messageLocalizer->localizeDigits( (string)$ref->numberInGroup );
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',

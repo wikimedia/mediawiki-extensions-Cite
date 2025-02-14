@@ -66,7 +66,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				[
 					'name' => null,
 					'group' => '',
-					'number' => 50003,
+					'numberInGroup' => 50003,
 					'key' => 50004,
 				],
 				'(cite_reference_link|50004+|50004|50003)'
@@ -75,7 +75,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				[
 					'name' => null,
 					'group' => 'bar',
-					'number' => 3,
+					'numberInGroup' => 3,
 					'key' => 4,
 				],
 				'(cite_reference_link|4+|4|bar 3)'
@@ -84,7 +84,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				[
 					'name' => null,
 					'group' => 'foo',
-					'number' => 3,
+					'numberInGroup' => 3,
 					'key' => 4,
 				],
 				'(cite_reference_link|4+|4|c)'
@@ -93,7 +93,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				[
 					'name' => null,
 					'group' => 'foo',
-					'number' => 10,
+					'numberInGroup' => 10,
 					'key' => 4,
 				],
 				'(cite_reference_link|4+|4|foo 10)'
@@ -102,7 +102,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				[
 					'name' => 'a',
 					'group' => '',
-					'number' => 3,
+					'numberInGroup' => 3,
 					'key' => 4,
 					'count' => 1,
 				],
@@ -112,7 +112,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 				[
 					'name' => 'a',
 					'group' => '',
-					'number' => 3,
+					'numberInGroup' => 3,
 					'key' => 4,
 					'count' => 50002,
 				],

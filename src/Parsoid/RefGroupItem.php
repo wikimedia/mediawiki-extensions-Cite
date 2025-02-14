@@ -46,9 +46,9 @@ class RefGroupItem {
 	 */
 	public string $backLinkIdBase;
 	/**
-	 * The original name="…" attribute of a <ref>, or empty for anonymous references.
+	 * The original name="…" attribute of a <ref>, or null for anonymous, unnamed references.
 	 */
-	public string $name = '';
+	public ?string $name = null;
 	/**
 	 * The clickable href="#…" link and id="…" target to jump down from a footnote marker to the
 	 * item in the reference list

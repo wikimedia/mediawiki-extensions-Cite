@@ -109,7 +109,7 @@ class ReferencesData {
 		$ref->numberInGroup = count( $group->refs ) + 1;
 		$ref->index = $n;
 		$ref->backLinkIdBase = $refIdBase;
-		$ref->name = $refName;
+		$ref->name = $hasRefName ? $refName : null;
 		$ref->target = $noteId;
 
 		$group->refs[] = $ref;

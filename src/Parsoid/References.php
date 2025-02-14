@@ -196,8 +196,8 @@ class References {
 		'@phan-var string $about'; // assert that $about is non-null
 
 		// Check the presence of 'name' and 'follow' attributes
-		$hasName = strlen( $refName ) > 0;
-		$hasFollow = strlen( $followName ) > 0;
+		$hasName = $refName !== '';
+		$hasFollow = $followName !== '';
 
 		// Handle error cases for the attributes 'name' and 'follow'
 		if ( $hasName && $hasFollow ) {
@@ -578,7 +578,7 @@ class References {
 					);
 				}
 				// Mark all refs that are named without content
-				if ( ( $ref->name !== '' ) && $ref->contentId === null ) {
+				if ( $ref->name !== null && $ref->contentId === null ) {
 					// TODO: Since this error is being placed on the ref,
 					// the key should arguably be "cite_error_ref_no_text"
 					$errs[] = new DataMwError(
@@ -794,7 +794,7 @@ class References {
 
 	private function getLinkbackId( RefGroupItem $ref ): string {
 		$lb = $ref->backLinkIdBase;
-		if ( $ref->name !== '' ) {
+		if ( $ref->name !== null ) {
 			$lb .= '-' . ( count( $ref->nodes ) - 1 );
 		}
 		return $lb;

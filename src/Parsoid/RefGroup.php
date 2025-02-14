@@ -109,7 +109,7 @@ class RefGroup {
 		if ( count( $ref->nodes ) === 1 ) {
 			$lb = $ref->backLinkIdBase;
 			// Can be an unnamed reference or a named one that's just never reused
-			if ( $ref->name !== '' ) {
+			if ( $ref->name !== null ) {
 				$lb .= '-0';
 			}
 			$linkback = self::createLinkback( $extApi, $lb, $refGroup, "↑", $ownerDoc );

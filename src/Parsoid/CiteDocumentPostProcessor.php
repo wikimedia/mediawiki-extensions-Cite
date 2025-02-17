@@ -30,9 +30,7 @@ class CiteDocumentPostProcessor extends DOMProcessor {
 		$references = new References( $this->mainConfig );
 		$references->processRefs( $extApi, $refsData, $node );
 		$references->insertMissingReferencesIntoDOM( $extApi, $refsData, $node );
-		if ( $refsData->embeddedErrors ) {
-			$references->addEmbeddedErrors( $extApi, $refsData, $node );
-		}
+		( new ErrorUtils( $extApi ) )->addEmbeddedErrors( $refsData, $node );
 	}
 
 	/**

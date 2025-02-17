@@ -136,9 +136,9 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 				label: mw.msg( 'cite-wikieditor-help-page-references' ),
 				layout: 'table',
 				headings: [
-					{ html: mw.message( 'wikieditor-toolbar-help-heading-description' ).parse() },
-					{ html: mw.message( 'wikieditor-toolbar-help-heading-syntax' ).parse() },
-					{ html: mw.message( 'wikieditor-toolbar-help-heading-result' ).parse() }
+					{ msg: 'wikieditor-toolbar-help-heading-description' },
+					{ msg: 'wikieditor-toolbar-help-heading-syntax' },
+					{ msg: 'wikieditor-toolbar-help-heading-result' }
 				],
 				rows: helpRows
 			}

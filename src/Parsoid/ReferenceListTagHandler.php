@@ -68,7 +68,7 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 		$domFragment->appendChild( $frag );
 
 		if ( isset( $error ) ) {
-			$errorFragment = ErrorUtils::renderParsoidErrorSpan( $extApi, $error );
+			$errorFragment = ( new ErrorUtils( $extApi ) )->renderParsoidError( $error );
 			$frag->appendChild( $errorFragment );
 		}
 

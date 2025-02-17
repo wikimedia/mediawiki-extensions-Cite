@@ -11,7 +11,7 @@
 		]
 	},
 	"cite-desc": "Engade as etiquetas <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para as citas",
-	"cite_error": "Erro no código da cita: $1",
+	"cite_error": "Erro na cita: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non válido, debe ser <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple número enteiro. Use un título descritivo",
 	"cite_error_ref_no_key": "a etiqueta de apertura <code>&lt;ref&gt;</code> é incorrecta ou ten un nome incorrecto",
@@ -37,6 +37,6 @@
 	"cite_references_link_many_accessibility_label": "Saltar a:",
 	"cite_references_link_accessibility_back_label": "Volver ó comezo",
 	"cite_section_preview_references": "Previsualización de referencias",
-	"cite_warning": "Advertencia de cita: $1",
+	"cite_warning": "Advertencia da cita: $1",
 	"cite_warning_sectionpreview_no_text": "A etiqueta <code>&lt;ref&gt;</code> co nome <code>$1</code> non pode previsualizarse porque está definida fóra da sección actual ou non está definida en absoluto."
 }

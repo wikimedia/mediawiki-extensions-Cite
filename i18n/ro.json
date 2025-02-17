@@ -18,7 +18,7 @@
 	"cite_error_ref_numeric_key": "Etichetă <code>&lt;ref&gt;</code> invalidă; numele nu poate fi un număr. Folosește un titlu descriptiv",
 	"cite_error_ref_no_key": "Eticheta de început <code>&lt;ref&gt;</code> este malformată sau are un nume greșit",
 	"cite_error_ref_too_many_keys": "Etichetă <code>&lt;ref&gt;</code> invalidă; nume invalid, e.g. prea multe nume",
-	"cite_error_ref_nested_extends": "Extinderea etichetelor <code>&lt;ref&gt;</code> la mai mult de un nivel nu este permisă",
+	"cite_error_ref_follow_conflicts": "O etichetă <code><ref follow=\"…\"></code> care este continuarea unei etichete anterioare nu poate fi numită individual",
 	"cite_error_ref_no_input": "Etichetă <code>&lt;ref&gt;</code> invalidă; referințele fără nume trebuie să aibă conținut",
 	"cite_error_references_duplicate_key": "Etichetă <code>&lt;ref&gt;</code> invalidă; numele \"$1\" este definit de mai multe ori cu conținut diferit",
 	"cite_error_references_invalid_parameters": "Parametru invalid în eticheta <code>&lt;references&gt;</code>",

@@ -13,7 +13,6 @@
 	"cite_error_ref_numeric_key": "અમાન્ય <code>&lt;ref&gt;</code> ટેગ; નામ માત્ર સરળ રાશિ ન હોઈ શકે, વિસ્તૃત શીર્ષક આપો",
 	"cite_error_ref_no_key": "પ્રથમ <code>&lt;ref&gt;</code> ટેગ અયોગ્ય છે અથવા તેને ક્ષતિવાળું નામ છે",
 	"cite_error_ref_too_many_keys": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; અયોગ્ય નામો, દા.ત. બહુ બધાં",
-	"cite_error_ref_nested_extends": "<code>&lt;ref&gt;</code> ટેગ્સ એક કરતા વધુ સ્તરથી ઊંડા વિસ્તૃત કરવાનું માન્ય નથી",
 	"cite_error_ref_no_input": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; નામ વગરના સંદર્ભમાં કંઇક સામગ્રી હોવી જ જોઈએ",
 	"cite_error_references_duplicate_key": "અયોગ્ય <code>&lt;ref&gt;</code> ટેગ; નામ \"$1\" અલગ માહિતી સાથે એકથી વધુ વખત વ્યાખ્યાયિત થયું છે",
 	"cite_error_references_invalid_parameters": "<code>&lt;references&gt;</code> ટેગમાં અયોગ્ય પરિમાણો",

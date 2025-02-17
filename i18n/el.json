@@ -19,7 +19,6 @@
 	"cite_error_ref_numeric_key": "Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>\nτο όνομα δεν μπορεί να είναι απλός ακέραιος. Χρησιμοποιήστε έναν περιγραφικό τίτλο",
 	"cite_error_ref_no_key": "Η αρχική ετικέτα <code>&lt;ref&gt;</code> έχει κακή μορφή ή έχει κακό όνομα",
 	"cite_error_ref_too_many_keys": "Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>\nμη έγκυρα ονόματα, π.χ. πάρα πολλά",
-	"cite_error_ref_nested_extends": "Δεν επιτρέπεται η επέκταση ετικετών <code>&lt;ref&gt;</code> σε βάθος μεγαλύτερο από ένα επίπεδο",
 	"cite_error_ref_no_input": "Μη έγκυρη ετικέτα <code>&lt;ref&gt;</code>•\nοι παραπομπές χωρίς όνομα πρέπει να έχουν περιεχόμενο",
 	"cite_error_references_duplicate_key": "Μη έγκυρη ετικέτα <code><ref></code> • όνομα \" $1 \" ορίζεται πολλές φορές με διαφορετικό περιεχόμενο",
 	"cite_error_references_invalid_parameters": "Άκυρη παράμετρος στην <code>&lt;references&gt;</code> ετικέτα.",

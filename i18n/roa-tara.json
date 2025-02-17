@@ -12,7 +12,6 @@
 	"cite_error_ref_no_key": "'U tag apirte <code>&lt;ref&gt;</code> jè formate male o tène 'nu nome brutte",
 	"cite_error_ref_too_many_keys": "Parametre invalide jndr'à 'u tag <code>&lt;ref&gt;</code>",
 	"cite_error_ref_follow_conflicts": "'Nu tag <code>&lt;ref follow=\"…\"&gt;</code> ca jè 'a condinuazione de une de apprime non ge pò essere nomenate da sule o essere stennute",
-	"cite_error_ref_nested_extends": "Stennènne le tag <code>&lt;ref&gt;</code> a 'na profonnetà cchiù de 'nu levèlle non g'è permesse",
 	"cite_error_ref_no_input": "Tag <code>&lt;ref&gt;</code> invalide; referimende senza nome onna tenè 'nu condenute",
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> invalide; 'u nome \"$1\" definite cchiù vote cu condenute diverse",
 	"cite_error_references_invalid_parameters": "'U tag <code>&lt;references&gt;</code> tène 'nu parametre invalide",

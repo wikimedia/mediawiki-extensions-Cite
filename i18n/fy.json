@@ -12,7 +12,6 @@
 	"cite_error_ref_numeric_key": "Unjildige <code>&lt;ref&gt;</code>-oantsjutting; de namme kin gjin simpel getal wêze. Brûk in beskriuwende titel",
 	"cite_error_ref_no_key": "In iepenjende <code>&lt;ref&gt;</code>-oantsjutting is ferkeard opmakke of hat in misse namme",
 	"cite_error_ref_too_many_keys": "Unjildige <code>&lt;ref&gt;</code>-oantsjutting; ûnjildige nammen, bgl. te folle",
-	"cite_error_ref_nested_extends": "De <code>&lt;ref&gt;</code>-oantsjuttings mear as ien nivo djip útwreidzjen is net tastien",
 	"cite_error_ref_no_input": "Unjildige <code>&lt;ref&gt;</code>-oantsjutting; referinsjes sûnder namme moatte ynhâld hawwe",
 	"cite_error_references_duplicate_key": "Unjildige <code>&lt;ref&gt;</code>-oantsjutting; de namme \"$1\" ferskate kearen definiearre mei oare ynhâld",
 	"cite_error_references_invalid_parameters": "Unjildige parameter yn <code>&lt;references&gt;</code>-oantsjutting",

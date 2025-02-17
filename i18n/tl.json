@@ -12,7 +12,6 @@
 	"cite_error_ref_numeric_key": "Invalid na <code>&lt;ref&gt;</code> tag; di dapat integer lang ang pangalan. Gumamit ng mapaglarawang pamagat",
 	"cite_error_ref_no_key": "Sira o invalid ang pangalan ng pambukas na <code>&lt;ref&gt;</code> tag",
 	"cite_error_ref_too_many_keys": "Invalid na <code>&lt;ref&gt;</code> tag; mga invalid na pangalan, hal. napakarami",
-	"cite_error_ref_nested_extends": "Hindi pinapayagan ang pag-eextend sa <code>&lt;ref&gt;</code> tag nang lagpas sa isang antas ang lalim",
 	"cite_error_ref_no_input": "Invalid na <code>&lt;ref&gt;</code> tag; dapat may laman ang mga ref na walang pangalan",
 	"cite_error_references_duplicate_key": "Invalid na <code>&lt;ref&gt;</code> tag; maraming beses na binigyang-kahulugan ang pangalang \"$1\" na may iba't ibang nilalaman",
 	"cite_error_references_invalid_parameters": "Invalid na parametro sa <code>&lt;references&gt;</code> tag",

@@ -18,7 +18,6 @@
 	"cite_error_ref_numeric_key": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nName nieşkeno tamamar bo. Şınasiyaye yew serekê bıkarnê",
 	"cite_error_ref_no_key": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nEka kontent çini yo, gani yew name biyo",
 	"cite_error_ref_too_many_keys": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nname ravêrde niyo, mesela zaf esto",
-	"cite_error_ref_nested_extends": "<code>&lt;ref&gt;</code> etiketan rê yew ra zeder xorıyiye hera kerdışi rê mısade nêdeyayo",
 	"cite_error_ref_no_input": "Etiket <code>&lt;ref&gt;</code> ke raşt niyo;\nBêname zerrey referansi wa bıbo",
 	"cite_error_references_duplicate_key": "Nêravêrde <code>&lt;ref&gt;</code> etiket: \"$1\" name yew ra zeder zerrek de şınasiya yo.",
 	"cite_error_references_invalid_parameters": "Etiketê <code>&lt;çımeyan&gt;</code> de parametreyo nêvêrde",

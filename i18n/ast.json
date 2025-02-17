@@ -13,7 +13,6 @@
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> non válida; el nome nun pue ser un enteru simple. Usa un títulu descriptivu",
 	"cite_error_ref_no_key": "La etiqueta d'apertura <code>&lt;ref&gt;</code> ta mal formada o tien un mal nome",
 	"cite_error_ref_too_many_keys": "Etiqueta <code>&lt;ref&gt;</code> non válida; nomes non válidos, p.ex. demasiaos",
-	"cite_error_ref_nested_extends": "Nun se permite estender les etiquetes <code>&lt;ref&gt;</code> más d'un nivel de fondura",
 	"cite_error_ref_no_input": "La etiqueta <code>&lt;ref&gt;</code> nun ye válida; les referencies ensin nome han tener conteníu",
 	"cite_error_references_duplicate_key": "La etiqueta <code>&lt;ref&gt;</code> ye inválida; el nome «$1» ta definíu delles vegaes con distintu conteníu",
 	"cite_error_references_invalid_parameters": "Parámetru inválidu na etiqueta <code>&lt;references&gt;</code>",

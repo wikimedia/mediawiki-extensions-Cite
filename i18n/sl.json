@@ -15,7 +15,6 @@
 	"cite_error_ref_no_key": "Začetna značka <code>&lt;ref&gt;</code> je ni pravilno zapisana ali vsebuje neveljavno ime",
 	"cite_error_ref_too_many_keys": "Neveljaven parameter v znački <code>&lt;ref&gt;</code>",
 	"cite_error_ref_follow_conflicts": "Oznake <code><ref follow=\"…\"></code>, ki je nadaljevanje prejšnje, ni mogoče poimenovati posamezno ali jo razširiti",
-	"cite_error_ref_nested_extends": "Razširitev značk <code>&lt;ref&gt;</code> več kot eno raven globoko ni dovoljena",
 	"cite_error_ref_no_input": "Neveljavna značka <code>&lt;ref&gt;</code>; sklici brez imena morajo imeti vsebino",
 	"cite_error_references_duplicate_key": "Neveljavna značka <code>&lt;ref&gt;</code>; ime »$1« je z različno vsebino opredeljeno večkrat",
 	"cite_error_references_invalid_parameters": "Neveljaven parameter v znački <code>&lt;references&gt;</code>",

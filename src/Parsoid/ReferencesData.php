@@ -70,13 +70,12 @@ class ReferencesData {
 	}
 
 	/**
-	 * Normalizes and sanitizes a reference key
-	 *
-	 * @param string $key
-	 * @return string
+	 * Normalizes and sanitizes anchor names for use in id="…" and <a href="#…"> attributes.
 	 */
-	private function normalizeKey( string $key ): string {
-		$ret = Sanitizer::escapeIdForLink( $key );
+	private function normalizeFragmentIdentifier( string $id ): string {
+		$ret = Sanitizer::escapeIdForLink( $id );
+		// MediaWiki normalizes spaces and underscores in [[#…]] links, but not in id="…"
+		// attributes. To make them behave the same we normalize in advance.
 		$ret = preg_replace( '/[_\s]+/u', '_', $ret );
 		return $ret;
 	}
@@ -95,7 +94,7 @@ class ReferencesData {
 		$n = $this->index;
 		$refKey = strval( 1 + $n );
 
-		$refNameSanitized = $this->normalizeKey( $refName );
+		$refNameSanitized = $this->normalizeFragmentIdentifier( $refName );
 
 		$refIdBase = 'cite_ref-' . ( $hasRefName ? $refNameSanitized . '_' . $refKey : $refKey );
 		$noteId = 'cite_note-' . ( $hasRefName ? $refNameSanitized . '-' . $refKey : $refKey );

@@ -12,7 +12,7 @@
 	"cite_error": "Fazi arroud : $1",
 	"cite_error_ref_numeric_key": "Balizenn <code>&lt;ref&gt;</code> faziek; ne c’hell ket name bezañ niver anterin. Grit gant un titl deskrivus",
 	"cite_error_ref_no_key": "Stummet mat eo ar valizenn digeriñ <code>&lt;ref&gt;</code> pe fall eo e anv",
-	"cite_error_ref_too_many_keys": "Balizenn <code>&lt;ref&gt;</code> faziek; anvioù direizh, d.s. re niverus",
+	"cite_error_ref_too_many_keys": "Arventenn faziek e balizenn <code>&lt;references&gt;</code>",
 	"cite_error_ref_no_input": "Balizenn <code>&lt;ref&gt;</code> faziek; ret eo d'an daveennoù hep anv bezañ danvez enno",
 	"cite_error_references_duplicate_key": "Balizenn <code>&lt;ref&gt;</code> faziek; anv \"$1$ spisaet meur a wech gant danvez disheñvel",
 	"cite_error_references_invalid_parameters": "Arventenn faziek e balizenn <code>&lt;references&gt;</code>",

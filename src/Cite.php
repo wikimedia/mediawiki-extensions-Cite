@@ -39,9 +39,6 @@ class Cite {
 
 	public const DEFAULT_GROUP = '';
 
-	/** Attribute name for the sub-referencing feature in <ref …> */
-	public const SUBREF_ATTRIBUTE = 'extends';
-
 	private bool $isSectionPreview;
 	private FootnoteMarkFormatter $footnoteMarkFormatter;
 	private ReferenceListFormatter $referenceListFormatter;

@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
-use Cite\Cite;
 use Cite\MarkSymbolRenderer;
 use MediaWiki\Config\Config;
 use MediaWiki\Html\HtmlHelper;
@@ -181,7 +180,6 @@ class References {
 		$refName = $attributes->name ?? '';
 		$followName = $attributes->follow ?? '';
 		$refDir = strtolower( $attributes->dir ?? '' );
-		$extendsRef = $attributes->extends ?? null;
 
 		// Validate the reference group
 		$groupName = $attributes->group ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
@@ -301,7 +299,7 @@ class References {
 			// Even worse would be if it tried to redefine itself!
 
 			if ( !$ref ) {
-				$ref = $referencesData->add( $extApi, $groupName, $refName, $extendsRef, $refDir );
+				$ref = $referencesData->add( $extApi, $groupName, $refName, $refDir );
 			}
 
 			// Handle linkbacks
@@ -469,7 +467,6 @@ class References {
 		static $validAttributes = [
 			'group' => true,
 			'name' => true,
-			Cite::SUBREF_ATTRIBUTE => true, // extends
 			'follow' => true,
 			'dir' => true
 		];

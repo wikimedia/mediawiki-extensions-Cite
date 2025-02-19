@@ -25,7 +25,8 @@
 			"Verdy p",
 			"Wladek92",
 			"Wyz",
-			"Zetud"
+			"Zetud",
+			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ"
 		]
 	},
 	"cite-desc": "Ajoute les balises <code>&lt;ref[ name=id]&gt;</code> et <code>&lt;references/&gt;</code> pour les citations",
@@ -35,7 +36,7 @@
 	"cite_error_ref_numeric_key": "Balise <code>&lt;ref&gt;</code> incorrecte : la valeur de l’attribut <code>name</code> ne peut être un simple entier. Utilisez un titre descriptif.",
 	"cite_error_ref_no_key": "La balise ouvrante <code>&lt;ref&gt;</code> est mal formée ou a un mauvais nom.",
 	"cite_error_ref_too_many_keys": "Paramètre invalide dans la balise <code>&lt;ref&gt;</code>",
-	"cite_error_ref_follow_conflicts": "Une balise &lt;<code>&lt;ref follow=\"…\"&gt;</code>=\"...\"&gt; qui est la continuation d'une précédente ne peut être ni nommée individuellement ni étendue",
+	"cite_error_ref_follow_conflicts": "Une balise <code><ref follow=\"…\"></code> qui est la continuation d'une balise précédente ne peut pas être nommée individuellement",
 	"cite_error_ref_no_input": "Balise <code>&lt;ref&gt;</code> incorrecte : les références sans nom doivent avoir un contenu.",
 	"cite_error_references_duplicate_key": "Balise <code>&lt;ref&gt;</code> incorrecte : le nom « $1 » est défini plusieurs fois avec des contenus différents.",
 	"cite_error_references_invalid_parameters": "Paramètre incorrect dans la balise <code>&lt;references&gt;</code>",
@@ -79,5 +80,16 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Texte de la page.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texte du lien], texte supplémentaire.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texte du lien]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Détails supplémentaires"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Détails supplémentaires",
+	"cite-configuration-title": "Citer la configuration",
+	"cite-configuration-info": "Ces paramètres affectent toutes les pages qui utilisent Cite. Seuls les administrateurs peuvent modifier ces paramètres.",
+	"cite-configuration-submit": "Enregistrer les modifications",
+	"cite-configuration-backlink-title": "Paramètres de backlink",
+	"cite-configuration-backlink-description": "Les backlinks apparaissent dans la liste de référence et renvoient vers les notes de bas de page de la page. Lorsqu'une référence est utilisée plusieurs fois, ses backlinks sont numérotés. La configuration permet d'utiliser un alphabet personnalisé à cette fin.",
+	"cite-configuration-backlink-alpha-suggestion": "Cite a détecté un alphabet pour la langue de votre wiki. Si vous souhaitez l'utiliser, veuillez copier et coller le texte ci-dessous comme base pour vos marqueurs de backlink. Vous êtes libre de modifier ou de réorganiser la séquence.",
+	"cite-configuration-backlink-marker-label": "Ensemble de symboles de backlink",
+	"cite-configuration-backlink-marker-description": "Les caractères ci-dessous seront utilisés pour les backlinks sur votre wiki.",
+	"cite-configuration-backlink-marker-help": "Saisissez votre jeu de caractères personnalisé, avec un espace entre chaque caractère. Assurez-vous que le conteneur contient XX caractères.",
+	"communityconfiguration-cite-title": "Sourcer",
+	"communityconfiguration-cite-description": "Personnaliser le format et l'apparence des références."
 }

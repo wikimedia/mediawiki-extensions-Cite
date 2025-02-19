@@ -92,7 +92,7 @@ class ReferenceStack {
 				// on Wikisource.
 				$ref->follow = $follow;
 				$ref->globalId = $this->nextRefSequence();
-				$this->refs[$group][] = $ref;
+				$this->refs[$group][$ref->globalId] = $ref;
 				$this->refCallStack[] = [ self::ACTION_NEW, $ref->globalId, $group, $name, $text, $argv ];
 			} elseif ( $text !== null ) {
 				// We know the parent already, so just perform the follow="…" and bail out
@@ -104,8 +104,8 @@ class ReferenceStack {
 
 		if ( !$name ) {
 			// This is an anonymous reference, which will be given a numeric index.
-			$this->refs[$group][] = &$ref;
 			$ref->globalId = $this->nextRefSequence();
+			$this->refs[$group][$ref->globalId] = &$ref;
 			$action = self::ACTION_NEW;
 		} elseif ( !isset( $this->refs[$group][$name] ) ) {
 			// First occurrence of a named <ref>
@@ -166,7 +166,7 @@ class ReferenceStack {
 			$subRef->parentRefGlobalId = $parentRef->globalId;
 			$subRef->subrefIndex = ++$parentRef->subrefCount;
 			$subRef->text = $subrefDetails;
-			$this->refs[$group][] = $subRef;
+			$this->refs[$group][$subRef->globalId] = $subRef;
 			$this->refCallStack[] = [ $action, $subRef->globalId, $group, null, $subrefDetails, $argv ];
 			return $subRef;
 		} else {
@@ -235,25 +235,11 @@ class ReferenceStack {
 			throw new LogicException( "Cannot roll back ref with unknown group \"$group\"." );
 		}
 
-		$lookup = $name ?: null;
-		if ( $lookup === null ) {
-			// Find unnamed <ref> by global, unique id
-			foreach ( $this->refs[$group] as $k => $v ) {
-				if ( $v->globalId === $globalId ) {
-					$lookup = $k;
-					break;
-				}
-			}
-		}
+		$lookup = $name ?: $globalId;
 
 		// Obsessive sanity checks that the specified element exists.
-		if ( $lookup === null ) {
-			throw new LogicException( "Cannot roll back unknown ref by id $globalId." );
-		} elseif ( !isset( $this->refs[$group][$lookup] ) ) {
-			throw new LogicException( "Cannot roll back missing named ref \"$lookup\"." );
-		} elseif ( $this->refs[$group][$lookup]->globalId !== $globalId ) {
-			throw new LogicException(
-				"Cannot roll back corrupt named ref \"$lookup\" which should have had id $globalId." );
+		if ( !isset( $this->refs[$group][$lookup] ) ) {
+			throw new LogicException( "Cannot roll back unknown ref \"$lookup\"." );
 		}
 		$ref =& $this->refs[$group][$lookup];
 

@@ -46,11 +46,6 @@ class RefGroupItem {
 	 */
 	public string $backLinkIdBase;
 	/**
-	 * @var array<int,string> List of backlink identifiers, starting from 0. Technically redundant
-	 * as the list can be re-generated from {@see $backLinkIdBase} and the number of backlinks.
-	 */
-	public array $linkbacks = [];
-	/**
 	 * The original name="…" attribute of a <ref>, or empty for anonymous references.
 	 */
 	public string $name = '';
@@ -60,7 +55,12 @@ class RefGroupItem {
 	 */
 	public string $target;
 
-	/** @var Element[] */
+	/**
+	 * @var Element[] Collection of footnote markers that have been generated so far for the same
+	 * reference. Mainly used to track errors and render them in the reference list, instead of next
+	 * to (or instead of) the footnote marker. Can be empty in case of not-yet used or unused
+	 * list-defined references, or sub-reference parents.
+	 */
 	public array $nodes = [];
 
 	/** @var string[] */

@@ -307,7 +307,6 @@ class References {
 				$ref->embeddedNodes[] = $about;
 			} else {
 				$ref->nodes[] = $linkBackSup;
-				$ref->linkbacks[] = $ref->backLinkIdBase . '-' . count( $ref->linkbacks );
 			}
 		}
 		// Guaranteed from this point on
@@ -376,7 +375,7 @@ class References {
 
 		$this->addLinkBackAttributes(
 			$linkBackSup,
-			$this->getLinkbackId( $ref, $referencesData, $hasValidFollow ),
+			$referencesData->inEmbeddedContent() ? null : $this->getLinkbackId( $ref ),
 			DOMCompat::getAttribute( $node, 'typeof' ),
 			$about,
 			$hasValidFollow
@@ -845,7 +844,7 @@ class References {
 		DOMUtils::addAttributes( $linkBackSup, [
 			'about' => $about,
 			'class' => $class,
-			'id' => $id,
+			'id' => $hasValidFollow ? null : $id,
 			'rel' => 'dc:references',
 			'typeof' => $typeof,
 		] );
@@ -853,17 +852,12 @@ class References {
 		DOMUtils::addTypeOf( $linkBackSup, 'mw:Extension/ref' );
 	}
 
-	private function getLinkbackId(
-		?RefGroupItem $ref,
-		ReferencesData $refsData,
-		bool $hasValidFollow
-	): ?string {
-		if ( $refsData->inEmbeddedContent() || $hasValidFollow ) {
-			return null;
+	private function getLinkbackId( RefGroupItem $ref ): string {
+		$lb = $ref->backLinkIdBase;
+		if ( $ref->name !== '' ) {
+			$lb .= '-' . ( count( $ref->nodes ) - 1 );
 		}
-
-		$lastLinkBack = $ref->linkbacks[count( $ref->linkbacks ) - 1] ?? null;
-		return $ref->name !== '' ? $lastLinkBack : $ref->backLinkIdBase;
+		return $lb;
 	}
 
 	/**

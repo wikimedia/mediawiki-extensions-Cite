@@ -84,6 +84,7 @@ class RefGroup {
 		}
 		$li->appendChild( $reftextSpan );
 
+		$errorUtils = new ErrorUtils( $extApi );
 		// It seems counter-productive to go through hoops to not display all the errors considering that rendering
 		// only the first one is considered deprecated in the legacy code. However, displaying the same error
 		// multiple times for the same reference is also useless. Hence, we avoid displaying the same error
@@ -95,7 +96,7 @@ class RefGroup {
 					continue;
 				}
 				$reported[] = $error;
-				$errorFragment = ErrorUtils::renderParsoidError( $extApi, $error->key, $error->params );
+				$errorFragment = $errorUtils->renderParsoidError( $error );
 				$li->appendChild( $errorFragment );
 			}
 		}

@@ -1,6 +1,6 @@
 'use strict';
 
-( function () {
+{
 	let createReferencePreview;
 	const previewTypes = { TYPE_REFERENCE: 'reference' };
 
@@ -86,4 +86,4 @@
 			'(cite-reference-previews-collapsible-placeholder)'
 		);
 	} );
-}() );
+}

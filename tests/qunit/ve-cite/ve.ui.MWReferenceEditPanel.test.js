@@ -1,9 +1,9 @@
 'use strict';
 
-( function () {
+{
 	QUnit.module( 've.ui.MWReferenceEditPanel (Cite)', ve.test.utils.newMwEnvironment() );
 
-	function getSimpleNode( doc ) {
+	const getSimpleNode = ( doc ) => {
 		const node = new ve.dm.MWReferenceNode( {
 			type: 'mwReference',
 			attributes: {
@@ -13,10 +13,11 @@
 		} );
 		node.setDocument( doc );
 		return node;
-	}
+	};
 
-	function getDocRefsMock( node, reUse ) {
-		const groupRefs = {
+	const getDocRefsMock = ( node, reUse ) => ( {
+		getAllGroupNames: () => [ 'mwReference/' ],
+		getGroupRefs: () => ( {
 			getRefUsages: () => ( reUse ? [ node, node ] : [] ),
 			getInternalModelNode: () => ( node ),
 			getTotalUsageCount: () => {
@@ -24,12 +25,8 @@
 				const subRefsCount = reUse ? 1 : 0;
 				return mainRefsCount + subRefsCount;
 			}
-		};
-		return {
-			getAllGroupNames: () => ( [ 'mwReference/' ] ),
-			getGroupRefs: () => ( groupRefs )
-		};
-	}
+		} )
+	} );
 
 	QUnit.test( 'setting and getting a reference', ( assert ) => {
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
@@ -102,4 +99,4 @@
 		assert.true( editPanel.previewPanel.isVisible() );
 		assert.true( editPanel.referenceListPreview.$element.text().includes( 'cite-ve-dialog-reference-missing-parent-ref' ) );
 	} );
-}() );
+}

@@ -1,9 +1,9 @@
 'use strict';
 
-( function () {
+{
 	QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
-	function getDocRefsMock( hasNode ) {
+	const getDocRefsMock = ( hasNode ) => {
 		const listKey = 'literal/foo';
 		const node = hasNode ? {
 			getAttribute: ( name ) => {
@@ -24,7 +24,7 @@
 				keyedNodes: { [ listKey ]: [ node ] }
 			}
 		} : {};
-		const docRefsMock = {
+		return {
 			getAllGroupNames: () => ( Object.keys( groups ) ),
 			getIndexLabel: () => ( '1' ),
 			getItemNode: () => ( node ),
@@ -33,9 +33,7 @@
 			) ),
 			hasRefs: () => ( !!hasNode )
 		};
-
-		return docRefsMock;
-	}
+	};
 
 	QUnit.test( 'buildIndex', ( assert ) => {
 		const widget = new ve.ui.MWReferenceSearchWidget();
@@ -83,4 +81,4 @@
 		assert.strictEqual( results.length, 1 );
 		assert.strictEqual( results[ 0 ].getData(), 'model-a' );
 	} );
-}() );
+}

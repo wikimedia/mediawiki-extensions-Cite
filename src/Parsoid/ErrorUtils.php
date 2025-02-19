@@ -5,6 +5,9 @@ namespace Cite\Parsoid;
 
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
+use Wikimedia\Parsoid\DOM\Element;
+use Wikimedia\Parsoid\DOM\Node;
+use Wikimedia\Parsoid\Ext\DOMDataUtils;
 use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\NodeData\DataMwError;
@@ -19,6 +22,65 @@ class ErrorUtils {
 
 	public function __construct( ParsoidExtensionAPI $extApi ) {
 		$this->extApi = $extApi;
+	}
+
+	/**
+	 * Tracks a list of errors and stores it as part of the DataMw structure in the DOM element.
+	 *
+	 * @param Element $node
+	 * @param DataMwError[] $errs
+	 */
+	public static function addErrorsToNode( Element $node, array $errs ): void {
+		// Nothing to add
+		if ( !$errs ) {
+			return;
+		}
+
+		DOMUtils::addTypeOf( $node, 'mw:Error' );
+		$dmw = DOMDataUtils::getDataMw( $node );
+		$dmw->errors ??= [];
+		$dmw->errors = array_merge( $dmw->errors, $errs );
+	}
+
+	/**
+	 * Traverse into all the embedded content and mark up the refs in there
+	 * that have errors that weren't known before the content was serialized.
+	 *
+	 * Some errors are only known at the time when we're inserting the
+	 * references lists, at which point, embedded content has already been
+	 * serialized and stored, so we no longer have live access to it.  We
+	 * therefore map about ids to errors for a ref at that time, and then do
+	 * one final walk of the dom to peak into all the embedded content and
+	 * mark up the errors where necessary.
+	 */
+	public function addEmbeddedErrors( ReferencesData $refsData, Node $node ): void {
+		// Either nothing to add or nothing to add to; stop recursing deeper
+		if ( !$refsData->embeddedErrors || !$node->hasChildNodes() ) {
+			return;
+		}
+
+		$processEmbeddedErrors = function ( string $html ) use ( $refsData ) {
+			// Similar to processEmbeddedRefs
+			$domFragment = $this->extApi->htmlToDom( $html );
+			$this->addEmbeddedErrors( $refsData, $domFragment );
+			return $this->extApi->domToHtml( $domFragment, true, true );
+		};
+
+		$child = $node->firstChild;
+		while ( $child ) {
+			$nextChild = $child->nextSibling;
+			if ( $child instanceof Element ) {
+				$this->extApi->processAttributeEmbeddedHTML( $child, $processEmbeddedErrors );
+				if ( DOMUtils::hasTypeOf( $child, 'mw:Extension/ref' ) ) {
+					$about = DOMCompat::getAttribute( $child, 'about' );
+					'@phan-var string $about';
+					$errs = $refsData->embeddedErrors[$about] ?? [];
+					self::addErrorsToNode( $child, $errs );
+				}
+				$this->addEmbeddedErrors( $refsData, $child );
+			}
+			$child = $nextChild;
+		}
 	}
 
 	/**

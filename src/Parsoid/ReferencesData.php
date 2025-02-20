@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 namespace Cite\Parsoid;
 
 use Wikimedia\Parsoid\Core\Sanitizer;
-use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\NodeData\DataMwError;
 
 /**
@@ -81,7 +80,7 @@ class ReferencesData {
 	}
 
 	public function add(
-		ParsoidExtensionAPI $extApi, string $groupName, string $refName, string $refDir
+		string $groupName, string $refName, string $refDir
 	): RefGroupItem {
 		$group = $this->getRefGroup( $groupName, true );
 		$hasRefName = $refName !== '';

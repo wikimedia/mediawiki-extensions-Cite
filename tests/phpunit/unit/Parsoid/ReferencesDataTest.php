@@ -6,7 +6,6 @@ use Cite\Cite;
 use Cite\Parsoid\ReferencesData;
 use Cite\Parsoid\RefGroupItem;
 use MediaWikiUnitTestCase;
-use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 
 /**
  * @covers \Cite\Parsoid\ReferencesData
@@ -53,7 +52,6 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 	public function testAddUnnamedRef() {
 		$data = new ReferencesData();
 		$ref = $data->add(
-			$this->createNoOpMock( ParsoidExtensionAPI::class ),
 			Cite::DEFAULT_GROUP,
 			'',
 			''
@@ -72,7 +70,6 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 	public function testAddNamedRef() {
 		$data = new ReferencesData();
 		$ref = $data->add(
-			$this->createNoOpMock( ParsoidExtensionAPI::class ),
 			'note',
 			'wales',
 			'rtl'

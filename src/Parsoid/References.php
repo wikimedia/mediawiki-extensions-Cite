@@ -299,7 +299,7 @@ class References {
 			// Even worse would be if it tried to redefine itself!
 
 			if ( !$ref ) {
-				$ref = $referencesData->add( $extApi, $groupName, $refName, $refDir );
+				$ref = $referencesData->add( $groupName, $refName, $refDir );
 			}
 
 			// Handle linkbacks

@@ -35,6 +35,7 @@ class ReferenceStackItem {
 	public int $globalId;
 	/**
 	 * The original name="…" attribute of a <ref>, or null for anonymous, unnamed references.
+	 * Guaranteed to never be empty or "0". These are not valid names.
 	 */
 	public ?string $name = null;
 	/**

@@ -24,9 +24,15 @@ class ReferenceStack {
 	 */
 	private array $refs = [];
 
-	/** Global, auto-incrementing sequence number for all <ref>, no matter which group */
+	/**
+	 * Global, auto-incrementing sequence number for all <ref>, no matter which group, starting
+	 * from 1. Reflects the total number of <ref>.
+	 */
 	private int $refSequence = 0;
-	/** @var array<string,int> Auto-incrementing sequence numbers per group */
+	/**
+	 * @var array<string,int> Auto-incrementing sequence numbers per group, starting from 1.
+	 * Reflects the current number of <ref> in each group.
+	 */
 	private array $groupRefSequence = [];
 
 	/**
@@ -81,9 +87,8 @@ class ReferenceStack {
 		$ref = new ReferenceStackItem();
 		$ref->count = 1;
 		$ref->dir = $dir;
-		// TODO: Read from this group field or deprecate it.
 		$ref->group = $group;
-		$ref->name = $name;
+		$ref->name = $name ?: null;
 		$ref->text = $text;
 
 		if ( $follow ) {
@@ -252,8 +257,7 @@ class ReferenceStack {
 			case self::ACTION_ASSIGN:
 				// Rollback assignment of text to pre-existing elements
 				$ref->text = null;
-				$ref->count--;
-				break;
+				// Intentionally fall through
 			case self::ACTION_INCREMENT:
 				// Rollback increase in named ref occurrences
 				$ref->count--;

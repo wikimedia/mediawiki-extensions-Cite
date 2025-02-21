@@ -16,6 +16,7 @@ return [
 	'Cite.AlphabetsProvider' => static function (): AlphabetsProvider {
 		return new AlphabetsProvider();
 	},
+
 	'Cite.BacklinkMarkRenderer' => static function ( MediaWikiServices $services ): BacklinkMarkRenderer {
 		$contentLanguage = $services->getContentLanguage();
 		return new BacklinkMarkRenderer(
@@ -24,9 +25,12 @@ return [
 				$contentLanguage
 			),
 			$services->getService( 'Cite.AlphabetsProvider' ),
+			ExtensionRegistry::getInstance()->isLoaded( 'CommunityConfiguration' ) ?
+				$services->getService( 'CommunityConfiguration.ProviderFactory' ) : null,
 			$services->getMainConfig()
 		);
 	},
+
 	'Cite.GadgetsIntegration' => static function ( MediaWikiServices $services ): ReferencePreviewsGadgetsIntegration {
 		return new ReferencePreviewsGadgetsIntegration(
 			$services->getMainConfig(),

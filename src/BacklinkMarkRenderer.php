@@ -3,6 +3,9 @@
 namespace Cite;
 
 use MediaWiki\Config\Config;
+use MediaWiki\Extension\CommunityConfiguration\Provider\ConfigurationProviderFactory;
+use MediaWiki\Extension\CommunityConfiguration\Provider\IConfigurationProvider;
+use stdClass;
 
 /**
  * Render the label for backlink marks, for example "a", "b", …
@@ -20,17 +23,23 @@ class BacklinkMarkRenderer {
 
 	private ReferenceMessageLocalizer $messageLocalizer;
 	private AlphabetsProvider $alphabetsProvider;
+	private ?IConfigurationProvider $configProvider = null;
 	private Config $config;
 
 	public function __construct(
 		string $languageCode,
 		ReferenceMessageLocalizer $messageLocalizer,
 		AlphabetsProvider $alphabetsProvider,
+		?ConfigurationProviderFactory $providerFactory,
 		Config $config
 	) {
 		$this->messageLocalizer = $messageLocalizer;
 		$this->alphabetsProvider = $alphabetsProvider;
 		$this->config = $config;
+
+		if ( $providerFactory && $this->config->get( 'CiteBacklinkCommunityConfiguration' ) ) {
+			$this->configProvider = $providerFactory->newProvider( 'Cite' );
+		}
 
 		$this->alphabet = $this->getBacklinkAlphabet( $languageCode );
 
@@ -103,6 +112,14 @@ class BacklinkMarkRenderer {
 		return $this->messageLocalizer->msg( 'cite_reference_backlink_symbol' )->plain();
 	}
 
+	private function loadCommunityConfig(): ?stdClass {
+		if ( $this->configProvider ) {
+			$status = $this->configProvider->loadValidConfiguration();
+			return $status->isOK() ? $status->getValue() : null;
+		}
+		return null;
+	}
+
 	/**
 	 * Returns an Alphabet of symbols that can be used to generate backlink markers.
 	 * The Alphabet will either be retrieved from config or the CLDR AlphabetsProvider.
@@ -111,9 +128,12 @@ class BacklinkMarkRenderer {
 	 * @return string[]
 	 */
 	private function getBacklinkAlphabet( string $code ): array {
+		$alphabetString = $this->loadCommunityConfig()->Cite_Settings->backlinkAlphabet ??
+			$this->config->get( 'CiteDefaultBacklinkAlphabet' ) ?? '';
+
 		$alphabet = preg_split(
 			'/\s+/',
-			$this->config->get( 'CiteDefaultBacklinkAlphabet' ) ?? '',
+			$alphabetString,
 			-1,
 			PREG_SPLIT_NO_EMPTY
 		);

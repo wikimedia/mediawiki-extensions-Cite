@@ -45,7 +45,6 @@ class ReferenceStack {
 	 */
 	private array $refCallStack = [];
 
-	private const ACTION_ASSIGN = 'assign';
 	private const ACTION_INCREMENT = 'increment';
 	private const ACTION_NEW = 'new';
 
@@ -121,7 +120,6 @@ class ReferenceStack {
 				$ref->text = $text;
 				// Use the dir parameter only from the full definition of a named ref tag
 				$ref->dir = $dir;
-				$action = self::ACTION_ASSIGN;
 			} else {
 				if ( $text !== null
 					// T205803 different strip markers might hide the same text
@@ -131,8 +129,8 @@ class ReferenceStack {
 					// Two <ref> with same group and name, but different content
 					$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];
 				}
-				$action = self::ACTION_INCREMENT;
 			}
+			$action = self::ACTION_INCREMENT;
 		} else {
 			// First occurrence of a named <ref>, or an unnamed <ref>
 			$ref->globalId = $this->nextRefSequence();
@@ -243,10 +241,6 @@ class ReferenceStack {
 					$this->groupRefSequence[$group]--;
 				}
 				break;
-			case self::ACTION_ASSIGN:
-				// Rollback assignment of text to pre-existing elements
-				$ref->text = null;
-				// Intentionally fall through
 			case self::ACTION_INCREMENT:
 				// Rollback increase in named ref occurrences
 				$ref->count--;

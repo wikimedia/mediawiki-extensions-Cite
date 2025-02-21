@@ -454,7 +454,8 @@ wgCiteSubReferencing=true
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
-<ol class="mw-subreference-list"><li><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code></code></span></li>
+<ol class="mw-subreference-list"><li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">page 1</span>
+</li>
 <li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">page 2</span>
 </li>
 </ol></li>

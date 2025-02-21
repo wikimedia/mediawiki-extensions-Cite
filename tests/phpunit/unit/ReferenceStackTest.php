@@ -397,7 +397,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				],
 				'finalCallStack' => [
 					[ 'new', 'foo', 'a', null, [] ],
-					[ 'assign', 'foo', 'a', 'text', [] ],
+					[ 'increment', 'foo', 'a', 'text', [] ],
 				]
 			],
 			'Repeated ref, mismatched text' => [
@@ -622,7 +622,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 			],
 			'Assign text' => [
 				'initialCallStack' => [
-					[ 'assign', 'foo', 1, 'text-2', [] ],
+					[ 'increment', 'foo', 1, 'text-2', [] ],
 				],
 				'initialRefs' => [ 'foo' => [
 					1 => [
@@ -637,7 +637,7 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'expectedRefs' => [ 'foo' => [
 					1 => [
 						'count' => 1,
-						'text' => null,
+						'text' => 'text-1',
 					],
 				] ],
 			],

@@ -53,7 +53,7 @@ class Validator {
 			return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
 		}
 
-		if ( $follow && $name ) {
+		if ( $follow && ( $name || ( $arguments['details'] ?? '' ) !== '' ) ) {
 			return StatusValue::newFatal( 'cite_error_ref_follow_conflicts' );
 		}
 

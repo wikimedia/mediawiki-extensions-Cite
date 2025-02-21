@@ -81,6 +81,49 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				],
 				'expected' => 'cite_error_ref_follow_conflicts',
 			],
+			'Follow and invalid name 0' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 't',
+				[
+					'group' => '',
+					'name' => '0',
+					'follow' => 'f',
+					'dir' => null,
+					'details' => null,
+				],
+				'expected' => 'cite_error_ref_numeric_key',
+			],
+			'Follow with details not allowed, even if 0' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 't',
+				[
+					'group' => '',
+					'name' => null,
+					'follow' => 'f',
+					'dir' => null,
+					'details' => '0',
+				],
+				'expected' => 'cite_error_ref_follow_conflicts',
+			],
+			'Follow ignores empty details' => [
+				'referencesStack' => [],
+				'inReferencesGroup' => null,
+				'isSectionPreview' => false,
+				'text' => 't',
+				[
+					'group' => '',
+					'name' => null,
+					'follow' => 'f',
+					'dir' => null,
+					'details' => '',
+				],
+				'expected' => null,
+			],
+
 			// Validating <ref> outside of <references>
 			'text-only <ref>' => [
 				'referencesStack' => [],

@@ -37,7 +37,8 @@ class Validator {
 		string $group,
 		?string $name,
 		?string $follow,
-		?string $dir
+		?string $dir,
+		?string $details
 	): StatusValue {
 		if ( ctype_digit( (string)$name )
 			|| ctype_digit( (string)$follow )
@@ -59,7 +60,7 @@ class Validator {
 
 		return $this->inReferencesGroup === null ?
 			$this->validateRefOutsideOfReferenceList( $text, $name ) :
-			$this->validateRefInReferenceList( $text, $group, $name );
+			$this->validateRefInReferenceList( $text, $group, $name, $details );
 	}
 
 	private function validateRefOutsideOfReferenceList(
@@ -99,7 +100,8 @@ class Validator {
 	private function validateRefInReferenceList(
 		?string $text,
 		string $group,
-		?string $name
+		?string $name,
+		?string $details
 	): StatusValue {
 		if ( $group !== $this->inReferencesGroup ) {
 			// <ref> and <references> have conflicting group attributes.
@@ -110,6 +112,11 @@ class Validator {
 		if ( !$name ) {
 			// <ref> calls inside <references> must be named
 			return StatusValue::newFatal( 'cite_error_references_no_key' );
+		}
+
+		if ( $details !== null && $details !== '' ) {
+			return StatusValue::newFatal( 'cite_error_details_unsupported_context',
+				Sanitizer::safeEncodeAttribute( $name ) );
 		}
 
 		if ( $text === null || trim( $text ) === '' ) {

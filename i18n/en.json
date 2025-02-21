@@ -17,6 +17,7 @@
 	},
 	"cite-desc": "Adds <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> tags for citations",
 	"cite_error": "Cite error: $1",
+	"cite_error_details_unsupported_context": "<code>&lt;ref&gt;</code> tag with name \"$1\" cannot use details when inside <code>&lt;references&gt;</code>.",
 	"cite_error_ref_invalid_dir": "Invalid <code>dir=\"$1\"</code>, must be <code>ltr</code> or <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "One of the <code>&lt;ref&gt;</code> tags with the name \"$1\" does have a conflicting dir attribute.",
 	"cite_error_ref_numeric_key": "Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer. Use a descriptive title",

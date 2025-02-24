@@ -17,10 +17,11 @@ return [
 		return new AlphabetsProvider();
 	},
 	'Cite.BacklinkMarkRenderer' => static function ( MediaWikiServices $services ): BacklinkMarkRenderer {
+		$contentLanguage = $services->getContentLanguage();
 		return new BacklinkMarkRenderer(
-			$services->getContentLanguage()->getCode(),
+			$contentLanguage->getCode(),
 			new ReferenceMessageLocalizer(
-				$services->getContentLanguage()
+				$contentLanguage
 			),
 			$services->getService( 'Cite.AlphabetsProvider' ),
 			$services->getMainConfig()

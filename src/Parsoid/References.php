@@ -31,10 +31,12 @@ use Wikimedia\RemexHtml\Serializer\SerializerNode;
  */
 class References {
 	private Config $mainConfig;
+	private bool $isSubreferenceSupported;
 	private MarkSymbolRenderer $markSymbolRenderer;
 
 	public function __construct( Config $mainConfig ) {
 		$this->mainConfig = $mainConfig;
+		$this->isSubreferenceSupported = $mainConfig->get( 'CiteSubReferencing' );
 
 		$this->markSymbolRenderer = MediaWikiServices::getInstance()->getService( 'Cite.MarkSymbolRenderer' );
 	}
@@ -461,12 +463,15 @@ class References {
 	}
 
 	private function validateAttributeKeys( array $attributes ): ?DataMwError {
-		static $validAttributes = [
+		$validAttributes = [
 			'group' => true,
 			'name' => true,
 			'follow' => true,
 			'dir' => true
 		];
+		if ( $this->isSubreferenceSupported ) {
+			$validAttributes['details'] = true;
+		}
 
 		if ( array_diff_key( $attributes, $validAttributes ) !== [] ) {
 			return new DataMwError( 'cite_error_ref_too_many_keys' );

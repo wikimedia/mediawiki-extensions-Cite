@@ -59,19 +59,24 @@ class Validator {
 		}
 
 		return $this->inReferencesGroup === null ?
-			$this->validateRefOutsideOfReferenceList( $text, $name ) :
+			$this->validateRefOutsideOfReferenceList( $text, $name, $details ) :
 			$this->validateRefInReferenceList( $text, $group, $name, $details );
 	}
 
 	private function validateRefOutsideOfReferenceList(
 		?string $text,
-		?string $name
+		?string $name,
+		?string $details
 	): StatusValue {
 		if ( !$name ) {
-			if ( $text === null ) {
+			$isSelfClosingTag = $text === null;
+			$containsText = trim( $text ?? '' ) !== '';
+			if ( $details !== null && !$containsText ) {
+				return StatusValue::newFatal( 'cite_error_details_missing_parent' );
+			} elseif ( $isSelfClosingTag ) {
 				// Completely empty ref like <ref /> is forbidden.
 				return StatusValue::newFatal( 'cite_error_ref_no_key' );
-			} elseif ( trim( $text ) === '' ) {
+			} elseif ( !$containsText ) {
 				// Must have content or reuse another ref by name.
 				return StatusValue::newFatal( 'cite_error_ref_no_input' );
 			}

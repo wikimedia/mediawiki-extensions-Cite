@@ -153,12 +153,19 @@ class Cite {
 		}
 
 		if ( $this->inReferencesGroup !== null ) {
-			if ( !$status->isGood() ) {
+			// TODO: Can we re-classify all hard errors here as softer warnings?
+			if ( !$status->isOK() ) {
 				// We know we are in the middle of a <references> tag and can't display errors in place
 				$this->mReferencesErrors->merge( $status );
-			} elseif ( $text !== null ) {
-				// Validation made sure we always have group and name while in <references>
-				$this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], $text );
+				return '';
+			}
+
+			// Validation made sure we always have group and name while in <references>
+			$ref = $this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], (string)$text );
+			if ( !$status->isGood() ) {
+				foreach ( $status->getMessages() as $msg ) {
+					$ref->warnings[] = [ $msg->getKey(), ...$msg->getParams() ];
+				}
 			}
 			return '';
 		}

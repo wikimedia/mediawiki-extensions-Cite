@@ -319,7 +319,7 @@ class ReferenceStack {
 		$previousRef->text .= " $text";
 	}
 
-	public function listDefinedRef( string $group, string $name, string $text ): void {
+	public function listDefinedRef( string $group, string $name, string $text ): ReferenceStackItem {
 		$ref =& $this->refs[$group][$name];
 		$ref ??= new ReferenceStackItem();
 		if ( $ref->text === null ) {
@@ -328,6 +328,7 @@ class ReferenceStack {
 			// Two <ref> with same group and name, but different content
 			$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];
 		}
+		return $ref;
 	}
 
 	private function nextRefSequence(): int {

@@ -120,8 +120,10 @@ class Validator {
 		}
 
 		if ( $details !== null && $details !== '' ) {
-			return StatusValue::newFatal( 'cite_error_details_unsupported_context',
+			$status = StatusValue::newGood();
+			$status->warning( 'cite_error_details_unsupported_context',
 				Sanitizer::safeEncodeAttribute( $name ) );
+			return $status;
 		}
 
 		if ( $text === null || trim( $text ) === '' ) {

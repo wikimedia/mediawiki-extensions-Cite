@@ -34,7 +34,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 
 		$status = $validator->validateRef( $text, $group, $name, $follow, $dir, $details );
 		if ( $expected ) {
-			$this->assertStatusError( $expected, $status );
+			$this->assertStatusMessage( $expected, $status );
 		} else {
 			$this->assertStatusGood( $status );
 		}

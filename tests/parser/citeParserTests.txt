@@ -3181,11 +3181,12 @@ z
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">y</span>
 </li>
 </ol></div></i>
-!! html/parsoid+disabled
+!! html/parsoid
 <p><i typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"","html":"&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>"},{"html":""}]]}'></i></p>
-<i typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"","html":""},{"html":""}]]}'>
-<p>z</p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">y</span></li></ol></div></i>
+
+<p><i typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"","html":""},{"html":""}]]}'>z</i></p><i about="#mwt2" typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"","html":""},{"html":""}]]}'>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt3" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">y</span></li>
+</ol></div></i>
 !! end
 
 !! test
@@ -3203,12 +3204,12 @@ z
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">y</span>
 </li>
 </ol></div></i>
-!! html/parsoid+disabled
+!! html/parsoid
 <p><i title="" typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"title"},{"html":"&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-1\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>"}]]}'>a</i></p>
-<i title="" typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"title"},{"html":""}]]}'>
 
-<p>z</p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">y</span></li></ol></div></i>
+<p><i title="" typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"title"},{"html":""}]]}'>z</i></p><i title="" typeof="mw:ExpandedAttrs" data-mw='{"attribs":[[{"txt":"title"},{"html":""}]]}'>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt3" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">y</span></li>
+</ol></div></i>
 !! end
 
 !! article

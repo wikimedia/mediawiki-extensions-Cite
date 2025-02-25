@@ -58,11 +58,13 @@ class Validator {
 		}
 
 		if ( isset( $arguments['dir'] ) ) {
-			$dir = strtolower( $arguments['dir'] );
-			if ( $dir !== 'rtl' && $dir !== 'ltr' ) {
-				return StatusValue::newFatal( 'cite_error_ref_invalid_dir', $arguments['dir'] );
+			$originalDir = $arguments['dir'];
+			$lowerDir = strtolower( $originalDir );
+			if ( $lowerDir !== 'rtl' && $lowerDir !== 'ltr' ) {
+				$arguments['dir'] = null;
+				return $this->newWarning( $arguments, 'cite_error_ref_invalid_dir', $originalDir );
 			}
-			$arguments['dir'] = $dir;
+			$arguments['dir'] = $lowerDir;
 		}
 
 		return $this->inReferencesGroup === null ?

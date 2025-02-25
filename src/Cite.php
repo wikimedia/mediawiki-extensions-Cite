@@ -153,16 +153,13 @@ class Cite {
 		}
 
 		if ( $this->inReferencesGroup !== null ) {
-			// TODO: Can we re-classify all hard errors here as softer warnings?
 			if ( !$status->isOK() ) {
 				// We know we are in the middle of a <references> tag and can't display errors in place
 				$this->mReferencesErrors->merge( $status );
-				return '';
-			}
-
-			// Validation made sure we always have group and name while in <references>
-			$ref = $this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], $text );
-			if ( !$status->isGood() ) {
+			} else {
+				// Validation made sure we always have group and name while in <references>
+				$ref = $this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], $text );
+				// Remember all non-fatal warnings to be displayed as part of the reference list
 				foreach ( $status->getMessages() as $msg ) {
 					$ref->warnings[] = [ $msg->getKey(), ...$msg->getParams() ];
 				}
@@ -170,7 +167,7 @@ class Cite {
 			return '';
 		}
 
-		if ( !$status->isGood() ) {
+		if ( !$status->isOK() ) {
 			$this->referenceStack->pushInvalidRef();
 
 			// FIXME: If we ever have multiple errors, these must all be presented to the user,
@@ -182,9 +179,15 @@ class Cite {
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
 		$ref = $this->referenceStack->pushRef(
 			$parser->getStripState(), $text, $argv, ...array_values( $arguments ) );
+
 		if ( !$ref ) {
 			// Rare edge-cases like follow="…" don't render a footnote marker in-place
 			return '';
+		}
+
+		// Remember all non-fatal warnings to be displayed as part of the reference list
+		foreach ( $status->getMessages() as $msg ) {
+			$ref->warnings[] = [ $msg->getKey(), ...$msg->getParams() ];
 		}
 
 		return $this->footnoteMarkFormatter->linkRef( $parser, $ref );

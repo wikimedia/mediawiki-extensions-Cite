@@ -131,19 +131,20 @@ class Cite {
 			[ 'group', 'name', 'follow', 'dir', 'details' ]
 		);
 		$arguments = $status->getValue();
-		// Use the default group, or the references group when inside one.
-		$arguments['group'] ??= $this->inReferencesGroup ?? self::DEFAULT_GROUP;
+
+		// Temporary feature flag, intentionally outside of the validator
+		if ( isset( $argv['details'] ) && !$this->config->get( 'CiteSubReferencing' ) ) {
+			$status->fatal( 'cite_error_ref_too_many_keys' );
+		}
 
 		$validator = new Validator(
 			$this->referenceStack,
 			$this->inReferencesGroup,
 			$this->isSectionPreview
 		);
-		$status->merge( $validator->validateRef( $text, $arguments ) );
-
-		// Temporary feature flag, intentionally outside of the validator
-		if ( isset( $argv['details'] ) && !$this->config->get( 'CiteSubReferencing' ) ) {
-			$status->fatal( 'cite_error_ref_too_many_keys' );
+		$status->merge( $validator->validateRef( $text, $arguments ), true );
+		if ( $status->isOK() ) {
+			$arguments = $status->getValue();
 		}
 
 		// Validation cares about the difference between null and empty, but from here on we don't
@@ -199,10 +200,6 @@ class Cite {
 	private function parseArguments( array $argv, array $allowedAttributes ): StatusValue {
 		$expected = count( $allowedAttributes );
 		$allValues = array_merge( array_fill_keys( $allowedAttributes, null ), $argv );
-		if ( isset( $allValues['dir'] ) ) {
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullableInternal False positive
-			$allValues['dir'] = strtolower( $allValues['dir'] );
-		}
 
 		$status = StatusValue::newGood( array_slice( $allValues, 0, $expected ) );
 

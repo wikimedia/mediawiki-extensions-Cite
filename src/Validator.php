@@ -34,16 +34,16 @@ class Validator {
 
 	/**
 	 * @param string|null $text
-	 * @param array{group:string, name:string|null, follow:string|null, dir:string|null, details:string|null} $arguments
+	 * @param array{group: ?string, name: ?string, follow: ?string, dir: ?string, details: ?string} $arguments
 	 * @return StatusValue
 	 */
 	public function validateRef( ?string $text, array $arguments ): StatusValue {
-		$group = $arguments['group'];
+		// Use the default group, or the references group when inside one
+		$arguments['group'] ??= $this->inReferencesGroup ?? Cite::DEFAULT_GROUP;
+
 		// We never care about the difference between empty name="" and non-existing attribute
 		$name = (string)$arguments['name'];
 		$follow = (string)$arguments['follow'];
-		$dir = $arguments['dir'];
-		$details = $arguments['details'];
 
 		if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
 			// Numeric names mess up the resulting id's, potentially producing
@@ -57,20 +57,23 @@ class Validator {
 			return StatusValue::newFatal( 'cite_error_ref_follow_conflicts' );
 		}
 
-		if ( $dir !== null && $dir !== 'rtl' && $dir !== 'ltr' ) {
-			return StatusValue::newFatal( 'cite_error_ref_invalid_dir', $dir );
+		if ( isset( $arguments['dir'] ) ) {
+			$dir = strtolower( $arguments['dir'] );
+			if ( $dir !== 'rtl' && $dir !== 'ltr' ) {
+				return StatusValue::newFatal( 'cite_error_ref_invalid_dir', $arguments['dir'] );
+			}
+			$arguments['dir'] = $dir;
 		}
 
 		return $this->inReferencesGroup === null ?
-			$this->validateRefOutsideOfReferenceList( $text, $name, $details ) :
-			$this->validateRefInReferenceList( $text, $group, $name, $details );
+			$this->validateRefOutsideOfReferenceList( $text, $arguments ) :
+			$this->validateRefInReferenceList( $text, $arguments );
 	}
 
-	private function validateRefOutsideOfReferenceList(
-		?string $text,
-		string $name,
-		?string $details
-	): StatusValue {
+	private function validateRefOutsideOfReferenceList( ?string $text, array $arguments ): StatusValue {
+		$name = (string)$arguments['name'];
+		$details = $arguments['details'];
+
 		if ( !$name ) {
 			$isSelfClosingTag = $text === null;
 			$containsText = trim( $text ?? '' ) !== '';
@@ -102,15 +105,14 @@ class Validator {
 			return StatusValue::newFatal( 'cite_error_included_ref' );
 		}
 
-		return StatusValue::newGood();
+		return StatusValue::newGood( $arguments );
 	}
 
-	private function validateRefInReferenceList(
-		?string $text,
-		string $group,
-		string $name,
-		?string $details
-	): StatusValue {
+	private function validateRefInReferenceList( ?string $text, array $arguments ): StatusValue {
+		$group = $arguments['group'];
+		$name = (string)$arguments['name'];
+		$details = $arguments['details'];
+
 		if ( $group !== $this->inReferencesGroup ) {
 			// <ref> and <references> have conflicting group attributes.
 			return StatusValue::newFatal( 'cite_error_references_group_mismatch',
@@ -123,7 +125,8 @@ class Validator {
 		}
 
 		if ( $details !== null && $details !== '' ) {
-			return $this->newWarning( 'cite_error_details_unsupported_context',
+			$arguments['details'] = null;
+			return $this->newWarning( $arguments, 'cite_error_details_unsupported_context',
 				Sanitizer::safeEncodeAttribute( $name ) );
 		}
 
@@ -147,16 +150,17 @@ class Validator {
 			}
 		}
 
-		return StatusValue::newGood();
+		return StatusValue::newGood( $arguments );
 	}
 
 	/**
-	 * @param string $key
-	 * @param mixed ...$params
+	 * @param array $arguments Modified <ref …> arguments to return as part of the status
+	 * @param string $key Error message key
+	 * @param mixed ...$params Optional message parameters
 	 * @return StatusValue
 	 */
-	private function newWarning( string $key, ...$params ): StatusValue {
-		$status = StatusValue::newGood();
+	private function newWarning( array $arguments, string $key, ...$params ): StatusValue {
+		$status = StatusValue::newGood( $arguments );
 		$status->warning( $key, ...$params );
 		return $status;
 	}

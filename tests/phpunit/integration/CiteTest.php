@@ -59,7 +59,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedValue' => [ 'invalid', null, null, null ] ],
 			[
 				'attributes' => [ 'dir' => 'RTL' ],
-				'expectedValue' => [ 'rtl', null, null, null ] ],
+				'expectedValue' => [ 'RTL', null, null, null ] ],
 			[
 				'attributes' => [ 'follow' => 'f' ],
 				'expectedValue' => [ null, 'f', null, null ] ],

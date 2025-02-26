@@ -16,6 +16,8 @@
 	},
 	"cite-desc": "Kaynaklar için, <code>&lt;ref&gt;</code> ve <code>&lt;references&gt;</code> etiketlerini ekler",
 	"cite_error": "Kaynak hatası: $1",
+	"cite_error_details_missing_parent": "Ayrıntıları olan <code>&lt;ref&gt;</code> etiketinin içeriği olmalı ya da adıyla bir üst ögeye işaret etmelidir.",
+	"cite_error_details_unsupported_context": "\"$1\" adlı <code>&lt;ref&gt;</code> etiketi, <code>&lt;references&gt;</code> içindeyse, ayrıntıları kullanamaz.",
 	"cite_error_ref_invalid_dir": "Geçersiz <code>dir=\"$1\"</code>, <code>ltr</code> veya <code>rtl</code> olmalıdır",
 	"cite_error_ref_conflicting_dir": "\"$1\" adındaki <code>&lt;ref&gt;</code> etiketlerinden birinin çakışan dizin özelliği var.",
 	"cite_error_ref_numeric_key": "Geçersiz <code>&lt;ref&gt;</code> etiketi; isim basit bir tamsayı olamaz. Açıklayıcı bir başlık kullanın",

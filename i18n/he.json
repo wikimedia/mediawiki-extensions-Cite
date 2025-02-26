@@ -11,6 +11,8 @@
 	},
 	"cite-desc": "הוספת תגי <code>&lt;ref&gt;</code> ו־<code>&lt;references/&gt;</code> בשביל הערות שוליים",
 	"cite_error": "שגיאת בהערת שוליים: $1",
+	"cite_error_details_missing_parent": "תג <code>&lt;ref&gt;</code> עם פרטים חייב להכיל תוכן או להצביע על הורה בשם.",
+	"cite_error_details_unsupported_context": "תג <code>&lt;ref&gt;</code> עם השם \"$1\" אינו יכול להשתמש בפרטים כשהוא בתוך <code>&lt;references&gt;</code>.",
 	"cite_error_ref_invalid_dir": "<code dir=\"ltr\">dir=\"$1\"</code> בלתי־תקין חייב להיות <code>ltr</code> או <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "לאחד מתגי ה־<code>&lt;ref&gt;</code> בשם \"$1\" יש תכונת dir מתנגשת.",
 	"cite_error_ref_numeric_key": "תג <code>&lt;ref&gt;</code> לא תקין; שם (name) לא יכול להיות מספר שלם פשוט. יש להשתמש בכותרת תיאורית",

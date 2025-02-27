@@ -74,5 +74,7 @@
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 链接文本]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "测试",
 	"cite-wikieditor-help-content-reference-example-extra-details": "额外详细信息",
-	"cite-configuration-submit": "保存更改"
+	"cite-configuration-info": "这些设置会影响所有使用引证功能的页面。只有管理员才能修改这些设置。",
+	"cite-configuration-submit": "保存更改",
+	"communityconfiguration-cite-description": "自定义参考文献的格式与外观。"
 }

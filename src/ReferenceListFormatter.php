@@ -93,7 +93,7 @@ class ReferenceListFormatter {
 		/** @var string|bool $indented */
 		$indented = false;
 		foreach ( $groupRefs as $ref ) {
-			if ( !$indented && $ref->parentRefGlobalId !== null ) {
+			if ( !$indented && $ref->hasMainRef ) {
 				// Create nested list before processing the first subref.
 				// The nested <ol> must be inside the parent's <li>
 				if ( preg_match( '#</li>\s*$#D', $parserInput, $matches, PREG_OFFSET_CAPTURE ) ) {
@@ -101,7 +101,7 @@ class ReferenceListFormatter {
 				}
 				$parserInput .= Html::openElement( 'ol', [ 'class' => 'mw-subreference-list' ] );
 				$indented = $matches[0][0] ?? true;
-			} elseif ( $indented && $ref->parentRefGlobalId === null ) {
+			} elseif ( $indented && !$ref->hasMainRef ) {
 				// End nested list.
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;

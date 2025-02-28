@@ -155,7 +155,7 @@ class ReferenceStack {
 			$ref->count = 1;
 			$ref->globalId = $this->nextRefSequence();
 			$ref->name = null;
-			$ref->parentRefGlobalId = $parentRef->globalId;
+			$ref->hasMainRef = $parentRef;
 			$ref->subrefIndex = ++$parentRef->subrefCount;
 			$ref->text = $subrefDetails;
 			// No need to duplicate errors that are already shown on the parent
@@ -181,6 +181,14 @@ class ReferenceStack {
 		while ( $count-- && $this->refCallStack ) {
 			$call = array_pop( $this->refCallStack );
 			if ( $call ) {
+				/** @var ReferenceStackItem $ref */
+				$ref = $call[1];
+				if ( $ref->hasMainRef ) {
+					// Must drop the sub-ref completely; undoing and redoing the main re-creates it
+					$this->rollbackRef( self::ACTION_NEW, $ref, null, [] );
+					$call[1] = $ref->hasMainRef;
+				}
+
 				// @phan-suppress-next-line PhanParamTooFewUnpack
 				$redoStack[] = $this->rollbackRef( ...$call );
 			}

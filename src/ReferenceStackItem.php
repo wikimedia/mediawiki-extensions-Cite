@@ -50,9 +50,9 @@ class ReferenceStackItem {
 	 */
 	public ?string $text = null;
 	/**
-	 * A sub-reference's pointer to the parent's {@see $globalId}, or null for top-level <ref>
+	 * A sub-reference's pointer to the main ref instance, or null for top-level refs
 	 */
-	public ?int $parentRefGlobalId = null;
+	public ?self $hasMainRef = null;
 	/**
 	 * @var ?int Count how many subreferences point to a parent.  Corresponds to
 	 *   the last {@see subrefIndex} but this field belongs to the parent.

@@ -551,7 +551,6 @@ parsoid=wt2html
 </div>
 !! end
 
-# FIXME: Should render the same as above
 !! test
 Unused list defined sub-ref with used main content (same as above but with #tag)
 !! config
@@ -564,12 +563,8 @@ wgCiteSubReferencing=true
 <p><sup id="cite_ref-book_1-0" class="reference"><a href="#cite_note-book-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
-<ol class="mw-subreference-list"><li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">page 1</span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
 </li>
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">page 2</span>
-</li>
-</ol></li>
 </ol></div>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-book_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"book"},"errors":[{"key":"cite_error_references_no_text","params":["book"]}]}'><a href="./Parser_test#cite_note-book-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
@@ -905,7 +900,6 @@ parsoid=wt2html
 </div>
 !! end
 
-# FIXME: This doesn't render correctly
 !! test
 Rolling back a sub-reference inside the #tag:references function
 !! config
@@ -919,9 +913,9 @@ wgCiteSubReferencing=true
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">a</span>
 </li>
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">b <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "b" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
-</li>
 </ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "b" cannot use details when inside <code>&lt;references&gt;</code>.</span>
+</p>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a"}}'><a href="./Parser_test#cite_note-a-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"&lt;ref name=\"a\">a&lt;/ref>&lt;ref details=\"p1\" name=\"b\">b&lt;/ref>"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"&lt;ref name=\"a\">a&lt;/ref>&lt;ref details=\"p1\" name=\"b\">b&lt;/ref>"}},"i":0}}]}'>

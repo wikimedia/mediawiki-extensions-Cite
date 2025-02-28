@@ -162,6 +162,8 @@ class ReferenceStack {
 			$ref->parentRefGlobalId = $parentRef->globalId;
 			$ref->subrefIndex = ++$parentRef->subrefCount;
 			$ref->text = $subrefDetails;
+			// No need to duplicate errors that are already shown on the parent
+			$ref->warnings = [];
 			$this->refs[$group][$ref->globalId] = $ref;
 		}
 

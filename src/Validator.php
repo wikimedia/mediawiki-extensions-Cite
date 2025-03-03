@@ -32,17 +32,20 @@ class Validator {
 		$this->isSectionPreview = $isSectionPreview;
 	}
 
-	public function validateRef(
-		?string $text,
-		string $group,
-		?string $name,
-		?string $follow,
-		?string $dir,
-		?string $details
-	): StatusValue {
-		if ( ctype_digit( (string)$name )
-			|| ctype_digit( (string)$follow )
-		) {
+	/**
+	 * @param string|null $text
+	 * @param array{group:string, name:string|null, follow:string|null, dir:string|null, details:string|null} $arguments
+	 * @return StatusValue
+	 */
+	public function validateRef( ?string $text, array $arguments ): StatusValue {
+		$group = $arguments['group'];
+		// We never care about the difference between empty name="" and non-existing attribute
+		$name = (string)$arguments['name'];
+		$follow = (string)$arguments['follow'];
+		$dir = $arguments['dir'];
+		$details = $arguments['details'];
+
+		if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
 			// Numeric names mess up the resulting id's, potentially producing
 			// duplicate id's in the XHTML.  The Right Thing To Do
 			// would be to mangle them, but it's not really high-priority
@@ -65,7 +68,7 @@ class Validator {
 
 	private function validateRefOutsideOfReferenceList(
 		?string $text,
-		?string $name,
+		string $name,
 		?string $details
 	): StatusValue {
 		if ( !$name ) {
@@ -105,7 +108,7 @@ class Validator {
 	private function validateRefInReferenceList(
 		?string $text,
 		string $group,
-		?string $name,
+		string $name,
 		?string $details
 	): StatusValue {
 		if ( $group !== $this->inReferencesGroup ) {
@@ -120,10 +123,8 @@ class Validator {
 		}
 
 		if ( $details !== null && $details !== '' ) {
-			$status = StatusValue::newGood();
-			$status->warning( 'cite_error_details_unsupported_context',
+			return $this->newWarning( 'cite_error_details_unsupported_context',
 				Sanitizer::safeEncodeAttribute( $name ) );
-			return $status;
 		}
 
 		if ( $text === null || trim( $text ) === '' ) {
@@ -147,6 +148,17 @@ class Validator {
 		}
 
 		return StatusValue::newGood();
+	}
+
+	/**
+	 * @param string $key
+	 * @param mixed ...$params
+	 * @return StatusValue
+	 */
+	private function newWarning( string $key, ...$params ): StatusValue {
+		$status = StatusValue::newGood();
+		$status->warning( $key, ...$params );
+		return $status;
 	}
 
 }

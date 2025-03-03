@@ -139,8 +139,7 @@ class Cite {
 			$this->inReferencesGroup,
 			$this->isSectionPreview
 		);
-		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
-		$status->merge( $validator->validateRef( $text, ...array_values( $arguments ) ) );
+		$status->merge( $validator->validateRef( $text, $arguments ) );
 
 		// Temporary feature flag, intentionally outside of the validator
 		if ( isset( $argv['details'] ) && !$this->config->get( 'CiteSubReferencing' ) ) {

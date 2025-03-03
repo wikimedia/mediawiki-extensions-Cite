@@ -200,7 +200,7 @@ class References {
 
 		$hasName = $refName !== '';
 		$hasFollow = $followName !== '';
-		$hasDetails = $details !== '';
+		$hasDetails = $details !== '' && $this->isSubreferenceSupported;
 
 		// Handle error cases for the attributes 'name' and 'follow'
 		if ( $hasName && $hasFollow ) {

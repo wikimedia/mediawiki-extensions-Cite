@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"OIS"
+			"OIS",
+			"Lisyeng"
 		]
 	},
 	"cite_error": "Errore de citation: $1"

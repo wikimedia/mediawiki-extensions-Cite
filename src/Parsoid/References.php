@@ -182,6 +182,7 @@ class References {
 		$refName = $attributes->name ?? '';
 		$followName = $attributes->follow ?? '';
 		$refDir = strtolower( $attributes->dir ?? '' );
+		$details = $attributes->details ?? '';
 
 		// Validate the reference group
 		$groupName = $attributes->group ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
@@ -197,9 +198,9 @@ class References {
 			DOMCompat::getAttribute( $refFragment, 'about' );
 		'@phan-var string $about'; // assert that $about is non-null
 
-		// Check the presence of 'name' and 'follow' attributes
 		$hasName = $refName !== '';
 		$hasFollow = $followName !== '';
+		$hasDetails = $details !== '';
 
 		// Handle error cases for the attributes 'name' and 'follow'
 		if ( $hasName && $hasFollow ) {
@@ -263,6 +264,29 @@ class References {
 					$ref = $refGroup->indexByName[$followName];
 				}
 			}
+		}
+
+		// Split subref and main ref; add main ref as a list-defined reference
+		if ( $hasDetails && isset( $refDataMw->body ) ) {
+			// Add the main ref directly as a list-defined ref.
+			$mainRef = $referencesData->add( $groupName, $refName, $refDir );
+			// Create a ref entry if needed (should always be needed, but main
+			// ref cannot be found by name in this iteration).
+			if ( !$ref ) {
+				$ref = $referencesData->add( $groupName, '', $refDir );
+			}
+			// Move content to main ref.
+			if ( $contentId ) {
+				$mainRef->externalFragment = $extApi->getContentDOM( $contentId )->firstChild;
+
+				$ref->contentId = null;
+				$contentId = null;
+			}
+			// Move details attribute into subref content.
+			$ref->externalFragment = $extApi->wikitextToDOM( $details,
+				[ 'parseOpts' => [ 'context' => 'inline' ] ], true );
+			$refFragmentHtml = '';
+			$refName = '';
 		}
 
 		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
@@ -456,7 +480,7 @@ class References {
 			$ref->contentId = $contentId;
 			// Use the dir parameter only from the full definition of a named ref tag
 			$ref->dir = $refDir;
-		} else {
+		} elseif ( $contentId ) {
 			DOMCompat::remove( $refFragment );
 			$extApi->clearContentDOM( $contentId );
 		}

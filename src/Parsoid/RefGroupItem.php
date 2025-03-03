@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 namespace Cite\Parsoid;
 
 use Wikimedia\Parsoid\DOM\Element;
+use Wikimedia\Parsoid\DOM\Node;
 
 /**
  * Individual item in a {@see RefGroup}.
@@ -20,6 +21,10 @@ class RefGroupItem {
 	 * multiple conflicting definitions.
 	 */
 	public ?string $contentId = null;
+	/**
+	 * Used when the content comes from an attribute eg. subreference details.
+	 */
+	public ?Node $externalFragment = null;
 
 	/** Just used for comparison when we have multiples */
 	public ?string $cachedHtml = null;

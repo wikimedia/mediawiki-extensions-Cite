@@ -105,6 +105,7 @@ class ReferencesData {
 		$ref->dir = $refDir;
 		$ref->group = $group->name;
 		// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
+		// TODO: subref numbering
 		$ref->numberInGroup = count( $group->refs ) + 1;
 		$ref->index = $n;
 		$ref->backLinkIdBase = $refIdBase;

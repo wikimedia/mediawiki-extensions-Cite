@@ -12,17 +12,16 @@
 		const toolGroups = target.static.toolbarGroups;
 
 		if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
-			for ( let i = 0; i < toolGroups.length; i++ ) {
-				const toolGroup = toolGroups[ i ];
+			toolGroups.forEach( ( toolGroup ) => {
 				if ( toolGroup.name === 'insert' && ( !toolGroup.demote || toolGroup.demote.indexOf( 'reference' ) === -1 ) ) {
 					toolGroup.demote = toolGroup.demote || [];
 					toolGroup.demote.push( { group: 'cite' }, 'reference', 'reference/existing' );
 				}
-			}
+			} );
 		} else {
 			// Find the reference placeholder group and replace it
-			for ( let i = 0; i < toolGroups.length; i++ ) {
-				if ( toolGroups[ i ].name === 'reference' ) {
+			toolGroups.some( ( toolGroup, i ) => {
+				if ( toolGroup.name === 'reference' ) {
 					const group = {
 						// Change the name so it isn't replaced twice
 						name: 'cite',
@@ -41,9 +40,10 @@
 						group.label = label;
 					}
 					toolGroups[ i ] = group;
-					break;
+					return true;
 				}
-			}
+				return false;
+			} );
 		}
 	}
 

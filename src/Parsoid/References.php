@@ -281,11 +281,19 @@ class References {
 
 				$ref->contentId = null;
 				$contentId = null;
+				// Flag to help reserialize main ref content into the subref when saving.
+				$refDataMw->attrs->isMainRefBodyWithDetails = true;
 			}
 			// Move details attribute into subref content.
 			$ref->externalFragment = $extApi->wikitextToDOM( $details,
 				[ 'parseOpts' => [ 'context' => 'inline' ] ], true );
 			$refFragmentHtml = '';
+			// Subref points to the main ref by name.
+			// FIXME: should have already asserted that refName exists for all details, see T387193
+			if ( $refName ) {
+				$refDataMw->attrs->extendsRef = $refName;
+				unset( $refDataMw->attrs->name );
+			}
 			$refName = '';
 		}
 

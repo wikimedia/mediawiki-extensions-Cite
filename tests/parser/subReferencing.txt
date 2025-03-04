@@ -502,7 +502,6 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# TODO: Implement error
 !! test
 Using `follow` with details on the “follow" part
 !! config
@@ -512,9 +511,10 @@ wgCiteSubReferencing=true
 <ref follow="book" details="page 1">continued</ref>
 !! html/php
 <p><sup id="cite_ref-book_1-0" class="reference"><a href="#cite_note-book-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref follow="…"&gt;</code> tag that is the continuation of a previous one cannot be named individually or have details.</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">Book continued</span>
+<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">Book</span>
 </li>
 </ol></div>
 !! html/parsoid

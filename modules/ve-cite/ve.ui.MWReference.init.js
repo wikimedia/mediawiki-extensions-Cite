@@ -9,19 +9,19 @@
 
 ( function () {
 	function fixTarget( target ) {
-		const toolGroups = target.static.toolbarGroups;
+		const toolbarGroups = target.static.toolbarGroups;
 
 		if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
-			toolGroups.forEach( ( toolGroup ) => {
-				if ( toolGroup.name === 'insert' && ( !toolGroup.demote || toolGroup.demote.indexOf( 'reference' ) === -1 ) ) {
-					toolGroup.demote = toolGroup.demote || [];
-					toolGroup.demote.push( { group: 'cite' }, 'reference', 'reference/existing' );
+			toolbarGroups.forEach( ( toolbarGroup ) => {
+				if ( toolbarGroup.name === 'insert' && ( !toolbarGroup.demote || toolbarGroup.demote.indexOf( 'reference' ) === -1 ) ) {
+					toolbarGroup.demote = toolbarGroup.demote || [];
+					toolbarGroup.demote.push( { group: 'cite' }, 'reference', 'reference/existing' );
 				}
 			} );
 		} else {
 			// Find the reference placeholder group and replace it
-			toolGroups.some( ( toolGroup, i ) => {
-				if ( toolGroup.name === 'reference' ) {
+			toolbarGroups.some( ( toolbarGroup, i ) => {
+				if ( toolbarGroup.name === 'reference' ) {
 					const group = {
 						// Change the name so it isn't replaced twice
 						name: 'cite',
@@ -39,7 +39,7 @@
 					} else {
 						group.label = label;
 					}
-					toolGroups[ i ] = group;
+					toolbarGroups[ i ] = group;
 					return true;
 				}
 				return false;

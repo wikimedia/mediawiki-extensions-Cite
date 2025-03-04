@@ -295,7 +295,7 @@ class References {
 		$supParent = DOMUtils::findAncestorOfName( $node, 'sup' );
 		while ( $supParent ) {
 			$supDmw = DOMDataUtils::getDataMw( $supParent );
-			if ( isset( $supDmw->attrs->name ) && $supDmw->attrs->name === $refName ) {
+			if ( $this->sameRefId( $supDmw, $refName, $groupName ) ) {
 				$errs[] = new DataMwError( 'cite_error_included_ref' );
 				ErrorUtils::addErrorsToNode( $supParent, $errs );
 				return;
@@ -484,6 +484,11 @@ class References {
 			DOMCompat::remove( $refFragment );
 			$extApi->clearContentDOM( $contentId );
 		}
+	}
+
+	private function sameRefId( ?DataMw $supDmw, string $refName, string $refGroup ): bool {
+		return $refName !== '' && ( $supDmw->attrs->name ?? '' ) === $refName
+			&& ( $supDmw->attrs->group ?? '' ) === $refGroup;
 	}
 
 	private function validateAttributeKeys( array $attributes ): ?DataMwError {

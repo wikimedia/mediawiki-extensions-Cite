@@ -8,51 +8,56 @@
  */
 
 ( function () {
-	function fixTarget( target ) {
-		const toolbarGroups = target.static.toolbarGroups;
+	const modifiedToolbarGroups = [];
 
-		if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
-			toolbarGroups.forEach( ( toolbarGroup ) => {
-				if ( toolbarGroup.name === 'insert' && ( !toolbarGroup.demote || toolbarGroup.demote.indexOf( 'reference' ) === -1 ) ) {
-					toolbarGroup.demote = toolbarGroup.demote || [];
-					toolbarGroup.demote.push( { group: 'cite' }, 'reference', 'reference/existing' );
-				}
-			} );
-		} else {
-			// Find the reference placeholder group and replace it
-			toolbarGroups.some( ( toolbarGroup, i ) => {
-				if ( toolbarGroup.name === 'reference' ) {
-					const group = {
-						// Change the name so it isn't replaced twice
-						name: 'cite',
-						type: 'list',
-						indicator: 'down',
-						include: [ { group: 'cite' }, 'reference', 'reference/existing' ],
-						demote: [ 'reference', 'reference/existing' ]
-					};
-					const label = OO.ui.deferMsg( 'cite-ve-toolbar-group-label' );
-					// Treat mobile targets differently
-					if ( target === ve.init.mw.MobileArticleTarget ) {
-						group.header = label;
-						group.title = label;
-						group.icon = 'reference';
-					} else {
-						group.label = label;
-					}
-					toolbarGroups[ i ] = group;
-					return true;
-				}
-				return false;
-			} );
+	mw.hook( 've.newTarget' ).add( ( target ) => {
+		// eslint-disable-next-line es-x/no-array-prototype-includes
+		if ( ![ 'article', 'cx' ].includes( target.constructor.static.name ) ) {
+			return;
 		}
-	}
+		const toolbarGroups = target.constructor.static.toolbarGroups;
+		// eslint-disable-next-line es-x/no-array-prototype-includes
+		if ( modifiedToolbarGroups.includes( toolbarGroups ) ) {
+			return;
+		}
 
-	for ( const n in ve.init.mw.targetFactory.registry ) {
-		fixTarget( ve.init.mw.targetFactory.lookup( n ) );
-	}
+		if (
+			mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ||
+			// Mobile doesn't have room for a top-level reference group, so place in the 'insert' menu as well
+			( ve.init.mw.MobileArticleTarget && target instanceof ve.init.mw.MobileArticleTarget )
+		) {
+			// Add to the insert group (demoted)
+			const insertGroup = toolbarGroups.find(
+				( toolbarGroup ) => toolbarGroup.name === 'insert' ||
+				// Name used in CX.
+				// TODO: Change this to 'insert'
+				toolbarGroup.name === 'extra'
+			);
+			if ( insertGroup ) {
+				insertGroup.demote = [
+					...( insertGroup.demote || [] ),
+					{ group: 'cite' }, 'reference', 'reference/existing'
+				];
+			}
+		} else {
+			// Add after the link group
+			const index = toolbarGroups.findIndex( ( toolbarGroup ) => toolbarGroup.name === 'link' );
+			if ( index !== -1 ) {
+				const group = {
+					name: 'cite',
+					type: 'list',
+					title: OO.ui.deferMsg( 'cite-ve-toolbar-group-label' ),
+					label: OO.ui.deferMsg( 'cite-ve-toolbar-group-label' ),
+					include: [ { group: 'cite' }, 'reference', 'reference/existing' ],
+					demote: [ 'reference', 'reference/existing' ]
+				};
+				toolbarGroups.splice( index + 1, 0, group );
+			} else {
+				mw.log.warn( 'No link group find in toolbar to place reference tools next to.' );
+			}
+		}
 
-	ve.init.mw.targetFactory.on( 'register', ( _name, target ) => {
-		fixTarget( target );
+		modifiedToolbarGroups.push( toolbarGroups );
 	} );
 
 	/**

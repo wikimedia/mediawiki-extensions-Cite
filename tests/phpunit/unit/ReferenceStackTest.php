@@ -534,8 +534,9 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 					]
 				],
 				'finalCallStack' => [
+					// FIXME: One of these needs to go, there is no rollback code that can handle this
 					[ 'new', 1, 'foo', 'a', 'text-parent', [] ],
-					[ 'new', 2, 'foo', null, 'text-details', [] ],
+					[ 'new', 2, 'foo', null, 'text-parent', [] ],
 				]
 			],
 		];

@@ -102,18 +102,8 @@ class ReferenceStack {
 			return null;
 		}
 
-		if ( !$name ) {
-			// This is an anonymous reference, which will be given a numeric index.
-			$ref->globalId = $this->nextRefSequence();
-			$this->refs[$group][$ref->globalId] = &$ref;
-			$action = self::ACTION_NEW;
-		} elseif ( !isset( $this->refs[$group][$name] ) ) {
-			// First occurrence of a named <ref>
-			$this->refs[$group][$name] = &$ref;
-			$ref->globalId = $this->nextRefSequence();
-			$action = self::ACTION_NEW;
-		} else {
-			// Change an existing entry.
+		if ( $name && isset( $this->refs[$group][$name] ) ) {
+			// A named <ref> is reused, possibly with more information than before
 			$ref = &$this->refs[$group][$name];
 			$ref->count++;
 
@@ -138,6 +128,11 @@ class ReferenceStack {
 				}
 				$action = self::ACTION_INCREMENT;
 			}
+		} else {
+			// First occurrence of a named <ref>, or an unnamed <ref>
+			$ref->globalId = $this->nextRefSequence();
+			$this->refs[$group][$name ?: $ref->globalId] = &$ref;
+			$action = self::ACTION_NEW;
 		}
 
 		$ref->numberInGroup ??= ++$this->groupRefSequence[$group];
@@ -150,7 +145,8 @@ class ReferenceStack {
 			}
 
 			// Make a clone of the sub-reference before we start manipulating the parent
-			$subRef = clone $ref;
+			unset( $ref );
+			$ref = clone $parentRef;
 
 			$parentRef->subrefCount ??= 0;
 
@@ -160,19 +156,17 @@ class ReferenceStack {
 			}
 
 			// FIXME: At the moment it's impossible to reuse sub-references in any way
-			$subRef->count = 1;
-			$subRef->globalId = $this->nextRefSequence();
-			$subRef->name = null;
-			$subRef->parentRefGlobalId = $parentRef->globalId;
-			$subRef->subrefIndex = ++$parentRef->subrefCount;
-			$subRef->text = $subrefDetails;
-			$this->refs[$group][$subRef->globalId] = $subRef;
-			$this->refCallStack[] = [ $action, $subRef->globalId, $group, null, $subrefDetails, $argv ];
-			return $subRef;
-		} else {
-			$this->refCallStack[] = [ $action, $ref->globalId, $group, $name, $text, $argv ];
-			return $ref;
+			$ref->count = 1;
+			$ref->globalId = $this->nextRefSequence();
+			$ref->name = null;
+			$ref->parentRefGlobalId = $parentRef->globalId;
+			$ref->subrefIndex = ++$parentRef->subrefCount;
+			$ref->text = $subrefDetails;
+			$this->refs[$group][$ref->globalId] = $ref;
 		}
+
+		$this->refCallStack[] = [ $action, $ref->globalId, $group, $ref->name, $text, $argv ];
+		return $ref;
 	}
 
 	/**

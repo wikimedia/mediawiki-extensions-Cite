@@ -216,8 +216,6 @@ wgParserEnableLegacyMediaDOM=false
 
 !! test
 <ref> in expanded attributes of tags (legitimate or otherwise)
-!! options
-parsoid=wt2html,wt2wt
 !! wikitext
 {|
 |- <ref>boo</ref>

@@ -21,6 +21,10 @@ class RefGroup {
 	public array $refs = [];
 	/** @var array<string,RefGroupItem> Lookup map only for named refs */
 	public array $indexByName = [];
+	/** @var int Counter to track order of ref appearance in article */
+	private int $nextIndex = 1;
+	/** @var array<string,int> Counter to provide subreference indexes */
+	private array $subRefCountByName = [];
 
 	public function __construct( string $group = '' ) {
 		$this->name = $group;
@@ -137,5 +141,14 @@ class RefGroup {
 
 		// Backward-compatibility: add newline (T372889)
 		$refsList->appendChild( $ownerDoc->createTextNode( "\n" ) );
+	}
+
+	public function getNextIndex(): int {
+		return $this->nextIndex++;
+	}
+
+	public function getNextSubrefSequence( string $parentName ): int {
+		$this->subRefCountByName[$parentName] ??= 0;
+		return ++$this->subRefCountByName[$parentName];
 	}
 }

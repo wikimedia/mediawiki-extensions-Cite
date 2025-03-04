@@ -108,8 +108,7 @@ class ReferencesData {
 		$ref->dir = $refDir;
 		$ref->group = $group->name;
 		// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
-		// TODO: subref numbering
-		$ref->numberInGroup = count( $group->refs ) + 1;
+		$ref->numberInGroup = $group->getNextIndex();
 		$ref->globalId = $refKey;
 		$ref->backLinkIdBase = $refIdBase;
 		$ref->name = $refName ?: null;
@@ -120,6 +119,38 @@ class ReferencesData {
 		if ( $refName ) {
 			$group->indexByName[$refName] = $ref;
 		}
+
+		return $ref;
+	}
+
+	public function addSubref(
+		string $groupName, string $parentName, string $refDir
+	): RefGroupItem {
+		$group = $this->getRefGroup( $groupName, true );
+
+		$refKey = ++$this->refSequence;
+
+		$refIdBase = 'cite_ref-' . $refKey;
+		$noteId = 'cite_note-' . $refKey;
+
+		$ref = new RefGroupItem();
+		$ref->dir = $refDir;
+		$ref->group = $group->name;
+
+		$parentRef = $group->indexByName[$parentName] ?? null;
+		if ( $parentRef ) {
+			$ref->numberInGroup = $parentRef->numberInGroup;
+			$ref->subrefIndex = $group->getNextSubrefSequence( $parentName );
+		} else {
+			// TODO: create placeholders to allow details to be
+			// used before the parent.
+			$ref->numberInGroup = $group->getNextIndex();
+		}
+		$ref->globalId = $refKey;
+		$ref->backLinkIdBase = $refIdBase;
+		$ref->target = $noteId;
+
+		$group->refs[] = $ref;
 
 		return $ref;
 	}

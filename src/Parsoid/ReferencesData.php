@@ -11,8 +11,11 @@ use Wikimedia\Parsoid\NodeData\DataMwError;
  */
 class ReferencesData {
 
-	/** Global, auto-incrementing sequence number for all <ref>, no matter which group */
-	private int $index = 0;
+	/**
+	 * Global, auto-incrementing sequence number for all <ref>, no matter which group, starting
+	 * from 1. Reflects the total number of <ref>.
+	 */
+	private int $refSequence = 0;
 	/** @var array<string,RefGroup> indexed by group name */
 	private array $refGroups = [];
 	/** @var array<string,list<DataMwError>> */
@@ -90,16 +93,12 @@ class ReferencesData {
 		// Refs with names get 'cite_ref-' + name + '_' + index + (backlink num || 0)
 		// Notes (references) whose ref doesn't have a name are 'cite_note-' + index
 		// Notes whose ref has a name are 'cite_note-' + name + '-' + index
-		$n = $this->index;
-		$refKey = strval( 1 + $n );
+		$refKey = ++$this->refSequence;
 
 		$refNameSanitized = $this->normalizeFragmentIdentifier( $refName );
 
 		$refIdBase = 'cite_ref-' . ( $hasRefName ? $refNameSanitized . '_' . $refKey : $refKey );
 		$noteId = 'cite_note-' . ( $hasRefName ? $refNameSanitized . '-' . $refKey : $refKey );
-
-		// bump index
-		$this->index++;
 
 		$ref = new RefGroupItem();
 		$ref->dir = $refDir;
@@ -107,7 +106,7 @@ class ReferencesData {
 		// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
 		// TODO: subref numbering
 		$ref->numberInGroup = count( $group->refs ) + 1;
-		$ref->index = $n;
+		$ref->globalId = $refKey;
 		$ref->backLinkIdBase = $refIdBase;
 		$ref->name = $hasRefName ? $refName : null;
 		$ref->target = $noteId;

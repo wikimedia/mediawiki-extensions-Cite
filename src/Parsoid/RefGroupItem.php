@@ -40,10 +40,10 @@ class RefGroupItem {
 	 */
 	public int $numberInGroup = 1;
 	/**
-	 * Global, unique sequence number for each <ref>, no matter which group, starting from 0.
-	 * Currently unused.
+	 * Global, unique sequence number for each <ref>, no matter which group, starting from 1.
+	 * 0 is invalid. Currently unused.
 	 */
-	public int $index = 0;
+	public int $globalId;
 	/**
 	 * Base for clickable href="#…" backlink and id="…" targets to jump from the reference list back
 	 * up to the corresponding footnote markers. Used as-is for unnamed single-use references, or

@@ -24,7 +24,10 @@ class ReferenceStack {
 	 */
 	private array $refs = [];
 
-	/** Global, auto-incrementing sequence number for all <ref>, no matter which group */
+	/**
+	 * Global, auto-incrementing sequence number for all <ref>, no matter which group, starting
+	 * from 1. Reflects the total number of <ref>.
+	 */
 	private int $refSequence = 0;
 	/** @var array<string,int> Auto-incrementing sequence numbers per group */
 	private array $groupRefSequence = [];

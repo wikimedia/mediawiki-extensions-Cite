@@ -30,7 +30,7 @@ class ReferenceStackItem {
 	public string $group;
 	/**
 	 * Global, unique sequence number for each <ref>, no matter which group, starting from 1.
-	 * Used to generate ids and anchors.
+	 * 0 is invalid. Used to generate ids and anchors.
 	 */
 	public int $globalId;
 	/**

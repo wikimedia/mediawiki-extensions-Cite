@@ -46,6 +46,8 @@
 	"cite_error_empty_references_define": "group（分组）为“$2”的<code>&lt;references&gt;</code>内定义的name（名称）为“$1”的<code>&lt;ref&gt;</code>标签没有内容。",
 	"cite-tracking-category-cite-error": "有参考文献错误的页面",
 	"cite-tracking-category-cite-error-desc": "此分类内的页面存在参考资料标签使用错误。",
+	"cite-tracking-category-cite-diffing-error": "有导致视觉差异的参考文献错误的页面",
+	"cite-tracking-category-cite-diffing-error-desc": "此分类中的页面的参考资料标签使用存在错误，并且这些错误在旧版解析器和Parsoid中的呈现方式存在差异。",
 	"cite-reference-previews-reference": "参考文献",
 	"cite-reference-previews-book": "书籍参考文献",
 	"cite-reference-previews-journal": "期刊参考文献",

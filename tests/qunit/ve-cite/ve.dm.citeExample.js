@@ -706,69 +706,8 @@ ve.dm.citeExample.domToDataCases = {
 			{ type: '/internalItem' },
 			{ type: '/internalList' }
 		]
-	},
-	'Extend reference': {
-		body: ve.dm.example.singleLine`
-			<p>
-				<sup typeof="mw:Extension/ref" class="mw-ref reference"
-				 data-mw='{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}'>
-				</sup>
-			</p>
-		`,
-		fromDataBody: ve.dm.example.singleLine`
-			<p>
-				<sup typeof="mw:Extension/ref"
-				 data-mw='{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}'>
-				</sup>
-			</p>
-		`,
-		clipboardBody: ve.dm.example.singleLine`
-			<p>
-				<sup typeof="mw:Extension/ref"
-				 data-mw='{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}'
-				 class="mw-ref reference">
-					<a>
-						<span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span>
-					</a>
-				</sup>
-			</p>
-		`,
-		data: [
-			{ type: 'paragraph' },
-			{
-				type: 'mwReference',
-				attributes: {
-					contentsUsed: true,
-					extendsRef: 'literal/foo',
-					listGroup: 'mwReference/',
-					listIndex: 0,
-					listKey: 'auto/0',
-					mw: {
-						attrs: { extends: 'foo' },
-						body: { html: 'Bar' },
-						name: 'ref'
-					},
-					originalMw: '{"name":"ref","body":{"html":"Bar"},"attrs":{"extends":"foo"}}',
-					refGroup: ''
-				}
-			},
-			{ type: '/mwReference' },
-			{ type: '/paragraph' },
-			{ type: 'internalList' },
-			{
-				attributes: { originalHtml: 'Bar' },
-				type: 'internalItem'
-			},
-			{
-				internal: { generated: 'wrapper' },
-				type: 'paragraph'
-			},
-			'B', 'a', 'r',
-			{ type: '/paragraph' },
-			{ type: '/internalItem' },
-			{ type: '/internalList' }
-		]
 	}
+	// TODO: Write details round-trip tests
 };
 
 ve.dm.citeExample.references = [
@@ -995,6 +934,7 @@ ve.dm.citeExample.complexInternalData.internalItems = [
 
 ve.dm.citeExample.complexInternalData.internalListNextUniqueNumber = 1;
 
+// TODO: Rewrite for details syntax
 ve.dm.citeExample.extends = [
 	{ type: 'paragraph' },
 	{ type: 'mwReference', attributes: {

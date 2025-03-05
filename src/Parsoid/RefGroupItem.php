@@ -50,6 +50,10 @@ class RefGroupItem {
 	 */
 	public int $globalId;
 	/**
+	 * True if this was a main ref artificially split from a main+details in the article.
+	 */
+	public bool $isMainWithDetails = false;
+	/**
 	 * Base for clickable href="#…" backlink and id="…" targets to jump from the reference list back
 	 * up to the corresponding footnote markers. Used as-is for unnamed single-use references, or
 	 * with a numeric suffix for named <ref> that can be reused.

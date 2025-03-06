@@ -3,7 +3,6 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
-use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\NodeData\DataMwError;
 
 /**
@@ -79,17 +78,6 @@ class ReferencesData {
 		return $group->indexByName[$name] ?? null;
 	}
 
-	/**
-	 * Normalizes and sanitizes anchor names for use in id="…" and <a href="#…"> attributes.
-	 */
-	private function normalizeFragmentIdentifier( string $id ): string {
-		$ret = Sanitizer::escapeIdForLink( $id );
-		// MediaWiki normalizes spaces and underscores in [[#…]] links, but not in id="…"
-		// attributes. To make them behave the same we normalize in advance.
-		$ret = preg_replace( '/[_\s]+/u', '_', $ret );
-		return $ret;
-	}
-
 	public function add(
 		string $groupName, ?string $refName, string $refDir
 	): RefGroupItem {
@@ -102,25 +90,13 @@ class ReferencesData {
 		// Notes whose ref has a name are 'cite_note-' + name + '-' + index
 		$refKey = ++$this->refSequence;
 
-		$refIdBase = 'cite_ref-';
-		$noteId = 'cite_note-';
-		if ( $refName ) {
-			$refNameSanitized = $this->normalizeFragmentIdentifier( $refName );
-			$refIdBase .= $refNameSanitized . '_';
-			$noteId .= $refNameSanitized . '-';
-		}
-		$refIdBase .= $refKey;
-		$noteId .= $refKey;
-
 		$ref = new RefGroupItem();
 		$ref->dir = $refDir;
 		$ref->group = $group->name;
 		// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
 		$ref->numberInGroup = $group->getNextIndex();
 		$ref->globalId = $refKey;
-		$ref->backLinkIdBase = $refIdBase;
 		$ref->name = $refName ?: null;
-		$ref->noteId = $noteId;
 
 		$group->refs[] = $ref;
 
@@ -138,9 +114,6 @@ class ReferencesData {
 
 		$refKey = ++$this->refSequence;
 
-		$refIdBase = 'cite_ref-' . $refKey;
-		$noteId = 'cite_note-' . $refKey;
-
 		$ref = new RefGroupItem();
 		$ref->dir = $refDir;
 		$ref->group = $group->name;
@@ -151,8 +124,6 @@ class ReferencesData {
 		}
 		$ref->subrefIndex = $group->getNextSubrefSequence( $parentName );
 		$ref->globalId = $refKey;
-		$ref->backLinkIdBase = $refIdBase;
-		$ref->noteId = $noteId;
 
 		$group->refs[] = $ref;
 

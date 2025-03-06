@@ -58,7 +58,7 @@ class RefGroup {
 		// We then append the rest of the ref nodes before the first node
 		$li = $ownerDoc->createElement( 'li' );
 		$refDir = $ref->dir;
-		$noteId = $ref->noteId;
+		$noteId = ParsoidAnchorFormatter::getNoteIdentifier( $ref );
 		$refContentId = $ref->contentId;
 		$refGroup = $ref->group;
 		DOMUtils::addAttributes( $li, [
@@ -71,7 +71,7 @@ class RefGroup {
 		DOMUtils::addAttributes(
 			$reftextSpan,
 			[
-				'id' => 'mw-reference-text-' . $noteId,
+				'id' => ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ),
 				// Add both mw-reference-text & reference-text for b/c.
 				// We will remove duplicate classes in the future.
 				'class' => 'mw-reference-text reference-text',
@@ -113,20 +113,17 @@ class RefGroup {
 		// of various wikis.
 		$linkbackSpan = $ownerDoc->createElement( 'span' );
 		if ( $ref->visibleNodes === 1 ) {
-			$lb = $ref->backLinkIdBase;
 			// Can be an unnamed reference or a named one that's just never reused
-			if ( $ref->name !== null ) {
-				$lb .= '-0';
-			}
+			$lb = ParsoidAnchorFormatter::getBackLinkIdentifier( $ref );
 			$linkback = self::createLinkback( $extApi, $lb, $refGroup, "↑", $ownerDoc );
 			DOMUtils::addRel( $linkback, 'mw:referencedBy' );
 			$linkbackSpan->appendChild( $linkback );
 		} else {
 			DOMUtils::addRel( $linkbackSpan, 'mw:referencedBy' );
-			for ( $i = 0; $i < $ref->visibleNodes; $i++ ) {
-				$lb = $ref->backLinkIdBase . '-' . $i;
+			for ( $i = 1; $i <= $ref->visibleNodes; $i++ ) {
+				$lb = ParsoidAnchorFormatter::getBackLinkIdentifier( $ref, $i );
 				$linkbackSpan->appendChild(
-					self::createLinkback( $extApi, $lb, $refGroup, (string)( $i + 1 ), $ownerDoc )
+					self::createLinkback( $extApi, $lb, $refGroup, (string)$i, $ownerDoc )
 				);
 			}
 		}

@@ -295,7 +295,7 @@ class References {
 					$mainRef->isMainWithDetails = true;
 
 					// @phan-suppress-next-line PhanUndeclaredProperty
-					$refDataMw->mainBody = 'mw-reference-text-' . $mainRef->noteId;
+					$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $mainRef );
 
 					if ( $contentId ) {
 						$mainRef->contentId = $contentId;
@@ -453,14 +453,14 @@ class References {
 				] );
 			} else {
 				$refDataMw->body = DataMwBody::new( [
-					'id' => 'mw-reference-text-' . $ref->noteId,
+					'id' => ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ),
 				] );
 			}
 		}
 
 		$this->addLinkBackAttributes(
 			$linkBackSup,
-			$isVisibleNode ? $this->getLinkbackId( $ref ) : null,
+			$isVisibleNode ? ParsoidAnchorFormatter::getBackLinkIdentifier( $ref ) : null,
 			DOMCompat::getAttribute( $node, 'typeof' ),
 			$about,
 			$hasValidFollow
@@ -481,7 +481,7 @@ class References {
 		// refLink is the link to the citation
 		$refLink = $doc->createElement( 'a' );
 		DOMUtils::addAttributes( $refLink, [
-			'href' => $extApi->getPageUri() . '#' . $ref->noteId,
+			'href' => $extApi->getPageUri() . '#' . ParsoidAnchorFormatter::getNoteIdentifier( $ref ),
 			'style' => 'counter-reset: mw-Ref ' . $ref->numberInGroup . ';',
 		] );
 		if ( $ref->group ) {
@@ -666,7 +666,7 @@ class References {
 							'group' => $ref->group,
 						],
 						'body' => (object)[
-							'id' => 'mw-reference-text-' . $ref->noteId,
+							'id' => ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ),
 						],
 						'isMainWithDetails' => '1',
 					] );
@@ -835,14 +835,6 @@ class References {
 		] );
 		DOMUtils::removeTypeOf( $linkBackSup, 'mw:DOMFragment/sealed/ref' );
 		DOMUtils::addTypeOf( $linkBackSup, 'mw:Extension/ref' );
-	}
-
-	private function getLinkbackId( RefGroupItem $ref ): string {
-		$lb = $ref->backLinkIdBase;
-		if ( $ref->name !== null ) {
-			$lb .= '-' . ( $ref->visibleNodes - 1 );
-		}
-		return $lb;
 	}
 
 	/**

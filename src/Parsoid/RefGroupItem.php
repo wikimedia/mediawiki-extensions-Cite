@@ -64,18 +64,6 @@ class RefGroupItem {
 	public bool $isMainWithDetails = false;
 
 	/**
-	 * Base for clickable href="#…" backlink and id="…" targets to jump from the reference list back
-	 * up to the corresponding footnote markers. Used as-is for unnamed single-use references, or
-	 * with a numeric suffix for named <ref> that can be reused.
-	 */
-	public string $backLinkIdBase;
-	/**
-	 * The clickable href="#…" link and id="…" target to jump down from a footnote marker to the
-	 * item in the reference list
-	 */
-	public string $noteId;
-
-	/**
 	 * @var Element[] Collection of footnote markers that have been generated so far for the same
 	 * reference. Mainly used to track errors and render them in the reference list, instead of next
 	 * to (or instead of) the footnote marker. Can be empty in case of not-yet used or unused
@@ -87,4 +75,5 @@ class RefGroupItem {
 	public array $embeddedNodes = [];
 
 	public int $visibleNodes = 0;
+
 }

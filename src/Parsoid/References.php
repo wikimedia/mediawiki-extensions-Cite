@@ -179,8 +179,8 @@ class References {
 		}
 
 		// Extract and validate attribute values
-		$refName = $attributes->name ?? '';
-		$followName = $attributes->follow ?? '';
+		$refName = $attributes->name ?? null;
+		$followName = $attributes->follow ?? null;
 		$refDir = strtolower( $attributes->dir ?? '' );
 		$details = $attributes->details ?? '';
 
@@ -198,17 +198,15 @@ class References {
 			DOMCompat::getAttribute( $refFragment, 'about' );
 		'@phan-var string $about'; // assert that $about is non-null
 
-		$hasName = $refName !== '';
-		$hasFollow = $followName !== '';
 		$hasDetails = $details !== '' && $this->isSubreferenceSupported;
 
 		// Handle error cases for the attributes 'name' and 'follow'
-		if ( $hasName && $hasFollow ) {
+		if ( $refName && $followName ) {
 			$errs[] = new DataMwError( 'cite_error_ref_follow_conflicts' );
 		}
 		if (
-			!$hasFollow &&
-			!$hasName &&
+			!$followName &&
+			!$refName &&
 			!$referencesData->inRefContent() &&
 			$referencesData->inReferencesContent()
 		) {
@@ -222,14 +220,14 @@ class References {
 		$hasValidFollow = false;
 
 		// Wrap the attribute 'follow'
-		if ( $hasFollow ) {
+		if ( $followName ) {
 			$followSpan = $this->wrapFollower( $doc, $refFragment );
 			$followSpan->setAttribute( 'about', $about );
 			$refFragment->appendChild( $followSpan );
 		}
 
 		// Handle the attributes 'name' and 'follow'
-		if ( $hasName ) {
+		if ( $refName ) {
 			$nameErrorMessage = $this->validateName( $refName, $refGroup, $referencesData );
 			if ( $nameErrorMessage ) {
 				$errs[] = $nameErrorMessage;
@@ -254,7 +252,7 @@ class References {
 				}
 			}
 		} else {
-			if ( $hasFollow ) {
+			if ( $followName ) {
 				// Check that the followed ref exists
 				$followErrorMessage = $this->validateFollow( $followName, $refGroup );
 				if ( $followErrorMessage ) {
@@ -294,7 +292,6 @@ class References {
 				$refDataMw->attrs->extendsRef = $refName;
 				unset( $refDataMw->attrs->name );
 			}
-			$refName = '';
 		}
 
 		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
@@ -356,7 +353,7 @@ class References {
 		// FIXME: At some point this error message can be changed to a warning, as Parsoid Cite now
 		// supports numerals as a name without it being an actual error, but core Cite does not.
 		// Follow refs do not duplicate the error which can be correlated with the original ref.
-		if ( ctype_digit( $refName ) ) {
+		if ( ctype_digit( (string)$refName ) ) {
 			$errs[] = new DataMwError( 'cite_error_ref_numeric_key' );
 		}
 
@@ -375,7 +372,7 @@ class References {
 					'cite_error_empty_references_define',
 					[ $attributes->name ?? '', $attributes->group ?? '' ]
 				);
-			} elseif ( !$hasName ) {
+			} elseif ( !$refName ) {
 				if ( !empty( $refFragmentDp->selfClose ) ) {
 					$errs[] = new DataMwError( 'cite_error_ref_no_key' );
 				} else {
@@ -494,8 +491,8 @@ class References {
 		}
 	}
 
-	private function sameRefId( ?DataMw $supDmw, string $refName, string $refGroup ): bool {
-		return $refName !== '' && ( $supDmw->attrs->name ?? '' ) === $refName
+	private function sameRefId( ?DataMw $supDmw, ?string $refName, string $refGroup ): bool {
+		return $refName && ( $supDmw->attrs->name ?? '' ) === $refName
 			&& ( $supDmw->attrs->group ?? '' ) === $refGroup;
 	}
 

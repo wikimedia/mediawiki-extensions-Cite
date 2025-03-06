@@ -147,8 +147,8 @@ class RefTagHandler extends ExtensionTagHandler {
 				return ''; // Drop it!
 			}
 
-			$hasRefName = strlen( $dataMw->attrs->name ?? '' ) > 0;
-			$hasFollow = strlen( $dataMw->attrs->follow ?? '' ) > 0;
+			$hasRefName = (bool)( $dataMw->attrs->name ?? null );
+			$hasFollow = (bool)( $dataMw->attrs->follow ?? null );
 
 			if ( $hasFollow ) {
 				$about = DOMCompat::getAttribute( $node, 'about' );

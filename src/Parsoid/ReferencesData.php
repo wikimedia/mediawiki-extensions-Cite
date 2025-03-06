@@ -83,10 +83,9 @@ class ReferencesData {
 	}
 
 	public function add(
-		string $groupName, string $refName, string $refDir
+		string $groupName, ?string $refName, string $refDir
 	): RefGroupItem {
 		$group = $this->getRefGroup( $groupName, true );
-		$hasRefName = $refName !== '';
 
 		// The ids produced Cite.php have some particulars:
 		// Simple refs get 'cite_ref-' + index
@@ -95,10 +94,15 @@ class ReferencesData {
 		// Notes whose ref has a name are 'cite_note-' + name + '-' + index
 		$refKey = ++$this->refSequence;
 
-		$refNameSanitized = $this->normalizeFragmentIdentifier( $refName );
-
-		$refIdBase = 'cite_ref-' . ( $hasRefName ? $refNameSanitized . '_' . $refKey : $refKey );
-		$noteId = 'cite_note-' . ( $hasRefName ? $refNameSanitized . '-' . $refKey : $refKey );
+		$refIdBase = 'cite_ref-';
+		$noteId = 'cite_note-';
+		if ( $refName ) {
+			$refNameSanitized = $this->normalizeFragmentIdentifier( $refName );
+			$refIdBase .= $refNameSanitized . '_';
+			$noteId .= $refNameSanitized . '-';
+		}
+		$refIdBase .= $refKey;
+		$noteId .= $refKey;
 
 		$ref = new RefGroupItem();
 		$ref->dir = $refDir;
@@ -108,12 +112,12 @@ class ReferencesData {
 		$ref->numberInGroup = count( $group->refs ) + 1;
 		$ref->globalId = $refKey;
 		$ref->backLinkIdBase = $refIdBase;
-		$ref->name = $hasRefName ? $refName : null;
+		$ref->name = $refName ?: null;
 		$ref->target = $noteId;
 
 		$group->refs[] = $ref;
 
-		if ( $hasRefName ) {
+		if ( $refName ) {
 			$group->indexByName[$refName] = $ref;
 		}
 

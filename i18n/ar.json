@@ -3,6 +3,7 @@
 		"authors": [
 			"Aiman titi",
 			"Asaifm",
+			"Cigaryno",
 			"Hanzo64",
 			"Hubaishan",
 			"Meno25",
@@ -26,7 +27,7 @@
 	"cite_error_ref_numeric_key": "وسم <code>&lt;ref&gt;</code> غير صحيح؛ الاسم لا يمكن أن يكون عددا صحيحا بسيطا. استخدم عنوانا وصفيا",
 	"cite_error_ref_no_key": "وسم الفتح <code>&lt;ref&gt;</code> غير صحيح أو له اسم سييء.",
 	"cite_error_ref_too_many_keys": "معلمة غير صالحة في العلامة <code><ref></code>",
-	"cite_error_ref_follow_conflicts": "لا يمكن تسمية العلامة <code><ref follow=\"…\"></code> التي تعد استمرارًا للعلامة السابقة بشكل فردي",
+	"cite_error_ref_follow_conflicts": "لا يمكن تسمية العلامة <code><ref follow=\"…\"></code> التي تعد استمرارًا للعلامة السابقة بشكل فردي او يكون اها تفاصيل.",
 	"cite_error_ref_no_input": "وسم <code>&lt;ref&gt;</code> غير صحيح؛ المراجع غير ذات الاسم يجب أن تمتلك محتوى",
 	"cite_error_references_duplicate_key": "وسم <code>&lt;ref&gt;</code> غير صالح؛ الاسم \"$1\" معرف أكثر من مرة بمحتويات مختلفة.",
 	"cite_error_references_invalid_parameters": "محدد غير صحيح في وسم <code>&lt;references&gt;</code>",

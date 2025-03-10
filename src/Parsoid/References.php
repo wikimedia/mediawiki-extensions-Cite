@@ -641,9 +641,7 @@ class References {
 		// probably easier to just know that state while they're being
 		// constructed.
 		$nestedRefsHTML = array_map(
-			static function ( Element $sup ) use ( $extApi ) {
-				return $extApi->domToHtml( $sup, false, true ) . "\n";
-			},
+			static fn ( Element $sup ) => $extApi->domToHtml( $sup, false, true ) . "\n",
 			PHPUtils::iterable_to_array( DOMCompat::querySelectorAll(
 				$refsNode, 'sup[typeof~=\'mw:Extension/ref\']'
 			) )
@@ -775,9 +773,7 @@ class References {
 					$refsData->pushEmbeddedContentFlag();
 					// Look for <ref>s embedded in data attributes
 					$extApi->processAttributeEmbeddedHTML( $child,
-						function ( string $html ) use ( $extApi, $refsData ) {
-							return $this->processEmbeddedRefs( $extApi, $refsData, $html );
-						}
+						fn ( string $html ) => $this->processEmbeddedRefs( $extApi, $refsData, $html )
 					);
 					$refsData->popEmbeddedContentFlag();
 					if ( $child->hasChildNodes() ) {

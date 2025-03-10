@@ -38,8 +38,7 @@ class ErrorUtils {
 
 		DOMUtils::addTypeOf( $node, 'mw:Error' );
 		$dmw = DOMDataUtils::getDataMw( $node );
-		$dmw->errors ??= [];
-		$dmw->errors = array_merge( $dmw->errors, $errs );
+		$dmw->errors = array_merge( $dmw->errors ?? [], $errs );
 	}
 
 	/**

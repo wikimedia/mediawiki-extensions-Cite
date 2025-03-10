@@ -118,31 +118,12 @@ class RefTagHandler extends ExtensionTagHandler {
 			// If we couldn't find a body element, this is a bug.
 			// Add some extra debugging for the editing client (ex: VisualEditor)
 			if ( !$bodyElt ) {
-				$extraDebug = '';
-				$firstA = DOMCompat::querySelector( $node, 'a[href]' );
-				if ( $firstA ) {
-					$href = DOMCompat::getAttribute( $firstA, 'href' );
-					if ( $href && str_starts_with( $href, '#' ) ) {
-						try {
-							$ref = DOMCompat::querySelector( $extApi->getTopLevelDoc(), $href );
-							if ( $ref ) {
-								$extraDebug .= ' [doc: ' . DOMCompat::getOuterHTML( $ref ) . ']';
-							}
-						} catch ( Exception $e ) {
-							// We are just providing VE with debugging info.
-							// So, ignore all exceptions / errors in this code.
-						}
-						if ( !$extraDebug ) {
-							$extraDebug = ' [reference ' . $href . ' not found]';
-						}
-					}
-				}
 				$extApi->log(
 					'error/' . $dataMw->name,
 					'extension src id ' . $dataMw->body->id . ' points to non-existent element for:',
 					DOMCompat::getOuterHTML( $node ),
 					'. More debug info: ',
-					$extraDebug
+					$this->extraDebugInfo( $node, $extApi )
 				);
 				return ''; // Drop it!
 			}
@@ -246,4 +227,23 @@ class RefTagHandler extends ExtensionTagHandler {
 
 		return false;
 	}
+
+	private function extraDebugInfo( Element $node, ParsoidExtensionAPI $extApi ): string {
+		$firstA = DOMCompat::querySelector( $node, 'a[href]' );
+		$href = $firstA ? DOMCompat::getAttribute( $firstA, 'href' ) : null;
+		if ( $href && str_starts_with( $href, '#' ) ) {
+			try {
+				$ref = DOMCompat::querySelector( $extApi->getTopLevelDoc(), $href );
+				if ( $ref ) {
+					return ' [doc: ' . DOMCompat::getOuterHTML( $ref ) . ']';
+				}
+			} catch ( Exception $e ) {
+				// We are just providing VE with debugging info.
+				// So, ignore all exceptions / errors in this code.
+			}
+			return ' [reference ' . $href . ' not found]';
+		}
+		return '';
+	}
+
 }

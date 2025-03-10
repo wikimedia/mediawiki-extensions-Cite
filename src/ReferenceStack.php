@@ -40,8 +40,7 @@ class ReferenceStack {
 	 * Used to cleanup out of sequence ref calls created by #tag
 	 * See description of function rollbackRef.
 	 *
-	 * @var (array|false)[]
-	 * @phan-var array<array{0:string,1:int,2:string,3:?string,4:?string,5:?string,6:array}|false>
+	 * @var (array{0: string, 1: int, 2: string, 3: ?string, 4: ?string, 6: array}|false)[]
 	 */
 	private array $refCallStack = [];
 

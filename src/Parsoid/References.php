@@ -220,6 +220,7 @@ class References {
 					break;
 				default:
 					$errs[] = new DataMwError( $msg->getKey(), array_map(
+						// TODO: Move to some library function
 						static fn ( $p ) => $p instanceof MessageParam ? $p->getValue() : $p,
 						$msg->getParams()
 					) );

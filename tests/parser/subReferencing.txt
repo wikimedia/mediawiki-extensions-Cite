@@ -20,14 +20,14 @@ wgCiteSubReferencing=false
 <p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">def <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid parameter in <code>&lt;ref&gt;</code> tag</span></span>
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">def <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid parameter "details" in <code>&lt;ref&gt;</code> tag. The supported parameters are: dir, follow, group, name.</span></span>
 </li>
 </ol></div>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"abc","name":"a"},"body":{"id":"mw-reference-text-cite_note-a-1"},"errors":[{"key":"cite_error_ref_too_many_keys"}]}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"abc","name":"a"},"body":{"id":"mw-reference-text-cite_note-a-1"},"errors":[{"key":"cite_error_ref_too_many_keys","params":["details","dir, follow, group, name"]}]}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">def</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_too_many_keys","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">def</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_too_many_keys","params":{"0":{"text":"details","_type_":"Wikimedia\\Message\\ScalarParam"},"1":{"text":"dir, follow, group, name","_type_":"Wikimedia\\Message\\ScalarParam"},"_type_":"array"},"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
 </ol>
 </div>
 !! end
@@ -43,7 +43,7 @@ wgCiteSubReferencing=false
 <p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">x <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid parameter in <code>&lt;ref&gt;</code> tag</span></span>
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">x <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid parameter "details" in <code>&lt;ref&gt;</code> tag. The supported parameters are: dir, follow, group, name.</span></span>
 </li>
 </ol></div>
 !! end

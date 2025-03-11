@@ -6,6 +6,7 @@ namespace Cite\Parsoid;
 use Cite\Validator;
 use Closure;
 use MediaWiki\Config\Config;
+use Wikimedia\Message\MessageParam;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
 use Wikimedia\Parsoid\DOM\Element;
@@ -38,9 +39,13 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 		// Detect invalid parameters on the references tag
 		$status = Validator::filterReferenceListArguments( $extApi->extArgsToArray( $extArgs ) );
 		$refsOpts = $status->getValue();
-		if ( !$status->isGood() ) {
-			$extApi->pushError( 'cite_error_references_invalid_parameters' );
-			$error = new MessageValue( 'cite_error_references_invalid_parameters' );
+		foreach ( $status->getMessages() as $msg ) {
+			$extApi->pushError( $msg->getKey(), ...array_map(
+				// TODO: Move to some library function
+				static fn ( $p ) => $p instanceof MessageParam ? $p->getValue() : $p,
+				$msg->getParams()
+			) );
+			$error = new MessageValue( $msg->getKey(), $msg->getParams() );
 		}
 
 		$referenceList = new References( $this->mainConfig );

@@ -34,16 +34,55 @@ class Validator {
 		$status = StatusValue::newGood( array_slice( $allValues, 0, $expected ) );
 
 		if ( count( $allValues ) > $expected ) {
+			$badArguments = array_keys( array_slice( $allValues, $expected ) );
+			$firstBadArgument = $badArguments[0];
+			$closestMatch = self::closestMatch( $firstBadArgument, $allowedArguments );
+
 			// Use different error messages for <ref> vs. <references> (cannot have a name)
-			$isReferencesTag = !in_array( 'name', $allowedArguments, true );
-			// TODO: Show at least the first invalid argument name!
-			$status->warning( $isReferencesTag ?
-				'cite_error_references_invalid_parameters' :
-				'cite_error_ref_too_many_keys'
-			);
+			$forReferenceList = !in_array( 'name', $allowedArguments, true );
+			if ( $closestMatch && !$forReferenceList ) {
+				$status->warning( 'cite_error_ref_parameter_suggestion',
+					$firstBadArgument,
+					$closestMatch
+				);
+			} else {
+				sort( $allowedArguments );
+				$status->warning( $forReferenceList ?
+					'cite_error_references_invalid_parameters' :
+					'cite_error_ref_too_many_keys',
+					$firstBadArgument,
+					implode( ', ', $allowedArguments )
+				);
+			}
 		}
 
 		return $status;
+	}
+
+	private static function closestMatch( string $badArgument, array $suggestions ): ?string {
+		$badArgument = strtolower( trim( $badArgument ) );
+
+		// Stop early when character-by-character comparisons are going to be pointless. The
+		// longest possible answer is "responsive" (10 characters).
+		if ( strlen( $badArgument ) > 20 ) {
+			return null;
+		}
+
+		$bestMatch = '';
+		$bestDistance = 0;
+		foreach ( $suggestions as $suggestion ) {
+			$distance = levenshtein( $badArgument, $suggestion );
+			// It's not going to become better
+			if ( $distance <= 1 ) {
+				return $suggestion;
+			}
+			if ( !$bestMatch || $distance < $bestDistance ) {
+				$bestMatch = $suggestion;
+				$bestDistance = $distance;
+			}
+		}
+		// It's probably not a useful suggestion if not even half of it is the same
+		return $bestDistance <= strlen( $bestMatch ) / 2 ? $bestMatch : null;
 	}
 
 	/**

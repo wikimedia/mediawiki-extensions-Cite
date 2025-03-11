@@ -16,6 +16,8 @@ use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\StripState;
 use PHPUnit\Framework\MockObject\MockObject;
+use Wikimedia\Message\ParamType;
+use Wikimedia\Message\ScalarParam;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -324,7 +326,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'text' => 'text',
 				'argv' => [
 					'name' => 'a',
-					'badkey' => 'b',
+					'grup' => 'b',
 				],
 				'inReferencesGroup' => null,
 				'initialRefs' => [],
@@ -339,7 +341,11 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 							'name' => 'a',
 							'text' => 'text',
 							'numberInGroup' => 1,
-							'warnings' => [ [ 'cite_error_ref_too_many_keys' ] ],
+							'warnings' => [ [
+								'cite_error_ref_parameter_suggestion',
+								new ScalarParam( ParamType::TEXT, 'grup' ),
+								new ScalarParam( ParamType::TEXT, 'group' ),
+							] ],
 						],
 					],
 				]

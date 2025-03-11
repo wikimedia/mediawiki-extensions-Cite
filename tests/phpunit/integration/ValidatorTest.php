@@ -3,6 +3,7 @@
 namespace Cite\Tests\Integration;
 
 use Cite\Validator;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \Cite\Validator
@@ -313,6 +314,28 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				],
 				'expected' => 'cite_error_ref_invalid_dir',
 			],
+		];
+	}
+
+	/**
+	 * @dataProvider provideClosestMatch
+	 */
+	public function testClosestMatch( string $input, ?string $expected ) {
+		/** @var Validator $validator */
+		$validator = TestingAccessWrapper::newFromClass( Validator::class );
+		$allowed = [ 'group', 'name', 'follow', 'dir', 'details' ];
+		$this->assertSame( $expected, $validator->closestMatch( $input, $allowed ) );
+	}
+
+	public function provideClosestMatch() {
+		return [
+			[ 'gruop', 'group' ],
+			[ 'folow', 'follow' ],
+			[ 'detail', 'details' ],
+			[ 'nonsense', null ],
+			[ 'responsiveresponsiver', null ],
+			[ 'nosame', 'name' ],
+			[ 'GROU', 'group' ],
 		];
 	}
 

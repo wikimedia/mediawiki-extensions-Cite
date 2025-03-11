@@ -123,6 +123,13 @@ class Validator {
 		$name = (string)$arguments['name'];
 		$details = $arguments['details'];
 
+		if ( $details !== null && $details !== '' ) {
+			$arguments['details'] = null;
+			$status->warning( 'cite_error_details_unsupported_context',
+				Sanitizer::safeEncodeAttribute( $name )
+			);
+		}
+
 		if ( $group !== $this->inReferencesGroup ) {
 			// <ref> and <references> have conflicting group attributes.
 			$status->fatal( 'cite_error_references_group_mismatch',
@@ -133,13 +140,6 @@ class Validator {
 		if ( !$name ) {
 			// <ref> calls inside <references> must be named
 			$status->fatal( 'cite_error_references_no_key' );
-		}
-
-		if ( $details !== null && $details !== '' ) {
-			$arguments['details'] = null;
-			$status->warning( 'cite_error_details_unsupported_context',
-				Sanitizer::safeEncodeAttribute( $name )
-			);
 		}
 
 		if ( $text === null || trim( $text ) === '' ) {

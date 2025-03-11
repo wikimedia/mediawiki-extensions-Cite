@@ -244,7 +244,7 @@ wgCiteSubReferencing=true
 !! wikitext
 <ref details="page 1" />
 !! html/php
-<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with details must have content or point to a parent by name.</span>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref&gt;</code> tag with details must contain content or point to a parent reference by name.</span>
 </p>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1"},"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
@@ -262,7 +262,7 @@ wgCiteSubReferencing=true
 !! wikitext
 <ref details="page 1"></ref>
 !! html/php
-<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with details must have content or point to a parent by name.</span>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref&gt;</code> tag with details must contain content or point to a parent reference by name.</span>
 </p>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1"},"body":{"html":""},"errors":[{"key":"cite_error_ref_no_input"}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
@@ -351,7 +351,7 @@ wgCiteSubReferencing=true
 <ref details="page 1">Book</ref>
 </references>
 !! html/php
-<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.</span>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "" cannot use details when inside <code>&lt;references&gt;</code>.</span>
 </p>
 !! html/parsoid
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"details\":\"page 1\"},\"body\":{\"id\":\"mw-reference-text-cite_note-1\"},\"errors\":[{\"key\":\"cite_error_references_no_key\"}]}&apos;>&lt;a href=\"./Parser_test#cite_note-1\" style=\"counter-reset: mw-Ref 1;\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>

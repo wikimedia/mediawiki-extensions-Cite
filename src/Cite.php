@@ -129,9 +129,11 @@ class Cite {
 		$status = Validator::filterRefArguments( $argv, $this->config->get( 'CiteSubReferencing' ) );
 		$arguments = $status->getValue();
 
+		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.
+		$group = $arguments['group'] ?? $this->inReferencesGroup;
 		$validator = new Validator(
-			$this->referenceStack,
 			$this->inReferencesGroup,
+			$this->referenceStack->isKnown( $group, $arguments['name'] ),
 			$this->isSectionPreview
 		);
 		$status->merge( $validator->validateRef( $text, $arguments ), true );

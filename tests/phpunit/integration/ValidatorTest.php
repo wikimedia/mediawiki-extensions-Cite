@@ -2,9 +2,7 @@
 
 namespace Cite\Tests\Integration;
 
-use Cite\ReferenceStack;
 use Cite\Validator;
-use Wikimedia\TestingAccessWrapper;
 
 /**
  * @covers \Cite\Validator
@@ -16,17 +14,18 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideValidateRef
 	 */
 	public function testValidateRef(
-		array $referencesStack,
+		bool $isKnownName,
 		?string $inReferencesGroup,
 		bool $isSectionPreview,
 		?string $text,
 		array $arguments,
 		?string $expected
 	) {
-		$stack = new ReferenceStack();
-		TestingAccessWrapper::newFromObject( $stack )->refs = $referencesStack;
-
-		$validator = new Validator( $stack, $inReferencesGroup, $isSectionPreview );
+		$validator = new Validator(
+			$inReferencesGroup,
+			$isKnownName,
+			$isSectionPreview
+		);
 
 		$status = $validator->validateRef( $text, $arguments );
 		if ( $expected ) {
@@ -40,7 +39,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 		return [
 			// Shared <ref> validations regardless of context
 			'Numeric name' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => null,
@@ -54,7 +53,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_ref_numeric_key',
 			],
 			'Numeric follow' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -68,7 +67,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_ref_numeric_key',
 			],
 			'Follow with name' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -82,7 +81,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_ref_follow_conflicts',
 			],
 			'Follow and invalid name 0' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -96,7 +95,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_ref_numeric_key',
 			],
 			'Follow with details not allowed, even if 0' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -110,7 +109,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_ref_follow_conflicts',
 			],
 			'Follow ignores empty details' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -126,7 +125,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 
 			// Validating <ref> outside of <references>
 			'text-only <ref>' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -140,7 +139,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => null,
 			],
 			'Whitespace or empty text' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => '',
@@ -154,7 +153,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_ref_no_input',
 			],
 			'totally empty <ref>' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => null,
@@ -168,7 +167,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_ref_no_key',
 			],
 			'empty-name <ref>' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -182,7 +181,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => null,
 			],
 			'contains <ref>-like text' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 'Foo <ref name="bar">',
@@ -198,7 +197,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 
 			// Validating a <ref> in <references>
 			'most trivial <ref> in <references>' => [
-				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'isKnownName' => true,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
 				'text' => 'not empty',
@@ -212,7 +211,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => null,
 			],
 			'Different group than <references>' => [
-				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'isKnownName' => true,
 				'inReferencesGroup' => 'g1',
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -226,7 +225,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_references_group_mismatch',
 			],
 			'Unnamed in <references>' => [
-				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'isKnownName' => true,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -240,7 +239,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_references_no_key',
 			],
 			'Empty name in <references>' => [
-				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'isKnownName' => true,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -254,7 +253,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_references_no_key',
 			],
 			'Empty text in <references>' => [
-				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'isKnownName' => true,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
 				'text' => '',
@@ -268,7 +267,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_empty_references_define',
 			],
 			'details does not make any sense in <references>' => [
-				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'isKnownName' => true,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -282,7 +281,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_details_unsupported_context',
 			],
 			'details in <references> is ignored when empty' => [
-				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'isKnownName' => true,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
 				'text' => 't',
@@ -297,7 +296,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 			],
 
 			'Group never used' => [
-				'referencesStack' => [ 'g2' => [ 'n' => [] ] ],
+				'isKnownName' => false,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
 				'text' => 'not empty',
@@ -311,7 +310,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_references_missing_key',
 			],
 			'Ref never used' => [
-				'referencesStack' => [ 'g' => [ 'n' => [] ] ],
+				'isKnownName' => false,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
 				'text' => 'not empty',
@@ -325,7 +324,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_references_missing_key',
 			],
 			'Good dir' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 'not empty',
@@ -339,7 +338,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => null,
 			],
 			'Bad dir' => [
-				'referencesStack' => [],
+				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
 				'text' => 'not empty',

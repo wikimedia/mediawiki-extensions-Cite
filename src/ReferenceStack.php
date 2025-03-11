@@ -260,7 +260,11 @@ class ReferenceStack {
 	 * Returns true if the group exists and contains references.
 	 */
 	public function hasGroup( string $group ): bool {
-		return (bool)( $this->refs[$group] ?? false );
+		return (bool)( $this->refs[$group] ?? null );
+	}
+
+	public function isKnown( ?string $group, ?string $name ): bool {
+		return $name && isset( $this->refs[$group ?? Cite::DEFAULT_GROUP][$name] );
 	}
 
 	/**

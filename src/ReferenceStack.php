@@ -318,12 +318,12 @@ class ReferenceStack {
 		$previousRef->text .= " $text";
 	}
 
-	public function listDefinedRef( string $group, string $name, string $text ): ReferenceStackItem {
+	public function listDefinedRef( string $group, string $name, ?string $text ): ReferenceStackItem {
 		$ref =& $this->refs[$group][$name];
 		$ref ??= new ReferenceStackItem();
 		if ( $ref->text === null ) {
 			$ref->text = $text;
-		} elseif ( $ref->text !== $text ) {
+		} elseif ( $text !== null && $ref->text !== $text ) {
 			// Two <ref> with same group and name, but different content
 			$ref->warnings[] = [ 'cite_error_references_duplicate_key', $name ];
 		}

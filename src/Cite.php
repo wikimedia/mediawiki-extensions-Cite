@@ -161,7 +161,7 @@ class Cite {
 			}
 
 			// Validation made sure we always have group and name while in <references>
-			$ref = $this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], (string)$text );
+			$ref = $this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], $text );
 			if ( !$status->isGood() ) {
 				foreach ( $status->getMessages() as $msg ) {
 					$ref->warnings[] = [ $msg->getKey(), ...$msg->getParams() ];

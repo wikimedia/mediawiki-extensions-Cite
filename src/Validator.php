@@ -38,6 +38,8 @@ class Validator {
 	 * @return StatusValue
 	 */
 	public function validateRef( ?string $text, array $arguments ): StatusValue {
+		$status = StatusValue::newGood();
+
 		// Use the default group, or the references group when inside one
 		$arguments['group'] ??= $this->inReferencesGroup ?? Cite::DEFAULT_GROUP;
 
@@ -50,29 +52,31 @@ class Validator {
 			// duplicate id's in the XHTML.  The Right Thing To Do
 			// would be to mangle them, but it's not really high-priority
 			// (and would produce weird id's anyway).
-			return StatusValue::newFatal( 'cite_error_ref_numeric_key' );
+			$status->fatal( 'cite_error_ref_numeric_key' );
 		}
 
 		if ( $follow && ( $name || ( $arguments['details'] ?? '' ) !== '' ) ) {
-			return StatusValue::newFatal( 'cite_error_ref_follow_conflicts' );
+			$status->fatal( 'cite_error_ref_follow_conflicts' );
 		}
 
 		if ( isset( $arguments['dir'] ) ) {
-			$originalDir = $arguments['dir'];
-			$lowerDir = strtolower( $originalDir );
+			$lowerDir = strtolower( $arguments['dir'] );
 			if ( $lowerDir !== 'rtl' && $lowerDir !== 'ltr' ) {
-				$arguments['dir'] = null;
-				return $this->newWarning( $arguments, 'cite_error_ref_invalid_dir', $originalDir );
+				$lowerDir = null;
+				$status->warning( 'cite_error_ref_invalid_dir', $arguments['dir'] );
 			}
 			$arguments['dir'] = $lowerDir;
 		}
 
-		return $this->inReferencesGroup === null ?
+		$sanitized = $this->inReferencesGroup === null ?
 			$this->validateRefOutsideOfReferenceList( $text, $arguments ) :
 			$this->validateRefInReferenceList( $text, $arguments );
+		return $status->merge( $sanitized, true );
 	}
 
 	private function validateRefOutsideOfReferenceList( ?string $text, array $arguments ): StatusValue {
+		$status = StatusValue::newGood();
+
 		$name = (string)$arguments['name'];
 		$details = $arguments['details'];
 
@@ -80,13 +84,13 @@ class Validator {
 			$isSelfClosingTag = $text === null;
 			$containsText = trim( $text ?? '' ) !== '';
 			if ( $details !== null && !$containsText ) {
-				return StatusValue::newFatal( 'cite_error_details_missing_parent' );
+				$status->fatal( 'cite_error_details_missing_parent' );
 			} elseif ( $isSelfClosingTag ) {
 				// Completely empty ref like <ref /> is forbidden.
-				return StatusValue::newFatal( 'cite_error_ref_no_key' );
+				$status->fatal( 'cite_error_ref_no_key' );
 			} elseif ( !$containsText ) {
 				// Must have content or reuse another ref by name.
-				return StatusValue::newFatal( 'cite_error_ref_no_input' );
+				$status->fatal( 'cite_error_ref_no_input' );
 			}
 		}
 
@@ -104,38 +108,43 @@ class Validator {
 			// Possible improvement: print the warning, followed by the contents
 			// of the <ref> tag.  This way no part of the article will be eaten
 			// even temporarily.
-			return StatusValue::newFatal( 'cite_error_included_ref' );
+			$status->fatal( 'cite_error_included_ref' );
 		}
 
-		return StatusValue::newGood( $arguments );
+		// Return the sanitized set of <ref …> arguments
+		$status->value = $arguments;
+		return $status;
 	}
 
 	private function validateRefInReferenceList( ?string $text, array $arguments ): StatusValue {
+		$status = StatusValue::newGood();
+
 		$group = $arguments['group'];
 		$name = (string)$arguments['name'];
 		$details = $arguments['details'];
 
 		if ( $group !== $this->inReferencesGroup ) {
 			// <ref> and <references> have conflicting group attributes.
-			return StatusValue::newFatal( 'cite_error_references_group_mismatch',
-				Sanitizer::safeEncodeAttribute( $group ) );
+			$status->fatal( 'cite_error_references_group_mismatch',
+				Sanitizer::safeEncodeAttribute( $group )
+			);
 		}
 
 		if ( !$name ) {
 			// <ref> calls inside <references> must be named
-			return StatusValue::newFatal( 'cite_error_references_no_key' );
+			$status->fatal( 'cite_error_references_no_key' );
 		}
 
 		if ( $details !== null && $details !== '' ) {
 			$arguments['details'] = null;
-			return $this->newWarning( $arguments, 'cite_error_details_unsupported_context',
-				Sanitizer::safeEncodeAttribute( $name ) );
+			$status->warning( 'cite_error_details_unsupported_context',
+				Sanitizer::safeEncodeAttribute( $name )
+			);
 		}
 
 		if ( $text === null || trim( $text ) === '' ) {
 			// <ref> called in <references> has no content.
-			return StatusValue::newFatal(
-				'cite_error_empty_references_define',
+			$status->fatal( 'cite_error_empty_references_define',
 				Sanitizer::safeEncodeAttribute( $name ),
 				Sanitizer::safeEncodeAttribute( $group )
 			);
@@ -144,26 +153,16 @@ class Validator {
 		// Section previews are exempt from some rules.
 		if ( !$this->isSectionPreview ) {
 			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-
 			if ( !isset( $groupRefs[$name] ) ) {
 				// No such named ref exists in this group.
-				return StatusValue::newFatal( 'cite_error_references_missing_key',
-					Sanitizer::safeEncodeAttribute( $name ) );
+				$status->fatal( 'cite_error_references_missing_key',
+					Sanitizer::safeEncodeAttribute( $name )
+				);
 			}
 		}
 
-		return StatusValue::newGood( $arguments );
-	}
-
-	/**
-	 * @param array $arguments Modified <ref …> arguments to return as part of the status
-	 * @param string $key Error message key
-	 * @param mixed ...$params Optional message parameters
-	 * @return StatusValue
-	 */
-	private function newWarning( array $arguments, string $key, ...$params ): StatusValue {
-		$status = StatusValue::newGood( $arguments );
-		$status->warning( $key, ...$params );
+		// Return the sanitized set of <ref …> arguments
+		$status->value = $arguments;
 		return $status;
 	}
 

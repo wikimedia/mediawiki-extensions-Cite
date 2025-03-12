@@ -376,9 +376,11 @@ wgCiteSubReferencing=true
 <p><sup id="cite_ref-book_1-0" class="reference"><a href="#cite_note-book-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
+<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">Book</span>
 </li>
 </ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span>
+</p>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-book_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"book"},"body":{"id":"mw-reference-text-cite_note-book-1"}}'><a href="./Parser_test#cite_note-book-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"book\",\"details\":\"page 1\"},\"errors\":[{\"key\":\"cite_error_empty_references_define\",\"params\":[\"book\",\"\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-book-1\" style=\"counter-reset: mw-Ref 1;\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
@@ -397,10 +399,8 @@ wgCiteSubReferencing=true
 <ref name=book details="p. 1">The book</ref>
 </references>
 !! html/php
-<div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">The book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
-</li>
-</ol></div>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span>
+</p>
 !! html/parsoid
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"details\":\"p. 1\",\"isMainRefBodyWithDetails\":true,\"extendsRef\":\"book\"},\"body\":{\"id\":\"mw-reference-text-cite_note-2\"},\"errors\":[{\"key\":\"cite_error_references_missing_key\",\"params\":[\"book\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-2\" style=\"counter-reset: mw-Ref 2;\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>2&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
 <ol class="mw-references references">

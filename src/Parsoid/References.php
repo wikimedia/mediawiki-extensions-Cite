@@ -265,7 +265,7 @@ class References {
 		}
 
 		// Split subref and main ref; add main ref as a list-defined reference
-		if ( $hasDetails && isset( $refDataMw->body ) ) {
+		if ( $hasDetails && $refName && isset( $refDataMw->body ) ) {
 			// Add the main ref directly as a list-defined ref.
 			$mainRef = $referencesData->add( $groupName, $refName, $refDir );
 			// Create a ref entry if needed (should always be needed, but main
@@ -288,10 +288,8 @@ class References {
 			$refFragmentHtml = '';
 			// Subref points to the main ref by name.
 			// FIXME: should have already asserted that refName exists for all details, see T387193
-			if ( $refName ) {
-				$refDataMw->attrs->extendsRef = $refName;
-				unset( $refDataMw->attrs->name );
-			}
+			$refDataMw->attrs->extendsRef = $refName;
+			unset( $refDataMw->attrs->name );
 		}
 
 		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,

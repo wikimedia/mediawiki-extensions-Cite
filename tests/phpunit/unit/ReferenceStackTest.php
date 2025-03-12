@@ -3,6 +3,7 @@
 namespace Cite\Tests\Unit;
 
 use Cite\ReferenceStack;
+use Cite\ReferenceStackItem;
 use Cite\Tests\TestUtils;
 use LogicException;
 use MediaWiki\Parser\StripState;
@@ -49,7 +50,16 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 		$finalRefs = TestUtils::refGroupsFromArray( $finalRefs );
 		$this->assertEquals( $finalRefs, $stack->refs );
-		$this->assertSame( $finalCallStack, $stack->refCallStack );
+		$this->assertSameSize( $finalCallStack, $stack->refCallStack );
+		foreach ( $stack->refCallStack as $i => $call ) {
+			/** @var ReferenceStackItem $ref */
+			$ref = $call[1];
+			$this->assertSame(
+				$finalCallStack[$i],
+				// Convert into scalar values compatible with the provider
+				[ $call[0], $ref->group, $ref->name ?: $ref->globalId, $call[2], $call[3] ]
+			);
+		}
 	}
 
 	public static function providePushRef() {
@@ -552,9 +562,17 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 		$expectedResult,
 		array $expectedRefs = []
 	) {
+		$initialRefs = TestUtils::refGroupsFromArray( $initialRefs );
+		foreach ( $initialCallStack as &$call ) {
+			if ( $call ) {
+				// Convert scalar values from the provider into the actual internal format
+				$call = [ $call[0], $initialRefs[$call[1]][$call[2]], $call[3], $call[4] ];
+			}
+		}
+
 		$stack = $this->newStack();
 		$stack->refCallStack = $initialCallStack;
-		$stack->refs = TestUtils::refGroupsFromArray( $initialRefs );
+		$stack->refs = $initialRefs;
 
 		if ( is_string( $expectedResult ) ) {
 			$this->expectException( LogicException::class );
@@ -589,36 +607,18 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 				'expectedResult' => [],
 				'expectedRefs' => [],
 			],
-			'Missing group' => [
-				'initialCallStack' => [
-					[ 'new', 'foo', 1, 'text', [] ],
-				],
-				'initialRefs' => [],
-				'rollbackCount' => 1,
-				'expectedResult' => 'Cannot roll back ref with unknown group "foo".',
-			],
 			'Find anonymous ref by id' => [
 				'initialCallStack' => [
 					[ 'new', 'foo', 1, 'text', [] ],
 				],
 				'initialRefs' => [ 'foo' => [
-					1 => [],
+					1 => [ 'group' => 'foo', 'globalId' => 1 ],
 				] ],
 				'rollbackCount' => 1,
 				'expectedResult' => [
 					[ 'text', [] ],
 				],
 				'expectedRefs' => [],
-			],
-			'Missing anonymous ref' => [
-				'initialCallStack' => [
-					[ 'new', 'foo', 1, 'text', [] ],
-				],
-				'initialRefs' => [ 'foo' => [
-					2 => [],
-				] ],
-				'rollbackCount' => 1,
-				'expectedResult' => 'Cannot roll back unknown ref "1".',
 			],
 			'Assign text' => [
 				'initialCallStack' => [

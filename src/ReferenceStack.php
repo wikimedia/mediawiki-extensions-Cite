@@ -40,7 +40,8 @@ class ReferenceStack {
 	 * Used to cleanup out of sequence ref calls created by #tag
 	 * See description of function rollbackRef.
 	 *
-	 * @var (array{0: string, 1: int, 2: string, 3: ?string, 4: ?string, 6: array}|false)[]
+	 * @var (array{0: string, 1: string, 2: string|int, 3: ?string, 4: array}|false)[] Non-false
+	 *  entries are parameters for the {@see rollbackRef} function
 	 */
 	private array $refCallStack = [];
 
@@ -97,7 +98,7 @@ class ReferenceStack {
 				$ref->follow = $follow;
 				$ref->globalId = $this->nextRefSequence();
 				$this->refs[$group][$ref->globalId] = $ref;
-				$this->refCallStack[] = [ self::ACTION_NEW, $ref->globalId, $group, $name, $text, $argv ];
+				$this->refCallStack[] = [ self::ACTION_NEW, $group, $ref->globalId, $text, $argv ];
 			} elseif ( $text !== null ) {
 				// We know the parent already, so just perform the follow="…" and bail out
 				$this->resolveFollow( $group, $follow, $text );
@@ -156,7 +157,9 @@ class ReferenceStack {
 
 			// Create the parent ref if new.
 			if ( !$parentRef->count ) {
-				$this->refCallStack[] = [ $action, $parentRef->globalId, $group, $name, $text, $argv ];
+				// FIXME: 1 of the 2 additions to the call stack here must go, or a new action
+				// introduced. There is no rollback code that would undo 2 actions for 1 <ref>.
+				$this->refCallStack[] = [ $action, $group, $name ?: $ref->globalId, $text, $argv ];
 			}
 
 			// FIXME: At the moment it's impossible to reuse sub-references in any way
@@ -171,7 +174,7 @@ class ReferenceStack {
 			$this->refs[$group][$ref->globalId] = $ref;
 		}
 
-		$this->refCallStack[] = [ $action, $ref->globalId, $group, $ref->name, $text, $argv ];
+		$this->refCallStack[] = [ $action, $group, $ref->name ?: $ref->globalId, $text, $argv ];
 		return $ref;
 	}
 
@@ -179,7 +182,8 @@ class ReferenceStack {
 	 * Undo the changes made by the last $count ref tags.  This is used when we discover that the
 	 * last few tags were actually inside of a references tag.
 	 *
-	 * @param int $count
+	 * @param int $count Number of <ref> tags already parsed and replaced with strip-markers before
+	 *  we realized we are actually inside {{#tag:references|…}}.
 	 *
 	 * @return array[] Refs to restore under the correct context, as a list of [ $text, $argv ]
 	 * @phan-return array<array{0:?string,1:array}>
@@ -215,19 +219,17 @@ class ReferenceStack {
 	 * corrupting certain links.
 	 *
 	 * @param string $action
-	 * @param int $globalId
 	 * @param string $group
-	 * @param ?string $name The name attribute passed in the ref tag.
+	 * @param string|int $lookupKey The array key in {@see refs}, either the name or the global id
 	 * @param ?string $text
 	 * @param array $argv
 	 *
-	 * @return array [ $text, $argv ] Ref redo item.
+	 * @return array{0: ?string, 1: array} [ $text, $argv ] Ref redo item.
 	 */
 	private function rollbackRef(
 		string $action,
-		int $globalId,
 		string $group,
-		?string $name,
+		$lookupKey,
 		?string $text,
 		array $argv
 	): array {
@@ -235,18 +237,16 @@ class ReferenceStack {
 			throw new LogicException( "Cannot roll back ref with unknown group \"$group\"." );
 		}
 
-		$lookup = $name ?: $globalId;
-
 		// Obsessive sanity checks that the specified element exists.
-		if ( !isset( $this->refs[$group][$lookup] ) ) {
-			throw new LogicException( "Cannot roll back unknown ref \"$lookup\"." );
+		if ( !isset( $this->refs[$group][$lookupKey] ) ) {
+			throw new LogicException( "Cannot roll back unknown ref \"$lookupKey\"." );
 		}
-		$ref =& $this->refs[$group][$lookup];
+		$ref =& $this->refs[$group][$lookupKey];
 
 		switch ( $action ) {
 			case self::ACTION_NEW:
 				// Rollback the addition of new elements to the stack
-				unset( $this->refs[$group][$lookup] );
+				unset( $this->refs[$group][$lookupKey] );
 				if ( !$this->refs[$group] ) {
 					$this->popGroup( $group );
 				} elseif ( isset( $this->groupRefSequence[$group] ) ) {

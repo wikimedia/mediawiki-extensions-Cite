@@ -76,6 +76,8 @@ class ErrorUtils {
 					$errs = $refsData->embeddedErrors[$about] ?? [];
 					self::addErrorsToNode( $child, $errs );
 				}
+
+				// Recursion
 				$this->addEmbeddedErrors( $refsData, $child );
 			}
 			$child = $nextChild;

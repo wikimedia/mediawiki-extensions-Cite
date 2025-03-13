@@ -62,6 +62,25 @@ ve.dm.MWReferenceNode.static.disallowedAnnotationTypes = [ 'link' ];
  */
 ve.dm.MWReferenceNode.static.listKeyRegex = /^(auto|literal)\/([\s\S]*)$/;
 
+/**
+ * @private
+ * @param {string|null} name
+ * @param {ve.dm.Converter} converter
+ * @return {string}
+ */
+ve.dm.MWReferenceNode.static.makeListKey = function ( name, converter ) {
+	return name ?
+		'literal/' + name :
+		'auto/' + converter.internalList.getNextUniqueNumber();
+};
+
+/**
+ * Transform parsoid HTML DOM to constructor parameters for VE reference nodes.
+ *
+ * @param {Node[]} domElements DOM elements to convert
+ * @param {ve.dm.Converter} converter
+ * @return {Object|Array|null} Data element or array of linear model data, or null to alienate
+ */
 ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter ) {
 	function getReflistItemHtml( id ) {
 		const elem = converter.getHtmlDocument().getElementById( id );
@@ -77,9 +96,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		'';
 	const refGroup = mwAttrs.group || '';
 	const listGroup = this.name + '/' + refGroup;
-	const listKey = !mwAttrs.name ?
-		'auto/' + converter.internalList.getNextUniqueNumber() :
-		'literal/' + mwAttrs.name;
+	const listKey = ve.dm.MWReferenceNode.static.makeListKey( mwAttrs.name, converter );
 	const queueResult = converter.internalList.queueItemHtml( listGroup, listKey, body );
 
 	const dataElement = {
@@ -95,7 +112,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		}
 	};
 	if ( mwAttrs.extends && mw.config.get( 'wgCiteSubReferencing' ) ) {
-		dataElement.attributes.extendsRef = mwAttrs.extends ? 'literal/' + mwAttrs.extends : null;
+		dataElement.attributes.extendsRef = ve.dm.MWReferenceNode.static.makeListKey( mwAttrs.extends, converter );
 	}
 	if ( reflistItemId ) {
 		dataElement.attributes.refListItemId = reflistItemId;

@@ -40,6 +40,11 @@ class RefGroupItem {
 	 */
 	public int $numberInGroup = 1;
 	/**
+	 * Sequence number per subref set, starting from 1.  Used in
+	 * hierarchical footnote numbering, eg. "[1.1]".
+	 */
+	public ?int $subrefIndex = null;
+	/**
 	 * Global, unique sequence number for each <ref>, no matter which group, starting from 1.
 	 * 0 is invalid. Currently unused.
 	 */

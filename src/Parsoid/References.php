@@ -271,7 +271,7 @@ class References {
 			// Create a ref entry if needed (should always be needed, but main
 			// ref cannot be found by name in this iteration).
 			if ( !$ref ) {
-				$ref = $referencesData->add( $groupName, '', $refDir );
+				$ref = $referencesData->addSubref( $groupName, $refName, $refDir );
 			}
 			// Move content to main ref.
 			if ( $contentId ) {
@@ -438,7 +438,7 @@ class References {
 		$openBracket->setAttribute( 'class', 'cite-bracket' );
 		$refLinkSpan->appendChild( $openBracket );
 		$refLinkSpan->appendChild( $doc->createTextNode(
-			$this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup )
+			$this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup, $ref->subrefIndex )
 		) );
 		$closeBracket = $doc->createElement( 'span', ']' );
 		$closeBracket->setAttribute( 'class', 'cite-bracket' );

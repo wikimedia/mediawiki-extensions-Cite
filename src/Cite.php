@@ -153,9 +153,12 @@ class Cite {
 		}
 
 		if ( $this->inReferencesGroup !== null ) {
+			// Fatal errors intentionally make the list-defined <ref> not render at all
 			if ( !$status->isOK() ) {
 				// We know we are in the middle of a <references> tag and can't display errors in place
-				$this->mReferencesErrors->merge( $status );
+				// FIXME: All fatals should be shown, but this is a product change for later
+				$firstError = $status->getMessages()[0];
+				$this->mReferencesErrors->fatal( $firstError->getKey(), ...$firstError->getParams() );
 			} else {
 				// Validation made sure we always have group and name while in <references>
 				$ref = $this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], $text );
@@ -292,11 +295,11 @@ class Cite {
 
 	private function formatReferencesErrors( Parser $parser ): string {
 		$html = '';
-		foreach ( $this->mReferencesErrors->getErrors() as $error ) {
+		foreach ( $this->mReferencesErrors->getMessages() as $msg ) {
 			if ( $html ) {
 				$html .= "<br />\n";
 			}
-			$html .= $this->errorReporter->halfParsed( $parser, $error['message'], ...$error['params'] );
+			$html .= $this->errorReporter->halfParsed( $parser, $msg->getKey(), ...$msg->getParams() );
 		}
 		$this->mReferencesErrors = StatusValue::newGood();
 		return $html ? "\n$html" : '';

@@ -28,8 +28,8 @@ class ErrorReporter {
 	 * the first one.
 	 */
 	public function firstError( Parser $parser, StatusValue $status ): string {
-		$error = $status->getMessages()[0];
-		return $this->halfParsed( $parser, $error->getKey(), ...$error->getParams() );
+		$firstError = $status->getMessages()[0];
+		return $this->halfParsed( $parser, $firstError->getKey(), ...$firstError->getParams() );
 	}
 
 	/**

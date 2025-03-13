@@ -143,9 +143,7 @@ class ReferenceStack {
 		if ( ( $subrefDetails ?? '' ) !== '' ) {
 			$parentRef = $ref;
 			// Turns out this is not a reused parent; undo parts of what happened above
-			if ( $name ) {
-				$parentRef->count--;
-			}
+			$parentRef->count--;
 
 			// Make a clone of the sub-reference before we start manipulating the parent
 			unset( $ref );

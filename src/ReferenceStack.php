@@ -151,13 +151,6 @@ class ReferenceStack {
 
 			$parentRef->subrefCount ??= 0;
 
-			// Create the parent ref if new.
-			if ( !$parentRef->count ) {
-				// FIXME: 1 of the 2 additions to the call stack here must go, or a new action
-				// introduced. There is no rollback code that would undo 2 actions for 1 <ref>.
-				$this->refCallStack[] = [ $action, $parentRef, $text, $argv ];
-			}
-
 			// FIXME: At the moment it's impossible to reuse sub-references in any way
 			$ref->count = 1;
 			$ref->globalId = $this->nextRefSequence();

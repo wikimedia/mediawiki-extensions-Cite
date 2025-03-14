@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace Cite\Parsoid;
 
 use Cite\MarkSymbolRenderer;
+use Cite\Validator;
 use MediaWiki\Config\Config;
 use MediaWiki\Html\HtmlHelper;
 use MediaWiki\MediaWikiServices;
@@ -495,21 +496,12 @@ class References {
 	}
 
 	private function validateAttributeKeys( array $attributes ): ?DataMwError {
-		$validAttributes = [
-			'group' => true,
-			'name' => true,
-			'follow' => true,
-			'dir' => true
-		];
+		$allowedArguments = [ 'group', 'name', 'follow', 'dir' ];
 		if ( $this->isSubreferenceSupported ) {
-			$validAttributes['details'] = true;
+			$allowedArguments[] = 'details';
 		}
-
-		if ( array_diff_key( $attributes, $validAttributes ) !== [] ) {
-			return new DataMwError( 'cite_error_ref_too_many_keys' );
-		}
-
-		return null;
+		return Validator::filterArguments( $attributes, $allowedArguments )->isGood() ? null :
+			new DataMwError( 'cite_error_ref_too_many_keys' );
 	}
 
 	private function validateGroup( string $groupName, ReferencesData $referencesData ): ?DataMwError {

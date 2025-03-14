@@ -126,16 +126,13 @@ class Cite {
 		?string $text,
 		array $argv
 	): string {
-		$status = $this->parseArguments(
-			$argv,
-			[ 'group', 'name', 'follow', 'dir', 'details' ]
-		);
-		$arguments = $status->getValue();
-
+		$allowedArguments = [ 'group', 'name', 'follow', 'dir' ];
 		// Temporary feature flag, intentionally outside of the validator
-		if ( isset( $argv['details'] ) && !$this->config->get( 'CiteSubReferencing' ) ) {
-			$status->fatal( 'cite_error_ref_too_many_keys' );
+		if ( $this->config->get( 'CiteSubReferencing' ) ) {
+			$allowedArguments[] = 'details';
 		}
+		$status = Validator::filterArguments( $argv, $allowedArguments );
+		$arguments = $status->getValue();
 
 		$validator = new Validator(
 			$this->referenceStack,
@@ -197,30 +194,6 @@ class Cite {
 	}
 
 	/**
-	 * @param string[] $argv The argument vector
-	 * @param string[] $allowedAttributes Allowed attribute names
-	 *
-	 * @return StatusValue Either an error, or has a value with the dictionary of field names and
-	 * parsed or default values.  Missing attributes will be `null`.
-	 */
-	private function parseArguments( array $argv, array $allowedAttributes ): StatusValue {
-		$expected = count( $allowedAttributes );
-		$allValues = array_merge( array_fill_keys( $allowedAttributes, null ), $argv );
-
-		$status = StatusValue::newGood( array_slice( $allValues, 0, $expected ) );
-
-		if ( count( $allValues ) > $expected ) {
-			// A <ref> must have a name (can be null), but <references> can't have one
-			$status->fatal( in_array( 'name', $allowedAttributes, true )
-				? 'cite_error_ref_too_many_keys'
-				: 'cite_error_references_invalid_parameters'
-			);
-		}
-
-		return $status;
-	}
-
-	/**
 	 * Callback function for <references>
 	 *
 	 * @param Parser $parser
@@ -234,7 +207,7 @@ class Cite {
 			return null;
 		}
 
-		$status = $this->parseArguments( $argv, [ 'group', 'responsive' ] );
+		$status = Validator::filterArguments( $argv, [ 'group', 'responsive' ] );
 		$arguments = $status->getValue();
 
 		$this->inReferencesGroup = $arguments['group'] ?? self::DEFAULT_GROUP;

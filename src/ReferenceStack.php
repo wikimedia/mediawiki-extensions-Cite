@@ -78,7 +78,7 @@ class ReferenceStack {
 		?string $name,
 		?string $follow,
 		?string $dir,
-		?string $subrefDetails
+		?string $subrefDetails = null
 	): ?ReferenceStackItem {
 		$this->refs[$group] ??= [];
 		$this->groupRefSequence[$group] ??= 0;

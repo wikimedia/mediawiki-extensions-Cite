@@ -33,6 +33,31 @@ class Validator {
 	}
 
 	/**
+	 * @param array<string,?string> $argv The original arguments from the <ref …> tag
+	 * @param string[] $allowedArguments
+	 * @return StatusValue Either an error, or has a value with the dictionary of argument names
+	 *  and values. Missing arguments are present, but null.
+	 */
+	public static function filterArguments( array $argv, array $allowedArguments ): StatusValue {
+		$expected = count( $allowedArguments );
+		$allValues = array_merge( array_fill_keys( $allowedArguments, null ), $argv );
+
+		$status = StatusValue::newGood( array_slice( $allValues, 0, $expected ) );
+
+		if ( count( $allValues ) > $expected ) {
+			// Use different error messages for <ref> vs. <references> (cannot have a name)
+			$isReferencesTag = !in_array( 'name', $allowedArguments, true );
+			// TODO: Show at least the first invalid argument name!
+			$status->fatal( $isReferencesTag ?
+				'cite_error_references_invalid_parameters' :
+				'cite_error_ref_too_many_keys'
+			);
+		}
+
+		return $status;
+	}
+
+	/**
 	 * @param string|null $text
 	 * @param array{group: ?string, name: ?string, follow: ?string, dir: ?string, details: ?string} $arguments
 	 * @return StatusValue
@@ -78,7 +103,7 @@ class Validator {
 		$status = StatusValue::newGood();
 
 		$name = (string)$arguments['name'];
-		$details = $arguments['details'];
+		$details = $arguments['details'] ?? null;
 
 		if ( !$name ) {
 			$isSelfClosingTag = $text === null;
@@ -121,7 +146,7 @@ class Validator {
 
 		$group = $arguments['group'];
 		$name = (string)$arguments['name'];
-		$details = $arguments['details'];
+		$details = $arguments['details'] ?? null;
 
 		if ( $details !== null && $details !== '' ) {
 			$arguments['details'] = null;

@@ -8,6 +8,7 @@ use Cite\FootnoteMarkFormatter;
 use Cite\ReferenceListFormatter;
 use Cite\ReferenceStack;
 use Cite\Tests\TestUtils;
+use Cite\Validator;
 use LogicException;
 use MediaWiki\Language\Language;
 use MediaWiki\Parser\Parser;
@@ -22,7 +23,7 @@ use Wikimedia\TestingAccessWrapper;
 class CiteTest extends \MediaWikiIntegrationTestCase {
 
 	/**
-	 * @covers ::parseArguments
+	 * @covers \Cite\Validator::filterArguments
 	 * @dataProvider provideParseArguments
 	 */
 	public function testParseArguments(
@@ -30,9 +31,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		array $expectedValue,
 		?string $expectedError = null
 	) {
-		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( $this->newCite() );
-		$status = $cite->parseArguments(
+		$status = Validator::filterArguments(
 			$attributes,
 			[ 'dir', 'follow', 'group', 'name' ]
 		);

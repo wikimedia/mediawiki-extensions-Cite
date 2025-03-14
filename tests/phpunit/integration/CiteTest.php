@@ -31,10 +31,9 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		array $expectedValue,
 		?string $expectedError = null
 	) {
-		$status = Validator::filterArguments(
-			$attributes,
-			[ 'dir', 'follow', 'group', 'name' ]
-		);
+		/** @var Validator $validator */
+		$validator = TestingAccessWrapper::newFromClass( Validator::class );
+		$status = $validator->filterArguments( $attributes, [ 'dir', 'follow', 'group', 'name' ] );
 		$this->assertSame( $expectedValue, array_values( $status->getValue() ) );
 		if ( $expectedError ) {
 			$this->assertStatusError( $expectedError, $status );

@@ -496,11 +496,8 @@ class References {
 	}
 
 	private function validateAttributeKeys( array $attributes ): ?DataMwError {
-		$allowedArguments = [ 'group', 'name', 'follow', 'dir' ];
-		if ( $this->isSubreferenceSupported ) {
-			$allowedArguments[] = 'details';
-		}
-		return Validator::filterArguments( $attributes, $allowedArguments )->isGood() ? null :
+		return Validator::filterRefArguments( $attributes, $this->isSubreferenceSupported )->isGood() ?
+			null :
 			new DataMwError( 'cite_error_ref_too_many_keys' );
 	}
 

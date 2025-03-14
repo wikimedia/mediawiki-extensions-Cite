@@ -32,7 +32,7 @@
 	},
 	"cite-desc": "Ajoute les balises <code>&lt;ref[ name=id]&gt;</code> et <code>&lt;references/&gt;</code> pour les citations",
 	"cite_error": "Erreur de référence : $1",
-	"cite_error_details_missing_parent": "La balise <code><ref></code> avec les détails doit avoir du contenu ou pointer vers un parent par son nom.",
+	"cite_error_details_missing_parent": "Une balise <code><ref></code> avec des détails doit contenir du contenu ou pointer vers une référence parent par nom.",
 	"cite_error_details_unsupported_context": "La balise <code><ref></code> avec le nom \"$1\" ne peut pas utiliser les détails lorsqu'elle est à l'intérieur <code>&lt;references&gt;</code> .",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valide, doit être <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "Une des balises <code>&lt;ref&gt;</code> avec le nom \"$1\" a un attribut dir en conflit.",

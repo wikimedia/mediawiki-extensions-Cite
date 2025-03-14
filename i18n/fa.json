@@ -15,7 +15,7 @@
 	},
 	"cite-desc": "برچسب‌های <code>&lt;ref&gt;</code> و <code>&lt;references&gt;</code> را برای یادکرد اضافه می‌کند",
 	"cite_error": "خطای یادکرد: $1",
-	"cite_error_details_missing_parent": "برچسب <code>&lt;ref&gt;</code> دارای جزئیات باید دارای محتوا باشد یا این که با استفاده از نام به یک مادر اشاره داشته باشد.",
+	"cite_error_details_missing_parent": "برچسب <code>&lt;ref></code> دارای جزئیات باید دارای محتوا باشد یا این که با استفاده از نام به یک مادر اشاره داشته باشد.",
 	"cite_error_details_unsupported_context": "برچسب <code>&lt;ref&gt;</code> با نام «$1» مادامی که درون <code>&lt;references&gt;</code> باشد، نمی‌تواند از جزئیات استفاده کند.",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> نامعتبر، باید <code>ltr</code> یا <code>rtl</code> باشد",
 	"cite_error_ref_conflicting_dir": "یکی از برچسب‌های <code>&lt;ref&gt;</code>با نام «$1» دارای یک صفت «dir» متعارض است.",

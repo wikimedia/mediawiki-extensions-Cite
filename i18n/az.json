@@ -12,7 +12,7 @@
 	},
 	"cite-desc": "Sitatlar üçün<code>&lt;ref&gt;</code> və <code>&lt;references&gt;</code> teqləri əlavə edir",
 	"cite_error": "Sitat səhvi: $1",
-	"cite_error_details_missing_parent": "Detallı <code>&lt;ref&gt;</code> teqi məzmuna sahib olmalıdır və ya əsas istinada keçid etməlidir.",
+	"cite_error_details_missing_parent": "Detallı <code>&lt;ref></code> teqi məzmuna sahib olmalıdır və ya əsas istinada keçid etməlidir.",
 	"cite_error_details_unsupported_context": "\"$1\" adlı <code>&lt;ref&gt;</code> teqi <code>&lt;references&gt;</code> daxilində olarkən detallardan istifadə edə bilməz.",
 	"cite_error_ref_invalid_dir": "Etibarsız <code>dir=\"$1\"</code>, <code>ltr</code> və ya <code>rtl</code> olmalıdır",
 	"cite_error_ref_conflicting_dir": "\"$1\" adlı <code>&lt;ref&gt;</code> teqlərindən birində ziddiyyətli dir atributu var.",

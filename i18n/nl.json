@@ -16,7 +16,7 @@
 	},
 	"cite-desc": "Voegt <code>&lt;ref&gt;</code>- en <code>&lt;references&gt;</code>-labels toe voor citaten",
 	"cite_error": "Citefout: $1",
-	"cite_error_details_missing_parent": "De <code>&lt;ref&gt;</code>-tag met details moet inhoud bevatten of via de naam naar een bovenliggend element verwijzen.",
+	"cite_error_details_missing_parent": "De <code>&lt;ref></code>-tag met details moet inhoud bevatten of via de naam naar een bovenliggend element verwijzen.",
 	"cite_error_details_unsupported_context": "De <code>&lt;ref&gt;</code>-tag met de naam “$1” kan geen details gebruiken wanneer deze zich binnen <code>&lt;references&gt;</code> bevindt.",
 	"cite_error_ref_invalid_dir": "Ongeldig <code>dir=\"$1\"</code>, moet <code>ltr</code> of <code>rtl</code> zijn.",
 	"cite_error_ref_conflicting_dir": "Eén van de <code>&lt;ref&gt;</code>-tags met de naam “$1” heeft een conflicterend dir-attribuut.",

@@ -18,7 +18,7 @@
 	},
 	"cite-desc": "Ermöglicht Referenzierungen mittels <code>&lt;ref&gt;</code> und <code>&lt;references&gt;</code>",
 	"cite_error": "Referenzfehler: $1",
-	"cite_error_details_missing_parent": "Das <code>&lt;ref&gt;</code>-Tag mit Details muss Inhalt haben oder per Namen auf ein übergeordnetes Element verweisen.",
+	"cite_error_details_missing_parent": "Ein <code>&lt;ref></code>-Tag mit Details muss Inhalt haben oder per Namen auf eine übergeordnete Referenz verweisen.",
 	"cite_error_details_unsupported_context": "Das <code>&lt;ref&gt;</code>-Tag mit dem Namen „$1“ kann keine Details verwenden, wenn es sich innerhalb von <code>&lt;references&gt;</code> befindet.",
 	"cite_error_ref_invalid_dir": "Ungültiges Tag <code>dir=\"$1\"</code>, muss <code>ltr</code> oder <code>rtl</code> sein.",
 	"cite_error_ref_conflicting_dir": "Einer der <code>&lt;ref&gt;</code>-Tags mit dem Namen „$1“ weist ein widersprüchliches dir-Attribut auf.",

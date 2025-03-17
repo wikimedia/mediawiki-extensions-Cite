@@ -14,12 +14,14 @@ use Wikimedia\Parsoid\Core\SelserData;
 use Wikimedia\Parsoid\DOM\Element;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Mocks\MockDataAccess;
+use Wikimedia\Parsoid\Mocks\MockEnv;
 use Wikimedia\Parsoid\Mocks\MockPageConfig;
 use Wikimedia\Parsoid\Mocks\MockPageContent;
 use Wikimedia\Parsoid\Mocks\MockSiteConfig;
 use Wikimedia\Parsoid\NodeData\DataMw;
 use Wikimedia\Parsoid\NodeData\DataMwBody;
 use Wikimedia\Parsoid\Parsoid;
+use Wikimedia\Parsoid\Utils\ContentUtils;
 use Wikimedia\Parsoid\Utils\DOMCompat;
 use Wikimedia\Parsoid\Utils\DOMDataUtils;
 use Wikimedia\Parsoid\Utils\DOMUtils;
@@ -280,23 +282,32 @@ EOT;
 	}
 
 	/**
-	 * @covers \Cite\Parsoid\ReferenceListTagHandler::processAttributeEmbeddedHTML
+	 * @covers \Cite\Parsoid\ReferenceListTagHandler::processAttributeEmbeddedDom
 	 */
-	public function testProcessAttributeEmbeddedHTML() {
-		$doc = DOMUtils::parseHTML( '' );
-		DOMDataUtils::prepareDoc( $doc );
+	public function testProcessAttributeEmbeddedDom() {
+		$env = new MockEnv( [ 'siteConfig' => $this->getSiteConfig( [] ) ] );
+		$extApi = new ParsoidExtensionAPI( $env );
+		$doc = ContentUtils::createAndLoadDocument( '' );
 		$elt = $doc->createElement( 'a' );
+		$df = $doc->createDocumentFragment();
+		$df->textContent = 'old';
+		$body = new DataMwBody;
+		$body->setHtml( $extApi, $df );
 		DOMDataUtils::setDataMw( $elt, new DataMw( [
-			'body' => DataMwBody::new( [ 'html' => 'old' ] ),
+			'body' => $body,
 		] ) );
 
 		$refs = new ReferenceListTagHandler( $this->createNoOpMock( Config::class ) );
-		$refs->processAttributeEmbeddedHTML(
-			$this->createNoOpMock( ParsoidExtensionAPI::class ),
+		$refs->processAttributeEmbeddedDom(
+			$extApi,
 			$elt,
-			static fn () => 'new'
+			static function ( $df ) {
+				$df->textContent = 'new';
+				return true;
+			}
 		);
 
-		$this->assertSame( 'new', DOMDataUtils::getDataMw( $elt )->body->html );
+		$actual = DOMDataUtils::getDataMw( $elt )->body->getHtml( $extApi );
+		$this->assertSame( 'new', $actual->textContent );
 	}
 }

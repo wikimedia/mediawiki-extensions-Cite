@@ -343,7 +343,7 @@
 					"options": {
 						"wt2html": {
 							"unpackOutput": false,
-							"embedsHTMLInAttributes": true
+							"embedsDomInAttributes": true
 						},
 						"outputHasCoreMwDomSpecMarkup": true
 					}
@@ -358,7 +358,7 @@
 					},
 					"options": {
 						"wt2html": {
-							"embedsHTMLInAttributes": true
+							"embedsDomInAttributes": true
 						},
 						"html2wt": {
 							"format": "block"

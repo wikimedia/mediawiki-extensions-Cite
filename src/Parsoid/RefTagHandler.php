@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
-use Closure;
 use Exception;
 use MediaWiki\Config\Config;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
@@ -64,12 +63,16 @@ class RefTagHandler extends ExtensionTagHandler {
 	}
 
 	/** @inheritDoc */
-	public function processAttributeEmbeddedHTML(
-		ParsoidExtensionAPI $extApi, Element $elt, Closure $proc
+	public function processAttributeEmbeddedDom(
+		ParsoidExtensionAPI $extApi, Element $elt, callable $proc
 	): void {
 		$dataMw = DOMDataUtils::getDataMw( $elt );
-		if ( isset( $dataMw->body->html ) ) {
-			$dataMw->body->html = $proc( $dataMw->body->html );
+		if ( isset( $dataMw->body ) && $dataMw->body->hasHtml() ) {
+			$df = $dataMw->body->getHtml( $extApi );
+			$changed = $proc( $df );
+			if ( $changed ) {
+				$dataMw->body->setHtml( $extApi, $df );
+			}
 		}
 	}
 
@@ -81,7 +84,7 @@ class RefTagHandler extends ExtensionTagHandler {
 
 		// Only lint content pointed at by the id.  Content embedded in
 		// data-mw will be traversed by linter when
-		// processAttributeEmbeddedHTML is called
+		// processAttributeEmbeddedDom is called
 		if ( !isset( $dataMw->body->id ) ) {
 			return true;
 		}
@@ -150,7 +153,6 @@ class RefTagHandler extends ExtensionTagHandler {
 
 		if ( isset( $dataMw->body->html ) ) {
 			// First look for the extension's content in data-mw.body.html
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 			$src = $extApi->htmlToWikitext( $html2wtOpts, $dataMw->body->html );
 		} elseif ( isset( $dataMw->body->id ) ) {
 			// If the body isn't contained in data-mw.body.html, look if
@@ -262,12 +264,10 @@ class RefTagHandler extends ExtensionTagHandler {
 
 		if ( isset( $origDataMw->body->html ) && isset( $editedDataMw->body->html ) ) {
 			$origFragment = $extApi->htmlToDom(
-				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 				$origDataMw->body->html, $origNode->ownerDocument,
 				[ 'markNew' => true ]
 			);
 			$editedFragment = $extApi->htmlToDom(
-				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 				$editedDataMw->body->html, $editedNode->ownerDocument,
 				[ 'markNew' => true ]
 			);

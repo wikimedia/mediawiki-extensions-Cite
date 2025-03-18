@@ -66,34 +66,22 @@ class CiteParsoidTest extends \MediaWikiIntegrationTestCase {
 	/**
 	 * @param string $wt
 	 * @param array $pageOpts
-	 * @param bool $wrapSections
 	 * @return Element
 	 */
-	private function parseWT( string $wt, array $pageOpts = [], $wrapSections = false ): Element {
+	private function parseWT( string $wt, array $pageOpts = [] ): Element {
 		$siteConfig = $this->getSiteConfig( [] );
 		$dataAccess = new MockDataAccess( $siteConfig, [] );
 		$parsoid = new Parsoid( $siteConfig, $dataAccess );
 
 		$content = new MockPageContent( [ 'main' => $wt ] );
 		$pageConfig = new MockPageConfig( $siteConfig, $pageOpts, $content );
-		$html = $parsoid->wikitext2html( $pageConfig, [ "wrapSections" => $wrapSections ] );
+		$html = $parsoid->wikitext2html( $pageConfig, [ 'wrapSections' => false ] );
 
-		$doc = DOMUtils::parseHTML( $html );
-
-		$docBody = DOMCompat::getBody( $doc );
-
-		return( $docBody );
+		return DOMCompat::getBody( DOMUtils::parseHTML( $html ) );
 	}
 
-	private function wtToLint( string $wt, array $options = [] ): array {
-		$opts = [
-			'prefix' => $options['prefix'] ?? 'enwiki',
-			'pageName' => $options['pageName'] ?? 'main',
-			'wrapSections' => false
-		];
-
-		$siteOptions = [ 'linting' => true ] + $options;
-		$siteConfig = $this->getSiteConfig( $siteOptions );
+	private function wtToLint( string $wt ): array {
+		$siteConfig = $this->getSiteConfig( [ 'linting' => true ] );
 		$dataAccess = new class( $siteConfig, [] ) extends MockDataAccess {
 			/** @inheritDoc */
 			public function addTrackingCategory(
@@ -111,7 +99,7 @@ class CiteParsoidTest extends \MediaWikiIntegrationTestCase {
 		};
 		$parsoid = new Parsoid( $siteConfig, $dataAccess );
 
-		$content = new MockPageContent( [ $opts['pageName'] => $wt ] );
+		$content = new MockPageContent( [ $options['pageName'] ?? 'main' => $wt ] );
 		$pageConfig = new MockPageConfig( $siteConfig, [], $content );
 
 		return $parsoid->wikitext2lint( $pageConfig, [] );
@@ -253,8 +241,8 @@ EOT;
 		$this->assertTrue( isset( $result[0]['params'] ), $desc );
 		$this->assertEquals( 's', $result[0]['params']['name'], $desc );
 
-		$desc = "should not get into a cycle trying to lint ref in ref";
-		$result = $this->wtToLint(
+		// Should not get into a cycle trying to lint ref in ref
+		$this->wtToLint(
 			"{{#tag:ref|<ref name='y' />|name='x'}}{{#tag:ref|<ref name='x' />|name='y'}}<ref name='x' />"
 		);
 		$this->wtToLint( "<ref name='x' />{{#tag:ref|<ref name='x' />|name=x}}" );

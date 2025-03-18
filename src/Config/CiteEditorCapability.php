@@ -8,7 +8,6 @@ use MediaWiki\Config\Config;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\CommunityConfiguration\EditorCapabilities\AbstractEditorCapability;
 use MediaWiki\Extension\CommunityConfiguration\Provider\ConfigurationProviderFactory;
-use MediaWiki\Extension\CommunityConfiguration\Provider\IConfigurationProvider;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
@@ -22,7 +21,6 @@ class CiteEditorCapability extends AbstractEditorCapability {
 	private AlphabetsProvider $alphabetsProvider;
 	private ConfigurationProviderFactory $providerFactory;
 	private Config $config;
-	private IConfigurationProvider $provider;
 	private Language $contentLanguage;
 	private LinkRenderer $linkRenderer;
 
@@ -80,10 +78,10 @@ class CiteEditorCapability extends AbstractEditorCapability {
 		);
 
 		// get the stored value and forward to JS
-		$this->provider = $this->providerFactory->newProvider( $subpage );
-		$citeProviderId = $this->provider->getId();
+		$provider = $this->providerFactory->newProvider( $subpage );
+		$citeProviderId = $provider->getId();
 
-		$configStatusValue = $this->provider->loadValidConfiguration();
+		$configStatusValue = $provider->loadValidConfiguration();
 		$value = $configStatusValue->isOK() ? $configStatusValue->getValue() : null;
 
 		$backlinkAlphabet = $value->Cite_Settings->backlinkAlphabet ?? '';

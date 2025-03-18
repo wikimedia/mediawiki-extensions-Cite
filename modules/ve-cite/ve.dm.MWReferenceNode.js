@@ -141,10 +141,6 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			.getNodeGroup( dataElement.attributes.listGroup )
 			.keyedNodes[ dataElement.attributes.listKey ];
 
-		const extendsNodes = converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.filter(
-			( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
-		);
-
 		let contentsAlreadySet = false;
 		if ( setContents ) {
 			// Check if a previous node has already set the content. If so, we don't overwrite this
@@ -239,7 +235,11 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		const listKeyParts = dataElement.attributes.listKey.match( this.listKeyRegex );
 		if ( listKeyParts[ 1 ] === 'auto' ) {
 			// Only render a name if this key was reused
-			if ( keyedNodes.length > 1 || extendsNodes.length ) {
+			// TODO: review main/subref logic here
+			const subrefs = converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.filter(
+				( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
+			);
+			if ( keyedNodes.length > 1 || subrefs.length ) {
 				// Allocate a unique list key, then strip the 'literal/'' prefix
 				name = converter.internalList.getUniqueListKey(
 					dataElement.attributes.listGroup,

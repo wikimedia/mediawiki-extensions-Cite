@@ -23,7 +23,9 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testLinkRef( array $ref, string $expectedOutput ) {
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
-		$anchorFormatter->method( 'jumpLink' )->willReturnArgument( 0 );
+		$anchorFormatter->method( 'jumpLink' )->willReturnCallback(
+			static fn ( ...$args ) => implode( '+', $args )
+		);
 		$anchorFormatter->method( 'backLinkTarget' )->willReturnCallback(
 			static fn ( ...$args ) => implode( '+', $args )
 		);
@@ -69,7 +71,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'numberInGroup' => 50003,
 					'globalId' => 50004,
 				],
-				'(cite_reference_link|50004+|50004|50003)'
+				'(cite_reference_link|+50004+0|+50004|50003)'
 			],
 			'Default label, named group' => [
 				[
@@ -78,7 +80,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'numberInGroup' => 3,
 					'globalId' => 4,
 				],
-				'(cite_reference_link|4+|4|bar 3)'
+				'(cite_reference_link|+4+0|+4|bar 3)'
 			],
 			'Custom label' => [
 				[
@@ -87,7 +89,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'numberInGroup' => 3,
 					'globalId' => 4,
 				],
-				'(cite_reference_link|4+|4|c)'
+				'(cite_reference_link|+4+0|+4|c)'
 			],
 			'Custom label overrun' => [
 				[
@@ -96,7 +98,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'numberInGroup' => 10,
 					'globalId' => 4,
 				],
-				'(cite_reference_link|4+|4|foo 10)'
+				'(cite_reference_link|+4+0|+4|foo 10)'
 			],
 			'Named ref' => [
 				[
@@ -106,7 +108,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'globalId' => 4,
 					'count' => 1,
 				],
-				'(cite_reference_link|a+4-0|a-4|3)'
+				'(cite_reference_link|a+4+1|a+4|3)'
 			],
 			'Named ref reused' => [
 				[
@@ -116,7 +118,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'globalId' => 4,
 					'count' => 50002,
 				],
-				'(cite_reference_link|a+4-50001|a-4|3)'
+				'(cite_reference_link|a+4+50002|a+4|3)'
 			],
 		];
 	}

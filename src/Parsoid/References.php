@@ -760,8 +760,11 @@ class References {
 				} else {
 					$refsData->pushEmbeddedContentFlag();
 					// Look for <ref>s embedded in data attributes
-					$extApi->processAttributeEmbeddedHTML( $child,
-						fn ( string $html ) => $this->processEmbeddedRefs( $extApi, $refsData, $html )
+					$extApi->processAttributeEmbeddedDom( $child,
+						function ( DocumentFragment $df ) use ( $extApi, $refsData ) {
+							$this->processRefs( $extApi, $refsData, $df );
+							return true;
+						}
 					);
 					$refsData->popEmbeddedContentFlag();
 					if ( $child->hasChildNodes() ) {

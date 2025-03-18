@@ -706,8 +706,72 @@ ve.dm.citeExample.domToDataCases = {
 			{ type: '/internalItem' },
 			{ type: '/internalList' }
 		]
+	},
+	'Simple main plus details': {
+		body: ve.dm.example.singleLine`
+			<p>
+				<sup typeof="mw:Extension/ref" class="mw-ref reference"
+				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"cite_note-name-1"}'>
+				</sup>
+			</p>
+		`,
+		fromDataBody: ve.dm.example.singleLine`
+			<p>
+				<sup typeof="mw:Extension/ref"
+				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"cite_note-name-1"}'>
+				</sup>
+			</p>
+		`,
+		clipboardBody: ve.dm.example.singleLine`
+			<p>
+				<sup typeof="mw:Extension/ref"
+				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"cite_note-name-1"}'
+				 class="mw-ref reference">
+					<a>
+						<span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span>
+					</a>
+				</sup>
+			</p>
+		`,
+		data: [
+			{ type: 'paragraph' },
+			{
+				type: 'mwReference',
+				attributes: {
+					contentsUsed: true,
+					extendsRef: 'literal/name',
+					listGroup: 'mwReference/',
+					listIndex: 0,
+					listKey: 'auto/0',
+					mw: {
+						attrs: { details: 'details body' },
+						body: { html: 'main body' },
+						isMainRefBodyWithDetails: '1',
+						mainRef: 'name',
+						mainBody: 'cite_note-name-1',
+						name: 'ref'
+					},
+					originalMw: '{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"cite_note-name-1"}',
+					refGroup: ''
+				}
+			},
+			{ type: '/mwReference' },
+			{ type: '/paragraph' },
+			{ type: 'internalList' },
+			{
+				attributes: { originalHtml: 'main body' },
+				type: 'internalItem'
+			},
+			{
+				internal: { generated: 'wrapper' },
+				type: 'paragraph'
+			},
+			'm', 'a', 'i', 'n', ' ', 'b', 'o', 'd', 'y',
+			{ type: '/paragraph' },
+			{ type: '/internalItem' },
+			{ type: '/internalList' }
+		]
 	}
-	// TODO: Write details round-trip tests
 };
 
 ve.dm.citeExample.references = [

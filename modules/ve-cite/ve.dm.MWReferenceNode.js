@@ -141,6 +141,14 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			.getNodeGroup( dataElement.attributes.listGroup )
 			.keyedNodes[ dataElement.attributes.listKey ];
 
+		if ( dataElement.attributes.extendsRef ) {
+			const extendsKeyParts = dataElement.attributes.extendsRef.match( this.listKeyRegex );
+			// Can assume literal name.
+			ve.setProp( mwData, 'mainRef', extendsKeyParts[ 2 ] );
+
+			// TODO: Apply contentsAlreadySet logic to isMainRefBodyWithDetails
+		}
+
 		let contentsAlreadySet = false;
 		if ( setContents ) {
 			// Check if a previous node has already set the content. If so, we don't overwrite this
@@ -165,6 +173,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			// Check if any other nodes with this key provided content. If not
 			// then we attach the contents to the first reference with this key
 
+			// FIXME: This should apply to the main ref, but instead will affect details.
 			// Check that this is the first reference with its key
 			if (
 				keyedNodes &&

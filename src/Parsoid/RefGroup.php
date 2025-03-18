@@ -58,12 +58,12 @@ class RefGroup {
 		// We then append the rest of the ref nodes before the first node
 		$li = $ownerDoc->createElement( 'li' );
 		$refDir = $ref->dir;
-		$refTarget = $ref->target;
+		$noteId = $ref->noteId;
 		$refContentId = $ref->contentId;
 		$refGroup = $ref->group;
 		DOMUtils::addAttributes( $li, [
-				'about' => '#' . $refTarget,
-				'id' => $refTarget,
+				'about' => '#' . $noteId,
+				'id' => $noteId,
 				'class' => ( $refDir === 'rtl' || $refDir === 'ltr' ) ? 'mw-cite-dir-' . $refDir : null
 			]
 		);
@@ -71,7 +71,7 @@ class RefGroup {
 		DOMUtils::addAttributes(
 			$reftextSpan,
 			[
-				'id' => 'mw-reference-text-' . $refTarget,
+				'id' => 'mw-reference-text-' . $noteId,
 				// Add both mw-reference-text & reference-text for b/c.
 				// We will remove duplicate classes in the future.
 				'class' => 'mw-reference-text reference-text',

@@ -281,7 +281,7 @@ class References {
 				$ref->contentId = null;
 				$contentId = null;
 				// Flag to help reserialize main ref content into the subref when saving.
-				$refDataMw->attrs->isMainRefBodyWithDetails = true;
+				$refDataMw->attrs->isMainRefBodyWithDetails = '1';
 			}
 			// Move details attribute into subref content.
 			$ref->externalFragment = $extApi->wikitextToDOM( $details,
@@ -669,7 +669,7 @@ class References {
 						'name' => 'ref',
 						'attrs' => (object)[
 							'name' => $ref->name,
-							'isMainWithDetails' => true,
+							'isMainWithDetails' => '1',
 							'group' => $ref->group,
 						],
 						'body' => (object)[

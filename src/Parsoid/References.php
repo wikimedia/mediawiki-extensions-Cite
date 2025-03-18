@@ -312,6 +312,8 @@ class References {
 		// Add ref-index linkback
 		$linkBackSup = $doc->createElement( 'sup' );
 
+		$isVisibleNode = false;
+
 		if ( $hasValidFollow ) {
 			// Migrate content from the follow to the ref
 			if ( $ref->contentId ) {
@@ -336,8 +338,17 @@ class References {
 			// Handle linkbacks
 			if ( $referencesData->inEmbeddedContent() ) {
 				$ref->embeddedNodes[] = $about;
+				// While indicator content is embedded throughout the parsing
+				// pipeline, it gets added back into the page in a post-processing
+				// step, so consider it visible for the sake of linkbacks.
+				if ( $referencesData->peekEmbeddedContentFlag() === 'indicator' ) {
+					$ref->visibleNodes++;
+					$isVisibleNode = true;
+				}
 			} else {
 				$ref->nodes[] = $linkBackSup;
+				$ref->visibleNodes++;
+				$isVisibleNode = true;
 			}
 		}
 		// Guaranteed from this point on
@@ -412,7 +423,7 @@ class References {
 
 		$this->addLinkBackAttributes(
 			$linkBackSup,
-			$referencesData->inEmbeddedContent() ? null : $this->getLinkbackId( $ref ),
+			$isVisibleNode ? $this->getLinkbackId( $ref ) : null,
 			DOMCompat::getAttribute( $node, 'typeof' ),
 			$about,
 			$hasValidFollow
@@ -769,7 +780,11 @@ class References {
 						$this->insertReferencesIntoDOM( $extApi, $child, $refsData, false );
 					}
 				} else {
-					$refsData->pushEmbeddedContentFlag();
+					if ( DOMUtils::hasTypeOf( $child, 'mw:Extension/indicator' ) ) {
+						$refsData->pushEmbeddedContentFlag( 'indicator' );
+					} else {
+						$refsData->pushEmbeddedContentFlag();
+					}
 					// Look for <ref>s embedded in data attributes
 					$extApi->processAttributeEmbeddedDom( $child,
 						function ( DocumentFragment $df ) use ( $extApi, $refsData ) {
@@ -832,7 +847,7 @@ class References {
 	private function getLinkbackId( RefGroupItem $ref ): string {
 		$lb = $ref->backLinkIdBase;
 		if ( $ref->name !== null ) {
-			$lb .= '-' . ( count( $ref->nodes ) - 1 );
+			$lb .= '-' . ( $ref->visibleNodes - 1 );
 		}
 		return $lb;
 	}

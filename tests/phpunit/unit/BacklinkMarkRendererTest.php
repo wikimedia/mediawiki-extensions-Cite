@@ -38,7 +38,6 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 		$mockAlphabetsProvider = $this->createMock( AlphabetsProvider::class );
 		$mockAlphabetsProvider->method( 'getIndexCharacters' )->willReturn( [ 'z', 'y', 'x' ] );
 
-		/** @var BacklinkMarkRenderer $renderer */
 		$renderer = new BacklinkMarkRenderer(
 			'de',
 			$mockMessageLocalizer,
@@ -83,7 +82,6 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 			'CiteUseLegacyBacklinkLabels' => true,
 		] );
 
-		/** @var BacklinkMarkRenderer $renderer */
 		$renderer = new BacklinkMarkRenderer(
 			'de',
 			$mockMessageLocalizer,
@@ -128,7 +126,6 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 			'CiteUseLegacyBacklinkLabels' => true,
 		] );
 
-		/** @var BacklinkMarkRenderer $renderer */
 		$renderer = new BacklinkMarkRenderer(
 			'de',
 			$mockMessageLocalizer,

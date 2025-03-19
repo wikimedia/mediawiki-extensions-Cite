@@ -43,8 +43,7 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 			];
 
 		// Detect invalid parameters on the references tag
-		$allowedArguments = [ 'group', 'responsive' ];
-		if ( !Validator::filterArguments( $refsOpts, $allowedArguments )->isGood() ) {
+		if ( !Validator::filterReferenceListArguments( $refsOpts )->isGood() ) {
 			$extApi->pushError( 'cite_error_references_invalid_parameters' );
 			$error = new MessageValue( 'cite_error_references_invalid_parameters' );
 		}

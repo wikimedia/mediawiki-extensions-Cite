@@ -126,12 +126,7 @@ class Cite {
 		?string $text,
 		array $argv
 	): string {
-		$allowedArguments = [ 'group', 'name', 'follow', 'dir' ];
-		// Temporary feature flag, intentionally outside of the validator
-		if ( $this->config->get( 'CiteSubReferencing' ) ) {
-			$allowedArguments[] = 'details';
-		}
-		$status = Validator::filterArguments( $argv, $allowedArguments );
+		$status = Validator::filterRefArguments( $argv, $this->config->get( 'CiteSubReferencing' ) );
 		$arguments = $status->getValue();
 
 		$validator = new Validator(
@@ -207,7 +202,7 @@ class Cite {
 			return null;
 		}
 
-		$status = Validator::filterArguments( $argv, [ 'group', 'responsive' ] );
+		$status = Validator::filterReferenceListArguments( $argv );
 		$arguments = $status->getValue();
 
 		$this->inReferencesGroup = $arguments['group'] ?? self::DEFAULT_GROUP;

@@ -38,7 +38,7 @@ class Validator {
 	 * @return StatusValue Either an error, or has a value with the dictionary of argument names
 	 *  and values. Missing arguments are present, but null.
 	 */
-	public static function filterArguments( array $argv, array $allowedArguments ): StatusValue {
+	private static function filterArguments( array $argv, array $allowedArguments ): StatusValue {
 		$expected = count( $allowedArguments );
 		$allValues = array_merge( array_fill_keys( $allowedArguments, null ), $argv );
 
@@ -55,6 +55,30 @@ class Validator {
 		}
 
 		return $status;
+	}
+
+	/**
+	 * @param array<string,?string> $argv The original arguments from the <references …> tag
+	 * @param bool $isSubreferenceSupported Temporary feature flag
+	 * @return StatusValue
+	 */
+	public static function filterRefArguments(
+		array $argv,
+		bool $isSubreferenceSupported = false
+	): StatusValue {
+		$allowedArguments = [ 'group', 'name', 'follow', 'dir' ];
+		if ( $isSubreferenceSupported ) {
+			$allowedArguments[] = 'details';
+		}
+		return self::filterArguments( $argv, $allowedArguments );
+	}
+
+	/**
+	 * @param array<string,?string> $argv The original arguments from the <references …> tag
+	 * @return StatusValue
+	 */
+	public static function filterReferenceListArguments( array $argv ): StatusValue {
+		return self::filterArguments( $argv, [ 'group', 'responsive' ] );
 	}
 
 	/**

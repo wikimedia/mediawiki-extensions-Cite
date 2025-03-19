@@ -53,7 +53,7 @@ wgCiteSubReferencing=true
 !! end
 
 !! test
-Subreferencing ignored when no name
+Unnamed main reference with a lonely sub-ref, neither can be reused
 !! config
 wgCiteSubReferencing=true
 !! wikitext
@@ -129,28 +129,31 @@ Multiple subreferences
 wgCiteSubReferencing=true
 !! wikitext
 <ref name="a" details="abc">def</ref>
-<ref name="a" details="ghi">jkl</ref>
+<ref name="b" details="ghi">jkl</ref>
 
 <references />
 !! html/php
 <p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
-<sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>1.2<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">def <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">def</span>
 <ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">abc</span>
 </li>
-<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">ghi</span>
+</ol></li>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">jkl</span>
+<ol class="mw-subreference-list"><li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">ghi</span>
 </li>
 </ol></li>
 </ol></div>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"details":"abc","isMainRefBodyWithDetails":true,"mainRef":"a","mainBody":"cite_note-a-1"},"body":{"id":"mw-reference-text-cite_note-2"}}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"ghi","isMainRefBodyWithDetails":true,"mainRef":"a","mainBody":"cite_note-a-3"},"body":{"html":""},"errors":[{"key":"cite_error_references_no_text","params":["a"]}]}'><a href="./Parser_test#cite_note-a-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\",\"isMainWithDetails\":true,\"group\":\"\"},\"body\":{\"id\":\"cite_note-a-3\"}}&apos;>jkl&lt;/sup>\n"}}'>
+<p><sup class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"details":"abc","isMainRefBodyWithDetails":true,"mainRef":"a","mainBody":"cite_note-a-1"},"body":{"id":"mw-reference-text-cite_note-2"}}'><a href="./Parser_test#cite_note-2" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference" id="cite_ref-4" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"details":"ghi","isMainRefBodyWithDetails":true,"mainRef":"b","mainBody":"cite_note-b-3"},"body":{"id":"mw-reference-text-cite_note-4"}}'><a href="./Parser_test#cite_note-4" style="counter-reset: mw-Ref 2;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2.1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\",\"isMainWithDetails\":true,\"group\":\"\"},\"body\":{\"id\":\"cite_note-a-1\"}}&apos;>def&lt;/sup>\n&lt;sup typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"b\",\"isMainWithDetails\":true,\"group\":\"\"},\"body\":{\"id\":\"cite_note-b-3\"}}&apos;>jkl&lt;/sup>\n"}}'>
 <ol class="mw-references references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">ghi</span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":{"0":{"text":"a","_type_":"Wikimedia\\Message\\ScalarParam"},"_type_":"array"},"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">abc</span></li>
-<li id="cite_note-a-3"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-a-3" class="mw-reference-text reference-text">jkl</span></li>
+<li id="cite_note-a-1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">def</span></li>
+ <li id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">abc</span></li>
+<li id="cite_note-b-3"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-b-3" class="mw-reference-text reference-text">jkl</span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-4" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-4" class="mw-reference-text reference-text">ghi</span></li>
 </ol>
 </div>
 !! end
@@ -239,20 +242,15 @@ No main content due to missing name or empty content
 !! config
 wgCiteSubReferencing=true
 !! wikitext
-<ref name="a" details="page 1" />
+<ref details="page 1" />
 !! html/php
-<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref&gt;</code> tag with details must contain content or point to a parent reference by name.</span>
 </p>
-<div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>a</code></span><ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
-</li>
-</ol></li>
-</ol></div>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"a","details":"page 1"},"errors":[{"key":"cite_error_references_no_text","params":["a"]}]}'><a href="./Parser_test#cite_note-a-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'>
-<ol class="mw-references references">
-<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text"></span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":{"0":{"text":"a","_type_":"Wikimedia\\Message\\ScalarParam"},"_type_":"array"},"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1"},"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+ <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'>
+ <ol class="mw-references references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
 </ol>
 </div>
 !! end
@@ -418,6 +416,7 @@ wgCiteSubReferencing=true
 <ref name="book" />
 <references>
 <ref name="book" details="page 1">Book</ref>
+<ref name="book" details="page 2">Book</ref>
 </references>
 !! html/php
 <p><sup id="cite_ref-book_1-0" class="reference"><a href="#cite_note-book-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
@@ -428,10 +427,44 @@ wgCiteSubReferencing=true
 </ol></div>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-book_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"book"},"errors":[{"key":"cite_error_references_no_text","params":["book"]}]}'><a href="./Parser_test#cite_note-book-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"details\":\"page 1\",\"isMainRefBodyWithDetails\":true,\"mainRef\":\"book\",\"mainBody\":\"cite_note-book-2\"},\"body\":{\"id\":\"mw-reference-text-cite_note-book-1\"},\"errors\":[{\"key\":\"cite_error_references_no_text\",\"params\":[\"book\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-book-1\" style=\"counter-reset: mw-Ref 1;\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n&lt;sup typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"book\",\"isMainWithDetails\":true,\"group\":\"\"},\"body\":{\"id\":\"cite_note-book-2\"}}&apos;>Book&lt;/sup>\n"}}'>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"details\":\"page 1\",\"isMainRefBodyWithDetails\":true,\"mainRef\":\"book\",\"mainBody\":\"cite_note-book-2\"},\"body\":{\"id\":\"mw-reference-text-cite_note-book-1\"},\"errors\":[{\"key\":\"cite_error_references_no_text\",\"params\":[\"book\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-book-1\" style=\"counter-reset: mw-Ref 1;\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"details\":\"page 2\",\"isMainRefBodyWithDetails\":true,\"mainRef\":\"book\",\"mainBody\":\"cite_note-book-3\"},\"body\":{\"id\":\"mw-reference-text-cite_note-book-2\"},\"errors\":[{\"key\":\"cite_error_references_no_text\",\"params\":[\"book\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-book-2\" style=\"counter-reset: mw-Ref 2;\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>2&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n&lt;sup typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"book\",\"isMainWithDetails\":true,\"group\":\"\"},\"body\":{\"id\":\"cite_note-book-3\"}}&apos;>Book&lt;/sup>\n"}}'>
 <ol class="mw-references references">
 <li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-book_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-book-1" class="mw-reference-text reference-text">page 1</span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":{"0":{"text":"book","_type_":"Wikimedia\\Message\\ScalarParam"},"_type_":"array"},"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
-<li id="cite_note-book-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-book-2" class="mw-reference-text reference-text">Book</span></li>
+<li id="cite_note-book-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-book-2" class="mw-reference-text reference-text">page 2</span></li>
+<li id="cite_note-book-3"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-book-3" class="mw-reference-text reference-text">Book</span></li>
+</ol>
+</div>
+!! end
+
+# FIXME: Should render the same as above
+!! test
+Unused list defined sub-ref with used main content (same as above but with #tag)
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref name="book" />
+{{#tag:references|
+<ref name="book" details="page 1">Book</ref>
+<ref name="book" details="page 2">Book</ref>
+}}
+!! html/php
+<p><sup id="cite_ref-book_1-0" class="reference"><a href="#cite_note-book-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="#cite_ref-book_1-0">↑</a></span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
+<ol class="mw-subreference-list"><li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">page 1</span>
+</li>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">page 2</span>
+</li>
+</ol></li>
+</ol></div>
+!! html/parsoid
+<p><sup class="mw-ref reference" id="cite_ref-book_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"book"},"errors":[{"key":"cite_error_references_no_text","params":["book"]}]}'><a href="./Parser_test#cite_note-book-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n&lt;ref name=\"book\" details=\"page 1\">Book&lt;/ref>\n&lt;ref name=\"book\" details=\"page 2\">Book&lt;/ref>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"book\" details=\"page 1\">Book&lt;/ref>\n&lt;ref name=\"book\" details=\"page 2\">Book&lt;/ref>\n"}},"i":0}}]}'>
+<ol class="mw-references references">
+<li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-book_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-book-1" class="mw-reference-text reference-text">page 1</span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":{"0":{"text":"book","_type_":"Wikimedia\\Message\\ScalarParam"},"_type_":"array"},"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-book-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-book-2" class="mw-reference-text reference-text">page 2</span></li>
+<li id="cite_note-book-3"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-book-3" class="mw-reference-text reference-text">Book</span></li>
 </ol>
 </div>
 !! end
@@ -719,6 +752,37 @@ wgCiteSubReferencing=true
 <li id="cite_note-a-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">def</span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":{"0":{"text":"a","_type_":"Wikimedia\\Message\\ScalarParam"},"_type_":"array"},"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
 <li id="cite_note-a-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-a-2" class="mw-reference-text reference-text">abc</span></li>
 <li id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text">jkl</span></li>
+</ol>
+</div>
+!! end
+
+# FIXME: This doesn't render correctly
+!! test
+Rolling back a sub-reference inside the #tag:references function
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref name="a" />
+{{#tag:references|
+<ref name="a">a</ref>
+<ref name="b" details="p1">b</ref>
+}}
+!! html/php
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">a</span>
+</li>
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">b <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "b" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a"}}'><a href="./Parser_test#cite_note-a-1" style="counter-reset: mw-Ref 1;"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n&lt;ref name=\"a\">a&lt;/ref>\n&lt;ref name=\"b\" details=\"p1\">b&lt;/ref>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"a\">a&lt;/ref>\n&lt;ref name=\"b\" details=\"p1\">b&lt;/ref>\n"}},"i":0}}]}'>
+<ol class="mw-references references">
+<li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">a</span></li>
+<li id="cite_note-b-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-b-2" class="mw-reference-text reference-text">b</span></li>
+<li id="cite_note-3"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text">p1</span></li>
 </ol>
 </div>
 !! end

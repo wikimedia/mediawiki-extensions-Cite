@@ -35,24 +35,34 @@ class RefGroupItem {
 	 */
 	public string $group = '';
 	/**
+	 * The original name="…" attribute of a <ref>, or null for anonymous, unnamed references.
+	 * Guaranteed to never be empty or "0". These are not valid names.
+	 */
+	public ?string $name = null;
+
+	/**
 	 * Sequence number per {@see $group}, starting from 1. To be used in the footnote marker,
 	 * e.g. "[1]".
 	 */
 	public int $numberInGroup = 1;
+
 	/**
 	 * Sequence number per subref set, starting from 1.  Used in
 	 * hierarchical footnote numbering, eg. "[1.1]".
 	 */
 	public ?int $subrefIndex = null;
+
 	/**
 	 * Global, unique sequence number for each <ref>, no matter which group, starting from 1.
 	 * 0 is invalid. Currently unused.
 	 */
 	public int $globalId;
+
 	/**
 	 * True if this was a main ref artificially split from a main+details in the article.
 	 */
 	public bool $isMainWithDetails = false;
+
 	/**
 	 * Base for clickable href="#…" backlink and id="…" targets to jump from the reference list back
 	 * up to the corresponding footnote markers. Used as-is for unnamed single-use references, or
@@ -60,15 +70,10 @@ class RefGroupItem {
 	 */
 	public string $backLinkIdBase;
 	/**
-	 * The original name="…" attribute of a <ref>, or null for anonymous, unnamed references.
-	 * Guaranteed to never be empty or "0". These are not valid names.
-	 */
-	public ?string $name = null;
-	/**
 	 * The clickable href="#…" link and id="…" target to jump down from a footnote marker to the
 	 * item in the reference list
 	 */
-	public string $target;
+	public string $noteId;
 
 	/**
 	 * @var Element[] Collection of footnote markers that have been generated so far for the same

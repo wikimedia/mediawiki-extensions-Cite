@@ -296,7 +296,7 @@ class References {
 			// @phan-suppress-next-line PhanUndeclaredProperty
 			$refDataMw->mainRef = $refName;
 			// @phan-suppress-next-line PhanUndeclaredProperty
-			$refDataMw->mainBody = $mainRef->target;
+			$refDataMw->mainBody = $mainRef->noteId;
 			$refName = '';
 		}
 
@@ -410,7 +410,7 @@ class References {
 				] );
 			} else {
 				$refDataMw->body = DataMwBody::new( [
-					'id' => 'mw-reference-text-' . $ref->target,
+					'id' => 'mw-reference-text-' . $ref->noteId,
 				] );
 			}
 		}
@@ -436,7 +436,7 @@ class References {
 		// refLink is the link to the citation
 		$refLink = $doc->createElement( 'a' );
 		DOMUtils::addAttributes( $refLink, [
-			'href' => $extApi->getPageUri() . '#' . $ref->target,
+			'href' => $extApi->getPageUri() . '#' . $ref->noteId,
 			'style' => 'counter-reset: mw-Ref ' . $ref->numberInGroup . ';',
 		] );
 		if ( $ref->group ) {
@@ -608,7 +608,7 @@ class References {
 							'group' => $ref->group,
 						],
 						'body' => (object)[
-							'id' => $ref->target,
+							'id' => $ref->noteId,
 						],
 						'isMainWithDetails' => '1',
 					] );

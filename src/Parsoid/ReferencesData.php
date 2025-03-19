@@ -112,7 +112,7 @@ class ReferencesData {
 		$ref->globalId = $refKey;
 		$ref->backLinkIdBase = $refIdBase;
 		$ref->name = $refName ?: null;
-		$ref->target = $noteId;
+		$ref->noteId = $noteId;
 
 		$group->refs[] = $ref;
 
@@ -148,7 +148,7 @@ class ReferencesData {
 		}
 		$ref->globalId = $refKey;
 		$ref->backLinkIdBase = $refIdBase;
-		$ref->target = $noteId;
+		$ref->noteId = $noteId;
 
 		$group->refs[] = $ref;
 

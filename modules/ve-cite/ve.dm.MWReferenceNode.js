@@ -216,24 +216,6 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			el.setAttribute( 'data-ve-ignore', 'true' );
 		}
 
-		// Set extends
-		if ( dataElement.attributes.extendsRef ) {
-			let extendsAttr;
-			const extendsKeyParts = dataElement.attributes.extendsRef.match( this.listKeyRegex );
-			if ( extendsKeyParts[ 1 ] === 'auto' ) {
-				// Allocate a unique list key, then strip the 'literal/'' prefix
-				extendsAttr = converter.internalList.getUniqueListKey(
-					dataElement.attributes.listGroup,
-					dataElement.attributes.extendsRef,
-					// Generate a name starting with ':' to distinguish it from normal names
-					'literal/:'
-				).slice( 'literal/'.length );
-			} else {
-				extendsAttr = extendsKeyParts[ 2 ];
-			}
-			ve.setProp( mwData, 'attrs', 'extends', extendsAttr );
-		}
-
 		// Generate name
 		let name;
 		const listKeyParts = dataElement.attributes.listKey.match( this.listKeyRegex );

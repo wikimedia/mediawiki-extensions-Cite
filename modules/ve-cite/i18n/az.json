@@ -29,7 +29,7 @@
 	"cite-ve-citationneeded-reason": "Verilmiş səbəb:",
 	"cite-ve-citationneeded-title": "İstinad lazımdır",
 	"cite-ve-dialog-reference-editing-reused": "Bu istinad bu səhifədə {{PLURAL:$1|1 dəfə|2=2 dəfə|$1 dəfə}} istifadə edilib.",
-	"cite-ve-dialog-reference-editing-reused-long": "Bu istinad bu səhifədə {{PLURAL:$1|1 dəfə|2=2 dəfə|$1 dəfə}} istifadə olunub. Burda ediləcək dəyişikliklər hamısında tətbiq olunacaq.",
+	"cite-ve-dialog-reference-editing-reused-long": "Bu istinad bu səhifədə {{PLURAL:$1|$1 dəfə}} istifadə olunub. Burada etdiyiniz dəyişikliklər istinadın istifadə edildiyi hər yerə şamil olunacaq.",
 	"cite-ve-dialog-reference-editing-extends": "Bu başqa bir istinadın əlavəsidir.",
 	"cite-ve-dialog-reference-editing-extends-long": "Bu, digər \"$1\" istinadının uzantısıdır.",
 	"cite-ve-dialog-reference-options-group-label": "Bu qrupu istifadə et",

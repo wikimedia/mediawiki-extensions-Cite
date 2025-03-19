@@ -287,8 +287,10 @@ class References {
 				$refDataMw->isMainRefBodyWithDetails = '1';
 			}
 			// Move details attribute into subref content.
-			$ref->externalFragment = $extApi->wikitextToDOM( $details,
-				[ 'parseOpts' => [ 'context' => 'inline' ] ], true );
+			$ref->externalFragment = $extApi->wikitextToDOM( $details, [
+				'processInNewFrame' => true,
+				'parseOpts' => [ 'context' => 'inline' ]
+			], true );
 			$refFragmentHtml = '';
 			// Subref points to the main ref by name.
 			// FIXME: should have already asserted that refName exists for all details, see T387193

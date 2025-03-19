@@ -5,7 +5,6 @@ declare( strict_types = 1 );
 namespace Cite\Parsoid;
 
 use Cite\MarkSymbolRenderer;
-use Cite\Validator;
 use MediaWiki\Config\Config;
 use MediaWiki\Html\HtmlHelper;
 use MediaWiki\MediaWikiServices;
@@ -35,12 +34,14 @@ class References {
 	private Config $mainConfig;
 	private bool $isSubreferenceSupported;
 	private MarkSymbolRenderer $markSymbolRenderer;
+	private ParsoidValidator $validator;
 
 	public function __construct( Config $mainConfig ) {
 		$this->mainConfig = $mainConfig;
 		$this->isSubreferenceSupported = $mainConfig->get( 'CiteSubReferencing' );
 
 		$this->markSymbolRenderer = MediaWikiServices::getInstance()->getService( 'Cite.MarkSymbolRenderer' );
+		$this->validator = new ParsoidValidator( $this->isSubreferenceSupported );
 	}
 
 	private static function hasRef( Node $node ): bool {
@@ -175,7 +176,7 @@ class References {
 
 		// Validate attribute keys
 		$attributes = $refDataMw->attrs;
-		$attributesErrorMessage = $this->validateAttributeKeys( (array)$attributes );
+		$attributesErrorMessage = $this->validator->validateAttributeKeys( (array)$attributes );
 		if ( $attributesErrorMessage ) {
 			$errs[] = $attributesErrorMessage;
 		}
@@ -188,7 +189,7 @@ class References {
 
 		// Validate the reference group
 		$groupName = $attributes->group ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
-		$groupErrorMessage = $this->validateGroup( $groupName, $referencesData );
+		$groupErrorMessage = $this->validator->validateGroup( $groupName, $referencesData );
 		if ( $groupErrorMessage ) {
 			$errs[] = $groupErrorMessage;
 		}
@@ -230,7 +231,7 @@ class References {
 
 		// Handle the attributes 'name' and 'follow'
 		if ( $refName ) {
-			$nameErrorMessage = $this->validateName( $refName, $refGroup, $referencesData );
+			$nameErrorMessage = $this->validator->validateName( $refName, $refGroup, $referencesData );
 			if ( $nameErrorMessage ) {
 				$errs[] = $nameErrorMessage;
 			} elseif ( isset( $refGroup->indexByName[$refName] ) ) {
@@ -256,7 +257,7 @@ class References {
 		} else {
 			if ( $followName ) {
 				// Check that the followed ref exists
-				$followErrorMessage = $this->validateFollow( $followName, $refGroup );
+				$followErrorMessage = $this->validator->validateFollow( $followName, $refGroup );
 				if ( $followErrorMessage ) {
 					$errs[] = $followErrorMessage;
 				} else {
@@ -348,7 +349,7 @@ class References {
 		'@phan-var RefGroupItem $ref';
 
 		if ( isset( $attributes->dir ) ) {
-			$dirError = $this->validateDir( $refDir, $ref );
+			$dirError = $this->validator->validateDir( $refDir, $ref );
 			if ( $dirError ) {
 				$errs[] = $dirError;
 			}
@@ -506,36 +507,6 @@ class References {
 			&& ( $supDmw->attrs->group ?? '' ) === $refGroup;
 	}
 
-	private function validateAttributeKeys( array $attributes ): ?DataMwError {
-		return Validator::filterRefArguments( $attributes, $this->isSubreferenceSupported )->isGood() ?
-			null :
-			new DataMwError( 'cite_error_ref_too_many_keys' );
-	}
-
-	private function validateGroup( string $groupName, ReferencesData $referencesData ): ?DataMwError {
-		if (
-			$referencesData->inReferencesContent() &&
-			!$referencesData->inRefContent() &&
-			$groupName !== $referencesData->referencesGroup
-		) {
-			return new DataMwError(
-				'cite_error_references_group_mismatch',
-				[ $groupName ]
-			);
-		}
-
-		return null;
-	}
-
-	private function validateDir( string $refDir, RefGroupItem $ref ): ?DataMwError {
-		if ( $refDir !== 'rtl' && $refDir !== 'ltr' ) {
-			return new DataMwError( 'cite_error_ref_invalid_dir', [ $refDir ] );
-		} elseif ( $ref->dir !== '' && $ref->dir !== $refDir ) {
-			return new DataMwError( 'cite_error_ref_conflicting_dir', [ $ref->name ] );
-		}
-		return null;
-	}
-
 	/**
 	 * wrap the content of the follow attribute
 	 * so that there is no ambiguity
@@ -551,33 +522,6 @@ class References {
 		DOMUtils::migrateChildren( $refFragment, $followSpan );
 
 		return $followSpan;
-	}
-
-	private function validateName( string $name, ?RefGroup $refGroup, ReferencesData $referencesData ): ?DataMwError {
-		if ( !isset( $refGroup->indexByName[$name] ) && $referencesData->inReferencesContent() ) {
-			return new DataMwError(
-				'cite_error_references_missing_key',
-				[ $name ]
-			);
-		}
-
-		return null;
-	}
-
-	private function validateFollow( string $followName, ?RefGroup $refGroup ): ?DataMwError {
-		if ( !isset( $refGroup->indexByName[$followName] ) ) {
-			// FIXME: This key isn't exactly appropriate since this
-			// is more general than just being in a <references>
-			// section and it's the $followName we care about, but the
-			// extension to the legacy parser doesn't have an
-			// equivalent key and just outputs something wacky.
-			return new DataMwError(
-				'cite_error_references_missing_key',
-				[ $followName ]
-			);
-		}
-
-		return null;
 	}
 
 	/**

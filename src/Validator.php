@@ -12,23 +12,23 @@ use StatusValue;
  */
 class Validator {
 
-	private ReferenceStack $referenceStack;
 	private ?string $inReferencesGroup;
+	private bool $isKnownName;
 	private bool $isSectionPreview;
 
 	/**
-	 * @param ReferenceStack $referenceStack
 	 * @param string|null $inReferencesGroup Group name of the <references> context to consider
 	 *  during validation. Null if we are currently not in a <references> context.
+	 * @param bool $isKnownName
 	 * @param bool $isSectionPreview Validation is relaxed when previewing parts of a page
 	 */
 	public function __construct(
-		ReferenceStack $referenceStack,
-		?string $inReferencesGroup = null,
-		bool $isSectionPreview = false
+		?string $inReferencesGroup,
+		bool $isKnownName,
+		bool $isSectionPreview
 	) {
-		$this->referenceStack = $referenceStack;
 		$this->inReferencesGroup = $inReferencesGroup;
+		$this->isKnownName = $isKnownName;
 		$this->isSectionPreview = $isSectionPreview;
 	}
 
@@ -118,12 +118,12 @@ class Validator {
 		}
 
 		$sanitized = $this->inReferencesGroup === null ?
-			$this->validateRefOutsideOfReferenceList( $text, $arguments ) :
+			$this->validateRefBeforeReferenceList( $text, $arguments ) :
 			$this->validateRefInReferenceList( $text, $arguments );
 		return $status->merge( $sanitized, true );
 	}
 
-	private function validateRefOutsideOfReferenceList( ?string $text, array $arguments ): StatusValue {
+	private function validateRefBeforeReferenceList( ?string $text, array $arguments ): StatusValue {
 		$status = StatusValue::newGood();
 
 		$name = (string)$arguments['name'];
@@ -201,8 +201,7 @@ class Validator {
 
 		// Section previews are exempt from some rules.
 		if ( !$this->isSectionPreview ) {
-			$groupRefs = $this->referenceStack->getGroupRefs( $group );
-			if ( !isset( $groupRefs[$name] ) ) {
+			if ( !$this->isKnownName ) {
 				// No such named ref exists in this group.
 				$status->fatal( 'cite_error_references_missing_key',
 					Sanitizer::safeEncodeAttribute( $name )

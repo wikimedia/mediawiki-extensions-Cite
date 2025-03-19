@@ -281,7 +281,8 @@ class References {
 				$ref->contentId = null;
 				$contentId = null;
 				// Flag to help reserialize main ref content into the subref when saving.
-				$refDataMw->attrs->isMainRefBodyWithDetails = '1';
+				// @phan-suppress-next-line PhanUndeclaredProperty
+				$refDataMw->isMainRefBodyWithDetails = '1';
 			}
 			// Move details attribute into subref content.
 			$ref->externalFragment = $extApi->wikitextToDOM( $details,
@@ -290,8 +291,10 @@ class References {
 			// Subref points to the main ref by name.
 			// FIXME: should have already asserted that refName exists for all details, see T387193
 			unset( $refDataMw->attrs->name );
-			$refDataMw->attrs->mainRef = $refName;
-			$refDataMw->attrs->mainBody = $mainRef->target;
+			// @phan-suppress-next-line PhanUndeclaredProperty
+			$refDataMw->mainRef = $refName;
+			// @phan-suppress-next-line PhanUndeclaredProperty
+			$refDataMw->mainBody = $mainRef->target;
 			$refName = '';
 		}
 
@@ -669,12 +672,12 @@ class References {
 						'name' => 'ref',
 						'attrs' => (object)[
 							'name' => $ref->name,
-							'isMainWithDetails' => '1',
 							'group' => $ref->group,
 						],
 						'body' => (object)[
 							'id' => $ref->target,
-						]
+						],
+						'isMainWithDetails' => '1',
 					] );
 					DOMDataUtils::setDataMw( $sup, $dataMw );
 					$refFragment = $extApi->getContentDOM( $ref->contentId )->firstChild->firstChild;

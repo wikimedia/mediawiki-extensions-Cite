@@ -111,8 +111,8 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			contentsUsed: body !== '' && queueResult.isNew
 		}
 	};
-	if ( mwAttrs.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
-		dataElement.attributes.extendsRef = ve.dm.MWReferenceNode.static.makeListKey( mwAttrs.mainRef, converter );
+	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
+		dataElement.attributes.extendsRef = ve.dm.MWReferenceNode.static.makeListKey( mwData.mainRef, converter );
 	}
 	if ( reflistItemId ) {
 		dataElement.attributes.refListItemId = reflistItemId;

@@ -278,12 +278,12 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			'No text, not preview' => [
 				'text' => null,
 				'isSectionPreview' => false,
-				'expectedOutput' => '(cite_error_references_no_text|)'
+				'expectedOutput' => '<span class="reference-text"> (cite_error_references_no_text|)</span>' . "\n"
 			],
 			'No text, is preview' => [
 				'text' => null,
 				'isSectionPreview' => true,
-				'expectedOutput' => '(cite_warning_sectionpreview_no_text|)'
+				'expectedOutput' => '<span class="reference-text"> (cite_warning_sectionpreview_no_text|)</span>' . "\n"
 			],
 			'Has text' => [
 				'text' => 'text',

@@ -221,10 +221,12 @@ class ReferenceListFormatter {
 		Parser $parser, ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
 		if ( $ref->text === null ) {
-			return $this->errorReporter->plain( $parser,
+			$ref->warnings[] = [
 				$isSectionPreview
 					? 'cite_warning_sectionpreview_no_text'
-					: 'cite_error_references_no_text', $ref->name );
+					: 'cite_error_references_no_text',
+				$ref->name
+			];
 		}
 
 		$text = $ref->text ?? '';

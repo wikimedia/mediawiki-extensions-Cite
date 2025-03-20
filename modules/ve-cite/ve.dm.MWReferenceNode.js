@@ -99,6 +99,12 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	const listKey = ve.dm.MWReferenceNode.static.makeListKey( mwAttrs.name, converter );
 	const queueResult = converter.internalList.queueItemHtml( listGroup, listKey, body );
 
+	if ( converter.isFromClipboard() && !( mwAttrs.name || body ) ) {
+		// Pasted reference has neither a name nor body HTML, must have
+		// come from Parsoid read mode directly. (T389518)
+		return [];
+	}
+
 	const dataElement = {
 		type: this.name,
 		attributes: {

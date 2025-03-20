@@ -24,6 +24,20 @@ QUnit.test( 'beforePaste/afterPaste', ( assert ) => {
 			rangeOrSelection: new ve.Range( 1 ),
 			pasteHtml: ve.dm.example.singleLine`
 				a
+				<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}' class="mw-ref reference" about="#mwt1" id="cite_ref-foo-0" rel="dc:references">
+					<a href="./Article#cite_note-foo-0"><span class="mw-reflink-text">[1]</span></a>
+				</sup>
+				b
+			`,
+			expectedRangeOrSelection: new ve.Range( 3 ),
+			expectedHtml: '<p>ab</p>',
+			msg: 'Parsoid read mode references stripped'
+		},
+		{
+			documentHtml: '<p></p>',
+			rangeOrSelection: new ve.Range( 1 ),
+			pasteHtml: ve.dm.example.singleLine`
+				a
 					<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"...some reference HTML..."}}' class="mw-ref reference" about="#mwt1" id="cite_ref-foo-0" rel="dc:references">
 						<a href="./Article#cite_note-foo-0"><span class="mw-reflink-text ve-pasteProtect">[1]</span></a>
 					</sup>

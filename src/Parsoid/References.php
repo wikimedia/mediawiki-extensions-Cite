@@ -42,14 +42,24 @@ class References {
 		$this->markSymbolRenderer = MediaWikiServices::getInstance()->getService( 'Cite.MarkSymbolRenderer' );
 	}
 
-	private static function hasRef( Node $node ): bool {
+	private static function hasRef( ParsoidExtensionAPI $extApi, Node $node ): bool {
 		$c = $node->firstChild;
 		while ( $c ) {
 			if ( $c instanceof Element ) {
 				if ( WTUtils::isSealedFragmentOfType( $c, 'ref' ) ) {
 					return true;
 				}
-				if ( self::hasRef( $c ) ) {
+				$hasEmbeddedRefs = false;
+				$extApi->processAttributeEmbeddedDom( $c,
+					function ( DocumentFragment $df ) use ( $extApi, &$hasEmbeddedRefs ) {
+						$hasEmbeddedRefs = $hasEmbeddedRefs || self::hasRef( $extApi, $df );
+						return true;
+					}
+				);
+				if ( $hasEmbeddedRefs ) {
+					return true;
+				}
+				if ( self::hasRef( $extApi, $c ) ) {
 					return true;
 				}
 			}
@@ -127,7 +137,7 @@ class References {
 		bool $hasDifferingHtml
 	): ?string {
 		$refFragmentDp = DOMDataUtils::getDataParsoid( $refFragment );
-		if ( !empty( $refFragmentDp->empty ) || !self::hasRef( $refFragment ) ) {
+		if ( !empty( $refFragmentDp->empty ) || !self::hasRef( $extApi, $refFragment ) ) {
 			return null;
 		}
 

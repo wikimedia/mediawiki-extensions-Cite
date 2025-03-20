@@ -278,6 +278,23 @@ class References {
 			}
 		}
 
+		// handle standalone subref
+		if ( $hasDetails && $refName && !isset( $refDataMw->body ) && $ref ) {
+			$ref = $referencesData->addSubref( $groupName, $refName, $refDir );
+			// @phan-suppress-next-line PhanUndeclaredProperty
+			$refDataMw->mainRef = $refName;
+			$ref->contentId = null;
+			$ref->externalFragment = $extApi->wikitextToDOM( $details, [
+				'processInNewFrame' => true,
+				'parseOpts' => [ 'context' => 'inline' ]
+			], true );
+			$refFragmentHtml = '';
+			$contentId = null;
+			unset( $refDataMw->attrs->name );
+			$refName = '';
+			$hasDifferingHtml = false;
+		}
+
 		// Split subref and main ref; add main ref as a list-defined reference
 		if ( $hasDetails && $refName && isset( $refDataMw->body ) ) {
 			// Add the main ref directly as a list-defined ref.
@@ -388,7 +405,8 @@ class References {
 
 		// Check for missing content, added ?? '' to fix T259676 crasher
 		// FIXME: See T260082 for a more complete description of cause and deeper fix
-		$hasMissingContent = ( !empty( $refFragmentDp->empty ) || trim( $refDataMw->body->extsrc ?? '' ) === '' );
+		$hasMissingContent = ( !empty( $refFragmentDp->empty ) || trim( $refDataMw->body->extsrc ?? '' ) === '' ) &&
+			 $ref->externalFragment === null;
 
 		if ( $hasMissingContent ) {
 			// Check for missing name and content to generate error code

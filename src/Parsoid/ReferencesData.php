@@ -21,7 +21,7 @@ class ReferencesData {
 	/** @var array<string,list<DataMwError>> */
 	public array $embeddedErrors = [];
 	/** @var string[] */
-	private array $inEmbeddedContent = [];
+	private array $embeddedContentStack = [];
 	public string $referencesGroup = '';
 	private int $nestedRefsDepth = 0;
 
@@ -35,18 +35,22 @@ class ReferencesData {
 
 	public function inEmbeddedContent( ?string $needle = null ): bool {
 		if ( $needle ) {
-			return in_array( $needle, $this->inEmbeddedContent, true );
+			return in_array( $needle, $this->embeddedContentStack, true );
 		} else {
-			return $this->inEmbeddedContent !== [];
+			return $this->embeddedContentStack !== [];
 		}
 	}
 
 	public function pushEmbeddedContentFlag( string $needle = 'embed' ): void {
-		array_unshift( $this->inEmbeddedContent, $needle );
+		array_push( $this->embeddedContentStack, $needle );
 	}
 
-	public function popEmbeddedContentFlag() {
-		array_shift( $this->inEmbeddedContent );
+	public function popEmbeddedContentFlag(): void {
+		array_pop( $this->embeddedContentStack );
+	}
+
+	public function peekEmbeddedContentFlag(): ?string {
+		return $this->embeddedContentStack[count( $this->embeddedContentStack ) - 1] ?? null;
 	}
 
 	public function incrementRefDepth(): void {

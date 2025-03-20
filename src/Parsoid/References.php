@@ -758,14 +758,6 @@ class References {
 		$refsData->removeRefGroup( $groupName );
 	}
 
-	private function processEmbeddedRefs(
-		ParsoidExtensionAPI $extApi, ReferencesData $refsData, string $str
-	): string {
-		$domFragment = $extApi->htmlToDom( $str );
-		$this->processRefs( $extApi, $refsData, $domFragment );
-		return $extApi->domToHtml( $domFragment, true, true );
-	}
-
 	public function processRefs(
 		ParsoidExtensionAPI $extApi, ReferencesData $refsData, Node $node
 	): void {

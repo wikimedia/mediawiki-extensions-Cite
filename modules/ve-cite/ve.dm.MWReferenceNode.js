@@ -269,7 +269,17 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 				converter.getStore().value( dataElement.originalDomElementsHash ), doc );
 		}
 	} else {
-		el.setAttribute( 'data-mw', JSON.stringify( mwData ) );
+		let stringifiedMwData = JSON.stringify( mwData );
+		if ( isForClipboard ) {
+			// T382858: Ensure data-mw attribute wouldn't be removed by DOMPurify on paste.
+			// DOMPurify forbids '</style' in the body of attributes to avoid mXSS
+			// attacks. Since we know it's JSON, we can encode it with JS unicode escape
+			// codes to let the sanitization code do its job without breaking nodes.
+			// JSON.parse( '"\\u003C/style"' ) returns '</style', so we don't need
+			// to modify the paste handler.
+			stringifiedMwData = stringifiedMwData.replace( /<\/style/g, '\\u003C/style' );
+		}
+		el.setAttribute( 'data-mw', stringifiedMwData );
 
 		// HTML for the external clipboard, it will be ignored by the converter
 		const $link = $( '<a>', doc )

@@ -7,6 +7,7 @@ use MediaWiki\Config\HashConfig;
 use MediaWikiUnitTestCase;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\NodeData\DataMw;
+use Wikimedia\Parsoid\NodeData\DataMwBody;
 use Wikimedia\Parsoid\Utils\DOMDataUtils;
 use Wikimedia\Parsoid\Utils\DOMUtils;
 
@@ -20,7 +21,9 @@ class RefTagHandlerTest extends MediaWikiUnitTestCase {
 		$doc = DOMUtils::parseHTML( '' );
 		DOMDataUtils::prepareDoc( $doc );
 		$elt = $doc->createElement( 'a' );
-		DOMDataUtils::setDataMw( $elt, new DataMw( [ 'body' => (object)[ 'html' => 'old' ] ] ) );
+		DOMDataUtils::setDataMw( $elt, new DataMw( [
+			'body' => DataMwBody::new( [ 'html' => 'old' ] ),
+		] ) );
 
 		$group = new RefTagHandler( new HashConfig( [ 'CiteSubReferencing' => false ] ) );
 		$group->processAttributeEmbeddedHTML(

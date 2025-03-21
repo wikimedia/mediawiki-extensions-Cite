@@ -658,9 +658,9 @@ class References {
 							'name' => $ref->name,
 							'group' => $ref->group,
 						],
-						'body' => (object)[
+						'body' => DataMwBody::new( [
 							'id' => ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ),
-						],
+						] ),
 						'isMainWithDetails' => '1',
 					] );
 					DOMDataUtils::setDataMw( $sup, $dataMw );

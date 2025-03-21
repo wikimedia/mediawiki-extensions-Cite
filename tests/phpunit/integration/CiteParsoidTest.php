@@ -18,6 +18,7 @@ use Wikimedia\Parsoid\Mocks\MockPageConfig;
 use Wikimedia\Parsoid\Mocks\MockPageContent;
 use Wikimedia\Parsoid\Mocks\MockSiteConfig;
 use Wikimedia\Parsoid\NodeData\DataMw;
+use Wikimedia\Parsoid\NodeData\DataMwBody;
 use Wikimedia\Parsoid\Parsoid;
 use Wikimedia\Parsoid\Utils\DOMCompat;
 use Wikimedia\Parsoid\Utils\DOMDataUtils;
@@ -255,7 +256,9 @@ EOT;
 		$doc = DOMUtils::parseHTML( '' );
 		DOMDataUtils::prepareDoc( $doc );
 		$elt = $doc->createElement( 'a' );
-		DOMDataUtils::setDataMw( $elt, new DataMw( [ 'body' => (object)[ 'html' => 'old' ] ] ) );
+		DOMDataUtils::setDataMw( $elt, new DataMw( [
+			'body' => DataMwBody::new( [ 'html' => 'old' ] ),
+		] ) );
 
 		$refs = new ReferenceListTagHandler( $this->createNoOpMock( Config::class ) );
 		$refs->processAttributeEmbeddedHTML(

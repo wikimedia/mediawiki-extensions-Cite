@@ -3,7 +3,6 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
-use Cite\Validator;
 use Wikimedia\Parsoid\NodeData\DataMwError;
 
 /**
@@ -15,12 +14,6 @@ class ParsoidValidator {
 
 	public function __construct( bool $isSubreferenceSupported ) {
 		$this->isSubreferenceSupported = $isSubreferenceSupported;
-	}
-
-	public function validateAttributeKeys( array $attributes ): ?DataMwError {
-		return Validator::filterRefArguments( $attributes, $this->isSubreferenceSupported )->isGood() ?
-			null :
-			new DataMwError( 'cite_error_ref_too_many_keys' );
 	}
 
 	public function validateGroup( string $groupName, ReferencesData $referencesData ): ?DataMwError {

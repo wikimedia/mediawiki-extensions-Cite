@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace Cite\Parsoid;
 
 use Cite\MarkSymbolRenderer;
+use Cite\Validator;
 use MediaWiki\Config\Config;
 use MediaWiki\Html\HtmlHelper;
 use MediaWiki\MediaWikiServices;
@@ -175,20 +176,20 @@ class References {
 		$refDataMw = DOMDataUtils::getDataMw( $refFragment );
 
 		// Validate attribute keys
-		$attributes = $refDataMw->attrs;
-		$attributesErrorMessage = $this->validator->validateAttributeKeys( (array)$attributes );
-		if ( $attributesErrorMessage ) {
-			$errs[] = $attributesErrorMessage;
+		$status = Validator::filterRefArguments( (array)$refDataMw->attrs, $this->isSubreferenceSupported );
+		$arguments = $status->getValue();
+		if ( !$status->isGood() ) {
+			$errs[] = new DataMwError( 'cite_error_ref_too_many_keys' );
 		}
 
 		// Extract and validate attribute values
-		$refName = $attributes->name ?? null;
-		$followName = $attributes->follow ?? null;
-		$refDir = strtolower( $attributes->dir ?? '' );
-		$details = $attributes->details ?? '';
+		$refName = (string)$arguments['name'];
+		$followName = (string)$arguments['follow'];
+		$refDir = strtolower( (string)$arguments['dir'] );
+		$details = $arguments['details'] ?? '';
 
 		// Validate the reference group
-		$groupName = $attributes->group ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
+		$groupName = $arguments['group'] ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
 		$groupErrorMessage = $this->validator->validateGroup( $groupName, $referencesData );
 		if ( $groupErrorMessage ) {
 			$errs[] = $groupErrorMessage;
@@ -201,7 +202,7 @@ class References {
 			DOMCompat::getAttribute( $refFragment, 'about' );
 		'@phan-var string $about'; // assert that $about is non-null
 
-		$hasDetails = $details !== '' && $this->isSubreferenceSupported;
+		$hasDetails = $details !== '';
 
 		// Handle error cases for the attributes 'name' and 'follow'
 		if ( $refName && $followName ) {
@@ -350,7 +351,7 @@ class References {
 		// Guaranteed from this point on
 		'@phan-var RefGroupItem $ref';
 
-		if ( isset( $attributes->dir ) ) {
+		if ( isset( $arguments['dir'] ) ) {
 			$dirError = $this->validator->validateDir( $refDir, $ref );
 			if ( $dirError ) {
 				$errs[] = $dirError;
@@ -360,7 +361,7 @@ class References {
 		// FIXME: At some point this error message can be changed to a warning, as Parsoid Cite now
 		// supports numerals as a name without it being an actual error, but core Cite does not.
 		// Follow refs do not duplicate the error which can be correlated with the original ref.
-		if ( ctype_digit( (string)$refName ) ) {
+		if ( ctype_digit( $refName ) ) {
 			$errs[] = new DataMwError( 'cite_error_ref_numeric_key' );
 		}
 
@@ -377,7 +378,7 @@ class References {
 			if ( $referencesData->inReferencesContent() ) {
 				$errs[] = new DataMwError(
 					'cite_error_empty_references_define',
-					[ $attributes->name ?? '', $attributes->group ?? '' ]
+					[ $refName, $groupName ]
 				);
 			} elseif ( !$refName ) {
 				if ( !empty( $refFragmentDp->selfClose ) ) {
@@ -405,7 +406,7 @@ class References {
 			}
 			if ( $hasDifferingHtml ) {
 				if ( $refFragmentHtml != '' && $hasDifferingContent ) {
-					$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $attributes->name ] );
+					$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $refName ] );
 				}
 				$refDataMw->body = DataMwBody::new( [
 					'html' => $refFragmentHtml,
@@ -504,7 +505,7 @@ class References {
 		}
 	}
 
-	private function sameRefId( ?DataMw $supDmw, ?string $refName, string $refGroup ): bool {
+	private function sameRefId( ?DataMw $supDmw, string $refName, string $refGroup ): bool {
 		return $refName && ( $supDmw->attrs->name ?? '' ) === $refName
 			&& ( $supDmw->attrs->group ?? '' ) === $refGroup;
 	}

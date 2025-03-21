@@ -86,4 +86,5 @@ class RefGroupItem {
 	/** @var string[] */
 	public array $embeddedNodes = [];
 
+	public int $visibleNodes = 0;
 }

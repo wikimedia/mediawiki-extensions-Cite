@@ -312,6 +312,7 @@
 			"tests/qunit/ve-cite/ve.dm.MWReferenceNode.test.js",
 			"tests/qunit/ve-cite/ve.dm.MWReferencesListNode.test.js",
 			"tests/qunit/ve-cite/ve.dm.Transaction.test.js",
+			"tests/qunit/ve-cite/ve.ce.ClipboardHandler.test.js",
 			"tests/qunit/ve-cite/ve.ui.DiffElement.test.js",
 			"tests/qunit/ve-cite/ve.ui.MWCitationDialogTool.test.js",
 			"tests/qunit/ve-cite/ve.ui.MWReferenceContextItem.test.js",

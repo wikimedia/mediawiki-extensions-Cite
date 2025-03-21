@@ -1,15 +1,12 @@
 {
 	"root": true,
 	"extends": [
-		"../../modules/.eslintrc.json",
+		"wikimedia/client-common",
+		"wikimedia/language/es2018",
+		"wikimedia/jquery",
+		"wikimedia/mediawiki",
 		"wikimedia/qunit"
 	],
-	"parserOptions": {
-		"sourceType": "module"
-	},
-	"env": {
-		"commonjs": true
-	},
 	"rules": {
 		"no-jquery/no-class-state": "off"
 	}

@@ -141,7 +141,9 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$anchorFormatter->method( 'backLink' )->willReturnCallback(
 			static fn ( ...$args ) => implode( '+', $args )
 		);
-		$anchorFormatter->method( 'jumpLinkTarget' )->willReturnArgument( 0 );
+		$anchorFormatter->method( 'jumpLinkTarget' )->willReturnCallback(
+			static fn ( ...$args ) => implode( '+', $args )
+		);
 
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturnArgument( 0 );
@@ -190,7 +192,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'globalId' => 1,
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_one|1|1+|<span class="reference-text">t</span>' . "\n|)"
+				'expectedOutput' => '(cite_references_link_one|+1|+1+1|<span class="reference-text">t</span>' . "\n|)"
 			],
 			'With dir' => [
 				'ref' => [
@@ -199,7 +201,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'globalId' => 1,
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_one|1|1+|<span class="reference-text">t</span>' .
+				'expectedOutput' => '(cite_references_link_one|+1|+1+1|<span class="reference-text">t</span>' .
 					"\n" . '| class="mw-cite-dir-rtl")'
 			],
 			'Incomplete follow' => [
@@ -208,7 +210,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'globalId' => 1,
 					'text' => 't',
 				],
-				'expectedOutput' => "<p id=\"f\"><span class=\"reference-text\">t</span>\n</p>"
+				'expectedOutput' => "<p id=\"f+0\"><span class=\"reference-text\">t</span>\n</p>"
 			],
 			'Count one' => [
 				'ref' => [
@@ -217,7 +219,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'name' => 'a',
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_one|a-5|a+5-0|<span class="reference-text">t</span>'
+				'expectedOutput' => '(cite_references_link_one|a+5|a+5+1|<span class="reference-text">t</span>'
 					. "\n|)"
 			],
 			'Anonymous' => [
@@ -227,7 +229,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'numberInGroup' => 3,
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_one|5|5+|<span class="reference-text">t</span>' . "\n|)"
+				'expectedOutput' => '(cite_references_link_one|+5|+5+1|<span class="reference-text">t</span>' . "\n|)"
 			],
 			'Count many' => [
 				'ref' => [
@@ -237,11 +239,11 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'numberInGroup' => 3,
 					'text' => 't',
 				],
-				'expectedOutput' => '(cite_references_link_many|a-5|(cite_references_link_many_format|a+5-0|3.0|' .
+				'expectedOutput' => '(cite_references_link_many|a+5|(cite_references_link_many_format|a+5+1|3.0|' .
 				'(cite_references_link_many_format_backlink_labels))' .
-				'(cite_references_link_many_sep)(cite_references_link_many_format|a+5-1|3.1|' .
+				'(cite_references_link_many_sep)(cite_references_link_many_format|a+5+2|3.1|' .
 				'3.2)(cite_references_link_many_and)' .
-				'(cite_references_link_many_format|a+5-2|3.2|3.3' .
+				'(cite_references_link_many_format|a+5+3|3.2|3.3' .
 				')|<span class="reference-text">t</span>' . "\n|)"
 			],
 		];

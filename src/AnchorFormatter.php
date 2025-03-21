@@ -15,66 +15,70 @@ class AnchorFormatter {
 	/**
 	 * Generates identifiers for use in backlinks and their targets to jump from the reference list
 	 * back up to one of possibly many footnote markers in the text.
-	 *
-	 * @param string|int $key
-	 * @param string|null $num The number of the key
-	 * @return string
 	 */
-	private function getBackLinkIdentifier( $key, ?string $num ): string {
-		if ( $num !== null ) {
-			$key = $key . '_' . $num;
+	private function getBackLinkIdentifier( ?string $name, int $globalId, int $count ): string {
+		// Note this intentionally drops "0" and such, that's invalid anyway
+		if ( $name ) {
+			// TODO: Can we change this to use the number as it is, without decrementing?
+			$id = "cite_ref-{$name}_$globalId-" . ( $count - 1 );
+		} else {
+			$id = "cite_ref-$globalId";
 		}
-		return $this->normalizeFragmentIdentifier( "cite_ref-$key" );
+		return $this->normalizeFragmentIdentifier( $id );
 	}
 
 	/**
-	 * @param string|int $key
-	 * @param string|null $num
 	 * @return string Escaped to be used as part of a [[#…]] link
 	 */
-	public function backLink( $key, ?string $num = null ): string {
-		$key = $this->getBackLinkIdentifier( $key, $num );
+	public function backLink( ?string $name, int $globalId, int $count ): string {
+		$id = $this->getBackLinkIdentifier( $name, $globalId, $count );
 		// This does both URL encoding (e.g. %A0, which only makes sense in href="…") and HTML
 		// entity encoding (e.g. &#xA0;). The browser will decode in reverse order.
-		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );
+		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $id ) );
 	}
 
 	/**
-	 * @param string|int $key
-	 * @param string|null $num
 	 * @return string Already escaped to be used directly in an id="…" attribute
 	 */
-	public function backLinkTarget( $key, ?string $num ): string {
-		$key = $this->getBackLinkIdentifier( $key, $num );
-		return Sanitizer::safeEncodeAttribute( $key );
+	public function backLinkTarget( ?string $name, int $globalId, int $count ): string {
+		$id = $this->getBackLinkIdentifier( $name, $globalId, $count );
+		return Sanitizer::safeEncodeAttribute( $id );
 	}
 
 	/**
 	 * Generates identifiers for use in reference links and their targets to jump from a footnote
 	 * marker in the text down to the corresponding item in the reference list.
 	 */
-	private function getJumpLinkIdentifier( string $key ): string {
-		return $this->normalizeFragmentIdentifier( "cite_note-$key" );
+	private function getJumpLinkIdentifier( ?string $name, int $globalId ): string {
+		// Note this intentionally drops "0" and such, that's invalid anyway
+		if ( $name ) {
+			$id = "cite_note-$name-$globalId";
+		} else {
+			$id = "cite_note-$globalId";
+		}
+		// TODO: Get rid of this random special case for follow, probably not even needed
+		if ( !$globalId ) {
+			$id = "cite_note-$name";
+		}
+		return $this->normalizeFragmentIdentifier( $id );
 	}
 
 	/**
-	 * @param string $key
 	 * @return string Escaped to be used as part of a [[#…]] link
 	 */
-	public function jumpLink( string $key ): string {
-		$key = $this->getJumpLinkIdentifier( $key );
+	public function jumpLink( ?string $name, int $globalId ): string {
+		$id = $this->getJumpLinkIdentifier( $name, $globalId );
 		// This does both URL encoding (e.g. %A0, which only makes sense in href="…") and HTML
 		// entity encoding (e.g. &#xA0;). The browser will decode in reverse order.
-		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $key ) );
+		return Sanitizer::safeEncodeAttribute( Sanitizer::escapeIdForLink( $id ) );
 	}
 
 	/**
-	 * @param string $key
 	 * @return string Already escaped to be used directly in an id="…" attribute
 	 */
-	public function jumpLinkTarget( string $key ): string {
-		$key = $this->getJumpLinkIdentifier( $key );
-		return Sanitizer::safeEncodeAttribute( $key );
+	public function jumpLinkTarget( ?string $name, int $globalId ): string {
+		$id = $this->getJumpLinkIdentifier( $name, $globalId );
+		return Sanitizer::safeEncodeAttribute( $id );
 	}
 
 	/**

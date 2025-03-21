@@ -140,7 +140,7 @@ class ReferenceListFormatter {
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
 		if ( $ref->follow !== null ) {
-			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $ref->follow ) . '">' . $text . '</p>';
+			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $ref->follow, 0 ) . '">' . $text . '</p>';
 		}
 
 		// Parameter $4 in the cite_references_link_one and cite_references_link_many messages
@@ -153,20 +153,10 @@ class ReferenceListFormatter {
 		}
 
 		if ( $ref->count === 1 ) {
-			if ( $ref->name === null ) {
-				$id = $ref->globalId;
-				$backlinkId = $this->anchorFormatter->backLink( $ref->globalId );
-			} else {
-				$id = $ref->name . '-' . $ref->globalId;
-				$backlinkId = $this->anchorFormatter->backLink(
-					(string)$ref->name,
-					// TODO: Use count without decrementing.
-					$ref->globalId . '-' . ( $ref->count - 1 )
-				);
-			}
+			$backlinkId = $this->anchorFormatter->backLink( $ref->name, $ref->globalId, $ref->count );
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
-				$this->anchorFormatter->jumpLinkTarget( $id ),
+				$this->anchorFormatter->jumpLinkTarget( $ref->name, $ref->globalId ),
 				$backlinkId,
 				$text,
 				$extraAttributes
@@ -182,7 +172,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backLink( (string)$ref->name, $ref->globalId . '-' . $i ),
+					$this->anchorFormatter->backLink( $ref->name, $ref->globalId, $i + 1 ),
 					$this->backlinkMarkRenderer->getLegacyNumericMarker( $i, $ref->count, $parentLabel ),
 					$this->backlinkMarkRenderer->getLegacyAlphabeticMarker( $i + 1, $ref->count, $parentLabel )
 				)->plain();
@@ -191,7 +181,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backLink( (string)$ref->name, $ref->globalId . '-' . $i ),
+					$this->anchorFormatter->backLink( $ref->name, $ref->globalId, $i + 1 ),
 					$backlinkLabel,
 					$backlinkLabel
 				)->plain();
@@ -200,7 +190,7 @@ class ReferenceListFormatter {
 
 		// The parent of a subref might actually be unused and therefore have zero backlinks
 		$linkTargetId = $ref->count > 0 ?
-			$this->anchorFormatter->jumpLinkTarget( $ref->name . '-' . $ref->globalId ) : '';
+			$this->anchorFormatter->jumpLinkTarget( $ref->name, $ref->globalId ) : '';
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
 			$linkTargetId,

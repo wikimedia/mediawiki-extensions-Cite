@@ -22,19 +22,19 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$formatter = new AnchorFormatter();
 
 		$this->assertSame(
-			'cite_ref-key',
-			$formatter->backLink( 'key', null ) );
+			'cite_ref-1',
+			$formatter->backLink( null, 1, 0 ) );
 		$this->assertSame(
-			'cite_ref-key_2',
-			$formatter->backLink( 'key', '2' ) );
+			'cite_ref-name_2-0',
+			$formatter->backLink( 'name', 2, 1 ) );
 	}
 
 	public function testJumpLink() {
 		$formatter = new AnchorFormatter();
 
 		$this->assertSame(
-			'cite_note-key',
-			$formatter->jumpLink( 'key' ) );
+			'cite_note-name-1',
+			$formatter->jumpLink( 'name', 1 ) );
 	}
 
 	/**

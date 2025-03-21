@@ -43,6 +43,7 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 			'de',
 			$mockMessageLocalizer,
 			$mockAlphabetsProvider,
+			null,
 			$config
 		);
 
@@ -88,6 +89,7 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 			'de',
 			$mockMessageLocalizer,
 			$mockAlphabetsProvider,
+			null,
 			$config
 		);
 
@@ -133,6 +135,7 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 			'de',
 			$mockMessageLocalizer,
 			$mockAlphabetsProvider,
+			null,
 			$config
 		);
 

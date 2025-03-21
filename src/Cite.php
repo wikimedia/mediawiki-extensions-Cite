@@ -30,6 +30,7 @@ use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
+use MediaWiki\Registration\ExtensionRegistry;
 use StatusValue;
 
 /**
@@ -73,10 +74,14 @@ class Cite {
 		$markSymbolRenderer = new MarkSymbolRenderer(
 			$messageLocalizer
 		);
+		$services = MediaWikiServices::getInstance();
+		// FIXME: Use the existing 'Cite.BacklinkMarkRenderer' service here?
 		$backlinkMarkRenderer = new BacklinkMarkRenderer(
 			$parser->getContentLanguage()->getCode(),
 			$messageLocalizer,
-			MediaWikiServices::getInstance()->getService( 'Cite.AlphabetsProvider' ),
+			$services->getService( 'Cite.AlphabetsProvider' ),
+			ExtensionRegistry::getInstance()->isLoaded( 'CommunityConfiguration' ) ?
+				$services->getService( 'CommunityConfiguration.ProviderFactory' ) : null,
 			$config
 		);
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(

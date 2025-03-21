@@ -170,6 +170,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 				'en',
 				$mockMessageLocalizer,
 				$mockAlphabetsProvider,
+				null,
 				$config
 			),
 			$mockMessageLocalizer

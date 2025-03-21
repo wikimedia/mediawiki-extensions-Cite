@@ -6,7 +6,7 @@ use MediaWiki\Parser\Sanitizer;
 use StatusValue;
 
 /**
- * Context-aware, detailed validation of the arguments and content of a <ref> tag.
+ * Context-aware, detailed validation of the arguments and content of <ref> and <references> tags.
  *
  * @license GPL-2.0-or-later
  */
@@ -35,8 +35,8 @@ class Validator {
 	/**
 	 * @param array<string,?string> $argv The original arguments from the <ref …> tag
 	 * @param string[] $allowedArguments
-	 * @return StatusValue Either an error, or has a value with the dictionary of argument names
-	 *  and values. Missing arguments are present, but null.
+	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
+	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
 	 */
 	private static function filterArguments( array $argv, array $allowedArguments ): StatusValue {
 		$expected = count( $allowedArguments );
@@ -58,9 +58,13 @@ class Validator {
 	}
 
 	/**
+	 * Filters the raw <ref> arguments and turns them into a predictable format with all
+	 * elements guaranteed to be present.
+	 *
 	 * @param array<string,?string> $argv The original arguments from the <references …> tag
 	 * @param bool $isSubreferenceSupported Temporary feature flag
-	 * @return StatusValue
+	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
+	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
 	 */
 	public static function filterRefArguments(
 		array $argv,
@@ -74,17 +78,26 @@ class Validator {
 	}
 
 	/**
+	 * Filters the raw <references> arguments and turns them into a predictable format with all
+	 * elements guaranteed to be present.
+	 *
 	 * @param array<string,?string> $argv The original arguments from the <references …> tag
-	 * @return StatusValue
+	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
+	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
 	 */
 	public static function filterReferenceListArguments( array $argv ): StatusValue {
 		return self::filterArguments( $argv, [ 'group', 'responsive' ] );
 	}
 
 	/**
+	 * Collection of all validation and sanitization steps that can be done in place while parsing
+	 * a <ref> tag. This excludes failures like "there was never a <ref name=… /> with content" that
+	 * can only be decided at the very end.
+	 *
 	 * @param string|null $text
 	 * @param array{group: ?string, name: ?string, follow: ?string, dir: ?string, details: ?string} $arguments
-	 * @return StatusValue
+	 * @return StatusValue Returns a sanitized version of the dictionary of argument names and
+	 *  values. Some errors are fatals, meaning the <ref> tag shouldn't be used. Some are warnings.
 	 */
 	public function validateRef( ?string $text, array $arguments ): StatusValue {
 		$status = StatusValue::newGood();
@@ -123,6 +136,10 @@ class Validator {
 		return $status->merge( $sanitized, true );
 	}
 
+	/**
+	 * Validation steps specific to <ref> tags outside of (more specifically *before*) a
+	 * <references> tag.
+	 */
 	private function validateRefBeforeReferenceList( ?string $text, array $arguments ): StatusValue {
 		$status = StatusValue::newGood();
 
@@ -165,6 +182,9 @@ class Validator {
 		return $status;
 	}
 
+	/**
+	 * Validation steps specific to <ref> tags inside of a <references> tag.
+	 */
 	private function validateRefInReferenceList( ?string $text, array $arguments ): StatusValue {
 		$status = StatusValue::newGood();
 

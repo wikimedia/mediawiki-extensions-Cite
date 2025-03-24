@@ -20,7 +20,7 @@
 	},
 	"cite-desc": "يضيف وسمي <code>&lt;ref&gt;</code> و<code>&lt;references&gt;</code> للاستشهادات",
 	"cite_error": "خطأ استشهاد: $1",
-	"cite_error_details_missing_parent": "يجب أن تحتوي علامة <code><ref></code> مع التفاصيل على محتوى أو تشير إلى أحد الوالدين بالاسم.",
+	"cite_error_details_missing_parent": "يجب أن تحتوي علامة <code>&lt;ref></code> التي تحتوي على تفاصيل على محتوى أو تشير إلى مرجع رئيسي بالاسم.",
 	"cite_error_details_unsupported_context": "لا يمكن لعلامة <code><ref></code> التي تحمل الاسم \" $1 \" استخدام التفاصيل عندما تكون داخل <code><references></code> .",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> غير صالح؛ يجب أن يكون <code>ltr</code> أو <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "تحتوي إحدى علامات <code>&lt;ref&gt;</code> التي تحمل الاسم \"$1\" على خاصية dir متداخلة.",

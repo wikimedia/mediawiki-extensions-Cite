@@ -140,7 +140,7 @@ class ReferenceListFormatter {
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
 		if ( $ref->follow !== null ) {
-			return '<p id="' . $this->anchorFormatter->jumpLinkTarget( $ref->follow, 0 ) . '">' . $text . '</p>';
+			return "<p>$text</p>";
 		}
 
 		// Parameter $4 in the cite_references_link_one and cite_references_link_many messages

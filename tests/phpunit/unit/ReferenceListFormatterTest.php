@@ -210,7 +210,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 					'globalId' => 1,
 					'text' => 't',
 				],
-				'expectedOutput' => "<p id=\"f+0\"><span class=\"reference-text\">t</span>\n</p>"
+				'expectedOutput' => "<p><span class=\"reference-text\">t</span>\n</p>"
 			],
 			'Count one' => [
 				'ref' => [

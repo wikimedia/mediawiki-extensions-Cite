@@ -632,7 +632,7 @@ class References {
 							'group' => $ref->group,
 						],
 						'body' => (object)[
-							'id' => $ref->noteId,
+							'id' => 'mw-reference-text-' . $ref->noteId,
 						],
 						'isMainWithDetails' => '1',
 					] );

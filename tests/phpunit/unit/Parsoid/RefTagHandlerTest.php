@@ -3,6 +3,7 @@
 namespace Cite\Tests\Unit;
 
 use Cite\Parsoid\RefTagHandler;
+use MediaWiki\Config\HashConfig;
 use MediaWikiUnitTestCase;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\NodeData\DataMw;
@@ -21,7 +22,7 @@ class RefTagHandlerTest extends MediaWikiUnitTestCase {
 		$elt = $doc->createElement( 'a' );
 		DOMDataUtils::setDataMw( $elt, new DataMw( [ 'body' => (object)[ 'html' => 'old' ] ] ) );
 
-		$group = new RefTagHandler();
+		$group = new RefTagHandler( new HashConfig( [ 'CiteSubReferencing' => false ] ) );
 		$group->processAttributeEmbeddedHTML(
 			$this->createNoOpMock( ParsoidExtensionAPI::class ),
 			$elt,

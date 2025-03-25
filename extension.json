@@ -470,7 +470,12 @@
 			"tags": [
 				{
 					"name": "ref",
-					"handler": "Cite\\Parsoid\\RefTagHandler",
+					"handler": {
+						"class": "Cite\\Parsoid\\RefTagHandler",
+						"services": [
+							"MainConfig"
+						]
+					},
 					"options": {
 						"wt2html": {
 							"unpackOutput": false,

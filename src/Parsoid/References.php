@@ -294,7 +294,7 @@ class References {
 					$mainRef->isMainWithDetails = true;
 
 					// @phan-suppress-next-line PhanUndeclaredProperty
-					$refDataMw->mainBody = $mainRef->noteId;
+					$refDataMw->mainBody = 'mw-reference-text-' . $mainRef->noteId;
 
 					if ( $contentId ) {
 						$mainRef->contentId = $contentId;

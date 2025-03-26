@@ -120,7 +120,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 					'dir' => null,
 					'details' => '',
 				],
-				'expected' => null,
+				'expected' => 'cite_error_ref_follow_conflicts',
 			],
 
 			// Validating <ref> outside of <references>
@@ -280,7 +280,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				],
 				'expected' => 'cite_error_details_unsupported_context',
 			],
-			'details in <references> is ignored when empty' => [
+			'empty details in <references>' => [
 				'isKnownName' => true,
 				'inReferencesGroup' => 'g',
 				'isSectionPreview' => false,
@@ -292,7 +292,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 					'dir' => null,
 					'details' => '',
 				],
-				'expected' => null,
+				'expected' => 'cite_error_details_unsupported_context',
 			],
 
 			'Group never used' => [

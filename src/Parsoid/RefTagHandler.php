@@ -6,6 +6,7 @@ namespace Cite\Parsoid;
 
 use Closure;
 use Exception;
+use MediaWiki\Config\Config;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
 use Wikimedia\Parsoid\DOM\Element;
 use Wikimedia\Parsoid\Ext\DOMDataUtils;
@@ -19,6 +20,12 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
  * @license GPL-2.0-or-later
  */
 class RefTagHandler extends ExtensionTagHandler {
+
+	private bool $isSubreferenceSupported;
+
+	public function __construct( Config $mainConfig ) {
+		$this->isSubreferenceSupported = $mainConfig->get( 'CiteSubReferencing' );
+	}
 
 	/** @inheritDoc */
 	public function sourceToDom(
@@ -163,7 +170,7 @@ class RefTagHandler extends ExtensionTagHandler {
 			return ''; // Drop it!
 		}
 
-		if ( isset( $dataMw->attrs->details ) ) {
+		if ( $this->isSubreferenceSupported && isset( $dataMw->attrs->details ) ) {
 			// TODO: maintain original order of attributes
 			// @phan-suppress-next-line PhanUndeclaredProperty
 			$dataMw->attrs->name = $dataMw->mainRef ?? null;

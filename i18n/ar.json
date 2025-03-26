@@ -70,6 +70,7 @@
 	"cite-wikieditor-help-content-reference-example-text1": "نص الصفحة. $1",
 	"cite-wikieditor-help-content-reference-example-text2": "[ $1 نص الرابط]، نص إضافي.",
 	"cite-wikieditor-help-content-reference-example-text3": "[ نص الرابط $1 ]",
+	"cite-wikieditor-help-content-reference-example-ref-id": "اختبار",
 	"cite-wikieditor-help-content-reference-example-extra-details": "تفاصيل إضافية",
 	"cite-configuration-title": "تكوين الاستشهاد",
 	"cite-configuration-info": "تؤثر هذه الإعدادات على جميع الصفحات التي تستخدم Cite. ولا يمكن تعديل هذه الإعدادات إلا بواسطة المسؤولين.",

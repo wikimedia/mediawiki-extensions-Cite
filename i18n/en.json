@@ -40,6 +40,8 @@
 	"cite-tracking-category-cite-error-desc": "Pages in this category have errors in the usage of references tags.",
 	"cite-tracking-category-cite-diffing-error": "Pages with reference errors that trigger visual diffs",
 	"cite-tracking-category-cite-diffing-error-desc": "Pages in this category have errors in the usage of references tags, and these errors are not rendered in the same way in the legacy parser and in Parsoid.",
+	"cite-tracking-category-ref-details": "Pages that use sub-references",
+	"cite-tracking-category-ref-details-desc": "Pages in this category use the \"details\" attribute of the &lt;ref> tag.",
 	"cite-reference-previews-reference": "Reference",
 	"cite-reference-previews-book": "Book reference",
 	"cite-reference-previews-journal": "Journal reference",

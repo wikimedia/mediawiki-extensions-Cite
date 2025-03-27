@@ -10,6 +10,7 @@ use Cite\ReferenceStack;
 use Cite\Tests\TestUtils;
 use Cite\Validator;
 use LogicException;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Language\Language;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
@@ -392,6 +393,26 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @covers ::guardedRef
+	 */
+	public function testGuardedRef_detailsUsageTracking() {
+		$mockParser = $this->createMock( Parser::class );
+		$mockParser->expects( $this->once() )
+			->method( 'addTrackingCategory' )
+			->with( Cite::DETAILS_TRACKING_CATEGORY );
+		$mockParser->method( 'getStripState' )
+			->willReturn( $this->createMock( StripState::class ) );
+		$mockParser->method( 'recursiveTagParse' )
+			->willReturn( '' );
+
+		$cite = $this->newCite();
+		/** @var Cite $cite */
+		$cite = TestingAccessWrapper::newFromObject( $cite );
+		$cite->guardedRef( $mockParser, 'text', [ 'details' => 'foo' ] );
+	}
+
+	/**
+	 *
 	 * @coversNothing
 	 */
 	public function testReferencesSectionPreview() {
@@ -405,7 +426,11 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$parser->method( 'getOptions' )->willReturn( $parserOptions );
 		$parser->method( 'getContentLanguage' )->willReturn( $language );
 
-		$config = $this->getServiceContainer()->getMainConfig();
+		$config = new HashConfig( [
+			'CiteBacklinkCommunityConfiguration' => false,
+			'CiteDefaultBacklinkAlphabet' => null,
+			'CiteSubReferencing' => false,
+		] );
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( new Cite( $parser, $config ) );
 		// Assume the currently parsed <ref> is wrapped in <references>
@@ -427,8 +452,9 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	private function newCite( bool $isSectionPreview = false ): Cite {
-		$language = $this->createNoOpMock( Language::class, [ '__debugInfo', 'getCode' ] );
+		$language = $this->createNoOpMock( Language::class, [ '__debugInfo', 'getCode', 'formatNumNoSeparators' ] );
 		$language->method( 'getCode' )->willReturn( 'en' );
+		$language->method( 'formatNumNoSeparators' )->willReturn( '' );
 
 		$mockOptions = $this->createMock( ParserOptions::class );
 		$mockOptions->method( 'getIsSectionPreview' )->willReturn( $isSectionPreview );
@@ -436,7 +462,12 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getContentLanguage' ] );
 		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
 		$mockParser->method( 'getContentLanguage' )->willReturn( $language );
-		$config = $this->getServiceContainer()->getMainConfig();
+		$config = new HashConfig( [
+			'CiteBacklinkCommunityConfiguration' => false,
+			'CiteDefaultBacklinkAlphabet' => null,
+			'CiteResponsiveReferences' => false,
+			'CiteSubReferencing' => true,
+		] );
 		return new Cite( $mockParser, $config );
 	}
 

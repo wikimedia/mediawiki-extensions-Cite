@@ -57,5 +57,6 @@
 	"cite-wikieditor-help-content-showreferences-description": "اعرض المراجع",
 	"cite-wikieditor-help-content-reference-example-text1": "نص الصفحة. $1",
 	"cite-wikieditor-help-content-reference-example-text2": "[ $1 نص الرابط]، نص إضافي.",
-	"cite-wikieditor-help-content-reference-example-text3": "[ نص الرابط $1 ]"
+	"cite-wikieditor-help-content-reference-example-text3": "[ نص الرابط $1 ]",
+	"cite-wikieditor-help-content-reference-example-ref-id": "اختبار"
 }

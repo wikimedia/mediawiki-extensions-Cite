@@ -56,10 +56,6 @@ class AnchorFormatter {
 		} else {
 			$id = "cite_note-$globalId";
 		}
-		// TODO: Get rid of this random special case for follow, probably not even needed
-		if ( !$globalId ) {
-			$id = "cite_note-$name";
-		}
 		return $this->normalizeFragmentIdentifier( $id );
 	}
 

@@ -559,7 +559,7 @@ It's not possible to follow="…" a <ref> defined in the <references> section
 </references>
 !! html/php
 <div class="mw-references-wrap"><ol class="references">
-<p id="cite_note-theName"><span class="reference-text">theFollows</span>
+<p><span class="reference-text">theFollows</span>
 </p>
 </ol></div>
 <p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "theName" defined in <code>&lt;references&gt;</code> is not used in prior text.</span>
@@ -582,7 +582,7 @@ A follow="…" before its parent is not merged
 <p><sup id="cite_ref-theName_2-0" class="reference"><a href="#cite_note-theName-2"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<p id="cite_note-theName"><span class="reference-text"><i>theFollows</i></span>
+<p><span class="reference-text"><i>theFollows</i></span>
 </p>
 <li id="cite_note-theName-2"><span class="mw-cite-backlink"><a href="#cite_ref-theName_2-0">↑</a></span> <span class="reference-text"><i>theValue</i></span>
 </li>
@@ -609,7 +609,7 @@ A follow="…" before its parent is not merged
 </p>
 <hr />
 <div class="mw-references-wrap"><ol class="references">
-<p id="cite_note-third"><span class="reference-text">Second</span>
+<p><span class="reference-text">Second</span>
 </p>
 <li id="cite_note-first-1"><span class="mw-cite-backlink"><a href="#cite_ref-first_1-0">↑</a></span> <span class="reference-text">First</span>
 </li>
@@ -638,7 +638,7 @@ A follow="…" before its parent is not merged
 </p>
 <hr />
 <div class="mw-references-wrap"><ol class="references">
-<p id="cite_note-third"><span class="reference-text">Second</span>
+<p><span class="reference-text">Second</span>
 </p>
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">First</span>
 </li>

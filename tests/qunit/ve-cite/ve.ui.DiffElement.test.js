@@ -18,7 +18,7 @@ QUnit.test( 'Diffing', ( assert ) => {
 			};
 
 			return '<sup typeof="mw:Extension/ref" data-mw="' + JSON.stringify( dataMw ).replace( /"/g, '&quot;' ) + '" class="mw-ref reference">' +
-						'<a style="counter-reset: mw-Ref ' + num + ';"><span class="mw-reflink-text">[' + num + ']</span></a>' +
+						'<a><span class="mw-reflink-text">[' + num + ']</span></a>' +
 					'</sup>';
 		},
 		cases = [

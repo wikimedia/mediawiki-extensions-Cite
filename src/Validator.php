@@ -117,7 +117,8 @@ class Validator {
 			$status->fatal( 'cite_error_ref_numeric_key' );
 		}
 
-		if ( $follow && ( $name || ( $arguments['details'] ?? '' ) !== '' ) ) {
+		// The details attribute is a marker and shouldn't be ignored, even if empty
+		if ( $follow && ( $name || isset( $arguments['details'] ) ) ) {
 			$status->fatal( 'cite_error_ref_follow_conflicts' );
 		}
 
@@ -144,12 +145,12 @@ class Validator {
 		$status = StatusValue::newGood();
 
 		$name = (string)$arguments['name'];
-		$details = $arguments['details'] ?? null;
 
 		if ( !$name ) {
 			$isSelfClosingTag = $text === null;
 			$containsText = trim( $text ?? '' ) !== '';
-			if ( $details !== null && !$containsText ) {
+			// The details attribute is a marker and shouldn't be ignored, even if empty
+			if ( isset( $arguments['details'] ) && !$containsText ) {
 				$status->fatal( 'cite_error_details_missing_parent' );
 			} elseif ( $isSelfClosingTag ) {
 				// Completely empty ref like <ref /> is forbidden.
@@ -190,9 +191,9 @@ class Validator {
 
 		$group = $arguments['group'];
 		$name = (string)$arguments['name'];
-		$details = $arguments['details'] ?? null;
 
-		if ( $details !== null && $details !== '' ) {
+		// The details attribute is a marker and shouldn't be ignored, even if empty
+		if ( isset( $arguments['details'] ) ) {
 			$arguments['details'] = null;
 			$status->warning( 'cite_error_details_unsupported_context',
 				Sanitizer::safeEncodeAttribute( $name )

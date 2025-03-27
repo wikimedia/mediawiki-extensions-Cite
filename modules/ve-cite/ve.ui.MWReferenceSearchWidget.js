@@ -267,7 +267,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchResults = function ( query ) 
 
 	for ( let i = 0; i < this.index.length; i++ ) {
 		const item = this.index[ i ];
-		if ( item.searchableText.indexOf( query ) >= 0 ) {
+		if ( item.searchableText.includes( query ) ) {
 			results.push(
 				new ve.ui.MWReferenceResultWidget( {
 					item: item,

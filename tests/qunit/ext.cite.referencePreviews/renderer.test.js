@@ -4,7 +4,7 @@
 	let createReferencePreview;
 	const previewTypes = { TYPE_REFERENCE: 'reference' };
 
-	( mw.loader.getModuleNames().indexOf( 'ext.popups.main' ) !== -1 ?
+	( mw.loader.getModuleNames().includes( 'ext.popups.main' ) ?
 		QUnit.module :
 		QUnit.module.skip )( 'ext.cite.referencePreviews#renderer', {
 		before() {

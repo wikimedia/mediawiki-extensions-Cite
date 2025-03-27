@@ -126,7 +126,7 @@ ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsCha
 		return;
 	}
 	// Only update if this group has been changed
-	if ( groupsChanged.indexOf( this.getModel().getAttribute( 'listGroup' ) ) !== -1 ) {
+	if ( groupsChanged.includes( this.getModel().getAttribute( 'listGroup' ) ) ) {
 		this.modified = true;
 		this.updateDebounced();
 	}

@@ -74,7 +74,7 @@ module.exports = function createReferenceGateway() {
 			}
 			const classNames = element.className.split( /\s+/ );
 			for ( let i = classNames.length; i--; ) {
-				if ( KNOWN_TYPES.indexOf( classNames[ i ] ) !== -1 ) {
+				if ( KNOWN_TYPES.includes( classNames[ i ] ) ) {
 					type = classNames[ i ];
 					return false;
 				}

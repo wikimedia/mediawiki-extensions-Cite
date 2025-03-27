@@ -158,7 +158,7 @@ ve.ui.MWReferenceEditPanel.static.excludeCommands = [
  */
 ve.ui.MWReferenceEditPanel.static.getExcludeCommands = function () {
 	const citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry )
-		.filter( ( command ) => command.indexOf( 'cite-' ) !== -1 );
+		.filter( ( command ) => command.includes( 'cite-' ) );
 
 	return ve.ui.MWReferenceEditPanel.static.excludeCommands.concat( citeCommands );
 };

@@ -11,12 +11,12 @@
 	const modifiedToolbarGroups = [];
 
 	mw.hook( 've.newTarget' ).add( ( target ) => {
-		// eslint-disable-next-line es-x/no-array-prototype-includes
+
 		if ( ![ 'article', 'cx' ].includes( target.constructor.static.name ) ) {
 			return;
 		}
 		const toolbarGroups = target.constructor.static.toolbarGroups;
-		// eslint-disable-next-line es-x/no-array-prototype-includes
+
 		if ( modifiedToolbarGroups.includes( toolbarGroups ) ) {
 			return;
 		}

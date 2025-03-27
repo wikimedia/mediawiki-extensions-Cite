@@ -63,7 +63,7 @@ export function openVECiteReuseDialog() {
 	cy.get( '.ve-ui-toolbar .oo-ui-tool-name-reference-existing' ).click();
 }
 
-export function openVECiteoidReuseDialog() {
+export function openVECitoidReuseDialog() {
 	cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 	// TODO: Sometimes enabling the tab does not work right away.
 	// eslint-disable-next-line cypress/no-unnecessary-waiting

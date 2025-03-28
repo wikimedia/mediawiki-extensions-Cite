@@ -333,15 +333,9 @@ class References {
 		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
 			$hasDifferingHtml ) ?? $refFragmentHtml;
 
-		$supParent = DOMUtils::findAncestorOfName( $node, 'sup' );
-		while ( $supParent ) {
-			$supDmw = DOMDataUtils::getDataMw( $supParent );
-			if ( $this->sameRefId( $supDmw, $refName, $groupName ) ) {
-				$errs[] = new DataMwError( 'cite_error_included_ref' );
-				ErrorUtils::addErrorsToNode( $supParent, $errs );
-				return;
-			}
-			$supParent = DOMUtils::findAncestorOfName( $supParent, 'sup' );
+		if ( $this->isNestedInSupWithSameGroupAndName( $node, $groupName, $refName ) ) {
+			$errs[] = new DataMwError( 'cite_error_included_ref' );
+			ErrorUtils::addErrorsToNode( $node, $errs );
 		}
 
 		// Add ref-index linkback
@@ -504,18 +498,8 @@ class References {
 
 		// Checking if the <ref> is nested in a link
 		$aParent = DOMUtils::findAncestorOfName( $node, 'a' );
-		if ( $aParent !== null ) {
-			// If we find a parent link, we hoist the reference up, just after the link
-			// But if there's multiple references in a single link, we want to insert in order -
-			// so we look for other misnested references before inserting
-			$insertionPoint = $aParent->nextSibling;
-			while ( $insertionPoint instanceof Element &&
-				DOMCompat::nodeName( $insertionPoint ) === 'sup' &&
-				!empty( DOMDataUtils::getDataParsoid( $insertionPoint )->misnested )
-			) {
-				$insertionPoint = $insertionPoint->nextSibling;
-			}
-			$aParent->parentNode->insertBefore( $linkBackSup, $insertionPoint );
+		if ( $aParent ) {
+			$this->insertChildOutsideOfLink( $linkBackSup, $aParent );
 			// set misnested to true and DSR to zero-sized to avoid round-tripping issues
 			$dsrOffset = DOMDataUtils::getDataParsoid( $aParent )->dsr->end ?? null;
 			// we created that node hierarchy above, so we know that it only contains these nodes,
@@ -523,10 +507,6 @@ class References {
 			self::setMisnested( $linkBackSup, $dsrOffset );
 			self::setMisnested( $refLink, $dsrOffset );
 			self::setMisnested( $refLinkSpan, $dsrOffset );
-			$parentAbout = DOMCompat::getAttribute( $aParent, 'about' );
-			if ( $parentAbout !== null ) {
-				$linkBackSup->setAttribute( 'about', $parentAbout );
-			}
 			$node->parentNode->removeChild( $node );
 		} else {
 			// if not, we insert it where we planned in the first place
@@ -544,9 +524,44 @@ class References {
 		}
 	}
 
-	private function sameRefId( ?DataMw $supDmw, string $refName, string $refGroup ): bool {
-		return $refName && ( $supDmw->attrs->name ?? '' ) === $refName
-			&& ( $supDmw->attrs->group ?? '' ) === $refGroup;
+	private function insertChildOutsideOfLink( Element $linkBackSup, Element $aParent ): void {
+		// If we find a parent link, we hoist the reference up, just after the link
+		// But if there's multiple references in a single link, we want to insert in order -
+		// so we look for other misnested references before inserting
+		$insertionPoint = $aParent->nextSibling;
+		while ( $insertionPoint instanceof Element &&
+			DOMCompat::nodeName( $insertionPoint ) === 'sup' &&
+			!empty( DOMDataUtils::getDataParsoid( $insertionPoint )->misnested )
+		) {
+			$insertionPoint = $insertionPoint->nextSibling;
+		}
+		$aParent->parentNode->insertBefore( $linkBackSup, $insertionPoint );
+
+		// Mark the two now un-nested elements as a DOM forest that belongs together
+		$parentAbout = DOMCompat::getAttribute( $aParent, 'about' );
+		if ( $parentAbout !== null ) {
+			$linkBackSup->setAttribute( 'about', $parentAbout );
+		}
+	}
+
+	private function isNestedInSupWithSameGroupAndName( Element $node, string $groupName, string $refName ): bool {
+		// Nothing to compare with
+		if ( !$refName ) {
+			return false;
+		}
+
+		$supNode = DOMUtils::findAncestorOfName( $node, 'sup' );
+		while ( $supNode ) {
+			$dataMw = DOMDataUtils::getDataMw( $supNode );
+			if ( $dataMw &&
+				( $dataMw->attrs->group ?? '' ) === $groupName &&
+				( $dataMw->attrs->name ?? '' ) === $refName
+			) {
+				return true;
+			}
+			$supNode = DOMUtils::findAncestorOfName( $supNode, 'sup' );
+		}
+		return false;
 	}
 
 	/**

@@ -25,6 +25,7 @@ ve.ce.MWReferencesListNode = function VeCeMWReferencesListNode() {
 
 	// Properties
 	this.modified = false;
+	this.interactive = false;
 
 	// DOM changes
 	this.$element.addClass( 've-ce-mwReferencesListNode' );
@@ -76,9 +77,10 @@ ve.ce.MWReferencesListNode.static.getDescription = function ( model ) {
  * @see ve.ce.FocusableNode
  */
 ve.ce.MWReferencesListNode.prototype.getExtraHighlightClasses = function () {
-	return ve.ce.FocusableNode.prototype
-		.getExtraHighlightClasses.apply( this, arguments )
-		.concat( [ 've-ce-mwReferencesListNode-highlight' ] );
+	const classes = ve.ce.FocusableNode.prototype.getExtraHighlightClasses.apply( this, arguments );
+	return this.interactive ?
+		classes.concat( [ 've-ce-mwReferencesListNode-highlight' ] ) :
+		classes;
 };
 
 /* Methods */
@@ -169,6 +171,8 @@ ve.ce.MWReferencesListNode.prototype.onListNodeUpdate = function () {
 ve.ce.MWReferencesListNode.prototype.update = function () {
 	const model = this.getModel();
 
+	this.interactive = false;
+
 	// Check the node hasn't been destroyed, as this method is debounced.
 	if ( !model ) {
 		return;
@@ -245,6 +249,8 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 					groupRefs, refGroup, listKey
 				) )
 		);
+
+		this.interactive = true;
 
 		this.updateClasses();
 		this.$element.append( this.$reflist );

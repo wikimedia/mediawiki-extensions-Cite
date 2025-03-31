@@ -12,7 +12,7 @@
 	"cite_error_ref_numeric_key": "Vigane <code>&lt;ref&gt;</code>-silt. Nimeparameeter ei tohi olla numbriline. Kasuta kirjeldavat nime.",
 	"cite_error_ref_no_key": "Algussilt <code>&lt;ref&gt;</code> on väärdunud või selle nimi on vigane.",
 	"cite_error_ref_too_many_keys": "Sildi <code>&lt;ref&gt;</code> vigane parameeter.",
-	"cite_error_ref_follow_conflicts": "Silt <code>&lt;ref follow=\"…\"&gt;</code>, mis on eelmise jätk, ei saa olla omaette nimega",
+	"cite_error_ref_follow_conflicts": "Silt <code>&lt;ref follow=\"…\"&gt;</code>, mis on eelmise jätk, ei saa olla omaette nimega ja sellel ei saa olla üksikasju.",
 	"cite_error_ref_no_input": "Vigane <code>&lt;ref&gt;</code>-silt. Nimeta viitamissiltidel peab olema sisu.",
 	"cite_error_references_duplicate_key": "Vigane <code>&lt;ref&gt;</code>-silt; nime \"$1\" on määratud mitu korda erineva sisuga.",
 	"cite_error_references_invalid_parameters": "Sildi <code>&lt;references&gt;</code> vigane parameeter",

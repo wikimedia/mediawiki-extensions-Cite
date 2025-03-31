@@ -144,12 +144,8 @@ class ReferencesData {
 		$parentRef = $group->indexByName[$parentName] ?? null;
 		if ( $parentRef ) {
 			$ref->numberInGroup = $parentRef->numberInGroup;
-			$ref->subrefIndex = $group->getNextSubrefSequence( $parentName );
-		} else {
-			// TODO: create placeholders to allow details to be
-			// used before the parent.
-			$ref->numberInGroup = $group->getNextIndex();
 		}
+		$ref->subrefIndex = $group->getNextSubrefSequence( $parentName );
 		$ref->globalId = $refKey;
 		$ref->backLinkIdBase = $refIdBase;
 		$ref->noteId = $noteId;

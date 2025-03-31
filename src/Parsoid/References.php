@@ -281,6 +281,7 @@ class References {
 		// handle standalone subref
 		if ( $hasDetails && $refName && !isset( $refDataMw->body ) && $ref ) {
 			$ref = $referencesData->addSubref( $groupName, $refName, $refDir );
+
 			// @phan-suppress-next-line PhanUndeclaredProperty
 			$refDataMw->mainRef = $refName;
 			$ref->contentId = null;
@@ -296,24 +297,33 @@ class References {
 		}
 
 		// Split subref and main ref; add main ref as a list-defined reference
-		if ( $hasDetails && $refName && isset( $refDataMw->body ) ) {
-			// Add the main ref directly as a list-defined ref.
-			$mainRef = $referencesData->add( $groupName, $refName, $refDir );
-			$mainRef->isMainWithDetails = true;
-			// Create a ref entry if needed (should always be needed, but main
-			// ref cannot be found by name in this iteration).
-			if ( !$ref ) {
-				$ref = $referencesData->addSubref( $groupName, $refName, $refDir );
-			}
-			// Move content to main ref.
-			if ( $contentId ) {
-				$mainRef->contentId = $contentId;
-				$ref->contentId = null;
-				$contentId = null;
-				// Flag to help reserialize main ref content into the subref when saving.
+		if ( $hasDetails && $refName ) {
+			if ( !$ref && isset( $refDataMw->body ) ) {
+				// Add the main ref directly as a list-defined ref.
+				$mainRef = $referencesData->add( $groupName, $refName, $refDir );
+				$mainRef->isMainWithDetails = true;
+
+				// @phan-suppress-next-line PhanUndeclaredProperty
+				$refDataMw->mainBody = $mainRef->noteId;
+
+				// Create a ref entry if needed (should always be needed, but main
+				// ref cannot be found by name in this iteration).
+				if ( $contentId ) {
+					$mainRef->contentId = $contentId;
+					// Flag to help reserialize main ref content into the subref when saving.
+					// @phan-suppress-next-line PhanUndeclaredProperty
+					$refDataMw->isMainRefBodyWithDetails = '1';
+				}
+			} elseif ( !$ref ) {
+				$mainRef = $referencesData->add( $groupName, $refName, $refDir );
+			} elseif ( isset( $refDataMw->body ) ) {
 				// @phan-suppress-next-line PhanUndeclaredProperty
 				$refDataMw->isMainRefBodyWithDetails = '1';
 			}
+			$contentId = null;
+			$ref = $referencesData->addSubref( $groupName, $refName, $refDir );
+			// Move content to main ref.
+
 			// Move details attribute into subref content.
 			$ref->externalFragment = $extApi->wikitextToDOM( $details, [
 				'processInNewFrame' => true,
@@ -325,8 +335,6 @@ class References {
 			unset( $refDataMw->attrs->name );
 			// @phan-suppress-next-line PhanUndeclaredProperty
 			$refDataMw->mainRef = $refName;
-			// @phan-suppress-next-line PhanUndeclaredProperty
-			$refDataMw->mainBody = $mainRef->noteId;
 			$refName = '';
 		}
 

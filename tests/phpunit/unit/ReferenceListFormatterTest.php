@@ -160,7 +160,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$mockAlphabetsProvider->method( 'getIndexCharacters' )->willReturn( [ 'z', 'y', 'x' ] );
 
 		$config = new HashConfig( [
-			'CiteDefaultBacklinkAlphabet' => false,
+			'CiteDefaultBacklinkAlphabet' => null,
 			'CiteUseLegacyBacklinkLabels' => true,
 		] );
 

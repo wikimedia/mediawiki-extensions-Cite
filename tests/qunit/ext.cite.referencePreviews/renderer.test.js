@@ -4,21 +4,14 @@
 	let createReferencePreview;
 	const previewTypes = { TYPE_REFERENCE: 'reference' };
 
-	( mw.loader.getModuleNames().includes( 'ext.popups.main' ) ?
-		QUnit.module :
-		QUnit.module.skip )( 'ext.cite.referencePreviews#renderer', {
-		before() {
-			createReferencePreview = require( 'ext.cite.referencePreviews' ).private.createReferencePreview;
-		},
-		beforeEach: function () {
-			this.sandbox.stub( mw, 'msg', ( key ) => `<${ key }>` );
-			this.sandbox.stub( mw, 'message', ( key ) => ( {
-				exists: () => !key.endsWith( 'generic' ),
-				text: () => `<${ key }>`
-			} ) );
-			this.sandbox.stub( mw.html, 'escape', ( str ) => str && str.replace( /'/g, '&apos;' ).replace( /</g, '&lt;' ) );
+	QUnit.module.if( 'ext.cite.referencePreviews#renderer',
+		mw.loader.getModuleNames().includes( 'ext.popups.main' ),
+		{
+			before() {
+				createReferencePreview = require( 'ext.cite.referencePreviews' ).private.createReferencePreview;
+			}
 		}
-	} );
+	);
 
 	QUnit.test( 'createReferencePreview(model)', ( assert ) => {
 		const model = {
@@ -34,7 +27,7 @@
 
 		assert.strictEqual(
 			$( preview.el ).find( '.mwe-popups-title' ).text().trim(),
-			'<cite-reference-previews-web>'
+			'(cite-reference-previews-web)'
 		);
 		assert.strictEqual(
 			$( preview.el ).find( '.mw-parser-output' ).text().trim(),
@@ -57,7 +50,7 @@
 
 		assert.strictEqual(
 			$( preview.el ).find( '.mwe-popups-title' ).text().trim(),
-			'<cite-reference-previews-reference>'
+			'(cite-reference-previews-reference)'
 		);
 	} );
 
@@ -90,7 +83,7 @@
 		assert.strictEqual( $( preview.el ).find( 'th' ).attr( 'title' ), undefined );
 		assert.strictEqual(
 			$( preview.el ).find( '.mwe-collapsible-placeholder' ).text(),
-			'<cite-reference-previews-collapsible-placeholder>'
+			'(cite-reference-previews-collapsible-placeholder)'
 		);
 	} );
 }() );

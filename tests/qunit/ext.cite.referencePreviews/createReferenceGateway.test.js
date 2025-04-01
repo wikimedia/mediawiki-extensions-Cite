@@ -9,52 +9,47 @@
 		};
 	}
 
-	( mw.loader.getModuleNames().includes( 'ext.popups.main' ) ?
-		QUnit.module :
-		QUnit.module.skip )( 'ext.cite.referencePreviews#createReferenceGateway', {
-		beforeEach: function () {
-			this.sandbox.stub( mw, 'msg', ( key ) => `<${ key }>` );
-			this.sandbox.stub( mw, 'message', ( key ) => ( {
-				exists: () => !key.endsWith( 'generic' ),
-				text: () => `<${ key }>`
-			} ) );
+	QUnit.module.if( 'ext.cite.referencePreviews#createReferenceGateway',
+		mw.loader.getModuleNames().includes( 'ext.popups.main' ),
+		{
+			beforeEach: function () {
+				this.$sourceElement = $( '<a>' ).appendTo(
+					$( '<sup>' ).attr( 'id', 'cite_ref-1' ).appendTo( document.body )
+				);
 
-			this.$sourceElement = $( '<a>' ).appendTo(
-				$( '<sup>' ).attr( 'id', 'cite_ref-1' ).appendTo( document.body )
-			);
-
-			this.$references = $( '<ul>' ).append(
-				$( '<li>' ).attr( 'id', 'cite_note-1' ).append(
-					$( '<span>' ).addClass( 'mw-reference-text' ).text( 'Footnote 1' )
-				),
-				$( '<li>' ).attr( 'id', 'cite_note-2' ).append(
-					$( '<span>' ).addClass( 'reference-text' ).append(
-						$( '<cite>' ).addClass( 'journal web unknown' ).text( 'Footnote 2' )
+				this.$references = $( '<ul>' ).append(
+					$( '<li>' ).attr( 'id', 'cite_note-1' ).append(
+						$( '<span>' ).addClass( 'mw-reference-text' ).text( 'Footnote 1' )
+					),
+					$( '<li>' ).attr( 'id', 'cite_note-2' ).append(
+						$( '<span>' ).addClass( 'reference-text' ).append(
+							$( '<cite>' ).addClass( 'journal web unknown' ).text( 'Footnote 2' )
+						)
+					),
+					$( '<li>' ).attr( 'id', 'cite_note-3' ).append(
+						$( '<span>' ).addClass( 'reference-text' ).append(
+							$( '<cite>' ).addClass( 'news' ).text( 'Footnote 3' ),
+							$( '<cite>' ).addClass( 'news citation' ),
+							$( '<cite>' ).addClass( 'citation' )
+						)
+					),
+					$( '<li>' ).attr( 'id', 'cite_note-4' ).append(
+						$( '<span>' ).addClass( 'reference-text' ).append(
+							$( '<cite>' ).addClass( 'news' ).text( 'Footnote 4' ),
+							$( '<cite>' ).addClass( 'web' )
+						)
+					),
+					$( '<li>' ).attr( 'id', 'cite_note-5' ).append(
+						$( '<span>' ).addClass( 'mw-reference-text' ).html( '&nbsp;' )
 					)
-				),
-				$( '<li>' ).attr( 'id', 'cite_note-3' ).append(
-					$( '<span>' ).addClass( 'reference-text' ).append(
-						$( '<cite>' ).addClass( 'news' ).text( 'Footnote 3' ),
-						$( '<cite>' ).addClass( 'news citation' ),
-						$( '<cite>' ).addClass( 'citation' )
-					)
-				),
-				$( '<li>' ).attr( 'id', 'cite_note-4' ).append(
-					$( '<span>' ).addClass( 'reference-text' ).append(
-						$( '<cite>' ).addClass( 'news' ).text( 'Footnote 4' ),
-						$( '<cite>' ).addClass( 'web' )
-					)
-				),
-				$( '<li>' ).attr( 'id', 'cite_note-5' ).append(
-					$( '<span>' ).addClass( 'mw-reference-text' ).html( '&nbsp;' )
-				)
-			).appendTo( document.body );
-		},
-		afterEach() {
-			this.$sourceElement.parent().remove();
-			this.$references.remove();
+				).appendTo( document.body );
+			},
+			afterEach() {
+				this.$sourceElement.parent().remove();
+				this.$references.remove();
+			}
 		}
-	} );
+	);
 
 	QUnit.test( 'Reference preview gateway returns the correct data', function ( assert ) {
 		const gateway = require( 'ext.cite.referencePreviews' ).private.createReferenceGateway(),

@@ -23,9 +23,8 @@
 
 	const options = { get: () => '1' };
 
-	( mw.loader.getModuleNames().includes( 'ext.popups.main' ) ?
-		QUnit.module :
-		QUnit.module.skip )( 'ext.cite.referencePreviews#isReferencePreviewsEnabled' );
+	QUnit.module.if( 'ext.cite.referencePreviews#isReferencePreviewsEnabled',
+		mw.loader.getModuleNames().includes( 'ext.popups.main' ) );
 
 	QUnit.test( 'relevant combinations of anonymous flags', ( assert ) => {
 		[

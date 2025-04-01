@@ -48,6 +48,7 @@ class RemoveParsoidGroupStyling extends Maintenance {
 		parent::__construct();
 		$this->addDescription( 'Remove deprecated Parsoid Cite CSS rules' );
 		$this->addOption( 'dry-run', 'Don\'t make changes' );
+		$this->addOption( 'remove-comments', 'Also remove specific known comments' );
 		$this->addOption( 'title', 'Title to edit, defaults to MediaWiki:Common.css', false, true );
 		$this->addOption( 'user', 'Username', false, true, 'u' );
 	}
@@ -56,6 +57,7 @@ class RemoveParsoidGroupStyling extends Maintenance {
 		$userName = $this->getOption( 'user', false );
 		$dryRun = $this->getOption( 'dry-run', false );
 		$titleText = $this->getOption( 'title', 'MediaWiki:Common.css' );
+		$removeKnownComments = $this->getOption( 'remove-comments', false );
 
 		if ( $userName === false ) {
 			$user = User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] );
@@ -83,6 +85,9 @@ class RemoveParsoidGroupStyling extends Maintenance {
 				$text = $content->getText();
 
 				$newText = $this->removeStyling( $text );
+				if ( $removeKnownComments ) {
+					$newText = $this->removeKnownComments( $newText );
+				}
 				$unifiedDiff = $this->calculateDiff( $text, $newText );
 				if ( $unifiedDiff === '' ) {
 					$this->output( "Nothing to change.\n" );
@@ -117,6 +122,13 @@ class RemoveParsoidGroupStyling extends Maintenance {
 			content:[^:{}]+ # Must only set this one attribute.
 			\s*}(?:\h*\n|$)
 			/msx', '', $text );
+	}
+
+	private static function removeKnownComments( string $text ): string {
+		return str_replace( [
+			"/* T156351: Support for Parsoid's Cite implementation */\n",
+			"/* These blocks need review after [[phab:T371839]] or related are complete */\n",
+		], '', $text );
 	}
 
 	private static function calculateDiff( string $oldText, string $newText ): string {

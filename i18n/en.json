@@ -23,6 +23,7 @@
 	"cite_error_ref_conflicting_dir": "One of the <code>&lt;ref&gt;</code> tags with the name \"$1\" does have a conflicting dir attribute.",
 	"cite_error_ref_numeric_key": "Invalid <code>&lt;ref&gt;</code> tag; name cannot be a simple integer. Use a descriptive title",
 	"cite_error_ref_no_key": "The opening <code>&lt;ref&gt;</code> tag is malformed or has a bad name",
+	"cite_error_ref_with_details_no_name": "Invalid <code>&lt;ref></code> tag; missing name attribute. A name attribute must be provided along with a details attribute.",
 	"cite_error_ref_too_many_keys": "Invalid parameter in <code>&lt;ref&gt;</code> tag",
 	"cite_error_ref_follow_conflicts": "A <code>&lt;ref follow=\"…\"&gt;</code> tag that is the continuation of a previous one cannot be named individually or have details.",
 	"cite_error_ref_no_input": "Invalid <code>&lt;ref&gt;</code> tag; refs with no name must have content",

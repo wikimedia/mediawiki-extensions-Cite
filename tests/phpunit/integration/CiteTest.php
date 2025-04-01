@@ -420,7 +420,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$cite = $this->newCite( $mockParser );
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( $cite );
-		$cite->guardedRef( $mockParser, 'text', [ 'details' => 'foo' ] );
+		$cite->guardedRef( $mockParser, 'text', [ 'name' => 'a', 'details' => 'foo' ] );
 	}
 
 	/**

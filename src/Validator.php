@@ -142,6 +142,9 @@ class Validator {
 			// The details attribute is a marker and shouldn't be ignored, even if empty
 			if ( isset( $arguments['details'] ) && !$containsText ) {
 				$status->fatal( 'cite_error_details_missing_parent' );
+			} elseif ( (string)$arguments['details'] !== '' ) {
+				// References with details must have a name.
+				$status->fatal( 'cite_error_ref_with_details_no_name' );
 			} elseif ( $isSelfClosingTag ) {
 				// Completely empty ref like <ref /> is forbidden.
 				$status->fatal( 'cite_error_ref_no_key' );

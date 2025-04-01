@@ -107,7 +107,7 @@ class RemoveParsoidGroupStyling extends Maintenance {
 		$this->output( "\nDone.\n" );
 	}
 
-	private function removeStyling( string $text ): string {
+	private static function removeStyling( string $text ): string {
 		return preg_replace( '/
 			^\.mw-ref\s*>\s*a[^{}]*::after # Match all rules on any sort of .mw-ref a::after
 			\s*{\s*
@@ -116,7 +116,7 @@ class RemoveParsoidGroupStyling extends Maintenance {
 			/msx', '', $text );
 	}
 
-	private function calculateDiff( string $oldText, string $newText ): string {
+	private static function calculateDiff( string $oldText, string $newText ): string {
 		$diffs = new Diff( explode( "\n", $oldText ), explode( "\n", $newText ) );
 		$formatter = new UnifiedDiffFormatter();
 		return $formatter->format( $diffs );

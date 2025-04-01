@@ -40,6 +40,11 @@ class Cite {
 
 	public const DEFAULT_GROUP = '';
 
+	/**
+	 * Message key for the (localized) tracking category for pages using the `details` attribute.
+	 */
+	public const DETAILS_TRACKING_CATEGORY = 'cite-tracking-category-ref-details';
+
 	private bool $isSectionPreview;
 	private FootnoteMarkFormatter $footnoteMarkFormatter;
 	private ReferenceListFormatter $referenceListFormatter;
@@ -133,6 +138,11 @@ class Cite {
 	): string {
 		$status = Validator::filterRefArguments( $argv, $this->config->get( 'CiteSubReferencing' ) );
 		$arguments = $status->getValue();
+
+		// When it's null it means the attribute is allowed, but not used
+		if ( isset( $arguments['details'] ) ) {
+			$parser->addTrackingCategory( self::DETAILS_TRACKING_CATEGORY );
+		}
 
 		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.
 		$group = $arguments['group'] ?? $this->inReferencesGroup;

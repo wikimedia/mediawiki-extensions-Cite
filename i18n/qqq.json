@@ -47,6 +47,8 @@
 	"cite-tracking-category-cite-error-desc": "Tracking category description.",
 	"cite-tracking-category-cite-diffing-error": "{{tracking category name}}\nTracking category name for pages with reference errors that trigger visual diffs.",
 	"cite-tracking-category-cite-diffing-error-desc": "Tracking category description for pages with reference errors that trigger visual diffs.",
+	"cite-tracking-category-ref-details": "{{tracking category name}}\nThe [[:mw:Special:MyLanguage/Help:Tracking categories|tracking category]] to add to the article if it uses <code>&lt;ref></code> tags with a <code>details</code> attribute.",
+	"cite-tracking-category-ref-details-desc": "Description of the details feature tracking category.",
 	"cite-reference-previews-reference": "Default heading for popups that show previews of references as provided by the Cite extension's <ref> tags (also known as footnotes).\n{{Identical|Reference}}",
 	"cite-reference-previews-book": "Heading for a popup previewing a citation from a book.\n{{Identical|Book}}",
 	"cite-reference-previews-journal": "Heading for a popup previewing a citation from a journal.\n{{Identical|Journal}}",

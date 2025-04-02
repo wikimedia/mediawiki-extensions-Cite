@@ -24,7 +24,6 @@
 use MediaWiki\Content\TextContent;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Revision\SlotRecord;
-use MediaWiki\Title\Title;
 use Wikimedia\Diff\Diff;
 use Wikimedia\Diff\UnifiedDiffFormatter;
 
@@ -47,14 +46,16 @@ class RemoveParsoidGroupStyling extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->addDescription( 'Remove deprecated Parsoid Cite CSS rules from MediaWiki:Common.css' );
+		$this->addDescription( 'Remove deprecated Parsoid Cite CSS rules' );
 		$this->addOption( 'dry-run', 'Don\'t make changes' );
+		$this->addOption( 'title', 'Title to edit, defaults to MediaWiki:Common.css', false, true );
 		$this->addOption( 'user', 'Username', false, true, 'u' );
 	}
 
 	public function execute() {
 		$userName = $this->getOption( 'user', false );
 		$dryRun = $this->getOption( 'dry-run', false );
+		$titleText = $this->getOption( 'title', 'MediaWiki:Common.css' );
 
 		if ( $userName === false ) {
 			$user = User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] );
@@ -65,7 +66,7 @@ class RemoveParsoidGroupStyling extends Maintenance {
 			$this->fatalError( "Invalid username" );
 		}
 
-		$title = Title::makeTitle( NS_MEDIAWIKI, 'Common.css' );
+		$title = $this->getServiceContainer()->getTitleFactory()->newFromTextThrow( $titleText );
 		$page = $this->getServiceContainer()->getWikiPageFactory()->newFromTitle( $title );
 		if ( $page->exists() ) {
 			$latestRevId = $page->getLatest();
@@ -103,6 +104,8 @@ class RemoveParsoidGroupStyling extends Maintenance {
 					}
 				}
 			}
+		} else {
+			$this->fatalError( "Page {$titleText} doesn't exist!\n" );
 		}
 		$this->output( "\nDone.\n" );
 	}

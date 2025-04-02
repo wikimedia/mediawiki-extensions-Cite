@@ -15,6 +15,7 @@ use MediaWiki\Language\Language;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\StripState;
+use PHPUnit\Framework\MockObject\MockObject;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -118,11 +119,9 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		bool $expectedResponsive,
 		string $expectedOutput
 	) {
-		$this->overrideConfigValue( 'CiteResponsiveReferences', false );
+		$parser = $this->mockParser();
 
-		$parser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
-
-		$cite = $this->newCite();
+		$cite = $this->newCite( $parser );
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed' ] );
@@ -131,7 +130,6 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$spy->referenceListFormatter->method( 'formatReferences' )
 			->with( $parser, [], $expectedResponsive, false )
 			->willReturn( 'references!' );
-		$spy->isSectionPreview = false;
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
 		$spy->referenceStack->method( 'popGroup' )
 			->with( $expectedInReferencesGroup )->willReturn( [] );
@@ -211,9 +209,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		array $expectedRefs,
 		bool $isSectionPreview = false
 	) {
-		$mockParser = $this->createNoOpMock( Parser::class, [ 'getStripState' ] );
-		$mockParser->method( 'getStripState' )
-			->willReturn( $this->createMock( StripState::class ) );
+		$mockParser = $this->mockParser( $isSectionPreview );
 
 		$errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed' ] );
 		$errorReporter->method( 'halfParsed' )->willReturnArgument( 1 );
@@ -226,7 +222,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockFootnoteMarkFormatter = $this->createMock( FootnoteMarkFormatter::class );
 		$mockFootnoteMarkFormatter->method( 'linkRef' )->willReturn( '<foot />' );
 
-		$cite = $this->newCite( $isSectionPreview );
+		$cite = $this->newCite( $mockParser );
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $errorReporter;
@@ -396,43 +392,25 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ::guardedRef
 	 */
 	public function testGuardedRef_detailsUsageTracking() {
-		$mockParser = $this->createMock( Parser::class );
+		$mockParser = $this->mockParser();
 		$mockParser->expects( $this->once() )
 			->method( 'addTrackingCategory' )
 			->with( Cite::DETAILS_TRACKING_CATEGORY );
-		$mockParser->method( 'getStripState' )
-			->willReturn( $this->createMock( StripState::class ) );
-		$mockParser->method( 'recursiveTagParse' )
-			->willReturn( '' );
 
-		$cite = $this->newCite();
+		$cite = $this->newCite( $mockParser );
 		/** @var Cite $cite */
 		$cite = TestingAccessWrapper::newFromObject( $cite );
 		$cite->guardedRef( $mockParser, 'text', [ 'details' => 'foo' ] );
 	}
 
 	/**
-	 *
 	 * @coversNothing
 	 */
 	public function testReferencesSectionPreview() {
-		$language = $this->createMock( Language::class );
-		$language->method( 'getCode' )->willReturn( 'en' );
+		$parser = $this->mockParser( true );
 
-		$parserOptions = $this->createMock( ParserOptions::class );
-		$parserOptions->method( 'getIsSectionPreview' )->willReturn( true );
-
-		$parser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getContentLanguage' ] );
-		$parser->method( 'getOptions' )->willReturn( $parserOptions );
-		$parser->method( 'getContentLanguage' )->willReturn( $language );
-
-		$config = new HashConfig( [
-			'CiteBacklinkCommunityConfiguration' => false,
-			'CiteDefaultBacklinkAlphabet' => null,
-			'CiteSubReferencing' => false,
-		] );
 		/** @var Cite $cite */
-		$cite = TestingAccessWrapper::newFromObject( new Cite( $parser, $config ) );
+		$cite = TestingAccessWrapper::newFromObject( $this->newCite( $parser ) );
 		// Assume the currently parsed <ref> is wrapped in <references>
 		$cite->inReferencesGroup = '';
 
@@ -445,30 +423,47 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ::__construct
 	 */
 	public function testClone() {
-		$cite = $this->newCite();
+		$cite = $this->newCite( $this->mockParser() );
 
 		$this->expectException( LogicException::class );
 		clone $cite;
 	}
 
-	private function newCite( bool $isSectionPreview = false ): Cite {
-		$language = $this->createNoOpMock( Language::class, [ '__debugInfo', 'getCode', 'formatNumNoSeparators' ] );
-		$language->method( 'getCode' )->willReturn( 'en' );
+	/**
+	 * @param bool $isSectionPreview
+	 * @return Parser&MockObject
+	 */
+	private function mockParser( bool $isSectionPreview = false ): Parser {
+		$language = $this->createNoOpMock( Language::class, [ 'getCode', 'formatNumNoSeparators' ] );
 		$language->method( 'formatNumNoSeparators' )->willReturn( '' );
 
-		$mockOptions = $this->createMock( ParserOptions::class );
-		$mockOptions->method( 'getIsSectionPreview' )->willReturn( $isSectionPreview );
+		$parserOptions = $this->createNoOpMock( ParserOptions::class, [ 'getIsSectionPreview' ] );
+		$parserOptions->method( 'getIsSectionPreview' )->willReturn( $isSectionPreview );
 
-		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getContentLanguage' ] );
-		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
-		$mockParser->method( 'getContentLanguage' )->willReturn( $language );
+		$stripState = $this->createNoOpMock( StripState::class );
+
+		$parser = $this->createNoOpMock( Parser::class, [
+			'addTrackingCategory',
+			'getContentLanguage',
+			'getOptions',
+			'getStripState',
+			'recursiveTagParse',
+		] );
+		$parser->method( 'getContentLanguage' )->willReturn( $language );
+		$parser->method( 'getOptions' )->willReturn( $parserOptions );
+		$parser->method( 'getStripState' )->willReturn( $stripState );
+		$parser->method( 'recursiveTagParse' )->willReturn( '' );
+		return $parser;
+	}
+
+	private function newCite( Parser $parser ): Cite {
 		$config = new HashConfig( [
 			'CiteBacklinkCommunityConfiguration' => false,
 			'CiteDefaultBacklinkAlphabet' => null,
 			'CiteResponsiveReferences' => false,
 			'CiteSubReferencing' => true,
 		] );
-		return new Cite( $mockParser, $config );
+		return new Cite( $parser, $config );
 	}
 
 }

@@ -57,4 +57,22 @@ content: '[' counter( mw-Ref, lower-roman ) ']';
 		$actual = $styler->removeStyling( $text );
 		$this->assertEquals( $expected, $actual );
 	}
+
+	public function testRemoveComments() {
+		$text = "
+0
+/* T156351: Support for Parsoid's Cite implementation */
+1
+/* These blocks need review after [[phab:T371839]] or related are complete */
+2
+		";
+		$expected = '
+0
+1
+2
+		';
+		$styler = TestingAccessWrapper::newFromClass( RemoveParsoidGroupStyling::class );
+		$actual = $styler->removeKnownComments( $text );
+		$this->assertEquals( $expected, $actual );
+	}
 }

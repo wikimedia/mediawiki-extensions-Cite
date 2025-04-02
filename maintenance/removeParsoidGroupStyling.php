@@ -112,7 +112,7 @@ class RemoveParsoidGroupStyling extends Maintenance {
 			^\.mw-ref\s*>\s*a[^{}]*::after # Match all rules on any sort of .mw-ref a::after
 			\s*{\s*
 			content:[^:{}]+ # Must only set this one attribute.
-			\s*}\s*
+			\s*}(?:\h*\n|$)
 			/msx', '', $text );
 	}
 

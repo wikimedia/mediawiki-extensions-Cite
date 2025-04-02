@@ -36,17 +36,23 @@ content: '[' counter( mw-Ref, lower-roman ) ']';
 		content: '[' counter( mw-Ref, lower-alpha ) ']';
 }
 
-5
+/* leave intact */
+.ref-arabic-indic .reference:not(.mw-ref) a::after {
+  content: ')';
+}
 		";
-		# FIXME: preserve the vertical space between 4 and 5
-		$expected = '
+		$expected = "
 0
 1
 2
 3
 4
-5
-		';
+
+/* leave intact */
+.ref-arabic-indic .reference:not(.mw-ref) a::after {
+  content: ')';
+}
+		";
 		$styler = TestingAccessWrapper::newFromClass( RemoveParsoidGroupStyling::class );
 		$actual = $styler->removeStyling( $text );
 		$this->assertEquals( $expected, $actual );

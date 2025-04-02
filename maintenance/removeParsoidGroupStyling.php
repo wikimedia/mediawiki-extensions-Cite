@@ -21,7 +21,7 @@
  * @ingroup Maintenance
  */
 
-use MediaWiki\Content\CssContent;
+use MediaWiki\Content\TextContent;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
@@ -76,8 +76,8 @@ class RemoveParsoidGroupStyling extends Maintenance {
 				if ( !$content ) {
 					$this->fatalError( "Couldn't get page content!\n" );
 				}
-				if ( !( $content instanceof CssContent ) ) {
-					$this->fatalError( "Page is not CSS!\n" );
+				if ( !( $content instanceof TextContent ) ) {
+					$this->fatalError( "Page content model is not text!\n" );
 				}
 				$text = $content->getText();
 

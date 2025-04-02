@@ -176,13 +176,10 @@ class RefTagHandler extends ExtensionTagHandler {
 			$dataMw->attrs->name = $dataMw->mainRef ?? null;
 			// TODO: escape wikitext for attribute
 			$dataMw->attrs->details = $src;
-			$startTagSrc = $extApi->extStartTagToWikitext( $node );
 
-			// TODO: round-trip self-closing vs. empty
-			$src = '';
 			// @phan-suppress-next-line PhanUndeclaredProperty
 			if ( isset( $dataMw->isMainRefBodyWithDetails ) && isset( $dataMw->mainBody ) ) {
-			// @phan-suppress-next-line PhanUndeclaredProperty
+				// @phan-suppress-next-line PhanUndeclaredProperty
 				$mainElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->mainBody );
 				if ( $mainElt ) {
 					$mainBodyElt = DOMCompat::querySelector( $mainElt, ".mw-reference-text" );
@@ -191,10 +188,17 @@ class RefTagHandler extends ExtensionTagHandler {
 					}
 					DOMCompat::remove( $mainElt );
 				}
+			} else {
+				$src = '';
+				unset( $dataMw->body );
 			}
+
+			$startTagSrc = $extApi->extStartTagToWikitext( $node );
 		}
 
-		return $startTagSrc . $src . '</' . $dataMw->name . '>';
+		return empty( $dataMw->body ) ?
+			$startTagSrc :
+			$startTagSrc . $src . '</' . $dataMw->name . '>';
 	}
 
 	/** @inheritDoc */

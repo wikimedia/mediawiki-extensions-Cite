@@ -673,7 +673,7 @@ class References {
 					$refFragment = $extApi->getContentDOM( $ref->contentId )->firstChild->firstChild;
 					if ( $refFragment ) {
 						DOMCompat::setInnerHTML( $sup, $extApi->domToHtml( $refFragment, false, false ) );
-						$nestedRefsHTML[] = $extApi->domToHtml( $sup, false, false ) . "\n";
+						$nestedRefsHTML[] = $extApi->domToHtml( $sup, false, false );
 					}
 				}
 			}

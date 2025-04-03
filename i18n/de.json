@@ -41,6 +41,8 @@
 	"cite-tracking-category-cite-error-desc": "Seiten in dieser Kategorie haben Fehler in der Verwendung von Einzelnachweis-Tags.",
 	"cite-tracking-category-cite-diffing-error": "Seiten mit Einzelnachweisfehlern, die visuelle Unterschiede auslösen",
 	"cite-tracking-category-cite-diffing-error-desc": "Seiten in dieser Kategorie weisen Fehler bei der Verwendung von Referenz-Tags auf; diese Fehler werden im Legacy-Parser und in Parsoid nicht auf die gleiche Weise gerendert.",
+	"cite-tracking-category-ref-details": "Seiten, die Subreferenzen verwenden",
+	"cite-tracking-category-ref-details-desc": "Seiten in dieser Kategorie verwenden das „details“-Attribut des &lt;ref&gt;-Tags.",
 	"cite-reference-previews-reference": "Einzelnachweis",
 	"cite-reference-previews-book": "Literaturquelle",
 	"cite-reference-previews-journal": "Zeitschriftenquelle",

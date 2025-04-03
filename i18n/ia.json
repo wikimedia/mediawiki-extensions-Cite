@@ -29,6 +29,8 @@
 	"cite-tracking-category-cite-error-desc": "Le paginas in iste categoria ha errores in le uso de etiquettas de referentias.",
 	"cite-tracking-category-cite-diffing-error": "Paginas con errores de referentia que provoca differentias visual",
 	"cite-tracking-category-cite-diffing-error-desc": "Le paginas in iste categoria ha errores in le uso de etiquettas de referentia. Iste errores non se visualisa del mesme maniera in le analysator syntactic ancian e in Parsoid.",
+	"cite-tracking-category-ref-details": "Paginas que usa subreferentias",
+	"cite-tracking-category-ref-details-desc": "Le paginas in iste categoria usa le attributo “details” del etiquetta &lt;ref&gt;.",
 	"cite-reference-previews-reference": "Referentia",
 	"cite-reference-previews-book": "Referentia de libro",
 	"cite-reference-previews-journal": "Referentia de revista",

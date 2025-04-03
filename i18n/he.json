@@ -34,6 +34,8 @@
 	"cite-tracking-category-cite-error-desc": "דפים בקטגוריה הזאת כוללים שגיאות בשימוש בתגי הערות שוליים.",
 	"cite-tracking-category-cite-diffing-error": "דפים עם שגיאות בהערות שוליים שגורמות להבדלים חזותיים",
 	"cite-tracking-category-cite-diffing-error-desc": "לדפים בקטגוריה הזאת יש שגיאות בשימוש בתגי הערות שוליים, והשגיאות האלו אינן מוצגות באותו אופן במפענח הישן ובפרסואיד.",
+	"cite-tracking-category-ref-details": "דפים המשתמשים בהערות שוליים מקוננות",
+	"cite-tracking-category-ref-details-desc": "דפים בקטגוריה הזאת משתמשים בתכונה \"details\" של התג &lt;ref&gt;.",
 	"cite-reference-previews-reference": "הערת שוליים",
 	"cite-reference-previews-book": "מראה מקום לספר",
 	"cite-reference-previews-journal": "הפניה לכתב־עת",

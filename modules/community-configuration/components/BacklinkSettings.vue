@@ -1,10 +1,10 @@
 <template>
 	<h3>{{ $i18n( 'cite-configuration-backlink-title' ).text() }}</h3>
 
-	<p>{{ $i18n( 'cite-configuration-backlink-description' ).parse() }}</p>
+	<p>{{ $i18n( 'cite-configuration-backlink-description' ).text() }}</p>
 
 	<p v-if="cldrAlphabet">
-		{{ $i18n( 'cite-configuration-backlink-alpha-suggestion' ).parse() }}
+		{{ $i18n( 'cite-configuration-backlink-alpha-suggestion' ).text() }}
 	</p>
 
 	<cdx-field v-if="cldrAlphabet">
@@ -21,10 +21,10 @@
 			{{ $i18n( 'cite-configuration-backlink-marker-label' ).text() }}
 		</template>
 		<template #description>
-			{{ $i18n( 'cite-configuration-backlink-marker-description' ).parse() }}
+			{{ $i18n( 'cite-configuration-backlink-marker-description' ).text() }}
 		</template>
 		<template #help-text>
-			{{ $i18n( 'cite-configuration-backlink-marker-help' ).parse() }}
+			{{ $i18n( 'cite-configuration-backlink-marker-help' ).text() }}
 		</template>
 	</cdx-field>
 </template>

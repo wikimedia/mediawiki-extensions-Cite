@@ -177,8 +177,6 @@ class References {
 		// DomSourceRange computation and template wrapping.
 		$nodeDp = DOMDataUtils::getDataParsoid( $node );
 		$contentId = $nodeDp->html;
-		$isTemplateWrapper = DOMUtils::hasTypeOf( $node, 'mw:Transclusion' );
-		$templateDataMw = $isTemplateWrapper ? DOMDataUtils::getDataMw( $node ) : null;
 
 		// Extract the ref fragment and ensure it's valid
 		$refFragment = $extApi->getContentDOM( $contentId )->firstChild;
@@ -464,7 +462,9 @@ class References {
 		$this->addLinkBackData(
 			$linkBackSup,
 			$nodeDp,
-			$isTemplateWrapper ? $templateDataMw : $refDataMw
+			DOMUtils::hasTypeOf( $node, 'mw:Transclusion' ) ?
+				DOMDataUtils::getDataMw( $node ) :
+				$refDataMw
 		);
 
 		// FIXME(T214241): Should the errors be added to data-mw if

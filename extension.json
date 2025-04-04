@@ -92,6 +92,7 @@
 				"ve.ui.MWReferencesListCommand.js"
 			],
 			"styles": [
+				"ve.ce.MWReferenceNode.less",
 				"ve.ce.MWReferencesListNode.less"
 			],
 			"dependencies": [

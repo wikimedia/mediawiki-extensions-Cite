@@ -25,7 +25,7 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 
 	public function testGetOrCreateRefGroup() {
 		$data = new ReferencesData();
-		$group = $data->getOrCreateRefGroup( 'note', true );
+		$group = $data->getOrCreateRefGroup( 'note' );
 		$this->assertSame( 'note', $group->name );
 		$data->removeRefGroup( 'note' );
 		$this->assertNull( $data->lookupRefGroup( 'note' ) );

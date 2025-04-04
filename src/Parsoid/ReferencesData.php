@@ -75,6 +75,10 @@ class ReferencesData {
 		unset( $this->refGroups[$groupName] );
 	}
 
+	public function lookupRefByName( RefGroup $group, string $name ): ?RefGroupItem {
+		return $group->indexByName[$name] ?? null;
+	}
+
 	/**
 	 * Normalizes and sanitizes anchor names for use in id="…" and <a href="#…"> attributes.
 	 */

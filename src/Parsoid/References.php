@@ -226,7 +226,6 @@ class References {
 			$errs[] = new DataMwError( 'cite_error_references_no_key' );
 		}
 
-		$ref = null;
 		$refFragmentHtml = '';
 		$hasDifferingHtml = false;
 		$hasDifferingContent = false;
@@ -239,13 +238,14 @@ class References {
 			$refFragment->appendChild( $followSpan );
 		}
 
+		$ref = $referencesData->lookupRefByName( $refGroup, $followName ) ??
+			$referencesData->lookupRefByName( $refGroup, $refName );
 		// Handle the attributes 'name' and 'follow'
 		if ( $refName ) {
 			$nameErrorMessage = $this->validator->validateName( $refName, $refGroup, $referencesData );
 			if ( $nameErrorMessage ) {
 				$errs[] = $nameErrorMessage;
-			} elseif ( isset( $refGroup->indexByName[$refName] ) ) {
-				$ref = $refGroup->indexByName[$refName];
+			} elseif ( $ref ) {
 				// If there are multiple <ref>s with the same name, but different content,
 				// the content of the first <ref> shows up in the <references> section.
 				// in order to ensure lossless RT-ing for later <refs>, we have to record

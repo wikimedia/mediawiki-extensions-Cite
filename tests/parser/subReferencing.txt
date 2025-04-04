@@ -53,7 +53,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# TODO: See T389363
+# T389363: Fix attribute order round-tripping for main+details references
 !! test
 Subreferencing round trips in reverse alphabetical attribute order
 !! config
@@ -81,7 +81,7 @@ parsoid=wt2html
 </div>
 !! end
 
-# FIXME: fails to round-trip
+# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Unnamed main reference with a lonely sub-ref, neither can be reused
 !! config
@@ -134,7 +134,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# FIXME: fails to round-trip
+# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty sub-referencing attribute with no meaningful content
 !! config
@@ -160,6 +160,7 @@ parsoid=wt2html
 </div>
 !! end
 
+# FIXME: restore self-closing references tag
 !! test
 Multiple subreferences
 !! config
@@ -290,7 +291,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# FIXME: fails to round-trip
+# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty content and no name
 !! config
@@ -363,7 +364,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# FIXME: fails to round-trip
+# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty details content with name, ignored outside of <references>
 !! config
@@ -389,7 +390,7 @@ parsoid=wt2html
 </div>
 !! end
 
-# FIXME: fails to round-trip
+# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty details content without name, ignored outside of <references>
 !! config
@@ -415,7 +416,7 @@ parsoid=wt2html
 </div>
 !! end
 
-# FIXME: broken round-trip
+# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty details content inside of <references>
 !! config
@@ -443,7 +444,7 @@ parsoid=wt2html
 </div>
 !! end
 
-# FIXME: Mixes main and sub-ref content
+# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Unused list-defined sub-ref with no name
 !! config
@@ -465,6 +466,7 @@ parsoid=wt2html
 </div>
 !! end
 
+# T390974: Bad refs don't round-trip
 !! test
 Unused list-defined sub-ref with linked existing main ref
 !! config
@@ -515,7 +517,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# FIXME: mixes main and sub-ref content
+# T390961: fails to round-trip main+details after main
 !! test
 Unused list defined sub-ref with used main content
 !! config
@@ -577,7 +579,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# FIXME: Mixes sub- and main-ref content
+# T390961: fails to round-trip main+details after main
 !! test
 There is no such thing as a list-defined sub-ref (duplicate main content)
 !! config
@@ -634,6 +636,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
+# T390992: detect conflicting main ref content in main+details
 !! test
 Conflicting main content
 !! config
@@ -664,7 +667,7 @@ parsoid=wt2html
 </div>
 !! end
 
-# TODO: Specify desired behavior
+# T390961: fails to round-trip main+details after main
 !! test
 Repeating the main content when using details
 !! config
@@ -695,7 +698,7 @@ parsoid=wt2html
 </div>
 !! end
 
-# TODO: Specify desired behavior
+# TODO: Specify desired behavior. Bad round-trip.
 !! test
 Using `follow` with details on the “main" part
 !! config
@@ -724,6 +727,7 @@ parsoid=wt2html
 </div>
 !! end
 
+# T390974: Bad refs don't round-trip
 !! test
 Using `follow` with details on the “follow" part
 !! config
@@ -863,7 +867,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# FIXME: Parsoid incorrectly puts details content into main ref
+# T390961: fails to round-trip main+details after main
 !! test
 Subreference of existing ref doesn't affect main reference numbering
 !! config

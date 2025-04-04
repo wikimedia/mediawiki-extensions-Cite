@@ -293,6 +293,7 @@ class References {
 			$contentId = null;
 			unset( $refDataMw->attrs->name );
 			$refName = '';
+			// TODO in T390992: Parsoid should detect conflicting main ref content in main+details
 			$hasDifferingHtml = false;
 		}
 

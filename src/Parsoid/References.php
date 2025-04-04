@@ -277,52 +277,50 @@ class References {
 			}
 		}
 
-		// handle standalone subref
-		if ( $hasDetails && $refName && !isset( $refDataMw->body ) && $ref ) {
-			$ref = $referencesData->addSubref( $groupName, $refName, $refDir );
-
-			// @phan-suppress-next-line PhanUndeclaredProperty
-			$refDataMw->mainRef = $refName;
-			$ref->contentId = null;
-			$ref->externalFragment = $extApi->wikitextToDOM( $details, [
-				'processInNewFrame' => true,
-				'parseOpts' => [ 'context' => 'inline' ]
-			], true );
-			$refFragmentHtml = '';
-			$contentId = null;
-			unset( $refDataMw->attrs->name );
-			$refName = '';
-			// TODO in T390992: Parsoid should detect conflicting main ref content in main+details
-			$hasDifferingHtml = false;
-		}
-
 		// Split subref and main ref; add main ref as a list-defined reference
 		if ( $hasDetails && $refName ) {
-			if ( !$ref && isset( $refDataMw->body ) ) {
-				// Add the main ref directly as a list-defined ref.
-				$mainRef = $referencesData->add( $groupName, $refName, $refDir );
-				$mainRef->isMainWithDetails = true;
+			if ( isset( $refDataMw->body ) ) {
+				// Main + details.
 
-				// @phan-suppress-next-line PhanUndeclaredProperty
-				$refDataMw->mainBody = $mainRef->noteId;
+				if ( $ref ) {
+					// Already have the main ref.
+					// TODO in T390992: Parsoid should detect conflicting main ref content in main+details
 
-				// Create a ref entry if needed (should always be needed, but main
-				// ref cannot be found by name in this iteration).
-				if ( $contentId ) {
-					$mainRef->contentId = $contentId;
-					// Flag to help reserialize main ref content into the subref when saving.
 					// @phan-suppress-next-line PhanUndeclaredProperty
 					$refDataMw->isMainRefBodyWithDetails = '1';
+				} else {
+					// Create a main ref and transfer the tag body to it,
+					$mainRef = $referencesData->add( $groupName, $refName, $refDir );
+					$mainRef->isMainWithDetails = true;
+
+					// @phan-suppress-next-line PhanUndeclaredProperty
+					$refDataMw->mainBody = $mainRef->noteId;
+
+					if ( $contentId ) {
+						$mainRef->contentId = $contentId;
+						// Flag to help reserialize main ref content into the subref when saving.
+						// @phan-suppress-next-line PhanUndeclaredProperty
+						$refDataMw->isMainRefBodyWithDetails = '1';
+					}
 				}
-			} elseif ( !$ref ) {
-				$mainRef = $referencesData->add( $groupName, $refName, $refDir );
-			} elseif ( isset( $refDataMw->body ) ) {
-				// @phan-suppress-next-line PhanUndeclaredProperty
-				$refDataMw->isMainRefBodyWithDetails = '1';
+			} else {
+				// Standalone subref
+
+				if ( !$ref ) {
+					// Create new, empty main ref
+					$referencesData->add( $groupName, $refName, $refDir );
+				}
+
+				// FIXME: Shouldn't have been set to true above.
+				$hasDifferingHtml = false;
 			}
-			$contentId = null;
+
+			// Switch $ref to a newly-created subref
 			$ref = $referencesData->addSubref( $groupName, $refName, $refDir );
+
 			// Move content to main ref.
+			$contentId = null;
+			$ref->contentId = null;
 
 			// Move details attribute into subref content.
 			$ref->externalFragment = $extApi->wikitextToDOM( $details, [

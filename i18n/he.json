@@ -64,15 +64,15 @@
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 טקסט הקישור]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "בדיקה",
 	"cite-wikieditor-help-content-reference-example-extra-details": "פרטים נוספים",
+	"communityconfiguration-cite-title": "הערת שוליים",
+	"communityconfiguration-cite-description": "התאמה העיצוב והמראה של הערות שוליים.",
 	"cite-configuration-title": "הגדרות Cite (הערות שוליים)",
 	"cite-configuration-info": "ההגדרות האלו משפיעות על כל הדפים שמשתמשים בהרחבה Cite. רק מפעילי מערכת יכולים לשנות את ההגדרות האלו.",
-	"cite-configuration-submit": "שמירת השינויים",
 	"cite-configuration-backlink-title": "הגדרות קישורים חוזרים",
 	"cite-configuration-backlink-description": "קישורים חוזרים מופיעים ברשימת הערות השוליים ומצביעים חזרה להערות השוליים בדף. כאשר נעשה שימוש בהערת שוליים יותר מפעם אחת, הקישורים החוזרים שלו ממוספרים. תצורה מאפשרת להשתמש באלפבית מותאם למטרה הזאת.",
 	"cite-configuration-backlink-alpha-suggestion": "ההרחבה Cite זיהתה אלפבית לשפת הוויקי שלך. כדי להשתמש בו, יש להעתיק ולהדביק את הטקסט למטה כבסיס לסמני הקישורים החוזרים שלך. אפשר לערוך או לסדר מחדש את הרצף.",
 	"cite-configuration-backlink-marker-label": "ערכת סמלים של קישורים חוזרים",
 	"cite-configuration-backlink-marker-description": "התווים למטה ישמשו עבור קישורים חוזרים בוויקי שלך.",
 	"cite-configuration-backlink-marker-help": "נו להזין את ערכת התווים המותאמת שלך, עם רווח בין כל תו. נא לוודא שהמכל מכיל XX תווים.",
-	"communityconfiguration-cite-title": "הערת שוליים",
-	"communityconfiguration-cite-description": "התאמה העיצוב והמראה של הערות שוליים."
+	"cite-configuration-submit": "שמירת השינויים"
 }

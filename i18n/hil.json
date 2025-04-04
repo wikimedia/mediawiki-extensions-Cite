@@ -55,15 +55,15 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Link text], dugang nga teksto.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Link text]",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Dugang nga mga detalye",
+	"communityconfiguration-cite-title": "Cite",
+	"communityconfiguration-cite-description": "Ipasadya ang pormat kag hitsura sang mga reperensya.",
 	"cite-configuration-title": "Cite configuration",
 	"cite-configuration-info": "Ini nga mga setting nagaapektar sa tanan nga mga pahina nga nagagamit sang Cite. Ang mga administrador lang ang makabag-o sini nga mga setting.",
-	"cite-configuration-submit": "I-save ang mga pagbag-o",
 	"cite-configuration-backlink-title": "Mga setting sang backlink",
 	"cite-configuration-backlink-description": "Ang mga backlink makita sa listahan sang reperensya kag nagatudlo pabalik sa mga footnote sa pahina. Kon ang isa ka reperensya ginagamit sing kapin sa isa ka beses, ang mga backlink sini ginanumerohan. Ang pag-configure nagapahanugot sang isa ka kinabatasan nga alpabeto nga gamiton para sa sini nga katuyuan.",
 	"cite-configuration-backlink-alpha-suggestion": "Ang Cite nakatukib sang alpabeto para sa lenguahe sang imo wiki. Kon luyag mo ini gamiton, palihog kopya kag i-paste ang teksto sa idalom bilang basehan para sa imo mga backlink markers. Hilway ka sa pag-edit ukon pag-areglo liwat sang pagkasunod-sunod.",
 	"cite-configuration-backlink-marker-label": "Backlink symbol set",
 	"cite-configuration-backlink-marker-description": "Ang mga karakter sa idalom pagagamiton para sa mga backlink sa imo wiki.",
 	"cite-configuration-backlink-marker-help": "Isulod ang imo pinasahi nga set sang karakter, nga may espasyo sa tunga sang tagsa ka karakter. Siguraduhon nga ang suludlan nagaunod sang XX nga mga karakter.",
-	"communityconfiguration-cite-title": "Cite",
-	"communityconfiguration-cite-description": "Ipasadya ang pormat kag hitsura sang mga reperensya."
+	"cite-configuration-submit": "I-save ang mga pagbag-o"
 }

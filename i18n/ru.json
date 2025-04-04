@@ -71,12 +71,12 @@
 	"cite-wikieditor-help-content-rereference-description": "Дополнительное использование той же ссылки",
 	"cite-wikieditor-help-content-showreferences-description": "Показывать примечания",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Очень подробные детали",
+	"communityconfiguration-cite-title": "Cite",
+	"communityconfiguration-cite-description": "Настройте формат и внешний вид ссылок.",
 	"cite-configuration-title": "Приведите конфигурацию",
 	"cite-configuration-info": "Эти настройки влияют на все статьи, использующие Cite. Только администраторы могут изменять эти настройки.",
-	"cite-configuration-submit": "Сохранить изменения",
 	"cite-configuration-backlink-title": "Настройки обратной ссылки",
 	"cite-configuration-backlink-marker-description": "Обратные ссылки отображаются в списке ссылок и указывают на сноски в статье. Если ссылка используется более одного раза, ее обратные ссылки нумеруются. Конфигурация позволяет использовать для этой цели собственный алфавит.",
 	"cite-configuration-backlink-marker-help": "Введите свой собственный набор символов, с пробелом между каждым символом. Убедитесь, что контейнер содержит XX символов.",
-	"communityconfiguration-cite-title": "Cite",
-	"communityconfiguration-cite-description": "Настройте формат и внешний вид ссылок."
+	"cite-configuration-submit": "Сохранить изменения"
 }

@@ -76,15 +76,15 @@
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 链接文本]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "测试",
 	"cite-wikieditor-help-content-reference-example-extra-details": "额外详细信息",
+	"communityconfiguration-cite-title": "引证",
+	"communityconfiguration-cite-description": "自定义参考文献的格式与外观。",
 	"cite-configuration-title": "引证配置",
 	"cite-configuration-info": "这些设置会影响所有使用引证功能的页面。只有管理员才能修改这些设置。",
-	"cite-configuration-submit": "保存更改",
 	"cite-configuration-backlink-title": "反向链接设置",
 	"cite-configuration-backlink-description": "反向链接出现在参考资料列表中，指向页面中的脚注。当一项参考资料被复用时，其反向链接会以编号形式显示。更改此处的配置，以使用自定义的字母表作为编号。",
 	"cite-configuration-backlink-alpha-suggestion": "引证扩展已自动检测适合您wiki语言的字母表。如果您想要使用它，请复制粘贴以下文本，作为反向链接标记的基准。您可以自由编辑或排列顺序。",
 	"cite-configuration-backlink-marker-label": "反向链接符号集",
 	"cite-configuration-backlink-marker-description": "以下字符将用于您wiki上的反向链接。",
 	"cite-configuration-backlink-marker-help": "请输入您的自定义字符集合，每个字符以空格分隔。请确保集合包含XX个字符。",
-	"communityconfiguration-cite-title": "引证",
-	"communityconfiguration-cite-description": "自定义参考文献的格式与外观。"
+	"cite-configuration-submit": "保存更改"
 }

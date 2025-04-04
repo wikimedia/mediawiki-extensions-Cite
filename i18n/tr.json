@@ -67,15 +67,15 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Bağlantı yazısı], ek yazı.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Bağlantı yazısı]",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Daha çok ayrıntı",
+	"communityconfiguration-cite-title": "Alıntı",
+	"communityconfiguration-cite-description": "Kaynakça biçimini ve görünümünü özelleştirin.",
 	"cite-configuration-title": "Alıntı yapılandırması",
 	"cite-configuration-info": "Bu ayarlar Alıntı kullanan tüm sayfaları etkiler. Bu ayarları yalnızca hizmetliler değiştirebilir.",
-	"cite-configuration-submit": "Değişiklikleri sakla",
 	"cite-configuration-backlink-title": "Geri bağlantı ayarları",
 	"cite-configuration-backlink-description": "Geri bağlantılar kaynak listesinde görünür ve sayfadaki dipnotlara geri işaret eder. Bir kaynak birden fazla kullanıldığında, geri bağlantıları numaralandırılır. Yapılandırma, bu amaçla özel bir alfabenin kullanılmasına izin verir.",
 	"cite-configuration-backlink-alpha-suggestion": "Alıntı, vikinizin dili için bir alfabe saptadı. Bunu kullanmak isterseniz, lütfen aşağıdaki metni geri bağlantı işaretleyicilerinizin temeli olarak kopyalayıp yapıştırın. Sıralamayı değiştirebilir ya da yeniden düzenleyebilirsiniz.",
 	"cite-configuration-backlink-marker-label": "Geri bağlantı simge kümesi",
 	"cite-configuration-backlink-marker-description": "Aşağıdaki karakterler vikinizde geri bağlantılar için kullanılacaktır.",
 	"cite-configuration-backlink-marker-help": "Her karakter arasında boşluk bırakarak özel karakter setinizi girin. Setin XX karakter içerdiğinden emin olun.",
-	"communityconfiguration-cite-title": "Alıntı",
-	"communityconfiguration-cite-description": "Kaynakça biçimini ve görünümünü özelleştirin."
+	"cite-configuration-submit": "Değişiklikleri sakla"
 }

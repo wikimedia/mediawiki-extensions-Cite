@@ -86,15 +86,15 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texte du lien], texte supplémentaire.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texte du lien]",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Détails supplémentaires",
+	"communityconfiguration-cite-title": "Sourcer",
+	"communityconfiguration-cite-description": "Personnaliser le format et l'apparence des références.",
 	"cite-configuration-title": "Citer la configuration",
 	"cite-configuration-info": "Ces paramètres affectent toutes les pages qui utilisent Cite. Seuls les administrateurs peuvent modifier ces paramètres.",
-	"cite-configuration-submit": "Enregistrer les modifications",
 	"cite-configuration-backlink-title": "Paramètres de backlink",
 	"cite-configuration-backlink-description": "Les backlinks apparaissent dans la liste de référence et renvoient vers les notes de bas de page de la page. Lorsqu'une référence est utilisée plusieurs fois, ses backlinks sont numérotés. La configuration permet d'utiliser un alphabet personnalisé à cette fin.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite a détecté un alphabet pour la langue de votre wiki. Si vous souhaitez l'utiliser, veuillez copier et coller le texte ci-dessous comme base pour vos marqueurs de backlink. Vous êtes libre de modifier ou de réorganiser la séquence.",
 	"cite-configuration-backlink-marker-label": "Ensemble de symboles de backlink",
 	"cite-configuration-backlink-marker-description": "Les caractères ci-dessous seront utilisés pour les backlinks sur votre wiki.",
 	"cite-configuration-backlink-marker-help": "Saisissez votre jeu de caractères personnalisé, avec un espace entre chaque caractère. Assurez-vous que le conteneur contient XX caractères.",
-	"communityconfiguration-cite-title": "Sourcer",
-	"communityconfiguration-cite-description": "Personnaliser le format et l'apparence des références."
+	"cite-configuration-submit": "Enregistrer les modifications"
 }

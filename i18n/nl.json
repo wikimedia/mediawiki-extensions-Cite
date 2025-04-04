@@ -66,15 +66,15 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linktekst], aanvullende tekst.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linktekst]",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Extra details",
+	"communityconfiguration-cite-title": "Cite",
+	"communityconfiguration-cite-description": "De opmaak en het uiterlijk van referenties aanpassen.",
 	"cite-configuration-title": "Instellingen van Cite",
 	"cite-configuration-info": "Deze instellingen zijn van invloed op alle pagina’s die Cite gebruiken. Alleen moderatoren kunnen deze instellingen wijzigen.",
-	"cite-configuration-submit": "Wijzigingen opslaan",
 	"cite-configuration-backlink-title": "Instellingen terugkoppelingen",
 	"cite-configuration-backlink-description": "Terugkoppelingen verschijnen in de referentielijst en verwijzen terug naar de voetnoten op de pagina. Wanneer een referentie meer dan eens wordt gebruikt, worden de terugkoppelingen genummerd. Hiervoor kan een aangepast alfabet worden ingesteld.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite heeft een alfabet voor de taal van uw wiki gedetecteerd. Als u dat wilt gebruiken, kopieer en plak dan de tekst hieronder als basis voor uw terugkoppelingsmarkeringen. De volgorde kan vrij bewerkt of gerangschikt worden.",
 	"cite-configuration-backlink-marker-label": "Reeks terugkoppelingssymbolen",
 	"cite-configuration-backlink-marker-description": "De onderstaande tekens worden gebruikt voor terugkoppelingen op uw wiki.",
 	"cite-configuration-backlink-marker-help": "Voer uw aangepaste tekenreeks in, met een spatie tussen elk teken. Zorg ervoor dat de container XX tekens bevat.",
-	"communityconfiguration-cite-title": "Cite",
-	"communityconfiguration-cite-description": "De opmaak en het uiterlijk van referenties aanpassen."
+	"cite-configuration-submit": "Wijzigingen opslaan"
 }

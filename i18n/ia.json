@@ -58,15 +58,15 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texto del ligamine], texto additional.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto del ligamine]",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Detalios supplementari",
+	"communityconfiguration-cite-title": "Citar",
+	"communityconfiguration-cite-description": "Personalisar le formato e apparentia de referentias.",
 	"cite-configuration-title": "Configuration de Cite",
 	"cite-configuration-info": "Iste parametros influentia tote le paginas que utilisa le extension Cite. Solmente administratores pote modificar iste parametros.",
-	"cite-configuration-submit": "Salveguardar modificationes",
 	"cite-configuration-backlink-title": "Configuration de retroligamines",
 	"cite-configuration-backlink-description": "Le retroligamines appare in le lista de referentias e puncta retro verso le notas al pede del pagina. Quando un referentia es usate plus de un vice, su retroligamines es numerate. Le configuration permitte le uso de un alphabeto personalisate pro isto.",
 	"cite-configuration-backlink-alpha-suggestion": "Le extension Cite ha detegite un alphabeto pro le lingua de tu wiki. Si tu vole usar lo, per favor copia e colla le texto infra como base pro tu marcatores de retroligamine. Tu pote liberemente modificar o rearrangiar le sequentia.",
 	"cite-configuration-backlink-marker-label": "Insimul de symbolos de retroligamine",
 	"cite-configuration-backlink-marker-description": "Le characteres sequente essera usate pro retroligamines sur tu wiki.",
 	"cite-configuration-backlink-marker-help": "Insere tu insimul de characteres personalisate, con un spatio inter cata character. Assecura te que le contentor contine characteres XX.",
-	"communityconfiguration-cite-title": "Citar",
-	"communityconfiguration-cite-description": "Personalisar le formato e apparentia de referentias."
+	"cite-configuration-submit": "Salveguardar modificationes"
 }

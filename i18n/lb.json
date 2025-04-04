@@ -24,6 +24,7 @@
 	"cite_error_empty_references_define": "D'Markéierung <code>&lt;ref&gt;</code> déi am <code>&lt;references&gt;</code> mat dem Numm  « $1 » definéiert ass, ass eidel.",
 	"cite-tracking-category-cite-error": "Säite mat Referenzfeeler",
 	"cite-tracking-category-cite-error-desc": "Säiten an dëser Kategorie hu Feeler am Benotze vun de Referenz-Taggen.",
+	"cite-tracking-category-ref-details-desc": "Säiten an dëser Kategorie benotzen d'Attribut „details“ vum &lt;ref&gt;-Tag.",
 	"cite-reference-previews-reference": "Referenz",
 	"cite-reference-previews-book": "Buch-Referenz",
 	"cite-reference-previews-journal": "Zeitungs-Referenz",

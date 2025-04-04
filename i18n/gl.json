@@ -62,15 +62,15 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texto da ligazón], texto adicional.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto da ligazón]",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Detalles suplementarios",
+	"communityconfiguration-cite-title": "Cita",
+	"communityconfiguration-cite-description": "Personaliza o formato e a aparencia das referencias.",
 	"cite-configuration-title": "Configuración das citas",
 	"cite-configuration-info": "Esta configuración afecta a todas as páxinas que utilizan Cite. Só a administración pode modificar esta configuración.",
-	"cite-configuration-submit": "Gardar os cambios",
 	"cite-configuration-backlink-title": "Configuración das ligazóns de retroceso",
 	"cite-configuration-backlink-description": "As ligazóns de retroceso aparecen na lista de referencias e apuntan ás notas ao pé da páxina. Cando unha referencia se usa máis dunha vez, a súas ligazóns de retroceso están numeradas. A configuración permite utilizar un alfabeto personalizado para este fin.",
 	"cite-configuration-backlink-alpha-suggestion": "A extensión Cite detectou un alfabeto para a lingua do teu wiki. Se queres utilizalo, copia e pega o seguinte texto como base para os teus marcadores de ligazóns de retroceso. Es libre de editar ou reorganizar a secuencia.",
 	"cite-configuration-backlink-marker-label": "Conxunto de símbolos de ligazón de retroceso",
 	"cite-configuration-backlink-marker-description": "Os caracteres de abaixo utilizaranse para as ligazóns de retroceso do teu wiki.",
 	"cite-configuration-backlink-marker-help": "Introduce o teu conxunto de caracteres personalizado, cun espazo entre cada carácter. Asegúrate de que o recipiente conteña caracteres XX.",
-	"communityconfiguration-cite-title": "Cita",
-	"communityconfiguration-cite-description": "Personaliza o formato e a aparencia das referencias."
+	"cite-configuration-submit": "Gardar os cambios"
 }

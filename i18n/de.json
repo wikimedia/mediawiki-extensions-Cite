@@ -70,15 +70,15 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linktext], zusätzlicher Text.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Linktext]",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Weitere Details",
+	"communityconfiguration-cite-title": "Belegen",
+	"communityconfiguration-cite-description": "Format und Aussehen der Einzelnachweise können angepasst werden.",
 	"cite-configuration-title": "Konfiguration der Belegfunktion",
 	"cite-configuration-info": "Diese Einstellungen wirken sich auf alle Seiten aus, die Cite verwenden. Nur Administratoren können diese Einstellungen ändern.",
-	"cite-configuration-submit": "Änderungen speichern",
 	"cite-configuration-backlink-title": "Backlink-Einstellungen",
 	"cite-configuration-backlink-description": "Backlinks erscheinen in der Liste der Einzelnachweise und verweisen auf die Fußnoten in der Seite. Wenn ein Einzelnachweis mehr als einmal verwendet wird, werden deren Backlinks nummeriert. Die Konfiguration ermöglicht die Verwendung eines benutzerdefinierten Alphabets für diesen Zweck.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite hat ein Alphabet für die Sprache deines Wikis erkannt. Wenn du es verwenden möchtest, kopiere bitte den folgenden Text und füge ihn als Grundlage für deine Backlink-Markierungen ein. Du kannst die Reihenfolge beliebig bearbeiten oder neu anordnen.",
 	"cite-configuration-backlink-marker-label": "Backlink-Symbolsatz",
 	"cite-configuration-backlink-marker-description": "Die folgenden Zeichen werden für Backlinks in deinem Wiki verwendet.",
 	"cite-configuration-backlink-marker-help": "Gib einen benutzerdefinierten Zeichensatz mit einem Leerzeichen zwischen den einzelnen Zeichen ein. Stelle sicher, dass der Container XX Zeichen enthält.",
-	"communityconfiguration-cite-title": "Belegen",
-	"communityconfiguration-cite-description": "Format und Aussehen der Einzelnachweise können angepasst werden."
+	"cite-configuration-submit": "Änderungen speichern"
 }

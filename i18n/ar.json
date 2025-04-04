@@ -74,15 +74,15 @@
 	"cite-wikieditor-help-content-reference-example-text3": "[ نص الرابط $1 ]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "اختبار",
 	"cite-wikieditor-help-content-reference-example-extra-details": "تفاصيل إضافية",
+	"communityconfiguration-cite-title": "استشهد",
+	"communityconfiguration-cite-description": "تخصيص تنسيق ومظهر المراجع.",
 	"cite-configuration-title": "تكوين الاستشهاد",
 	"cite-configuration-info": "تؤثر هذه الإعدادات على جميع الصفحات التي تستخدم Cite. ولا يمكن تعديل هذه الإعدادات إلا بواسطة المسؤولين.",
-	"cite-configuration-submit": "حفظ التغييرات",
 	"cite-configuration-backlink-title": "إعدادات الروابط الخلفية",
 	"cite-configuration-backlink-description": "تظهر الروابط الخلفية في قائمة المراجع وتشير إلى الحواشي الموجودة في الصفحة. عند استخدام مرجع أكثر من مرة، يتم ترقيم الروابط الخلفية الخاصة به. يسمح التكوين باستخدام أبجدية مخصصة لهذا الغرض.",
 	"cite-configuration-backlink-alpha-suggestion": "لقد اكتشف Cite أبجدية للغة الويكي الخاصة بك. إذا كنت ترغب في استخدامها، يرجى نسخ ولصق النص أدناه كأساس لعلامات الارتباط الخلفي الخاصة بك. أنت حر في تحرير أو إعادة ترتيب التسلسل.",
 	"cite-configuration-backlink-marker-label": "مجموعة رموز الارتباط الخلفي",
 	"cite-configuration-backlink-marker-description": "سيتم استخدام الأحرف أدناه للروابط الخلفية على موقع الويكي الخاص بك.",
 	"cite-configuration-backlink-marker-help": "أدخل مجموعة الأحرف المخصصة لديك، مع ترك مسافة بين كل حرف. تأكد من أن الحاوية تحتوي على XX حرفًا.",
-	"communityconfiguration-cite-title": "استشهد",
-	"communityconfiguration-cite-description": "تخصيص تنسيق ومظهر المراجع."
+	"cite-configuration-submit": "حفظ التغييرات"
 }

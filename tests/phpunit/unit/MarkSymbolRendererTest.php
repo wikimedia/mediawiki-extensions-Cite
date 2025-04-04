@@ -2,11 +2,9 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite\AlphabetsProvider;
 use Cite\Cite;
 use Cite\MarkSymbolRenderer;
 use Cite\ReferenceMessageLocalizer;
-use MediaWiki\Config\Config;
 use MediaWiki\Message\Message;
 
 /**
@@ -33,11 +31,7 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 				return (string)$number;
 			}
 		);
-		$renderer = new MarkSymbolRenderer(
-			$mockMessageLocalizer,
-			$this->createNoOpMock( AlphabetsProvider::class ),
-			$this->createNoOpMock( Config::class )
-		);
+		$renderer = new MarkSymbolRenderer( $mockMessageLocalizer );
 
 		$output = $renderer->makeLabel( $group, $offset );
 		$this->assertSame( $expectedLabel, $output );
@@ -64,11 +58,7 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 		// Assert that ReferenceMessageLocalizer::msg( 'cite_link_label_group-' )
 		// isn't called by not defining the ->msg method.
 
-		$renderer = new MarkSymbolRenderer(
-			$mockMessageLocalizer,
-			$this->createNoOpMock( AlphabetsProvider::class ),
-			$this->createNoOpMock( Config::class )
-		);
+		$renderer = new MarkSymbolRenderer( $mockMessageLocalizer );
 
 		$this->assertSame( '1', $renderer->makeLabel( Cite::DEFAULT_GROUP, 1 ) );
 	}

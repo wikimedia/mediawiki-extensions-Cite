@@ -28,7 +28,7 @@ class ParsoidAnchorFormatterTest extends \MediaWikiUnitTestCase {
 			[ null, 1, 'cite_note-1' ],
 			[ 'a', 2, 'cite_note-a-2' ],
 			[ ' _a __  b_', 6, 'cite_note-_a_b_-6' ],
-			[ 'a_ %20a', 7, 'cite_note-a_%2520a-7' ],
+			[ 'a_ %20a', 7, 'cite_note-a_%20a-7' ],
 		];
 	}
 
@@ -57,7 +57,7 @@ class ParsoidAnchorFormatterTest extends \MediaWikiUnitTestCase {
 			[ 'a', 1, 5, null, 'cite_ref-a_1-4' ],
 			[ 'a', 1, 5, 3, 'cite_ref-a_1-2' ],
 			[ ' _a __  b_', 6, 1, null, 'cite_ref-_a_b_6-0' ],
-			[ 'a_ %20a', 7, 1, null, 'cite_ref-a_%2520a_7-0' ],
+			[ 'a_ %20a', 7, 1, null, 'cite_ref-a_%20a_7-0' ],
 		];
 	}
 

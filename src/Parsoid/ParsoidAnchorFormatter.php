@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 namespace Cite\Parsoid;
 
 use Cite\AnchorFormatter;
-use Wikimedia\Parsoid\Core\Sanitizer;
 
 /**
  * Contains small pieces of additional knowledge that is specific to the Parsoid implementation and
@@ -19,9 +18,7 @@ class ParsoidAnchorFormatter {
 	 * down to the corresponding "note" item in the reference list.
 	 */
 	public static function getNoteIdentifier( RefGroupItem $ref ): string {
-		$id = AnchorFormatter::getNoteIdentifier( $ref->name, $ref->globalId );
-		// FIXME: This extra escaping is probably a mistake!
-		return Sanitizer::escapeIdForLink( $id );
+		return AnchorFormatter::getNoteIdentifier( $ref->name, $ref->globalId );
 	}
 
 	/**
@@ -37,10 +34,8 @@ class ParsoidAnchorFormatter {
 	 * one of the possibly many footnote markers in the article.
 	 */
 	public static function getBackLinkIdentifier( RefGroupItem $ref, ?int $count = null ): string {
-		$id = AnchorFormatter::getBackLinkIdentifier( $ref->name, $ref->globalId,
+		return AnchorFormatter::getBackLinkIdentifier( $ref->name, $ref->globalId,
 			$count ?? $ref->visibleNodes );
-		// FIXME: This extra escaping is probably a mistake!
-		return Sanitizer::escapeIdForLink( $id );
 	}
 
 }

@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\DOM\Element;
 use Wikimedia\Parsoid\Ext\DOMDataUtils;
@@ -39,7 +40,7 @@ class RefGroup {
 	): Element {
 		$a = $ownerDoc->createElement( 'a' );
 		$span = $ownerDoc->createElement( 'span' );
-		$a->setAttribute( 'href', $extApi->getPageUri() . '#' . $target );
+		$a->setAttribute( 'href', $extApi->getPageUri() . '#' . Sanitizer::escapeIdForLink( $target ) );
 		$span->setAttribute( 'class', 'mw-linkback-text' );
 		if ( $group ) {
 			$a->setAttribute( 'data-mw-group', $group );

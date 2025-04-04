@@ -12,6 +12,7 @@ use MediaWiki\MediaWikiServices;
 use stdClass;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\Core\DomSourceRange;
+use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
 use Wikimedia\Parsoid\DOM\Element;
@@ -481,7 +482,8 @@ class References {
 		// refLink is the link to the citation
 		$refLink = $doc->createElement( 'a' );
 		DOMUtils::addAttributes( $refLink, [
-			'href' => $extApi->getPageUri() . '#' . ParsoidAnchorFormatter::getNoteIdentifier( $ref ),
+			'href' => $extApi->getPageUri() . '#' .
+				Sanitizer::escapeIdForLink( ParsoidAnchorFormatter::getNoteIdentifier( $ref ) ),
 			'style' => 'counter-reset: mw-Ref ' . $ref->numberInGroup . ';',
 		] );
 		if ( $ref->group ) {

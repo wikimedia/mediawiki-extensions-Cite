@@ -61,12 +61,12 @@ class ReferencesData {
 		$this->nestedRefsDepth--;
 	}
 
-	public function getRefGroup(
-		string $groupName, bool $allocIfMissing = false
-	): ?RefGroup {
-		if ( $allocIfMissing ) {
-			$this->refGroups[$groupName] ??= new RefGroup( $groupName );
-		}
+	public function getOrCreateRefGroup( string $groupName ): RefGroup {
+		$this->refGroups[$groupName] ??= new RefGroup( $groupName );
+		return $this->refGroups[$groupName];
+	}
+
+	public function lookupRefGroup( string $groupName ): ?RefGroup {
 		return $this->refGroups[$groupName] ?? null;
 	}
 
@@ -89,7 +89,7 @@ class ReferencesData {
 	public function add(
 		string $groupName, ?string $refName, string $refDir
 	): RefGroupItem {
-		$group = $this->getRefGroup( $groupName, true );
+		$group = $this->getOrCreateRefGroup( $groupName );
 
 		// The ids produced Cite.php have some particulars:
 		// Simple refs get 'cite_ref-' + index
@@ -130,7 +130,7 @@ class ReferencesData {
 	public function addSubref(
 		string $groupName, string $parentName, string $refDir
 	): RefGroupItem {
-		$group = $this->getRefGroup( $groupName, true );
+		$group = $this->getOrCreateRefGroup( $groupName );
 
 		$refKey = ++$this->refSequence;
 

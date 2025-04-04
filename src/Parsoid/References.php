@@ -203,7 +203,7 @@ class References {
 		if ( $groupErrorMessage ) {
 			$errs[] = $groupErrorMessage;
 		}
-		$refGroup = $referencesData->getRefGroup( $groupName );
+		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
 
 		// Handle 'about' attribute with priority since it's
 		// only added when the wrapper is a template sibling.
@@ -607,7 +607,7 @@ class References {
 		$isTemplateWrapper = DOMUtils::hasTypeOf( $refsNode, 'mw:Transclusion' );
 		$nodeDp = DOMDataUtils::getDataParsoid( $refsNode );
 		$groupName = $nodeDp->group ?? '';
-		$refGroup = $refsData->getRefGroup( $groupName );
+		$refGroup = $refsData->lookupRefGroup( $groupName );
 
 		// Iterate through the ref list to back-patch typeof and data-mw error
 		// information into ref for errors only known at time of references

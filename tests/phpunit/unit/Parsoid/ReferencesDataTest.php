@@ -19,16 +19,16 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 		$this->assertSame( Cite::DEFAULT_GROUP, $data->referencesGroup );
 		$this->assertFalse( $data->inReferencesContent() );
 		$this->assertFalse( $data->inEmbeddedContent() );
-		$this->assertNull( $data->getRefGroup( Cite::DEFAULT_GROUP ) );
+		$this->assertNull( $data->lookupRefGroup( Cite::DEFAULT_GROUP ) );
 		$this->assertSame( [], $data->getRefGroups() );
 	}
 
-	public function testAllocIfMissing() {
+	public function testGetOrCreateRefGroup() {
 		$data = new ReferencesData();
-		$group = $data->getRefGroup( 'note', true );
+		$group = $data->getOrCreateRefGroup( 'note', true );
 		$this->assertSame( 'note', $group->name );
 		$data->removeRefGroup( 'note' );
-		$this->assertNull( $data->getRefGroup( 'note' ) );
+		$this->assertNull( $data->lookupRefGroup( 'note' ) );
 	}
 
 	public function testEmbeddedInAnyContent() {
@@ -63,7 +63,7 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 		$expected->noteId = 'cite_note-1';
 		$this->assertEquals( $expected, $ref );
 
-		$group = $data->getRefGroup( Cite::DEFAULT_GROUP );
+		$group = $data->lookupRefGroup( Cite::DEFAULT_GROUP );
 		$this->assertEquals( [ $expected ], $group->refs );
 		$this->assertSame( [], $group->indexByName );
 	}
@@ -85,7 +85,7 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 		$expected->noteId = 'cite_note-wales-1';
 		$this->assertEquals( $expected, $ref );
 
-		$group = $data->getRefGroup( 'note' );
+		$group = $data->lookupRefGroup( 'note' );
 		$this->assertEquals( [ $expected ], $group->refs );
 		$this->assertEquals( [ 'wales' => $expected ], $group->indexByName );
 	}

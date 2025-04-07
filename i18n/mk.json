@@ -13,7 +13,7 @@
 	"cite_error_ref_numeric_key": "Погрешна ознака <code>&lt;ref&gt;</code>; името не може да биде број. Употребете описен наслов",
 	"cite_error_ref_no_key": "Отворачката ознака <code>&lt;ref&gt;</code> не е добро срочена или има погрешно име",
 	"cite_error_ref_too_many_keys": "Неважечки параметар во ознаката <code>&lt;ref&gt;</code>",
-	"cite_error_ref_follow_conflicts": "Ознаката <code>&lt;ref follow=\"…\"&gt;</code> која е продолжението на претходна не може да се именува поединечно, ниту да се проширува",
+	"cite_error_ref_follow_conflicts": "Ознаката <code>&lt;ref follow=\"…\"&gt;</code> која е продолжението на претходна не може да се именува поединечно, или да има подробности.",
 	"cite_error_ref_no_input": "Погрешна ознака <code>&lt;ref&gt;</code>; наводите без име мораат да имаат содржина",
 	"cite_error_references_duplicate_key": "Неважечка ознака <code>&lt;ref&gt;</code>; називот „$1“ е зададен повеќепати со различна содржина",
 	"cite_error_references_invalid_parameters": "Неважечки параметар во ознаката <code>&lt;references&gt;</code>",

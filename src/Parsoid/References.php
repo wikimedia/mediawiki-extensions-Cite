@@ -245,7 +245,7 @@ class References {
 		}
 
 		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
-		$ref = $referencesData->lookupRefByName( $refGroup, $refName );
+		$ref = $refGroup->lookupRefByName( $refName );
 		$conflicts = $this->checkForConflictingContent( $extApi, $ref, $refFragment );
 
 		// Handle the attributes 'name' and 'follow'
@@ -265,7 +265,7 @@ class References {
 					$errs[] = $followErrorMessage;
 				} else {
 					$hasValidFollow = true;
-					$ref = $refGroup->indexByName[$followName];
+					$ref = $refGroup->lookupRefByName( $followName );
 				}
 			}
 		}

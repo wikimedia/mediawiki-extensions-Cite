@@ -74,10 +74,6 @@ class ReferencesData {
 		unset( $this->refGroups[$groupName] );
 	}
 
-	public function lookupRefByName( RefGroup $group, string $name ): ?RefGroupItem {
-		return $group->indexByName[$name] ?? null;
-	}
-
 	public function addRef(
 		RefGroup $group,
 		string $refName,
@@ -91,7 +87,7 @@ class ReferencesData {
 			$ref->numberInGroup = $group->getNextIndex();
 			$ref->name = $refName ?: null;
 		} else {
-			$mainRef = $this->lookupRefByName( $group, $refName ) ??
+			$mainRef = $group->lookupRefByName( $refName ) ??
 				// TODO: dir could be different for the main
 				$this->addRef( $group, $refName, $refDir );
 

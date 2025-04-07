@@ -31,6 +31,10 @@ class RefGroup {
 		$this->name = $group;
 	}
 
+	public function lookupRefByName( string $name ): ?RefGroupItem {
+		return $this->indexByName[$name] ?? null;
+	}
+
 	/**
 	 * Generate leading linkbacks
 	 */
@@ -141,10 +145,12 @@ class RefGroup {
 		$refsList->appendChild( $ownerDoc->createTextNode( "\n" ) );
 	}
 
+	/** @internal only for {@see ReferencesData} */
 	public function getNextIndex(): int {
 		return $this->nextIndex++;
 	}
 
+	/** @internal only for {@see ReferencesData} */
 	public function getNextSubrefSequence( string $parentName ): int {
 		$this->subRefCountByName[$parentName] ??= 0;
 		return ++$this->subRefCountByName[$parentName];

@@ -154,7 +154,7 @@ class BacklinkMarkRenderer {
 	 * Recursive method to build a mark using an alphabet, repeating symbols to
 	 * extend the range like "a…z, aa, ab…"
 	 *
-	 * @param array $symbols List of alphabet characters as strings
+	 * @param string[] $symbols List of alphabet characters as strings
 	 * @param int $number One-based footnote group index
 	 * @param string $result Recursively-constructed output
 	 * @return string Caller sees the final result

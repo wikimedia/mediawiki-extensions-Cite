@@ -111,10 +111,9 @@ class ReferencesData {
 		return $ref;
 	}
 
-	/**
-	 * @return RefGroup[]
-	 */
+	/** @return array<string,RefGroup> */
 	public function getRefGroups(): array {
 		return $this->refGroups;
 	}
+
 }

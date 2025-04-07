@@ -65,7 +65,7 @@ class ReferenceStackItem {
 	 */
 	public ?int $subrefIndex = null;
 	/**
-	 * @var array Error messages attached to this reference.
+	 * @var array{0: string, ...1: mixed}[] Error messages attached to this reference.
 	 */
 	public array $warnings = [];
 }

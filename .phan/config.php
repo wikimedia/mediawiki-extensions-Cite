@@ -23,7 +23,7 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 /**
  * Quick implementation of a recursive directory list.
  * @param string $dir The directory to list
- * @param ?array &$result Where to put the result
+ * @param ?string[] &$result Where to put the result
  */
 function wfCollectPhpFiles( string $dir, ?array &$result = [] ) {
 	if ( !is_dir( $dir ) ) {

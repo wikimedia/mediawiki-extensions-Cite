@@ -182,10 +182,7 @@ class RefTagHandler extends ExtensionTagHandler {
 				// @phan-suppress-next-line PhanUndeclaredProperty
 				$mainElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->mainBody );
 				if ( $mainElt ) {
-					$mainBodyElt = DOMCompat::querySelector( $mainElt, ".mw-reference-text" );
-					if ( $mainBodyElt ) {
-						$src = $extApi->domToWikitext( $html2wtOpts, $mainBodyElt, true );
-					}
+					$src = $extApi->domToWikitext( $html2wtOpts, $mainElt, true );
 					DOMCompat::remove( $mainElt );
 				}
 			} else {

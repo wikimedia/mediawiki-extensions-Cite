@@ -711,21 +711,21 @@ ve.dm.citeExample.domToDataCases = {
 		body: ve.dm.example.singleLine`
 			<p>
 				<sup typeof="mw:Extension/ref" class="mw-ref reference"
-				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"cite_note-name-1"}'>
+				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"mw-reference-text-cite_note-name-1"}'>
 				</sup>
 			</p>
 		`,
 		fromDataBody: ve.dm.example.singleLine`
 			<p>
 				<sup typeof="mw:Extension/ref"
-				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"cite_note-name-1"}'>
+				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"mw-reference-text-cite_note-name-1"}'>
 				</sup>
 			</p>
 		`,
 		clipboardBody: ve.dm.example.singleLine`
 			<p>
 				<sup typeof="mw:Extension/ref"
-				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"cite_note-name-1"}'
+				 data-mw='{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"mw-reference-text-cite_note-name-1"}'
 				 class="mw-ref reference">
 					<a>
 						<span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span>
@@ -748,10 +748,10 @@ ve.dm.citeExample.domToDataCases = {
 						body: { html: 'main body' },
 						isMainRefBodyWithDetails: '1',
 						mainRef: 'name',
-						mainBody: 'cite_note-name-1',
+						mainBody: 'mw-reference-text-cite_note-name-1',
 						name: 'ref'
 					},
-					originalMw: '{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"cite_note-name-1"}',
+					originalMw: '{"name":"ref","body":{"html":"main body"},"attrs":{"details":"details body"},"isMainRefBodyWithDetails":"1","mainRef":"name","mainBody":"mw-reference-text-cite_note-name-1"}',
 					refGroup: ''
 				}
 			},

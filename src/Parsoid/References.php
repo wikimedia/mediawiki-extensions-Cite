@@ -196,6 +196,7 @@ class References {
 		$followName = (string)$arguments['follow'];
 		$refDir = strtolower( (string)$arguments['dir'] );
 		$details = $arguments['details'] ?? '';
+		$hasBody = isset( $refDataMw->body );
 
 		// Validate the reference group
 		$groupName = $arguments['group'] ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
@@ -203,7 +204,6 @@ class References {
 		if ( $groupErrorMessage ) {
 			$errs[] = $groupErrorMessage;
 		}
-		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
 
 		// Handle 'about' attribute with priority since it's
 		// only added when the wrapper is a template sibling.
@@ -238,6 +238,7 @@ class References {
 			$refFragment->appendChild( $followSpan );
 		}
 
+		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
 		$ref = $referencesData->lookupRefByName( $refGroup, $followName ) ??
 			$referencesData->lookupRefByName( $refGroup, $refName );
 		// Handle the attributes 'name' and 'follow'
@@ -279,7 +280,7 @@ class References {
 
 		// Split subref and main ref; add main ref as a list-defined reference
 		if ( $hasDetails && $refName ) {
-			if ( isset( $refDataMw->body ) ) {
+			if ( $hasBody ) {
 				// Main + details.
 
 				if ( $ref ) {

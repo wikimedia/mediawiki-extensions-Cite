@@ -34,6 +34,13 @@ use Wikimedia\RemexHtml\Serializer\SerializerNode;
  * @license GPL-2.0-or-later
  */
 class References {
+
+	private const CONFLICT_NONE = 0;
+	/** A conflict in the content that is visible to the user */
+	private const CONFLICT_VISIBLE = 1;
+	/** A conflict in e.g. the data-mw metadata, but not in the visible content */
+	private const CONFLICT_INVISIBLE = 2;
+
 	private Config $mainConfig;
 	private bool $isSubreferenceSupported;
 	private MarkSymbolRenderer $markSymbolRenderer;
@@ -228,8 +235,6 @@ class References {
 		}
 
 		$refFragmentHtml = '';
-		$hasDifferingHtml = false;
-		$hasDifferingContent = false;
 		$hasValidFollow = false;
 
 		// Wrap the attribute 'follow'
@@ -240,31 +245,17 @@ class References {
 		}
 
 		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
-		$ref = $referencesData->lookupRefByName( $refGroup, $followName ) ??
-			$referencesData->lookupRefByName( $refGroup, $refName );
+		$ref = $referencesData->lookupRefByName( $refGroup, $refName );
+		$conflicts = $this->checkForConflictingContent( $extApi, $ref, $refFragment );
+
 		// Handle the attributes 'name' and 'follow'
 		if ( $refName ) {
 			$nameErrorMessage = $this->validator->validateName( $refName, $refGroup, $referencesData );
 			if ( $nameErrorMessage ) {
 				$errs[] = $nameErrorMessage;
-			} elseif ( $ref ) {
-				// If there are multiple <ref>s with the same name, but different content,
-				// the content of the first <ref> shows up in the <references> section.
-				// in order to ensure lossless RT-ing for later <refs>, we have to record
-				// HTML inline for all of them.
-				if ( $ref->contentId ) {
-					if ( $ref->cachedHtml === null ) {
-						// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
-						$refContent = $extApi->getContentDOM( $ref->contentId )->firstChild;
-						$ref->cachedHtml = $this->normalizeRef( $extApi->domToHtml( $refContent, true, false ) );
-					}
-					$refFragmentHtml = $extApi->domToHtml( $refFragment, true, false );
-					$hasDifferingHtml = ( $this->normalizeRef( $refFragmentHtml ) !== $ref->cachedHtml );
-					if ( $hasDifferingHtml ) {
-						$hasDifferingContent = $this->normalizeRef( $refFragmentHtml, true ) !==
-							$this->normalizeRef( $ref->cachedHtml, true );
-					}
-				}
+			} elseif ( $ref && $ref->contentId ) {
+				// TODO: Why is this needed so early?
+				$refFragmentHtml = $extApi->domToHtml( $refFragment, true );
 			}
 		} else {
 			if ( $followName ) {
@@ -314,7 +305,7 @@ class References {
 				}
 
 				// FIXME: Shouldn't have been set to true above.
-				$hasDifferingHtml = false;
+				$conflicts = self::CONFLICT_NONE;
 			}
 
 			// Switch $ref to a newly-created subref
@@ -339,7 +330,7 @@ class References {
 		}
 
 		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
-			$hasDifferingHtml ) ?? $refFragmentHtml;
+			$conflicts !== self::CONFLICT_NONE ) ?? $refFragmentHtml;
 
 		if ( $this->isNestedInSupWithSameGroupAndName( $node, $groupName, $refName ) ) {
 			$errs[] = new DataMwError( 'cite_error_included_ref' );
@@ -445,8 +436,8 @@ class References {
 				// removing it below asserts everything has been migrated out
 				DOMCompat::replaceChildren( $refFragment );
 			}
-			if ( $hasDifferingHtml ) {
-				if ( $refFragmentHtml != '' && $hasDifferingContent ) {
+			if ( $conflicts !== self::CONFLICT_NONE ) {
+				if ( $refFragmentHtml != '' && $conflicts === self::CONFLICT_VISIBLE ) {
 					$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $refName ] );
 				}
 				$refDataMw->body = DataMwBody::new( [
@@ -840,6 +831,41 @@ class References {
 	}
 
 	/**
+	 * Compare named <ref> content with previous contents.
+	 *
+	 * If there are multiple <ref>s with the same name, but different content, the content of the
+	 * first <ref> shows up in the <references> section. In order to ensure lossless roundtripping
+	 * for later <ref>s, we have to record HTML inline for all of them.
+	 *
+	 * @return int One of the self::CONFLICT_… constants specifying the type of conflict detected
+	 */
+	private function checkForConflictingContent(
+		ParsoidExtensionAPI $extApi, ?RefGroupItem $ref, Element $newRefFragment
+	): int {
+		if ( !$ref || !$ref->contentId ) {
+			return self::CONFLICT_NONE;
+		}
+
+		if ( $ref->cachedHtml === null ) {
+			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
+			$refContent = $extApi->getContentDOM( $ref->contentId )->firstChild;
+			$ref->cachedHtml = self::normalizeRef( $extApi->domToHtml( $refContent, true ) );
+		}
+		$html = $extApi->domToHtml( $newRefFragment, true );
+
+		// Optimized for performance: usually there is no conflict
+		if ( $this->normalizeRef( $html ) === $ref->cachedHtml ) {
+			return self::CONFLICT_NONE;
+		} elseif ( $this->normalizeRef( $html, true ) ===
+			$this->normalizeRef( $ref->cachedHtml, true )
+		) {
+			return self::CONFLICT_INVISIBLE;
+		} else {
+			return self::CONFLICT_VISIBLE;
+		}
+	}
+
+	/**
 	 * This method removes the data-parsoid and about attributes from the HTML string passed in parameters, so
 	 * that it doesn't interfere for the comparison of identical references.
 	 * Remex does not implement the removal of "foreign" attributes, which means that these attributes cannot be
@@ -857,21 +883,21 @@ class References {
 	 * references that involve various levels of templating, which means involve different variation of
 	 * data-mw presence/absence.
 	 */
-	private function normalizeRef( string $s, bool $checkContent = false ): string {
+	private function normalizeRef( string $s, bool $removeMetadata = false ): string {
 		return HtmlHelper::modifyElements( $s,
-			static function ( SerializerNode $node ) use ( $checkContent ): bool {
+			static function ( SerializerNode $node ) use ( $removeMetadata ): bool {
 				return $node->namespace == HTMLData::NS_HTML
 					&& ( isset( $node->attrs['data-parsoid'] )
 						|| isset( $node->attrs['about'] )
-						|| ( $checkContent
+						|| ( $removeMetadata
 							&& ( isset( $node->attrs['data-mw'] ) || isset( $node->attrs['typeof'] ) )
 						)
 					);
 			},
-			static function ( SerializerNode $node ) use ( $checkContent ): SerializerNode {
+			static function ( SerializerNode $node ) use ( $removeMetadata ): SerializerNode {
 				unset( $node->attrs['data-parsoid'] );
 				unset( $node->attrs['about'] );
-				if ( $checkContent ) {
+				if ( $removeMetadata ) {
 					unset( $node->attrs['data-mw'] );
 					unset( $node->attrs['typeof'] );
 				}

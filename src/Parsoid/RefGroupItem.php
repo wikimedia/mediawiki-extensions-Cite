@@ -26,7 +26,7 @@ class RefGroupItem {
 	 */
 	public ?Node $externalFragment = null;
 
-	/** Just used for comparison when we have multiples */
+	/** @internal Partly normalized HTML string for comparison when we have multiples */
 	public ?string $cachedHtml = null;
 
 	public string $dir = '';

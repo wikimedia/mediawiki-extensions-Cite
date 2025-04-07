@@ -292,7 +292,7 @@ class References {
 					$refDataMw->isMainRefBodyWithDetails = '1';
 				} else {
 					// Create a main ref and transfer the tag body to it,
-					$mainRef = $referencesData->add( $groupName, $refName, $refDir );
+					$mainRef = $referencesData->addRef( $refGroup, $refName, $refDir );
 					$mainRef->isMainWithDetails = true;
 
 					// @phan-suppress-next-line PhanUndeclaredProperty
@@ -310,7 +310,7 @@ class References {
 
 				if ( !$ref ) {
 					// Create new, empty main ref
-					$referencesData->add( $groupName, $refName, $refDir );
+					$referencesData->addRef( $refGroup, $refName, $refDir );
 				}
 
 				// FIXME: Shouldn't have been set to true above.
@@ -318,7 +318,7 @@ class References {
 			}
 
 			// Switch $ref to a newly-created subref
-			$ref = $referencesData->addSubref( $groupName, $refName, $refDir );
+			$ref = $referencesData->addRef( $refGroup, $refName, $refDir, $details );
 
 			// Move content to main ref.
 			$contentId = null;
@@ -369,7 +369,7 @@ class References {
 			// Even worse would be if it tried to redefine itself!
 
 			if ( !$ref ) {
-				$ref = $referencesData->add( $groupName, $refName, $refDir );
+				$ref = $referencesData->addRef( $refGroup, $refName, $refDir );
 			}
 
 			// Handle linkbacks

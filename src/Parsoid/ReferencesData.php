@@ -78,54 +78,35 @@ class ReferencesData {
 		return $group->indexByName[$name] ?? null;
 	}
 
-	public function add(
-		string $groupName, ?string $refName, string $refDir
+	public function addRef(
+		RefGroup $group,
+		string $refName,
+		string $refDir,
+		?string $details = null
 	): RefGroupItem {
-		$group = $this->getOrCreateRefGroup( $groupName );
-
-		// The ids produced Cite.php have some particulars:
-		// Simple refs get 'cite_ref-' + index
-		// Refs with names get 'cite_ref-' + name + '_' + index + (backlink num || 0)
-		// Notes (references) whose ref doesn't have a name are 'cite_note-' + index
-		// Notes whose ref has a name are 'cite_note-' + name + '-' + index
-		$refKey = ++$this->refSequence;
-
 		$ref = new RefGroupItem();
-		$ref->dir = $refDir;
-		$ref->group = $group->name;
-		// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
-		$ref->numberInGroup = $group->getNextIndex();
-		$ref->globalId = $refKey;
-		$ref->name = $refName ?: null;
 
-		$group->refs[] = $ref;
+		if ( $details === null ) {
+			// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
+			$ref->numberInGroup = $group->getNextIndex();
+			$ref->name = $refName ?: null;
+		} else {
+			$mainRef = $this->lookupRefByName( $group, $refName ) ??
+				// TODO: dir could be different for the main
+				$this->addRef( $group, $refName, $refDir );
 
-		if ( $refName ) {
-			$group->indexByName[$refName] = $ref;
+			$ref->numberInGroup = $mainRef->numberInGroup;
+			$ref->subrefIndex = $group->getNextSubrefSequence( $refName );
 		}
 
-		return $ref;
-	}
-
-	public function addSubref(
-		string $groupName, string $parentName, string $refDir
-	): RefGroupItem {
-		$group = $this->getOrCreateRefGroup( $groupName );
-
-		$refKey = ++$this->refSequence;
-
-		$ref = new RefGroupItem();
 		$ref->dir = $refDir;
 		$ref->group = $group->name;
-
-		$parentRef = $group->indexByName[$parentName] ?? null;
-		if ( $parentRef ) {
-			$ref->numberInGroup = $parentRef->numberInGroup;
-		}
-		$ref->subrefIndex = $group->getNextSubrefSequence( $parentName );
-		$ref->globalId = $refKey;
+		$ref->globalId = ++$this->refSequence;
 
 		$group->refs[] = $ref;
+		if ( $ref->name ) {
+			$group->indexByName[$ref->name] = $ref;
+		}
 
 		return $ref;
 	}

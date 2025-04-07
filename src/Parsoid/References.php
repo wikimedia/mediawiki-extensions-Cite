@@ -251,8 +251,12 @@ class References {
 		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
 		$ref = $refGroup->lookupRefByName( $refName );
 
-		$conflicts = $this->checkForConflictingContent(
-			$extApi, $groupName, $refName, $ref->contentId ?? null, $refFragment );
+		$conflicts = self::CONFLICT_NONE;
+		// No point in doing conflict detection on <ref /> without body
+		if ( $hasBody ) {
+			$conflicts = $this->checkForConflictingContent(
+				$extApi, $groupName, $refName, $ref->contentId ?? null, $refFragment );
+		}
 
 		// Handle the attributes 'name' and 'follow'
 		if ( $refName ) {
@@ -275,15 +279,13 @@ class References {
 
 		// Split subref and main ref; add main ref as a list-defined reference
 		if ( $hasDetails ) {
-			if ( $hasBody ) {
-				// Main + details.
+			$mainRefExists = (bool)$ref;
+			// Create new, empty main ref
+			$ref ??= $referencesData->addRef( $refGroup, $refName, $refDir );
 
-				if ( $ref ) {
-					// Already have the main ref.
-					// TODO in T390992: Parsoid should detect conflicting main ref content in main+details
-				} else {
+			if ( $hasBody ) {
+				if ( !$mainRefExists ) {
 					// Create a main ref and transfer the tag body to it,
-					$ref = $referencesData->addRef( $refGroup, $refName, $refDir );
 					$ref->isMainWithDetails = true;
 					$ref->contentId = $contentId;
 				}
@@ -292,16 +294,6 @@ class References {
 				// Flag to help reserialize main ref content into the subref when saving.
 				// @phan-suppress-next-line PhanUndeclaredProperty
 				$refDataMw->isMainRefBodyWithDetails = '1';
-			} else {
-				// Standalone subref
-
-				if ( !$ref ) {
-					// Create new, empty main ref
-					$referencesData->addRef( $refGroup, $refName, $refDir );
-				}
-
-				// FIXME: Shouldn't have been set to true above.
-				$conflicts = self::CONFLICT_NONE;
 			}
 
 			// Switch $ref to a newly-created subref
@@ -356,9 +348,7 @@ class References {
 			// it up again, but Parsoid is choosing not to support that.
 			// Even worse would be if it tried to redefine itself!
 
-			if ( !$ref ) {
-				$ref = $referencesData->addRef( $refGroup, $refName, $refDir );
-			}
+			$ref ??= $referencesData->addRef( $refGroup, $refName, $refDir );
 
 			// Handle linkbacks
 			if ( $referencesData->inEmbeddedContent() ) {

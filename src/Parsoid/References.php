@@ -239,7 +239,6 @@ class References {
 			$errs[] = new DataMwError( 'cite_error_references_no_key' );
 		}
 
-		$refFragmentHtml = null;
 		$hasValidFollow = false;
 
 		// Wrap the attribute 'follow'
@@ -317,7 +316,6 @@ class References {
 				'processInNewFrame' => true,
 				'parseOpts' => [ 'context' => 'inline' ]
 			], true );
-			$refFragmentHtml = '';
 			// Subref points to the main ref by name.
 			// FIXME: should have already asserted that refName exists for all details, see T387193
 			unset( $refDataMw->attrs->name );
@@ -326,7 +324,7 @@ class References {
 			$refName = '';
 		}
 
-		$refFragmentHtml ??= $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
+		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
 			$conflicts !== self::CONFLICT_NONE ) ??
 			// Fall back to the normal behavior without any nested <ref>
 			$extApi->domToHtml( $refFragment, true );

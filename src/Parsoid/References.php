@@ -274,8 +274,6 @@ class References {
 					$ref->contentId = $contentId;
 				}
 				$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $ref );
-				// Flag to help reserialize main ref content into the subref when saving.
-				$refDataMw->isSubRefWithMainBody = 1;
 			}
 
 			// Switch $ref to a newly-created subref (or reuse a duplicate)

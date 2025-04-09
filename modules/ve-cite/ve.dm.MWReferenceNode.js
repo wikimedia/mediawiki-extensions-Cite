@@ -289,7 +289,6 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainRefKey ) || [];
 			const refListNode = mainKeyReuses.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 			if ( refListNode ) {
-				ve.setProp( mwData, 'isSubRefWithMainBody', 1 );
 				ve.setProp( mwData, 'mainBody', refListNode.getAttribute( 'refListItemId' ) );
 			}
 		}

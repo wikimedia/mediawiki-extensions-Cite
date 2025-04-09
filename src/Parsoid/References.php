@@ -285,6 +285,9 @@ class References {
 
 					// @phan-suppress-next-line PhanUndeclaredProperty
 					$refDataMw->isMainRefBodyWithDetails = '1';
+
+					// @phan-suppress-next-line PhanUndeclaredProperty
+					$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $ref );
 				} else {
 					// Create a main ref and transfer the tag body to it,
 					$mainRef = $referencesData->addRef( $refGroup, $refName, $refDir );

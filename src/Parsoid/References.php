@@ -36,10 +36,10 @@ use Wikimedia\RemexHtml\Serializer\SerializerNode;
 class References {
 
 	private const CONFLICT_NONE = 0;
-	/** A conflict in the content that is visible to the user */
-	private const CONFLICT_VISIBLE = 1;
 	/** A conflict in e.g. the data-mw metadata, but not in the visible content */
-	private const CONFLICT_INVISIBLE = 2;
+	private const CONFLICT_INVISIBLE = 1;
+	/** A conflict in the content that is visible to the user */
+	private const CONFLICT_VISIBLE = 2;
 
 	private Config $mainConfig;
 	private bool $isSubreferenceSupported;

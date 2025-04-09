@@ -19,12 +19,13 @@ class AnchorFormatter {
 	public static function getBackLinkIdentifier( ?string $name, int $globalId, int $count ): string {
 		// Note this intentionally drops "0" and such, that's invalid anyway
 		if ( $name ) {
+			$id = self::normalizeFragmentIdentifier( "{$name}_$globalId" );
 			// TODO: Can we change this to use the number as it is, without decrementing?
-			$id = "cite_ref-{$name}_$globalId-" . ( $count - 1 );
+			$id .= '-' . ( $count - 1 );
 		} else {
-			$id = "cite_ref-$globalId";
+			$id = $globalId;
 		}
-		return self::normalizeFragmentIdentifier( $id );
+		return "cite_ref-$id";
 	}
 
 	/**
@@ -52,11 +53,11 @@ class AnchorFormatter {
 	public static function getNoteIdentifier( ?string $name, int $globalId ): string {
 		// Note this intentionally drops "0" and such, that's invalid anyway
 		if ( $name ) {
-			$id = "cite_note-$name-$globalId";
+			$id = self::normalizeFragmentIdentifier( $name ) . '-' . $globalId;
 		} else {
-			$id = "cite_note-$globalId";
+			$id = $globalId;
 		}
-		return self::normalizeFragmentIdentifier( $id );
+		return "cite_note-$id";
 	}
 
 	/**

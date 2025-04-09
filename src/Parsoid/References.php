@@ -45,6 +45,11 @@ class References {
 	private bool $isSubreferenceSupported;
 	private MarkSymbolRenderer $markSymbolRenderer;
 	private ParsoidValidator $validator;
+	/** @var array<string,array<string,string>>
+	 * @internal Local copy of ref body HTML for conflict detection. Top level
+	 * key is the ref group name, second level key is the ref name
+	 */
+	private array $conflictCache = [];
 
 	public function __construct( Config $mainConfig ) {
 		$this->mainConfig = $mainConfig;
@@ -246,7 +251,9 @@ class References {
 
 		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
 		$ref = $refGroup->lookupRefByName( $refName );
-		$conflicts = $this->checkForConflictingContent( $extApi, $ref, $refFragment );
+
+		$conflicts = $this->checkForConflictingContent(
+			$extApi, $groupName, $refName, $ref->contentId ?? null, $refFragment );
 
 		// Handle the attributes 'name' and 'follow'
 		if ( $refName ) {
@@ -840,24 +847,27 @@ class References {
 	 * @return int One of the self::CONFLICT_… constants specifying the type of conflict detected
 	 */
 	private function checkForConflictingContent(
-		ParsoidExtensionAPI $extApi, ?RefGroupItem $ref, Element $newRefFragment
+		ParsoidExtensionAPI $extApi,
+		string $refGroupName,
+		string $refName,
+		?string $existingContentId,
+		Element $newRefFragment
 	): int {
-		if ( !$ref || !$ref->contentId ) {
+		if ( !$refName || !$existingContentId ) {
 			return self::CONFLICT_NONE;
 		}
 
-		if ( $ref->cachedHtml === null ) {
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
-			$refContent = $extApi->getContentDOM( $ref->contentId )->firstChild;
-			$ref->cachedHtml = self::normalizeRef( $extApi->domToHtml( $refContent, true ) );
-		}
+		$this->conflictCache[$refGroupName][$refName] ??=
+			self::normalizeRef( $extApi->domToHtml( $extApi->getContentDOM( $existingContentId )->firstChild, true ) );
+		$existingHtml = $this->conflictCache[$refGroupName][$refName];
+
 		$html = $extApi->domToHtml( $newRefFragment, true );
 
 		// Optimized for performance: usually there is no conflict
-		if ( $this->normalizeRef( $html ) === $ref->cachedHtml ) {
+		if ( $this->normalizeRef( $html ) === $existingHtml ) {
 			return self::CONFLICT_NONE;
 		} elseif ( $this->normalizeRef( $html, true ) ===
-			$this->normalizeRef( $ref->cachedHtml, true )
+			$this->normalizeRef( $existingHtml, true )
 		) {
 			return self::CONFLICT_INVISIBLE;
 		} else {

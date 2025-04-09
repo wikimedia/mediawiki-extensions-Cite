@@ -26,9 +26,6 @@ class RefGroupItem {
 	 */
 	public ?Node $externalFragment = null;
 
-	/** @internal Partly normalized HTML string for comparison when we have multiples */
-	public ?string $cachedHtml = null;
-
 	public string $dir = '';
 	/**
 	 * Name of the group (or empty for the default group) which this <ref> belongs to.

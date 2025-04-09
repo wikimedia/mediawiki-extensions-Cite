@@ -239,7 +239,7 @@ class References {
 			$errs[] = new DataMwError( 'cite_error_references_no_key' );
 		}
 
-		$refFragmentHtml = '';
+		$refFragmentHtml = null;
 		$hasValidFollow = false;
 
 		// Wrap the attribute 'follow'
@@ -260,9 +260,6 @@ class References {
 			$nameErrorMessage = $this->validator->validateName( $refName, $refGroup, $referencesData );
 			if ( $nameErrorMessage ) {
 				$errs[] = $nameErrorMessage;
-			} elseif ( $ref && $ref->contentId ) {
-				// TODO: Why is this needed so early?
-				$refFragmentHtml = $extApi->domToHtml( $refFragment, true );
 			}
 		} else {
 			if ( $followName ) {
@@ -336,8 +333,10 @@ class References {
 			$refName = '';
 		}
 
-		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
-			$conflicts !== self::CONFLICT_NONE ) ?? $refFragmentHtml;
+		$refFragmentHtml ??= $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
+			$conflicts !== self::CONFLICT_NONE ) ??
+			// Fall back to the normal behavior without any nested <ref>
+			$extApi->domToHtml( $refFragment, true );
 
 		if ( $this->isNestedInSupWithSameGroupAndName( $node, $groupName, $refName ) ) {
 			$errs[] = new DataMwError( 'cite_error_included_ref' );

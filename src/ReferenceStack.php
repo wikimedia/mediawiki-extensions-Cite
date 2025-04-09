@@ -60,7 +60,7 @@ class ReferenceStack {
 	 *
 	 * @param StripState $stripState
 	 * @param ?string $text Content from the <ref> tag
-	 * @param string[] $argv
+	 * @param array $argv
 	 * @param string $group
 	 * @param ?string $name
 	 * @param ?string $follow Guaranteed to not be a numeric string
@@ -173,9 +173,8 @@ class ReferenceStack {
 	 *
 	 * @param int $count Number of <ref> tags already parsed and replaced with strip-markers before
 	 *  we realized we are actually inside {{#tag:references|…}}.
-	 *
-	 * @return array[] Refs to restore under the correct context, as a list of [ $text, $argv ]
-	 * @phan-return array<array{0:?string,1:array}>
+	 * @return array{0: ?string, 1: array}[] Refs to restore under the correct context, as a list
+	 *  of [ $text, $argv ]
 	 */
 	public function rollbackRefs( int $count ): array {
 		$redoStack = [];
@@ -211,7 +210,6 @@ class ReferenceStack {
 	 * @param ReferenceStackItem $ref
 	 * @param ?string $text
 	 * @param array $argv
-	 *
 	 * @return array{0: ?string, 1: array} [ $text, $argv ] Ref redo item.
 	 */
 	private function rollbackRef(

@@ -108,7 +108,7 @@ class Cite {
 	 *
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <ref> tag, if any
-	 * @param string[] $argv Arguments as given in <ref name=…>, already trimmed
+	 * @param array<string,?string> $argv Arguments as given in <ref name=…>, already trimmed
 	 *
 	 * @return string|null Null in case a <ref> tag is not allowed in the current context
 	 */
@@ -127,7 +127,7 @@ class Cite {
 	/**
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <ref> tag, if any
-	 * @param string[] $argv Arguments as given in <ref name=…>, already trimmed
+	 * @param array<string,?string> $argv Arguments as given in <ref name=…>, already trimmed
 	 *
 	 * @return string HTML
 	 */
@@ -210,7 +210,7 @@ class Cite {
 	 *
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
-	 * @param string[] $argv Arguments as given in <references …>, already trimmed
+	 * @param array<string,?string> $argv Arguments as given in <references …>, already trimmed
 	 *
 	 * @return string|null Null in case a <references> tag is not allowed in the current context
 	 */

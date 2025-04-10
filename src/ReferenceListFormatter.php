@@ -25,21 +25,18 @@ class ReferenceListFormatter {
 	 * @param Parser $parser
 	 * @param array<string|int,ReferenceStackItem> $groupRefs
 	 * @param bool $responsive
-	 * @param bool $isSectionPreview
-	 *
 	 * @return string HTML
 	 */
 	public function formatReferences(
 		Parser $parser,
 		array $groupRefs,
-		bool $responsive,
-		bool $isSectionPreview
+		bool $responsive
 	): string {
 		if ( !$groupRefs ) {
 			return '';
 		}
 
-		$wikitext = $this->formatRefsList( $groupRefs, $isSectionPreview );
+		$wikitext = $this->formatRefsList( $groupRefs );
 		$html = $parser->recursiveTagParse( $wikitext );
 		$html = Html::rawElement( 'ol', [ 'class' => 'references' ], $html );
 
@@ -58,13 +55,9 @@ class ReferenceListFormatter {
 
 	/**
 	 * @param array<string|int,ReferenceStackItem> $groupRefs
-	 * @param bool $isSectionPreview
 	 * @return string Wikitext
 	 */
-	private function formatRefsList(
-		array $groupRefs,
-		bool $isSectionPreview
-	): string {
+	private function formatRefsList( array $groupRefs ): string {
 		// After sorting the list, we can assume that references are in the same order as their
 		// numbering.  Subreferences will come immediately after their parent.
 		uasort(
@@ -94,7 +87,7 @@ class ReferenceListFormatter {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
-			$parserInput .= $this->formatListItem( $ref, $isSectionPreview ) . "\n";
+			$parserInput .= $this->formatListItem( $ref ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
 		return $parserInput;
@@ -115,13 +108,10 @@ class ReferenceListFormatter {
 
 	/**
 	 * @param ReferenceStackItem $ref
-	 * @param bool $isSectionPreview
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
-	private function formatListItem(
-		ReferenceStackItem $ref, bool $isSectionPreview
-	): string {
-		$text = $this->renderTextAndWarnings( $ref, $isSectionPreview );
+	private function formatListItem( ReferenceStackItem $ref ): string {
+		$text = $this->renderTextAndWarnings( $ref );
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
@@ -188,21 +178,9 @@ class ReferenceListFormatter {
 
 	/**
 	 * @param ReferenceStackItem $ref
-	 * @param bool $isSectionPreview
 	 * @return string Wikitext
 	 */
-	private function renderTextAndWarnings(
-		ReferenceStackItem $ref, bool $isSectionPreview
-	): string {
-		if ( $ref->text === null ) {
-			$ref->warnings[] = [
-				$isSectionPreview
-					? 'cite_warning_sectionpreview_no_text'
-					: 'cite_error_references_no_text',
-				$ref->name
-			];
-		}
-
+	private function renderTextAndWarnings( ReferenceStackItem $ref ): string {
 		$text = $ref->text ?? '';
 		foreach ( $ref->warnings as $warning ) {
 			// @phan-suppress-next-line PhanParamTooFewUnpack

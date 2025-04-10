@@ -302,11 +302,21 @@ class Cite {
 		string $group,
 		?bool $responsive = null
 	): string {
+		$refs = $this->referenceStack->popGroup( $group );
+
+		// Check for missing content at the last possible moment before rendering
+		$msg = $this->isSectionPreview ? 'cite_warning_sectionpreview_no_text' :
+			'cite_error_references_no_text';
+		foreach ( $refs as $ref ) {
+			if ( $ref->text === null ) {
+				$ref->warnings[] = [ $msg, $ref->name ];
+			}
+		}
+
 		return $this->referenceListFormatter->formatReferences(
 			$parser,
-			$this->referenceStack->popGroup( $group ),
-			$responsive ?? $this->config->get( 'CiteResponsiveReferences' ),
-			$this->isSectionPreview
+			$refs,
+			$responsive ?? $this->config->get( 'CiteResponsiveReferences' )
 		);
 	}
 

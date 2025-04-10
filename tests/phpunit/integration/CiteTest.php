@@ -130,7 +130,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$spy->errorReporter->method( 'halfParsed' )->willReturnArgument( 0 );
 		$spy->referenceListFormatter = $this->createMock( ReferenceListFormatter::class );
 		$spy->referenceListFormatter->method( 'formatReferences' )
-			->with( $parser, [], $expectedResponsive, false )
+			->with( $parser, [], $expectedResponsive )
 			->willReturn( 'references!' );
 		$spy->referenceStack = $this->createMock( ReferenceStack::class );
 		$spy->referenceStack->method( 'popGroup' )

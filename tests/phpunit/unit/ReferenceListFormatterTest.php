@@ -49,7 +49,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		);
 
 		$refs = array_map( [ TestUtils::class, 'refFromArray' ], $refs );
-		$output = $formatter->formatReferences( $mockParser, $refs, true, false );
+		$output = $formatter->formatReferences( $mockParser, $refs, true );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -174,7 +174,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$ref = TestUtils::refFromArray( $ref );
-		$output = $formatter->formatListItem( $ref, false );
+		$output = $formatter->formatListItem( $ref );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -248,7 +248,6 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testReferenceText(
 		?string $text,
-		bool $isSectionPreview,
 		string $expectedOutput
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
@@ -265,7 +264,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$ref = TestUtils::refFromArray( [ 'text' => $text ] );
-		$output = $formatter->renderTextAndWarnings( $ref, $isSectionPreview );
+		$output = $formatter->renderTextAndWarnings( $ref );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -273,22 +272,14 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		return [
 			'No text, not preview' => [
 				'text' => null,
-				'isSectionPreview' => false,
-				'expectedOutput' => '<span class="reference-text"> (cite_error_references_no_text|)</span>' . "\n"
-			],
-			'No text, is preview' => [
-				'text' => null,
-				'isSectionPreview' => true,
-				'expectedOutput' => '<span class="reference-text"> (cite_warning_sectionpreview_no_text|)</span>' . "\n"
+				'expectedOutput' => '<span class="reference-text"></span>' . "\n"
 			],
 			'Has text' => [
 				'text' => 'text',
-				'isSectionPreview' => true,
 				'expectedOutput' => '<span class="reference-text">text</span>' . "\n"
 			],
 			'Trims text' => [
 				'text' => "text\n\n",
-				'isSectionPreview' => true,
 				'expectedOutput' => '<span class="reference-text">text</span>' . "\n"
 			],
 		];

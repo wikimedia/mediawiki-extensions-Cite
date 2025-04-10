@@ -537,21 +537,14 @@ class References {
 		// we need to parse embedded content to find them.
 		if ( $refGroup ) {
 			foreach ( $refGroup->toArray() as $ref ) {
-				$errs = [];
 				// Mark all refs that are named without content
 				if ( $ref->name !== null && $ref->contentId === null ) {
-					// TODO: Since this error is being placed on the ref,
-					// the key should arguably be "cite_error_ref_no_text"
-					$errs[] = new DataMwError( 'cite_error_references_no_text',
-						[ $ref->name ]
-					);
-				}
-				if ( $errs ) {
+					$err = new DataMwError( 'cite_error_references_no_text', [ $ref->name ] );
 					foreach ( $ref->nodes as $node ) {
-						ErrorUtils::addErrorsToNode( $node, $errs );
+						ErrorUtils::addErrorsToNode( $node, [ $err ] );
 					}
 					foreach ( $ref->embeddedNodes as $about ) {
-						$refsData->embeddedErrors[$about] = $errs;
+						$refsData->embeddedErrors[$about] = [ $err ];
 					}
 				}
 			}

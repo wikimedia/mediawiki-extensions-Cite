@@ -25,8 +25,7 @@ class ParsoidAnchorFormatter {
 	 * Identifier for the inner <span class="mw-reference-text"> node.
 	 */
 	public static function getNoteTextIdentifier( RefGroupItem $ref ): string {
-		return 'mw-reference-text-' .
-			AnchorFormatter::getNoteIdentifier( $ref->name, $ref->globalId );
+		return AnchorFormatter::getNoteTextIdentifier( $ref->name, $ref->globalId );
 	}
 
 	/**

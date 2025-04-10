@@ -17,7 +17,7 @@ class AnchorFormatter {
 	 * back up to one of possibly many footnote markers in the article.
 	 */
 	public static function getBackLinkIdentifier( ?string $name, int $globalId, int $count ): string {
-		// Note this intentionally drops "0" and such, that's invalid anyway
+		// This intentionally drops "0" and such, that's invalid anyway
 		if ( $name ) {
 			$id = self::normalizeFragmentIdentifier( "{$name}_$globalId" );
 			// TODO: Can we change this to use the number as it is, without decrementing?
@@ -29,7 +29,7 @@ class AnchorFormatter {
 	}
 
 	/**
-	 * @return string Escaped to be used as part of a [[#…]] link
+	 * @return string URL and HTML escaped to be used as part of a [[#…]] link in wikitext
 	 */
 	public function backLink( ?string $name, int $globalId, int $count ): string {
 		$id = $this->getBackLinkIdentifier( $name, $globalId, $count );
@@ -51,7 +51,7 @@ class AnchorFormatter {
 	 * marker in the article down to the corresponding "note" item in the reference list.
 	 */
 	public static function getNoteIdentifier( ?string $name, int $globalId ): string {
-		// Note this intentionally drops "0" and such, that's invalid anyway
+		// This intentionally drops "0" and such, that's invalid anyway
 		if ( $name ) {
 			$id = self::normalizeFragmentIdentifier( $name ) . '-' . $globalId;
 		} else {
@@ -60,8 +60,12 @@ class AnchorFormatter {
 		return "cite_note-$id";
 	}
 
+	public static function getNoteTextIdentifier( ?string $name, int $globalId ): string {
+		return 'mw-reference-text-' . self::getNoteIdentifier( $name, $globalId );
+	}
+
 	/**
-	 * @return string Escaped to be used as part of a [[#…]] link
+	 * @return string URL and HTML escaped to be used as part of a [[#…]] link in wikitext
 	 */
 	public function jumpLink( ?string $name, int $globalId ): string {
 		$id = $this->getNoteIdentifier( $name, $globalId );

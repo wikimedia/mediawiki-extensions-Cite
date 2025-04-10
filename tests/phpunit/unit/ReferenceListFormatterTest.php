@@ -29,7 +29,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
+			static fn ( ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
@@ -135,7 +135,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		string $expectedOutput
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
-		$mockErrorReporter->method( 'plain' )->willReturnArgument( 1 );
+		$mockErrorReporter->method( 'plain' )->willReturnArgument( 0 );
 
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
 		$anchorFormatter->method( 'backLink' )->willReturnCallback(
@@ -178,9 +178,8 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			$mockMessageLocalizer
 		) );
 
-		$parser = $this->createNoOpMock( Parser::class );
 		$ref = TestUtils::refFromArray( $ref );
-		$output = $formatter->formatListItem( $parser, $ref, false );
+		$output = $formatter->formatListItem( $ref, false );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -259,7 +258,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
-			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
+			static fn ( ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
 		/** @var ReferenceListFormatter $formatter */
@@ -270,9 +269,8 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			$this->createNoOpMock( ReferenceMessageLocalizer::class )
 		) );
 
-		$parser = $this->createNoOpMock( Parser::class );
 		$ref = TestUtils::refFromArray( [ 'text' => $text ] );
-		$output = $formatter->renderTextAndWarnings( $parser, $ref, $isSectionPreview );
+		$output = $formatter->renderTextAndWarnings( $ref, $isSectionPreview );
 		$this->assertSame( $expectedOutput, $output );
 	}
 

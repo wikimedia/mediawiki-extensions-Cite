@@ -33,7 +33,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'halfParsed' )->willReturnCallback(
-			static fn ( $parser, ...$args ) => '(' . implode( '|', $args ) . ')'
+			static fn ( ...$args ) => '(' . implode( '|', $args ) . ')'
 		);
 
 		$referenceStack = new ReferenceStack();

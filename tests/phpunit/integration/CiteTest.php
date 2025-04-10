@@ -125,7 +125,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		/** @var Cite $spy */
 		$spy = TestingAccessWrapper::newFromObject( $cite );
 		$spy->errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed' ] );
-		$spy->errorReporter->method( 'halfParsed' )->willReturnArgument( 1 );
+		$spy->errorReporter->method( 'halfParsed' )->willReturnArgument( 0 );
 		$spy->referenceListFormatter = $this->createMock( ReferenceListFormatter::class );
 		$spy->referenceListFormatter->method( 'formatReferences' )
 			->with( $parser, [], $expectedResponsive, false )
@@ -212,7 +212,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$mockParser = $this->mockParser( $isSectionPreview );
 
 		$errorReporter = $this->createPartialMock( ErrorReporter::class, [ 'halfParsed' ] );
-		$errorReporter->method( 'halfParsed' )->willReturnArgument( 1 );
+		$errorReporter->method( 'halfParsed' )->willReturnArgument( 0 );
 
 		$referenceStack = new ReferenceStack();
 		/** @var ReferenceStack $stackSpy */

@@ -253,7 +253,7 @@ class Cite {
 			return StatusValue::newGood();
 		}
 
-		if ( preg_match( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:references)-}', $text ) ) {
+		if ( preg_match( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(ext-)?(?i:references)-}', $text ) ) {
 			return StatusValue::newFatal( 'cite_error_included_references' );
 		}
 
@@ -263,7 +263,7 @@ class Cite {
 		// all known use cases, but not strictly enforced by the parser. It is possible that
 		// some unusual combination of #tag, <references> and conditional parser functions could
 		// be created that would lead to malformed references here.
-		preg_match_all( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(?i:ref)-}', $text, $matches );
+		preg_match_all( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(ext-)?(?i:ref)-}', $text, $matches );
 		$count = count( $matches[0] );
 
 		// Undo effects of calling <ref> while unaware of being contained in <references>

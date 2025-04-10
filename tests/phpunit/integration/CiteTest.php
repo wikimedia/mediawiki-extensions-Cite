@@ -184,8 +184,16 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedResponsive' => false,
 				'expectedOutput' => 'cite_error_references_invalid_parameters',
 			],
-			'Contains refs (which are broken)' => [
+			'Contains refs (which are broken) (old-style)' => [
 				'text' => Parser::MARKER_PREFIX . '-ref- and ' . Parser::MARKER_PREFIX . '-notref-',
+				'argv' => [],
+				'expectedRollbackCount' => 1,
+				'expectedInReferencesGroup' => '',
+				'expectedResponsive' => false,
+				'expectedOutput' => "references!\ncite_error_references_no_key"
+			],
+			'Contains refs (which are broken) (new-style)' => [
+				'text' => Parser::MARKER_PREFIX . '-ext-ref- and ' . Parser::MARKER_PREFIX . '-ext-notref-',
 				'argv' => [],
 				'expectedRollbackCount' => 1,
 				'expectedInReferencesGroup' => '',

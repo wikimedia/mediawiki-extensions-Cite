@@ -2,7 +2,6 @@
 
 namespace Cite;
 
-use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 
 /**
@@ -28,24 +27,20 @@ class FootnoteMarkFormatter {
 	}
 
 	/**
-	 * Generate a link (<sup ...) for the <ref> element from a key
-	 * and return XHTML ready for output
+	 * Generates the clickable <sup>[1]</sup> wikitext snippets for the numeric footnote markers
+	 * in an article.
 	 *
-	 * @suppress SecurityCheck-DoubleEscaped
-	 * @param Parser $parser
 	 * @param ReferenceStackItem $ref
-	 *
-	 * @return string HTML
+	 * @return string Wikitext
 	 */
-	public function linkRef( Parser $parser, ReferenceStackItem $ref ): string {
+	public function linkRef( ReferenceStackItem $ref ): string {
 		$label = $this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup, $ref->subrefIndex );
-		return $parser->recursiveTagParse(
-			$this->messageLocalizer->msg(
-				'cite_reference_link',
-				$this->anchorFormatter->backLinkTarget( $ref->name, $ref->globalId, $ref->count ),
-				$this->anchorFormatter->jumpLink( $ref->name, $ref->globalId ),
-				Sanitizer::safeEncodeAttribute( $label )
-			)->plain()
-		);
+		return $this->messageLocalizer->msg(
+			'cite_reference_link',
+			$this->anchorFormatter->backLinkTarget( $ref->name, $ref->globalId, $ref->count ),
+			$this->anchorFormatter->jumpLink( $ref->name, $ref->globalId ),
+			Sanitizer::safeEncodeAttribute( $label )
+		)->plain();
 	}
+
 }

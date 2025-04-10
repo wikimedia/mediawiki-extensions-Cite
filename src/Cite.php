@@ -202,7 +202,8 @@ class Cite {
 			$ref->warnings[] = [ $msg->getKey(), ...$msg->getParams() ];
 		}
 
-		return $this->footnoteMarkFormatter->linkRef( $parser, $ref );
+		$wikitext = $this->footnoteMarkFormatter->linkRef( $ref );
+		return $parser->recursiveTagParse( $wikitext );
 	}
 
 	/**

@@ -8,7 +8,6 @@ use Cite\MarkSymbolRenderer;
 use Cite\ReferenceMessageLocalizer;
 use Cite\Tests\TestUtils;
 use MediaWiki\Message\Message;
-use MediaWiki\Parser\Parser;
 
 /**
  * @covers \Cite\FootnoteMarkFormatter
@@ -43,8 +42,6 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 			}
 		);
 		$markSymbolRenderer = new MarkSymbolRenderer( $messageLocalizer );
-		$mockParser = $this->createNoOpMock( Parser::class, [ 'recursiveTagParse' ] );
-		$mockParser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		$formatter = new FootnoteMarkFormatter(
 			$anchorFormatter,
 			$markSymbolRenderer,
@@ -52,7 +49,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		);
 
 		$ref = TestUtils::refFromArray( $ref );
-		$output = $formatter->linkRef( $mockParser, $ref );
+		$output = $formatter->linkRef( $ref );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -116,4 +113,5 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 			],
 		];
 	}
+
 }

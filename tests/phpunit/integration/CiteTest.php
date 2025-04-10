@@ -452,7 +452,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$parser->method( 'getContentLanguage' )->willReturn( $language );
 		$parser->method( 'getOptions' )->willReturn( $parserOptions );
 		$parser->method( 'getStripState' )->willReturn( $stripState );
-		$parser->method( 'recursiveTagParse' )->willReturn( '' );
+		$parser->method( 'recursiveTagParse' )->willReturnArgument( 0 );
 		return $parser;
 	}
 

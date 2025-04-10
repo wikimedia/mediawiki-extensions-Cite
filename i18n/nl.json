@@ -39,6 +39,8 @@
 	"cite-tracking-category-cite-error-desc": "Pagina's in deze categorie hebben fouten in het gebruik van references tags.",
 	"cite-tracking-category-cite-diffing-error": "Pagina's met referentiefouten die visuele verschillen veroorzaken",
 	"cite-tracking-category-cite-diffing-error-desc": "De pagina's in deze categorie bevatten fouten in het gebruik van referentietags. Deze fouten worden in de oude parser en in Parsoid niet op dezelfde manier weergegeven.",
+	"cite-tracking-category-ref-details": "Pagina's die subreferenties gebruiken",
+	"cite-tracking-category-ref-details-desc": "De pagina’s in deze categorie gebruiken het attribuut “details” van de tag &lt;ref&gt;.",
 	"cite-reference-previews-reference": "Verwijzing",
 	"cite-reference-previews-book": "Boekreferentie",
 	"cite-reference-previews-journal": "Tijdschriftreferentie",

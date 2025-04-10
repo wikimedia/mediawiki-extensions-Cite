@@ -282,27 +282,17 @@ class References {
 				if ( $ref ) {
 					// Already have the main ref.
 					// TODO in T390992: Parsoid should detect conflicting main ref content in main+details
-
-					// @phan-suppress-next-line PhanUndeclaredProperty
-					$refDataMw->isMainRefBodyWithDetails = '1';
-
-					// @phan-suppress-next-line PhanUndeclaredProperty
-					$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $ref );
 				} else {
 					// Create a main ref and transfer the tag body to it,
-					$mainRef = $referencesData->addRef( $refGroup, $refName, $refDir );
-					$mainRef->isMainWithDetails = true;
-
-					// @phan-suppress-next-line PhanUndeclaredProperty
-					$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $mainRef );
-
-					if ( $contentId ) {
-						$mainRef->contentId = $contentId;
-						// Flag to help reserialize main ref content into the subref when saving.
-						// @phan-suppress-next-line PhanUndeclaredProperty
-						$refDataMw->isMainRefBodyWithDetails = '1';
-					}
+					$ref = $referencesData->addRef( $refGroup, $refName, $refDir );
+					$ref->isMainWithDetails = true;
+					$ref->contentId = $contentId;
 				}
+				// @phan-suppress-next-line PhanUndeclaredProperty
+				$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $ref );
+				// Flag to help reserialize main ref content into the subref when saving.
+				// @phan-suppress-next-line PhanUndeclaredProperty
+				$refDataMw->isMainRefBodyWithDetails = '1';
 			} else {
 				// Standalone subref
 

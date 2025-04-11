@@ -43,7 +43,6 @@ class References {
 	private const CONFLICT_VISIBLE = 2;
 
 	private Config $mainConfig;
-	private bool $isSubreferenceSupported;
 	private MarkSymbolRenderer $markSymbolRenderer;
 	private ParsoidValidator $validator;
 	/** @var array<string,array<string,string>>
@@ -54,10 +53,9 @@ class References {
 
 	public function __construct( Config $mainConfig ) {
 		$this->mainConfig = $mainConfig;
-		$this->isSubreferenceSupported = $mainConfig->get( 'CiteSubReferencing' );
 
 		$this->markSymbolRenderer = MediaWikiServices::getInstance()->getService( 'Cite.MarkSymbolRenderer' );
-		$this->validator = new ParsoidValidator( $this->isSubreferenceSupported );
+		$this->validator = new ParsoidValidator();
 	}
 
 	private static function hasRef( ParsoidExtensionAPI $extApi, Node $node ): bool {
@@ -199,7 +197,8 @@ class References {
 		$refDataMw = DOMDataUtils::getDataMw( $refFragment );
 
 		// Validate attribute keys
-		$status = Validator::filterRefArguments( (array)$refDataMw->attrs, $this->isSubreferenceSupported );
+		$isSubreferenceSupported = $this->mainConfig->get( 'CiteSubReferencing' );
+		$status = Validator::filterRefArguments( (array)$refDataMw->attrs, $isSubreferenceSupported );
 		$arguments = $status->getValue();
 
 		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.

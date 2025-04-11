@@ -10,12 +10,6 @@ use Wikimedia\Parsoid\NodeData\DataMwError;
  */
 class ParsoidValidator {
 
-	private bool $isSubreferenceSupported;
-
-	public function __construct( bool $isSubreferenceSupported ) {
-		$this->isSubreferenceSupported = $isSubreferenceSupported;
-	}
-
 	public function validateDir( string $refDir, RefGroupItem $ref ): ?DataMwError {
 		if ( $ref->dir !== '' && $ref->dir !== $refDir ) {
 			return new DataMwError( 'cite_error_ref_conflicting_dir', [ $ref->name ] );

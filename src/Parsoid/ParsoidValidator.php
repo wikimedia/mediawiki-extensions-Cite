@@ -16,25 +16,8 @@ class ParsoidValidator {
 		$this->isSubreferenceSupported = $isSubreferenceSupported;
 	}
 
-	public function validateGroup( string $groupName, ReferencesData $referencesData ): ?DataMwError {
-		if (
-			$referencesData->inReferencesContent() &&
-			!$referencesData->inRefContent() &&
-			$groupName !== $referencesData->referencesGroup
-		) {
-			return new DataMwError(
-				'cite_error_references_group_mismatch',
-				[ $groupName ]
-			);
-		}
-
-		return null;
-	}
-
 	public function validateDir( string $refDir, RefGroupItem $ref ): ?DataMwError {
-		if ( $refDir !== 'rtl' && $refDir !== 'ltr' ) {
-			return new DataMwError( 'cite_error_ref_invalid_dir', [ $refDir ] );
-		} elseif ( $ref->dir !== '' && $ref->dir !== $refDir ) {
+		if ( $ref->dir !== '' && $ref->dir !== $refDir ) {
 			return new DataMwError( 'cite_error_ref_conflicting_dir', [ $ref->name ] );
 		}
 		return null;

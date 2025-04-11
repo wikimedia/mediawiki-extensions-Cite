@@ -10,6 +10,7 @@ use MediaWiki\Config\Config;
 use MediaWiki\Html\HtmlHelper;
 use MediaWiki\MediaWikiServices;
 use stdClass;
+use Wikimedia\Message\MessageParam;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\Core\DomSourceRange;
 use Wikimedia\Parsoid\Core\Sanitizer;
@@ -200,8 +201,31 @@ class References {
 		// Validate attribute keys
 		$status = Validator::filterRefArguments( (array)$refDataMw->attrs, $this->isSubreferenceSupported );
 		$arguments = $status->getValue();
-		if ( !$status->isGood() ) {
-			$errs[] = new DataMwError( 'cite_error_ref_too_many_keys' );
+
+		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.
+		$groupName = $arguments['group'] ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
+		$validator = new Validator(
+			$referencesData->referencesGroup === '' ? null : $referencesData->referencesGroup,
+			false,
+			false
+		);
+		$status->merge( $validator->validateRef( null, $arguments ), true );
+		if ( $status->isOK() ) {
+			$arguments = $status->getValue();
+		}
+		foreach ( $status->getMessages() as $msg ) {
+			// FIXME: This is only temporary, eventually we want all validation results to be used
+			switch ( $msg->getKey() ) {
+				case 'cite_error_ref_follow_conflicts':
+				case 'cite_error_ref_numeric_key':
+				case 'cite_error_ref_too_many_keys':
+				case 'cite_error_references_group_mismatch':
+				case 'cite_error_ref_invalid_dir':
+					$errs[] = new DataMwError( $msg->getKey(), array_map(
+						static fn ( $p ) => $p instanceof MessageParam ? $p->getValue() : $p,
+						$msg->getParams()
+					) );
+			}
 		}
 
 		// Extract and validate attribute values
@@ -211,13 +235,6 @@ class References {
 		$details = $arguments['details'] ?? '';
 		$hasBody = isset( $refDataMw->body );
 
-		// Validate the reference group
-		$groupName = $arguments['group'] ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
-		$groupErrorMessage = $this->validator->validateGroup( $groupName, $referencesData );
-		if ( $groupErrorMessage ) {
-			$errs[] = $groupErrorMessage;
-		}
-
 		// Handle 'about' attribute with priority since it's
 		// only added when the wrapper is a template sibling.
 		$about = DOMCompat::getAttribute( $node, 'about' ) ??
@@ -226,10 +243,6 @@ class References {
 
 		$hasDetails = $details !== '' && $refName;
 
-		// Handle error cases for the attributes 'name' and 'follow'
-		if ( $refName && $followName ) {
-			$errs[] = new DataMwError( 'cite_error_ref_follow_conflicts' );
-		}
 		if (
 			!$followName &&
 			!$refName &&
@@ -384,13 +397,6 @@ class References {
 			if ( $dirError ) {
 				$errs[] = $dirError;
 			}
-		}
-
-		// FIXME: At some point this error message can be changed to a warning, as Parsoid Cite now
-		// supports numerals as a name without it being an actual error, but core Cite does not.
-		// Follow refs do not duplicate the error which can be correlated with the original ref.
-		if ( ctype_digit( $refName ) ) {
-			$errs[] = new DataMwError( 'cite_error_ref_numeric_key' );
 		}
 
 		// Check for missing content, added ?? '' to fix T259676 crasher

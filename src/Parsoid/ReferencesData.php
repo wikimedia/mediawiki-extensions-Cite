@@ -19,7 +19,7 @@ class ReferencesData {
 	private array $refGroups = [];
 	/** @var array<string,list<DataMwError>> */
 	public array $embeddedErrors = [];
-	/** @var string[] */
+	/** @var array<?string> */
 	private array $embeddedContentStack = [];
 	/**
 	 * The current group name while we are in <references>, no matter how deeply nested. Null when
@@ -47,10 +47,10 @@ class ReferencesData {
 	 * True when we are currently parsing <ref> that are embedded in some <…> tag
 	 */
 	public function inEmbeddedContent(): bool {
-		return (bool)$this->embeddedContentStack;
+		return $this->inReferenceList() || $this->embeddedContentStack;
 	}
 
-	public function pushEmbeddedContentFlag( string $needle = 'embed' ): void {
+	public function pushEmbeddedContentFlag( ?string $needle = null ): void {
 		array_push( $this->embeddedContentStack, $needle );
 	}
 
@@ -58,8 +58,8 @@ class ReferencesData {
 		array_pop( $this->embeddedContentStack );
 	}
 
-	public function peekEmbeddedContentFlag(): ?string {
-		return $this->embeddedContentStack[count( $this->embeddedContentStack ) - 1] ?? null;
+	public function inIndicatorContext(): bool {
+		return in_array( 'indicator', $this->embeddedContentStack, true );
 	}
 
 	public function incrementRefDepth(): void {

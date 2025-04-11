@@ -202,9 +202,9 @@ class References {
 		$arguments = $status->getValue();
 
 		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.
-		$groupName = $arguments['group'] ?? ( $referencesData->inRefContent() ? '' : $referencesData->referencesGroup );
+		$groupName = $arguments['group'] ?? $referencesData->referenceListGroup() ?? '';
 		$validator = new Validator(
-			$referencesData->referencesGroup === '' ? null : $referencesData->referencesGroup,
+			$referencesData->referenceListGroup(),
 			false,
 			false
 		);
@@ -245,8 +245,7 @@ class References {
 		if (
 			!$followName &&
 			!$refName &&
-			!$referencesData->inRefContent() &&
-			$referencesData->inReferencesContent()
+			$referencesData->inReferenceList()
 		) {
 			$errs[] = new DataMwError( 'cite_error_references_no_key' );
 		}
@@ -409,7 +408,7 @@ class References {
 			// In references content, refs should be used for definition so missing content
 			// is an error.  It's possible that no name is present (!hasRefName), which also
 			// gets the error "cite_error_references_no_key" above, so protect against that.
-			if ( $referencesData->inReferencesContent() ) {
+			if ( $referencesData->inReferenceList() ) {
 				$errs[] = new DataMwError(
 					'cite_error_empty_references_define',
 					[ $refName, $groupName ]
@@ -754,7 +753,8 @@ class References {
 				if ( WTUtils::isSealedFragmentOfType( $child, 'ref' ) ) {
 					$this->extractRefFromNode( $extApi, $child, $refsData );
 				} elseif ( DOMUtils::hasTypeOf( $child, 'mw:Extension/references' ) ) {
-					if ( !$refsData->inReferencesContent() ) {
+					$inReferenceList = $refsData->inReferenceList();
+					if ( !$inReferenceList ) {
 						$refsData->referencesGroup =
 							DOMDataUtils::getDataParsoid( $child )->group ?? '';
 					}
@@ -763,8 +763,8 @@ class References {
 						$this->processRefs( $extApi, $refsData, $child );
 					}
 					$refsData->popEmbeddedContentFlag();
-					if ( !$refsData->inReferencesContent() ) {
-						$refsData->referencesGroup = '';
+					if ( !$inReferenceList ) {
+						$refsData->referencesGroup = null;
 						$this->insertReferencesIntoDOM( $extApi, $child, $refsData, false );
 					}
 				} else {

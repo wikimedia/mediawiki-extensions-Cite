@@ -16,8 +16,9 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 	public function testMinimalSetup() {
 		$data = new ReferencesData();
 		$this->assertSame( [], $data->embeddedErrors );
-		$this->assertSame( Cite::DEFAULT_GROUP, $data->referencesGroup );
-		$this->assertFalse( $data->inReferencesContent() );
+		$this->assertNull( $data->referencesGroup );
+		$this->assertFalse( $data->inReferenceList() );
+		$this->assertNull( $data->referenceListGroup() );
 		$this->assertFalse( $data->inEmbeddedContent() );
 		$this->assertNull( $data->lookupRefGroup( Cite::DEFAULT_GROUP ) );
 		$this->assertSame( [], $data->getRefGroups() );
@@ -35,7 +36,8 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 		$data = new ReferencesData();
 		$data->pushEmbeddedContentFlag();
 		$this->assertTrue( $data->inEmbeddedContent() );
-		$this->assertFalse( $data->inReferencesContent() );
+		$this->assertFalse( $data->inReferenceList() );
+		$this->assertNull( $data->referenceListGroup() );
 		$data->popEmbeddedContentFlag();
 		$this->assertFalse( $data->inEmbeddedContent() );
 	}
@@ -44,9 +46,11 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 		$data = new ReferencesData();
 		$data->pushEmbeddedContentFlag( 'references' );
 		$this->assertTrue( $data->inEmbeddedContent() );
-		$this->assertTrue( $data->inReferencesContent() );
+		$this->assertFalse( $data->inReferenceList() );
+		$this->assertNull( $data->referenceListGroup() );
 		$data->popEmbeddedContentFlag();
-		$this->assertFalse( $data->inReferencesContent() );
+		$this->assertFalse( $data->inReferenceList() );
+		$this->assertNull( $data->referenceListGroup() );
 	}
 
 	public function testAddUnnamedRef() {

@@ -21,23 +21,33 @@ class ReferencesData {
 	public array $embeddedErrors = [];
 	/** @var string[] */
 	private array $embeddedContentStack = [];
-	public string $referencesGroup = '';
+	/**
+	 * The current group name while we are in <references>, no matter how deeply nested. Null when
+	 * parsing <ref> outside of <references>. Warning, an empty string is a valid group name!
+	 */
+	public ?string $referencesGroup = null;
 	private int $nestedRefsDepth = 0;
 
-	public function inReferencesContent(): bool {
-		return $this->inEmbeddedContent( 'references' );
+	/**
+	 * True when we are inside of <references>, but not when we are in a deeper nested <ref>
+	 */
+	public function inReferenceList(): bool {
+		return $this->referenceListGroup() !== null;
 	}
 
-	public function inRefContent(): bool {
-		return $this->nestedRefsDepth > 0;
+	/**
+	 * The default group name while we are inside of <references>. Null when we are outside of
+	 * <references> or in a deeper nested <ref>
+	 */
+	public function referenceListGroup(): ?string {
+		return $this->nestedRefsDepth > 0 ? null : $this->referencesGroup;
 	}
 
-	public function inEmbeddedContent( ?string $needle = null ): bool {
-		if ( $needle ) {
-			return in_array( $needle, $this->embeddedContentStack, true );
-		} else {
-			return $this->embeddedContentStack !== [];
-		}
+	/**
+	 * True when we are currently parsing <ref> that are embedded in some <…> tag
+	 */
+	public function inEmbeddedContent(): bool {
+		return (bool)$this->embeddedContentStack;
 	}
 
 	public function pushEmbeddedContentFlag( string $needle = 'embed' ): void {

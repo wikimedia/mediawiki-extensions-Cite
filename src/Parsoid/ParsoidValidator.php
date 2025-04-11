@@ -18,7 +18,7 @@ class ParsoidValidator {
 	}
 
 	public function validateName( string $name, ?RefGroup $refGroup, ReferencesData $referencesData ): ?DataMwError {
-		if ( !$refGroup->lookupRefByName( $name ) && $referencesData->inReferencesContent() ) {
+		if ( !$refGroup->lookupRefByName( $name ) && $referencesData->inReferenceList() ) {
 			return new DataMwError(
 				'cite_error_references_missing_key',
 				[ $name ]

@@ -174,10 +174,11 @@ class RefTagHandler extends ExtensionTagHandler {
 			return ''; // Drop it!
 		}
 
-		if ( $this->isSubreferenceSupported && isset( $dataMw->attrs->details ) ) {
+		// @phan-suppress-next-line PhanUndeclaredProperty
+		if ( $this->isSubreferenceSupported && isset( $dataMw->attrs->details ) && isset( $dataMw->mainRef ) ) {
 			// TODO: maintain original order of attributes
 			// @phan-suppress-next-line PhanUndeclaredProperty
-			$dataMw->attrs->name = $dataMw->mainRef ?? null;
+			$dataMw->attrs->name = $dataMw->mainRef;
 			// TODO: escape wikitext for attribute
 			$dataMw->attrs->details = $src;
 

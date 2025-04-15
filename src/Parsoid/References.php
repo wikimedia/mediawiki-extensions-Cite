@@ -224,7 +224,7 @@ class References {
 			DOMCompat::getAttribute( $refFragment, 'about' );
 		'@phan-var string $about'; // assert that $about is non-null
 
-		$hasDetails = $details !== '';
+		$hasDetails = $details !== '' && $refName;
 
 		// Handle error cases for the attributes 'name' and 'follow'
 		if ( $refName && $followName ) {
@@ -274,7 +274,7 @@ class References {
 		}
 
 		// Split subref and main ref; add main ref as a list-defined reference
-		if ( $hasDetails && $refName ) {
+		if ( $hasDetails ) {
 			if ( $hasBody ) {
 				// Main + details.
 

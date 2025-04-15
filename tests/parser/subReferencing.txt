@@ -81,13 +81,10 @@ parsoid=wt2html
 </div>
 !! end
 
-# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Unnamed main reference with a lonely sub-ref, neither can be reused
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <ref details="abc">def</ref>
 <references />
@@ -134,7 +131,7 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# T390974: Mixes main and sub-ref content on round-trip
+# FIXME: Can we make the whitespace survive the roundtrip?
 !! test
 Empty sub-referencing attribute with no meaningful content
 !! config
@@ -293,13 +290,10 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty content and no name
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <ref details="page 1"></ref>
 <references />
@@ -367,13 +361,10 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
-# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty details content with name, ignored outside of <references>
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <ref details="" name="a">Book</ref>
 <references />
@@ -393,13 +384,10 @@ parsoid=wt2html
 </div>
 !! end
 
-# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty details content without name, ignored outside of <references>
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <ref details="">Book</ref>
 <references />
@@ -419,13 +407,10 @@ parsoid=wt2html
 </div>
 !! end
 
-# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Empty details content inside of <references>
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <ref name="a" />
 <references>
@@ -447,13 +432,10 @@ parsoid=wt2html
 </div>
 !! end
 
-# T390974: Mixes main and sub-ref content on round-trip
 !! test
 Unused list-defined sub-ref with no name
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <references>
 <ref details="page 1">Book</ref>

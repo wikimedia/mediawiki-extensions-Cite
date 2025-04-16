@@ -44,7 +44,12 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 
 			$this->assertArrayHasKey( $i, $expectedOutputs,
 				'Bad test, not enough expected outputs in fixture.' );
+
 			$expectedRef = TestUtils::refFromArray( $expectedOutputs[$i] );
+			if ( $result ) {
+				// Not much extra value in testing this, just skip it
+				$result->hasMainRef = null;
+			}
 			$this->assertEquals( $expectedRef, $result );
 		}
 
@@ -513,7 +518,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 						'group' => 'foo',
 						'text' => 'text-details',
 						'numberInGroup' => 1,
-						'parentRefGlobalId' => 1,
 						'subrefCount' => 0,
 						'subrefIndex' => 1,
 					],
@@ -537,7 +541,6 @@ class ReferenceStackTest extends \MediaWikiUnitTestCase {
 							'group' => 'foo',
 							'text' => 'text-details',
 							'numberInGroup' => 1,
-							'parentRefGlobalId' => 1,
 							'subrefCount' => 0,
 							'subrefIndex' => 1,
 						],

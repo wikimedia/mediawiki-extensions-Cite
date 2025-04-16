@@ -123,7 +123,7 @@ class References {
 			] );
 			// Dont emit empty keys
 			if ( $refsOpts['group'] ) {
-				$dataMw->attrs->group = $refsOpts['group'];
+				$dataMw->setExtAttrib( 'group', $refsOpts['group'] );
 			}
 			DOMDataUtils::setDataMw( $frag, $dataMw );
 		}
@@ -198,7 +198,7 @@ class References {
 
 		// Validate attribute keys
 		$isSubreferenceSupported = $this->mainConfig->get( 'CiteSubReferencing' );
-		$status = Validator::filterRefArguments( (array)$refDataMw->attrs, $isSubreferenceSupported );
+		$status = Validator::filterRefArguments( $refDataMw->getExtAttribs() ?? [], $isSubreferenceSupported );
 		$arguments = $status->getValue();
 
 		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.
@@ -330,7 +330,7 @@ class References {
 			], true );
 			// Subref points to the main ref by name.
 			// FIXME: should have already asserted that refName exists for all details, see T387193
-			unset( $refDataMw->attrs->name );
+			$refDataMw->setExtAttrib( 'name', null );
 			// @phan-suppress-next-line PhanUndeclaredProperty
 			$refDataMw->mainRef = $refName;
 			$refName = '';
@@ -558,8 +558,8 @@ class References {
 		while ( $supNode ) {
 			$dataMw = DOMDataUtils::getDataMw( $supNode );
 			if ( $dataMw &&
-				( $dataMw->attrs->group ?? '' ) === $groupName &&
-				( $dataMw->attrs->name ?? '' ) === $refName
+				( $dataMw->getExtAttrib( 'group' ) ?? '' ) === $groupName &&
+				( $dataMw->getExtAttrib( 'name' ) ?? '' ) === $refName
 			) {
 				return true;
 			}

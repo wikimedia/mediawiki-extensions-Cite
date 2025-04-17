@@ -147,6 +147,11 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			.getNodeGroup( dataElement.attributes.listGroup )
 			.keyedNodes[ dataElement.attributes.listKey ];
 
+		const name = this.generateName( dataElement, converter, keyedNodes );
+		if ( name !== undefined ) {
+			ve.setProp( mwData, 'attrs', 'name', name );
+		}
+
 		if ( dataElement.attributes.extendsRef ) {
 			const extendsKeyParts = dataElement.attributes.extendsRef.match( this.listKeyRegex );
 			// TODO when the main ref was created ad-hoc we don't have the literal here but
@@ -234,33 +239,6 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			el.setAttribute( 'data-ve-ignore', 'true' );
 		}
 
-		// Generate name
-		let name;
-		const listKeyParts = dataElement.attributes.listKey.match( this.listKeyRegex );
-		if ( listKeyParts[ 1 ] === 'auto' ) {
-			// Only render a name if this key was reused
-			// TODO: review main/subref logic here
-			const subrefs = converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.filter(
-				( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
-			);
-			if ( keyedNodes.length > 1 || subrefs.length ) {
-				// Allocate a unique list key, then strip the 'literal/'' prefix
-				name = converter.internalList.getUniqueListKey(
-					dataElement.attributes.listGroup,
-					dataElement.attributes.listKey,
-					// Generate a name starting with ':' to distinguish it from normal names
-					'literal/:'
-				).slice( 'literal/'.length );
-			}
-		} else {
-			// Use literal name
-			name = listKeyParts[ 2 ];
-		}
-		// Set name
-		if ( name !== undefined ) {
-			ve.setProp( mwData, 'attrs', 'name', name );
-		}
-
 		// Set or clear group
 		if ( dataElement.attributes.refGroup !== '' ) {
 			ve.setProp( mwData, 'attrs', 'group', dataElement.attributes.refGroup );
@@ -305,6 +283,38 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	}
 
 	return [ el ];
+};
+
+/**
+ * Generate the name for a given reference
+ *
+ * @static
+ * @param {Object} dataElement
+ * @param {ve.dm.Converter} converter
+ * @param {Object} keyedNodes
+ * @return {string|undefined} literal or auto generated name
+ */
+ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, keyedNodes ) {
+	const listKeyParts = dataElement.attributes.listKey.match( this.listKeyRegex );
+	if ( listKeyParts[ 1 ] === 'auto' ) {
+		// Only render a name if this key was reused
+		// TODO: review main/subref logic here
+		const subrefs = converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.filter(
+			( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
+		);
+		if ( keyedNodes.length > 1 || subrefs.length ) {
+			// Allocate a unique list key, then strip the 'literal/'' prefix
+			return converter.internalList.getUniqueListKey(
+				dataElement.attributes.listGroup,
+				dataElement.attributes.listKey,
+				// Generate a name starting with ':' to distinguish it from normal names
+				'literal/:'
+			).slice( 'literal/'.length );
+		}
+	} else {
+		// Use literal name
+		return listKeyParts[ 2 ];
+	}
 };
 
 ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (

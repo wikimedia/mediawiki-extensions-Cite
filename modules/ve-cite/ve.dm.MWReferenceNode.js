@@ -149,8 +149,15 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		if ( dataElement.attributes.extendsRef ) {
 			const extendsKeyParts = dataElement.attributes.extendsRef.match( this.listKeyRegex );
-			// Can assume literal name.
+			// TODO when the main ref was created ad-hoc we don't have the literal here but
+			//  just the internal number. We need to fix that to allow ad-hoc adding main and sub.
 			ve.setProp( mwData, 'mainRef', extendsKeyParts[ 2 ] );
+
+			if ( !ve.getProp( mwData, 'attrs', 'details' ) ) {
+				// make sure parsoid recognizes a new subref
+				// the content of details will be set from the body.html in Parsoid
+				ve.setProp( mwData, 'attrs', 'details', 'true' );
+			}
 
 			// TODO: Apply contentsAlreadySet logic to isMainRefBodyWithDetails
 		}

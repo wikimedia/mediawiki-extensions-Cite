@@ -153,10 +153,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		}
 
 		if ( dataElement.attributes.extendsRef ) {
-			const extendsKeyParts = dataElement.attributes.extendsRef.match( this.listKeyRegex );
-			// TODO when the main ref was created ad-hoc we don't have the literal here but
-			//  just the internal number. We need to fix that to allow ad-hoc adding main and sub.
-			ve.setProp( mwData, 'mainRef', extendsKeyParts[ 2 ] );
+			// this is alway either the literal name that was already there or the
+			// auto generated literal from above
+			ve.setProp( mwData, 'mainRef', name );
 
 			if ( !ve.getProp( mwData, 'attrs', 'details' ) ) {
 				// make sure parsoid recognizes a new subref
@@ -295,26 +294,39 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
  * @return {string|undefined} literal or auto generated name
  */
 ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, keyedNodes ) {
-	const listKeyParts = dataElement.attributes.listKey.match( this.listKeyRegex );
-	if ( listKeyParts[ 1 ] === 'auto' ) {
-		// Only render a name if this key was reused
-		// TODO: review main/subref logic here
-		const subrefs = converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.filter(
-			( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
-		);
-		if ( keyedNodes.length > 1 || subrefs.length ) {
-			// Allocate a unique list key, then strip the 'literal/'' prefix
-			return converter.internalList.getUniqueListKey(
-				dataElement.attributes.listGroup,
-				dataElement.attributes.listKey,
-				// Generate a name starting with ':' to distinguish it from normal names
-				'literal/:'
-			).slice( 'literal/'.length );
-		}
-	} else {
-		// Use literal name
-		return listKeyParts[ 2 ];
+	const mainRefKey = dataElement.attributes.extendsRef || dataElement.attributes.listKey;
+	const keyParts = mainRefKey.match( this.listKeyRegex );
+
+	// use literal name
+	if ( keyParts[ 1 ] === 'literal' ) {
+		return keyParts[ 2 ];
 	}
+
+	// use auto generated name
+	if ( dataElement.attributes.extendsRef || keyedNodes.length > 1 || this.hasSubRefs( dataElement, converter ) ) {
+		return converter.internalList.getUniqueListKey(
+			dataElement.attributes.listGroup,
+			mainRefKey,
+			'literal/:'
+		).slice( 'literal/'.length );
+	}
+};
+
+/**
+ * @static
+ * @param {Object} dataElement
+ * @param {ve.dm.Converter} converter
+ * @return {boolean}
+ */
+ve.dm.MWReferenceNode.static.hasSubRefs = function ( dataElement, converter ) {
+	if ( dataElement.attributes.extendsRef ) {
+		return false;
+	}
+
+	const subRefs = converter.internalList.getNodeGroup( dataElement.attributes.listGroup )
+		.firstNodes.filter( ( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey );
+
+	return subRefs.length > 0;
 };
 
 ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (

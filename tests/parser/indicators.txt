@@ -7,13 +7,14 @@ version=2
 Indicator is not a standalone document and can reference content in the main document
 !! options
 showindicators
+disabled
 !! wikitext
 <indicator name="ref">foo <ref name='bar' /></indicator>
 <ref name='bar'>baz</ref>
 !! metadata/php
 ref=foo <sup id="cite_ref-bar_1-0" class="reference"><a href="#cite_note-bar-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 !! metadata/parsoid+integrated
-ref=foo <sup about="#mwt3" class="mw-ref reference" id="cite_ref-bar_1-0" rel="dc:references" typeof="mw:Extension/ref" data-parsoid='{"dsr":[26,44,18,0]}' data-mw='{"name":"ref","attrs":{"name":"bar"}}'><a href="./Parser_test#cite_note-bar-1" style="counter-reset: mw-Ref 1;" data-parsoid="{}"><span class="mw-reflink-text" data-parsoid="{}"><span class="cite-bracket" data-parsoid="{}">[</span>1<span class="cite-bracket" data-parsoid="{}">]</span></span></a></sup>
+ref=foo <sup about="#mwt1" class="mw-ref reference" id="cite_ref-bar_1-0" rel="dc:references" typeof="mw:Extension/ref" data-parsoid='{"dsr":[26,44,18,0]}' data-mw='{"name":"ref","attrs":{"name":"bar"}}'><a href="./Parser_test#cite_note-bar-1" style="counter-reset: mw-Ref 1;" data-parsoid="{}"><span class="mw-reflink-text" data-parsoid="{}"><span class="cite-bracket" data-parsoid="{}">[</span>1<span class="cite-bracket" data-parsoid="{}">]</span></span></a></sup>
 !! html/php
 <p><sup id="cite_ref-bar_1-1" class="reference"><a href="#cite_note-bar-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
@@ -35,12 +36,13 @@ ref=foo <sup about="#mwt3" class="mw-ref reference" id="cite_ref-bar_1-0" rel="d
 Nested indicator
 !! options
 showindicators
+disabled
 !! wikitext
 {{#tag:ref|{{#tag:indicator|{{#tag:ref|ref 3}}|name=indic}}}}
 !! metadata/php
 indic=<sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 !! metadata/parsoid+integrated
-indic=<sup about="#mwt5" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-parsoid="{}" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;" data-parsoid="{}"><span class="mw-reflink-text" data-parsoid="{}"><span class="cite-bracket" data-parsoid="{}">[</span>1<span class="cite-bracket" data-parsoid="{}">]</span></span></a></sup>
+indic=<sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-parsoid="{}" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1" style="counter-reset: mw-Ref 1;" data-parsoid="{}"><span class="mw-reflink-text" data-parsoid="{}"><span class="cite-bracket" data-parsoid="{}">[</span>1<span class="cite-bracket" data-parsoid="{}">]</span></span></a></sup>
 !! html/php
 <p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>

@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Augustus A C",
 			"Gazimagomedov",
 			"Omarov M."
 		]
 	},
-	"cite_error": "Цитатинабиялъул гъалатӀ: $1"
+	"cite_error": "Цитация мекъи: $1"
 }

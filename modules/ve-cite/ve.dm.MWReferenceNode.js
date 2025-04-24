@@ -97,7 +97,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	const refGroup = mwAttrs.group || '';
 	const listGroup = this.name + '/' + refGroup;
 	const listKey = ve.dm.MWReferenceNode.static.makeListKey( mwAttrs.name, converter );
-	const queueResult = converter.internalList.queueItemHtml( listGroup, listKey, body );
+	const { index, isNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
 
 	if ( converter.isFromClipboard() && !( mwAttrs.name || body ) ) {
 		// Pasted reference has neither a name nor body HTML, must have
@@ -110,13 +110,14 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		attributes: {
 			mw: mwData,
 			originalMw: mwDataJSON,
-			listIndex: queueResult.index,
+			listIndex: index,
 			listGroup: listGroup,
 			listKey: listKey,
 			refGroup: refGroup,
-			contentsUsed: body !== '' && queueResult.isNew
+			contentsUsed: body !== '' && isNew
 		}
 	};
+
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
 		dataElement.attributes.extendsRef = ve.dm.MWReferenceNode.static.makeListKey( mwData.mainRef, converter );
 	}
@@ -136,18 +137,16 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	mwData.name = 'ref';
 
 	if ( isForClipboard || converter.isForParser() ) {
-		let setContents = dataElement.attributes.contentsUsed;
-
 		// This call rebuilds the document tree if it isn't built already (e.g. on a
 		// document slice), so only use when necessary (i.e. not in preview mode)
 		const itemNode = converter.internalList.getItemNode( dataElement.attributes.listIndex );
 		const itemNodeRange = itemNode.getRange();
 
-		const keyedNodes = converter.internalList
+		const nodesWithSameKey = converter.internalList
 			.getNodeGroup( dataElement.attributes.listGroup )
 			.keyedNodes[ dataElement.attributes.listKey ];
 
-		const name = this.generateName( dataElement, converter, keyedNodes );
+		const name = this.generateName( dataElement, converter, nodesWithSameKey );
 		if ( name !== undefined ) {
 			ve.setProp( mwData, 'attrs', 'name', name );
 		}
@@ -164,56 +163,57 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 				ve.setProp( mwData, 'attrs', 'details', 'true' );
 			}
 
-			// TODO: Apply contentsAlreadySet logic to isMainRefBodyWithDetails
 		}
+		// TODO: Apply contentAlreadySet logic to isMainRefBodyWithDetails
 
-		let contentsAlreadySet = false;
-		if ( setContents ) {
-			// Check if a previous node has already set the content. If so, we don't overwrite this
-			// node's contents.
-			if ( keyedNodes ) {
-				for ( let i = 0; i < keyedNodes.length; i++ ) {
+		let contentAlreadySet = false;
+		let setBodyContent = dataElement.attributes.contentsUsed;
+		if ( setBodyContent ) {
+			// Check if a previous node with the same key has already set the content.
+			// If so, we don't overwrite the content of this node.
+			if ( nodesWithSameKey ) {
+				for ( let i = 0; i < nodesWithSameKey.length; i++ ) {
 					if (
 						ve.compare(
-							this.getInstanceHashObject( keyedNodes[ i ].element ),
+							this.getInstanceHashObject( nodesWithSameKey[ i ].element ),
 							this.getInstanceHashObject( dataElement )
 						)
 					) {
 						break;
 					}
-					if ( keyedNodes[ i ].element.attributes.contentsUsed ) {
-						contentsAlreadySet = true;
+					if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
+						contentAlreadySet = true;
 						break;
 					}
 				}
 			}
 		} else {
 			// Check if any other nodes with this key provided content. If not
-			// then we attach the contents to the first reference with this key
+			// then we attach the content to the first reference with this key
 
 			// FIXME: This should apply to the main ref, but instead will affect details.
 			// Check that this is the first reference with its key
 			if (
-				keyedNodes &&
+				nodesWithSameKey &&
 				ve.compare(
 					this.getInstanceHashObject( dataElement ),
-					this.getInstanceHashObject( keyedNodes[ 0 ].element )
+					this.getInstanceHashObject( nodesWithSameKey[ 0 ].element )
 				)
 			) {
-				setContents = true;
-				// Check no other reference originally defined the contents
+				setBodyContent = true;
+				// Check no other reference originally defined the content
 				// As this is keyedNodes[0] we can start at 1
-				for ( let i = 1; i < keyedNodes.length; i++ ) {
-					if ( keyedNodes[ i ].element.attributes.contentsUsed ) {
-						setContents = false;
+				for ( let i = 1; i < nodesWithSameKey.length; i++ ) {
+					if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
+						setBodyContent = false;
 						break;
 					}
 				}
 			}
 		}
 
-		// Add reference contents to data-mw.
-		if ( setContents && !contentsAlreadySet ) {
+		// Add reference content to data-mw.
+		if ( setBodyContent && !contentAlreadySet ) {
 			const itemNodeWrapper = doc.createElement( 'div' );
 			const originalHtmlWrapper = doc.createElement( 'div' );
 			converter.getDomSubtreeFromData(
@@ -455,7 +455,7 @@ ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 /* Methods */
 
 /**
- * Don't allow reference nodes to be edited if we can't find their contents.
+ * Don't allow reference nodes to be edited if we can't find their content.
  *
  * @override
  * @see ve.dm.Model

@@ -170,22 +170,24 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Add reference content to data-mw.
 		if ( shouldGetBodyContent && !isBodyContentSet ) {
-			const itemNodeWrapper = doc.createElement( 'div' );
-			const originalHtmlWrapper = doc.createElement( 'div' );
+			// get the current content html of the node
+			const currentHtmlWrapper = doc.createElement( 'div' );
 			converter.getDomSubtreeFromData(
 				itemNode.getDocument().getFullData( itemNodeRange, 'roundTrip' ),
-				itemNodeWrapper
+				currentHtmlWrapper
 			);
-			// Returns '' if itemNodeWrapper is empty
-			const itemNodeHtml = itemNodeWrapper.innerHTML;
+
+			// get the original content html of the node
+			const originalHtmlWrapper = doc.createElement( 'div' );
 			const originalHtml = ve.getProp( mwData, 'body', 'html' ) ||
 				( ve.getProp( mwData, 'body', 'id' ) !== undefined && itemNode.getAttribute( 'originalHtml' ) ) ||
 				'';
 			originalHtmlWrapper.innerHTML = originalHtml;
-			// Only set body.html if itemNodeHtml and originalHtml are actually different,
+
+			// Only set body.html if current and original are actually different,
 			// or we are writing the clipboard for use in another VE instance
-			if ( isForClipboard || !originalHtmlWrapper.isEqualNode( itemNodeWrapper ) ) {
-				ve.setProp( mwData, 'body', 'html', itemNodeHtml );
+			if ( isForClipboard || !originalHtmlWrapper.isEqualNode( currentHtmlWrapper ) ) {
+				ve.setProp( mwData, 'body', 'html', currentHtmlWrapper.innerHTML );
 			}
 		}
 

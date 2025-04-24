@@ -144,7 +144,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		const nodesWithSameKey = converter.internalList
 			.getNodeGroup( dataElement.attributes.listGroup )
-			.keyedNodes[ dataElement.attributes.listKey ];
+			.keyedNodes[ dataElement.attributes.listKey ] || [];
 
 		const name = this.generateName( dataElement, converter, nodesWithSameKey );
 		if ( name !== undefined ) {
@@ -163,56 +163,13 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			}
 
 		}
-		// TODO: Apply contentAlreadySet logic to isMainRefBodyWithDetails
 
-		let contentAlreadySet = false;
-		let setBodyContent = dataElement.attributes.contentsUsed;
-		if ( setBodyContent ) {
-			// Check if a previous node with the same key has already set the content.
-			// If so, we don't overwrite the content of this node.
-			if ( nodesWithSameKey ) {
-				for ( let i = 0; i < nodesWithSameKey.length; i++ ) {
-					if (
-						ve.compare(
-							this.getInstanceHashObject( nodesWithSameKey[ i ].element ),
-							this.getInstanceHashObject( dataElement )
-						)
-					) {
-						break;
-					}
-					if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
-						contentAlreadySet = true;
-						break;
-					}
-				}
-			}
-		} else {
-			// Check if any other nodes with this key provided content. If not
-			// then we attach the content to the first reference with this key
-
-			// FIXME: This should apply to the main ref, but instead will affect details.
-			// Check that this is the first reference with its key
-			if (
-				nodesWithSameKey &&
-				ve.compare(
-					this.getInstanceHashObject( dataElement ),
-					this.getInstanceHashObject( nodesWithSameKey[ 0 ].element )
-				)
-			) {
-				setBodyContent = true;
-				// Check no other reference originally defined the content
-				// As this is keyedNodes[0] we can start at 1
-				for ( let i = 1; i < nodesWithSameKey.length; i++ ) {
-					if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
-						setBodyContent = false;
-						break;
-					}
-				}
-			}
-		}
+		// TODO: Apply isBodyContentSet logic to isMainRefBodyWithDetails
+		const isBodyContentSet = this.isBodyContentSet( dataElement, nodesWithSameKey );
+		const shouldGetBodyContent = this.shouldGetBodyContent( dataElement, nodesWithSameKey );
 
 		// Add reference content to data-mw.
-		if ( setBodyContent && !contentAlreadySet ) {
+		if ( shouldGetBodyContent && !isBodyContentSet ) {
 			const itemNodeWrapper = doc.createElement( 'div' );
 			const originalHtmlWrapper = doc.createElement( 'div' );
 			converter.getDomSubtreeFromData(
@@ -284,16 +241,83 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	return [ el ];
 };
 
+/***
+ * Check if a previous node with the same key has already set the content.
+ * If so, we don't overwrite the content of this node.
+ *
+ * @static
+ * @param {Object} dataElement
+ * @param {ve.dm.Node[]} nodesWithSameKey
+ * @return {boolean}
+ * */
+ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWithSameKey ) {
+	if ( !dataElement.attributes.contentsUsed ) {
+		return false;
+	}
+	for ( let i = 0; i < nodesWithSameKey.length; i++ ) {
+		// Check if the node is the same as the one we are checking
+		if (
+			ve.compare(
+				this.getInstanceHashObject( nodesWithSameKey[ i ].element ),
+				this.getInstanceHashObject( dataElement )
+			)
+		) {
+			break;
+		}
+
+		if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
+			return true;
+		}
+	}
+
+	return false;
+};
+
+/***
+ * Check if the reference should get the body content. Especially if there's no other reference
+ * that defined the body content with the key.
+ *
+ * @static
+ * @param {Object} dataElement
+ * @param {ve.dm.Node[]} nodesWithSameKey
+ * @return {boolean}
+ * */
+ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, nodesWithSameKey ) {
+	// if the reference defined the body content, it should be stored there again
+	if ( dataElement.attributes.contentsUsed ) {
+		return true;
+	}
+
+	// only the first reference should get the body content
+	if ( !nodesWithSameKey ||
+		!ve.compare(
+			this.getInstanceHashObject( dataElement ),
+			this.getInstanceHashObject( nodesWithSameKey[ 0 ].element )
+		) ) {
+		return false;
+	}
+
+	// check if there's another reference that defined the body content
+	// As this is keyedNodes[0] we can start at 1
+	for ( let i = 1; i < nodesWithSameKey.length; i++ ) {
+		if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
+			return false;
+		}
+	}
+
+	return true;
+};
+
 /**
  * Generate the name for a given reference
  *
  * @static
  * @param {Object} dataElement
  * @param {ve.dm.Converter} converter
- * @param {Object} keyedNodes
+ * @param {ve.dm.Node[]} nodesWithSameKey
  * @return {string|undefined} literal or auto generated name
  */
-ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, keyedNodes ) {
+ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, nodesWithSameKey ) {
 	const mainRefKey = dataElement.attributes.extendsRef || dataElement.attributes.listKey;
 	const keyParts = mainRefKey.match( this.listKeyRegex );
 
@@ -303,7 +327,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, k
 	}
 
 	// use auto generated name
-	if ( dataElement.attributes.extendsRef || keyedNodes.length > 1 || this.hasSubRefs( dataElement, converter ) ) {
+	if ( dataElement.attributes.extendsRef || nodesWithSameKey.length > 1 || this.hasSubRefs( dataElement, converter ) ) {
 		return converter.internalList.getUniqueListKey(
 			dataElement.attributes.listGroup,
 			mainRefKey,

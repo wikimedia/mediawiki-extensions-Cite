@@ -152,16 +152,15 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		}
 
 		if ( dataElement.attributes.extendsRef ) {
-			// this is alway either the literal name that was already there or the
+			// this is always either the literal name that was already there or the
 			// auto generated literal from above
 			ve.setProp( mwData, 'mainRef', name );
 
 			if ( !ve.getProp( mwData, 'attrs', 'details' ) ) {
-				// make sure parsoid recognizes a new subref
-				// the content of details will be set from the body.html in Parsoid
+				// make sure Parsoid recognizes the ref as a subref, the details content will be
+				// set by Parsoid from the bodyContent in body.html
 				ve.setProp( mwData, 'attrs', 'details', 'true' );
 			}
-
 		}
 
 		// TODO: Apply isBodyContentSet logic to isMainRefBodyWithDetails
@@ -286,7 +285,8 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
  * */
 ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, nodesWithSameKey ) {
 	// if the reference defined the body content, it should be stored there again
-	if ( dataElement.attributes.contentsUsed ) {
+	// a sub-ref should always get the body content, it's needed for the details attribute
+	if ( dataElement.attributes.extendsRef || dataElement.attributes.contentsUsed ) {
 		return true;
 	}
 

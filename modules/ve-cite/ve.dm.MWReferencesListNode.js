@@ -250,7 +250,11 @@ ve.dm.MWReferencesListNode.static.describeChange = function ( key, change ) {
 		} else if ( !change.to ) {
 			return ve.htmlMsg( 'cite-ve-changedesc-reflist-group-from', this.wrapText( 'del', change.from ) );
 		} else {
-			return ve.htmlMsg( 'cite-ve-changedesc-reflist-group-both', this.wrapText( 'del', change.from ), this.wrapText( 'ins', change.to ) );
+			return ve.htmlMsg(
+				'cite-ve-changedesc-reflist-group-both',
+				this.wrapText( 'del', change.from ),
+				this.wrapText( 'ins', change.to )
+			);
 		}
 	}
 

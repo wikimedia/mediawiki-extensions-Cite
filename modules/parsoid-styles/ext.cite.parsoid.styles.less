@@ -8,14 +8,6 @@
 	--cite-counter-style: decimal;
 }
 
-/* Transitional rule to suppress all on-wiki ref numbering customizations.  This
- * should cause the rendering to fall back to the explicit text, matching the
- * legacy Cite parser.  See T382310. */
-.mw-ref > a[ style~='mw-Ref' ]::after {
-	/* stylelint-disable declaration-no-important */
-	content: none !important;
-}
-
 /* Parsoid HTML emits <sup> tags for follows uses even though there is
  * no visible output for follows. Parsoid does this to ensure it can
  * roundtrip back the source wikitext after edits.

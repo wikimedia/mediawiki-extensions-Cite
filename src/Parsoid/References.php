@@ -476,8 +476,7 @@ class References {
 		$refLink = $doc->createElement( 'a' );
 		DOMUtils::addAttributes( $refLink, [
 			'href' => $extApi->getPageUri() . '#' .
-				Sanitizer::escapeIdForLink( ParsoidAnchorFormatter::getNoteIdentifier( $ref ) ),
-			'style' => 'counter-reset: mw-Ref ' . $ref->numberInGroup . ';',
+				Sanitizer::escapeIdForLink( ParsoidAnchorFormatter::getNoteIdentifier( $ref ) )
 		] );
 		if ( $ref->group ) {
 			$refLink->setAttribute( 'data-mw-group', $ref->group );

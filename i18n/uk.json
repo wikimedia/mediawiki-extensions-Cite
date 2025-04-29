@@ -23,7 +23,7 @@
 	"cite_error_ref_numeric_key": "Неправильний виклик тегу <code>&lt;ref&gt;</code>: <code>name</code> не може містити лише цифри. Використовуйте описові назви",
 	"cite_error_ref_no_key": "Відкривальний тег <code>&lt;ref&gt;</code> неправильний або містить хибну назву.",
 	"cite_error_ref_too_many_keys": "Недійсний параметр у тезі <code>&lt;ref&gt;</code>",
-	"cite_error_ref_follow_conflicts": "Тег <code>&lt;ref follow=\"…\"&gt;</code>, який є продовженням попереднього, не може ні мати власної назви, ні бути розширеним",
+	"cite_error_ref_follow_conflicts": "Тег <code>&lt;ref follow=\"…\"&gt;</code>, який є продовженням попереднього, не може мати названий окремо чи мати деталі",
 	"cite_error_ref_no_input": "Неправильний виклик тегу <code>&lt;ref&gt;</code>: теги без назви повинні мати якийсь вміст",
 	"cite_error_references_duplicate_key": "Некоректний тег <code>&lt;ref&gt;</code>; назва «$1» визначена кілька разів з різним вмістом",
 	"cite_error_references_invalid_parameters": "Недійсний параметр у тегу <code>&lt;references&gt;</code>",

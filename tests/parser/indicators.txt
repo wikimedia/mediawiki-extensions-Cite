@@ -7,7 +7,6 @@ version=2
 Indicator is not a standalone document and can reference content in the main document
 !! options
 showindicators
-disabled
 !! wikitext
 <indicator name="ref">foo <ref name='bar' /></indicator>
 <ref name='bar'>baz</ref>
@@ -36,7 +35,6 @@ ref=foo <sup about="#mwt1" class="mw-ref reference" id="cite_ref-bar_1-0" rel="d
 Nested indicator
 !! options
 showindicators
-disabled
 !! wikitext
 {{#tag:ref|{{#tag:indicator|{{#tag:ref|ref 3}}|name=indic}}}}
 !! metadata/php

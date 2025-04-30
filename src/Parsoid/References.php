@@ -209,10 +209,6 @@ class References {
 		) );
 
 		foreach ( $status->getMessages() as $msg ) {
-			// FIXME: This is only temporary, eventually we want all validation results to be used
-			if ( $msg->getKey() === 'cite_error_references_missing_key' ) {
-				continue;
-			}
 			$errs[] = ErrorUtils::fromMessageSpecifier( $msg );
 		}
 
@@ -251,26 +247,15 @@ class References {
 			}
 		}
 
-		// Wrap the attribute 'follow'
+		$hasValidFollow = false;
 		if ( $followName ) {
 			$this->wrapFollower( $doc, $refFragment, $about );
-		}
 
-		// Handle the attributes 'name' and 'follow'
-		$hasValidFollow = false;
-		if ( $refName ) {
-			$nameErrorMessage = $this->validator->validateName( $refName, $refGroup, $referencesData );
-			if ( $nameErrorMessage ) {
-				$errs[] = $nameErrorMessage;
-			}
-		} elseif ( $followName ) {
 			// Check that the followed ref exists
-			$followErrorMessage = $this->validator->validateFollow( $followName, $refGroup );
-			if ( $followErrorMessage ) {
-				$errs[] = $followErrorMessage;
-			} else {
+			$followThat = $refGroup->lookupRefByName( $followName );
+			if ( $followThat ) {
 				$hasValidFollow = true;
-				$ref = $refGroup->lookupRefByName( $followName );
+				$ref = $followThat;
 			}
 		}
 

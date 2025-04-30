@@ -210,11 +210,19 @@ class References {
 		foreach ( $status->getMessages() as $msg ) {
 			// FIXME: This is only temporary, eventually we want all validation results to be used
 			switch ( $msg->getKey() ) {
-				case 'cite_error_ref_follow_conflicts':
-				case 'cite_error_ref_numeric_key':
-				case 'cite_error_ref_too_many_keys':
-				case 'cite_error_references_group_mismatch':
-				case 'cite_error_ref_invalid_dir':
+				// TODO: Remove one by one so they are handled by the default instead
+				// Currently 5 failures
+				case 'cite_error_details_missing_parent':
+				// Currently 7 failures
+				case 'cite_error_details_unsupported_context':
+				// Currently 22 failures
+				case 'cite_error_empty_references_define':
+				// Currently 92 failures
+				case 'cite_error_ref_no_key':
+				// Currently 22 failures
+				case 'cite_error_references_missing_key':
+					break;
+				default:
 					$errs[] = new DataMwError( $msg->getKey(), array_map(
 						static fn ( $p ) => $p instanceof MessageParam ? $p->getValue() : $p,
 						$msg->getParams()
@@ -236,15 +244,6 @@ class References {
 		'@phan-var string $about'; // assert that $about is non-null
 
 		$hasDetails = $details !== '' && $refName;
-
-		if (
-			!$followName &&
-			!$refName &&
-			$referencesData->inReferenceList()
-		) {
-			$errs[] = new DataMwError( 'cite_error_references_no_key' );
-		}
-
 		$hasValidFollow = false;
 
 		// Wrap the attribute 'follow'

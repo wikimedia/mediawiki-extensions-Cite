@@ -281,14 +281,14 @@ class References {
 			if ( $hasBody ) {
 				if ( !$ref->contentId ) {
 					// Create a main ref and transfer the tag body to it,
-					$ref->isMainWithDetails = true;
+					$ref->isSyntheticMainRef = true;
 					$ref->contentId = $contentId;
 				}
 				// @phan-suppress-next-line PhanUndeclaredProperty
 				$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $ref );
 				// Flag to help reserialize main ref content into the subref when saving.
 				// @phan-suppress-next-line PhanUndeclaredProperty
-				$refDataMw->isMainRefBodyWithDetails = '1';
+				$refDataMw->isSubRefWithMainBody = 1;
 			}
 
 			// Switch $ref to a newly-created subref
@@ -599,7 +599,7 @@ class References {
 		if ( $refGroup ) {
 			$doc = $refsNode->ownerDocument;
 			foreach ( $refGroup->refs as $ref ) {
-				if ( $ref->isMainWithDetails && $ref->contentId ) {
+				if ( $ref->isSyntheticMainRef ) {
 					$sup = $doc->createElement( 'sup' );
 					DOMUtils::addAttributes( $sup, [
 						'typeof' => 'mw:Extension/ref',
@@ -613,7 +613,8 @@ class References {
 						'body' => DataMwBody::new( [
 							'id' => ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ),
 						] ),
-						'isMainWithDetails' => '1',
+						// TODO: This attribute is currently unused but probably needed for T391521
+						'isSyntheticMainRef' => 1,
 					] );
 					DOMDataUtils::setDataMw( $sup, $dataMw );
 					$refFragment = $extApi->getContentDOM( $ref->contentId )->firstChild->firstChild;

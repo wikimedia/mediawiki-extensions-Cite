@@ -166,7 +166,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			}
 		}
 
-		// TODO: Apply isBodyContentSet logic to isMainRefBodyWithDetails
+		// TODO: Apply isBodyContentSet logic to isSubRefWithMainBody
 		const isBodyContentSet = this.isBodyContentSet( dataElement, nodesWithSameKey );
 		const shouldGetBodyContent = this.shouldGetBodyContent( dataElement, nodesWithSameKey );
 

@@ -186,7 +186,7 @@ class RefTagHandler extends ExtensionTagHandler {
 			$dataMw->setExtAttrib( 'details', $src );
 
 			// @phan-suppress-next-line PhanUndeclaredProperty
-			if ( isset( $dataMw->isMainRefBodyWithDetails ) && isset( $dataMw->mainBody ) ) {
+			if ( isset( $dataMw->isSubRefWithMainBody ) ) {
 				// @phan-suppress-next-line PhanUndeclaredProperty
 				$mainElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->mainBody );
 				if ( $mainElt ) {

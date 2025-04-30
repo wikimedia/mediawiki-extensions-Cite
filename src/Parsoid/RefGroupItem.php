@@ -58,7 +58,7 @@ class RefGroupItem {
 	/**
 	 * True if this was a main ref artificially split from a main+details in the article.
 	 */
-	public bool $isMainWithDetails = false;
+	public bool $isSyntheticMainRef = false;
 
 	/**
 	 * @var Element[] Collection of footnote markers that have been generated so far for the same

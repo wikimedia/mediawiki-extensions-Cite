@@ -44,7 +44,7 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 
 	public function testEmbeddedInReferencesContent() {
 		$data = new ReferencesData();
-		$data->pushEmbeddedContentFlag( 'references' );
+		$data->pushEmbeddedContentFlag();
 		$this->assertTrue( $data->inEmbeddedContent() );
 		$this->assertFalse( $data->inReferenceList() );
 		$this->assertNull( $data->referenceListGroup() );

@@ -157,10 +157,6 @@ class References {
 			return null;
 		}
 
-		if ( $hasDifferingHtml ) {
-			$referencesData->pushEmbeddedContentFlag();
-		}
-
 		// This prevents nested list-defined references from erroneously giving "group mismatch"
 		// errors.
 		$referencesData->incrementRefDepth();
@@ -168,7 +164,6 @@ class References {
 		$referencesData->decrementRefDepth();
 
 		if ( $hasDifferingHtml ) {
-			$referencesData->popEmbeddedContentFlag();
 			// If we have refs and the content differs, we need to reserialize now that we processed
 			// the refs.  Unfortunately, the cachedHtml we compared against already had its refs
 			// processed so that would presumably never match and this will always be considered a
@@ -377,7 +372,7 @@ class References {
 				// While indicator content is embedded throughout the parsing
 				// pipeline, it gets added back into the page in a post-processing
 				// step, so consider it visible for the sake of linkbacks.
-				if ( $referencesData->peekEmbeddedContentFlag() === 'indicator' ) {
+				if ( $referencesData->inIndicatorContext() ) {
 					$ref->visibleNodes++;
 					$isVisibleNode = true;
 				}
@@ -757,7 +752,7 @@ class References {
 						$refsData->referencesGroup =
 							DOMDataUtils::getDataParsoid( $child )->group ?? '';
 					}
-					$refsData->pushEmbeddedContentFlag( 'references' );
+					$refsData->pushEmbeddedContentFlag();
 					if ( $child->hasChildNodes() ) {
 						$this->processRefs( $extApi, $refsData, $child );
 					}

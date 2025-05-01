@@ -50,7 +50,7 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 		$this->assertSame( $expectedLabel, $label );
 	}
 
-	public function provideGetBacklinkMarker() {
+	public static function provideGetBacklinkMarker() {
 		return [
 			[ 'ab', 5, 'a b c' ],
 		];

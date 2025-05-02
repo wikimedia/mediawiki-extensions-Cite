@@ -352,16 +352,10 @@ ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, n
  * @return {boolean}
  */
 ve.dm.MWReferenceNode.static.hasSubRefs = function ( dataElement, converter ) {
-	if ( dataElement.attributes.extendsRef ) {
-		return false;
-	}
-
-	const subRefs = converter.internalList.getNodeGroup( dataElement.attributes.listGroup )
-		.firstNodes.filter(
+	return !dataElement.attributes.extendsRef &&
+		converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.some(
 			( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
 		);
-
-	return subRefs.length > 0;
 };
 
 ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (

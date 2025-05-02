@@ -227,11 +227,11 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	// Copy CSS to dynamic ref list
 	if ( originalDomElements ) {
 		// Get first container, e.g. skipping TemplateStyles
-		const divs = originalDomElements.filter( ( element ) => element.tagName === 'DIV' );
-		if ( divs.length ) {
+		const div = originalDomElements.find( ( element ) => element.tagName === 'DIV' );
+		if ( div ) {
 			// eslint-disable-next-line mediawiki/class-doc
-			this.$element.addClass( divs[ 0 ].getAttribute( 'class' ) );
-			this.$element.attr( 'style', divs[ 0 ].getAttribute( 'style' ) );
+			this.$element.addClass( div.getAttribute( 'class' ) );
+			this.$element.attr( 'style', div.getAttribute( 'style' ) );
 		}
 	}
 
@@ -289,10 +289,10 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 			$li.on( 'mousedown', ( e ) => {
 				if ( ve.isUnmodifiedLeftClick( e ) ) {
 					const node = groupRefs.getRefNode( key );
-					const items = ve.ui.contextItemFactory.getRelatedItems( [ node ] )
-						.filter( ( item ) => item.name !== 'mobileActions' );
-					if ( items.length ) {
-						const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
+					const firstItem = ve.ui.contextItemFactory.getRelatedItems( [ node ] )
+						.find( ( item ) => item.name !== 'mobileActions' );
+					if ( firstItem ) {
+						const contextItem = ve.ui.contextItemFactory.lookup( firstItem.name );
 						if ( contextItem ) {
 							const command = surface.commandRegistry
 								.lookup( contextItem.static.commandName );

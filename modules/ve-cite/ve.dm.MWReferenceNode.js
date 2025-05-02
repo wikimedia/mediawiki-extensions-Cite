@@ -235,10 +235,10 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		// HTML for the external clipboard, it will be ignored by the converter
 		const $link = $( '<a>', doc )
 			.attr( 'data-mw-group', this.getGroup( dataElement ) || null );
-		$( el ).addClass( 'mw-ref reference' ).html(
+		$( el ).addClass( 'mw-ref reference' ).append(
 			$link.append( $( '<span>', doc )
 				.addClass( 'mw-reflink-text' )
-				.html( this.getIndexLabel( dataElement, converter.internalList ) )
+				.append( this.getFormattedRefLinkLabel( dataElement, converter.internalList ) )
 			)
 		);
 	}
@@ -402,18 +402,20 @@ ve.dm.MWReferenceNode.static.getGroup = function ( dataElement ) {
 /**
  * Gets the index label for the reference
  *
- * @static
+ * @private
  * @param {Object} dataElement Element data
  * @param {ve.dm.InternalList} internalList Internal list
- * @return {string} Reference label as HTML
+ * @return {jQuery} Formatted label including the square brackets
  */
-ve.dm.MWReferenceNode.static.getIndexLabel = function ( dataElement, internalList ) {
+ve.dm.MWReferenceNode.static.getFormattedRefLinkLabel = function ( dataElement, internalList ) {
 	const refGroup = dataElement.attributes.refGroup;
 	const indexNumber = dataElement.attributes.placeholder ? '…' :
 		ve.dm.MWReferenceNode.static.findIndexNumber( dataElement, internalList );
 	const label = ( refGroup ? refGroup + ' ' : '' ) + indexNumber;
 
-	return `<span class="cite-bracket">[</span>${ label }<span class="cite-bracket">]</span>`;
+	return $( '<span>' ).addClass( 'cite-bracket' ).text( '[' )
+		.add( document.createTextNode( label ) )
+		.add( $( '<span>' ).addClass( 'cite-bracket' ).text( ']' ) );
 };
 
 /**
@@ -546,10 +548,10 @@ ve.dm.MWReferenceNode.prototype.getGroup = function () {
 /**
  * Gets the index label for the reference
  *
- * @return {string} Reference label
+ * @return {jQuery} Formatted label including the square brackets
  */
-ve.dm.MWReferenceNode.prototype.getIndexLabel = function () {
-	return this.constructor.static.getIndexLabel(
+ve.dm.MWReferenceNode.prototype.getFormattedRefLinkLabel = function () {
+	return this.constructor.static.getFormattedRefLinkLabel(
 		this.element, this.getDocument().getInternalList() );
 };
 

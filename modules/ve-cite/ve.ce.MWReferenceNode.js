@@ -129,7 +129,7 @@ ve.ce.MWReferenceNode.prototype.executeCommand = function () {
  * Update the rendering
  */
 ve.ce.MWReferenceNode.prototype.update = function () {
-	this.$text.html( this.model.getIndexLabel() );
+	this.$text.empty().append( this.model.getFormattedRefLinkLabel() );
 	this.$link
 		.attr( 'data-mw-group', this.model.getGroup() || null );
 	this.$element.toggleClass( 've-ce-mwReferenceNode-placeholder', !!this.model.getAttribute( 'placeholder' ) );

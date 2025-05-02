@@ -13,23 +13,13 @@ use StatusValue;
 class Validator {
 
 	private ?string $inReferencesGroup;
-	private bool $isKnownName;
-	private bool $isSectionPreview;
 
 	/**
 	 * @param string|null $inReferencesGroup Group name of the <references> context to consider
 	 *  during validation. Null if we are currently not in a <references> context.
-	 * @param bool $isKnownName
-	 * @param bool $isSectionPreview Validation is relaxed when previewing parts of a page
 	 */
-	public function __construct(
-		?string $inReferencesGroup,
-		bool $isKnownName,
-		bool $isSectionPreview
-	) {
+	public function __construct( ?string $inReferencesGroup ) {
 		$this->inReferencesGroup = $inReferencesGroup;
-		$this->isKnownName = $isKnownName;
-		$this->isSectionPreview = $isSectionPreview;
 	}
 
 	/**
@@ -220,18 +210,21 @@ class Validator {
 			);
 		}
 
-		// Section previews are exempt from some rules.
-		if ( !$this->isSectionPreview ) {
-			if ( !$this->isKnownName ) {
-				// No such named ref exists in this group.
-				$status->fatal( 'cite_error_references_missing_key',
-					Sanitizer::safeEncodeAttribute( $name )
-				);
-			}
-		}
-
 		// Return the sanitized set of <ref …> arguments
 		$status->value = $arguments;
+		return $status;
+	}
+
+	public function validateListDefinedRefUsage( ?string $name, bool $isKnownName ): StatusValue {
+		$status = StatusValue::newGood();
+
+		if ( $this->inReferencesGroup !== null && $name && !$isKnownName ) {
+			// No such named ref exists in this group.
+			$status->fatal( 'cite_error_references_missing_key',
+				Sanitizer::safeEncodeAttribute( $name )
+			);
+		}
+
 		return $status;
 	}
 

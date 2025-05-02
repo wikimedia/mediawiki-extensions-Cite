@@ -144,15 +144,15 @@ class Cite {
 			$parser->addTrackingCategory( self::DETAILS_TRACKING_CATEGORY );
 		}
 
-		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.
-		$group = $arguments['group'] ?? $this->inReferencesGroup;
-		$validator = new Validator(
-			$this->inReferencesGroup,
-			$this->referenceStack->isKnown( $group, $arguments['name'] ),
-			$this->isSectionPreview
-		);
+		$validator = new Validator( $this->inReferencesGroup );
 		$status->merge( $validator->validateRef( $text, $arguments ), true );
 		$arguments = $status->getValue();
+		if ( !$this->isSectionPreview ) {
+			$status->merge( $validator->validateListDefinedRefUsage(
+				$arguments['name'],
+				$this->referenceStack->isKnown( $arguments['group'], $arguments['name'] )
+			) );
+		}
 
 		// Validation cares about the difference between null and empty, but from here on we don't
 		if ( $text !== null && trim( $text ) === '' ) {

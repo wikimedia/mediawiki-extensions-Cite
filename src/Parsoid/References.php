@@ -211,8 +211,6 @@ class References {
 			// FIXME: This is only temporary, eventually we want all validation results to be used
 			switch ( $msg->getKey() ) {
 				// TODO: Remove one by one so they are handled by the default instead
-				// Currently 5 failures
-				case 'cite_error_details_missing_parent':
 				// Currently 22 failures
 				case 'cite_error_empty_references_define':
 				// Currently 92 failures

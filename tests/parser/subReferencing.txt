@@ -98,10 +98,10 @@ wgCiteSubReferencing=true
 </ol></li>
 </ol></div>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"details":"abc"},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"abc"},"body":{"id":"mw-reference-text-cite_note-1"},"errors":[{"key":"cite_error_details_missing_parent"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">def</span></li>
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">def</span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_details_missing_parent","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
 </ol>
 </div>
 !! end
@@ -282,10 +282,10 @@ wgCiteSubReferencing=true
 <p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref&gt;</code> tag with details must contain content or point to a parent reference by name.</span>
 </p>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1"},"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1"},"errors":[{"key":"cite_error_details_missing_parent"},{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_details_missing_parent","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
 </ol>
 </div>
 !! end
@@ -301,10 +301,10 @@ wgCiteSubReferencing=true
 <p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref&gt;</code> tag with details must contain content or point to a parent reference by name.</span>
 </p>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1"},"body":{"html":""},"errors":[{"key":"cite_error_ref_no_input"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1"},"body":{"html":""},"errors":[{"key":"cite_error_details_missing_parent"},{"key":"cite_error_ref_no_input"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_input","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_details_missing_parent","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_input","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
 </ol>
 </div>
 !! end
@@ -399,10 +399,10 @@ wgCiteSubReferencing=true
 </li>
 </ol></div>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"details":""},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":""},"body":{"id":"mw-reference-text-cite_note-1"},"errors":[{"key":"cite_error_details_missing_parent"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
-<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">Book</span></li>
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">Book</span><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_details_missing_parent","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
 </ol>
 </div>
 !! end
@@ -685,7 +685,7 @@ parsoid=wt2html
 
 # TODO: Specify desired behavior. Bad round-trip.
 !! test
-Using `follow` with details on the “main" part
+Using `follow` with details on the "main" part
 !! config
 wgCiteSubReferencing=true
 !! options
@@ -714,7 +714,7 @@ parsoid=wt2html
 
 # T390974: Bad refs don't round-trip
 !! test
-Using `follow` with details on the “follow" part
+Using `follow` with details on the "follow" part
 !! config
 wgCiteSubReferencing=true
 !! options
@@ -730,7 +730,7 @@ parsoid=wt2html
 </li>
 </ol></div>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-book_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"book"},"body":{"id":"mw-reference-text-cite_note-book-1"}}'><a href="./Parser_test#cite_note-book-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference mw-ref-follow" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1","follow":"book"},"body":{"id":"mw-reference-text-cite_note-book-1"},"errors":[{"key":"cite_error_ref_follow_conflicts"}]}'><a href="./Parser_test#cite_note-book-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<p><sup class="mw-ref reference" id="cite_ref-book_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"book"},"body":{"id":"mw-reference-text-cite_note-book-1"}}'><a href="./Parser_test#cite_note-book-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference mw-ref-follow" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"page 1","follow":"book"},"body":{"id":"mw-reference-text-cite_note-book-1"},"errors":[{"key":"cite_error_ref_follow_conflicts"},{"key":"cite_error_details_missing_parent"}]}'><a href="./Parser_test#cite_note-book-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
 <li id="cite_note-book-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-book_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-book-1" class="mw-reference-text reference-text">Book<span typeof="mw:Cite/Follow"> continued</span></span></li>

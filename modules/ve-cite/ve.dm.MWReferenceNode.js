@@ -64,14 +64,14 @@ ve.dm.MWReferenceNode.static.listKeyRegex = /^(auto|literal)\/([\s\S]*)$/;
 
 /**
  * @private
- * @param {string|null} name
- * @param {ve.dm.Converter} converter
+ * @param {ve.dm.InternalList} internalList
+ * @param {string|null} [name]
  * @return {string}
  */
-ve.dm.MWReferenceNode.static.makeListKey = function ( name, converter ) {
+ve.dm.MWReferenceNode.static.makeListKey = function ( internalList, name ) {
 	return name ?
 		'literal/' + name :
-		'auto/' + converter.internalList.getNextUniqueNumber();
+		'auto/' + internalList.getNextUniqueNumber();
 };
 
 /**
@@ -96,7 +96,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		'';
 	const refGroup = mwAttrs.group || '';
 	const listGroup = this.name + '/' + refGroup;
-	const listKey = ve.dm.MWReferenceNode.static.makeListKey( mwAttrs.name, converter );
+	const listKey = this.makeListKey( converter.internalList, mwAttrs.name );
 	const { index, isNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
 
 	if ( converter.isFromClipboard() && !( mwAttrs.name || body ) ) {
@@ -119,9 +119,9 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	};
 
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
-		dataElement.attributes.extendsRef = ve.dm.MWReferenceNode.static.makeListKey(
-			mwData.mainRef,
-			converter
+		dataElement.attributes.extendsRef = this.makeListKey(
+			converter.internalList,
+			mwData.mainRef
 		);
 	}
 	if ( reflistItemId ) {
@@ -373,7 +373,7 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 	// Remap listKey if it was automatically generated
 	const listKeyParts = dataElement.attributes.listKey.match( this.listKeyRegex );
 	if ( listKeyParts[ 1 ] === 'auto' ) {
-		dataElement.attributes.listKey = 'auto/' + internalList.getNextUniqueNumber();
+		dataElement.attributes.listKey = this.makeListKey( internalList );
 	}
 };
 

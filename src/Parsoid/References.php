@@ -217,9 +217,6 @@ class References {
 			// FIXME: This is only temporary, eventually we want all validation results to be used
 			switch ( $msg->getKey() ) {
 				// TODO: Remove one by one so they are handled by the default instead
-				// Currently 3 failures
-				case 'cite_error_ref_no_key':
-				// Currently 22 failures
 				case 'cite_error_references_missing_key':
 					break;
 				default:
@@ -382,12 +379,6 @@ class References {
 
 		$hasMissingContent = $isEmptyBody && !$ref->externalFragment;
 		if ( $hasMissingContent ) {
-			if ( !$refName ) {
-				if ( !empty( $refFragmentDp->selfClose ) ) {
-					$errs[] = new DataMwError( 'cite_error_ref_no_key' );
-				}
-			}
-
 			if ( !empty( $refFragmentDp->selfClose ) ) {
 				unset( $refDataMw->body );
 			} else {

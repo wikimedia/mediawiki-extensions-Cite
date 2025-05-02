@@ -119,7 +119,10 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	};
 
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
-		dataElement.attributes.extendsRef = ve.dm.MWReferenceNode.static.makeListKey( mwData.mainRef, converter );
+		dataElement.attributes.extendsRef = ve.dm.MWReferenceNode.static.makeListKey(
+			mwData.mainRef,
+			converter
+		);
 	}
 	if ( reflistItemId ) {
 		dataElement.attributes.refListItemId = reflistItemId;
@@ -233,8 +236,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		const $link = $( '<a>', doc )
 			.attr( 'data-mw-group', this.getGroup( dataElement ) || null );
 		$( el ).addClass( 'mw-ref reference' ).html(
-			$link.append(
-				$( '<span>', doc ).addClass( 'mw-reflink-text' ).html( this.getIndexLabel( dataElement, converter.internalList ) )
+			$link.append( $( '<span>', doc )
+				.addClass( 'mw-reflink-text' )
+				.html( this.getIndexLabel( dataElement, converter.internalList ) )
 			)
 		);
 	}
@@ -329,7 +333,10 @@ ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, n
 	}
 
 	// use auto generated name
-	if ( dataElement.attributes.extendsRef || nodesWithSameKey.length > 1 || this.hasSubRefs( dataElement, converter ) ) {
+	if ( dataElement.attributes.extendsRef ||
+		nodesWithSameKey.length > 1 ||
+		this.hasSubRefs( dataElement, converter )
+	) {
 		return converter.internalList.getUniqueListKey(
 			dataElement.attributes.listGroup,
 			mainRefKey,
@@ -350,7 +357,9 @@ ve.dm.MWReferenceNode.static.hasSubRefs = function ( dataElement, converter ) {
 	}
 
 	const subRefs = converter.internalList.getNodeGroup( dataElement.attributes.listGroup )
-		.firstNodes.filter( ( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey );
+		.firstNodes.filter(
+			( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
+		);
 
 	return subRefs.length > 0;
 };
@@ -485,7 +494,11 @@ ve.dm.MWReferenceNode.static.describeChange = function ( key, change ) {
 		} else if ( !change.to ) {
 			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-from', this.wrapText( 'del', change.from ) );
 		} else {
-			return ve.htmlMsg( 'cite-ve-changedesc-ref-group-both', this.wrapText( 'del', change.from ), this.wrapText( 'ins', change.to ) );
+			return ve.htmlMsg(
+				'cite-ve-changedesc-ref-group-both',
+				this.wrapText( 'del', change.from ),
+				this.wrapText( 'ins', change.to )
+			);
 		}
 	}
 };
@@ -546,7 +559,10 @@ ve.dm.MWReferenceNode.prototype.getIndexLabel = function () {
  * @return {string} Footnote number ready for rendering
  */
 ve.dm.MWReferenceNode.prototype.getIndexNumber = function () {
-	return this.constructor.static.findIndexNumber( this.element, this.getDocument().getInternalList() );
+	return this.constructor.static.findIndexNumber(
+		this.element,
+		this.getDocument().getInternalList()
+	);
 };
 
 /**

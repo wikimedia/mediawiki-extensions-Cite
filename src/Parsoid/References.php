@@ -218,8 +218,6 @@ class References {
 			switch ( $msg->getKey() ) {
 				// TODO: Remove one by one so they are handled by the default instead
 				// Currently 3 failures
-				case 'cite_error_empty_references_define':
-				// Currently 3 failures
 				case 'cite_error_ref_no_key':
 				// Currently 22 failures
 				case 'cite_error_references_missing_key':
@@ -385,17 +383,7 @@ class References {
 
 		$hasMissingContent = $isEmptyBody && !$ref->externalFragment;
 		if ( $hasMissingContent ) {
-			// Check for missing name and content to generate error code
-			//
-			// In references content, refs should be used for definition so missing content
-			// is an error.  It's possible that no name is present (!hasRefName), which also
-			// gets the error "cite_error_references_no_key" above, so protect against that.
-			if ( $referencesData->inReferenceList() ) {
-				$errs[] = new DataMwError(
-					'cite_error_empty_references_define',
-					[ $refName, $groupName ]
-				);
-			} elseif ( !$refName ) {
+			if ( !$refName ) {
 				if ( !empty( $refFragmentDp->selfClose ) ) {
 					$errs[] = new DataMwError( 'cite_error_ref_no_key' );
 				}

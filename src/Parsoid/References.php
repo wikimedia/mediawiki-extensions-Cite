@@ -196,6 +196,11 @@ class References {
 		$status = Validator::filterRefArguments( (array)$refDataMw->attrs, $isSubreferenceSupported );
 		$arguments = $status->getValue();
 
+		// Check for missing content, added ?? '' to fix T259676 crasher
+		// FIXME: See T260082 for a more complete description of cause and deeper fix
+		$isOnlyWhitespace = trim( $refDataMw->body->extsrc ?? '' ) === '';
+		$isEmptyBody = !empty( $refFragmentDp->empty ) || $isOnlyWhitespace;
+
 		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.
 		$groupName = $arguments['group'] ?? $referencesData->referenceListGroup() ?? '';
 		$validator = new Validator(
@@ -203,7 +208,8 @@ class References {
 			false,
 			false
 		);
-		$status->merge( $validator->validateRef( null, $arguments ), true );
+		$text = !empty( $refFragmentDp->selfClose ) ? null : ( $isEmptyBody ? '' : 'dummy' );
+		$status->merge( $validator->validateRef( $text, $arguments ), true );
 		if ( $status->isOK() ) {
 			$arguments = $status->getValue();
 		}
@@ -211,9 +217,9 @@ class References {
 			// FIXME: This is only temporary, eventually we want all validation results to be used
 			switch ( $msg->getKey() ) {
 				// TODO: Remove one by one so they are handled by the default instead
-				// Currently 22 failures
+				// Currently 3 failures
 				case 'cite_error_empty_references_define':
-				// Currently 92 failures
+				// Currently 3 failures
 				case 'cite_error_ref_no_key':
 				// Currently 22 failures
 				case 'cite_error_references_missing_key':
@@ -377,11 +383,7 @@ class References {
 			}
 		}
 
-		// Check for missing content, added ?? '' to fix T259676 crasher
-		// FIXME: See T260082 for a more complete description of cause and deeper fix
-		$hasMissingContent = ( !empty( $refFragmentDp->empty ) || trim( $refDataMw->body->extsrc ?? '' ) === '' ) &&
-			 $ref->externalFragment === null;
-
+		$hasMissingContent = $isEmptyBody && !$ref->externalFragment;
 		if ( $hasMissingContent ) {
 			// Check for missing name and content to generate error code
 			//
@@ -396,8 +398,6 @@ class References {
 			} elseif ( !$refName ) {
 				if ( !empty( $refFragmentDp->selfClose ) ) {
 					$errs[] = new DataMwError( 'cite_error_ref_no_key' );
-				} else {
-					$errs[] = new DataMwError( 'cite_error_ref_no_input' );
 				}
 			}
 

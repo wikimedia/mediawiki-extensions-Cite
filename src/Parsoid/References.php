@@ -213,8 +213,6 @@ class References {
 				// TODO: Remove one by one so they are handled by the default instead
 				// Currently 5 failures
 				case 'cite_error_details_missing_parent':
-				// Currently 7 failures
-				case 'cite_error_details_unsupported_context':
 				// Currently 22 failures
 				case 'cite_error_empty_references_define':
 				// Currently 92 failures

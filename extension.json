@@ -352,7 +352,6 @@
 					"class": "Cite\\Config\\CiteEditorCapability",
 					"services": [
 						"Cite.AlphabetsProvider",
-						"CommunityConfiguration.ProviderFactory",
 						"CommunityConfiguration.MediaWikiConfigReader",
 						"ContentLanguage",
 						"LinkRenderer"

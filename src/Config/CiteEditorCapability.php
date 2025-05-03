@@ -7,7 +7,7 @@ use LogicException;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\CommunityConfiguration\EditorCapabilities\AbstractEditorCapability;
-use MediaWiki\Extension\CommunityConfiguration\Provider\ConfigurationProviderFactory;
+use MediaWiki\Extension\CommunityConfiguration\Provider\IConfigurationProvider;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
 use MediaWiki\Linker\LinkRenderer;
@@ -19,7 +19,6 @@ use MediaWiki\Title\Title;
 class CiteEditorCapability extends AbstractEditorCapability {
 
 	private AlphabetsProvider $alphabetsProvider;
-	private ConfigurationProviderFactory $providerFactory;
 	private Config $config;
 	private Language $contentLanguage;
 	private LinkRenderer $linkRenderer;
@@ -28,7 +27,6 @@ class CiteEditorCapability extends AbstractEditorCapability {
 		IContextSource $ctx,
 		Title $parentTitle,
 		AlphabetsProvider $alphabetsProvider,
-		ConfigurationProviderFactory $providerFactory,
 		Config $config,
 		Language $contentLanguage,
 		LinkRenderer $linkRenderer
@@ -36,7 +34,6 @@ class CiteEditorCapability extends AbstractEditorCapability {
 		parent::__construct( $ctx, $parentTitle );
 
 		$this->alphabetsProvider = $alphabetsProvider;
-		$this->providerFactory = $providerFactory;
 		$this->config = $config;
 		$this->contentLanguage = $contentLanguage;
 		$this->linkRenderer = $linkRenderer;
@@ -45,16 +42,10 @@ class CiteEditorCapability extends AbstractEditorCapability {
 	/**
 	 * @inheritDoc
 	 */
-	public function execute( ?string $subpage ): void {
+	public function executeNew( ?IConfigurationProvider $provider, ?string $subpage = null ): void {
 		if ( !$this->config->get( 'CiteBacklinkCommunityConfiguration' ) ) {
 			throw new LogicException(
 				__CLASS__ . ' should not be loaded when wgCiteBacklinkCommunityConfiguration is disabled.'
-			);
-		}
-
-		if ( $subpage === null ) {
-			throw new LogicException(
-				__CLASS__ . ' does not support $subpage param being null'
 			);
 		}
 
@@ -77,10 +68,6 @@ class CiteEditorCapability extends AbstractEditorCapability {
 			'<div id="ext-cite-configuration-vue-root" class="ext-cite-configuration-page" />'
 		);
 
-		// get the stored value and forward to JS
-		$provider = $this->providerFactory->newProvider( $subpage );
-		$citeProviderId = $provider->getId();
-
 		$configStatusValue = $provider->loadValidConfiguration();
 		$value = $configStatusValue->isOK() ? $configStatusValue->getValue() : null;
 
@@ -93,7 +80,7 @@ class CiteEditorCapability extends AbstractEditorCapability {
 
 		$out->addJsConfigVars( [
 			'wgCiteBacklinkAlphabet' => $backlinkAlphabet,
-			'wgCiteProviderId' => $citeProviderId,
+			'wgCiteProviderId' => $provider->getId(),
 			'wgCldrAlphabet' => $cldrAlphabet,
 		] );
 	}

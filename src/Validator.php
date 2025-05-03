@@ -33,7 +33,7 @@ class Validator {
 	}
 
 	/**
-	 * @param array<string,?string> $argv The original arguments from the <ref …> tag
+	 * @param array<string|int,?string> $argv The original arguments from the <ref …> tag
 	 * @param string[] $allowedArguments
 	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
 	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
@@ -61,7 +61,7 @@ class Validator {
 	 * Filters the raw <ref> arguments and turns them into a predictable format with all
 	 * elements guaranteed to be present.
 	 *
-	 * @param array<string,?string> $argv The original arguments from the <references …> tag
+	 * @param array<string|int,?string> $argv The original arguments from the <references …> tag
 	 * @param bool $isSubreferenceSupported Temporary feature flag
 	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
 	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
@@ -81,7 +81,7 @@ class Validator {
 	 * Filters the raw <references> arguments and turns them into a predictable format with all
 	 * elements guaranteed to be present.
 	 *
-	 * @param array<string,?string> $argv The original arguments from the <references …> tag
+	 * @param array<string|int,?string> $argv The original arguments from the <references …> tag
 	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
 	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
 	 */

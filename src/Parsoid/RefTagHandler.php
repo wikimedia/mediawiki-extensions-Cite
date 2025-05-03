@@ -139,8 +139,8 @@ class RefTagHandler extends ExtensionTagHandler {
 				return ''; // Drop it!
 			}
 
-			$hasRefName = (bool)( $dataMw->attrs->name ?? null );
-			$hasFollow = (bool)( $dataMw->attrs->follow ?? null );
+			$hasRefName = (bool)$dataMw->getExtAttrib( 'name' );
+			$hasFollow = (bool)$dataMw->getExtAttrib( 'follow' );
 
 			if ( $hasFollow ) {
 				$about = DOMCompat::getAttribute( $node, 'about' );
@@ -174,13 +174,16 @@ class RefTagHandler extends ExtensionTagHandler {
 			return ''; // Drop it!
 		}
 
-		// @phan-suppress-next-line PhanUndeclaredProperty
-		if ( $this->isSubreferenceSupported && isset( $dataMw->attrs->details ) && isset( $dataMw->mainRef ) ) {
+		if ( $this->isSubreferenceSupported &&
+			 $dataMw->getExtAttrib( 'details' ) !== null &&
+			 // @phan-suppress-next-line PhanUndeclaredProperty
+			 isset( $dataMw->mainRef )
+		) {
 			// TODO: maintain original order of attributes
 			// @phan-suppress-next-line PhanUndeclaredProperty
-			$dataMw->attrs->name = $dataMw->mainRef;
+			$dataMw->setExtAttrib( 'name', $dataMw->mainRef );
 			// TODO: escape wikitext for attribute
-			$dataMw->attrs->details = $src;
+			$dataMw->setExtAttrib( 'details', $src );
 
 			// @phan-suppress-next-line PhanUndeclaredProperty
 			if ( isset( $dataMw->isMainRefBodyWithDetails ) && isset( $dataMw->mainBody ) ) {

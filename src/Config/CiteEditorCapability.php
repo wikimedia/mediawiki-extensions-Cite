@@ -42,7 +42,7 @@ class CiteEditorCapability extends AbstractEditorCapability {
 	/**
 	 * @inheritDoc
 	 */
-	public function executeNew( ?IConfigurationProvider $provider, ?string $subpage = null ): void {
+	public function execute( ?IConfigurationProvider $provider, ?string $subpage = null ): void {
 		if ( !$this->config->get( 'CiteBacklinkCommunityConfiguration' ) ) {
 			throw new LogicException(
 				__CLASS__ . ' should not be loaded when wgCiteBacklinkCommunityConfiguration is disabled.'

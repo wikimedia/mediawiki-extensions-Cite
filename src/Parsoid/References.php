@@ -9,7 +9,6 @@ use Cite\Validator;
 use MediaWiki\Config\Config;
 use MediaWiki\Html\HtmlHelper;
 use MediaWiki\MediaWikiServices;
-use stdClass;
 use Wikimedia\Message\MessageParam;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\Core\DomSourceRange;
@@ -117,10 +116,7 @@ class References {
 				'typeof' => 'mw:Extension/references',
 				'about' => $extApi->newAboutId()
 			] );
-			$dataMw = new DataMw( [
-				'name' => 'references',
-				'attrs' => new stdClass
-			] );
+			$dataMw = new DataMw( [ 'name' => 'references', 'attrs' => (object)[] ] );
 			// Dont emit empty keys
 			if ( $refsOpts['group'] ) {
 				$dataMw->setExtAttrib( 'group', $refsOpts['group'] );

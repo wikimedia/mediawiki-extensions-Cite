@@ -152,9 +152,7 @@ class Cite {
 			$this->isSectionPreview
 		);
 		$status->merge( $validator->validateRef( $text, $arguments ), true );
-		if ( $status->isOK() ) {
-			$arguments = $status->getValue();
-		}
+		$arguments = $status->getValue();
 
 		// Validation cares about the difference between null and empty, but from here on we don't
 		if ( $text !== null && trim( $text ) === '' ) {

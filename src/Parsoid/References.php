@@ -197,8 +197,6 @@ class References {
 		$isOnlyWhitespace = trim( $refDataMw->body->extsrc ?? '' ) === '';
 		$isEmptyBody = !empty( $refFragmentDp->empty ) || $isOnlyWhitespace;
 
-		// FIXME: Duplication required for isKnown, but the Validator is supposed to do this.
-		$groupName = $arguments['group'] ?? $referencesData->referenceListGroup() ?? '';
 		$validator = new Validator(
 			$referencesData->referenceListGroup(),
 			false,
@@ -206,9 +204,8 @@ class References {
 		);
 		$text = !empty( $refFragmentDp->selfClose ) ? null : ( $isEmptyBody ? '' : 'dummy' );
 		$status->merge( $validator->validateRef( $text, $arguments ), true );
-		if ( $status->isOK() ) {
-			$arguments = $status->getValue();
-		}
+		$arguments = $status->getValue();
+
 		foreach ( $status->getMessages() as $msg ) {
 			// FIXME: This is only temporary, eventually we want all validation results to be used
 			switch ( $msg->getKey() ) {
@@ -227,9 +224,10 @@ class References {
 		}
 
 		// Extract and validate attribute values
+		$groupName = $arguments['group'];
 		$refName = (string)$arguments['name'];
 		$followName = (string)$arguments['follow'];
-		$refDir = strtolower( (string)$arguments['dir'] );
+		$refDir = (string)$arguments['dir'];
 		$details = $arguments['details'] ?? '';
 		$hasBody = isset( $refDataMw->body );
 

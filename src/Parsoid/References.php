@@ -284,12 +284,11 @@ class References {
 
 		// Split subref and main ref; add main ref as a list-defined reference
 		if ( $hasDetails ) {
-			$mainRefExists = (bool)$ref;
 			// Create new, empty main ref
 			$ref ??= $referencesData->addRef( $refGroup, $refName, $refDir );
 
 			if ( $hasBody ) {
-				if ( !$mainRefExists ) {
+				if ( !$ref->contentId ) {
 					// Create a main ref and transfer the tag body to it,
 					$ref->isMainWithDetails = true;
 					$ref->contentId = $contentId;

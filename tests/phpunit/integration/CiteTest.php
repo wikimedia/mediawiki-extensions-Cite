@@ -38,7 +38,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$status = $validator->filterArguments( $attributes, [ 'dir', 'follow', 'group', 'name' ] );
 		$this->assertSame( $expectedValue, array_values( $status->getValue() ) );
 		if ( $expectedError ) {
-			$this->assertStatusError( $expectedError, $status );
+			$this->assertStatusWarning( $expectedError, $status );
 		} else {
 			$this->assertStatusGood( $status );
 		}
@@ -328,9 +328,21 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				],
 				'inReferencesGroup' => null,
 				'initialRefs' => [],
-				'expectedOutput' => 'cite_error_ref_too_many_keys',
+				'expectedOutput' => '<foot />',
 				'expectedError' => null,
-				'expectedRefs' => []
+				'expectedRefs' => [
+					'' => [
+						'a' => [
+							'count' => 1,
+							'globalId' => 1,
+							'group' => '',
+							'name' => 'a',
+							'text' => 'text',
+							'numberInGroup' => 1,
+							'warnings' => [ [ 'cite_error_ref_too_many_keys' ] ],
+						],
+					],
+				]
 			],
 			'Successful references ref' => [
 				'text' => 'text',

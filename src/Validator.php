@@ -48,7 +48,7 @@ class Validator {
 			// Use different error messages for <ref> vs. <references> (cannot have a name)
 			$isReferencesTag = !in_array( 'name', $allowedArguments, true );
 			// TODO: Show at least the first invalid argument name!
-			$status->fatal( $isReferencesTag ?
+			$status->warning( $isReferencesTag ?
 				'cite_error_references_invalid_parameters' :
 				'cite_error_ref_too_many_keys'
 			);

@@ -86,6 +86,11 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 		this.selectedNode = null;
 	}
 
+	// Special case for sub-references: create a copy so both can be edited independently
+	if ( ref.extendsRef ) {
+		ref = ve.dm.MWReferenceModel.static.copySubReference( ref, this.getFragment().getDocument() );
+	}
+
 	// Collapse returns a new fragment, so update this.fragment
 	this.fragment = this.getFragment().collapseToEnd();
 	ref.insertIntoFragment( this.getFragment() );

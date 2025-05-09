@@ -52,7 +52,6 @@ class CitationToolDefinitionTest extends \MediaWikiUnitTestCase {
 		$context->method( 'msg' )
 			->willReturnMap( [
 				[ 'cite-tool-definition.json', $msg ],
-				[ 'visualeditor-cite-tool-definition.json', $msg ],
 				[ 'visualeditor-cite-tool-name-missing-message', $disabled ],
 				[ 'visualeditor-cite-tool-name-n', $msg ]
 			] );

@@ -30,7 +30,6 @@
 			"Verdy p"
 		]
 	},
-	"visualeditor-cite-tool-definition.json": "{{ignored}}\n\nLegacy name for cite-tool-definition.json message.",
 	"visualeditor-cite-tool-name-book": "Title of tool that inserts a citation for a book.\n{{Identical|Book}}",
 	"visualeditor-cite-tool-name-journal": "Title of tool that inserts a citation for a journal\n{{Identical|Journal}}",
 	"visualeditor-cite-tool-name-news": "Title of tool that inserts a citation for a news.\n{{Identical|News}}",

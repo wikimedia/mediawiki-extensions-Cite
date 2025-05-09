@@ -21,12 +21,6 @@ class CitationToolDefinition {
 				->plain()
 		);
 
-		$citationDefinition ??= json_decode(
-			$context->msg( 'visualeditor-cite-tool-definition.json' )
-				->inContentLanguage()
-				->plain()
-		);
-
 		$citationTools = [];
 		if ( is_array( $citationDefinition ) ) {
 			foreach ( $citationDefinition as $tool ) {

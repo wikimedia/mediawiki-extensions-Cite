@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aristorkle"
+			"Aristorkle",
+			"Noooote"
 		]
 	},
-	"cite_error": "Error de cita: $1"
+	"cite_error": "Error de citada: $1"
 }

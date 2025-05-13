@@ -12,8 +12,8 @@
 		{
 			"files": "**/*.vue",
 			"extends": [
-				"wikimedia/client-common",
-				"wikimedia/vue3-es6"
+				"wikimedia/client/common",
+				"wikimedia/vue3/es6"
 			],
 			"rules": {
 				"max-len": "off",

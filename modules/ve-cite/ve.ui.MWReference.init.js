@@ -63,9 +63,8 @@
 	/**
 	 * Add reference insertion tools from on-wiki data.
 	 *
-	 * By adding a definition in JSON to
-	 * MediaWiki:Visualeditor-cite-tool-definition, the cite menu can be populated
-	 * with tools that create refrences containing a specific templates. The
+	 * By adding a definition in JSON to MediaWiki:Cite-tool-definition, the cite menu can
+	 * be populated with tools that create refrences containing a specific templates. The
 	 * content of the definition should be an array containing a series of
 	 * objects, one for each tool. Each object must contain a `name`, `icon` and
 	 * `template` property. An optional `title` property can also be used to

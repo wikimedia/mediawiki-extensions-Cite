@@ -62,10 +62,7 @@ class CiteHooks implements
 	public function onContentHandlerDefaultModelFor( $title, &$model ) {
 		if (
 			$title->inNamespace( NS_MEDIAWIKI ) &&
-			(
-				$title->getText() == 'Visualeditor-cite-tool-definition.json' ||
-				$title->getText() == 'Cite-tool-definition.json'
-			)
+			$title->getText() == 'Cite-tool-definition.json'
 		) {
 			$model = CONTENT_MODEL_JSON;
 		}

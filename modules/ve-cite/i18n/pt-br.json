@@ -47,6 +47,7 @@
 	"cite-ve-citationneeded-description": "Um editor indicou que essa reivindicação precisa de uma citação para uma fonte confiável.",
 	"cite-ve-citationneeded-reason": "Motivo dado:",
 	"cite-ve-citationneeded-title": "Citação necessária",
+	"cite-ve-dialog-reference-contextitem-extends": "Essa referência é uma reutilização com detalhes adicionais:",
 	"cite-ve-dialog-reference-editing-reused": "Esta referência é usada $1 {{PLURAL:$1|vez|vezes}} nesta página.",
 	"cite-ve-dialog-reference-editing-reused-long": "Esta referência é usada {{PLURAL:$1|uma vez|$1 vezes}} nesta página. As alterações que forem feitas aqui serão aplicadas em todos os sítios onde esta referência é reutilizada.",
 	"cite-ve-dialog-reference-editing-extends": "Esta é uma extensão de outra referência.",

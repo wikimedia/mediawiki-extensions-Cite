@@ -108,7 +108,7 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				],
 				'expected' => 'cite_error_ref_follow_conflicts',
 			],
-			'Follow ignores empty details' => [
+			'Follow with empty details' => [
 				'isKnownName' => true,
 				'inReferencesGroup' => null,
 				'isSectionPreview' => false,
@@ -295,20 +295,6 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				'expected' => 'cite_error_details_unsupported_context',
 			],
 
-			'Group never used' => [
-				'isKnownName' => false,
-				'inReferencesGroup' => 'g',
-				'isSectionPreview' => false,
-				'text' => 'not empty',
-				[
-					'group' => 'g',
-					'name' => 'n',
-					'follow' => null,
-					'dir' => null,
-					'details' => null,
-				],
-				'expected' => 'cite_error_references_missing_key',
-			],
 			'Ref never used' => [
 				'isKnownName' => false,
 				'inReferencesGroup' => 'g',

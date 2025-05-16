@@ -90,7 +90,10 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 					icon: 'info'
 				} ).$element
 			);
-			return tag.$element;
+			return new OO.ui.Layout( {
+				classes: [ 've-ui-mwReferenceContextItem-reuse-layout' ],
+				content: [ tag ]
+			} ).$element;
 		} else {
 			return $( '<div>' )
 				.addClass( 've-ui-mwReferenceContextItem-muted' )
@@ -114,6 +117,38 @@ ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
 			] )
 			.text( ve.msg( 'cite-ve-dialog-reference-contextitem-extends' ) );
 	}
+};
+
+/**
+ * Get a DOM rendering of a button to add details.
+ *
+ * @private
+ * @return {jQuery|undefined}
+ */
+ve.ui.MWReferenceContextItem.prototype.getDetailsButton = function () {
+	if ( !mw.config.get( 'wgCiteSubReferencing' ) || this.model.getAttribute( 'extendsRef' ) ) {
+		return;
+	}
+
+	const listKey = this.model.getAttribute( 'listKey' );
+	if ( this.groupRefs.getTotalUsageCount( listKey ) < 2 ) {
+		return;
+	}
+
+	return new OO.ui.ButtonWidget( {
+		label: ve.msg( 'cite-ve-dialog-reference-add-details-button' )
+	} ).on( 'click', () => {
+		const ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
+		ve.ui.commandRegistry.lookup( 'reference' ).execute(
+			this.context.getSurface(),
+			// Arguments for calling ve.ui.MWReferenceDialog.getSetupProcess()
+			[ 'reference', { createSubRef: ref } ],
+			'context'
+		);
+		// TODO: When the dialog closes successfully, the new
+		// subref replaces the previously selected main ref and
+		// becomes a main+details.
+	} ).$element;
 };
 
 /**
@@ -175,7 +210,8 @@ ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
 		this.getParentRef(),
 		this.getExtendsWarning(),
 		this.getRendering(),
-		this.getReuseWarning()
+		this.getReuseWarning(),
+		this.getDetailsButton()
 	);
 };
 

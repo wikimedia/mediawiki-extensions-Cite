@@ -50,7 +50,7 @@
 		// interface setup correctly
 		assert.false( editPanel.referenceGroupInput.isDisabled() );
 		assert.false( editPanel.reuseWarning.isVisible() );
-		assert.false( editPanel.extendsWarning.isVisible() );
+		assert.false( editPanel.previewPanel.isVisible() );
 
 		// change handler triggered
 		const expectedChange = {
@@ -73,7 +73,7 @@
 
 		// interface setup correctly
 		assert.true( editPanel.reuseWarning.isVisible() );
-		assert.false( editPanel.extendsWarning.isVisible() );
+		assert.false( editPanel.previewPanel.isVisible() );
 	} );
 
 	QUnit.test( 'sub-references', ( assert ) => {
@@ -88,10 +88,10 @@
 		editPanel.setReferenceForEditing( ref );
 
 		assert.false( editPanel.reuseWarning.isVisible() );
-		assert.true( editPanel.extendsWarning.isVisible() );
-		assert.false( editPanel.extendsWarning.getLabel().text().includes( 'cite-ve-dialog-reference-missing-parent-ref' ) );
+		assert.true( editPanel.previewPanel.isVisible() );
+		assert.false( editPanel.referenceListPreview.$element.text().includes( 'cite-ve-dialog-reference-missing-parent-ref' ) );
 		// TODO improve node mock to check content insertion for the parent
-		// assert.true( editPanel.extendsWarning.getLabel().text().indexOf( 'Bar' ) !== -1 );
+		// assert.true( editPanel.referenceListPreview.$element.text().indexOf( 'Bar' ) !== -1 );
 
 		// test sub ref with missing main ref
 		ref.extendsRef = 'literal/notexist';
@@ -99,7 +99,7 @@
 		editPanel.setReferenceForEditing( ref );
 
 		assert.false( editPanel.reuseWarning.isVisible() );
-		assert.true( editPanel.extendsWarning.isVisible() );
-		assert.true( editPanel.extendsWarning.getLabel().text().includes( 'cite-ve-dialog-reference-missing-parent-ref' ) );
+		assert.true( editPanel.previewPanel.isVisible() );
+		assert.true( editPanel.referenceListPreview.$element.text().includes( 'cite-ve-dialog-reference-missing-parent-ref' ) );
 	} );
 }() );

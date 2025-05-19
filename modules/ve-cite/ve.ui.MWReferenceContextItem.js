@@ -78,9 +78,24 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 	const totalUsageCount = this.groupRefs.getTotalUsageCount( listKey );
 
 	if ( totalUsageCount > 1 ) {
-		return $( '<div>' )
-			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( ve.msg( 'cite-ve-dialog-reference-editing-reused', totalUsageCount ) );
+		if ( mw.config.get( 'wgCiteSubReferencing' ) ) {
+			const tag = new OO.ui.TagItemWidget( {
+				classes: [ 've-ui-mwReferenceContextItem-reuse' ],
+				draggable: false,
+				disabled: true,
+				label: ve.msg( 'cite-ve-dialog-reference-editing-reused-short', totalUsageCount )
+			} );
+			tag.$element.prepend(
+				new OO.ui.IconWidget( {
+					icon: 'info'
+				} ).$element
+			);
+			return tag.$element;
+		} else {
+			return $( '<div>' )
+				.addClass( 've-ui-mwReferenceContextItem-muted' )
+				.text( ve.msg( 'cite-ve-dialog-reference-editing-reused', totalUsageCount ) );
+		}
 	}
 };
 

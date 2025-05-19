@@ -22,7 +22,7 @@
                 </ol>
             </div>
         ` );
-			$( '#qunit-fixture' ).html( $content );
+			$( '#qunit-fixture' ).append( $content );
 			mw.hook( 'wikipage.content' ).fire( $( '#qunit-fixture' ) );
 		}
 	} );

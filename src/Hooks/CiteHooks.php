@@ -58,6 +58,7 @@ class CiteHooks implements
 	 *
 	 * @param Title $title
 	 * @param string &$model
+	 * @return void
 	 */
 	public function onContentHandlerDefaultModelFor( $title, &$model ) {
 		if (
@@ -137,6 +138,7 @@ class CiteHooks implements
 	 *
 	 * @param ApiQuerySiteinfo $module
 	 * @param array &$results
+	 * @return void
 	 */
 	public function onAPIQuerySiteInfoGeneralInfo( $module, &$results ) {
 		$results['citeresponsivereferences'] = $module->getConfig()->get( 'CiteResponsiveReferences' );
@@ -147,27 +149,27 @@ class CiteHooks implements
 	 *
 	 * Add the module for WikiEditor
 	 *
-	 * @param EditPage $editPage the current EditPage object.
-	 * @param OutputPage $outputPage object.
+	 * @param EditPage $editPage
+	 * @param OutputPage $outputPage
+	 * @return void
 	 */
 	public function onEditPage__showEditForm_initial( $editPage, $outputPage ) {
 		$extensionRegistry = ExtensionRegistry::getInstance();
-		$allowedContentModels = array_merge(
-			[ CONTENT_MODEL_WIKITEXT ],
-			$extensionRegistry->getAttribute( 'CiteAllowedContentModels' )
-		);
-		if ( !in_array( $editPage->contentModel, $allowedContentModels ) ) {
+		if ( !$extensionRegistry->isLoaded( 'WikiEditor' ) ) {
 			return;
 		}
 
-		$wikiEditorEnabled = $extensionRegistry->isLoaded( 'WikiEditor' );
+		// Wikitext is always allowed
+		if ( $editPage->contentModel !== CONTENT_MODEL_WIKITEXT ) {
+			// To support compatible namespaces from extensions like ProofreadPage, see T348403
+			$wikitextContentModels = $extensionRegistry->getAttribute( 'CiteAllowedContentModels' );
+			if ( !in_array( $editPage->contentModel, $wikitextContentModels ) ) {
+				return;
+			}
+		}
 
 		$user = $editPage->getContext()->getUser();
-
-		if (
-			$wikiEditorEnabled &&
-			$this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' )
-		) {
+		if ( $this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' ) ) {
 			$outputPage->addModules( 'ext.cite.wikiEditor' );
 		}
 	}
@@ -177,6 +179,7 @@ class CiteHooks implements
 	 *
 	 * @param User $user User whose preferences are being modified
 	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object
+	 * @return void
 	 */
 	public function onGetPreferences( $user, &$prefs ) {
 		$option = [
@@ -212,6 +215,7 @@ class CiteHooks implements
 	/**
 	 * See https://www.mediawiki.org/wiki/Manual:Hooks/UserGetDefaultOptions
 	 * @param array &$defaultOptions Array of preference keys and their default values.
+	 * @return void
 	 */
 	public static function onUserGetDefaultOptions( &$defaultOptions ) {
 		// FIXME: Move to extension.json once migration is complete.  See T363162

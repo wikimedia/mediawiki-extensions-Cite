@@ -84,6 +84,11 @@ class ReferencesData {
 		unset( $this->refGroups[$groupName] );
 	}
 
+	public function isKnown( ?string $group, ?string $name ): bool {
+		$refGroup = $this->lookupRefGroup( $group ?? '' );
+		return $refGroup && $name && $refGroup->lookupRefByName( $name );
+	}
+
 	public function addRef(
 		RefGroup $group,
 		string $refName,

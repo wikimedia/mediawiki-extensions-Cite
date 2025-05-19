@@ -197,14 +197,14 @@ class References {
 		$isOnlyWhitespace = trim( $refDataMw->body->extsrc ?? '' ) === '';
 		$isEmptyBody = !empty( $refFragmentDp->empty ) || $isOnlyWhitespace;
 
-		$validator = new Validator(
-			$referencesData->referenceListGroup(),
-			false,
-			false
-		);
+		$validator = new Validator( $referencesData->referenceListGroup() );
 		$text = !empty( $refFragmentDp->selfClose ) ? null : ( $isEmptyBody ? '' : 'dummy' );
 		$status->merge( $validator->validateRef( $text, $arguments ), true );
 		$arguments = $status->getValue();
+		$status->merge( $validator->validateListDefinedRefUsage(
+			$arguments['name'],
+			$referencesData->isKnown( $arguments['group'], $arguments['name'] )
+		) );
 
 		foreach ( $status->getMessages() as $msg ) {
 			// FIXME: This is only temporary, eventually we want all validation results to be used

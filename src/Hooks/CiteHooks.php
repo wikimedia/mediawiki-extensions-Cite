@@ -124,8 +124,7 @@ class CiteHooks implements
 				'packageFiles' => [
 					'index.js',
 					'createReferenceGateway.js',
-					'createReferencePreview.js',
-					'referencePreviewsInstrumentation.js'
+					'createReferencePreview.js'
 				]
 			]
 		] );

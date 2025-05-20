@@ -284,10 +284,8 @@ class References {
 					$ref->isSyntheticMainRef = true;
 					$ref->contentId = $contentId;
 				}
-				// @phan-suppress-next-line PhanUndeclaredProperty
 				$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $ref );
 				// Flag to help reserialize main ref content into the subref when saving.
-				// @phan-suppress-next-line PhanUndeclaredProperty
 				$refDataMw->isSubRefWithMainBody = 1;
 			}
 
@@ -306,7 +304,6 @@ class References {
 			// Subref points to the main ref by name.
 			// FIXME: should have already asserted that refName exists for all details, see T387193
 			$refDataMw->setExtAttrib( 'name', null );
-			// @phan-suppress-next-line PhanUndeclaredProperty
 			$refDataMw->mainRef = $refName;
 			$refName = '';
 		}

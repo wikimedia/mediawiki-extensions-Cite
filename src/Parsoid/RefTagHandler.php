@@ -176,18 +176,14 @@ class RefTagHandler extends ExtensionTagHandler {
 
 		if ( $this->isSubreferenceSupported &&
 			 $dataMw->getExtAttrib( 'details' ) !== null &&
-			 // @phan-suppress-next-line PhanUndeclaredProperty
 			 isset( $dataMw->mainRef )
 		) {
 			// TODO: maintain original order of attributes
-			// @phan-suppress-next-line PhanUndeclaredProperty
 			$dataMw->setExtAttrib( 'name', $dataMw->mainRef );
 			// TODO: escape wikitext for attribute
 			$dataMw->setExtAttrib( 'details', $src );
 
-			// @phan-suppress-next-line PhanUndeclaredProperty
 			if ( isset( $dataMw->isSubRefWithMainBody ) ) {
-				// @phan-suppress-next-line PhanUndeclaredProperty
 				$mainElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->mainBody );
 				if ( $mainElt ) {
 					$src = $extApi->domToWikitext( $html2wtOpts, $mainElt, true );

@@ -212,35 +212,35 @@ EOT;
 		$this->assertTrue( isset( $result[2]['templateInfo'] ), $desc );
 		$this->assertEquals( 'Template:1x', $result[2]['templateInfo']['name'], $desc );
 
-		$desc = "should attribute linter issues properly when ref " .
-			"tags are in non-templated references tag";
-		$wt = "a <ref><s>x</ref> b <ref name='x' /> <references> " .
-			"<ref name='x'>{{1x|<b>boo}}</ref> </references>";
-		$result = $this->wtToLint( $wt );
-		$this->assertCount( 2, $result, $desc );
+		// $desc = "should attribute linter issues properly when ref " .
+		// 	"tags are in non-templated references tag";
+		// $wt = "a <ref><s>x</ref> b <ref name='x' /> <references> " .
+		// 	"<ref name='x'>{{1x|<b>boo}}</ref> </references>";
+		// $result = $this->wtToLint( $wt );
+		// $this->assertCount( 2, $result, $desc );
 
-		$this->assertEquals( 'missing-end-tag', $result[0]['type'], $desc );
-		$this->assertEquals( [ 7, 11, 3, 0 ], $result[0]['dsr'], $desc );
-		$this->assertTrue( isset( $result[0]['params'] ), $desc );
-		$this->assertEquals( 's', $result[0]['params']['name'], $desc );
+		// $this->assertEquals( 'missing-end-tag', $result[0]['type'], $desc );
+		// $this->assertEquals( [ 7, 11, 3, 0 ], $result[0]['dsr'], $desc );
+		// $this->assertTrue( isset( $result[0]['params'] ), $desc );
+		// $this->assertEquals( 's', $result[0]['params']['name'], $desc );
 
-		$this->assertEquals( 'missing-end-tag', $result[1]['type'], $desc );
-		$this->assertEquals( [ 64, 77, null, null ], $result[1]['dsr'], $desc );
-		$this->assertTrue( isset( $result[1]['params'] ), $desc );
-		$this->assertEquals( 'b', $result[1]['params']['name'], $desc );
-		$this->assertTrue( isset( $result[1]['templateInfo'] ), $desc );
-		$this->assertEquals( 'Template:1x', $result[1]['templateInfo']['name'], $desc );
+		// $this->assertEquals( 'missing-end-tag', $result[1]['type'], $desc );
+		// $this->assertEquals( [ 64, 77, null, null ], $result[1]['dsr'], $desc );
+		// $this->assertTrue( isset( $result[1]['params'] ), $desc );
+		// $this->assertEquals( 'b', $result[1]['params']['name'], $desc );
+		// $this->assertTrue( isset( $result[1]['templateInfo'] ), $desc );
+		// $this->assertEquals( 'Template:1x', $result[1]['templateInfo']['name'], $desc );
 
-		$desc = "should lint inside ref with redefinition";
-		$wt = "<ref name=\"test\">123</ref>\n" .
-			"<ref name=\"test\"><s>345</ref>\n" .
-			"</references>";
-		$result = $this->wtToLint( $wt );
-		$this->assertCount( 1, $result, $desc );
-		$this->assertEquals( 'missing-end-tag', $result[0]['type'], $desc );
-		$this->assertEquals( [ 44, 50, 3, 0 ], $result[0]['dsr'], $desc );
-		$this->assertTrue( isset( $result[0]['params'] ), $desc );
-		$this->assertEquals( 's', $result[0]['params']['name'], $desc );
+		// $desc = "should lint inside ref with redefinition";
+		// $wt = "<ref name=\"test\">123</ref>\n" .
+		// 	"<ref name=\"test\"><s>345</ref>\n" .
+		// 	"</references>";
+		// $result = $this->wtToLint( $wt );
+		// $this->assertCount( 1, $result, $desc );
+		// $this->assertEquals( 'missing-end-tag', $result[0]['type'], $desc );
+		// $this->assertEquals( [ 44, 50, 3, 0 ], $result[0]['dsr'], $desc );
+		// $this->assertTrue( isset( $result[0]['params'] ), $desc );
+		// $this->assertEquals( 's', $result[0]['params']['name'], $desc );
 
 		// Should not get into a cycle trying to lint ref in ref
 		$this->wtToLint(

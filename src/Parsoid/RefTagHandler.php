@@ -78,11 +78,10 @@ class RefTagHandler extends ExtensionTagHandler {
 		ParsoidExtensionAPI $extApi, Element $ref, callable $defaultHandler
 	): bool {
 		$dataMw = DOMDataUtils::getDataMw( $ref );
-		if ( isset( $dataMw->body->html ) ) {
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
-			$fragment = $extApi->htmlToDom( $dataMw->body->html );
-			$defaultHandler( $fragment );
-		} elseif ( isset( $dataMw->body->id ) ) {
+		// Only lint content pointed at by the id.  Content embedded in
+		// data-mw will be traversed by linter when
+		// processAttributeEmbeddedHTML is called
+		if ( isset( $dataMw->body->id ) ) {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 			$refNode = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->body->id );
 			if ( $refNode ) {

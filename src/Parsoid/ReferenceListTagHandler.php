@@ -117,12 +117,8 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 	public function lintHandler(
 		ParsoidExtensionAPI $extApi, Element $refs, callable $defaultHandler
 	): bool {
-		$dataMw = DOMDataUtils::getDataMw( $refs );
-		if ( isset( $dataMw->body->html ) ) {
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
-			$fragment = $extApi->htmlToDom( $dataMw->body->html );
-			$defaultHandler( $fragment );
-		}
+		// Skip the tree.  Content embedded in data-mw will be traversed by linter
+		// when processAttributeEmbeddedHTML is called
 		return true;
 	}
 

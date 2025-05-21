@@ -14,6 +14,26 @@
 		line-height: 1.5;
 	}
 
+	.ve-ui-mwReferenceContextItem-subrefHeader {
+		display: flex;
+		margin-top: @spacing-100;
+
+		> .oo-ui-labelWidget {
+			flex-grow: 1;
+			align-self: center;
+		}
+
+		> .ve-ui-mwReferenceContextItem-editButton {
+			margin-right: -0.5em;
+		}
+
+		> .ve-ui-mwReferenceMobileContextItem-editButton {
+			margin-right: 0.5em;
+			position: absolute;
+			right: 0;
+		}
+	}
+
 	.ve-ui-mwPreviewElement {
 		/* Reference links can often be too long, so break them up */
 		word-break: break-word;

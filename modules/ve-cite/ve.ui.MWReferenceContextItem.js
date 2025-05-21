@@ -52,19 +52,88 @@ ve.ui.MWReferenceContextItem.static.commandName = 'reference';
  */
 ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
 	const refNode = this.getReferenceNode();
-	if ( refNode ) {
-		this.view = new ve.ui.MWPreviewElement( refNode );
-
-		// The $element property may be rendered into asynchronously, update the
-		// context's size when the rendering is complete if that's the case
-		this.view.once( 'render', this.context.updateDimensions.bind( this.context ) );
-
-		return this.view.$element;
-	} else {
+	if ( !refNode ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
 			.text( ve.msg( 'cite-ve-referenceslist-missingref' ) );
 	}
+
+	let editDetails;
+	if ( this.model.getAttribute( 'extendsRef' ) ) {
+		const buttonLabel = ve.msg( this.isReadOnly() ?
+			'visualeditor-contextitemwidget-label-view' :
+			'visualeditor-contextitemwidget-label-secondary'
+		);
+		editDetails = new OO.ui.Layout( {
+			classes: [ 've-ui-mwReferenceContextItem-subrefHeader' ],
+			content: [
+				new OO.ui.LabelWidget( {
+					label: ve.msg( 'cite-ve-reference-contextitem-reused-header' )
+				} ),
+				new OO.ui.ButtonWidget( this.context.isMobile() ?
+					{
+						framed: false,
+						invisibleLabel: true,
+						icon: this.isReadOnly() ? 'eye' : 'edit',
+						label: buttonLabel,
+						classes: [ 've-ui-mwReferenceMobileContextItem-editButton' ]
+					} :
+					{
+						label: buttonLabel,
+						classes: [ 've-ui-mwReferenceContextItem-editButton' ]
+					}
+				).on( 'click', this.onEditSubref.bind( this ) )
+			]
+		} );
+	}
+
+	this.view = new ve.ui.MWPreviewElement( refNode );
+	// The $element property may be rendered into asynchronously, update the
+	// context's size when the rendering is complete if that's the case
+	this.view.once( 'render', this.context.updateDimensions.bind( this.context ) );
+
+	return new OO.ui.Layout( { content: [ editDetails, this.view ] } ).$element;
+};
+
+/**
+ * Override default edit button, when a subref is present.
+ */
+ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
+	const extendsRef = this.model.getAttribute( 'extendsRef' );
+	if ( !extendsRef ) {
+		ve.ui.LinearContextItem.prototype.onEditButtonClick.apply( this );
+		return;
+	}
+
+	// Edit the main ref--like when editing a list-defined ref!
+	// TODO: Make this into a reusable command.
+	const groupRefs = ve.dm.MWDocumentReferences.static
+		.refsForDoc( this.getFragment().getDocument() )
+		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
+	const mainRefNode = groupRefs.getRefNode( extendsRef );
+	const items = ve.ui.contextItemFactory.getRelatedItems( [ mainRefNode ] )
+		.filter( ( item ) => item.name !== 'mobileActions' );
+	if ( items.length ) {
+		const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
+		if ( contextItem ) {
+			const command = this.getCommand();
+			const fragmentArgs = {
+				fragment: this.context.getSurface().getModel()
+					.getLinearFragment( mainRefNode.getOuterRange(), true ),
+				selectFragmentOnClose: false
+			};
+			const newArgs = ve.copy( command.args );
+			newArgs[ 1 ] = fragmentArgs;
+			command.execute( this.context.getSurface(), newArgs );
+		}
+	}
+};
+
+/**
+ * @private
+ */
+ve.ui.MWReferenceContextItem.prototype.onEditSubref = function () {
+	ve.ui.LinearContextItem.prototype.onEditButtonClick.apply( this );
 };
 
 /**
@@ -93,23 +162,6 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 				.addClass( 've-ui-mwReferenceContextItem-muted' )
 				.text( ve.msg( 'cite-ve-dialog-reference-editing-reused', totalUsageCount ) );
 		}
-	}
-};
-
-/**
- * Get a DOM rendering of a warning if this reference is an extension.
- *
- * @private
- * @return {jQuery|undefined}
- */
-ve.ui.MWReferenceContextItem.prototype.getExtendsWarning = function () {
-	if ( this.model.getAttribute( 'extendsRef' ) ) {
-		return $( '<div>' )
-			.addClass( [
-				've-ui-mwReferenceContextItem-muted',
-				've-ui-mwReferenceContextItemSubNote'
-			] )
-			.text( ve.msg( 'cite-ve-dialog-reference-contextitem-extends' ) );
 	}
 };
 
@@ -202,7 +254,6 @@ ve.ui.MWReferenceContextItem.prototype.setup = function () {
 ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
 	this.$body.empty().append(
 		this.getParentRef(),
-		this.getExtendsWarning(),
 		this.getRendering(),
 		this.getReuseWarning(),
 		this.getDetailsButton()

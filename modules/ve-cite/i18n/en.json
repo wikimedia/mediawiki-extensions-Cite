@@ -62,6 +62,7 @@
 	"cite-ve-dialogbutton-reference-title": "Reference",
 	"cite-ve-dialogbutton-reference-tooltip": "Basic",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "References list",
+	"cite-ve-reference-contextitem-reused-header": "Details",
 	"cite-ve-reference-input-placeholder": "Search within current citations",
 	"cite-ve-referenceslist-isempty": "There are no references with the group \"$1\" on this page to include in this list.",
 	"cite-ve-referenceslist-isempty-default": "There are no references on this page to include in this list.",

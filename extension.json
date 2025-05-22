@@ -237,8 +237,7 @@
 			"remoteExtPath": "Cite/modules",
 			"scripts": [
 				"ext.cite.a11y.js",
-				"ext.cite.highlighting.js",
-				"ext.cite.tracking.js"
+				"ext.cite.highlighting.js"
 			],
 			"styles": [
 				"ext.cite.a11y.less",
@@ -377,11 +376,6 @@
 						"editorCapability": "citeEditor"
 					}
 				}
-			}
-		},
-		"EventLogging": {
-			"Schemas": {
-				"ReferencePreviewsPopups": "/analytics/legacy/referencepreviewspopups/1.1.0"
 			}
 		},
 		"Popups": {

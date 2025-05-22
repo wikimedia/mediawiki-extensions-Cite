@@ -195,8 +195,6 @@ Templating<ref>Text<!--comment--></ref>
 
 !! test
 <ref> in an ignored caption (T235656)
-!! config
-wgParserEnableLegacyMediaDOM=false
 !! wikitext
 [[File:Foobar.jpg|frameless|ignored caption with a ref<ref>boo</ref>]]
 
@@ -265,8 +263,6 @@ language=sr htmlVariantLanguage=sr-Cyrl
 <references> after <gallery> (bug 6164)
 !! options
 parsoid=wt2html,html2html
-!! config
-wgParserEnableLegacyMediaDOM=false
 !! wikitext
 <ref>one</ref>
 
@@ -2953,8 +2949,6 @@ hi ho
 ## Edge case bugs in Parsoid from T93580
 !! test
 T93580: 1. Templated <ref> inside block images
-!! config
-wgParserEnableLegacyMediaDOM=false
 !! wikitext
 [[File:Foobar.jpg|thumb|Caption with templated ref: {{1x|<ref>foo</ref>}}]]
 
@@ -2973,8 +2967,6 @@ wgParserEnableLegacyMediaDOM=false
 
 !! test
 T93580: 2. <ref> inside inline images
-!! config
-wgParserEnableLegacyMediaDOM=false
 !! wikitext
 [[File:Foobar.jpg|Undisplayed caption in inline image with ref: <ref>foo</ref>]]
 
@@ -2994,8 +2986,6 @@ wgParserEnableLegacyMediaDOM=false
 
 !! test
 T93580: 3. Templated <ref> inside inline images
-!! config
-wgParserEnableLegacyMediaDOM=false
 !! wikitext
 [[File:Foobar.jpg|Undisplayed caption in inline image with ref: {{1x|<ref>{{1x|foo}}</ref>}}]]
 

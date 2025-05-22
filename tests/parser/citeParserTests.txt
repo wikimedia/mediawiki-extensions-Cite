@@ -746,8 +746,12 @@ Report bad attributes in ref tags
 <ref name="theName" group="theGroup" dummy="dummy">theValue</ref>
 <references group="theGroup" />
 !! html/php
-<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid parameter in <code>&lt;ref&gt;</code> tag</span>
+<p><sup id="cite_ref-theName_1-0" class="reference"><a href="#cite_note-theName-1"><span class="cite-bracket">&#91;</span>theGroup 1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="#cite_ref-theName_1-0">↑</a></span> <span class="reference-text">theValue <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid parameter in <code>&lt;ref&gt;</code> tag</span></span>
+</li>
+</ol></div>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-theName_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"theName","group":"theGroup","dummy":"dummy"},"body":{"id":"mw-reference-text-cite_note-theName-1"},"errors":[{"key":"cite_error_ref_too_many_keys"}]}'><a href="./Parser_test#cite_note-theName-1" data-mw-group="theGroup"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup 1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{"group":"theGroup"}}'>

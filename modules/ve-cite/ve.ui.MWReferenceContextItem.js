@@ -79,20 +79,14 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 
 	if ( totalUsageCount > 1 ) {
 		if ( mw.config.get( 'wgCiteSubReferencing' ) ) {
-			const tag = new OO.ui.TagItemWidget( {
+			const label = new OO.ui.LabelWidget( {
 				classes: [ 've-ui-mwReferenceContextItem-reuse' ],
-				draggable: false,
-				disabled: true,
 				label: ve.msg( 'cite-ve-dialog-reference-editing-reused-short', totalUsageCount )
 			} );
-			tag.$element.prepend(
-				new OO.ui.IconWidget( {
-					icon: 'info'
-				} ).$element
-			);
+			label.$element.prepend( new OO.ui.IconWidget( { icon: 'infoFilled' } ).$element );
 			return new OO.ui.Layout( {
 				classes: [ 've-ui-mwReferenceContextItem-reuse-layout' ],
-				content: [ tag ]
+				content: [ label ]
 			} ).$element;
 		} else {
 			return $( '<div>' )

@@ -309,10 +309,8 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 					)
 				)
 			);
-		this.previewPanel.toggle( true );
-	} else {
-		this.previewPanel.toggle( false );
 	}
+	this.previewPanel.toggle( !!ref.extendsRef );
 };
 
 /**

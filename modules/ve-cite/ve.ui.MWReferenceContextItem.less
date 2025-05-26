@@ -14,7 +14,7 @@
 		line-height: 1.5;
 	}
 
-	.ve-ui-previewElement {
+	.ve-ui-mwPreviewElement {
 		/* Reference links can often be too long, so break them up */
 		word-break: break-word;
 		word-wrap: break-word;
@@ -31,15 +31,14 @@
 
 	.ve-ui-mwReferenceContextItem-reuse {
 		margin-top: @spacing-25;
-		height: auto;
+		padding: @spacing-25 @spacing-50;
+		background-color: @background-color-neutral;
 		color: @color-subtle;
+		border-radius: @border-radius-pill;
 
-		> * {
-			vertical-align: middle;
-		}
-
-		> .oo-ui-labelElement-label {
-			margin-left: @spacing-25;
+		.oo-ui-iconElement-icon {
+			vertical-align: top;
+			margin-right: @spacing-30;
 		}
 	}
 

@@ -235,14 +235,6 @@ class References {
 		'@phan-var string $about'; // assert that $about is non-null
 
 		$hasDetails = $details !== '' && $refName;
-		$hasValidFollow = false;
-
-		// Wrap the attribute 'follow'
-		if ( $followName ) {
-			$followSpan = $this->wrapFollower( $doc, $refFragment );
-			$followSpan->setAttribute( 'about', $about );
-			$refFragment->appendChild( $followSpan );
-		}
 
 		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
 		$ref = $refGroup->lookupRefByName( $refName );
@@ -254,22 +246,26 @@ class References {
 				$extApi, $groupName, $refName, $ref->contentId ?? null, $refFragment );
 		}
 
+		// Wrap the attribute 'follow'
+		if ( $followName ) {
+			$this->wrapFollower( $doc, $refFragment, $about );
+		}
+
 		// Handle the attributes 'name' and 'follow'
+		$hasValidFollow = false;
 		if ( $refName ) {
 			$nameErrorMessage = $this->validator->validateName( $refName, $refGroup, $referencesData );
 			if ( $nameErrorMessage ) {
 				$errs[] = $nameErrorMessage;
 			}
-		} else {
-			if ( $followName ) {
-				// Check that the followed ref exists
-				$followErrorMessage = $this->validator->validateFollow( $followName, $refGroup );
-				if ( $followErrorMessage ) {
-					$errs[] = $followErrorMessage;
-				} else {
-					$hasValidFollow = true;
-					$ref = $refGroup->lookupRefByName( $followName );
-				}
+		} elseif ( $followName ) {
+			// Check that the followed ref exists
+			$followErrorMessage = $this->validator->validateFollow( $followName, $refGroup );
+			if ( $followErrorMessage ) {
+				$errs[] = $followErrorMessage;
+			} else {
+				$hasValidFollow = true;
+				$ref = $refGroup->lookupRefByName( $followName );
 			}
 		}
 
@@ -520,16 +516,13 @@ class References {
 	 * so that there is no ambiguity
 	 * where to find it when round tripping
 	 */
-	private function wrapFollower( Document $doc, Node $refFragment ): Element {
-		$followSpan = $doc->createElement( 'span' );
-		DOMUtils::addTypeOf( $followSpan, 'mw:Cite/Follow' );
-
-		$followSpan->appendChild(
-			$doc->createTextNode( ' ' )
-		);
-		DOMUtils::migrateChildren( $refFragment, $followSpan );
-
-		return $followSpan;
+	private function wrapFollower( Document $doc, Node $refFragment, string $about ): void {
+		$span = $doc->createElement( 'span' );
+		DOMUtils::addTypeOf( $span, 'mw:Cite/Follow' );
+		$span->setAttribute( 'about', $about );
+		$span->appendChild( $doc->createTextNode( ' ' ) );
+		DOMUtils::migrateChildren( $refFragment, $span );
+		$refFragment->appendChild( $span );
 	}
 
 	/**

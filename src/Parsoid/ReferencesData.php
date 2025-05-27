@@ -58,8 +58,9 @@ class ReferencesData {
 		array_pop( $this->embeddedContentStack );
 	}
 
-	public function inIndicatorContext(): bool {
-		return in_array( 'indicator', $this->embeddedContentStack, true );
+	public function peekForIndicatorContext(): bool {
+		$last = array_key_last( $this->embeddedContentStack );
+		return $last !== null && $this->embeddedContentStack[$last] === 'indicator';
 	}
 
 	public function incrementRefDepth(): void {

@@ -274,8 +274,9 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref ) {
-	const totalUsageCount = this.docRefs
-		.getGroupRefs( ref.getListGroup() )
+	// Note: listGroup is only available after a (possibly new) ref has been registered via
+	// ve.dm.MWReferenceModel.insertInternalItem
+	const totalUsageCount = this.docRefs.getGroupRefs( ref.getGroup() )
 		.getTotalUsageCount( ref.getListKey() );
 	this.reuseWarning
 		.toggle( totalUsageCount > 1 )
@@ -289,8 +290,9 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
 ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 	// Only show preview when editing details
 	if ( ref.extendsRef ) {
-		const parentNode = this.docRefs
-			.getGroupRefs( ref.getListGroup() )
+		// Note: listGroup is only available after a (possibly new) ref has been registered via
+		// ve.dm.MWReferenceModel.insertInternalItem
+		const parentNode = this.docRefs.getGroupRefs( ref.getGroup() )
 			.getInternalModelNode( ref.extendsRef );
 		this.referenceListPreview.$element.empty()
 			.append( parentNode ?

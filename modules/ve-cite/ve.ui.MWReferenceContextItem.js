@@ -111,20 +111,24 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 		.refsForDoc( this.getFragment().getDocument() )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
 	const mainRefNode = groupRefs.getRefNode( extendsRef );
-	const items = ve.ui.contextItemFactory.getRelatedItems( [ mainRefNode ] )
-		.filter( ( item ) => item.name !== 'mobileActions' );
-	if ( items.length ) {
-		const contextItem = ve.ui.contextItemFactory.lookup( items[ 0 ].name );
-		if ( contextItem ) {
-			const command = this.getCommand();
+	const mainModelItem = ve.ui.contextItemFactory.getRelatedItems( [ mainRefNode ] )
+		.find( ( item ) => item.name !== 'mobileActions' );
+
+	if ( mainModelItem ) {
+		const mainContextItem = ve.ui.contextItemFactory.lookup( mainModelItem.name );
+		if ( mainContextItem ) {
+			const surface = this.context.getSurface();
+			const command = surface.commandRegistry.lookup( mainContextItem.static.commandName );
 			const fragmentArgs = {
-				fragment: this.context.getSurface().getModel()
-					.getLinearFragment( mainRefNode.getOuterRange(), true ),
+				fragment: surface.getModel().getLinearFragment(
+					mainRefNode.getOuterRange(),
+					true
+				),
 				selectFragmentOnClose: false
 			};
 			const newArgs = ve.copy( command.args );
 			newArgs[ 1 ] = fragmentArgs;
-			command.execute( this.context.getSurface(), newArgs );
+			command.execute( surface, newArgs );
 		}
 	}
 };

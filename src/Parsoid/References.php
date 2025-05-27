@@ -153,6 +153,12 @@ class References {
 			return null;
 		}
 
+		if ( $hasDifferingHtml ) {
+			// Critical call! This changes the behavior of ReferencesData::inEmbeddedContent in
+			// rare edge-cases, see T393913.
+			$referencesData->pushEmbeddedContentFlag();
+		}
+
 		// This prevents nested list-defined references from erroneously giving "group mismatch"
 		// errors.
 		$referencesData->incrementRefDepth();
@@ -160,6 +166,7 @@ class References {
 		$referencesData->decrementRefDepth();
 
 		if ( $hasDifferingHtml ) {
+			$referencesData->popEmbeddedContentFlag();
 			// If we have refs and the content differs, we need to reserialize now that we processed
 			// the refs.  Unfortunately, the cachedHtml we compared against already had its refs
 			// processed so that would presumably never match and this will always be considered a

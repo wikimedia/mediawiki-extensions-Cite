@@ -25,7 +25,6 @@
 	"cite-ve-citationneeded-title": "Potrebna je referenca",
 	"cite-ve-dialog-reference-editing-reused": "Ovaj izvor se koristi {{PLURAL:$1|1=jednom|2=dva puta|$1 put|$1 puta}} na ovoj stranici.",
 	"cite-ve-dialog-reference-editing-reused-long": "Ovaj izvor se koristi {{PLURAL:$1|jednom|2=dva puta|$1 puta}} na ovoj stranici. Promene napravljene ovde primenjivaće se na svim mestima gde se on ponovo koristi.",
-	"cite-ve-dialog-reference-editing-extends": "Ovo je referisanje na postojeću referencu.",
 	"cite-ve-dialog-reference-options-group-label": "Koristi ovu grupu",
 	"cite-ve-dialog-reference-options-group-placeholder": "Opšte reference",
 	"cite-ve-dialog-reference-options-responsive-label": "Prilagodljivi raspored kolona",

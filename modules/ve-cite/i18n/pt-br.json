@@ -53,7 +53,6 @@
 	"cite-ve-dialog-reference-editing-reused": "Esta referência é usada $1 {{PLURAL:$1|vez|vezes}} nesta página.",
 	"cite-ve-dialog-reference-editing-reused-long": "Esta referência é usada {{PLURAL:$1|uma vez|$1 vezes}} nesta página. As alterações que forem feitas aqui serão aplicadas em todos os sítios onde esta referência é reutilizada.",
 	"cite-ve-dialog-reference-extend-long-tool": "Reutilizar essa referência com detalhes adicionais",
-	"cite-ve-dialog-reference-editing-extends": "Essa referência é uma reutilização com detalhes adicionais. Aqui, você só pode editar os detalhes.",
 	"cite-ve-dialog-reference-missing-parent-ref": "Esses detalhes estão vinculados a uma referência ausente. Remova-os da página ou corrija o problema no modo de origem.",
 	"cite-ve-dialog-reference-options-group-label": "Usar este grupo",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referências gerais",

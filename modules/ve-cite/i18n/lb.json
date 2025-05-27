@@ -8,6 +8,7 @@
 			"Soued031",
 			"Tynchtyk Chorotegin",
 			"UV",
+			"Volvox",
 			"Викиней"
 		]
 	},
@@ -23,6 +24,7 @@
 	"cite-ve-dialog-reference-options-section": "Optiounen",
 	"cite-ve-dialog-reference-placeholder": "Schreift oder kopéiert Är Referenz heihin oder setzt eng Schabloun fir Zitater dran.",
 	"cite-ve-dialog-reference-title": "Referenz",
+	"cite-ve-dialog-reference-add-details-button": "Detailer derbäisetzen",
 	"cite-ve-dialog-reference-useexisting-tool": "Nees-benotzen",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Lëscht vun allgemenge Referenzen",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Lëscht vu Referenzen fir de Grupp \"$1\"",

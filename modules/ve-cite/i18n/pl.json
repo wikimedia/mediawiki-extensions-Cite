@@ -54,7 +54,6 @@
 	"cite-ve-dialog-reference-editing-reused": "Ten przypis jest użyty {{PLURAL:$1|raz|2=dwa razy|$1 razy}} na tej stronie.",
 	"cite-ve-dialog-reference-editing-reused-long": "Ten przypis jest użyty {{PLURAL:$1|raz|$1 razy}} na tej stronie. Zmiany tutaj wprowadzone zostaną zastosowane we wszystkich miejscach, gdzie ten przypis jest użyty.",
 	"cite-ve-dialog-reference-extend-long-tool": "Ponownie wykorzystaj ten przypis z dodatkowymi szczegółami",
-	"cite-ve-dialog-reference-editing-extends": "To odniesienie jest wykorzystane ponownie, z dodanymi szczegółami. W tym miejscu możesz tylko edytować szczegóły.",
 	"cite-ve-dialog-reference-missing-parent-ref": "Te szczegóły są powiązane z nieistniejącym przypisem. Usuń je ze strony lub napraw problem w trybie kodu źródłowego.",
 	"cite-ve-dialog-reference-options-group-label": "Użyj grupy",
 	"cite-ve-dialog-reference-options-group-placeholder": "Zwykłe przypisy",

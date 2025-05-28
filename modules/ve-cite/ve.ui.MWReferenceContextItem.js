@@ -127,7 +127,11 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 				selectFragmentOnClose: false
 			};
 			const newArgs = ve.copy( command.args );
-			newArgs[ 1 ] = fragmentArgs;
+			if ( command.name === 'reference' ) {
+				newArgs[ 1 ] = fragmentArgs;
+			} else {
+				ve.extendObject( newArgs[ 0 ], fragmentArgs );
+			}
 			command.execute( surface, newArgs );
 		}
 	}

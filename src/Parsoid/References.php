@@ -179,7 +179,7 @@ class References {
 		// This is data-parsoid from the dom fragment node that's gone through
 		// DomSourceRange computation and template wrapping.
 		$nodeDp = DOMDataUtils::getDataParsoid( $node );
-		$contentId = $nodeDp->html;
+		$contentId = $extApi->getContentId( $node );
 
 		// Extract the ref fragment and ensure it's valid
 		$refFragment = $extApi->getContentDOM( $contentId )->firstChild;
@@ -467,7 +467,7 @@ class References {
 			$ref->dir = $refDir;
 		} elseif ( $contentId ) {
 			DOMCompat::remove( $refFragment );
-			$extApi->clearContentDOM( $contentId );
+			$extApi->clearContentId( $node );
 		}
 	}
 

@@ -19,7 +19,10 @@
 ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	// Parent constructor
 	ve.ui.MWReferenceContextItem.super.apply( this, arguments );
+	/** @member {ve.ui.MWPreviewElement} */
 	this.view = null;
+	/** @member {ve.ui.MWPreviewElement} */
+	this.detailsView = null;
 	/** @member {ve.dm.MWGroupReferences} */
 	this.groupRefs = null;
 	// Initialization
@@ -45,12 +48,14 @@ ve.ui.MWReferenceContextItem.static.commandName = 'reference';
 /* Methods */
 
 /**
- * Get a DOM rendering of the reference.
+ * Get a DOM rendering of a normal reference, or the main ref for a details
+ * reference.
  *
  * @private
  * @return {jQuery} DOM rendering of reference
  */
-ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
+ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
+	// Render a placeholder for missing refs.
 	const refNode = this.getReferenceNode();
 	if ( !refNode ) {
 		return $( '<div>' )
@@ -58,41 +63,73 @@ ve.ui.MWReferenceContextItem.prototype.getRendering = function () {
 			.text( ve.msg( 'cite-ve-referenceslist-missingref' ) );
 	}
 
-	let editDetails;
-	if ( this.model.getAttribute( 'extendsRef' ) ) {
-		const buttonLabel = ve.msg( this.isReadOnly() ?
-			'visualeditor-contextitemwidget-label-view' :
-			'visualeditor-contextitemwidget-label-secondary'
-		);
-		editDetails = new OO.ui.Layout( {
-			classes: [ 've-ui-mwReferenceContextItem-subrefHeader' ],
-			content: [
-				new OO.ui.LabelWidget( {
-					label: ve.msg( 'cite-ve-reference-contextitem-reused-header' )
-				} ),
-				new OO.ui.ButtonWidget( this.context.isMobile() ?
-					{
-						framed: false,
-						invisibleLabel: true,
-						icon: this.isReadOnly() ? 'eye' : 'edit',
-						label: buttonLabel,
-						classes: [ 've-ui-mwReferenceMobileContextItem-editButton' ]
-					} :
-					{
-						label: buttonLabel,
-						classes: [ 've-ui-mwReferenceContextItem-editButton' ]
-					}
-				).on( 'click', this.onEditSubref.bind( this ) )
-			]
-		} );
+	// Render main ref if this is a subref, or a placeholder if missing.
+	const extendsRef = this.model.getAttribute( 'extendsRef' );
+	if ( extendsRef ) {
+		const parentNode = this.groupRefs.getInternalModelNode( extendsRef );
+		if ( parentNode ) {
+			return new ve.ui.MWPreviewElement( parentNode, { useView: true } )
+				.once( 'render', this.context.updateDimensions.bind( this.context ) )
+				.$element;
+		} else {
+			return $( '<div>' )
+				.addClass( 've-ui-mwReferenceContextItem-muted' )
+				.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) );
+		}
 	}
 
+	// Render normal ref.
 	this.view = new ve.ui.MWPreviewElement( refNode );
 	// The $element property may be rendered into asynchronously, update the
 	// context's size when the rendering is complete if that's the case
 	this.view.once( 'render', this.context.updateDimensions.bind( this.context ) );
 
-	return new OO.ui.Layout( { content: [ editDetails, this.view ] } ).$element;
+	return this.view.$element;
+};
+
+/**
+ * Get a preview of the reference details.
+ *
+ * @private
+ * @return {jQuery|null}
+ */
+ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
+	if ( !this.model.getAttribute( 'extendsRef' ) ) {
+		return;
+	}
+
+	const buttonLabel = ve.msg( this.isReadOnly() ?
+		'visualeditor-contextitemwidget-label-view' :
+		'visualeditor-contextitemwidget-label-secondary'
+	);
+	const editDetails = new OO.ui.Layout( {
+		classes: [ 've-ui-mwReferenceContextItem-subrefHeader' ],
+		content: [
+			new OO.ui.LabelWidget( {
+				label: ve.msg( 'cite-ve-reference-contextitem-reused-header' )
+			} ),
+			new OO.ui.ButtonWidget( this.context.isMobile() ?
+				{
+					framed: false,
+					invisibleLabel: true,
+					icon: this.isReadOnly() ? 'eye' : 'edit',
+					label: buttonLabel,
+					classes: [ 've-ui-mwReferenceMobileContextItem-editButton' ]
+				} :
+				{
+					label: buttonLabel,
+					classes: [ 've-ui-mwReferenceContextItem-editButton' ]
+				}
+			).on( 'click', this.onEditSubref.bind( this ) )
+		]
+	} );
+
+	this.detailsView = new ve.ui.MWPreviewElement( this.getReferenceNode() );
+	// The $element property may be rendered into asynchronously, update the
+	// context's size when the rendering is complete if that's the case
+	this.detailsView.once( 'render', this.context.updateDimensions.bind( this.context ) );
+
+	return new OO.ui.Layout( { content: [ editDetails, this.detailsView ] } ).$element;
 };
 
 /**
@@ -179,7 +216,7 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
  * @private
  * @return {jQuery|undefined}
  */
-ve.ui.MWReferenceContextItem.prototype.getDetailsButton = function () {
+ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 	if ( !mw.config.get( 'wgCiteSubReferencing' ) || this.model.getAttribute( 'extendsRef' ) ) {
 		return;
 	}
@@ -224,25 +261,7 @@ ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
  * @override
  */
 ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
-	return this.model.isEditable() ? this.getRendering().text() : ve.msg( 'cite-ve-referenceslist-missingref' );
-};
-
-/**
- * Get the text of the parent reference.
- *
- * @private
- * @return {jQuery|null}
- */
-ve.ui.MWReferenceContextItem.prototype.getParentRef = function () {
-	const extendsRef = this.model.getAttribute( 'extendsRef' );
-	if ( !extendsRef ) {
-		return null;
-	}
-	const parentNode = this.groupRefs.getInternalModelNode( extendsRef );
-	return parentNode ? new ve.ui.MWPreviewElement( parentNode, { useView: true } ).$element :
-		$( '<div>' )
-			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) );
+	return this.model.isEditable() ? this.getMainRefPreview().text() : ve.msg( 'cite-ve-referenceslist-missingref' );
 };
 
 /**
@@ -261,10 +280,10 @@ ve.ui.MWReferenceContextItem.prototype.setup = function () {
  */
 ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
 	this.$body.empty().append(
-		this.getParentRef(),
-		this.getRendering(),
+		this.getMainRefPreview(),
 		this.getReuseWarning(),
-		this.getDetailsButton()
+		this.getDetailsPreview(),
+		this.getAddDetailsButton()
 	);
 };
 
@@ -274,6 +293,9 @@ ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
 ve.ui.MWReferenceContextItem.prototype.teardown = function () {
 	if ( this.view ) {
 		this.view.destroy();
+	}
+	if ( this.detailsView ) {
+		this.detailsView.destroy();
 	}
 
 	// Call parent

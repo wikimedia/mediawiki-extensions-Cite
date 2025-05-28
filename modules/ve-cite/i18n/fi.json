@@ -66,6 +66,7 @@
 	"cite-ve-dialogbutton-reference-title": "Lähde",
 	"cite-ve-dialogbutton-reference-tooltip": "Normaali",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Lähdeluettelo",
+	"cite-ve-reference-contextitem-reused-header": "Lisätiedot",
 	"cite-ve-reference-input-placeholder": "Etsi nykyisistä viitteistä",
 	"cite-ve-referenceslist-isempty": "Tällä sivulla ei ole ryhmän ”$1” lähteitä, joita sisällyttää tähän listaan.",
 	"cite-ve-referenceslist-isempty-default": "Tällä sivulla ei ole lähteitä, joita sisällyttää tähän listaan.",

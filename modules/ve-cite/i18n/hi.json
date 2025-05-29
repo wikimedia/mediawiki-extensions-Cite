@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"Ankita-ks",
 			"Ansumang",
 			"AnupamM",
@@ -57,6 +58,7 @@
 	"cite-ve-dialogbutton-reference-title": "सन्दर्भ",
 	"cite-ve-dialogbutton-reference-tooltip": "आधारभूत",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "सन्दर्भ सूची",
+	"cite-ve-reference-contextitem-reused-header": "विवरण",
 	"cite-ve-reference-input-placeholder": "वर्तमान उद्धरणों में खोजें",
 	"cite-ve-referenceslist-isempty": "इस पृष्ठ पर \"$1\" सन्दर्भ समूह में कोई सन्दर्भ नहीं है जो इस सूची में जोड़े जा सकें।",
 	"cite-ve-referenceslist-isempty-default": "इस पृष्ठ पर कोई सन्दर्भ नहीं है जो इस सूची में जोड़े जा सकें।",

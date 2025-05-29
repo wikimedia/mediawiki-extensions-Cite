@@ -56,30 +56,27 @@ ve.ui.MWReferenceContextItem.static.commandName = 'reference';
  */
 ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	// Render a placeholder for missing refs.
-	const refNode = this.getReferenceNode();
-	if ( !refNode ) {
-		return $( '<div>' )
-			.addClass( 've-ui-mwReferenceContextItem-muted' )
-			.text( ve.msg( 'cite-ve-referenceslist-missingref' ) );
-	}
+	let refNode = this.getReferenceNode();
+	let errorMsgKey = 'cite-ve-referenceslist-missingref';
 
 	// Render main ref if this is a subref, or a placeholder if missing.
 	const extendsRef = this.model.getAttribute( 'extendsRef' );
-	if ( extendsRef ) {
-		const parentNode = this.groupRefs.getInternalModelNode( extendsRef );
-		if ( parentNode ) {
-			return new ve.ui.MWPreviewElement( parentNode, { useView: true } )
-				.once( 'render', this.context.updateDimensions.bind( this.context ) )
-				.$element;
-		} else {
-			return $( '<div>' )
-				.addClass( 've-ui-mwReferenceContextItem-muted' )
-				.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) );
-		}
+	if ( extendsRef && refNode ) {
+		refNode = this.groupRefs.getInternalModelNode( extendsRef );
+		errorMsgKey = 'cite-ve-dialog-reference-missing-parent-ref';
+	}
+
+	if ( !refNode ) {
+		return $( '<div>' )
+			.addClass( 've-ui-mwReferenceContextItem-muted' )
+			// The following messages are used here:
+			// * cite-ve-referenceslist-missingref
+			// * cite-ve-dialog-reference-missing-parent-ref
+			.text( ve.msg( errorMsgKey ) );
 	}
 
 	// Render normal ref.
-	this.view = new ve.ui.MWPreviewElement( refNode );
+	this.view = new ve.ui.MWPreviewElement( refNode, { useView: true } );
 	// The $element property may be rendered into asynchronously, update the
 	// context's size when the rendering is complete if that's the case
 	this.view.once( 'render', this.context.updateDimensions.bind( this.context ) );
@@ -91,7 +88,7 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
  * Get a preview of the reference details.
  *
  * @private
- * @return {jQuery|null}
+ * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
 	if ( !this.model.getAttribute( 'extendsRef' ) ) {
@@ -124,7 +121,7 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
 		]
 	} );
 
-	this.detailsView = new ve.ui.MWPreviewElement( this.getReferenceNode() );
+	this.detailsView = new ve.ui.MWPreviewElement( this.getReferenceNode(), { useView: true } );
 	// The $element property may be rendered into asynchronously, update the
 	// context's size when the rendering is complete if that's the case
 	this.detailsView.once( 'render', this.context.updateDimensions.bind( this.context ) );

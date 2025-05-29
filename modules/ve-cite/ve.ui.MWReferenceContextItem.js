@@ -169,7 +169,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 			} else {
 				ve.extendObject( newArgs[ 0 ], fragmentArgs );
 			}
-			command.execute( surface, newArgs );
+			command.execute( surface, newArgs, 'context' );
 		}
 	}
 };

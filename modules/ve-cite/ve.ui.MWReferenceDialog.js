@@ -106,20 +106,23 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
  * @param {ve.dm.MWReferenceModel} originalRef
  */
 ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsExtends = function ( originalRef ) {
-	const newRef = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
-	newRef.extendsRef = originalRef.getListKey();
-	newRef.group = originalRef.getGroup();
-
-	this.actions.setMode( 'insert' );
-	this.panels.setItem( this.editPanel );
 	this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-add-details' ) );
+	this.actions.setMode( 'insert' );
+	this.actions.setAbilities( { insert: false } );
+	this.setCreateSubRefPanel( originalRef );
+};
+
+ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
+	const newRef = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
+	newRef.extendsRef = mainRef.getListKey();
+	newRef.group = mainRef.getGroup();
+
+	this.panels.setItem( this.editPanel );
 
 	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
 		this.getFragment().getDocument()
 	);
 	this.editPanel.setDocumentReferences( docRefs );
-
-	this.actions.setAbilities( { insert: false } );
 
 	this.editPanel.setReferenceForEditing( newRef );
 	this.editPanel.setReadOnly( this.isReadOnly() );
@@ -241,7 +244,18 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 					// remove the placeholder node from Citoid
 					this.getFragment().removeContent();
 				}
-				this.onReuseSearchResultsExtends( data.createSubRef );
+				// we never want to edit an existing node here
+				this.selectedNode = null;
+				if ( data.addToExisting ) {
+					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-edit-details' ) );
+					this.actions.setMode( 'edit' );
+					this.actions.setAbilities( { done: false } );
+				} else {
+					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-add-details' ) );
+					this.actions.setMode( 'insert' );
+					this.actions.setAbilities( { insert: false } );
+				}
+				this.setCreateSubRefPanel( data.createSubRef );
 				this.createSubRefMode = true;
 			} else {
 				this.panels.setItem( this.editPanel );

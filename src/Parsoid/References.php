@@ -351,7 +351,7 @@ class References {
 				// While indicator content is embedded throughout the parsing
 				// pipeline, it gets added back into the page in a post-processing
 				// step, so consider it visible for the sake of linkbacks.
-				if ( $referencesData->inIndicatorContext() ) {
+				if ( $referencesData->peekForIndicatorContext() ) {
 					$ref->visibleNodes++;
 					$isVisibleNode = true;
 				}

@@ -117,4 +117,13 @@ class ReferencesDataTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( [ 'wales' => $expectedParent ], $group->indexByName );
 	}
 
+	public function testIndicatorContext() {
+		$data = new ReferencesData();
+		$this->assertFalse( $data->peekForIndicatorContext() );
+		$data->pushEmbeddedContentFlag( 'indicator' );
+		$this->assertTrue( $data->peekForIndicatorContext() );
+		$data->pushEmbeddedContentFlag();
+		$this->assertFalse( $data->peekForIndicatorContext() );
+	}
+
 }

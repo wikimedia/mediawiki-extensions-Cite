@@ -44,7 +44,7 @@
 	"cite-ve-citationneeded-reason": "السبب:",
 	"cite-ve-citationneeded-title": "بحاجة لمصدر",
 	"cite-ve-dialog-reference-contextitem-extends": "هذا المرجع عبارة عن إعادة استخدام مع تفاصيل إضافية:",
-	"cite-ve-dialog-reference-editing-add-details": "أنت تقوم بإضافة التفاصيل إلى",
+	"cite-ve-dialog-reference-editing-add-details": "أنت تضيف التفاصيل إلى",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "اكتب أو الصق المعلومات التي ترغب بإضافتها إلى هذا المرجع هنا.",
 	"cite-ve-dialog-reference-editing-reused-short": "تم استخدامه {{PLURAL:$1|مرة واحدة|2=مرتين|$1 مرة}}",
 	"cite-ve-dialog-reference-editing-reused": "هذا المرجع مستخدم {{PLURAL:$1|مرة واحدة|مرتين|$1 مرات|$1 مرة}} في هذه الصفحة.",

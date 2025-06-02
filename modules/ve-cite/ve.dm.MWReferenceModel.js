@@ -199,40 +199,38 @@ ve.dm.MWReferenceModel.prototype.insertIntoFragment = function ( surfaceFragment
 	if ( !this.findInternalItem( surfaceModel ) ) {
 		this.insertInternalItem( surfaceModel );
 	}
-	this.insertReferenceNode( surfaceFragment, false, contentsUsed );
+	this.insertReferenceNode( surfaceFragment, { contentsUsed } );
 };
 
 /**
  * Insert a reference node at the end of a surface fragment.
  *
  * @param {ve.dm.SurfaceFragment} surfaceFragment Surface fragment to insert at
- * @param {boolean} [placeholder] Reference is a placeholder for staging purposes
- * @param {boolean} [contentsUsed] If the new node should get the contentsUsed flag
+ * @param {Object} [attributes] Additional attributes
+ * @param {boolean} [attributes.placeholder=false] Reference is a placeholder for staging purposes
+ * @param {boolean} [attributes.contentsUsed=false] If the new node should get the contentsUsed flag
  */
-ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragment, placeholder, contentsUsed ) {
-	const attributes = {
-		mainRefKey: this.mainRefKey,
-		listKey: this.listKey,
-		listGroup: this.listGroup,
-		listIndex: this.listIndex,
-		refGroup: this.group
-	};
-	if ( placeholder ) {
-		attributes.placeholder = true;
+ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragment, attributes ) {
+	// Temporary backwards-compatibility with Citoid
+	if ( typeof attributes === 'boolean' ) {
+		attributes = { placeholder: attributes };
 	}
-	if ( contentsUsed ) {
-		attributes.contentsUsed = true;
-	}
-	surfaceFragment
-		.insertContent( [
-			{
-				type: 'mwReference',
-				attributes,
-				// See ve.dm.MWReferenceNode.static.cloneElement
-				originalDomElementsHash: Math.random()
-			},
-			{ type: '/mwReference' }
-		] );
+
+	surfaceFragment.insertContent( [
+		{
+			type: 'mwReference',
+			attributes: Object.assign( {
+				mainRefKey: this.mainRefKey,
+				listKey: this.listKey,
+				listGroup: this.listGroup,
+				listIndex: this.listIndex,
+				refGroup: this.group
+			}, attributes ),
+			// See ve.dm.MWReferenceNode.static.cloneElement
+			originalDomElementsHash: Math.random()
+		},
+		{ type: '/mwReference' }
+	] );
 };
 
 /**

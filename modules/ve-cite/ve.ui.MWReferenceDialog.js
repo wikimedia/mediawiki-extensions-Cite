@@ -204,13 +204,16 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 		return new OO.ui.Process( () => {
 			const ref = this.editPanel.getReferenceFromEditing();
 
-			if ( !( this.selectedNode instanceof ve.dm.MWReferenceNode ) ) {
+			if ( !( this.selectedNode instanceof ve.dm.MWReferenceNode ) || this.createSubRefMode ) {
 				// Collapse returns a new fragment, so update this.fragment
+				if ( this.createSubRefMode ) {
+					this.getFragment().removeContent();
+				}
 				this.fragment = this.getFragment().collapseToEnd();
 				ref.insertIntoFragment( this.getFragment() );
+			} else {
+				ref.updateInternalItem( this.getFragment().getSurface() );
 			}
-
-			ref.updateInternalItem( this.getFragment().getSurface() );
 
 			this.close( { action: action } );
 		} );
@@ -237,11 +240,9 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 					this.selectedNode.getAttribute( 'placeholder' ) ) {
 					// remove the placeholder node from Citoid
 					this.getFragment().removeContent();
-
 				}
-				// we never want to edit an existing node here
-				this.selectedNode = null;
 				this.onReuseSearchResultsExtends( data.createSubRef );
+				this.createSubRefMode = true;
 			} else {
 				this.panels.setItem( this.editPanel );
 				const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(

@@ -78,16 +78,53 @@ class RefTagHandler extends ExtensionTagHandler {
 		ParsoidExtensionAPI $extApi, Element $ref, callable $defaultHandler
 	): bool {
 		$dataMw = DOMDataUtils::getDataMw( $ref );
+
 		// Only lint content pointed at by the id.  Content embedded in
 		// data-mw will be traversed by linter when
 		// processAttributeEmbeddedHTML is called
-		if ( isset( $dataMw->body->id ) ) {
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
-			$refNode = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->body->id );
-			if ( $refNode ) {
-				$defaultHandler( $refNode );
-			}
+		if ( !isset( $dataMw->body->id ) ) {
+			return true;
 		}
+
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
+		$bodyElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->body->id );
+		if ( !$bodyElt ) {
+			return true;
+		}
+
+		$hasRefName = (bool)$dataMw->getExtAttrib( 'name' );
+		$hasFollow = (bool)$dataMw->getExtAttrib( 'follow' );
+
+		if ( $hasFollow ) {
+			$about = DOMCompat::getAttribute( $ref, 'about' );
+			$followNode = $about !== null ? DOMCompat::querySelector(
+				$bodyElt, "span[typeof~='mw:Cite/Follow'][about='{$about}']"
+			) : null;
+			if ( $followNode ) {
+				$defaultHandler( $followNode );
+			}
+		} elseif (
+			$hasRefName &&
+			DOMCompat::querySelector( $bodyElt, "span[typeof~='mw:Cite/Follow']" )
+		) {
+			// Follow content may have been added as spans, so temporarily
+			// move them out to avoid linting them redundantly
+			// domToWikitext clones $bodyElt and removes the spans, which
+			// works here, but is maybe less performant
+			$tmpFrag = $bodyElt->ownerDocument->createDocumentFragment();
+			// Use an array since childNodes is live
+			$children = iterator_to_array( $bodyElt->childNodes );
+			foreach ( $children as $child ) {
+				if ( DOMUtils::hasTypeOf( $child, 'mw:Cite/Follow' ) ) {
+					$tmpFrag->appendChild( $child );
+				}
+			}
+			$defaultHandler( $bodyElt );
+			DOMUtils::migrateChildren( $tmpFrag, $bodyElt );
+		} else {
+			$defaultHandler( $bodyElt );
+		}
+
 		return true;
 	}
 
@@ -153,19 +190,19 @@ class RefTagHandler extends ExtensionTagHandler {
 					$src = '';
 				}
 			} else {
-				if ( $hasRefName ) {
-					// Follow content may have been added as spans, so drop it
-					if ( DOMCompat::querySelector( $bodyElt, "span[typeof~='mw:Cite/Follow']" ) ) {
-						$bodyElt = DOMDataUtils::cloneNode( $bodyElt, true );
-						foreach ( $bodyElt->childNodes as $child ) {
-							if ( DOMUtils::hasTypeOf( $child, 'mw:Cite/Follow' ) ) {
-								// @phan-suppress-next-line PhanTypeMismatchArgumentSuperType
-								DOMCompat::remove( $child );
-							}
+				// Follow content may have been added as spans, so drop it
+				if (
+					$hasRefName &&
+					DOMCompat::querySelector( $bodyElt, "span[typeof~='mw:Cite/Follow']" )
+				) {
+					$bodyElt = DOMDataUtils::cloneNode( $bodyElt, true );
+					foreach ( $bodyElt->childNodes as $child ) {
+						if ( DOMUtils::hasTypeOf( $child, 'mw:Cite/Follow' ) ) {
+							// @phan-suppress-next-line PhanTypeMismatchArgumentSuperType
+							DOMCompat::remove( $child );
 						}
 					}
 				}
-
 				$src = $extApi->domToWikitext( $html2wtOpts, $bodyElt, true );
 			}
 		} else {

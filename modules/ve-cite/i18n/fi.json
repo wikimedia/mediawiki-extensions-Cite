@@ -58,7 +58,7 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Luettelo yleisistä lähteistä",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Luettelo ryhmän ”$1” viitteistä",
 	"cite-ve-dialog-referenceslist-title": "Lähdeluettelo",
-	"cite-ve-dialogbutton-citation-educationpopup-text": "Paranna sisältöäsi lisäämällä tietolähteitä. Voit viitata kirjoista, sanomalehdistä ja verkkosivustoilta.",
+	"cite-ve-dialogbutton-citation-educationpopup-text": "Paranna sisältöäsi lisäämällä tietolähteitä. Voit viitata kirjoihin, sanomalehtiin ja verkkosivustoihin.",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Viittaukset",
 	"cite-ve-dialogbutton-reference-full-label": "Perus",
 	"cite-ve-dialogbutton-reference-title": "Lähde",
@@ -71,6 +71,6 @@
 	"cite-ve-referenceslist-missingref": "Tämä lähde on määritelty mallineessa tai automaattisesti luotu, ja sitä voi muokata vain wikitekstitilassa.",
 	"cite-ve-referenceslist-missingref-in-list": "Tämä lähde on määritelty mallineessa tai automaattisesti luotu, ja sitä voi tarkastella vain wikitekstitilassa.",
 	"cite-ve-referenceslist-missingreflist": "Tämä viiteluettelo on luotu mallineella.",
-	"cite-ve-toolbar-group-label": "Viite",
+	"cite-ve-toolbar-group-label": "Viittaa",
 	"cite-ve-othergroup-item": "$1 viite"
 }

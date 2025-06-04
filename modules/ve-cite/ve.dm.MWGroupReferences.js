@@ -234,7 +234,7 @@ ve.dm.MWGroupReferences.prototype.getSubrefs = function ( parentKey ) {
 /**
  * @deprecated TODO: push to presentation
  * @param {string} listKey full ref key
- * @return {string} rendered number label
+ * @return {string|undefined} rendered number label
  */
 ve.dm.MWGroupReferences.prototype.getIndexLabel = function ( listKey ) {
 	return this.footnoteLabelLookup[ listKey ];

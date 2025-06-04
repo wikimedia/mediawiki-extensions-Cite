@@ -22,8 +22,8 @@
 			},
 			preview = createReferencePreview( model );
 
-		assert.strictEqual( preview.hasThumbnail, false );
-		assert.strictEqual( preview.isTall, false );
+		assert.false( preview.hasThumbnail );
+		assert.false( preview.isTall );
 
 		assert.strictEqual(
 			$( preview.el ).find( '.mwe-popups-title' ).text().trim(),

@@ -152,6 +152,8 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {
 	const dataElement = data[ 0 ];
 
+	// TODO: handle transclusion edge case
+
 	// If we are sending a template generated ref back to Parsoid, output it as a
 	// template.  This works because the dataElement already has mw, originalMw
 	// and originalDomIndex properties.
@@ -180,6 +182,21 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		domElements = ve.copyDomElements(
 			converter.getStore().value( dataElement.originalDomElementsHash ), doc
 		);
+	} else {
+		// Render all group refs
+		const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
+			converter.internalList.document
+		);
+		const groupRefs = docRefs.getGroupRefs( dataElement.attributes.refGroup || '' );
+
+		const $wrapper = $( '<ol>', doc );
+		$wrapper.append(
+			groupRefs.getTopLevelKeysInReflistOrder()
+				.map( ( listKey ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
+					groupRefs, listKey, doc, converter
+				) )
+		);
+		domElements[ 0 ].appendChild( $wrapper[ 0 ] );
 	}
 
 	domElements[ 0 ].setAttribute( 'typeof', 'mw:Extension/references' );
@@ -281,6 +298,58 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
 		nextIndex++;
 	}
 	return !nextElement || nextElement.type === 'internalList';
+};
+
+/***
+ * Create references list item HTML DOM for Parsoid
+ *
+ * @static
+ * @param {ve.dm.MWGroupReferences} groupRefs
+ * @param {string} listKey
+ * @param {HTMLDocument} doc
+ * @param {ve.dm.Converter} converter
+ * @return {jQuery} <li> element for the references listitem
+ * */
+ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
+	groupRefs,
+	listKey,
+	doc,
+	converter
+) {
+	const internalItem = groupRefs.getInternalModelNode( listKey );
+	const refNode = groupRefs.getRefNode( listKey );
+	const subrefs = groupRefs.getSubrefs( listKey );
+	const $li = $( '<li>', doc );
+
+	if ( internalItem && internalItem.length ) {
+		const htmlWrapper = doc.createElement( 'span' );
+		converter.getDomSubtreeFromData(
+			internalItem.getDocument().getFullData( internalItem.getRange(), 'roundTrip' ),
+			htmlWrapper
+		);
+		$li.append(
+			$( htmlWrapper )
+				.attr( 'typeof', 'mw:Extension/ref' )
+				.attr( 'id', refNode.element.attributes.refListItemId )
+		);
+	} else {
+		// TODO: What to do here?
+		$li.append(
+			$( '<span>', doc )
+		).addClass( 've-ce-mwReferencesListNode-missingRef' );
+	}
+
+	if ( subrefs.length ) {
+		$li.append(
+			$( '<ol>', doc ).append(
+				subrefs.map( ( subNode ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
+					groupRefs, subNode.getAttribute( 'listKey' ), doc, converter
+				) )
+			)
+		);
+	}
+
+	return $li;
 };
 
 ve.dm.MWReferencesListNode.static.describeChange = function ( key, change ) {

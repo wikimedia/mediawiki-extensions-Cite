@@ -72,13 +72,15 @@ class ErrorReporter {
 		[ $type ] = $this->parseTypeAndIdFromMessageKey( $key );
 
 		if ( $type === 'error' ) {
+			$wrapper = $this->messageLocalizer->msg( 'cite_error', $msg->plain() )->inLanguage( $language );
+			if ( !$wrapper->isDisabled() ) {
+				$msg = $wrapper;
+			}
 			// Take care; this is a sideeffect that might not belong to this class.
 			$this->parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 		}
 
-		// Optional wrapper messages: cite_error, cite_warning
-		$wrapper = $this->messageLocalizer->msg( "cite_$type", $msg->plain() )->inLanguage( $language );
-		return $wrapper->isDisabled() ? $msg : $wrapper;
+		return $msg;
 	}
 
 	/**

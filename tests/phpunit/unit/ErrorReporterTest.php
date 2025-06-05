@@ -42,7 +42,7 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 		$reporter = $this->createReporter();
 		$this->assertSame(
 			'<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
-				'dir="rtl">[(cite_warning|(cite_warning_example|first param))]</span>',
+				'dir="rtl">[(cite_warning_example|first param)]</span>',
 			$reporter->halfParsed( 'cite_warning_example', 'first param' ) );
 	}
 
@@ -57,14 +57,14 @@ class ErrorReporterTest extends \MediaWikiUnitTestCase {
 			'Warning error' => [
 				'key' => 'cite_warning_example',
 				'expectedHtml' => '<span class="warning mw-ext-cite-warning mw-ext-cite-warning-example" lang="qqx" ' .
-					'dir="rtl">(cite_warning|(cite_warning_example|first param))</span>',
+					'dir="rtl">(cite_warning_example|first param)</span>',
 				'expectedTrackingCategory' => null,
 			],
 			'Optional support for messages with dashes' => [
 				'key' => 'cite-warning-with-dashes',
 				'expectedHtml' => '<span class="warning mw-ext-cite-warning ' .
 					'mw-ext-cite-warning-with-dashes" lang="qqx" dir="rtl">' .
-					'(cite_warning|(cite-warning-with-dashes|first param))</span>',
+					'(cite-warning-with-dashes|first param)</span>',
 				'expectedTrackingCategory' => null,
 			],
 		];

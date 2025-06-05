@@ -4,7 +4,8 @@
 			"Amakasquare",
 			"PassionateLibrarian",
 			"Timzy D'Great",
-			"Uzoma Ozurumba"
+			"Uzoma Ozurumba",
+			"Victor chukwuemerie Mbah"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Akwụkwọ",
@@ -47,7 +48,7 @@
 	"cite-ve-referenceslist-isempty-default": "Enweghị edensibịa na ibe a iji tinye na ndepụta a.",
 	"cite-ve-referenceslist-missingref": "A kọwapụtara edensibịa nke a na templeetị ma ọ bụ ngọngọ ọzọ emepụtara, ma ugbu a enwere ike dezie ya na ndezi ebe osi",
 	"cite-ve-referenceslist-missingref-in-list": "A kọwapụtara edensibịa nke a na templeetị ma ọ bụ ngọngọ ọzọ emepụtara, ma ugbu a enwere ike ịhụ nkirimaatụ ya n'ebe osi.",
-	"cite-ve-referenceslist-missingreflist": "Emepụtara ndepụta edensibịa nke a site na templeetị, ma ugbu a enwere ike dezie ya naanị n'ebe osi.",
+	"cite-ve-referenceslist-missingreflist": "Emepụtara ndepụta edensibịa a site na ndebiri.",
 	"cite-ve-toolbar-group-label": "Depụta",
 	"cite-ve-othergroup-item": "Edensibịa $1"
 }

@@ -106,7 +106,6 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
  * @param {ve.dm.MWReferenceModel} originalRef
  */
 ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsExtends = function ( originalRef ) {
-	this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-add-details' ) );
 	this.actions.setMode( 'insert' );
 	this.actions.setAbilities( { insert: false } );
 	this.setCreateSubRefPanel( originalRef );
@@ -117,6 +116,7 @@ ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
 	newRef.extendsRef = mainRef.getListKey();
 	newRef.group = mainRef.getGroup();
 
+	this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
 	this.panels.setItem( this.editPanel );
 
 	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
@@ -247,11 +247,9 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				// we never want to edit an existing node here
 				this.selectedNode = null;
 				if ( data.addToExisting ) {
-					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-edit-details' ) );
 					this.actions.setMode( 'edit' );
 					this.actions.setAbilities( { done: false } );
 				} else {
-					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-add-details' ) );
 					this.actions.setMode( 'insert' );
 					this.actions.setAbilities( { insert: false } );
 				}
@@ -269,7 +267,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 					// edit an existing reference
 					ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 					if ( ref.extendsRef ) {
-						this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-edit-details' ) );
+						this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
 					}
 					this.actions.setAbilities( { done: false } );
 				} else {

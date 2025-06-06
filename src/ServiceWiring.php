@@ -11,12 +11,12 @@ use MediaWiki\Registration\ExtensionRegistry;
 
 /**
  * @codeCoverageIgnore
+ * @phpcs-require-sorted-array
  */
 return [
 	'Cite.AlphabetsProvider' => static function (): AlphabetsProvider {
 		return new AlphabetsProvider();
 	},
-
 	'Cite.BacklinkMarkRenderer' => static function ( MediaWikiServices $services ): BacklinkMarkRenderer {
 		$contentLanguage = $services->getContentLanguage();
 		return new BacklinkMarkRenderer(
@@ -30,7 +30,6 @@ return [
 			$services->getMainConfig()
 		);
 	},
-
 	'Cite.GadgetsIntegration' => static function ( MediaWikiServices $services ): ReferencePreviewsGadgetsIntegration {
 		return new ReferencePreviewsGadgetsIntegration(
 			$services->getMainConfig(),

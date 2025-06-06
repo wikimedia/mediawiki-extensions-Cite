@@ -202,6 +202,16 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 			if ( !( this.selectedNode instanceof MWReferenceNode ) || this.createSubRefMode ) {
 				// Collapse returns a new fragment, so update this.fragment
 				if ( this.createSubRefMode ) {
+					// We're creating a new subref by replacing a main ref
+					// make sure there's a synth main ref to save the main body
+					const internalList = this.getFragment().getDocument().getInternalList();
+					const mainNodes = internalList.getNodeGroup( 'mwReference/' + ref.group )
+						.getAllReuses( ref.mainRefKey );
+					const foundExistingSynthMain = mainNodes.some(
+						( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSyntheticMainRef' ) );
+					if ( !foundExistingSynthMain && mainNodes ) {
+						mainNodes[ 0 ].copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
+					}
 					this.getFragment().removeContent();
 				}
 				this.fragment = this.getFragment().collapseToEnd();

@@ -377,7 +377,7 @@ ve.dm.MWReferenceNode.static.isUsedMainRef = function ( attributes, nodeGroup ) 
 	return nodeGroup.firstNodes.some(
 		( innerNode ) => innerNode.getAttribute( 'mainRefKey' ) ===
 			ve.getProp( attributes, 'listKey' ) &&
-			innerNode.getAttribute( 'mw' ).isSubRefWithMainBody
+			ve.getProp( innerNode.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
 	);
 };
 
@@ -696,6 +696,44 @@ ve.dm.MWReferenceNode.prototype.getIndexNumber = function () {
 		this.element,
 		this.getDocument().getInternalList()
 	);
+};
+
+/**
+ * Save a copy of this ref in the reflist as a backup
+ *
+ * This mechanism should be used whenever a ref becomes the main ref for a new
+ * subref.  It allows the main ref to be deleted without losing a connection to
+ * the main ref content.
+ *
+ * @param {ve.dm.Surface} surface
+ */
+ve.dm.MWReferenceNode.prototype.copySyntheticRefIntoReferencesList = function ( surface ) {
+	// Get the ReferencesList we want to move the node into
+	const docChildren = this.getDocument().getDocumentNode().getChildren();
+	const refListNode = docChildren.find(
+		( node ) => node.type === 'mwReferencesList' &&
+			node.getAttribute( 'refGroup' ) === this.getGroup()
+	);
+	if ( !refListNode ) {
+		// FIXME: There is no guarantee we have a corresponding reflist in the document when it's
+		// not the default group. What to do then?
+		return;
+	}
+	const refListNodeRange = refListNode.getRange();
+
+	const attributes = ve.copy( this.getAttributes() );
+	ve.setProp( attributes, 'mw', 'isSyntheticMainRef', true );
+	const txInsert = ve.dm.TransactionBuilder.static.newFromInsertion(
+		this.getDocument(), refListNodeRange.to, [
+			{
+				type: 'mwReference',
+				attributes: attributes,
+				originalDomElementsHash: Math.random()
+			},
+			{ type: '/mwReference' }
+		]
+	);
+	surface.change( txInsert );
 };
 
 /**

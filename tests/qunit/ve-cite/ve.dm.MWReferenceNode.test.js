@@ -154,3 +154,18 @@ QUnit.test( 'describeChange', ( assert ) => {
 		assert.strictEqual( msg, expected );
 	}
 } );
+
+QUnit.test( 'copySyntheticRefIntoReferencesList', ( assert ) => {
+	const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+	const nodeGroup = doc.getInternalList().getNodeGroup( 'mwReference/' );
+	const key = 'literal/bar';
+	const ref = nodeGroup.getFirstNode( key );
+	const surface = new ve.dm.Surface( doc );
+
+	assert.strictEqual( nodeGroup.getAllReuses( key ).length, 2 );
+
+	ref.copySyntheticRefIntoReferencesList( surface );
+	assert.strictEqual( nodeGroup.getAllReuses( key ).length, 3 );
+	const newRef = nodeGroup.getAllReuses( key )[ 2 ];
+	assert.strictEqual( ve.getProp( newRef.getAttributes(), 'mw', 'isSyntheticMainRef' ), true );
+} );

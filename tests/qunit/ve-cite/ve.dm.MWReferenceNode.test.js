@@ -62,42 +62,42 @@ QUnit.test( 'shouldGetBodyContent on a sub-reference', ( assert ) => {
 } );
 
 QUnit.test( 'generateName on a normal main reference', ( assert ) => {
-	const dataElement = { attributes: {} };
-	const converter = { internalList: {
+	const attributes = {};
+	const internalList = {
 		getUniqueListKey: () => 'literal/:7',
 		getNodeGroup: () => ( { firstNodes: [] } )
-	} };
+	};
 	const nodesWithSameKey = [ 'dummy1' ];
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, nodesWithSameKey ), undefined );
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ), undefined );
 
 	nodesWithSameKey.push( 'dummy2' );
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, nodesWithSameKey ), ':7' );
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ), ':7' );
 
-	dataElement.attributes.listKey = 'literal/foo';
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, nodesWithSameKey ), 'foo' );
+	attributes.listKey = 'literal/foo';
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ), 'foo' );
 } );
 
 QUnit.test( 'generateName on a sub-reference', ( assert ) => {
-	const dataElement = { attributes: { extendsRef: 'x' } };
-	const converter = { internalList: { getUniqueListKey: () => 'literal/:7' } };
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, [] ), ':7' );
+	const attributes = { extendsRef: 'x' };
+	const internalList = { getUniqueListKey: () => 'literal/:7' };
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, [] ), ':7' );
 
-	dataElement.attributes.extendsRef = 'literal/foo';
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, [] ), 'foo' );
+	attributes.extendsRef = 'literal/foo';
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, [] ), 'foo' );
 } );
 
 QUnit.test( 'hasSubRefs', ( assert ) => {
-	const dataElement = { attributes: { listKey: 'a' } };
+	const attributes = { listKey: 'a' };
 	const firstNodes = [];
-	const converter = { internalList: { getNodeGroup: () => ( { firstNodes } ) } };
-	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( dataElement, converter ) );
+	const internalList = { getNodeGroup: () => ( { firstNodes } ) };
+	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
 	firstNodes.push( { element: { attributes: { extendsRef: 'a' } } } );
-	assert.true( ve.dm.MWReferenceNode.static.hasSubRefs( dataElement, converter ) );
+	assert.true( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
 	// But when it's a sub-ref it cannot have sub-refs
-	dataElement.attributes.extendsRef = 'x';
-	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( dataElement, converter ) );
+	attributes.extendsRef = 'x';
+	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 } );
 
 QUnit.test( 'remapInternalListIndexes', ( assert ) => {

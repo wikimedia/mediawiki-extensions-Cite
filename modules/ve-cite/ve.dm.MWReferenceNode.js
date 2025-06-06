@@ -132,6 +132,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 
 ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, converter ) {
 	const isForClipboard = converter.isForClipboard();
+	const internalList = converter.internalList;
 	const el = doc.createElement( 'sup' );
 
 	el.setAttribute( 'typeof', 'mw:Extension/ref' );
@@ -142,14 +143,14 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	if ( isForClipboard || converter.isForParser() ) {
 		// This call rebuilds the document tree if it isn't built already (e.g. on a
 		// document slice), so only use when necessary (i.e. not in preview mode)
-		const itemNode = converter.internalList.getItemNode( dataElement.attributes.listIndex );
+		const itemNode = internalList.getItemNode( dataElement.attributes.listIndex );
 		const itemNodeRange = itemNode.getRange();
 
-		const nodesWithSameKey = converter.internalList
+		const nodesWithSameKey = internalList
 			.getNodeGroup( dataElement.attributes.listGroup )
 			.keyedNodes[ dataElement.attributes.listKey ] || [];
 
-		const name = this.generateName( dataElement, converter, nodesWithSameKey );
+		const name = this.generateName( dataElement.attributes, internalList, nodesWithSameKey );
 		if ( name !== undefined ) {
 			ve.setProp( mwData, 'attrs', 'name', name );
 		}
@@ -238,7 +239,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		$( el ).addClass( 'mw-ref reference' ).append(
 			$link.append( $( '<span>', doc )
 				.addClass( 'mw-reflink-text' )
-				.append( this.getFormattedRefLinkLabel( dataElement, converter.internalList ) )
+				.append( this.getFormattedRefLinkLabel( dataElement, internalList ) )
 			)
 		);
 	}
@@ -318,13 +319,13 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
  * Generate the name for a given reference
  *
  * @static
- * @param {Object} dataElement
- * @param {ve.dm.Converter} converter
+ * @param {Object} attributes
+ * @param {ve.dm.InternalList} internalList
  * @param {ve.dm.Node[]} nodesWithSameKey
  * @return {string|undefined} literal or auto generated name
  */
-ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, nodesWithSameKey ) {
-	const mainRefKey = dataElement.attributes.extendsRef || dataElement.attributes.listKey;
+ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList, nodesWithSameKey ) {
+	const mainRefKey = attributes.extendsRef || attributes.listKey;
 	const keyParts = this.listKeyRegex.exec( mainRefKey );
 
 	// use literal name
@@ -333,12 +334,12 @@ ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, n
 	}
 
 	// use auto generated name
-	if ( dataElement.attributes.extendsRef ||
+	if ( attributes.extendsRef ||
 		nodesWithSameKey.length > 1 ||
-		this.hasSubRefs( dataElement, converter )
+		this.hasSubRefs( attributes, internalList )
 	) {
-		return converter.internalList.getUniqueListKey(
-			dataElement.attributes.listGroup,
+		return internalList.getUniqueListKey(
+			attributes.listGroup,
 			mainRefKey,
 			'literal/:'
 		).slice( 'literal/'.length );
@@ -347,15 +348,15 @@ ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, n
 
 /**
  * @static
- * @param {Object} dataElement
- * @param {ve.dm.Converter} converter
+ * @param {Object} attributes
+ * @param {ve.dm.InternalList} internalList
  * @return {boolean}
  */
-ve.dm.MWReferenceNode.static.hasSubRefs = function ( dataElement, converter ) {
+ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) {
 	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
-	return !dataElement.attributes.extendsRef &&
-		converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.some(
-			( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
+	return !attributes.extendsRef &&
+		internalList.getNodeGroup( attributes.listGroup ).firstNodes.some(
+			( node ) => node.element.attributes.extendsRef === attributes.listKey
 		);
 };
 

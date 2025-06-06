@@ -261,12 +261,10 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
 	}
 	for ( let i = 0; i < nodesWithSameKey.length; i++ ) {
 		// Check if the node is the same as the one we are checking
-		if (
-			ve.compare(
-				this.getInstanceHashObject( nodesWithSameKey[ i ].element ),
-				this.getInstanceHashObject( dataElement )
-			)
-		) {
+		if ( ve.compare(
+			this.getInstanceHashObject( nodesWithSameKey[ i ].element ),
+			this.getInstanceHashObject( dataElement )
+		) ) {
 			break;
 		}
 
@@ -289,22 +287,24 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
  * */
 ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, nodesWithSameKey ) {
 	// if the reference defined the body content, it should be stored there again
-	// a sub-ref should always get the body content, it's needed for the details attribute
-	if ( dataElement.attributes.extendsRef || dataElement.attributes.contentsUsed ) {
+	if ( dataElement.attributes.contentsUsed ||
+		// Sub-refs always hold their (details) content, required for later re-serialization
+		dataElement.attributes.extendsRef ||
+		// There is no other ref but the current one
+		nodesWithSameKey.length <= 1
+	) {
 		return true;
 	}
 
-	// only the first reference should get the body content
-	if ( !nodesWithSameKey ||
-		!ve.compare(
-			this.getInstanceHashObject( dataElement ),
-			this.getInstanceHashObject( nodesWithSameKey[ 0 ].element )
-		) ) {
+	// Bail out when the current ref is not the first, only the first should get the content
+	if ( !ve.compare(
+		this.getInstanceHashObject( dataElement ),
+		this.getInstanceHashObject( nodesWithSameKey[ 0 ].element )
+	) ) {
 		return false;
 	}
 
-	// check if there's another reference that defined the body content
-	// As this is keyedNodes[0] we can start at 1
+	// Is there another ref after the first that already holds the content?
 	for ( let i = 1; i < nodesWithSameKey.length; i++ ) {
 		if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
 			return false;
@@ -325,10 +325,10 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
  */
 ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, nodesWithSameKey ) {
 	const mainRefKey = dataElement.attributes.extendsRef || dataElement.attributes.listKey;
-	const keyParts = mainRefKey.match( this.listKeyRegex );
+	const keyParts = this.listKeyRegex.exec( mainRefKey );
 
 	// use literal name
-	if ( keyParts[ 1 ] === 'literal' ) {
+	if ( keyParts && keyParts[ 1 ] === 'literal' ) {
 		return keyParts[ 2 ];
 	}
 
@@ -352,6 +352,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( dataElement, converter, n
  * @return {boolean}
  */
 ve.dm.MWReferenceNode.static.hasSubRefs = function ( dataElement, converter ) {
+	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
 	return !dataElement.attributes.extendsRef &&
 		converter.internalList.getNodeGroup( dataElement.attributes.listGroup ).firstNodes.some(
 			( node ) => node.element.attributes.extendsRef === dataElement.attributes.listKey
@@ -365,8 +366,8 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 	dataElement.attributes.listIndex = mapping[ dataElement.attributes.listIndex ];
 
 	// Remap listKey if it was automatically generated
-	const listKeyParts = dataElement.attributes.listKey.match( this.listKeyRegex );
-	if ( listKeyParts[ 1 ] === 'auto' ) {
+	const listKeyParts = this.listKeyRegex.exec( dataElement.attributes.listKey );
+	if ( listKeyParts && listKeyParts[ 1 ] === 'auto' ) {
 		dataElement.attributes.listKey = this.makeListKey( internalList );
 	}
 };

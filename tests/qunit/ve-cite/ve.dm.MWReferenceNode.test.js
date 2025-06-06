@@ -2,6 +2,119 @@
 
 QUnit.module( 've.dm.MWReferenceNode (Cite)', ve.test.utils.newMwEnvironment() );
 
+QUnit.test( 'makeListKey', ( assert ) => {
+	const internalList = { getNextUniqueNumber: () => 7 };
+	assert.strictEqual( ve.dm.MWReferenceNode.static.makeListKey( internalList, 'a' ), 'literal/a' );
+	assert.strictEqual( ve.dm.MWReferenceNode.static.makeListKey( internalList ), 'auto/7' );
+} );
+
+QUnit.test( 'isBodyContentSet', ( assert ) => {
+	const dataElement = { attributes: { contentsUsed: true, listGroup: 'same' } };
+	const element = { attributes: { contentsUsed: false } };
+	const nodesWithSameKey = [ { element } ];
+	assert.false( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+
+	// One of the other ref with the same name already holds the content
+	element.attributes.contentsUsed = true;
+	assert.true( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+
+	// The other ref is actually the same as the current one
+	element.attributes.listGroup = 'same';
+	assert.false( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+
+	element.attributes.listGroup = 'different';
+	assert.true( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+
+	// Nothing matters when the current ref doesn't hold content
+	dataElement.attributes.contentsUsed = false;
+	assert.false( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+} );
+
+QUnit.test( 'shouldGetBodyContent on a normal main reference', ( assert ) => {
+	const dataElement = { attributes: { listGroup: 'same' } };
+	const ownRef = { attributes: { listGroup: 'same' } };
+
+	// There is no other ref, only this one
+	const nodesWithSameKey = [ { element: ownRef } ];
+	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+
+	// Another ref was holding the content before
+	const otherRef = { attributes: { contentsUsed: true } };
+	nodesWithSameKey.push( { element: otherRef } );
+	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+
+	// No other ref was holding the content before
+	otherRef.attributes.contentsUsed = false;
+	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+
+	// The current ref is not the same as the first in the list
+	ownRef.attributes.listGroup = 'different';
+	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+
+	// This ref was holding the content before
+	dataElement.attributes.contentsUsed = true;
+	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+} );
+
+QUnit.test( 'shouldGetBodyContent on a sub-reference', ( assert ) => {
+	const dataElement = { attributes: { extendsRef: 'x' } };
+	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, [] ) );
+} );
+
+QUnit.test( 'generateName on a normal main reference', ( assert ) => {
+	const dataElement = { attributes: {} };
+	const converter = { internalList: {
+		getUniqueListKey: () => 'literal/:7',
+		getNodeGroup: () => ( { firstNodes: [] } )
+	} };
+	const nodesWithSameKey = [ 'dummy1' ];
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, nodesWithSameKey ), undefined );
+
+	nodesWithSameKey.push( 'dummy2' );
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, nodesWithSameKey ), ':7' );
+
+	dataElement.attributes.listKey = 'literal/foo';
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, nodesWithSameKey ), 'foo' );
+} );
+
+QUnit.test( 'generateName on a sub-reference', ( assert ) => {
+	const dataElement = { attributes: { extendsRef: 'x' } };
+	const converter = { internalList: { getUniqueListKey: () => 'literal/:7' } };
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, [] ), ':7' );
+
+	dataElement.attributes.extendsRef = 'literal/foo';
+	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( dataElement, converter, [] ), 'foo' );
+} );
+
+QUnit.test( 'hasSubRefs', ( assert ) => {
+	const dataElement = { attributes: { listKey: 'a' } };
+	const firstNodes = [];
+	const converter = { internalList: { getNodeGroup: () => ( { firstNodes } ) } };
+	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( dataElement, converter ) );
+
+	firstNodes.push( { element: { attributes: { extendsRef: 'a' } } } );
+	assert.true( ve.dm.MWReferenceNode.static.hasSubRefs( dataElement, converter ) );
+
+	// But when it's a sub-ref it cannot have sub-refs
+	dataElement.attributes.extendsRef = 'x';
+	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( dataElement, converter ) );
+} );
+
+QUnit.test( 'remapInternalListIndexes', ( assert ) => {
+	const dataElement = { attributes: { listIndex: 'old', listKey: 'auto/' } };
+	const mapping = { old: 'new' };
+	const internalList = { getNextUniqueNumber: () => 7 };
+	ve.dm.MWReferenceNode.static.remapInternalListIndexes( dataElement, mapping, internalList );
+	assert.deepEqual( dataElement.attributes, { listIndex: 'new', listKey: 'auto/7' } );
+} );
+
+QUnit.test( 'remapInternalListKeys', ( assert ) => {
+	const dataElement = { attributes: { listKey: 'k' } };
+	const internalList = { keys: [ 'k' ] };
+	ve.dm.MWReferenceNode.static.remapInternalListKeys( dataElement, internalList );
+	assert.strictEqual( dataElement.attributes.listKey, 'k2' );
+} );
+
 QUnit.test( 'getGroup', ( assert ) => {
 	const dataElement = { attributes: { refGroup: 'g' } };
 	assert.deepEqual( ve.dm.MWReferenceNode.static.getGroup( dataElement ), 'g' );

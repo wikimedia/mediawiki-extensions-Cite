@@ -78,7 +78,7 @@ ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
 
 /**
  * @private
- * @param {string[]} groupName Name of the reference group which needs to be
+ * @param {string} groupName Name of the reference group which needs to be
  *  updated, with prefix
  */
 ve.dm.MWDocumentReferences.prototype.updateGroup = function ( groupName ) {
@@ -95,10 +95,16 @@ ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( groupName ) {
 		new ve.dm.MWGroupReferences();
 };
 
+/**
+ * @return {string[]}
+ */
 ve.dm.MWDocumentReferences.prototype.getAllGroupNames = function () {
 	return Object.keys( this.doc.getInternalList().getNodeGroups() );
 };
 
+/**
+ * @return {boolean}
+ */
 ve.dm.MWDocumentReferences.prototype.hasRefs = function () {
 	return this.getAllGroupNames().some( ( groupName ) => !this.getGroupRefs( groupName ).isEmpty() );
 };

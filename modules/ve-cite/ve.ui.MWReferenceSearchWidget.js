@@ -147,7 +147,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 	let index = [];
 	for ( let i = 0; i < groupNames.length; i++ ) {
 		const groupName = groupNames[ i ];
-		if ( groupName.indexOf( 'mwReference/' ) !== 0 ) {
+		if ( !groupName.startsWith( 'mwReference/' ) ) {
 			// FIXME: Should be impossible to reach
 			continue;
 		}

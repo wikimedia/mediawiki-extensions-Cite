@@ -234,6 +234,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( () => {
+			this.createSubRefMode = false;
 			this.reuseReference = !!data.reuseReference;
 			if ( this.reuseReference ) {
 				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );

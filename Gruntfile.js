@@ -26,6 +26,9 @@ module.exports = function ( grunt ) {
 		},
 		banana: conf.MessagesDirs,
 		stylelint: {
+			options: {
+				cache: true
+			},
 			all: [
 				'**/*.css',
 				'**/*.less',

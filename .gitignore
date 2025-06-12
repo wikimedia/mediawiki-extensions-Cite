@@ -29,3 +29,4 @@ sftp-config.json
 /tests/cypress/screenshots
 /tests/cypress/downloads
 /docs/js
+/.stylelintcache

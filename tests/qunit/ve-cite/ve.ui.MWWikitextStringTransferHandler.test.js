@@ -82,12 +82,13 @@ QUnit.test( 'convert', function ( assert ) {
 		}
 	];
 
-	const server = this.server;
 	cases.forEach( ( caseItem ) => {
 		ve.test.utils.runWikitextStringHandlerTest(
-			assert, server, caseItem.pasteString, caseItem.pasteType,
-			caseItem.parsoidResponse, caseItem.expectedData, caseItem.annotations,
-			caseItem.assertDom, caseItem.msg
+			assert, {
+				server: this.server,
+				base: ve.dm.mwExample.baseUri,
+				...caseItem
+			}
 		);
 	} );
 } );

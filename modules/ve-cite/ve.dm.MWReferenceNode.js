@@ -325,8 +325,8 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
  * @return {string|undefined} literal or auto generated name
  */
 ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList, nodesWithSameKey ) {
-	const mainRefKey = attributes.extendsRef || attributes.listKey;
-	const keyParts = this.listKeyRegex.exec( mainRefKey );
+	const listKey = attributes.extendsRef || attributes.listKey;
+	const keyParts = this.listKeyRegex.exec( listKey );
 
 	// use literal name
 	if ( keyParts && keyParts[ 1 ] === 'literal' ) {
@@ -340,7 +340,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
 	) {
 		return internalList.getUniqueListKey(
 			attributes.listGroup,
-			mainRefKey,
+			listKey,
 			'literal/:'
 		).slice( 'literal/'.length );
 	}

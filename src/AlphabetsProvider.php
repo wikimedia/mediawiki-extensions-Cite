@@ -11,12 +11,10 @@ use MediaWiki\Extension\CLDR\Alphabets;
  */
 class AlphabetsProvider {
 
-	private ?Alphabets $alphabet = null;
+	private ?Alphabets $alphabets;
 
-	public function __construct() {
-		if ( class_exists( Alphabets::class ) ) {
-			$this->alphabet = new Alphabets();
-		}
+	public function __construct( ?Alphabets $alphabets ) {
+		$this->alphabets = $alphabets;
 	}
 
 	/**
@@ -30,6 +28,7 @@ class AlphabetsProvider {
 	 * @return string[]|null a sequence of symbols
 	 */
 	public function getIndexCharacters( string $code ): ?array {
-		return $this->alphabet ? $this->alphabet->getIndexCharacters( $code ) : null;
+		return $this->alphabets ? $this->alphabets->getIndexCharacters( $code ) : null;
 	}
+
 }

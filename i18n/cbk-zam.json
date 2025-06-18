@@ -5,7 +5,15 @@
 			"Noooote"
 		]
 	},
+	"cite-desc": "Ta aumenta maga tags de <code>&lt;ref&gt;</code> y <code>lt;references&gt;</code> para na maga citacion",
 	"cite_error": "Error de citada: $1",
+	"cite_error_details_missing_parent": "Un tag de <code>&lt;ref></code> que tiene maga detalles debe ta contene content o point na un parent reference por nombre.",
+	"cite_error_details_unsupported_context": "El tag de <code>&lt;ref&gt;</code> que tiene nombre \"$1\" no puede usa detalles cuando adentro del <code>&lt;references&gt;</code>",
+	"cite_error_ref_invalid_dir": "Invalido <code>dir=$1</code>, debe <code>ltr</code> o <code>rtl</code> ele",
+	"cite_error_ref_conflicting_dir": "Uno del tag de <code>&lt;ref&gt</code> que tiene nombre \"$1\" tiene man conflicting dir attribute.",
+	"cite_error_ref_numeric_key": "Invalido tag de <code>&lt;ref&gt;</code>; el nombre no puede queda un simple integer. Usa un titulo descriptivo",
+	"cite_error_ref_no_key": "El opening <code>&lt;ref&gt;</code> tag malformao o tiene nombre umal",
+	"cite_error_ref_too_many_keys": "Parametro invalido na <code>&lt;ref&gt;</code> tag",
 	"cite-reference-previews-reference": "Referencia",
 	"cite-reference-previews-book": "Libro de referencia",
 	"cite-reference-previews-journal": "Referencia del journal",

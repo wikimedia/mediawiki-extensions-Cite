@@ -6,17 +6,22 @@ use Cite\MarkSymbolRenderer;
 use Cite\ReferenceMessageLocalizer;
 use Cite\ReferencePreviews\ReferencePreviewsContext;
 use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
+use MediaWiki\Extension\CLDR\Alphabets;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Registration\ExtensionRegistry;
 
 /**
  * @codeCoverageIgnore
  * @phpcs-require-sorted-array
  */
 return [
-	'Cite.AlphabetsProvider' => static function (): AlphabetsProvider {
-		return new AlphabetsProvider();
+
+	'Cite.AlphabetsProvider' => static function ( MediaWikiServices $services ): AlphabetsProvider {
+		return new AlphabetsProvider(
+			$services->getExtensionRegistry()->isLoaded( 'CLDR' ) ?
+				new Alphabets() : null
+		);
 	},
+
 	'Cite.BacklinkMarkRenderer' => static function ( MediaWikiServices $services ): BacklinkMarkRenderer {
 		$contentLanguage = $services->getContentLanguage();
 		return new BacklinkMarkRenderer(
@@ -25,19 +30,21 @@ return [
 				$contentLanguage
 			),
 			$services->getService( 'Cite.AlphabetsProvider' ),
-			ExtensionRegistry::getInstance()->isLoaded( 'CommunityConfiguration' ) ?
+			$services->getExtensionRegistry()->isLoaded( 'CommunityConfiguration' ) ?
 				$services->getService( 'CommunityConfiguration.ProviderFactory' ) : null,
 			$services->getMainConfig()
 		);
 	},
+
 	'Cite.GadgetsIntegration' => static function ( MediaWikiServices $services ): ReferencePreviewsGadgetsIntegration {
 		return new ReferencePreviewsGadgetsIntegration(
 			$services->getMainConfig(),
-			ExtensionRegistry::getInstance()->isLoaded( 'Gadgets' ) ?
+			$services->getExtensionRegistry()->isLoaded( 'Gadgets' ) ?
 				$services->getService( 'GadgetsRepo' ) :
 				null
 		);
 	},
+
 	'Cite.MarkSymbolRenderer' => static function ( MediaWikiServices $services ): MarkSymbolRenderer {
 		return new MarkSymbolRenderer(
 			new ReferenceMessageLocalizer(
@@ -45,6 +52,7 @@ return [
 			)
 		);
 	},
+
 	'Cite.ReferencePreviewsContext' => static function ( MediaWikiServices $services ): ReferencePreviewsContext {
 		return new ReferencePreviewsContext(
 			$services->getMainConfig(),
@@ -52,4 +60,5 @@ return [
 			$services->getUserOptionsLookup()
 		);
 	},
+
 ];

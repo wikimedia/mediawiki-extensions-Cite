@@ -7,7 +7,8 @@
 			"Cocu",
 			"Danmichaelo",
 			"Jon Harald Søby",
-			"Laaknor"
+			"Laaknor",
+			"EdoAug"
 		]
 	},
 	"cite-desc": "Legger til <code>&lt;ref&gt;</code>- og <code>&lt;references/&gt;</code>-tagger for referanser",
@@ -17,7 +18,7 @@
 	"cite_error_ref_numeric_key": "Ugyldig <code>&lt;ref&gt;</code>-kode; navnet kan ikke være et enkelt heltall. Bruk en beskrivende tittel",
 	"cite_error_ref_no_key": "Åpningstaggen <code>&lt;ref&gt;</code> er ugyldig eller har et ugyldig navn",
 	"cite_error_ref_too_many_keys": "Ugyldig parameter i <code>&lt;ref&gt;</code>-taggen",
-	"cite_error_ref_follow_conflicts": "En <code>&lt;ref follow=\"…\"&gt;</code>-tagg som er en fortsettelse av en annen kan ikke navngis individuelt eller utvides",
+	"cite_error_ref_follow_conflicts": "En <code>&lt;ref follow=\"…\"&gt;</code>-tagg som er en fortsettelse av en annen kan ikke navngis individuelt eller ha detaljer.",
 	"cite_error_ref_no_input": "Ugyldig <code>&lt;ref&gt;</code>-kode; referanser uten navn må ha innhold",
 	"cite_error_references_duplicate_key": "Ugyldig <code>&lt;ref&gt;</code>-tagg; navnet «$1» er definert flere steder med ulikt innhold",
 	"cite_error_references_invalid_parameters": "Ugyldig parameter i <code>&lt;references&gt;</code>-taggen",

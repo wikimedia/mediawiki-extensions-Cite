@@ -20,19 +20,10 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 	public function testGetBacklinkMarker(
 		string $expectedLabel, int $reuseIndex, ?string $customAlphabet
 	) {
-		$mockMessageLocalizer = $this->createNoOpMock( ReferenceMessageLocalizer::class, [ 'msg' ] );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) {
-				$msg = $this->createMock( Message::class );
-				$msg->method( 'isDisabled' )->willReturn( true );
-				return $msg;
-			}
-		);
-
-		$config = new HashConfig( [
-			'CiteDefaultBacklinkAlphabet' => $customAlphabet,
-			'CiteUseLegacyBacklinkLabels' => false,
-		] );
+		$msg = $this->createMock( Message::class );
+		$msg->method( 'isDisabled' )->willReturn( true );
+		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$mockMessageLocalizer->method( 'msg' )->willReturn( $msg );
 
 		// FIXME: also test CLDR alphabet integration
 		$mockAlphabetsProvider = $this->createMock( AlphabetsProvider::class );
@@ -43,7 +34,10 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 			$mockMessageLocalizer,
 			$mockAlphabetsProvider,
 			null,
-			$config
+			new HashConfig( [
+				'CiteDefaultBacklinkAlphabet' => $customAlphabet,
+				'CiteUseLegacyBacklinkLabels' => false,
+			] )
 		);
 
 		$label = $renderer->getBacklinkMarker( $reuseIndex );
@@ -62,33 +56,23 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 	public function testGetLegacyAlphabeticMarker(
 		string $expectedLabel, string $parentLabel, ?string $customAlphabet, int $reuseIndex, int $reuseCount
 	) {
-		$mockMessageLocalizer = $this->createNoOpMock( ReferenceMessageLocalizer::class,
-			[ 'msg', 'localizeSeparators', 'localizeDigits' ] );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) use ( $customAlphabet ) {
-				$msg = $this->createMock( Message::class );
-				$msg->method( 'isDisabled' )->willReturn( $customAlphabet === null );
-				$msg->method( 'plain' )->willReturn( $customAlphabet );
-				return $msg;
-			}
-		);
+		$msg = $this->createMock( Message::class );
+		$msg->method( 'isDisabled' )->willReturn( $customAlphabet === null );
+		$msg->method( 'plain' )->willReturn( $customAlphabet );
+		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$mockMessageLocalizer->method( 'msg' )->willReturn( $msg );
 		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturn( ',' );
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
-
-		$mockAlphabetsProvider = $this->createMock( AlphabetsProvider::class );
-		$mockAlphabetsProvider->method( 'getIndexCharacters' )->willReturn( [ 'z', 'y', 'x' ] );
-
-		$config = new HashConfig( [
-			'CiteDefaultBacklinkAlphabet' => null,
-			'CiteUseLegacyBacklinkLabels' => true,
-		] );
 
 		$renderer = new BacklinkMarkRenderer(
 			'de',
 			$mockMessageLocalizer,
-			$mockAlphabetsProvider,
+			$this->createMock( AlphabetsProvider::class ),
 			null,
-			$config
+			new HashConfig( [
+				'CiteDefaultBacklinkAlphabet' => null,
+				'CiteUseLegacyBacklinkLabels' => true,
+			] )
 		);
 
 		$label = $renderer->getLegacyAlphabeticMarker( $reuseIndex, $reuseCount, $parentLabel );
@@ -108,32 +92,22 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 	public function testGetLegacyNumericMarker(
 		string $expectedLabel, string $parentLabel, int $reuseIndex, int $reuseCount
 	) {
-		$mockMessageLocalizer = $this->createNoOpMock( ReferenceMessageLocalizer::class,
-			[ 'msg', 'localizeSeparators', 'localizeDigits' ] );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) {
-				$msg = $this->createMock( Message::class );
-				$msg->method( 'isDisabled' )->willReturn( true );
-				return $msg;
-			}
-		);
+		$msg = $this->createMock( Message::class );
+		$msg->method( 'isDisabled' )->willReturn( true );
+		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$mockMessageLocalizer->method( 'msg' )->willReturn( $msg );
 		$mockMessageLocalizer->method( 'localizeSeparators' )->willReturn( ',' );
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnArgument( 0 );
-
-		$mockAlphabetsProvider = $this->createMock( AlphabetsProvider::class );
-		$mockAlphabetsProvider->method( 'getIndexCharacters' )->willReturn( [ 'z', 'y', 'x' ] );
-
-		$config = new HashConfig( [
-			'CiteDefaultBacklinkAlphabet' => null,
-			'CiteUseLegacyBacklinkLabels' => true,
-		] );
 
 		$renderer = new BacklinkMarkRenderer(
 			'de',
 			$mockMessageLocalizer,
-			$mockAlphabetsProvider,
+			$this->createMock( AlphabetsProvider::class ),
 			null,
-			$config
+			new HashConfig( [
+				'CiteDefaultBacklinkAlphabet' => null,
+				'CiteUseLegacyBacklinkLabels' => true,
+			] )
 		);
 
 		$label = $renderer->getLegacyNumericMarker( $reuseIndex, $reuseCount, $parentLabel );

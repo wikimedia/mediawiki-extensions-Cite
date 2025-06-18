@@ -156,14 +156,6 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			}
 		);
 
-		$mockAlphabetsProvider = $this->createMock( AlphabetsProvider::class );
-		$mockAlphabetsProvider->method( 'getIndexCharacters' )->willReturn( [ 'z', 'y', 'x' ] );
-
-		$config = new HashConfig( [
-			'CiteDefaultBacklinkAlphabet' => null,
-			'CiteUseLegacyBacklinkLabels' => true,
-		] );
-
 		/** @var ReferenceListFormatter $formatter */
 		$formatter = TestingAccessWrapper::newFromObject( new ReferenceListFormatter(
 			$mockErrorReporter,
@@ -171,9 +163,12 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			new BacklinkMarkRenderer(
 				'en',
 				$mockMessageLocalizer,
-				$mockAlphabetsProvider,
+				$this->createMock( AlphabetsProvider::class ),
 				null,
-				$config
+				new HashConfig( [
+					'CiteDefaultBacklinkAlphabet' => null,
+					'CiteUseLegacyBacklinkLabels' => true,
+				] )
 			),
 			$mockMessageLocalizer
 		) );

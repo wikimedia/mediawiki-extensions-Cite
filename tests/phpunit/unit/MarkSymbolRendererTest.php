@@ -17,19 +17,13 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 	 * @dataProvider provideCustomizedLinkLabels
 	 */
 	public function testMakeLabel( ?string $expectedLabel, int $offset, string $group, ?string $labelList ) {
+		$msg = $this->createMock( Message::class );
+		$msg->method( 'isDisabled' )->willReturn( $labelList === null );
+		$msg->method( 'plain' )->willReturn( $labelList );
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
-		$mockMessageLocalizer->method( 'msg' )->willReturnCallback(
-			function ( ...$args ) use ( $labelList ) {
-				$msg = $this->createMock( Message::class );
-				$msg->method( 'isDisabled' )->willReturn( $labelList === null );
-				$msg->method( 'plain' )->willReturn( $labelList );
-				return $msg;
-			}
-		);
+		$mockMessageLocalizer->method( 'msg' )->willReturn( $msg );
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnCallback(
-			static function ( $number ) {
-				return (string)$number;
-			}
+			static fn ( $number ) => (string)$number
 		);
 		$renderer = new MarkSymbolRenderer( $mockMessageLocalizer );
 
@@ -51,9 +45,7 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 	public function testDefaultGroupCannotHaveCustomLinkLabels() {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnCallback(
-			static function ( $number ) {
-				return (string)$number;
-			}
+			static fn ( $number ) => (string)$number
 		);
 		// Assert that ReferenceMessageLocalizer::msg( 'cite_link_label_group-' )
 		// isn't called by not defining the ->msg method.

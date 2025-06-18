@@ -228,7 +228,7 @@ ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs 
  */
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.referenceModel = ref;
-	this.isInsertingSubRef = ref.extendsRef && !ref.getDocument().data.hasContent();
+	this.isInsertingSubRef = ref.mainRefKey && !ref.getDocument().data.hasContent();
 
 	this.setFormFieldsFromRef( ref );
 	this.updateReuseWarningFromRef( ref );
@@ -259,7 +259,7 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
 		);
 	}
 
-	this.optionsFieldset.toggle( !ref.extendsRef );
+	this.optionsFieldset.toggle( !ref.mainRefKey );
 
 	this.originalGroup = ref.getGroup();
 
@@ -289,11 +289,11 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
  */
 ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 	// Only show preview when editing details
-	if ( ref.extendsRef ) {
+	if ( ref.mainRefKey ) {
 		// Note: listGroup is only available after a (possibly new) ref has been registered via
 		// ve.dm.MWReferenceModel.insertInternalItem
 		const mainRefNode = this.docRefs.getGroupRefs( ref.getGroup() )
-			.getInternalModelNode( ref.extendsRef );
+			.getInternalModelNode( ref.mainRefKey );
 		this.referenceListPreview.$element.empty()
 			.append( mainRefNode ?
 				$( '<div>' )
@@ -312,7 +312,7 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 				)
 			);
 	}
-	this.previewPanel.toggle( !!ref.extendsRef );
+	this.previewPanel.toggle( !!ref.mainRefKey );
 };
 
 /**

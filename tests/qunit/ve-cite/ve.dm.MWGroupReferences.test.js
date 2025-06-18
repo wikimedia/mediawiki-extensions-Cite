@@ -87,11 +87,11 @@
 	} );
 
 	QUnit.test( 'sub-references', ( assert ) => {
-		const extendsDoc = ve.dm.citeExample.createExampleDocument( 'extends' );
-		const extendsGroupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( extendsDoc ).getGroupRefs( '' );
+		const subRefDoc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
+		const groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( subRefDoc ).getGroupRefs( '' );
 
 		assert.deepEqual(
-			extendsGroupRefs.getAllRefsInDocumentOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
+			groupRefs.getAllRefsInDocumentOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
 			[
 				'literal/ldr',
 				'auto/0',
@@ -101,7 +101,7 @@
 		);
 
 		assert.deepEqual(
-			extendsGroupRefs.getTopLevelKeysInReflistOrder(),
+			groupRefs.getTopLevelKeysInReflistOrder(),
 			[
 				'literal/ldr',
 				'auto/1',
@@ -110,14 +110,14 @@
 		);
 
 		assert.deepEqual(
-			extendsGroupRefs.getRefUsages( 'auto/0' ).map( ( node ) => node.getAttribute( 'listKey' ) ),
+			groupRefs.getRefUsages( 'auto/0' ).map( ( node ) => node.getAttribute( 'listKey' ) ),
 			[
 				'auto/0'
 			]
 		);
 
 		assert.deepEqual(
-			extendsGroupRefs.getSubrefs( 'literal/ldr' ).map( ( node ) => node.getAttribute( 'listKey' ) ),
+			groupRefs.getSubrefs( 'literal/ldr' ).map( ( node ) => node.getAttribute( 'listKey' ) ),
 			[
 				'auto/0'
 			]

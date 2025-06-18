@@ -153,7 +153,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 		}
 		const groupRefs = this.docRefs.getGroupRefs( groupName );
 		const flatNodes = groupRefs.getAllRefsInDocumentOrder()
-			.filter( ( node ) => !filterExtends || !node.getAttribute( 'extendsRef' ) );
+			.filter( ( node ) => !filterExtends || !node.getAttribute( 'mainRefKey' ) );
 
 		index = index.concat( flatNodes.map( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );
@@ -189,7 +189,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 				// TODO: return a simple node
 				reference: ve.dm.MWReferenceModel.static.newFromReferenceNode( node ),
 				footnoteLabel: footnoteLabel,
-				isSubRef: !!node.getAttribute( 'extendsRef' ),
+				isSubRef: !!node.getAttribute( 'mainRefKey' ),
 				name: name
 			};
 		} ) );

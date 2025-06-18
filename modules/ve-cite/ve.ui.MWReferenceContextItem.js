@@ -60,7 +60,7 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	let errorMsgKey = 'cite-ve-referenceslist-missingref';
 
 	// Render main ref if this is a subref, or a placeholder if missing.
-	const mainRefKey = this.model.getAttribute( 'extendsRef' );
+	const mainRefKey = this.model.getAttribute( 'mainRefKey' );
 	if ( mainRefKey && refNode ) {
 		refNode = this.groupRefs.getInternalModelNode( mainRefKey );
 		errorMsgKey = 'cite-ve-dialog-reference-missing-parent-ref';
@@ -91,7 +91,7 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
-	if ( !this.model.getAttribute( 'extendsRef' ) ) {
+	if ( !this.model.getAttribute( 'mainRefKey' ) ) {
 		return;
 	}
 
@@ -133,7 +133,7 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
  * Override default edit button, when a subref is present.
  */
 ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
-	const mainRefKey = this.model.getAttribute( 'extendsRef' );
+	const mainRefKey = this.model.getAttribute( 'mainRefKey' );
 	if ( !mainRefKey ) {
 		ve.ui.LinearContextItem.prototype.onEditButtonClick.apply( this );
 		return;
@@ -185,7 +185,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditSubref = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
-	const listKey = this.model.getAttribute( 'extendsRef' ) || this.model.getAttribute( 'listKey' );
+	const listKey = this.model.getAttribute( 'mainRefKey' ) || this.model.getAttribute( 'listKey' );
 	const totalUsageCount = this.groupRefs.getTotalUsageCount( listKey );
 
 	if ( totalUsageCount > 1 ) {
@@ -214,7 +214,7 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
-	if ( !mw.config.get( 'wgCiteSubReferencing' ) || this.model.getAttribute( 'extendsRef' ) ) {
+	if ( !mw.config.get( 'wgCiteSubReferencing' ) || this.model.getAttribute( 'mainRefKey' ) ) {
 		return;
 	}
 

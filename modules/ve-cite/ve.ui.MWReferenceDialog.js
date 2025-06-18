@@ -87,7 +87,7 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 	}
 
 	// Special case for sub-references: create a copy so both can be edited independently
-	if ( ref.extendsRef ) {
+	if ( ref.mainRefKey ) {
 		ref = ve.dm.MWReferenceModel.static.copySubReference( ref, this.getFragment().getDocument() );
 	}
 
@@ -113,7 +113,7 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsExtends = function ( origi
 
 ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
 	const newRef = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
-	newRef.extendsRef = mainRef.getListKey();
+	newRef.mainRefKey = mainRef.getListKey();
 	newRef.group = mainRef.getGroup();
 
 	this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
@@ -267,7 +267,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
 					// edit an existing reference
 					ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
-					if ( ref.extendsRef ) {
+					if ( ref.mainRefKey ) {
 						this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
 					}
 					this.actions.setAbilities( { done: false } );

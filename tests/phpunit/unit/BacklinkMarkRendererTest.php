@@ -25,7 +25,6 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'msg' )->willReturn( $msg );
 
-		// FIXME: also test CLDR alphabet integration
 		$mockAlphabetsProvider = $this->createMock( AlphabetsProvider::class );
 		$mockAlphabetsProvider->method( 'getIndexCharacters' )->willReturn( [ 'z', 'y', 'x' ] );
 
@@ -46,7 +45,15 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 
 	public static function provideGetBacklinkMarker() {
 		return [
+			// Test cases for the code path that falls back to $wgCiteDefaultBacklinkAlphabet
+			[ '', 0, 'a b c' ],
+			[ 'one', 1, 'one two three' ],
 			[ 'ab', 5, 'a b c' ],
+			[ 'ACB', 20, 'A  B  C' ],
+
+			// Test cases for the Alphabets integration from the CLDR extension
+			[ 'z', 1, '' ],
+			[ 'zxy', 20, null ],
 		];
 	}
 

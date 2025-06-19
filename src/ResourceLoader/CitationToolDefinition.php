@@ -47,7 +47,7 @@ class CitationToolDefinition {
 		}
 
 		// Limit and expose
-		$limit = 5;
+		$limit = 8;
 		return array_slice( $citationTools, 0, $limit );
 	}
 }

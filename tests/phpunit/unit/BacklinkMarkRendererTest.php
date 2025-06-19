@@ -6,13 +6,65 @@ use Cite\AlphabetsProvider;
 use Cite\BacklinkMarkRenderer;
 use Cite\ReferenceMessageLocalizer;
 use MediaWiki\Config\HashConfig;
+use MediaWiki\Extension\CommunityConfiguration\Provider\ConfigurationProviderFactory;
+use MediaWiki\Extension\CommunityConfiguration\Provider\IConfigurationProvider;
 use MediaWiki\Message\Message;
+use StatusValue;
 
 /**
  * @covers \Cite\BacklinkMarkRenderer
  * @license GPL-2.0-or-later
  */
 class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
+
+	/**
+	 * @dataProvider provideCommunityConfiguration
+	 */
+	public function testCommunityConfigurationIntegration(
+		string $expectedLabel, int $reuseIndex, ?string $communityConfigAlphabet
+	) {
+		$msg = $this->createMock( Message::class );
+		$msg->method( 'isDisabled' )->willReturn( true );
+		$messageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$messageLocalizer->method( 'msg' )->willReturn( $msg );
+
+		$provider = $this->createMock( IConfigurationProvider::class );
+		$provider->expects( $this->once() )
+			->method( 'loadValidConfiguration' )
+			->willReturn( StatusValue::newGood( (object)[
+				'Cite_Settings' => (object)[
+					'backlinkAlphabet' => $communityConfigAlphabet
+				]
+			] ) );
+		$providerFactory = $this->createMock( ConfigurationProviderFactory::class );
+		$providerFactory->method( 'newProvider' )->willReturn( $provider );
+
+		$renderer = new BacklinkMarkRenderer(
+			'de',
+			$messageLocalizer,
+			$this->createMock( AlphabetsProvider::class ),
+			$providerFactory,
+			new HashConfig( [
+				'CiteBacklinkCommunityConfiguration' => true,
+				'CiteDefaultBacklinkAlphabet' => null,
+				'CiteUseLegacyBacklinkLabels' => false,
+			] )
+		);
+
+		$label = $renderer->getBacklinkMarker( $reuseIndex );
+		$this->assertSame( $expectedLabel, $label );
+	}
+
+	public static function provideCommunityConfiguration() {
+		return [
+			[ '', 0, 'a' ],
+			[ 'one', 1, 'one two three' ],
+			[ 'qr', 5, 'q r s' ],
+			[ 'QSR', 20, 'Q  R  S' ],
+			// Fallback to the hard-coded a…z
+			[ 'e', 5, null ],
+		];
+	}
 
 	/**
 	 * @dataProvider provideGetBacklinkMarker

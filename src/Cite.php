@@ -72,7 +72,7 @@ class Cite {
 	public function __construct( Parser $parser, Config $config ) {
 		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
-		$this->errorReporter = new ErrorReporter( $messageLocalizer );
+		$this->errorReporter = new ErrorReporter( $parser, $messageLocalizer );
 		$this->mReferencesErrors = StatusValue::newGood();
 		$this->referenceStack = new ReferenceStack();
 		$anchorFormatter = new AnchorFormatter();
@@ -183,7 +183,7 @@ class Cite {
 			// FIXME: If we ever have multiple errors, these must all be presented to the user,
 			//  so they know what to correct.
 			// TODO: Make this nicer, see T238061
-			return $this->errorReporter->firstError( $parser, $status );
+			return $this->errorReporter->firstError( $status );
 		}
 
 		// @phan-suppress-next-line PhanParamTooFewUnpack No good way to document it.
@@ -225,13 +225,13 @@ class Cite {
 
 		$status->merge( $this->parseReferencesTagContent( $parser, $text ) );
 		if ( !$status->isGood() ) {
-			$ret = $this->errorReporter->firstError( $parser, $status );
+			$ret = $this->errorReporter->firstError( $status );
 		} else {
 			$responsive = $arguments['responsive'];
 			$ret = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive );
 			// Append errors collected while {@see parseReferencesTagContent} processed <ref> tags
 			// in <references>
-			$ret .= $this->formatReferencesErrors( $parser );
+			$ret .= $this->formatReferencesErrors();
 		}
 
 		$this->inReferencesGroup = null;
@@ -277,13 +277,13 @@ class Cite {
 		return StatusValue::newGood();
 	}
 
-	private function formatReferencesErrors( Parser $parser ): string {
+	private function formatReferencesErrors(): string {
 		$html = '';
 		foreach ( $this->mReferencesErrors->getMessages() as $msg ) {
 			if ( $html ) {
 				$html .= "<br />\n";
 			}
-			$html .= $this->errorReporter->halfParsed( $parser, $msg->getKey(), ...$msg->getParams() );
+			$html .= $this->errorReporter->halfParsed( $msg->getKey(), ...$msg->getParams() );
 		}
 		$this->mReferencesErrors = StatusValue::newGood();
 		return $html ? "\n$html" : '';
@@ -331,7 +331,6 @@ class Cite {
 				$s .= $this->formatReferences( $parser, $group );
 			} else {
 				$s .= '<br />' . $this->errorReporter->halfParsed(
-					$parser,
 					'cite_error_group_refs_without_references',
 					Sanitizer::safeEncodeAttribute( $group )
 				);

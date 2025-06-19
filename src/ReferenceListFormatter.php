@@ -48,7 +48,7 @@ class ReferenceListFormatter {
 			return '';
 		}
 
-		$wikitext = $this->formatRefsList( $parser, $groupRefs, $isSectionPreview );
+		$wikitext = $this->formatRefsList( $groupRefs, $isSectionPreview );
 		$html = $parser->recursiveTagParse( $wikitext );
 		$html = Html::rawElement( 'ol', [ 'class' => 'references' ], $html );
 
@@ -66,14 +66,11 @@ class ReferenceListFormatter {
 	}
 
 	/**
-	 * @param Parser $parser
 	 * @param array<string|int,ReferenceStackItem> $groupRefs
 	 * @param bool $isSectionPreview
-	 *
 	 * @return string Wikitext
 	 */
 	private function formatRefsList(
-		Parser $parser,
 		array $groupRefs,
 		bool $isSectionPreview
 	): string {
@@ -106,7 +103,7 @@ class ReferenceListFormatter {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
-			$parserInput .= $this->formatListItem( $parser, $ref, $isSectionPreview ) . "\n";
+			$parserInput .= $this->formatListItem( $ref, $isSectionPreview ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
 		return $parserInput;
@@ -126,16 +123,14 @@ class ReferenceListFormatter {
 	}
 
 	/**
-	 * @param Parser $parser
 	 * @param ReferenceStackItem $ref
 	 * @param bool $isSectionPreview
-	 *
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
 	private function formatListItem(
-		Parser $parser, ReferenceStackItem $ref, bool $isSectionPreview
+		ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
-		$text = $this->renderTextAndWarnings( $parser, $ref, $isSectionPreview );
+		$text = $this->renderTextAndWarnings( $ref, $isSectionPreview );
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
@@ -201,14 +196,12 @@ class ReferenceListFormatter {
 	}
 
 	/**
-	 * @param Parser $parser
 	 * @param ReferenceStackItem $ref
 	 * @param bool $isSectionPreview
-	 *
 	 * @return string Wikitext
 	 */
 	private function renderTextAndWarnings(
-		Parser $parser, ReferenceStackItem $ref, bool $isSectionPreview
+		ReferenceStackItem $ref, bool $isSectionPreview
 	): string {
 		if ( $ref->text === null ) {
 			$ref->warnings[] = [
@@ -222,7 +215,7 @@ class ReferenceListFormatter {
 		$text = $ref->text ?? '';
 		foreach ( $ref->warnings as $warning ) {
 			// @phan-suppress-next-line PhanParamTooFewUnpack
-			$text .= ' ' . $this->errorReporter->plain( $parser, ...$warning );
+			$text .= ' ' . $this->errorReporter->plain( ...$warning );
 			// FIXME: We could use a StatusValue object to get rid of duplicates
 			break;
 		}

@@ -16,10 +16,15 @@ use StatusValue;
  */
 class ErrorReporter {
 
+	private Parser $parser;
 	private ReferenceMessageLocalizer $messageLocalizer;
 	private ?Language $cachedInterfaceLanguage = null;
 
-	public function __construct( ReferenceMessageLocalizer $messageLocalizer ) {
+	public function __construct(
+		Parser $parser,
+		ReferenceMessageLocalizer $messageLocalizer
+	) {
+		$this->parser = $parser;
 		$this->messageLocalizer = $messageLocalizer;
 	}
 
@@ -27,54 +32,48 @@ class ErrorReporter {
 	 * @deprecated Intermediate helper function. Long-term all errors should be rendered, not only
 	 * the first one.
 	 */
-	public function firstError( Parser $parser, StatusValue $status ): string {
+	public function firstError( StatusValue $status ): string {
 		$firstError = $status->getMessages()[0];
-		return $this->halfParsed( $parser, $firstError->getKey(), ...$firstError->getParams() );
+		return $this->halfParsed( $firstError->getKey(), ...$firstError->getParams() );
 	}
 
 	/**
-	 * @param Parser $parser
 	 * @param string $key Message name of the error or warning
 	 * @param mixed ...$params
-	 *
 	 * @return string Half-parsed wikitext with extension's tags already being expanded
 	 */
-	public function halfParsed( Parser $parser, string $key, ...$params ): string {
-		$msg = $this->msg( $parser, $key, ...$params );
-		$wikitext = $parser->recursiveTagParse( $msg->plain() );
+	public function halfParsed( string $key, ...$params ): string {
+		$msg = $this->msg( $key, ...$params );
+		$wikitext = $this->parser->recursiveTagParse( $msg->plain() );
 		return $this->wrapInHtmlContainer( $wikitext, $key, $msg->getLanguage() );
 	}
 
 	/**
-	 * @param Parser $parser
 	 * @param string $key Message name of the error or warning
 	 * @param mixed ...$params
-	 *
 	 * @return string Plain, unparsed wikitext
 	 * @return-taint tainted
 	 */
-	public function plain( Parser $parser, string $key, ...$params ): string {
-		$msg = $this->msg( $parser, $key, ...$params );
+	public function plain( string $key, ...$params ): string {
+		$msg = $this->msg( $key, ...$params );
 		$wikitext = $msg->plain();
 		return $this->wrapInHtmlContainer( $wikitext, $key, $msg->getLanguage() );
 	}
 
 	/**
-	 * @param Parser $parser
 	 * @param string $key
 	 * @param mixed ...$params
-	 *
 	 * @return Message
 	 */
-	private function msg( Parser $parser, string $key, ...$params ): Message {
-		$language = $this->getInterfaceLanguageAndSplitCache( $parser->getOptions() );
+	private function msg( string $key, ...$params ): Message {
+		$language = $this->getInterfaceLanguageAndSplitCache( $this->parser->getOptions() );
 		$msg = $this->messageLocalizer->msg( $key, ...$params )->inLanguage( $language );
 
 		[ $type ] = $this->parseTypeAndIdFromMessageKey( $key );
 
 		if ( $type === 'error' ) {
 			// Take care; this is a sideeffect that might not belong to this class.
-			$parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
+			$this->parser->addTrackingCategory( 'cite-tracking-category-cite-error' );
 		}
 
 		// Optional wrapper messages: cite_error, cite_warning
@@ -125,4 +124,5 @@ class ErrorReporter {
 		}
 		return array_slice( $matches, 1 );
 	}
+
 }

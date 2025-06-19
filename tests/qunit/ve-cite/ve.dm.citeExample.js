@@ -739,7 +739,7 @@ ve.dm.citeExample.domToDataCases = {
 				type: 'mwReference',
 				attributes: {
 					contentsUsed: true,
-					extendsRef: 'literal/name',
+					mainRefKey: 'literal/name',
 					listGroup: 'mwReference/',
 					listIndex: 0,
 					listKey: 'literal/name',
@@ -782,7 +782,7 @@ ve.dm.citeExample.domToDataCases = {
 					listGroup: 'mwReference/',
 					listIndex: 0,
 					listKey: 'auto/0',
-					extendsRef: 'literal/main-ref',
+					mainRefKey: 'literal/main-ref',
 					mw: {
 						attrs: { details: 'p. 123' },
 						body: { id: 'mw-reference-text-cite_note-2' },
@@ -802,7 +802,7 @@ ve.dm.citeExample.domToDataCases = {
 				type: 'mwReference',
 				attributes: {
 					contentsUsed: true,
-					extendsRef: 'literal/book',
+					mainRefKey: 'literal/book',
 					listGroup: 'mwReference/',
 					listIndex: 1,
 					listKey: 'auto/0',
@@ -910,7 +910,7 @@ ve.dm.citeExample.domToDataCases = {
 					listGroup: 'mwReference/',
 					listIndex: 0,
 					listKey: 'auto/0',
-					extendsRef: 'literal/main-ref',
+					mainRefKey: 'literal/main-ref',
 					mw: {
 						attrs: { details: 'p. 123' },
 						body: { id: 'mw-reference-text-cite_note-2' },
@@ -930,7 +930,7 @@ ve.dm.citeExample.domToDataCases = {
 				type: 'mwReference',
 				attributes: {
 					contentsUsed: true,
-					extendsRef: 'literal/book',
+					mainRefKey: 'literal/book',
 					listGroup: 'mwReference/',
 					listIndex: 1,
 					listKey: 'auto/0',
@@ -1203,7 +1203,7 @@ ve.dm.citeExample.domToDataCases = {
 			{
 				attributes: {
 					contentsUsed: true,
-					extendsRef: 'literal/book',
+					mainRefKey: 'literal/book',
 					listGroup: 'mwReference/',
 					listIndex: 1,
 					listKey: 'auto/0',
@@ -1514,10 +1514,10 @@ ve.dm.citeExample.complexInternalData.internalItems = [
 ve.dm.citeExample.complexInternalData.internalListNextUniqueNumber = 1;
 
 // TODO: Rewrite for details syntax
-ve.dm.citeExample.extends = [
+ve.dm.citeExample.subReferencing = [
 	{ type: 'paragraph' },
 	{ type: 'mwReference', attributes: {
-		extendsRef: 'literal/ldr',
+		mainRefKey: 'literal/ldr',
 		listIndex: 0,
 		listGroup: 'mwReference/',
 		listKey: 'auto/0',
@@ -1532,7 +1532,7 @@ ve.dm.citeExample.extends = [
 	} },
 	{ type: '/mwReference' },
 	{ type: 'mwReference', attributes: {
-		extendsRef: 'literal/nonexistent',
+		mainRefKey: 'literal/nonexistent',
 		listIndex: 2,
 		listGroup: 'mwReference/',
 		listKey: 'literal/orphaned',

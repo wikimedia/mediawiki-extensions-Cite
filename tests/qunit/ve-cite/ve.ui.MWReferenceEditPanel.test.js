@@ -83,7 +83,7 @@
 		const ref = new ve.dm.MWReferenceModel( doc );
 
 		// does exist in the example document
-		ref.extendsRef = 'literal/bar';
+		ref.mainRefKey = 'literal/bar';
 		editPanel.setDocumentReferences( getDocRefsMock( getSimpleNode( doc ) ) );
 		editPanel.setReferenceForEditing( ref );
 
@@ -94,7 +94,7 @@
 		// assert.true( editPanel.referenceListPreview.$element.text().indexOf( 'Bar' ) !== -1 );
 
 		// test sub ref with missing main ref
-		ref.extendsRef = 'literal/notexist';
+		ref.mainRefKey = 'literal/notexist';
 		editPanel.setDocumentReferences( getDocRefsMock() );
 		editPanel.setReferenceForEditing( ref );
 

@@ -119,7 +119,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	};
 
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
-		dataElement.attributes.extendsRef = this.makeListKey(
+		dataElement.attributes.mainRefKey = this.makeListKey(
 			converter.internalList,
 			mwData.mainRef
 		);
@@ -155,7 +155,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			ve.setProp( mwData, 'attrs', 'name', name );
 		}
 
-		if ( dataElement.attributes.extendsRef ) {
+		if ( dataElement.attributes.mainRefKey ) {
 			// this is always either the literal name that was already there or the
 			// auto generated literal from above
 			ve.setProp( mwData, 'mainRef', name );
@@ -290,7 +290,7 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
 	// if the reference defined the body content, it should be stored there again
 	if ( dataElement.attributes.contentsUsed ||
 		// Sub-refs always hold their (details) content, required for later re-serialization
-		dataElement.attributes.extendsRef ||
+		dataElement.attributes.mainRefKey ||
 		// There is no other ref but the current one
 		nodesWithSameKey.length <= 1
 	) {
@@ -325,7 +325,7 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
  * @return {string|undefined} literal or auto generated name
  */
 ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList, nodesWithSameKey ) {
-	const listKey = attributes.extendsRef || attributes.listKey;
+	const listKey = attributes.mainRefKey || attributes.listKey;
 	const keyParts = this.listKeyRegex.exec( listKey );
 
 	// use literal name
@@ -334,7 +334,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
 	}
 
 	// use auto generated name
-	if ( attributes.extendsRef ||
+	if ( attributes.mainRefKey ||
 		nodesWithSameKey.length > 1 ||
 		this.hasSubRefs( attributes, internalList )
 	) {
@@ -354,9 +354,9 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
  */
 ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) {
 	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
-	return !attributes.extendsRef &&
+	return !attributes.mainRefKey &&
 		internalList.getNodeGroup( attributes.listGroup ).firstNodes.some(
-			( node ) => node.element.attributes.extendsRef === attributes.listKey
+			( node ) => node.element.attributes.mainRefKey === attributes.listKey
 		);
 };
 

@@ -79,7 +79,7 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 		.filter( ( node ) => node && !node.getAttribute( 'placeholder' ) )
 		.forEach( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );
-			const mainRefKey = node.getAttribute( 'extendsRef' );
+			const mainRefKey = node.getAttribute( 'mainRefKey' );
 			if ( mainRefKey ) {
 				result.addSubref( mainRefKey, listKey, node );
 			} else {

@@ -24,7 +24,7 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
-	this.extendsRef = null;
+	this.mainRefKey = null;
 	this.listKey = '';
 	this.listGroup = '';
 	this.listIndex = null;
@@ -57,7 +57,7 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 	const attributes = node.getAttributes();
 	const ref = new ve.dm.MWReferenceModel();
 
-	ref.extendsRef = attributes.extendsRef;
+	ref.mainRefKey = attributes.mainRefKey;
 	ref.listKey = attributes.listKey;
 	ref.listGroup = attributes.listGroup;
 	ref.listIndex = attributes.listIndex;
@@ -81,7 +81,7 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 ve.dm.MWReferenceModel.static.copySubReference = function ( subRef, doc ) {
 	const newSubRef = new ve.dm.MWReferenceModel();
 	newSubRef.setDocument( doc.cloneWithData( subRef.getDocument().getData() ) );
-	newSubRef.extendsRef = subRef.extendsRef;
+	newSubRef.mainRefKey = subRef.mainRefKey;
 	newSubRef.setGroup( subRef.getGroup() );
 
 	return newSubRef;
@@ -204,7 +204,7 @@ ve.dm.MWReferenceModel.prototype.insertIntoFragment = function ( surfaceFragment
  */
 ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragment, placeholder ) {
 	const attributes = {
-		extendsRef: this.extendsRef,
+		mainRefKey: this.mainRefKey,
 		listKey: this.listKey,
 		listGroup: this.listGroup,
 		listIndex: this.listIndex,

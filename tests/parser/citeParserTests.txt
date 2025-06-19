@@ -3616,3 +3616,26 @@ parsoid=wt2html
 </ol>
 </div>
 !! end
+
+!! test
+Roundtrip multiple follows
+!! wikitext
+<ref name="test">hiho</ref>
+<ref follow="test">hi</ref>
+<ref follow="test">ho</ref>
+<references />
+!! html/php
+<p><sup id="cite_ref-test_1-0" class="reference"><a href="#cite_note-test-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p><br />
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-test-1"><span class="mw-cite-backlink"><a href="#cite_ref-test_1-0">↑</a></span> <span class="reference-text">hiho hi ho</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt1" class="mw-ref reference" id="cite_ref-test_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"test"},"body":{"id":"mw-reference-text-cite_note-test-1"}}'><a href="./Parser_test#cite_note-test-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
+<sup about="#mwt2" class="mw-ref reference mw-ref-follow" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"follow":"test"},"body":{"id":"mw-reference-text-cite_note-test-1"}}'><a href="./Parser_test#cite_note-test-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
+<sup about="#mwt3" class="mw-ref reference mw-ref-follow" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"follow":"test"},"body":{"id":"mw-reference-text-cite_note-test-1"}}'><a href="./Parser_test#cite_note-test-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-test-1" id="cite_note-test-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-test_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-test-1" class="mw-reference-text reference-text">hiho<span typeof="mw:Cite/Follow" about="#mwt2"> hi</span><span typeof="mw:Cite/Follow" about="#mwt3"> ho</span></span></li>
+</ol></div>
+!! end

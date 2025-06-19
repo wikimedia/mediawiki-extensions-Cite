@@ -112,9 +112,7 @@ class RefTagHandler extends ExtensionTagHandler {
 			// domToWikitext clones $bodyElt and removes the spans, which
 			// works here, but is maybe less performant
 			$tmpFrag = $bodyElt->ownerDocument->createDocumentFragment();
-			// Use an array since childNodes is live
-			$children = iterator_to_array( $bodyElt->childNodes );
-			foreach ( $children as $child ) {
+			foreach ( DOMUtils::childNodes( $bodyElt ) as $child ) {
 				if ( DOMUtils::hasTypeOf( $child, 'mw:Cite/Follow' ) ) {
 					$tmpFrag->appendChild( $child );
 				}
@@ -196,7 +194,7 @@ class RefTagHandler extends ExtensionTagHandler {
 					DOMCompat::querySelector( $bodyElt, "span[typeof~='mw:Cite/Follow']" )
 				) {
 					$bodyElt = DOMDataUtils::cloneNode( $bodyElt, true );
-					foreach ( $bodyElt->childNodes as $child ) {
+					foreach ( DOMUtils::childNodes( $bodyElt ) as $child ) {
 						if ( DOMUtils::hasTypeOf( $child, 'mw:Cite/Follow' ) ) {
 							// @phan-suppress-next-line PhanTypeMismatchArgumentSuperType
 							DOMCompat::remove( $child );

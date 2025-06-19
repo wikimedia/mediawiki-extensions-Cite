@@ -60,9 +60,9 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	let errorMsgKey = 'cite-ve-referenceslist-missingref';
 
 	// Render main ref if this is a subref, or a placeholder if missing.
-	const extendsRef = this.model.getAttribute( 'extendsRef' );
-	if ( extendsRef && refNode ) {
-		refNode = this.groupRefs.getInternalModelNode( extendsRef );
+	const mainRefKey = this.model.getAttribute( 'extendsRef' );
+	if ( mainRefKey && refNode ) {
+		refNode = this.groupRefs.getInternalModelNode( mainRefKey );
 		errorMsgKey = 'cite-ve-dialog-reference-missing-parent-ref';
 	}
 
@@ -133,8 +133,8 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
  * Override default edit button, when a subref is present.
  */
 ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
-	const extendsRef = this.model.getAttribute( 'extendsRef' );
-	if ( !extendsRef ) {
+	const mainRefKey = this.model.getAttribute( 'extendsRef' );
+	if ( !mainRefKey ) {
 		ve.ui.LinearContextItem.prototype.onEditButtonClick.apply( this );
 		return;
 	}
@@ -144,7 +144,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 	const groupRefs = ve.dm.MWDocumentReferences.static
 		.refsForDoc( this.getFragment().getDocument() )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
-	const mainRefNode = groupRefs.getRefNode( extendsRef );
+	const mainRefNode = groupRefs.getRefNode( mainRefKey );
 	const mainModelItem = ve.ui.contextItemFactory.getRelatedItems( [ mainRefNode ] )
 		.find( ( item ) => item.name !== 'mobileActions' );
 

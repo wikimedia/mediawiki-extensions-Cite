@@ -26,6 +26,7 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 	 * @member {Object.<string, number[]>}
 	 */
 	this.footnoteNumberLookup = {};
+
 	/**
 	 * Lookup from listKey to a rendered footnote number or subref number like "1.2", in the
 	 * local content language.
@@ -35,15 +36,18 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 	 * @member {Object.<string, string>}
 	 */
 	this.footnoteLabelLookup = {};
+
 	/**
-	 * Lookup from parent listKey to subrefs.
+	 * Lookup from a main reference's listKey to the corresponding sub-refs.
 	 *
 	 * @member {Object.<string, ve.dm.MWReferenceNode[]>}
+	 * @private
 	 */
-	this.subRefsByParent = {};
+	this.subRefsByMain = {};
 
 	/** @private */
 	this.topLevelCounter = 1;
+
 	/**
 	 * InternalList node group, or null if no such group exists.
 	 *
@@ -75,12 +79,11 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 		.filter( ( node ) => node && !node.getAttribute( 'placeholder' ) )
 		.forEach( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );
-			const extendsRef = node.getAttribute( 'extendsRef' );
-
-			if ( !extendsRef ) {
-				result.getOrAllocateTopLevelIndex( listKey );
+			const mainRefKey = node.getAttribute( 'extendsRef' );
+			if ( mainRefKey ) {
+				result.addSubref( mainRefKey, listKey, node );
 			} else {
-				result.addSubref( extendsRef, listKey, node );
+				result.getOrAllocateTopLevelIndex( listKey );
 			}
 		} );
 
@@ -92,7 +95,7 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 /**
  * @private
  * @param {string} listKey Full key for the top-level ref
- * @return {number[]} Allocated topLevelIndex
+ * @return {number} Allocated topLevelIndex
  */
 ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listKey ) {
 	if ( this.footnoteNumberLookup[ listKey ] === undefined ) {
@@ -105,22 +108,22 @@ ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listKe
 
 /**
  * @private
- * @param {string} parentKey Full key of the parent reference
- * @param {string} listKey Full key of the subreference
- * @param {ve.dm.MWReferenceNode} subrefNode Subref to add to internal tracking
+ * @param {string} mainRefKey Full key of the main reference
+ * @param {string} subRefKey Full key of the sub-reference
+ * @param {ve.dm.MWReferenceNode} subRefNode Sub-reference to add to internal tracking
  */
-ve.dm.MWGroupReferences.prototype.addSubref = function ( parentKey, listKey, subrefNode ) {
-	if ( this.subRefsByParent[ parentKey ] === undefined ) {
-		this.subRefsByParent[ parentKey ] = [];
+ve.dm.MWGroupReferences.prototype.addSubref = function ( mainRefKey, subRefKey, subRefNode ) {
+	if ( this.subRefsByMain[ mainRefKey ] === undefined ) {
+		this.subRefsByMain[ mainRefKey ] = [];
 	}
-	this.subRefsByParent[ parentKey ].push( subrefNode );
-	const subrefIndex = this.subRefsByParent[ parentKey ].length;
+	this.subRefsByMain[ mainRefKey ].push( subRefNode );
+	const subRefIndex = this.subRefsByMain[ mainRefKey ].length;
 
-	const topLevelIndex = this.getOrAllocateTopLevelIndex( parentKey );
-	this.footnoteNumberLookup[ listKey ] = [ topLevelIndex, subrefIndex ];
-	this.footnoteLabelLookup[ listKey ] = ve.dm.MWDocumentReferences.static.contentLangDigits( topLevelIndex ) +
+	const topLevelIndex = this.getOrAllocateTopLevelIndex( mainRefKey );
+	this.footnoteNumberLookup[ subRefKey ] = [ topLevelIndex, subRefIndex ];
+	this.footnoteLabelLookup[ subRefKey ] = ve.dm.MWDocumentReferences.static.contentLangDigits( topLevelIndex ) +
 		// FIXME: RTL, and customization of the separator like with mw:referencedBy
-		'.' + ve.dm.MWDocumentReferences.static.contentLangDigits( subrefIndex );
+		'.' + ve.dm.MWDocumentReferences.static.contentLangDigits( subRefIndex );
 };
 
 /**
@@ -224,11 +227,11 @@ ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listKey ) {
 };
 
 /**
- * @param {string} parentKey parent ref key
+ * @param {string} mainRefKey
  * @return {ve.dm.MWReferenceNode[]} List of subrefs for this parent not including re-uses
  */
-ve.dm.MWGroupReferences.prototype.getSubrefs = function ( parentKey ) {
-	return this.subRefsByParent[ parentKey ] || [];
+ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainRefKey ) {
+	return this.subRefsByMain[ mainRefKey ] || [];
 };
 
 /**

@@ -292,12 +292,12 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 	if ( ref.extendsRef ) {
 		// Note: listGroup is only available after a (possibly new) ref has been registered via
 		// ve.dm.MWReferenceModel.insertInternalItem
-		const parentNode = this.docRefs.getGroupRefs( ref.getGroup() )
+		const mainRefNode = this.docRefs.getGroupRefs( ref.getGroup() )
 			.getInternalModelNode( ref.extendsRef );
 		this.referenceListPreview.$element.empty()
-			.append( parentNode ?
+			.append( mainRefNode ?
 				$( '<div>' )
-					.append( new ve.ui.MWPreviewElement( parentNode, { useView: true } ).$element ) :
+					.append( new ve.ui.MWPreviewElement( mainRefNode, { useView: true } ).$element ) :
 				$( '<div>' )
 					.addClass( 've-ui-mwReferenceContextItem-muted' )
 					.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) )

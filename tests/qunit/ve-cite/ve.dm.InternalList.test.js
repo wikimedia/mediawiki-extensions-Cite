@@ -52,7 +52,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	};
 
 	assert.deepEqualWithNodeTree(
-		doc.internalList.nodes,
+		doc.internalList.getNodeGroups(),
 		expectedNodes,
 		'Document construction populates internal list correctly'
 	);
@@ -66,7 +66,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.nodes,
+		newInternalList.getNodeGroups(),
 		expectedNodes,
 		'Nodes added in order'
 	);
@@ -82,7 +82,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.nodes,
+		newInternalList.getNodeGroups(),
 		expectedNodes,
 		'Nodes added in reverse order'
 	);
@@ -91,7 +91,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.nodes,
+		newInternalList.getNodeGroups(),
 		{
 			'mwReference/': {
 				keyedNodes: {
@@ -127,7 +127,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.nodes,
+		newInternalList.getNodeGroups(),
 		{
 			'mwReference/': {
 				keyedNodes: {
@@ -165,7 +165,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.nodes,
+		newInternalList.getNodeGroups(),
 		{
 			'mwReference/': {
 				keyedNodes: {},

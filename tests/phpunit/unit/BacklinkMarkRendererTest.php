@@ -78,7 +78,7 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 		$mockMessageLocalizer->method( 'msg' )->willReturn( $msg );
 
 		$mockAlphabetsProvider = $this->createMock( AlphabetsProvider::class );
-		$mockAlphabetsProvider->method( 'getIndexCharacters' )->willReturn( [ 'z', 'y', 'x' ] );
+		$mockAlphabetsProvider->method( 'getIndexCharacters' )->willReturn( [ 'Z', 'Y', 'X' ] );
 
 		$renderer = new BacklinkMarkRenderer(
 			'de',
@@ -100,6 +100,7 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 			// Test cases for the code path that falls back to $wgCiteDefaultBacklinkAlphabet
 			[ '', 0, 'a b c' ],
 			[ 'one', 1, 'one two three' ],
+			[ 'aa', 2, 'a' ],
 			[ 'ab', 5, 'a b c' ],
 			[ 'ACB', 20, 'A  B  C' ],
 

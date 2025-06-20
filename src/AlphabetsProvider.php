@@ -23,12 +23,12 @@ class AlphabetsProvider {
 	 * The index or main alphabet, found in CLDR main `characters.exemplarCharacters`,
 	 * and reduced to a simple form for creating a sequence. Returns null when CLDR is not installed
 	 *
-	 * @param string $code Locale to query. If no entry exists, the fallback
+	 * @param string $languageCode Locale to query. If no entry exists, the fallback
 	 * locales are iterated.
 	 * @return string[]|null a sequence of symbols
 	 */
-	public function getIndexCharacters( string $code ): ?array {
-		return $this->alphabets ? $this->alphabets->getIndexCharacters( $code ) : null;
+	public function getIndexCharacters( string $languageCode ): ?array {
+		return $this->alphabets ? $this->alphabets->getIndexCharacters( $languageCode ) : null;
 	}
 
 }

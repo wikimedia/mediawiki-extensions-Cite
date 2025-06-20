@@ -55,7 +55,16 @@ class BacklinkMarkRenderer {
 	 * @return string rendered marker
 	 */
 	public function getBacklinkMarker( int $reuseIndex ): string {
-		return $this->buildAlphaLabel( $this->alphabet, $reuseIndex );
+		$radix = count( $this->alphabet );
+		$label = '';
+		while ( $reuseIndex > 0 ) {
+			// Logically, our alphabet is meant to be 1-based but the array is 0-based
+			$reuseIndex--;
+			// Start with the least significant place, walking up from right to left
+			$label = $this->alphabet[$reuseIndex % $radix] . $label;
+			$reuseIndex = (int)( $reuseIndex / $radix );
+		}
+		return $label;
 	}
 
 	/**
@@ -124,10 +133,10 @@ class BacklinkMarkRenderer {
 	 * Returns an Alphabet of symbols that can be used to generate backlink markers.
 	 * The Alphabet will either be retrieved from config or the CLDR AlphabetsProvider.
 	 *
-	 * @param string $code
+	 * @param string $languageCode
 	 * @return string[]
 	 */
-	private function getBacklinkAlphabet( string $code ): array {
+	private function getBacklinkAlphabet( string $languageCode ): array {
 		$alphabetString = $this->loadCommunityConfig()->Cite_Settings->backlinkAlphabet ??
 			$this->config->get( 'CiteDefaultBacklinkAlphabet' ) ?? '';
 
@@ -139,7 +148,7 @@ class BacklinkMarkRenderer {
 		);
 
 		if ( !$alphabet ) {
-			$alphabet = $this->alphabetsProvider->getIndexCharacters( $code ) ?? [];
+			$alphabet = $this->alphabetsProvider->getIndexCharacters( $languageCode ) ?? [];
 			$alphabet = array_map( 'mb_strtolower', $alphabet );
 		}
 
@@ -150,30 +159,4 @@ class BacklinkMarkRenderer {
 		return $alphabet;
 	}
 
-	/**
-	 * Recursive method to build a mark using an alphabet, repeating symbols to
-	 * extend the range like "a…z, aa, ab…"
-	 *
-	 * @param string[] $symbols List of alphabet characters as strings
-	 * @param int $number One-based footnote group index
-	 * @param string $result Recursively-constructed output
-	 * @return string Caller sees the final result
-	 */
-	private function buildAlphaLabel( array $symbols, int $number, string $result = '' ): string {
-		// Done recursing?
-		if ( $number <= 0 ) {
-			return $result;
-		}
-		$radix = count( $symbols );
-		// Use a zero-based index as it becomes more convenient for integer
-		// modulo and symbol lookup (though not for division!)
-		$remainder = ( $number - 1 ) % $radix;
-		return $this->buildAlphaLabel(
-			$symbols,
-			// Subtract so the units value is zero and divide, moving to the next place leftwards.
-			( $number - ( $remainder + 1 ) ) / $radix,
-			// Prepend current symbol, moving left.
-			$symbols[ $remainder ] . $result
-		);
-	}
 }

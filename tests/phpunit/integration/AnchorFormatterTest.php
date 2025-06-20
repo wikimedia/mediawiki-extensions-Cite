@@ -18,15 +18,15 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$this->overrideConfigValue( MainConfigNames::FragmentMode, [ 'html5' ] );
 	}
 
-	public function testBackLink() {
+	public function testBacklink() {
 		$formatter = new AnchorFormatter();
 
 		$this->assertSame(
 			'cite_ref-1',
-			$formatter->backLink( null, 1, 0 ) );
+			$formatter->backlink( null, 1, 0 ) );
 		$this->assertSame(
 			'cite_ref-name_2-0',
-			$formatter->backLink( 'name', 2, 1 ) );
+			$formatter->backlink( 'name', 2, 1 ) );
 	}
 
 	public function testJumpLink() {

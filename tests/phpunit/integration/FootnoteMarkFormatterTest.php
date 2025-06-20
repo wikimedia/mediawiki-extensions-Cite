@@ -23,7 +23,7 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 		$anchorFormatter->method( 'jumpLink' )->willReturnCallback(
 			static fn ( ...$args ) => implode( '+', $args )
 		);
-		$anchorFormatter->method( 'backLinkTarget' )->willReturnCallback(
+		$anchorFormatter->method( 'backlinkTarget' )->willReturnCallback(
 			static fn ( ...$args ) => implode( '+', $args )
 		);
 		$messageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );

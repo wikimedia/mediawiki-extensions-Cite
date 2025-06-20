@@ -119,14 +119,14 @@ class RefGroup {
 		$linkbackSpan = $ownerDoc->createElement( 'span' );
 		if ( $ref->visibleNodes === 1 ) {
 			// Can be an unnamed reference or a named one that's just never reused
-			$lb = ParsoidAnchorFormatter::getBackLinkIdentifier( $ref );
+			$lb = ParsoidAnchorFormatter::getBacklinkIdentifier( $ref );
 			$linkback = self::createLinkback( $extApi, $lb, $refGroup, "↑", $ownerDoc );
 			DOMUtils::addRel( $linkback, 'mw:referencedBy' );
 			$linkbackSpan->appendChild( $linkback );
 		} else {
 			DOMUtils::addRel( $linkbackSpan, 'mw:referencedBy' );
 			for ( $i = 1; $i <= $ref->visibleNodes; $i++ ) {
-				$lb = ParsoidAnchorFormatter::getBackLinkIdentifier( $ref, $i );
+				$lb = ParsoidAnchorFormatter::getBacklinkIdentifier( $ref, $i );
 				$linkbackSpan->appendChild(
 					self::createLinkback( $extApi, $lb, $refGroup, (string)$i, $ownerDoc )
 				);

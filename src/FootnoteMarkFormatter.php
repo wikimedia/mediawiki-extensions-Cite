@@ -37,7 +37,7 @@ class FootnoteMarkFormatter {
 		$label = $this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup, $ref->subrefIndex );
 		return $this->messageLocalizer->msg(
 			'cite_reference_link',
-			$this->anchorFormatter->backLinkTarget( $ref->name, $ref->globalId, $ref->count ),
+			$this->anchorFormatter->backlinkTarget( $ref->name, $ref->globalId, $ref->count ),
 			$this->anchorFormatter->jumpLink( $ref->name, $ref->globalId ),
 			Sanitizer::safeEncodeAttribute( $label )
 		)->plain();

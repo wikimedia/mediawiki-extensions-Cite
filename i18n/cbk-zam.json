@@ -5,5 +5,9 @@
 			"Noooote"
 		]
 	},
-	"cite_error": "Error de citada: $1"
+	"cite-desc": "Ta aumenta maga tags de <code>&lt;ref&gt;</code> y <code>lt;references&gt;</code> para na maga citacion",
+	"cite_error": "Error de citada: $1",
+	"cite_error_ref_invalid_dir": "Invalido <code>dir=$1</code>, debe <code>ltr</code> o <code>rtl</code> ele",
+	"cite_error_ref_numeric_key": "Invalido tag de <code>&lt;ref&gt;</code>; el nombre no puede queda un simple integer. Usa un titulo descriptivo",
+	"cite_error_ref_no_key": "El opening <code>&lt;ref&gt;</code> tag malformao o tiene nombre umal"
 }

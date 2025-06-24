@@ -148,7 +148,7 @@ class ReferenceListFormatter {
 		}
 
 		if ( $ref->count === 1 ) {
-			$backlinkId = $this->anchorFormatter->backLink( $ref->name, $ref->globalId, $ref->count );
+			$backlinkId = $this->anchorFormatter->backlink( $ref->name, $ref->globalId, $ref->count );
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
 				$this->anchorFormatter->jumpLinkTarget( $ref->name, $ref->globalId ),
@@ -167,7 +167,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backLink( $ref->name, $ref->globalId, $i + 1 ),
+					$this->anchorFormatter->backlink( $ref->name, $ref->globalId, $i + 1 ),
 					$this->backlinkMarkRenderer->getLegacyNumericMarker( $i, $ref->count, $parentLabel ),
 					$this->backlinkMarkRenderer->getLegacyAlphabeticMarker( $i + 1, $ref->count, $parentLabel )
 				)->plain();
@@ -176,7 +176,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backLink( $ref->name, $ref->globalId, $i + 1 ),
+					$this->anchorFormatter->backlink( $ref->name, $ref->globalId, $i + 1 ),
 					$backlinkLabel,
 					$backlinkLabel
 				)->plain();

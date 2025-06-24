@@ -21,7 +21,7 @@ The anchor to jump back up to one of possibly multiple footnote markers is prefi
 * For named references that are not re-used: The reference's name, an underscore, numeric id, a dash, and a zero, e.g. `cite_ref-Britannica_2-0`.
 * For named references that are re-used: As above, except with any number in place of the zero.
 
-This is implemented in `AnchorFormatter::getBackLinkIdentifier`, used by both parsers.
+This is implemented in `AnchorFormatter::getBacklinkIdentifier`, used by both parsers.
 
 **Additional notes:**
 * As above, the name alone is not necessarily unique.

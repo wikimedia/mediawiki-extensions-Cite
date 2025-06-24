@@ -405,7 +405,7 @@ class References {
 
 		$this->addLinkBackAttributes(
 			$linkBackSup,
-			$isVisibleNode ? ParsoidAnchorFormatter::getBackLinkIdentifier( $ref ) : null,
+			$isVisibleNode ? ParsoidAnchorFormatter::getBacklinkIdentifier( $ref ) : null,
 			DOMCompat::getAttribute( $node, 'typeof' ),
 			$about,
 			$hasValidFollow

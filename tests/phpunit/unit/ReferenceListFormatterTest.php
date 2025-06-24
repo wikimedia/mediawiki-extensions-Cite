@@ -138,7 +138,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$mockErrorReporter->method( 'plain' )->willReturnArgument( 0 );
 
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
-		$anchorFormatter->method( 'backLink' )->willReturnCallback(
+		$anchorFormatter->method( 'backlink' )->willReturnCallback(
 			static fn ( ...$args ) => implode( '+', $args )
 		);
 		$anchorFormatter->method( 'jumpLinkTarget' )->willReturnCallback(

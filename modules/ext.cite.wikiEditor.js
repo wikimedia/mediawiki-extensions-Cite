@@ -78,6 +78,26 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 			}
 		},
 		{
+			description: {
+				html: mw.message( 'cite-wikieditor-help-content-sub-reference-description' ).parse()
+			},
+			syntax: {
+				html: mw.html.escape(
+					mw.message( 'cite-wikieditor-help-content-reference-example-text1',
+						mw.message( 'cite-wikieditor-help-content-reference-example-ref-details',
+							mw.message( 'cite-wikieditor-help-content-reference-example-ref-id' ).plain(),
+							mw.message( 'cite-wikieditor-help-content-reference-example-extra-details' ).plain()
+						).plain()
+					).plain()
+				)
+			},
+			result: {
+				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1',
+					parsedRef( 2.1 )
+				).parse()
+			}
+		},
+		{
 			description: { html: mw.message( 'cite-wikieditor-help-content-showreferences-description' ).parse() },
 			syntax: {
 				html: mw.message( 'cite-wikieditor-help-content-reference-example-reflist' ).escaped()
@@ -103,8 +123,11 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 					'</li></ol>'
 			}
 		}
-
 	];
+
+	if ( !mw.config.get( 'wgCiteSubReferencing' ) ) {
+		helpRows.splice( -2, 1 );
+	}
 
 	$textarea.wikiEditor( 'addToToolbar', {
 		section: 'help',

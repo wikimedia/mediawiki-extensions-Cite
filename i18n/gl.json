@@ -18,6 +18,7 @@
 	"cite_error_ref_conflicting_dir": "Unha das etiquetas <code>&lt;ref&gt;</code> co nome \"$1\" ten un atributo \"dir\" conflitivo.",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> non válida; o nome non pode ser un simple número enteiro. Use un título descritivo",
 	"cite_error_ref_no_key": "a etiqueta de apertura <code>&lt;ref&gt;</code> é incorrecta ou ten un nome incorrecto",
+	"cite_error_ref_with_details_no_name": "Etiqueta <code>&lt;ref></code> non válida; falta o atributo \"name\". Cómpre proporcionar o atributo \"name\" xunto co atributo \"details\".",
 	"cite_error_ref_too_many_keys": "Parámetro non válido na etiqueta <code>&lt;ref&gt;</code>",
 	"cite_error_ref_follow_conflicts": "Non se pode nomear individualmente ningunha etiqueta <code>&lt;ref follow=\"…\"&gt;</code> que sexa continuación doutra anterior; tampouco pode conter detalles.",
 	"cite_error_ref_no_input": "Etiqueta <code>&lt;ref&gt;</code> non válida; as referencias que non teñan nome deben ter contido",

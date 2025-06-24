@@ -22,6 +22,7 @@
 	"cite_error_ref_conflicting_dir": "\"$1\" adındaki <code>&lt;ref&gt;</code> etiketlerinden birinin çakışan dizin özelliği var.",
 	"cite_error_ref_numeric_key": "Geçersiz <code>&lt;ref&gt;</code> etiketi; isim basit bir tamsayı olamaz. Açıklayıcı bir başlık kullanın",
 	"cite_error_ref_no_key": "Açılış <code>&lt;ref&gt;</code> etiketi hatalı biçimlendirilmiş veya hatalı bir ada sahip",
+	"cite_error_ref_with_details_no_name": "Geçersiz <code>&lt;ref></code> etiketi; eksik ad özniteliği. Ayrıntılar özniteliğiyle birlikte bir ad özniteliği sağlanmalıdır.",
 	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> etiketinde geçersiz değişken",
 	"cite_error_ref_follow_conflicts": "Bir öncekinin devamı olan <code>&lt;ref follow=\"…\"&gt;</code> etiketi tek başına adlandırılamaz ya da ayrıntılandırılamaz.",
 	"cite_error_ref_no_input": "Geçersiz <code>&lt;ref&gt;</code> etiketi; isimsiz ref içeriği olmalı",

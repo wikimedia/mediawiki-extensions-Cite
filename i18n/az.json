@@ -18,6 +18,7 @@
 	"cite_error_ref_conflicting_dir": "\"$1\" adlı <code>&lt;ref&gt;</code> teqlərindən birində ziddiyyətli dir atributu var.",
 	"cite_error_ref_numeric_key": "Xətalı <code>&lt;ref&gt;</code> etiketi; istinad adlandırması yalnız rəqəm ola bilməz. Daha yaxşı başlıqdan istifadə edin",
 	"cite_error_ref_no_key": "<code>&lt;ref&gt;</code> açılış teqi səhv formalaşdırılıb və ya adı etibarsızdır",
+	"cite_error_ref_with_details_no_name": "Yanlış <code>&lt;ref></code> teqi; ad atributu təyin edilməyib. Detallar atributu ilə birlikdə ad atributu da göstərilməlidir.",
 	"cite_error_ref_too_many_keys": "<code>&lt;ref&gt;</code> teqində yanlış parametr",
 	"cite_error_ref_follow_conflicts": "Əvvəlkinin davamı olan <code>&lt;ref follow=\"…\"&gt;</code> teqi fərdi olaraq adlandırıla və ya detalları ola bilməz.",
 	"cite_error_ref_no_input": "Yanlış <code>&lt;ref&gt;</code>teqi; adsız istinadlar məzmuna sahib olmalıdır",

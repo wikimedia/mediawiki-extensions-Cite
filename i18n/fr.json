@@ -38,6 +38,7 @@
 	"cite_error_ref_conflicting_dir": "Une des balises <code>&lt;ref&gt;</code> avec le nom \"$1\" a un attribut dir en conflit.",
 	"cite_error_ref_numeric_key": "Balise <code>&lt;ref&gt;</code> incorrecte : la valeur de l’attribut <code>name</code> ne peut être un simple entier. Utilisez un titre descriptif.",
 	"cite_error_ref_no_key": "La balise ouvrante <code>&lt;ref&gt;</code> est mal formée ou a un mauvais nom.",
+	"cite_error_ref_with_details_no_name": "Balise <code>&lt;ref></code> non valide ; attribut name manquant. Un attribut name doit être fourni avec un attribut details.",
 	"cite_error_ref_too_many_keys": "Paramètre invalide dans la balise <code>&lt;ref&gt;</code>",
 	"cite_error_ref_follow_conflicts": "Une balise <code>&lt;ref follow=\"…\"&gt;</code> qui est la continuation d'une précédente ne peut pas être nommée individuellement ni contenir des détails.",
 	"cite_error_ref_no_input": "Balise <code>&lt;ref&gt;</code> incorrecte : les références sans nom doivent avoir un contenu.",

@@ -24,6 +24,7 @@
 	"cite_error_ref_conflicting_dir": "Einer der <code>&lt;ref&gt;</code>-Tags mit dem Namen „$1“ weist ein widersprüchliches dir-Attribut auf.",
 	"cite_error_ref_numeric_key": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „name“ darf kein reiner Zahlenwert sein. {{#FORMAL:Benutze|Benutzen Sie}} einen beschreibenden Namen.",
 	"cite_error_ref_no_key": "Das öffnende <code>&lt;ref&gt;</code>-Tag ist beschädigt oder hat einen ungültigen Namen",
+	"cite_error_ref_with_details_no_name": "Ungültiges <code><ref></code>-Tag; fehlendes Namensattribut. Ein Namensattribut muss zusammen mit einem Details-Attribut angegeben werden.",
 	"cite_error_ref_too_many_keys": "Ungültiger Parameter in <code>&lt;ref&gt;</code>.",
 	"cite_error_ref_follow_conflicts": "Ein code>&lt;ref follow=\"…\"&gt;</code>-Tag, das die Fortsetzung eines vorherigen ist, kann weder einzeln benannt werden noch Details enthalten.",
 	"cite_error_ref_no_input": "Ungültige Verwendung von <code>&lt;ref&gt;</code>: Der Parameter „ref“ ohne Namen muss einen Inhalt haben.",

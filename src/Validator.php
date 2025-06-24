@@ -144,7 +144,8 @@ class Validator {
 				$status->fatal( 'cite_error_details_missing_parent' );
 			} elseif ( (string)$arguments['details'] !== '' ) {
 				// References with details must have a name.
-				$status->fatal( 'cite_error_ref_with_details_no_name' );
+				$status->warning( 'cite_error_ref_with_details_no_name' );
+				$arguments['details'] = null;
 			} elseif ( $isSelfClosingTag ) {
 				// Completely empty ref like <ref /> is forbidden.
 				$status->fatal( 'cite_error_ref_no_key' );

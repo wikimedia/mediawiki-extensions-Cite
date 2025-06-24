@@ -138,10 +138,10 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		$mockErrorReporter->method( 'plain' )->willReturnArgument( 1 );
 
 		$anchorFormatter = $this->createMock( AnchorFormatter::class );
-		$anchorFormatter->method( 'backlink' )->willReturnCallback(
+		$anchorFormatter->method( 'wikitextSafeBacklink' )->willReturnCallback(
 			static fn ( ...$args ) => implode( '+', $args )
 		);
-		$anchorFormatter->method( 'jumpLinkTarget' )->willReturnCallback(
+		$anchorFormatter->method( 'noteLinkTarget' )->willReturnCallback(
 			static fn ( ...$args ) => implode( '+', $args )
 		);
 

@@ -153,10 +153,10 @@ class ReferenceListFormatter {
 		}
 
 		if ( $ref->count === 1 ) {
-			$backlinkId = $this->anchorFormatter->backlink( $ref->name, $ref->globalId, $ref->count );
+			$backlinkId = $this->anchorFormatter->wikitextSafeBacklink( $ref->name, $ref->globalId, $ref->count );
 			return $this->messageLocalizer->msg(
 				'cite_references_link_one',
-				$this->anchorFormatter->jumpLinkTarget( $ref->name, $ref->globalId ),
+				$this->anchorFormatter->noteLinkTarget( $ref->name, $ref->globalId ),
 				$backlinkId,
 				$text,
 				$extraAttributes
@@ -172,7 +172,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backlink( $ref->name, $ref->globalId, $i + 1 ),
+					$this->anchorFormatter->wikitextSafeBacklink( $ref->name, $ref->globalId, $i + 1 ),
 					$this->backlinkMarkRenderer->getLegacyNumericMarker( $i, $ref->count, $parentLabel ),
 					$this->backlinkMarkRenderer->getLegacyAlphabeticMarker( $i + 1, $ref->count, $parentLabel )
 				)->plain();
@@ -181,7 +181,7 @@ class ReferenceListFormatter {
 
 				$backlinks[] = $this->messageLocalizer->msg(
 					'cite_references_link_many_format',
-					$this->anchorFormatter->backlink( $ref->name, $ref->globalId, $i + 1 ),
+					$this->anchorFormatter->wikitextSafeBacklink( $ref->name, $ref->globalId, $i + 1 ),
 					$backlinkLabel,
 					$backlinkLabel
 				)->plain();
@@ -190,7 +190,7 @@ class ReferenceListFormatter {
 
 		// The parent of a subref might actually be unused and therefore have zero backlinks
 		$linkTargetId = $ref->count > 0 ?
-			$this->anchorFormatter->jumpLinkTarget( $ref->name, $ref->globalId ) : '';
+			$this->anchorFormatter->noteLinkTarget( $ref->name, $ref->globalId ) : '';
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
 			$linkTargetId,

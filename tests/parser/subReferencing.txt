@@ -93,8 +93,12 @@ wgCiteSubReferencing=true
 <ref details="abc">def</ref>
 <references />
 !! html/php
-<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; missing name attribute. A name attribute must be provided along with a details attribute.</span>
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">def <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; missing name attribute. A name attribute must be provided along with a details attribute.</span></span>
+</li>
+</ol></div>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"details":"abc"},"body":{"id":"mw-reference-text-cite_note-1"},"errors":[{"key":"cite_error_ref_with_details_no_name"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>

@@ -38,7 +38,7 @@ class FootnoteMarkFormatter {
 		return $this->messageLocalizer->msg(
 			'cite_reference_link',
 			$this->anchorFormatter->backlinkTarget( $ref->name, $ref->globalId, $ref->count ),
-			$this->anchorFormatter->jumpLink( $ref->name, $ref->globalId ),
+			$this->anchorFormatter->wikitextSafeNoteLink( $ref->name, $ref->globalId ),
 			Sanitizer::safeEncodeAttribute( $label )
 		)->plain();
 	}

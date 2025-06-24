@@ -31,7 +31,7 @@ class AnchorFormatter {
 	/**
 	 * @return string URL and HTML escaped to be used as part of a [[#…]] link in wikitext
 	 */
-	public function backlink( ?string $name, int $globalId, int $count ): string {
+	public function wikitextSafeBacklink( ?string $name, int $globalId, int $count ): string {
 		$id = $this->getBacklinkIdentifier( $name, $globalId, $count );
 		// This does both URL encoding (e.g. %A0, which only makes sense in href="…") and HTML
 		// entity encoding (e.g. &#xA0;). The browser will decode in reverse order.
@@ -67,7 +67,7 @@ class AnchorFormatter {
 	/**
 	 * @return string URL and HTML escaped to be used as part of a [[#…]] link in wikitext
 	 */
-	public function jumpLink( ?string $name, int $globalId ): string {
+	public function wikitextSafeNoteLink( ?string $name, int $globalId ): string {
 		$id = $this->getNoteIdentifier( $name, $globalId );
 		// This does both URL encoding (e.g. %A0, which only makes sense in href="…") and HTML
 		// entity encoding (e.g. &#xA0;). The browser will decode in reverse order.
@@ -77,7 +77,7 @@ class AnchorFormatter {
 	/**
 	 * @return string Already escaped to be used directly in an id="…" attribute
 	 */
-	public function jumpLinkTarget( ?string $name, int $globalId ): string {
+	public function noteLinkTarget( ?string $name, int $globalId ): string {
 		$id = $this->getNoteIdentifier( $name, $globalId );
 		return Sanitizer::safeEncodeAttribute( $id );
 	}

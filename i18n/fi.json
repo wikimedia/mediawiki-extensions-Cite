@@ -43,6 +43,8 @@
 	"cite-tracking-category-cite-error-desc": "Tässä luokassa olevissa sivuissa on virheitä viite-elementtien käytössä.",
 	"cite-tracking-category-cite-diffing-error": "Sivut, joissa on viitevirheitä, jotka aiheuttavat visuaalisen muutoksen",
 	"cite-tracking-category-cite-diffing-error-desc": "Tässä luokassa olevissa sivuissa on viite-elementtien käyttöön liittyviä virheitä, ja näitä virheitä ei renderöidä samalla tavalla aiemmassa jäsentimessä ja Parsoidissa.",
+	"cite-tracking-category-ref-details": "Sivut, joissa on viitteiden jatkeita",
+	"cite-tracking-category-ref-details-desc": "Tässä luokassa olevat sivut käyttävät &lt;ref&gt;-elementin ”details”-attribuuttia.",
 	"cite-reference-previews-reference": "Viite",
 	"cite-reference-previews-book": "Kirjaviite",
 	"cite-reference-previews-journal": "Lehtiviite",

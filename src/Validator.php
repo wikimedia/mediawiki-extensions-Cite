@@ -142,7 +142,7 @@ class Validator {
 			// The details attribute is a marker and shouldn't be ignored, even if empty
 			if ( isset( $arguments['details'] ) && !$containsText ) {
 				$status->fatal( 'cite_error_details_missing_parent' );
-			} elseif ( isset( $arguments['details'] ) && (string)$arguments['details'] !== '' ) {
+			} elseif ( ( $arguments['details'] ?? '' ) !== '' ) {
 				// References with details must have a name.
 				$status->warning( 'cite_error_ref_with_details_no_name' );
 				$arguments['details'] = null;

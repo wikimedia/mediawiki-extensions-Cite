@@ -594,6 +594,7 @@ class References {
 		// reference list.
 		// TODO: clean up the various use cases for this: eg. don't add
 		// the main ref if it's already present.
+		$syntheticRefsHtml = [];
 		if ( $refGroup ) {
 			$doc = $refsNode->ownerDocument;
 			foreach ( $refGroup->refs as $ref ) {
@@ -618,11 +619,13 @@ class References {
 					$refFragment = $extApi->getContentDOM( $ref->contentId )->firstChild->firstChild;
 					if ( $refFragment ) {
 						DOMCompat::setInnerHTML( $sup, $extApi->domToHtml( $refFragment, false, false ) );
-						$nestedRefsHTML[] = $extApi->domToHtml( $sup, false, false );
+						$syntheticRefsHtml[] = $extApi->domToHtml( $sup, false, false );
 					}
 				}
 			}
 		}
+
+		$nestedRefsHTML = array_merge( $nestedRefsHTML, $syntheticRefsHtml );
 
 		if ( !$isTemplateWrapper ) {
 			$dataMw = DOMDataUtils::getDataMw( $refsNode );
@@ -643,6 +646,11 @@ class References {
 				unset( $dataMw->body );
 			}
 			unset( $nodeDp->selfClose );
+		} elseif ( $syntheticRefsHtml ) {
+			$dataMw = DOMDataUtils::getDataMw( $refsNode );
+			$dataMw->body = DataMwBody::new( [
+				'html' => "\n" . implode( $syntheticRefsHtml ),
+			] );
 		}
 
 		$hasResponsiveWrapper = false;

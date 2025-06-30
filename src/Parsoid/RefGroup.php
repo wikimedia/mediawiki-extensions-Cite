@@ -108,6 +108,7 @@ class RefGroup {
 				}
 				$reported[] = $error;
 				$errorFragment = $errorUtils->renderParsoidError( $error );
+				$li->appendChild( $ownerDoc->createTextNode( ' ' ) );
 				$li->appendChild( $errorFragment );
 			}
 		}

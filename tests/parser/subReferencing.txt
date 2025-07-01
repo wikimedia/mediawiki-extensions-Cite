@@ -33,6 +33,22 @@ wgCiteSubReferencing=false
 !! end
 
 !! test
+T397760: Details with no name but feature flag disabled
+!! config
+wgCiteSubReferencing=false
+!! wikitext
+<ref details="y">x</ref>
+<references />
+!! html/php
+<p><sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">x <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid parameter in <code>&lt;ref&gt;</code> tag</span></span>
+</li>
+</ol></div>
+!! end
+
+!! test
 Subreferencing attribute allowed with feature flag set
 !! config
 wgCiteSubReferencing=true

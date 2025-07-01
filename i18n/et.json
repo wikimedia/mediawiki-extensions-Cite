@@ -28,6 +28,8 @@
 	"cite-tracking-category-cite-error-desc": "Selles kategoorias on leheküljed, kus viitamissilte on kasutatud valesti.",
 	"cite-tracking-category-cite-diffing-error": "Viitamistõrgetega leheküljed (kuvatakse erinevalt)",
 	"cite-tracking-category-cite-diffing-error-desc": "Selles kategoorias on leheküljed, kus viitamissilte on kasutatud valesti ning kus vana parseri ja Parsoidiga ei kuvata tõrkeid samal moel.",
+	"cite-tracking-category-ref-details": "Alamviiteid kasutavad leheküljed",
+	"cite-tracking-category-ref-details-desc": "Selles kategoorias on leheküljed, mis kasutavad sildi &lt;ref> atribuuti \"details\".",
 	"cite-reference-previews-reference": "Viide",
 	"cite-reference-previews-book": "Raamatuviide",
 	"cite-reference-previews-journal": "Ajakirjaviide",

@@ -14,6 +14,7 @@
 	"cite_error_ref_conflicting_dir": "Една од ознаките <code>&lt;ref&gt;</code> по име „$1“ има спротиставен атрибут dir.",
 	"cite_error_ref_numeric_key": "Погрешна ознака <code>&lt;ref&gt;</code>; името не може да биде број. Употребете описен наслов",
 	"cite_error_ref_no_key": "Отворачката ознака <code>&lt;ref&gt;</code> не е добро срочена или има погрешно име",
+	"cite_error_ref_with_details_no_name": "Неважечка ознака <code>&lt;ref></code>; недостасува атрибутот за име. Истиот мора да биде укажан заедно со атрибут за поединости.",
 	"cite_error_ref_too_many_keys": "Неважечки параметар во ознаката <code>&lt;ref&gt;</code>",
 	"cite_error_ref_follow_conflicts": "Ознаката <code>&lt;ref follow=\"…\"&gt;</code> која е продолжението на претходна не може да се именува поединечно, или да има подробности.",
 	"cite_error_ref_no_input": "Погрешна ознака <code>&lt;ref&gt;</code>; наводите без име мораат да имаат содржина",

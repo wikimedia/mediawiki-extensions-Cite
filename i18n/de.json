@@ -66,6 +66,7 @@
 	"cite-wikieditor-help-content-reference-description": "Einzelnachweis",
 	"cite-wikieditor-help-content-named-reference-description": "Benannter Einzelnachweis",
 	"cite-wikieditor-help-content-rereference-description": "Den gleichen Einzelnachweis erneut verwenden",
+	"cite-wikieditor-help-content-sub-reference-description": "Zusätzliche Verwendung desselben Einzelnachweises mit zusätzlichen Details",
 	"cite-wikieditor-help-content-showreferences-description": "Einzelnachweise anzeigen",
 	"cite-wikieditor-help-content-reference-example-text1": "Seitentext.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Linktext], zusätzlicher Text.",

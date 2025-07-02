@@ -85,6 +85,13 @@ ve.dm.MWReferencesListNode.static.matchFunction = function ( domElement ) {
 
 ve.dm.MWReferencesListNode.static.preserveHtmlAttributes = false;
 
+/**
+ * Transform parsoid HTML DOM to constructor parameters for VE referenceList nodes.
+ *
+ * @param {Node[]} domElements DOM elements to convert
+ * @param {ve.dm.Converter} converter
+ * @return {Object|Array|null} Data element or array of linear model data, or null to alienate
+ */
 ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, converter ) {
 	const type = domElements[ 0 ].getAttribute( 'typeof' ) || '';
 
@@ -133,6 +140,15 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 	return referencesListElement;
 };
 
+/**
+ * Transform referenceList data elements from the linear model to HTML DOM elements as input for
+ * the Parsoid parser.
+ *
+ * @param {Object[]} data
+ * @param {HTMLDocument} doc
+ * @param {ve.dm.Converter} converter
+ * @return {HTMLElement[]}
+ */
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {
 	const isForParser = converter.isForParser();
 	const dataElement = data[ 0 ];

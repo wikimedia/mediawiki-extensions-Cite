@@ -1806,8 +1806,6 @@ POST <sup about="#mwt6" class="mw-ref reference" id="cite_ref-3" rel="dc:referen
 
 !! test
 Verify invalid use of a numeric character in a ref name and follow
-!! options
-parsoid=wt2html,wt2wt,selser
 !! wikitext
 <ref name="1">theValue</ref>
 <ref follow="1">theFollow</ref>

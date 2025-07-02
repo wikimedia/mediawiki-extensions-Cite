@@ -281,7 +281,7 @@ class References {
 			// Create new, empty main ref
 			$ref ??= $referencesData->addRef( $refGroup, $refName, $refDir );
 
-			if ( $hasBody ) {
+			if ( $hasBody && !$isEmptyBody ) {
 				if ( !$ref->contentId ) {
 					// Create a main ref and transfer the tag body to it,
 					$ref->isSyntheticMainRef = true;

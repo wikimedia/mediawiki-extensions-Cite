@@ -54,7 +54,7 @@ class RefGroup {
 		return $a;
 	}
 
-	public function renderLine(
+	public function renderReferenceListElement(
 		ParsoidExtensionAPI $extApi, Element $refsList, RefGroupItem $ref
 	): void {
 		$ownerDoc = $refsList->ownerDocument;

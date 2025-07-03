@@ -130,6 +130,15 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	return dataElement;
 };
 
+/**
+ * Transform reference data elements from the linear model to HTML DOM elements as input for
+ * the Parsoid parser.
+ *
+ * @param {Object} dataElement
+ * @param {HTMLDocument} doc
+ * @param {ve.dm.Converter} converter
+ * @return {HTMLElement[]}
+ */
 ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, converter ) {
 	const isForClipboard = converter.isForClipboard();
 	const internalList = converter.internalList;

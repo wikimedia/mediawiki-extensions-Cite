@@ -23,6 +23,10 @@ class BacklinkMarkRendererTest extends \MediaWikiUnitTestCase {
 	public function testCommunityConfigurationIntegration(
 		string $expectedLabel, int $reuseIndex, ?string $communityConfigAlphabet
 	) {
+		if ( !class_exists( IConfigurationProvider::class ) ) {
+			$this->markTestSkipped( 'Extension CommunityConfiguration is required for this test' );
+		}
+
 		$msg = $this->createMock( Message::class );
 		$msg->method( 'isDisabled' )->willReturn( true );
 		$messageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );

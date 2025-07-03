@@ -82,6 +82,7 @@
 	"cite-wikieditor-help-content-reference-description": "Référence",
 	"cite-wikieditor-help-content-named-reference-description": "Référence nommée",
 	"cite-wikieditor-help-content-rereference-description": "Utilisation additionnelle de la même référence",
+	"cite-wikieditor-help-content-sub-reference-description": "Utilisation supplémentaire de la même référence, avec des détails supplémentaires",
 	"cite-wikieditor-help-content-showreferences-description": "Afficher les références",
 	"cite-wikieditor-help-content-reference-example-text1": "Texte de la page.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texte du lien], texte supplémentaire.",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dr Lotus Black",
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"Sithu015"
 		]
 	},
 	"cite_error": "ကိုးကား အမှား - $1",
@@ -17,5 +18,6 @@
 	"cite_warning": "ကိုးကားမှုသတိပေးချက်: $1",
 	"cite-wikieditor-tool-reference": "ကိုးကား",
 	"cite-wikieditor-help-page-references": "ကိုးကား",
-	"cite-wikieditor-help-content-reference-description": "ကိုးကား"
+	"cite-wikieditor-help-content-reference-description": "ကိုးကား",
+	"cite-wikieditor-help-content-sub-reference-description": "အသေးစိတ်အချက်အလက်များ ထပ်တိုး၍ တူညီသော ရည်ညွှန်းချက်ကို ထပ်မံအသုံးပြုခြင်း"
 }

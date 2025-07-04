@@ -66,14 +66,17 @@ OO.initClass( ve.dm.MWGroupReferences );
 /**
  * Rebuild information about this group of references.
  *
- * @param {ve.dm.InternalListNodeGroup} nodeGroup InternalList group object containing refs
+ * @param {ve.dm.InternalListNodeGroup|undefined} nodeGroup
  * @return {ve.dm.MWGroupReferences}
  */
 ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 	const result = new ve.dm.MWGroupReferences();
+	if ( !nodeGroup ) {
+		return result;
+	}
 	result.nodeGroup = nodeGroup;
 
-	( nodeGroup ? nodeGroup.getFirstNodesInIndexOrder() : [] )
+	nodeGroup.getFirstNodesInIndexOrder()
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) )
 		.forEach( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );
@@ -100,7 +103,7 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
  * @return {number} Allocated topLevelIndex
  */
 ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listKey ) {
-	if ( this.footnoteNumberLookup[ listKey ] === undefined ) {
+	if ( !( listKey in this.footnoteNumberLookup ) ) {
 		const number = this.topLevelCounter++;
 		this.footnoteNumberLookup[ listKey ] = [ number, -1 ];
 		this.footnoteLabelLookup[ listKey ] = ve.dm.MWDocumentReferences.static.contentLangDigits( number );
@@ -116,7 +119,7 @@ ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listKe
  * @return {number[]}
  */
 ve.dm.MWGroupReferences.prototype.addSubref = function ( mainRefKey, subRefKey, subRefNode ) {
-	if ( this.subRefsByMain[ mainRefKey ] === undefined ) {
+	if ( !( mainRefKey in this.subRefsByMain ) ) {
 		this.subRefsByMain[ mainRefKey ] = [];
 	}
 	this.subRefsByMain[ mainRefKey ].push( subRefNode );
@@ -134,26 +137,22 @@ ve.dm.MWGroupReferences.prototype.addSubref = function ( mainRefKey, subRefKey, 
 /**
  * Check whether the group has any references.
  *
+ * @deprecated use {@link ve.dm.InternalListNodeGroup.isEmpty} instead
  * @return {boolean}
  */
 ve.dm.MWGroupReferences.prototype.isEmpty = function () {
-	// Use an internal shortcut, otherwise we could do something like
-	// !!nodes.indexOrder.length
-	return this.topLevelCounter === 1;
+	return !this.nodeGroup || this.nodeGroup.isEmpty();
 };
 
 /**
  * List all document references in the order they first appear, ignoring reuses
  * and placeholders.
  *
+ * @deprecated use {@link ve.dm.InternalListNodeGroup.getFirstNodesInIndexOrder} instead
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getAllRefsInDocumentOrder = function () {
-	return Object.keys( this.footnoteNumberLookup )
-		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] )
-		.map( ( listKey ) => this.nodeGroup.getAllReuses( listKey ) )
-		.filter( ( nodes ) => !!nodes )
-		.map( ( nodes ) => nodes[ 0 ] );
+	return this.nodeGroup ? this.nodeGroup.getFirstNodesInIndexOrder() : [];
 };
 
 /**
@@ -163,6 +162,7 @@ ve.dm.MWGroupReferences.prototype.getAllRefsInDocumentOrder = function () {
  * @return {string[]} Reference listKeys
  */
 ve.dm.MWGroupReferences.prototype.getTopLevelKeysInReflistOrder = function () {
+	// FIXME: This should use this.nodeGroup.getKeysInIndexOrder(), but tests fail. Why?
 	return Object.keys( this.footnoteNumberLookup )
 		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] )
 		// TODO: Function could be split here, if a use case is found for a list of
@@ -175,6 +175,7 @@ ve.dm.MWGroupReferences.prototype.getTopLevelKeysInReflistOrder = function () {
  *
  * @see #getInternalModelNode
  *
+ * @deprecated use {@link ve.dm.InternalListNodeGroup.getFirstNode} instead
  * @param {string} key in listKey format
  * @return {ve.dm.MWReferenceNode|undefined}
  */

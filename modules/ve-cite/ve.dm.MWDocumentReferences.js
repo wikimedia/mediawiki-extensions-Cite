@@ -29,7 +29,7 @@ ve.dm.MWDocumentReferences = function VeDmMWDocumentReferences( doc ) {
 	this.cachedByGroup = {};
 
 	doc.getInternalList().connect( this, { update: 'updateGroups' } );
-	this.updateAllGroups();
+	this.updateGroups( this.getAllGroupNames() );
 };
 
 /* Inheritance */
@@ -64,28 +64,14 @@ ve.dm.MWDocumentReferences.static.refsForDoc = function ( doc ) {
 
 /**
  * @private
- */
-ve.dm.MWDocumentReferences.prototype.updateAllGroups = function () {
-	this.updateGroups( this.getAllGroupNames() );
-};
-
-/**
- * @private
  * @param {string[]} groupsChanged A list of group names which have changed in
  *  this transaction
  */
 ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
-	groupsChanged.forEach( ( groupName ) => this.updateGroup( groupName ) );
-};
-
-/**
- * @private
- * @param {string} groupName Name of the reference group which needs to be
- *  updated, with prefix
- */
-ve.dm.MWDocumentReferences.prototype.updateGroup = function ( groupName ) {
-	const nodeGroup = this.doc.getInternalList().getNodeGroup( groupName );
-	this.cachedByGroup[ groupName ] = MWGroupReferences.static.makeGroupRefs( nodeGroup );
+	groupsChanged.forEach( ( groupName ) => {
+		const nodeGroup = this.doc.getInternalList().getNodeGroup( groupName );
+		this.cachedByGroup[ groupName ] = MWGroupReferences.static.makeGroupRefs( nodeGroup );
+	} );
 };
 
 /**
@@ -108,7 +94,8 @@ ve.dm.MWDocumentReferences.prototype.getAllGroupNames = function () {
  * @return {boolean}
  */
 ve.dm.MWDocumentReferences.prototype.hasRefs = function () {
-	return this.getAllGroupNames().some( ( groupName ) => !this.getGroupRefs( groupName ).isEmpty() );
+	return Object.values( this.doc.getInternalList().getNodeGroups() )
+		.some( ( group ) => !group.isEmpty() );
 };
 
 /**

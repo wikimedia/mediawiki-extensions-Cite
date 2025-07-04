@@ -150,9 +150,7 @@ ve.dm.MWReferenceModel.prototype.updateInternalItem = function ( surfaceModel ) 
 	if ( this.listGroup !== listGroup ) {
 		// Get all reference nodes with the same group and key
 		const group = internalList.getNodeGroup( this.listGroup );
-		const refNodes = group.getAllReuses( this.listKey ) ?
-			group.getAllReuses( this.listKey ).slice() :
-			[ group.firstNodes[ this.listIndex ] ];
+		const refNodes = group.getAllReuses( this.listKey );
 		// Check for name collision when moving items between groups
 		const keyIndex = internalList.getKeyIndex( this.listGroup, this.listKey );
 		if ( keyIndex !== undefined ) {

@@ -9,6 +9,21 @@
 
 QUnit.module( 've.dm.InternalList (Cite)', ve.test.utils.newMwEnvironment() );
 
+function getComparableNodeGroups( nodeGroups ) {
+	const comparableGroups = {};
+	for ( const groupName in nodeGroups ) {
+		const group = nodeGroups[ groupName ];
+		comparableGroups[ groupName ] = {
+			keyedNodes: group.keyedNodes,
+			firstNodes: group.firstNodes,
+			indexOrder: group.indexOrder,
+			uniqueListKeys: group.uniqueListKeys,
+			uniqueListKeysInUse: group.uniqueListKeysInUse
+		};
+	}
+	return comparableGroups;
+}
+
 /* Tests */
 
 QUnit.test( 'addNode/removeNode', ( assert ) => {
@@ -52,7 +67,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	};
 
 	assert.deepEqualWithNodeTree(
-		doc.internalList.getNodeGroups(),
+		getComparableNodeGroups( doc.internalList.getNodeGroups() ),
 		expectedNodes,
 		'Document construction populates internal list correctly'
 	);
@@ -66,7 +81,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.getNodeGroups(),
+		getComparableNodeGroups( newInternalList.getNodeGroups() ),
 		expectedNodes,
 		'Nodes added in order'
 	);
@@ -82,7 +97,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.getNodeGroups(),
+		getComparableNodeGroups( newInternalList.getNodeGroups() ),
 		expectedNodes,
 		'Nodes added in reverse order'
 	);
@@ -91,7 +106,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.getNodeGroups(),
+		getComparableNodeGroups( newInternalList.getNodeGroups() ),
 		{
 			'mwReference/': {
 				keyedNodes: {
@@ -127,7 +142,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.getNodeGroups(),
+		getComparableNodeGroups( newInternalList.getNodeGroups() ),
 		{
 			'mwReference/': {
 				keyedNodes: {
@@ -165,7 +180,7 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.onTransact();
 
 	assert.deepEqualWithNodeTree(
-		newInternalList.getNodeGroups(),
+		getComparableNodeGroups( newInternalList.getNodeGroups() ),
 		{
 			'mwReference/': {
 				keyedNodes: {},

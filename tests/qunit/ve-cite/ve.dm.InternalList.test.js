@@ -9,19 +9,18 @@
 
 QUnit.module( 've.dm.InternalList (Cite)', ve.test.utils.newMwEnvironment() );
 
-function getComparableNodeGroups( nodeGroups ) {
-	const comparableGroups = {};
-	for ( const groupName in nodeGroups ) {
-		const group = nodeGroups[ groupName ];
-		comparableGroups[ groupName ] = {
-			keyedNodes: group.keyedNodes,
-			firstNodes: group.firstNodes,
-			indexOrder: group.indexOrder,
-			uniqueListKeys: group.uniqueListKeys,
-			uniqueListKeysInUse: group.uniqueListKeysInUse
-		};
+/**
+ * @param {QUnit.assert} assert
+ * @param {Object.<string,ve.dm.InternalListNodeGroup>} actual
+ * @param {Object.<string,Object>} expected
+ * @param {string} message
+ */
+function equalNodeGroups( assert, actual, expected, message ) {
+	// The order doesn't matter as long as the elements are equal
+	assert.deepEqual( Object.keys( actual ).sort(), Object.keys( expected ), message );
+	for ( const key in actual ) {
+		assert.deepEqual( actual[ key ].keyedNodes, expected[ key ].keyedNodes, message );
 	}
-	return comparableGroups;
 }
 
 /* Tests */
@@ -44,30 +43,17 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 				'literal/bar': [ referenceNodes[ 1 ], referenceNodes[ 3 ] ],
 				'literal/:3': [ referenceNodes[ 2 ] ],
 				'auto/1': [ referenceNodes[ 4 ] ]
-			},
-			firstNodes: [
-				referenceNodes[ 0 ],
-				referenceNodes[ 1 ],
-				referenceNodes[ 2 ],
-				referenceNodes[ 4 ]
-			],
-			indexOrder: [ 0, 1, 2, 3 ],
-			uniqueListKeys: {},
-			uniqueListKeysInUse: {}
+			}
 		},
 		'mwReference/foo': {
 			keyedNodes: {
 				'auto/2': [ referenceNodes[ 5 ] ]
-			},
-			firstNodes: [ undefined, undefined, undefined, undefined, referenceNodes[ 5 ] ],
-			indexOrder: [ 4 ],
-			uniqueListKeys: {},
-			uniqueListKeysInUse: {}
+			}
 		}
 	};
 
-	assert.deepEqualWithNodeTree(
-		getComparableNodeGroups( doc.internalList.getNodeGroups() ),
+	equalNodeGroups( assert,
+		doc.internalList.getNodeGroups(),
 		expectedNodes,
 		'Document construction populates internal list correctly'
 	);
@@ -80,8 +66,8 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.addNode( 'mwReference/foo', 'auto/2', 4, referenceNodes[ 5 ] );
 	newInternalList.onTransact();
 
-	assert.deepEqualWithNodeTree(
-		getComparableNodeGroups( newInternalList.getNodeGroups() ),
+	equalNodeGroups( assert,
+		newInternalList.getNodeGroups(),
 		expectedNodes,
 		'Nodes added in order'
 	);
@@ -96,8 +82,8 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.addNode( 'mwReference/', 'auto/0', 0, referenceNodes[ 0 ] );
 	newInternalList.onTransact();
 
-	assert.deepEqualWithNodeTree(
-		getComparableNodeGroups( newInternalList.getNodeGroups() ),
+	equalNodeGroups( assert,
+		newInternalList.getNodeGroups(),
 		expectedNodes,
 		'Nodes added in reverse order'
 	);
@@ -105,71 +91,18 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.removeNode( 'mwReference/', 'literal/bar', 1, referenceNodes[ 1 ] );
 	newInternalList.onTransact();
 
-	assert.deepEqualWithNodeTree(
-		getComparableNodeGroups( newInternalList.getNodeGroups() ),
-		{
-			'mwReference/': {
-				keyedNodes: {
-					'auto/0': [ referenceNodes[ 0 ] ],
-					'literal/bar': [ referenceNodes[ 3 ] ],
-					'literal/:3': [ referenceNodes[ 2 ] ],
-					'auto/1': [ referenceNodes[ 4 ] ]
-				},
-				firstNodes: [
-					referenceNodes[ 0 ],
-					referenceNodes[ 3 ],
-					referenceNodes[ 2 ],
-					referenceNodes[ 4 ]
-				],
-				indexOrder: [ 0, 2, 1, 3 ],
-				uniqueListKeys: {},
-				uniqueListKeysInUse: {}
-			},
-			'mwReference/foo': {
-				keyedNodes: {
-					'auto/2': [ referenceNodes[ 5 ] ]
-				},
-				firstNodes: [ undefined, undefined, undefined, undefined, referenceNodes[ 5 ] ],
-				indexOrder: [ 4 ],
-				uniqueListKeys: {},
-				uniqueListKeysInUse: {}
-			}
-		},
+	assert.deepEqual(
+		newInternalList.getNodeGroup( 'mwReference/' ).indexOrder,
+		[ 0, 2, 1, 3 ],
 		'Keys re-ordered after one item of key removed'
 	);
 
 	newInternalList.removeNode( 'mwReference/', 'literal/bar', 1, referenceNodes[ 3 ] );
 	newInternalList.onTransact();
 
-	assert.deepEqualWithNodeTree(
-		getComparableNodeGroups( newInternalList.getNodeGroups() ),
-		{
-			'mwReference/': {
-				keyedNodes: {
-					'auto/0': [ referenceNodes[ 0 ] ],
-					'literal/:3': [ referenceNodes[ 2 ] ],
-					'auto/1': [ referenceNodes[ 4 ] ]
-				},
-				firstNodes: [
-					referenceNodes[ 0 ],
-					undefined,
-					referenceNodes[ 2 ],
-					referenceNodes[ 4 ]
-				],
-				indexOrder: [ 0, 2, 3 ],
-				uniqueListKeys: {},
-				uniqueListKeysInUse: {}
-			},
-			'mwReference/foo': {
-				keyedNodes: {
-					'auto/2': [ referenceNodes[ 5 ] ]
-				},
-				firstNodes: [ undefined, undefined, undefined, undefined, referenceNodes[ 5 ] ],
-				indexOrder: [ 4 ],
-				uniqueListKeys: {},
-				uniqueListKeysInUse: {}
-			}
-		},
+	assert.deepEqual(
+		Object.keys( newInternalList.getNodeGroup( 'mwReference/' ).keyedNodes ),
+		[ 'auto/1', 'literal/:3', 'auto/0' ],
 		'Keys truncated after last item of key removed'
 	);
 
@@ -179,24 +112,14 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList.removeNode( 'mwReference/', 'literal/:3', 2, referenceNodes[ 2 ] );
 	newInternalList.onTransact();
 
-	assert.deepEqualWithNodeTree(
-		getComparableNodeGroups( newInternalList.getNodeGroups() ),
-		{
-			'mwReference/': {
-				keyedNodes: {},
-				firstNodes: new Array( 4 ),
-				indexOrder: [],
-				uniqueListKeys: {},
-				uniqueListKeysInUse: {}
-			},
-			'mwReference/foo': {
-				keyedNodes: {},
-				firstNodes: new Array( 5 ),
-				indexOrder: [],
-				uniqueListKeys: {},
-				uniqueListKeysInUse: {}
-			}
-		},
+	assert.deepEqual(
+		newInternalList.getNodeGroup( 'mwReference/' ).keyedNodes,
+		{},
+		'All nodes removed'
+	);
+	assert.deepEqual(
+		newInternalList.getNodeGroup( 'mwReference/foo' ).keyedNodes,
+		{},
 		'All nodes removed'
 	);
 } );

@@ -437,13 +437,15 @@ class References {
 		// for browsers that don't support counters
 		$refLinkSpan = $doc->createElement( 'span' );
 		$refLinkSpan->setAttribute( 'class', 'mw-reflink-text' );
-		$openBracket = $doc->createElement( 'span', '[' );
+		$openBracket = $doc->createElement( 'span' );
+		$openBracket->appendChild( $doc->createTextNode( '[' ) );
 		$openBracket->setAttribute( 'class', 'cite-bracket' );
 		$refLinkSpan->appendChild( $openBracket );
 		$refLinkSpan->appendChild( $doc->createTextNode(
 			$this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup, $ref->subrefIndex )
 		) );
-		$closeBracket = $doc->createElement( 'span', ']' );
+		$closeBracket = $doc->createElement( 'span' );
+		$closeBracket->appendChild( $doc->createTextNode( ']' ) );
 		$closeBracket->setAttribute( 'class', 'cite-bracket' );
 		$refLinkSpan->appendChild( $closeBracket );
 

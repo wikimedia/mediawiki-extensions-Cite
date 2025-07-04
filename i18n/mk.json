@@ -57,6 +57,7 @@
 	"cite-wikieditor-help-content-reference-description": "Навод",
 	"cite-wikieditor-help-content-named-reference-description": "Именуван навод",
 	"cite-wikieditor-help-content-rereference-description": "Понатамошна употреба на истиот навод",
+	"cite-wikieditor-help-content-sub-reference-description": "Дополнителна употреба на истиот навод, со дополнителни поединости",
 	"cite-wikieditor-help-content-showreferences-description": "Прикажи наводи",
 	"cite-wikieditor-help-content-reference-example-text1": "Текст на страницата.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Текст на врската], дополнителен текст.",

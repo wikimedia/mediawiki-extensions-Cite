@@ -394,7 +394,8 @@ class References {
 				// removing it below asserts everything has been migrated out
 				DOMCompat::replaceChildren( $refFragment );
 			}
-			$hasConflict = $conflicts !== self::CONFLICT_NONE;
+			// Sub-references cannot have conflicting content, the conflict is on the main ref
+			$hasConflict = $conflicts !== self::CONFLICT_NONE && !$hasDetails;
 			$refDataMw->body = DataMwBody::new( [
 				// Prefer tracking the body via a short identifier instead of duplicating it
 				'id' => !$hasConflict ? ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ) : null,

@@ -2365,17 +2365,85 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 </div>
 !! end
 
-## Parsoid is choosing not to support this.
+## While the following tests spec an output for self-referential ref in ref,
+## Parsoid and the legacy parser don't necessarily agree on which content
+## takes precedence and, at present, there isn't a justifiable usecase
+## for supporting it.  They should be considered as regression tests.
+
 !! test
-Ref in ref: self-referential
+1. Ref in ref: self-referential
 !! wikitext
-{{#tag:ref|<ref name="x" />|name=x}}
+{{#tag:ref|<div><ref name="x" /></div>|name=x}}
+
+<references />
 !! html/php
 <p><sup id="cite_ref-x_1-1" class="reference"><a href="#cite_note-x-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite_note-x-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-x_1-0">1.0</a></sup> <sup><a href="#cite_ref-x_1-1">1.1</a></sup></span> <span class="reference-text"><sup id="cite_ref-x_1-0" class="reference"><a href="#cite_note-x-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup></span>
+<li id="cite_note-x-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-x_1-0">1.0</a></sup> <sup><a href="#cite_ref-x_1-1">1.1</a></sup></span> <span class="reference-text"><div><sup id="cite_ref-x_1-0" class="reference"><a href="#cite_note-x-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup></div></span>
 </li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt1" class="mw-ref reference" id="cite_ref-x_1-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"extsrc":"&lt;div>&lt;ref name=\"x\" />&lt;/div>"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"&lt;div>&lt;ref name=\"x\" />&lt;/div>"},"name":{"wt":"x"}},"i":0}}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-x-1" id="cite_note-x-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-x_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-x-1" class="mw-reference-text reference-text"><div data-parsoid='{"stx":"html"}'><sup about="#mwt2" class="mw-ref reference" id="cite_ref-x_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"x"}}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></div></span></li>
+</ol></div>
+!! end
+
+## Parsoid and legacy differ in that the legacy implementation includes a linkback
+## to content that isn't on the page.
+!! test
+2. Ref in ref: self-referential, redefinition
+!! wikitext
+{{#tag:ref|<div><ref name="x">y</ref></div>|name="x"}}
+
+<references />
+!! html/php
+<p><sup id="cite_ref-x_1-1" class="reference"><a href="#cite_note-x-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-x-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-x_1-0">1.0</a></sup> <sup><a href="#cite_ref-x_1-1">1.1</a></sup></span> <span class="reference-text">y <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "x" defined multiple times with different content</span></span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt1" class="mw-ref reference" id="cite_ref-x_1-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"extsrc":"&lt;div>&lt;ref name=\"x\">y&lt;/ref>&lt;/div>"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"&lt;div>&lt;ref name=\"x\">y&lt;/ref>&lt;/div>"},"name":{"wt":"\"x\""}},"i":0}}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-x-1" id="cite_note-x-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-x_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-x-1" class="mw-reference-text reference-text"><div data-parsoid='{"stx":"html"}'><sup about="#mwt2" class="mw-ref reference" id="cite_ref-x_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"html":"y"},"errors":[{"key":"cite_error_references_duplicate_key","params":["x"]}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></div></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":{"0":{"text":"x","_type_":"Wikimedia\\Message\\ScalarParam"},"_type_":"array"},"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+</ol></div>
+!! end
+
+## This test captures the crasher in T382546.  Nesting the reference in a tag (div)
+## is important to producing the dangling pointer that crashes in php 8.1, as in
+## the test, "T393913: Parsoid support for nested <ref> in different groups".
+## It also captures that, if the nested content for x takes priority, then
+## any ref in the redefinition will need to be considered embedded after the
+## fact, not just x.  In the present Parsoid implementation, the nested
+## content for x does not take priority
+!! test
+3. Ref in ref: self-referential, redefinition and leading, with other ref
+!! wikitext
+<ref name="x" />
+
+{{#tag:ref|<div><ref name="x">y</ref><ref name="z">z</ref></div>|name="x"}}
+
+<references />
+!! html/php
+<p><sup id="cite_ref-x_1-0" class="reference"><a href="#cite_note-x-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p><p><sup id="cite_ref-x_1-2" class="reference"><a href="#cite_note-x-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-x-1"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-x_1-0">1.0</a></sup> <sup><a href="#cite_ref-x_1-1">1.1</a></sup> <sup><a href="#cite_ref-x_1-2">1.2</a></sup></span> <span class="reference-text">y <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "x" defined multiple times with different content</span></span>
+</li>
+<li id="cite_note-z-2"><span class="mw-cite-backlink"><a href="#cite_ref-z_2-0">↑</a></span> <span class="reference-text">z</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt1" class="mw-ref reference" id="cite_ref-x_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"x"}}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+
+<p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-x_1-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"extsrc":"&lt;div>&lt;ref name=\"x\">y&lt;/ref>&lt;ref name=\"z\">z&lt;/ref>&lt;/div>"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"&lt;div>&lt;ref name=\"x\">y&lt;/ref>&lt;ref name=\"z\">z&lt;/ref>&lt;/div>"},"name":{"wt":"\"x\""}},"i":0}}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-x-1" id="cite_note-x-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-x_1-1"><span class="mw-linkback-text">2 </span></a><a href="./Parser_test#cite_ref-x_1-2"><span class="mw-linkback-text">3 </span></a></span> <span id="mw-reference-text-cite_note-x-1" class="mw-reference-text reference-text"><div data-parsoid='{"stx":"html"}'><sup about="#mwt3" class="mw-ref reference" id="cite_ref-x_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"html":"y"},"errors":[{"key":"cite_error_references_duplicate_key","params":["x"]}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup><sup about="#mwt4" class="mw-ref reference" id="cite_ref-z_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"z"},"body":{"id":"mw-reference-text-cite_note-z-2"}}'><a href="./Parser_test#cite_note-z-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup></div></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":{"0":{"text":"x","_type_":"Wikimedia\\Message\\ScalarParam"},"_type_":"array"},"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li about="#cite_note-z-2" id="cite_note-z-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-z_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-z-2" class="mw-reference-text reference-text">z</span></li>
 </ol></div>
 !! end
 

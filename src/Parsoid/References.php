@@ -246,11 +246,20 @@ class References {
 		$refGroup = $referencesData->getOrCreateRefGroup( $groupName );
 		$ref = $refGroup->lookupRefByName( $refName );
 
+		$refLock = false;
 		$conflicts = self::CONFLICT_NONE;
-		// No point in doing conflict detection on <ref /> without body
-		if ( $hasBody ) {
-			$conflicts = $this->checkForConflictingContent(
-				$extApi, $groupName, $refName, $ref->contentId ?? null, $refFragment );
+
+		// No point in doing conflict detection on named refs without a body
+		if ( $refName && !$isEmptyBody ) {
+			$refLock = $referencesData->refLocks[$groupName][$refName] ?? false;
+			$existingContentId = $ref->contentId ?? null;
+			if ( $refLock ) {
+				$conflicts = self::CONFLICT_VISIBLE;
+			} elseif ( $existingContentId ) {
+				$conflicts = $this->checkForConflictingContent(
+					$extApi, $groupName, $refName, $existingContentId, $refFragment
+				);
+			}
 		}
 
 		// Wrap the attribute 'follow'
@@ -311,14 +320,25 @@ class References {
 			$refName = '';
 		}
 
+		$oldLock = null;
+
+		if ( $refName ) {
+			$oldLock = $referencesData->refLocks[$groupName][$refName] ?? null;
+			$referencesData->refLocks[$groupName][$refName] = true;
+		}
+
 		$refFragmentHtml = $this->processNestedRefInRef( $extApi, $refFragment, $referencesData,
 			$conflicts !== self::CONFLICT_NONE ) ??
 			// Fall back to the normal behavior without any nested <ref>
 			$extApi->domToHtml( $refFragment, true );
 
-		if ( $this->isNestedInSupWithSameGroupAndName( $node, $groupName, $refName ) ) {
-			$errs[] = new DataMwError( 'cite_error_included_ref' );
-			ErrorUtils::addErrorsToNode( $node, $errs );
+		if ( $refName ) {
+			// One might have just been created while processing nested refs
+			$ref ??= $refGroup->lookupRefByName( $refName );
+
+			if ( !$oldLock ) {
+				unset( $referencesData->refLocks[$groupName][$refName] );
+			}
 		}
 
 		// Add ref-index linkback
@@ -338,11 +358,6 @@ class References {
 				// This will be set below with `$ref->contentId = $contentId;`
 			}
 		} else {
-			// If we have !$ref, one might have been added in the call to
-			// processRefs, ie. a self-referential ref.  We could try to look
-			// it up again, but Parsoid is choosing not to support that.
-			// Even worse would be if it tried to redefine itself!
-
 			$ref ??= $referencesData->addRef( $refGroup, $refName, $refDir );
 
 			// Handle linkbacks
@@ -470,7 +485,7 @@ class References {
 		}
 
 		// Keep the first content to compare multiple <ref>s with the same name.
-		if ( $ref->contentId === null && !$hasMissingContent ) {
+		if ( $ref->contentId === null && !$hasMissingContent && !$refLock ) {
 			$ref->contentId = $contentId;
 			// Use the dir parameter only from the full definition of a named ref tag
 			$ref->dir = $refDir;
@@ -498,26 +513,6 @@ class References {
 		if ( $parentAbout !== null ) {
 			$linkBackSup->setAttribute( 'about', $parentAbout );
 		}
-	}
-
-	private function isNestedInSupWithSameGroupAndName( Element $node, string $groupName, string $refName ): bool {
-		// Nothing to compare with
-		if ( !$refName ) {
-			return false;
-		}
-
-		$supNode = DOMUtils::findAncestorOfName( $node, 'sup' );
-		while ( $supNode ) {
-			$dataMw = DOMDataUtils::getDataMw( $supNode );
-			if ( $dataMw &&
-				( $dataMw->getExtAttrib( 'group' ) ?? '' ) === $groupName &&
-				( $dataMw->getExtAttrib( 'name' ) ?? '' ) === $refName
-			) {
-				return true;
-			}
-			$supNode = DOMUtils::findAncestorOfName( $supNode, 'sup' );
-		}
-		return false;
 	}
 
 	/**
@@ -831,13 +826,9 @@ class References {
 		ParsoidExtensionAPI $extApi,
 		string $refGroupName,
 		string $refName,
-		?string $existingContentId,
+		string $existingContentId,
 		Element $newRefFragment
 	): int {
-		if ( !$refName || !$existingContentId ) {
-			return self::CONFLICT_NONE;
-		}
-
 		$this->conflictCache[$refGroupName][$refName] ??=
 			self::normalizeRef( $extApi->domToHtml( $extApi->getContentDOM( $existingContentId )->firstChild, true ) );
 		$existingHtml = $this->conflictCache[$refGroupName][$refName];

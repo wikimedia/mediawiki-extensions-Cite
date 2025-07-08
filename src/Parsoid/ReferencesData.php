@@ -21,6 +21,14 @@ class ReferencesData {
 	public array $embeddedErrors = [];
 	/** @var array<?string> */
 	private array $embeddedContentStack = [];
+
+	/**
+	 * Ideally we would track this on the RefGroupItem, but that would require
+	 * creating one before processing nested references and it would change the
+	 * sequence numbers.
+	 */
+	public array $refLocks = [];
+
 	/**
 	 * The current group name while we are in <references>, no matter how deeply nested. Null when
 	 * parsing <ref> outside of <references>. Warning, an empty string is a valid group name!

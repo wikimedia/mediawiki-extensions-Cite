@@ -50,7 +50,6 @@
 	"cite_references_link_many_accessibility_label": "Отиди кај:",
 	"cite_references_link_accessibility_back_label": "Врати се горе",
 	"cite_section_preview_references": "Преглед на наводите",
-	"cite_warning": "Предупредување за наводот: $1",
 	"cite_warning_sectionpreview_no_text": "Ознаката <code>&lt;ref&gt;</code> со назив <code>$1</code> не може да се прегледа бидејќи е определена вон тековниот оддел, или пак воопшто не е определена.",
 	"cite-wikieditor-tool-reference": "Навод",
 	"cite-wikieditor-help-page-references": "Наводи",

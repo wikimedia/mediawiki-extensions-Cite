@@ -72,7 +72,6 @@
 	"cite_references_link_many_accessibility_label": "Saltar a:",
 	"cite_references_link_accessibility_back_label": "Volver arriba",
 	"cite_section_preview_references": "Previsualización de referencias",
-	"cite_warning": "Advertencia de cita: $1",
 	"cite_warning_sectionpreview_no_text": "La etiqueta <code>&lt;ref&gt;</code> con nombre <code>$1</code> no puede previsualizarse porque está definida fuera de la sección actual o no está definida en absoluto.",
 	"cite-wikieditor-tool-reference": "Referencia",
 	"cite-wikieditor-help-page-references": "Referencias",

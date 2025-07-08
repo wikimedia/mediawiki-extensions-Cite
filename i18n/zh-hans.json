@@ -64,7 +64,6 @@
 	"cite_references_link_many_accessibility_label": "跳转到：",
 	"cite_references_link_accessibility_back_label": "跳转回",
 	"cite_section_preview_references": "参考资料章节预览",
-	"cite_warning": "引证警告：$1",
 	"cite_warning_sectionpreview_no_text": "name（名称）为<code>$1</code>的<code>&lt;ref&gt;</code>标签无法预览，因为它定义在当前章节之外，或根本没有定义。",
 	"cite-wikieditor-tool-reference": "参考资料",
 	"cite-wikieditor-help-page-references": "参考",

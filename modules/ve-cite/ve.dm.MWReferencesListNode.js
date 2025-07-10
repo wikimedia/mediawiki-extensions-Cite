@@ -150,19 +150,18 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
  * @return {HTMLElement[]}
  */
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {
-	const isForParser = converter.isForParser();
 	const dataElement = data[ 0 ];
 
 	// If we are sending a template generated ref back to Parsoid, output it as a
 	// template.  This works because the dataElement already has mw, originalMw
 	// and originalDomIndex properties.
-	if ( dataElement.attributes.templateGenerated && isForParser ) {
+	if ( dataElement.attributes.templateGenerated && converter.isForParser() ) {
 		return ve.dm.MWTransclusionNode.static
 			.toDomElements.call( this, dataElement, doc, converter );
 	}
 
-	let els;
-	if ( !isForParser ) {
+	let domElements = [ doc.createElement( 'div' ) ];
+	if ( !converter.isForParser() ) {
 		// Output needs to be read so re-render
 		const modelNode = ve.dm.nodeFactory.createFromElement( dataElement );
 		// Build from original doc's internal list to get all refs (T186407)
@@ -170,27 +169,24 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		const viewNode = ve.ce.nodeFactory.createFromModel( modelNode );
 		viewNode.modified = true;
 		viewNode.update();
-		els = [ doc.createElement( 'div' ) ];
-		els[ 0 ].appendChild( viewNode.$reflist[ 0 ] );
+		domElements[ 0 ].appendChild( viewNode.$reflist[ 0 ] );
 		// Destroy the view node so it doesn't try to update the DOM node later
 		// (e.g. updateDebounced)
 		viewNode.destroy();
 	} else if ( dataElement.originalDomElementsHash !== undefined ) {
 		// If there's more than 1 element, preserve entire array, not just first element
-		els = ve.copyDomElements(
-			converter.getStore().value( dataElement.originalDomElementsHash ), doc );
-	} else {
-		els = [ doc.createElement( 'div' ) ];
+		domElements = ve.copyDomElements(
+			converter.getStore().value( dataElement.originalDomElementsHash ), doc
+		);
 	}
 
-	const el = els[ 0 ];
-	el.setAttribute( 'typeof', 'mw:Extension/references' );
-	el.setAttribute(
+	domElements[ 0 ].setAttribute( 'typeof', 'mw:Extension/references' );
+	domElements[ 0 ].setAttribute(
 		'data-mw',
 		ve.dm.MWReferencesListNode.static.buildMwForDom( data, doc, converter )
 	);
 
-	return els;
+	return domElements;
 };
 
 /***

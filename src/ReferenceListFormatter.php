@@ -13,21 +13,12 @@ use MediaWiki\Parser\Parser;
  */
 class ReferenceListFormatter {
 
-	private ErrorReporter $errorReporter;
-	private AnchorFormatter $anchorFormatter;
-	private ReferenceMessageLocalizer $messageLocalizer;
-	private BacklinkMarkRenderer $backlinkMarkRenderer;
-
 	public function __construct(
-		ErrorReporter $errorReporter,
-		AnchorFormatter $anchorFormatter,
-		BacklinkMarkRenderer $backlinkMarkRenderer,
-		ReferenceMessageLocalizer $messageLocalizer
+		private readonly ErrorReporter $errorReporter,
+		private readonly AnchorFormatter $anchorFormatter,
+		private readonly BacklinkMarkRenderer $backlinkMarkRenderer,
+		private readonly ReferenceMessageLocalizer $messageLocalizer,
 	) {
-		$this->errorReporter = $errorReporter;
-		$this->anchorFormatter = $anchorFormatter;
-		$this->messageLocalizer = $messageLocalizer;
-		$this->backlinkMarkRenderer = $backlinkMarkRenderer;
 	}
 
 	/**

@@ -67,9 +67,11 @@ class Cite {
 	 */
 	private StatusValue $mReferencesErrors;
 	private ReferenceStack $referenceStack;
-	private Config $config;
 
-	public function __construct( Parser $parser, Config $config ) {
+	public function __construct(
+		Parser $parser,
+		private readonly Config $config,
+	) {
 		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
 		$this->errorReporter = new ErrorReporter( $parser, $messageLocalizer );
@@ -100,7 +102,6 @@ class Cite {
 			$backlinkMarkRenderer,
 			$messageLocalizer
 		);
-		$this->config = $config;
 	}
 
 	/**

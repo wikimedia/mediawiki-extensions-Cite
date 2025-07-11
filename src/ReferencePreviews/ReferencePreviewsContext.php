@@ -12,18 +12,11 @@ use MediaWiki\User\User;
  */
 class ReferencePreviewsContext {
 
-	private Config $config;
-	private ReferencePreviewsGadgetsIntegration $gadgetsIntegration;
-	private UserOptionsLookup $userOptionsLookup;
-
 	public function __construct(
-		Config $config,
-		ReferencePreviewsGadgetsIntegration $gadgetsIntegration,
-		UserOptionsLookup $userOptionsLookup
+		private readonly Config $config,
+		private readonly ReferencePreviewsGadgetsIntegration $gadgetsIntegration,
+		private readonly UserOptionsLookup $userOptionsLookup,
 	) {
-		$this->config = $config;
-		$this->gadgetsIntegration = $gadgetsIntegration;
-		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**

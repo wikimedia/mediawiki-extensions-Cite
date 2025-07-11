@@ -41,14 +41,11 @@ class CiteParsoidTest extends \MediaWikiIntegrationTestCase {
 	private function getSiteConfig( $options ) {
 		$objectFactory = $this->getServiceContainer()->getObjectFactory();
 		$siteConfig = new class( $options, $objectFactory ) extends MockSiteConfig {
-			private ObjectFactory $objectFactory;
-
 			public function __construct(
 				array $opts,
-				ObjectFactory $objectFactory
+				private readonly ObjectFactory $objectFactory,
 			) {
 				parent::__construct( $opts );
-				$this->objectFactory = $objectFactory;
 			}
 
 			public function getObjectFactory(): ObjectFactory {

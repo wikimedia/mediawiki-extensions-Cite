@@ -37,18 +37,11 @@ class CiteHooks implements
 	EditPage__showEditForm_initialHook
 {
 
-	private ReferencePreviewsContext $referencePreviewsContext;
-	private ReferencePreviewsGadgetsIntegration $gadgetsIntegration;
-	private UserOptionsLookup $userOptionsLookup;
-
 	public function __construct(
-		ReferencePreviewsContext $referencePreviewsContext,
-		ReferencePreviewsGadgetsIntegration $gadgetsIntegration,
-		UserOptionsLookup $userOptionsLookup
+		private readonly ReferencePreviewsContext $referencePreviewsContext,
+		private readonly ReferencePreviewsGadgetsIntegration $gadgetsIntegration,
+		private readonly UserOptionsLookup $userOptionsLookup,
 	) {
-		$this->referencePreviewsContext = $referencePreviewsContext;
-		$this->gadgetsIntegration = $gadgetsIntegration;
-		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**

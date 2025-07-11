@@ -18,10 +18,9 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
  */
 class ErrorUtils {
 
-	private ParsoidExtensionAPI $extApi;
-
-	public function __construct( ParsoidExtensionAPI $extApi ) {
-		$this->extApi = $extApi;
+	public function __construct(
+		private readonly ParsoidExtensionAPI $extApi,
+	) {
 	}
 
 	/**

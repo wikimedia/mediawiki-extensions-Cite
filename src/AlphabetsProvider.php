@@ -11,10 +11,9 @@ use MediaWiki\Extension\CLDR\Alphabets;
  */
 class AlphabetsProvider {
 
-	private ?Alphabets $alphabets;
-
-	public function __construct( ?Alphabets $alphabets ) {
-		$this->alphabets = $alphabets;
+	public function __construct(
+		private readonly ?Alphabets $alphabets,
+	) {
 	}
 
 	/**

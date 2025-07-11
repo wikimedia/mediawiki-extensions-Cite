@@ -21,7 +21,7 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
  */
 class RefTagHandler extends ExtensionTagHandler {
 
-	private bool $isSubreferenceSupported;
+	private readonly bool $isSubreferenceSupported;
 
 	public function __construct( Config $mainConfig ) {
 		$this->isSubreferenceSupported = $mainConfig->get( 'CiteSubReferencing' );

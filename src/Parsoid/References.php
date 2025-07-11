@@ -41,18 +41,17 @@ class References {
 	/** A conflict in the content that is visible to the user */
 	private const CONFLICT_VISIBLE = 2;
 
-	private Config $mainConfig;
-	private MarkSymbolRenderer $markSymbolRenderer;
-	private ParsoidValidator $validator;
+	private readonly MarkSymbolRenderer $markSymbolRenderer;
+	private readonly ParsoidValidator $validator;
 	/** @var array<string,array<string,string>>
 	 * @internal Local copy of ref body HTML for conflict detection. Top level
 	 * key is the ref group name, second level key is the ref name
 	 */
 	private array $conflictCache = [];
 
-	public function __construct( Config $mainConfig ) {
-		$this->mainConfig = $mainConfig;
-
+	public function __construct(
+		private readonly Config $mainConfig,
+	) {
 		$this->markSymbolRenderer = MediaWikiServices::getInstance()->getService( 'Cite.MarkSymbolRenderer' );
 		$this->validator = new ParsoidValidator();
 	}

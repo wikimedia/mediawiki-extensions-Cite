@@ -16,16 +16,12 @@ use StatusValue;
  */
 class ErrorReporter {
 
-	private Parser $parser;
-	private ReferenceMessageLocalizer $messageLocalizer;
 	private ?Language $cachedInterfaceLanguage = null;
 
 	public function __construct(
-		Parser $parser,
-		ReferenceMessageLocalizer $messageLocalizer
+		private readonly Parser $parser,
+		private readonly ReferenceMessageLocalizer $messageLocalizer,
 	) {
-		$this->parser = $parser;
-		$this->messageLocalizer = $messageLocalizer;
 	}
 
 	/**

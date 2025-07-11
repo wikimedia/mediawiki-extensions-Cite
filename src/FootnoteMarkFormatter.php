@@ -12,18 +12,11 @@ use MediaWiki\Parser\Sanitizer;
  */
 class FootnoteMarkFormatter {
 
-	private AnchorFormatter $anchorFormatter;
-	private MarkSymbolRenderer $markSymbolRenderer;
-	private ReferenceMessageLocalizer $messageLocalizer;
-
 	public function __construct(
-		AnchorFormatter $anchorFormatter,
-		MarkSymbolRenderer $markSymbolRenderer,
-		ReferenceMessageLocalizer $messageLocalizer
+		private readonly AnchorFormatter $anchorFormatter,
+		private readonly MarkSymbolRenderer $markSymbolRenderer,
+		private readonly ReferenceMessageLocalizer $messageLocalizer,
 	) {
-		$this->anchorFormatter = $anchorFormatter;
-		$this->markSymbolRenderer = $markSymbolRenderer;
-		$this->messageLocalizer = $messageLocalizer;
 	}
 
 	/**

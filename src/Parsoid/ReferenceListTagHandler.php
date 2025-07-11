@@ -18,10 +18,9 @@ use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
  */
 class ReferenceListTagHandler extends ExtensionTagHandler {
 
-	private Config $mainConfig;
-
-	public function __construct( Config $mainConfig ) {
-		$this->mainConfig = $mainConfig;
+	public function __construct(
+		private readonly Config $mainConfig,
+	) {
 	}
 
 	/** @inheritDoc */

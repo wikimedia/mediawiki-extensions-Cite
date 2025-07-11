@@ -17,26 +17,19 @@ use stdClass;
 class BacklinkMarkRenderer {
 
 	/** @var string[] In-memory cache for the alphabet */
-	private array $alphabet;
+	private readonly array $alphabet;
 	/** @var string[]|null In-memory cache for the i18n-configured sequence */
-	private ?array $legacySequence;
+	private readonly ?array $legacySequence;
 
-	private ReferenceMessageLocalizer $messageLocalizer;
-	private AlphabetsProvider $alphabetsProvider;
 	private ?IConfigurationProvider $configProvider = null;
-	private Config $config;
 
 	public function __construct(
 		string $languageCode,
-		ReferenceMessageLocalizer $messageLocalizer,
-		AlphabetsProvider $alphabetsProvider,
+		private readonly ReferenceMessageLocalizer $messageLocalizer,
+		private readonly AlphabetsProvider $alphabetsProvider,
 		?ConfigurationProviderFactory $providerFactory,
-		Config $config
+		private readonly Config $config,
 	) {
-		$this->messageLocalizer = $messageLocalizer;
-		$this->alphabetsProvider = $alphabetsProvider;
-		$this->config = $config;
-
 		if ( $providerFactory && $this->config->get( 'CiteBacklinkCommunityConfiguration' ) ) {
 			$this->configProvider = $providerFactory->newProvider( 'Cite' );
 		}

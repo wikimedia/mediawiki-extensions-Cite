@@ -12,14 +12,13 @@ use StatusValue;
  */
 class Validator {
 
-	private ?string $inReferencesGroup;
-
 	/**
 	 * @param string|null $inReferencesGroup Group name of the <references> context to consider
 	 *  during validation. Null if we are currently not in a <references> context.
 	 */
-	public function __construct( ?string $inReferencesGroup ) {
-		$this->inReferencesGroup = $inReferencesGroup;
+	public function __construct(
+		private readonly ?string $inReferencesGroup,
+	) {
 	}
 
 	/**

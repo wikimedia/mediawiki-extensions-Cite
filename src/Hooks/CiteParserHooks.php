@@ -21,7 +21,7 @@ class CiteParserHooks implements
 	ParserAfterParseHook
 {
 
-	private CiteParserTagHooks $citeParserTagHooks;
+	private readonly CiteParserTagHooks $citeParserTagHooks;
 
 	public function __construct(
 		Config $config

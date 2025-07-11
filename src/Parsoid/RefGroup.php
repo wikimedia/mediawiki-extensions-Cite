@@ -17,7 +17,6 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
  */
 class RefGroup {
 
-	public string $name;
 	/** @var RefGroupItem[] */
 	public array $refs = [];
 	/** @var array<string,RefGroupItem> Lookup map only for named refs */
@@ -27,8 +26,9 @@ class RefGroup {
 	/** @var array<string,int> Counter to provide subreference indexes */
 	private array $subRefCountByName = [];
 
-	public function __construct( string $group = '' ) {
-		$this->name = $group;
+	public function __construct(
+		public readonly string $name = '',
+	) {
 	}
 
 	public function lookupRefByName( string $name ): ?RefGroupItem {

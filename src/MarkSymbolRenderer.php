@@ -14,13 +14,10 @@ class MarkSymbolRenderer {
 	/** @var array<string,string[]> In-memory cache for the cite_link_label_group-… link label lists */
 	private array $legacyLinkLabels = [];
 
-	private ReferenceMessageLocalizer $messageLocalizer;
-
 	public function __construct(
-		ReferenceMessageLocalizer $messageLocalizer
-	) {
 		// TODO: deprecate the i18n mechanism.
-		$this->messageLocalizer = $messageLocalizer;
+		private readonly ReferenceMessageLocalizer $messageLocalizer,
+	) {
 	}
 
 	public function makeLabel( string $group, int $number, ?int $extendsIndex = null ): string {

@@ -321,7 +321,7 @@ class RefTagHandler extends ExtensionTagHandler {
 				if ( $ref ) {
 					return ' [doc: ' . DOMCompat::getOuterHTML( $ref ) . ']';
 				}
-			} catch ( Exception $e ) {
+			} catch ( Exception ) {
 				// We are just providing VE with debugging info.
 				// So, ignore all exceptions / errors in this code.
 			}

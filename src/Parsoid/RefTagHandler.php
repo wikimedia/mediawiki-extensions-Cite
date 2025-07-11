@@ -130,8 +130,14 @@ class RefTagHandler extends ExtensionTagHandler {
 	public function domToWikitext(
 		ParsoidExtensionAPI $extApi, Element $node, bool $wrapperUnmodified
 	) {
-		$startTagSrc = $extApi->extStartTagToWikitext( $node );
 		$dataMw = DOMDataUtils::getDataMw( $node );
+		// Drop the conversion of synthetic main refs. The content of these will be retrived
+		// by the corresponding subrefs with the `details` attribute.
+		if ( isset( $dataMw->isSyntheticMainRef ) ) {
+			return '';
+		}
+
+		$startTagSrc = $extApi->extStartTagToWikitext( $node );
 		if ( !isset( $dataMw->body ) ) {
 			return $startTagSrc; // We self-closed this already.
 		}

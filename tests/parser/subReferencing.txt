@@ -574,8 +574,6 @@ wgCiteSubReferencing=true
 Unused list-defined sub-ref with linked existing main ref
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <ref name="book">Book</ref>
 <references>
@@ -623,8 +621,6 @@ wgCiteSubReferencing=true
 Unused list defined sub-ref with used main content
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <ref name="book" />
 <references>
@@ -833,8 +829,6 @@ parsoid=wt2html
 Using `follow` with details on the "follow" part
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html,wt2wt
 !! wikitext
 <ref name="book">Book</ref> <ref details="page 1" follow="book">continued</ref>
 <references />

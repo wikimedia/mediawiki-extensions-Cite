@@ -3189,7 +3189,6 @@ z
 
 !! test
 Broken wikitext making a ref as extended attribute and a duplicated fragment (with 2wt tests)
-!! options
 !! wikitext
 <i title="<ref>y</ref>">a
 

@@ -106,6 +106,7 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
 	// Parent method
 	ve.ce.MWReferencesListNode.super.prototype.onTeardown.call( this );
 
+	// The model is potentially gone after .destroy() was called
 	if ( !this.getModel() || !this.getModel().getDocument() ) {
 		return;
 	}
@@ -124,6 +125,7 @@ ve.ce.MWReferencesListNode.prototype.onTeardown = function () {
  * @param {string[]} groupsChanged A list of groups which have changed in this transaction
  */
 ve.ce.MWReferencesListNode.prototype.onInternalListUpdate = function ( groupsChanged ) {
+	// The model is potentially gone after .destroy() was called
 	if ( !this.getModel() ) {
 		return;
 	}

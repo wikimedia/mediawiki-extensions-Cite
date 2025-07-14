@@ -612,6 +612,7 @@ ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
  * Unregister the node from the internal list
  */
 ve.dm.MWReferenceNode.prototype.removeFromInternalList = function () {
+	// This works with the empty default group because it is "mwReference/", not ""
 	if ( !this.registeredListGroup ) {
 		// Don't try to remove if we haven't been added in the first place.
 		return;

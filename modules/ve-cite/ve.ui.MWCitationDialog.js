@@ -1,6 +1,6 @@
 'use strict';
 
-/*
+/**
  * VisualEditor user interface MWCitationDialog class.
  *
  * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt

@@ -451,6 +451,9 @@
 	"TestAutoloadNamespaces": {
 		"Cite\\Tests\\": "tests/phpunit/"
 	},
+	"TestAutoloadClasses": {
+		"MediaWiki\\Extension\\CommunityConfiguration\\Tests\\SchemaProviderTestCase": "../CommunityConfiguration/tests/phpunit/integration/SchemaProviderTestCase.php"
+	},
 	"TrackingCategories": [
 		"cite-tracking-category-cite-diffing-error",
 		"cite-tracking-category-cite-error",

@@ -51,7 +51,7 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 	/**
 	 * InternalList node group, or null if no such group exists.
 	 *
-	 * @member {Object|null}
+	 * @member {ve.dm.InternalListNodeGroup|null}
 	 * @private
 	 */
 	this.nodeGroup = null;
@@ -66,7 +66,7 @@ OO.initClass( ve.dm.MWGroupReferences );
 /**
  * Rebuild information about this group of references.
  *
- * @param {Object} nodeGroup InternalList group object containing refs.
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup InternalList group object containing refs
  * @return {ve.dm.MWGroupReferences}
  */
 ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {

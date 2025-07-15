@@ -172,7 +172,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			if ( !ve.getProp( mwData, 'attrs', 'details' ) ) {
 				// make sure Parsoid recognizes the ref as a subref, the details content will be
 				// set by Parsoid from the bodyContent in body.html
-				ve.setProp( mwData, 'attrs', 'details', 'true' );
+				ve.setProp( mwData, 'attrs', 'details', '1' );
 			}
 		}
 
@@ -206,7 +206,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		// If we have no internal item data for this reference, don't let it get pasted into
 		// another VE document. T110479
 		if ( isForClipboard && itemNodeRange.isCollapsed() ) {
-			el.setAttribute( 'data-ve-ignore', 'true' );
+			el.setAttribute( 'data-ve-ignore', '1' );
 		}
 
 		// Set or clear group

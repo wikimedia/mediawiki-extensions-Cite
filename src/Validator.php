@@ -29,10 +29,12 @@ class Validator {
 	 */
 	private static function filterArguments( array $argv, array $allowedArguments ): StatusValue {
 		$expected = count( $allowedArguments );
+		// Constructs a map of all expected arguments, followed by invalid arguments
 		$allValues = array_merge( array_fill_keys( $allowedArguments, null ), $argv );
 
 		$status = StatusValue::newGood( array_slice( $allValues, 0, $expected ) );
 
+		// Unexpected arguments after the expected ones, hence the message "too many"
 		if ( count( $allValues ) > $expected ) {
 			$badArguments = array_keys( array_slice( $allValues, $expected ) );
 			$firstBadArgument = $badArguments[0];
@@ -59,6 +61,16 @@ class Validator {
 		return $status;
 	}
 
+	/**
+	 * Tries to find a word that is as close as possible to the user input, from a list of
+	 * possibilities. The minimum Levenshtein distance is used to find the closest match, see
+	 * https://en.wikipedia.org/wiki/Levenshtein_distance. This is expensive but reasonable here
+	 * because the strings and arrays are all very short.
+	 *
+	 * @param string $badArgument The user input
+	 * @param string[] $suggestions Possible suggestions
+	 * @return string|null Null when no meaningful suggestion can be made
+	 */
 	private static function closestMatch( string $badArgument, array $suggestions ): ?string {
 		$badArgument = strtolower( trim( $badArgument ) );
 

@@ -3,6 +3,8 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use Wikimedia\Message\MessageParam;
+use Wikimedia\Message\MessageSpecifier;
 use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
 use Wikimedia\Parsoid\DOM\Element;
@@ -21,6 +23,13 @@ class ErrorUtils {
 	public function __construct(
 		private readonly ParsoidExtensionAPI $extApi,
 	) {
+	}
+
+	public static function fromMessageSpecifier( MessageSpecifier $msg ): DataMwError {
+		return new DataMwError( $msg->getKey(), array_map(
+			static fn ( $p ) => $p instanceof MessageParam ? $p->getValue() : $p,
+			$msg->getParams()
+		) );
 	}
 
 	/**

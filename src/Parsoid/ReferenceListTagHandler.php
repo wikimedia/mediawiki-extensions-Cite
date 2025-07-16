@@ -6,8 +6,6 @@ namespace Cite\Parsoid;
 use Cite\Validator;
 use Closure;
 use MediaWiki\Config\Config;
-use Wikimedia\Message\MessageParam;
-use Wikimedia\Message\MessageValue;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
 use Wikimedia\Parsoid\DOM\Element;
 use Wikimedia\Parsoid\Ext\DOMDataUtils;
@@ -40,12 +38,8 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 		$status = Validator::filterReferenceListArguments( $extApi->extArgsToArray( $extArgs ) );
 		$refsOpts = $status->getValue();
 		foreach ( $status->getMessages() as $msg ) {
-			$extApi->pushError( $msg->getKey(), ...array_map(
-				// TODO: Move to some library function
-				static fn ( $p ) => $p instanceof MessageParam ? $p->getValue() : $p,
-				$msg->getParams()
-			) );
-			$error = new MessageValue( $msg->getKey(), $msg->getParams() );
+			$error = ErrorUtils::fromMessageSpecifier( $msg );
+			$extApi->pushError( $error->key, ...$error->params );
 		}
 
 		$referenceList = new References( $this->mainConfig );

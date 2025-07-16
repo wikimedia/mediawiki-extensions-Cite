@@ -34,6 +34,8 @@
 	"cite-tracking-category-cite-error-desc": "Sider i denne kategorien har feil i bruk av referansetagger",
 	"cite-tracking-category-cite-diffing-error": "Sider med referansefeil som utløser visuelle forskjeller",
 	"cite-tracking-category-cite-diffing-error-desc": "Sider i denne kategorien har feil i bruken av referansetagger, og disse feilene vises ikke på samme måte i den gamle parseren som i Parsoid.",
+	"cite-tracking-category-ref-details": "Sider som bruker underreferanser",
+	"cite-tracking-category-ref-details-desc": "Sider i denne kategorien bruker «details»-attributtet til &lt;ref>-taggen.",
 	"cite-reference-previews-reference": "Referanse",
 	"cite-reference-previews-book": "Bokreferanse",
 	"cite-reference-previews-journal": "Tidsskriftreferanse",
@@ -62,5 +64,10 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Sidetekst.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Lenketekst], ekstra tekst.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Lenketekst]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Ekstra detaljer"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Ekstra detaljer",
+	"communityconfiguration-cite-title": "Cite",
+	"communityconfiguration-cite-description": "Tilpass formatet og utseendet til referanser.",
+	"cite-configuration-title": "Cite-konfigurasjon",
+	"cite-configuration-info": "Disse innstillingene påvirker alle sider som benytter seg av Cite. De kan kun endres av administratorer.",
+	"cite-configuration-submit": "Lagre endringer"
 }

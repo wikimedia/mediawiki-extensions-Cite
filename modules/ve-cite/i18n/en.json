@@ -35,7 +35,7 @@
 	"cite-ve-citationneeded-title": "Citation needed",
 	"cite-ve-dialog-reference-contextitem-extends": "This reference is a re-use with additional details:",
 	"cite-ve-dialog-reference-editing-add-details": "You are adding details to",
-	"cite-ve-dialog-reference-editing-add-details-placeholder": "Write or paste the information you would like to add to this reference here.",
+	"cite-ve-dialog-reference-editing-add-details-placeholder": "Write or paste your additional details here, for example a specific page number or a quote.",
 	"cite-ve-dialog-reference-editing-reused-short": "Used {{PLURAL:$1|once|2=twice|$1 times}}",
 	"cite-ve-dialog-reference-editing-reused": "This reference is used {{PLURAL:$1|once|2=twice|$1 times}} on this page.",
 	"cite-ve-dialog-reference-editing-reused-long": "This reference is used {{PLURAL:$1|once|2=twice|$1 times}} on this page. Changes made here will be applied in all places where this reference is reused.",

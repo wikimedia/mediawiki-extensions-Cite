@@ -643,6 +643,16 @@ ve.dm.MWReferenceNode.prototype.onAttributeChange = function ( key, _from, to ) 
 	this.addToInternalList();
 };
 
+/**
+ * Set the footnote number
+ *
+ * @param {number[]} groupItemIndex Pair of numbers giving the top-level and sub-reference indexes.
+ */
+ve.dm.MWReferenceNode.prototype.setGroupIndex = function ( groupItemIndex ) {
+	// TODO: refine where this is stored
+	this.groupItemIndex = groupItemIndex;
+};
+
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.MWReferenceNode );

@@ -80,10 +80,14 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 		.forEach( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );
 			const mainRefKey = node.getAttribute( 'mainRefKey' );
-			if ( mainRefKey ) {
-				result.addSubref( mainRefKey, listKey, node );
-			} else {
-				result.getOrAllocateTopLevelIndex( listKey );
+			const groupItemIndex = ( mainRefKey ?
+				result.addSubref( mainRefKey, listKey, node ) :
+				[ result.getOrAllocateTopLevelIndex( listKey ), -1 ]
+			);
+
+			const reuseNodes = nodeGroup.keyedNodes[ listKey ];
+			if ( reuseNodes ) {
+				reuseNodes.forEach( ( refNode ) => refNode.setGroupIndex( groupItemIndex ) );
 			}
 		} );
 
@@ -124,6 +128,8 @@ ve.dm.MWGroupReferences.prototype.addSubref = function ( mainRefKey, subRefKey, 
 	this.footnoteLabelLookup[ subRefKey ] = ve.dm.MWDocumentReferences.static.contentLangDigits( topLevelIndex ) +
 		// FIXME: RTL, and customization of the separator like with mw:referencedBy
 		'.' + ve.dm.MWDocumentReferences.static.contentLangDigits( subRefIndex );
+
+	return this.footnoteNumberLookup[ subRefKey ];
 };
 
 /**

@@ -14,7 +14,8 @@
 			},
 			getAttributes: () => ( {} ),
 			getInternalItem: () => ( {} ),
-			getDocument: () => ( new ve.dm.Document() )
+			getDocument: () => ( new ve.dm.Document() ),
+			setGroupIndex: () => undefined
 		} : {};
 		const groups = hasNode ? {
 			'mwReference/': {

@@ -623,6 +623,8 @@ class References {
 
 		$nestedRefsHTML = array_merge( $nestedRefsHTML, $syntheticRefsHtml );
 
+		// FIXME: This check is relativly fragile.  When the references tag comes from a template
+		// that includes more content than just the <references> tag $isTemplateWrapper is false
 		if ( !$isTemplateWrapper ) {
 			$dataMw = DOMDataUtils::getDataMw( $refsNode );
 			// Mark this auto-generated so that we can skip this during

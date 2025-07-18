@@ -253,7 +253,8 @@ class Validator {
 
 		if ( $group !== $this->inReferencesGroup ) {
 			// <ref> and <references> have conflicting group attributes.
-			$status->fatal( 'cite_error_references_group_mismatch',
+			$arguments['group'] = $this->inReferencesGroup;
+			$status->warning( 'cite_error_references_group_mismatch',
 				Sanitizer::safeEncodeAttribute( $group )
 			);
 		}

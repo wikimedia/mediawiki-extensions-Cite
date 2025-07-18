@@ -103,7 +103,7 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 		}
 
 		$startTagSrc = $extApi->extStartTagToWikitext( $node );
-		if ( $src === null ) {
+		if ( str_ends_with( $startTagSrc, '/>' ) ) {
 			// We self-closed this already
 			return $startTagSrc;
 		} else {

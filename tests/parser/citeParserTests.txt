@@ -2219,7 +2219,6 @@ References: 6. <references> with nested refs from a transclusion
 
 !! test
 References: 6.1. T399937 <references> with nested refs from a transclusion wrapped in a div
-# FIXME Parsoid is forwarding body.html of nested references here, currently that's not wanted. See T399937
 !! wikitext
 <ref name="bar" />
 {{1x|1=<div class="usr1"><references><ref name="bar">Foo</ref></references></div>}}
@@ -2233,7 +2232,7 @@ References: 6.1. T399937 <references> with nested refs from a transclusion wrapp
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-bar_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"bar"}}'><a href="./Parser_test#cite_note-bar-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="usr1" typeof="mw:Transclusion" data-parsoid='{"stx":"html","pi":[[{"k":"1","named":true}]]}' data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;div class=\"usr1\">&lt;references>&lt;ref name=\"bar\">Foo&lt;/ref>&lt;/references>&lt;/div>"}},"i":0}}]}'>
-<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"bar\"},\"body\":{\"id\":\"mw-reference-text-cite_note-bar-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-bar-1\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"&lt;ref name=\"bar\">Foo&lt;/ref>"}}'>
 <ol class="mw-references references">
 <li id="cite_note-bar-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-bar-1" class="mw-reference-text reference-text">Foo</span></li>
 </ol>
@@ -2243,7 +2242,6 @@ References: 6.1. T399937 <references> with nested refs from a transclusion wrapp
 
 !! test
 References: 6.2. T399937 <references> with nested refs from a transclusion wrapped in a div preceded by another div
-#FIXME Parsoid should not add nested refs from the template, we'll have issues when round tripping then. See T399937
 !! options
 parsoid=wt2html
 !! wikitext
@@ -2260,7 +2258,7 @@ parsoid=wt2html
 <p><sup class="mw-ref reference" id="cite_ref-bar_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"bar"}}'><a href="./Parser_test#cite_note-bar-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="usr0" about="#mwt2" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;div class=\"usr0\"/>&lt;div class=\"usr1\">&lt;references>&lt;ref name=\"bar\">Foo&lt;/ref>&lt;/references>&lt;/div>"}},"i":0}}]}'></div>
 <div class="usr1" about="#mwt2">
-<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"bar\"},\"body\":{\"id\":\"mw-reference-text-cite_note-bar-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-bar-1\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"&lt;ref name=\"bar\">Foo&lt;/ref>"}}'>
 <ol class="mw-references references">
 <li id="cite_note-bar-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-bar-1" class="mw-reference-text reference-text">Foo</span></li>
 </ol>

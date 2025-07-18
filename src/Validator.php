@@ -160,11 +160,11 @@ class Validator {
 		$name = (string)$arguments['name'];
 		$follow = (string)$arguments['follow'];
 
-		if ( ctype_digit( $name ) || ctype_digit( $follow ) ) {
-			// Numeric names mess up the resulting id's, potentially producing
-			// duplicate id's in the XHTML.  The Right Thing To Do
-			// would be to mangle them, but it's not really high-priority
-			// (and would produce weird id's anyway).
+		// Disallow numeric names to avoid confusion with global ids
+		if ( ctype_digit( $name ) ) {
+			$arguments['name'] = null;
+			$status->warning( 'cite_error_ref_numeric_key' );
+		} elseif ( ctype_digit( $follow ) ) {
 			$status->fatal( 'cite_error_ref_numeric_key' );
 		}
 

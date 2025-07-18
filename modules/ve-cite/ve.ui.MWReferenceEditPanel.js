@@ -78,8 +78,8 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	this.referenceListPreview = new OO.ui.Layout( {
 		classes: [ 've-ui-mwReferenceDialog-referencePreview' ]
 	} );
-	const referenceListFieldset = new OO.ui.FieldsetLayout( {
-		label: ve.msg( 'cite-ve-dialog-reference-editing-add-details' ),
+
+	this.referenceListFieldset = new OO.ui.FieldsetLayout( {
 		classes: [ 've-ui-mwReferenceDialog-referencePreview-fieldset' ],
 		items: [ this.referenceListPreview ]
 	} );
@@ -95,7 +95,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 
 	this.previewPanel = new OO.ui.Layout( { classes: [ 've-ui-mwReference-details-preview-panel' ] } );
 	this.previewPanel.$element.append(
-		referenceListFieldset.$element
+		this.referenceListFieldset.$element
 	);
 	this.editPanel = new OO.ui.Layout();
 	this.editPanel.$element.append(
@@ -229,6 +229,11 @@ ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs 
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.referenceModel = ref;
 	this.isInsertingSubRef = ref.mainRefKey && !ref.getDocument().data.hasContent();
+
+	this.referenceListFieldset.setLabel( ve.msg( this.isInsertingSubRef ?
+		'cite-ve-dialog-reference-editing-add-details' :
+		'cite-ve-dialog-reference-editing-edit-details'
+	) );
 
 	this.setFormFieldsFromRef( ref );
 	this.updateReuseWarningFromRef( ref );

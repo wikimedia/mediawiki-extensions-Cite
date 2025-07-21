@@ -123,10 +123,7 @@ class ReferencesData {
 		$ref->group = $group->name;
 		$ref->globalId = ++$this->refSequence;
 
-		$group->refs[] = $ref;
-		if ( $ref->name ) {
-			$group->indexByName[$ref->name] = $ref;
-		}
+		$group->push( $ref );
 
 		return $ref;
 	}

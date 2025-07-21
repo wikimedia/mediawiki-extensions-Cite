@@ -544,7 +544,7 @@ class References {
 		// whereas embedded refs will be gathered for batch processing, since
 		// we need to parse embedded content to find them.
 		if ( $refGroup ) {
-			foreach ( $refGroup->refs as $ref ) {
+			foreach ( $refGroup->toArray() as $ref ) {
 				$errs = [];
 				// Mark all refs that are named without content
 				if ( $ref->name !== null && $ref->contentId === null ) {
@@ -583,7 +583,7 @@ class References {
 		$syntheticRefsHtml = [];
 		if ( $refGroup ) {
 			$doc = $refsNode->ownerDocument;
-			foreach ( $refGroup->refs as $ref ) {
+			foreach ( $refGroup->toArray() as $ref ) {
 				if ( $ref->isSyntheticMainRef ) {
 					$sup = $doc->createElement( 'sup' );
 					DOMUtils::addAttributes( $sup, [
@@ -648,7 +648,7 @@ class References {
 			// We use a configurable parameter here primarily for test coverage purposes.
 			// See citeParserTests.txt where we set a threshold of 1 or 2.
 			$rrThreshold = $this->mainConfig->get( 'CiteResponsiveReferencesThreshold' ) ?? 10;
-			if ( $refGroup && count( $refGroup->refs ) > $rrThreshold ) {
+			if ( $refGroup && $refGroup->count() > $rrThreshold ) {
 				DOMCompat::getClassList( $refsNode )->add( 'mw-references-columns' );
 			}
 			$refsNode = $refsNode->firstChild;
@@ -664,7 +664,7 @@ class References {
 		DOMCompat::replaceChildren( $refsNode );
 
 		if ( $refGroup ) {
-			foreach ( $refGroup->refs as $ref ) {
+			foreach ( $refGroup->toArray() as $ref ) {
 				// Skip sub-references in the outer loop
 				if ( $ref->subrefIndex === null ) {
 					$refGroup->renderReferenceListElement( $extApi, $refsNode, $ref );
@@ -750,7 +750,7 @@ class References {
 		RefGroupItem $mainRef
 	): ?Element {
 		$ol = null;
-		foreach ( $refGroup->refs as $ref ) {
+		foreach ( $refGroup->toArray() as $ref ) {
 			if ( $ref->numberInGroup === $mainRef->numberInGroup && $ref !== $mainRef ) {
 				$ol ??= $doc->createElement( 'ol' );
 				$refGroup->renderReferenceListElement( $extApi, $ol, $ref );

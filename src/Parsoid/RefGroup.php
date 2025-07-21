@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use Countable;
 use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\DOM\Element;
@@ -15,12 +16,13 @@ use Wikimedia\Parsoid\Utils\DOMCompat;
  * Helper class used by `<references>` implementation.
  * @license GPL-2.0-or-later
  */
-class RefGroup {
+class RefGroup implements Countable {
 
 	/** @var RefGroupItem[] */
-	public array $refs = [];
+	private array $refs = [];
 	/** @var array<string,RefGroupItem> Lookup map only for named refs */
-	public array $indexByName = [];
+	private array $indexByName = [];
+
 	/** @var int Counter to track order of ref appearance in article */
 	private int $nextIndex = 1;
 	/** @var array<string,int> Counter to provide subreference indexes */
@@ -31,8 +33,23 @@ class RefGroup {
 	) {
 	}
 
+	public function push( RefGroupItem $ref ): void {
+		$this->refs[] = $ref;
+		if ( $ref->name ) {
+			$this->indexByName[$ref->name] = $ref;
+		}
+	}
+
 	public function lookupRefByName( string $name ): ?RefGroupItem {
 		return $this->indexByName[$name] ?? null;
+	}
+
+	public function count(): int {
+		return count( $this->refs );
+	}
+
+	public function toArray(): array {
+		return $this->refs;
 	}
 
 	/**

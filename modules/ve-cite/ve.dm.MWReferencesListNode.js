@@ -162,8 +162,6 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 			.toDomElements.call( this, dataElement, doc, converter );
 	}
 
-	const updatedMw = ve.dm.MWReferencesListNode.static.updatedMwForDom( data, doc, converter );
-
 	let domElements = [ doc.createElement( 'div' ) ];
 	if ( !converter.isForParser() ) {
 		// Output needs to be read so re-render
@@ -177,7 +175,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		// Destroy the view node so it doesn't try to update the DOM node later
 		// (e.g. updateDebounced)
 		viewNode.destroy();
-	} else if ( dataElement.originalDomElementsHash !== undefined && !updatedMw ) {
+	} else if ( dataElement.originalDomElementsHash !== undefined ) {
 		// If there's more than 1 element, preserve entire array, not just first element
 		domElements = ve.copyDomElements(
 			converter.getStore().value( dataElement.originalDomElementsHash ), doc
@@ -202,7 +200,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	domElements[ 0 ].setAttribute( 'typeof', 'mw:Extension/references' );
 	domElements[ 0 ].setAttribute(
 		'data-mw',
-		!updatedMw ? dataElement.attributes.originalMw : updatedMw
+		ve.dm.MWReferencesListNode.static.buildMwForDom( data, doc, converter )
 	);
 
 	return domElements;
@@ -215,9 +213,9 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
  * @param {Object} data
  * @param {Document} doc
  * @param {ve.dm.Converter} converter
- * @return {string|false} updated mwData as string or false if nothing changed
+ * @return {string} updated mwData as string or originalMw if nothing changed
  * */
-ve.dm.MWReferencesListNode.static.updatedMwForDom = function ( data, doc, converter ) {
+ve.dm.MWReferencesListNode.static.buildMwForDom = function ( data, doc, converter ) {
 	const attributes = data[ 0 ].attributes;
 	const originalMw = attributes.originalMw;
 	const originalMwData = originalMw && JSON.parse( originalMw );
@@ -275,7 +273,7 @@ ve.dm.MWReferencesListNode.static.updatedMwForDom = function ( data, doc, conver
 
 	// If mwData and originalMw are the same, use originalMw to prevent reserialization.
 	// Reserialization has the potential to reorder keys and so change the DOM unnecessarily
-	return originalMw && ve.compare( mwData, originalMwData ) ? false : JSON.stringify( mwData );
+	return originalMw && ve.compare( mwData, originalMwData ) ? originalMw : JSON.stringify( mwData );
 };
 
 /***

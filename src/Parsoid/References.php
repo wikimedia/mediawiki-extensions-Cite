@@ -91,14 +91,7 @@ class References {
 
 		DOMUtils::migrateChildren( $domFragment, $ol );
 
-		// Support the `responsive` parameter
-		if ( $refsOpts['responsive'] !== null ) {
-			$responsiveWrap = $refsOpts['responsive'] !== '0';
-		} else {
-			$responsiveWrap = (bool)$this->mainConfig->get( 'CiteResponsiveReferences' );
-		}
-
-		if ( $responsiveWrap ) {
+		if ( $refsOpts['responsive'] ?? $this->mainConfig->get( 'CiteResponsiveReferences' ) ) {
 			$div = $doc->createElement( 'div' );
 			DOMCompat::getClassList( $div )->add( 'mw-references-wrap' );
 			$div->appendChild( $ol );

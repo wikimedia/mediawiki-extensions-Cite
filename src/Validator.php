@@ -126,7 +126,14 @@ class Validator {
 	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
 	 */
 	public static function filterReferenceListArguments( array $argv ): StatusValue {
-		return self::filterArguments( $argv, [ 'group', 'responsive' ] );
+		$status = self::filterArguments( $argv, [ 'group', 'responsive' ] );
+		/** @var array<string,string|null> $arguments */
+		$arguments = $status->getValue();
+		if ( $arguments['responsive'] !== null ) {
+			// All strings including the empty string mean enabled, only "0" means disabled
+			$status->value['responsive'] = $arguments['responsive'] !== '0';
+		}
+		return $status;
 	}
 
 	/**

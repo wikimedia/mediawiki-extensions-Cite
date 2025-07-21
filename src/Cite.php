@@ -293,21 +293,19 @@ class Cite {
 	/**
 	 * @param Parser $parser
 	 * @param string $group
-	 * @param string|null $responsive Defaults to $wgCiteResponsiveReferences when not set
+	 * @param bool|null $responsive Defaults to $wgCiteResponsiveReferences when not set
 	 *
 	 * @return string HTML
 	 */
 	private function formatReferences(
 		Parser $parser,
 		string $group,
-		?string $responsive = null
+		?bool $responsive = null
 	): string {
-		$responsiveReferences = $this->config->get( 'CiteResponsiveReferences' );
-
 		return $this->referenceListFormatter->formatReferences(
 			$parser,
 			$this->referenceStack->popGroup( $group ),
-			$responsive !== null ? $responsive !== '0' : $responsiveReferences,
+			$responsive ?? $this->config->get( 'CiteResponsiveReferences' ),
 			$this->isSectionPreview
 		);
 	}

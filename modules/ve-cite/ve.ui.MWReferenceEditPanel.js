@@ -37,13 +37,6 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	 * @member {string|null}
 	 */
 	this.originalGroup = null;
-	/**
-	 * If the edit panel is used to insert a sub-reference
-	 *
-	 * @member {boolean}
-	 * @private
-	 */
-	this.isInsertingSubRef = false;
 
 	// Create content editor
 	this.referenceTarget = ve.init.target.createTargetWidget(
@@ -228,9 +221,9 @@ ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs 
  */
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.referenceModel = ref;
-	this.isInsertingSubRef = ref.mainRefKey && !ref.getDocument().data.hasContent();
+	const isInsertingSubRef = ref.isSubRef() && !ref.getDocument().data.hasContent();
 
-	this.referenceListFieldset.setLabel( ve.msg( this.isInsertingSubRef ?
+	this.referenceListFieldset.setLabel( ve.msg( isInsertingSubRef ?
 		'cite-ve-dialog-reference-editing-add-details' :
 		'cite-ve-dialog-reference-editing-edit-details'
 	) );
@@ -258,13 +251,13 @@ ve.ui.MWReferenceEditPanel.prototype.getReferenceFromEditing = function () {
 ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
 	this.referenceTarget.setDocument( ref.getDocument() );
 
-	if ( this.isInsertingSubRef ) {
+	if ( ref.isSubRef() ) {
 		this.referenceTarget.getSurface().setPlaceholder(
 			ve.msg( 'cite-ve-dialog-reference-editing-add-details-placeholder' )
 		);
 	}
 
-	this.optionsFieldset.toggle( !ref.mainRefKey );
+	this.optionsFieldset.toggle( !ref.isSubRef() );
 
 	this.originalGroup = ref.getGroup();
 
@@ -293,8 +286,7 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
-	// Only show preview when editing details
-	if ( ref.mainRefKey ) {
+	if ( ref.isSubRef() ) {
 		// Note: listGroup is only available after a (possibly new) ref has been registered via
 		// ve.dm.MWReferenceModel.insertInternalItem
 		const mainRefNode = this.docRefs.getGroupRefs( ref.getGroup() )
@@ -317,7 +309,7 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 				)
 			);
 	}
-	this.previewPanel.toggle( !!ref.mainRefKey );
+	this.previewPanel.toggle( ref.isSubRef() );
 };
 
 /**

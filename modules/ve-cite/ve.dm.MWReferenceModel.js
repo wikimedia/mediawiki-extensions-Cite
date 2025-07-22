@@ -276,6 +276,13 @@ ve.dm.MWReferenceModel.prototype.getDocument = function () {
 };
 
 /**
+ * @return {boolean}
+ */
+ve.dm.MWReferenceModel.prototype.isSubRef = function () {
+	return !!this.mainRefKey;
+};
+
+/**
  * Set the name of the group a reference is in.
  *
  * @param {string} group Reference's group

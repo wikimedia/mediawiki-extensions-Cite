@@ -30,6 +30,7 @@
 	"cite-ve-citationneeded-title": "İstinad lazımdır",
 	"cite-ve-dialog-reference-contextitem-extends": "Bu istinad əlavə detallarla təkrar istifadə edilir:",
 	"cite-ve-dialog-reference-editing-add-details": "Bu istinada detallar əlavə edirsiniz:",
+	"cite-ve-dialog-reference-editing-edit-details": "Bu istinadın detallarını redaktə edirsiniz:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Əlavə detalları buraya yazın və ya yapışdırın, məsələn, konkret səhifə nömrəsi və ya sitat.",
 	"cite-ve-dialog-reference-editing-reused-short": "{{PLURAL:$1|$1 dəfə}} istifadə olunub",
 	"cite-ve-dialog-reference-editing-reused": "Bu istinad bu səhifədə {{PLURAL:$1|1 dəfə|2=2 dəfə|$1 dəfə}} istifadə edilib.",

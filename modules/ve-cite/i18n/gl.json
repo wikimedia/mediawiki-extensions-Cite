@@ -35,6 +35,7 @@
 	"cite-ve-citationneeded-title": "Cómpre cita",
 	"cite-ve-dialog-reference-contextitem-extends": "Esta referencia é unha reutilización con detalles adicionais:",
 	"cite-ve-dialog-reference-editing-add-details": "Estás a engadir detalles a",
+	"cite-ve-dialog-reference-editing-edit-details": "Estás a editar os detalles de",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Escribe ou pega aquí os datos adicionais; por exemplo, un número de páxina específico ou unha cita.",
 	"cite-ve-dialog-reference-editing-reused-short": "Usada {{PLURAL:$1|unha vez|2=dúas veces|$1 veces}}",
 	"cite-ve-dialog-reference-editing-reused": "Esta referencia utilízase {{PLURAL:$1|unha vez|2=dúas veces|$1 veces}} nesta páxina.",

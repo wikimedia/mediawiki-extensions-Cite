@@ -37,6 +37,7 @@
 	"cite-ve-citationneeded-title": "Beleg wird benötigt",
 	"cite-ve-dialog-reference-contextitem-extends": "Bei diesem Einzelnachweis handelt es sich um eine Wiederverwendung mit zusätzlichen Details:",
 	"cite-ve-dialog-reference-editing-add-details": "Du fügst Details hinzu",
+	"cite-ve-dialog-reference-editing-edit-details": "Du bearbeitest Details von",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Schreibe oder füge hier deine zusätzlichen Angaben ein, beispielsweise eine bestimmte Seitennummer oder ein Zitat.",
 	"cite-ve-dialog-reference-editing-reused-short": "{{PLURAL:$1|Einmal|2=Zweimal|$1 Mal}} verwendet",
 	"cite-ve-dialog-reference-editing-reused": "Dieser Einzelnachweis wird auf dieser Seite {{PLURAL:$1|einmal|2=zwei Mal|$1 Mal}} verwendet.",

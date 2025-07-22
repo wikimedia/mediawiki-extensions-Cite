@@ -48,6 +48,7 @@
 	"cite-ve-citationneeded-title": "Kaynak belirtilmeli",
 	"cite-ve-dialog-reference-contextitem-extends": "Bu kaynak ek ayrıntılarla yeniden kullanılmıştır:",
 	"cite-ve-dialog-reference-editing-add-details": "Ek ayrıntılar ekliyorsunuz:",
+	"cite-ve-dialog-reference-editing-edit-details": "Ayrıntılarını düzenliyorsunuz:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Ek ayrıntılarınızı buraya yazın ya da yapıştırın, örneğin belirli bir sayfa numarası ya da bir alıntı.",
 	"cite-ve-dialog-reference-editing-reused-short": "{{PLURAL:$1|Bir|2=İki|$1}} kez kullanıldı",
 	"cite-ve-dialog-reference-editing-reused": "Bu kaynak, bu sayfada {{PLURAL:$1|bir kere|2=iki kere|$1 kere}} kullanıldı.",

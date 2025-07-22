@@ -58,6 +58,7 @@
 	"cite-ve-citationneeded-title": "Referentie gewenst",
 	"cite-ve-dialog-reference-contextitem-extends": "Deze referentie is hergebruikt met aanvullende details:",
 	"cite-ve-dialog-reference-editing-add-details": "U voegt details toe aan",
+	"cite-ve-dialog-reference-editing-edit-details": "U bewerkt de details van",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Schrijf of plak hier uw aanvullende gegevens, bijvoorbeeld een bepaald paginanummer of een citaat.",
 	"cite-ve-dialog-reference-editing-reused-short": "{{PLURAL:$1|Eén|2=Twee|$1}} keer gebruikt",
 	"cite-ve-dialog-reference-editing-reused": "Deze referentie wordt $1 {{PLURAL:$1|keer}} gebruikt op deze pagina.",

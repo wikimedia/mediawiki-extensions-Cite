@@ -181,20 +181,13 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 			converter.getStore().value( dataElement.originalDomElementsHash ), doc
 		);
 	} else {
-		// Render all group refs
-		const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
-			converter.internalList.document
+		domElements[ 0 ].appendChild(
+			ve.dm.MWReferencesListNode.static.listToDomElement(
+				dataElement.attributes.refGroup || '',
+				doc,
+				converter
+			)
 		);
-		const groupRefs = docRefs.getGroupRefs( dataElement.attributes.refGroup || '' );
-
-		const $wrapper = $( '<ol>', doc );
-		$wrapper.append(
-			groupRefs.getTopLevelKeysInReflistOrder()
-				.map( ( listKey ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-					groupRefs, listKey, doc, converter
-				) )
-		);
-		domElements[ 0 ].appendChild( $wrapper[ 0 ] );
 	}
 
 	domElements[ 0 ].setAttribute( 'typeof', 'mw:Extension/references' );
@@ -296,6 +289,33 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
 		nextIndex++;
 	}
 	return !nextElement || nextElement.type === 'internalList';
+};
+
+/***
+ * Create references list HTML DOM for Parsoid
+ *
+ * @static
+ * @param {string} refGroup
+ * @param {HTMLDocument} doc
+ * @param {ve.dm.Converter} converter
+ * @return {HTMLElement} <ol> element for the references list
+ * */
+ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, converter ) {
+	// Render all group refs
+	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
+		converter.internalList.document
+	);
+	const groupRefs = docRefs.getGroupRefs( refGroup );
+
+	const $wrapper = $( '<ol>', doc );
+	$wrapper.append(
+		groupRefs.getTopLevelKeysInReflistOrder()
+			.map( ( listKey ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
+				groupRefs, listKey, doc, converter
+			) )
+	);
+
+	return $wrapper[ 0 ];
 };
 
 /***

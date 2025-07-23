@@ -48,6 +48,7 @@
 	"cite-ve-citationneeded-title": "Citazione necessaria",
 	"cite-ve-dialog-reference-contextitem-extends": "Questo riferimento è un riutilizzo con dettagli aggiuntivi:",
 	"cite-ve-dialog-reference-editing-add-details": "Stai aggiungendo dettagli a",
+	"cite-ve-dialog-reference-editing-edit-details": "Stai modificando i dettagli di",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Scrivi o incolla qui i tuoi dettagli aggiuntivi, ad esempio un numero di pagina specifico o una citazione.",
 	"cite-ve-dialog-reference-editing-reused": "Questo riferimento è usato {{PLURAL:$1|una volta|2=due volte|$1 volte}} su questa pagina.",
 	"cite-ve-dialog-reference-editing-reused-long": "Questo riferimento è usato {{PLURAL:$1|1 volta|$1 volte}} su questa pagina. Le modifiche fatte qui saranno applicate ovunque questo riferimento sia riusato.",

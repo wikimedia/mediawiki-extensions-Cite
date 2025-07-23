@@ -1,4 +1,6 @@
-!! version 2
+!! options
+version=2
+!! end
 
 !! test
 Ordered lists directly following each other should not be merged

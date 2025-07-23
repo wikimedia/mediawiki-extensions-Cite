@@ -740,7 +740,7 @@ SUB<sup about="#mwt4" class="mw-ref reference" id="cite_ref-theName_1-1" rel="dc
 MUL<sup about="#mwt6" class="mw-ref reference mw-ref-follow" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"follow":"theName"},"body":{"id":"mw-reference-text-cite_note-theName-1"}}'><a href="./Parser_test#cite_note-theName-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 MOD<sup about="#mwt8" class="mw-ref reference mw-ref-follow" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"follow":"theName"},"body":{"id":"mw-reference-text-cite_note-theName-1"}}'><a href="./Parser_test#cite_note-theName-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt12" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt11\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"theName\"},\"body\":{\"html\":\" theValue\"},\"errors\":[{\"key\":\"cite_error_references_duplicate_key\",\"params\":[\"theName\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-theName-1\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'><ol class="mw-references references"><li about="#cite_note-theName-1" id="cite_note-theName-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-theName_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt6"> theFollowValue</span><span typeof="mw:Cite/Follow" about="#mwt8"> anotherFollowValue</span></span></li></ol></div>
-!!end
+!! end
 
 !! test
 Report bad attributes in ref tags
@@ -1692,7 +1692,7 @@ B1 <sup about="#mwt7" class="mw-ref reference" id="cite_ref-b_2-0" rel="dc:refer
 ## We don't bother wt2wt-ing non-standard whitespace
 !! test
 Ref: 16. Tokenizer should accept non-standard whitespace in <ref> and </ref> tags
-!!options
+!! options
 parsoid=wt2html
 !! wikitext
 A <ref >foo</ref >
@@ -2033,7 +2033,7 @@ References: 6.1. T399937 <references> with nested refs from a transclusion wrapp
 !! test
 References: 6.2. T399937 <references> with nested refs from a transclusion wrapped in a div preceded by another div
 #FIXME Parsoid should not add nested refs from the template, we'll have issues when round tripping then. See T399937
-!!options
+!! options
 parsoid=wt2html
 !! wikitext
 <ref name="bar" />
@@ -2542,7 +2542,7 @@ Reference list-defined nested <ref>s (T349981)
 <li id="cite_note-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">bar</span></li>
 </ol>
 </div>
-!!end
+!! end
 
 ## Just a regression test for Parsoid
 !! test

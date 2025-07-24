@@ -13,8 +13,6 @@ z{{{1}}}zz
 Subreferencing attribute blocked without feature flag
 !! config
 wgCiteSubReferencing=false
-!! options
-disabled
 !! wikitext
 <ref details="abc" name="a">def</ref>
 <references />
@@ -767,7 +765,6 @@ Conflicting main content
 wgCiteSubReferencing=true
 !! options
 parsoid=wt2html
-disabled
 !! wikitext
 <ref details="page 1" name="book">Book</ref> <ref details="page 2" name="book">Book, but different</ref>
 !! html/php

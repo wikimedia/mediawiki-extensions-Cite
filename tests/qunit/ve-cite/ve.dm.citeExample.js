@@ -633,7 +633,7 @@ ve.dm.citeExample.domToDataCases = {
 			{ type: '/internalList' }
 		]
 	},
-	'Reference with stored original content': {
+	'Simple reference with stored original content': {
 		// T400052
 		// Given the following wikitext:
 		// <ref>Foo</ref>
@@ -746,6 +746,172 @@ ve.dm.citeExample.domToDataCases = {
 </ol></div>
                         ` )
 		}
+	},
+	'Simple list defined reference without stored original mwReferencesList HTML': {
+		// T400052
+		// Given the following wikitext:
+		// <ref name="ldr" />
+		// <references>
+		// <ref name="ldr">FooBar</ref>
+		// </references>
+		data:
+			[
+				{
+					type: 'paragraph',
+					internal: {
+						whitespace: [
+							undefined,
+							undefined,
+							undefined,
+							'\n'
+						]
+					}
+				},
+				{
+					type: 'mwReference',
+					attributes: {
+						mw: {
+							name: 'ref',
+							attrs: {
+								name: 'ldr'
+							}
+						},
+						originalMw: '{"name":"ref","attrs":{"name":"ldr"}}',
+						listIndex: 0,
+						listGroup: 'mwReference/',
+						listKey: 'literal/ldr',
+						refGroup: '',
+						contentsUsed: false
+					},
+					originalDomElementsHash: 'ha53e3e34e508260f'
+				},
+				{
+					type: '/mwReference'
+				},
+				{
+					type: '/paragraph'
+				},
+				{
+					type: 'mwReferencesList',
+					attributes: {
+						mw: {
+							name: 'references',
+							attrs: {},
+							body: {
+								html: "\n<sup about=\"#mwt2\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid='{\"dsr\":[32,60,16,6]}' data-mw='{\"name\":\"ref\",\"attrs\":{\"name\":\"ldr\"},\"body\":{\"id\":\"mw-reference-text-cite_note-ldr-1\"}}'><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-ldr-1\" data-parsoid=\"{}\"><span class=\"mw-reflink-text\" data-parsoid=\"{}\"><span class=\"cite-bracket\" data-parsoid=\"{}\">[</span>1<span class=\"cite-bracket\" data-parsoid=\"{}\">]</span></span></a></sup>\n"
+							}
+						},
+						originalMw: "{\"name\":\"references\",\"attrs\":{},\"body\":{\"html\":\"\\n<sup about=\\\"#mwt2\\\" class=\\\"mw-ref reference\\\" rel=\\\"dc:references\\\" typeof=\\\"mw:Extension/ref\\\" data-parsoid='{\\\"dsr\\\":[32,60,16,6]}' data-mw='{\\\"name\\\":\\\"ref\\\",\\\"attrs\\\":{\\\"name\\\":\\\"ldr\\\"},\\\"body\\\":{\\\"id\\\":\\\"mw-reference-text-cite_note-ldr-1\\\"}}'><a href=\\\"./Example/CiteDetailsReferencesLoss#cite_note-ldr-1\\\" data-parsoid=\\\"{}\\\"><span class=\\\"mw-reflink-text\\\" data-parsoid=\\\"{}\\\"><span class=\\\"cite-bracket\\\" data-parsoid=\\\"{}\\\">[</span>1<span class=\\\"cite-bracket\\\" data-parsoid=\\\"{}\\\">]</span></span></a></sup>\\n\"}}",
+						refGroup: '',
+						listGroup: 'mwReference/',
+						isResponsive: true,
+						templateGenerated: false
+					},
+					internal: {
+						whitespace: [
+							'\n'
+						]
+					}
+				},
+				{
+					type: 'paragraph',
+					internal: {
+						generated: 'wrapper',
+						whitespace: [
+							'\n',
+							undefined,
+							undefined,
+							'\n'
+						]
+					}
+				},
+				{
+					type: 'mwReference',
+					attributes: {
+						mw: {
+							name: 'ref',
+							attrs: {
+								name: 'ldr'
+							},
+							body: {
+								id: 'mw-reference-text-cite_note-ldr-1'
+							}
+						},
+						originalMw: '{"name":"ref","attrs":{"name":"ldr"},"body":{"id":"mw-reference-text-cite_note-ldr-1"}}',
+						listIndex: 0,
+						listGroup: 'mwReference/',
+						listKey: 'literal/ldr',
+						refGroup: '',
+						contentsUsed: true,
+						refListItemId: 'mw-reference-text-cite_note-ldr-1'
+					}
+				},
+				{
+					type: '/mwReference'
+				},
+				{
+					type: '/paragraph'
+				},
+				{
+					type: '/mwReferencesList'
+				},
+				{
+					type: 'internalList'
+				},
+				{
+					type: 'internalItem',
+					attributes: {
+						originalHtml: 'FooBar'
+					}
+				},
+				{
+					type: 'paragraph',
+					internal: {
+						generated: 'wrapper'
+					}
+				},
+				'F',
+				'o',
+				'o',
+				'B',
+				'a',
+				'r',
+				{
+					type: '/paragraph'
+				},
+				{
+					type: '/internalItem'
+				},
+				{
+					type: '/internalList'
+				}
+			],
+		body:
+			ve.dm.example.singleLine`<p><sup about=\"#mwt1\" class=\"mw-ref reference\" id=\"cite_ref-ldr_1-0\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldr&quot;}}\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-ldr-1\" id=\"mwAw\"><span class=\"mw-reflink-text\" id=\"mwBA\"><span class=\"cite-bracket\" id=\"mwBQ\">[</span>1<span class=\"cite-bracket\" id=\"mwBg\">]</span></span></a></sup></p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references\" about=\"#mwt3\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup about=\\&quot;#mwt2\\&quot; class=\\&quot;mw-ref reference\\&quot; rel=\\&quot;dc:references\\&quot; typeof=\\&quot;mw:Extension/ref\\&quot; data-parsoid='{\\&quot;dsr\\&quot;:[32,60,16,6]}' data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;ldr\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-ldr-1\\&quot;}}'&gt;&lt;a href=\\&quot;./Example/CiteDetailsReferencesLoss#cite_note-ldr-1\\&quot; data-parsoid=\\&quot;{}\\&quot;&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot; data-parsoid=\\&quot;{}\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot; data-parsoid=\\&quot;{}\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot; data-parsoid=\\&quot;{}\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&quot;}}\" id=\"mwBw\"><ol class=\"mw-references references\" id=\"mwCA\"><li about=\"#cite_note-ldr-1\" id=\"cite_note-ldr-1\"><span class=\"mw-cite-backlink\" id=\"mwCQ\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_ref-ldr_1-0\" rel=\"mw:referencedBy\" id=\"mwCg\"><span class=\"mw-linkback-text\" id=\"mwCw\">↑ </span></a></span> <span id=\"mw-reference-text-cite_note-ldr-1\" class=\"mw-reference-text reference-text\">FooBar</span></li>\n</ol></div>`,
+		fromDataBody:
+			// FIXME: ids are missing on the list defined refs here
+			ve.dm.example.singleLine`<p>
+				<sup about=\"#mwt1\" class=\"mw-ref reference\" id=\"cite_ref-ldr_1-0\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldr&quot;}}\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-ldr-1\" id=\"mwAw\"><span class=\"mw-reflink-text\" id=\"mwBA\"><span class=\"cite-bracket\" id=\"mwBQ\">[</span>1<span class=\"cite-bracket\" id=\"mwBg\">]</span></span></a></sup></p>\n
+				<div typeof=\"mw:Extension/references\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n<sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;ldr\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-ldr-1\\&quot;}}'&gt;&lt;/sup&gt;\\n&quot;}}\">
+					<ol>
+						<li><span typeof=\"mw:Extension/ref\">FooBar</span></li>
+					</ol>
+				</div>`,
+		clipboardBody:
+			'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldr&quot;}}" class="mw-ref reference" about="#mwt1" id="cite_ref-ldr_1-0" rel="dc:references"><a href="./Example/CiteDetailsReferencesLoss#cite_note-ldr-1" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1<span class="cite-bracket" id="mwBg">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldr&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldr-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;FooBar&amp;quot;}}\\&quot; class=\\&quot;mw-ref reference\\&quot; about=\\&quot;#mwt2\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">FooBar</p></span></div></span></li></ol></div>',
+		previewBody: false,
+		innerWhitespace:
+			[
+				undefined,
+				undefined
+			],
+		preserveAnnotationDomElements:
+			true,
+		storeItems:
+			{
+				ha53e3e34e508260f:
+					$.parseHTML( ve.dm.example.singleLine`<sup about="#mwt1" class="mw-ref reference" id="cite_ref-ldr_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldr&quot;}}"><a href="./Example/CiteDetailsReferencesLoss#cite_note-ldr-1" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>` )
+			}
 	},
 	'Template generated reflist (div wrapped)': {
 		body: ve.dm.example.singleLine`

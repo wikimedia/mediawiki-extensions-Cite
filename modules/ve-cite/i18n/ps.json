@@ -23,7 +23,7 @@
 	"cite-ve-citationneeded-title": "اخځ ته اړتيا ده",
 	"cite-ve-dialog-reference-contextitem-extends": "دا سرچينه له نور سپيناوي سره بيا کارول کيږي:",
 	"cite-ve-dialog-reference-editing-add-details": "تاسو دې ته نور سپيناوی ورگډوئ",
-	"cite-ve-dialog-reference-editing-add-details-placeholder": "هغه مالومات چې تاسو يې په دې سرچينه کې ورزياتول غواړئ، دلته وليکئ يا يې راولمېسئ.",
+	"cite-ve-dialog-reference-editing-add-details-placeholder": "هغه مالومات چې تاسو يې په دې سرچينه کې ورزياتول غواړئ، دلته وليکئ يا يې راولمېسئ، د بېلگې په توگه مشخص مخ شمېره يا وینالېږد.",
 	"cite-ve-dialog-reference-editing-reused-short": "{{PLURAL:$1|يو ځل|2=دوه ځل|$1 ځلې}} کارېدلی",
 	"cite-ve-dialog-reference-editing-reused": "دا سرچينه {{PLURAL:$1|يو ځل|2=دوه|$1 ځلې}} په همدې مخ کارېدلې.",
 	"cite-ve-dialog-reference-editing-reused-long": "دا سرچينه {{PLURAL:$1|once|2=twice|$1 times}} ځله دې مخ کې کارېدلې. دلته شوي بدلونونه به په ټولو هغو ځايونو کې پلي شي چېرې چې دا سرچينه بياکارول کيږي.",

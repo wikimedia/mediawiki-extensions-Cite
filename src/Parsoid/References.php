@@ -369,6 +369,9 @@ class References {
 				$errs[] = $dirError;
 			}
 		}
+		if ( $conflicts === self::CONFLICT_VISIBLE && $refFragmentHtml !== '' ) {
+			$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $refName ] );
+		}
 
 		$hasMissingContent = $isEmptyBody && !$ref->externalFragment;
 		if ( $hasMissingContent ) {
@@ -388,18 +391,13 @@ class References {
 				// removing it below asserts everything has been migrated out
 				DOMCompat::replaceChildren( $refFragment );
 			}
-			if ( $conflicts !== self::CONFLICT_NONE ) {
-				if ( $refFragmentHtml != '' && $conflicts === self::CONFLICT_VISIBLE ) {
-					$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $refName ] );
-				}
-				$refDataMw->body = DataMwBody::new( [
-					'html' => $refFragmentHtml,
-				] );
-			} else {
-				$refDataMw->body = DataMwBody::new( [
-					'id' => ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ),
-				] );
-			}
+			$hasConflict = $conflicts !== self::CONFLICT_NONE;
+			$refDataMw->body = DataMwBody::new( [
+				// Prefer tracking the body via a short identifier instead of duplicating it
+				'id' => !$hasConflict ? ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ) : null,
+				// Conflicting bodies must be stored, otherwise the differences get lost
+				'html' => $hasConflict ? $refFragmentHtml : null,
+			] );
 		}
 
 		$this->addLinkBackAttributes(

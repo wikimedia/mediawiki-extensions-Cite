@@ -100,17 +100,6 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 	this.close( { action: 'insert' } );
 };
 
-/**
- * Handle search results popup menu extends events.
- *
- * @param {ve.dm.MWReferenceModel} originalRef
- */
-ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsExtends = function ( originalRef ) {
-	this.actions.setMode( 'insert' );
-	this.actions.setAbilities( { insert: false } );
-	this.setCreateSubRefPanel( originalRef );
-};
-
 ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
 	const newRef = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
 	newRef.mainRefKey = mainRef.getListKey();
@@ -173,10 +162,7 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 	this.reuseSearch = new ve.ui.MWReferenceSearchWidget( { $overlay: this.$overlay } );
 
 	// Events
-	this.reuseSearch.connect( this, {
-		reuse: 'onReuseSearchResultsReuse',
-		extends: 'onReuseSearchResultsExtends'
-	} );
+	this.reuseSearch.connect( this, { reuse: 'onReuseSearchResultsReuse' } );
 	this.editPanel.connect( this, { change: 'onEditPanelInputChange' } );
 
 	// Initialization

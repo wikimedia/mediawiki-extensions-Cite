@@ -335,11 +335,13 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 	converter
 ) {
 	const internalItem = groupRefs.getInternalModelNode( listKey );
-	const refNode = groupRefs.getRefNode( listKey );
 	const subrefs = groupRefs.getSubrefs( listKey );
 	const $li = $( '<li>', doc );
 
 	if ( internalItem && internalItem.length ) {
+		// make sure to find the node holding the refListItemId
+		const refListNode = groupRefs.nodeGroup.keyedNodes[ listKey ]
+			.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 		const htmlWrapper = doc.createElement( 'span' );
 		converter.getDomSubtreeFromData(
 			internalItem.getDocument().getFullData( internalItem.getRange(), 'roundTrip' ),
@@ -348,7 +350,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 		$li.append(
 			$( htmlWrapper )
 				.attr( 'typeof', 'mw:Extension/ref' )
-				.attr( 'id', refNode.element.attributes.refListItemId )
+				.attr( 'id', refListNode && refListNode.getAttribute( 'refListItemId' ) )
 		);
 	} else {
 		// TODO: What to do here?

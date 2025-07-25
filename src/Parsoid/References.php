@@ -271,6 +271,11 @@ class References {
 
 		// Split subref and main ref; add main ref as a list-defined reference
 		if ( $hasDetails ) {
+			// Subref points to the main ref by name.
+			$refDataMw->mainRef = $refName;
+			// FIXME: should have already asserted that refName exists for all details, see T387193
+			$refDataMw->setExtAttrib( 'name', null );
+
 			// Create new, empty main ref
 			$ref ??= $referencesData->addRef( $refGroup, $refName, $refDir );
 
@@ -287,21 +292,14 @@ class References {
 
 			// Switch $ref to a newly-created subref
 			$ref = $referencesData->addRef( $refGroup, $refName, $refDir, $details );
-
-			// Move content to main ref.
-			$contentId = null;
-			$ref->contentId = null;
-
 			// Move details attribute into subref content.
 			$ref->externalFragment = $extApi->wikitextToDOM( $details, [
 				'processInNewFrame' => true,
 				'parseOpts' => [ 'context' => 'inline' ]
 			], true );
-			// Subref points to the main ref by name.
-			// FIXME: should have already asserted that refName exists for all details, see T387193
-			$refDataMw->setExtAttrib( 'name', null );
-			$refDataMw->mainRef = $refName;
+
 			$refName = '';
+			$contentId = null;
 		}
 
 		$oldLock = null;

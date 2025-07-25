@@ -98,10 +98,17 @@ class ReferencesData {
 		return $refGroup && $name && $refGroup->lookupRefByName( $name );
 	}
 
+	/**
+	 * @param RefGroup $group Group to add the new reference to
+	 * @param string $name
+	 * @param string $dir Direction "ltr" or "rtl", or an empty string when not specified
+	 * @param string|null $details Contents of the details="…" attribute, or null when not used
+	 * @return RefGroupItem
+	 */
 	public function addRef(
 		RefGroup $group,
-		string $refName,
-		string $refDir,
+		string $name,
+		string $dir,
 		?string $details = null
 	): RefGroupItem {
 		$ref = new RefGroupItem();
@@ -109,17 +116,17 @@ class ReferencesData {
 		if ( $details === null ) {
 			// FIXME: This doesn't count correctly when <ref follow=…> is used on the page
 			$ref->numberInGroup = $group->getNextIndex();
-			$ref->name = $refName ?: null;
+			$ref->name = $name ?: null;
 		} else {
-			$mainRef = $group->lookupRefByName( $refName ) ??
+			$mainRef = $group->lookupRefByName( $name ) ??
 				// TODO: dir could be different for the main
-				$this->addRef( $group, $refName, $refDir );
+				$this->addRef( $group, $name, $dir );
 
 			$ref->numberInGroup = $mainRef->numberInGroup;
-			$ref->subrefIndex = $group->getNextSubrefSequence( $refName );
+			$ref->subrefIndex = $group->getNextSubrefSequence( $name );
 		}
 
-		$ref->dir = $refDir;
+		$ref->dir = $dir;
 		$ref->group = $group->name;
 		$ref->globalId = ++$this->refSequence;
 

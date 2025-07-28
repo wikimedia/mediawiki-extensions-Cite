@@ -22,6 +22,7 @@
 	"cite-ve-citationneeded-title": "Citation requirite",
 	"cite-ve-dialog-reference-contextitem-extends": "Iste referentia es un re-uso con detalios supplementari:",
 	"cite-ve-dialog-reference-editing-add-details": "Tu adde detalios a:",
+	"cite-ve-dialog-reference-editing-edit-details": "Tu modifica le detalios de",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Scribe o colla hic le detalios a adder, per exemplo, un numero de pagina specific o un citation.",
 	"cite-ve-dialog-reference-editing-reused-short": "Usate {{PLURAL:$1|un vice|2=duo vices|$1 vices}}",
 	"cite-ve-dialog-reference-editing-reused": "Iste referentia es usate $1 {{PLURAL:$1|vice|vices}} in iste pagina.",

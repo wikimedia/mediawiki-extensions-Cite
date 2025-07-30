@@ -89,7 +89,7 @@ ve.dm.MWReferencesListNode.static.preserveHtmlAttributes = false;
  * Transform parsoid HTML DOM to constructor parameters for VE referenceList nodes.
  *
  * @param {Node[]} domElements DOM elements to convert
- * @param {ve.dm.Converter} converter
+ * @param {ve.dm.ModelFromDomConverter} converter
  * @return {Object|Array|null} Data element or array of linear model data, or null to alienate
  */
 ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, converter ) {
@@ -146,7 +146,7 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
  *
  * @param {Object[]} data
  * @param {HTMLDocument} doc
- * @param {ve.dm.Converter} converter
+ * @param {ve.dm.DomFromModelConverter} converter
  * @return {HTMLElement[]}
  */
 ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converter ) {
@@ -205,7 +205,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
  * @static
  * @param {Object} data
  * @param {Document} doc
- * @param {ve.dm.Converter} converter
+ * @param {ve.dm.DomFromModelConverter} converter
  * @return {string} updated mwData as string or originalMw if nothing changed
  * */
 ve.dm.MWReferencesListNode.static.buildMwForDom = function ( data, doc, converter ) {

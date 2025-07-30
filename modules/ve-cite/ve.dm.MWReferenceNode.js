@@ -78,7 +78,7 @@ ve.dm.MWReferenceNode.static.makeListKey = function ( internalList, name ) {
  * Transform parsoid HTML DOM to constructor parameters for VE reference nodes.
  *
  * @param {Node[]} domElements DOM elements to convert
- * @param {ve.dm.Converter} converter
+ * @param {ve.dm.ModelFromDomConverter} converter
  * @return {Object|Array|null} Data element or array of linear model data, or null to alienate
  */
 ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter ) {
@@ -136,7 +136,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
  *
  * @param {Object} dataElement
  * @param {HTMLDocument} doc
- * @param {ve.dm.Converter} converter
+ * @param {ve.dm.DomFromModelConverter} converter
  * @return {HTMLElement[]}
  */
 ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, converter ) {

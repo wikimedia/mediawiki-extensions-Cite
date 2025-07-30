@@ -7,48 +7,43 @@
  * @license MIT
  */
 
-QUnit.module( 've.dm.Converter (Cite)', ve.test.utils.newMwEnvironment() );
+QUnit.module( 've.dm.Converter (Cite)', ve.test.utils.newMwEnvironment( {
+	before: function () {
+		this.prepareCases = ( caseItem ) => {
+			caseItem.base = ve.dm.citeExample.baseUri;
+			caseItem.mwConfig = {
+				wgArticlePath: '/wiki/$1'
+			};
+			// TODO: Cite tests contain unescaped < in attrs, handle this upstream somehow
+			caseItem.ignoreXmlWarnings = true;
+			if ( caseItem.mwConfig ) {
+				mw.config.set( caseItem.mwConfig );
+			}
+			return caseItem;
+		};
+	}
+} ) );
 
-QUnit.test( 'getModelFromDom', ( assert ) => {
+QUnit.test( 'getModelFromDom', function ( assert ) {
 	const cases = {
 		...ve.dm.ConverterTestCases.cases,
 		...ve.dm.ConverterIntegrationTestCases.cases
 	};
 
 	for ( const msg in cases ) {
-		const caseItem = ve.copy( cases[ msg ] );
-		caseItem.base = ve.dm.citeExample.baseUri;
-		caseItem.mwConfig = {
-			wgArticlePath: '/wiki/$1'
-		};
-		// TODO: Cite tests contain unescaped < in attrs, handle this upstream somehow
-		caseItem.ignoreXmlWarnings = true;
-		if ( caseItem.mwConfig ) {
-			mw.config.set( caseItem.mwConfig );
-		}
-
+		const caseItem = this.prepareCases( ve.copy( cases[ msg ] ) );
 		ve.test.utils.runGetModelFromDomTest( assert, caseItem, msg );
 	}
 } );
 
-QUnit.test( 'getDomFromModel', ( assert ) => {
+QUnit.test( 'getDomFromModel', function ( assert ) {
 	const cases = {
 		...ve.dm.ConverterTestCases.cases,
 		...ve.dm.ConverterIntegrationTestCases.cases
 	};
 
 	for ( const msg in cases ) {
-		const caseItem = ve.copy( cases[ msg ] );
-		caseItem.base = ve.dm.citeExample.baseUri;
-		caseItem.mwConfig = {
-			wgArticlePath: '/wiki/$1'
-		};
-		// TODO: Cite tests contain unescaped < in attrs, handle this upstream somehow
-		caseItem.ignoreXmlWarnings = true;
-		if ( caseItem.mwConfig ) {
-			mw.config.set( caseItem.mwConfig );
-		}
-
+		const caseItem = this.prepareCases( ve.copy( cases[ msg ] ) );
 		ve.test.utils.runGetDomFromModelTest( assert, caseItem, msg );
 	}
 } );

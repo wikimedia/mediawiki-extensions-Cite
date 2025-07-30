@@ -10,20 +10,44 @@ parsoid-compatible=html2wt
 # See T396017 and T400038
 VE: List defined references convert back to valid Wikitext
 !! wikitext
+<ref>Default</ref>
 <ref name="ldrOne" />
 <ref name="ldrTwo" />
 <references>
 <ref name="ldrOne">FooNew</ref>
-<ref name="ldrTwo">BarOld</ref>
+<ref name="ldrTwo">Bar</ref>
 </references>
 !! html/parsoid
-<sup about="#mwt1" class="mw-ref reference" id="cite_ref-ldrOne_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}"><a href="./Test5#cite_note-ldrOne-1" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>
-<sup about="#mwt2" class="mw-ref reference" id="cite_ref-ldrTwo_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}"><a href="./Test5#cite_note-ldrTwo-2" id="mwBw"><span class="mw-reflink-text" id="mwCA"><span class="cite-bracket" id="mwCQ">[</span>2<span class="cite-bracket" id="mwCg">]</span></span></a></sup>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt5" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;FooNew&amp;quot;}}\&quot; class=\&quot;mw-ref reference\&quot; about=\&quot;#mwt3\&quot; rel=\&quot;dc:references\&quot; data-parsoid=\&quot;{&amp;quot;dsr&amp;quot;:[57,88,19,6]}\&quot;&gt;&lt;a href=\&quot;./Test5#cite_note-ldrOne-1\&quot; data-parsoid=\&quot;{}\&quot;&gt;&lt;span class=\&quot;mw-reflink-text\&quot; data-parsoid=\&quot;{}\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot; data-parsoid=\&quot;{}\&quot;&gt;[&lt;/span&gt;1&lt;span class=\&quot;cite-bracket\&quot; data-parsoid=\&quot;{}\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\n&lt;sup about=\&quot;#mwt4\&quot; class=\&quot;mw-ref reference\&quot; rel=\&quot;dc:references\&quot; typeof=\&quot;mw:Extension/ref\&quot; data-parsoid=\&quot;{&amp;quot;dsr&amp;quot;:[89,120,19,6]}\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-2&amp;quot;}}\&quot;&gt;&lt;a href=\&quot;./Test5#cite_note-ldrTwo-2\&quot; data-parsoid=\&quot;{}\&quot;&gt;&lt;span class=\&quot;mw-reflink-text\&quot; data-parsoid=\&quot;{}\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot; data-parsoid=\&quot;{}\&quot;&gt;[&lt;/span&gt;2&lt;span class=\&quot;cite-bracket\&quot; data-parsoid=\&quot;{}\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\n&quot;}}" id="mwCw">
-	<ol>
-		<li><span id="mw-reference-text-cite_note-ldrOne-1" typeof="mw:Extension/ref">FewOld</span></li>
-		<li><span id="mw-reference-text-cite_note-ldrTwo-2" typeof="mw:Extension/ref">BarOld</span></li>
-	</ol>
+<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"></sup>
+<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}"></sup>
+<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}"></sup></p>
+<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-2&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;FooNew&amp;quot;}}\&quot; class=\&quot;mw-ref reference\&quot;&gt;&lt;a&gt;&lt;span class=\&quot;mw-reflink-text\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot;&gt;[&lt;/span&gt;2&lt;span class=\&quot;cite-bracket\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-3&amp;quot;}}\&quot;&gt;&lt;/sup&gt;\n&quot;}}">
+<ol>
+	<li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-1">Default</span></li>
+	<li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrOne-2">FooNew</span></li>
+	<li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrTwo-3">Bar</span></li>
+</ol></div>
+!! end
+
+!! test
+# See T396017
+VE: Neither wrapping nor order matter in VEs references HTML output
+!! wikitext
+<ref>Default</ref>
+<ref name="ldrOne" />
+<ref name="ldrTwo" />
+<references>
+<ref name="ldrOne">FooNew</ref>
+<ref name="ldrTwo">Bar</ref>
+</references>
+!! html/parsoid
+<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"></sup>
+<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}"></sup>
+<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}"></sup></p>
+<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-2&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;FooNew&amp;quot;}}\&quot; class=\&quot;mw-ref reference\&quot;&gt;&lt;a&gt;&lt;span class=\&quot;mw-reflink-text\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot;&gt;[&lt;/span&gt;2&lt;span class=\&quot;cite-bracket\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-3&amp;quot;}}\&quot;&gt;&lt;/sup&gt;\n&quot;}}">
+<span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrTwo-3">Bar</span></li>
+<span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrOne-2">FooNew</span></li>
+<span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-1">Default</span></li>
 </div>
 !! end
 

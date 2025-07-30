@@ -228,6 +228,16 @@ EOT;
 		$this->assertTrue( isset( $result[1]['templateInfo'] ), $desc );
 		$this->assertEquals( 'Template:1x', $result[1]['templateInfo']['name'], $desc );
 
+		$desc = "should lint content even when ref is the first node of a template";
+		$wt = "{{1x|<ref><s>x</ref> }}";
+		$result = $this->wtToLint( $wt );
+		$this->assertCount( 1, $result, $desc );
+		$this->assertEquals( 'missing-end-tag', $result[0]['type'], $desc );
+		$this->assertEquals( [ 0, 23, null, null ], $result[0]['dsr'], $desc );
+		$this->assertTrue( isset( $result[0]['params'] ), $desc );
+		$this->assertEquals( 's', $result[0]['params']['name'], $desc );
+		$this->assertEquals( 'Template:1x', $result[0]['templateInfo']['name'], $desc );
+
 		$desc = "should lint inside ref with redefinition";
 		$wt = "<ref name=\"test\">123</ref>\n" .
 			"<ref name=\"test\"><s>345</ref>\n" .

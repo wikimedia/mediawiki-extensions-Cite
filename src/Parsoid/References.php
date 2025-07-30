@@ -182,7 +182,12 @@ class References {
 		$refFragment = $extApi->getContentDOM( $contentId )->firstChild;
 		DOMUtils::assertElt( $refFragment );
 		$refFragmentDp = DOMDataUtils::getDataParsoid( $refFragment );
-		$refDataMw = DOMDataUtils::getDataMw( $refFragment );
+
+		// Get the data-mw from the $node, not $refFragment, so that
+		// transclusion parts are included.  As of T214241, template wrapping
+		// does not overwrite the extension data-mw that is copied over from
+		// $refFragment to $node.
+		$refDataMw = DOMDataUtils::getDataMw( $node );
 
 		// Validate attribute keys
 		$isSubreferenceSupported = $this->mainConfig->get( 'CiteSubReferencing' );
@@ -409,9 +414,7 @@ class References {
 		$this->addLinkBackData(
 			$linkBackSup,
 			$nodeDp,
-			DOMUtils::hasTypeOf( $node, 'mw:Transclusion' ) ?
-				DOMDataUtils::getDataMw( $node ) :
-				$refDataMw
+			$refDataMw
 		);
 
 		// FIXME(T214241): Should the errors be added to data-mw if

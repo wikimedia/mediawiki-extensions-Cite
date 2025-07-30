@@ -47,3 +47,14 @@ QUnit.test( 'getDomFromModel', function ( assert ) {
 		ve.test.utils.runGetDomFromModelTest( assert, caseItem, msg );
 	}
 } );
+
+QUnit.test( 'StoreTestCases', function ( assert ) {
+	const cases = ve.dm.ConverterStoreTestCases.cases;
+
+	for ( const msg in cases ) {
+		const caseItem = this.prepareCases( ve.copy( cases[ msg ] ) );
+		// FIXME: Some store cases do fail in that direction in CI resulting in empty store items.
+		// ve.test.utils.runGetModelFromDomTest( assert, caseItem, msg );
+		ve.test.utils.runGetDomFromModelTest( assert, caseItem, msg );
+	}
+} );

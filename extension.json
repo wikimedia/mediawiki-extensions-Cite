@@ -310,6 +310,8 @@
 		"scripts": [
 			"ve-cite/ve.dm.citeExample.js",
 			"ve-cite/ve.dm.Converter.test.js",
+			"ve-cite/ve.dm.ConverterIntegrationTestCases.js",
+			"ve-cite/ve.dm.ConverterTestCases.js",
 			"ve-cite/ve.dm.MWDocumentReferences.test.js",
 			"ve-cite/ve.dm.MWGroupReferences.test.js",
 			"ve-cite/ve.dm.InternalList.test.js",

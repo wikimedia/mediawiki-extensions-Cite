@@ -10,7 +10,10 @@
 QUnit.module( 've.dm.Converter (Cite)', ve.test.utils.newMwEnvironment() );
 
 QUnit.test( 'getModelFromDom', ( assert ) => {
-	const cases = ve.dm.citeExample.domToDataCases;
+	const cases = {
+		...ve.dm.ConverterTestCases.cases,
+		...ve.dm.ConverterIntegrationTestCases.cases
+	};
 
 	for ( const msg in cases ) {
 		const caseItem = ve.copy( cases[ msg ] );
@@ -29,7 +32,10 @@ QUnit.test( 'getModelFromDom', ( assert ) => {
 } );
 
 QUnit.test( 'getDomFromModel', ( assert ) => {
-	const cases = ve.dm.citeExample.domToDataCases;
+	const cases = {
+		...ve.dm.ConverterTestCases.cases,
+		...ve.dm.ConverterIntegrationTestCases.cases
+	};
 
 	for ( const msg in cases ) {
 		const caseItem = ve.copy( cases[ msg ] );

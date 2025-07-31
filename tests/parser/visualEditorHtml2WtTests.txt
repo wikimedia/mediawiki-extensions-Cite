@@ -83,5 +83,40 @@ VE Converter: Simple main ref including details ( edits on main and details )
 		</ol>
 	</li>
 </ol>
+
+VE Converter: Simple template in refs
+!! wikitext
+<ref>{{Cite|author=Miller|title=Foo}}</ref>
+<ref name="ldrTpl" />
+<references>
+<ref name="ldrTpl">{{Cite|author=Smith|title=Bar}}</ref>
+</references>
+!! html/parsoid
+<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;,&quot;html&quot;:&quot;&lt;span typeof=\&quot;mw:Transclusion\&quot; data-mw=\&quot;{&amp;quot;parts&amp;quot;:[{&amp;quot;template&amp;quot;:{&amp;quot;target&amp;quot;:{&amp;quot;wt&amp;quot;:&amp;quot;Cite&amp;quot;,&amp;quot;href&amp;quot;:&amp;quot;./Template:Cite&amp;quot;},&amp;quot;params&amp;quot;:{&amp;quot;author&amp;quot;:{&amp;quot;wt&amp;quot;:&amp;quot;Miller&amp;quot;},&amp;quot;title&amp;quot;:{&amp;quot;wt&amp;quot;:&amp;quot;Foo&amp;quot;}},&amp;quot;i&amp;quot;:0}}]}\&quot;&gt;&lt;/span&gt;&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
+<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTpl&quot;}}"></sup></p>
+<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTpl&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTpl-2&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;&amp;lt;span typeof=\\&amp;quot;mw:Transclusion\\&amp;quot; data-mw=\\&amp;quot;{&amp;amp;quot;parts&amp;amp;quot;:[{&amp;amp;quot;template&amp;amp;quot;:{&amp;amp;quot;target&amp;amp;quot;:{&amp;amp;quot;wt&amp;amp;quot;:&amp;amp;quot;Cite&amp;amp;quot;,&amp;amp;quot;href&amp;amp;quot;:&amp;amp;quot;./Template:Cite&amp;amp;quot;},&amp;amp;quot;params&amp;amp;quot;:{&amp;amp;quot;author&amp;amp;quot;:{&amp;amp;quot;wt&amp;amp;quot;:&amp;amp;quot;Smith&amp;amp;quot;},&amp;amp;quot;title&amp;amp;quot;:{&amp;amp;quot;wt&amp;amp;quot;:&amp;amp;quot;Bar&amp;amp;quot;}},&amp;amp;quot;i&amp;amp;quot;:0}}]}\\&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&amp;quot;}}\&quot; class=\&quot;mw-ref reference\&quot;&gt;&lt;a&gt;&lt;span class=\&quot;mw-reflink-text\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot;&gt;[&lt;/span&gt;2&lt;span class=\&quot;cite-bracket\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\n&quot;}}">
+	<ol>
+		<li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-1"><span typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite&quot;,&quot;href&quot;:&quot;./Template:Cite&quot;},&quot;params&quot;:{&quot;author&quot;:{&quot;wt&quot;:&quot;Miller&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Foo&quot;}},&quot;i&quot;:0}}]}"></span></span></li>
+		<li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrTpl-2"><span typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite&quot;,&quot;href&quot;:&quot;./Template:Cite&quot;},&quot;params&quot;:{&quot;author&quot;:{&quot;wt&quot;:&quot;Smith&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Bar&quot;}},&quot;i&quot;:0}}]}"></span></span></li>
+	</ol>
+</div>
+!! end
+
+!! test
+VE Converter: Simple template in refs ( edits on template parameters )
+!! wikitext
+<ref>{{Cite|author=Miller|title=Foo New}}</ref>
+<ref name="ldrTpl" />
+<references>
+<ref name="ldrTpl">{{Cite|author=Smith|title=Bar New}}</ref>
+</references>
+!! html/parsoid
+<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;,&quot;html&quot;:&quot;&lt;span typeof=\&quot;mw:Transclusion\&quot; data-mw=\&quot;{&amp;quot;parts&amp;quot;:[{&amp;quot;template&amp;quot;:{&amp;quot;target&amp;quot;:{&amp;quot;wt&amp;quot;:&amp;quot;Cite&amp;quot;,&amp;quot;href&amp;quot;:&amp;quot;./Template:Cite&amp;quot;},&amp;quot;params&amp;quot;:{&amp;quot;author&amp;quot;:{&amp;quot;wt&amp;quot;:&amp;quot;Miller&amp;quot;},&amp;quot;title&amp;quot;:{&amp;quot;wt&amp;quot;:&amp;quot;Foo New&amp;quot;}},&amp;quot;i&amp;quot;:0}}]}\&quot;&gt;&lt;/span&gt;&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
+<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTpl&quot;}}"></sup></p>
+<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTpl&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTpl-2&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;&amp;lt;span typeof=\\&amp;quot;mw:Transclusion\\&amp;quot; data-mw=\\&amp;quot;{&amp;amp;quot;parts&amp;amp;quot;:[{&amp;amp;quot;template&amp;amp;quot;:{&amp;amp;quot;target&amp;amp;quot;:{&amp;amp;quot;wt&amp;amp;quot;:&amp;amp;quot;Cite&amp;amp;quot;,&amp;amp;quot;href&amp;amp;quot;:&amp;amp;quot;./Template:Cite&amp;amp;quot;},&amp;amp;quot;params&amp;amp;quot;:{&amp;amp;quot;author&amp;amp;quot;:{&amp;amp;quot;wt&amp;amp;quot;:&amp;amp;quot;Smith&amp;amp;quot;},&amp;amp;quot;title&amp;amp;quot;:{&amp;amp;quot;wt&amp;amp;quot;:&amp;amp;quot;Bar New&amp;amp;quot;}},&amp;amp;quot;i&amp;amp;quot;:0}}]}\\&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&amp;quot;}}\&quot; class=\&quot;mw-ref reference\&quot;&gt;&lt;a&gt;&lt;span class=\&quot;mw-reflink-text\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot;&gt;[&lt;/span&gt;2&lt;span class=\&quot;cite-bracket\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\n&quot;}}">
+	<ol>
+		<li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-1"><span typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite&quot;,&quot;href&quot;:&quot;./Template:Cite&quot;},&quot;params&quot;:{&quot;author&quot;:{&quot;wt&quot;:&quot;Miller&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Foo New&quot;}},&quot;i&quot;:0}}]}"></span></span></li>
+		<li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrTpl-2"><span typeof="mw:Transclusion" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Cite&quot;,&quot;href&quot;:&quot;./Template:Cite&quot;},&quot;params&quot;:{&quot;author&quot;:{&quot;wt&quot;:&quot;Smith&quot;},&quot;title&quot;:{&quot;wt&quot;:&quot;Bar New&quot;}},&quot;i&quot;:0}}]}"></span></span></li>
+	</ol>
 </div>
 !! end

@@ -13,6 +13,7 @@
 	"cite_error_ref_conflicting_dir": "Uno del tag de <code>&lt;ref&gt</code> que tiene nombre \"$1\" tiene man conflicting dir attribute.",
 	"cite_error_ref_numeric_key": "Invalido tag de <code>&lt;ref&gt;</code>; el nombre no puede queda un simple integer. Usa un titulo descriptivo",
 	"cite_error_ref_no_key": "El opening <code>&lt;ref&gt;</code> tag malformao o tiene nombre umal",
+	"cite_error_ref_with_details_no_name": "Invalido <code>&alt;ref></code> tag; falta atributo de nombre. Debe dale un atributo de nombre na un atributo de detalles.",
 	"cite_error_ref_too_many_keys": "Parametro invalido na <code>&lt;ref&gt;</code> tag",
 	"cite-reference-previews-reference": "Referencia",
 	"cite-reference-previews-book": "Libro de referencia",

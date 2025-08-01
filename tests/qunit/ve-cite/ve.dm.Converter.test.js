@@ -53,7 +53,7 @@ QUnit.test( 'StoreTestCases', function ( assert ) {
 
 	for ( const msg in cases ) {
 		const caseItem = this.prepareCases( ve.copy( cases[ msg ] ) );
-		// FIXME: Some store cases do fail in that direction in CI resulting in empty store items.
+		// FIXME: Some store cases do fail in that direction in CI see T400970.
 		// ve.test.utils.runGetModelFromDomTest( assert, caseItem, msg );
 		ve.test.utils.runGetDomFromModelTest( assert, caseItem, msg );
 	}

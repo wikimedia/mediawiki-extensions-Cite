@@ -1,8 +1,8 @@
 'use strict';
 
 /*!
- * VisualEditor Cite specific test cases for the Converter.  The fromDataBody in these tests
- * should match Parsoid html2wt tests in visualEditorHtml2WtTests.txt
+ * VisualEditor Cite specific test cases for the Converter.  The normalizedBody in these tests
+ * should match the HTML for Parsoid of the html2wt tests in visualEditorHtml2WtTests.txt
  *
  * @copyright 2011-2025 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
  * @license MIT

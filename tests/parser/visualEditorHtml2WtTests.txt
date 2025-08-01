@@ -107,7 +107,9 @@ VE Converter: Simple main ref including details ( edits on main and details )
 		</ol>
 	</li>
 </ol>
+!! end
 
+!! test
 VE Converter: Simple template in refs
 !! wikitext
 <ref>{{Cite|author=Miller|title=Foo}}</ref>

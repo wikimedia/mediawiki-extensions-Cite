@@ -9,7 +9,7 @@
 	"cite_error": "引用錯誤 $1",
 	"cite_error_ref_numeric_key": "無效嘅呼叫; 需要一個非整數嘅匙",
 	"cite_error_ref_no_key": "<code>&lt;ref&gt;</code>標籤開頭格式有錯或者個名唔啱",
-	"cite_error_ref_too_many_keys": "<code>&lt;ref></code> 標籤入面嘅參數「 $ 1 」無效。支援嘅參數係： $ 2。",
+	"cite_error_ref_too_many_keys": "<code>&lt;ref></code> 標籤入面嘅參數「$1」無效。支援嘅參數係：$2。",
 	"cite_error_ref_no_input": "無效嘅呼叫; 未指定輸入",
 	"cite_error_references_invalid_parameters": "<code>&lt;references></code>標籤入面嘅參數「$1」無效。支援嘅參數係：$2。",
 	"cite_error_references_no_text": "無效嘅<code>&lt;ref&gt;</code>標籤；無文字提供畀叫做<code>$1</code>嘅參照",

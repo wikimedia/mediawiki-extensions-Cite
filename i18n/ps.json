@@ -8,7 +8,11 @@
 			"شاه زمان پټان"
 		]
 	},
+	"cite-desc": "د اخځ کولو لپاره <code>&lt;ref&gt;</code> او <code>&lt;references&gt;</code> نښلنونه ورگډوي.",
 	"cite_error": "د سرچينې ستونزه: $1",
 	"cite-tracking-category-cite-error": "مخونه د غبرګونيزي تيروتنې سره",
+	"cite_references_link_accessibility_label": "پورته ټوپ‌کول",
+	"cite_references_link_many_accessibility_label": "پورته تلل:",
+	"cite_references_link_accessibility_back_label": "بېرته پورته تلل",
 	"cite_section_preview_references": "د غبرګونونو وړاندېز"
 }

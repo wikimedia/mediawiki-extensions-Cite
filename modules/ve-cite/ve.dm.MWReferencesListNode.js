@@ -177,7 +177,11 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		// Destroy the view node so it doesn't try to update the DOM node later
 		// (e.g. updateDebounced)
 		viewNode.destroy();
-	} else if ( dataElement.originalDomElementsHash !== undefined ) {
+	} else if (
+		dataElement.originalDomElementsHash !== undefined &&
+		// don't get originalDamElements when there are changes, needed to update synthetic refs
+		!updatedMw
+	) {
 		// If there's more than 1 element, preserve entire array, not just first element
 		domElements = ve.copyDomElements(
 			converter.getStore().value( dataElement.originalDomElementsHash ), doc
@@ -263,6 +267,7 @@ ve.dm.MWReferencesListNode.static.updatedMwForDom = function ( data, doc, conver
 		originalHtmlWrapper.innerHTML = ve.getProp( mwData, 'body', 'html' ) || '';
 
 		// Only set body.html if contentsHtml and originalHtml are actually different
+		// FIXME?: Synthetic refs from main+details always seem to have different bodyHtml here
 		if ( !originalHtmlWrapper.isEqualNode( currentHtmlWrapper ) ) {
 			ve.setProp( mwData, 'body', 'html', currentHtmlWrapper.innerHTML );
 		}

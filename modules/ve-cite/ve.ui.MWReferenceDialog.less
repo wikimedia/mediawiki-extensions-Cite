@@ -19,27 +19,8 @@
 .ve-ui-mwReference-details-preview-panel {
 	border-bottom: @border-style-base @border-color-divider @border-width-base;
 
-	.ve-ui-mwReferenceDialog-referencePreview {
-		> div {
-			&::before {
-				content: '1. ';
-				float: left;
-				margin-right: @spacing-30;
-			}
-		}
-
-		li.ve-ui-mwReference-details-preview-item {
-			&::marker {
-				content: none;
-			}
-
-			&::before {
-				content: '1.1. ';
-			}
-
-			> div {
-				display: inline;
-			}
-		}
+	.ve-ui-mwReference-details-preview-item {
+		margin-top: @spacing-50;
+		margin-left: @spacing-200;
 	}
 }

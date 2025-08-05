@@ -299,13 +299,11 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 					.addClass( 've-ui-mwReferenceContextItem-muted' )
 					.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) )
 			)
-			.append( $( '<ol>' )
-				.append( $( '<li>' )
-					.addClass( 've-ui-mwReference-details-preview-item' )
-					.append( $( '<div>' )
-						.addClass( 've-ui-mwReferenceContextItem-muted' )
-						.text( ve.msg( 'cite-ve-dialog-reference-editing-details-placeholder' ) )
-					)
+			.append( $( '<div>' )
+				.addClass( 've-ui-mwReference-details-preview-item' )
+				.append( $( '<div>' )
+					.addClass( 've-ui-mwReferenceContextItem-muted' )
+					.text( ve.msg( 'cite-ve-dialog-reference-editing-details-placeholder' ) )
 				)
 			);
 	}

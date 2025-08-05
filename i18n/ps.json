@@ -19,6 +19,8 @@
 	"cite-reference-previews-web": "وېب سرچينه",
 	"cite-reference-previews-collapsible-placeholder": "په دې سرچينه کې یو انځور دی چې په مخکتنه کې نه راځي.",
 	"cite_references_link_accessibility_label": "پورته ټوپ‌کول",
+	"cite_references_link_many_accessibility_label": "پورته تلل:",
+	"cite_references_link_accessibility_back_label": "بېرته پورته تلل",
 	"cite_section_preview_references": "د غبرګونونو وړاندېز",
 	"cite-wikieditor-tool-reference": "سرچينه",
 	"cite-wikieditor-help-page-references": "سرچينې",

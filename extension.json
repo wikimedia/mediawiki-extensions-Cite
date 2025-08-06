@@ -81,7 +81,11 @@
 		"ext.cite.visualEditor": {
 			"localBasePath": "modules/ve-cite",
 			"remoteExtPath": "Cite/modules/ve-cite",
-			"scripts": [
+			"packageFiles": [
+				{
+					"name": "init.js",
+					"main": true
+				},
 				"ve.dm.MWDocumentReferences.js",
 				"ve.dm.MWGroupReferences.js",
 				"ve.dm.MWReferenceModel.js",

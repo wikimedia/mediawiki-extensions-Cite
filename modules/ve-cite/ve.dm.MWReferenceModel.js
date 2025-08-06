@@ -299,3 +299,5 @@ ve.dm.MWReferenceModel.prototype.setGroup = function ( group ) {
 ve.dm.MWReferenceModel.prototype.setDocument = function ( doc ) {
 	this.doc = doc;
 };
+
+module.exports = ve.dm.MWReferenceModel;

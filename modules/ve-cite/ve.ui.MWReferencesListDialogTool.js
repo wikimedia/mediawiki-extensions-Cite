@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+const MWReferencesListNode = require( './ve.dm.MWReferencesListNode.js' );
+
 /**
  * MediaWiki UserInterface references list tool.
  *
@@ -30,7 +32,7 @@ ve.ui.MWReferencesListDialogTool.static.icon = 'references';
 ve.ui.MWReferencesListDialogTool.static.title =
 	OO.ui.deferMsg( 'cite-ve-dialogbutton-referenceslist-tooltip' );
 
-ve.ui.MWReferencesListDialogTool.static.modelClasses = [ ve.dm.MWReferencesListNode ];
+ve.ui.MWReferencesListDialogTool.static.modelClasses = [ MWReferencesListNode ];
 
 ve.ui.MWReferencesListDialogTool.static.commandName = 'referencesList';
 

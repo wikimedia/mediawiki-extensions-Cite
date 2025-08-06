@@ -5,6 +5,8 @@
  * @license MIT
  */
 
+const MWGroupReferences = require( './ve.dm.MWGroupReferences.js' );
+
 /**
  * A facade providing a simplified and safe interface to Cite `ref` and
  * `references` tags in a document.
@@ -22,7 +24,7 @@ ve.dm.MWDocumentReferences = function VeDmMWDocumentReferences( doc ) {
 	/**
 	 * Holds the information calculated for each group.
 	 *
-	 * @member {Object.<string, ve.dm.MWGroupReferences>}
+	 * @member {Object.<string, MWGroupReferences>}
 	 */
 	this.cachedByGroup = {};
 
@@ -83,16 +85,16 @@ ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
  */
 ve.dm.MWDocumentReferences.prototype.updateGroup = function ( groupName ) {
 	const nodeGroup = this.doc.getInternalList().getNodeGroup( groupName );
-	this.cachedByGroup[ groupName ] = ve.dm.MWGroupReferences.static.makeGroupRefs( nodeGroup );
+	this.cachedByGroup[ groupName ] = MWGroupReferences.static.makeGroupRefs( nodeGroup );
 };
 
 /**
  * @param {string} groupName with or without prefix
- * @return {ve.dm.MWGroupReferences}
+ * @return {MWGroupReferences}
  */
 ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( groupName ) {
 	return this.cachedByGroup[ groupName.startsWith( 'mwReference/' ) ? groupName : 'mwReference/' + groupName ] ||
-		new ve.dm.MWGroupReferences();
+		new MWGroupReferences();
 };
 
 /**
@@ -139,3 +141,5 @@ ve.dm.MWDocumentReferences.static.contentLangDigits = function ( num ) {
 ve.dm.MWDocumentReferences.prototype.getIndexLabel = function ( groupName, listKey ) {
 	return this.getGroupRefs( groupName ).getIndexLabel( listKey );
 };
+
+module.exports = ve.dm.MWDocumentReferences;

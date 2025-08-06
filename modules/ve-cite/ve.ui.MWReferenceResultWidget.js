@@ -48,3 +48,5 @@ ve.ui.MWReferenceResultWidget = function VeUiMWReferenceResultWidget( config ) {
 /* Inheritance */
 
 OO.inheritClass( ve.ui.MWReferenceResultWidget, OO.ui.OptionWidget );
+
+module.exports = ve.ui.MWReferenceResultWidget;

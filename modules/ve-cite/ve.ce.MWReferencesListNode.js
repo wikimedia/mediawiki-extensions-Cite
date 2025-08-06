@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+
 /**
  * ContentEditable MediaWiki references list node.
  *
@@ -182,7 +184,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 
 	const refGroup = model.getAttribute( 'refGroup' );
 
-	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( model.getDocument() );
+	const docRefs = MWDocumentReferences.static.refsForDoc( model.getDocument() );
 	const groupRefs = docRefs.getGroupRefs( refGroup );
 	const hasModelReferences = !groupRefs.isEmpty();
 

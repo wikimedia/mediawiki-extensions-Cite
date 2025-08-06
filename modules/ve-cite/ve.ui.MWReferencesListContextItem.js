@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+const MWReferencesListNode = require( './ve.dm.MWReferencesListNode.js' );
+
 /**
  * Context item for a MWReferencesList.
  *
@@ -37,7 +39,7 @@ ve.ui.MWReferencesListContextItem.static.icon = 'references';
 ve.ui.MWReferencesListContextItem.static.label =
 	OO.ui.deferMsg( 'cite-ve-dialogbutton-referenceslist-tooltip' );
 
-ve.ui.MWReferencesListContextItem.static.modelClasses = [ ve.dm.MWReferencesListNode ];
+ve.ui.MWReferencesListContextItem.static.modelClasses = [ MWReferencesListNode ];
 
 ve.ui.MWReferencesListContextItem.static.commandName = 'referencesList';
 

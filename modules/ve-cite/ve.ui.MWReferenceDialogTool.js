@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+const MWReferenceNode = require( './ve.dm.MWReferenceNode.js' );
+
 /**
  * MediaWiki UserInterface reference tool.
  *
@@ -34,7 +36,7 @@ ve.ui.MWReferenceDialogTool.static.title = OO.ui.deferMsg(
 		[ 'cite-ve-dialogbutton-reference-tooltip' ]
 );
 
-ve.ui.MWReferenceDialogTool.static.modelClasses = [ ve.dm.MWReferenceNode ];
+ve.ui.MWReferenceDialogTool.static.modelClasses = [ MWReferenceNode ];
 
 ve.ui.MWReferenceDialogTool.static.commandName = 'reference';
 
@@ -42,6 +44,9 @@ ve.ui.MWReferenceDialogTool.static.autoAddToCatchall = false;
 
 ve.ui.toolFactory.register( ve.ui.MWReferenceDialogTool );
 
+module.exports = ve.ui.MWReferenceDialogTool;
+
+// TODO: Move everything below to init.js
 ve.ui.commandRegistry.register(
 	new ve.ui.Command(
 		'reference', 'window', 'open',

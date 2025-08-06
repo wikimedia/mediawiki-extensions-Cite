@@ -7,6 +7,10 @@
  * @license MIT
  */
 
+const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
+const MWReferenceResultWidget = require( './ve.ui.MWReferenceResultWidget.js' );
+
 /**
  * Creates an ve.ui.MWReferenceSearchWidget object.
  *
@@ -48,7 +52,7 @@ OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
  * User chose a ref for reuse
  *
  * @event ve.ui.MWReferenceSearchWidget#reuse
- * @param {ve.dm.MWReferenceModel} ref
+ * @param {MWReferenceModel} ref
  */
 
 /* Methods */
@@ -96,7 +100,7 @@ ve.ui.MWReferenceSearchWidget.prototype.onChoose = function ( item ) {
 /**
  * Set the internal list and check if it contains any references
  *
- * @param {ve.dm.MWDocumentReferences} docRefs handle to all refs in the original document
+ * @param {MWDocumentReferences} docRefs handle to all refs in the original document
  */
 ve.ui.MWReferenceSearchWidget.prototype.setDocumentRefs = function ( docRefs ) {
 	this.results.unselectItem();
@@ -111,7 +115,7 @@ ve.ui.MWReferenceSearchWidget.prototype.setDocumentRefs = function ( docRefs ) {
  * @param {ve.dm.InternalList} internalList
  */
 ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalList ) {
-	this.setDocumentRefs( ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() ) );
+	this.setDocumentRefs( MWDocumentReferences.static.refsForDoc( internalList.getDocument() ) );
 };
 
 /**
@@ -176,7 +180,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 				$refContent: $refContent,
 				searchableText: refText.toLowerCase(),
 				// TODO: return a simple node
-				reference: ve.dm.MWReferenceModel.static.newFromReferenceNode( node ),
+				reference: MWReferenceModel.static.newFromReferenceNode( node ),
 				footnoteLabel: footnoteLabel,
 				name: name
 			};
@@ -196,7 +200,7 @@ ve.ui.MWReferenceSearchWidget.prototype.isIndexEmpty = function () {
 /**
  * @private
  * @param {string} query
- * @return {ve.ui.MWReferenceResultWidget[]}
+ * @return {MWReferenceResultWidget[]}
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchResults = function ( query ) {
 	query = query.trim().toLowerCase();
@@ -208,9 +212,11 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchResults = function ( query ) 
 
 	this.index.forEach( ( item ) => {
 		if ( item.searchableText.includes( query ) ) {
-			results.push( new ve.ui.MWReferenceResultWidget( { item } ) );
+			results.push( new MWReferenceResultWidget( { item } ) );
 		}
 	} );
 
 	return results;
 };
+
+module.exports = ve.ui.MWReferenceSearchWidget;

@@ -7,6 +7,12 @@
  * @license MIT
  */
 
+const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
+const MWReferenceNode = require( './ve.dm.MWReferenceNode.js' );
+const MWReferenceEditPanel = require( './ve.ui.MWReferenceEditPanel.js' );
+const MWReferenceSearchWidget = require( './ve.ui.MWReferenceSearchWidget.js' );
+
 /**
  * Dialog for inserting, editing and re-using MediaWiki references.
  *
@@ -53,11 +59,11 @@ ve.ui.MWReferenceDialog.static.actions = [
 	}
 ];
 
-ve.ui.MWReferenceDialog.static.modelClasses = [ ve.dm.MWReferenceNode ];
+ve.ui.MWReferenceDialog.static.modelClasses = [ MWReferenceNode ];
 
 /* Methods */
 /**
- * Handle ve.ui.MWReferenceEditPanel#change events
+ * Handle {@link MWReferenceEditPanel#change} events
  *
  * @param {Object} change
  * @param {boolean} [change.isModified] If changes to the original content or values have been made
@@ -78,17 +84,17 @@ ve.ui.MWReferenceDialog.prototype.onEditPanelInputChange = function ( change ) {
 /**
  * Handle search results ref reuse events.
  *
- * @param {ve.dm.MWReferenceModel} ref
+ * @param {MWReferenceModel} ref
  */
 ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
-	if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
+	if ( this.selectedNode instanceof MWReferenceNode ) {
 		this.getFragment().removeContent();
 		this.selectedNode = null;
 	}
 
 	// Special case for sub-references: create a copy so both can be edited independently
 	if ( ref.isSubRef() ) {
-		ref = ve.dm.MWReferenceModel.static.copySubReference( ref, this.getFragment().getDocument() );
+		ref = MWReferenceModel.static.copySubReference( ref, this.getFragment().getDocument() );
 	}
 
 	// Collapse returns a new fragment, so update this.fragment
@@ -101,14 +107,14 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 };
 
 ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
-	const newRef = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
+	const newRef = new MWReferenceModel( this.getFragment().getDocument() );
 	newRef.mainRefKey = mainRef.getListKey();
 	newRef.group = mainRef.getGroup();
 
 	this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
 	this.panels.setItem( this.editPanel );
 
-	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
+	const docRefs = MWDocumentReferences.static.refsForDoc(
 		this.getFragment().getDocument()
 	);
 	this.editPanel.setDocumentReferences( docRefs );
@@ -156,10 +162,10 @@ ve.ui.MWReferenceDialog.prototype.initialize = function () {
 
 	// Properties
 	this.panels = new OO.ui.StackLayout();
-	this.editPanel = new ve.ui.MWReferenceEditPanel( { $overlay: this.$overlay } );
+	this.editPanel = new MWReferenceEditPanel( { $overlay: this.$overlay } );
 	this.reuseSearchPanel = new OO.ui.PanelLayout();
 
-	this.reuseSearch = new ve.ui.MWReferenceSearchWidget( { $overlay: this.$overlay } );
+	this.reuseSearch = new MWReferenceSearchWidget( { $overlay: this.$overlay } );
 
 	// Events
 	this.reuseSearch.connect( this, { reuse: 'onReuseSearchResultsReuse' } );
@@ -193,7 +199,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 		return new OO.ui.Process( () => {
 			const ref = this.editPanel.getReferenceFromEditing();
 
-			if ( !( this.selectedNode instanceof ve.dm.MWReferenceNode ) || this.createSubRefMode ) {
+			if ( !( this.selectedNode instanceof MWReferenceNode ) || this.createSubRefMode ) {
 				// Collapse returns a new fragment, so update this.fragment
 				if ( this.createSubRefMode ) {
 					this.getFragment().removeContent();
@@ -214,7 +220,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
  * @override
  * @param {Object} [data] Setup data
  * @param {boolean} [data.reuseReference=false] Open the dialog in "use existing reference" mode
- * @param {ve.dm.MWReferenceModel} [data.createSubRef] Open the dialog to add additional details to a reuse
+ * @param {MWReferenceModel} [data.createSubRef] Open the dialog to add additional details to a reuse
  */
 ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
@@ -226,7 +232,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
 				this.openReusePanel();
 			} else if ( data.createSubRef ) {
-				if ( this.selectedNode instanceof ve.dm.MWReferenceNode &&
+				if ( this.selectedNode instanceof MWReferenceNode &&
 					this.selectedNode.getAttribute( 'placeholder' ) ) {
 					// remove the placeholder node from Citoid
 					this.getFragment().removeContent();
@@ -244,22 +250,22 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.createSubRefMode = true;
 			} else {
 				this.panels.setItem( this.editPanel );
-				const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
+				const docRefs = MWDocumentReferences.static.refsForDoc(
 					this.getFragment().getDocument()
 				);
 				this.editPanel.setDocumentReferences( docRefs );
 
 				let ref;
-				if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
+				if ( this.selectedNode instanceof MWReferenceNode ) {
 					// edit an existing reference
-					ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
+					ref = MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 					if ( ref.isSubRef() ) {
 						this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
 					}
 					this.actions.setAbilities( { done: false } );
 				} else {
 					// create a new reference
-					ref = new ve.dm.MWReferenceModel( this.getFragment().getDocument() );
+					ref = new MWReferenceModel( this.getFragment().getDocument() );
 					this.actions.setAbilities( { insert: false } );
 				}
 				this.editPanel.setReferenceForEditing( ref );

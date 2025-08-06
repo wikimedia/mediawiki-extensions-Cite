@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+
 /**
  * DataModel MediaWiki references list node.
  *
@@ -309,7 +311,7 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
  * */
 ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, converter ) {
 	// Render all group refs
-	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc(
+	const docRefs = MWDocumentReferences.static.refsForDoc(
 		converter.internalList.document
 	);
 	const groupRefs = docRefs.getGroupRefs( refGroup );
@@ -424,3 +426,5 @@ ve.dm.MWReferencesListNode.static.getHashObject = function ( dataElement ) {
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.MWReferencesListNode );
+
+module.exports = ve.dm.MWReferencesListNode;

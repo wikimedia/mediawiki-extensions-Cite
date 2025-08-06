@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+
 /**
  * DataModel MediaWiki reference node.
  *
@@ -449,7 +451,7 @@ ve.dm.MWReferenceNode.static.getFormattedRefLinkLabel = function ( dataElement, 
  */
 ve.dm.MWReferenceNode.static.findIndexNumber = function ( dataElement, internalList ) {
 	return ve.getProp( dataElement, 'internal', 'overrideIndex' ) ||
-		ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() )
+		MWDocumentReferences.static.refsForDoc( internalList.getDocument() )
 			.getIndexLabel( dataElement.attributes.refGroup, dataElement.attributes.listKey );
 };
 
@@ -672,3 +674,5 @@ ve.dm.MWReferenceNode.prototype.setGroupIndex = function ( groupItemIndex ) {
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.MWReferenceNode );
+
+module.exports = ve.dm.MWReferenceNode;

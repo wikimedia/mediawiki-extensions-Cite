@@ -7,6 +7,10 @@
  * @license MIT
  */
 
+const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
+const MWReferenceNode = require( './ve.dm.MWReferenceNode.js' );
+
 /**
  * Context item for a MWReference.
  *
@@ -41,7 +45,7 @@ ve.ui.MWReferenceContextItem.static.icon = 'reference';
 
 ve.ui.MWReferenceContextItem.static.label = OO.ui.deferMsg( 'cite-ve-dialogbutton-reference-title' );
 
-ve.ui.MWReferenceContextItem.static.modelClasses = [ ve.dm.MWReferenceNode ];
+ve.ui.MWReferenceContextItem.static.modelClasses = [ MWReferenceNode ];
 
 ve.ui.MWReferenceContextItem.static.commandName = 'reference';
 
@@ -141,7 +145,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 
 	// Edit the main ref--like when editing a list-defined ref!
 	// TODO: Make this into a reusable command.
-	const groupRefs = ve.dm.MWDocumentReferences.static
+	const groupRefs = MWDocumentReferences.static
 		.refsForDoc( this.getFragment().getDocument() )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
 	const mainRefNode = groupRefs.getRefNode( mainRefKey );
@@ -226,7 +230,7 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 	return new OO.ui.ButtonWidget( {
 		label: ve.msg( 'cite-ve-dialog-reference-add-details-button' )
 	} ).on( 'click', () => {
-		const ref = ve.dm.MWReferenceModel.static.newFromReferenceNode( this.model );
+		const ref = MWReferenceModel.static.newFromReferenceNode( this.model );
 		ve.ui.commandRegistry.lookup( 'reference' ).execute(
 			this.context.getSurface(),
 			// Arguments for calling ve.ui.MWReferenceDialog.getSetupProcess()
@@ -265,7 +269,7 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  * @override
  */
 ve.ui.MWReferenceContextItem.prototype.setup = function () {
-	this.groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
+	this.groupRefs = MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
 
 	// Parent method
@@ -302,3 +306,5 @@ ve.ui.MWReferenceContextItem.prototype.teardown = function () {
 /* Registration */
 
 ve.ui.contextItemFactory.register( ve.ui.MWReferenceContextItem );
+
+module.exports = ve.ui.MWReferenceContextItem;

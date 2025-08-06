@@ -211,6 +211,7 @@ ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( key ) {
 ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
 	return ( this.nodeGroup && this.nodeGroup.keyedNodes[ key ] || [] )
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) &&
+		// FIXME: Couldn't resolve this so far because of a circular dependency!
 				!node.findParent( ve.dm.MWReferencesListNode )
 		);
 };
@@ -248,3 +249,5 @@ ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainRefKey ) {
 ve.dm.MWGroupReferences.prototype.getIndexLabel = function ( listKey ) {
 	return this.footnoteLabelLookup[ listKey ];
 };
+
+module.exports = ve.dm.MWGroupReferences;

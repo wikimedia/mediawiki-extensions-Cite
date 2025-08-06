@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+const MWReferenceGroupInputWidget = require( './ve.ui.MWReferenceGroupInputWidget.js' );
+
 /**
  * Creates a ve.ui.MWReferenceEditPanel object.
  *
@@ -58,7 +60,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 		label: ve.msg( 'cite-ve-dialog-reference-options-section' ),
 		icon: 'settings'
 	} );
-	this.referenceGroupInput = new ve.ui.MWReferenceGroupInputWidget( {
+	this.referenceGroupInput = new MWReferenceGroupInputWidget( {
 		$overlay: config.$overlay,
 		emptyGroupName: ve.msg( 'cite-ve-dialog-reference-options-group-placeholder' )
 	} );
@@ -364,3 +366,5 @@ ve.ui.MWReferenceEditPanel.prototype.clear = function () {
 	this.referenceTarget.clear();
 	this.referenceModel = null;
 };
+
+module.exports = ve.ui.MWReferenceEditPanel;

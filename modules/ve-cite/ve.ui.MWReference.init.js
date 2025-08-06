@@ -7,6 +7,10 @@
  * @license MIT
  */
 
+const MWCitationContextItem = require( './ve.ui.MWCitationContextItem.js' );
+const MWCitationDialogTool = require( './ve.ui.MWCitationDialogTool.js' );
+
+// TODO: Remove wrapper, not needed any more
 ( function () {
 	const modifiedToolbarGroups = [];
 
@@ -94,9 +98,8 @@
 				web: 'browser'
 			};
 
-		// This is assigned server-side by CitationToolDefinition.php, before this file runs.
-		// Ensure it has a fallback, just in case.
-		ve.ui.mwCitationTools = ve.ui.mwCitationTools || [];
+		// TODO: Make this return plain JSON instead of using the global scope
+		require( './ve.ui.MWCitationTools.js' );
 
 		ve.ui.mwCitationTools.forEach( ( item ) => {
 			const hasOwn = Object.prototype.hasOwnProperty;
@@ -114,9 +117,9 @@
 			const name = 'cite-' + item.name;
 			if ( !ve.ui.toolFactory.lookup( name ) ) {
 				const tool = function GeneratedMWCitationDialogTool() {
-					ve.ui.MWCitationDialogTool.apply( this, arguments );
+					MWCitationDialogTool.apply( this, arguments );
 				};
-				OO.inheritClass( tool, ve.ui.MWCitationDialogTool );
+				OO.inheritClass( tool, MWCitationDialogTool );
 				tool.static.group = 'cite';
 				tool.static.name = name;
 				tool.static.icon = item.icon;
@@ -142,9 +145,9 @@
 			if ( !ve.ui.contextItemFactory.lookup( name ) ) {
 				const contextItem = function GeneratedMWCitationContextItem() {
 					// Parent constructor
-					ve.ui.MWCitationContextItem.apply( this, arguments );
+					MWCitationContextItem.apply( this, arguments );
 				};
-				OO.inheritClass( contextItem, ve.ui.MWCitationContextItem );
+				OO.inheritClass( contextItem, MWCitationContextItem );
 				contextItem.static.name = name;
 				contextItem.static.icon = item.icon;
 				contextItem.static.label = item.title;

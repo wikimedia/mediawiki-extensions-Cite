@@ -7,6 +7,9 @@
  * @license MIT
  */
 
+const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWReferenceGroupInputWidget = require( './ve.ui.MWReferenceGroupInputWidget.js' );
+
 /**
  * Dialog for editing MediaWiki references lists.
  *
@@ -57,7 +60,7 @@ ve.ui.MWReferencesListDialog.prototype.initialize = function () {
 	} );
 	this.optionsFieldset = new OO.ui.FieldsetLayout();
 
-	this.groupInput = new ve.ui.MWReferenceGroupInputWidget( {
+	this.groupInput = new MWReferenceGroupInputWidget( {
 		$overlay: this.$overlay,
 		emptyGroupName: ve.msg( 'cite-ve-dialog-reference-options-group-placeholder' )
 	} );
@@ -168,7 +171,7 @@ ve.ui.MWReferencesListDialog.prototype.getSetupProcess = function ( data ) {
 			}
 
 			this.groupInput.setValue( this.selectedNode.getAttribute( 'refGroup' ) );
-			const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() );
+			const docRefs = MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() );
 			this.groupInput.populateMenu( docRefs.getAllGroupNames() );
 
 			this.responsiveCheckbox.setSelected( this.selectedNode.getAttribute( 'isResponsive' ) );

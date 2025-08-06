@@ -78,7 +78,7 @@
 				"minerva": "ext.cite.parsoid.styles.minerva.less"
 			}
 		},
-		"ext.cite.visualEditor.core": {
+		"ext.cite.visualEditor": {
 			"localBasePath": "modules/ve-cite",
 			"remoteExtPath": "Cite/modules/ve-cite",
 			"scripts": [
@@ -89,29 +89,6 @@
 				"ve.dm.MWReferenceNode.js",
 				"ve.ce.MWReferencesListNode.js",
 				"ve.ce.MWReferenceNode.js",
-				"ve.ui.MWReferencesListCommand.js"
-			],
-			"styles": [
-				"ve.ce.MWReferenceNode.less",
-				"ve.ce.MWReferencesListNode.less"
-			],
-			"dependencies": [
-				"ext.visualEditor.mwcore",
-				"ext.visualEditor.mwtransclusion"
-			],
-			"messages": [
-				"cite-ve-referenceslist-isempty",
-				"cite-ve-referenceslist-isempty-default",
-				"cite-ve-referenceslist-missing-parent",
-				"cite-ve-referenceslist-missingref",
-				"cite-ve-referenceslist-missingref-in-list",
-				"cite-ve-referenceslist-missingreflist"
-			]
-		},
-		"ext.cite.visualEditor": {
-			"localBasePath": "modules/ve-cite",
-			"remoteExtPath": "Cite/modules/ve-cite",
-			"scripts": [
 				{
 					"name": "ve.ui.MWCitationTools.js",
 					"callback": "Cite\\ResourceLoader\\CitationToolDefinition::makeScript"
@@ -121,6 +98,7 @@
 				"ve.ui.MWReferenceResultWidget.js",
 				"ve.ui.MWUseExistingReferenceCommand.js",
 				"ve.ui.MWCitationDialog.js",
+				"ve.ui.MWReferencesListCommand.js",
 				"ve.ui.MWReferencesListDialog.js",
 				"ve.ui.MWReferenceDialog.js",
 				"ve.ui.MWReferenceDialogTool.js",
@@ -138,6 +116,8 @@
 				}
 			],
 			"styles": [
+				"ve.ce.MWReferenceNode.less",
+				"ve.ce.MWReferencesListNode.less",
 				"ve.ui.MWReferenceDialog.less",
 				"ve.ui.MWReferenceContextItem.less",
 				"ve.ui.MWReferenceResultWidget.less",
@@ -147,7 +127,7 @@
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-editing-citation",
 				"oojs-ui.styles.icons-interactions",
-				"ext.cite.visualEditor.core",
+				"ext.visualEditor.mwcore",
 				"ext.cite.parsoid.styles",
 				"ext.cite.styles",
 				"ext.visualEditor.mwtransclusion",
@@ -196,6 +176,12 @@
 				"cite-ve-dialogbutton-referenceslist-tooltip",
 				"cite-ve-reference-contextitem-reused-header",
 				"cite-ve-reference-input-placeholder",
+				"cite-ve-referenceslist-isempty",
+				"cite-ve-referenceslist-isempty-default",
+				"cite-ve-referenceslist-missing-parent",
+				"cite-ve-referenceslist-missingref",
+				"cite-ve-referenceslist-missingref-in-list",
+				"cite-ve-referenceslist-missingreflist",
 				"cite-ve-toolbar-group-label",
 				"cite-ve-othergroup-item",
 				"parentheses",

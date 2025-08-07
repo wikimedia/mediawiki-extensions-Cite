@@ -67,9 +67,12 @@ ve.ui.MWReferencesListContextItem.prototype.renderBody = function () {
 ve.ui.MWReferencesListContextItem.prototype.getDescription = function () {
 	const group = this.model.getAttribute( 'refGroup' );
 
-	return group ?
-		ve.msg( 'cite-ve-dialog-referenceslist-contextitem-description-named', group ) :
-		ve.msg( 'cite-ve-dialog-referenceslist-contextitem-description-general' );
+	return ve.msg(
+		group ?
+			'cite-ve-dialog-referenceslist-contextitem-description-named' :
+			'cite-ve-dialog-referenceslist-contextitem-description-general',
+		group
+	);
 };
 
 /* Registration */

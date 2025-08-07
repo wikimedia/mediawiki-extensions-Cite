@@ -186,12 +186,10 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	const groupRefs = docRefs.getGroupRefs( refGroup );
 	const hasModelReferences = !groupRefs.isEmpty();
 
-	let emptyText;
-	if ( refGroup !== '' ) {
-		emptyText = ve.msg( 'cite-ve-referenceslist-isempty', refGroup );
-	} else {
-		emptyText = ve.msg( 'cite-ve-referenceslist-isempty-default' );
-	}
+	const emptyText = ve.msg(
+		refGroup ? 'cite-ve-referenceslist-isempty' : 'cite-ve-referenceslist-isempty-default',
+		refGroup
+	);
 
 	let originalDomElements;
 	if ( model.getElement().originalDomElementsHash ) {
@@ -322,8 +320,8 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 		$li.append(
 			$( '<span>' )
 				.addClass( 've-ce-mwReferencesListNode-muted' )
-				.text( subrefs.length ? ve.msg( 'cite-ve-referenceslist-missing-parent' ) :
-					ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) )
+				.text( ve.msg( subrefs.length ? 'cite-ve-referenceslist-missing-parent' :
+					'cite-ve-referenceslist-missingref-in-list' ) )
 		).addClass( 've-ce-mwReferencesListNode-missingRef' );
 	}
 

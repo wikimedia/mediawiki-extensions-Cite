@@ -102,6 +102,8 @@
 				"ve.ui.MWReferencesListDialog.js",
 				"ve.ui.MWReferenceDialog.js",
 				"ve.ui.MWReferenceDialogTool.js",
+				"ve.ui.MWUseExistingReferenceDialogTool.js",
+				"ve.ui.MWReferencesListDialogTool.js",
 				"ve.ui.MWReferenceEditPanel.js",
 				"ve.ui.MWCitationDialogTool.js",
 				"ve.ui.MWReferenceContextItem.js",

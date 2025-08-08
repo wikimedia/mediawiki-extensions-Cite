@@ -84,7 +84,35 @@ QUnit.test( 'beforePaste/afterPaste', ( assert ) => {
 					</sup>
 				</p>
 			`,
-			msg: 'VE reference with conflicting name disambiguated'
+			msg: 'VE external reference with conflicting name disambiguated'
+		},
+		{
+			documentHtml: ve.dm.example.singleLine`
+				<p>
+					a
+						<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"...original reference HTML..."},"attrs":{"name":"foo"}}' class="mw-ref reference">
+							<a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a>
+						</sup>
+				</p>
+			`,
+			internalSourceRangeOrSelection: new ve.Range( 0, 6 ),
+			rangeOrSelection: new ve.Range( 6 ),
+			expectedRangeOrSelection: new ve.Range( 10 ),
+			expectedHtml: ve.dm.example.singleLine`
+				<p>
+					a
+					<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"...original reference HTML..."},"attrs":{"name":"foo"}}' class="mw-ref reference">
+						<a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a>
+					</sup>
+				</p>
+				<p>
+					a
+					<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}' class="mw-ref reference">
+						<a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a>
+					</sup>
+				</p>
+			`,
+			msg: 'VE internal reference with same name deduplicated'
 		}
 	];
 

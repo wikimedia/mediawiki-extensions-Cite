@@ -376,10 +376,10 @@ ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) 
  *
  * @param {Object} dataElement Ref node data to modify
  * @param {Object<number,number>} mapping Stable map from old to new list index
- * @param {ve.dm.InternalList} internalList Target document internal list
+ * @param {ve.dm.InternalList} newInternalList Target document internal list
  */
 ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
-	dataElement, mapping, internalList
+	dataElement, mapping, newInternalList
 ) {
 	// Remap listIndex
 	dataElement.attributes.listIndex = mapping[ dataElement.attributes.listIndex ];
@@ -387,7 +387,7 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 	// Remap listKey if it was automatically generated
 	const listKeyParts = this.listKeyRegex.exec( dataElement.attributes.listKey );
 	if ( listKeyParts && listKeyParts[ 1 ] === 'auto' ) {
-		dataElement.attributes.listKey = this.makeListKey( internalList );
+		dataElement.attributes.listKey = this.makeListKey( newInternalList );
 	}
 };
 
@@ -399,12 +399,12 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
  * a suffix incremented until the name is unique.
  *
  * @param {Object} dataElement new ref data
- * @param {ve.dm.InternalList} internalList Target document's existing internalList
+ * @param {ve.dm.InternalList} newInternalList Target document's existing internalList
  */
-ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, internalList ) {
+ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, newInternalList ) {
 	let suffix = '';
 	// Try name, name2, name3, ... until unique
-	while ( internalList.keys.includes( dataElement.attributes.listKey + suffix ) ) {
+	while ( newInternalList.keys.includes( dataElement.attributes.listKey + suffix ) ) {
 		suffix = suffix ? suffix + 1 : 2;
 	}
 	if ( suffix ) {

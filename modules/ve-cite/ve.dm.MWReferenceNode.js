@@ -369,6 +369,14 @@ ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) 
 		);
 };
 
+/**
+ * Give unnamed refs a new "auto/<number>" listKey using the target document's
+ * internal list autoincrement counter.
+ *
+ * @param {Object} dataElement Ref node data to modify
+ * @param {Object<number,number>} mapping Stable map from old to new list index
+ * @param {ve.dm.InternalList} internalList Target document internal list
+ */
 ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 	dataElement, mapping, internalList
 ) {
@@ -382,6 +390,16 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 	}
 };
 
+/**
+ * Change conflicting ref names pasted from an external document
+ *
+ * If a ref with name "ref-name" is pasted into a document which already has a
+ * ref by that name, the new ref will be given a new name like "ref-name2" with
+ * a suffix incremented until the name is unique.
+ *
+ * @param {Object} dataElement new ref data
+ * @param {ve.dm.InternalList} internalList Target document's existing internalList
+ */
 ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, internalList ) {
 	let suffix = '';
 	// Try name, name2, name3, ... until unique

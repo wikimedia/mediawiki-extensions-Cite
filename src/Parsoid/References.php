@@ -583,7 +583,6 @@ class References {
 						'body' => DataMwBody::new( [
 							'id' => ParsoidAnchorFormatter::getNoteTextIdentifier( $ref ),
 						] ),
-						// TODO: This attribute is currently unused but probably needed for T391521
 						'isSyntheticMainRef' => 1,
 					] );
 					DOMDataUtils::setDataMw( $sup, $dataMw );

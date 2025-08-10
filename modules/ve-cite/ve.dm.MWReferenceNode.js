@@ -142,29 +142,30 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, converter ) {
 	const isForClipboard = converter.isForClipboard();
 	const internalList = converter.internalList;
-	const el = doc.createElement( 'sup' );
+	const attributes = dataElement.attributes;
+	const domElement = doc.createElement( 'sup' );
 
-	el.setAttribute( 'typeof', 'mw:Extension/ref' );
+	domElement.setAttribute( 'typeof', 'mw:Extension/ref' );
 
-	const mwData = dataElement.attributes.mw ? ve.copy( dataElement.attributes.mw ) : {};
+	const mwData = attributes.mw ? ve.copy( attributes.mw ) : {};
 	mwData.name = 'ref';
 
 	if ( isForClipboard || converter.isForParser() ) {
 		// This call rebuilds the document tree if it isn't built already (e.g. on a
 		// document slice), so only use when necessary (i.e. not in preview mode)
-		const itemNode = internalList.getItemNode( dataElement.attributes.listIndex );
+		const itemNode = internalList.getItemNode( attributes.listIndex );
 		const itemNodeRange = itemNode.getRange();
 
 		const nodesWithSameKey = internalList
-			.getNodeGroup( dataElement.attributes.listGroup )
-			.keyedNodes[ dataElement.attributes.listKey ] || [];
+			.getNodeGroup( attributes.listGroup )
+			.keyedNodes[ attributes.listKey ] || [];
 
-		const name = this.generateName( dataElement.attributes, internalList, nodesWithSameKey );
+		const name = this.generateName( attributes, internalList, nodesWithSameKey );
 		if ( name !== undefined ) {
 			ve.setProp( mwData, 'attrs', 'name', name );
 		}
 
-		if ( dataElement.attributes.mainRefKey ) {
+		if ( attributes.mainRefKey ) {
 			// this is always either the literal name that was already there or the
 			// auto generated literal from above
 			ve.setProp( mwData, 'mainRef', name );
@@ -206,12 +207,12 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		// If we have no internal item data for this reference, don't let it get pasted into
 		// another VE document. T110479
 		if ( isForClipboard && itemNodeRange.isCollapsed() ) {
-			el.setAttribute( 'data-ve-ignore', '' );
+			domElement.setAttribute( 'data-ve-ignore', '' );
 		}
 
 		// Set or clear group
-		if ( dataElement.attributes.refGroup !== '' ) {
-			ve.setProp( mwData, 'attrs', 'group', dataElement.attributes.refGroup );
+		if ( attributes.refGroup !== '' ) {
+			ve.setProp( mwData, 'attrs', 'group', attributes.refGroup );
 		} else if ( mwData.attrs ) {
 			delete mwData.attrs.group;
 		}
@@ -220,9 +221,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	// If mwAttr and originalMw are the same, use originalMw to prevent reserialization,
 	// unless we are writing the clipboard for use in another VE instance
 	// Reserialization has the potential to reorder keys and so change the DOM unnecessarily
-	const originalMw = dataElement.attributes.originalMw;
+	const originalMw = attributes.originalMw;
 	if ( converter.isForParser() && originalMw && ve.compare( mwData, JSON.parse( originalMw ) ) ) {
-		el.setAttribute( 'data-mw', originalMw );
+		domElement.setAttribute( 'data-mw', originalMw );
 
 		// Return the original DOM elements if possible
 		if ( dataElement.originalDomElementsHash !== undefined ) {
@@ -240,12 +241,12 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			// to modify the paste handler.
 			stringifiedMwData = stringifiedMwData.replace( /<\/style/g, '\\u003C/style' );
 		}
-		el.setAttribute( 'data-mw', stringifiedMwData );
+		domElement.setAttribute( 'data-mw', stringifiedMwData );
 
 		// HTML for the external clipboard, it will be ignored by the converter
 		const $link = $( '<a>', doc )
 			.attr( 'data-mw-group', this.getGroup( dataElement ) || null );
-		$( el ).addClass( 'mw-ref reference' ).append(
+		$( domElement ).addClass( 'mw-ref reference' ).append(
 			$link.append( $( '<span>', doc )
 				.addClass( 'mw-reflink-text' )
 				.append( this.getFormattedRefLinkLabel( dataElement, internalList ) )
@@ -253,7 +254,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		);
 	}
 
-	return [ el ];
+	return [ domElement ];
 };
 
 /***

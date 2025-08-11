@@ -177,6 +177,13 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 				// set by Parsoid from the bodyContent in body.html
 				ve.setProp( mwData, 'attrs', 'details', '1' );
 			}
+
+			// check if this subref should get a synthetic main body
+			const syntheticMainRefId = this.shouldLinkSyntheticMainRef( dataElement, nodeGroup );
+			if ( syntheticMainRefId ) {
+				ve.setProp( mwData, 'isSubRefWithMainBody', '1' );
+				ve.setProp( mwData, 'mainBody', syntheticMainRefId );
+			}
 		}
 
 		// TODO: Apply isBodyContentSet logic to isSubRefWithMainBody
@@ -291,6 +298,52 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
 };
 
 /***
+ * Check if a sub reference node should be linked with the body content of a synthetic main node.
+ * This only needs to happen in cases where the body can't move to another main ref.
+ *
+ * @static
+ * @param {Object} dataElement
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
+ * @return {string|false} the reflistItemId of the main to link to or false if not applicable
+ * */
+ve.dm.MWReferenceNode.static.shouldLinkSyntheticMainRef = function ( dataElement, nodeGroup ) {
+	const attributes = dataElement.attributes;
+	const mainRefKey = ve.getProp( attributes, 'mainRefKey' );
+	const sibillingSubRefs = this.getSubRefs( mainRefKey, nodeGroup );
+
+	if (
+		// bail out when the current subref already has a the main body
+		ve.getProp( attributes, 'mw', 'isSubRefWithMainBody' ) ||
+		// bail out when the current subref is not the first, only the first subref should get linked
+		!ve.compare(
+			this.getInstanceHashObject( dataElement ),
+			this.getInstanceHashObject( sibillingSubRefs[ 0 ].element )
+		) ) {
+		return false;
+	}
+
+	const mainNodes = nodeGroup.keyedNodes[ mainRefKey ] || false;
+	if (
+		// bail out if there are other main refs that could get the content
+		!mainNodes ||
+		mainNodes.length > 1 ||
+		// bail out if there's no synthetic main ref to link
+		!ve.getProp( mainNodes[ 0 ].getAttribute( 'mw' ), 'isSyntheticMainRef' )
+	) {
+		return false;
+	}
+
+	// mainNodes[ 0 ] is a synthetic main ref, check if there's no other subref after the frist that's linked
+	if ( !sibillingSubRefs.some(
+		( node, i ) => i && ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
+	) ) {
+		return mainNodes[ 0 ].getAttribute( 'refListItemId' );
+	}
+
+	return false;
+};
+
+/***
  * Check if the node is already storing the body content.  Returns false for unused
  * synthtic main refs.
  *
@@ -396,6 +449,18 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
 			'literal/:'
 		).slice( 'literal/'.length );
 	}
+};
+
+/**
+ * @static
+ * @param {string} mainRefKey
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
+ * @return {ve.dm.Node[]}
+ */
+ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
+	return nodeGroup.firstNodes.filter(
+		( node ) => node.element.attributes.mainRefKey === mainRefKey
+	);
 };
 
 /**

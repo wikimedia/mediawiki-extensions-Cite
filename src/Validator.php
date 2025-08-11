@@ -24,8 +24,9 @@ class Validator {
 	/**
 	 * @param array<string|int,?string> $argv The original arguments from the <ref …> tag
 	 * @param string[] $allowedArguments
-	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
-	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
+	 * @return StatusValue<array<string,mixed>> Always returns the complete dictionary of allowed
+	 *  argument names and values. Missing arguments are present, but null. Invalid arguments are
+	 *  stripped.
 	 */
 	private static function filterArguments( array $argv, array $allowedArguments ): StatusValue {
 		$expected = count( $allowedArguments );
@@ -103,8 +104,9 @@ class Validator {
 	 *
 	 * @param array<string|int,?string> $argv The original arguments from the <references …> tag
 	 * @param bool $isSubreferenceSupported Temporary feature flag
-	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
-	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
+	 * @return StatusValue<array<string,mixed>> Always returns the complete dictionary of allowed
+	 *  argument names and values. Missing arguments are present, but null. Invalid arguments are
+	 *  stripped.
 	 */
 	public static function filterRefArguments(
 		array $argv,
@@ -122,8 +124,9 @@ class Validator {
 	 * elements guaranteed to be present.
 	 *
 	 * @param array<string|int,?string> $argv The original arguments from the <references …> tag
-	 * @return StatusValue Always returns the complete dictionary of allowed argument names and
-	 *  values. Missing arguments are present, but null. Invalid arguments are stripped.
+	 * @return StatusValue<array<string,mixed>> Always returns the complete dictionary of
+	 *  allowed argument names and values. Missing arguments are present, but null. Invalid
+	 *  arguments are stripped.
 	 */
 	public static function filterReferenceListArguments( array $argv ): StatusValue {
 		$status = self::filterArguments( $argv, [ 'group', 'responsive' ] );
@@ -143,8 +146,9 @@ class Validator {
 	 *
 	 * @param string|null $text
 	 * @param array{group: ?string, name: ?string, follow: ?string, dir: ?string, details: ?string} $arguments
-	 * @return StatusValue Returns a sanitized version of the dictionary of argument names and
-	 *  values. Some errors are fatals, meaning the <ref> tag shouldn't be used. Some are warnings.
+	 * @return StatusValue<array<string,mixed>> Returns a sanitized version of the dictionary of
+	 *  argument names and values. Some errors are fatals, meaning the <ref> tag shouldn't be used.
+	 *  Some are warnings.
 	 */
 	public function validateRef( ?string $text, array $arguments ): StatusValue {
 		$status = StatusValue::newGood();
@@ -187,6 +191,8 @@ class Validator {
 	/**
 	 * Validation steps specific to <ref> tags outside of (more specifically *before*) a
 	 * <references> tag.
+	 *
+	 * @return StatusValue<array<string,mixed>> Sanitized arguments
 	 */
 	private function validateRefBeforeReferenceList( ?string $text, array $arguments ): StatusValue {
 		$status = StatusValue::newGood();
@@ -236,6 +242,8 @@ class Validator {
 
 	/**
 	 * Validation steps specific to <ref> tags inside of a <references> tag.
+	 *
+	 * @return StatusValue<array<string,mixed>> Sanitized arguments
 	 */
 	private function validateRefInReferenceList( ?string $text, array $arguments ): StatusValue {
 		$status = StatusValue::newGood();

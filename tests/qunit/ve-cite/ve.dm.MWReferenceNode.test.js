@@ -31,34 +31,36 @@ QUnit.test( 'isBodyContentSet', ( assert ) => {
 } );
 
 QUnit.test( 'shouldGetBodyContent on a normal main reference', ( assert ) => {
-	const dataElement = { attributes: { listGroup: 'same' } };
-	const ownRef = { attributes: { listGroup: 'same' } };
+	const dataElement = { attributes: { listKey: 'foo', listGroup: 'same' } };
+	const ownRef = { attributes: { listKey: 'foo', listGroup: 'same' } };
 
 	// There is no other ref, only this one
 	const nodesWithSameKey = [ new ve.dm.Model( ownRef ) ];
-	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+	const nodeGroup = { keyedNodes: { foo: nodesWithSameKey } };
+	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 
 	// Another ref was holding the content before
 	const otherRef = { attributes: { contentsUsed: true } };
 	nodesWithSameKey.push( new ve.dm.Model( otherRef ) );
-	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 
 	// No other ref was holding the content before
 	otherRef.attributes.contentsUsed = false;
-	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 
 	// The current ref is not the same as the first in the list
 	ownRef.attributes.listGroup = 'different';
-	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 
 	// This ref was holding the content before
 	dataElement.attributes.contentsUsed = true;
-	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
+	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 } );
 
 QUnit.test( 'shouldGetBodyContent on a sub-reference', ( assert ) => {
 	const dataElement = { attributes: { mainRefKey: 'x' } };
-	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, [] ) );
+	const nodeGroup = { keyedNodes: {} };
+	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 } );
 
 QUnit.test( 'generateName on a normal main reference', ( assert ) => {

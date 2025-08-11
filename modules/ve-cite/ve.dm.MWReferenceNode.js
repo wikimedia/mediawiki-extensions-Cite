@@ -158,15 +158,15 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		const itemNode = internalList.getItemNode( attributes.listIndex );
 		const itemNodeRange = itemNode.getRange();
 
-		const nodesWithSameKey = internalList
-			.getNodeGroup( attributes.listGroup )
-			.keyedNodes[ attributes.listKey ] || [];
+		const nodeGroup = internalList.getNodeGroup( attributes.listGroup );
+		const nodesWithSameKey = nodeGroup.keyedNodes[ attributes.listKey ] || [];
 
 		const name = this.generateName( attributes, internalList, nodesWithSameKey );
 		if ( name !== undefined ) {
 			ve.setProp( mwData, 'attrs', 'name', name );
 		}
 
+		// node is a subref
 		if ( attributes.mainRefKey ) {
 			// this is always either the literal name that was already there or the
 			// auto generated literal from above
@@ -181,7 +181,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// TODO: Apply isBodyContentSet logic to isSubRefWithMainBody
 		const isBodyContentSet = this.isBodyContentSet( dataElement, nodesWithSameKey );
-		const shouldGetBodyContent = this.shouldGetBodyContent( dataElement, nodesWithSameKey );
+		const shouldGetBodyContent = this.shouldGetBodyContent( dataElement, nodeGroup );
 
 		// Add reference content to data-mw.
 		if ( shouldGetBodyContent && !isBodyContentSet ) {
@@ -291,26 +291,68 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
 };
 
 /***
- * Check if the reference should get the body content. Especially if there's no other reference
- * that defined the body content with the key.
+ * Check if the node is already storing the body content.  Returns false for unused
+ * synthtic main refs.
+ *
+ * @static
+ * @param {Object} attributes
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
+ * @return {boolean}
+ * */
+ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGroup ) {
+	const isSyntheticMainRef = ve.getProp( attributes, 'mw', 'isSyntheticMainRef' );
+
+	if ( !ve.getProp( attributes, 'contentsUsed' ) && !isSyntheticMainRef ) {
+		return false;
+	} else if ( isSyntheticMainRef ) {
+		return this.isUsedMainRef( attributes, nodeGroup );
+	}
+
+	return true;
+};
+
+/***
+ * Check if the node is used by a subref by itterating over all nodes looking a subref that uses
+ * the nodes key.
+ *
+ * @static
+ * @param {Object} attributes
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
+ * @return {boolean}
+ * */
+ve.dm.MWReferenceNode.static.isUsedMainRef = function ( attributes, nodeGroup ) {
+	return nodeGroup.firstNodes.some(
+		( innerNode ) => innerNode.getAttribute( 'mainRefKey' ) ===
+			ve.getProp( attributes, 'listKey' ) &&
+			innerNode.getAttribute( 'mw' ).isSubRefWithMainBody
+	);
+};
+
+/***
+ * Check if the node should get the body content.  Either it had it before, is the last remaining
+ * reuse or is the first node and get's it because no other node holds it.
  *
  * @static
  * @param {Object} dataElement
- * @param {ve.dm.Node[]} nodesWithSameKey
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {boolean}
  * */
-ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, nodesWithSameKey ) {
-	// if the reference defined the body content, it should be stored there again
-	if ( dataElement.attributes.contentsUsed ||
-		// Sub-refs always hold their (details) content, required for later re-serialization
-		dataElement.attributes.mainRefKey ||
-		// There is no other ref but the current one
+ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, nodeGroup ) {
+	const attributes = dataElement.attributes;
+	const nodesWithSameKey = nodeGroup.keyedNodes[ attributes.listKey ] || [];
+
+	// if the reference already stored the body content before, it should be stored there again
+	if ( attributes.contentsUsed ||
+		// subrefs always store their (details) body content, it's required for re-serialization
+		attributes.mainRefKey ||
+		// if this node is the only one it should always get the body content
 		nodesWithSameKey.length <= 1
 	) {
 		return true;
 	}
 
-	// Bail out when the current ref is not the first, only the first should get the content
+	// the node might be applicable for getting the body content but we only want to move the
+	// content to the first node in the document
 	if ( !ve.compare(
 		this.getInstanceHashObject( dataElement ),
 		this.getInstanceHashObject( nodesWithSameKey[ 0 ].element )
@@ -318,10 +360,11 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
 		return false;
 	}
 
-	// Is there another ref after the first that already holds the content?
-	return !nodesWithSameKey.some(
-		( node, i ) => i && node.getAttribute( 'contentsUsed' )
-	);
+	// we only want to give this node the body content if there's no other node after the frist
+	// that holds it
+	return !( nodesWithSameKey.some(
+		( node, i ) => i && this.doesHoldBodyContent( node.getAttributes(), nodeGroup )
+	) );
 };
 
 /**

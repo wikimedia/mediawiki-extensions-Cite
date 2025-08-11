@@ -20,8 +20,12 @@ require( './ve.ui.MWCitationNeededContextItem.js' );
 
 /* Initialization */
 
+// TODO: Remove after Citoid and ContentTranslation are updated to not use this any more
+ve.ui.mwCitationTools = require( './ve.ui.MWCitationTools.json' );
 // TODO: We could merge the two init files. Is this worth it?
 require( './ve.ui.MWReference.init.js' );
 
-// TODO: This script should return plain JSON, and the mw.language.setData() call moved here
-require( './ve.ui.contentLanguage.js' );
+const data = require( './ve.ui.contentLanguage.json' );
+for ( const languageCode in data ) {
+	mw.language.setData( languageCode, data[ languageCode ] );
+}

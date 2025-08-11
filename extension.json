@@ -94,8 +94,8 @@
 				"ve.ce.MWReferencesListNode.js",
 				"ve.ce.MWReferenceNode.js",
 				{
-					"name": "ve.ui.MWCitationTools.js",
-					"callback": "Cite\\ResourceLoader\\CitationToolDefinition::makeScript"
+					"name": "ve.ui.MWCitationTools.json",
+					"callback": "Cite\\ResourceLoader\\CitationToolDefinition::getTools"
 				},
 				"ve.ui.MWReferenceGroupInputWidget.js",
 				"ve.ui.MWReferenceSearchWidget.js",
@@ -117,8 +117,8 @@
 				"ve.ui.MWReference.init.js",
 				"ve.ui.MWCitationNeededContextItem.js",
 				{
-					"name": "ve.ui.contentLanguage.js",
-					"callback": "Cite\\ResourceLoader\\ContentLanguage::makeScript"
+					"name": "ve.ui.contentLanguage.json",
+					"callback": "Cite\\ResourceLoader\\ContentLanguage::getJsData"
 				}
 			],
 			"styles": [

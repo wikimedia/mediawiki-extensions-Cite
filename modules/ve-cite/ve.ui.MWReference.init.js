@@ -98,9 +98,7 @@ const MWCitationDialogTool = require( './ve.ui.MWCitationDialogTool.js' );
 				web: 'browser'
 			};
 
-		// TODO: Make this return plain JSON instead of using the global scope
-		require( './ve.ui.MWCitationTools.js' );
-
+		// TODO: Replace with require( './ve.ui.MWCitationTools.json' );
 		ve.ui.mwCitationTools.forEach( ( item ) => {
 			const hasOwn = Object.prototype.hasOwnProperty;
 			const data = { template: item.template, title: item.title };

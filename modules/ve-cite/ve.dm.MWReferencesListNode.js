@@ -423,8 +423,4 @@ ve.dm.MWReferencesListNode.static.getHashObject = function ( dataElement ) {
 	};
 };
 
-/* Registration */
-
-ve.dm.modelRegistry.register( ve.dm.MWReferencesListNode );
-
 module.exports = ve.dm.MWReferencesListNode;

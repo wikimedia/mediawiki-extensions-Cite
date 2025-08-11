@@ -243,6 +243,4 @@ ve.ui.MWCitationDialog.prototype.onInputChange = function () {
 	}
 };
 
-/* Registration */
-
-ve.ui.windowFactory.register( ve.ui.MWCitationDialog );
+module.exports = ve.ui.MWCitationDialog;

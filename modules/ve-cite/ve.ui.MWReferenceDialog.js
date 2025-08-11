@@ -287,6 +287,4 @@ ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 		} );
 };
 
-/* Registration */
-
-ve.ui.windowFactory.register( ve.ui.MWReferenceDialog );
+module.exports = ve.ui.MWReferenceDialog;

@@ -42,33 +42,4 @@ ve.ui.MWReferenceDialogTool.static.commandName = 'reference';
 
 ve.ui.MWReferenceDialogTool.static.autoAddToCatchall = false;
 
-ve.ui.toolFactory.register( ve.ui.MWReferenceDialogTool );
-
 module.exports = ve.ui.MWReferenceDialogTool;
-
-// TODO: Move everything below to init.js
-ve.ui.commandRegistry.register(
-	new ve.ui.Command(
-		'reference', 'window', 'open',
-		{ args: [ 'reference' ], supportedSelections: [ 'linear' ] }
-	)
-);
-
-/* If Citoid is installed these will be overridden */
-ve.ui.sequenceRegistry.register(
-	new ve.ui.Sequence( 'wikitextRef', 'reference', '<ref', 4 )
-);
-
-ve.ui.triggerRegistry.register(
-	'reference', { mac: new ve.ui.Trigger( 'cmd+shift+k' ), pc: new ve.ui.Trigger( 'ctrl+shift+k' ) }
-);
-
-ve.ui.commandHelpRegistry.register( 'insert', 'ref', {
-	trigger: 'reference',
-	sequences: [ 'wikitextRef' ],
-	label: OO.ui.deferMsg( 'cite-ve-dialog-reference-title' )
-} );
-
-ve.ui.mwWikitextTransferRegistry.register( 'reference', /<ref[^>]*>/ );
-
-ve.ui.HelpCompletionAction.static.toolGroups.cite = { mergeWith: 'insert' };

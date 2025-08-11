@@ -36,4 +36,4 @@ ve.ui.MWReferencesListDialogTool.static.modelClasses = [ MWReferencesListNode ];
 
 ve.ui.MWReferencesListDialogTool.static.commandName = 'referencesList';
 
-ve.ui.toolFactory.register( ve.ui.MWReferencesListDialogTool );
+module.exports = ve.ui.MWReferencesListDialogTool;

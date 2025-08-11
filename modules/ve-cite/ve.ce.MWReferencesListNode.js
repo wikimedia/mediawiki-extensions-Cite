@@ -380,6 +380,4 @@ ve.ce.MWReferencesListNode.prototype.renderBacklinks = function ( keyedNodes, re
 	return $refSpan;
 };
 
-/* Registration */
-
-ve.ce.nodeFactory.register( ve.ce.MWReferencesListNode );
+module.exports = ve.ce.MWReferencesListNode;

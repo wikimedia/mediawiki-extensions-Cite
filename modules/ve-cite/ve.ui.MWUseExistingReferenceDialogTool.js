@@ -40,4 +40,4 @@ ve.ui.MWUseExistingReferenceDialogTool.static.autoAddToGroup = false;
 
 ve.ui.MWUseExistingReferenceDialogTool.static.autoAddToCatchall = false;
 
-ve.ui.toolFactory.register( ve.ui.MWUseExistingReferenceDialogTool );
+module.exports = ve.ui.MWUseExistingReferenceDialogTool;

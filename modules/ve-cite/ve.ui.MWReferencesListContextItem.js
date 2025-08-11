@@ -77,6 +77,4 @@ ve.ui.MWReferencesListContextItem.prototype.getDescription = function () {
 	);
 };
 
-/* Registration */
-
-ve.ui.contextItemFactory.register( ve.ui.MWReferencesListContextItem );
+module.exports = ve.ui.MWReferencesListContextItem;

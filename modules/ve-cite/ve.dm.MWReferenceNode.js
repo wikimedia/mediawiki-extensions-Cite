@@ -671,8 +671,4 @@ ve.dm.MWReferenceNode.prototype.setGroupIndex = function ( groupItemIndex ) {
 	this.groupItemIndex = groupItemIndex;
 };
 
-/* Registration */
-
-ve.dm.modelRegistry.register( ve.dm.MWReferenceNode );
-
 module.exports = ve.dm.MWReferenceNode;

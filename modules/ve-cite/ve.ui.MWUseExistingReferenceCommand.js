@@ -35,6 +35,4 @@ ve.ui.MWUseExistingReferenceCommand.prototype.isExecutable = function ( fragment
 		fragment.getDocument().getInternalList().getItemNodeCount() > 0;
 };
 
-/* Registration */
-
-ve.ui.commandRegistry.register( new ve.ui.MWUseExistingReferenceCommand() );
+module.exports = ve.ui.MWUseExistingReferenceCommand;

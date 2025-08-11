@@ -59,6 +59,4 @@ ve.ui.MWReferencesListCommand.prototype.execute = function ( surface ) {
 	}
 };
 
-/* Registration */
-
-ve.ui.commandRegistry.register( new ve.ui.MWReferencesListCommand() );
+module.exports = ve.ui.MWReferencesListCommand;

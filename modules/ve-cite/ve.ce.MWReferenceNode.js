@@ -135,6 +135,4 @@ ve.ce.MWReferenceNode.prototype.update = function () {
 	this.$element.toggleClass( 've-ce-mwReferenceNode-placeholder', !!this.model.getAttribute( 'placeholder' ) );
 };
 
-/* Registration */
-
-ve.ce.nodeFactory.register( ve.ce.MWReferenceNode );
+module.exports = ve.ce.MWReferenceNode;

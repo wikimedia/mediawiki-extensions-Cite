@@ -303,8 +303,4 @@ ve.ui.MWReferenceContextItem.prototype.teardown = function () {
 	ve.ui.MWReferenceContextItem.super.prototype.teardown.call( this );
 };
 
-/* Registration */
-
-ve.ui.contextItemFactory.register( ve.ui.MWReferenceContextItem );
-
 module.exports = ve.ui.MWReferenceContextItem;

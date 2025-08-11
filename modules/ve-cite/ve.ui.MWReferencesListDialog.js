@@ -208,6 +208,4 @@ ve.ui.MWReferencesListDialog.prototype.getReadyProcess = function ( data ) {
 		} );
 };
 
-/* Registration */
-
-ve.ui.windowFactory.register( ve.ui.MWReferencesListDialog );
+module.exports = ve.ui.MWReferencesListDialog;

@@ -11,7 +11,7 @@ QUnit.test( 'makeListKey', ( assert ) => {
 QUnit.test( 'isBodyContentSet', ( assert ) => {
 	const dataElement = { attributes: { contentsUsed: true, listGroup: 'same' } };
 	const element = { attributes: { contentsUsed: false } };
-	const nodesWithSameKey = [ { element } ];
+	const nodesWithSameKey = [ new ve.dm.Model( element ) ];
 	assert.false( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
 
 	// One of the other ref with the same name already holds the content
@@ -35,12 +35,12 @@ QUnit.test( 'shouldGetBodyContent on a normal main reference', ( assert ) => {
 	const ownRef = { attributes: { listGroup: 'same' } };
 
 	// There is no other ref, only this one
-	const nodesWithSameKey = [ { element: ownRef } ];
+	const nodesWithSameKey = [ new ve.dm.Model( ownRef ) ];
 	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
 
 	// Another ref was holding the content before
 	const otherRef = { attributes: { contentsUsed: true } };
-	nodesWithSameKey.push( { element: otherRef } );
+	nodesWithSameKey.push( new ve.dm.Model( otherRef ) );
 	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodesWithSameKey ) );
 
 	// No other ref was holding the content before
@@ -92,7 +92,7 @@ QUnit.test( 'hasSubRefs', ( assert ) => {
 	const internalList = { getNodeGroup: () => ( { firstNodes } ) };
 	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
-	firstNodes.push( { element: { attributes: { mainRefKey: 'a' } } } );
+	firstNodes.push( new ve.dm.Model( { attributes: { mainRefKey: 'a' } } ) );
 	assert.true( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
 	// But when it's a sub-ref it cannot have sub-refs

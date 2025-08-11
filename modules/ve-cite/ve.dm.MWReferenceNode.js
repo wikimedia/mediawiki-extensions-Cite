@@ -270,6 +270,7 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
 	if ( !dataElement.attributes.contentsUsed ) {
 		return false;
 	}
+
 	for ( let i = 0; i < nodesWithSameKey.length; i++ ) {
 		// Check if the node is the same as the one we are checking
 		if ( ve.compare(
@@ -279,7 +280,7 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
 			break;
 		}
 
-		if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
+		if ( nodesWithSameKey[ i ].getAttribute( 'contentsUsed' ) ) {
 			return true;
 		}
 	}
@@ -316,13 +317,9 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
 	}
 
 	// Is there another ref after the first that already holds the content?
-	for ( let i = 1; i < nodesWithSameKey.length; i++ ) {
-		if ( nodesWithSameKey[ i ].element.attributes.contentsUsed ) {
-			return false;
-		}
-	}
-
-	return true;
+	return !nodesWithSameKey.some(
+		( node, i ) => i && node.getAttribute( 'contentsUsed' )
+	);
 };
 
 /**
@@ -366,7 +363,7 @@ ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) 
 	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
 	return !attributes.mainRefKey &&
 		internalList.getNodeGroup( attributes.listGroup ).firstNodes.some(
-			( node ) => node.element.attributes.mainRefKey === attributes.listKey
+			( node ) => node.getAttribute( 'mainRefKey' ) === attributes.listKey
 		);
 };
 

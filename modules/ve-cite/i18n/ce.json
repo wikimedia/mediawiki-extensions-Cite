@@ -23,6 +23,7 @@
 	"cite-ve-citationneeded-title": "Хьост тӀе хьажорг оьшу",
 	"cite-ve-dialog-reference-contextitem-extends": "ХӀара хьажорг йуха а лелийна йу, кхин а деталашца:",
 	"cite-ve-dialog-reference-editing-add-details": "Ахь деталаш тӀетухуш йу",
+	"cite-ve-dialog-reference-editing-edit-details": "Ахь хуьйцуш бу хаамаш",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "ХӀокху хьажоргна тӀетоха лууш йолу информаци кхузахь йазйе йа тӀетоха.",
 	"cite-ve-dialog-reference-editing-reused-short": "Лелийна {{PLURAL:$1|цкъа|2=шоззаӀ|$1 цкъа}}",
 	"cite-ve-dialog-reference-editing-reused": "ХӀара хьажорг лелайо $1 агӀонан тӀехь {{PLURAL:$1|цхьазза}}.",

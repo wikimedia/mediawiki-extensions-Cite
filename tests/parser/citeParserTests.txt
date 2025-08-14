@@ -3353,7 +3353,6 @@ z
 Template:PartialTable
 !! text
 {|
-|-
 !! endarticle
 
 ## This test case is very specific to Parsoid's internals
@@ -3365,11 +3364,12 @@ Template:PartialTable
 Templates: Wiki Tables: 7. Fosterable <ref>s should get fostered
 !! wikitext
 {{PartialTable}}<ref>foo</ref>
+|-
 |}
 
 <references />
 !! html/parsoid
-<p about="#mwt2" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"PartialTable","href":"./Template:PartialTable"},"params":{},"i":0}},"&lt;ref>foo&lt;/ref>\n|}"]}'>
+<p about="#mwt2" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"PartialTable","href":"./Template:PartialTable"},"params":{},"i":0}},"&lt;ref>foo&lt;/ref>\n|-\n|}"]}'>
 <sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p><table about="#mwt2">
 <tbody>
 </tbody></table>

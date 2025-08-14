@@ -231,7 +231,6 @@ class RefTagHandler extends ExtensionTagHandler {
 				$mainElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->mainBody );
 				if ( $mainElt ) {
 					$src = $extApi->domToWikitext( $html2wtOpts, $mainElt, true );
-					DOMCompat::remove( $mainElt );
 				}
 			} else {
 				$src = '';

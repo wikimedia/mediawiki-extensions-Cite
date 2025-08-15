@@ -6,32 +6,20 @@
 	const getDocRefsMock = ( hasNode ) => {
 		const listKey = 'literal/foo';
 		const node = hasNode ? {
-			getAttribute: ( name ) => {
-				switch ( name ) {
-					case 'listKey': return listKey;
-					default: return undefined;
-				}
-			},
+			getAttribute: ( name ) => ( { listKey: listKey }[ name ] ),
 			getAttributes: () => ( {} ),
 			getInternalItem: () => ( {} ),
-			getDocument: () => ( new ve.dm.Document() ),
-			setGroupIndex: () => undefined
-		} : {};
-		const groups = hasNode ? {
-			'mwReference/': {
-				indexOrder: [ 0 ],
-				firstNodes: [ node ],
-				keyedNodes: { [ listKey ]: [ node ] }
-			}
-		} : {};
+			getDocument: () => new ve.dm.Document(),
+			setGroupIndex: () => {}
+		} : undefined;
+		const nodeGroup = new ve.dm.InternalListNodeGroup();
+		nodeGroup.appendNode( listKey, node );
 		return {
-			getAllGroupNames: () => ( Object.keys( groups ) ),
-			getIndexLabel: () => ( '1' ),
-			getItemNode: () => ( node ),
-			getGroupRefs: ( groupName ) => ( ve.dm.MWGroupReferences.static.makeGroupRefs(
-				groups[ groupName ]
-			) ),
-			hasRefs: () => ( !!hasNode )
+			getAllGroupNames: () => [ 'mwReference/' ],
+			getIndexLabel: () => '1',
+			getItemNode: () => node,
+			getGroupRefs: () => ve.dm.MWGroupReferences.static.makeGroupRefs( nodeGroup ),
+			hasRefs: () => !!hasNode
 		};
 	};
 

@@ -349,7 +349,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 
 	if ( internalItem && internalItem.length ) {
 		// make sure to find the node holding the refListItemId
-		const refListNode = groupRefs.nodeGroup.keyedNodes[ listKey ]
+		const refListNode = groupRefs.nodeGroup.getAllReuses( listKey )
 			.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 		const htmlWrapper = doc.createElement( 'span' );
 		converter.getDomSubtreeFromData(

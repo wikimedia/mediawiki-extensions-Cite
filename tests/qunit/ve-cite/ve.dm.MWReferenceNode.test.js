@@ -31,8 +31,8 @@ QUnit.test( 'isBodyContentSet', ( assert ) => {
 } );
 
 QUnit.test( 'shouldGetBodyContent on a normal main reference', ( assert ) => {
-	const dataElement = { attributes: { listKey: 'foo', listGroup: 'same' } };
-	const ownRef = { attributes: { listKey: 'foo', listGroup: 'same' } };
+	const dataElement = { attributes: { listGroup: 'same', listKey: 'foo' } };
+	const ownRef = { attributes: { listGroup: 'same', listKey: 'foo' } };
 
 	// There is no other ref, only this one
 	const nodeGroup = new ve.dm.InternalListNodeGroup();

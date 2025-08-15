@@ -73,10 +73,8 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 	const result = new ve.dm.MWGroupReferences();
 	result.nodeGroup = nodeGroup;
 
-	( nodeGroup ? nodeGroup.indexOrder : [] )
-		.map( ( index ) => nodeGroup.firstNodes[ index ] )
-		// FIXME: debug null nodes
-		.filter( ( node ) => node && !node.getAttribute( 'placeholder' ) )
+	( nodeGroup ? nodeGroup.getFirstNodesInIndexOrder() : [] )
+		.filter( ( node ) => !node.getAttribute( 'placeholder' ) )
 		.forEach( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );
 			const mainRefKey = node.getAttribute( 'mainRefKey' );
@@ -85,7 +83,7 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 				[ result.getOrAllocateTopLevelIndex( listKey ), -1 ]
 			);
 
-			const reuseNodes = nodeGroup.keyedNodes[ listKey ];
+			const reuseNodes = nodeGroup.getAllReuses( listKey );
 			if ( reuseNodes ) {
 				reuseNodes.forEach( ( refNode ) => refNode.setGroupIndex( groupItemIndex ) );
 			}
@@ -115,6 +113,7 @@ ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listKe
  * @param {string} mainRefKey Full key of the main reference
  * @param {string} subRefKey Full key of the sub-reference
  * @param {ve.dm.MWReferenceNode} subRefNode Sub-reference to add to internal tracking
+ * @return {number[]}
  */
 ve.dm.MWGroupReferences.prototype.addSubref = function ( mainRefKey, subRefKey, subRefNode ) {
 	if ( this.subRefsByMain[ mainRefKey ] === undefined ) {
@@ -152,7 +151,7 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
 ve.dm.MWGroupReferences.prototype.getAllRefsInDocumentOrder = function () {
 	return Object.keys( this.footnoteNumberLookup )
 		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] )
-		.map( ( listKey ) => this.nodeGroup.keyedNodes[ listKey ] )
+		.map( ( listKey ) => this.nodeGroup.getAllReuses( listKey ) )
 		.filter( ( nodes ) => !!nodes )
 		.map( ( nodes ) => nodes[ 0 ] );
 };
@@ -180,8 +179,7 @@ ve.dm.MWGroupReferences.prototype.getTopLevelKeysInReflistOrder = function () {
  * @return {ve.dm.MWReferenceNode|undefined}
  */
 ve.dm.MWGroupReferences.prototype.getRefNode = function ( key ) {
-	const keyedNodes = this.nodeGroup && this.nodeGroup.keyedNodes[ key ];
-	return keyedNodes && keyedNodes[ 0 ];
+	return this.nodeGroup && this.nodeGroup.getFirstNode( key );
 };
 
 /**
@@ -209,7 +207,7 @@ ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( key ) {
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
-	return ( this.nodeGroup && this.nodeGroup.keyedNodes[ key ] || [] )
+	return ( this.nodeGroup && this.nodeGroup.getAllReuses( key ) || [] )
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) &&
 		// FIXME: Couldn't resolve this so far because of a circular dependency!
 				!node.findParent( ve.dm.MWReferencesListNode )

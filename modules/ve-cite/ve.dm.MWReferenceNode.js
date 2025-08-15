@@ -168,26 +168,26 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		const itemNodeRange = itemNode.getRange();
 
 		const nodeGroup = internalList.getNodeGroup( attributes.listGroup );
-		const nodesWithSameKey = nodeGroup.keyedNodes[ attributes.listKey ] || [];
+		const nodesWithSameKey = nodeGroup.getAllReuses( attributes.listKey ) || [];
 
 		const name = this.generateName( attributes, internalList, nodesWithSameKey );
 		if ( name !== undefined ) {
 			ve.setProp( mwData, 'attrs', 'name', name );
 		}
 
-		// node is a subref
+		// Node is a sub-ref
 		if ( attributes.mainRefKey ) {
 			// this is always either the literal name that was already there or the
 			// auto generated literal from above
 			ve.setProp( mwData, 'mainRef', name );
 
 			if ( !ve.getProp( mwData, 'attrs', 'details' ) ) {
-				// make sure Parsoid recognizes the ref as a subref, the details content will be
+				// Make sure Parsoid recognizes the ref as a sub-ref, the details content will be
 				// set by Parsoid from the bodyContent in body.html
 				ve.setProp( mwData, 'attrs', 'details', '1' );
 			}
 
-			// check if this subref should get a synthetic main body
+			// Check if this sub-ref should get a synthetic main body
 			const syntheticMainRefId = this.shouldLinkSyntheticMainRef( dataElement, nodeGroup );
 			if ( syntheticMainRefId ) {
 				ve.setProp( mwData, 'isSubRefWithMainBody', '1' );
@@ -281,6 +281,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
  * Check if a previous node with the same key has already set the content.
  * If so, we don't overwrite the content of this node.
  *
+ * @private
  * @static
  * @param {Object} dataElement
  * @param {ve.dm.Node[]} nodesWithSameKey
@@ -312,6 +313,7 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
  * Check if a sub reference node should be linked with the body content of a synthetic main node.
  * This only needs to happen in cases where the body can't move to another main ref.
  *
+ * @private
  * @static
  * @param {Object} dataElement
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
@@ -320,20 +322,21 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
 ve.dm.MWReferenceNode.static.shouldLinkSyntheticMainRef = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;
 	const mainRefKey = ve.getProp( attributes, 'mainRefKey' );
-	const sibillingSubRefs = this.getSubRefs( mainRefKey, nodeGroup );
+	const siblingSubRefs = this.getSubRefs( mainRefKey, nodeGroup );
 
 	if (
-		// bail out when the current subref already has a the main body
+		// Bail out when the current sub-ref already has a the main body
 		ve.getProp( attributes, 'mw', 'isSubRefWithMainBody' ) ||
-		// bail out when the current subref is not the first, only the first subref should get linked
+		// Bail out when the current sub-ref is not the first, only the first should get linked
 		!ve.compare(
 			this.getInstanceHashObject( dataElement ),
-			this.getInstanceHashObject( sibillingSubRefs[ 0 ].element )
-		) ) {
+			this.getInstanceHashObject( siblingSubRefs[ 0 ].element )
+		)
+	) {
 		return false;
 	}
 
-	const mainNodes = nodeGroup.keyedNodes[ mainRefKey ] || false;
+	const mainNodes = nodeGroup.getAllReuses( mainRefKey );
 	if (
 		// bail out if there are other main refs that could get the content
 		!mainNodes ||
@@ -344,8 +347,9 @@ ve.dm.MWReferenceNode.static.shouldLinkSyntheticMainRef = function ( dataElement
 		return false;
 	}
 
-	// mainNodes[ 0 ] is a synthetic main ref, check if there's no other subref after the frist that's linked
-	if ( !sibillingSubRefs.some(
+	// mainNodes[ 0 ] is a synthetic main ref, check if there's no other sub-ref after the first
+	// that's linked
+	if ( !siblingSubRefs.some(
 		( node, i ) => i && ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
 	) ) {
 		return mainNodes[ 0 ].getAttribute( 'refListItemId' );
@@ -356,39 +360,27 @@ ve.dm.MWReferenceNode.static.shouldLinkSyntheticMainRef = function ( dataElement
 
 /***
  * Check if the node is already storing the body content.  Returns false for unused
- * synthtic main refs.
+ * synthetic main refs.
  *
+ * @private
  * @static
  * @param {Object} attributes
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {boolean}
  * */
 ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGroup ) {
-	const isSyntheticMainRef = ve.getProp( attributes, 'mw', 'isSyntheticMainRef' );
-
-	if ( !ve.getProp( attributes, 'contentsUsed' ) && !isSyntheticMainRef ) {
-		return false;
-	} else if ( isSyntheticMainRef ) {
-		return this.isUsedMainRef( attributes, nodeGroup );
+	// Trivial handling for normal main refs
+	if ( !ve.getProp( attributes, 'mw', 'isSyntheticMainRef' ) ) {
+		return ve.getProp( attributes, 'contentsUsed' );
 	}
 
-	return true;
-};
-
-/***
- * Check if the node is used by a subref by itterating over all nodes looking a subref that uses
- * the nodes key.
- *
- * @static
- * @param {Object} attributes
- * @param {ve.dm.InternalListNodeGroup} nodeGroup
- * @return {boolean}
- * */
-ve.dm.MWReferenceNode.static.isUsedMainRef = function ( attributes, nodeGroup ) {
+	const mainRefKey = ve.getProp( attributes, 'listKey' );
+	// Sub-refs cannot have reuses, that's why using only the firstNodes is safe
 	return nodeGroup.firstNodes.some(
-		( innerNode ) => innerNode.getAttribute( 'mainRefKey' ) ===
-			ve.getProp( attributes, 'listKey' ) &&
-			ve.getProp( innerNode.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
+		// Is there a sub-ref (mainRefKey exists) for the same main ref (mainRefKey is the same)
+		// that already holds the main body?
+		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' ) &&
+			node.getAttribute( 'mainRefKey' ) === mainRefKey
 	);
 };
 
@@ -396,6 +388,7 @@ ve.dm.MWReferenceNode.static.isUsedMainRef = function ( attributes, nodeGroup ) 
  * Check if the node should get the body content.  Either it had it before, is the last remaining
  * reuse or is the first node and get's it because no other node holds it.
  *
+ * @private
  * @static
  * @param {Object} dataElement
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
@@ -403,11 +396,11 @@ ve.dm.MWReferenceNode.static.isUsedMainRef = function ( attributes, nodeGroup ) 
  * */
 ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;
-	const nodesWithSameKey = nodeGroup.keyedNodes[ attributes.listKey ] || [];
+	const nodesWithSameKey = nodeGroup.getAllReuses( attributes.listKey ) || [];
 
 	// if the reference already stored the body content before, it should be stored there again
 	if ( attributes.contentsUsed ||
-		// subrefs always store their (details) body content, it's required for re-serialization
+		// Sub-refs always store their (details) body content, it's required for re-serialization
 		attributes.mainRefKey ||
 		// if this node is the only one it should always get the body content
 		nodesWithSameKey.length <= 1
@@ -424,16 +417,17 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
 		return false;
 	}
 
-	// we only want to give this node the body content if there's no other node after the frist
+	// We only want to give this node the body content if there's no other node after the first
 	// that holds it
-	return !( nodesWithSameKey.some(
+	return !nodesWithSameKey.some(
 		( node, i ) => i && this.doesHoldBodyContent( node.getAttributes(), nodeGroup )
-	) );
+	);
 };
 
 /**
  * Generate the name for a given reference
  *
+ * @private
  * @static
  * @param {Object} attributes
  * @param {ve.dm.InternalList} internalList
@@ -463,18 +457,21 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
 };
 
 /**
+ * @private
  * @static
  * @param {string} mainRefKey
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {ve.dm.Node[]}
  */
 ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
+	// Sub-refs cannot have reuses, that's why using only the firstNodes is safe
 	return nodeGroup.getFirstNodesInIndexOrder().filter(
 		( node ) => node.element.attributes.mainRefKey === mainRefKey
 	);
 };
 
 /**
+ * @private
  * @static
  * @param {Object} attributes
  * @param {ve.dm.InternalList} internalList
@@ -483,6 +480,7 @@ ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
 ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) {
 	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
 	return !attributes.mainRefKey &&
+		// Sub-refs cannot have reuses, that's why using only the firstNodes is safe
 		internalList.getNodeGroup( attributes.listGroup ).firstNodes.some(
 			( node ) => node.getAttribute( 'mainRefKey' ) === attributes.listKey
 		);

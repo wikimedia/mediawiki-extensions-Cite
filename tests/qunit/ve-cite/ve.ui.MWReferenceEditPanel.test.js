@@ -32,7 +32,7 @@
 	}
 
 	QUnit.test( 'setting and getting a reference', ( assert ) => {
-		ve.init.target.surface = { commandRegistry: { registry: {} } };
+		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
 		const editPanel = new ve.ui.MWReferenceEditPanel();
 		const ref = new ve.dm.MWReferenceModel( new ve.dm.Document( [] ) );
 		editPanel.setDocumentReferences( getDocRefsMock() );
@@ -65,7 +65,7 @@
 	} );
 
 	QUnit.test( 're-used references', ( assert ) => {
-		ve.init.target.surface = { commandRegistry: { registry: {} } };
+		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
 		const editPanel = new ve.ui.MWReferenceEditPanel();
 		const ref = new ve.dm.MWReferenceModel( new ve.dm.Document( [] ) );
 		editPanel.setDocumentReferences( getDocRefsMock( null, true ) );
@@ -77,7 +77,7 @@
 	} );
 
 	QUnit.test( 'sub-references', ( assert ) => {
-		ve.init.target.surface = { commandRegistry: { registry: {} } };
+		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
 		const editPanel = new ve.ui.MWReferenceEditPanel();
 		const doc = new ve.dm.Document( [] );
 		const ref = new ve.dm.MWReferenceModel( doc );

@@ -159,8 +159,9 @@ ve.ui.MWReferenceEditPanel.static.excludeCommands = [
  * @return {string[]} List of commands to exclude
  */
 ve.ui.MWReferenceEditPanel.static.getExcludeCommands = function () {
-	const citeCommands = Object.keys( ve.init.target.getSurface().commandRegistry.registry )
-		.filter( ( command ) => command.includes( 'cite-' ) );
+	// Naming scheme for commands from MediaWiki:cite-tool-definition.json is "cite-…"
+	const citeCommands = ve.init.target.getSurface().commandRegistry.getNames()
+		.filter( ( name ) => name.includes( 'cite-' ) );
 
 	return ve.ui.MWReferenceEditPanel.static.excludeCommands.concat( citeCommands );
 };

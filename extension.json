@@ -388,7 +388,7 @@
 		}
 	},
 	"ConfigRegistry": {
-		"cite": "GlobalVarConfig::newInstance"
+		"cite": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
 	},
 	"config": {
 		"CiteSubReferencing": {

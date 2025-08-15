@@ -5,14 +5,14 @@ namespace Cite\ResourceLoader;
 use MediaWiki\ResourceLoader as RL;
 
 /**
- * Callback to deliver cite-tool-definition.json and related messages.
+ * Callback to deliver MediaWiki:Cite-tool-definition.json and related messages.
  *
  * Temporary hack since 2015 for T93800.
  *
  * @copyright 2011-2018 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
  * @license MIT
  */
-class CitationToolDefinition {
+class MWCitationToolsDefinition {
 
 	public static function getTools( RL\Context $context ): array {
 		$citationDefinition = json_decode(

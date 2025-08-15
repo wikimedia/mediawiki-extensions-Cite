@@ -70,7 +70,7 @@ class ReferencePreviewsHooks implements
 						've.ce.MWReferenceNode.js',
 						[
 							'name' => 've.ui.MWCitationTools.json',
-							'callback' => 'Cite\\ResourceLoader\\CitationToolDefinition::getTools',
+							'callback' => 'Cite\\ResourceLoader\\MWCitationToolsDefinition::getTools',
 						],
 						've.ui.MWReferenceGroupInputWidget.js',
 						've.ui.MWReferenceSearchWidget.js',

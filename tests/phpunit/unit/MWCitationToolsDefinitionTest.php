@@ -2,15 +2,15 @@
 
 namespace Cite\Tests\Unit;
 
-use Cite\ResourceLoader\CitationToolDefinition;
+use Cite\ResourceLoader\MWCitationToolsDefinition;
 use MediaWiki\Message\Message;
 use MediaWiki\ResourceLoader\Context;
 
 /**
- * @covers \Cite\ResourceLoader\CitationToolDefinition
+ * @covers \Cite\ResourceLoader\MWCitationToolsDefinition
  * @license GPL-2.0-or-later
  */
-class CitationToolDefinitionTest extends \MediaWikiUnitTestCase {
+class MWCitationToolsDefinitionTest extends \MediaWikiUnitTestCase {
 
 	public function testGetScript() {
 		$context = $this->createResourceLoaderContext();
@@ -20,7 +20,7 @@ class CitationToolDefinitionTest extends \MediaWikiUnitTestCase {
 			[ 'name' => 'missing-message', 'title' => 'missing-message' ],
 			[ 'name' => 'n', 'title' => 't' ],
 		];
-		$this->assertSame( $expected, CitationToolDefinition::getTools( $context ) );
+		$this->assertSame( $expected, MWCitationToolsDefinition::getTools( $context ) );
 	}
 
 	private function createResourceLoaderContext(): Context {

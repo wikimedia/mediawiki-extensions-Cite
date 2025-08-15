@@ -191,7 +191,7 @@ ve.ui.MWReferenceEditPanel.static.excludeCommands = [
  * @return {string[]} List of commands to exclude
  */
 ve.ui.MWReferenceEditPanel.static.getExcludeCommands = function () {
-	// Naming scheme for commands from MediaWiki:cite-tool-definition.json is "cite-…"
+	// Naming scheme for commands from MediaWiki:Cite-tool-definition.json is "cite-…"
 	const citeCommands = ve.init.target.getSurface().commandRegistry.getNames()
 		.filter( ( name ) => name.includes( 'cite-' ) );
 

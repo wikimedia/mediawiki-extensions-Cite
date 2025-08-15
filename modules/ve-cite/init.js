@@ -48,11 +48,12 @@ ve.ui.mwWikitextTransferRegistry.register( 'reference', /<ref[^>]*>/ );
 
 ve.ui.HelpCompletionAction.static.toolGroups.cite = { mergeWith: 'insert' };
 
-// TODO: Remove after Citoid and ContentTranslation are updated to not use this any more
+// Virtual file declared via extension.json, actual source is MWCitationToolsDefinition.php
 ve.ui.mwCitationTools = require( './ve.ui.MWCitationTools.json' );
-// TODO: We could merge the two init files. Is this worth it?
+
 require( './ve.ui.MWReference.init.js' );
 
+// Virtual file declared via extension.json, actual source is ContentLanguage.php
 const data = require( './ve.ui.contentLanguage.json' );
 for ( const languageCode in data ) {
 	mw.language.setData( languageCode, data[ languageCode ] );

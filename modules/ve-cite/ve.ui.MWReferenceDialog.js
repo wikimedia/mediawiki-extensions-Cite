@@ -94,6 +94,8 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 
 	// Special case for sub-references: create a copy so both can be edited independently
 	if ( ref.isSubRef() ) {
+		// Phabricator T396734
+		ve.track( 'activity.subReference', { action: 'reuse-choose-subref' } );
 		ref = MWReferenceModel.static.copySubReference( ref, this.getFragment().getDocument() );
 	}
 
@@ -198,7 +200,6 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
 		return new OO.ui.Process( () => {
 			const ref = this.editPanel.getReferenceFromEditing();
-
 			if ( !( this.selectedNode instanceof MWReferenceNode ) || this.createSubRefMode ) {
 				// Collapse returns a new fragment, so update this.fragment
 				if ( this.createSubRefMode ) {
@@ -213,13 +214,18 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 						mainNodes[ 0 ].copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
 					}
 					this.getFragment().removeContent();
+					// Phabricator T396734
+					ve.track( 'activity.subReference', { action: 'dialog-done-subref-added' } );
 				}
 				this.fragment = this.getFragment().collapseToEnd();
 				ref.insertIntoFragment( this.getFragment() );
 			} else {
+				if ( ref.isSubRef() ) {
+					// Phabricator T396734
+					ve.track( 'activity.subReference', { action: 'dialog-done-subref-edited' } );
+				}
 				ref.updateInternalItem( this.getFragment().getSurface() );
 			}
-
 			this.close( { action: action } );
 		} );
 	}
@@ -292,6 +298,23 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 ve.ui.MWReferenceDialog.prototype.getTeardownProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getTeardownProcess.call( this, data )
 		.first( () => {
+
+			// Phabricator T396734
+			if ( data === undefined ) {
+				if ( this.createSubRefMode ) {
+					ve.track( 'activity.subReference', {
+						action: 'dialog-abort-add-details'
+					} );
+				} else {
+					const ref = this.editPanel && this.editPanel.getReferenceFromEditing();
+					if ( ref && ref.isSubRef() ) {
+						ve.track( 'activity.subReference', {
+							action: 'dialog-abort-edit-details'
+						} );
+					}
+				}
+			}
+
 			this.editPanel.clear();
 			this.reuseSearch.clearSearch();
 		} );

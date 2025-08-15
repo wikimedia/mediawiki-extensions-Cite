@@ -121,7 +121,11 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
 					label: buttonLabel,
 					classes: [ 've-ui-mwReferenceContextItem-editButton' ]
 				}
-			).on( 'click', this.onEditSubref.bind( this ) )
+			).on( 'click', () => {
+				// Phabricator T396734
+				ve.track( 'activity.subReference', { action: 'context-edit-details' } );
+				return this.onEditSubref();
+			} )
 		]
 	} );
 
@@ -230,6 +234,9 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 	return new OO.ui.ButtonWidget( {
 		label: ve.msg( 'cite-ve-dialog-reference-add-details-button' )
 	} ).on( 'click', () => {
+		// Phabricator T396734
+		ve.track( 'activity.subReference', { action: 'context-add-details' } );
+
 		const ref = MWReferenceModel.static.newFromReferenceNode( this.model );
 		ve.ui.commandRegistry.lookup( 'reference' ).execute(
 			this.context.getSurface(),

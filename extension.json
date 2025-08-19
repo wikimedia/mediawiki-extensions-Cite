@@ -349,7 +349,7 @@
 					"class": "Cite\\Config\\CiteEditorCapability",
 					"services": [
 						"Cite.AlphabetsProvider",
-						"CommunityConfiguration.MediaWikiConfigReader",
+						"MainConfig",
 						"ContentLanguage",
 						"LinkRenderer"
 					]

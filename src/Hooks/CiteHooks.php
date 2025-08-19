@@ -174,13 +174,16 @@ class CiteHooks implements
 	 * @return void
 	 */
 	public function onGetPreferences( $user, &$prefs ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Popups' ) ) {
+			return;
+		}
+
 		$option = [
 			'type' => 'toggle',
 			'label-message' => 'cite-reference-previews-preference-label',
 			// FIXME: This message is unnecessary and unactionable since we already
 			// detect specific gadget conflicts.
 			'help-message' => 'popups-prefs-conflicting-gadgets-info',
-			// FIXME: copied from Popups
 			'section' => 'rendering/reading',
 		];
 		$isNavPopupsGadgetEnabled = $this->gadgetsIntegration->isNavPopupsGadgetEnabled( $user );

@@ -89,6 +89,8 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testOnGetPreferences_noConflicts() {
+		$this->markTestSkippedIfExtensionNotLoaded( 'Popups' );
+
 		$expected = [
 			'popups-reference-previews' => [
 				'type' => 'toggle',
@@ -109,6 +111,8 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testOnGetPreferences_conflictingGadget() {
+		$this->markTestSkippedIfExtensionNotLoaded( 'Popups' );
+
 		$expected = [
 			'popups-reference-previews' => [
 				'type' => 'toggle',

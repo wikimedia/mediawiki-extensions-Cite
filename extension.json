@@ -27,16 +27,16 @@
 		"APIQuerySiteInfoGeneralInfo": "main",
 		"CommunityConfigurationProvider_initList": "communityconfiguration",
 		"ContentHandlerDefaultModelFor": "main",
-		"GetPreferences": "main",
+		"GetPreferences": "referencepreviews",
 		"ParserAfterParse": "parser",
 		"ParserClearState": "parser",
 		"ParserCloned": "parser",
 		"ParserFirstCallInit": "parser",
 		"EditPage::showEditForm:initial": "main",
-		"MakeGlobalVariablesScript": "main",
+		"MakeGlobalVariablesScript": "referencepreviews",
 		"ResourceLoaderGetConfigVars": "main",
-		"ResourceLoaderRegisterModules": "main",
-		"UserGetDefaultOptions": "main"
+		"ResourceLoaderRegisterModules": "referencepreviews",
+		"UserGetDefaultOptions": "referencepreviews"
 	},
 	"HookHandlers": {
 		"communityconfiguration": {
@@ -45,8 +45,6 @@
 		"main": {
 			"class": "Cite\\Hooks\\CiteHooks",
 			"services": [
-				"Cite.ReferencePreviewsContext",
-				"Cite.GadgetsIntegration",
 				"UserOptionsLookup"
 			]
 		},
@@ -54,6 +52,13 @@
 			"class": "Cite\\Hooks\\CiteParserHooks",
 			"services": [
 				"MainConfig"
+			]
+		},
+		"referencepreviews": {
+			"class": "Cite\\Hooks\\ReferencePreviewsHooks",
+			"services": [
+				"Cite.ReferencePreviewsContext",
+				"Cite.GadgetsIntegration"
 			]
 		}
 	},

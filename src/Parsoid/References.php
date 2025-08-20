@@ -551,7 +551,7 @@ class References {
 		}
 
 		// Note that `$sup`s here are probably all we really need to check for
-		// errors caught with `$refsData->inReferencesContent()` but it's
+		// errors caught with `$refsData->inReferenceList()` but it's
 		// probably easier to just know that state while they're being
 		// constructed.
 		$nestedRefsHTML = array_map(
@@ -561,15 +561,31 @@ class References {
 			) )
 		);
 
-		// Any main+details refs should have the main part appear in the
-		// reference list.
-		// TODO: clean up the various use cases for this: eg. don't add
-		// the main ref if it's already present.
+		// T401887: Any main+details refs should have the main part appear in the
+		// reference list as a synthetic list-defined ref to help VE
 		$syntheticRefsHtml = [];
 		if ( $refGroup ) {
 			$doc = $refsNode->ownerDocument;
+			// TODO: use names rather than index numbers when handling RefGroupItems
+			$mainRefIndexes = [];
+			// Find all main refs with a subref.
 			foreach ( $refGroup->toArray() as $ref ) {
-				if ( $ref->isSyntheticMainRef ) {
+				if ( $ref->subrefIndex !== null ) {
+					$mainRefIndexes[ $ref->numberInGroup ] = 1;
+				}
+			}
+			// Skip any main refs which already appear as list-defined refs.
+			foreach ( $refGroup->toArray() as $ref ) {
+				if ( array_key_exists( $ref->numberInGroup, $mainRefIndexes ) ) {
+					if ( $ref->embeddedNodes ) {
+						unset( $mainRefIndexes[ $ref->numberInGroup ] );
+					}
+				}
+			}
+			foreach ( $refGroup->toArray() as $ref ) {
+				if ( $ref->isSyntheticMainRef ||
+					( array_key_exists( $ref->numberInGroup, $mainRefIndexes ) && $ref->contentId !== null )
+				) {
 					$sup = $doc->createElement( 'sup' );
 					DOMUtils::addAttributes( $sup, [
 						'typeof' => 'mw:Extension/ref',

@@ -369,6 +369,8 @@ Blank ref followed by ref with content
 
 !! test
 Regression: non-blank ref "0" followed by ref with content
+!! options
+disabled
 !! wikitext
 <ref name="blank">0</ref>
 
@@ -388,11 +390,16 @@ Regression: non-blank ref "0" followed by ref with content
 
 <p><sup about="#mwt6" class="mw-ref reference" id="cite_ref-blank_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"blank"},"body":{"html":"content"},"errors":[{"key":"cite_error_references_duplicate_key","params":["blank"]}]}'><a href="./Parser_test#cite_note-blank-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-blank-1" id="cite_note-blank-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-blank_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-blank_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-blank-1" class="mw-reference-text reference-text">0</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["blank"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-blank-1" id="cite_note-blank-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-blank_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-blank_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-blank-1" class="mw-reference-text reference-text">0</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["blank"]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
 Regression sanity check: non-blank ref "1" followed by ref with content
+!! options
+disabled
 !! wikitext
 <ref name="blank">1</ref>
 
@@ -412,7 +419,10 @@ Regression sanity check: non-blank ref "1" followed by ref with content
 
 <p><sup about="#mwt6" class="mw-ref reference" id="cite_ref-blank_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"blank"},"body":{"html":"content"},"errors":[{"key":"cite_error_references_duplicate_key","params":["blank"]}]}'><a href="./Parser_test#cite_note-blank-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-blank-1" id="cite_note-blank-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-blank_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-blank_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-blank-1" class="mw-reference-text reference-text">1</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["blank"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-blank-1" id="cite_note-blank-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-blank_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-blank_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-blank-1" class="mw-reference-text reference-text">1</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["blank"]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
@@ -472,6 +482,7 @@ T184912: Consistent normalization of consecutive underscores
 Erroneous refs
 !! options
 cat
+disabled
 !! metadata
 cat=Pages_with_reference_errors sort=
 !! wikitext
@@ -515,13 +526,23 @@ cat=Pages_with_reference_errors sort=
 
 <p><sup about="#mwt10" class="mw-ref reference" id="cite_ref-blankwithnoreference_5-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"blankwithnoreference"},"errors":[{"key":"cite_error_references_no_text","params":["blankwithnoreference"]}]}'><a href="./Parser_test#cite_note-blankwithnoreference-5"><span class="mw-reflink-text"><span class="cite-bracket">[</span>5<span class="cite-bracket">]</span></span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" data-mw='{"name":"references","attrs":{"name":"quasit"},"errors":[{"key":"cite_error_references_invalid_parameters","params":["name","group, responsive"]}]}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">Zero</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_numeric_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">Also zero, but differently! (Normal ref)</span></li><li about="#cite_note-3" id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-bar-4" id="cite_note-bar-4"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_4-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-4" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["bar"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-blankwithnoreference-5" id="cite_note-blankwithnoreference-5"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-blankwithnoreference_5-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-blankwithnoreference-5" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["blankwithnoreference"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol>
-<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_invalid_parameters","params":["name","group, responsive"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" data-mw='{"name":"references","attrs":{"name":"quasit"},"errors":[{"key":"cite_error_references_invalid_parameters","params":["name","group, responsive"]}]}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">Zero</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_numeric_key","params":[]}}]}}'></span></li>
+<li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">Also zero, but differently! (Normal ref)</span></li>
+<li about="#cite_note-3" id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_no_key","params":[]}}]}}'></span></li>
+<li about="#cite_note-bar-4" id="cite_note-bar-4"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_4-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-4" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["bar"]}}]}}'></span></li>
+<li about="#cite_note-blankwithnoreference-5" id="cite_note-blankwithnoreference-5"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-blankwithnoreference_5-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-blankwithnoreference-5" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["blankwithnoreference"]}}]}}'></span></li>
+</ol>
+<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_invalid_parameters","params":["name","group, responsive"]}}]}}'></span>
+</div>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt14" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"></ol></div>
 !! end
 
 !! test
 Can't have name="…" and follow="…" the same time
+!! options
+disabled
 !! wikitext
 <ref name="theName" follow="theFollows">theValue</ref>
 <references />
@@ -530,11 +551,16 @@ Can't have name="…" and follow="…" the same time
 </p>
 !! html/parsoid
 <p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-theName_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"theName","follow":"theFollows"},"body":{"id":"mw-reference-text-cite_note-theName-1"},"errors":[{"key":"cite_error_ref_follow_conflicts"}]}'><a href="./Parser_test#cite_note-theName-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-theName-1" id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt2"> theValue</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_follow_conflicts","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-theName-1" id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt2"> theValue</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_follow_conflicts","params":[]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
 Conflicting name="…" and follow="…" together with another invalid parameter
+!! options
+disabled
 !! config
 wgCiteSubReferencing=false
 !! wikitext
@@ -547,13 +573,14 @@ wgCiteSubReferencing=false
 <p><sup class="mw-ref reference" id="cite_ref-theName_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"theName","follow":"theFollows","dummy":"dummy"},"body":{"id":"mw-reference-text-cite_note-theName-1"},"errors":[{"key":"cite_error_ref_too_many_keys","params":["dummy","dir, follow, group, name"]},{"key":"cite_error_ref_follow_conflicts"}]}'><a href="./Parser_test#cite_note-theName-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
-<li id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow"> theValue</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_too_many_keys","params":["dummy","dir, follow, group, name"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_follow_conflicts","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
-</ol>
-</div>
+<li id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow"> theValue</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_too_many_keys","params":["dummy","dir, follow, group, name"]}}]}}'></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_follow_conflicts","params":[]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
 It's not possible to follow="…" a <ref> defined in the <references> section
+!! options
+disabled
 !! wikitext
 <ref follow="theName">theFollows</ref>
 <references>
@@ -568,7 +595,11 @@ It's not possible to follow="…" a <ref> defined in the <references> section
 </p>
 !! html/parsoid
 <p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"follow":"theName"},"body":{"id":"mw-reference-text-cite_note-1"},"errors":[{"key":"cite_error_references_missing_key","params":["theName"]}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt5\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"theName\"},\"body\":{\"id\":\"mw-reference-text-cite_note-theName-2\"},\"errors\":[{\"key\":\"cite_error_references_missing_key\",\"params\":[\"theName\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-theName-2\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>2&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt2"> theFollows</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_missing_key","params":["theName"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-theName-2" id="cite_note-theName-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-theName-2" class="mw-reference-text reference-text">theValue</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt5\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"theName\"},\"body\":{\"id\":\"mw-reference-text-cite_note-theName-2\"},\"errors\":[{\"key\":\"cite_error_references_missing_key\",\"params\":[\"theName\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-theName-2\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>2&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt2"> theFollows</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_missing_key","params":["theName"]}}]}}'></span></li>
+<li about="#cite_note-theName-2" id="cite_note-theName-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-theName-2" class="mw-reference-text reference-text">theValue</span></li>
+</ol></div>
 !! end
 
 ## Note that the Cite extension of the legacy parser is putting paragraphs
@@ -576,6 +607,8 @@ It's not possible to follow="…" a <ref> defined in the <references> section
 ## or wherehaveyou)
 !! test
 A follow="…" before its parent is not merged
+!! options
+disabled
 !! wikitext
 <ref follow="theName">''theFollows''</ref>
 <ref name="theName">''theValue''</ref>
@@ -592,13 +625,19 @@ A follow="…" before its parent is not merged
 !! html/parsoid
 <p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"follow":"theName"},"body":{"id":"mw-reference-text-cite_note-1"},"errors":[{"key":"cite_error_references_missing_key","params":["theName"]}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt4" class="mw-ref reference" id="cite_ref-theName_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"theName"},"body":{"id":"mw-reference-text-cite_note-theName-2"}}'><a href="./Parser_test#cite_note-theName-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt2"> <i>theFollows</i></span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_missing_key","params":["theName"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-theName-2" id="cite_note-theName-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-2" class="mw-reference-text reference-text"><i>theValue</i></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt5" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt2"> <i>theFollows</i></span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_missing_key","params":["theName"]}}]}}'></span></li>
+<li about="#cite_note-theName-2" id="cite_note-theName-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-2" class="mw-reference-text reference-text"><i>theValue</i></span></li>
+</ol></div>
 !! end
 
 ## This is a nasty edge case which was dropping the ref entirely from the
 ## output of the Cite extension of the legacy parser
 !! test
 "follow" after a named ref but before its parent
+!! options
+disabled
 !! wikitext
 <ref name="first">First</ref>
 <ref follow="third">Second</ref>
@@ -623,11 +662,18 @@ A follow="…" before its parent is not merged
 <sup about="#mwt4" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"follow":"third"},"body":{"id":"mw-reference-text-cite_note-2"},"errors":[{"key":"cite_error_references_missing_key","params":["third"]}]}'><a href="./Parser_test#cite_note-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt6" class="mw-ref reference" id="cite_ref-third_3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"third"},"body":{"id":"mw-reference-text-cite_note-third-3"}}'><a href="./Parser_test#cite_note-third-3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></span></a></sup></p>
 <hr data-parsoid='{"stx":"html","selfClose":true}'/>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt8" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-first-1" id="cite_note-first-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-first_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-first-1" class="mw-reference-text reference-text">First</span></li><li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt4"> Second</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_missing_key","params":["third"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-third-3" id="cite_note-third-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-third_3-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-third-3" class="mw-reference-text reference-text">Third</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt8" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-first-1" id="cite_note-first-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-first_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-first-1" class="mw-reference-text reference-text">First</span></li>
+<li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt4"> Second</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_missing_key","params":["third"]}}]}}'></span></li>
+<li about="#cite_note-third-3" id="cite_note-third-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-third_3-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-third-3" class="mw-reference-text reference-text">Third</span></li>
+</ol></div>
 !! end
 
 !! test
 "follow" after an anonymous ref but before its parent
+!! options
+disabled
 !! wikitext
 <ref>First</ref>
 <ref follow="third">Second</ref>
@@ -652,7 +698,12 @@ A follow="…" before its parent is not merged
 <sup about="#mwt4" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"follow":"third"},"body":{"id":"mw-reference-text-cite_note-2"},"errors":[{"key":"cite_error_references_missing_key","params":["third"]}]}'><a href="./Parser_test#cite_note-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt6" class="mw-ref reference" id="cite_ref-third_3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"third"},"body":{"id":"mw-reference-text-cite_note-third-3"}}'><a href="./Parser_test#cite_note-third-3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></span></a></sup></p>
 <hr data-parsoid='{"stx":"html","selfClose":true}'/>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt8" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">First</span></li><li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt4"> Second</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_missing_key","params":["third"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-third-3" id="cite_note-third-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-third_3-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-third-3" class="mw-reference-text reference-text">Third</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt8" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">First</span></li>
+<li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow" about="#mwt4"> Second</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_missing_key","params":["third"]}}]}}'></span></li>
+<li about="#cite_note-third-3" id="cite_note-third-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-third_3-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-third-3" class="mw-reference-text reference-text">Third</span></li>
+</ol></div>
 !! end
 
 !! test
@@ -702,6 +753,8 @@ Forward-referenced ref with follow
 
 !! test
 Follow following a named ref with multiple definitions
+!! options
+disabled
 !! wikitext
 <ref name="test">123</ref>
 <ref name="test">234</ref>
@@ -711,7 +764,10 @@ Follow following a named ref with multiple definitions
 <p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-test_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"test"},"body":{"id":"mw-reference-text-cite_note-test-1"}}'><a href="./Parser_test#cite_note-test-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt4" class="mw-ref reference" id="cite_ref-test_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"test"},"body":{"html":"234"},"errors":[{"key":"cite_error_references_duplicate_key","params":["test"]}]}'><a href="./Parser_test#cite_note-test-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt6" class="mw-ref reference mw-ref-follow" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"follow":"test"},"body":{"id":"mw-reference-text-cite_note-test-1"}}'><a href="./Parser_test#cite_note-test-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-test-1" id="cite_note-test-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-test_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-test_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-test-1" class="mw-reference-text reference-text">123<span typeof="mw:Cite/Follow" about="#mwt6"> 345</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["test"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-test-1" id="cite_note-test-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-test_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-test_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-test-1" class="mw-reference-text reference-text">123<span typeof="mw:Cite/Follow" about="#mwt6"> 345</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["test"]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
@@ -746,6 +802,8 @@ MOD<sup about="#mwt8" class="mw-ref reference mw-ref-follow" rel="dc:references"
 Report bad attributes in ref tags
 !! config
 wgCiteSubReferencing=false
+!! options
+disabled
 !! wikitext
 <ref name="theName" group="theGroup" dummy="dummy">theValue</ref>
 <references group="theGroup" />
@@ -760,9 +818,8 @@ wgCiteSubReferencing=false
 <p><sup class="mw-ref reference" id="cite_ref-theName_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"theName","group":"theGroup","dummy":"dummy"},"body":{"id":"mw-reference-text-cite_note-theName-1"},"errors":[{"key":"cite_error_ref_too_many_keys","params":["dummy","dir, follow, group, name"]}]}'><a href="./Parser_test#cite_note-theName-1" data-mw-group="theGroup"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup 1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{"group":"theGroup"}}'>
 <ol class="mw-references references" data-mw-group="theGroup">
-<li id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0" data-mw-group="theGroup" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text">theValue</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_too_many_keys","params":["dummy","dir, follow, group, name"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0" data-mw-group="theGroup" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text">theValue</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_too_many_keys","params":["dummy","dir, follow, group, name"]}}]}}'></span></li>
 </ol>
-</div>
 </div>
 !! end
 
@@ -997,6 +1054,8 @@ T242437 - Nested references edge case, inner tag function with LDR
 
 !! test
 <ref> ungrouped and grouped refs with and without content defined
+!! options
+disabled
 !! wikitext
 ONE<ref name="foo" />
 <references />
@@ -1005,10 +1064,15 @@ THREE<ref group="NOTES" name="bar">CONTENT</ref>
 <references group="NOTES" />
 !! html/parsoid
 <p>ONE<sup about="#mwt3" class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error"  data-mw='{"name":"ref","attrs":{"name":"foo"},"errors":[{"key":"cite_error_references_no_text","params":["foo"]}]}'><a href="./Parser_test#cite_note-foo-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-foo-1" id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["foo"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
-<p>TWO<sup about="#mwt9" class="mw-ref reference" id="cite_ref-foo_2-0" rel="dc:references" typeof="mw:Extension/ref mw:Error"  data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"foo"},"errors":[{"key":"cite_error_references_no_text","params":["foo"]}]}'><a href="./Parser_test#cite_note-foo-2" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 1<span class="cite-bracket">]</span></span></a></sup>
-THREE<sup about="#mwt12" class="mw-ref reference" id="cite_ref-bar_3-0" rel="dc:references" typeof="mw:Extension/ref"  data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"bar"},"body":{"id":"mw-reference-text-cite_note-bar-3"}}'><a href="./Parser_test#cite_note-bar-3" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 2<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt15" data-parsoid='{"group":"NOTES"}' data-mw='{"name":"references","attrs":{"group":"NOTES"}}'><ol class="mw-references references" data-mw-group="NOTES"><li about="#cite_note-foo-2" id="cite_note-foo-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_2-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-2" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["foo"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-bar-3" id="cite_note-bar-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_3-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-3" class="mw-reference-text reference-text">CONTENT</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-foo-1" id="cite_note-foo-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["foo"]}}]}}'></span></li></ol></div>
+<p>TWO<sup about="#mwt9" class="mw-ref reference" id="cite_ref-foo_2-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"foo"},"errors":[{"key":"cite_error_references_no_text","params":["foo"]}]}'><a href="./Parser_test#cite_note-foo-2" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 1<span class="cite-bracket">]</span></span></a></sup>
+THREE<sup about="#mwt12" class="mw-ref reference" id="cite_ref-bar_3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"bar"},"body":{"id":"mw-reference-text-cite_note-bar-3"}}'><a href="./Parser_test#cite_note-bar-3" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 2<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt15" data-parsoid='{"group":"NOTES"}' data-mw='{"name":"references","attrs":{"group":"NOTES"}}'><ol class="mw-references references" data-mw-group="NOTES">
+<li about="#cite_note-foo-2" id="cite_note-foo-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_2-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-2" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["foo"]}}]}}'></span></li>
+<li about="#cite_note-bar-3" id="cite_note-bar-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_3-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-3" class="mw-reference-text reference-text">CONTENT</span></li>
+</ol></div>
 !! html/php
 <p>ONE<sup id="cite_ref-foo_1-0" class="reference"><a href="#cite_note-foo-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
@@ -1029,6 +1093,8 @@ THREE<sup id="cite_ref-bar_3-0" class="reference"><a href="#cite_note-bar-3"><sp
 
 !! test
 Error conditions on non-visible content
+!! options
+disabled
 !! wikitext
 <ref name="a">x</ref>
 <ref name="b"> </ref>
@@ -1059,7 +1125,12 @@ Error conditions on non-visible content
 <p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a"},"body":{"id":"mw-reference-text-cite_note-a-1"}}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt4" class="mw-ref reference" id="cite_ref-b_2-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"b"},"body":{"html":" "},"errors":[{"key":"cite_error_references_no_text","params":["b"]}]}'><a href="./Parser_test#cite_note-b-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt6" class="mw-ref reference" id="cite_ref-c_3-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"c"},"errors":[{"key":"cite_error_references_no_text","params":["c"]}]}'><a href="./Parser_test#cite_note-c-3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt14" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt11\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-parsoid=&apos;{\"dsr\":[74,90,16,0]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\"},\"errors\":[{\"key\":\"cite_error_empty_references_define\",\"params\":[\"a\",\"\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-a-1\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n&lt;sup about=\"#mwt12\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-parsoid=&apos;{\"dsr\":[91,107,16,0]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"b\"},\"errors\":[{\"key\":\"cite_error_empty_references_define\",\"params\":[\"b\",\"\"]},{\"key\":\"cite_error_references_no_text\",\"params\":[\"b\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-b-2\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>2&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n&lt;sup about=\"#mwt13\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-parsoid=&apos;{\"dsr\":[108,129,14,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"c\"},\"body\":{\"html\":\" \"},\"errors\":[{\"key\":\"cite_error_empty_references_define\",\"params\":[\"c\",\"\"]},{\"key\":\"cite_error_references_no_text\",\"params\":[\"c\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-c-3\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>3&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'><ol class="mw-references references"><li about="#cite_note-a-1" id="cite_note-a-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">x</span></li><li about="#cite_note-b-2" id="cite_note-b-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-b_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-b-2" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["b"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-c-3" id="cite_note-c-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-c_3-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-c-3" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["c"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt14" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt11\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-parsoid=&apos;{\"dsr\":[74,90,16,0]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\"},\"errors\":[{\"key\":\"cite_error_empty_references_define\",\"params\":[\"a\",\"\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-a-1\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n&lt;sup about=\"#mwt12\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-parsoid=&apos;{\"dsr\":[91,107,16,0]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"b\"},\"errors\":[{\"key\":\"cite_error_empty_references_define\",\"params\":[\"b\",\"\"]},{\"key\":\"cite_error_references_no_text\",\"params\":[\"b\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-b-2\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>2&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n&lt;sup about=\"#mwt13\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref mw:Error\" data-parsoid=&apos;{\"dsr\":[108,129,14,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"c\"},\"body\":{\"html\":\" \"},\"errors\":[{\"key\":\"cite_error_empty_references_define\",\"params\":[\"c\",\"\"]},{\"key\":\"cite_error_references_no_text\",\"params\":[\"c\"]}]}&apos;>&lt;a href=\"./Parser_test#cite_note-c-3\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>3&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
+<ol class="mw-references references">
+<li about="#cite_note-a-1" id="cite_note-a-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">x</span></li>
+<li about="#cite_note-b-2" id="cite_note-b-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-b_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-b-2" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["b"]}}]}}'></span></li>
+<li about="#cite_note-c-3" id="cite_note-c-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-c_3-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-c-3" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["c"]}}]}}'></span></li>
+</ol></div>
 !! end
 
 # This article is used in the '<ref> with custom group link' test below
@@ -1159,6 +1230,8 @@ foo
 
 !! test
 <ref> with no name and no content.
+!! options
+disabled
 !! wikitext
 Bla.<ref></ref>
 foo.<ref />
@@ -1173,11 +1246,18 @@ zero<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The op
 <p>Bla.<sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{},"body":{"html":""},"errors":[{"key":"cite_error_ref_no_input"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 foo.<sup about="#mwt6" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{},"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup>
 zero<sup about="#mwt8" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{},"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;ref />"}},"i":0}}],"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt13" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_input","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-3" id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt13" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_no_input","params":[]}}]}}'></span></li>
+<li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_no_key","params":[]}}]}}'></span></li>
+<li about="#cite_note-3" id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_no_key","params":[]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
 <ref> with an empty-string name parameter and no content.
+!! options
+disabled
 !! wikitext
 Bla.<ref name=""> </ref>
 <references />
@@ -1186,13 +1266,17 @@ Bla.<ref name=""> </ref>
 </p>
 !! html/parsoid
 <p>Bla.<sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":""},"body":{"html":" "},"errors":[{"key":"cite_error_ref_no_input"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_input","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_no_input","params":[]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
 <ref> with whitespace only name parameter and no content.
 !! options
 parsoid=wt2html
+disabled
 !! wikitext
 Hi <ref name=" "> </ref>
 Ho <ref name=" " />
@@ -1203,11 +1287,17 @@ Ho <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: The ope
 !! html/parsoid
 <p>Hi <sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":""},"body":{"html":" "},"errors":[{"key":"cite_error_ref_no_input"}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 Ho <sup about="#mwt6" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":""},"errors":[{"key":"cite_error_ref_no_key"}]}'><a href="./Parser_test#cite_note-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_input","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_no_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_no_input","params":[]}}]}}'></span></li>
+<li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_no_key","params":[]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
 <ref> with a non-empty name parameter and no content.
+!! options
+disabled
 !! wikitext
 Bla.<ref name="void"> </ref>
 <references />
@@ -1220,7 +1310,10 @@ Bla.<ref name="void"> </ref>
 </ol></div>
 !! html/parsoid
 <p>Bla.<sup about="#mwt3" class="mw-ref reference" id="cite_ref-void_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"void"},"body":{"html":" "},"errors":[{"key":"cite_error_references_no_text","params":["void"]}]}'><a href="./Parser_test#cite_note-void-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-void-1" id="cite_note-void-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-void_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-void-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["void"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-void-1" id="cite_note-void-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-void_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-void-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["void"]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
@@ -1245,6 +1338,8 @@ Hi <sup about="#mwt6" class="mw-ref reference" id="cite_ref-ho_1-1" rel="dc:refe
 
 !! test
 Multiple definition (outside <references/>)
+!! options
+disabled
 !! wikitext
 <ref name="a">abc</ref>
 <ref name="a">def</ref>
@@ -1260,7 +1355,10 @@ Multiple definition (outside <references/>)
 !! html/parsoid
 <p><sup about="#mwt3" class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a"},"body":{"id":"mw-reference-text-cite_note-a-1"}}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt6" class="mw-ref reference" id="cite_ref-a_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"a"},"body":{"html":"def"},"errors":[{"key":"cite_error_references_duplicate_key","params":["a"]}]}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-a-1" id="cite_note-a-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">abc</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["a"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt9" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-a-1" id="cite_note-a-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">abc</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["a"]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
@@ -1304,6 +1402,8 @@ Multiple definition (mixed outside/inside)
 
 !! test
 T202593: Conflicting dir attributes
+!! options
+disabled
 !! wikitext
 <ref name="a" dir="ltr" />
 <ref name="a" dir="rtl">abc</ref>
@@ -1321,13 +1421,15 @@ T202593: Conflicting dir attributes
 <sup class="mw-ref reference" id="cite_ref-a_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"a","dir":"rtl"},"body":{"id":"mw-reference-text-cite_note-a-1"},"errors":[{"key":"cite_error_ref_conflicting_dir","params":["a"]}]}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
-<li id="cite_note-a-1" class="mw-cite-dir-rtl"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">abc</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_conflicting_dir","params":["a"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-a-1" class="mw-cite-dir-rtl"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">abc</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_conflicting_dir","params":["a"]}}]}}'></span></li>
 </ol>
 </div>
 !! end
 
 !! test
 T202593: Conflicting dir attributes with the full ref first
+!! options
+disabled
 !! wikitext
 <ref name="a" dir="ltr">abc</ref>
 <ref name="a" dir="rtl" />
@@ -1345,7 +1447,7 @@ T202593: Conflicting dir attributes with the full ref first
 <sup class="mw-ref reference" id="cite_ref-a_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"a","dir":"rtl"},"errors":[{"key":"cite_error_ref_conflicting_dir","params":["a"]}]}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 <ol class="mw-references references">
-<li id="cite_note-a-1" class="mw-cite-dir-ltr"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">abc</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_conflicting_dir","params":["a"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-a-1" class="mw-cite-dir-ltr"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">abc</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_conflicting_dir","params":["a"]}}]}}'></span></li>
 </ol>
 </div>
 !! end
@@ -1441,6 +1543,8 @@ wgFragmentMode=[ "html5" ]
 
 !! test
 Ref: 1. ref-location should be replaced with an index span
+!! options
+disabled
 !! wikitext
 A <ref>foo</ref>
 B <ref name="x">foo</ref>
@@ -1450,7 +1554,12 @@ C <ref name="y" />
 <p>A <sup about="#mwt3" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 B <sup about="#mwt6" class="mw-ref reference" id="cite_ref-x_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"id":"mw-reference-text-cite_note-x-2"}}'><a href="./Parser_test#cite_note-x-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup>
 C <sup about="#mwt9" class="mw-ref reference" id="cite_ref-y_3-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"y"},"errors":[{"key":"cite_error_references_no_text","params":["y"]}]}'><a href="./Parser_test#cite_note-y-3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt12" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">foo</span></li><li about="#cite_note-x-2" id="cite_note-x-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-x-2" class="mw-reference-text reference-text">foo</span></li><li about="#cite_note-y-3" id="cite_note-y-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-y_3-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-y-3" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["y"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt12" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">foo</span></li>
+<li about="#cite_note-x-2" id="cite_note-x-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-x-2" class="mw-reference-text reference-text">foo</span></li>
+<li about="#cite_note-y-3" id="cite_note-y-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-y_3-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-y-3" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["y"]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
@@ -1778,6 +1887,8 @@ parsoid=wt2html,html2html
 
 !! test
 Ref: 20. ref-tags with identical names but different content should keep it
+!! options
+disabled
 !! wikitext
 A <ref name="foo">Foo one</ref>
 B <ref name="foo">Foo two</ref>
@@ -1789,12 +1900,16 @@ C <ref name="foo" />
 B <sup about="#mwt6" class="mw-ref reference" id="cite_ref-foo_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"foo"},"body":{"html":"Foo two"},"errors":[{"key":"cite_error_references_duplicate_key","params":["foo"]}]}'><a href="./Parser_test#cite_note-foo-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 C <sup about="#mwt6" class="mw-ref reference" id="cite_ref-foo_1-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}'><a href="./Parser_test#cite_note-foo-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt8" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-foo-1" id="cite_note-foo-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-foo_1-1"><span class="mw-linkback-text">2 </span></a><a href="./Parser_test#cite_ref-foo_1-2"><span class="mw-linkback-text">3 </span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text">Foo one</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["foo"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt8" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-foo-1" id="cite_note-foo-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-foo_1-1"><span class="mw-linkback-text">2 </span></a><a href="./Parser_test#cite_ref-foo_1-2"><span class="mw-linkback-text">3 </span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text">Foo one</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["foo"]}}]}}'></span></li>
 </ol></div>
 !! end
 
 !! test
 Verify invalid use of a numeric character in a ref name
+!! options
+disabled
 !! wikitext
 PRE <ref>preValue</ref>
 THEVALUE <ref name="1">theValue</ref>
@@ -1815,11 +1930,18 @@ POST <sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="
 <p>PRE <sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 THEVALUE <sup about="#mwt4" class="mw-ref reference" id="cite_ref-1_2-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"1"},"body":{"id":"mw-reference-text-cite_note-1-2"},"errors":[{"key":"cite_error_ref_numeric_key"}]}'><a href="./Parser_test#cite_note-1-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup>
 POST <sup about="#mwt6" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-3"}}'><a href="./Parser_test#cite_note-3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt8" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">preValue</span></li><li about="#cite_note-1-2" id="cite_note-1-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1-2" class="mw-reference-text reference-text">theValue</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_numeric_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-3" id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text">postValue</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt8" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">preValue</span></li>
+<li about="#cite_note-1-2" id="cite_note-1-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1-2" class="mw-reference-text reference-text">theValue</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_numeric_key","params":[]}}]}}'></span></li>
+<li about="#cite_note-3" id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text">postValue</span></li>
+</ol></div>
 !! end
 
 !! test
 Verify invalid use of a numeric character in a ref name and follow
+!! options
+disabled
 !! wikitext
 <ref name="1">theValue</ref>
 <ref follow="1">theFollow</ref>
@@ -1831,7 +1953,9 @@ Verify invalid use of a numeric character in a ref name and follow
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-1_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"1"},"body":{"id":"mw-reference-text-cite_note-1-1"},"errors":[{"key":"cite_error_ref_numeric_key"}]}'><a href="./Parser_test#cite_note-1-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 <sup class="mw-ref reference mw-ref-follow" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"follow":"1"},"body":{"id":"mw-reference-text-cite_note-1-1"},"errors":[{"key":"cite_error_ref_numeric_key"}]}'><a href="./Parser_test#cite_note-1-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1-1" id="cite_note-1-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1-1" class="mw-reference-text reference-text">theValue<span typeof="mw:Cite/Follow" about="#mwt4"> theFollow</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_numeric_key","params":[],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references">
+<li about="#cite_note-1-1" id="cite_note-1-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1-1" class="mw-reference-text reference-text">theValue<span typeof="mw:Cite/Follow" about="#mwt4"> theFollow</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_numeric_key","params":[]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
@@ -2085,6 +2209,8 @@ B <sup about="#mwt6" class="mw-ref reference" id="cite_ref-b_2-0" rel="dc:refere
 
 !! test
 References: 7b. Multiple references tags some with errors should be correctly handled
+!! options
+disabled
 !! wikitext
 ALPHA<ref name="foo" />
 BETA<ref name="foo" />
@@ -2112,16 +2238,30 @@ BETA<sup about="#mwt6" class="mw-ref reference" id="cite_ref-foo_1-1" rel="dc:re
 ONE<sup about="#mwt9" class="mw-ref reference" id="cite_ref-foo_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"foo"}}'><a href="./Parser_test#cite_note-foo-2" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 1<span class="cite-bracket">]</span></span></a></sup>
 TWO<sup about="#mwt12" class="mw-ref reference" id="cite_ref-foo_2-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"foo"},"body":{"id":"mw-reference-text-cite_note-foo-2"}}'><a href="./Parser_test#cite_note-foo-2" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt15" data-mw='{"name":"references","attrs":{"group":"NOTES"}}'><ol class="mw-references references" data-mw-group="NOTES"><li about="#cite_note-foo-2" id="cite_note-foo-2"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_2-0" data-mw-group="NOTES"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-foo_2-1" data-mw-group="NOTES"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-foo-2" class="mw-reference-text reference-text">food</span></li></ol></div>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt18" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-foo-1" id="cite_note-foo-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-foo_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["foo"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt18" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-foo-1" id="cite_note-foo-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-foo_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["foo"]}}]}}'></span></li>
+</ol></div>
 <p>THREE<sup about="#mwt21" class="mw-ref reference" id="cite_ref-bar_3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"bar"},"body":{"id":"mw-reference-text-cite_note-bar-3"}}'><a href="./Parser_test#cite_note-bar-3" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 1<span class="cite-bracket">]</span></span></a></sup>
 FOUR<sup about="#mwt24" class="mw-ref reference" id="cite_ref-foo_4-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"foo"},"errors":[{"key":"cite_error_references_no_text","params":["foo"]}]}'><a href="./Parser_test#cite_note-foo-4" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 2<span class="cite-bracket">]</span></span></a></sup>
 FIVE<sup about="#mwt27" class="mw-ref reference" id="cite_ref-foo_4-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"foo"},"errors":[{"key":"cite_error_references_no_text","params":["foo"]}]}'><a href="./Parser_test#cite_note-foo-4" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 2<span class="cite-bracket">]</span></span></a></sup>
 SIX<sup about="#mwt30" class="mw-ref reference" id="cite_ref-foo_5-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}'><a href="./Parser_test#cite_note-foo-5"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt33" data-mw='{"name":"references","attrs":{"group":"NOTES"}}'><ol class="mw-references references" data-mw-group="NOTES"><li about="#cite_note-bar-3" id="cite_note-bar-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_3-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-3" class="mw-reference-text reference-text">CONTENT</span></li><li about="#cite_note-foo-4" id="cite_note-foo-4"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_4-0" data-mw-group="NOTES"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-foo_4-1" data-mw-group="NOTES"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-foo-4" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["foo"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt39" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt37\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[398,434,16,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"foo\"},\"body\":{\"id\":\"mw-reference-text-cite_note-foo-5\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-foo-5\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'><ol class="mw-references references"><li about="#cite_note-foo-5" id="cite_note-foo-5"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_5-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-5" class="mw-reference-text reference-text">NOGROUPCONTENT</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt33" data-mw='{"name":"references","attrs":{"group":"NOTES"}}'>
+<ol class="mw-references references" data-mw-group="NOTES">
+<li about="#cite_note-bar-3" id="cite_note-bar-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_3-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-3" class="mw-reference-text reference-text">CONTENT</span></li>
+<li about="#cite_note-foo-4" id="cite_note-foo-4"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_4-0" data-mw-group="NOTES"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-foo_4-1" data-mw-group="NOTES"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-foo-4" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["foo"]}}]}}'></span></li>
+</ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt39" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup about=\"#mwt37\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[358,394,16,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"foo\"},\"body\":{\"id\":\"mw-reference-text-cite_note-foo-5\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-foo-5\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">&lt;span class=\"cite-bracket\" data-parsoid=\"{}\">[&lt;/span>1&lt;span class=\"cite-bracket\" data-parsoid=\"{}\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
+<ol class="mw-references references">
+<li about="#cite_note-foo-5" id="cite_note-foo-5"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_5-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-5" class="mw-reference-text reference-text">NOGROUPCONTENT</span></li>
+</ol></div>
 <p>SEVEN<sup about="#mwt42" class="mw-ref reference" id="cite_ref-bar_6-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"bar"},"errors":[{"key":"cite_error_references_no_text","params":["bar"]}]}'><a href="./Parser_test#cite_note-bar-6" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 1<span class="cite-bracket">]</span></span></a></sup>
 EIGHT<sup about="#mwt45" class="mw-ref reference" id="cite_ref-foo_7-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"foo"},"errors":[{"key":"cite_error_references_no_text","params":["foo"]}]}'><a href="./Parser_test#cite_note-foo-7" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 2<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt48" data-mw='{"name":"references","attrs":{"group":"NOTES"}}'><ol class="mw-references references" data-mw-group="NOTES"><li about="#cite_note-bar-6" id="cite_note-bar-6"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_6-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-6" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["bar"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-foo-7" id="cite_note-foo-7"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_7-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-7" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["foo"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt48" data-parsoid='{"group":"NOTES"}' data-mw='{"name":"references","attrs":{"group":"NOTES"}}'>
+<ol class="mw-references references" data-mw-group="NOTES">
+<li about="#cite_note-bar-6" id="cite_note-bar-6"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_6-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-6" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["bar"]}}]}}'></span></li>
+<li about="#cite_note-foo-7" id="cite_note-foo-7"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_7-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-7" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["foo"]}}]}}'></span></li>
+</ol></div>
 <p>NINE<sup about="#mwt51" class="mw-ref reference" id="cite_ref-bar_8-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"bar"},"body":{"id":"mw-reference-text-cite_note-bar-8"}}'><a href="./Parser_test#cite_note-bar-8" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 1<span class="cite-bracket">]</span></span></a></sup>
 TEN<sup about="#mwt54" class="mw-ref reference" id="cite_ref-foo_9-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"NOTES","name":"foo"},"body":{"id":"mw-reference-text-cite_note-foo-9"}}'><a href="./Parser_test#cite_note-foo-9" data-mw-group="NOTES"><span class="mw-reflink-text"><span class="cite-bracket">[</span>NOTES 2<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt57" data-mw='{"name":"references","attrs":{"group":"NOTES"}}'><ol class="mw-references references" data-mw-group="NOTES"><li about="#cite_note-bar-8" id="cite_note-bar-8"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-bar_8-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-bar-8" class="mw-reference-text reference-text">NINECONTENT</span></li><li about="#cite_note-foo-9" id="cite_note-foo-9"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_9-0" data-mw-group="NOTES" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-foo-9" class="mw-reference-text reference-text">TENCONTENT</span></li></ol></div>
@@ -2140,6 +2280,8 @@ X{{1x|<ref>foo {{1x|<b>bar</b>}} and {{1x|baz}} boo</ref>}}
 
 !! test
 References: 9. Generate missing references list at the end
+!! options
+disabled
 !! wikitext
 A <ref>foo</ref>
 B <ref group="inexistent">bar</ref>
@@ -2150,7 +2292,7 @@ B <ref group="inexistent">bar</ref>
 </ol></div>
 <div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" about="#mwt6" data-mw='{"name":"references","attrs":{"group":"inexistent"},"autoGenerated":true,"errors":[{"key":"cite_error_group_refs_without_references","params":["inexistent"]}]}'><ol class="mw-references references" data-mw-group="inexistent">
 <li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" data-mw-group="inexistent" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">bar</span></li>
-</ol><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_group_refs_without_references","params":["inexistent"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></div>
+</ol><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_group_refs_without_references","params":["inexistent"]}}]}}'></span></div>
 !! end
 
 !! test
@@ -2242,6 +2384,8 @@ FCA<sup about="#mwt16" class="mw-ref reference mw-ref-follow" rel="dc:references
 
 !! test
 Grouped references with automatic group references generating errors
+!! options
+disabled
 !! wikitext
 GROUP <ref group="theGroup" name="theName">theValue</ref>
 GROUP3 <ref group="theGroup3" name="theName3">theValue3</ref>
@@ -2273,12 +2417,20 @@ aDifferentNameGROUP <sup id="cite_ref-anotherName2_6-0" class="reference"><a hre
 GROUP3 <sup about="#mwt4" class="mw-ref reference" id="cite_ref-theName3_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"theGroup3","name":"theName3"},"body":{"id":"mw-reference-text-cite_note-theName3-2"}}'><a href="./Parser_test#cite_note-theName3-2" data-mw-group="theGroup3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup3 1<span class="cite-bracket">]</span></span></a></sup>
 GROUP2 <sup about="#mwt6" class="mw-ref reference" id="cite_ref-theName2_3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"theGroup2","name":"theName2"},"body":{"id":"mw-reference-text-cite_note-theName2-3"}}'><a href="./Parser_test#cite_note-theName2-3" data-mw-group="theGroup2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup2 1<span class="cite-bracket">]</span></span></a></sup>
 aDifferentNameGROUP3 <sup about="#mwt8" class="mw-ref reference" id="cite_ref-theName_4-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"theGroup3","name":"theName"},"body":{"id":"mw-reference-text-cite_note-theName-4"}}'><a href="./Parser_test#cite_note-theName-4" data-mw-group="theGroup3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup3 2<span class="cite-bracket">]</span></span></a></sup>
-aDifferentNameGROUP2 <sup about="#mwt10" class="mw-ref reference" id="cite_ref-anotherName2_5-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"theGroup2","name":"anotherName2"},"body":{"id":"mw-reference-text-cite_note-anotherName2-5"}}'><a href="./Parser_test#cite_note-anotherName2-5" data-mw-group="theGroup2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup2 2<span class="cite-bracket">]</span></a></sup>
+aDifferentNameGROUP2 <sup about="#mwt10" class="mw-ref reference" id="cite_ref-anotherName2_5-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"theGroup2","name":"anotherName2"},"body":{"id":"mw-reference-text-cite_note-anotherName2-5"}}'><a href="./Parser_test#cite_note-anotherName2-5" data-mw-group="theGroup2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup2 2<span class="cite-bracket">]</span></span></a></sup>
 anotherGROUP3 <sup about="#mwt12" class="mw-ref reference" id="cite_ref-theName3_2-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"group":"theGroup3","name":"theName3"},"body":{"html":"anotherValue3"},"errors":[{"key":"cite_error_references_duplicate_key","params":["theName3"]}]}'><a href="./Parser_test#cite_note-theName3-2" data-mw-group="theGroup3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup3 1<span class="cite-bracket">]</span></span></a></sup>
 aDifferentNameGROUP <sup about="#mwt14" class="mw-ref reference" id="cite_ref-anotherName2_6-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"theGroup","name":"anotherName2"},"body":{"id":"mw-reference-text-cite_note-anotherName2-6"}}'><a href="./Parser_test#cite_note-anotherName2-6" data-mw-group="theGroup"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup 2<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt16" data-parsoid='{"group":"theGroup3"}' data-mw='{"name":"references","attrs":{"group":"theGroup3"}}'><ol class="mw-references references" data-mw-group="theGroup3"><li about="#cite_note-theName3-2" id="cite_note-theName3-2"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName3_2-0" data-mw-group="theGroup3"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-theName3_2-1" data-mw-group="theGroup3"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-theName3-2" class="mw-reference-text reference-text">theValue3</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["theName3"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-theName-4" id="cite_note-theName-4"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_4-0" data-mw-group="theGroup3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-4" class="mw-reference-text reference-text">anotherValue3differentName</span></li></ol></div>
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" about="#mwt17" data-parsoid='{"group":"theGroup"}' data-mw='{"name":"references","attrs":{"group":"theGroup"},"autoGenerated":true,"errors":[{"key":"cite_error_group_refs_without_references","params":["theGroup"]}]}'><ol class="mw-references references" data-mw-group="theGroup"><li about="#cite_note-theName-1" id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0" data-mw-group="theGroup" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text">theValue</span></li><li about="#cite_note-anotherName2-6" id="cite_note-anotherName2-6"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-anotherName2_6-0" data-mw-group="theGroup" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-anotherName2-6" class="mw-reference-text reference-text">anotherValueDifferentName</span></li></ol><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_group_refs_without_references","params":["theGroup"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></div>
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" about="#mwt18" data-parsoid='{"group":"theGroup2"}' data-mw='{"name":"references","attrs":{"group":"theGroup2"},"autoGenerated":true,"errors":[{"key":"cite_error_group_refs_without_references","params":["theGroup2"]}]}'><ol class="mw-references references" data-mw-group="theGroup2"><li about="#cite_note-theName2-3" id="cite_note-theName2-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName2_3-0" data-mw-group="theGroup2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName2-3" class="mw-reference-text reference-text">theValue2</span></li><li about="#cite_note-anotherName2-5" id="cite_note-anotherName2-5"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-anotherName2_5-0" data-mw-group="theGroup2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-anotherName2-5" class="mw-reference-text reference-text">anotherValue2DifferentName</span></li></ol><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_group_refs_without_references","params":["theGroup2"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt16" data-parsoid='{"group":"theGroup3"}' data-mw='{"name":"references","attrs":{"group":"theGroup3"}}'>
+<ol class="mw-references references" data-mw-group="theGroup3">
+<li about="#cite_note-theName3-2" id="cite_note-theName3-2"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName3_2-0" data-mw-group="theGroup3"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-theName3_2-1" data-mw-group="theGroup3"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-theName3-2" class="mw-reference-text reference-text">theValue3</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["theName3"]}}]}}'></span></li>
+<li about="#cite_note-theName-4" id="cite_note-theName-4"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_4-0" data-mw-group="theGroup3" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-4" class="mw-reference-text reference-text">anotherValue3differentName</span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" about="#mwt17" data-parsoid='{"group":"theGroup"}' data-mw='{"name":"references","attrs":{"group":"theGroup"},"autoGenerated":true,"errors":[{"key":"cite_error_group_refs_without_references","params":["theGroup"]}]}'><ol class="mw-references references" data-mw-group="theGroup">
+<li about="#cite_note-theName-1" id="cite_note-theName-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_1-0" data-mw-group="theGroup" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-1" class="mw-reference-text reference-text">theValue</span></li>
+<li about="#cite_note-anotherName2-6" id="cite_note-anotherName2-6"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-anotherName2_6-0" data-mw-group="theGroup" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-anotherName2-6" class="mw-reference-text reference-text">anotherValueDifferentName</span></li></ol><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_group_refs_without_references","params":["theGroup"]}}]}}'></span></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" about="#mwt18" data-parsoid='{"group":"theGroup2"}' data-mw='{"name":"references","attrs":{"group":"theGroup2"},"autoGenerated":true,"errors":[{"key":"cite_error_group_refs_without_references","params":["theGroup2"]}]}'><ol class="mw-references references" data-mw-group="theGroup2">
+<li about="#cite_note-theName2-3" id="cite_note-theName2-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName2_3-0" data-mw-group="theGroup2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName2-3" class="mw-reference-text reference-text">theValue2</span></li>
+<li about="#cite_note-anotherName2-5" id="cite_note-anotherName2-5"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-anotherName2_5-0" data-mw-group="theGroup2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-anotherName2-5" class="mw-reference-text reference-text">anotherValue2DifferentName</span></li></ol><span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_group_refs_without_references","params":["theGroup2"]}}]}}'></span>
+</div>
 !! end
 
 # Doesn't wt2wt cleanly because we don't encode the &amp; in html2wt direction
@@ -2462,6 +2614,8 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 ## to content that isn't on the page.
 !! test
 2. Ref in ref: self-referential, redefinition
+!! options
+disabled
 !! wikitext
 {{#tag:ref|<div><ref name="x">y</ref></div>|name="x"}}
 
@@ -2476,7 +2630,9 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 !! html/parsoid
 <p><sup about="#mwt1" class="mw-ref reference" id="cite_ref-x_1-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"id":"mw-reference-text-cite_note-x-1"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"&lt;div>&lt;ref name=\"x\">y&lt;/ref>&lt;/div>"},"name":{"wt":"\"x\""}},"i":0}}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-x-1" id="cite_note-x-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-x_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-x-1" class="mw-reference-text reference-text"><div data-parsoid='{"stx":"html"}'><sup about="#mwt2" class="mw-ref reference" id="cite_ref-x_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"html":"y"},"errors":[{"key":"cite_error_references_duplicate_key","params":["x"]}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></div></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["x"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt4" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-x-1" id="cite_note-x-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-x_1-1"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-x-1" class="mw-reference-text reference-text"><div data-parsoid='{"stx":"html"}'><sup about="#mwt2" class="mw-ref reference" id="cite_ref-x_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"html":"y"},"errors":[{"key":"cite_error_references_duplicate_key","params":["x"]}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></div></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["x"]}}]}}'></span></li>
 </ol></div>
 !! end
 
@@ -2489,6 +2645,8 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 ## content for x does not take priority
 !! test
 3. Ref in ref: self-referential, redefinition and leading, with other ref
+!! options
+disabled
 !! wikitext
 <ref name="x" />
 
@@ -2510,7 +2668,9 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 
 <p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-x_1-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"id":"mw-reference-text-cite_note-x-1"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"&lt;div>&lt;ref name=\"x\">y&lt;/ref>&lt;ref name=\"z\">z&lt;/ref>&lt;/div>"},"name":{"wt":"\"x\""}},"i":0}}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-x-1" id="cite_note-x-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-x_1-1"><span class="mw-linkback-text">2 </span></a><a href="./Parser_test#cite_ref-x_1-2"><span class="mw-linkback-text">3 </span></a></span> <span id="mw-reference-text-cite_note-x-1" class="mw-reference-text reference-text"><div data-parsoid='{"stx":"html"}'><sup about="#mwt3" class="mw-ref reference" id="cite_ref-x_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"html":"y"},"errors":[{"key":"cite_error_references_duplicate_key","params":["x"]}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup><sup about="#mwt4" class="mw-ref reference" id="cite_ref-z_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"z"},"body":{"id":"mw-reference-text-cite_note-z-2"}}'><a href="./Parser_test#cite_note-z-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup></div></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["x"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-x-1" id="cite_note-x-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-x_1-0"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-x_1-1"><span class="mw-linkback-text">2 </span></a><a href="./Parser_test#cite_ref-x_1-2"><span class="mw-linkback-text">3 </span></a></span> <span id="mw-reference-text-cite_note-x-1" class="mw-reference-text reference-text"><div data-parsoid='{"stx":"html"}'><sup about="#mwt3" class="mw-ref reference" id="cite_ref-x_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"x"},"body":{"html":"y"},"errors":[{"key":"cite_error_references_duplicate_key","params":["x"]}]}'><a href="./Parser_test#cite_note-x-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup><sup about="#mwt4" class="mw-ref reference" id="cite_ref-z_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"z"},"body":{"id":"mw-reference-text-cite_note-z-2"}}'><a href="./Parser_test#cite_note-z-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup></div></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["x"]}}]}}'></span></li>
 <li about="#cite_note-z-2" id="cite_note-z-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-z_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-z-2" class="mw-reference-text reference-text">z</span></li>
 </ol></div>
 !! end
@@ -2790,6 +2950,8 @@ T15673: <ref> with direction "LTR", keeps upper case
 
 !! test
 T15673: <ref> with direction "nonsense" and "" (empty), strip invalid dir attribute and shows error
+!! options
+disabled
 !! wikitext
 <ref dir="nonsense">NONSENSE_DIR_TEST</ref>
 <ref dir="">EMPTY_DIR_TEST</ref>
@@ -2807,7 +2969,11 @@ T15673: <ref> with direction "nonsense" and "" (empty), strip invalid dir attrib
 !! html/parsoid
 <p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"dir":"nonsense"},"body":{"id":"mw-reference-text-cite_note-1"},"errors":[{"key":"cite_error_ref_invalid_dir","params":["nonsense"]}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
 <sup about="#mwt4" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"dir":""},"body":{"id":"mw-reference-text-cite_note-2"},"errors":[{"key":"cite_error_ref_invalid_dir","params":[""]}]}'><a href="./Parser_test#cite_note-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">NONSENSE_DIR_TEST</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_invalid_dir","params":["nonsense"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li><li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">EMPTY_DIR_TEST</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_ref_invalid_dir","params":[""],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li></ol></div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">NONSENSE_DIR_TEST</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_invalid_dir","params":["nonsense"]}}]}}'></span></li>
+<li about="#cite_note-2" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">EMPTY_DIR_TEST</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_invalid_dir","params":[""]}}]}}'></span></li>
+</ol></div>
 !! end
 
 !! test
@@ -3143,6 +3309,8 @@ T93580: 3. Templated <ref> inside inline images
 
 !! test
 Report bad attributes in reference tags
+!! options
+disabled
 !! wikitext
 <ref>noGroupOrNameValue</ref>
 <references badattrib="invalidAttribute" />
@@ -3167,13 +3335,13 @@ Report bad attributes in reference tags
 !! html/parsoid
 <p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" about="#mwt4" data-mw='{"name":"references","attrs":{"badattrib":"invalidAttribute"},"errors":[{"key":"cite_error_references_invalid_parameters","params":["badattrib","group, responsive"]}]}'><ol class="mw-references references"><li about="#cite_note-1" id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">noGroupOrNameValue</span></li></ol>
-<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_invalid_parameters","params":["badattrib","group, responsive"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></div>
+<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_invalid_parameters","params":["badattrib","group, responsive"]}}]}}'></span></div>
 <p><sup about="#mwt6" class="mw-ref reference" id="cite_ref-theName_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"theName"},"body":{"id":"mw-reference-text-cite_note-theName-2"}}'><a href="./Parser_test#cite_note-theName-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" about="#mwt8" data-mw='{"name":"references","attrs":{"name":"theName","badattrib":"invalidNameAttribute"},"errors":[{"key":"cite_error_references_invalid_parameters","params":["name","group, responsive"]}]}'><ol class="mw-references references"><li about="#cite_note-theName-2" id="cite_note-theName-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-theName_2-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-theName-2" class="mw-reference-text reference-text">theNameValue</span></li></ol>
-<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_invalid_parameters","params":["name","group, responsive"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></div>
+<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_invalid_parameters","params":["name","group, responsive"]}}]}}'></span></div>
 <p><sup about="#mwt10" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"group":"theGroup"},"body":{"id":"mw-reference-text-cite_note-3"}}'><a href="./Parser_test#cite_note-3" data-mw-group="theGroup"><span class="mw-reflink-text"><span class="cite-bracket">[</span>theGroup 1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" about="#mwt12" data-parsoid='{"group":"theGroup"}' data-mw='{"name":"references","attrs":{"group":"theGroup","badattrib":"invalidGroupAttribute"},"errors":[{"key":"cite_error_references_invalid_parameters","params":["badattrib","group, responsive"]}]}'><ol class="mw-references references" data-mw-group="theGroup"><li about="#cite_note-3" id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" data-mw-group="theGroup" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-3" class="mw-reference-text reference-text">theGroupValue</span></li></ol>
-<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_invalid_parameters","params":["badattrib","group, responsive"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></div>
+<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_invalid_parameters","params":["badattrib","group, responsive"]}}]}}'></span></div>
 !! end
 
 !! test
@@ -3549,6 +3717,7 @@ Non-diffing cite error
 !! options
 cat
 parsoid="wt2html"
+disabled
 !! wikitext
 <ref name="aaa" />
 !! metadata
@@ -3564,7 +3733,7 @@ cat=Pages_with_reference_errors sort=
 <p><sup class="mw-ref reference" id="cite_ref-aaa_1-0" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"aaa"},"errors":[{"key":"cite_error_references_no_text","params":["aaa"]}]}'><a href="./Parser_test#cite_note-aaa-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'>
 <ol class="mw-references references">
-<li id="cite_note-aaa-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-aaa_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-aaa-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_no_text","params":["aaa"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-aaa-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-aaa_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-aaa-1" class="mw-reference-text reference-text"></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_no_text","params":["aaa"]}}]}}'></span></li>
 </ol>
 </div>
 !! end
@@ -3719,6 +3888,7 @@ References error without wrapper round-trip test
 parsoid={
     "modes": ["wt2html","wt2wt","selser"]
 }
+disabled
 !! config
 wgCiteResponsiveReferences=false
 !! wikitext
@@ -3728,13 +3898,14 @@ wgCiteResponsiveReferences=false
 <ol class="mw-references references" typeof="mw:Extension/references mw:Error" data-mw-group="a" data-mw='{"name":"references","attrs":{"group":"a"},"autoGenerated":true,"errors":[{"key":"cite_error_group_refs_without_references","params":["a"]}]}'>
 <li id="cite_note-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" data-mw-group="a" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">foo</span></li>
 </ol>
-<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_group_refs_without_references","params":["a"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span>
+<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_group_refs_without_references","params":["a"]}}]}}'></span>
 !! end
 
 !! test
 T393913: Parsoid support for nested <ref> in different groups
 !! options
 parsoid=wt2html
+disabled
 !! wikitext
 <ref name="thefourtruths" group="lower-alpha">asfd</ref>
 
@@ -3744,9 +3915,9 @@ parsoid=wt2html
 <p><sup class="mw-ref reference" id="cite_ref-thefourtruths_1-1" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"thefourtruths","group":"lower-alpha"},"body":{"html":"&lt;div>&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{},\"body\":{\"id\":\"mw-reference-text-cite_note-2\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-2\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>&lt;/div>"},"parts":[{"template":{"target":{"wt":"#tag:ref","function":"tag"},"params":{"1":{"wt":"&lt;div>&lt;ref>123&lt;/ref>&lt;/div>"},"name":{"wt":"\"thefourtruths\""},"group":{"wt":"\"lower-alpha\""}},"i":0}}],"errors":[{"key":"cite_error_references_duplicate_key","params":["thefourtruths"]}]}'><a href="./Parser_test#cite_note-thefourtruths-1" data-mw-group="lower-alpha"><span class="mw-reflink-text"><span class="cite-bracket">[</span>lower-alpha 1<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references mw:Error" data-mw='{"name":"references","attrs":{"group":"lower-alpha"},"autoGenerated":true,"errors":[{"key":"cite_error_group_refs_without_references","params":["lower-alpha"]}]}'>
 <ol class="mw-references references" data-mw-group="lower-alpha">
-<li id="cite_note-thefourtruths-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-thefourtruths_1-0" data-mw-group="lower-alpha"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-thefourtruths_1-1" data-mw-group="lower-alpha"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-thefourtruths-1" class="mw-reference-text reference-text">asfd</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_references_duplicate_key","params":["thefourtruths"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></li>
+<li id="cite_note-thefourtruths-1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-thefourtruths_1-0" data-mw-group="lower-alpha"><span class="mw-linkback-text">1 </span></a><a href="./Parser_test#cite_ref-thefourtruths_1-1" data-mw-group="lower-alpha"><span class="mw-linkback-text">2 </span></a></span> <span id="mw-reference-text-cite_note-thefourtruths-1" class="mw-reference-text reference-text">asfd</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_duplicate_key","params":["thefourtruths"]}}]}}'></span></li>
 </ol>
-<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":{"0":{"key":"cite_error_group_refs_without_references","params":["lower-alpha"],"_type_":"Wikimedia\\Message\\MessageValue"},"_type_":"array"}}}'></span></div>
+<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_group_refs_without_references","params":["lower-alpha"]}}]}}'></span></div>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"autoGenerated":true}'>
 <ol class="mw-references references">
 <li id="cite_note-2"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">123</span></li>

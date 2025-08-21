@@ -369,8 +369,6 @@ Blank ref followed by ref with content
 
 !! test
 Regression: non-blank ref "0" followed by ref with content
-!! options
-disabled
 !! wikitext
 <ref name="blank">0</ref>
 
@@ -398,8 +396,6 @@ disabled
 
 !! test
 Regression sanity check: non-blank ref "1" followed by ref with content
-!! options
-disabled
 !! wikitext
 <ref name="blank">1</ref>
 
@@ -482,7 +478,6 @@ T184912: Consistent normalization of consecutive underscores
 Erroneous refs
 !! options
 cat
-disabled
 !! metadata
 cat=Pages_with_reference_errors sort=
 !! wikitext
@@ -541,8 +536,6 @@ cat=Pages_with_reference_errors sort=
 
 !! test
 Can't have name="…" and follow="…" the same time
-!! options
-disabled
 !! wikitext
 <ref name="theName" follow="theFollows">theValue</ref>
 <references />
@@ -559,8 +552,6 @@ disabled
 
 !! test
 Conflicting name="…" and follow="…" together with another invalid parameter
-!! options
-disabled
 !! config
 wgCiteSubReferencing=false
 !! wikitext
@@ -579,8 +570,6 @@ wgCiteSubReferencing=false
 
 !! test
 It's not possible to follow="…" a <ref> defined in the <references> section
-!! options
-disabled
 !! wikitext
 <ref follow="theName">theFollows</ref>
 <references>
@@ -607,8 +596,6 @@ disabled
 ## or wherehaveyou)
 !! test
 A follow="…" before its parent is not merged
-!! options
-disabled
 !! wikitext
 <ref follow="theName">''theFollows''</ref>
 <ref name="theName">''theValue''</ref>
@@ -636,8 +623,6 @@ disabled
 ## output of the Cite extension of the legacy parser
 !! test
 "follow" after a named ref but before its parent
-!! options
-disabled
 !! wikitext
 <ref name="first">First</ref>
 <ref follow="third">Second</ref>
@@ -672,8 +657,6 @@ disabled
 
 !! test
 "follow" after an anonymous ref but before its parent
-!! options
-disabled
 !! wikitext
 <ref>First</ref>
 <ref follow="third">Second</ref>
@@ -753,8 +736,6 @@ Forward-referenced ref with follow
 
 !! test
 Follow following a named ref with multiple definitions
-!! options
-disabled
 !! wikitext
 <ref name="test">123</ref>
 <ref name="test">234</ref>
@@ -802,8 +783,6 @@ MOD<sup about="#mwt8" class="mw-ref reference mw-ref-follow" rel="dc:references"
 Report bad attributes in ref tags
 !! config
 wgCiteSubReferencing=false
-!! options
-disabled
 !! wikitext
 <ref name="theName" group="theGroup" dummy="dummy">theValue</ref>
 <references group="theGroup" />
@@ -1054,8 +1033,6 @@ T242437 - Nested references edge case, inner tag function with LDR
 
 !! test
 <ref> ungrouped and grouped refs with and without content defined
-!! options
-disabled
 !! wikitext
 ONE<ref name="foo" />
 <references />
@@ -1093,8 +1070,6 @@ THREE<sup id="cite_ref-bar_3-0" class="reference"><a href="#cite_note-bar-3"><sp
 
 !! test
 Error conditions on non-visible content
-!! options
-disabled
 !! wikitext
 <ref name="a">x</ref>
 <ref name="b"> </ref>
@@ -1230,8 +1205,6 @@ foo
 
 !! test
 <ref> with no name and no content.
-!! options
-disabled
 !! wikitext
 Bla.<ref></ref>
 foo.<ref />
@@ -1256,8 +1229,6 @@ zero<sup about="#mwt8" class="mw-ref reference" id="cite_ref-3" rel="dc:referenc
 
 !! test
 <ref> with an empty-string name parameter and no content.
-!! options
-disabled
 !! wikitext
 Bla.<ref name=""> </ref>
 <references />
@@ -1276,7 +1247,6 @@ Bla.<ref name=""> </ref>
 <ref> with whitespace only name parameter and no content.
 !! options
 parsoid=wt2html
-disabled
 !! wikitext
 Hi <ref name=" "> </ref>
 Ho <ref name=" " />
@@ -1296,8 +1266,6 @@ Ho <sup about="#mwt6" class="mw-ref reference" id="cite_ref-2" rel="dc:reference
 
 !! test
 <ref> with a non-empty name parameter and no content.
-!! options
-disabled
 !! wikitext
 Bla.<ref name="void"> </ref>
 <references />
@@ -1338,8 +1306,6 @@ Hi <sup about="#mwt6" class="mw-ref reference" id="cite_ref-ho_1-1" rel="dc:refe
 
 !! test
 Multiple definition (outside <references/>)
-!! options
-disabled
 !! wikitext
 <ref name="a">abc</ref>
 <ref name="a">def</ref>
@@ -1402,8 +1368,6 @@ Multiple definition (mixed outside/inside)
 
 !! test
 T202593: Conflicting dir attributes
-!! options
-disabled
 !! wikitext
 <ref name="a" dir="ltr" />
 <ref name="a" dir="rtl">abc</ref>
@@ -1428,8 +1392,6 @@ disabled
 
 !! test
 T202593: Conflicting dir attributes with the full ref first
-!! options
-disabled
 !! wikitext
 <ref name="a" dir="ltr">abc</ref>
 <ref name="a" dir="rtl" />
@@ -1543,8 +1505,6 @@ wgFragmentMode=[ "html5" ]
 
 !! test
 Ref: 1. ref-location should be replaced with an index span
-!! options
-disabled
 !! wikitext
 A <ref>foo</ref>
 B <ref name="x">foo</ref>
@@ -1887,8 +1847,6 @@ parsoid=wt2html,html2html
 
 !! test
 Ref: 20. ref-tags with identical names but different content should keep it
-!! options
-disabled
 !! wikitext
 A <ref name="foo">Foo one</ref>
 B <ref name="foo">Foo two</ref>
@@ -1908,8 +1866,6 @@ C <sup about="#mwt6" class="mw-ref reference" id="cite_ref-foo_1-2" rel="dc:refe
 
 !! test
 Verify invalid use of a numeric character in a ref name
-!! options
-disabled
 !! wikitext
 PRE <ref>preValue</ref>
 THEVALUE <ref name="1">theValue</ref>
@@ -1940,8 +1896,6 @@ POST <sup about="#mwt6" class="mw-ref reference" id="cite_ref-3" rel="dc:referen
 
 !! test
 Verify invalid use of a numeric character in a ref name and follow
-!! options
-disabled
 !! wikitext
 <ref name="1">theValue</ref>
 <ref follow="1">theFollow</ref>
@@ -2209,8 +2163,6 @@ B <sup about="#mwt6" class="mw-ref reference" id="cite_ref-b_2-0" rel="dc:refere
 
 !! test
 References: 7b. Multiple references tags some with errors should be correctly handled
-!! options
-disabled
 !! wikitext
 ALPHA<ref name="foo" />
 BETA<ref name="foo" />
@@ -2280,8 +2232,6 @@ X{{1x|<ref>foo {{1x|<b>bar</b>}} and {{1x|baz}} boo</ref>}}
 
 !! test
 References: 9. Generate missing references list at the end
-!! options
-disabled
 !! wikitext
 A <ref>foo</ref>
 B <ref group="inexistent">bar</ref>
@@ -2384,8 +2334,6 @@ FCA<sup about="#mwt16" class="mw-ref reference mw-ref-follow" rel="dc:references
 
 !! test
 Grouped references with automatic group references generating errors
-!! options
-disabled
 !! wikitext
 GROUP <ref group="theGroup" name="theName">theValue</ref>
 GROUP3 <ref group="theGroup3" name="theName3">theValue3</ref>
@@ -2614,8 +2562,6 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 ## to content that isn't on the page.
 !! test
 2. Ref in ref: self-referential, redefinition
-!! options
-disabled
 !! wikitext
 {{#tag:ref|<div><ref name="x">y</ref></div>|name="x"}}
 
@@ -2645,8 +2591,6 @@ disabled
 ## content for x does not take priority
 !! test
 3. Ref in ref: self-referential, redefinition and leading, with other ref
-!! options
-disabled
 !! wikitext
 <ref name="x" />
 
@@ -2950,8 +2894,6 @@ T15673: <ref> with direction "LTR", keeps upper case
 
 !! test
 T15673: <ref> with direction "nonsense" and "" (empty), strip invalid dir attribute and shows error
-!! options
-disabled
 !! wikitext
 <ref dir="nonsense">NONSENSE_DIR_TEST</ref>
 <ref dir="">EMPTY_DIR_TEST</ref>
@@ -3309,8 +3251,6 @@ T93580: 3. Templated <ref> inside inline images
 
 !! test
 Report bad attributes in reference tags
-!! options
-disabled
 !! wikitext
 <ref>noGroupOrNameValue</ref>
 <references badattrib="invalidAttribute" />
@@ -3718,7 +3658,6 @@ Non-diffing cite error
 !! options
 cat
 parsoid="wt2html"
-disabled
 !! wikitext
 <ref name="aaa" />
 !! metadata
@@ -3889,7 +3828,6 @@ References error without wrapper round-trip test
 parsoid={
     "modes": ["wt2html","wt2wt","selser"]
 }
-disabled
 !! config
 wgCiteResponsiveReferences=false
 !! wikitext
@@ -3906,7 +3844,6 @@ wgCiteResponsiveReferences=false
 T393913: Parsoid support for nested <ref> in different groups
 !! options
 parsoid=wt2html
-disabled
 !! wikitext
 <ref name="thefourtruths" group="lower-alpha">asfd</ref>
 

@@ -13,8 +13,6 @@ z{{{1}}}zz
 Subreferencing attribute blocked without feature flag
 !! config
 wgCiteSubReferencing=false
-!! options
-disabled
 !! wikitext
 <ref details="abc" name="a">def</ref>
 <references />
@@ -113,8 +111,6 @@ parsoid=wt2html,html2html
 Unnamed main reference with a lonely sub-ref, neither can be reused
 !! config
 wgCiteSubReferencing=true
-!! options
-disabled
 !! wikitext
 <ref details="abc">def</ref>
 <references />
@@ -393,8 +389,6 @@ wgCiteSubReferencing=true
 No main content due to missing name or empty content
 !! config
 wgCiteSubReferencing=true
-!! options
-disabled
 !! wikitext
 <ref details="page 1" />
 <references />
@@ -414,8 +408,6 @@ disabled
 Empty content and no name
 !! config
 wgCiteSubReferencing=true
-!! options
-disabled
 !! wikitext
 <ref details="page 1"></ref>
 <references />
@@ -775,7 +767,6 @@ Conflicting main content
 wgCiteSubReferencing=true
 !! options
 parsoid=wt2html
-disabled
 !! wikitext
 <ref details="page 1" name="book">Book</ref> <ref details="page 2" name="book">Book, but different</ref>
 !! html/php

@@ -104,7 +104,8 @@ class ErrorUtils {
 
 		$this->extApi->addTrackingCategory( 'cite-tracking-category-cite-error' );
 
-		$fragment = $this->extApi->createInterfaceI18nFragment( 'cite_error', [ $error ] );
+		$msg = new MessageValue( 'cite_error', [ $error ] );
+		$fragment = $this->extApi->createInterfaceI18nFragment( $msg->getKey(), $msg->getParams() );
 		$fragSpan = DOMCompat::getFirstElementChild( $fragment );
 		DOMUtils::addAttributes( $fragSpan, [ 'class' => 'error mw-ext-cite-error' ] );
 		return $fragment;

@@ -448,8 +448,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
 		nodesWithSameKey.length > 1 ||
 		this.hasSubRefs( attributes, internalList )
 	) {
-		return internalList.getUniqueListKey(
-			attributes.listGroup,
+		return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(
 			listKey,
 			'literal/:'
 		).slice( 'literal/'.length );

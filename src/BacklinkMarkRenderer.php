@@ -16,15 +16,15 @@ use stdClass;
  */
 class BacklinkMarkRenderer {
 
-	/** @var string[] In-memory cache for the alphabet */
-	private readonly array $alphabet;
+	/** @var string[]|null In-memory cache for the alphabet */
+	private ?array $alphabet = null;
 	/** @var string[]|null In-memory cache for the i18n-configured sequence */
-	private readonly ?array $legacySequence;
+	private ?array $legacySequence = null;
 
 	private ?IConfigurationProvider $configProvider = null;
 
 	public function __construct(
-		string $languageCode,
+		private readonly string $languageCode,
 		private readonly ReferenceMessageLocalizer $messageLocalizer,
 		private readonly AlphabetsProvider $alphabetsProvider,
 		?ConfigurationProviderFactory $providerFactory,
@@ -33,12 +33,6 @@ class BacklinkMarkRenderer {
 		if ( $providerFactory && $this->config->get( 'CiteBacklinkCommunityConfiguration' ) ) {
 			$this->configProvider = $providerFactory->newProvider( 'Cite' );
 		}
-
-		$this->alphabet = $this->getBacklinkAlphabet( $languageCode );
-
-		$legacySequenceMessage = $this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' );
-		$this->legacySequence = $legacySequenceMessage->isDisabled()
-			? null : preg_split( '/\s+/', $legacySequenceMessage->plain() );
 	}
 
 	/**
@@ -48,6 +42,9 @@ class BacklinkMarkRenderer {
 	 * @return string rendered marker
 	 */
 	public function getBacklinkMarker( int $reuseIndex ): string {
+		// Lazy initialization only when needed because this is a little expensive
+		$this->alphabet ??= $this->getBacklinkAlphabet( $this->languageCode );
+
 		$radix = count( $this->alphabet );
 		$label = '';
 		while ( $reuseIndex > 0 ) {
@@ -90,6 +87,13 @@ class BacklinkMarkRenderer {
 	 * @return string rendered marker
 	 */
 	public function getLegacyAlphabeticMarker( int $reuseIndex, int $reuseCount, string $parentLabel = '' ): string {
+		if ( $this->legacySequence === null ) {
+			$msg = $this->messageLocalizer->msg( 'cite_references_link_many_format_backlink_labels' );
+			$this->legacySequence = $msg->isDisabled() ?
+				[] :
+				preg_split( '/\s+/', $msg->plain() );
+		}
+
 		return $this->legacySequence[$reuseIndex - 1]
 			?? $this->getLegacyNumericMarker( $reuseIndex, $reuseCount, $parentLabel );
 	}
@@ -114,12 +118,14 @@ class BacklinkMarkRenderer {
 		return $this->messageLocalizer->msg( 'cite_reference_backlink_symbol' )->plain();
 	}
 
-	private function loadCommunityConfig(): ?stdClass {
+	private function loadCommunityConfig(): stdClass {
 		if ( $this->configProvider ) {
 			$status = $this->configProvider->loadValidConfiguration();
-			return $status->isOK() ? $status->getValue() : null;
+			if ( $status->isOK() ) {
+				return $status->getValue();
+			}
 		}
-		return null;
+		return (object)[];
 	}
 
 	/**

@@ -13,6 +13,8 @@
 	},
 	"cite-desc": "Legger til <code>&lt;ref&gt;</code>- og <code>&lt;references/&gt;</code>-tagger for referanser",
 	"cite_error": "Siteringsfeil: $1",
+	"cite_error_details_missing_parent": "En <code>$lt;ref></code>-tagg med detaljer må inneholde innehold eller peke til en overordnet referanse med navn.",
+	"cite_error_details_unsupported_context": "<code>&lt;ref&gt;</code>-taggen med navnet «$1» kan ikke bruke detaljer inni <code>&lt;references&gt;</code>.",
 	"cite_error_ref_invalid_dir": "Ugyldig <code>dir=\"$1</code>, må være <code>ltr</code> eller <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "Én av <code>&lt;ref&gt;</code>-taggene med navn «$1» har et motstridende dir-attributt.",
 	"cite_error_ref_numeric_key": "Ugyldig <code>&lt;ref&gt;</code>-kode; navnet kan ikke være et enkelt heltall. Bruk en beskrivende tittel",

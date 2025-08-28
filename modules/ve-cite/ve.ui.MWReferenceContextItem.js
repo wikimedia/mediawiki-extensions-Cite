@@ -10,6 +10,7 @@
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
 const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 const MWReferenceNode = require( './ve.dm.MWReferenceNode.js' );
+const Options = require( './ve.ui.MWSubReferenceHelpDialogOptions.js' );
 
 /**
  * Context item for a MWReference.
@@ -31,6 +32,9 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	this.groupRefs = null;
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceContextItem' );
+
+	this.showHelp = !OO.ui.isMobile() &&
+		!Options.loadBoolean( 'hide-subref-help' );
 };
 
 /* Inheritance */
@@ -231,9 +235,7 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 		return;
 	}
 
-	return new OO.ui.ButtonWidget( {
-		label: ve.msg( 'cite-ve-dialog-reference-add-details-button' )
-	} ).on( 'click', () => {
+	const openAddDetailsDialog = () => {
 		// Phabricator T396734
 		ve.track( 'activity.subReference', { action: 'context-add-details' } );
 
@@ -247,7 +249,33 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 		// TODO: When the dialog closes successfully, the new
 		// subref replaces the previously selected main ref and
 		// becomes a main+details.
-	} ).$element;
+	};
+
+	const button = new OO.ui.ButtonWidget( {
+		label: ve.msg( 'cite-ve-dialog-reference-add-details-button' ),
+		classes: [ 've-ui-mwReferenceContextItem-addDetailsButton' ]
+	} ).on( 'click', () => {
+		if ( !this.showHelp ) {
+			openAddDetailsDialog();
+			return;
+		}
+
+		const windowManager = this.context.getSurface().getDialogs();
+		windowManager.openWindow( 'subrefHelp' ).closing.then( ( action ) => {
+			if ( action === 'dismiss' ) {
+				this.showHelp = false;
+				Options.saveBoolean( 'hide-subref-help', true );
+				button.$element.find( '.mw-pulsating-dot' ).remove();
+				openAddDetailsDialog();
+			}
+		} );
+	} );
+
+	if ( this.showHelp ) {
+		button.$element.append( $( '<span>' ).addClass( 'mw-pulsating-dot' ) );
+	}
+
+	return button.$element;
 };
 
 /**

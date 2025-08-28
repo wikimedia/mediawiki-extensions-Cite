@@ -7,6 +7,7 @@ ve.ce.nodeFactory.register( require( './ve.ce.MWReferencesListNode.js' ) );
 ve.ui.windowFactory.register( require( './ve.ui.MWCitationDialog.js' ) );
 ve.ui.windowFactory.register( require( './ve.ui.MWReferencesListDialog.js' ) );
 ve.ui.windowFactory.register( require( './ve.ui.MWReferenceDialog.js' ) );
+ve.ui.windowFactory.register( require( './ve.ui.MWSubReferenceHelpDialog.js' ) );
 
 ve.ui.toolFactory.register( require( './ve.ui.MWReferenceDialogTool.js' ) );
 ve.ui.toolFactory.register( require( './ve.ui.MWUseExistingReferenceDialogTool.js' ) );

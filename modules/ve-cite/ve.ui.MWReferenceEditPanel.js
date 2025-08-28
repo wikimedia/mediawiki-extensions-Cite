@@ -304,9 +304,14 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 			)
 			.append( $( '<div>' )
 				.addClass( 've-ui-mwReference-details-preview-item' )
-				.append( $( '<div>' )
-					.addClass( 've-ui-mwReferenceContextItem-muted' )
-					.text( ve.msg( 'cite-ve-dialog-reference-editing-details-placeholder' ) )
+				.append(
+					$( '<span>' )
+						.addClass( 've-ui-mwReference-icon-newline' )
+						// Extra <span> needed because the RTL CSS uses scaleX() as well
+						.append( $( '<span>' ) ),
+					$( '<span>' )
+						.addClass( 've-ui-mwReferenceContextItem-muted' )
+						.text( ve.msg( 'cite-ve-dialog-reference-editing-details-placeholder' ) )
 				)
 			);
 	}

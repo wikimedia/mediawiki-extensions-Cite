@@ -124,6 +124,13 @@
 				{
 					"name": "ve.ui.contentLanguage.json",
 					"callback": "Cite\\ResourceLoader\\ContentLanguage::getJsData"
+				},
+				{
+					"name": "icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconNewLine"
+					]
 				}
 			],
 			"styles": [

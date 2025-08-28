@@ -23,4 +23,16 @@
 		margin-top: @spacing-50;
 		margin-left: @spacing-200;
 	}
+
+	.ve-ui-mwReference-icon-newline {
+		transform: scaleX( -1 );
+		display: inline-block;
+		margin-left: -@spacing-200;
+
+		> span {
+			.cdx-mixin-css-icon( @cdx-icon-newline );
+			margin-left: @spacing-65;
+			margin-right: @spacing-25;
+		}
+	}
 }

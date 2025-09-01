@@ -18,7 +18,7 @@
 	"cite_error_ref_follow_conflicts": "Хьалха хиллачун кхидӀа а йолу <code>&lt;ref follow=\"…\"&gt;</code> тег ша-ша цӀе тилла йиш йац, йа деталаш хила йиш йац.",
 	"cite_error_ref_no_input": "Нийса йоцу тег <code>&lt;ref&gt;</code>;\nцӀе йоцу элементан чулацам хила беза.",
 	"cite_error_references_duplicate_key": "Нийса йоцу тег <code>&lt;ref&gt;</code>: «$1» цӀе, башха чулацамна маситтазза хӀотийна",
-	"cite_error_references_invalid_parameters": "Нийса йоцу тег <code>&lt;references&gt;</code>;\nпараметраш шорйина йац.\nЛелайе <code>&lt;references /&gt;</code>",
+	"cite_error_references_invalid_parameters": "Нийса йоцу «$1» параметр йу <code>&lt;references></code> тегехь. Лелаш йолу параметраш йу: $2.",
 	"cite_error_references_no_text": "<code>&lt;ref&gt;</code> тег нийса йац; кху <code>$1</code> тIетовжаран текст йазйина йац",
 	"cite_error_included_ref": "ДӀакъовлуш йолу тег йац <code>&lt;/ref&gt;</code>",
 	"cite_error_included_references": "ДӀачӀогӀу тег йац <code>&lt;references&gt;</code>",

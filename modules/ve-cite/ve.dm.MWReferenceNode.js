@@ -89,6 +89,11 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		return elem && elem.innerHTML;
 	}
 
+	function getReflistItemGroup( id ) {
+		const elem = converter.getHtmlDocument().getElementById( id );
+		return elem && elem.getAttribute( 'data-mw-group' );
+	}
+
 	const mwDataJSON = domElements[ 0 ].getAttribute( 'data-mw' );
 	const mwData = mwDataJSON ? JSON.parse( mwDataJSON ) : {};
 	const mwAttrs = mwData.attrs || {};
@@ -96,7 +101,9 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	const body = ve.getProp( mwData, 'body', 'html' ) ||
 		( reflistItemId && getReflistItemHtml( reflistItemId ) ) ||
 		'';
-	const refGroup = mwAttrs.group || '';
+	const refGroup = mwAttrs.group ||
+		( reflistItemId && getReflistItemGroup( reflistItemId ) ) ||
+		'';
 	const listGroup = this.name + '/' + refGroup;
 	const listKey = this.makeListKey( converter.internalList, mwAttrs.name );
 	const { index, isNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
@@ -150,6 +157,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	domElement.setAttribute( 'typeof', 'mw:Extension/ref' );
 
 	const mwData = attributes.mw ? ve.copy( attributes.mw ) : {};
+	const originalMw = attributes.originalMw;
+	const originalMwData = originalMw ? JSON.parse( originalMw ) : {};
 	mwData.name = 'ref';
 
 	if ( isForClipboard || converter.isForParser() ) {
@@ -220,7 +229,10 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		}
 
 		// Set or clear group
-		if ( attributes.refGroup !== '' ) {
+		if ( attributes.refGroup !== '' &&
+			// List defined references that had no group before should not save their group T400596
+			!( attributes.refListItemId && !ve.getProp( originalMwData, 'attrs', 'group' ) )
+		) {
 			ve.setProp( mwData, 'attrs', 'group', attributes.refGroup );
 		} else if ( mwData.attrs ) {
 			delete mwData.attrs.group;
@@ -230,8 +242,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	// If mwAttr and originalMw are the same, use originalMw to prevent reserialization,
 	// unless we are writing the clipboard for use in another VE instance
 	// Reserialization has the potential to reorder keys and so change the DOM unnecessarily
-	const originalMw = attributes.originalMw;
-	if ( converter.isForParser() && originalMw && ve.compare( mwData, JSON.parse( originalMw ) ) ) {
+	if ( converter.isForParser() && originalMw && ve.compare( mwData, originalMwData ) ) {
 		domElement.setAttribute( 'data-mw', originalMw );
 
 		// Return the original DOM elements if possible

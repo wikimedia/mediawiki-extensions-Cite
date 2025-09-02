@@ -99,6 +99,10 @@ class RefGroup implements Countable {
 				'class' => 'mw-reference-text reference-text',
 			]
 		);
+		if ( $refGroup ) {
+			// Add group so that list defined refs can expose it to VE T400596
+			$reftextSpan->setAttribute( 'data-mw-group', $refGroup );
+		}
 		if ( $refContentId ) {
 			// `sup` is the wrapper created by RefTagHandler::sourceToDom()'s call to
 			// `extApi->extTagToDOM()`.  Only its contents are relevant.

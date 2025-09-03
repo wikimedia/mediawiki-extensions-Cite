@@ -38,6 +38,7 @@
 	"cite-ve-citationneeded-title": "Trenger referanse",
 	"cite-ve-dialog-reference-contextitem-extends": "Denne referansen er en gjenbruk med ytterligere detaljer:",
 	"cite-ve-dialog-reference-editing-add-details": "Du legger til ytterligere detaljer til",
+	"cite-ve-dialog-reference-editing-edit-details": "Redigerer detaljer",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Skriv eller lim inn ekstra detaljer er, for eksempel et spesifikt sidetall eller et sitat.",
 	"cite-ve-dialog-reference-editing-reused-short": "Brukt {{PLURAL:$1|en gang|2=to ganger|3=tre ganger|4=fire ganger|5=fem ganger|6=seks ganger|7=syv ganger|8=åtte ganger|9=ni ganger|$1 ganger}}",
 	"cite-ve-dialog-reference-editing-reused": "Denne referansen er brukt {{PLURAL:$1|én gang|$1  ganger}} på denne siden.",

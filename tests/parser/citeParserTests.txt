@@ -3889,15 +3889,16 @@ Roundtrip multiple follows
 !! test
 List-defined references with default and custom group
 !! wikitext
-<ref name="a" /> <ref name="a" group="g" />
+<ref name="a" /> <ref name="a" group="g" /> <ref name="b" group="g" />
 <references>
 <ref name="a">Default group content</ref>
 </references>
 <references group="g">
 <ref name="a">Custom group content</ref>
+<ref name="b">Custom group content other</ref>
 </references>
 !! html/php
-<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> <sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2"><span class="cite-bracket">&#91;</span>g 1<span class="cite-bracket">&#93;</span></a></sup>
+<p><sup id="cite_ref-a_1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup> <sup id="cite_ref-a_2-0" class="reference"><a href="#cite_note-a-2"><span class="cite-bracket">&#91;</span>g 1<span class="cite-bracket">&#93;</span></a></sup> <sup id="cite_ref-b_3-0" class="reference"><a href="#cite_note-b-3"><span class="cite-bracket">&#91;</span>g 2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">Default group content</span>
@@ -3906,17 +3907,20 @@ List-defined references with default and custom group
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite_note-a-2"><span class="mw-cite-backlink"><a href="#cite_ref-a_2-0">↑</a></span> <span class="reference-text">Custom group content</span>
 </li>
+<li id="cite_note-b-3"><span class="mw-cite-backlink"><a href="#cite_ref-b_3-0">↑</a></span> <span class="reference-text">Custom group content other</span>
+</li>
 </ol></div>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a"}}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference" id="cite_ref-a_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","group":"g"}}'><a href="./Parser_test#cite_note-a-2" data-mw-group="g"><span class="mw-reflink-text"><span class="cite-bracket">[</span>g 1<span class="cite-bracket">]</span></span></a></sup></p>
+<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a"}}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference" id="cite_ref-a_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","group":"g"}}'><a href="./Parser_test#cite_note-a-2" data-mw-group="g"><span class="mw-reflink-text"><span class="cite-bracket">[</span>g 1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference" id="cite_ref-b_3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"b","group":"g"}}'><a href="./Parser_test#cite_note-b-3" data-mw-group="g"><span class="mw-reflink-text"><span class="cite-bracket">[</span>g 2<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\"},\"body\":{\"id\":\"mw-reference-text-cite_note-a-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-a-1\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
 <ol class="mw-references references">
 <li id="cite_note-a-1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">Default group content</span></li>
 </ol>
 </div>
-<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{"group":"g"},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\"},\"body\":{\"id\":\"mw-reference-text-cite_note-a-2\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-a-2\" data-mw-group=\"g\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>g 1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{"group":"g"},"body":{"html":"\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"a\"},\"body\":{\"id\":\"mw-reference-text-cite_note-a-2\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-a-2\" data-mw-group=\"g\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>g 1&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n&lt;sup class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"b\"},\"body\":{\"id\":\"mw-reference-text-cite_note-b-3\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-b-3\" data-mw-group=\"g\">&lt;span class=\"mw-reflink-text\">&lt;span class=\"cite-bracket\">[&lt;/span>g 2&lt;span class=\"cite-bracket\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>\n"}}'>
 <ol class="mw-references references" data-mw-group="g">
 <li id="cite_note-a-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_2-0" data-mw-group="g" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-a-2" class="mw-reference-text reference-text" data-mw-group="g">Custom group content</span></li>
+<li id="cite_note-b-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-b_3-0" data-mw-group="g" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-b-3" class="mw-reference-text reference-text" data-mw-group="g">Custom group content other</span></li>
 </ol>
 </div>
 !! end

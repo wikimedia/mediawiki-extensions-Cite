@@ -215,14 +215,14 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 					}
 					this.getFragment().removeContent();
 					// Phabricator T396734
-					ve.track( 'activity.subReference', { action: 'dialog-done-subref-added' } );
+					ve.track( 'activity.subReference', { action: 'dialog-done-add-details' } );
 				}
 				this.fragment = this.getFragment().collapseToEnd();
 				ref.insertIntoFragment( this.getFragment() );
 			} else {
 				if ( ref.isSubRef() ) {
 					// Phabricator T396734
-					ve.track( 'activity.subReference', { action: 'dialog-done-subref-edited' } );
+					ve.track( 'activity.subReference', { action: 'dialog-done-edit-details' } );
 				}
 				ref.updateInternalItem( this.getFragment().getSurface() );
 			}

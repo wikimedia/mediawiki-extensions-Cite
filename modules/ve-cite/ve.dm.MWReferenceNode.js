@@ -732,6 +732,15 @@ ve.dm.MWReferenceNode.prototype.copySyntheticRefIntoReferencesList = function ( 
 
 	const attributes = ve.copy( this.getAttributes() );
 	ve.setProp( attributes, 'mw', 'isSyntheticMainRef', true );
+	ve.setProp( attributes, 'contentsUsed', true );
+	if ( !ve.getProp( attributes, 'refListItemId' ) ) {
+		// This will be the value of the `id` attribute of reference list item
+		const refListItemId = 'cite_note-' +
+			attributes.listGroup + '-' +
+			attributes.listKey + '-' +
+			attributes.listIndex;
+		ve.setProp( attributes, 'refListItemId', refListItemId.replace( /[_\s]+/u, '_' ) );
+	}
 	const txInsert = ve.dm.TransactionBuilder.static.newFromInsertion(
 		this.getDocument(), refListNodeRange.to, [
 			{

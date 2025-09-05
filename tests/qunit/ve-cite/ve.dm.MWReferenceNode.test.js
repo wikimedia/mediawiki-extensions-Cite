@@ -35,13 +35,13 @@ QUnit.test( 'shouldGetBodyContent on a normal main reference', ( assert ) => {
 	const ownRef = { attributes: { listKey: 'foo', listGroup: 'same' } };
 
 	// There is no other ref, only this one
-	const nodesWithSameKey = [ new ve.dm.Model( ownRef ) ];
-	const nodeGroup = { keyedNodes: { foo: nodesWithSameKey } };
+	const nodeGroup = new ve.dm.InternalListNodeGroup();
+	nodeGroup.appendNode( 'foo', new ve.dm.Model( ownRef ) );
 	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 
 	// Another ref was holding the content before
 	const otherRef = { attributes: { contentsUsed: true } };
-	nodesWithSameKey.push( new ve.dm.Model( otherRef ) );
+	nodeGroup.appendNode( 'foo', new ve.dm.Model( otherRef ) );
 	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 
 	// No other ref was holding the content before
@@ -59,7 +59,7 @@ QUnit.test( 'shouldGetBodyContent on a normal main reference', ( assert ) => {
 
 QUnit.test( 'shouldGetBodyContent on a sub-reference', ( assert ) => {
 	const dataElement = { attributes: { mainRefKey: 'x' } };
-	const nodeGroup = { keyedNodes: {} };
+	const nodeGroup = new ve.dm.InternalListNodeGroup();
 	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 } );
 
@@ -67,7 +67,7 @@ QUnit.test( 'generateName on a normal main reference', ( assert ) => {
 	const attributes = {};
 	const internalList = {
 		getUniqueListKey: () => 'literal/:7',
-		getNodeGroup: () => ( { firstNodes: [] } )
+		getNodeGroup: () => new ve.dm.InternalListNodeGroup()
 	};
 	const nodesWithSameKey = [ 'dummy1' ];
 	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ), undefined );
@@ -107,11 +107,11 @@ QUnit.test( 'getSubRefs', ( assert ) => {
 
 QUnit.test( 'hasSubRefs', ( assert ) => {
 	const attributes = { listKey: 'a' };
-	const firstNodes = [];
-	const internalList = { getNodeGroup: () => ( { firstNodes } ) };
+	const nodeGroup = new ve.dm.InternalListNodeGroup();
+	const internalList = { getNodeGroup: () => nodeGroup };
 	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
-	firstNodes.push( new ve.dm.Model( { attributes: { mainRefKey: 'a' } } ) );
+	nodeGroup.appendNode( '', new ve.dm.Model( { attributes: { mainRefKey: 'a' } } ) );
 	assert.true( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
 	// But when it's a sub-ref it cannot have sub-refs

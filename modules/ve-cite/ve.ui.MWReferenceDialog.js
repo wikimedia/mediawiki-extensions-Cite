@@ -207,11 +207,13 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 					// make sure there's a synth main ref to save the main body
 					const internalList = this.getFragment().getDocument().getInternalList();
 					const mainNodes = internalList.getNodeGroup( 'mwReference/' + ref.group )
-						.getAllReuses( ref.mainRefKey );
+						.getAllReuses( ref.mainRefKey ) || [];
 					const foundExistingSynthMain = mainNodes.some(
 						( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSyntheticMainRef' ) );
-					if ( !foundExistingSynthMain && mainNodes ) {
-						mainNodes[ 0 ].copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
+					if ( !foundExistingSynthMain && mainNodes.length ) {
+						const mainNodeToCopy = mainNodes
+							.find( ( node ) => node.getAttribute( 'refListItemId' ) ) || mainNodes[ 0 ];
+						mainNodeToCopy.copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
 					}
 					this.getFragment().removeContent();
 					// Phabricator T396734

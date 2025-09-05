@@ -247,6 +247,10 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		// Render all at once.
 		this.$reflist.append(
 			groupRefs.getTopLevelKeysInReflistOrder()
+				// getTotalUsageCount includes subreferences but excludes
+				// reference list usages, so this is removing any references
+				// that're only used in this node:
+				.filter( ( listKey ) => groupRefs.getTotalUsageCount( listKey ) > 0 )
 				.map( ( listKey ) => this.renderListItem(
 					groupRefs, refGroup, listKey
 				) )

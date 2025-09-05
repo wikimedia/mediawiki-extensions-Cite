@@ -182,7 +182,10 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	} else if (
 		dataElement.originalDomElementsHash !== undefined &&
 		// don't get originalDamElements when there are changes, needed to update synthetic refs
-		!updatedMw
+		!updatedMw &&
+		!ve.dm.MWReferencesListNode.static.groupContainsUnusedRefs(
+			dataElement.attributes.refGroup || '', doc, converter
+		)
 	) {
 		// If there's more than 1 element, preserve entire array, not just first element
 		domElements = ve.copyDomElements(
@@ -301,6 +304,25 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
 };
 
 /***
+ * Check whether a group contains unused references
+ *
+ * @static
+ * @param {string} refGroup
+ * @param {HTMLDocument} doc
+ * @param {ve.dm.Converter} converter
+ * @return {boolean}
+ * */
+ve.dm.MWReferencesListNode.static.groupContainsUnusedRefs = function ( refGroup, doc, converter ) {
+	const docRefs = MWDocumentReferences.static.refsForDoc(
+		converter.internalList.document
+	);
+	const groupRefs = docRefs.getGroupRefs( refGroup );
+	return groupRefs.getTopLevelKeysInReflistOrder().some(
+		( listKey ) => groupRefs.getTotalUsageCount( listKey ) === 0
+	);
+};
+
+/***
  * Create references list HTML DOM for Parsoid
  *
  * @static
@@ -319,6 +341,10 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, c
 	const $wrapper = $( '<ol>', doc );
 	$wrapper.append(
 		groupRefs.getTopLevelKeysInReflistOrder()
+			// getTotalUsageCount includes subreferences but excludes
+			// reference list usages, so this is removing any references
+			// that're only used in this node:
+			.filter( ( listKey ) => groupRefs.getTotalUsageCount( listKey ) > 0 )
 			.map( ( listKey ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
 				groupRefs, listKey, doc, converter
 			) )

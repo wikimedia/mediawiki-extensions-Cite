@@ -469,7 +469,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
  * @return {ve.dm.Node[]}
  */
 ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
-	return nodeGroup.firstNodes.filter(
+	return nodeGroup.getFirstNodesInIndexOrder().filter(
 		( node ) => node.element.attributes.mainRefKey === mainRefKey
 	);
 };

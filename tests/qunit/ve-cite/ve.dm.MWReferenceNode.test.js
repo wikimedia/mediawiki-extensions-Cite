@@ -88,6 +88,23 @@ QUnit.test( 'generateName on a sub-reference', ( assert ) => {
 	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, [] ), 'foo' );
 } );
 
+QUnit.test( 'getSubRefs', ( assert ) => {
+	const node1 = new ve.dm.Node( { attributes: { mainRefKey: 'a' } } );
+	node1.getOffset = () => 98;
+	const node2 = new ve.dm.Node( { attributes: { mainRefKey: 'a' } } );
+	node2.getOffset = () => 99;
+
+	const nodeGroup = new ve.dm.InternalListNodeGroup();
+	nodeGroup.appendNode( 'subref2', node2 );
+	nodeGroup.appendNode( 'subref1', node1 );
+	nodeGroup.sortGroupIndexes();
+
+	const subRefs = ve.dm.MWReferenceNode.static.getSubRefs( 'a', nodeGroup );
+	assert.strictEqual( subRefs.length, 2 );
+	// The returned sub-references should be in document order
+	assert.strictEqual( subRefs[ 0 ].getOffset(), 98 );
+} );
+
 QUnit.test( 'hasSubRefs', ( assert ) => {
 	const attributes = { listKey: 'a' };
 	const firstNodes = [];

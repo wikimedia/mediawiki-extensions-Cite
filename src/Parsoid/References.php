@@ -668,7 +668,7 @@ class References {
 			foreach ( $refGroup->toArray() as $ref ) {
 				// Skip sub-references in the outer loop
 				if ( $ref->subrefIndex === null ) {
-					$refGroup->renderReferenceListElement( $extApi, $refsNode, $ref );
+					$refGroup->renderReferenceListElement( $extApi, $refsNode, $ref, $this->markSymbolRenderer );
 					// Render and append related sub-refs to main ref node
 					$subRefs = $this->renderSubReferencesList( $extApi, $refsNode->ownerDocument, $refGroup, $ref );
 					if ( $subRefs ) {
@@ -754,7 +754,7 @@ class References {
 		foreach ( $refGroup->toArray() as $ref ) {
 			if ( $ref->numberInGroup === $mainRef->numberInGroup && $ref !== $mainRef ) {
 				$ol ??= $doc->createElement( 'ol' );
-				$refGroup->renderReferenceListElement( $extApi, $ol, $ref );
+				$refGroup->renderReferenceListElement( $extApi, $ol, $ref, $this->markSymbolRenderer );
 			}
 		}
 		if ( $ol ) {

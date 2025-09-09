@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use Cite\MarkSymbolRenderer;
 use Countable;
 use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\DOM\Document;
@@ -72,7 +73,7 @@ class RefGroup implements Countable {
 	}
 
 	public function renderReferenceListElement(
-		ParsoidExtensionAPI $extApi, Element $refsList, RefGroupItem $ref
+		ParsoidExtensionAPI $extApi, Element $refsList, RefGroupItem $ref, MarkSymbolRenderer $markSymbolRenderer
 	): void {
 		$ownerDoc = $refsList->ownerDocument;
 
@@ -80,13 +81,16 @@ class RefGroup implements Countable {
 		// We then append the rest of the ref nodes before the first node
 		$li = $ownerDoc->createElement( 'li' );
 		$refDir = $ref->dir;
+		$footnoteNumber = $markSymbolRenderer->renderFootnoteNumber(
+			$ref->group, $ref->numberInGroup, $ref->subrefIndex );
 		$noteId = ParsoidAnchorFormatter::getNoteIdentifier( $ref );
 		$refContentId = $ref->contentId;
 		$refGroup = $ref->group;
 		DOMUtils::addAttributes( $li, [
 				'about' => '#' . $noteId,
 				'id' => $noteId,
-				'class' => ( $refDir === 'rtl' || $refDir === 'ltr' ) ? 'mw-cite-dir-' . $refDir : null
+				'class' => ( $refDir === 'rtl' || $refDir === 'ltr' ) ? 'mw-cite-dir-' . $refDir : null,
+				'data-mw-footnote-number' => $footnoteNumber
 			]
 		);
 		$reftextSpan = $ownerDoc->createElement( 'span' );

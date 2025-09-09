@@ -27,7 +27,8 @@ class FootnoteMarkFormatter {
 	 * @return string Wikitext
 	 */
 	public function linkRef( ReferenceStackItem $ref ): string {
-		$label = $this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup, $ref->subrefIndex );
+		$label = $this->markSymbolRenderer->renderFootnoteMarkLabel(
+			$ref->group, $ref->numberInGroup, $ref->subrefIndex );
 		return $this->messageLocalizer->msg(
 			'cite_reference_link',
 			$this->anchorFormatter->backlinkTarget( $ref->name, $ref->globalId, $ref->count ),

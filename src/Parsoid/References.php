@@ -441,7 +441,7 @@ class References {
 		$openBracket->setAttribute( 'class', 'cite-bracket' );
 		$refLinkSpan->appendChild( $openBracket );
 		$refLinkSpan->appendChild( $doc->createTextNode(
-			$this->markSymbolRenderer->makeLabel( $ref->group, $ref->numberInGroup, $ref->subrefIndex )
+			$this->markSymbolRenderer->renderFootnoteMarkLabel( $ref->group, $ref->numberInGroup, $ref->subrefIndex )
 		) );
 		$closeBracket = $doc->createElement( 'span' );
 		$closeBracket->appendChild( $doc->createTextNode( ']' ) );

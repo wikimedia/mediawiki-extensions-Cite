@@ -16,7 +16,7 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider provideCustomizedLinkLabels
 	 */
-	public function testMakeLabel(
+	public function testRenderFootnoteMarkLabel(
 		string $expectedLabel,
 		int $offset,
 		?int $extendsIndex = null,
@@ -31,9 +31,10 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnCallback(
 			static fn ( $number ) => (string)$number
 		);
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
 		$renderer = new MarkSymbolRenderer( $mockMessageLocalizer );
 
-		$output = $renderer->makeLabel( $group, $offset, $extendsIndex );
+		$output = $renderer->renderFootnoteMarkLabel( $group, $offset, $extendsIndex );
 		$this->assertSame( $expectedLabel, $output );
 	}
 
@@ -51,6 +52,20 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 		yield [ 'å.1', 1, 1, 'group', 'å β' ];
 	}
 
+	public function testRenderFootnoteNumber() {
+		$msg = $this->createMock( Message::class );
+		$msg->method( 'isDisabled' )->willReturn( true );
+		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
+		$mockMessageLocalizer->method( 'msg' )->willReturn( $msg );
+		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnCallback(
+			static fn ( $number ) => (string)$number
+		);
+		/** @var ReferenceMessageLocalizer $mockMessageLocalizer */
+		$renderer = new MarkSymbolRenderer( $mockMessageLocalizer );
+
+		$this->assertSame( '1.2', $renderer->renderFootnoteNumber( 'group', 1, 2 ) );
+	}
+
 	public function testDefaultGroupCannotHaveCustomLinkLabels() {
 		$mockMessageLocalizer = $this->createMock( ReferenceMessageLocalizer::class );
 		$mockMessageLocalizer->method( 'localizeDigits' )->willReturnCallback(
@@ -61,7 +76,7 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 
 		$renderer = new MarkSymbolRenderer( $mockMessageLocalizer );
 
-		$this->assertSame( '1', $renderer->makeLabel( Cite::DEFAULT_GROUP, 1 ) );
+		$this->assertSame( '1', $renderer->renderFootnoteMarkLabel( Cite::DEFAULT_GROUP, 1 ) );
 	}
 
 }

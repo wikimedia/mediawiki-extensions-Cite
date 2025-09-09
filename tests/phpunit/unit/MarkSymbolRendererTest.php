@@ -16,7 +16,13 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider provideCustomizedLinkLabels
 	 */
-	public function testMakeLabel( ?string $expectedLabel, int $offset, string $group, ?string $labelList ) {
+	public function testMakeLabel(
+		string $expectedLabel,
+		int $offset,
+		?int $extendsIndex = null,
+		string $group = '',
+		?string $labelList = null
+	) {
 		$msg = $this->createMock( Message::class );
 		$msg->method( 'isDisabled' )->willReturn( $labelList === null );
 		$msg->method( 'plain' )->willReturn( $labelList );
@@ -27,19 +33,22 @@ class MarkSymbolRendererTest extends \MediaWikiUnitTestCase {
 		);
 		$renderer = new MarkSymbolRenderer( $mockMessageLocalizer );
 
-		$output = $renderer->makeLabel( $group, $offset );
+		$output = $renderer->makeLabel( $group, $offset, $extendsIndex );
 		$this->assertSame( $expectedLabel, $output );
 	}
 
 	public static function provideCustomizedLinkLabels() {
-		yield [ '1', 1, '', null ];
-		yield [ '2', 2, '', null ];
-		yield [ 'foo 1', 1, 'foo', null ];
-		yield [ 'foo 2', 2, 'foo', null ];
-		yield [ 'a', 1, 'foo', 'a b c' ];
-		yield [ 'b', 2, 'foo', 'a b c' ];
-		yield [ 'å', 1, 'foo', 'å β' ];
-		yield [ 'foo 4', 4, 'foo', 'a b c' ];
+		yield [ '1', 1 ];
+		yield [ '2', 2 ];
+		yield [ 'group 1', 1, null, 'group' ];
+		yield [ 'group 2', 2, null, 'group' ];
+		yield [ 'a', 1, null, 'group', 'a b c' ];
+		yield [ 'b', 2, null, 'group', 'a b c' ];
+		yield [ 'å', 1, null, 'group', 'å β' ];
+		yield [ 'group 4', 4, null, 'group', 'a b c' ];
+		yield [ 'group 4', 4, null, 'group' ];
+		yield [ '4.1', 4, 1 ];
+		yield [ 'å.1', 1, 1, 'group', 'å β' ];
 	}
 
 	public function testDefaultGroupCannotHaveCustomLinkLabels() {

@@ -85,6 +85,16 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 		classes: [ 've-ui-mwReferenceDialog-reuseWarning' ]
 	} );
 
+	this.helpLink = new OO.ui.LabelWidget( {
+		classes: [ 'mw-parser-output' ],
+		label: $( '<a>' )
+			.addClass( 'external ve-ui-mwReferenceDialog-helpLink' )
+			.attr( {
+				href: ve.msg( 'cite-ve-dialog-subreference-help-dialog-link' )
+			} )
+			.text( ve.msg( 'cite-ve-dialog-subreference-help-dialog-link-label' ) )
+	} );
+
 	this.referenceTarget.connect( this, { change: 'onInputChange' } );
 	this.referenceGroupInput.connect( this, { change: 'onInputChange' } );
 
@@ -96,7 +106,8 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	this.editPanel.$element.append(
 		this.reuseWarning.$element,
 		this.contentFieldset.$element,
-		this.optionsFieldset.$element
+		this.optionsFieldset.$element,
+		this.helpLink.$element
 	);
 
 	// Append to panel element
@@ -234,6 +245,7 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.setFormFieldsFromRef( ref );
 	this.updateReuseWarningFromRef( ref );
 	this.updatePreviewFromRef( ref );
+	this.helpLink.toggle( ref.isSubRef() );
 };
 
 /**

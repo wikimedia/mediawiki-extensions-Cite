@@ -27,7 +27,8 @@ QUnit.module( 've.dm.Converter (Cite)', ve.test.utils.newMwEnvironment( {
 QUnit.test( 'getModelFromDom', function ( assert ) {
 	const cases = {
 		...ve.dm.ConverterTestCases.cases,
-		...ve.dm.ConverterIntegrationTestCases.cases
+		...ve.dm.ConverterIntegrationTestCases.cases,
+		...ve.dm.ConverterSubReferenceTestCases.cases
 	};
 
 	for ( const msg in cases ) {
@@ -39,7 +40,8 @@ QUnit.test( 'getModelFromDom', function ( assert ) {
 QUnit.test( 'getDomFromModel', function ( assert ) {
 	const cases = {
 		...ve.dm.ConverterTestCases.cases,
-		...ve.dm.ConverterIntegrationTestCases.cases
+		...ve.dm.ConverterIntegrationTestCases.cases,
+		...ve.dm.ConverterSubReferenceTestCases.cases
 	};
 
 	for ( const msg in cases ) {

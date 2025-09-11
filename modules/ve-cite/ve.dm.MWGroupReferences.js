@@ -148,11 +148,16 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
  * List all document references in the order they first appear, ignoring reuses
  * and placeholders.
  *
- * @deprecated use {@link ve.dm.InternalListNodeGroup.getFirstNodesInIndexOrder} instead
+ * @fixme This is another idea of "in document order"! Only main refs are in document order.
+ * Subrefs are grouped!
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getAllRefsInDocumentOrder = function () {
-	return this.nodeGroup ? this.nodeGroup.getFirstNodesInIndexOrder() : [];
+	return Object.keys( this.footnoteNumberLookup )
+		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] )
+		.map( ( listKey ) => this.nodeGroup.getAllReuses( listKey ) )
+		.filter( ( nodes ) => !!nodes )
+		.map( ( nodes ) => nodes[ 0 ] );
 };
 
 /**

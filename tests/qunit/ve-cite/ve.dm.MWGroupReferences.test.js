@@ -94,10 +94,10 @@ QUnit.test( 'sub-references', ( assert ) => {
 	assert.deepEqual(
 		groupRefs.getAllRefsInDocumentOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
 		[
+			'literal/ldr',
 			'auto/0',
 			'auto/1',
-			'literal/orphaned',
-			'literal/ldr'
+			'literal/orphaned'
 		]
 	);
 

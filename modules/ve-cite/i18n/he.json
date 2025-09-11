@@ -55,7 +55,7 @@
 	"cite-ve-dialog-reference-add-details-button": "הוספת פרטים",
 	"cite-ve-dialog-subreference-help-dialog-title": "פרטים",
 	"cite-ve-dialog-subreference-help-dialog-head": "חדש: הוספת פרטים להערות שוליים שנעשה בה שימוש חוזר",
-	"cite-ve-dialog-subreference-help-dialog-content": "בעת שימוש חוזר בהערת שוליים, ניתן כעת להוסיף פרטים שונים כגון מספר עמוד או ציטוט מבלי לחזור על הערת השוליים המלאה.<br><br> <strong>יש להשתמש בזה כאשר:</strong><ul><li>ציטוט עמודים או כרכים שונים של ספר<li>ציון חותם־זמן בהסכת המצוטט<li>הוספת ציטוט רלוונטי מהמקור</ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "בעת שימוש חוזר בהערת שוליים, ניתן כעת להוסיף פרטים שונים כגון מספר עמוד או ציטוט מבלי לחזור על הערת השוליים המלאה.<br><br> <strong>יש להשתמש בזה כאשר:</strong><ul><li>ציטוט עמודים או כרכים שונים של ספר</li><li>ציון חותם־זמן בהסכת המצוטט</li><li>הוספת ציטוט רלוונטי מהמקור</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "מידע נוסף על הוספת פרטים להערת שוליים",
 	"cite-ve-dialog-reference-title-details": "פרטים",
 	"cite-ve-dialog-reference-useexisting-tool": "שימוש חוזר",

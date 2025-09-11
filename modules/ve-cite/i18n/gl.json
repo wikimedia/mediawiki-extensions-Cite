@@ -51,7 +51,7 @@
 	"cite-ve-dialog-reference-add-details-button": "Engadir os detalles",
 	"cite-ve-dialog-subreference-help-dialog-title": "Detalles",
 	"cite-ve-dialog-subreference-help-dialog-head": "Novo: Engadir un detalle a unha referencia reutilizada",
-	"cite-ve-dialog-subreference-help-dialog-content": "Ao reutilizares unha referencia, agora podes engadir diferentes detalles, como un número de páxina ou unha cita, sen repetir a referencia completa.<br><br><strong>Úsao cando:</strong><ul><li>Cites diferentes páxinas ou volumes dun libro<li>Especifiques unha marca de tempo nun podcast citado<li>Engadas unha cita relevante dunha fonte</ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "Ao reutilizares unha referencia, agora podes engadir diferentes detalles, como un número de páxina ou unha cita, sen repetir a referencia completa.<br><br><strong>Úsao cando:</strong><ul><li>Cites diferentes páxinas ou volumes dun libro</li><li>Especifiques unha marca de tempo nun podcast citado</li><li>Engadas unha cita relevante dunha fonte</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Máis información sobre como engadir detalles a unha referencia",
 	"cite-ve-dialog-reference-title-details": "Detalles",
 	"cite-ve-dialog-reference-useexisting-tool": "Reutilizar",

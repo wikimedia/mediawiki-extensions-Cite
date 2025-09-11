@@ -41,7 +41,7 @@
 	"cite-ve-dialog-reference-add-details-button": "Додај поединости",
 	"cite-ve-dialog-subreference-help-dialog-title": "Поединости",
 	"cite-ve-dialog-subreference-help-dialog-head": "Ново: Додавајте поединости кон преупотребен навод",
-	"cite-ve-dialog-subreference-help-dialog-content": "Кога преупотребувате навод, можете да додавате различни поединости како број на страница или цитат без да го повторувате целиот навод.<br><br><strong>Ова се користи за:</strong><ul><li>Наведување на други страници или томови од една книга<li>Укажување на датум и време на наведен поткаст<li>Додавање на релевантен цитат од извор</ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "Кога преупотребувате навод, можете да додавате различни поединости како број на страница или цитат без да го повторувате целиот навод.<br><br><strong>Ова се користи за:</strong><ul><li>Наведување на други страници или томови од една книга</li><li>Укажување на датум и време на наведен поткаст</li><li>Додавање на релевантен цитат од извор</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Дознајте повеќе за додавањето на поединости во наводи",
 	"cite-ve-dialog-reference-title-details": "Поединости",
 	"cite-ve-dialog-reference-useexisting-tool": "Преупотреба",

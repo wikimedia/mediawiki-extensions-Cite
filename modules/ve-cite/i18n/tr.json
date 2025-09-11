@@ -64,7 +64,7 @@
 	"cite-ve-dialog-reference-add-details-button": "Ayrıntıları ekleyin",
 	"cite-ve-dialog-subreference-help-dialog-title": "Ayrıntılar",
 	"cite-ve-dialog-subreference-help-dialog-head": "Yeni: Yeniden kullanılan bir kaynağa ayrıntı ekleyin",
-	"cite-ve-dialog-subreference-help-dialog-content": "Bir kaynağı yeniden kullanırken artık tam kaynağı yinelemeden sayfa numarası ya da alıntı gibi farklı ayrıntılar ekleyebilirsiniz.<br><br> <strong>Bunu şu durumlarda kullanın:</strong><ul><li>Bir kitabın farklı sayfalarına ya da ciltlerine atıfta bulunmak<li>Alıntı yapılan bir podcast'te zaman damgası belirtmek<li>Bir kaynaktan ilgili bir alıntı ekleme</ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "Bir kaynağı yeniden kullanırken artık tam kaynağı yinelemeden sayfa numarası ya da alıntı gibi farklı ayrıntılar ekleyebilirsiniz.<br><br> <strong>Bunu şu durumlarda kullanın:</strong><ul><li>Bir kitabın farklı sayfalarına ya da ciltlerine atıfta bulunmak</li><li>Alıntı yapılan bir podcast'te zaman damgası belirtmek</li><li>Bir kaynaktan ilgili bir alıntı ekleme</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Bir kaynağa ayrıntı ekleme hakkında daha fazla bilgi edinin",
 	"cite-ve-dialog-reference-title-details": "Ayrıntılar",
 	"cite-ve-dialog-reference-useexisting-tool": "Tekrar kullan",

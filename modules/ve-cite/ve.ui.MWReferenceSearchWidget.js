@@ -69,6 +69,14 @@ ve.ui.MWReferenceSearchWidget.prototype.onQueryChange = function () {
  * @param {jQuery.Event} e Key down event
  */
 ve.ui.MWReferenceSearchWidget.prototype.onQueryKeydown = function ( e ) {
+	if ( e.which === OO.ui.Keys.TAB ) {
+		if ( !this.results.findHighlightedItem() ) {
+			this.results.highlightItem( this.results.findFirstSelectableItem() );
+		}
+		// Block tabbing out of the dialog, there is nothing after the search results anyway
+		e.preventDefault();
+	}
+
 	// Parent method
 	ve.ui.MWReferenceSearchWidget.super.prototype.onQueryKeydown.call( this, e );
 

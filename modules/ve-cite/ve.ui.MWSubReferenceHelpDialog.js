@@ -69,7 +69,12 @@ ve.ui.MWSubReferenceHelpDialog.prototype.initialize = function () {
 					href: ve.msg( 'cite-ve-dialog-subreference-help-dialog-link' ),
 					target: '_blank'
 				} )
+
 			)
+			.on( 'click', () => {
+				// Phabricator T403720
+				ve.track( 'activity.subReference', { action: 'subref-tooltip-help-click' } );
+			} )
 	);
 };
 
@@ -77,6 +82,14 @@ ve.ui.MWSubReferenceHelpDialog.prototype.initialize = function () {
  * @override
  */
 ve.ui.MWSubReferenceHelpDialog.prototype.getActionProcess = function ( action ) {
+	// Phabricator T403720
+	if ( action === 'close' ) {
+		ve.track( 'activity.subReference', { action: 'subref-tooltip-abort' } );
+	}
+	if ( action === 'dismiss' ) {
+		ve.track( 'activity.subReference', { action: 'subref-tooltip-confim' } );
+	}
+
 	return new OO.ui.Process( () => {
 		this.close( action );
 	} );

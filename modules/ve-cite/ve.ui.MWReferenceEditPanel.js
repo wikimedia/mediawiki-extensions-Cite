@@ -94,6 +94,10 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 				target: '_blank'
 			} )
 			.text( ve.msg( 'cite-ve-dialog-subreference-help-dialog-link-label' ) )
+			.on( 'click', () => {
+				// Phabricator T403720
+				ve.track( 'activity.subReference', { action: 'subref-edit-help-click' } );
+			} )
 	} );
 
 	this.referenceTarget.connect( this, { change: 'onInputChange' } );
@@ -272,7 +276,6 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
 			ve.msg( 'cite-ve-dialog-reference-editing-add-details-placeholder' )
 		);
 	}
-
 	this.optionsFieldset.toggle( !ref.isSubRef() );
 
 	this.originalGroup = ref.getGroup();

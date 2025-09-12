@@ -240,7 +240,7 @@ ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs 
  */
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.referenceModel = ref;
-	const isInsertingSubRef = ref.isSubRef() && !ref.getDocument().data.hasContent();
+	const isInsertingSubRef = ref.isSubRef() && !this.documentHasContent();
 
 	this.referenceListFieldset.setLabel( ve.msg( isInsertingSubRef ?
 		'cite-ve-dialog-reference-editing-add-details' :

@@ -485,7 +485,7 @@ class References {
 		// so we look for other misnested references before inserting
 		$insertionPoint = $aParent->nextSibling;
 		while ( $insertionPoint instanceof Element &&
-			DOMCompat::nodeName( $insertionPoint ) === 'sup' &&
+			DOMUtils::nodeName( $insertionPoint ) === 'sup' &&
 			!empty( DOMDataUtils::getDataParsoid( $insertionPoint )->misnested )
 		) {
 			$insertionPoint = $insertionPoint->nextSibling;

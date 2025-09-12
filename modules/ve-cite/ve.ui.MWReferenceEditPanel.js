@@ -94,7 +94,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 		label: $( '<a>' )
 			.addClass( 'external' )
 			.attr( {
-				href: ve.msg( 'cite-ve-dialog-subreference-help-dialog-link' ),
+				href: ve.msg( 'cite-ve-dialog-subreference-help-dialog-link-ve' ),
 				target: '_blank'
 			} )
 			.text( ve.msg( 'cite-ve-dialog-subreference-help-dialog-link-label' ) )

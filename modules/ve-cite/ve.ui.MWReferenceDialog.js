@@ -199,15 +199,15 @@ ve.ui.MWReferenceDialog.prototype.openReusePanel = function () {
 ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
 		return new OO.ui.Process( () => {
-			const ref = this.editPanel.getReferenceFromEditing();
+			let ref = this.editPanel.getReferenceFromEditing();
+			const nodeGroup = this.getFragment().getDocument()
+				.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
 			if ( !( this.selectedNode instanceof MWReferenceNode ) || this.createSubRefMode ) {
 				// Collapse returns a new fragment, so update this.fragment
 				if ( this.createSubRefMode ) {
 					// We're creating a new subref by replacing a main ref
 					// make sure there's a synth main ref to save the main body
-					const internalList = this.getFragment().getDocument().getInternalList();
-					const mainNodes = internalList.getNodeGroup( 'mwReference/' + ref.group )
-						.getAllReuses( ref.mainRefKey ) || [];
+					const mainNodes = nodeGroup.getAllReuses( ref.mainRefKey ) || [];
 					const foundExistingSynthMain = mainNodes.some(
 						( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSyntheticMainRef' ) );
 					if ( !foundExistingSynthMain && mainNodes.length ) {
@@ -223,6 +223,14 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				ref.insertIntoFragment( this.getFragment() );
 			} else {
 				if ( ref.isSubRef() ) {
+					// We don't want to edit all sub-ref reuses. If there's one here we need
+					// to generate new keys and insert the sub-ref as new node to split it.
+					const subRefReuses = nodeGroup.getAllReuses( ref.listKey ) || [];
+					if ( subRefReuses.length > 1 ) {
+						ref = MWReferenceModel.static.copySubReference( ref, this.getFragment().getDocument() );
+						this.getFragment().removeContent();
+						ref.insertIntoFragment( this.getFragment() );
+					}
 					// Phabricator T396734
 					ve.track( 'activity.subReference', { action: 'dialog-done-edit-details' } );
 				}

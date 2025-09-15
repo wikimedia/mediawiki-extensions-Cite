@@ -16,10 +16,13 @@ use MediaWiki\MediaWikiServices;
 return [
 
 	'Cite.AlphabetsProvider' => static function ( MediaWikiServices $services ): AlphabetsProvider {
-		return new AlphabetsProvider(
-			$services->getExtensionRegistry()->isLoaded( 'CLDR' ) ?
-				new Alphabets() : null
+		$isCldrLoaded = (
+			$services->getExtensionRegistry()->isLoaded( 'cldr' )
+			||
+			$services->getExtensionRegistry()->isLoaded( 'CLDR' )
 		);
+
+		return new AlphabetsProvider( $isCldrLoaded ? new Alphabets() : null );
 	},
 
 	'Cite.BacklinkMarkRenderer' => static function ( MediaWikiServices $services ): BacklinkMarkRenderer {

@@ -767,6 +767,10 @@ ve.dm.MWReferenceNode.prototype.onRoot = function () {
  */
 ve.dm.MWReferenceNode.prototype.onUnroot = function ( oldRoot ) {
 	if ( this.getDocument().getDocumentNode() === oldRoot ) {
+		// Phabricator T401495
+		if ( this.getAttribute( 'mainRefKey' ) ) {
+			ve.track( 'activity.subReference', { action: 'delete-subref' } );
+		}
 		this.removeFromInternalList();
 	}
 };

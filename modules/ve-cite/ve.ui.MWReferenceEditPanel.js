@@ -86,9 +86,13 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	} );
 
 	this.helpLink = new OO.ui.LabelWidget( {
-		classes: [ 'mw-parser-output' ],
+		classes: [
+			// Needed for the external link icon
+			'mw-parser-output',
+			've-ui-mwReferenceDialog-helpLink'
+		],
 		label: $( '<a>' )
-			.addClass( 'external ve-ui-mwReferenceDialog-helpLink' )
+			.addClass( 'external' )
 			.attr( {
 				href: ve.msg( 'cite-ve-dialog-subreference-help-dialog-link' ),
 				target: '_blank'

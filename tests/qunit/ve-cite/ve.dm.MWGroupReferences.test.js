@@ -16,9 +16,9 @@ QUnit.test( 'isEmpty', function ( assert ) {
 	assert.true( this.emptyGroupRefs.isEmpty() );
 } );
 
-QUnit.test( 'getAllRefsInDocumentOrder', function ( assert ) {
+QUnit.test( 'getAllRefsInReflistOrder', function ( assert ) {
 	assert.deepEqual(
-		this.plainGroupRefs.getAllRefsInDocumentOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
+		this.plainGroupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
 		[
 			'auto/0',
 			'literal/bar',
@@ -27,12 +27,12 @@ QUnit.test( 'getAllRefsInDocumentOrder', function ( assert ) {
 		]
 	);
 	assert.deepEqual(
-		this.fooGroupRefs.getAllRefsInDocumentOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
+		this.fooGroupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
 		[
 			'auto/2'
 		]
 	);
-	assert.deepEqual( this.emptyGroupRefs.getAllRefsInDocumentOrder(), [] );
+	assert.deepEqual( this.emptyGroupRefs.getAllRefsInReflistOrder(), [] );
 } );
 
 QUnit.test( 'getTopLevelKeysInReflistOrder', function ( assert ) {
@@ -92,7 +92,7 @@ QUnit.test( 'sub-references', ( assert ) => {
 	const groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( subRefDoc ).getGroupRefs( '' );
 
 	assert.deepEqual(
-		groupRefs.getAllRefsInDocumentOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
+		groupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
 		[
 			'literal/ldr',
 			'auto/0',

@@ -153,7 +153,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			continue;
 		}
 		const groupRefs = this.docRefs.getGroupRefs( groupName );
-		const flatNodes = groupRefs.getAllRefsInDocumentOrder()
+		const flatNodes = groupRefs.getAllRefsInReflistOrder()
 			.filter( ( node ) => !filterExtends || !node.getAttribute( 'mainRefKey' ) );
 
 		index = index.concat( flatNodes.map( ( node ) => {

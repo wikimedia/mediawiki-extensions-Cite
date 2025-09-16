@@ -300,7 +300,8 @@ ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref 
 	const totalUsageCount = this.docRefs.getGroupRefs( ref.getGroup() )
 		.getTotalUsageCount( ref.getListKey() );
 	this.reuseWarning
-		.toggle( totalUsageCount > 1 )
+		// Don't show the reuse warning when it's a sub-ref, these currently split on edit
+		.toggle( totalUsageCount > 1 && !ref.mainRefKey )
 		.setLabel( ve.msg( 'cite-ve-dialog-reference-editing-reused-long', totalUsageCount ) );
 };
 

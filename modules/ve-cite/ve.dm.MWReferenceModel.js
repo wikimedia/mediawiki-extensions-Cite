@@ -184,14 +184,15 @@ ve.dm.MWReferenceModel.prototype.updateInternalItem = function ( surfaceModel ) 
  * if needed.
  *
  * @param {ve.dm.SurfaceFragment} surfaceFragment Surface fragment to insert at
+ * @param {boolean} [contentsUsed] If the new node should get the contentsUsed flag
  */
-ve.dm.MWReferenceModel.prototype.insertIntoFragment = function ( surfaceFragment ) {
+ve.dm.MWReferenceModel.prototype.insertIntoFragment = function ( surfaceFragment, contentsUsed ) {
 	const surfaceModel = surfaceFragment.getSurface();
 
 	if ( !this.findInternalItem( surfaceModel ) ) {
 		this.insertInternalItem( surfaceModel );
 	}
-	this.insertReferenceNode( surfaceFragment );
+	this.insertReferenceNode( surfaceFragment, false, contentsUsed );
 };
 
 /**
@@ -199,8 +200,9 @@ ve.dm.MWReferenceModel.prototype.insertIntoFragment = function ( surfaceFragment
  *
  * @param {ve.dm.SurfaceFragment} surfaceFragment Surface fragment to insert at
  * @param {boolean} [placeholder] Reference is a placeholder for staging purposes
+ * @param {boolean} [contentsUsed] If the new node should get the contentsUsed flag
  */
-ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragment, placeholder ) {
+ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragment, placeholder, contentsUsed ) {
 	const attributes = {
 		mainRefKey: this.mainRefKey,
 		listKey: this.listKey,
@@ -210,6 +212,9 @@ ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragmen
 	};
 	if ( placeholder ) {
 		attributes.placeholder = true;
+	}
+	if ( contentsUsed ) {
+		attributes.contentsUsed = true;
 	}
 	surfaceFragment
 		.insertContent( [

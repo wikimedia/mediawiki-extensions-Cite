@@ -218,11 +218,14 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 					mainNodeToCopy.copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
 				}
 
+				// Check if the main node we're replacing was keeping the content
+				const contentsUsed = this.selectedNode.getAttribute( 'contentsUsed' );
+
 				// When creating a sub-ref we're always replacing the selected node
 				this.getFragment().removeContent();
 				// Collapse returns a new fragment, so update this.fragment
 				this.fragment = this.getFragment().collapseToEnd();
-				ref.insertIntoFragment( this.getFragment() );
+				ref.insertIntoFragment( this.getFragment(), contentsUsed );
 
 				// Phabricator T396734
 				ve.track( 'activity.subReference', { action: 'dialog-done-add-details' } );

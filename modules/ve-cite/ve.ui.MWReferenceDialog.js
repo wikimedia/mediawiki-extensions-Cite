@@ -202,25 +202,30 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 			let ref = this.editPanel.getReferenceFromEditing();
 			const nodeGroup = this.getFragment().getDocument()
 				.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
-			if ( !( this.selectedNode instanceof MWReferenceNode ) || this.createSubRefMode ) {
+			if ( !( this.selectedNode instanceof MWReferenceNode ) ) {
 				// Collapse returns a new fragment, so update this.fragment
-				if ( this.createSubRefMode ) {
-					// We're creating a new subref by replacing a main ref
-					// make sure there's a synth main ref to save the main body
-					const mainNodes = nodeGroup.getAllReuses( ref.mainRefKey ) || [];
-					const foundExistingSynthMain = mainNodes.some(
-						( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSyntheticMainRef' ) );
-					if ( !foundExistingSynthMain && mainNodes.length ) {
-						const mainNodeToCopy = mainNodes
-							.find( ( node ) => node.getAttribute( 'refListItemId' ) ) || mainNodes[ 0 ];
-						mainNodeToCopy.copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
-					}
-					this.getFragment().removeContent();
-					// Phabricator T396734
-					ve.track( 'activity.subReference', { action: 'dialog-done-add-details' } );
-				}
 				this.fragment = this.getFragment().collapseToEnd();
 				ref.insertIntoFragment( this.getFragment() );
+			} else if ( this.createSubRefMode ) {
+				// We're creating a new sub-ref by replacing a main ref
+				// make sure there's a synth main ref to save the main body
+				const mainNodes = nodeGroup.getAllReuses( ref.mainRefKey ) || [];
+				const foundExistingSynthMain = mainNodes.some(
+					( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSyntheticMainRef' ) );
+				if ( !foundExistingSynthMain && mainNodes.length ) {
+					const mainNodeToCopy = mainNodes
+						.find( ( node ) => node.getAttribute( 'refListItemId' ) ) || mainNodes[ 0 ];
+					mainNodeToCopy.copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
+				}
+
+				// When creating a sub-ref we're always replacing the selected node
+				this.getFragment().removeContent();
+				// Collapse returns a new fragment, so update this.fragment
+				this.fragment = this.getFragment().collapseToEnd();
+				ref.insertIntoFragment( this.getFragment() );
+
+				// Phabricator T396734
+				ve.track( 'activity.subReference', { action: 'dialog-done-add-details' } );
 			} else {
 				if ( ref.isSubRef() ) {
 					// We don't want to edit all sub-ref reuses. If there's one here we need
@@ -258,20 +263,8 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
 				this.openReusePanel();
 			} else if ( data.createSubRef ) {
-				if ( this.selectedNode instanceof MWReferenceNode &&
-					this.selectedNode.getAttribute( 'placeholder' ) ) {
-					// remove the placeholder node from Citoid
-					this.getFragment().removeContent();
-				}
-				// we never want to edit an existing node here
-				this.selectedNode = null;
-				if ( data.addToExisting ) {
-					this.actions.setMode( 'edit' );
-					this.actions.setAbilities( { done: false } );
-				} else {
-					this.actions.setMode( 'insert' );
-					this.actions.setAbilities( { insert: false } );
-				}
+				this.actions.setMode( 'edit' );
+				this.actions.setAbilities( { done: false } );
 				this.setCreateSubRefPanel( data.createSubRef );
 				this.createSubRefMode = true;
 			} else {

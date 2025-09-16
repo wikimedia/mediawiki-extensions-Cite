@@ -243,7 +243,7 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 		ve.ui.commandRegistry.lookup( 'reference' ).execute(
 			this.context.getSurface(),
 			// Arguments for calling ve.ui.MWReferenceDialog.getSetupProcess()
-			[ 'reference', { createSubRef: ref, addToExisting: true } ],
+			[ 'reference', { createSubRef: ref } ],
 			'context'
 		);
 		// TODO: When the dialog closes successfully, the new

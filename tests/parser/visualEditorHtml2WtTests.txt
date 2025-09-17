@@ -99,6 +99,8 @@ Text
 
 !! test
 VE Converter: Simple main ref including details
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref details="page. 123" name="book">Miller</ref>
 !! html/parsoid
@@ -108,6 +110,8 @@ VE Converter: Simple main ref including details
 
 !! test
 VE Converter: Simple main ref including details ( edits on main and details )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref details="page. 123 NEW" name="book">Miller NEW</ref>
 !! html/parsoid
@@ -147,6 +151,8 @@ VE Converter: Simple template in refs ( edits on template parameters )
 
 !! test
 VE Converter: Moving main content from subref
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref details="page 1" name="book" />
 <ref details="page 2" name="book">Miller</ref>
@@ -160,6 +166,8 @@ VE Converter: Moving main content from subref
 
 !! test
 VE Converter: Moving main content from subref ( delete subref providing the main )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref details="page 1" name="book" />
 
@@ -173,6 +181,8 @@ VE Converter: Moving main content from subref ( delete subref providing the main
 
 !! test
 VE Converter: Moving main content from subref ( delete all subrefs )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref name="book">Miller</ref>
 !! html/parsoid
@@ -182,6 +192,8 @@ VE Converter: Moving main content from subref ( delete all subrefs )
 
 !! test
 VE Converter: Moving main content from subref ( delete subref providing the main and other reuse )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref details="page 1" name="book">Miller</ref>
 !! html/parsoid
@@ -191,6 +203,8 @@ VE Converter: Moving main content from subref ( delete subref providing the main
 
 !! test
 VE Converter: Delete main used by sub
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref name="book">Miller</ref>
 <ref details="page 1" name="book" />
@@ -203,6 +217,8 @@ VE Converter: Delete main used by sub
 
 !! test
 VE Converter: Delete main used by sub ( delete main ref )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref details="page 1" name="book">Miller</ref>
 !! html/parsoid
@@ -212,6 +228,8 @@ VE Converter: Delete main used by sub ( delete main ref )
 
 !! test
 VE Converter: Main plus details with duplicate main content
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref details="page 1" name="book">Miller</ref>
 <ref details="page 2" name="book">Miller</ref>
@@ -223,6 +241,8 @@ VE Converter: Main plus details with duplicate main content
 
 !! test
 VE Converter: Main plus details with duplicate main content ( edit main )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref details="page 1" name="book">Miller NEW</ref>
 <ref details="page 2" name="book">Miller NEW</ref>
@@ -284,6 +304,8 @@ VE Converter: Two main refs with content
 #FIXME ideally the main content does not move around here T404089
 !! test
 VE Converter: Two main refs with content ( convert both to sub-refs )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref name="book" details="page 1">Miller</ref><ref name="book" details="page 2" />
 !! html/parsoid
@@ -293,6 +315,8 @@ VE Converter: Two main refs with content ( convert both to sub-refs )
 
 !! test
 VE Converter: Two main refs with content ( adding two fresh sub-refs )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref name="book" /><ref name="book">Miller</ref><ref name=":0" details="page 3">Smith</ref><ref name=":0" details="page 4" />
 !! html/parsoid
@@ -302,6 +326,8 @@ VE Converter: Two main refs with content ( adding two fresh sub-refs )
 
 !! test
 VE Converter with store: List defined references and details
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref>Default</ref>
 <ref name="ldrOne" />
@@ -321,6 +347,8 @@ VE Converter with store: List defined references and details
 
 !! test
 VE Converter with store: List defined references and details ( editing main and details )
+!! config
+wgCiteSubReferencing=true
 !! wikitext
 <ref>Default</ref>
 <ref name="ldrOne" />

@@ -11,9 +11,9 @@
 	},
 	"devDependencies": {
 		"@cypress/skip-test": "^2.6.1",
-		"cypress": "^13.17.0",
+		"cypress": "^14.5.4",
 		"eslint-config-wikimedia": "0.31.0",
-		"eslint-plugin-cypress": "^2.15.1",
+		"eslint-plugin-cypress": "^3.6.0",
 		"grunt": "1.6.1",
 		"grunt-banana-checker": "0.13.0",
 		"grunt-eslint": "24.3.0",

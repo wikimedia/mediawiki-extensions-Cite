@@ -105,10 +105,11 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		( reflistItemId && getReflistItemGroup( reflistItemId ) ) ||
 		'';
 	const listGroup = this.name + '/' + refGroup;
-	const listKey = this.makeListKey( converter.internalList, mwAttrs.name );
+	const refName = ( mwData.mainRef ? null : mwAttrs.name );
+	const listKey = this.makeListKey( converter.internalList, refName );
 	const { index, isNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
 
-	if ( converter.isFromClipboard() && !( mwAttrs.name || body ) ) {
+	if ( converter.isFromClipboard() && !( refName || body ) ) {
 		// Pasted reference has neither a name nor body HTML, must have
 		// come from Parsoid read mode directly. (T389518)
 		return [];

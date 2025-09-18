@@ -51,7 +51,7 @@
 	"cite-ve-dialog-reference-add-details-button": "Add details",
 	"cite-ve-dialog-subreference-help-dialog-title": "Details",
 	"cite-ve-dialog-subreference-help-dialog-head": "New: Add a detail to a re-used reference",
-	"cite-ve-dialog-subreference-help-dialog-content": "When re-using a reference you can now add different details such as a page number or quote without repeating the full reference.<br><br><strong>Use it when:</strong><ul><li>Citing different pages or volumes of a book</li><li>Specifiying a timestamp in a cited podcast</li><li>Adding a relevant quote from a source</li></ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "When re-using a reference you can now add different details such as a page number or quote without repeating the full reference.<p><b>Use it when:</b></p><ul><li>Citing different pages or volumes of a book</li><li>Specifiying a timestamp in a cited podcast</li><li>Adding a relevant quote from a source</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link": "https://meta.wikimedia.org/wiki/Special:MyLanguage/WMDE_Technical_Wishes/Sub-referencing",
 	"cite-ve-dialog-subreference-help-dialog-link-ve": "https://meta.wikimedia.org/wiki/Special:MyLanguage/WMDE_Technical_Wishes/Sub-referencing#In_VisualEditor",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Learn more about adding details to a reference",

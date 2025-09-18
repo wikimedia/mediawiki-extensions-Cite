@@ -55,8 +55,7 @@ ve.ui.MWSubReferenceHelpDialog.prototype.initialize = function () {
 		$( '<h3>' )
 			.text( ve.msg( 'cite-ve-dialog-subreference-help-dialog-head' ) ),
 		$( '<div>' )
-			// FIXME: Can we use .parseDom() or something similar?
-			.html( mw.msg( 'cite-ve-dialog-subreference-help-dialog-content' ) ),
+			.append( mw.message( 'cite-ve-dialog-subreference-help-dialog-content' ).parseDom() ),
 		$( '<p>' )
 			// Needed for the external link icon
 			.addClass( 'mw-parser-output' )

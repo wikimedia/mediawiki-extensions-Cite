@@ -153,7 +153,8 @@
 				"ext.cite.styles",
 				"ext.visualEditor.mwtransclusion",
 				"ext.visualEditor.base",
-				"ext.visualEditor.mediawiki"
+				"ext.visualEditor.mediawiki",
+				"mediawiki.jqueryMsg"
 			],
 			"messages": [
 				"cite-ve-changedesc-ref-group-both",

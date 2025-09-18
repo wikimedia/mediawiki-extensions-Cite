@@ -278,8 +278,6 @@ class References {
 		if ( $hasDetails ) {
 			// Subref points to the main ref by name.
 			$refDataMw->mainRef = $refName;
-			// FIXME: should have already asserted that refName exists for all details, see T387193
-			$refDataMw->setExtAttrib( 'name', null );
 
 			// Create new, empty main ref
 			$ref ??= $referencesData->addRef( $refGroup, $refName, $refDir );

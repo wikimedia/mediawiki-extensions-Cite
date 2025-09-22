@@ -263,7 +263,7 @@ ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub = {
 					listGroup: 'mwReference/',
 					listKey: 'auto/0',
 					refGroup: '',
-					contentsUsed: true,
+					contentsUsed: false,
 					mainRefKey: 'literal/book',
 					refListItemId: 'mw-reference-text-cite_note-2'
 				}
@@ -632,7 +632,7 @@ ve.dm.ConverterSubReferenceTestCases.deleteMainUsedBySub = {
 					listGroup: 'mwReference/',
 					listKey: 'auto/0',
 					refGroup: '',
-					contentsUsed: true,
+					contentsUsed: false,
 					mainRefKey: 'literal/book',
 					refListItemId: 'mw-reference-text-cite_note-2'
 				}

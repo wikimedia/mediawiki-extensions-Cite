@@ -115,6 +115,10 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		return [];
 	}
 
+	// Sub-refs will always get body content for the details attribute so we use contentsUsed to
+	// store if they had main content in the main+details case
+	const contentsUsed = !!( mwData.mainRef ? mwData.isSubRefWithMainBody : isNew && body );
+
 	const dataElement = {
 		type: this.name,
 		attributes: {
@@ -124,7 +128,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			listGroup: listGroup,
 			listKey: listKey,
 			refGroup: refGroup,
-			contentsUsed: body !== '' && isNew
+			contentsUsed: contentsUsed
 		}
 	};
 
@@ -196,8 +200,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			}
 		}
 
-		// TODO: Apply isBodyContentSet logic to isSubRefWithMainBody
+		// FIXME: Check for set body content on main content for sub-refs
 		const isBodyContentSet = this.isBodyContentSet( dataElement, nodesWithSameKey );
+		// FIXME: Merge if sub-refs should get main content vs main refs getting body content
 		const shouldGetBodyContent = this.shouldGetBodyContent( dataElement, nodeGroup );
 
 		// Add reference content to data-mw.
@@ -289,7 +294,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
  * @return {boolean}
  * */
 ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWithSameKey ) {
-	if ( !dataElement.attributes.contentsUsed ) {
+	// Sub-refs can't set body content for other sub-refs so we can bail out early here
+	if ( !dataElement.attributes.contentsUsed || dataElement.attributes.mainRefKey ) {
 		return false;
 	}
 

@@ -55,7 +55,7 @@
 	"cite-ve-dialog-reference-add-details-button": "Lisää lisätietoja",
 	"cite-ve-dialog-subreference-help-dialog-title": "Lisätiedot",
 	"cite-ve-dialog-subreference-help-dialog-head": "Uutta: Lisätietojen lisääminen uudelleenkäytettyyn viitteeseen",
-	"cite-ve-dialog-subreference-help-dialog-content": "Uudelleenkäyttäessäsi viitetta voit nyt lisätä niihin lisätietoja, kuten sivunumeron tai lainauksen ilman, että sinun tarvitsee toistaa koko viitettä uudelleen.<br><br><strong>Voit käyttää niitä, kun:</strong><ul><li>viittaat kirjan eri sivuihin tai painoksiin</li><li>mainitset podcastin aikaleiman</li><li>lisäät lainauksen lähteestä</li></ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "Uudelleenkäyttäessäsi viitetta voit nyt lisätä niihin lisätietoja, kuten sivunumeron tai lainauksen ilman, että sinun tarvitsee toistaa koko viitettä uudelleen.<p><b>Voit käyttää niitä, kun:<ul><li>viittaat kirjan eri sivuihin tai painoksiin</li><li>mainitset podcastin aikaleiman</li><li>lisäät lainauksen lähteestä</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Lue lisää lisätietojen lisäämisestä viitteisiin",
 	"cite-ve-dialog-reference-title-details": "Lisätiedot",
 	"cite-ve-dialog-reference-useexisting-tool": "Käytä uudelleen",

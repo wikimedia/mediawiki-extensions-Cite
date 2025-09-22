@@ -61,7 +61,7 @@
 	"cite-ve-dialog-reference-add-details-button": "إضافة التفاصيل",
 	"cite-ve-dialog-subreference-help-dialog-title": "تفاصيل",
 	"cite-ve-dialog-subreference-help-dialog-head": "جديد: إضافة تفاصيل إلى مرجع تم إعادة استخدامه",
-	"cite-ve-dialog-subreference-help-dialog-content": "عند إعادة استخدام مرجع، يمكنك الآن إضافة تفاصيل مختلفة مثل رقم الصفحة أو الاقتباس دون تكرار المرجع الكامل.<br><br><strong>استخدمه عندما:</strong><ul><li>الاستشهاد بصفحات أو مجلدات مختلفة من كتاب</li><li>تحديد علامة زمنية في بودكاست مقتبس</li><li>إضافة اقتباس ذي صلة من مصدر</li></ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "عند إعادة استخدام الإشارة يمكنك الآن إضافة تفاصيل مختلفة مثل رقم الصفحة أو اقتباس دون تكرار الإشارة الكاملة. استخدامه عند:تصفيق صفحات أو مجلدات مختلفة من كتاب (تصفيق علامة زمنية في البودكاست المشار إليها إضافة اقتباس ذي صلة من مصدر) <ul><li>اقتباسات إلى صفحات أو مجلدات مختلفة من كتاب</li><li>تحديد العلامة الزمنية في البودكاست المشار إليه</li><li>إضافة اقتباس مناسب من مصدر</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "تعرف على المزيد حول إضافة التفاصيل إلى المرجع",
 	"cite-ve-dialog-reference-title-details": "التفاصيل",
 	"cite-ve-dialog-reference-useexisting-tool": "أعد الاستخدام",

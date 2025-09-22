@@ -292,15 +292,14 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
 		return false;
 	}
 
+	const current = this.getInstanceHashObject( dataElement );
 	for ( let i = 0; i < nodesWithSameKey.length; i++ ) {
-		// Check if the node is the same as the one we are checking
-		if ( ve.compare(
-			this.getInstanceHashObject( nodesWithSameKey[ i ].element ),
-			this.getInstanceHashObject( dataElement )
-		) ) {
+		// Stop at the current node, we are only interested in earlier nodes
+		if ( ve.compare( current, this.getInstanceHashObject( nodesWithSameKey[ i ].element ) ) ) {
 			break;
 		}
 
+		// Yes, an earlier node is already marked as holding the content
 		if ( nodesWithSameKey[ i ].getAttribute( 'contentsUsed' ) ) {
 			return true;
 		}
@@ -323,15 +322,15 @@ ve.dm.MWReferenceNode.static.shouldLinkSyntheticMainRef = function ( dataElement
 	const attributes = dataElement.attributes;
 	const mainRefKey = ve.getProp( attributes, 'mainRefKey' );
 	const siblingSubRefs = this.getSubRefs( mainRefKey, nodeGroup );
+	const isFirstNode = ve.compare(
+		this.getInstanceHashObject( dataElement ),
+		this.getInstanceHashObject( siblingSubRefs[ 0 ].element )
+	);
 
-	if (
-		// Bail out when the current sub-ref already has a the main body
-		ve.getProp( attributes, 'mw', 'isSubRefWithMainBody' ) ||
-		// Bail out when the current sub-ref is not the first, only the first should get linked
-		!ve.compare(
-			this.getInstanceHashObject( dataElement ),
-			this.getInstanceHashObject( siblingSubRefs[ 0 ].element )
-		)
+	// Bail out when the current sub-ref is not the first, only the first should get linked
+	if ( !isFirstNode ||
+		// Bail out when the current sub-ref already has the main body
+		ve.getProp( attributes, 'mw', 'isSubRefWithMainBody' )
 	) {
 		return false;
 	}
@@ -349,8 +348,8 @@ ve.dm.MWReferenceNode.static.shouldLinkSyntheticMainRef = function ( dataElement
 
 	// mainNodes[ 0 ] is a synthetic main ref, check if there's no other sub-ref after the first
 	// that's linked
-	if ( !siblingSubRefs.some(
-		( node, i ) => i && ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
+	if ( !siblingSubRefs.slice( 1 ).some(
+		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
 	) ) {
 		return mainNodes[ 0 ].getAttribute( 'refListItemId' );
 	}
@@ -410,18 +409,16 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
 
 	// the node might be applicable for getting the body content but we only want to move the
 	// content to the first node in the document
-	if ( !ve.compare(
+	const isFirstNode = ve.compare(
 		this.getInstanceHashObject( dataElement ),
 		this.getInstanceHashObject( nodesWithSameKey[ 0 ].element )
-	) ) {
-		return false;
-	}
-
-	// We only want to give this node the body content if there's no other node after the first
-	// that holds it
-	return !nodesWithSameKey.some(
-		( node, i ) => i && this.doesHoldBodyContent( node.getAttributes(), nodeGroup )
 	);
+	return isFirstNode &&
+		// We only want to give this node the body content if there's no other node after the first
+		// that holds it
+		!nodesWithSameKey.slice( 1 ).some(
+			( node ) => this.doesHoldBodyContent( node.getAttributes(), nodeGroup )
+		);
 };
 
 /**

@@ -726,6 +726,25 @@ A follow="…" before its parent is not merged
 !! end
 
 !! test
+T245549: Wikisource pages render follow="…" without parent. This is normal and not an error.
+# FIXME Parsoids behavior is not correct here, see T398402
+!! wikitext
+<ref follow="theName">theFollows</ref>
+<references />
+!! html/php
+<div class="mw-references-wrap"><ol class="references">
+<p><span class="reference-text">theFollows</span>
+</p>
+</ol></div>
+!! html/parsoid
+<p><sup class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"follow":"theName"},"body":{"id":"mw-reference-text-cite_note-1"},"errors":[{"key":"cite_error_references_missing_key","params":["theName"]}]}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li id="cite_note-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑ </span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text"><span typeof="mw:Cite/Follow"> theFollows</span></span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_references_missing_key","params":["theName"]}}]}}'></span></li>
+</ol></div>
+!! end
+
+!! test
 Valid follow="…" after it's parent
 !! wikitext
 <ref name="theName">theValue</ref>

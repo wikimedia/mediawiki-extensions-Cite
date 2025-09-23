@@ -110,21 +110,17 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
 	const editDetails = new OO.ui.Layout( {
 		classes: [ 've-ui-mwReferenceContextItem-subrefHeader' ],
 		content: [
-			new OO.ui.LabelWidget( {
-				label: ve.msg( 'cite-ve-reference-contextitem-reused-header' )
-			} ),
-			new OO.ui.ButtonWidget( this.context.isMobile() ?
+			new OO.ui.ButtonWidget(
 				{
 					framed: false,
 					invisibleLabel: true,
-					icon: this.isReadOnly() ? 'eye' : 'edit',
+					icon: this.context.isMobile() ? ( this.isReadOnly() ? 'eye' : 'edit' ) : 'edit',
 					label: buttonLabel,
-					classes: [ 've-ui-mwReferenceMobileContextItem-editButton' ]
-				} :
-				{
-					label: buttonLabel,
-					classes: [ 've-ui-mwReferenceContextItem-editButton' ]
+					classes: [ this.context.isMobile() ?
+						've-ui-mwReferenceMobileContextItem-editButton' :
+						've-ui-mwReferenceContextItem-editButton' ]
 				}
+
 			).on( 'click', () => {
 				// Phabricator T396734
 				ve.track( 'activity.subReference', { action: 'context-edit-details' } );
@@ -138,7 +134,10 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
 	// context's size when the rendering is complete if that's the case
 	this.detailsView.once( 'render', this.context.updateDimensions.bind( this.context ) );
 
-	return new OO.ui.Layout( { content: [ editDetails, this.detailsView ] } ).$element;
+	return new OO.ui.HorizontalLayout( {
+		classes: [ 've-ui-mwReferenceContextItem-detailsPreview' ],
+		items: [ this.detailsView, editDetails ]
+	} ).$element;
 };
 
 /**
@@ -250,7 +249,9 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 
 	const button = new OO.ui.ButtonWidget( {
 		label: ve.msg( 'cite-ve-dialog-reference-add-details-button' ),
-		classes: [ 've-ui-mwReferenceContextItem-addDetailsButton' ]
+		classes: [ 've-ui-mwReferenceContextItem-addDetailsButton' ],
+		framed: false,
+		icon: 'add'
 	} ).on( 'click', () => {
 		if ( !this.showHelp ) {
 			openAddDetailsDialog();
@@ -312,11 +313,17 @@ ve.ui.MWReferenceContextItem.prototype.setup = function () {
  * @override
  */
 ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
+	const detailsPreview = this.getDetailsPreview();
+	const detailsButton = this.getAddDetailsButton();
+
+	const $detailsSeparator = $( '<div>' )
+		.addClass( 've-ui-mwReferenceContextItem-addDetailsSeparator' );
 	this.$body.empty().append(
 		this.getMainRefPreview(),
 		this.getReuseWarning(),
-		this.getDetailsPreview(),
-		this.getAddDetailsButton()
+		detailsPreview || detailsButton ? $detailsSeparator : null,
+		detailsPreview,
+		detailsButton
 	);
 };
 

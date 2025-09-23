@@ -81,7 +81,6 @@
 	"cite-ve-dialogbutton-reference-title": "Full title for a context item showing a basic reference. As this does not have the context of other reference types it should just be the word for \"reference\".\n{{Identical|Reference}}",
 	"cite-ve-dialogbutton-reference-tooltip": "An item in the citation menu for a plain reference without any citation template. This should be an adjective for the word \"citation\" or \"reference\". The term should be in contrast to the easier and more powerful citations available when using a template.\n\nUsed by {{msg-mw|Cite-ve-othergroup-item}}.\n\n{{Identical|Basic}}",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Tooltip for button for dialog that inserts the references list object (<code><nowiki>References list</nowiki></code>).\n{{Identical|References list}}",
-	"cite-ve-reference-contextitem-reused-header": "Heading shown above the subreference contents when clicking on a sub-reference.",
 	"cite-ve-reference-input-placeholder": "Placeholder text for reference search field: searches existing on-page references.",
 	"cite-ve-referenceslist-isempty": "Message that appears in the references list when there are no references on the page of that group.\n\nParameters:\n* $1 - reference-group name",
 	"cite-ve-referenceslist-isempty-default": "Message that appears in the references list when there are no references on the page in the default group.",

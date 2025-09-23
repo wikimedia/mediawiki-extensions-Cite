@@ -191,6 +191,7 @@ class RefTagHandler extends ExtensionTagHandler {
 					$src = $extApi->domToWikitext( $html2wtOpts, $followNode, true );
 					$src = ltrim( $src, ' ' );
 				} else {
+					// This means the incoming HTML is mangled, still we try to recover what we can
 					$src = '';
 				}
 			} else {
@@ -210,8 +211,8 @@ class RefTagHandler extends ExtensionTagHandler {
 				$src = $extApi->domToWikitext( $html2wtOpts, $bodyElt, true );
 			}
 		} else {
-			$extApi->log( 'error', 'Ref body unavailable for: ' . DOMCompat::getOuterHTML( $node ) );
-			return ''; // Drop it!
+			// This means the incoming HTML is mangled, still we try to recover what we can
+			$src = '';
 		}
 
 		if ( $this->isSubreferenceSupported &&

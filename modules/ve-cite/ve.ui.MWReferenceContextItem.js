@@ -246,9 +246,6 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 			[ 'reference', { createSubRef: ref } ],
 			'context'
 		);
-		// TODO: When the dialog closes successfully, the new
-		// subref replaces the previously selected main ref and
-		// becomes a main+details.
 	};
 
 	const button = new OO.ui.ButtonWidget( {

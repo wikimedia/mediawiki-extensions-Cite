@@ -202,10 +202,10 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 	if ( totalUsageCount > 1 ) {
 		if ( mw.config.get( 'wgCiteSubReferencing' ) ) {
 			const label = new OO.ui.LabelWidget( {
-				classes: [ 've-ui-mwReferenceContextItem-reuse' ],
+				classes: [ 've-ui-mwReferenceContextItem-reuse',
+					!this.context.isMobile() ? 've-ui-mwReferenceContextItem-reuse-desktop' : '' ],
 				label: ve.msg( 'cite-ve-dialog-reference-editing-reused-short', totalUsageCount )
 			} );
-			label.$element.prepend( new OO.ui.IconWidget( { icon: 'infoFilled' } ).$element );
 			return new OO.ui.Layout( {
 				classes: [ 've-ui-mwReferenceContextItem-reuse-layout' ],
 				content: [ label ]
@@ -315,12 +315,16 @@ ve.ui.MWReferenceContextItem.prototype.setup = function () {
 ve.ui.MWReferenceContextItem.prototype.renderBody = function () {
 	const detailsPreview = this.getDetailsPreview();
 	const detailsButton = this.getAddDetailsButton();
+	// attach reuse warning to a different place for mobile
+	const mainPreview = this.context.isMobile() ?
+		[ this.getMainRefPreview(), this.getReuseWarning() ] :
+		[ this.getReuseWarning(), this.getMainRefPreview() ];
 
 	const $detailsSeparator = $( '<div>' )
 		.addClass( 've-ui-mwReferenceContextItem-addDetailsSeparator' );
+
 	this.$body.empty().append(
-		this.getMainRefPreview(),
-		this.getReuseWarning(),
+		mainPreview,
 		detailsPreview || detailsButton ? $detailsSeparator : null,
 		detailsPreview,
 		detailsButton

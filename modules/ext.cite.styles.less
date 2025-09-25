@@ -41,20 +41,16 @@ ol.references {
 	}
 
 	.mw-subreference-list {
-		margin-left: 1em;
-		padding: 0;
+		margin-top: 0;
 
-		// As in resources/src/mediawiki.skinning/i18n-ordered-lists.less we must reset this on the
-		// <li> level, not <ol>
 		> li {
-			list-style: none;
+			counter-increment: mw-ref-details-child;
+
+			&::marker {
+				content: counter( mw-ref-details-parent, decimal ) '.' counter( mw-ref-details-child, decimal ) '. ';
+			}
 		}
 	}
-}
-
-.mw-subreference-list > li::before {
-	counter-increment: mw-ref-details-child;
-	content: counter( mw-ref-details-parent, decimal ) '.' counter( mw-ref-details-child, decimal ) '. ';
 }
 
 sup.reference {

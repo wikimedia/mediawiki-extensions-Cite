@@ -200,13 +200,11 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			}
 		}
 
-		// FIXME: Check for set body content on main content for sub-refs
-		const isBodyContentSet = this.isBodyContentSet( dataElement, nodesWithSameKey );
-		// FIXME: Merge if sub-refs should get main content vs main refs getting body content
-		const shouldGetBodyContent = this.shouldGetBodyContent( dataElement, nodeGroup );
-
 		// Add reference content to data-mw.
-		if ( shouldGetBodyContent && !isBodyContentSet ) {
+		if ( dataElement.attributes.mainRefKey ||
+			( !this.isBodyContentSet( dataElement, nodesWithSameKey ) &&
+			// FIXME: Merge if sub-refs should get main content vs main refs getting body content
+			this.shouldGetBodyContent( dataElement, nodeGroup ) ) ) {
 			// get the current content html of the node
 			const currentHtmlWrapper = doc.createElement( 'div' );
 			converter.getDomSubtreeFromData(
@@ -406,8 +404,6 @@ ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, node
 
 	// if the reference already stored the body content before, it should be stored there again
 	if ( attributes.contentsUsed ||
-		// Sub-refs always store their (details) body content, it's required for re-serialization
-		attributes.mainRefKey ||
 		// if this node is the only one it should always get the body content
 		nodesWithSameKey.length <= 1
 	) {

@@ -57,19 +57,16 @@ QUnit.test( 'shouldGetBodyContent on a normal main reference', ( assert ) => {
 	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
 } );
 
-QUnit.test( 'shouldGetBodyContent on a sub-reference', ( assert ) => {
-	const dataElement = { attributes: { mainRefKey: 'x' } };
-	const nodeGroup = new ve.dm.InternalListNodeGroup();
-	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
-} );
-
 QUnit.test( 'generateName on a normal main reference', ( assert ) => {
 	const attributes = {};
 	const internalList = {
 		getNodeGroup: () => new ve.dm.InternalListNodeGroup()
 	};
 	const nodesWithSameKey = [ 'dummy1' ];
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ), undefined );
+	assert.strictEqual(
+		ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ),
+		undefined
+	);
 
 	nodesWithSameKey.push( 'dummy2' );
 	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ), ':0' );

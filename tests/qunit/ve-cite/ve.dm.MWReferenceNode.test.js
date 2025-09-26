@@ -92,7 +92,7 @@ QUnit.test( 'shouldGetMainContent on a sub reference', ( assert ) => {
 
 	const otherMainRef = { attributes: { listGroup: 'same', listKey: 'foo', contentsUsed: true } };
 	nodeGroup.appendNode( 'foo', new ve.dm.Model( otherMainRef ) );
-	assert.true(
+	assert.false(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
 		'Another main ref was holding the content before'
 	);
@@ -107,7 +107,7 @@ QUnit.test( 'shouldGetMainContent on a sub reference', ( assert ) => {
 			{ listGroup: 'same', listKey: 'fooSubOther', mainRefKey: 'foo', contentsUsed: true }
 	};
 	nodeGroup.appendNode( 'foo', new ve.dm.Model( otherSubRef ) );
-	assert.true(
+	assert.false(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
 		'Another sub ref was holding the content before'
 	);
@@ -148,7 +148,7 @@ QUnit.test( 'generateName on a sub-reference', ( assert ) => {
 	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, [] ), 'foo' );
 } );
 
-QUnit.test( 'getSubRefs', ( assert ) => {
+QUnit.test( 'getSubRefs and getRefsWithSameMain', ( assert ) => {
 	const firstSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
 	firstSubRef.getOffset = () => 10;
 	const secondSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
@@ -182,6 +182,11 @@ QUnit.test( 'getSubRefs', ( assert ) => {
 	const subRefs = ve.dm.MWReferenceNode.static.getSubRefs( 'auto/0', nodeGroup );
 	assert.strictEqual( subRefs.length, 3, 'The list of sub-refs does include reuses' );
 	assert.strictEqual( subRefs[ 0 ].getOffset(), 10, 'The list of sub-refs is in document order' );
+
+	const refsWithSameMain = ve.dm.MWReferenceNode.static.getRefsWithSameMain( 'auto/0', nodeGroup );
+	assert.strictEqual( refsWithSameMain.length, 5, 'The list of refs does only relevant include main and sub-refs' );
+	assert.strictEqual( refsWithSameMain[ 1 ].getOffset(), 15, 'The list is not in document order' );
+	assert.strictEqual( refsWithSameMain[ 2 ].getOffset(), 10, 'The list is not in document order' );
 } );
 
 QUnit.test( 'hasSubRefs', ( assert ) => {

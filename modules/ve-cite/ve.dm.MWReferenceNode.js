@@ -257,16 +257,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 				// set by Parsoid from the bodyContent in body.html
 				ve.setProp( mwData, 'attrs', 'details', '1' );
 			}
-
-			// Check if this sub-ref should get a synthetic main body
-			const syntheticMainRefId = this.shouldLinkSyntheticMainRef( dataElement, nodeGroup );
-			if ( syntheticMainRefId ) {
-				ve.setProp( mwData, 'isSubRefWithMainBody', 1 );
-				ve.setProp( mwData, 'mainBody', syntheticMainRefId );
-			}
 		}
 
-		// FIXME: Merge if sub-refs should get main content vs main refs getting body content
 		const shouldGetMainContent = this.shouldGetMainContent( dataElement, nodeGroup );
 
 		// Add reference content to data-mw.
@@ -291,6 +283,18 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			// or we are writing the clipboard for use in another VE instance
 			if ( isForClipboard || !originalHtmlWrapper.isEqualNode( currentHtmlWrapper ) ) {
 				ve.setProp( mwData, 'body', 'html', currentHtmlWrapper.innerHTML );
+			}
+		}
+
+		if ( attributes.mainRefKey &&
+			shouldGetMainContent &&
+			!ve.getProp( mwData, 'isSubRefWithMainBody' )
+		) {
+			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainRefKey ) || [];
+			const refListNode = mainKeyReuses.find( ( node ) => node.getAttribute( 'refListItemId' ) );
+			if ( refListNode ) {
+				ve.setProp( mwData, 'isSubRefWithMainBody', 1 );
+				ve.setProp( mwData, 'mainBody', refListNode.getAttribute( 'refListItemId' ) );
 			}
 		}
 
@@ -382,55 +386,6 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
 };
 
 /***
- * Check if a sub reference node should be linked with the body content of a synthetic main node.
- * This only needs to happen in cases where the body can't move to another main ref.
- *
- * @private
- * @static
- * @param {Object} dataElement
- * @param {ve.dm.InternalListNodeGroup} nodeGroup
- * @return {string|false} the refListItemId of the main to link to or false if not applicable
- * */
-ve.dm.MWReferenceNode.static.shouldLinkSyntheticMainRef = function ( dataElement, nodeGroup ) {
-	const attributes = dataElement.attributes;
-	const mainRefKey = ve.getProp( attributes, 'mainRefKey' );
-	const siblingSubRefs = this.getSubRefs( mainRefKey, nodeGroup );
-	const isFirstNode = ve.compare(
-		this.getInstanceHashObject( dataElement ),
-		this.getInstanceHashObject( siblingSubRefs[ 0 ].element )
-	);
-
-	// Bail out when the current sub-ref is not the first, only the first should get linked
-	if ( !isFirstNode ||
-		// Bail out when the current sub-ref already has the main body
-		ve.getProp( attributes, 'mw', 'isSubRefWithMainBody' )
-	) {
-		return false;
-	}
-
-	const mainNodes = nodeGroup.getAllReuses( mainRefKey );
-	if (
-		// bail out if there are other main refs that could get the content
-		!mainNodes ||
-		mainNodes.length > 1 ||
-		// bail out if there's no synthetic main ref to link
-		!ve.getProp( mainNodes[ 0 ].getAttribute( 'mw' ), 'isSyntheticMainRef' )
-	) {
-		return false;
-	}
-
-	// mainNodes[ 0 ] is a synthetic main ref, check if there's no other sub-ref after the first
-	// that's linked
-	if ( !siblingSubRefs.slice( 1 ).some(
-		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
-	) ) {
-		return mainNodes[ 0 ].getAttribute( 'refListItemId' );
-	}
-
-	return false;
-};
-
-/***
  * Check if the node is already storing the body content.  Returns false for unused
  * synthetic main refs.
  *
@@ -466,8 +421,8 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
  * */
 ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;
-	const mainContentKey = attributes.listKey;
-	const mainReuses = nodeGroup.getAllReuses( mainContentKey ) || [];
+	const mainContentKey = attributes.mainRefKey || attributes.listKey;
+	const mainReuses = this.getRefsWithSameMain( mainContentKey, nodeGroup );
 
 	// If the reference already stored the main content before, it should be stored there again
 	if ( attributes.contentsUsed ||
@@ -487,7 +442,12 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
 		// We only want to give this node the main content if there's no other main node after the
 		// first that holds it already.
 		!mainReuses.slice( 1 ).some(
-			( node ) => this.doesHoldBodyContent( node.getAttributes(), nodeGroup )
+			( node ) => {
+				if ( node.getAttribute( 'mainRefKey' ) ) {
+					return node.getAttribute( 'contentsUsed' );
+				}
+				return this.doesHoldBodyContent( node.getAttributes(), nodeGroup );
+			}
 		);
 };
 
@@ -520,6 +480,31 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
 			'literal/:'
 		).slice( 'literal/'.length );
 	}
+};
+
+/**
+ * Return a list of nodes sharing the same main content.  This can be sub-refs or main refs.
+ * This list includes all nodes in index.  Reuses are expaned in the list according to the
+ * first occurence of the first node.  So the list is not in document order.
+ *
+ * @private
+ * @static
+ * @param {string} mainRefKey
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
+ * @return {ve.dm.Node[]}
+ */
+ve.dm.MWReferenceNode.static.getRefsWithSameMain = function ( mainRefKey, nodeGroup ) {
+	const keys = nodeGroup.getKeysInIndexOrder();
+	const results = [];
+	keys.forEach( ( key ) => {
+		const reuses = nodeGroup.getAllReuses( key ) || [];
+		// Sub-ref reuses share the mainRefKey, that's why stopping after the first match is fine
+		if ( reuses.some( ( node ) => ( node.getAttribute( 'mainRefKey' ) === mainRefKey ) ||
+			node.getAttribute( 'listKey' ) === mainRefKey ) ) {
+			results.push( ...reuses );
+		}
+	} );
+	return results;
 };
 
 /**

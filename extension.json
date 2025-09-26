@@ -30,7 +30,6 @@
 		"GetPreferences": "referencepreviews",
 		"ParserAfterParse": "parser",
 		"ParserClearState": "parser",
-		"ParserCloned": "parser",
 		"ParserFirstCallInit": "parser",
 		"EditPage::showEditForm:initial": "main",
 		"MakeGlobalVariablesScript": "referencepreviews",

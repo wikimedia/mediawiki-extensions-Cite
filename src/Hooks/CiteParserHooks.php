@@ -5,7 +5,6 @@ namespace Cite\Hooks;
 use Cite\CiteFactory;
 use MediaWiki\Hook\ParserAfterParseHook;
 use MediaWiki\Hook\ParserClearStateHook;
-use MediaWiki\Hook\ParserClonedHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\StripState;
@@ -16,7 +15,6 @@ use MediaWiki\Parser\StripState;
 class CiteParserHooks implements
 	ParserFirstCallInitHook,
 	ParserClearStateHook,
-	ParserClonedHook,
 	ParserAfterParseHook
 {
 
@@ -43,16 +41,7 @@ class CiteParserHooks implements
 	 * @param Parser $parser
 	 */
 	public function onParserClearState( $parser ) {
-		$parser->extCite = null;
-	}
-
-	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserCloned
-	 *
-	 * @param Parser $parser
-	 */
-	public function onParserCloned( $parser ) {
-		$parser->extCite = null;
+		$this->citeFactory->destroyCiteForParser( $parser );
 	}
 
 	/**
@@ -63,9 +52,8 @@ class CiteParserHooks implements
 	 * @param StripState $stripState
 	 */
 	public function onParserAfterParse( $parser, &$text, $stripState ) {
-		if ( $parser->extCite !== null ) {
-			/** @var Cite $cite */
-			$cite = $parser->extCite;
+		$cite = $this->citeFactory->peekCiteForParser( $parser );
+		if ( $cite !== null ) {
 			$text .= $cite->checkRefsNoReferences( $parser, $parser->getOptions()->getIsSectionPreview() );
 		}
 	}

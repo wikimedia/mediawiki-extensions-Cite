@@ -53,7 +53,7 @@
 	"cite-ve-dialog-reference-add-details-button": "Details hinzufügen",
 	"cite-ve-dialog-subreference-help-dialog-title": "Details",
 	"cite-ve-dialog-subreference-help-dialog-head": "Neu: Füge ein Detail zu einem wiederverwendeten Einzelnachweis hinzu",
-	"cite-ve-dialog-subreference-help-dialog-content": "Beim Wiederverwenden eines Einzelnachweises kannst du jetzt verschiedene Details wie eine Seitenzahl oder ein Zitat hinzufügen, ohne den vollständigen Einzelnachweis zu wiederholen.<p><b><strong>Verwende es beim:</b></p><ul><li>Zitieren verschiedener Seiten oder Bände eines Buches</li><li>Angeben eines Zeitstempels in einem zitierten Podcast</li><li>Hinzufügen eines relevanten Zitats aus einer Quelle</li></ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "Beim Wiederverwenden eines Einzelnachweises kannst du jetzt verschiedene Details wie eine Seitenzahl oder ein Zitat hinzufügen, ohne den vollständigen Einzelnachweis zu wiederholen.<p><b>Verwende es beim:</b></p><ul><li>Zitieren verschiedener Seiten oder Bände eines Buches</li><li>Angeben eines Zeitstempels in einem zitierten Podcast</li><li>Hinzufügen eines relevanten Zitats aus einer Quelle</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Erfahre mehr über das Hinzufügen von Details zu einem Einzelnachweis",
 	"cite-ve-dialog-reference-title-details": "Details",
 	"cite-ve-dialog-reference-useexisting-tool": "Weiterverwenden",

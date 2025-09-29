@@ -187,10 +187,6 @@ class RefTagHandler extends ExtensionTagHandler {
 				$followNode = $about !== null ? DOMCompat::querySelector(
 					$bodyElt, "span[typeof~='mw:Cite/Follow'][about='{$about}']"
 				) : null;
-				// Re-serialize incomplete follow like normal so we don't loose the content
-				$followNode ??= DOMCompat::querySelector(
-					$bodyElt, "span[typeof~='mw:Cite/Follow']"
-				);
 				if ( $followNode ) {
 					$src = $extApi->domToWikitext( $html2wtOpts, $followNode, true );
 					$src = ltrim( $src, ' ' );

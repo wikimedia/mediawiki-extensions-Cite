@@ -103,10 +103,6 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
 		return;
 	}
 
-	const buttonLabel = ve.msg( this.isReadOnly() ?
-		'visualeditor-contextitemwidget-label-view' :
-		'visualeditor-contextitemwidget-label-secondary'
-	);
 	const editDetails = new OO.ui.Layout( {
 		classes: [ 've-ui-mwReferenceContextItem-subrefHeader' ],
 		content: [
@@ -114,13 +110,13 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
 				{
 					framed: false,
 					invisibleLabel: true,
-					icon: this.context.isMobile() ? ( this.isReadOnly() ? 'eye' : 'edit' ) : 'edit',
-					label: buttonLabel,
-					classes: [ this.context.isMobile() ?
-						've-ui-mwReferenceMobileContextItem-editButton' :
-						've-ui-mwReferenceContextItem-editButton' ]
+					icon: this.isReadOnly() ? 'eye' : 'edit',
+					label: ve.msg( this.isReadOnly() ?
+						'visualeditor-contextitemwidget-label-view' :
+						'visualeditor-contextitemwidget-label-secondary'
+					),
+					classes: [ 've-ui-mwReferenceContextItem-editButton' ]
 				}
-
 			).on( 'click', () => {
 				// Phabricator T396734
 				ve.track( 'activity.subReference', { action: 'context-edit-details' } );

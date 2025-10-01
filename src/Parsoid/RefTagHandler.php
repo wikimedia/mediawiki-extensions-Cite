@@ -249,6 +249,19 @@ class RefTagHandler extends ExtensionTagHandler {
 		$origDataMw = DOMDataUtils::getDataMw( $origNode );
 		$editedDataMw = DOMDataUtils::getDataMw( $editedNode );
 
+		// FIXME: This compares the rendered bodies, the source elements should be
+		// compared instead.
+		if ( isset( $origDataMw->mainBody ) && isset( $editedDataMw->mainBody ) &&
+			isset( $origDataMw->isSubRefWithMainBody ) && isset( $editedDataMw->isSubRefWithMainBody )
+		) {
+			$origMainHtml = DOMCompat::getElementById( $origNode->ownerDocument, $origDataMw->mainBody );
+			$editedMainHtml = DOMCompat::getElementById( $editedNode->ownerDocument, $editedDataMw->mainBody );
+
+			if ( $origMainHtml && $editedMainHtml && $domDiff( $origMainHtml, $editedMainHtml ) ) {
+				return true;
+			}
+		}
+
 		if ( isset( $origDataMw->body->html ) && isset( $editedDataMw->body->html ) ) {
 			$origFragment = $extApi->htmlToDom(
 				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive

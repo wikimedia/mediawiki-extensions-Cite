@@ -1119,3 +1119,20 @@ parsoid=html2wt
 
 <div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;smith&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-smith-3&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Smith&amp;quot;}}\&quot; class=\&quot;mw-ref reference\&quot; about=\&quot;#mwt3\&quot; rel=\&quot;dc:references\&quot; data-parsoid=\&quot;{&amp;quot;dsr&amp;quot;:[85,115,18,6]}\&quot;&gt;&lt;a href=\&quot;./Example/Test11#cite_note-smith-3\&quot; data-parsoid=\&quot;{}\&quot;&gt;&lt;span class=\&quot;mw-reflink-text\&quot; data-parsoid=\&quot;{}\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot; data-parsoid=\&quot;{}\&quot;&gt;[&lt;/span&gt;2&lt;span class=\&quot;cite-bracket\&quot; data-parsoid=\&quot;{}\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;miller&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-miller-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Miller&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\&quot; class=\&quot;mw-ref reference\&quot; data-parsoid=\&quot;{}\&quot;&gt;&lt;a&gt;&lt;span class=\&quot;mw-reflink-text\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot;&gt;[&lt;/span&gt;1&lt;span class=\&quot;cite-bracket\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-miller-1">Miller</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li></ol></li><li><span typeof="mw:Extension/ref">Smith</span></li></ol></div>
 !! end
+
+!! test
+T406002: Selser detects edits to the main part of a main+details
+!! config
+wgCiteSubReferencing=true
+!! options
+parsoid={
+  "modes": ["selser"],
+  "changes": [["#x", "remove"]],
+  "selser": "noauto"
+}
+!! wikitext
+<ref name="main" details="page 1"><span id="x">Original</span>body</ref>
+!! wikitext/edited
+<ref name="main" details="page 1">body</ref>
+!! html/parsoid
+!! end

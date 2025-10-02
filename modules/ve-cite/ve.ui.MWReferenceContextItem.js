@@ -199,23 +199,25 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
 	const listKey = this.model.getAttribute( 'mainRefKey' ) || this.model.getAttribute( 'listKey' );
 	const totalUsageCount = this.groupRefs.getTotalUsageCount( listKey );
 
-	if ( totalUsageCount > 1 ) {
-		if ( mw.config.get( 'wgCiteSubReferencing' ) ) {
-			const label = new OO.ui.LabelWidget( {
-				classes: [ 've-ui-mwReferenceContextItem-reuse',
-					!this.context.isMobile() ? 've-ui-mwReferenceContextItem-reuse-desktop' : '' ],
-				label: ve.msg( 'cite-ve-dialog-reference-editing-reused-short', totalUsageCount )
-			} );
-			return new OO.ui.Layout( {
-				classes: [ 've-ui-mwReferenceContextItem-reuse-layout' ],
-				content: [ label ]
-			} ).$element;
-		} else {
-			return $( '<div>' )
-				.addClass( 've-ui-mwReferenceContextItem-muted' )
-				.text( ve.msg( 'cite-ve-dialog-reference-editing-reused', totalUsageCount ) );
-		}
+	if ( totalUsageCount <= 1 ) {
+		return;
 	}
+
+	if ( !mw.config.get( 'wgCiteSubReferencing' ) ) {
+		return $( '<div>' )
+			.addClass( 've-ui-mwReferenceContextItem-muted' )
+			.text( ve.msg( 'cite-ve-dialog-reference-editing-reused', totalUsageCount ) );
+	}
+
+	return new OO.ui.Layout( {
+		classes: [ 've-ui-mwReferenceContextItem-reuse-layout' ],
+		content: [
+			new OO.ui.LabelWidget( {
+				classes: [ 've-ui-mwReferenceContextItem-reuse' ],
+				label: ve.msg( 'cite-ve-dialog-reference-editing-reused-short', totalUsageCount )
+			} )
+		]
+	} ).$element;
 };
 
 /**

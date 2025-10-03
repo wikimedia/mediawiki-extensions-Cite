@@ -104,37 +104,41 @@
 		"localBasePath": "",
 		"remoteExtPath": "Cite",
 		"scripts": [
-			"tests/qunit/ve-cite/ve.dm.citeExample.js",
-			"tests/qunit/ve-cite/ve.dm.Converter.test.js",
-			"tests/qunit/ve-cite/ve.dm.MWDocumentReferences.test.js",
-			"tests/qunit/ve-cite/ve.dm.MWGroupReferences.test.js",
-			"tests/qunit/ve-cite/ve.dm.InternalList.test.js",
-			"tests/qunit/ve-cite/ve.dm.MWReferenceModel.test.js",
-			"tests/qunit/ve-cite/ve.dm.MWReferenceNode.test.js",
-			"tests/qunit/ve-cite/ve.dm.MWReferencesListNode.test.js",
-			"tests/qunit/ve-cite/ve.dm.Transaction.test.js",
-			"tests/qunit/ve-cite/ve.ui.DiffElement.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWCitationDialogTool.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWReferenceContextItem.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWReferenceEditPanel.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWReferenceGroupInputWidget.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWReferenceResultWidget.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWReferenceSearchWidget.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWReferencesListDialog.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWUseExistingReferenceCommand.test.js",
-			"tests/qunit/ve-cite/ve.ui.MWWikitextStringTransferHandler.test.js",
 			"tests/qunit/ext.cite.referencePreviews/createReferenceGateway.test.js",
 			"tests/qunit/ext.cite.referencePreviews/isReferencePreviewsEnabled.test.js",
 			"tests/qunit/ext.cite.referencePreviews/renderer.test.js"
-		],
-		"dependencies": [
-			"ext.cite.visualEditor",
-			"test.VisualEditor"
 		],
 		"optional": {
 			"Popups": {
 				"dependencies": [
 					"ext.cite.referencePreviews"
+				]
+			},
+			"VisualEditor": {
+				"scripts": [
+					"tests/qunit/ve-cite/ve.dm.citeExample.js",
+					"tests/qunit/ve-cite/ve.dm.Converter.test.js",
+					"tests/qunit/ve-cite/ve.dm.MWDocumentReferences.test.js",
+					"tests/qunit/ve-cite/ve.dm.MWGroupReferences.test.js",
+					"tests/qunit/ve-cite/ve.dm.InternalList.test.js",
+					"tests/qunit/ve-cite/ve.dm.MWReferenceModel.test.js",
+					"tests/qunit/ve-cite/ve.dm.MWReferenceNode.test.js",
+					"tests/qunit/ve-cite/ve.dm.MWReferencesListNode.test.js",
+					"tests/qunit/ve-cite/ve.dm.Transaction.test.js",
+					"tests/qunit/ve-cite/ve.ui.DiffElement.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWCitationDialogTool.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWReferenceContextItem.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWReferenceEditPanel.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWReferenceGroupInputWidget.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWReferenceResultWidget.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWReferenceSearchWidget.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWReferencesListDialog.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWUseExistingReferenceCommand.test.js",
+					"tests/qunit/ve-cite/ve.ui.MWWikitextStringTransferHandler.test.js"
+				],
+				"dependencies": [
+					"ext.cite.visualEditor",
+					"test.VisualEditor"
 				]
 			}
 		},

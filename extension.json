@@ -131,10 +131,14 @@
 			"ext.cite.visualEditor",
 			"test.VisualEditor"
 		],
-		"optionalDependencies": {
-			"Popups": "ext.cite.referencePreviews"
+		"optional": {
+			"Popups": {
+				"dependencies": [
+					"ext.cite.referencePreviews"
+				]
+			}
 		},
-		"factory": "Cite\\ResourceLoader\\OptionalLoader::addOptionalDependencies"
+		"factory": "Cite\\ResourceLoader\\OptionalLoader::addOptional"
 	},
 	"attributes": {
 		"CodeMirror": {

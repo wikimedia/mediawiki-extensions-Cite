@@ -101,7 +101,9 @@ class CiteHooks implements
 		}
 
 		$user = $editPage->getContext()->getUser();
-		if ( $this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' ) ) {
+		if ( $extensionRegistry->isLoaded( 'WikiEditor' ) &&
+			$this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' )
+		) {
 			$outputPage->addModules( 'ext.cite.wikiEditor' );
 		}
 	}

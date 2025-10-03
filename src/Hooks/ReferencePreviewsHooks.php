@@ -51,6 +51,44 @@ class ReferencePreviewsHooks implements
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $rl ): void {
+		if ( $this->extensionRegistry->isLoaded( 'WikiEditor' ) ) {
+			$rl->register( [
+				'ext.cite.wikiEditor' => [
+					'localBasePath' => dirname( __DIR__, 2 ) . '/modules',
+					'remoteExtPath' => 'Cite/modules',
+					'scripts' => [
+						'ext.cite.wikiEditor.js',
+					],
+					'dependencies' => [
+						'ext.wikiEditor',
+						'mediawiki.jqueryMsg',
+						'mediawiki.language',
+					],
+					'messages' => [
+						'cite-wikieditor-tool-reference',
+						'cite-wikieditor-help-page-references',
+						'cite-wikieditor-help-content-reference-example-text1',
+						'cite-wikieditor-help-content-reference-example-text2',
+						'cite-wikieditor-help-content-reference-example-text3',
+						'cite-wikieditor-help-content-reference-example-ref-id',
+						'cite-wikieditor-help-content-reference-example-extra-details',
+						'cite-wikieditor-help-content-reference-example-ref-normal',
+						'cite-wikieditor-help-content-reference-example-ref-named',
+						'cite-wikieditor-help-content-reference-example-ref-reuse',
+						'cite-wikieditor-help-content-reference-example-ref-details',
+						'cite-wikieditor-help-content-reference-example-ref-result',
+						'cite-wikieditor-help-content-reference-example-reflist',
+						'cite-wikieditor-help-content-reference-description',
+						'cite-wikieditor-help-content-named-reference-description',
+						'cite-wikieditor-help-content-rereference-description',
+						'cite-wikieditor-help-content-sub-reference-description',
+						'cite-wikieditor-help-content-showreferences-description',
+						'cite_reference_backlink_symbol',
+					],
+				],
+			] );
+		}
+
 		if ( !$rl->getConfig()->get( 'CiteReferencePreviews' ) ||
 			!$this->extensionRegistry->isLoaded( 'Popups' )
 		) {

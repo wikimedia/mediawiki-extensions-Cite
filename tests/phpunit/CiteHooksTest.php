@@ -47,20 +47,31 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideBooleans
 	 */
 	public function testOnResourceLoaderRegisterModules( bool $enabled ) {
-		$this->markTestSkippedIfExtensionNotLoaded( 'Popups' );
+		$extensionRegistry = $this->createMock( ExtensionRegistry::class );
+		$extensionRegistry->method( 'isLoaded' )->willReturn( $enabled );
+
+		$rlModules = [];
 
 		$resourceLoader = $this->createMock( ResourceLoader::class );
 		$resourceLoader->method( 'getConfig' )
 			->willReturn( new HashConfig( [ 'CiteReferencePreviews' => $enabled ] ) );
-		$resourceLoader->expects( $this->exactly( (int)$enabled ) )
-			->method( 'register' );
+		$resourceLoader->method( 'register' )
+			 ->willReturnCallback( static function ( array $modules ) use ( &$rlModules ) {
+				 $rlModules = array_merge( $rlModules, $modules );
+			 } );
 
 		( new ReferencePreviewsHooks(
-			ExtensionRegistry::getInstance(),
+			$extensionRegistry,
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
 		) )
 			->onResourceLoaderRegisterModules( $resourceLoader );
+
+		if ( $enabled ) {
+			$this->assertArrayHasKey( 'ext.cite.wikiEditor', $rlModules );
+		} else {
+			$this->assertArrayNotHasKey( 'ext.cite.wikiEditor', $rlModules );
+		}
 	}
 
 	/**

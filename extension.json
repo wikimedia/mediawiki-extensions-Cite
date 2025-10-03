@@ -57,6 +57,7 @@
 		"referencepreviews": {
 			"class": "Cite\\Hooks\\ReferencePreviewsHooks",
 			"services": [
+				"ExtensionRegistry",
 				"Cite.ReferencePreviewsContext",
 				"Cite.GadgetsIntegration"
 			]

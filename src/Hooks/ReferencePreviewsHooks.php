@@ -24,6 +24,7 @@ class ReferencePreviewsHooks implements
 {
 
 	public function __construct(
+		private readonly ExtensionRegistry $extensionRegistry,
 		private readonly ReferencePreviewsContext $referencePreviewsContext,
 		private readonly ReferencePreviewsGadgetsIntegration $gadgetsIntegration,
 	) {
@@ -35,7 +36,7 @@ class ReferencePreviewsHooks implements
 	 */
 	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
 		// The reference previews feature is a "PluginModules" and cannot work without Popups
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'Popups' ) &&
+		if ( $this->extensionRegistry->isLoaded( 'Popups' ) &&
 			$this->referencePreviewsContext->isReferencePreviewsEnabled(
 				$out->getUser(),
 				$out->getSkin()
@@ -51,7 +52,7 @@ class ReferencePreviewsHooks implements
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $rl ): void {
 		if ( !$rl->getConfig()->get( 'CiteReferencePreviews' ) ||
-			!ExtensionRegistry::getInstance()->isLoaded( 'Popups' )
+			!$this->extensionRegistry->isLoaded( 'Popups' )
 		) {
 			return;
 		}
@@ -93,7 +94,7 @@ class ReferencePreviewsHooks implements
 	 */
 	public function onGetPreferences( $user, &$preferences ) {
 		// The reference previews feature is a "PluginModules" and cannot work without Popups
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Popups' ) ) {
+		if ( !$this->extensionRegistry->isLoaded( 'Popups' ) ) {
 			return;
 		}
 
@@ -103,7 +104,7 @@ class ReferencePreviewsHooks implements
 			// FIXME: This message is unnecessary and unactionable since we already
 			// detect specific gadget conflicts.
 			'help-message' => 'popups-prefs-conflicting-gadgets-info',
-			'section' => ExtensionRegistry::getInstance()->isLoaded( 'Popups' ) ?
+			'section' => $this->extensionRegistry->isLoaded( 'Popups' ) ?
 				'rendering/reading' : 'rendering/advancedrendering',
 		];
 		$isNavPopupsGadgetEnabled = $this->gadgetsIntegration->isNavPopupsGadgetEnabled( $user );

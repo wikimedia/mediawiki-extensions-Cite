@@ -7,6 +7,7 @@ use Cite\Hooks\ReferencePreviewsHooks;
 use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
 use MediaWiki\Api\ApiQuerySiteinfo;
 use MediaWiki\Config\HashConfig;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\User\Options\StaticUserOptionsLookup;
 use MediaWiki\User\User;
@@ -55,6 +56,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			->method( 'register' );
 
 		( new ReferencePreviewsHooks(
+			ExtensionRegistry::getInstance(),
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
 		) )
@@ -99,6 +101,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$gadgetsIntegrationMock = $this->createMock( ReferencePreviewsGadgetsIntegration::class );
 		$prefs = [];
 		( new ReferencePreviewsHooks(
+			ExtensionRegistry::getInstance(),
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$gadgetsIntegrationMock,
 		) )
@@ -127,6 +130,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( true );
 		$prefs = [];
 		( new ReferencePreviewsHooks(
+			ExtensionRegistry::getInstance(),
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$gadgetsIntegrationMock,
 		) )
@@ -143,6 +147,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		];
 		$expected = $prefs;
 		( new ReferencePreviewsHooks(
+			ExtensionRegistry::getInstance(),
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
 		) )

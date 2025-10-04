@@ -365,16 +365,19 @@ ve.ce.MWReferencesListNode.prototype.renderBacklinks = function ( keyedNodes, re
 		return $( '<a>' )
 			.attr( 'rel', 'mw:referencedBy' )
 			.attr( 'data-mw-group', refGroup || null )
-			.append( $( '<span>' ).addClass( 'mw-linkback-text' ).text( '↑ ' ) );
+			.append( $( '<span>' ).addClass( 'mw-linkback-text' ).text( '↑' ) );
 	}
 
 	// named reference with multiple usages
 	const $refSpan = $( '<span>' ).attr( 'rel', 'mw:referencedBy' );
 	for ( let i = 0; i < keyedNodes.length; i++ ) {
+		if ( i > 0 ) {
+			$refSpan.append( ' ' );
+		}
 		$( '<a>' )
 			.attr( 'data-mw-group', refGroup || null )
 			// FIXME: i18n backlink numbering
-			.append( $( '<span>' ).addClass( 'mw-linkback-text' ).text( ( i + 1 ) + ' ' ) )
+			.append( $( '<span>' ).addClass( 'mw-linkback-text' ).text( ( i + 1 ) ) )
 			.appendTo( $refSpan );
 	}
 	return $refSpan;

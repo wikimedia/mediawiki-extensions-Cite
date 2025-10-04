@@ -67,7 +67,7 @@ class RefGroup implements Countable {
 		if ( $group ) {
 			$a->setAttribute( 'data-mw-group', $group );
 		}
-		$span->appendChild( $ownerDoc->createTextNode( $text . ' ' ) );
+		$span->appendChild( $ownerDoc->createTextNode( $text ) );
 		$a->appendChild( $span );
 		return $a;
 	}
@@ -152,6 +152,9 @@ class RefGroup implements Countable {
 		} else {
 			DOMUtils::addRel( $linkbackSpan, 'mw:referencedBy' );
 			for ( $i = 1; $i <= $ref->visibleNodes; $i++ ) {
+				if ( $i > 1 ) {
+					$linkbackSpan->appendChild( $ownerDoc->createTextNode( ' ' ) );
+				}
 				$lb = ParsoidAnchorFormatter::getBacklinkIdentifier( $ref, $i );
 				$linkbackSpan->appendChild(
 					self::createLinkback( $extApi, $lb, $refGroup, (string)$i, $ownerDoc )

@@ -13,7 +13,7 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \Cite\ReferenceStack
  * @license GPL-2.0-or-later
  */
-class ReferenceStackTest extends \MediaWikiUnitTestCase {
+class ReferenceStackTest extends \MediaWikiIntegrationTestCase {
 
 	public function testPushInvalidRef() {
 		$stack = $this->newStack();

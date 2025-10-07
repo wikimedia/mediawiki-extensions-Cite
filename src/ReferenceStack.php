@@ -3,6 +3,7 @@
 namespace Cite;
 
 use LogicException;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\StripState;
 
 /**
@@ -151,9 +152,22 @@ class ReferenceStack {
 
 			$parentRef->subrefCount ??= 0;
 
-			// FIXME: At the moment it's impossible to reuse sub-references in any way
+			if ( MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteSubRefMergeInDevelopment' ) ) {
+				// FIXME: Should use some kind of lookup table for performance reasons
+				foreach ( $this->refs[$group] as $duplicate ) {
+					// Merge sub-refs based on the raw wikitext
+					if ( $duplicate->subrefIndex !== null && $duplicate->text === $subrefDetails ) {
+						// Same behavior as above when named main refs are reused
+						$duplicate->count++;
+						$this->refCallStack[] = [ $action, $duplicate, $text, $argv ];
+						return $duplicate;
+					}
+				}
+			}
+
 			$ref->count = 1;
 			$ref->globalId = $this->nextRefSequence();
+			// We cannot use the name to track sub-refs, only identical main refs can
 			$ref->name = null;
 			$ref->hasMainRef = $parentRef;
 			$ref->subrefIndex = ++$parentRef->subrefCount;

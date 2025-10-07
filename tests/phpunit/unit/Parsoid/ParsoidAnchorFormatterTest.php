@@ -52,8 +52,8 @@ class ParsoidAnchorFormatterTest extends \MediaWikiUnitTestCase {
 
 	public static function provideBacklinkIdentifiers() {
 		return [
-			[ null, 0, 99, null, 'cite_ref-0' ],
-			[ null, 1, 99, null, 'cite_ref-1' ],
+			[ null, 0, 1, null, 'cite_ref-0' ],
+			[ null, 1, 99, null, 'cite_ref-1-98' ],
 			[ 'a', 1, 5, null, 'cite_ref-a_1-4' ],
 			[ 'a', 1, 5, 3, 'cite_ref-a_1-2' ],
 			[ ' _a __  b_', 6, 1, null, 'cite_ref-_a_b_6-0' ],

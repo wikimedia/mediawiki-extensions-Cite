@@ -20,11 +20,16 @@ class AnchorFormatter {
 		// This intentionally drops "0" and such, that's invalid anyway
 		if ( $name ) {
 			$id = self::normalizeFragmentIdentifier( "{$name}_$globalId" );
-			// TODO: Can we change this to use the number as it is, without decrementing?
-			$id .= '-' . ( $count - 1 );
 		} else {
 			$id = $globalId;
 		}
+
+		// Skip the "-0" suffix on the first (unnamed) sub-ref, we can't know if it will be reused
+		if ( $name || $count > 1 ) {
+			// TODO: Can we change this to use the number as it is, without decrementing?
+			$id .= '-' . ( $count - 1 );
+		}
+
 		return "cite_ref-$id";
 	}
 

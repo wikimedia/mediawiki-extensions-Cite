@@ -393,22 +393,18 @@
 	"config": {
 		"CiteSubReferencing": {
 			"description": "Temporary feature flag while the sub-referencing feature (a way to nest citations and e.g. reference pages in a book) is in development.",
-			"public": true,
 			"value": false
 		},
 		"CiteVisualEditorOtherGroup": {
 			"description": "If VisualEditor should list the citation features as part of the existing \"Insert\" drop-down menu instead of a top-level \"Cite\" toolbar button.",
-			"public": true,
 			"value": false
 		},
 		"CiteResponsiveReferences": {
 			"description": "If long <references /> lists with more than $wgCiteResponsiveReferencesThreshold references should behave responsive by default and be displayed in two or more columns. This can also be toggled individually with <references responsive /> to enable and <references responsive=\"0\" /> to disable it.",
-			"public": true,
 			"value": true
 		},
 		"CiteResponsiveReferencesThreshold": {
 			"description": "The number of references at which CiteResponsiveReferences is enabled.",
-			"public": true,
 			"value": 10
 		},
 		"CiteReferencePreviews": {
@@ -425,17 +421,14 @@
 		},
 		"CiteUseLegacyBacklinkLabels": {
 			"description": "Feature flag switching between numeric and legacy i18n backlink labels (true) and new-style Community Configuration and CLDR alphabet sequences (false).",
-			"public": true,
 			"value": true
 		},
 		"CiteBacklinkCommunityConfiguration": {
 			"description": "Feature flag to enable the Cite community configuration.",
-			"public": true,
 			"value": false
 		},
 		"CiteDefaultBacklinkAlphabet": {
 			"description": "List of letters in the Alphabet to be used to auto-generate backlink labels. Separated by spaces. Defaults to English Alphabet \"a\" to \"z\" when not specified. Currently only used when CiteUseLegacyBacklinkLabels is set to false.",
-			"public": true,
 			"value": null
 		}
 	},

@@ -26,11 +26,10 @@ namespace Cite;
 
 use LogicException;
 use MediaWiki\Config\Config;
+use MediaWiki\Extension\CommunityConfiguration\Provider\ConfigurationProviderFactory;
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
-use MediaWiki\Registration\ExtensionRegistry;
 use StatusValue;
 
 /**
@@ -71,6 +70,8 @@ class Cite {
 	public function __construct(
 		Parser $parser,
 		private readonly Config $config,
+		AlphabetsProvider $alphabetsProvider,
+		?ConfigurationProviderFactory $configurationProviderFactory,
 	) {
 		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
@@ -81,14 +82,11 @@ class Cite {
 		$markSymbolRenderer = new MarkSymbolRenderer(
 			$messageLocalizer
 		);
-		$services = MediaWikiServices::getInstance();
-		// FIXME: Use the existing 'Cite.BacklinkMarkRenderer' service here?
 		$backlinkMarkRenderer = new BacklinkMarkRenderer(
 			$parser->getContentLanguage()->getCode(),
 			$messageLocalizer,
-			$services->getService( 'Cite.AlphabetsProvider' ),
-			ExtensionRegistry::getInstance()->isLoaded( 'CommunityConfiguration' ) ?
-				$services->getService( 'CommunityConfiguration.ProviderFactory' ) : null,
+			$alphabetsProvider,
+			$configurationProviderFactory,
 			$config
 		);
 		$this->footnoteMarkFormatter = new FootnoteMarkFormatter(

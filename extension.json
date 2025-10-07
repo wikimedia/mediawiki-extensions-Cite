@@ -51,7 +51,7 @@
 		"parser": {
 			"class": "Cite\\Hooks\\CiteParserHooks",
 			"services": [
-				"MainConfig"
+				"Cite.CiteFactory"
 			]
 		},
 		"referencepreviews": {

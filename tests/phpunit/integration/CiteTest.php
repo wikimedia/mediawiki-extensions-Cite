@@ -3,6 +3,7 @@
 namespace Cite\Tests\Integration;
 
 use Cite\Cite;
+use Cite\CiteFactory;
 use Cite\ErrorReporter;
 use Cite\FootnoteMarkFormatter;
 use Cite\ReferenceListFormatter;
@@ -489,7 +490,12 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 			'CiteResponsiveReferences' => false,
 			'CiteSubReferencing' => true,
 		] );
-		return new Cite( $parser, $config );
+		$citeFactory = new CiteFactory(
+			$config,
+			$this->getServiceContainer()->getService( 'Cite.AlphabetsProvider' ),
+			null,
+		);
+		return $citeFactory->newCite( $parser );
 	}
 
 }

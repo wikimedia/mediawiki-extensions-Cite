@@ -3,7 +3,7 @@
 namespace Cite\Hooks;
 
 use Cite\Cite;
-use MediaWiki\Config\Config;
+use Cite\CiteFactory;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 
@@ -13,7 +13,7 @@ use MediaWiki\Parser\PPFrame;
 class CiteParserTagHooks {
 
 	public function __construct(
-		private readonly Config $config,
+		private readonly CiteFactory $citeFactory,
 	) {
 	}
 
@@ -90,7 +90,7 @@ class CiteParserTagHooks {
 	 * Get or create Cite state for this parser.
 	 */
 	private function citeForParser( Parser $parser ): Cite {
-		$parser->extCite ??= new Cite( $parser, $this->config );
+		$parser->extCite ??= $this->citeFactory->newCite( $parser );
 		return $parser->extCite;
 	}
 

@@ -3,8 +3,8 @@
 namespace Cite\Tests\Unit;
 
 use Cite\Cite;
+use Cite\CiteFactory;
 use Cite\Hooks\CiteParserTagHooks;
-use MediaWiki\Config\Config;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Parser\PPFrame;
@@ -17,7 +17,7 @@ class CiteParserTagHooksTest extends \MediaWikiUnitTestCase {
 
 	private function newCiteParserTagHooks() {
 		return new CiteParserTagHooks(
-			$this->createNoOpMock( Config::class )
+			$this->createNoOpMock( CiteFactory::class ),
 		);
 	}
 

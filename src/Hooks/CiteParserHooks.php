@@ -2,8 +2,7 @@
 
 namespace Cite\Hooks;
 
-use Cite\Cite;
-use MediaWiki\Config\Config;
+use Cite\CiteFactory;
 use MediaWiki\Hook\ParserAfterParseHook;
 use MediaWiki\Hook\ParserClearStateHook;
 use MediaWiki\Hook\ParserClonedHook;
@@ -24,9 +23,9 @@ class CiteParserHooks implements
 	private readonly CiteParserTagHooks $citeParserTagHooks;
 
 	public function __construct(
-		Config $config
+		private readonly CiteFactory $citeFactory,
 	) {
-		$this->citeParserTagHooks = new CiteParserTagHooks( $config );
+		$this->citeParserTagHooks = new CiteParserTagHooks( $citeFactory );
 	}
 
 	/**

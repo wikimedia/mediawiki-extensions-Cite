@@ -95,8 +95,7 @@ class CiteIntegrationTest extends \MediaWikiIntegrationTestCase {
 		$mockParser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getContentLanguage' ] );
 		$mockParser->method( 'getOptions' )->willReturn( $mockOptions );
 		$mockParser->method( 'getContentLanguage' )->willReturn( $language );
-		$config = $this->getServiceContainer()->getMainConfig();
-		return new Cite( $mockParser, $config );
+		return $this->getServiceContainer()->getService( 'Cite.CiteFactory' )->newCite( $mockParser );
 	}
 
 }

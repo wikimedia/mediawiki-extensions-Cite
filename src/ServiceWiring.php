@@ -2,6 +2,7 @@
 
 use Cite\AlphabetsProvider;
 use Cite\BacklinkMarkRenderer;
+use Cite\CiteFactory;
 use Cite\MarkSymbolRenderer;
 use Cite\ReferenceMessageLocalizer;
 use Cite\ReferencePreviews\ReferencePreviewsContext;
@@ -36,6 +37,15 @@ return [
 			$services->getExtensionRegistry()->isLoaded( 'CommunityConfiguration' ) ?
 				$services->getService( 'CommunityConfiguration.ProviderFactory' ) : null,
 			$services->getMainConfig()
+		);
+	},
+
+	'Cite.CiteFactory' => static function ( MediaWikiServices $services ): CiteFactory {
+		return new CiteFactory(
+			$services->getMainConfig(),
+			$services->getService( 'Cite.AlphabetsProvider' ),
+			$services->getExtensionRegistry()->isLoaded( 'CommunityConfiguration' ) ?
+				$services->getService( 'CommunityConfiguration.ProviderFactory' ) : null,
 		);
 	},
 

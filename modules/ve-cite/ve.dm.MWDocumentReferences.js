@@ -69,8 +69,9 @@ ve.dm.MWDocumentReferences.static.refsForDoc = function ( doc ) {
  */
 ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
 	groupsChanged.forEach( ( groupName ) => {
-		const nodeGroup = this.doc.getInternalList().getNodeGroup( groupName );
-		this.cachedByGroup[ groupName ] = MWGroupReferences.static.makeGroupRefs( nodeGroup );
+		const internalList = this.doc.getInternalList();
+		const nodeGroup = internalList.getNodeGroup( groupName );
+		this.cachedByGroup[ groupName ] = MWGroupReferences.static.makeGroupRefs( internalList, groupName, nodeGroup );
 	} );
 };
 

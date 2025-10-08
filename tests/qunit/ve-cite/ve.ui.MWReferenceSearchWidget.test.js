@@ -18,11 +18,15 @@
 		} : undefined;
 		const nodeGroup = new ve.dm.InternalListNodeGroup();
 		nodeGroup.appendNode( listKey, node );
+		const groupRefs = {
+			getAllRefsInReflistOrder: () => ( hasNode ? [ node ] : [] ),
+			getInternalModelNode: () => ( hasNode ? {} : undefined )
+		};
 		return {
 			getAllGroupNames: () => [ 'mwReference/' ],
 			getIndexLabel: () => '1',
 			getItemNode: () => node,
-			getGroupRefs: () => ve.dm.MWGroupReferences.static.makeGroupRefs( nodeGroup ),
+			getGroupRefs: () => groupRefs,
 			hasRefs: () => !!hasNode
 		};
 	};

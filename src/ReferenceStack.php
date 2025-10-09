@@ -26,6 +26,11 @@ class ReferenceStack {
 	private array $refs = [];
 
 	/**
+	 * @var array<string,array<string,array<string,ReferenceStackItem>>> Secondary lookup table
+	 */
+	private array $subRefLookup = [];
+
+	/**
 	 * Global, auto-incrementing sequence number for all <ref>, no matter which group, starting
 	 * from 1. Reflects the total number of <ref>.
 	 */
@@ -107,6 +112,7 @@ class ReferenceStack {
 			return null;
 		}
 
+		// The unique identifier for duplicate (reused) main refs is group + name
 		if ( $name && isset( $this->refs[$group][$name] ) ) {
 			// A named <ref> is reused, possibly with more information than before
 			$ref = &$this->refs[$group][$name];
@@ -141,7 +147,8 @@ class ReferenceStack {
 
 		$ref->numberInGroup ??= ++$this->groupRefSequence[$group];
 
-		if ( ( $subrefDetails ?? '' ) !== '' ) {
+		// Earlier the validator intentionally didn't ignore empty details="", but here we do
+		if ( $subrefDetails !== null && $subrefDetails !== '' ) {
 			$parentRef = $ref;
 			// Turns out this is not a reused parent; undo parts of what happened above
 			$parentRef->count--;
@@ -152,17 +159,19 @@ class ReferenceStack {
 
 			$parentRef->subrefCount ??= 0;
 
-			if ( MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteSubRefMergeInDevelopment' ) ) {
-				// FIXME: Should use some kind of lookup table for performance reasons
-				foreach ( $this->refs[$group] as $duplicate ) {
-					// Merge sub-refs based on the raw wikitext
-					if ( $duplicate->subrefIndex !== null && $duplicate->text === $subrefDetails ) {
-						// Same behavior as above when named main refs are reused
-						$duplicate->count++;
-						$this->refCallStack[] = [ $action, $duplicate, $text, $argv ];
-						return $duplicate;
-					}
+			if ( $parentRef->name &&
+				MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteSubRefMergeInDevelopment' )
+			) {
+				// Unique identifier for duplicate (reused) sub-refs is group + name + details
+				$duplicate = $this->subRefLookup[$group][$parentRef->name][$subrefDetails] ?? null;
+				if ( $duplicate ) {
+					// Same behavior as above when named main refs are reused
+					$duplicate->count++;
+					$this->refCallStack[] = [ $action, $duplicate, $text, $argv ];
+					return $duplicate;
 				}
+				// Remember all unique sub-refs for later possible reuse
+				$this->subRefLookup[$group][$parentRef->name][$subrefDetails] = $ref;
 			}
 
 			$ref->count = 1;

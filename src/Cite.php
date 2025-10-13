@@ -44,7 +44,6 @@ class Cite {
 	 */
 	public const DETAILS_TRACKING_CATEGORY = 'cite-tracking-category-ref-details';
 
-	private bool $isSectionPreview;
 	private FootnoteMarkFormatter $footnoteMarkFormatter;
 	private ReferenceListFormatter $referenceListFormatter;
 	private ErrorReporter $errorReporter;
@@ -73,7 +72,6 @@ class Cite {
 		AlphabetsProvider $alphabetsProvider,
 		?ConfigurationProviderFactory $configurationProviderFactory,
 	) {
-		$this->isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$messageLocalizer = new ReferenceMessageLocalizer( $parser->getContentLanguage() );
 		$this->errorReporter = new ErrorReporter( $parser, $messageLocalizer );
 		$this->mReferencesErrors = StatusValue::newGood();
@@ -146,7 +144,7 @@ class Cite {
 		$validator = new Validator( $this->inReferencesGroup );
 		$status->merge( $validator->validateRef( $text, $arguments ), true );
 		$arguments = $status->getValue();
-		if ( !$this->isSectionPreview ) {
+		if ( !$parser->getOptions()->getIsSectionPreview() ) {
 			$status->merge( $validator->validateListDefinedRefUsage(
 				$arguments['name'],
 				$this->referenceStack->isKnown( $arguments['group'], $arguments['name'] )
@@ -227,7 +225,8 @@ class Cite {
 			$ret = $this->errorReporter->firstError( $status );
 		} else {
 			$responsive = $arguments['responsive'];
-			$ret = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive );
+			$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
+			$ret = $this->formatReferences( $parser, $this->inReferencesGroup, $responsive, $isSectionPreview );
 			// Append errors collected while {@see parseReferencesTagContent} processed <ref> tags
 			// in <references>
 			$ret .= $this->formatReferencesErrors();
@@ -292,18 +291,20 @@ class Cite {
 	 * @param Parser $parser
 	 * @param string $group
 	 * @param bool|null $responsive Defaults to $wgCiteResponsiveReferences when not set
+	 * @param bool $isSectionPreview Value from ParserOptions::getIsSectionPreview
 	 *
 	 * @return string HTML
 	 */
 	private function formatReferences(
 		Parser $parser,
 		string $group,
-		?bool $responsive = null
+		?bool $responsive,
+		bool $isSectionPreview,
 	): string {
 		$refs = $this->referenceStack->popGroup( $group );
 
 		// Check for missing content at the last possible moment before rendering
-		$msg = $this->isSectionPreview ? 'cite_warning_sectionpreview_no_text' :
+		$msg = $isSectionPreview ? 'cite_warning_sectionpreview_no_text' :
 			'cite_error_references_no_text';
 		foreach ( $refs as $ref ) {
 			if ( $ref->text === null ) {
@@ -327,15 +328,15 @@ class Cite {
 	 * references tags and does not add the errors.
 	 *
 	 * @param Parser $parser
-	 * @param bool $isSectionPreview
 	 *
 	 * @return string HTML
 	 */
-	public function checkRefsNoReferences( Parser $parser, bool $isSectionPreview ): string {
+	public function checkRefsNoReferences( Parser $parser ): string {
+		$isSectionPreview = $parser->getOptions()->getIsSectionPreview();
 		$s = '';
 		foreach ( $this->referenceStack->getGroups() as $group ) {
 			if ( $group === self::DEFAULT_GROUP || $isSectionPreview ) {
-				$s .= $this->formatReferences( $parser, $group );
+				$s .= $this->formatReferences( $parser, $group, null, $isSectionPreview );
 			} else {
 				$s .= '<br />' . $this->errorReporter->halfParsed(
 					'cite_error_group_refs_without_references',

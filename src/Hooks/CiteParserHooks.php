@@ -54,7 +54,7 @@ class CiteParserHooks implements
 	public function onParserAfterParse( $parser, &$text, $stripState ) {
 		$cite = $this->citeFactory->peekCiteForParser( $parser );
 		if ( $cite !== null ) {
-			$text .= $cite->checkRefsNoReferences( $parser, $parser->getOptions()->getIsSectionPreview() );
+			$text .= $cite->checkRefsNoReferences( $parser );
 		}
 	}
 

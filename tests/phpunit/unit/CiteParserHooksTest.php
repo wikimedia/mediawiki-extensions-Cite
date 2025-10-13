@@ -6,7 +6,6 @@ use Cite\Cite;
 use Cite\CiteFactory;
 use Cite\Hooks\CiteParserHooks;
 use MediaWiki\Parser\Parser;
-use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Parser\StripState;
 
@@ -51,13 +50,7 @@ class CiteParserHooksTest extends \MediaWikiUnitTestCase {
 		$cite->expects( $this->once() )
 			->method( 'checkRefsNoReferences' );
 
-		$parserOptions = $this->createMock( ParserOptions::class );
-		$parserOptions->method( 'getIsSectionPreview' )
-			->willReturn( false );
-
-		$parser = $this->createNoOpMock( Parser::class, [ 'getOptions', 'getOutput' ] );
-		$parser->method( 'getOptions' )
-			->willReturn( $parserOptions );
+		$parser = $this->createNoOpMock( Parser::class, [ 'getOutput' ] );
 		$parser->method( 'getOutput' )
 			->willReturn( $this->createMock( ParserOutput::class ) );
 		$citeFactory = $this->createMock( CiteFactory::class );

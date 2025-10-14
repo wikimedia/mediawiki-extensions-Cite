@@ -30,31 +30,41 @@ QUnit.test( 'isBodyContentSet', ( assert ) => {
 	assert.false( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
 } );
 
-QUnit.test( 'shouldGetBodyContent on a normal main reference', ( assert ) => {
+QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {
 	const dataElement = { attributes: { listGroup: 'same', listKey: 'foo' } };
 	const ownRef = { attributes: { listGroup: 'same', listKey: 'foo' } };
 
-	// There is no other ref, only this one
 	const nodeGroup = new ve.dm.InternalListNodeGroup();
 	nodeGroup.appendNode( 'foo', new ve.dm.Model( ownRef ) );
-	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
+	assert.true(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'There is no other ref, only this one'
+	);
 
-	// Another ref was holding the content before
 	const otherRef = { attributes: { contentsUsed: true } };
 	nodeGroup.appendNode( 'foo', new ve.dm.Model( otherRef ) );
-	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
+	assert.false(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'Another ref was holding the content before'
+	);
 
-	// No other ref was holding the content before
 	otherRef.attributes.contentsUsed = false;
-	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
+	assert.true(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'No other ref was holding the content before'
+	);
 
-	// The current ref is not the same as the first in the list
 	ownRef.attributes.listGroup = 'different';
-	assert.false( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
+	assert.false(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'The current ref is not the same as the first in the list'
+	);
 
-	// This ref was holding the content before
 	dataElement.attributes.contentsUsed = true;
-	assert.true( ve.dm.MWReferenceNode.static.shouldGetBodyContent( dataElement, nodeGroup ) );
+	assert.true(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'This ref was holding the content before'
+	);
 } );
 
 QUnit.test( 'generateName on a normal main reference', ( assert ) => {

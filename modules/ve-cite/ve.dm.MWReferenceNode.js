@@ -200,11 +200,13 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			}
 		}
 
+		// FIXME: Merge if sub-refs should get main content vs main refs getting body content
+		const shouldGetMainContent = this.shouldGetMainContent( dataElement, nodeGroup );
+
 		// Add reference content to data-mw.
-		if ( dataElement.attributes.mainRefKey ||
-			( !this.isBodyContentSet( dataElement, nodesWithSameKey ) &&
-			// FIXME: Merge if sub-refs should get main content vs main refs getting body content
-			this.shouldGetBodyContent( dataElement, nodeGroup ) ) ) {
+		if ( attributes.mainRefKey ||
+			( !this.isBodyContentSet( dataElement, nodesWithSameKey ) && shouldGetMainContent )
+		) {
 			// get the current content html of the node
 			const currentHtmlWrapper = doc.createElement( 'div' );
 			converter.getDomSubtreeFromData(
@@ -398,28 +400,29 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {boolean}
  * */
-ve.dm.MWReferenceNode.static.shouldGetBodyContent = function ( dataElement, nodeGroup ) {
+ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;
-	const nodesWithSameKey = nodeGroup.getAllReuses( attributes.listKey ) || [];
+	const mainContentKey = attributes.listKey;
+	const mainReuses = nodeGroup.getAllReuses( mainContentKey ) || [];
 
-	// if the reference already stored the body content before, it should be stored there again
+	// If the reference already stored the main content before, it should be stored there again
 	if ( attributes.contentsUsed ||
-		// if this node is the only one it should always get the body content
-		nodesWithSameKey.length <= 1
+		// If this node is the only one it should always get the main content
+		mainReuses.length <= 1
 	) {
 		return true;
 	}
 
-	// the node might be applicable for getting the body content but we only want to move the
+	// The node might be applicable for getting the main content but we only want to move the
 	// content to the first node in the document
 	const isFirstNode = ve.compare(
 		this.getInstanceHashObject( dataElement ),
-		this.getInstanceHashObject( nodesWithSameKey[ 0 ].element )
+		this.getInstanceHashObject( mainReuses[ 0 ].element )
 	);
 	return isFirstNode &&
-		// We only want to give this node the body content if there's no other node after the first
-		// that holds it
-		!nodesWithSameKey.slice( 1 ).some(
+		// We only want to give this node the main content if there's no other main node after the
+		// first that holds it already.
+		!mainReuses.slice( 1 ).some(
 			( node ) => this.doesHoldBodyContent( node.getAttributes(), nodeGroup )
 		);
 };

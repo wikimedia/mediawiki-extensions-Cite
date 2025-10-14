@@ -3,7 +3,11 @@
 {
 	QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
-	const getDocRefsMock = ( hasNode ) => {
+	/**
+	 * @param {boolean} [hasNode=false]
+	 * @return {ve.dm.MWDocumentReferences}
+	 */
+	const getDocumentReferencesMock = ( hasNode ) => {
 		const listKey = 'literal/foo';
 		const node = hasNode ? {
 			getAttribute: ( name ) => ( { listKey: listKey }[ name ] ),
@@ -25,7 +29,7 @@
 
 	QUnit.test( 'buildIndex', ( assert ) => {
 		const widget = new ve.ui.MWReferenceSearchWidget();
-		widget.setDocumentRefs( getDocRefsMock() );
+		widget.setDocumentRefs( getDocumentReferencesMock() );
 
 		assert.strictEqual( widget.index, null );
 		widget.buildIndex();
@@ -34,7 +38,7 @@
 
 	QUnit.test( 'buildSearchIndex when empty', ( assert ) => {
 		const widget = new ve.ui.MWReferenceSearchWidget();
-		widget.setDocumentRefs( getDocRefsMock() );
+		widget.setDocumentRefs( getDocumentReferencesMock() );
 
 		const index = widget.buildSearchIndex();
 		assert.deepEqual( index, [] );
@@ -42,7 +46,7 @@
 
 	QUnit.test( 'buildSearchIndex', ( assert ) => {
 		const widget = new ve.ui.MWReferenceSearchWidget();
-		widget.setDocumentRefs( getDocRefsMock( true ) );
+		widget.setDocumentRefs( getDocumentReferencesMock( true ) );
 
 		const index = widget.buildSearchIndex();
 		assert.deepEqual( index.length, 1 );
@@ -53,10 +57,10 @@
 
 	QUnit.test( 'isIndexEmpty', ( assert ) => {
 		const widget = new ve.ui.MWReferenceSearchWidget();
-		widget.setDocumentRefs( getDocRefsMock() );
+		widget.setDocumentRefs( getDocumentReferencesMock() );
 		assert.true( widget.isIndexEmpty() );
 
-		widget.setDocumentRefs( getDocRefsMock( true ) );
+		widget.setDocumentRefs( getDocumentReferencesMock( true ) );
 		assert.false( widget.isIndexEmpty() );
 	} );
 

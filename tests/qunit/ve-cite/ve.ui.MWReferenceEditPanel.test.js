@@ -3,6 +3,10 @@
 {
 	QUnit.module( 've.ui.MWReferenceEditPanel (Cite)', ve.test.utils.newMwEnvironment() );
 
+	/**
+	 * @param {ve.dm.Document} doc
+	 * @return {ve.dm.MWReferenceNode}
+	 */
 	const getSimpleNode = ( doc ) => {
 		const node = new ve.dm.MWReferenceNode( {
 			type: 'mwReference',
@@ -15,7 +19,12 @@
 		return node;
 	};
 
-	const getDocRefsMock = ( node, reUse ) => ( {
+	/**
+	 * @param {ve.dm.MWReferenceNode|null} [node]
+	 * @param {boolean} [reUse=false]
+	 * @return {ve.dm.MWDocumentReferences}
+	 */
+	const getDocumentReferencesMock = ( node, reUse ) => ( {
 		getAllGroupNames: () => [ 'mwReference/' ],
 		getGroupRefs: () => ( {
 			getRefUsages: () => ( reUse ? [ node, node ] : [] ),
@@ -32,7 +41,7 @@
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
 		const editPanel = new ve.ui.MWReferenceEditPanel();
 		const ref = new ve.dm.MWReferenceModel( new ve.dm.Document( [] ) );
-		editPanel.setDocumentReferences( getDocRefsMock() );
+		editPanel.setDocumentReferences( getDocumentReferencesMock() );
 
 		const changeHandlerSpy = sinon.spy();
 		editPanel.connect( null, { change: changeHandlerSpy } );
@@ -65,7 +74,7 @@
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
 		const editPanel = new ve.ui.MWReferenceEditPanel();
 		const ref = new ve.dm.MWReferenceModel( new ve.dm.Document( [] ) );
-		editPanel.setDocumentReferences( getDocRefsMock( null, true ) );
+		editPanel.setDocumentReferences( getDocumentReferencesMock( null, true ) );
 		editPanel.setReferenceForEditing( ref );
 
 		// interface setup correctly
@@ -81,7 +90,7 @@
 
 		// does exist in the example document
 		ref.mainRefKey = 'literal/bar';
-		editPanel.setDocumentReferences( getDocRefsMock( getSimpleNode( doc ) ) );
+		editPanel.setDocumentReferences( getDocumentReferencesMock( getSimpleNode( doc ) ) );
 		editPanel.setReferenceForEditing( ref );
 
 		assert.false( editPanel.reuseWarning.isVisible() );
@@ -92,7 +101,7 @@
 
 		// test sub ref with missing main ref
 		ref.mainRefKey = 'literal/notexist';
-		editPanel.setDocumentReferences( getDocRefsMock() );
+		editPanel.setDocumentReferences( getDocumentReferencesMock() );
 		editPanel.setReferenceForEditing( ref );
 
 		assert.false( editPanel.reuseWarning.isVisible() );

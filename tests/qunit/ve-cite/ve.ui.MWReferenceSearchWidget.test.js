@@ -10,7 +10,7 @@
 	const getDocumentReferencesMock = ( hasNode ) => {
 		const listKey = 'literal/foo';
 		const node = hasNode ? {
-			getAttribute: ( name ) => ( { listKey: listKey }[ name ] ),
+			getAttribute: ( name ) => ( { listKey }[ name ] ),
 			getAttributes: () => ( {} ),
 			getInternalItem: () => ( {} ),
 			getDocument: () => new ve.dm.Document(),

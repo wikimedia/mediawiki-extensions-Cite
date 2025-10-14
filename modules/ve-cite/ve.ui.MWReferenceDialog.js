@@ -244,7 +244,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				}
 				ref.updateInternalItem( this.getFragment().getSurface() );
 			}
-			this.close( { action: action } );
+			this.close( { action } );
 		} );
 	}
 	return ve.ui.MWReferenceDialog.super.prototype.getActionProcess.call( this, action );

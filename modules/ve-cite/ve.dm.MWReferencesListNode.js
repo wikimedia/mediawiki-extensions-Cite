@@ -121,10 +121,10 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 		attributes: {
 			mw: mwData,
 			originalMw: mwDataJSON,
-			refGroup: refGroup,
-			listGroup: listGroup,
+			refGroup,
+			listGroup,
 			isResponsive: responsiveAttr !== undefined ? responsiveAttr !== '0' : isResponsiveDefault,
-			templateGenerated: templateGenerated
+			templateGenerated
 		}
 	};
 	if ( mwData.body && mwData.body.html && !templateGenerated ) {

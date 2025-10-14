@@ -185,12 +185,12 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			}
 
 			return {
-				$refContent: $refContent,
+				$refContent,
 				searchableText: refText.toLowerCase(),
 				// TODO: return a simple node
 				reference: MWReferenceModel.static.newFromReferenceNode( node ),
-				footnoteLabel: footnoteLabel,
-				name: name
+				footnoteLabel,
+				name
 			};
 		} ) );
 	}

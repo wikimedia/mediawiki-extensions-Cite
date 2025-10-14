@@ -208,7 +208,7 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 				);
 				this.referenceModel.updateInternalItem( surfaceModel );
 
-				this.close( { action: action } );
+				this.close( { action } );
 			} ).always( deferred.resolve );
 
 			return deferred;

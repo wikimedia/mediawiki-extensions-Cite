@@ -163,7 +163,7 @@ ve.dm.MWReferenceModel.prototype.updateInternalItem = function ( surfaceModel ) 
 			txs.push( ve.dm.TransactionBuilder.static.newFromAttributeChanges(
 				doc,
 				refNodes[ i ].getOuterRange().start,
-				{ refGroup: this.group, listGroup: listGroup }
+				{ refGroup: this.group, listGroup }
 			) );
 		}
 		surfaceModel.change( txs );
@@ -220,7 +220,7 @@ ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragmen
 		.insertContent( [
 			{
 				type: 'mwReference',
-				attributes: attributes,
+				attributes,
 				// See ve.dm.MWReferenceNode.static.cloneElement
 				originalDomElementsHash: Math.random()
 			},

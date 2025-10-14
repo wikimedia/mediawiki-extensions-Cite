@@ -125,10 +125,10 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			mw: mwData,
 			originalMw: mwDataJSON,
 			listIndex: index,
-			listGroup: listGroup,
-			listKey: listKey,
-			refGroup: refGroup,
-			contentsUsed: contentsUsed
+			listGroup,
+			listKey,
+			refGroup,
+			contentsUsed
 		}
 	};
 
@@ -744,7 +744,7 @@ ve.dm.MWReferenceNode.prototype.copySyntheticRefIntoReferencesList = function ( 
 		this.getDocument(), refListNodeRange.to, [
 			{
 				type: 'mwReference',
-				attributes: attributes,
+				attributes,
 				originalDomElementsHash: Math.random()
 			},
 			{ type: '/mwReference' }

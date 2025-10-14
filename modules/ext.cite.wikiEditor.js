@@ -31,16 +31,13 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 	} );
 
 	/* Add reference help to the Help section */
-	const parsedRef = function ( number ) {
-		return $( '<sup>' )
-			.addClass( 'reference' )
-			.append(
-				$( '<a>' )
-					.text(
-						mw.message( 'cite-wikieditor-help-content-reference-example-ref-result', mw.language.convertNumber( number ) ).text()
-					)
-			);
-	};
+	const parsedRef = ( number ) => $( '<sup>' )
+		.addClass( 'reference' )
+		.append( $( '<a>' )
+			.text( mw.message( 'cite-wikieditor-help-content-reference-example-ref-result',
+				number
+			).text() )
+		);
 
 	const helpRows = [
 		{
@@ -51,7 +48,9 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 				)
 			},
 			result: {
-				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1', parsedRef( 1 ) ).parse()
+				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1',
+					parsedRef( mw.language.convertNumber( 1 ) )
+				).parse()
 			}
 		},
 		{
@@ -62,7 +61,9 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 				)
 			},
 			result: {
-				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1', parsedRef( 2 ) ).parse()
+				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1',
+					parsedRef( mw.language.convertNumber( 2 ) )
+				).parse()
 			}
 		},
 		{
@@ -73,7 +74,9 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 				)
 			},
 			result: {
-				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1', parsedRef( 2 ) ).parse()
+				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1',
+					parsedRef( mw.language.convertNumber( 2 ) )
+				).parse()
 			}
 		},
 		{
@@ -92,7 +95,8 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 			},
 			result: {
 				html: mw.message( 'cite-wikieditor-help-content-reference-example-text1',
-					parsedRef( 2.1 )
+					// The dot in the sub-ref number is currently also hard-coded everywhere else
+					parsedRef( mw.language.convertNumber( 2 ) + '.' + mw.language.convertNumber( 1 ) )
 				).parse()
 			}
 		},

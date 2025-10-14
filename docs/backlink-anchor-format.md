@@ -10,7 +10,7 @@ The anchor to jump down to a list item is prefixed `cite_note-`, followed by:
 * For unnamed references: The numeric id of the reference, e.g. `cite_note-1`.
 * For named references: The reference's name, a dash, and the numeric id, e.g. `cite_note-Britannica-2`.
 
-> **Warning:** A reference's name alone is not necessarily unique because of additional whitespace normalization (see `AnchorFormatter::normalizeFragmentIdentifier`). For example, `name="a b"` and `name="a__b"` are different names that both become `cite_note-a_b-…` as an anchor. Only the additional id makes them unique.
+> **Warning:** A reference's name alone is not necessarily unique because of additional underscore normalization (see `AnchorFormatter::normalizeFragmentIdentifier`). For example, `name="a b"` and `name="a__b"` are different names that both become `cite_note-a_b-…` as an anchor. Only the additional id makes them unique.
 
 This is implemented in `AnchorFormatter::getNoteIdentifier`, used by both parsers.
 
@@ -25,7 +25,7 @@ This is implemented in `AnchorFormatter::getBacklinkIdentifier`, used by both pa
 
 **Additional notes:**
 * As above, the name alone is not necessarily unique.
-* The whitespace normalization happens for historical reasons because the legacy parser creates links by parsing wikitext like `[[#cite_note-a b-1]]`. The MediaWiki parser enforces some normalizations on such wikitext. Parsoid re-implements this behavior only for compatibility, but doesn't really need to for any technical reason.
+* The underscore normalization happens for historical reasons because the legacy parser creates links by parsing wikitext like `[[#cite_note-a b-1]]`. The MediaWiki parser enforces some normalizations on such wikitext. Parsoid re-implements this behavior only for compatibility, but doesn't really need to for any technical reason.
 * The numeric identifier is global per document and increments for any `<ref>` tag in the document, no matter which group. This is **not** the same as the number visible in the footnote marker.
 * Re-uses are 0-based. This is only for historical reasons and could as well be changed to be 1-based.
 

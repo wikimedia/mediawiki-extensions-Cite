@@ -12,10 +12,12 @@ MediaWiki takes care of parsing extension tags like `<ref>` and forwards the con
 
 ## Sanitization
 
-- Whitespace in all attribute values is trimmed. This is done by core and not under control of the Cite extension.
+- Whitespace around all attribute values is trimmed. This is done by core's sanitizer and not under control of the Cite extension.
+- As above, whitespace sequences inside of attribute values are normalized to a single space by core's sanitizer. This is notable in e.g. `name="a  b"`.
 - Empty attributes are ignored as if the attribute is not there. The only exception are attributes that are invalid in certain contexts (see "invalid attributes" above).
 - When the `group="…"` attribute isn't present, the `<ref>` is assigned to the default group (internally represented as an empty string). List-defined `<ref>` inherit the group of the `<references>` tag in which they're defined.
 - The capitalization of `dir="…"` arguments is ignored and normalized to be lowercase.
+- The `responsive=""` attribute is reduced to a boolean and never reports an error. Only the string "0" means disabled, all other strings (including the empty string) mean enabled.
 
 ## Validation
 ### Fatal errors

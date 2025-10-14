@@ -102,7 +102,7 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 				html: mw.message( 'cite-wikieditor-help-content-reference-example-reflist' ).escaped()
 			},
 			result: {
-				html: '<ol class="references">' +
+				html: '<ol class="references" style="margin-top: 0; margin-left: 1.2em;">' +
 					'<li><span class="mw-cite-backlink"><a>' +
 					mw.message( 'cite_reference_backlink_symbol' ).parse() + '</a></span> ' +
 					mw.message( 'cite-wikieditor-help-content-reference-example-text2', window.location.href + '#wikiEditor-ui-toolbar' ).parse() +
@@ -113,9 +113,9 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 					mw.message( 'cite-wikieditor-help-content-reference-example-text3' ).parse() +
 
 					( mw.config.get( 'wgCiteSubReferencing' ) ?
-						'<ol style="list-style-type: none; padding-left: 0; margin-top: 0;">' +
-						'<li style="margin-left: -1em;">' +
-						'2.1 ' + mw.message( 'cite-wikieditor-help-content-reference-example-extra-details' ).parse() +
+						'<ol class="mw-subreference-list" style="margin-top: 0;">' +
+						'<li>' +
+						mw.message( 'cite-wikieditor-help-content-reference-example-extra-details' ).parse() +
 						'</li></ol>' :
 						'' ) +
 

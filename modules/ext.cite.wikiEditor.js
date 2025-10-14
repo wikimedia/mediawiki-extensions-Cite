@@ -58,7 +58,7 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 			description: { html: mw.message( 'cite-wikieditor-help-content-named-reference-description' ).parse() },
 			syntax: {
 				html: mw.html.escape(
-					mw.message( 'cite-wikieditor-help-content-reference-example-text1', mw.message( 'cite-wikieditor-help-content-reference-example-ref-named', mw.message( 'cite-wikieditor-help-content-reference-example-ref-id' ).plain(), mw.message( 'cite-wikieditor-help-content-reference-example-text3', 'https://www.example.org/' ).plain() ).plain() ).plain()
+					mw.message( 'cite-wikieditor-help-content-reference-example-text1', mw.message( 'cite-wikieditor-help-content-reference-example-ref-named', mw.message( 'cite-wikieditor-help-content-reference-example-ref-id' ).plain(), mw.message( 'cite-wikieditor-help-content-reference-example-text3' ).plain() ).plain() ).plain()
 				)
 			},
 			result: {
@@ -110,7 +110,7 @@ mw.hook( 'wikiEditor.toolbarReady' ).add( ( $textarea ) => {
 					'<li><span class="mw-cite-backlink"><a>' +
 					mw.message( 'cite_reference_backlink_symbol' ).parse() +
 					'</a></span> ' +
-					mw.message( 'cite-wikieditor-help-content-reference-example-text3', window.location.href + '#wikiEditor-ui-toolbar' ).parse() +
+					mw.message( 'cite-wikieditor-help-content-reference-example-text3' ).parse() +
 
 					( mw.config.get( 'wgCiteSubReferencing' ) ?
 						'<ol style="list-style-type: none; padding-left: 0; margin-top: 0;">' +

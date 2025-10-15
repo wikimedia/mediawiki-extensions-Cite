@@ -796,7 +796,6 @@ parsoid=wt2html
 Repeating the main content when using details
 !! config
 wgCiteSubReferencing=true
-wgCiteSubRefMergeInDevelopment=true
 !! options
 parsoid=wt2html
 !! wikitext
@@ -824,11 +823,11 @@ parsoid=wt2html
 </div>
 !! end
 
+# T406467: Parsoid doesn't do any merging yet
 !! test
 Merging sub-refs with inline main that do not repeat the main content
 !! config
 wgCiteSubReferencing=true
-wgCiteSubRefMergeInDevelopment=true
 !! wikitext
 <ref details="p1" name="a">Book</ref><ref details="p1" name="a" />
 !! html/php
@@ -854,11 +853,11 @@ wgCiteSubRefMergeInDevelopment=true
 </div>
 !! end
 
+# T406467: Parsoid doesn't do any merging yet
 !! test
 Merging sub-refs with inline main that do repeat the main content
 !! config
 wgCiteSubReferencing=true
-wgCiteSubRefMergeInDevelopment=true
 !! wikitext
 <ref details="p1" name="a">Book</ref><ref details="p1" name="a">Book</ref>
 !! html/php
@@ -884,11 +883,11 @@ wgCiteSubRefMergeInDevelopment=true
 </div>
 !! end
 
+# T406467: Parsoid doesn't do any merging yet
 !! test
 Merging sub-refs with standalone main
 !! config
 wgCiteSubReferencing=true
-wgCiteSubRefMergeInDevelopment=true
 !! wikitext
 <ref name="a">Book</ref><ref details="p1" name="a" /><ref details="p1" name="a" />
 !! html/php
@@ -914,11 +913,11 @@ wgCiteSubRefMergeInDevelopment=true
 </div>
 !! end
 
+# T406467: Parsoid doesn't do any merging yet
 !! test
 Merging sub-refs with multiple list-defined main refs
 !! config
 wgCiteSubReferencing=true
-wgCiteSubRefMergeInDevelopment=true
 !! wikitext
 <ref details="p1" name="a" /><ref details="p1" name="b" /><ref details="p1" name="a" /><ref details="p1" name="b" />
 <references>
@@ -956,6 +955,69 @@ wgCiteSubRefMergeInDevelopment=true
 </li>
 </ol>
 </div>
+!! end
+
+# T406467: Parsoid doesn't do any merging yet
+!! test
+Merging sub-refs should not suppress error message for mismatching dir
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref name="a" details="p1" dir="rtl">Book</ref>
+<ref name="a" details="p1" dir="ltr" />
+<references />
+!! html/php
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2-1" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li class="mw-cite-dir-rtl"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: One of the <code>&lt;ref&gt;</code> tags with the name "a" does have a conflicting dir attribute.</span></span>
+<ol class="mw-subreference-list"><li id="cite_note-2" class="mw-cite-dir-rtl"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-2">1.0</a></sup> <sup><a href="#cite_ref-2-1">1.1</a></sup></span> <span class="reference-text">p1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+# T406467: Parsoid doesn't do any merging yet
+!! test
+Merging sub-refs should not suppress error message for misplaced follow
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref name="a" details="p1">Book</ref>
+<ref name="a" details="p1" follow="b" />
+<references />
+!! html/php
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref follow="…"&gt;</code> tag that is the continuation of a previous one cannot be named individually or have details.</span>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
+<ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p1</span>
+</li>
+</ol></li>
+</ol></div>
+!! end
+
+# T406467: Parsoid doesn't do any merging yet
+!! test
+Merging sub-refs should not suppress error message for conflicting main content
+!! config
+wgCiteSubReferencing=true
+!! wikitext
+<ref name="a" details="p1">Book</ref>
+<ref name="a" details="p1">conflict</ref>
+<references />
+!! html/php
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite_ref-2-1" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<ol class="mw-subreference-list"><li id="cite_note-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-2">1.0</a></sup> <sup><a href="#cite_ref-2-1">1.1</a></sup></span> <span class="reference-text">p1</span>
+</li>
+</ol></li>
+</ol></div>
 !! end
 
 # TODO: Specify desired behavior. Bad round-trip.

@@ -3,7 +3,6 @@
 namespace Cite;
 
 use LogicException;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\StripState;
 
 /**
@@ -176,10 +175,6 @@ class ReferenceStack {
 	}
 
 	private function findDuplicateSubRef( ReferenceStackItem $ref, string $details ): ?ReferenceStackItem {
-		if ( !MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteSubRefMergeInDevelopment' ) ) {
-			return null;
-		}
-
 		// Unique identifier for duplicate (reused) sub-refs is group + name + details
 		$duplicate = $this->subRefLookup[$ref->group][$ref->name][$details] ?? null;
 		if ( $duplicate ) {

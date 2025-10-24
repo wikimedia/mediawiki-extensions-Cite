@@ -16,6 +16,35 @@ ve.dm.citeExample.createExampleDocument = function ( name, store, base ) {
 		name, store, ve.dm.citeExample, base || ve.dm.citeExample.baseUri );
 };
 
+ve.dm.citeExample.simpleRef = [
+	{ type: 'paragraph' },
+	{
+		type: 'mwReference',
+		attributes: {
+			contentsUsed: true,
+			listGroup: 'mwReference/',
+			listIndex: 0,
+			listKey: 'auto/0',
+			mw: {
+				attrs: {},
+				body: { html: 'Foo' },
+				name: 'ref'
+			},
+			originalMw: '{"name":"ref","body":{"html":"Foo"},"attrs":{}}',
+			refGroup: ''
+		}
+	},
+	{ type: '/mwReference' },
+	{ type: '/paragraph' },
+	{ type: 'internalList' },
+	{ type: 'internalItem' },
+	{ type: 'paragraph' },
+	'F', 'o', 'o',
+	{ type: '/paragraph' },
+	{ type: '/internalItem' },
+	{ type: '/internalList' }
+];
+
 ve.dm.citeExample.references = [
 	{ type: 'paragraph' },
 	{

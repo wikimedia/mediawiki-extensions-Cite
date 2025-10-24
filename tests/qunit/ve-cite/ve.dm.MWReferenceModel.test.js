@@ -58,29 +58,50 @@ QUnit.test( 'insert new ref', ( assert ) => {
 	assert.strictEqual( doc.getLength(), oldDocLength + 6, 'mwReference added to document' );
 
 	refModel.updateInternalItem( surface );
-	assert.strictEqual( internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ).length, 1, 'keyedNodes track the ref' );
+	assert.strictEqual(
+		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ).length,
+		1,
+		'keyedNodes tracks the ref after insertion'
+	);
 } );
 
 QUnit.test( 'insert ref reuse', ( assert ) => {
-	const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+	const doc = ve.dm.citeExample.createExampleDocument( 'simpleRef' );
 	const surface = new ve.dm.Surface( doc );
 	const internalList = doc.getInternalList();
 
-	// Duplicate a ref.
-	const refNode = doc.getDocumentNode().children[ 1 ].children[ 3 ];
+	// Get a ref model from the existing reference node
+	const refNode = doc.getDocumentNode().children[ 0 ].children[ 0 ];
 	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
 
 	const oldNodeCount = internalList.getItemNodeCount();
-	const oldDocLength = doc.getLength();
-
-	assert.strictEqual( internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ).length, 1, 'Initial document does not reuse ref' );
-	refModel.insertInternalItem( surface );
-	assert.strictEqual( internalList.getItemNodeCount(), oldNodeCount + 1, 'internalItem added' );
+	assert.strictEqual(
+		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ).length,
+		1,
+		'Initial document does only count one use of the ref'
+	);
 
 	surface.setLinearSelection( new ve.Range( 1 ) );
+	// Insert a new node using the ref model ( creating a reuse )
 	refModel.insertReferenceNode( surface.getFragment().collapseToEnd() );
-	assert.strictEqual( doc.getLength(), oldDocLength + 10, 'mwReference added to document' );
 
-	refModel.updateInternalItem( surface );
-	assert.strictEqual( internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ).length, 2, 'keyedNodes track the ref reuse' );
+	assert.strictEqual(
+		internalList.getItemNodeCount(),
+		oldNodeCount,
+		'itemNodeCount does not change on reuse'
+	);
+	assert.strictEqual(
+		doc.getDocumentNode().children[ 0 ].children[ 0 ].getAttribute( 'contentsUsed' ),
+		undefined,
+		'Reuse was added at the beginning of the doc'
+	);
+	assert.true(
+		doc.getDocumentNode().children[ 0 ].children[ 1 ].getAttribute( 'contentsUsed' ),
+		'Original node is now 2nd'
+	);
+	assert.strictEqual(
+		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ).length,
+		2,
+		'Reuse count of the node increases'
+	);
 } );

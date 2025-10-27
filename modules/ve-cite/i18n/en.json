@@ -55,6 +55,7 @@
 	"cite-ve-dialog-subreference-help-dialog-link": "https://meta.wikimedia.org/wiki/Special:MyLanguage/WMDE_Technical_Wishes/Sub-referencing",
 	"cite-ve-dialog-subreference-help-dialog-link-ve": "https://meta.wikimedia.org/wiki/Special:MyLanguage/WMDE_Technical_Wishes/Sub-referencing#In_VisualEditor",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Learn more about adding details to a reference",
+	"cite-ve-dialog-subreference-change-all-checkbox-label": "Edit all ($1) uses of these details.",
 	"cite-ve-dialog-reference-title-details": "Details",
 	"cite-ve-dialog-reference-useexisting-tool": "Re-use",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "List of general references",

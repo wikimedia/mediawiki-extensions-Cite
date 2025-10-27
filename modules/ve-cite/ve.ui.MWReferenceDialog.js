@@ -229,10 +229,12 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				ve.track( 'activity.subReference', { action: 'dialog-done-add-details' } );
 			} else {
 				if ( ref.isSubRef() ) {
-					// We don't want to edit all sub-ref reuses. If there's one here we need
-					// to generate new keys and insert the sub-ref as new node to split it.
 					const subRefReuses = nodeGroup.getAllReuses( ref.listKey ) || [];
-					if ( subRefReuses.length > 1 ) {
+					const changeAll = this.editPanel.getChangeAllCheckboxState();
+
+					// Editing defaults to changing all, if the change all checkbox is not selected,
+					// we need to generate new keys and insert the sub-ref as new node to split it.
+					if ( subRefReuses.length > 1 && !changeAll ) {
 						ref = MWReferenceModel.static.copySubReference( ref, this.getFragment().getDocument() );
 						this.getFragment().removeContent();
 						ref.insertIntoFragment( this.getFragment() );
@@ -281,6 +283,10 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 					ref = MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 					if ( ref.isSubRef() ) {
 						this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
+						const nodeGroup = this.getFragment().getDocument()
+							.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
+						const subRefReuses = nodeGroup.getAllReuses( ref.listKey );
+						this.editPanel.subRefCount = subRefReuses.length;
 					}
 					this.actions.setAbilities( { done: false } );
 				} else {

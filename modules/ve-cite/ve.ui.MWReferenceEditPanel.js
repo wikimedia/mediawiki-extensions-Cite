@@ -39,6 +39,10 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	 * @member {string|null}
 	 */
 	this.originalGroup = null;
+	/**
+	 * @member {number}
+	 */
+	this.subRefCount = 0;
 
 	// Create content editor
 	this.referenceTarget = ve.init.target.createTargetWidget(
@@ -85,6 +89,12 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 		classes: [ 've-ui-mwReferenceDialog-reuseWarning' ]
 	} );
 
+	this.changeAllCheckbox = new OO.ui.CheckboxInputWidget();
+	this.changeAllCheckboxFieldset = new OO.ui.FieldLayout( this.changeAllCheckbox, {
+		align: 'inline'
+	} );
+	this.changeAllCheckboxFieldset.toggle( false );
+
 	this.helpLink = new OO.ui.LabelWidget( {
 		classes: [
 			// Needed for the external link icon
@@ -116,6 +126,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 		this.reuseWarning.$element,
 		this.contentFieldset.$element,
 		this.optionsFieldset.$element,
+		this.changeAllCheckboxFieldset.$element,
 		this.helpLink.$element
 	);
 
@@ -244,9 +255,8 @@ ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs 
  */
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.referenceModel = ref;
-	const isInsertingSubRef = ref.isSubRef() && !this.documentHasContent();
-
-	this.referenceListFieldset.setLabel( ve.msg( isInsertingSubRef ?
+	this.isInsertingSubRef = ref.isSubRef() && !this.documentHasContent();
+	this.referenceListFieldset.setLabel( ve.msg( this.isInsertingSubRef ?
 		'cite-ve-dialog-reference-editing-add-details' :
 		'cite-ve-dialog-reference-editing-edit-details'
 	) );
@@ -254,6 +264,14 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.setFormFieldsFromRef( ref );
 	this.updateReuseWarningFromRef( ref );
 	this.updatePreviewFromRef( ref );
+
+	if ( this.subRefCount > 1 && ref.isSubRef() && !this.isInsertingSubRef ) {
+		this.changeAllCheckboxFieldset.setLabel(
+			ve.msg( 'cite-ve-dialog-subreference-change-all-checkbox-label', this.subRefCount )
+		);
+		this.changeAllCheckbox.setSelected( true );
+		this.changeAllCheckboxFieldset.toggle( true );
+	}
 	this.helpLink.toggle( ref.isSubRef() );
 };
 
@@ -266,6 +284,13 @@ ve.ui.MWReferenceEditPanel.prototype.getReferenceFromEditing = function () {
 	}
 
 	return this.referenceModel;
+};
+
+/**
+ * @return {ve.dm.MWReferenceModel|null} edit all checkbox
+ */
+ve.ui.MWReferenceEditPanel.prototype.getChangeAllCheckboxState = function () {
+	return this.changeAllCheckbox.selected;
 };
 
 /**

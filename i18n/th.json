@@ -5,11 +5,13 @@
 			"Horus",
 			"Passawuth",
 			"Patsagorn Y.",
-			"RidJasper"
+			"RidJasper",
+			"Wutkh"
 		]
 	},
 	"cite-desc": "เพิ่มป้ายระบุ <code>&lt;ref&gt;</code> และ <code>&lt;references&gt;</code> สำหรับการอ้างอิง",
 	"cite_error": "อ้างอิงผิดพลาด: $1",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> ไม่ถูกต้อง ต้องเป็น <code>ltr</code> หรือ <code>rtl</code> เท่านั้น",
 	"cite_error_ref_numeric_key": "ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง ชื่อไม่สามารถเป็นจำนวนเต็มอย่างง่าย ใช้ชื่อเรื่องพรรณนา",
 	"cite_error_ref_no_key": "ป้ายระบุ <code>&lt;ref&gt;</code> เปิดผิดรูปหรือมีชื่อที่ใช้ไม่ได้",
 	"cite_error_ref_too_many_keys": "ป้ายระบุ <code>&lt;ref&gt;</code> ไม่ถูกต้อง\nชื่อไม่ถูกต้อง เช่น มากเกินไป",

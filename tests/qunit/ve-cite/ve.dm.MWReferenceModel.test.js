@@ -105,3 +105,40 @@ QUnit.test( 'insert ref reuse', ( assert ) => {
 		'Reuse count of the node increases'
 	);
 } );
+
+QUnit.test( 'update internal item changing the group', ( assert ) => {
+	const doc = ve.dm.citeExample.createExampleDocument( 'simpleRef' );
+	const surface = new ve.dm.Surface( doc );
+	const internalList = doc.getInternalList();
+
+	// Get a ref model from the existing reference node
+	const refNode = doc.getDocumentNode().children[ 0 ].children[ 0 ];
+	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
+
+	const oldNodeCount = internalList.getItemNodeCount();
+	assert.strictEqual(
+		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ).length,
+		1,
+		'Initial document does count one use of the ref in the default group'
+	);
+
+	// Change the group model and update the internal item accroding to the changed model
+	refModel.group = 'other';
+	refModel.updateInternalItem( surface );
+
+	assert.strictEqual(
+		internalList.getItemNodeCount(),
+		oldNodeCount,
+		'itemNodeCount does not change on update'
+	);
+	assert.strictEqual(
+		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ),
+		undefined,
+		'Ref is not part of the default group anymore'
+	);
+	assert.strictEqual(
+		internalList.getNodeGroup( 'mwReference/other' ).getAllReuses( 'auto/0' ).length,
+		1,
+		'Ref can be found in the new group'
+	);
+} );

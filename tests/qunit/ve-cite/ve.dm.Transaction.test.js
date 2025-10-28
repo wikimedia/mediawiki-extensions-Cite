@@ -13,30 +13,7 @@ QUnit.module( 've.dm.Transaction (Cite)', ve.test.utils.newMwEnvironment() );
 QUnit.test( 'newFromDocumentInsertion with references', ( assert ) => {
 	// Fixtures
 	const complexDoc = ve.dm.citeExample.createExampleDocument( 'complexInternalData' );
-	const simpleRefDocData = [
-		{ type: 'paragraph' },
-		'B', 'a', 'r',
-		{ type: 'mwReference', attributes: {
-			mw: {},
-			about: '#mwt4',
-			listIndex: 0,
-			listGroup: 'mwReference/',
-			listKey: 'auto/0',
-			refGroup: '',
-			contentsUsed: true
-		} },
-		{ type: '/mwReference' },
-		{ type: '/paragraph' },
-		{ type: 'internalList' },
-		{ type: 'internalItem' },
-		{ type: 'paragraph', internal: { generated: 'wrapper' } },
-		'B',
-		'a',
-		'z',
-		{ type: '/paragraph' },
-		{ type: '/internalItem' },
-		{ type: '/internalList' }
-	];
+	const simpleRefDocData = ve.dm.citeExample.simpleRef;
 
 	// Test cases
 	const cases = [

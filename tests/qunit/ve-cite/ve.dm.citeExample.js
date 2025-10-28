@@ -18,6 +18,7 @@ ve.dm.citeExample.createExampleDocument = function ( name, store, base ) {
 
 ve.dm.citeExample.simpleRef = [
 	{ type: 'paragraph' },
+	'B', 'a', 'r',
 	{
 		type: 'mwReference',
 		attributes: {

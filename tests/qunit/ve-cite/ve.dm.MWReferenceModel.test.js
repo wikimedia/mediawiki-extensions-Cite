@@ -71,7 +71,7 @@ QUnit.test( 'insert ref reuse', ( assert ) => {
 	const internalList = doc.getInternalList();
 
 	// Get a ref model from the existing reference node
-	const refNode = doc.getDocumentNode().children[ 0 ].children[ 0 ];
+	const refNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
 	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
 
 	const oldNodeCount = internalList.getItemNodeCount();
@@ -96,7 +96,7 @@ QUnit.test( 'insert ref reuse', ( assert ) => {
 		'Reuse was added at the beginning of the doc'
 	);
 	assert.true(
-		doc.getDocumentNode().children[ 0 ].children[ 1 ].getAttribute( 'contentsUsed' ),
+		doc.getDocumentNode().children[ 0 ].children[ 2 ].getAttribute( 'contentsUsed' ),
 		'Original node is now 2nd'
 	);
 	assert.strictEqual(
@@ -112,7 +112,7 @@ QUnit.test( 'update internal item changing the group', ( assert ) => {
 	const internalList = doc.getInternalList();
 
 	// Get a ref model from the existing reference node
-	const refNode = doc.getDocumentNode().children[ 0 ].children[ 0 ];
+	const refNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
 	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
 
 	const oldNodeCount = internalList.getItemNodeCount();

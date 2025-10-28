@@ -55,7 +55,12 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	);
 
 	referenceNodes.forEach( ( n ) => {
-		newInternalList.addNode( n.registeredListGroup, n.registeredListKey, n.registeredListIndex, n );
+		newInternalList.addNode(
+			n.registeredListGroup,
+			n.registeredListKey,
+			n.registeredListIndex,
+			n
+		);
 	} );
 	newInternalList.onTransact();
 
@@ -68,7 +73,12 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 	newInternalList = new ve.dm.InternalList( doc );
 
 	referenceNodes.slice().reverse().forEach( ( n ) => {
-		newInternalList.addNode( n.registeredListGroup, n.registeredListKey, n.registeredListIndex, n );
+		newInternalList.addNode(
+			n.registeredListGroup,
+			n.registeredListKey,
+			n.registeredListIndex,
+			n
+		);
 	} );
 	newInternalList.onTransact();
 
@@ -112,7 +122,12 @@ QUnit.test( 'addNode/removeNode', ( assert ) => {
 		referenceNodes[ 4 ],
 		referenceNodes[ 2 ]
 	].forEach( ( n ) => {
-		newInternalList.removeNode( n.registeredListGroup, n.registeredListKey, n.registeredListIndex, n );
+		newInternalList.removeNode(
+			n.registeredListGroup,
+			n.registeredListKey,
+			n.registeredListIndex,
+			n
+		);
 	} );
 	newInternalList.onTransact();
 

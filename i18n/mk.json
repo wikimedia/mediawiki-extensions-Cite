@@ -9,7 +9,7 @@
 	"cite-desc": "Додава ознаки <code>&lt;ref&gt;</code> и <code>&lt;references&gt;</code> за цитирања",
 	"cite_error": "Грешка во наводот: $1.",
 	"cite_error_ref_invalid_dir": "Неважечка ознака <code>dir=\"$1\"</code>. Мора да биде <code>ltr</code> или <code>rtl</code>",
-	"cite_error_ref_conflicting_dir": "Една од ознаките <code>&lt;ref&gt;</code> по име „$1“ има спротиставен атрибут dir.",
+	"cite_error_ref_conflicting_dir": "Една од ознаките <code>&lt;ref&gt;</code> по име „$1“ има спротивставен атрибут dir.",
 	"cite_error_ref_numeric_key": "Погрешна ознака <code>&lt;ref&gt;</code>; името не може да биде број. Употребете описен наслов",
 	"cite_error_ref_no_key": "Отворачката ознака <code>&lt;ref&gt;</code> не е добро срочена или има погрешно име",
 	"cite_error_ref_too_many_keys": "Неважечки параметар во ознаката <code>&lt;ref&gt;</code>",

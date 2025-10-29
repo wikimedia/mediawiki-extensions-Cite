@@ -16,6 +16,7 @@ ve.dm.citeExample.createExampleDocument = function ( name, store, base ) {
 		name, store, ve.dm.citeExample, base || ve.dm.citeExample.baseUri );
 };
 
+// A simple document with a reference without internalData
 ve.dm.citeExample.simpleRef = [
 	{ type: 'paragraph' },
 	'B', 'a', 'r',
@@ -46,6 +47,7 @@ ve.dm.citeExample.simpleRef = [
 	{ type: '/internalList' }
 ];
 
+// A document with a few references without internalData
 ve.dm.citeExample.references = [
 	{ type: 'paragraph' },
 	{
@@ -203,6 +205,7 @@ ve.dm.citeExample.references = [
 	{ type: '/internalList' }
 ];
 
+// A document with a references and a nested reference including internalData
 ve.dm.citeExample.complexInternalData = [
 	// 0
 	{ type: 'paragraph' },
@@ -234,7 +237,7 @@ ve.dm.citeExample.complexInternalData = [
 		about: '#mwt2',
 		listIndex: 1,
 		listGroup: 'mwReference/',
-		listKey: 'foo',
+		listKey: 'literal/foo',
 		refGroup: '',
 		contentsUsed: true
 	} },
@@ -264,13 +267,14 @@ ve.dm.citeExample.complexInternalData = [
 ];
 
 ve.dm.citeExample.complexInternalData.internalItems = [
-	{ group: 'mwReference', key: null, body: 'First reference' },
-	{ group: 'mwReference', key: 'foo', body: 'Table in ref: <table><tr><td>because I can</td></tr></table>' }
+	{ group: 'mwReference/', key: 'auto/0', body: 'First reference' },
+	{ group: 'mwReference/', key: 'literal/foo', body: 'Table in ref: <table><tr><td>because I can</td></tr></table>' }
 ];
 
 ve.dm.citeExample.complexInternalData.internalListNextUniqueNumber = 1;
 
 // TODO: Rewrite for details syntax
+// A document using sub-references without internalData
 ve.dm.citeExample.subReferencing = [
 	{ type: 'paragraph' },
 	{ type: 'mwReference', attributes: {

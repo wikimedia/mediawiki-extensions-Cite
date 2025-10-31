@@ -92,11 +92,9 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 		this.selectedNode = null;
 	}
 
-	// Special case for sub-references: create a copy so both can be edited independently
 	if ( ref.isSubRef() ) {
 		// Phabricator T396734
 		ve.track( 'activity.subReference', { action: 'reuse-choose-subref' } );
-		ref = MWReferenceModel.static.copySubReference( ref, this.getFragment().getDocument() );
 	}
 
 	// Collapse returns a new fragment, so update this.fragment

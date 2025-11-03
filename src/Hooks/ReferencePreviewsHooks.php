@@ -162,6 +162,7 @@ class ReferencePreviewsHooks implements
 						'cite-ve-dialog-subreference-help-dialog-link-ve',
 						'cite-ve-dialog-subreference-help-dialog-link-label',
 						'cite-ve-dialog-subreference-change-all-checkbox-label',
+						'cite-ve-dialog-reference-convert-all-checkbox-label',
 						'cite-ve-dialog-reference-useexisting-tool',
 						'cite-ve-dialog-referenceslist-contextitem-description-general',
 						'cite-ve-dialog-referenceslist-contextitem-description-named',

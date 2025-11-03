@@ -200,6 +200,8 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 			let ref = this.editPanel.getReferenceFromEditing();
 			const nodeGroup = this.getFragment().getDocument()
 				.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
+			const changeAll = this.editPanel.getChangeAllCheckboxState();
+
 			if ( !( this.selectedNode instanceof MWReferenceNode ) ) {
 				// Collapse returns a new fragment, so update this.fragment
 				this.fragment = this.getFragment().collapseToEnd();
@@ -216,21 +218,25 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 					mainNodeToCopy.copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
 				}
 
-				// Check if the main node we're replacing was keeping the content
-				const contentsUsed = this.selectedNode.getAttribute( 'contentsUsed' );
+				let nodesToConvert = [ this.selectedNode ];
+				if ( changeAll ) {
+					// filter out main nodes that are list defined
+					nodesToConvert = mainNodes.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) );
+				}
 
-				// When creating a sub-ref we're always replacing the selected node
-				this.getFragment().removeContent();
-				// Collapse returns a new fragment, so update this.fragment
-				this.fragment = this.getFragment().collapseToEnd();
-				ref.insertIntoFragment( this.getFragment(), contentsUsed );
+				const surface = this.getFragment().getSurface();
+				// convert all nodes to sub-refs
+				nodesToConvert.forEach( ( node ) => {
+					const contentsUsed = node.getAttribute( 'contentsUsed' );
+					surface.setLinearSelection( node.getOuterRange() );
+					ref.insertIntoFragment( new ve.dm.SurfaceFragment( surface ), contentsUsed );
+				} );
 
 				// Phabricator T396734
 				ve.track( 'activity.subReference', { action: 'dialog-done-add-details' } );
 			} else {
 				if ( ref.isSubRef() ) {
 					const subRefReuses = nodeGroup.getAllReuses( ref.listKey ) || [];
-					const changeAll = this.editPanel.getChangeAllCheckboxState();
 
 					// Editing defaults to changing all, if the change all checkbox is not selected,
 					// we need to generate new keys and insert the sub-ref as new node to split it.
@@ -266,6 +272,14 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
 				this.openReusePanel();
 			} else if ( data.createSubRef ) {
+				const nodeGroup = this.getFragment().getDocument()
+					.getInternalList().getNodeGroup( 'mwReference/' + data.createSubRef.getGroup() );
+
+				const allMainRefs = nodeGroup.getAllReuses( data.createSubRef.listKey );
+				// filter out main nodes that are list defined because those can not be subrefs
+				const mainRefReuses = allMainRefs.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) );
+				this.editPanel.mainRefCount = mainRefReuses.length;
+
 				this.actions.setMode( 'edit' );
 				this.actions.setAbilities( { done: false } );
 				this.setCreateSubRefPanel( data.createSubRef );

@@ -42,6 +42,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	/**
 	 * @member {number}
 	 */
+	this.mainRefCount = 0;
 	this.subRefCount = 0;
 
 	// Create content editor
@@ -265,15 +266,25 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.updateReuseWarningFromRef( ref );
 	this.updatePreviewFromRef( ref );
 
+	// reset checkbox visibility
+	this.changeAllCheckboxFieldset.toggle( false );
+
+	if ( this.mainRefCount > 1 && this.isInsertingSubRef ) {
+		this.changeAllCheckboxFieldset.setLabel(
+			ve.msg( 'cite-ve-dialog-reference-convert-all-checkbox-label', this.mainRefCount )
+		);
+		this.changeAllCheckbox.setSelected( false );
+		this.changeAllCheckboxFieldset.toggle( true );
+	}
+
 	if ( this.subRefCount > 1 && ref.isSubRef() && !this.isInsertingSubRef ) {
 		this.changeAllCheckboxFieldset.setLabel(
 			ve.msg( 'cite-ve-dialog-subreference-change-all-checkbox-label', this.subRefCount )
 		);
 		this.changeAllCheckbox.setSelected( true );
 		this.changeAllCheckboxFieldset.toggle( true );
-	} else {
-		this.changeAllCheckboxFieldset.toggle( false );
 	}
+
 	this.helpLink.toggle( ref.isSubRef() );
 };
 

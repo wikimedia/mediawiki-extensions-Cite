@@ -29,15 +29,15 @@ ol.references {
 	 * We have 2 counters for Parsoid HTML for different functionality.
 	 * Make sure both are reset!
 	 **/
-	counter-reset: mw-ref-extends-parent mw-references list-item;
+	counter-reset: mw-ref-details-parent mw-references list-item;
 
 	> li {
 		/**
 		 * We have 2 counters for Parsoid HTML for different functionality.
 		 * Make sure both are incremented!
 		 **/
-		counter-increment: mw-ref-extends-parent mw-references;
-		counter-reset: mw-ref-extends-child;
+		counter-increment: mw-ref-details-parent mw-references;
+		counter-reset: mw-ref-details-child;
 	}
 
 	.mw-subreference-list {
@@ -53,8 +53,8 @@ ol.references {
 }
 
 .mw-subreference-list > li::before {
-	counter-increment: mw-ref-extends-child;
-	content: counter( mw-ref-extends-parent, decimal ) '.' counter( mw-ref-extends-child, decimal ) '. ';
+	counter-increment: mw-ref-details-child;
+	content: counter( mw-ref-details-parent, decimal ) '.' counter( mw-ref-details-child, decimal ) '. ';
 }
 
 sup.reference {

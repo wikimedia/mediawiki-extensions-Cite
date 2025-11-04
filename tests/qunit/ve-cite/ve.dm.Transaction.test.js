@@ -18,7 +18,7 @@ QUnit.test( 'newFromDocumentInsertion with references', ( assert ) => {
 	// Test cases
 	const cases = [
 		{
-			msg: 'inserting a brand new document; internal lists are merged and items renumbered',
+			msg: 'inserting a document from copy and paste; internal lists are merged and items renumbered',
 			doc: 'complexInternalData',
 			offset: 7,
 			newDocData: simpleRefDocData,
@@ -54,6 +54,9 @@ QUnit.test( 'newFromDocumentInsertion with references', ( assert ) => {
 		const originalDoc = ve.dm.citeExample.createExampleDocument( caseItem.doc );
 		let otherDoc;
 		if ( caseItem.newDocData ) {
+			// remap keys as done in the ClipboardHandler
+			const data = new ve.dm.LinearData( originalDoc.getStore(), caseItem.newDocData );
+			data.remapInternalListKeys( originalDoc.getInternalList() );
 			otherDoc = new ve.dm.Document( caseItem.newDocData );
 		}
 

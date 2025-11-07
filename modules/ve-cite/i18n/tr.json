@@ -66,6 +66,7 @@
 	"cite-ve-dialog-subreference-help-dialog-head": "Yeni: Yeniden kullanılan bir kaynağa ayrıntı ekleyin",
 	"cite-ve-dialog-subreference-help-dialog-content": "Bir kaynağı yeniden kullanırken artık tam kaynağı yinelemeden sayfa numarası ya da alıntı gibi farklı ayrıntılar ekleyebilirsiniz.<p><b>Bunu şu durumlarda kullanın:</b></p><ul><li>Bir kitabın farklı sayfalarına ya da ciltlerine atıfta bulunmak</li><li>Alıntı yapılan bir podcast'te zaman damgası belirtmek</li><li>Bir kaynaktan ilgili bir alıntı ekleme</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Bir kaynağa ayrıntı ekleme hakkında daha fazla bilgi edinin",
+	"cite-ve-dialog-subreference-change-all-checkbox-label": "Bu ayrıntıların tüm ($1) kullanımlarını düzenleyin.",
 	"cite-ve-dialog-reference-title-details": "Ayrıntılar",
 	"cite-ve-dialog-reference-useexisting-tool": "Tekrar kullan",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Genel kaynakça listesi",

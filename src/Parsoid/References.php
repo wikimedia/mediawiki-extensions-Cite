@@ -278,8 +278,9 @@ class References {
 				$refDataMw->isSubRefWithMainBody = 1;
 			}
 
-			// Switch $ref to a newly-created subref
-			$ref = $referencesData->addRef( $refGroup, $refName, $refDir, $details );
+			// Switch $ref to a newly-created subref (or reuse a duplicate)
+			$ref = $refGroup->lookupSubRefByDetails( $refName, $details ) ??
+				$referencesData->addRef( $refGroup, $refName, $refDir, $details );
 			// Move details attribute into subref content.
 			$ref->externalFragment = $extApi->wikitextToDOM( $details, [
 				'processInNewFrame' => true,

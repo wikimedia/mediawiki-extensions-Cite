@@ -105,6 +105,33 @@ ve.dm.MWReferenceNode.static.getGroupFromReflist = function ( converter, refList
 };
 
 /**
+ * @private
+ * @param {ve.dm.ModelFromDomConverter} converter
+ * @param {string|null} [refListItemId]
+ * @return {Array(string,number)|null} [listKey, index] or null when the sub-ref is unknown
+ */
+ve.dm.MWReferenceNode.static.lookupSubRefIndex = function ( converter, refListItemId ) {
+	return converter.subrefLookup && refListItemId && converter.subrefLookup[ refListItemId ];
+};
+
+/**
+ * @private
+ * @param {ve.dm.ModelFromDomConverter} converter
+ * @param {string|null} [refListItemId]
+ * @param {string} listKey
+ * @param {number} index
+ */
+ve.dm.MWReferenceNode.static.insertSubRefIndex = function ( converter, refListItemId, listKey, index ) {
+	if ( !refListItemId ) {
+		return;
+	}
+	if ( !converter.subrefLookup ) {
+		converter.subrefLookup = {};
+	}
+	converter.subrefLookup[ refListItemId ] = [ listKey, index ];
+};
+
+/**
  * Transform parsoid HTML DOM to constructor parameters for VE reference nodes.
  *
  * @param {Node[]} domElements DOM elements to convert
@@ -127,8 +154,27 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 
 	const refGroup = mwAttrs.group || this.getGroupFromReflist( converter, refListItemId );
 	const listGroup = this.name + '/' + refGroup;
-	const listKey = this.makeListKey( converter.internalList, refName );
-	const { index, isNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
+
+	// FIXME When ve.dm.InternalList takes more responsibilty for sub-refs the code might move there
+	if ( !converter.internalList.itemHtmlQueue.length ) {
+		// The property needs to be reset when we start parsing a new doc
+		ve.dm.converter.modelFromDomConverter.subrefLookup = null;
+	}
+
+	let listKey, index, isNew;
+	const lookupResult = mwData.mainRef && this.lookupSubRefIndex( converter, refListItemId );
+	if ( lookupResult ) {
+		[ listKey, index ] = lookupResult;
+		isNew = false;
+	} else {
+		listKey = this.makeListKey( converter.internalList, refName );
+		const { index: qIndex, isNew: qNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
+		index = qIndex;
+		isNew = qNew;
+		if ( mwData.mainRef ) {
+			this.insertSubRefIndex( converter, refListItemId, listKey, index );
+		}
+	}
 
 	// Sub-refs will always get body content for the details attribute so we use contentsUsed to
 	// store if they had main content in the main+details case

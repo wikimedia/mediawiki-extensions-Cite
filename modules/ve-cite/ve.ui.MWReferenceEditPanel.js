@@ -271,6 +271,8 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 		);
 		this.changeAllCheckbox.setSelected( true );
 		this.changeAllCheckboxFieldset.toggle( true );
+	} else {
+		this.changeAllCheckboxFieldset.toggle( false );
 	}
 	this.helpLink.toggle( ref.isSubRef() );
 };

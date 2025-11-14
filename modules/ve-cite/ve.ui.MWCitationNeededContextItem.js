@@ -94,7 +94,7 @@ ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 	// TODO: This assumes Citoid is installed...
 	const action = ve.ui.actionFactory.create( 'citoid', surface );
 	promise.then( ( inStaging ) => {
-		action.open( true, undefined, inStaging );
+		action.open( { replace: true, inStaging } );
 	} );
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'context-add-citation' } );
 };

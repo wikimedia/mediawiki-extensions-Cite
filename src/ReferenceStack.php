@@ -279,6 +279,7 @@ class ReferenceStack {
 	public function popGroup( string $group ): array {
 		$refs = $this->getGroupRefs( $group );
 		unset( $this->refs[$group] );
+		unset( $this->subRefLookup[$group] );
 		unset( $this->groupRefSequence[$group] );
 		return $refs;
 	}

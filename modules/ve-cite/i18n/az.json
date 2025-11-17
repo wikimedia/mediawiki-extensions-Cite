@@ -50,6 +50,7 @@
 	"cite-ve-dialog-subreference-help-dialog-content": "İstinaddan yenidən istifadə edərkən, indi tam istinadı təkrarlamadan səhifə nömrəsi və ya sitat kimi müxtəlif detallar əlavə edə bilərsiniz.<p><b>İstifadə edəcəyiniz yerlər:</b></p><ul><li>Kitabın müxtəlif səhifələrinə və ya cildlərinə istinad etmək üçün</li><li>İstinad edilən podkastda vaxt damğasının göstərilməsi</li><li>Mənbədən müvafiq sitatın əlavə edilməsi</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "İstinadın detallarını əlavə etmək haqqında ətraflı məlumat əldə edin",
 	"cite-ve-dialog-subreference-change-all-checkbox-label": "Bu detalların bütün ($1) istifadələrini redaktə et.",
+	"cite-ve-dialog-reference-convert-all-checkbox-label": "Bu detalları hələ detalları olmayan bütün ($1) istinad istifadələrinə əlavə et.",
 	"cite-ve-dialog-reference-title-details": "Detallar",
 	"cite-ve-dialog-reference-useexisting-tool": "Təkrar istifadə",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Əsas istinadların siyahısı",

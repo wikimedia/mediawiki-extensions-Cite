@@ -59,6 +59,7 @@
 	"cite-ve-dialog-subreference-help-dialog-content": "Uudelleenkäyttäessäsi viitetta voit nyt lisätä niihin lisätietoja, kuten sivunumeron tai lainauksen ilman, että sinun tarvitsee toistaa koko viitettä uudelleen.<p><b>Voit käyttää niitä, kun:</b></p><ul><li>viittaat kirjan eri sivuihin tai painoksiin</li><li>mainitset podcastin aikaleiman</li><li>lisäät lainauksen lähteestä</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Lue lisää lisätietojen lisäämisestä viitteisiin",
 	"cite-ve-dialog-subreference-change-all-checkbox-label": "Muokkaa näiden lisätietojen kaikkia käyttöjä ($1).",
+	"cite-ve-dialog-reference-convert-all-checkbox-label": "Lisää nämä lisätiedot kaikkiin ($1) tämän viitteen käyttöihin, joissa ei vielä ole lisätietoja.",
 	"cite-ve-dialog-reference-title-details": "Lisätiedot",
 	"cite-ve-dialog-reference-useexisting-tool": "Käytä uudelleen",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Luettelo yleisistä lähteistä",

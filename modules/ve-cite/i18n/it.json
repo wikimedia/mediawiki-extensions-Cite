@@ -63,6 +63,7 @@
 	"cite-ve-dialog-subreference-help-dialog-title": "Dettagli",
 	"cite-ve-dialog-subreference-help-dialog-head": "Nuovo: aggiungi un dettaglio a un riferimento riutilizzato",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Scopri di più sull'aggiunta di dettagli a un riferimento",
+	"cite-ve-dialog-reference-convert-all-checkbox-label": "Aggiungi questi dettagli a tutti gli utilizzi ($1) di questo riferimento che non hanno ancora dettagli.",
 	"cite-ve-dialog-reference-title-details": "Dettagli",
 	"cite-ve-dialog-reference-useexisting-tool": "Riusa",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Elenco di note generali",

@@ -41,6 +41,7 @@
 	"cite-ve-dialog-subreference-help-dialog-content": "Quando tu re-usa un referentia, tu pote ora adder differente detalios como le numero del pagina o un citation sin repeter le referentia complete.<p><b>Usa isto pro:</b></p><ul><li>citar differente paginas o volumines de un libro</li><li>specificar un data e hora in un podcast citate</li><li>adder un citation pertinente de un fonte</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Leger plus sur le addition de detalios a un referentia",
 	"cite-ve-dialog-subreference-change-all-checkbox-label": "Modificar tote le $1 usos de iste detalios.",
+	"cite-ve-dialog-reference-convert-all-checkbox-label": "Adder iste detalios a tote le $1 usos de iste referentia que non ha ancora detalios.",
 	"cite-ve-dialog-reference-title-details": "Detalios",
 	"cite-ve-dialog-reference-useexisting-tool": "Reusar",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Lista de referentias general",

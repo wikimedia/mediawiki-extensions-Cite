@@ -77,6 +77,7 @@
 	"cite-ve-dialog-subreference-help-dialog-content": "Wanneer u een referentie opnieuw gebruikt, kunt u nu verschillende details toevoegen, zoals een paginanummer of citaat, zonder dat u de volledige referentie hoeft te herhalen.<p><b>Doe dit wanneer u:</b></p><ul><li>uit verschillende pagina’s of delen van een boek citeert</li><li>een tijdstip in een geciteerde podcast aangeeft</li><li>een relevant citaat uit een bron toevoegt</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Meer informatie over het toevoegen van details aan een referentie",
 	"cite-ve-dialog-subreference-change-all-checkbox-label": "Alle $1 toepassingen van deze details bewerken.",
+	"cite-ve-dialog-reference-convert-all-checkbox-label": "Voeg deze details toevoegen aan ($1) toepassingen van deze referentie waarvoor nog geen details zijn.",
 	"cite-ve-dialog-reference-title-details": "Gegevens",
 	"cite-ve-dialog-reference-useexisting-tool": "Hergebruiken",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Lijst van algemene verwijzingen",

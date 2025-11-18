@@ -397,12 +397,10 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
 	}
 
 	const mainRefKey = ve.getProp( attributes, 'listKey' );
-	// Sub-refs cannot have reuses, that's why using only the firstNodes is safe
-	return nodeGroup.firstNodes.some(
-		// Is there a sub-ref (mainRefKey exists) for the same main ref (mainRefKey is the same)
-		// that already holds the main body?
-		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' ) &&
-			node.getAttribute( 'mainRefKey' ) === mainRefKey
+	const subRefs = this.getSubRefs( mainRefKey, nodeGroup );
+	return subRefs.some(
+		// Is there a sub-ref that already holds the main body?
+		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
 	);
 };
 
@@ -482,10 +480,16 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
  * @return {ve.dm.Node[]}
  */
 ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
-	// Sub-refs cannot have reuses, that's why using only the firstNodes is safe
-	return nodeGroup.getFirstNodesInIndexOrder().filter(
-		( node ) => node.element.attributes.mainRefKey === mainRefKey
-	);
+	const keys = nodeGroup.getKeysInIndexOrder();
+	const results = [];
+	keys.forEach( ( key ) => {
+		const reuses = nodeGroup.getAllReuses( key );
+		// Sub-ref reuses share the mainRefKey, that's why stopping after the first match is fine
+		if ( reuses.some( ( node ) => node.getAttribute( 'mainRefKey' ) === mainRefKey ) ) {
+			results.push( ...reuses );
+		}
+	} );
+	return results;
 };
 
 /**
@@ -498,7 +502,7 @@ ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
 ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) {
 	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
 	return !attributes.mainRefKey &&
-		// Sub-refs cannot have reuses, that's why using only the firstNodes is safe
+		// Sub-ref reuses share the mainRefKey, that's why using only the firstNodes is safe
 		internalList.getNodeGroup( attributes.listGroup ).firstNodes.some(
 			( node ) => node.getAttribute( 'mainRefKey' ) === attributes.listKey
 		);

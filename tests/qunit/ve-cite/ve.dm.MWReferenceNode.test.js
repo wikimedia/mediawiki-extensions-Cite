@@ -111,7 +111,7 @@ QUnit.test( 'getSubRefs', ( assert ) => {
 	nodeGroup.sortGroupIndexes();
 
 	const subRefs = ve.dm.MWReferenceNode.static.getSubRefs( 'auto/0', nodeGroup );
-	assert.strictEqual( subRefs.length, 2, 'The list of sub-refs does not include reuses' );
+	assert.strictEqual( subRefs.length, 3, 'The list of sub-refs does include reuses' );
 	assert.strictEqual( subRefs[ 0 ].getOffset(), 1, 'The list of sub-refs is in document order' );
 } );
 

@@ -77,6 +77,34 @@ ve.dm.MWReferenceNode.static.makeListKey = function ( internalList, name ) {
 };
 
 /**
+ * @private
+ * @param {ve.dm.ModelFromDomConverter} converter
+ * @param {string|null} [refListItemId]
+ * @return {string}
+ */
+ve.dm.MWReferenceNode.static.getBodyFromReflist = function ( converter, refListItemId ) {
+	if ( !refListItemId ) {
+		return '';
+	}
+	const elem = converter.getHtmlDocument().getElementById( refListItemId );
+	return elem && elem.innerHTML || '';
+};
+
+/**
+ * @private
+ * @param {ve.dm.ModelFromDomConverter} converter
+ * @param {string|null} [refListItemId]
+ * @return {string}
+ */
+ve.dm.MWReferenceNode.static.getGroupFromReflist = function ( converter, refListItemId ) {
+	if ( !refListItemId ) {
+		return '';
+	}
+	const elem = converter.getHtmlDocument().getElementById( refListItemId );
+	return elem && elem.getAttribute( 'data-mw-group' ) || '';
+};
+
+/**
  * Transform parsoid HTML DOM to constructor parameters for VE reference nodes.
  *
  * @param {Node[]} domElements DOM elements to convert
@@ -84,36 +112,23 @@ ve.dm.MWReferenceNode.static.makeListKey = function ( internalList, name ) {
  * @return {Object|Array|null} Data element or array of linear model data, or null to alienate
  */
 ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter ) {
-	function getReflistItemHtml( id ) {
-		const elem = converter.getHtmlDocument().getElementById( id );
-		return elem && elem.innerHTML;
-	}
-
-	function getReflistItemGroup( id ) {
-		const elem = converter.getHtmlDocument().getElementById( id );
-		return elem && elem.getAttribute( 'data-mw-group' );
-	}
-
 	const mwDataJSON = domElements[ 0 ].getAttribute( 'data-mw' );
 	const mwData = mwDataJSON ? JSON.parse( mwDataJSON ) : {};
 	const mwAttrs = mwData.attrs || {};
-	const reflistItemId = ve.getProp( mwData, 'body', 'id' );
-	const body = ve.getProp( mwData, 'body', 'html' ) ||
-		( reflistItemId && getReflistItemHtml( reflistItemId ) ) ||
-		'';
-	const refGroup = mwAttrs.group ||
-		( reflistItemId && getReflistItemGroup( reflistItemId ) ) ||
-		'';
-	const listGroup = this.name + '/' + refGroup;
-	const refName = ( mwData.mainRef ? null : mwAttrs.name );
-	const listKey = this.makeListKey( converter.internalList, refName );
-	const { index, isNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
 
+	const refListItemId = ve.getProp( mwData, 'body', 'id' );
+	const body = ve.getProp( mwData, 'body', 'html' ) || this.getBodyFromReflist( converter, refListItemId );
+	const refName = ( mwData.mainRef ? null : mwAttrs.name );
 	if ( converter.isFromClipboard() && !( refName || body ) ) {
 		// Pasted reference has neither a name nor body HTML, must have
 		// come from Parsoid read mode directly. (T389518)
 		return [];
 	}
+
+	const refGroup = mwAttrs.group || this.getGroupFromReflist( converter, refListItemId );
+	const listGroup = this.name + '/' + refGroup;
+	const listKey = this.makeListKey( converter.internalList, refName );
+	const { index, isNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
 
 	// Sub-refs will always get body content for the details attribute so we use contentsUsed to
 	// store if they had main content in the main+details case
@@ -138,8 +153,9 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			mwData.mainRef
 		);
 	}
-	if ( reflistItemId ) {
-		dataElement.attributes.refListItemId = reflistItemId;
+
+	if ( refListItemId ) {
+		dataElement.attributes.refListItemId = refListItemId;
 	}
 	return dataElement;
 };
@@ -323,7 +339,7 @@ ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodesWit
  * @static
  * @param {Object} dataElement
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
- * @return {string|false} the reflistItemId of the main to link to or false if not applicable
+ * @return {string|false} the refListItemId of the main to link to or false if not applicable
  * */
 ve.dm.MWReferenceNode.static.shouldLinkSyntheticMainRef = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;

@@ -97,20 +97,22 @@ QUnit.test( 'generateName on a sub-reference', ( assert ) => {
 } );
 
 QUnit.test( 'getSubRefs', ( assert ) => {
-	const node1 = new ve.dm.Node( { attributes: { mainRefKey: 'a' } } );
-	node1.getOffset = () => 98;
-	const node2 = new ve.dm.Node( { attributes: { mainRefKey: 'a' } } );
-	node2.getOffset = () => 99;
+	const firstSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
+	firstSubRef.getOffset = () => 1;
+	const secoundSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
+	secoundSubRef.getOffset = () => 2;
+	const firstSubRefReuse = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
+	firstSubRefReuse.getOffset = () => 3;
 
 	const nodeGroup = new ve.dm.InternalListNodeGroup();
-	nodeGroup.appendNode( 'subref2', node2 );
-	nodeGroup.appendNode( 'subref1', node1 );
+	nodeGroup.appendNode( 'literal/secound', secoundSubRef );
+	nodeGroup.appendNode( 'literal/first', firstSubRef );
+	nodeGroup.appendNode( 'literal/first', firstSubRefReuse );
 	nodeGroup.sortGroupIndexes();
 
-	const subRefs = ve.dm.MWReferenceNode.static.getSubRefs( 'a', nodeGroup );
-	assert.strictEqual( subRefs.length, 2 );
-	// The returned sub-references should be in document order
-	assert.strictEqual( subRefs[ 0 ].getOffset(), 98 );
+	const subRefs = ve.dm.MWReferenceNode.static.getSubRefs( 'auto/0', nodeGroup );
+	assert.strictEqual( subRefs.length, 2, 'The list of sub-refs does not include reuses' );
+	assert.strictEqual( subRefs[ 0 ].getOffset(), 1, 'The list of sub-refs is in document order' );
 } );
 
 QUnit.test( 'hasSubRefs', ( assert ) => {

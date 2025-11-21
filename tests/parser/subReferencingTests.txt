@@ -791,13 +791,10 @@ parsoid=wt2html
 </div>
 !! end
 
-# T390961: fails to round-trip main+details after main
 !! test
 Repeating the main content when using details
 !! config
 wgCiteSubReferencing=true
-!! options
-parsoid=wt2html
 !! wikitext
 <ref name="book">Book</ref> <ref details="page 1" name="book">Book</ref> <ref details="page 1" name="book">Book</ref>
 !! html/php

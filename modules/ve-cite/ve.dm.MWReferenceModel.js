@@ -71,18 +71,25 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 };
 
 /**
- * Create a copy of a sub-reference when reusing.
- * TODO might be removed again when we merge sub-ref reuse in reader view see T385666
+ * Create a copy of a sub-reference to split it up from reuses.
  *
- * @param {ve.dm.MWReferenceModel} subRef The sub-reference to copy
+ * @param {ve.dm.MWReferenceModel} oldSubRef The sub-reference to copy
  * @param {ve.dm.Document} doc The Document we can use to clone the content
  * @return {ve.dm.MWReferenceModel}
  */
-ve.dm.MWReferenceModel.static.copySubReference = function ( subRef, doc ) {
+ve.dm.MWReferenceModel.static.copySubReference = function ( oldSubRef, doc ) {
 	const newSubRef = new ve.dm.MWReferenceModel();
-	newSubRef.setDocument( doc.cloneWithData( subRef.getDocument().getData() ) );
-	newSubRef.mainRefKey = subRef.mainRefKey;
-	newSubRef.setGroup( subRef.getGroup() );
+
+	// Clone the content of the exiting sub-ref into a new one
+	const originalData = oldSubRef.getDocument().getData();
+	const internalListRange = oldSubRef.getDocument().internalList.getListNode().getRange();
+
+	// Remove the InternalList's content from the original data to avoid duplicating it when merging the ref
+	originalData.splice( internalListRange.start, internalListRange.end - internalListRange.start );
+	newSubRef.setDocument( doc.cloneWithData( originalData ) );
+
+	newSubRef.mainRefKey = oldSubRef.mainRefKey;
+	newSubRef.setGroup( oldSubRef.getGroup() );
 
 	return newSubRef;
 };

@@ -34,7 +34,10 @@
 		"EditPage::showEditForm:initial": "main",
 		"MakeGlobalVariablesScript": "referencepreviews",
 		"ResourceLoaderGetConfigVars": "main",
-		"ResourceLoaderRegisterModules": "referencepreviews",
+		"ResourceLoaderRegisterModules": [
+			"main",
+			"referencepreviews"
+		],
 		"UserGetDefaultOptions": "referencepreviews"
 	},
 	"HookHandlers": {

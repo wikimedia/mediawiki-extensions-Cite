@@ -48,19 +48,18 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	/**
 	 * @dataProvider provideBooleans
 	 */
-	public function testOnResourceLoaderRegisterModules( bool $enabled ) {
+	public function testResourceLoaderRegistration_ReferencePreviews( bool $enabled ) {
 		$extensionRegistry = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
-		$extensionRegistry->method( 'isLoaded' )->willReturn( $enabled );
-
-		$rlModules = [];
+		$extensionRegistry->method( 'isLoaded' )->willReturn( true );
 
 		$resourceLoader = $this->createMock( ResourceLoader::class );
 		$resourceLoader->method( 'getConfig' )
 			->willReturn( new HashConfig( [ 'CiteReferencePreviews' => $enabled ] ) );
-		$resourceLoader->method( 'register' )
-			 ->willReturnCallback( static function ( array $modules ) use ( &$rlModules ) {
-				 $rlModules = array_merge( $rlModules, $modules );
-			 } );
+		$resourceLoader->expects( $this->exactly( (int)$enabled ) )
+			->method( 'register' )
+			->willReturnCallback( function ( array $modules ) {
+				$this->assertArrayHasKey( 'ext.cite.referencePreviews', $modules );
+			} );
 
 		( new ReferencePreviewsHooks(
 			$extensionRegistry,
@@ -68,13 +67,35 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			$this->createNoOpMock( ReferencePreviewsGadgetsIntegration::class )
 		) )
 			->onResourceLoaderRegisterModules( $resourceLoader );
+	}
 
-		if ( $enabled ) {
+	/**
+	 * @dataProvider provideBooleans
+	 */
+	public function testResourceLoaderRegistration_VisualAndWikiEditor( bool $loaded ) {
+		$extensionRegistry = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
+		$extensionRegistry->method( 'isLoaded' )->willReturn( $loaded );
+
+		$rlModules = [];
+
+		$resourceLoader = $this->createNoOpMock( ResourceLoader::class, [ 'register' ] );
+		$resourceLoader->expects( $this->exactly( $loaded ? 2 : 0 ) )
+			->method( 'register' )
+			->willReturnCallback( static function ( array $modules ) use ( &$rlModules ) {
+				$rlModules += $modules;
+			} );
+
+		( new CiteHooks(
+			$extensionRegistry,
+			new StaticUserOptionsLookup( [] )
+		) )
+			->onResourceLoaderRegisterModules( $resourceLoader );
+
+		if ( $loaded ) {
 			$this->assertArrayHasKey( 'ext.cite.wikiEditor', $rlModules );
 			$this->assertArrayHasKey( 'ext.cite.visualEditor', $rlModules );
 		} else {
-			$this->assertArrayNotHasKey( 'ext.cite.wikiEditor', $rlModules );
-			$this->assertArrayNotHasKey( 'ext.cite.visualEditor', $rlModules );
+			$this->assertSame( [], $rlModules );
 		}
 	}
 

@@ -10,6 +10,8 @@ use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\StripState;
 
 /**
+ * Hook handlers for Cite's integration with the (legacy) MediaWiki parser.
+ *
  * @license GPL-2.0-or-later
  */
 class CiteParserHooks implements

@@ -75,6 +75,7 @@ class ReferencePreviewsHooks implements
 					'cite-reference-previews-journal',
 					'cite-reference-previews-news',
 					'cite-reference-previews-note',
+					'cite-reference-previews-map',
 					'cite-reference-previews-web',
 					'cite-reference-previews-collapsible-placeholder',
 				],

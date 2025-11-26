@@ -37,6 +37,7 @@ class MWCitationToolsDefinition {
 				// * visualeditor-cite-tool-name-book
 				// * visualeditor-cite-tool-name-journal
 				// * visualeditor-cite-tool-name-news
+				// * visualeditor-cite-tool-name-map
 				// * visualeditor-cite-tool-name-web
 				$msg = $context->msg( 'visualeditor-cite-tool-name-' . $tool['name'] );
 				// Fall back to the raw name if there is no message

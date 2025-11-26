@@ -75,7 +75,7 @@
 	 * being transformed into a message key. The name is prefixed with
 	 * `visualeditor-cite-tool-name-`, and messages can be defined on Wiki. Some
 	 * common messages are pre-defined for tool names such as `web`, `book`,
-	 * `news` and `journal`.
+	 * `news`, `map` and `journal`.
 	 *
 	 * Example:
 	 * [ { "name": "web", "icon": "browser", "template": "Cite web" }, ... ]
@@ -94,6 +94,7 @@
 		book: 'book',
 		journal: 'journal',
 		news: 'newspaper',
+		map: 'map',
 		web: 'browser'
 	};
 

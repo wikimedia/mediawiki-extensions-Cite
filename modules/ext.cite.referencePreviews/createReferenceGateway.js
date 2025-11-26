@@ -64,7 +64,7 @@ module.exports = function createReferenceGateway() {
 	 * @return {string|null}
 	 */
 	function scrapeReferenceType( referenceElement ) {
-		const KNOWN_TYPES = [ 'book', 'journal', 'news', 'note', 'web' ];
+		const KNOWN_TYPES = [ 'book', 'journal', 'news', 'note', 'map', 'web' ];
 		let type = null;
 		const citeTags = referenceElement.querySelectorAll( 'cite[class]' );
 		Array.prototype.forEach.call( citeTags, ( element ) => {

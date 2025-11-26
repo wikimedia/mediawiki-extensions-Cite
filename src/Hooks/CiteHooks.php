@@ -162,6 +162,7 @@ class CiteHooks implements
 						'oojs-ui.styles.icons-alerts',
 						'oojs-ui.styles.icons-editing-citation',
 						'oojs-ui.styles.icons-interactions',
+						'oojs-ui.styles.icons-location',
 						'ext.visualEditor.mwcore',
 						'ext.cite.parsoid.styles',
 						'ext.cite.styles',

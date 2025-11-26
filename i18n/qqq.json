@@ -57,6 +57,7 @@
 	"cite-reference-previews-journal": "Heading for a popup previewing a citation from a journal.\n{{Identical|Journal}}",
 	"cite-reference-previews-news": "Heading for a popup previewing a citation from the news.\n{{Identical|News}}",
 	"cite-reference-previews-note": "Heading for a popup previewing a footnote.\n{{Identical|Note}}",
+	"cite-reference-previews-map": "Heading for a popup previewing a citation that is or links to a map or part of a map.\n{{Identical|Map}}",
 	"cite-reference-previews-web": "Heading for a popup previewing a citation from a website.\n{{Identical|Website}}",
 	"cite-reference-previews-collapsible-placeholder": "Placeholder text for collapsible tables, templates, or other large elements inside of a reference.",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "Help message telling to disable the \"Navigation popups\" gadget in order to allow page and reference previews. The word \"Gadgets\" should be based on {{msg-mw|prefs-gadgets}}.\n\nParameters:\n* $1 – Link to the Gadgets tab in the user's preferences",

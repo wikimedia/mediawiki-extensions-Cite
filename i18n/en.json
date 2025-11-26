@@ -49,6 +49,7 @@
 	"cite-reference-previews-journal": "Journal reference",
 	"cite-reference-previews-news": "News reference",
 	"cite-reference-previews-note": "Note",
+	"cite-reference-previews-map": "Map reference",
 	"cite-reference-previews-web": "Web reference",
 	"cite-reference-previews-collapsible-placeholder": "This reference includes a figure which does not fit in the preview.",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "You have the [[$1|Navigation popups]] gadget enabled, so you won't see previews provided by this feature. Depending on your wiki, the gadget may have a slightly different name. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",

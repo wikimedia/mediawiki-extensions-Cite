@@ -139,7 +139,7 @@ class References {
 		bool $hasDifferingHtml
 	): ?string {
 		$refFragmentDp = DOMDataUtils::getDataParsoid( $refFragment );
-		if ( !empty( $refFragmentDp->empty ) || !self::hasRef( $extApi, $refFragment ) ) {
+		if ( !empty( $refFragmentDp->selfClose ) || !self::hasRef( $extApi, $refFragment ) ) {
 			return null;
 		}
 
@@ -194,10 +194,7 @@ class References {
 		$status = Validator::filterRefArguments( $refDataMw->getExtAttribs() ?? [], $isSubreferenceSupported );
 		$arguments = $status->getValue();
 
-		// Check for missing content, added ?? '' to fix T259676 crasher
-		// FIXME: See T260082 for a more complete description of cause and deeper fix
-		$isOnlyWhitespace = trim( $refDataMw->body->extsrc ?? '' ) === '';
-		$isEmptyBody = !empty( $refFragmentDp->empty ) || $isOnlyWhitespace;
+		$isEmptyBody = trim( $refDataMw->body->extsrc ?? '' ) === '';
 
 		$validator = new Validator( $referencesData->referenceListGroup() );
 		$text = !empty( $refFragmentDp->selfClose ) ? null : ( $isEmptyBody ? '' : 'dummy' );
@@ -218,7 +215,6 @@ class References {
 		$followName = (string)$arguments['follow'];
 		$refDir = (string)$arguments['dir'];
 		$details = $arguments['details'] ?? '';
-		$hasBody = isset( $refDataMw->body );
 
 		// Handle 'about' attribute with priority since it's
 		// only added when the wrapper is a template sibling.
@@ -267,7 +263,7 @@ class References {
 			// Create new, empty main ref
 			$ref ??= $referencesData->addRef( $refGroup, $refName, $refDir );
 
-			if ( $hasBody && !$isEmptyBody ) {
+			if ( !$isEmptyBody ) {
 				if ( !$ref->contentId ) {
 					// Create a main ref and transfer the tag body to it,
 					$ref->isSyntheticMainRef = true;

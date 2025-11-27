@@ -4,6 +4,7 @@ namespace Cite\Tests;
 
 use Cite\Hooks\CiteHooks;
 use Cite\Hooks\ReferencePreviewsHooks;
+use Cite\ReferencePreviews\ReferencePreviewsContext;
 use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
 use MediaWiki\Api\ApiQuerySiteinfo;
 use MediaWiki\Config\HashConfig;
@@ -48,7 +49,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideBooleans
 	 */
 	public function testOnResourceLoaderRegisterModules( bool $enabled ) {
-		$extensionRegistry = $this->createMock( ExtensionRegistry::class );
+		$extensionRegistry = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
 		$extensionRegistry->method( 'isLoaded' )->willReturn( $enabled );
 
 		$rlModules = [];
@@ -63,8 +64,8 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 
 		( new ReferencePreviewsHooks(
 			$extensionRegistry,
-			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
-			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
+			$this->createNoOpMock( ReferencePreviewsContext::class ),
+			$this->createNoOpMock( ReferencePreviewsGadgetsIntegration::class )
 		) )
 			->onResourceLoaderRegisterModules( $resourceLoader );
 
@@ -103,7 +104,8 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testOnGetPreferences_noConflicts() {
-		$this->markTestSkippedIfExtensionNotLoaded( 'Popups' );
+		$extensionRegistry = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
+		$extensionRegistry->method( 'isLoaded' )->willReturn( true );
 
 		$expected = [
 			'popups-reference-previews' => [
@@ -116,16 +118,17 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$gadgetsIntegrationMock = $this->createMock( ReferencePreviewsGadgetsIntegration::class );
 		$prefs = [];
 		( new ReferencePreviewsHooks(
-			ExtensionRegistry::getInstance(),
-			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
+			$extensionRegistry,
+			$this->createNoOpMock( ReferencePreviewsContext::class ),
 			$gadgetsIntegrationMock,
 		) )
-			->onGetPreferences( $this->createMock( User::class ), $prefs );
+			->onGetPreferences( $this->createNoOpMock( User::class ), $prefs );
 		$this->assertEquals( $expected, $prefs );
 	}
 
 	public function testOnGetPreferences_conflictingGadget() {
-		$this->markTestSkippedIfExtensionNotLoaded( 'Popups' );
+		$extensionRegistry = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
+		$extensionRegistry->method( 'isLoaded' )->willReturn( true );
 
 		$expected = [
 			'popups-reference-previews' => [
@@ -145,15 +148,18 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( true );
 		$prefs = [];
 		( new ReferencePreviewsHooks(
-			ExtensionRegistry::getInstance(),
-			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
+			$extensionRegistry,
+			$this->createNoOpMock( ReferencePreviewsContext::class ),
 			$gadgetsIntegrationMock,
 		) )
-			->onGetPreferences( $this->createMock( User::class ), $prefs );
+			->onGetPreferences( $this->createNoOpMock( User::class ), $prefs );
 		$this->assertEquals( $expected, $prefs );
 	}
 
 	public function testOnGetPreferences_redundantPreference() {
+		$extensionRegistry = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
+		$extensionRegistry->method( 'isLoaded' )->willReturn( true );
+
 		$prefs = [
 			'popups-reference-previews' => [
 				'type' => 'toggle',
@@ -162,11 +168,11 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		];
 		$expected = $prefs;
 		( new ReferencePreviewsHooks(
-			ExtensionRegistry::getInstance(),
-			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
-			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
+			$extensionRegistry,
+			$this->createNoOpMock( ReferencePreviewsContext::class ),
+			$this->createMock( ReferencePreviewsGadgetsIntegration::class )
 		) )
-			->onGetPreferences( $this->createMock( User::class ), $prefs );
+			->onGetPreferences( $this->createNoOpMock( User::class ), $prefs );
 		$this->assertEquals( $expected, $prefs );
 	}
 

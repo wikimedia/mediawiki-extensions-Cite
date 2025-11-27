@@ -280,8 +280,7 @@ class ReferencePreviewsHooks implements
 			// FIXME: This message is unnecessary and unactionable since we already
 			// detect specific gadget conflicts.
 			'help-message' => 'popups-prefs-conflicting-gadgets-info',
-			'section' => $this->extensionRegistry->isLoaded( 'Popups' ) ?
-				'rendering/reading' : 'rendering/advancedrendering',
+			'section' => 'rendering/reading',
 		];
 		$isNavPopupsGadgetEnabled = $this->gadgetsIntegration->isNavPopupsGadgetEnabled( $user );
 		$isRefTooltipsGadgetEnabled = $this->gadgetsIntegration->isRefTooltipsGadgetEnabled( $user );

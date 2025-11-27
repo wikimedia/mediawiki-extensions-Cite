@@ -47,6 +47,7 @@
 			"services": [
 				"Cite.ReferencePreviewsContext",
 				"Cite.GadgetsIntegration",
+				"ExtensionRegistry",
 				"UserOptionsLookup"
 			]
 		},

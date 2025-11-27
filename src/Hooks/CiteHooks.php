@@ -39,15 +39,18 @@ class CiteHooks implements
 
 	private ReferencePreviewsContext $referencePreviewsContext;
 	private ReferencePreviewsGadgetsIntegration $gadgetsIntegration;
+	private ExtensionRegistry $extensionRegistry;
 	private UserOptionsLookup $userOptionsLookup;
 
 	public function __construct(
 		ReferencePreviewsContext $referencePreviewsContext,
 		ReferencePreviewsGadgetsIntegration $gadgetsIntegration,
+		ExtensionRegistry $extensionRegistry,
 		UserOptionsLookup $userOptionsLookup
 	) {
 		$this->referencePreviewsContext = $referencePreviewsContext;
 		$this->gadgetsIntegration = $gadgetsIntegration;
+		$this->extensionRegistry = $extensionRegistry;
 		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
@@ -154,19 +157,17 @@ class CiteHooks implements
 	 * @param OutputPage $outputPage object.
 	 */
 	public function onEditPage__showEditForm_initial( $editPage, $outputPage ) {
-		$extensionRegistry = ExtensionRegistry::getInstance();
 		$allowedContentModels = array_merge(
 			[ CONTENT_MODEL_WIKITEXT ],
-			$extensionRegistry->getAttribute( 'CiteAllowedContentModels' )
+			$this->extensionRegistry->getAttribute( 'CiteAllowedContentModels' )
 		);
 		if ( !in_array( $editPage->contentModel, $allowedContentModels ) ) {
 			return;
 		}
 
-		$wikiEditorEnabled = $extensionRegistry->isLoaded( 'WikiEditor' );
+		$wikiEditorEnabled = $this->extensionRegistry->isLoaded( 'WikiEditor' );
 
 		$user = $editPage->getContext()->getUser();
-
 		if (
 			$wikiEditorEnabled &&
 			$this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' )

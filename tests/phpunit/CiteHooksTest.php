@@ -6,6 +6,7 @@ use Cite\Hooks\CiteHooks;
 use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
 use MediaWiki\Api\ApiQuerySiteinfo;
 use MediaWiki\Config\HashConfig;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\User\Options\StaticUserOptionsLookup;
 use MediaWiki\User\User;
@@ -31,6 +32,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		( new CiteHooks(
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
+			$this->createNoOpMock( ExtensionRegistry::class ),
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onResourceLoaderGetConfigVars( $vars, 'vector', $config );
@@ -57,6 +59,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		( new CiteHooks(
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
+			$this->createNoOpMock( ExtensionRegistry::class ),
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onResourceLoaderRegisterModules( $resourceLoader );
@@ -76,6 +79,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		( new CiteHooks(
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
+			$this->createNoOpMock( ExtensionRegistry::class ),
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onAPIQuerySiteInfoGeneralInfo( $api, $data );
@@ -102,6 +106,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		( new CiteHooks(
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$gadgetsIntegrationMock,
+			$this->createNoOpMock( ExtensionRegistry::class ),
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onGetPreferences( $this->createMock( User::class ), $prefs );
@@ -129,6 +134,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		( new CiteHooks(
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$gadgetsIntegrationMock,
+			$this->createNoOpMock( ExtensionRegistry::class ),
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onGetPreferences( $this->createMock( User::class ), $prefs );
@@ -146,6 +152,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		( new CiteHooks(
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
 			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
+			$this->createNoOpMock( ExtensionRegistry::class ),
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onGetPreferences( $this->createMock( User::class ), $prefs );

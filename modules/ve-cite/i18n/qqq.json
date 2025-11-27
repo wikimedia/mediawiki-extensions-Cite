@@ -28,13 +28,14 @@
 			"Trevor Parscal",
 			"UV",
 			"Umherirrender",
-			"Verdy p"
+			"Verdy p",
+			"Ильгиз"
 		]
 	},
-	"visualeditor-cite-tool-name-book": "Title of tool that inserts a citation for a book.\n{{Identical|Book}}",
-	"visualeditor-cite-tool-name-journal": "Title of tool that inserts a citation for a journal\n{{Identical|Journal}}",
-	"visualeditor-cite-tool-name-news": "Title of tool that inserts a citation for a news.\n{{Identical|News}}",
-	"visualeditor-cite-tool-name-web": "Title of tool that inserts a citation for a website.\n{{Identical|Website}}",
+	"visualeditor-cite-tool-name-book": "Китаптан өзек китерү өчен кулланылучы коралның исеме.\n{{Identical|Book}}",
+	"visualeditor-cite-tool-name-journal": "Журналдан өзек китерү өчен кулланылучы коралның исеме.\n{{Identical|Journal}}",
+	"visualeditor-cite-tool-name-news": "Яңалыклардан өзек китерү өчен кулланылучы коралның исеме.\n{{Identical|News}}",
+	"visualeditor-cite-tool-name-web": "Веб-сайттан өзек китерү өчен кулланылучы коралның исеме.\n{{Identical|Website}}",
 	"cite-tool-definition.json": "{{ignored}}\n\nJSON list of objects detailing each citation with name (key referring to a visualeditor-cite-tool-name-x message), icon ('book', 'journal', 'newspaper', 'browser'), and template name",
 	"cite-ve-changedesc-ref-group-both": "Description of a reference changing group\n\nParameters:\n* $1 – the name of the group it was before\n* $2 – the name of the group it is now",
 	"cite-ve-changedesc-ref-group-from": "Description of a reference changing group to the general group\n\nParameters:\n* $1 – the name of the group it was before",
@@ -63,7 +64,7 @@
 	"cite-ve-dialog-reference-options-section": "Label for the reference options sub-section.\n{{Identical|Options}}",
 	"cite-ve-dialog-reference-placeholder": "Placeholder text shown in a basic reference when no text has yet been entered.",
 	"cite-ve-dialog-reference-title": "{{Identical|Reference}}",
-	"cite-ve-dialog-reference-add-details-button": "Label for the button to add additional details.",
+	"cite-ve-dialog-reference-add-details-button": "Өстәмә мәгълүматлар өстәү төймәсендәге текст.",
 	"cite-ve-dialog-subreference-help-dialog-title": "Dialog title for the popup help dialog for the add details button.",
 	"cite-ve-dialog-subreference-help-dialog-head": "Headline at the top of the popup help dialog for the add details button.",
 	"cite-ve-dialog-subreference-help-dialog-content": "Main text that will show up in the popup help dialog for the add details button. This is simplified wikitext. Only wikitext features according to [https://www.mediawiki.org/wiki/Manual:Messages_API#Feature_support_in_JavaScript] are allowed.\n{{doc-jqueryMsg}}",

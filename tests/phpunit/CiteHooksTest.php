@@ -32,6 +32,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		] );
 
 		( new CiteHooks(
+			$this->createNoOpMock( ExtensionRegistry::class ),
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onResourceLoaderGetConfigVars( $vars, 'vector', $config );
@@ -88,6 +89,7 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		$data = [];
 
 		( new CiteHooks(
+			$this->createNoOpMock( ExtensionRegistry::class ),
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onAPIQuerySiteInfoGeneralInfo( $api, $data );

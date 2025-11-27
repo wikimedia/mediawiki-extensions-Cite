@@ -44,6 +44,7 @@
 		"main": {
 			"class": "Cite\\Hooks\\CiteHooks",
 			"services": [
+				"ExtensionRegistry",
 				"UserOptionsLookup"
 			]
 		},

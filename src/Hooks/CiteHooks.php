@@ -29,6 +29,7 @@ class CiteHooks implements
 {
 
 	public function __construct(
+		private readonly ExtensionRegistry $extensionRegistry,
 		private readonly UserOptionsLookup $userOptionsLookup,
 	) {
 	}
@@ -86,24 +87,21 @@ class CiteHooks implements
 	 * @return void
 	 */
 	public function onEditPage__showEditForm_initial( $editPage, $outputPage ) {
-		$extensionRegistry = ExtensionRegistry::getInstance();
-		if ( !$extensionRegistry->isLoaded( 'WikiEditor' ) ) {
+		if ( !$this->extensionRegistry->isLoaded( 'WikiEditor' ) ) {
 			return;
 		}
 
 		// Wikitext is always allowed
 		if ( $editPage->contentModel !== CONTENT_MODEL_WIKITEXT ) {
 			// To support compatible namespaces from extensions like ProofreadPage, see T348403
-			$wikitextContentModels = $extensionRegistry->getAttribute( 'CiteAllowedContentModels' );
+			$wikitextContentModels = $this->extensionRegistry->getAttribute( 'CiteAllowedContentModels' );
 			if ( !in_array( $editPage->contentModel, $wikitextContentModels ) ) {
 				return;
 			}
 		}
 
 		$user = $editPage->getContext()->getUser();
-		if ( $extensionRegistry->isLoaded( 'WikiEditor' ) &&
-			$this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' )
-		) {
+		if ( $this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' ) ) {
 			$outputPage->addModules( 'ext.cite.wikiEditor' );
 		}
 	}

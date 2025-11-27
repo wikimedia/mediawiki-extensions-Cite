@@ -6,7 +6,6 @@ use Cite\Hooks\CiteHooks;
 use Cite\Hooks\ReferencePreviewsHooks;
 use Cite\ReferencePreviews\ReferencePreviewsContext;
 use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
-use MediaWiki\Api\ApiQuerySiteinfo;
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\ResourceLoader;
@@ -97,26 +96,6 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		} else {
 			$this->assertSame( [], $rlModules );
 		}
-	}
-
-	/**
-	 * @dataProvider provideBooleans
-	 */
-	public function testOnAPIQuerySiteInfoGeneralInfo( bool $enabled ) {
-		$api = $this->createMock( ApiQuerySiteinfo::class );
-		$api->expects( $this->once() )
-			->method( 'getConfig' )
-			->willReturn( new HashConfig( [ 'CiteResponsiveReferences' => $enabled ] ) );
-
-		$data = [];
-
-		( new CiteHooks(
-			$this->createNoOpMock( ExtensionRegistry::class ),
-			new StaticUserOptionsLookup( [] )
-		) )
-			->onAPIQuerySiteInfoGeneralInfo( $api, $data );
-
-		$this->assertSame( [ 'citeresponsivereferences' => $enabled ], $data );
 	}
 
 	public static function provideBooleans() {

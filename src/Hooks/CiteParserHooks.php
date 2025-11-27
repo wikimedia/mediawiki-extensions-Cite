@@ -3,6 +3,8 @@
 namespace Cite\Hooks;
 
 use Cite\CiteFactory;
+use MediaWiki\Api\ApiQuerySiteinfo;
+use MediaWiki\Api\Hook\APIQuerySiteInfoGeneralInfoHook;
 use MediaWiki\Hook\ParserAfterParseHook;
 use MediaWiki\Hook\ParserClearStateHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
@@ -15,6 +17,7 @@ use MediaWiki\Parser\StripState;
  * @license GPL-2.0-or-later
  */
 class CiteParserHooks implements
+	APIQuerySiteInfoGeneralInfoHook,
 	ParserFirstCallInitHook,
 	ParserClearStateHook,
 	ParserAfterParseHook
@@ -58,6 +61,18 @@ class CiteParserHooks implements
 		if ( $cite !== null ) {
 			$text .= $cite->checkRefsNoReferences( $parser );
 		}
+	}
+
+	/**
+	 * Expose configs via action=query&meta=siteinfo
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/APIQuerySiteInfoGeneralInfo
+	 *
+	 * @param ApiQuerySiteinfo $module
+	 * @param array<string,mixed> &$results
+	 * @return void
+	 */
+	public function onAPIQuerySiteInfoGeneralInfo( $module, &$results ) {
+		$results['citeresponsivereferences'] = $module->getConfig()->get( 'CiteResponsiveReferences' );
 	}
 
 }

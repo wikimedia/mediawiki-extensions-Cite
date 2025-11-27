@@ -6,8 +6,6 @@
 
 namespace Cite\Hooks;
 
-use MediaWiki\Api\ApiQuerySiteinfo;
-use MediaWiki\Api\Hook\APIQuerySiteInfoGeneralInfoHook;
 use MediaWiki\Config\Config;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
@@ -29,7 +27,6 @@ class CiteHooks implements
 	ContentHandlerDefaultModelForHook,
 	ResourceLoaderGetConfigVarsHook,
 	ResourceLoaderRegisterModulesHook,
-	APIQuerySiteInfoGeneralInfoHook,
 	EditPage__showEditForm_initialHook
 {
 
@@ -67,19 +64,6 @@ class CiteHooks implements
 		$vars['wgCiteVisualEditorOtherGroup'] = $config->get( 'CiteVisualEditorOtherGroup' );
 		$vars['wgCiteResponsiveReferences'] = $config->get( 'CiteResponsiveReferences' );
 		$vars['wgCiteSubReferencing'] = $config->get( 'CiteSubReferencing' );
-	}
-
-	/**
-	 * Hook: APIQuerySiteInfoGeneralInfo
-	 *
-	 * Expose configs via action=query&meta=siteinfo
-	 *
-	 * @param ApiQuerySiteinfo $module
-	 * @param array &$results
-	 * @return void
-	 */
-	public function onAPIQuerySiteInfoGeneralInfo( $module, &$results ) {
-		$results['citeresponsivereferences'] = $module->getConfig()->get( 'CiteResponsiveReferences' );
 	}
 
 	/**

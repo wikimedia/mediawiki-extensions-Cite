@@ -24,7 +24,7 @@
 		]
 	},
 	"Hooks": {
-		"APIQuerySiteInfoGeneralInfo": "main",
+		"APIQuerySiteInfoGeneralInfo": "parser",
 		"CommunityConfigurationProvider_initList": "communityconfiguration",
 		"ContentHandlerDefaultModelFor": "main",
 		"GetPreferences": "referencepreviews",

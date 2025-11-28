@@ -529,7 +529,7 @@ ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
 	const keys = nodeGroup.getKeysInIndexOrder();
 	const results = [];
 	keys.forEach( ( key ) => {
-		const reuses = nodeGroup.getAllReuses( key );
+		const reuses = nodeGroup.getAllReuses( key ) || [];
 		// Sub-ref reuses share the mainRefKey, that's why stopping after the first match is fine
 		if ( reuses.some( ( node ) => node.getAttribute( 'mainRefKey' ) === mainRefKey ) ) {
 			results.push( ...reuses );

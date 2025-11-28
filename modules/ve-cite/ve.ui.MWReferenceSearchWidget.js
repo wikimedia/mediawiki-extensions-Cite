@@ -62,13 +62,19 @@ ve.ui.MWReferenceSearchWidget.prototype.onQueryChange = function () {
 	ve.ui.MWReferenceSearchWidget.super.prototype.onQueryChange.call( this );
 
 	// Populate
-	this.getResults().addItems( this.buildSearchResults( this.getQuery().getValue() ) );
+	const results = this.getResults();
+	results.addItems( this.buildSearchResults( this.getQuery().getValue() ) );
+	// When there is only 1 search result anyway, highlight it right away
+	if ( results.getItemCount() === 1 ) {
+		results.highlightItem( results.findFirstSelectableItem() );
+	}
 };
 
 /**
  * @param {jQuery.Event} e Key down event
  */
 ve.ui.MWReferenceSearchWidget.prototype.onQueryKeydown = function ( e ) {
+	// When the user tries to tab into the list of search results, highlight the first
 	if ( e.which === OO.ui.Keys.TAB && !e.shiftKey &&
 		!this.results.isEmpty() &&
 		!this.results.findHighlightedItem()

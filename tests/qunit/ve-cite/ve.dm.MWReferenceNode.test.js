@@ -99,13 +99,13 @@ QUnit.test( 'generateName on a sub-reference', ( assert ) => {
 QUnit.test( 'getSubRefs', ( assert ) => {
 	const firstSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
 	firstSubRef.getOffset = () => 1;
-	const secoundSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
-	secoundSubRef.getOffset = () => 2;
+	const secondSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
+	secondSubRef.getOffset = () => 2;
 	const firstSubRefReuse = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0' } } );
 	firstSubRefReuse.getOffset = () => 3;
 
 	const nodeGroup = new ve.dm.InternalListNodeGroup();
-	nodeGroup.appendNode( 'literal/secound', secoundSubRef );
+	nodeGroup.appendNode( 'literal/second', secondSubRef );
 	nodeGroup.appendNode( 'literal/first', firstSubRef );
 	nodeGroup.appendNode( 'literal/first', firstSubRefReuse );
 	nodeGroup.sortGroupIndexes();

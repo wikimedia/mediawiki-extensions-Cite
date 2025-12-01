@@ -19,7 +19,8 @@
 			"Xiplus",
 			"Kimberli Mäkäräinen (WMNO)",
 			"Matma Rex",
-			"McDutchie"
+			"McDutchie",
+			"TMg"
 		]
 	},
 	"cite-desc": "{{desc|name=Cite|url=https://www.mediawiki.org/wiki/Extension:Cite}}",
@@ -30,7 +31,7 @@
 	"cite_error_ref_too_many_keys": "Error message shown when ref tags has parameters other than name and group. Examples that cause this error are <code>&lt;ref name=\"name\" notname=\"value\"/&gt;</code> or <code>&lt;ref notname=\"value\" >input</ref&gt;</code>",
 	"cite_error_ref_nested_extends": "\"Extending\" refers to using the <code>extends</code> attribute on a <code>&lt;ref&gt;</code> tag. Error message shown when a ref tag tries to extend another ref tag that's already extended, i.e. nesting sub-refs is not allowed.\n\nParameters:\n* $1 - Name of the invalid ref\n* $2 - Name of the previous, conflicting ref",
 	"cite_error_ref_no_input": "Error message shown when ref tags without names have no content. An example that cause this error is <code>&lt;ref></ref&gt;</code>",
-	"cite_error_references_duplicate_key": "Error message shown when multiple refs with same name exist but with different content",
+	"cite_error_references_duplicate_key": "Error message shown when multiple ref tags with the same name exist, but with different content.\n\nParameters:\n* $1 - Name of the reference",
 	"cite_error_references_invalid_parameters": "Generic error message shown when unknown, unsupported parameters are used in a <code>&lt;references&gt;</code> tag. This can happen when there is a mistake in a parameter name, or a parameter exclusive to the <code>&lt;ref&gt;</code> tag is used in a <code>&lt;references&gt;</code> tag. This and [[MediaWiki:Cite error ref too many keys]] form a pair and should be worded similarly.",
 	"cite_error_references_no_backlink_label": "Error message shown in the references tag when the same name is used for too many ref tags. Too many in this case is more than there are backlink labels defined in [[MediaWiki:Cite references link many format backlink labels]].\n\nIt is not possible to make a clickable link to this message. \"nowiki\" is mandatory around [[MediaWiki:Cite references link many format backlink labels]].",
 	"cite_error_no_link_label_group": "Error message shown when there are more references than custom link markers for a group. Gives an actionable remedy.\n\nParameters:\n* $1 - reference group name\n* $2 - System message name, <code>cite_link_label_group-<i>groupname</i></code>",
@@ -42,7 +43,7 @@
 	"cite_error_references_missing_group": "Error message shown when doing something like\n<pre>\n<references group=\"foo\">\n<ref>...</ref>\n</references>\n</pre>\nand there are no <code>&lt;ref&gt;</code> tags in the page text which would use <code>group=\"foo\"</code>.\n\nParameters:\n* $1 - the name of the unused <code>group</code> (in the example above, “foo”)",
 	"cite_error_references_missing_key": "Error message shown when using something like\n<pre>\n<references>\n<ref name=\"refname\">...</ref>\n</references>\n</pre>\nand the reference <code>&lt;ref name=\"refname\"/&gt;</code> is not used anywhere in the page text.\n\nParameters:\n* $1 - the name of the unused reference (in the example above, “refname”)",
 	"cite_error_references_no_key": "Error message shown when a <code>&lt;ref&gt;</code> inside <code>&lt;references&gt;</code> does not have a <code>name</code> attribute.",
-	"cite_error_empty_references_define": "Error message shown when there is a <code>&lt;ref&gt;</code> inside <code>&lt;references&gt;</code>, but it does not have any content, e.g.\n<pre>\n<references>\n<ref name=\"foo\" />\n</references>\n</pre>\nParameters:\n* $1 - the <code><nowiki>name</nowiki></code> of the erroneous <code>&lt;ref&gt;</code> (in the above example, “foo”)",
+	"cite_error_empty_references_define": "Error message shown when there is a ref tag inside <code>&lt;references></code>, but it does not have any content, e.g.\n<pre>\n<references>\n<ref name=\"foo\" />\n</references>\n</pre>\nParameters:\n* $1 - The name of the erroneous ref tag (in the above example, “foo”)\n* $2 - Group name the ref tag belongs to",
 	"cite-tracking-category-cite-error": "{{tracking category name}}\nTracking category name.",
 	"cite-tracking-category-cite-error-desc": "Tracking category description.",
 	"cite_reference_link_key_with_num": "{{notranslate}}\n\nParameters:\n* $1 - the key\n* $2 - the number of the key",

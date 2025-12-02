@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"cite-desc": "Dodaje oznake <code>&lt;ref&gt;</code> i <code>&lt;references/&gt;</code> za citiranja",
 	"cite_error": "Greška u referenci: $1",
 	"cite_error_ref_invalid_dir": "Nevažeća oznaka <code>dir=\"$1\"</code>. Mora biti <code>ltr</code> ili <code>rtl</code>",
-	"cite_error_ref_numeric_key": "Nevaljana oznaka <code>&lt;ref&gt;</code>; ime ne može biti broj. Upotrijebite opisni naslov",
+	"cite_error_ref_numeric_key": "Nevaljana oznaka <code>&lt;ref&gt;</code>; ime ne može biti broj. Koristite opisni naslov",
 	"cite_error_ref_no_key": "Otvarajuća oznaka <code>&lt;ref&gt;</code> nije ispravno oblikovana ili sadrži neispravno ime",
 	"cite_error_ref_too_many_keys": "Nevaljana oznaka <code>&lt;ref&gt;</code>; nevaljana imena, tj. ima ih previše",
 	"cite_error_ref_nested_extends": "Nije dopušteno proširenje <code>&lt;ref&gt;</code> oznaka dublje od jedne razine",

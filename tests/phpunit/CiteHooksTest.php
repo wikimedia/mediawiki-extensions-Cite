@@ -6,6 +6,7 @@ use Cite\Hooks\CiteHooks;
 use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
 use MediaWiki\Api\ApiQuerySiteinfo;
 use MediaWiki\Config\HashConfig;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\User\Options\StaticUserOptionsLookup;
 use MediaWiki\User\User;
@@ -46,13 +47,19 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideBooleans
 	 */
 	public function testOnResourceLoaderRegisterModules( bool $enabled ) {
-		$this->markTestSkippedIfExtensionNotLoaded( 'Popups' );
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'WikiEditor' ) !== $enabled ) {
+			$this->markTestSkipped();
+		}
+
+		$rlModules = [];
 
 		$resourceLoader = $this->createMock( ResourceLoader::class );
 		$resourceLoader->method( 'getConfig' )
 			->willReturn( new HashConfig( [ 'CiteReferencePreviews' => $enabled ] ) );
-		$resourceLoader->expects( $this->exactly( (int)$enabled ) )
-			->method( 'register' );
+		$resourceLoader->method( 'register' )
+			 ->willReturnCallback( static function ( array $modules ) use ( &$rlModules ) {
+				 $rlModules = array_merge( $rlModules, $modules );
+			 } );
 
 		( new CiteHooks(
 			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
@@ -60,6 +67,12 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			new StaticUserOptionsLookup( [] )
 		) )
 			->onResourceLoaderRegisterModules( $resourceLoader );
+
+		if ( $enabled ) {
+			$this->assertArrayHasKey( 'ext.cite.wikiEditor', $rlModules );
+		} else {
+			$this->assertArrayNotHasKey( 'ext.cite.wikiEditor', $rlModules );
+		}
 	}
 
 	/**

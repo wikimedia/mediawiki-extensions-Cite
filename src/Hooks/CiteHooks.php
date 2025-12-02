@@ -98,6 +98,44 @@ class CiteHooks implements
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'WikiEditor' ) ) {
+			$resourceLoader->register( [
+				'ext.cite.wikiEditor' => [
+					'localBasePath' => dirname( __DIR__, 2 ) . '/modules',
+					'remoteExtPath' => 'Cite/modules',
+					'scripts' => [
+						'ext.cite.wikiEditor.js',
+					],
+					'dependencies' => [
+						'ext.wikiEditor',
+						'mediawiki.jqueryMsg',
+						'mediawiki.language',
+					],
+					'messages' => [
+						'cite-wikieditor-tool-reference',
+						'cite-wikieditor-help-page-references',
+						'cite-wikieditor-help-content-reference-example-text1',
+						'cite-wikieditor-help-content-reference-example-text2',
+						'cite-wikieditor-help-content-reference-example-text3',
+						'cite-wikieditor-help-content-reference-example-ref-id',
+						'cite-wikieditor-help-content-reference-example-extra-details',
+						'cite-wikieditor-help-content-reference-example-ref-normal',
+						'cite-wikieditor-help-content-reference-example-ref-named',
+						'cite-wikieditor-help-content-reference-example-ref-reuse',
+						'cite-wikieditor-help-content-reference-example-ref-extends',
+						'cite-wikieditor-help-content-reference-example-ref-result',
+						'cite-wikieditor-help-content-reference-example-reflist',
+						'cite-wikieditor-help-content-reference-description',
+						'cite-wikieditor-help-content-named-reference-description',
+						'cite-wikieditor-help-content-rereference-description',
+						'cite-wikieditor-help-content-extended-reference-description',
+						'cite-wikieditor-help-content-showreferences-description',
+						'cite_reference_backlink_symbol',
+					],
+				],
+			] );
+		}
+
 		if ( !$resourceLoader->getConfig()->get( 'CiteReferencePreviews' ) ||
 			!ExtensionRegistry::getInstance()->isLoaded( 'Popups' )
 		) {
@@ -165,12 +203,9 @@ class CiteHooks implements
 			return;
 		}
 
-		$wikiEditorEnabled = $extensionRegistry->isLoaded( 'WikiEditor' );
-
 		$user = $editPage->getContext()->getUser();
 
-		if (
-			$wikiEditorEnabled &&
+		if ( $extensionRegistry->isLoaded( 'WikiEditor' ) &&
 			$this->userOptionsLookup->getBoolOption( $user, 'usebetatoolbar' )
 		) {
 			$outputPage->addModules( 'ext.cite.wikiEditor' );

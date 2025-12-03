@@ -216,9 +216,13 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
  * @return {HTMLElement[]}
  */
 ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, converter ) {
+	const attributes = dataElement.attributes;
+	if ( attributes.placeholder ) {
+		return [];
+	}
+
 	const isForClipboard = converter.isForClipboard();
 	const internalList = converter.internalList;
-	const attributes = dataElement.attributes;
 	const domElement = doc.createElement( 'sup' );
 
 	domElement.setAttribute( 'typeof', 'mw:Extension/ref' );

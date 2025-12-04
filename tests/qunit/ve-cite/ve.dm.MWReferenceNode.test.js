@@ -41,7 +41,7 @@ QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {
 		'There is no other ref, only this one'
 	);
 
-	const otherRef = { attributes: { contentsUsed: true } };
+	const otherRef = { attributes: { listGroup: 'same', listKey: 'foo', contentsUsed: true } };
 	nodeGroup.appendNode( 'foo', new ve.dm.Model( otherRef ) );
 	assert.false(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
@@ -54,10 +54,62 @@ QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {
 		'No other ref was holding the content before'
 	);
 
+	const otherSubRef = { attributes:
+			{ listGroup: 'same', listKey: 'fooSubOther', mainRefKey: 'foo', contentsUsed: true }
+	};
+	nodeGroup.appendNode( 'foo', new ve.dm.Model( otherSubRef ) );
+	assert.false(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'A sub ref was holding the content before'
+	);
+
+	// avoid that the sub-ref is "stealing" the content for the test
+	otherRef.attributes.contentsUsed = false;
+
 	ownRef.attributes.listGroup = 'different';
 	assert.false(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
 		'The current ref is not the same as the first in the list'
+	);
+
+	dataElement.attributes.contentsUsed = true;
+	assert.true(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'This ref was holding the content before'
+	);
+} );
+
+QUnit.test( 'shouldGetMainContent on a sub reference', ( assert ) => {
+	const dataElement = { attributes: { listGroup: 'same', listKey: 'fooSub', mainRefKey: 'foo' } };
+	const ownSubRef = { attributes: { listGroup: 'same', listKey: 'fooSub', mainRefKey: 'foo' } };
+
+	const nodeGroup = new ve.dm.InternalListNodeGroup();
+	nodeGroup.appendNode( 'fooSub', new ve.dm.Model( ownSubRef ) );
+	assert.true(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'There is no other ref, only this sub-ref'
+	);
+
+	const otherMainRef = { attributes: { listGroup: 'same', listKey: 'foo', contentsUsed: true } };
+	nodeGroup.appendNode( 'foo', new ve.dm.Model( otherMainRef ) );
+	assert.true(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'Another main ref was holding the content before'
+	);
+
+	otherMainRef.attributes.contentsUsed = false;
+	assert.true(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'No other main ref was holding the content before'
+	);
+
+	const otherSubRef = { attributes:
+			{ listGroup: 'same', listKey: 'fooSubOther', mainRefKey: 'foo', contentsUsed: true }
+	};
+	nodeGroup.appendNode( 'foo', new ve.dm.Model( otherSubRef ) );
+	assert.true(
+		ve.dm.MWReferenceNode.static.shouldGetMainContent( dataElement, nodeGroup ),
+		'Another sub ref was holding the content before'
 	);
 
 	dataElement.attributes.contentsUsed = true;

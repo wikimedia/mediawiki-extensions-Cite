@@ -261,7 +261,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			// Check if this sub-ref should get a synthetic main body
 			const syntheticMainRefId = this.shouldLinkSyntheticMainRef( dataElement, nodeGroup );
 			if ( syntheticMainRefId ) {
-				ve.setProp( mwData, 'isSubRefWithMainBody', '1' );
+				ve.setProp( mwData, 'isSubRefWithMainBody', 1 );
 				ve.setProp( mwData, 'mainBody', syntheticMainRefId );
 			}
 		}

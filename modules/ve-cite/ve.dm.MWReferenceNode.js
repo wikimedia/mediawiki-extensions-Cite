@@ -871,19 +871,15 @@ ve.dm.MWReferenceNode.prototype.removeFromInternalList = function () {
 ve.dm.MWReferenceNode.prototype.onAttributeChange = function ( key, _from, to ) {
 	if ( key === 'placeholder' ) {
 		this.getDocument().getInternalList().markGroupAsChanged( this.registeredListGroup );
-	}
-	if (
-		( key !== 'listGroup' && key !== 'listKey' ) ||
-		( key === 'listGroup' && this.registeredListGroup === to ) ||
-		( key === 'listKey' && this.registeredListKey === to )
+	} else if (
+		( key === 'listGroup' && this.registeredListGroup !== to ) ||
+		( key === 'listKey' && this.registeredListKey !== to )
 	) {
-		return;
+		// Need the old list keys and indexes, so we register them in addToInternalList
+		// They've already been updated in this.element.attributes before this code runs
+		this.removeFromInternalList();
+		this.addToInternalList();
 	}
-
-	// Need the old list keys and indexes, so we register them in addToInternalList
-	// They've already been updated in this.element.attributes before this code runs
-	this.removeFromInternalList();
-	this.addToInternalList();
 };
 
 /**

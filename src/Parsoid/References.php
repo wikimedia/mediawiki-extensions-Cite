@@ -357,7 +357,7 @@ class References {
 			}
 		}
 		if ( $conflicts === self::CONFLICT_VISIBLE && $refFragmentHtml !== '' ) {
-			$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $refName ] );
+			$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $arguments['name'] ] );
 		}
 
 		$hasMissingContent = $isEmptyBody && !$ref->externalFragment;

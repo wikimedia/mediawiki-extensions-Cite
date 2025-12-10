@@ -264,7 +264,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Set reference content on data-mw
 		if ( isSubRef ||
-			( !this.isBodyContentSet( dataElement, nodeReuses ) && shouldGetMainContent )
+			( !this.isMainContentAlreadySet( dataElement, nodeReuses ) && shouldGetMainContent )
 		) {
 			// get the current content html of the node
 			const currentHtmlWrapper = doc.createElement( 'div' );
@@ -357,6 +357,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 /***
  * Check if a previous node with the same key has already set the content.
  * If so, we don't overwrite the content of this node.
+ * FIXME: I guess this method needs to take sub-refs with the main key into
+ * consideration, not only reuses?
  *
  * @private
  * @static
@@ -364,7 +366,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
  * @param {ve.dm.Node[]} nodeReuses
  * @return {boolean}
  * */
-ve.dm.MWReferenceNode.static.isBodyContentSet = function ( dataElement, nodeReuses ) {
+ve.dm.MWReferenceNode.static.isMainContentAlreadySet = function ( dataElement, nodeReuses ) {
 	// Sub-refs can't set body content for other sub-refs so we can bail out early here
 	if ( !dataElement.attributes.contentsUsed || dataElement.attributes.mainRefKey ) {
 		return false;

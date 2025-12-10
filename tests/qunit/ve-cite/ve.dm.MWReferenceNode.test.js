@@ -8,26 +8,26 @@ QUnit.test( 'makeListKey', ( assert ) => {
 	assert.strictEqual( ve.dm.MWReferenceNode.static.makeListKey( internalList ), 'auto/7' );
 } );
 
-QUnit.test( 'isBodyContentSet', ( assert ) => {
+QUnit.test( 'isMainContentAlreadySet', ( assert ) => {
 	const dataElement = { attributes: { contentsUsed: true, listGroup: 'same' } };
 	const element = { attributes: { contentsUsed: false } };
 	const nodesWithSameKey = [ new ve.dm.Model( element ) ];
-	assert.false( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
 
 	// One of the other ref with the same name already holds the content
 	element.attributes.contentsUsed = true;
-	assert.true( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+	assert.true( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
 
 	// The other ref is actually the same as the current one
 	element.attributes.listGroup = 'same';
-	assert.false( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
 
 	element.attributes.listGroup = 'different';
-	assert.true( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+	assert.true( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
 
 	// Nothing matters when the current ref doesn't hold content
 	dataElement.attributes.contentsUsed = false;
-	assert.false( ve.dm.MWReferenceNode.static.isBodyContentSet( dataElement, nodesWithSameKey ) );
+	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
 } );
 
 QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {

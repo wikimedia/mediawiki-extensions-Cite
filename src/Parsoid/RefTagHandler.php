@@ -216,7 +216,6 @@ class RefTagHandler extends ExtensionTagHandler {
 		}
 
 		if ( $this->isSubreferenceSupported &&
-			 $dataMw->getExtAttrib( 'details' ) !== null &&
 			 isset( $dataMw->mainRef )
 		) {
 			// TODO: maintain original order of attributes

@@ -178,7 +178,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 
 	// Sub-refs will always get body content for the details attribute so we use contentsUsed to
 	// store if they had main content in the main+details case
-	const contentsUsed = !!( mwData.mainRef ? mwData.isSubRefWithMainBody : isNew && body );
+	const contentsUsed = !!( mwData.mainRef ? mwData.mainBody : isNew && body );
 
 	const dataElement = {
 		type: this.name,
@@ -284,7 +284,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		// Set flags for sub-refs with body content on data-mw
 		if ( isSubRef &&
 			shouldGetMainContent &&
-			!ve.getProp( mwData, 'isSubRefWithMainBody' )
+			!ve.getProp( mwData, 'mainBody' )
 		) {
 			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainRefKey ) || [];
 			const refListNode = mainKeyReuses.find( ( node ) => node.getAttribute( 'refListItemId' ) );
@@ -402,7 +402,7 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
 	const subRefs = this.getSubRefs( mainRefKey, nodeGroup );
 	return subRefs.some(
 		// Is there a sub-ref that already holds the main body?
-		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSubRefWithMainBody' )
+		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'mainBody' )
 	);
 };
 

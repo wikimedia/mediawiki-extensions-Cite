@@ -223,7 +223,7 @@ class RefTagHandler extends ExtensionTagHandler {
 			// TODO: escape wikitext for attribute
 			$dataMw->setExtAttrib( 'details', $src );
 
-			if ( isset( $dataMw->isSubRefWithMainBody ) ) {
+			if ( isset( $dataMw->mainBody ) ) {
 				$mainElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->mainBody );
 				if ( $mainElt ) {
 					$src = $extApi->domToWikitext( $html2wtOpts, $mainElt, true );
@@ -251,9 +251,7 @@ class RefTagHandler extends ExtensionTagHandler {
 
 		// FIXME: This compares the rendered bodies, the source elements should be
 		// compared instead.
-		if ( isset( $origDataMw->mainBody ) && isset( $editedDataMw->mainBody ) &&
-			isset( $origDataMw->isSubRefWithMainBody ) && isset( $editedDataMw->isSubRefWithMainBody )
-		) {
+		if ( isset( $origDataMw->mainBody ) && isset( $editedDataMw->mainBody ) ) {
 			$origMainHtml = DOMCompat::getElementById( $origNode->ownerDocument, $origDataMw->mainBody );
 			$editedMainHtml = DOMCompat::getElementById( $editedNode->ownerDocument, $editedDataMw->mainBody );
 

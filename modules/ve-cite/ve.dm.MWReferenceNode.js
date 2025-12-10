@@ -252,12 +252,6 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			// this is always either the literal name that was already there or the
 			// auto generated literal from above
 			ve.setProp( mwData, 'mainRef', name );
-
-			if ( !ve.getProp( mwData, 'attrs', 'details' ) ) {
-				// Make sure Parsoid recognizes the ref as a sub-ref, the details content will be
-				// set by Parsoid from the bodyContent in body.html
-				ve.setProp( mwData, 'attrs', 'details', '1' );
-			}
 		}
 
 		const shouldGetMainContent = this.shouldGetMainContent( dataElement, nodeGroup );

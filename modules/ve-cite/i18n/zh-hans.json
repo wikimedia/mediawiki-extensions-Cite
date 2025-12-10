@@ -38,6 +38,7 @@
 	"visualeditor-cite-tool-name-book": "图书",
 	"visualeditor-cite-tool-name-journal": "期刊",
 	"visualeditor-cite-tool-name-news": "新闻",
+	"visualeditor-cite-tool-name-map": "地图",
 	"visualeditor-cite-tool-name-web": "网站",
 	"cite-ve-changedesc-ref-group-both": "参考资料分组已从“$1”更改为“$2”",
 	"cite-ve-changedesc-ref-group-from": "参考资料分组已从“$1”更改为常规分组",

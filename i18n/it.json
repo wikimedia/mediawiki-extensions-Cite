@@ -55,7 +55,7 @@
 	"cite-wikieditor-help-content-showreferences-description": "Mostra note",
 	"cite-wikieditor-help-content-reference-example-text1": "Testo della pagina.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Testo del collegamento], testo aggiuntivo.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Testo del collegamento]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Dettagli aggiuntivi",
+	"cite-wikieditor-help-content-reference-example-text3": "Un libro",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Pagina 76",
 	"cite-configuration-submit": "Salva modifiche"
 }

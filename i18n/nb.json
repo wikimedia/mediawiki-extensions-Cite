@@ -45,6 +45,7 @@
 	"cite-reference-previews-journal": "Tidsskriftreferanse",
 	"cite-reference-previews-news": "Nyhetsreferanse",
 	"cite-reference-previews-note": "Merknad",
+	"cite-reference-previews-map": "Kartreferanse",
 	"cite-reference-previews-web": "Nettsidereferanse",
 	"cite-reference-previews-collapsible-placeholder": "Denne referansen inkluderer en figur som ikke får plass i forhåndsvisningen.",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "Du har tilleggsfunksjonen «[[$1|Navigation popups]]» aktivert slik at du ikke ser forhåndsvisningene du har aktivert. Avhengig av din wiki kan det være at tilleggsfunksjonen har en variant av navnet. Hvis du fortsatt opplever problemer bør du se gjennom dine tilleggsfunksjoner og brukerskript, også de som er globale.",

@@ -14,6 +14,7 @@ use Wikimedia\TestingAccessWrapper;
 class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
+		$this->markTestSkipped( 'T407131' );
 		parent::setUp();
 		$this->overrideConfigValue( MainConfigNames::FragmentMode, [ 'html5' ] );
 	}

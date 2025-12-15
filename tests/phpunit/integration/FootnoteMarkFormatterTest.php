@@ -102,7 +102,8 @@ class FootnoteMarkFormatterTest extends \MediaWikiIntegrationTestCase {
 					'count' => -1,
 				],
 				'(cite_reference_link|4+|4|' .
-					'cite_error_no_link_label_group&#124;foo&#124;cite_link_label_group-foo)'
+					// phpcs:ignore Generic.Files.LineLength.TooLong
+					'cite&#95;error&#95;no&#95;link&#95;label&#95;group&#124;foo&#124;cite&#95;link&#95;label&#95;group-foo)'
 			],
 			'Named ref' => [
 				'',

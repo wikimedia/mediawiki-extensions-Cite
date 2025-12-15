@@ -14,7 +14,6 @@ use Wikimedia\TestingAccessWrapper;
 class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
-		$this->markTestSkipped( 'T407131' );
 		parent::setUp();
 		$this->overrideConfigValue( MainConfigNames::FragmentMode, [ 'html5' ] );
 	}
@@ -23,10 +22,10 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$formatter = new AnchorFormatter();
 
 		$this->assertSame(
-			'cite_ref-key',
+			'cite&#95;ref-key',
 			$formatter->backLink( 'key', null ) );
 		$this->assertSame(
-			'cite_ref-key_2',
+			'cite&#95;ref-key&#95;2',
 			$formatter->backLink( 'key', '2' ) );
 	}
 
@@ -34,7 +33,7 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 		$formatter = new AnchorFormatter();
 
 		$this->assertSame(
-			'cite_note-key',
+			'cite&#95;note-key',
 			$formatter->jumpLink( 'key' ) );
 	}
 
@@ -51,10 +50,10 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 	public static function provideKeyNormalizations() {
 		return [
-			[ 'a b', 'a_b' ],
-			[ 'a  __  b', 'a_b' ],
+			[ 'a b', 'a&#95;b' ],
+			[ 'a  __  b', 'a&#95;b' ],
 			[ ':', ':' ],
-			[ "\t\n", '_' ],
+			[ "\t\n", '&#95;' ],
 			[ "'", '&#039;' ],
 			[ "''", '&#039;&#039;' ],
 			[ '"%&/<>?[]{|}', '&quot;%&amp;/&lt;&gt;?&#91;&#93;&#123;&#124;&#125;' ],
@@ -62,12 +61,12 @@ class AnchorFormatterTest extends \MediaWikiIntegrationTestCase {
 
 			[ 'nature%20phylo', 'nature%2520phylo' ],
 			[ 'Mininova%2E26%2E11%2E2009', 'Mininova%252E26%252E11%252E2009' ],
-			[ '%c8%98tiri_2019', '%25c8%2598tiri_2019' ],
+			[ '%c8%98tiri_2019', '%25c8%2598tiri&#95;2019' ],
 			[ 'play%21', 'play%2521' ],
 			[ 'Terry+O%26rsquo%3BN…</ref', 'Terry+O%2526rsquo%253BN…&lt;/ref' ],
 			[ '9&nbsp;pm', '9&amp;nbsp;pm' ],
 			[ 'n%25%32%30n', 'n%2525%2532%2530n' ],
-			[ 'a_ %20a', 'a_%2520a' ],
+			[ 'a_ %20a', 'a&#95;%2520a' ],
 		];
 	}
 

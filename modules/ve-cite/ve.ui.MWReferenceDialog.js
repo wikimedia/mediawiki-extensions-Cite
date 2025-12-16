@@ -281,8 +281,8 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				const mainRefReuses = allMainRefs.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) );
 				this.editPanel.mainRefCount = mainRefReuses.length;
 
-				this.actions.setMode( 'edit' );
-				this.actions.setAbilities( { done: false } );
+				this.actions.setMode( 'insert' );
+				this.actions.setAbilities( { insert: false } );
 				this.setCreateSubRefPanel( data.createSubRef );
 				this.createSubRefMode = true;
 			} else {

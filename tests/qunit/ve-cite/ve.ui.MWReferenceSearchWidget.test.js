@@ -52,7 +52,7 @@
 		assert.deepEqual( index.length, 1 );
 		assert.deepEqual( index[ 0 ].footnoteLabel, '1' );
 		assert.deepEqual( index[ 0 ].name, 'foo' );
-		assert.deepEqual( index[ 0 ].searchableText, '1 foo' );
+		assert.deepEqual( index[ 0 ].searchableText, '[1] foo' );
 	} );
 
 	QUnit.test( 'isIndexEmpty', ( assert ) => {

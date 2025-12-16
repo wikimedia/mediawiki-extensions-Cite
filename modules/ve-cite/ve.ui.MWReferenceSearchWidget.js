@@ -161,7 +161,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			// remove `mwReference/` prefix
 			const group = groupName.slice( 12 );
 			const footnoteNumber = this.docRefs.getIndexLabel( group, listKey );
-			const footnoteLabel = ( group ? group + ' ' : '' ) + footnoteNumber;
+			const footnoteLabel = ( group + ' ' + footnoteNumber ).trim();
 
 			// Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
 			const matches = listKey.match( /^literal\/([\s\S]*)$/ );
@@ -169,11 +169,11 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 
 			let $refContent;
 			// Make visible text, footnoteLabel and reference name searchable
-			let refText = '[' + footnoteLabel + '] ' + name;
+			let refText = ( '[' + footnoteLabel + '] ' + name ).trim();
 			const itemNode = groupRefs.getInternalModelNode( listKey );
 			if ( itemNode.length ) {
 				$refContent = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
-				refText = $refContent.text() + ' ' + refText;
+				refText += ' ' + $refContent.text();
 				// Make URLs searchable
 				$refContent.find( 'a[href]' ).each( ( _, element ) => {
 					refText += ' ' + element.getAttribute( 'href' );
@@ -218,9 +218,19 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchResults = function ( query ) 
 		this.index = this.buildSearchIndex();
 	}
 
+	// Arbitraryly limits the prefix search to something between [1] and [9999]
+	let prefix = /^\S{1,4}$/.test( query ) ? '[' + query + ']' : null;
+
 	this.index.forEach( ( item ) => {
 		if ( item.searchableText.includes( query ) ) {
-			results.push( new MWReferenceResultWidget( { item } ) );
+			const result = new MWReferenceResultWidget( { item } );
+			// Push a perfect prefix match to the very top
+			if ( prefix && item.searchableText.startsWith( prefix ) ) {
+				results.unshift( result );
+				prefix = null;
+			} else {
+				results.push( result );
+			}
 		}
 	} );
 

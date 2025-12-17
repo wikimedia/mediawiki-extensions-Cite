@@ -8,7 +8,7 @@
  */
 
 /**
- * Opens the {@see ve.ui.MWCitationDialog} (via it's name "cite") in VisualEditor.
+ * Opens the {@link ve.ui.MWCitationDialog} (via it's name "cite") in VisualEditor.
  *
  * @constructor
  * @extends ve.ui.Action

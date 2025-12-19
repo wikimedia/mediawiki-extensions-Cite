@@ -26,6 +26,7 @@ ve.ui.MWReferenceDialog = function VeUiMWReferenceDialog( config ) {
 
 	// Properties
 	this.createSubRefMode = false;
+	this.editReferenceMode = false;
 	this.reuseReferenceMode = false;
 };
 
@@ -207,7 +208,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
 			const changeAll = this.editPanel.getChangeAllCheckboxState();
 
-			if ( !( this.selectedNode instanceof MWReferenceNode ) ) {
+			if ( !( this.editReferenceMode ) ) {
 				// Collapse returns a new fragment, so update this.fragment
 				this.fragment = this.getFragment().collapseToEnd();
 				ref.insertIntoFragment( this.getFragment() );
@@ -273,6 +274,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( () => {
 			this.createSubRefMode = false;
+			this.editReferenceMode = false;
 			this.reuseReferenceMode = !!data.reuseReference;
 
 			// open the reuse panel
@@ -299,8 +301,8 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			}
 
 			let ref;
-			if ( this.selectedNode instanceof MWReferenceNode ) {
-				// edit an existing reference
+			this.editReferenceMode = this.selectedNode instanceof MWReferenceNode;
+			if ( this.editReferenceMode ) {
 				ref = MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 				if ( ref.isSubRef() ) {
 					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );

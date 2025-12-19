@@ -303,7 +303,10 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 						const subRefReuses = nodeGroup.getAllReuses( ref.listKey );
 						this.editPanel.subRefCount = subRefReuses.length;
 					}
-					this.actions.setAbilities( { done: false } );
+					// T367910: Temporarily disable Citoid's replace feature when the ReferenceList
+					// is selected
+					const canReplace = this.getFragment().getSurface().getSelectedNode() instanceof MWReferenceNode;
+					this.actions.setAbilities( { done: false, replace: canReplace } );
 				} else {
 					// create a new reference
 					ref = new MWReferenceModel( this.getFragment().getDocument() );

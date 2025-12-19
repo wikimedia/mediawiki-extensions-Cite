@@ -286,34 +286,15 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 		);
 
 		if ( this.getRoot() ) {
-			const surface = this.getRoot().getSurface().getSurface();
 			// TODO: attach to the singleton click handler on the surface
 			$li.on( 'mousedown', ( e ) => {
 				if ( ve.isUnmodifiedLeftClick( e ) ) {
-					const node = groupRefs.getRefNode( key );
-					const firstItem = ve.ui.contextItemFactory.getRelatedItems( [ node ] )
-						.find( ( item ) => item.name !== 'mobileActions' );
-					if ( firstItem ) {
-						const contextItem = ve.ui.contextItemFactory.lookup( firstItem.name );
-						if ( contextItem ) {
-							const command = surface.commandRegistry
-								.lookup( contextItem.static.commandName );
-							if ( command ) {
-								const fragmentArgs = {
-									fragment: surface.getModel()
-										.getLinearFragment( node.getOuterRange(), true ),
-									selectFragmentOnClose: false
-								};
-								const newArgs = ve.copy( command.args );
-								if ( command.name === 'reference' ) {
-									newArgs[ 1 ] = fragmentArgs;
-								} else {
-									ve.extendObject( newArgs[ 0 ], fragmentArgs );
-								}
-								command.execute( surface, newArgs );
-							}
-						}
-					}
+					const refNode = groupRefs.getRefNode( key );
+					const editNodeAction = ve.ui.actionFactory.create(
+						'editNode',
+						this.getRoot().getSurface().getSurface()
+					);
+					editNodeAction.execute( refNode );
 				}
 				e.preventDefault();
 			} );

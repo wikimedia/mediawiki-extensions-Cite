@@ -169,36 +169,17 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 		return;
 	}
 
-	// Edit the main ref--like when editing a list-defined ref!
-	// TODO: Make this into a reusable command.
 	const groupRefs = MWDocumentReferences.static
 		.refsForDoc( this.getFragment().getDocument() )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
 	const mainRefNode = groupRefs.getRefNode( mainRefKey );
-	const mainModelItem = ve.ui.contextItemFactory.getRelatedItems( [ mainRefNode ] )
-		.find( ( item ) => item.name !== 'mobileActions' );
 
-	if ( mainModelItem ) {
-		const mainContextItem = ve.ui.contextItemFactory.lookup( mainModelItem.name );
-		if ( mainContextItem ) {
-			const surface = this.context.getSurface();
-			const command = surface.commandRegistry.lookup( mainContextItem.static.commandName );
-			const fragmentArgs = {
-				fragment: surface.getModel().getLinearFragment(
-					mainRefNode.getOuterRange(),
-					true
-				),
-				selectFragmentOnClose: false
-			};
-			const newArgs = ve.copy( command.args );
-			if ( command.name === 'reference' ) {
-				newArgs[ 1 ] = fragmentArgs;
-			} else {
-				ve.extendObject( newArgs[ 0 ], fragmentArgs );
-			}
-			command.execute( surface, newArgs, 'context' );
-		}
-	}
+	const editNodeAction = ve.ui.actionFactory.create(
+		'editNode',
+		this.context.getSurface(),
+		'context'
+	);
+	editNodeAction.execute( mainRefNode );
 };
 
 /**

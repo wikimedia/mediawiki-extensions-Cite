@@ -123,6 +123,7 @@ class CiteHooks implements
 						've.ui.MWReferenceGroupInputWidget.js',
 						've.ui.MWReferenceSearchWidget.js',
 						've.ui.MWReferenceResultWidget.js',
+						've.ui.MWEditReferenceNodeAction.js',
 						've.ui.MWUseExistingReferenceCommand.js',
 						've.ui.MWCitationDialog.js',
 						've.ui.MWReferencesListCommand.js',

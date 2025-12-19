@@ -18,6 +18,7 @@ ve.ui.contextItemFactory.register( require( './ve.ui.MWReferencesListContextItem
 ve.ui.contextItemFactory.register( require( './ve.ui.MWCitationNeededContextItem.js' ) );
 
 ve.ui.actionFactory.register( require( './ve.ui.MWCitationAction.js' ) );
+ve.ui.actionFactory.register( require( './ve.ui.MWEditReferenceNodeAction.js' ) );
 
 const MWUseExistingReferenceCommand = require( './ve.ui.MWUseExistingReferenceCommand.js' );
 const MWReferencesListCommand = require( './ve.ui.MWReferencesListCommand.js' );

@@ -122,7 +122,7 @@ ve.dm.MWDocumentReferences.static.contentLangDigits = function ( num ) {
  *  property on each CE ref node after document transaction.
  * @param {string} groupName Ref group without prefix
  * @param {string} listKey Ref key with prefix
- * @return {string} Rendered index number string which can be used as a footnote
+ * @return {string|undefined} Rendered index number string which can be used as a footnote
  *  marker or reflist item number.
  */
 ve.dm.MWDocumentReferences.prototype.getIndexLabel = function ( groupName, listKey ) {

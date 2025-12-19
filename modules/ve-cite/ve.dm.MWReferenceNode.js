@@ -632,9 +632,9 @@ ve.dm.MWReferenceNode.static.getGroup = function ( dataElement ) {
  */
 ve.dm.MWReferenceNode.static.getFormattedRefLinkLabel = function ( dataElement, internalList ) {
 	const refGroup = dataElement.attributes.refGroup;
-	const indexNumber = dataElement.attributes.placeholder ? '…' :
+	const indexNumber = !dataElement.attributes.placeholder &&
 		ve.dm.MWReferenceNode.static.findIndexNumber( dataElement, internalList );
-	const label = ( refGroup ? refGroup + ' ' : '' ) + indexNumber;
+	const label = ( refGroup ? refGroup + ' ' : '' ) + ( indexNumber || '…' );
 
 	return $( '<span>' ).addClass( 'cite-bracket' ).text( '[' )
 		.add( document.createTextNode( label ) )
@@ -647,7 +647,7 @@ ve.dm.MWReferenceNode.static.getFormattedRefLinkLabel = function ( dataElement, 
  * @private
  * @param {Object} dataElement data for the node to be looked up
  * @param {ve.dm.InternalList} internalList document internalList
- * @return {string} footnote number ready for rendering
+ * @return {string|undefined} footnote number ready for rendering
  */
 ve.dm.MWReferenceNode.static.findIndexNumber = function ( dataElement, internalList ) {
 	return ve.getProp( dataElement, 'internal', 'overrideIndex' ) ||
@@ -781,7 +781,7 @@ ve.dm.MWReferenceNode.prototype.getFormattedRefLinkLabel = function () {
 /**
  * FIXME: This will be replaced by a simple property.
  *
- * @return {string} Footnote number ready for rendering
+ * @return {string|undefined} Footnote number ready for rendering
  */
 ve.dm.MWReferenceNode.prototype.getIndexNumber = function () {
 	return this.constructor.static.findIndexNumber(

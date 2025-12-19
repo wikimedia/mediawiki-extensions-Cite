@@ -25,7 +25,8 @@ ve.ui.MWReferenceDialog = function VeUiMWReferenceDialog( config ) {
 	ve.ui.MWReferenceDialog.super.call( this, config );
 
 	// Properties
-	this.reuseReference = false;
+	this.createSubRefMode = false;
+	this.reuseReferenceMode = false;
 };
 
 /* Inheritance */
@@ -112,15 +113,18 @@ ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
 	newRef.group = mainRef.getGroup();
 
 	this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
-	this.panels.setItem( this.editPanel );
-
-	const docRefs = MWDocumentReferences.static.refsForDoc(
-		this.getFragment().getDocument()
-	);
-	this.editPanel.setDocumentReferences( docRefs );
+	this.actions.setMode( 'insert' );
+	this.actions.setAbilities( { insert: false } );
 
 	this.editPanel.setReferenceForEditing( newRef );
 	this.editPanel.setReadOnly( this.isReadOnly() );
+
+	const nodeGroup = this.getFragment().getDocument()
+		.getInternalList().getNodeGroup( 'mwReference/' + mainRef.getGroup() );
+	const allMainRefs = nodeGroup.getAllReuses( mainRef.listKey );
+	// filter out main nodes that are list defined because those can not be subrefs
+	const mainRefReuses = allMainRefs.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) );
+	this.editPanel.mainRefCount = mainRefReuses.length;
 
 	this.trackedInputChange = false;
 };
@@ -131,7 +135,7 @@ ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
 ve.ui.MWReferenceDialog.prototype.getReadyProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getReadyProcess.call( this, data )
 		.next( () => {
-			if ( this.reuseReference ) {
+			if ( this.reuseReferenceMode ) {
 				this.reuseSearch.getQuery().focus().select();
 			} else {
 				this.editPanel.focus();
@@ -189,6 +193,7 @@ ve.ui.MWReferenceDialog.prototype.openReusePanel = function () {
 
 	// https://phabricator.wikimedia.org/T362347
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'dialog-open-reuse' } );
+	this.trackedInputChange = false;
 };
 
 /**
@@ -268,54 +273,54 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( () => {
 			this.createSubRefMode = false;
-			this.reuseReference = !!data.reuseReference;
-			if ( this.reuseReference ) {
+			this.reuseReferenceMode = !!data.reuseReference;
+
+			// open the reuse panel
+			if ( this.reuseReferenceMode ) {
 				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
 				this.openReusePanel();
-			} else if ( data.createSubRef ) {
-				const nodeGroup = this.getFragment().getDocument()
-					.getInternalList().getNodeGroup( 'mwReference/' + data.createSubRef.getGroup() );
-
-				const allMainRefs = nodeGroup.getAllReuses( data.createSubRef.listKey );
-				// filter out main nodes that are list defined because those can not be subrefs
-				const mainRefReuses = allMainRefs.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) );
-				this.editPanel.mainRefCount = mainRefReuses.length;
-
-				this.actions.setMode( 'insert' );
-				this.actions.setAbilities( { insert: false } );
-				this.setCreateSubRefPanel( data.createSubRef );
-				this.createSubRefMode = true;
-			} else {
-				this.panels.setItem( this.editPanel );
-				const docRefs = MWDocumentReferences.static.refsForDoc(
-					this.getFragment().getDocument()
-				);
-				this.editPanel.setDocumentReferences( docRefs );
-
-				let ref;
-				if ( this.selectedNode instanceof MWReferenceNode ) {
-					// edit an existing reference
-					ref = MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
-					if ( ref.isSubRef() ) {
-						this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
-						const nodeGroup = this.getFragment().getDocument()
-							.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
-						const subRefReuses = nodeGroup.getAllReuses( ref.listKey );
-						this.editPanel.subRefCount = subRefReuses.length;
-					}
-					// T367910: Temporarily disable Citoid's replace feature when the ReferenceList
-					// is selected
-					const canReplace = this.getFragment().getSurface().getSelectedNode() instanceof MWReferenceNode;
-					this.actions.setAbilities( { done: false, replace: canReplace } );
-				} else {
-					// create a new reference
-					ref = new MWReferenceModel( this.getFragment().getDocument() );
-					this.actions.setAbilities( { insert: false } );
-				}
-				this.editPanel.setReferenceForEditing( ref );
-				this.editPanel.setReadOnly( this.isReadOnly() );
+				return;
 			}
 
+			// editing or creating a reference
+			this.panels.setItem( this.editPanel );
+			const docRefs = MWDocumentReferences.static.refsForDoc(
+				this.getFragment().getDocument()
+			);
+			this.editPanel.setDocumentReferences( docRefs );
+
+			this.actions.setMode( 'insert' );
+			this.actions.setAbilities( { insert: false } );
+
+			if ( data.createSubRef ) {
+				this.createSubRefMode = true;
+				this.setCreateSubRefPanel( data.createSubRef );
+				return;
+			}
+
+			let ref;
+			if ( this.selectedNode instanceof MWReferenceNode ) {
+				// edit an existing reference
+				ref = MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
+				if ( ref.isSubRef() ) {
+					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
+					const nodeGroup = this.getFragment().getDocument()
+						.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
+					const subRefReuses = nodeGroup.getAllReuses( ref.listKey );
+					this.editPanel.subRefCount = subRefReuses.length;
+				}
+				// T367910: Temporarily disable Citoid's replace feature when the ReferenceList
+				// is selected
+				const canReplace = this.getFragment().getSurface()
+					.getSelectedNode() instanceof MWReferenceNode;
+				this.actions.setMode( 'edit' );
+				this.actions.setAbilities( { done: false, replace: canReplace } );
+			} else {
+				// create a new reference
+				ref = new MWReferenceModel( this.getFragment().getDocument() );
+			}
+			this.editPanel.setReferenceForEditing( ref );
+			this.editPanel.setReadOnly( this.isReadOnly() );
 			this.trackedInputChange = false;
 		} );
 };

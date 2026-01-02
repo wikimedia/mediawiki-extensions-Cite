@@ -97,7 +97,8 @@ class CiteHooks implements
 
 	public function onResourceLoaderRegisterModules( ResourceLoader $rl ): void {
 		if ( $this->extensionRegistry->isLoaded( 'VisualEditor' ) ) {
-			$rl->register( [
+
+			$veConfig = [
 				'ext.cite.visualEditor' => [
 					'localBasePath' => dirname( __DIR__, 2 ) . '/modules/ve-cite',
 					'remoteExtPath' => 'Cite/modules/ve-cite',
@@ -232,7 +233,12 @@ class CiteHooks implements
 						'word-separator',
 					],
 				],
-			] );
+			];
+			if ( $this->extensionRegistry->isLoaded( 'MetricsPlatform' ) ) {
+				$veConfig[ 'ext.cite.visualEditor' ][ 'dependencies' ][] = 'ext.xLab';
+			}
+
+			$rl->register( $veConfig );
 		}
 
 		if ( $this->extensionRegistry->isLoaded( 'WikiEditor' ) ) {

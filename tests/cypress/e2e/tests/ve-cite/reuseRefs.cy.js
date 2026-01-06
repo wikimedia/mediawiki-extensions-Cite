@@ -23,13 +23,13 @@ describe( 'Re-using refs in Visual Editor', () => {
 		helper.loginAsAdmin();
 		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
 			{
-				name: 'Webseite',
-				icon: 'ref-cite-web',
+				name: 'web',
+				title: 'Webseite',
 				template: 'Internetquelle'
 			},
 			{
-				name: 'Literatur',
-				icon: 'ref-cite-book',
+				name: 'book',
+				title: 'Literatur',
 				template: 'Literatur'
 			}
 		] ) );

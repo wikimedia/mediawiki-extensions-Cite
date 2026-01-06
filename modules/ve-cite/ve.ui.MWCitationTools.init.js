@@ -30,36 +30,8 @@
 	const MWCitationContextItem = require( './ve.ui.MWCitationContextItem.js' );
 	const MWCitationDialogTool = require( './ve.ui.MWCitationDialogTool.js' );
 
-	/** Maps deprecated icon names to supported OOUI icon names */
-	const deprecatedIcons = {
-		'ref-cite-book': 'book',
-		'ref-cite-journal': 'journal',
-		'ref-cite-news': 'newspaper',
-		'ref-cite-web': 'browser',
-		'reference-existing': 'referenceExisting'
-	};
-	/** Maps pre-defined citation tool names to OOUI icon names */
-	const defaultIcons = {
-		book: 'book',
-		journal: 'journal',
-		news: 'newspaper',
-		map: 'map',
-		web: 'browser'
-	};
-
 	// TODO: Replace with require( './ve.ui.MWCitationTools.json' );
 	ve.ui.mwCitationTools.forEach( ( item ) => {
-		const hasOwn = Object.prototype.hasOwnProperty;
-		const data = { template: item.template, title: item.title };
-
-		if ( !item.icon && hasOwn.call( defaultIcons, item.name ) ) {
-			item.icon = defaultIcons[ item.name ];
-		}
-
-		if ( hasOwn.call( deprecatedIcons, item.icon ) ) {
-			item.icon = deprecatedIcons[ item.icon ];
-		}
-
 		// Generate citation tool
 		const name = 'cite-' + item.name;
 		if ( !ve.ui.toolFactory.lookup( name ) ) {
@@ -83,7 +55,7 @@
 			ve.ui.toolFactory.register( tool );
 			ve.ui.commandRegistry.register(
 				new ve.ui.Command(
-					name, 'mwcite', 'open', { args: [ data ], supportedSelections: [ 'linear' ] }
+					name, 'mwcite', 'open', { args: [ item ], supportedSelections: [ 'linear' ] }
 				)
 			);
 		}

@@ -19,8 +19,8 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 		helper.loginAsAdmin();
 		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
 			{
-				name: 'Webseite',
-				icon: 'ref-cite-web',
+				name: 'web',
+				title: 'Webseite',
 				template: 'Internetquelle'
 			}
 		] ) );

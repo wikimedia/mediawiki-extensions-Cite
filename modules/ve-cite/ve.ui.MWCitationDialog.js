@@ -93,7 +93,10 @@ ve.ui.MWCitationDialog.prototype.initialize = function ( data ) {
 };
 
 /**
- * @override
+ * @param {Object} [data={}]
+ * @param {string} [data.inDialog]
+ * @param {string} [data.template]
+ * @param {string} [data.title]
  */
 ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWCitationDialog.super.prototype.getSetupProcess.call( this, data )

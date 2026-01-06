@@ -20,13 +20,13 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 		helper.loginAsAdmin();
 		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
 			{
-				name: 'Webseite',
-				icon: 'ref-cite-web',
+				name: 'web',
+				title: 'Webseite',
 				template: 'Internetquelle'
 			},
 			{
-				name: 'Literatur',
-				icon: 'ref-cite-book',
+				name: 'book',
+				title: 'Literatur',
 				template: 'Literatur'
 			}
 		] ) );
@@ -64,9 +64,9 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 
 		} else {
 			cy.get( '.ve-ui-toolbar-group-cite' ).click();
-			cy.get( '.oo-ui-tool-name-cite-Literatur' ).contains( 'Literatur' )
+			cy.get( '.oo-ui-tool-name-cite-book' ).contains( 'Literatur' )
 				.should( 'be.visible' );
-			cy.get( '.oo-ui-tool-name-cite-Webseite' ).contains( 'Webseite' ).click();
+			cy.get( '.oo-ui-tool-name-cite-web' ).contains( 'Webseite' ).click();
 		}
 
 		// Tempalte dialog is displayed with correct content

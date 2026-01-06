@@ -14,6 +14,15 @@ use MediaWiki\ResourceLoader as RL;
  */
 class MWCitationToolsDefinition {
 
+	/** Maps pre-defined citation tool names to OOUI icon names */
+	private const DEFAULT_ICONS = [
+		'book' => 'book',
+		'journal' => 'journal',
+		'news' => 'newspaper',
+		'map' => 'map',
+		'web' => 'browser',
+	];
+
 	public static function getTools( RL\Context $context ): array {
 		$citationDefinition = json_decode(
 			$context->msg( 'cite-tool-definition.json' )->inContentLanguage()->plain(),
@@ -42,6 +51,21 @@ class MWCitationToolsDefinition {
 				$msg = $context->msg( 'visualeditor-cite-tool-name-' . $tool['name'] );
 				// Fall back to the raw name if there is no message
 				$tool['title'] = $msg->isDisabled() ? $tool['name'] : $msg->text();
+			}
+
+			// Safe-guard for users doing weird things in the JSON
+			if ( array_key_exists( 'icon', $tool ) && !is_string( $tool['icon'] ) ) {
+				unset( $tool['icon'] );
+			}
+
+			$icon = $tool['icon'] ?? '';
+			if ( !$icon && isset( self::DEFAULT_ICONS[$tool['name']] ) ) {
+				// Only supported names get a default icon, anything else falls back to "reference"
+				$tool['icon'] = self::DEFAULT_ICONS[$tool['name']];
+			} elseif ( preg_match( '/^ref-cite-([a-z]+)$/', $icon, $matches ) ) {
+				$icon = $matches[1];
+				// Translate deprecated icon names, e.g. "ref-cite-web" becomes "browser"
+				$tool['icon'] = self::DEFAULT_ICONS[$icon] ?? $icon;
 			}
 
 			$citationTools[] = $tool;

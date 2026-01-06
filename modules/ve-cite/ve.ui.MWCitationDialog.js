@@ -115,6 +115,11 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 					this.referenceNode
 				);
 			}
+
+			// T367910: Temporarily disable Citoid's replace feature when the ReferenceList
+			// is selected
+			const canReplace = this.getFragment().getSurface().getSelectedNode() instanceof MWReferenceNode;
+			this.actions.setAbilities( { replace: canReplace } );
 		} );
 };
 

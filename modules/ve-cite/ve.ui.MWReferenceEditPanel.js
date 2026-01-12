@@ -375,7 +375,7 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreview = function () {
 						// Extra <span> needed because the RTL CSS uses scaleX() as well
 						.append( $( '<span>' ) ),
 					$( '<span>' )
-						.addClass( 've-ui-mwReferenceContextItem-muted' )
+						.addClass( 've-ui-mwReference-placeholder' )
 						.text( ve.msg( 'cite-ve-dialog-reference-editing-details-placeholder' ) )
 				)
 			);

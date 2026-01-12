@@ -25,7 +25,7 @@
 }
 
 .ve-ui-mwReference-details-preview-panel {
-	border-bottom: @border-style-base @border-color-divider @border-width-base;
+	border-bottom: @border-style-base @border-color-subtle @border-width-base;
 
 	// Reset OOUI's slightly larger font size for the header
 	.ve-ui-mwReferenceDialog-referencePreview-fieldset .oo-ui-fieldsetLayout-header .oo-ui-labelElement-label {
@@ -49,5 +49,10 @@
 			margin-left: @spacing-65;
 			margin-right: @spacing-25;
 		}
+	}
+
+	.ve-ui-mwReference-placeholder {
+		color: @color-placeholder;
+		font-style: italic;
 	}
 }

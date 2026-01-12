@@ -43,6 +43,7 @@
 	"visualeditor-cite-tool-name-book": "Boek",
 	"visualeditor-cite-tool-name-journal": "Tijdschrift",
 	"visualeditor-cite-tool-name-news": "Nieuws",
+	"visualeditor-cite-tool-name-map": "Kaart",
 	"visualeditor-cite-tool-name-web": "Website",
 	"cite-ve-changedesc-ref-group-both": "Referentiegroep gewijzigd van \"$1\" naar \"$2\"",
 	"cite-ve-changedesc-ref-group-from": "Referentiegroep gewijzigd van \"$1\" naar de algemene groep",

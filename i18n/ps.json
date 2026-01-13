@@ -10,6 +10,7 @@
 	},
 	"cite-desc": "د اخځ کولو لپاره <code>&lt;ref&gt;</code> او <code>&lt;references&gt;</code> نښلنونه ورگډوي.",
 	"cite_error": "د سرچينې ستونزه: $1",
+	"cite_error_included_references": "<code>&lt;سرچينې&gt;</code> پای نښلن نشته",
 	"cite-tracking-category-cite-error": "مخونه د غبرګونيزي تيروتنې سره",
 	"cite-reference-previews-reference": "سرچينه",
 	"cite-reference-previews-book": "کتابي سرچينه",

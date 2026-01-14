@@ -90,7 +90,6 @@ class RefTagHandler extends ExtensionTagHandler {
 			return true;
 		}
 
-		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 		$bodyElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->body->id );
 		if ( !$bodyElt ) {
 			return true;
@@ -152,13 +151,12 @@ class RefTagHandler extends ExtensionTagHandler {
 			'inPHPBlock' => true
 		];
 
-		if ( isset( $dataMw->body->html ) ) {
-			// First look for the extension's content in data-mw.body.html
-			$src = $extApi->htmlToWikitext( $html2wtOpts, $dataMw->body->html );
+		if ( isset( $dataMw->body ) && $dataMw->body->hasHtml() ) {
+			// First look for the extension's content in data-mw->body->html
+			$src = $extApi->domToWikitext( $html2wtOpts, $dataMw->body->getHtml( $extApi ) );
 		} elseif ( isset( $dataMw->body->id ) ) {
-			// If the body isn't contained in data-mw.body.html, look if
+			// If the body isn't contained in data-mw->body->html, look if
 			// there's an element pointed to by body->id.
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 			$bodyElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->body->id );
 
 			// So far, this is specified for Cite and relies on the "id"
@@ -279,9 +277,7 @@ class RefTagHandler extends ExtensionTagHandler {
 			// FIXME: This doesn't work if the <references> section
 			// itself is in embedded content, since we aren't traversing
 			// in there.
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 			$origHtml = DOMCompat::getElementById( $origNode->ownerDocument, $origId );
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive
 			$editedHtml = DOMCompat::getElementById( $editedNode->ownerDocument, $editedId );
 
 			if ( $origHtml && $editedHtml ) {

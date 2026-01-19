@@ -253,6 +253,21 @@
 		"selser [[4,0,0,0],3,0,3,0]": "8kgceb<ref>foo</ref>\nB <ref group=\"inexistent\">bar</ref>",
 		"selser [3,0,0,0,0]": "\n"
 	},
+	"Serialize reference tags by themselves on a line": {
+		"html2wt": "hi <ref>ho</ref><references />hi ho"
+	},
+	"Simple <ref>, with <references/> in group, with groupname in Chinese": {
+		"selser [[0,0,0,0,4,0],3,[2],4,0,0,[2],0,0]": "AAA<ref group=\"参\">ref a</ref>BBB<ref group=\"注\">note b</ref>wk0tt7<ref group=\"参\">ref c</ref>\n: gglthi\n;refs\n1346t6i<references group=\"参\" />\n\n: 12qm6u5\n;notes\n<references group=\"注\" />",
+		"selser [[3,0,0,0,0,0],2,[1],3,0,0,[2],3,0]": "<ref group=\"参\">ref a</ref>BBB<ref group=\"注\">note b</ref>CCC<ref group=\"参\">ref c</ref>\n\n4czedy\n\n;refs\n<references group=\"参\" />\n\n: l6u95v\n;notes\n<references group=\"注\" />",
+		"selser [1,4,[4],4,0,2,0,4,0]": "AAA<ref group=\"参\">ref a</ref>BBB<ref group=\"注\">note b</ref>CCC<ref group=\"参\">ref c</ref>\n\ngyyi4p\n: 10m6x39\njeh0t2<references group=\"参\" />6i0oex\n\n;notes\nu5z0c4<references group=\"注\" />",
+		"selser [[2,0,3,0,4,0],0,[1],0,0,4,[2],4,0]": "76mmzkAAA<ref group=\"参\">ref a</ref><ref group=\"注\">note b</ref>17aalhn<ref group=\"参\">ref c</ref>\n\n;refs\n<references group=\"参\" />s0s2v8\n: 13v25a3\n;notes\nx2b8du<references group=\"注\" />",
+		"selser [[0,0,3,0,2,0],2,0,3,0,2,[4],0,0]": "AAA<ref group=\"参\">ref a</ref><ref group=\"注\">note b</ref>1ly0b6dCCC<ref group=\"参\">ref c</ref>\n\n1ix74d0\n\n;refs\n<references group=\"参\" />ni5htd\n\n: zdv264\n<references group=\"注\" />",
+		"selser [2,0,[2],3,0,3,2,4,0]": "pmm6gt\n\nAAA<ref group=\"参\">ref a</ref>BBB<ref group=\"注\">note b</ref>CCC<ref group=\"参\">ref c</ref>\n\n: ocap5v\n;refs\n<references group=\"参\" />1y1okjb\n;notes\ntpko02<references group=\"注\" />",
+		"selser [2,0,1,4,0,2,[2],0,0]": "1hpcqt6\n\nAAA<ref group=\"参\">ref a</ref>BBB<ref group=\"注\">note b</ref>CCC<ref group=\"参\">ref c</ref>\n\n;refs\n7jyil3<references group=\"参\" />1hraexy\n\n: ps1jbs\n;notes\n<references group=\"注\" />",
+		"selser [2,2,[3],3,0,0,[2],4,0]": "yogpuh\n\nAAA<ref group=\"参\">ref a</ref>BBB<ref group=\"注\">note b</ref>CCC<ref group=\"参\">ref c</ref>\n\n121hp46\n\n\n<references group=\"参\" />\n\n: 14nr281\n;notes\ngj2dkz<references group=\"注\" />",
+		"selser [[0,0,3,0,2,0],3,[2],3,0,0,0,3,0]": "AAA<ref group=\"参\">ref a</ref><ref group=\"注\">note b</ref>wckunvCCC<ref group=\"参\">ref c</ref>\n: 7ykauh\n;refs\n<references group=\"参\" />\n\n;notes\n<references group=\"注\" />",
+		"selser [[0,0,0,0,3,0],0,0,0,0,3,[2],0,0]": "AAA<ref group=\"参\">ref a</ref>BBB<ref group=\"注\">note b</ref><ref group=\"参\">ref c</ref>\n\n;refs\n<references group=\"参\" />\n: qklqpu\n;notes\n<references group=\"注\" />"
+	},
 	"T242437 - Blank ref name in #tag regression": {
 		"wt2html": "<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references mw:Transclusion\" about=\"#mwt\" data-parsoid='{\"pi\":[[{\"k\":\"1\"},{\"k\":\"2\"}]],\"dsr\":[0,44,null,null]}' data-mw='{\"name\":\"references\",\"attrs\":{},\"body\":{\"extsrc\":\"\\n&lt;ref name=\\\"\\\">foo&lt;/ref>\\n\"},\"parts\":[{\"template\":{\"target\":{\"wt\":\"#tag:references\",\"function\":\"tag\"},\"params\":{\"1\":{\"wt\":\"\\n&lt;ref name=\\\"\\\">foo&lt;/ref>\\n\"}},\"i\":0}}]}'><ol class=\"mw-references references\" data-parsoid=\"{}\"><li about=\"#cite_note-1\" id=\"cite_note-1\" data-mw-footnote-number=\"1\" data-parsoid=\"{}\"><span rel=\"mw:referencedBy\" class=\"mw-cite-backlink\" data-parsoid=\"{}\"></span> <span id=\"mw-reference-text-cite_note-1\" class=\"mw-reference-text reference-text\" data-parsoid=\"{}\">foo</span></li>\n</ol></div>",
 		"html2html": "<p data-parsoid='{\"dsr\":[0,28,0,0]}'>Parsoid fails this right now</p>",

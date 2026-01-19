@@ -31,7 +31,6 @@
 		"selser [0,3,[2],3]": "<i title=\"<ref>y</ref>\">a\n\n174pjjjz"
 	},
 	"Bug 13073 regression check: wrapped <references>": {
-		"html2wt": "<ref>\nfoo\n</ref>\n<div>\n<references />\n</div>",
 		"selser [0,3,3]": "<ref>\nfoo\n</ref>",
 		"selser [1,0,3]": "<ref>\nfoo\n</ref>\n",
 		"selser [2,0,3]": "1n3of6i\n\n<ref>\nfoo\n</ref>\n",
@@ -253,9 +252,6 @@
 		"selser [0,0,0,4,0]": "A <ref>foo</ref>\nB <ref group=\"inexistent\">bar</ref>3nzqah",
 		"selser [[4,0,0,0],3,0,3,0]": "8kgceb<ref>foo</ref>\nB <ref group=\"inexistent\">bar</ref>",
 		"selser [3,0,0,0,0]": "\n"
-	},
-	"Simple <ref>, with <references/> in group, with groupname in Chinese": {
-		"html2wt": "AAA<ref group=\"参\">ref a</ref>BBB<ref group=\"注\">note b</ref>CCC<ref group=\"参\">ref c</ref>\n\n; refs\n<references group=\"参\" />\n\n; notes\n<references group=\"注\" />"
 	},
 	"T242437 - Blank ref name in #tag regression": {
 		"wt2html": "<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references mw:Transclusion\" about=\"#mwt\" data-parsoid='{\"pi\":[[{\"k\":\"1\"},{\"k\":\"2\"}]],\"dsr\":[0,44,null,null]}' data-mw='{\"name\":\"references\",\"attrs\":{},\"body\":{\"extsrc\":\"\\n&lt;ref name=\\\"\\\">foo&lt;/ref>\\n\"},\"parts\":[{\"template\":{\"target\":{\"wt\":\"#tag:references\",\"function\":\"tag\"},\"params\":{\"1\":{\"wt\":\"\\n&lt;ref name=\\\"\\\">foo&lt;/ref>\\n\"}},\"i\":0}}]}'><ol class=\"mw-references references\" data-parsoid=\"{}\"><li about=\"#cite_note-1\" id=\"cite_note-1\" data-mw-footnote-number=\"1\" data-parsoid=\"{}\"><span rel=\"mw:referencedBy\" class=\"mw-cite-backlink\" data-parsoid=\"{}\"></span> <span id=\"mw-reference-text-cite_note-1\" class=\"mw-reference-text reference-text\" data-parsoid=\"{}\">foo</span></li>\n</ol></div>",

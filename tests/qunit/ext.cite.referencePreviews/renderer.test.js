@@ -6,19 +6,6 @@ const previewTypes = { TYPE_REFERENCE: 'reference' };
 	QUnit.module.skip )( 'ext.cite.referencePreviews#renderer', {
 	before() {
 		createReferencePreview = require( 'ext.cite.referencePreviews' ).private.createReferencePreview;
-	},
-	beforeEach() {
-		mw.msg = ( key ) => `<${ key }>`;
-		mw.message = ( key ) => ( { exists: () => !key.endsWith( 'generic' ), text: () => `<${ key }>` } );
-
-		mw.html = {
-			escape: ( str ) => str && str.replace( /'/g, '&apos;' ).replace( /</g, '&lt;' )
-		};
-	},
-	afterEach() {
-		mw.msg = null;
-		mw.message = null;
-		mw.html = null;
 	}
 } );
 
@@ -36,7 +23,7 @@ QUnit.test( 'createReferencePreview(model)', ( assert ) => {
 
 	assert.strictEqual(
 		$( preview.el ).find( '.mwe-popups-title' ).text().trim(),
-		'<cite-reference-previews-web>'
+		'(cite-reference-previews-web)'
 	);
 	assert.strictEqual(
 		$( preview.el ).find( '.mw-parser-output' ).text().trim(),
@@ -59,7 +46,7 @@ QUnit.test( 'createReferencePreview default title', ( assert ) => {
 
 	assert.strictEqual(
 		$( preview.el ).find( '.mwe-popups-title' ).text().trim(),
-		'<cite-reference-previews-reference>'
+		'(cite-reference-previews-reference)'
 	);
 } );
 
@@ -92,6 +79,6 @@ QUnit.test( 'createReferencePreview collapsible/sortable handling', ( assert ) =
 	assert.strictEqual( $( preview.el ).find( 'th' ).attr( 'title' ), undefined );
 	assert.strictEqual(
 		$( preview.el ).find( '.mwe-collapsible-placeholder' ).text(),
-		'<cite-reference-previews-collapsible-placeholder>'
+		'(cite-reference-previews-collapsible-placeholder)'
 	);
 } );

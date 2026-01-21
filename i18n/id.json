@@ -20,7 +20,7 @@
 	"cite-desc": "Menambahkan tanda <code>&lt;ref&gt;</code> dan <code>&lt;references&gt;</code> untuk kutipan",
 	"cite_error": "Kesalahan pengutipan: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> tidak sah, harusnya <code>ltr</code> atau <code>rtl</code>",
-	"cite_error_ref_numeric_key": "Tanda <code>&lt;ref&gt;</code> tidak sah; \nnama tidak boleh berupa bilangan bulat sederhana.\nGunakan nama deskriptif",
+	"cite_error_ref_numeric_key": "Tanda <code>&lt;ref&gt;</code> tidak sah; \nnama tidak boleh berupa angka sederhana (mis. \"123\").\nGunakan nama yang lebih deskriptif.",
 	"cite_error_ref_no_key": "Tanda pembuka <code>&lt;ref&gt;</code> tidak sah atau mempunyai nama yang salah.",
 	"cite_error_ref_too_many_keys": "Parameter dalam tag <code>&lt;ref&gt;</code> tidak sah;",
 	"cite_error_ref_no_input": "Tanda <code>&lt;ref&gt;</code> tidak sah;\nreferensi tanpa nama harus memiliki isi",

@@ -307,6 +307,10 @@
 		"CiteDefaultBacklinkAlphabet": {
 			"description": "List of letters in the Alphabet to be used to auto-generate backlink labels. Separated by spaces. Defaults to English Alphabet \"a\" to \"z\" when not specified. Currently only used when CiteUseLegacyBacklinkLabels is set to false.",
 			"value": null
+		},
+		"CiteRemoveSyntheticRefsUnsafe": {
+			"description": "Only for development! This will stop the creation of synthetic list defined main refs.",
+			"value": false
 		}
 	},
 	"AutoloadNamespaces": {

@@ -203,6 +203,11 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	if ( refListItemId ) {
 		dataElement.attributes.refListItemId = refListItemId;
 	}
+
+	if ( mw.config.get( 'wgCiteRemoveSyntheticRefsUnsafe' ) && ve.getProp( mwData, 'isSyntheticMainRef' ) ) {
+		return [];
+	}
+
 	return dataElement;
 };
 
@@ -770,6 +775,10 @@ ve.dm.MWReferenceNode.prototype.getIndexNumber = function () {
  * @param {ve.dm.Surface} surface
  */
 ve.dm.MWReferenceNode.prototype.copySyntheticRefIntoReferencesList = function ( surface ) {
+	if ( mw.config.get( 'wgCiteRemoveSyntheticRefsUnsafe' ) ) {
+		return;
+	}
+
 	// Get the ReferencesList we want to move the node into
 	const docChildren = this.getDocument().getDocumentNode().getChildren();
 	const refListNode = docChildren.find(

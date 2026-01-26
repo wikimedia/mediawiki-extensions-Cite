@@ -64,6 +64,7 @@ class CiteHooks implements
 		$vars['wgCiteVisualEditorOtherGroup'] = (bool)$config->get( 'CiteVisualEditorOtherGroup' );
 		$vars['wgCiteResponsiveReferences'] = (bool)$config->get( 'CiteResponsiveReferences' );
 		$vars['wgCiteSubReferencing'] = (bool)$config->get( 'CiteSubReferencing' );
+		$vars['wgCiteRemoveSyntheticRefsUnsafe'] = (bool)$config->get( 'CiteRemoveSyntheticRefsUnsafe' );
 	}
 
 	/**

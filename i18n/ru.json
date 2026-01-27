@@ -27,11 +27,13 @@
 			"Cabadeck",
 			"MidnightLG",
 			"Elzav",
-			"Vonavy"
+			"Vonavy",
+			"Merrahtar",
+			"Yurina Tatiana"
 		]
 	},
 	"cite-desc": "Добавляет для сносок теги <code>&lt;ref&gt;</code> и <code>&lt;references/&gt;</code>",
-	"cite_error": "Ошибка цитирования $1",
+	"cite_error": "Ошибка цитирования: $1",
 	"cite_error_ref_invalid_dir": "Неверное значение <code>dir=\"$1\"</code>, должно быть <code>ltr</code> или <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nимя не может быть целым числом. Используйте описательное название",
 	"cite_error_ref_no_key": "Открывающий тег <code>&lt;ref&gt;</code> — неправильный или содержит некорректное имя.",

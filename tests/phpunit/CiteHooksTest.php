@@ -70,9 +70,32 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 
 		if ( $enabled ) {
 			$this->assertArrayHasKey( 'ext.cite.wikiEditor', $rlModules );
-			$this->assertArrayHasKey( 'ext.cite.visualEditor', $rlModules );
 		} else {
 			$this->assertArrayNotHasKey( 'ext.cite.wikiEditor', $rlModules );
+		}
+	}
+
+	public function testOnResourceLoaderRegisterModulesLoadsVisualEditor() {
+		$rlModules = [];
+
+		$resourceLoader = $this->createMock( ResourceLoader::class );
+		$resourceLoader->method( 'getConfig' )
+			 ->willReturn( new HashConfig( [ 'CiteReferencePreviews' => false ] ) );
+		$resourceLoader->method( 'register' )
+			 ->willReturnCallback( static function ( array $modules ) use ( &$rlModules ) {
+				 $rlModules = array_merge( $rlModules, $modules );
+			 } );
+
+		( new CiteHooks(
+			$this->getServiceContainer()->getService( 'Cite.ReferencePreviewsContext' ),
+			$this->getServiceContainer()->getService( 'Cite.GadgetsIntegration' ),
+			new StaticUserOptionsLookup( [] )
+		) )
+			->onResourceLoaderRegisterModules( $resourceLoader );
+
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'VisualEditor' ) ) {
+			$this->assertArrayHasKey( 'ext.cite.visualEditor', $rlModules );
+		} else {
 			$this->assertArrayNotHasKey( 'ext.cite.visualEditor', $rlModules );
 		}
 	}

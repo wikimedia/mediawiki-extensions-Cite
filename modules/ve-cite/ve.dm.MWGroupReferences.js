@@ -55,9 +55,6 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 	 * @private
 	 */
 	this.nodeGroup = null;
-
-	/** @member {string} */
-	this.groupName = null;
 };
 
 /* Inheritance */
@@ -69,15 +66,11 @@ OO.initClass( ve.dm.MWGroupReferences );
 /**
  * Rebuild information about this group of references.
  *
- * @param {ve.dm.InternalList} internalList
- * @param {string} groupName
  * @param {ve.dm.InternalListNodeGroup|undefined} nodeGroup
  * @return {ve.dm.MWGroupReferences}
  */
-ve.dm.MWGroupReferences.static.makeGroupRefs = function ( internalList, groupName, nodeGroup ) {
+ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 	const result = new ve.dm.MWGroupReferences();
-	result.internalList = internalList;
-	result.groupName = groupName;
 	if ( !nodeGroup ) {
 		return result;
 	}
@@ -196,13 +189,14 @@ ve.dm.MWGroupReferences.prototype.getRefNode = function ( key ) {
 /**
  * Return the internalList internal item if it exists.
  *
+ * @see #getRefNode
+ *
  * @param {string} key in listKey format
  * @return {ve.dm.InternalItemNode|undefined}
  */
 ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( key ) {
-	return this.internalList.getItemNode(
-		this.internalList.getKeyIndex( this.groupName, key )
-	);
+	const ref = this.getRefNode( key );
+	return ref && ref.getInternalItem();
 };
 
 /**

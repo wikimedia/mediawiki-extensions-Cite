@@ -13,6 +13,7 @@ use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\Parsoid\Ext\ExtensionTagHandler;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Utils\DOMCompat;
+use Wikimedia\Parsoid\Utils\DOMDataUtils as DOMDataUtilsInternal;
 
 /**
  * Simple token transform version of the Ref extension tag.
@@ -202,7 +203,7 @@ class RefTagHandler extends ExtensionTagHandler {
 					$hasRefName &&
 					DOMCompat::querySelector( $bodyElt, "span[typeof~='mw:Cite/Follow']" )
 				) {
-					$bodyElt = DOMDataUtils::cloneNode( $bodyElt, true );
+					$bodyElt = DOMDataUtilsInternal::cloneElement( $bodyElt, true );
 					foreach ( DOMUtils::childNodes( $bodyElt ) as $child ) {
 						if ( DOMUtils::hasTypeOf( $child, 'mw:Cite/Follow' ) ) {
 							// @phan-suppress-next-line PhanTypeMismatchArgumentSuperType

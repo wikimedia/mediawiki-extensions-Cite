@@ -5,12 +5,12 @@ namespace Cite\Tests\Unit;
 use Cite\Parsoid\RefTagHandler;
 use MediaWiki\Config\HashConfig;
 use MediaWikiUnitTestCase;
+use Wikimedia\Parsoid\Ext\ContentUtils;
+use Wikimedia\Parsoid\Ext\DOMDataUtils;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Mocks\MockEnv;
 use Wikimedia\Parsoid\NodeData\DataMw;
 use Wikimedia\Parsoid\NodeData\DataMwBody;
-use Wikimedia\Parsoid\Utils\ContentUtils;
-use Wikimedia\Parsoid\Utils\DOMDataUtils;
 
 /**
  * @covers \Cite\Parsoid\RefTagHandler

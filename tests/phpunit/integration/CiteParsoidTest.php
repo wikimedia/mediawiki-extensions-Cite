@@ -7,11 +7,16 @@ namespace Cite\Tests\Integration;
 use Cite\Parsoid\ReferenceListTagHandler;
 use MediaWiki\Config\Config;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\Title\TitleValue;
 use Wikimedia\ObjectFactory\ObjectFactory;
 use Wikimedia\Parsoid\Config\PageConfig;
 use Wikimedia\Parsoid\Core\ContentMetadataCollector;
+use Wikimedia\Parsoid\Core\DOMCompat;
 use Wikimedia\Parsoid\Core\SelserData;
 use Wikimedia\Parsoid\DOM\Element;
+use Wikimedia\Parsoid\Ext\ContentUtils;
+use Wikimedia\Parsoid\Ext\DOMDataUtils;
+use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Mocks\MockDataAccess;
 use Wikimedia\Parsoid\Mocks\MockEnv;
@@ -21,11 +26,6 @@ use Wikimedia\Parsoid\Mocks\MockSiteConfig;
 use Wikimedia\Parsoid\NodeData\DataMw;
 use Wikimedia\Parsoid\NodeData\DataMwBody;
 use Wikimedia\Parsoid\Parsoid;
-use Wikimedia\Parsoid\Utils\ContentUtils;
-use Wikimedia\Parsoid\Utils\DOMCompat;
-use Wikimedia\Parsoid\Utils\DOMDataUtils;
-use Wikimedia\Parsoid\Utils\DOMUtils;
-use Wikimedia\Parsoid\Utils\TitleValue;
 
 /**
  * @coversDefaultClass \Cite\Parsoid\Cite

@@ -9,6 +9,7 @@ use Cite\Validator;
 use MediaWiki\Config\Config;
 use MediaWiki\Html\HtmlHelper;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Parsoid\Core\DOMCompat;
 use Wikimedia\Parsoid\Core\DomSourceRange;
 use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\DOM\Document;
@@ -24,7 +25,6 @@ use Wikimedia\Parsoid\NodeData\DataMw;
 use Wikimedia\Parsoid\NodeData\DataMwBody;
 use Wikimedia\Parsoid\NodeData\DataMwError;
 use Wikimedia\Parsoid\NodeData\DataParsoid;
-use Wikimedia\Parsoid\Utils\DOMCompat;
 use Wikimedia\RemexHtml\HTMLData;
 use Wikimedia\RemexHtml\Serializer\SerializerNode;
 

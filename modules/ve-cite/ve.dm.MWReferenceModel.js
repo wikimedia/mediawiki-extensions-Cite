@@ -151,31 +151,38 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
 ve.dm.MWReferenceModel.prototype.updateInternalItem = function ( surfaceModel ) {
 	const doc = surfaceModel.getDocument();
 	const internalList = doc.getInternalList();
-	const listGroup = 'mwReference/' + this.group;
+	const newListGroup = 'mwReference/' + this.group;
 
 	// Group/key has changed
-	if ( this.listGroup !== listGroup ) {
+	if ( this.listGroup !== newListGroup ) {
 		// Get all reference nodes with the same group and key
-		const group = internalList.getNodeGroup( this.listGroup );
-		const refNodes = group.getAllReuses( this.listKey );
+		const oldNodeGroup = internalList.getNodeGroup( this.listGroup );
+		const refNodes = oldNodeGroup.getAllReuses( this.listKey );
+
 		// Check for name collision when moving items between groups
-		const keyIndex = internalList.getKeyIndex( this.listGroup, this.listKey );
-		if ( keyIndex !== undefined ) {
-			// Resolve name collision by generating a new list key
-			this.listKey = 'auto/' + internalList.getNextUniqueNumber();
-		}
+		const newNodeGroup = internalList.getNodeGroup( newListGroup );
+		const isUsed = newNodeGroup || newNodeGroup.getFirstNode( this.listKey );
+		const newListKey = isUsed ? 'auto/' + internalList.getNextUniqueNumber() : this.listKey;
+
 		// Update the group name of all references nodes with the same group and key
 		const txs = [];
 		for ( let i = 0, len = refNodes.length; i < len; i++ ) {
 			txs.push( ve.dm.TransactionBuilder.static.newFromAttributeChanges(
 				doc,
 				refNodes[ i ].getOuterRange().start,
-				{ refGroup: this.group, listGroup }
+				{
+					// This is the new group from the form
+					refGroup: this.group,
+					listGroup: newListGroup,
+					listKey: newListKey
+				}
 			) );
 		}
 		surfaceModel.change( txs );
-		this.listGroup = listGroup;
+		this.listGroup = newListGroup;
+		this.listKey = newListKey;
 	}
+
 	// Update internal node content
 	const itemNodeRange = internalList.getItemNode( this.listIndex ).getRange();
 	surfaceModel.change(

@@ -144,14 +144,12 @@ QUnit.test( 'update internal item changing the group', ( assert ) => {
 	const nodeGroup = internalList.getNodeGroup( 'mwReference/g1' );
 	assert.strictEqual(
 		nodeGroup.getAllReuses( 'literal/book' ).length,
-		// FIXME this should only be one ref, the ref we moved should not be a re-use T373424
-		2,
+		1,
 		'Updated list has one ref with the key in the g1 group'
 	);
 	assert.strictEqual(
-		nodeGroup.getAllReuses( 'auto/0' ),
-		// FIXME there should be one ref with a key from deduplication T373424
-		undefined,
+		nodeGroup.getAllReuses( 'auto/0' ).length,
+		1,
 		'Updated list has one ref with a new key in the g1 group'
 	);
 } );

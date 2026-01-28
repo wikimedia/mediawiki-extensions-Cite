@@ -107,7 +107,7 @@ QUnit.test( 'insert ref reuse', ( assert ) => {
 } );
 
 QUnit.test( 'update internal item changing the group', ( assert ) => {
-	const doc = ve.dm.citeExample.createExampleDocument( 'simpleRef' );
+	const doc = ve.dm.citeExample.createExampleDocument( 'simpleRefsWithGroup' );
 	const surface = new ve.dm.Surface( doc );
 	const internalList = doc.getInternalList();
 
@@ -117,13 +117,18 @@ QUnit.test( 'update internal item changing the group', ( assert ) => {
 
 	const oldNodeCount = internalList.getItemNodeCount();
 	assert.strictEqual(
-		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ).length,
+		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'literal/book' ).length,
 		1,
-		'Initial document does count one use of the ref in the default group'
+		'Initial list has one ref with the key in the default group'
+	);
+	assert.strictEqual(
+		internalList.getNodeGroup( 'mwReference/g1' ).getAllReuses( 'literal/book' ).length,
+		1,
+		'Initial list has one ref with the key in the g1 group'
 	);
 
 	// Change the group model and update the internal item accroding to the changed model
-	refModel.group = 'other';
+	refModel.group = 'g1';
 	refModel.updateInternalItem( surface );
 
 	assert.strictEqual(
@@ -132,13 +137,21 @@ QUnit.test( 'update internal item changing the group', ( assert ) => {
 		'itemNodeCount does not change on update'
 	);
 	assert.strictEqual(
-		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'auto/0' ),
+		internalList.getNodeGroup( 'mwReference/' ).getAllReuses( 'literal/book' ),
 		undefined,
-		'Ref is not part of the default group anymore'
+		'Updated list has no ref with the key in the default group'
+	);
+	const nodeGroup = internalList.getNodeGroup( 'mwReference/g1' );
+	assert.strictEqual(
+		nodeGroup.getAllReuses( 'literal/book' ).length,
+		// FIXME this should only be one ref, the ref we moved should not be a re-use T373424
+		2,
+		'Updated list has one ref with the key in the g1 group'
 	);
 	assert.strictEqual(
-		internalList.getNodeGroup( 'mwReference/other' ).getAllReuses( 'auto/0' ).length,
-		1,
-		'Ref can be found in the new group'
+		nodeGroup.getAllReuses( 'auto/0' ),
+		// FIXME there should be one ref with a key from deduplication T373424
+		undefined,
+		'Updated list has one ref with a new key in the g1 group'
 	);
 } );

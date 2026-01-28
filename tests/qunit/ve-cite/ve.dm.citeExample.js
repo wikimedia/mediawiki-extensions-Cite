@@ -47,6 +47,43 @@ ve.dm.citeExample.simpleRef = [
 	{ type: '/internalList' }
 ];
 
+ve.dm.citeExample.simpleRefsWithGroup = [
+	{ type: 'paragraph' },
+	'B', 'a', 'r',
+	{
+		type: 'mwReference',
+		attributes: {
+			contentsUsed: true,
+			listGroup: 'mwReference/',
+			listIndex: 0,
+			listKey: 'literal/book',
+			refGroup: ''
+		}
+	},
+	{ type: '/mwReference' },
+	{
+		type: 'mwReference',
+		attributes: {
+			listGroup: 'mwReference/g1',
+			listIndex: 1,
+			listKey: 'literal/book',
+			refGroup: 'g1'
+		}
+	},
+	{ type: '/mwReference' },
+	{ type: '/paragraph' },
+	{ type: 'internalList' },
+	{ type: 'internalItem' },
+	{ type: 'paragraph' },
+	'F', 'o', 'o',
+	{ type: '/paragraph' },
+	{ type: 'paragraph' },
+	'B', 'a', 'r',
+	{ type: '/paragraph' },
+	{ type: '/internalItem' },
+	{ type: '/internalList' }
+];
+
 // A document with a few references without internalData
 ve.dm.citeExample.references = [
 	{ type: 'paragraph' },

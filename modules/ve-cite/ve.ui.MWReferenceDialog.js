@@ -111,6 +111,7 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
 	const newRef = new MWReferenceModel( this.getFragment().getDocument() );
 	newRef.mainRefKey = mainRef.getListKey();
+	newRef.mainListIndex = mainRef.getListIndex();
 	newRef.group = mainRef.getGroup();
 
 	this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );

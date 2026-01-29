@@ -48,6 +48,7 @@ ve.dm.ConverterSubReferenceTestCases.simpleMainPlusDetails = {
 				refGroup: '',
 				contentsUsed: true,
 				mainRefKey: 'literal/book',
+				mainListIndex: 1,
 				refListItemId: 'mw-reference-text-cite_note-2'
 			}
 		},
@@ -265,6 +266,7 @@ ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub = {
 					refGroup: '',
 					contentsUsed: false,
 					mainRefKey: 'literal/book',
+					mainListIndex: 1,
 					refListItemId: 'mw-reference-text-cite_note-2'
 				}
 			},
@@ -288,12 +290,13 @@ ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub = {
 						mainBody: 'mw-reference-text-cite_note-book-1'
 					},
 					originalMw: '{"name":"ref","attrs":{"details":"page 2","name":"book"},"body":{"id":"mw-reference-text-cite_note-3"},"mainRef":"book","mainBody":"mw-reference-text-cite_note-book-1"}',
-					listIndex: 1,
+					listIndex: 2,
 					listGroup: 'mwReference/',
 					listKey: 'auto/1',
 					refGroup: '',
 					contentsUsed: true,
 					mainRefKey: 'literal/book',
+					mainListIndex: 1,
 					refListItemId: 'mw-reference-text-cite_note-3'
 				}
 			},
@@ -311,7 +314,7 @@ ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub = {
 						}
 					},
 					originalMw: '{"name":"ref","attrs":{"name":"book"}}',
-					listIndex: 2,
+					listIndex: 1,
 					listGroup: 'mwReference/',
 					listKey: 'literal/book',
 					refGroup: '',
@@ -371,7 +374,7 @@ ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub = {
 						isSyntheticMainRef: 1
 					},
 					originalMw: '{"name":"ref","attrs":{"name":"book","group":""},"body":{"id":"mw-reference-text-cite_note-book-1"},"isSyntheticMainRef":1}',
-					listIndex: 2,
+					listIndex: 1,
 					listGroup: 'mwReference/',
 					listKey: 'literal/book',
 					refGroup: '',
@@ -415,30 +418,7 @@ ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub = {
 			{
 				type: '/internalItem'
 			},
-			{
-				type: 'internalItem',
-				attributes: {
-					originalHtml: 'page 2'
-				}
-			},
-			{
-				type: 'paragraph',
-				internal: {
-					generated: 'wrapper'
-				}
-			},
-			'p',
-			'a',
-			'g',
-			'e',
-			' ',
-			'2',
-			{
-				type: '/paragraph'
-			},
-			{
-				type: '/internalItem'
-			},
+
 			{
 				type: 'internalItem',
 				attributes: {
@@ -457,6 +437,30 @@ ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub = {
 			'l',
 			'e',
 			'r',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'page 2'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'p',
+			'a',
+			'g',
+			'e',
+			' ',
+			'2',
 			{
 				type: '/paragraph'
 			},
@@ -635,6 +639,7 @@ ve.dm.ConverterSubReferenceTestCases.deleteMainUsedBySub = {
 					refGroup: '',
 					contentsUsed: false,
 					mainRefKey: 'literal/book',
+					mainListIndex: 0,
 					refListItemId: 'mw-reference-text-cite_note-2'
 				}
 			},
@@ -837,7 +842,8 @@ ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent = {
 					mw: {
 						name: 'ref',
 						attrs: {
-							details: 'page 1'
+							details: 'page 1',
+							name: 'book'
 						},
 						body: {
 							id: 'mw-reference-text-cite_note-2'
@@ -845,13 +851,14 @@ ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent = {
 						mainRef: 'book',
 						mainBody: 'mw-reference-text-cite_note-book-1'
 					},
-					originalMw: '{"name":"ref","attrs":{"details":"page 1"},"body":{"id":"mw-reference-text-cite_note-2"},"mainRef":"book","mainBody":"mw-reference-text-cite_note-book-1"}',
+					originalMw: '{"name":"ref","attrs":{"details":"page 1","name":"book"},"body":{"id":"mw-reference-text-cite_note-2"},"mainRef":"book","mainBody":"mw-reference-text-cite_note-book-1"}',
 					listIndex: 0,
 					listGroup: 'mwReference/',
 					listKey: 'auto/0',
 					refGroup: '',
 					contentsUsed: true,
 					mainRefKey: 'literal/book',
+					mainListIndex: 1,
 					refListItemId: 'mw-reference-text-cite_note-2'
 				}
 			},
@@ -865,7 +872,8 @@ ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent = {
 					mw: {
 						name: 'ref',
 						attrs: {
-							details: 'page 2'
+							details: 'page 2',
+							name: 'book'
 						},
 						body: {
 							id: 'mw-reference-text-cite_note-3'
@@ -873,13 +881,14 @@ ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent = {
 						mainRef: 'book',
 						mainBody: 'mw-reference-text-cite_note-book-1'
 					},
-					originalMw: '{"name":"ref","attrs":{"details":"page 2"},"body":{"id":"mw-reference-text-cite_note-3"},"mainRef":"book","mainBody":"mw-reference-text-cite_note-book-1"}',
-					listIndex: 1,
+					originalMw: '{"name":"ref","attrs":{"details":"page 2","name":"book"},"body":{"id":"mw-reference-text-cite_note-3"},"mainRef":"book","mainBody":"mw-reference-text-cite_note-book-1"}',
+					listIndex: 2,
 					listGroup: 'mwReference/',
 					listKey: 'auto/1',
 					refGroup: '',
 					contentsUsed: true,
 					mainRefKey: 'literal/book',
+					mainListIndex: 1,
 					refListItemId: 'mw-reference-text-cite_note-3'
 				}
 			},
@@ -936,7 +945,7 @@ ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent = {
 						isSyntheticMainRef: 1
 					},
 					originalMw: '{"name":"ref","attrs":{"name":"book","group":""},"body":{"id":"mw-reference-text-cite_note-book-1"},"isSyntheticMainRef":1}',
-					listIndex: 2,
+					listIndex: 1,
 					listGroup: 'mwReference/',
 					listKey: 'literal/book',
 					refGroup: '',
@@ -983,30 +992,6 @@ ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent = {
 			{
 				type: 'internalItem',
 				attributes: {
-					originalHtml: 'page 2'
-				}
-			},
-			{
-				type: 'paragraph',
-				internal: {
-					generated: 'wrapper'
-				}
-			},
-			'p',
-			'a',
-			'g',
-			'e',
-			' ',
-			'2',
-			{
-				type: '/paragraph'
-			},
-			{
-				type: '/internalItem'
-			},
-			{
-				type: 'internalItem',
-				attributes: {
 					originalHtml: 'Miller'
 				}
 			},
@@ -1029,11 +1014,35 @@ ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent = {
 				type: '/internalItem'
 			},
 			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'page 2'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'p',
+			'a',
+			'g',
+			'e',
+			' ',
+			'2',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
 				type: '/internalList'
 			}
 		],
 	body:
-		"<p id=\"mwAg\"><sup about=\"#mwt1\" class=\"mw-ref reference\" id=\"cite_ref-2\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}\"><a href=\"./MainPlusDetails#cite_note-2\" id=\"mwAw\"><span class=\"mw-reflink-text\" id=\"mwBA\"><span class=\"cite-bracket\" id=\"mwBQ\">[</span>1.1<span class=\"cite-bracket\" id=\"mwBg\">]</span></span></a></sup>\n<sup about=\"#mwt2\" class=\"mw-ref reference\" id=\"cite_ref-3\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}\"><a href=\"./MainPlusDetails#cite_note-3\" id=\"mwBw\"><span class=\"mw-reflink-text\" id=\"mwCA\"><span class=\"cite-bracket\" id=\"mwCQ\">[</span>1.2<span class=\"cite-bracket\" id=\"mwCg\">]</span></span></a></sup></p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references\" about=\"#mwt3\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-parsoid=\\&quot;{}\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;book\\&quot;,\\&quot;group\\&quot;:\\&quot;\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-book-1\\&quot;},\\&quot;isSyntheticMainRef\\&quot;:1}'&gt;Miller&lt;/sup&gt;&quot;}}\" id=\"mwCw\"><ol class=\"mw-references references\" id=\"mwDA\"><li about=\"#cite_note-book-1\" id=\"cite_note-book-1\"><span rel=\"mw:referencedBy\" class=\"mw-cite-backlink\" id=\"mwDQ\"></span> <span id=\"mw-reference-text-cite_note-book-1\" class=\"mw-reference-text reference-text\">Miller</span><ol class=\"mw-subreference-list\" id=\"mwDg\"><li about=\"#cite_note-2\" id=\"cite_note-2\"><span class=\"mw-cite-backlink\" id=\"mwDw\"><a href=\"./MainPlusDetails#cite_ref-2\" rel=\"mw:referencedBy\" id=\"mwEA\"><span class=\"mw-linkback-text\" id=\"mwEQ\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-2\" class=\"mw-reference-text reference-text\">page 1</span></li>\n<li about=\"#cite_note-3\" id=\"cite_note-3\"><span class=\"mw-cite-backlink\" id=\"mwEg\"><a href=\"./MainPlusDetails#cite_ref-3\" rel=\"mw:referencedBy\" id=\"mwEw\"><span class=\"mw-linkback-text\" id=\"mwFA\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-3\" class=\"mw-reference-text reference-text\">page 2</span></li>\n</ol></li>\n</ol></div>"
+		"<p id=\"mwAg\"><sup about=\"#mwt1\" class=\"mw-ref reference\" id=\"cite_ref-2\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}\"><a href=\"./MainPlusDetails#cite_note-2\" id=\"mwAw\"><span class=\"mw-reflink-text\" id=\"mwBA\"><span class=\"cite-bracket\" id=\"mwBQ\">[</span>1.1<span class=\"cite-bracket\" id=\"mwBg\">]</span></span></a></sup>\n<sup about=\"#mwt2\" class=\"mw-ref reference\" id=\"cite_ref-3\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}\"><a href=\"./MainPlusDetails#cite_note-3\" id=\"mwBw\"><span class=\"mw-reflink-text\" id=\"mwCA\"><span class=\"cite-bracket\" id=\"mwCQ\">[</span>1.2<span class=\"cite-bracket\" id=\"mwCg\">]</span></span></a></sup></p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references\" about=\"#mwt3\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-parsoid=\\&quot;{}\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;book\\&quot;,\\&quot;group\\&quot;:\\&quot;\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-book-1\\&quot;},\\&quot;isSyntheticMainRef\\&quot;:1}'&gt;Miller&lt;/sup&gt;&quot;}}\" id=\"mwCw\"><ol class=\"mw-references references\" id=\"mwDA\"><li about=\"#cite_note-book-1\" id=\"cite_note-book-1\" data-mw-footnote-number=\"1\"><span rel=\"mw:referencedBy\" class=\"mw-cite-backlink\" id=\"mwDQ\"></span> <span id=\"mw-reference-text-cite_note-book-1\" class=\"mw-reference-text reference-text\">Miller</span><ol class=\"mw-subreference-list\" id=\"mwDg\"><li about=\"#cite_note-2\" id=\"cite_note-2\" data-mw-footnote-number=\"1.1\"><span class=\"mw-cite-backlink\" id=\"mwDw\"><a href=\"./MainPlusDetails#cite_ref-2\" rel=\"mw:referencedBy\" id=\"mwEA\"><span class=\"mw-linkback-text\" id=\"mwEQ\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-2\" class=\"mw-reference-text reference-text\">page 1</span></li>\n<li about=\"#cite_note-3\" id=\"cite_note-3\" data-mw-footnote-number=\"1.2\"><span class=\"mw-cite-backlink\" id=\"mwEg\"><a href=\"./MainPlusDetails#cite_ref-3\" rel=\"mw:referencedBy\" id=\"mwEw\"><span class=\"mw-linkback-text\" id=\"mwFA\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-3\" class=\"mw-reference-text reference-text\">page 2</span></li>\n</ol></li>\n</ol></div>"
 };
 
 // Expect no Wikitext change
@@ -1041,13 +1050,13 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with duplicate ma
 	data: ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent.data,
 	body: ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent.body,
 	fromDataBody:
-		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-3">page 2</span></li></ol></li></ol></div>',
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}"></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}"></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-3">page 2</span></li></ol></li></ol></div>',
 	normalizedBody:
-		'<p id="mwAg"><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference" about="#mwt1" id="cite_ref-2" rel="dc:references"><a href="./MainPlusDetails#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference" about="#mwt2" id="cite_ref-3" rel="dc:references"><a href="./MainPlusDetails#cite_note-3" id="mwBw"><span class="mw-reflink-text" id="mwCA"><span class="cite-bracket" id="mwCQ">[</span>1.2<span class="cite-bracket" id="mwCg">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot; data-parsoid=\\&quot;{}\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-3">page 2</span></li></ol></li></ol></div>',
+		'<p id="mwAg"><sup about="#mwt1" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}"><a href="./MainPlusDetails#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>\n<sup about="#mwt2" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}"><a href="./MainPlusDetails#cite_note-3" id="mwBw"><span class="mw-reflink-text" id="mwCA"><span class="cite-bracket" id="mwCQ">[</span>1.2<span class="cite-bracket" id="mwCg">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot; data-parsoid=\\&quot;{}\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-3">page 2</span></li></ol></li></ol></div>',
 	clipboardBody:
 		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;,&quot;html&quot;:&quot;page 1&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;,&quot;html&quot;:&quot;page 2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Miller&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><span rel="mw:referencedBy"></span> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Miller</p></span></div></span><ol><li style="--footnote-number: &quot;1.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 1</p></span></div></span></li><li style="--footnote-number: &quot;1.2.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 2</p></span></div></span></li></ol></li></ol></div>',
 	previewBody:
-		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup>↵<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;,&amp;quot;group&amp;quot;:&amp;quot;&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><span rel="mw:referencedBy"></span> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Miller</p></span></div></span><ol><li style="--footnote-number: &quot;1.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 1</p></span></div></span></li><li style="--footnote-number: &quot;1.2.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 2</p></span></div></span></li></ol></li></ol></div>',
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup>↵<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;,&amp;quot;group&amp;quot;:&amp;quot;&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><span rel="mw:referencedBy"></span> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Miller</p></span></div></span><ol><li style="--footnote-number: &quot;1.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 1</p></span></div></span></li><li style="--footnote-number: &quot;1.2.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 2</p></span></div></span></li></ol></li></ol></div>',
 	innerWhitespace:
 		[
 			undefined,
@@ -1065,17 +1074,17 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with duplicate ma
 	body: ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent.body,
 	modify:
 		( model ) => {
-			model.commit( ve.dm.Transaction.static.deserialize( [ 35, [ [ { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'M', 'i', 'l', 'l', 'e', 'r', { type: '/paragraph' } ], '' ], 2 ] ) );
-			model.commit( ve.dm.Transaction.static.deserialize( [ 14, [ [ { type: 'internalItem', attributes: { originalHtml: 'page 1' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'p', 'a', 'g', 'e', ' ', '1', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'page 2' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'p', 'a', 'g', 'e', ' ', '2', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Miller' } }, { type: '/internalItem' } ], [ { type: 'internalItem', attributes: { originalHtml: 'page 1' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '1', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'page 2' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '2', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Miller' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'M', 'i', 'l', 'l', 'e', 'r', ' ', 'N', 'E', 'W', { type: '/paragraph' }, { type: '/internalItem' } ] ], 1 ] ) );
+			model.commit( ve.dm.Transaction.static.deserialize( [ 25, [ [ { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'M', 'i', 'l', 'l', 'e', 'r', { type: '/paragraph' } ], '' ], 12 ] ) );
+			model.commit( ve.dm.Transaction.static.deserialize( [ 14, [ [ { type: 'internalItem', attributes: { originalHtml: 'page 1' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'p', 'a', 'g', 'e', ' ', '1', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Miller' } }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'page 2' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'p', 'a', 'g', 'e', ' ', '2', { type: '/paragraph' }, { type: '/internalItem' } ], [ { type: 'internalItem', attributes: { originalHtml: 'page 1' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '1', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Miller' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'M', 'i', 'l', 'l', 'e', 'r', ' ', 'N', 'E', 'W', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'page 2' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '2', { type: '/paragraph' }, { type: '/internalItem' } ] ], 1 ] ) );
 		},
 	fromDataBody:
-		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Miller NEW&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller NEW</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-3">page 2</span></li></ol></li></ol></div>',
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}"></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}"></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Miller NEW&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller NEW</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-3">page 2</span></li></ol></li></ol></div>',
 	normalizedBody:
-		'<p id="mwAg"><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference" about="#mwt1" id="cite_ref-2" rel="dc:references"><a href="./MainPlusDetails#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference" about="#mwt2" id="cite_ref-3" rel="dc:references"><a href="./MainPlusDetails#cite_note-3" id="mwBw"><span class="mw-reflink-text" id="mwCA"><span class="cite-bracket" id="mwCQ">[</span>1.2<span class="cite-bracket" id="mwCg">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Miller NEW&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot; data-parsoid=\\&quot;{}\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller NEW</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-3">page 2</span></li></ol></li></ol></div>',
+		'<p id="mwAg"><sup about="#mwt1" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}"><a href="./MainPlusDetails#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>\n<sup about="#mwt2" class="mw-ref reference" id="cite_ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}"><a href="./MainPlusDetails#cite_note-3" id="mwBw"><span class="mw-reflink-text" id="mwCA"><span class="cite-bracket" id="mwCQ">[</span>1.2<span class="cite-bracket" id="mwCg">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Miller NEW&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot; data-parsoid=\\&quot;{}\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller NEW</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-2">page 1</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-3">page 2</span></li></ol></li></ol></div>',
 	clipboardBody:
 		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;,&quot;html&quot;:&quot;page 1&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;,&quot;html&quot;:&quot;page 2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Miller NEW&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><span rel="mw:referencedBy"></span> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Miller NEW</p></span></div></span><ol><li style="--footnote-number: &quot;1.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 1</p></span></div></span></li><li style="--footnote-number: &quot;1.2.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 2</p></span></div></span></li></ol></li></ol></div>',
 	previewBody:
-		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup>↵<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;,&amp;quot;group&amp;quot;:&amp;quot;&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><span rel="mw:referencedBy"></span> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Miller NEW</p></span></div></span><ol><li style="--footnote-number: &quot;1.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 1</p></span></div></span></li><li style="--footnote-number: &quot;1.2.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 2</p></span></div></span></li></ol></li></ol></div>',
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup>↵<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 2&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-3&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;,&amp;quot;group&amp;quot;:&amp;quot;&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><span rel="mw:referencedBy"></span> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Miller NEW</p></span></div></span><ol><li style="--footnote-number: &quot;1.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 1</p></span></div></span></li><li style="--footnote-number: &quot;1.2.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 2</p></span></div></span></li></ol></li></ol></div>',
 	innerWhitespace:
 		[
 			undefined,
@@ -1238,11 +1247,11 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Two main refs with content ( conver
 			model.commit( ve.dm.Transaction.static.deserialize( [ 23, [ '', [ { type: 'internalItem' }, { type: '/internalItem' } ] ], 1 ] ) );
 			model.commit( ve.dm.Transaction.static.deserialize( [ 13, [ [ { type: 'internalItem', attributes: { originalHtml: 'Miller' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'M', 'i', 'l', 'l', 'e', 'r', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem' }, { type: '/internalItem' } ], [ { type: 'internalItem', attributes: { originalHtml: 'Miller' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'M', 'i', 'l', 'l', 'e', 'r', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem' }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '2', { type: '/paragraph' }, { type: '/internalItem' } ] ], 1 ] ) );
 			model.commit( ve.dm.Transaction.static.deserialize( [ 3, [ [ { type: 'mwReference', attributes: { mw: { name: 'ref', attrs: { name: 'book' }, body: { id: 'mw-reference-text-cite_note-book-1' } }, originalMw: '{"name":"ref","attrs":{"name":"book"},"body":{"id":"mw-reference-text-cite_note-book-1"}}', listIndex: 0, listGroup: 'mwReference/', listKey: 'literal/book', refGroup: '', contentsUsed: true, refListItemId: 'mw-reference-text-cite_note-book-1' }, originalDomElementsHash: 'h228a23fdc392523a' }, { type: '/mwReference' } ], '' ], 29 ] ) );
-			model.commit( ve.dm.Transaction.static.deserialize( [ 3, [ '', [ { type: 'mwReference', attributes: { mainRefKey: 'literal/book', listKey: 'auto/0', listGroup: 'mwReference/', listIndex: 1, refGroup: '', contentsUsed: true }, originalDomElementsHash: 0.3497685742494072 }, { type: '/mwReference' } ] ], 29 ] ) );
+			model.commit( ve.dm.Transaction.static.deserialize( [ 3, [ '', [ { type: 'mwReference', attributes: { mainRefKey: 'literal/book', mainListKey: 0, listKey: 'auto/0', listGroup: 'mwReference/', listIndex: 1, refGroup: '', contentsUsed: true }, originalDomElementsHash: 0.3497685742494072 }, { type: '/mwReference' } ] ], 29 ] ) );
 			model.commit( ve.dm.Transaction.static.deserialize( [ 33, [ '', [ { type: 'internalItem' }, { type: '/internalItem' } ] ], 1 ] ) );
 			model.commit( ve.dm.Transaction.static.deserialize( [ 13, [ [ { type: 'internalItem', attributes: { originalHtml: 'Miller' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'M', 'i', 'l', 'l', 'e', 'r', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem' }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '2', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem' }, { type: '/internalItem' } ], [ { type: 'internalItem', attributes: { originalHtml: 'Miller' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'M', 'i', 'l', 'l', 'e', 'r', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem' }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '2', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem' }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '1', { type: '/paragraph' }, { type: '/internalItem' } ] ], 1 ] ) );
 			model.commit( ve.dm.Transaction.static.deserialize( [ 1, [ [ { type: 'mwReference', attributes: { mw: { name: 'ref', attrs: { name: 'book' } }, originalMw: '{"name":"ref","attrs":{"name":"book"}}', listIndex: 0, listGroup: 'mwReference/', listKey: 'literal/book', refGroup: '', contentsUsed: false }, originalDomElementsHash: 'hdd53161d4c3c6168' }, { type: '/mwReference' } ], '' ], 41 ] ) );
-			model.commit( ve.dm.Transaction.static.deserialize( [ 1, [ '', [ { type: 'mwReference', attributes: { mainRefKey: 'literal/book', listKey: 'auto/1', listGroup: 'mwReference/', listIndex: 2, refGroup: '', contentsUsed: false }, originalDomElementsHash: 0.6307332933964714 }, { type: '/mwReference' } ] ], 41 ] ) );
+			model.commit( ve.dm.Transaction.static.deserialize( [ 1, [ '', [ { type: 'mwReference', attributes: { mainRefKey: 'literal/book', mainListKey: 0, listKey: 'auto/1', listGroup: 'mwReference/', listIndex: 2, refGroup: '', contentsUsed: false }, originalDomElementsHash: 0.6307332933964714 }, { type: '/mwReference' } ] ], 41 ] ) );
 		},
 	fromDataBody:
 		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;book&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;page 1&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;book&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;body&quot;:{&quot;html&quot;:&quot;page 2&quot;},&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.2<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;autoGenerated&quot;:true,&quot;body&quot;:{&quot;html&quot;:&quot;&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-1&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:true}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;1&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-1">Miller</span><ol><li><span typeof="mw:Extension/ref">page 1</span></li><li><span typeof="mw:Extension/ref">page 2</span></li></ol></li></ol></div>',
@@ -1299,6 +1308,7 @@ ve.dm.ConverterSubReferenceTestCases.subReuse = {
 					refGroup: '',
 					contentsUsed: true,
 					mainRefKey: 'literal/book',
+					mainListIndex: 1,
 					refListItemId: 'mw-reference-text-cite_note-2'
 				}
 			},
@@ -1326,6 +1336,7 @@ ve.dm.ConverterSubReferenceTestCases.subReuse = {
 					refGroup: '',
 					contentsUsed: false,
 					mainRefKey: 'literal/book',
+					mainListIndex: 1,
 					refListItemId: 'mw-reference-text-cite_note-2'
 				}
 			},

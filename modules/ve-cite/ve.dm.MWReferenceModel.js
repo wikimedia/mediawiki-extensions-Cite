@@ -25,6 +25,7 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 
 	// Properties
 	this.mainRefKey = null;
+	this.mainListIndex = null;
 	this.listKey = '';
 	this.listGroup = '';
 	this.listIndex = null;
@@ -58,6 +59,7 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 	const ref = new ve.dm.MWReferenceModel();
 
 	ref.mainRefKey = attributes.mainRefKey;
+	ref.mainListIndex = attributes.mainListIndex;
 	ref.listKey = attributes.listKey;
 	ref.listGroup = attributes.listGroup;
 	ref.listIndex = attributes.listIndex;
@@ -89,6 +91,7 @@ ve.dm.MWReferenceModel.static.copySubReference = function ( oldSubRef, doc ) {
 	newSubRef.setDocument( doc.cloneWithData( originalData ) );
 
 	newSubRef.mainRefKey = oldSubRef.mainRefKey;
+	newSubRef.mainListIndex = oldSubRef.mainListIndex;
 	newSubRef.setGroup( oldSubRef.getGroup() );
 
 	return newSubRef;
@@ -228,6 +231,7 @@ ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragmen
 			type: 'mwReference',
 			attributes: Object.assign( {
 				mainRefKey: this.mainRefKey,
+				mainListIndex: this.mainListIndex,
 				listKey: this.listKey,
 				listGroup: this.listGroup,
 				listIndex: this.listIndex,

@@ -194,10 +194,13 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	};
 
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
-		dataElement.attributes.mainRefKey = this.makeListKey(
+		const mainRefKey = this.makeListKey(
 			converter.internalList,
 			mwData.mainRef
 		);
+		dataElement.attributes.mainRefKey = mainRefKey;
+		const { index: mainListIndex } = converter.internalList.queueItemHtml( listGroup, mainRefKey, '' );
+		dataElement.attributes.mainListIndex = mainListIndex;
 	}
 
 	if ( refListItemId ) {

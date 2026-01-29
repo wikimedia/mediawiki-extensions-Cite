@@ -39,7 +39,8 @@
 			"Краснорядцева Елена",
 			"Умар",
 			"EneshTranslates",
-			"Merrahtar"
+			"Merrahtar",
+			"Yurina Tatiana"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Книга",
@@ -66,6 +67,9 @@
 	"cite-ve-dialog-reference-options-section": "Параметры",
 	"cite-ve-dialog-reference-placeholder": "Напишите или скопируйте вашу сноску сюда, или вставьте шаблон источника.",
 	"cite-ve-dialog-reference-title": "Примечание",
+	"cite-ve-dialog-reference-add-details-button": "Добавить подробности",
+	"cite-ve-dialog-subreference-help-dialog-title": "Подробности",
+	"cite-ve-dialog-reference-title-details": "Подробности",
 	"cite-ve-dialog-reference-useexisting-tool": "Повторно использовать",
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Список общих ссылок",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "Список примечаний для группы «$1»",

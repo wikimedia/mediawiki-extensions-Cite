@@ -20,15 +20,15 @@ use MediaWiki\User\User;
 class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 
 	/**
-	 * @dataProvider provideBooleans
+	 * @dataProvider provideConfigVars
 	 */
-	public function testOnResourceLoaderGetConfigVars( bool $enabled ) {
+	public function testOnResourceLoaderGetConfigVars( $input, bool $expected ) {
 		$vars = [];
 
 		$config = new HashConfig( [
-			'CiteVisualEditorOtherGroup' => $enabled,
-			'CiteResponsiveReferences' => $enabled,
-			'CiteSubReferencing' => $enabled,
+			'CiteVisualEditorOtherGroup' => $input,
+			'CiteResponsiveReferences' => $input,
+			'CiteSubReferencing' => $input,
 		] );
 
 		( new CiteHooks(
@@ -38,10 +38,17 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			->onResourceLoaderGetConfigVars( $vars, 'vector', $config );
 
 		$this->assertSame( [
-			'wgCiteVisualEditorOtherGroup' => $enabled,
-			'wgCiteResponsiveReferences' => $enabled,
-			'wgCiteSubReferencing' => $enabled,
+			'wgCiteVisualEditorOtherGroup' => $expected,
+			'wgCiteResponsiveReferences' => $expected,
+			'wgCiteSubReferencing' => $expected,
 		], $vars );
+	}
+
+	public static function provideConfigVars() {
+		yield [ true, true ];
+		yield [ false, false ];
+		yield [ 0, false ];
+		yield [ 'FooBar', true ];
 	}
 
 	/**

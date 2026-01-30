@@ -235,8 +235,8 @@ class CiteHooks implements
 					],
 				],
 			];
-			if ( $this->extensionRegistry->isLoaded( 'MetricsPlatform' ) ) {
-				$veConfig[ 'ext.cite.visualEditor' ][ 'dependencies' ][] = 'ext.xLab';
+			if ( $this->extensionRegistry->isLoaded( 'TestKitchen' ) ) {
+				$veConfig[ 'ext.cite.visualEditor' ][ 'dependencies' ][] = 'ext.testKitchen';
 			}
 
 			$rl->register( $veConfig );

@@ -33,13 +33,13 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceContextItem' );
 
-	if ( mw.xLab ) {
-		// See 'Machine-readable name' in https://mpic.wikimedia.org/create-experiment
-		this.testKitchenExperiment = mw.xLab.getExperiment( 'test-context-edit-color' );
+	if ( mw.testKitchen ) {
+		// See 'Machine-readable name' in https://test-kitchen.wikimedia.org/create-experiment
+		this.testKitchenExperiment = mw.testKitchen.getExperiment( 'test-context-edit-color' );
 	}
 
 	if ( this.testKitchenExperiment &&
-		// See 'Variations' in https://mpic.wikimedia.org/create-experiment
+		// See 'Variations' in https://test-kitchen.wikimedia.org/create-experiment
 		this.testKitchenExperiment.isAssignedGroup( 'green-button' )
 	) {
 		this.$element.addClass( 'green-button' );

@@ -362,9 +362,8 @@ class References {
 				// Empty the <sup> since we've serialized its children and
 				// removing it below asserts everything has been migrated out
 				DOMCompat::replaceChildren( $refFragment );
-				$refDataMw->body = DataMwBody::new( [
-					'html' => $refDataMw->body->extsrc ?? '',
-				] );
+				$refDataMw->body = new DataMwBody();
+				$refDataMw->body->setHtml( $extApi, $extApi->htmlToDom( $refFragmentHtml ) );
 			}
 		} else {
 			if ( $ref->contentId && !$hasValidFollow ) {

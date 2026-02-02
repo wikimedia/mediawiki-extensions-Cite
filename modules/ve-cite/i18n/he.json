@@ -24,6 +24,7 @@
 	"visualeditor-cite-tool-name-book": "ספר",
 	"visualeditor-cite-tool-name-journal": "כתב־עת",
 	"visualeditor-cite-tool-name-news": "חדשות",
+	"visualeditor-cite-tool-name-map": "מפה",
 	"visualeditor-cite-tool-name-web": "אתר אינטרנט",
 	"cite-ve-changedesc-ref-group-both": "קבוצת ההערות השתנתה מ{{GRAMMAR:תחילית|$1}} ל{{GRAMMAR:תחילית|$2}}",
 	"cite-ve-changedesc-ref-group-from": "קבוצת ההערות השתנתה מ{{GRAMMAR:תחילית|$1}} לקבוצה הכללית",

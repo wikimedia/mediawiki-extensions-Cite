@@ -208,7 +208,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
 			const changeAll = this.editPanel.getChangeAllCheckboxState();
 
-			if ( !( this.editReferenceMode ) ) {
+			if ( !this.editReferenceMode && !this.createSubRefMode ) {
 				// Collapse returns a new fragment, so update this.fragment
 				this.fragment = this.getFragment().collapseToEnd();
 				ref.insertIntoFragment( this.getFragment() );

@@ -26,8 +26,8 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	// Properties
 	this.mainRefKey = null;
 	this.mainListIndex = null;
-	this.listKey = '';
 	this.listGroup = '';
+	this.listKey = '';
 	this.listIndex = null;
 	this.group = '';
 	if ( parentDoc ) {
@@ -60,8 +60,8 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 
 	ref.mainRefKey = attributes.mainRefKey;
 	ref.mainListIndex = attributes.mainListIndex;
-	ref.listKey = attributes.listKey;
 	ref.listGroup = attributes.listGroup;
+	ref.listKey = attributes.listKey;
 	ref.listIndex = attributes.listIndex;
 	ref.group = attributes.refGroup;
 	ref.doc = function () {
@@ -126,8 +126,8 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
 	const internalList = doc.getInternalList();
 
 	// Fill in data
-	this.listKey = 'auto/' + internalList.getNextUniqueNumber();
 	this.listGroup = 'mwReference/' + this.group;
+	this.listKey = 'auto/' + internalList.getNextUniqueNumber();
 
 	// Insert internal reference item into document
 	const item = internalList.getItemInsertion( this.listGroup, this.listKey, [] );
@@ -232,8 +232,8 @@ ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragmen
 			attributes: Object.assign( {
 				mainRefKey: this.mainRefKey,
 				mainListIndex: this.mainListIndex,
-				listKey: this.listKey,
 				listGroup: this.listGroup,
+				listKey: this.listKey,
 				listIndex: this.listIndex,
 				refGroup: this.group
 			}, attributes ),
@@ -245,21 +245,21 @@ ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragmen
 };
 
 /**
- * Get the key of a reference in the references list.
- *
- * @return {string} Reference's list key
- */
-ve.dm.MWReferenceModel.prototype.getListKey = function () {
-	return this.listKey;
-};
-
-/**
  * Get the name of the group a references list is in.
  *
  * @return {string} References list's group
  */
 ve.dm.MWReferenceModel.prototype.getListGroup = function () {
 	return this.listGroup;
+};
+
+/**
+ * Get the key of a reference in the references list.
+ *
+ * @return {string} Reference's list key
+ */
+ve.dm.MWReferenceModel.prototype.getListKey = function () {
+	return this.listKey;
 };
 
 /**

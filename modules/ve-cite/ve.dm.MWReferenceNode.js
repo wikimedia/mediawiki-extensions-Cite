@@ -185,9 +185,9 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		attributes: {
 			mw: mwData,
 			originalMw: mwDataJSON,
-			listIndex: index,
 			listGroup,
 			listKey,
+			listIndex: index,
 			refGroup,
 			contentsUsed
 		}

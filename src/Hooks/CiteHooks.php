@@ -251,6 +251,7 @@ class CiteHooks implements
 						'ext.cite.wikiEditor.js',
 					],
 					'dependencies' => [
+						'ext.cite.styles',
 						'ext.wikiEditor',
 						'mediawiki.jqueryMsg',
 						'mediawiki.language',

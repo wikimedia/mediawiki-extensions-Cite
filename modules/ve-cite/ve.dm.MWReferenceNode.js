@@ -579,9 +579,14 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
  * @param {ve.dm.InternalList} newInternalList Target document's existing internalList
  */
 ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, newInternalList ) {
+	const group = newInternalList.getNodeGroup( dataElement.attributes.listGroup );
+	if ( !group ) {
+		return;
+	}
+
 	let suffix = '';
 	// Try name, name2, name3, ... until unique
-	while ( newInternalList.keys.includes( dataElement.attributes.listKey + suffix ) ) {
+	while ( group.getAllReuses( dataElement.attributes.listKey + suffix ) ) {
 		suffix = suffix ? suffix + 1 : 2;
 	}
 	if ( suffix ) {

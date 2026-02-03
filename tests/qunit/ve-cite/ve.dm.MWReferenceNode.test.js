@@ -219,7 +219,11 @@ QUnit.test( 'remapInternalListIndexes', ( assert ) => {
 
 QUnit.test( 'remapInternalListKeys', ( assert ) => {
 	const dataElement = { attributes: { listKey: 'k' } };
-	const internalList = { keys: [ 'k' ] };
+	const internalList = {
+		getNodeGroup: () => ( {
+			getAllReuses: ( key ) => ( { k: [] }[ key ] )
+		} )
+	};
 	ve.dm.MWReferenceNode.static.remapInternalListKeys( dataElement, internalList );
 	assert.strictEqual( dataElement.attributes.listKey, 'k2' );
 } );

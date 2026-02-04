@@ -316,6 +316,7 @@ ve.dm.citeExample.subReferencing = [
 	{ type: 'paragraph' },
 	{ type: 'mwReference', attributes: {
 		mainRefKey: 'literal/ldr',
+		mainListIndex: 1,
 		listIndex: 0,
 		listGroup: 'mwReference/',
 		listKey: 'auto/0',
@@ -323,7 +324,7 @@ ve.dm.citeExample.subReferencing = [
 	} },
 	{ type: '/mwReference' },
 	{ type: 'mwReference', attributes: {
-		listIndex: 1,
+		listIndex: 2,
 		listGroup: 'mwReference/',
 		listKey: 'auto/1',
 		refGroup: ''
@@ -331,7 +332,8 @@ ve.dm.citeExample.subReferencing = [
 	{ type: '/mwReference' },
 	{ type: 'mwReference', attributes: {
 		mainRefKey: 'literal/nonexistent',
-		listIndex: 2,
+		mainListIndex: 4,
+		listIndex: 3,
 		listGroup: 'mwReference/',
 		listKey: 'literal/orphaned',
 		refGroup: ''
@@ -344,7 +346,7 @@ ve.dm.citeExample.subReferencing = [
 	} },
 	{ type: 'paragraph' },
 	{ type: 'mwReference', attributes: {
-		listIndex: 3,
+		listIndex: 1,
 		listGroup: 'mwReference/',
 		listKey: 'literal/ldr',
 		refGroup: ''
@@ -360,13 +362,15 @@ ve.dm.citeExample.subReferencing = [
 	{ type: '/internalItem' },
 	{ type: 'internalItem' },
 	{ type: 'paragraph' },
-	'O', 't', 'h', 'e', 'r',
+	'L', 'i', 's', 't', '-', 'd', 'e', 'f', 'i', 'n', 'e', 'd',
 	{ type: '/paragraph' },
 	{ type: '/internalItem' },
 	{ type: 'internalItem' },
 	{ type: 'paragraph' },
-	'L', 'i', 's', 't', '-', 'd', 'e', 'f', 'i', 'n', 'e', 'd',
+	'O', 't', 'h', 'e', 'r',
 	{ type: '/paragraph' },
+	{ type: '/internalItem' },
+	{ type: 'internalItem' },
 	{ type: '/internalItem' },
 	{ type: '/internalList' }
 ];

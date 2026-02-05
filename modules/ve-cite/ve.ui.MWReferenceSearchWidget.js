@@ -52,7 +52,7 @@ OO.inheritClass( ve.ui.MWReferenceSearchWidget, OO.ui.SearchWidget );
  * User chose a ref for reuse
  *
  * @event ve.ui.MWReferenceSearchWidget#reuse
- * @param {MWReferenceModel} ref
+ * @param {ve.dm.MWReferenceModel} ref
  */
 
 /* Methods */
@@ -108,7 +108,7 @@ ve.ui.MWReferenceSearchWidget.prototype.onChoose = function ( item ) {
 /**
  * Set the internal list and check if it contains any references
  *
- * @param {MWDocumentReferences} docRefs handle to all refs in the original document
+ * @param {ve.dm.MWDocumentReferences} docRefs handle to all refs in the original document
  */
 ve.ui.MWReferenceSearchWidget.prototype.setDocumentRefs = function ( docRefs ) {
 	this.results.unselectItem();

@@ -24,7 +24,7 @@ ve.dm.MWDocumentReferences = function VeDmMWDocumentReferences( doc ) {
 	/**
 	 * Holds the information calculated for each group.
 	 *
-	 * @member {Object.<string, MWGroupReferences>}
+	 * @member {Object.<string, ve.dm.MWGroupReferences>}
 	 */
 	this.cachedByGroup = {};
 
@@ -76,7 +76,7 @@ ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
 
 /**
  * @param {string} groupName with or without prefix
- * @return {MWGroupReferences}
+ * @return {ve.dm.MWGroupReferences}
  */
 ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( groupName ) {
 	return this.cachedByGroup[ groupName.startsWith( 'mwReference/' ) ? groupName : 'mwReference/' + groupName ] ||

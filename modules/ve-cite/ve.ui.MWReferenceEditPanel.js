@@ -185,7 +185,7 @@ ve.ui.MWReferenceEditPanel.static.excludeCommands = [
 
 /**
  * Get the list of disallowed commands for the surface widget to edit the content. This includes
- * all Cite related commands to disencourage nesting of references.
+ * all Cite related commands to discourage nesting of references.
  *
  * @see ve.dm.ElementLinearData#sanitize
  * @return {string[]} List of commands to exclude

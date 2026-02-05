@@ -30,6 +30,7 @@
 				"ve.dm.MWGroupReferences": true,
 				"ve.dm.MWReference": true,
 				"ve.ce.MWReference": true,
+				"ve.ui.MWCitationDialog": true,
 				"ve.ui.MWReference": true
 			},
 			"linkMap": {

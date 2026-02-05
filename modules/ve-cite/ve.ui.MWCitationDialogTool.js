@@ -14,7 +14,7 @@ const MWReferenceDialogTool = require( './ve.ui.MWReferenceDialogTool.js' );
  *
  * @abstract
  * @constructor
- * @extends MWReferenceDialogTool
+ * @extends ve.ui.MWReferenceDialogTool
  * @param {OO.ui.Toolbar} toolbar
  * @param {Object} [config] Configuration options
  */

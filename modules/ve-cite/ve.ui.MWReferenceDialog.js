@@ -86,7 +86,7 @@ ve.ui.MWReferenceDialog.prototype.onEditPanelInputChange = function ( change ) {
 /**
  * Handle search results ref reuse events.
  *
- * @param {MWReferenceModel} ref
+ * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 	if ( this.selectedNode instanceof MWReferenceNode ) {
@@ -268,7 +268,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
  * @override
  * @param {Object} [data] Setup data
  * @param {boolean} [data.reuseReference=false] Open the dialog in "use existing reference" mode
- * @param {MWReferenceModel} [data.createSubRef] Open the dialog to add additional details to a reuse
+ * @param {ve.dm.MWReferenceModel} [data.createSubRef] Open the dialog to add additional details to a reuse
  */
 ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};

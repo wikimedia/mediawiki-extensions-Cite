@@ -41,7 +41,7 @@ ve.ui.MWCitationDialog.static.name = 'cite';
 /**
  * Get the reference node to be edited.
  *
- * @return {MWReferenceNode|null} Reference node to be edited, null if none exists
+ * @return {ve.dm.MWReferenceNode|null} Reference node to be edited, null if none exists
  */
 ve.ui.MWCitationDialog.prototype.getReferenceNode = function () {
 	const selectedNode = this.getFragment().getSelectedNode();

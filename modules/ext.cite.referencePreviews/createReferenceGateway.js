@@ -109,7 +109,9 @@ module.exports = function createReferenceGateway() {
 			url: `#${ id }`,
 			extract: scrapeReferenceText( referenceTextElement, referenceParentTextElement ),
 			type: TYPE_REFERENCE,
-			referenceType: scrapeReferenceType( referenceParentTextElement || referenceTextElement ),
+			referenceType: scrapeReferenceType(
+				referenceParentTextElement || referenceTextElement
+			),
 			// Note: Even the top-most HTMLHtmlElement is guaranteed to have a parent.
 			sourceElementId: el.parentNode.id
 		};

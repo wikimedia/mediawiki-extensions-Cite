@@ -15,9 +15,9 @@
  * @constructor
  * @mixes OO.EventEmitter
  * @param {ve.dm.Document} [parentDoc] The parent Document we can use to auto-generate a blank
- *  Document for the reference in case {@link setDocument} was never called
+ *  Document for the reference in case {@link #setDocument} was never called
  * @property {ve.dm.Document|Function|undefined} doc Might be deferred via a function, to be
- *  lazy-evaluated when {@link getDocument} is called
+ *  lazy-evaluated when {@link #getDocument} is called
  */
 ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	// Mixin constructors

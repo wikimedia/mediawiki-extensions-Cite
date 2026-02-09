@@ -11,23 +11,23 @@ QUnit.test( 'makeListKey', ( assert ) => {
 QUnit.test( 'isMainContentAlreadySet', ( assert ) => {
 	const dataElement = { attributes: { contentsUsed: true, listGroup: 'same' } };
 	const element = { attributes: { contentsUsed: false } };
-	const nodesWithSameKey = [ new ve.dm.Model( element ) ];
-	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
+	const nodeReuses = [ new ve.dm.Model( element ) ];
+	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 
 	// One of the other ref with the same name already holds the content
 	element.attributes.contentsUsed = true;
-	assert.true( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
+	assert.true( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 
 	// The other ref is actually the same as the current one
 	element.attributes.listGroup = 'same';
-	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
+	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 
 	element.attributes.listGroup = 'different';
-	assert.true( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
+	assert.true( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 
 	// Nothing matters when the current ref doesn't hold content
 	dataElement.attributes.contentsUsed = false;
-	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodesWithSameKey ) );
+	assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 } );
 
 QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {

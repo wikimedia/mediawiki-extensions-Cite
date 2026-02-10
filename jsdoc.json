@@ -21,6 +21,7 @@
 		"wmf": {
 			"repository": "https://gerrit.wikimedia.org/g/mediawiki/extensions/Cite/",
 			"prefixMap": {
+				"MetricsPlatform.": "https://doc.wikimedia.org/MetricsPlatform/master/js/{type}.html",
 				"ve.": "https://doc.wikimedia.org/visualeditor-standalone/master/{type}.html",
 				"ve.dm.MW": "https://doc.wikimedia.org/VisualEditor/master/js/{type}.html",
 				"ve.ce.MW": "https://doc.wikimedia.org/VisualEditor/master/js/{type}.html",

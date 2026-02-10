@@ -73,10 +73,6 @@
 				"ext.cite.print.less": {
 					"media": "print"
 				}
-			},
-			"skinStyles": {
-				"minerva": "ext.cite.styles.minerva.less",
-				"vector-2022": "ext.cite.styles.vector2022.less"
 			}
 		},
 		"ext.cite.parsoid.styles": {

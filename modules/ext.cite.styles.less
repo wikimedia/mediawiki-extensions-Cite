@@ -10,6 +10,17 @@
 	.column-width( 30em );
 	margin-top: 0.3em;
 
+	// T160497, T349793: Minerva is limited to 993.3px (approx. 62em), which makes 30em a fragile
+	// breakpoint. Give more wiggle room to make sure we usually get two columns.
+	.skin-minerva & {
+		.column-width( 25em );
+	}
+
+	// T334941: Vector 2022 at standard width caps at 59.25rem.
+	.skin-vector & {
+		.column-width( 27em );
+	}
+
 	/* Lines first column up nicely. */
 	.mw-parser-output & .references {
 		margin-top: 0;

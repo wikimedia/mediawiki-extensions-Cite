@@ -18,7 +18,7 @@ const Options = require( './ve.ui.MWSubReferenceHelpDialogOptions.js' );
  * @constructor
  * @extends ve.ui.LinearContextItem
  * @param {ve.ui.LinearContext} context Context the item is in
- * @param {ve.dm.Model} model Model the item is related to
+ * @param {ve.dm.MWReferenceNode} model Model the item is related to
  * @param {Object} [config]
  */
 ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {

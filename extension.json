@@ -188,6 +188,7 @@
 					"ve-cite/ve.ce.MWReferencesListNode.test.js",
 					"ve-cite/ve.ui.DiffElement.test.js",
 					"ve-cite/ve.ui.MWCitationDialogTool.test.js",
+					"ve-cite/ve.ui.MWReferenceContextItem.test.js",
 					"ve-cite/ve.ui.MWReferenceEditPanel.test.js",
 					"ve-cite/ve.ui.MWReferenceGroupInputWidget.test.js",
 					"ve-cite/ve.ui.MWReferenceResultWidget.test.js",

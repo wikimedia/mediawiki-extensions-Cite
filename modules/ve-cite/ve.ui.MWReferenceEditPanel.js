@@ -28,22 +28,31 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 
 	// Properties
 	/**
+	 * @private
 	 * @member {ve.dm.MWDocumentReferences|null}
 	 */
 	this.docRefs = null;
 	/**
+	 * @private
 	 * @member {ve.dm.MWReferenceModel|null}
 	 */
 	this.referenceModel = null;
 	/**
+	 * @private
 	 * @member {string|null}
 	 */
 	this.originalGroup = null;
 	/**
+	 * @private
 	 * @member {number}
 	 */
-	this.mainRefCount = 0;
-	this.subRefCount = 0;
+	this.mainReuseCount = 0;
+
+	/**
+	 * @private
+	 * @member {number}
+	 */
+	this.totalReuseCount = 0;
 
 	// Create content editor
 	this.referenceTarget = ve.init.target.createTargetWidget(
@@ -261,6 +270,19 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 		'cite-ve-dialog-reference-editing-add-details' :
 		'cite-ve-dialog-reference-editing-edit-details'
 	) );
+	// Note: listGroup is only available after a (possibly new) ref has been registered via
+	// ve.dm.MWReferenceModel.insertInternalItem
+	const groupRefs = this.docRefs.getGroupRefs( ref.getGroup() );
+	this.totalReuseCount = groupRefs.getTotalUsageCount( ref.getListKey() );
+	if ( ref.isSubRef() ) {
+		const allMainRefs = groupRefs.getRefUsages( ref.mainRefKey );
+		const mainRefReuses = allMainRefs.filter(
+			( node ) => !node.findParent( ve.dm.MWReferencesListNode )
+		);
+		this.mainReuseCount = mainRefReuses.length;
+	} else {
+		this.mainReuseCount = 0;
+	}
 
 	this.setFormFieldsFromRef( ref );
 	this.updateReuseWarningFromRef( ref );
@@ -269,17 +291,17 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	// reset checkbox visibility
 	this.changeAllCheckboxFieldset.toggle( false );
 
-	if ( this.mainRefCount > 1 && this.isInsertingSubRef ) {
+	if ( this.mainReuseCount > 1 && this.isInsertingSubRef ) {
 		this.changeAllCheckboxFieldset.setLabel(
-			ve.msg( 'cite-ve-dialog-reference-convert-all-checkbox-label', this.mainRefCount )
+			ve.msg( 'cite-ve-dialog-reference-convert-all-checkbox-label', this.mainReuseCount )
 		);
 		this.changeAllCheckbox.setSelected( false );
 		this.changeAllCheckboxFieldset.toggle( true );
 	}
 
-	if ( this.subRefCount > 1 && ref.isSubRef() && !this.isInsertingSubRef ) {
+	if ( this.totalReuseCount > 1 && ref.isSubRef() && !this.isInsertingSubRef ) {
 		this.changeAllCheckboxFieldset.setLabel(
-			ve.msg( 'cite-ve-dialog-subreference-change-all-checkbox-label', this.subRefCount )
+			ve.msg( 'cite-ve-dialog-subreference-change-all-checkbox-label', this.totalReuseCount )
 		);
 		this.changeAllCheckbox.setSelected( true );
 		this.changeAllCheckboxFieldset.toggle( true );
@@ -333,14 +355,10 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
  * @param {ve.dm.MWReferenceModel} ref
  */
 ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref ) {
-	// Note: listGroup is only available after a (possibly new) ref has been registered via
-	// ve.dm.MWReferenceModel.insertInternalItem
-	const totalUsageCount = this.docRefs.getGroupRefs( ref.getGroup() )
-		.getTotalUsageCount( ref.getListKey() );
 	this.reuseWarning
 		// Don't show the reuse warning when it's a sub-ref, these currently split on edit
-		.toggle( totalUsageCount > 1 && !ref.mainRefKey )
-		.setLabel( ve.msg( 'cite-ve-dialog-reference-editing-reused-long', totalUsageCount ) );
+		.toggle( this.totalReuseCount > 1 && !ref.mainRefKey )
+		.setLabel( ve.msg( 'cite-ve-dialog-reference-editing-reused-long', this.totalReuseCount ) );
 };
 
 /**

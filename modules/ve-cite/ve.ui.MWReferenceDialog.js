@@ -121,13 +121,6 @@ ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
 	this.editPanel.setReferenceForEditing( newRef );
 	this.editPanel.setReadOnly( this.isReadOnly() );
 
-	const nodeGroup = this.getFragment().getDocument()
-		.getInternalList().getNodeGroup( 'mwReference/' + mainRef.getGroup() );
-	const allMainRefs = nodeGroup.getAllReuses( mainRef.listKey );
-	// filter out main nodes that are list defined because those can not be subrefs
-	const mainRefReuses = allMainRefs.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) );
-	this.editPanel.mainRefCount = mainRefReuses.length;
-
 	this.trackedInputChange = false;
 };
 
@@ -307,10 +300,6 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				ref = MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 				if ( ref.isSubRef() ) {
 					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
-					const nodeGroup = this.getFragment().getDocument()
-						.getInternalList().getNodeGroup( 'mwReference/' + ref.group );
-					const subRefReuses = nodeGroup.getAllReuses( ref.listKey );
-					this.editPanel.subRefCount = subRefReuses.length;
 				}
 				// T367910: Temporarily disable Citoid's replace feature when the ReferenceList
 				// is selected

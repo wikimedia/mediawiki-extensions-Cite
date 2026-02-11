@@ -83,10 +83,7 @@
 			"localBasePath": "modules/parsoid-styles",
 			"remoteExtPath": "Cite/modules/parsoid-styles",
 			"class": "Cite\\ResourceLoader\\CiteCSSFileModule",
-			"styles": "ext.cite.parsoid.styles.less",
-			"skinStyles": {
-				"minerva": "ext.cite.parsoid.styles.minerva.less"
-			}
+			"styles": "ext.cite.parsoid.styles.less"
 		},
 		"ext.cite.ux-enhancements": {
 			"localBasePath": "modules",

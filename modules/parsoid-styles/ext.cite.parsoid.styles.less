@@ -60,6 +60,11 @@ span[ rel~='mw:referencedBy' ] {
 		line-height: 1;
 		vertical-align: super; /* <sup> use in Cite */
 		font-size: smaller; /* <sup> use in Cite */
+
+		// Match sup style in Minerva's skins.minerva.styles/content/text.less
+		.skin-minerva & {
+			font-size: 0.75em;
+		}
 	}
 
 	a::after {

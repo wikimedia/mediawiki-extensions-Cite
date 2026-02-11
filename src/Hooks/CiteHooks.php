@@ -108,6 +108,7 @@ class CiteHooks implements
 							'name' => 'init.js',
 							'main' => true,
 						],
+						've.dm.MWDataTransitionHelper.js',
 						've.dm.MWDocumentReferences.js',
 						've.dm.MWGroupReferences.js',
 						've.dm.MWReferenceModel.js',

@@ -10,6 +10,7 @@
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
 const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 const MWReferenceNode = require( './ve.dm.MWReferenceNode.js' );
+const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
 const Options = require( './ve.ui.MWSubReferenceHelpDialogOptions.js' );
 
 /**
@@ -30,6 +31,8 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	this.detailsView = null;
 	/** @member {ve.dm.MWGroupReferences} */
 	this.groupRefs = null;
+	/** @member {ve.dm.MWDataTransitionHelper} */
+	this.dataTransitionHelper = null;
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceContextItem' );
 
@@ -76,17 +79,21 @@ ve.ui.MWReferenceContextItem.static.commandName = 'reference';
  */
 ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	// Render a placeholder for missing refs.
-	let refNode = this.getReferenceNode();
+	let internalItemNode = this.getReferenceNode();
 	let errorMsgKey = 'cite-ve-referenceslist-missingref';
 
 	// Render main ref if this is a subref, or a placeholder if missing.
 	const mainRefKey = this.model.getAttribute( 'mainRefKey' );
-	if ( mainRefKey && refNode ) {
-		refNode = this.groupRefs.getInternalModelNode( mainRefKey );
+	if ( mainRefKey && internalItemNode ) {
+		internalItemNode = this.dataTransitionHelper.getInternalItemNode(
+			mainRefKey,
+			this.model.getAttribute( 'listGroup' ),
+			this.model.getAttribute( 'mainListIndex' )
+		);
 		errorMsgKey = 'cite-ve-dialog-reference-missing-parent-ref';
 	}
 
-	if ( !refNode ) {
+	if ( !internalItemNode ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
 			// The following messages are used here:
@@ -96,7 +103,7 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	}
 
 	// Render normal ref.
-	this.view = new ve.ui.MWPreviewElement( refNode, { useView: true } );
+	this.view = new ve.ui.MWPreviewElement( internalItemNode, { useView: true } );
 	// The $element property may be rendered into asynchronously, update the
 	// context's size when the rendering is complete if that's the case
 	this.view.once( 'render', this.context.updateDimensions.bind( this.context ) );
@@ -300,7 +307,11 @@ ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
 		return null;
 	}
 	if ( !this.referenceNode ) {
-		this.referenceNode = this.groupRefs.getInternalModelNode( this.model.getAttribute( 'listKey' ) );
+		this.referenceNode = this.dataTransitionHelper.getInternalItemNode(
+			this.model.getAttribute( 'listKey' ),
+			this.model.getAttribute( 'listGroup' ),
+			this.model.getAttribute( 'listIndex' )
+		);
 	}
 	return this.referenceNode;
 };
@@ -316,8 +327,10 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  * @override
  */
 ve.ui.MWReferenceContextItem.prototype.setup = function () {
-	this.groupRefs = MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() )
+	const doc = this.getFragment().getDocument();
+	this.groupRefs = MWDocumentReferences.static.refsForDoc( doc )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
+	this.dataTransitionHelper = new MWDataTransitionHelper( doc.getInternalList() );
 
 	// Parent method
 	return ve.ui.MWReferenceContextItem.super.prototype.setup.apply( this, arguments );

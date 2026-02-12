@@ -507,7 +507,7 @@ class References {
 	): void {
 		// FIXME: This is only looking for two very specific spots. Should probably loop instead.
 		$parentElement = DOMCompat::getParentElement( $refsNode );
-		$previousSibiling = DOMCompat::getPreviousElementSibling( $parentElement );
+		$previousSibiling = $parentElement ? DOMCompat::getPreviousElementSibling( $parentElement ) : null;
 		$isTemplateWrapper = DOMUtils::hasTypeOf( $refsNode, 'mw:Transclusion' ) ||
 			// recognize cases where the references tag is wrapped in the template
 			( $parentElement && DOMUtils::hasTypeOf( $parentElement, 'mw:Transclusion' ) ) ||

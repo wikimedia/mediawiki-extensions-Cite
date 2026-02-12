@@ -34,6 +34,27 @@
 	}
 
 	/**
+	 * @param {jQuery} $content
+	 * @param {MetricsPlatform.Instrument} instrument
+	 */
+	function addFootnoteTracking( $content, instrument ) {
+		const $footnotes = $content.find( 'sup.reference a' );
+
+		if ( $footnotes.first().data( 'footnote-tracking-attached' ) ) {
+			return;
+		}
+		$footnotes.first().data( 'footnote-tracking-attached', true );
+
+		// Add click handlers
+		$footnotes.each( function () {
+			const $anchor = $( this );
+			$anchor.on( 'click', () => {
+				instrument.submitInteraction( 'click-footnote-marker' );
+			} );
+		} );
+	}
+
+	/**
 	 * Adds temporary tracking for user interactions with footnote content T415904
 	 *
 	 * @param {jQuery} $content
@@ -45,6 +66,7 @@
 
 		if ( footNoteInteractionInstrument && footNoteInteractionInstrument.isEnabled() ) {
 			addTocTracking( $content, footNoteInteractionInstrument );
+			addFootnoteTracking( $content, footNoteInteractionInstrument );
 		}
 	}
 

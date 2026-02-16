@@ -619,9 +619,10 @@ class References {
 			unset( $nodeDp->selfClose );
 		} elseif ( $syntheticRefsHtml ) {
 			$dataMw = DOMDataUtils::getDataMw( $refsNode );
-			$dataMw->body = DataMwBody::new( [
-				'html' => "\n" . implode( $syntheticRefsHtml ),
-			] );
+			$dataMw->body = new DataMwBody;
+			$dataMw->body->setHtml( $extApi, $extApi->htmlToDom(
+				"\n" . implode( $syntheticRefsHtml )
+			) );
 		}
 
 		$hasResponsiveWrapper = false;

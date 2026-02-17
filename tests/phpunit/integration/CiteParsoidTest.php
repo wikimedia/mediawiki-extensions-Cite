@@ -269,6 +269,19 @@ EOT;
 		$li = DOMCompat::querySelector( $body, 'li' );
 		$this->assertEquals( '↑ 1 2 3', $li->textContent, $desc );
 
+		// T415220
+		$desc = "should lint parameter in extension tag in embedded doc";
+		$wt = '<references>\n' .
+			'<ref>\n' .
+			'<gallery>{{{1}}}</gallery>\n' .
+			'</ref>\n' .
+			'</references>\n';
+		$result = $this->wtToLint( $wt );
+		$this->assertCount( 1, $result, $desc );
+		$this->assertEquals( 'template-arg-in-extension-tag', $result[0]['type'], $desc );
+		$this->assertEquals( 'gallery', $result[0]['params']['ext-name'], $desc );
+		$this->assertEquals( '{{{1}}}', $result[0]['params']['details'][0], $desc );
+
 		// Should not get into a cycle trying to lint ref in ref
 		$this->wtToLint(
 			"{{#tag:ref|<ref name='y' />|name='x'}}{{#tag:ref|<ref name='x' />|name='y'}}<ref name='x' />"

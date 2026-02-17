@@ -2036,6 +2036,7 @@ Verify invalid use of a numeric character in a ref name and follow
 References: 1a. references tag without any refs should be handled properly
 !! wikitext
 <references />
+!! html/php
 !! html/parsoid
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt2" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"></ol></div>
 !! end
@@ -2044,6 +2045,7 @@ References: 1a. references tag without any refs should be handled properly
 References: 1b. references tag without any refs should be handled properly
 !! wikitext
 <references></references>
+!! html/php
 !! html/parsoid
 <div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt2" data-mw='{"name":"references","attrs":{},"body":{"html":""}}'><ol class="mw-references references"></ol></div>
 !! end
@@ -3809,7 +3811,7 @@ Catch regression when unpacking with trailing content
 !! wikitext
 {{1x|Foo <references/> bar}}
 !! html/parsoid
-<p about="#mwt2" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"Foo &lt;references/> bar"}},"i":0}}]}'>Foo </p><div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt2" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references" ></ol></div><p about="#mwt2"> bar</p>
+<p about="#mwt2" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"Foo &lt;references/> bar"}},"i":0}}]}'>Foo </p><p about="#mwt2"> bar</p>
 !! end
 
 !! test
@@ -4196,4 +4198,56 @@ List-defined references with default and custom group
 <li id="cite&#95;note-b-3" data-mw-footnote-number="2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-b_3-0" data-mw-group="g" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite&#95;note-b-3" class="mw-reference-text reference-text" data-mw-group="g">Custom group content other</span></li>
 </ol>
 </div>
+!! end
+
+## Note that wt2wt, html2wt, and even selser[5] modes will fail if enabled.
+## In production, this kind of templated references will never show up except
+## as a synthetic test (as here).
+!! test
+T364830: 1. Template-generated reference tags without any <ref> tags should be stripped
+!! options
+parsoid=wt2html
+!! wikitext
+x
+{{1x|<references />}}
+!! html/php
+<p>x
+</p>
+!! html/parsoid
+<p>x</p>
+!! end
+
+## This is more like how this usage will show up in production
+!! test
+T364830: 2. Template-generated reference tags without any <ref> tags should be stripped
+!! wikitext
+x
+
+{{1x|foo<references />}}
+!! html/php
+<p>x
+</p><p>foo
+</p>
+!! html/parsoid
+<p>x</p>
+<p  about="#mwt1" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"foo&lt;references />"}},"i":0}}]}'>foo</p>
+!! end
+
+## Edge case regression test
+!! test
+T364830: 3. Reference tags adjacent to template-generated content shouldn't be stripped
+!! options
+parsoid=wt2html,wt2wt
+!! wikitext
+x
+
+{{1x|foo}}<references />
+!! html/php
+<p>x
+</p><p>foo
+</p>
+!! html/parsoid
+<p>x</p>
+<p about="#mwt1" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"foo"}},"i":0}}]}'>foo</p>
+<div about="#mwt2" class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"></ol></div>
 !! end

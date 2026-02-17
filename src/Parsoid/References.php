@@ -678,6 +678,12 @@ class References {
 			}
 		}
 
+		// T364830: Remove any templated refslist with zero refs
+		if ( $refsNode->firstChild === null && WTUtils::fromTemplatedContent( $refsNode ) ) {
+			$nodeToDelete = $hasResponsiveWrapper ? $refsNode->parentNode : $refsNode;
+			$nodeToDelete->parentNode->removeChild( $nodeToDelete );
+		}
+
 		// Remove the group from refsData
 		$refsData->removeRefGroup( $groupName );
 	}

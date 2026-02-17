@@ -6,7 +6,7 @@
 ( function () {
 	/**
 	 * @param {jQuery} $content
-	 * @param {MetricsPlatform.Instrument} instrument
+	 * @param {mw.testKitchen.InstrumentInterface} instrument
 	 */
 	function addTocTracking( $content, instrument ) {
 		// Find the references list inside the page content
@@ -60,11 +60,11 @@
 	 * @param {jQuery} $content
 	 */
 	function addFootnoteContentInstrument( $content ) {
-		/** @type {MetricsPlatform.Instrument|undefined} */
+		/** @type {mw.testKitchen.InstrumentInterface|undefined} */
 		const footNoteInteractionInstrument = mw.testKitchen &&
 		mw.testKitchen.getInstrument( 'cite-footnote-content-interaction' );
 
-		if ( footNoteInteractionInstrument && footNoteInteractionInstrument.isEnabled() ) {
+		if ( footNoteInteractionInstrument && footNoteInteractionInstrument.isInSample() ) {
 			addTocTracking( $content, footNoteInteractionInstrument );
 			addFootnoteTracking( $content, footNoteInteractionInstrument );
 		}

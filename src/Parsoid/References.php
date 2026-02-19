@@ -507,12 +507,12 @@ class References {
 	): void {
 		// FIXME: This is only looking for two very specific spots. Should probably loop instead.
 		$parentElement = DOMCompat::getParentElement( $refsNode );
-		$previousSibiling = $parentElement ? DOMCompat::getPreviousElementSibling( $parentElement ) : null;
+		$previousSibling = $parentElement ? DOMCompat::getPreviousElementSibling( $parentElement ) : null;
 		$isTemplateWrapper = DOMUtils::hasTypeOf( $refsNode, 'mw:Transclusion' ) ||
 			// recognize cases where the references tag is wrapped in the template
 			( $parentElement && DOMUtils::hasTypeOf( $parentElement, 'mw:Transclusion' ) ) ||
 			// In the TemplateStyles case, the ref list is the second element
-			( $previousSibiling && DOMUtils::hasTypeOf( $previousSibiling, 'mw:Transclusion' ) );
+			( $previousSibling && DOMUtils::hasTypeOf( $previousSibling, 'mw:Transclusion' ) );
 		$nodeDp = DOMDataUtils::getDataParsoid( $refsNode );
 		$groupName = $nodeDp->group ?? '';
 		$refGroup = $refsData->lookupRefGroup( $groupName );

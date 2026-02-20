@@ -145,31 +145,39 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
 };
 
 /**
+ * List all reference listKeys in the order they appear in the reflist including
+ * named refs, unnamed refs, and those that don't resolve
+ *
+ * @private
+ * @return {string[]}
+ */
+ve.dm.MWGroupReferences.prototype.getListKeysInReflistOrder = function () {
+	return Object.keys( this.footnoteNumberLookup )
+		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] );
+};
+
+/**
  * List all document references in the order they first appear, ignoring reuses
  * and placeholders.
  *
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getAllRefsInReflistOrder = function () {
-	return Object.keys( this.footnoteNumberLookup )
-		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] )
+	return this.getListKeysInReflistOrder()
 		.map( ( listKey ) => this.nodeGroup.getAllReuses( listKey ) )
 		.filter( ( nodes ) => !!nodes )
 		.map( ( nodes ) => nodes[ 0 ] );
 };
 
 /**
- * List all reference listKeys in the order they appear in the reflist including
+ * List all main reference listKeys in the order they appear in the reflist including
  * named refs, unnamed refs, and those that don't resolve
  *
  * @return {string[]} Reference listKeys
  */
 ve.dm.MWGroupReferences.prototype.getTopLevelKeysInReflistOrder = function () {
-	// FIXME: This should use this.nodeGroup.getKeysInIndexOrder(), but tests fail. Why?
-	return Object.keys( this.footnoteNumberLookup )
-		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] )
-		// TODO: Function could be split here, if a use case is found for a list of
-		// all numbers including subrefs.
+	return this.getListKeysInReflistOrder()
+		// Remove sub-refs
 		.filter( ( listKey ) => this.footnoteNumberLookup[ listKey ][ 1 ] === -1 );
 };
 

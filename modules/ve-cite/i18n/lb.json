@@ -20,7 +20,7 @@
 	"cite-ve-changedesc-reflist-responsive-unset": "D'Lëscht vun de Referenzen gouf esou geännert datt se an enger Spalt gewise gëtt",
 	"cite-ve-dialog-reference-editing-add-details": "Dir setzt Detailer bei dës Referenz derbäi:",
 	"cite-ve-dialog-reference-editing-edit-details": "Dir ännert d'Detailer vun dëser Referenz:",
-	"cite-ve-dialog-reference-editing-reused": "Dës Referenz gëtt {{PLURAL:$1|eemol|$1 Mol}} op dëser Säit benotzt.",
+	"cite-ve-dialog-reference-editing-reused": "Dës Referenz gëtt {{PLURAL:$1|eemol|2=zweemol|$1 Mol}} op dëser Säit benotzt.",
 	"cite-ve-dialog-reference-options-group-label": "Dëse Grupp benotzen",
 	"cite-ve-dialog-reference-options-group-placeholder": "Allgemeng Referenzen",
 	"cite-ve-dialog-reference-options-responsive-label": "Dynamesche Kolonne-Layout benotzen",
@@ -45,6 +45,6 @@
 	"cite-ve-referenceslist-isempty": "Et gëtt keng Referenze mam Grupp \"$1\" op dëser Säit fir an dës Lëscht opzehuelen.",
 	"cite-ve-referenceslist-isempty-default": "Et gëtt keng Referenzen op dëser Säit fir an dës Lëscht opzehuelen.",
 	"cite-ve-referenceslist-missingref": "Dës Referenz ass an enger Schabloun oder engem anere generéierte Block definéiert a kann dowéinst just am Quelltextmodus geännert ginn.",
-	"cite-ve-toolbar-group-label": "+ Referenz",
+	"cite-ve-toolbar-group-label": "Referenz",
 	"cite-ve-othergroup-item": "$1 Referenz"
 }

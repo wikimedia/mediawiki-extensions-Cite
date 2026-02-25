@@ -5,7 +5,7 @@ declare( strict_types = 1 );
 namespace Cite\Tests\Integration;
 
 use Cite\Parsoid\ReferenceListTagHandler;
-use MediaWiki\Config\Config;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Title\TitleValue;
 use Wikimedia\ObjectFactory\ObjectFactory;
@@ -19,7 +19,6 @@ use Wikimedia\Parsoid\Ext\DOMDataUtils;
 use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 use Wikimedia\Parsoid\Mocks\MockDataAccess;
-use Wikimedia\Parsoid\Mocks\MockEnv;
 use Wikimedia\Parsoid\Mocks\MockPageConfig;
 use Wikimedia\Parsoid\Mocks\MockPageContent;
 use Wikimedia\Parsoid\Mocks\MockSiteConfig;
@@ -298,8 +297,7 @@ EOT;
 	 * @covers \Cite\Parsoid\ReferenceListTagHandler::processAttributeEmbeddedDom
 	 */
 	public function testProcessAttributeEmbeddedDom() {
-		$env = new MockEnv( [ 'siteConfig' => $this->getSiteConfig( [] ) ] );
-		$extApi = new ParsoidExtensionAPI( $env );
+		$extApi = $this->createNoOpMock( ParsoidExtensionApi::class );
 		$doc = ContentUtils::createAndLoadDocument( '' );
 		$elt = $doc->createElement( 'a' );
 		$df = $doc->createDocumentFragment();
@@ -310,7 +308,7 @@ EOT;
 			'body' => $body,
 		] ) );
 
-		$refs = new ReferenceListTagHandler( $this->createNoOpMock( Config::class ) );
+		$refs = new ReferenceListTagHandler( new HashConfig() );
 		$refs->processAttributeEmbeddedDom(
 			$extApi,
 			$elt,

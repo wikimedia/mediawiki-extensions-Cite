@@ -1489,3 +1489,300 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Sub-re reuse' ] = {
 	preserveAnnotationDomElements:
 		true
 };
+
+// T395083
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with {{reflist}}' ] = {
+	// Original wikitext:
+	// <ref name="main1" details="p. 123">main plus details (body)</ref>
+	// {{Reflist}}
+	data:
+		[
+			{
+				type: 'paragraph',
+				internal: {
+					whitespace: [
+						undefined,
+						undefined,
+						undefined,
+						'\n'
+					]
+				}
+			},
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {
+							name: 'main1',
+							details: 'p. 123'
+						},
+						body: {
+							id: 'mw-reference-text-cite_note-2'
+						},
+						mainRef: 'main1',
+						mainBody: 'mw-reference-text-cite_note-main1-1'
+					},
+					originalMw: '{"name":"ref","attrs":{"name":"main1","details":"p. 123"},"body":{"id":"mw-reference-text-cite_note-2"},"mainRef":"main1","mainBody":"mw-reference-text-cite_note-main1-1"}',
+					listGroup: 'mwReference/',
+					listKey: 'auto/0',
+					listIndex: 0,
+					refGroup: '',
+					contentsUsed: true,
+					mainRefKey: 'literal/main1',
+					mainListIndex: 1,
+					refListItemId: 'mw-reference-text-cite_note-2'
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			{
+				type: '/paragraph'
+			},
+			{
+				type: 'mwReferencesList',
+				attributes: {
+					mw: {
+						name: 'references',
+						attrs: {
+							group: '',
+							responsive: '1'
+						},
+						body: {
+							html: "\n<sup typeof=\"mw:Extension/ref\" data-mw='{\"name\":\"ref\",\"attrs\":{\"name\":\"main1\",\"group\":\"\"},\"body\":{\"id\":\"mw-reference-text-cite_note-main1-1\"},\"isSyntheticMainRef\":1}' id=\"mwBw\">main plus details (body)</sup>"
+						},
+						parts: [
+							{
+								template: {
+									target: {
+										wt: 'Reflist',
+										href: './Template:Reflist'
+									},
+									params: {},
+									i: 0
+								}
+							}
+						]
+					},
+					originalMw: "{\"name\":\"references\",\"attrs\":{\"group\":\"\",\"responsive\":\"1\"},\"body\":{\"html\":\"\\n<sup typeof=\\\"mw:Extension/ref\\\" data-mw='{\\\"name\\\":\\\"ref\\\",\\\"attrs\\\":{\\\"name\\\":\\\"main1\\\",\\\"group\\\":\\\"\\\"},\\\"body\\\":{\\\"id\\\":\\\"mw-reference-text-cite_note-main1-1\\\"},\\\"isSyntheticMainRef\\\":1}' id=\\\"mwBw\\\">main plus details (body)</sup>\"},\"parts\":[{\"template\":{\"target\":{\"wt\":\"Reflist\",\"href\":\"./Template:Reflist\"},\"params\":{},\"i\":0}}]}",
+					refGroup: '',
+					listGroup: 'mwReference/',
+					isResponsive: true,
+					templateGenerated: true
+				},
+				internal: {
+					whitespace: [
+						'\n'
+					]
+				}
+			},
+			{
+				type: '/mwReferencesList'
+			},
+			{
+				type: 'internalList'
+			},
+			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'p. 123'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'p',
+			'.',
+			' ',
+			'1',
+			'2',
+			'3',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: 'internalItem'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: '/internalList'
+			}
+		],
+	body:
+		"<p id=\"mwAg\"><sup about=\"#mwt1\" class=\"mw-ref reference\" id=\"cite_ref-2\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}\"><a href=\"./Example/CiteDetailsReflist#cite_note-2\" id=\"mwAw\"><span class=\"mw-reflink-text\" id=\"mwBA\"><span class=\"cite-bracket\" id=\"mwBQ\">[</span>1.1<span class=\"cite-bracket\" id=\"mwBg\">]</span></span></a></sup></p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references mw:Transclusion\" about=\"#mwt2\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;main1\\&quot;,\\&quot;group\\&quot;:\\&quot;\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-main1-1\\&quot;},\\&quot;isSyntheticMainRef\\&quot;:1}' id=\\&quot;mwBw\\&quot;&gt;main plus details (body)&lt;/sup&gt;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}\" id=\"mwCA\"><ol class=\"mw-references references\" id=\"mwCQ\"><li about=\"#cite_note-main1-1\" id=\"cite_note-main1-1\" data-mw-footnote-number=\"1\"><span rel=\"mw:referencedBy\" class=\"mw-cite-backlink\" id=\"mwCg\"></span> <span id=\"mw-reference-text-cite_note-main1-1\" class=\"mw-reference-text reference-text\">main plus details (body)</span><ol class=\"mw-subreference-list\" id=\"mwCw\"><li about=\"#cite_note-2\" id=\"cite_note-2\" data-mw-footnote-number=\"1.1\"><span class=\"mw-cite-backlink\" id=\"mwDA\"><a href=\"./Example/CiteDetailsReflist#cite_ref-2\" rel=\"mw:referencedBy\" id=\"mwDQ\"><span class=\"mw-linkback-text\" id=\"mwDg\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-2\" class=\"mw-reference-text reference-text\">p. 123</span></li>\n</ol></li>\n</ol></div>",
+	fromDataBody:
+		"<p><sup typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}\"></sup></p>\n<span typeof=\"mw:Transclusion\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;main1\\&quot;,\\&quot;group\\&quot;:\\&quot;\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-main1-1\\&quot;},\\&quot;isSyntheticMainRef\\&quot;:1}' id=\\&quot;mwBw\\&quot;&gt;main plus details (body)&lt;/sup&gt;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}\"></span>",
+	normalizedBody:
+		"<p id=\"mwAg\"><sup about=\"#mwt1\" class=\"mw-ref reference\" id=\"cite_ref-2\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}\"><a href=\"./Example/CiteDetailsReflist#cite_note-2\" id=\"mwAw\"><span class=\"mw-reflink-text\" id=\"mwBA\"><span class=\"cite-bracket\" id=\"mwBQ\">[</span>1.1<span class=\"cite-bracket\" id=\"mwBg\">]</span></span></a></sup></p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references mw:Transclusion\" about=\"#mwt2\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;main1\\&quot;,\\&quot;group\\&quot;:\\&quot;\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-main1-1\\&quot;},\\&quot;isSyntheticMainRef\\&quot;:1}' id=\\&quot;mwBw\\&quot;&gt;main plus details (body)&lt;/sup&gt;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}\" id=\"mwCA\"><ol class=\"mw-references references\" id=\"mwCQ\"><li about=\"#cite_note-main1-1\" id=\"cite_note-main1-1\" data-mw-footnote-number=\"1\"><span rel=\"mw:referencedBy\" class=\"mw-cite-backlink\" id=\"mwCg\"></span> <span id=\"mw-reference-text-cite_note-main1-1\" class=\"mw-reference-text reference-text\">main plus details (body)</span><ol class=\"mw-subreference-list\" id=\"mwCw\"><li about=\"#cite_note-2\" id=\"cite_note-2\" data-mw-footnote-number=\"1.1\"><span class=\"mw-cite-backlink\" id=\"mwDA\"><a href=\"./Example/CiteDetailsReflist#cite_ref-2\" rel=\"mw:referencedBy\" id=\"mwDQ\"><span class=\"mw-linkback-text\" id=\"mwDg\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-2\" class=\"mw-reference-text reference-text\">p. 123</span></li>\n</ol></li>\n</ol></div>",
+	clipboardBody:
+		"<p><sup typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;,&quot;html&quot;:&quot;p. 123&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}\" class=\"mw-ref reference\"><a><span class=\"mw-reflink-text\"><span class=\"cite-bracket\">[</span>1.1<span class=\"cite-bracket\">]</span></span></a></sup></p>\n<div typeof=\"mw:Extension/references\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;main1\\&quot;,\\&quot;group\\&quot;:\\&quot;\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-main1-1\\&quot;},\\&quot;isSyntheticMainRef\\&quot;:1}' id=\\&quot;mwBw\\&quot;&gt;main plus details (body)&lt;/sup&gt;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}\"><ol class=\"mw-references references\"><li style=\"--footnote-number: &quot;1.&quot;;\" class=\"ve-ce-mwReferencesListNode-missingRef\"><span rel=\"mw:referencedBy\"></span> <span class=\"ve-ce-mwReferencesListNode-muted\">cite-ve-referenceslist-missing-parent</span><ol><li style=\"--footnote-number: &quot;1.1.&quot;;\"><a rel=\"mw:referencedBy\"><span class=\"mw-linkback-text\">↑</span></a> <span class=\"reference-text\"><div class=\"mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output\"><span class=\"ve-ce-branchNode ve-ce-internalItemNode\"><p class=\"ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper\">p. 123</p></span></div></span></li></ol></li></ol></div>",
+	innerWhitespace:
+		[
+			undefined,
+			undefined
+		]
+};
+
+// T395083
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with {{reflist}}, deleted reflist' ] = {
+	data: ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with {{reflist}}' ].data,
+	modify:
+		( model ) => {
+			model.commit( ve.dm.Transaction.static.deserialize( [ 4, [ [ { type: 'mwReferencesList', attributes: { mw: { name: 'references', attrs: { group: '', responsive: '1' }, body: { html: "\n<sup typeof=\"mw:Extension/ref\" data-mw='{\"name\":\"ref\",\"attrs\":{\"name\":\"main1\",\"group\":\"\"},\"body\":{\"id\":\"mw-reference-text-cite_note-main1-1\"},\"isSyntheticMainRef\":1}' id=\"mwBw\">main plus details (body)</sup>" }, parts: [ { template: { target: { wt: 'Reflist', href: './Template:Reflist' }, params: {}, i: 0 } } ] }, originalMw: "{\"name\":\"references\",\"attrs\":{\"group\":\"\",\"responsive\":\"1\"},\"body\":{\"html\":\"\\n<sup typeof=\\\"mw:Extension/ref\\\" data-mw='{\\\"name\\\":\\\"ref\\\",\\\"attrs\\\":{\\\"name\\\":\\\"main1\\\",\\\"group\\\":\\\"\\\"},\\\"body\\\":{\\\"id\\\":\\\"mw-reference-text-cite_note-main1-1\\\"},\\\"isSyntheticMainRef\\\":1}' id=\\\"mwBw\\\">main plus details (body)</sup>\"},\"parts\":[{\"template\":{\"target\":{\"wt\":\"Reflist\",\"href\":\"./Template:Reflist\"},\"params\":{},\"i\":0}}]}", refGroup: '', listGroup: 'mwReference/', isResponsive: true, templateGenerated: true }, originalDomElementsHash: 'he3f14da94e0963ba', internal: { metaItems: [], changesSinceLoad: 0, whitespace: [ '\n' ] } }, { type: '/mwReferencesList' } ], '' ], 14 ] ) );
+		},
+	body:
+		"<p id=\"mwAg\"><sup about=\"#mwt1\" class=\"mw-ref reference\" id=\"cite_ref-2\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}\"><a href=\"./Example/CiteDetailsReflist#cite_note-2\" id=\"mwAw\"><span class=\"mw-reflink-text\" id=\"mwBA\"><span class=\"cite-bracket\" id=\"mwBQ\">[</span>1.1<span class=\"cite-bracket\" id=\"mwBg\">]</span></span></a></sup></p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references mw:Transclusion\" about=\"#mwt2\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;main1\\&quot;,\\&quot;group\\&quot;:\\&quot;\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-main1-1\\&quot;},\\&quot;isSyntheticMainRef\\&quot;:1}' id=\\&quot;mwBw\\&quot;&gt;main plus details (body)&lt;/sup&gt;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}\" id=\"mwCA\"><ol class=\"mw-references references\" id=\"mwCQ\"><li about=\"#cite_note-main1-1\" id=\"cite_note-main1-1\" data-mw-footnote-number=\"1\"><span rel=\"mw:referencedBy\" class=\"mw-cite-backlink\" id=\"mwCg\"></span> <span id=\"mw-reference-text-cite_note-main1-1\" class=\"mw-reference-text reference-text\">main plus details (body)</span><ol class=\"mw-subreference-list\" id=\"mwCw\"><li about=\"#cite_note-2\" id=\"cite_note-2\" data-mw-footnote-number=\"1.1\"><span class=\"mw-cite-backlink\" id=\"mwDA\"><a href=\"./Example/CiteDetailsReflist#cite_ref-2\" rel=\"mw:referencedBy\" id=\"mwDQ\"><span class=\"mw-linkback-text\" id=\"mwDg\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-2\" class=\"mw-reference-text reference-text\">p. 123</span></li>\n</ol></li>\n</ol></div>",
+	fromDataBody:
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}"></sup></p>',
+	normalizedBody:
+		'<p id="mwAg"><sup about="#mwt1" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}"><a href="./Example/CiteDetailsReflist#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup></p>',
+	clipboardBody:
+	'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;,&quot;html&quot;:&quot;p. 123&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup></p>'
+};
+
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with {{reflist}}, disabled synthetic refs' ] = {
+	data:
+		[
+			{
+				type: 'paragraph',
+				internal: {
+					whitespace: [
+						undefined,
+						undefined,
+						undefined,
+						'\n'
+					]
+				}
+			},
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {
+							name: 'main1',
+							details: 'p. 123'
+						},
+						body: {
+							id: 'mw-reference-text-cite_note-2'
+						},
+						mainRef: 'main1',
+						mainBody: 'mw-reference-text-cite_note-main1-1'
+					},
+					originalMw: '{"name":"ref","attrs":{"name":"main1","details":"p. 123"},"body":{"id":"mw-reference-text-cite_note-2"},"mainRef":"main1","mainBody":"mw-reference-text-cite_note-main1-1"}',
+					listGroup: 'mwReference/',
+					listKey: 'auto/0',
+					listIndex: 0,
+					refGroup: '',
+					contentsUsed: true,
+					mainRefKey: 'literal/main1',
+					mainListIndex: 1,
+					refListItemId: 'mw-reference-text-cite_note-2'
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			{
+				type: '/paragraph'
+			},
+			{
+				type: 'mwReferencesList',
+				attributes: {
+					mw: {
+						name: 'references',
+						attrs: {
+							group: '',
+							responsive: '1'
+						},
+						body: {
+							extsrc: ''
+						},
+						parts: [
+							{
+								template: {
+									target: {
+										wt: 'Reflist',
+										href: './Template:Reflist'
+									},
+									params: {},
+									i: 0
+								}
+							}
+						]
+					},
+					originalMw: '{"name":"references","attrs":{"group":"","responsive":"1"},"body":{"extsrc":""},"parts":[{"template":{"target":{"wt":"Reflist","href":"./Template:Reflist"},"params":{},"i":0}}]}',
+					refGroup: '',
+					listGroup: 'mwReference/',
+					isResponsive: true,
+					templateGenerated: true
+				},
+				internal: {
+					whitespace: [
+						'\n'
+					]
+				}
+			},
+			{
+				type: '/mwReferencesList'
+			},
+			{
+				type: 'internalList'
+			},
+			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'p. 123'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'p',
+			'.',
+			' ',
+			'1',
+			'2',
+			'3',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: 'internalItem'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: '/internalList'
+			}
+		],
+	body:
+		'<p id="mwAg"><sup about="#mwt1" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}"><a href="./Example/CiteDetailsReflist#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup></p>\n<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt2" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwBw"><ol class="mw-references references" id="mwCA"><li about="#cite_note-main1-1" id="cite_note-main1-1" data-mw-footnote-number="1"><span rel="mw:referencedBy" class="mw-cite-backlink" id="mwCQ"></span> <span id="mw-reference-text-cite_note-main1-1" class="mw-reference-text reference-text">main plus details (body)</span><ol class="mw-subreference-list" id="mwCg"><li about="#cite_note-2" id="cite_note-2" data-mw-footnote-number="1.1"><span class="mw-cite-backlink" id="mwCw"><a href="./Example/CiteDetailsReflist#cite_ref-2" rel="mw:referencedBy" id="mwDA"><span class="mw-linkback-text" id="mwDQ">↑</span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">p. 123</span></li>\n</ol></li>\n</ol></div>',
+	fromDataBody:
+	'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}"></sup></p>\n<span typeof="mw:Transclusion" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}"></span>',
+	normalizedBody:
+		'<p id="mwAg"><sup about="#mwt1" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}"><a href="./Example/CiteDetailsReflist#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup></p>\n<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt2" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;group&quot;:&quot;&quot;,&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}" id="mwBw"><ol class="mw-references references" id="mwCA"><li about="#cite_note-main1-1" id="cite_note-main1-1" data-mw-footnote-number="1"><span rel="mw:referencedBy" class="mw-cite-backlink" id="mwCQ"></span> <span id="mw-reference-text-cite_note-main1-1" class="mw-reference-text reference-text">main plus details (body)</span><ol class="mw-subreference-list" id="mwCg"><li about="#cite_note-2" id="cite_note-2" data-mw-footnote-number="1.1"><span class="mw-cite-backlink" id="mwCw"><a href="./Example/CiteDetailsReflist#cite_ref-2" rel="mw:referencedBy" id="mwDA"><span class="mw-linkback-text" id="mwDQ">↑</span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">p. 123</span></li>\n</ol></li>\n</ol></div>',
+	clipboardBody:
+	'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;main1&quot;,&quot;details&quot;:&quot;p. 123&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;,&quot;html&quot;:&quot;p. 123&quot;},&quot;mainRef&quot;:&quot;main1&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-main1-1&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{&quot;responsive&quot;:&quot;1&quot;},&quot;body&quot;:{&quot;extsrc&quot;:&quot;&quot;},&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;Reflist&quot;,&quot;href&quot;:&quot;./Template:Reflist&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;" class="ve-ce-mwReferencesListNode-missingRef"><span rel="mw:referencedBy"></span> <span class="ve-ce-mwReferencesListNode-muted">cite-ve-referenceslist-missing-parent</span><ol><li style="--footnote-number: &quot;1.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">p. 123</p></span></div></span></li></ol></li></ol></div>',
+	innerWhitespace:
+		[
+			undefined,
+			undefined
+		]
+};

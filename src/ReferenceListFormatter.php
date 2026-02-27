@@ -122,12 +122,12 @@ class ReferenceListFormatter {
 		}
 
 		// Parameter $4 in the cite_references_link_one and cite_references_link_many messages
-		$extraAttributes = '';
+		$extraAttributes = [];
 		if ( $ref->dir !== null ) {
 			// The following classes are generated here:
 			// * mw-cite-dir-ltr
 			// * mw-cite-dir-rtl
-			$extraAttributes = Html::expandAttributes( [ 'class' => 'mw-cite-dir-' . $ref->dir ] );
+			$extraAttributes['class'] = 'mw-cite-dir-' . $ref->dir;
 		}
 
 		if ( $ref->count === 1 ) {
@@ -137,7 +137,7 @@ class ReferenceListFormatter {
 				$this->anchorFormatter->noteLinkTarget( $ref->name, $ref->globalId ),
 				$backlinkId,
 				$text,
-				$extraAttributes
+				Html::expandAttributes( $extraAttributes )
 			)->plain();
 		}
 
@@ -167,14 +167,24 @@ class ReferenceListFormatter {
 		}
 
 		// The parent of a subref might actually be unused and therefore have zero backlinks
-		$linkTargetId = $ref->count > 0 ?
-			$this->anchorFormatter->noteLinkTarget( $ref->name, $ref->globalId ) : '';
+		if ( $ref->count < 1 ) {
+			return Html::rawElement( 'li',
+				$extraAttributes,
+				Html::element( 'span',
+					[ 'class' => 'mw-cite-backlink' ],
+					$this->messageLocalizer->msg( 'cite_reference_backlink_symbol' )->plain()
+						// FIXME: Remove this space!
+						. ' '
+				) . ' ' . $text
+			);
+		}
+
 		return $this->messageLocalizer->msg(
 			'cite_references_link_many',
-			$linkTargetId,
+			$this->anchorFormatter->noteLinkTarget( $ref->name, $ref->globalId ),
 			$this->listToText( $backlinks ),
 			$text,
-			$extraAttributes
+			Html::expandAttributes( $extraAttributes )
 		)->plain();
 	}
 

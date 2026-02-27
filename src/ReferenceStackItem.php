@@ -42,7 +42,7 @@ class ReferenceStackItem {
 	 * Sequence number per {@link $group}, starting from 1. To be used in the footnote marker,
 	 * e.g. "[1]". Potentially unset when {@link $follow} is used.
 	 */
-	public ?int $numberInGroup;
+	public ?int $numberInGroup = null;
 	/**
 	 * @var ?string The content inside the <ref>…</ref> tag. Null for a
 	 * self-closing <ref /> without content. Also null for <ref></ref> without any

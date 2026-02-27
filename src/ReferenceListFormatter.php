@@ -65,12 +65,9 @@ class ReferenceListFormatter {
 	private function formatRefsList( array $groupRefs ): string {
 		// After sorting the list, we can assume that references are in the same order as their
 		// numbering.  Subreferences will come immediately after their parent.
-		uasort(
-			$groupRefs,
-			static function ( ReferenceStackItem $a, ReferenceStackItem $b ): int {
-				$cmp = ( $a->numberInGroup ?? 0 ) - ( $b->numberInGroup ?? 0 );
-				return $cmp ?: ( $a->subrefIndex ?? 0 ) - ( $b->subrefIndex ?? 0 );
-			}
+		uasort( $groupRefs, static fn ( ReferenceStackItem $a, ReferenceStackItem $b ) =>
+			$a->numberInGroup <=> $b->numberInGroup ?:
+			$a->subrefIndex <=> $b->subrefIndex
 		);
 
 		// Add new lines between the list items (ref entries) to avoid confusing tidy (T15073).

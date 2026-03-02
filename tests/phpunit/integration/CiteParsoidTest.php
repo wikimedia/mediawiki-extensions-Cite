@@ -71,8 +71,10 @@ class CiteParsoidTest extends \MediaWikiIntegrationTestCase {
 		$siteConfig = $this->getSiteConfig( [ 'linting' => true ] );
 		$dataAccess = new MockDataAccess( $siteConfig, [] );
 		$parsoid = new Parsoid( $siteConfig, $dataAccess );
-
-		$content = new MockPageContent( [ 'main' => $wt ] );
+		$content = new MockPageContent(
+			[ 'main' => $wt ],
+			isset( $pageOpts['title'] ) ? TitleValue::tryNew( 0, $pageOpts['title'] ) : null,
+		);
 		$pageConfig = new MockPageConfig( $siteConfig, $pageOpts, $content );
 		$html = $parsoid->wikitext2html( $pageConfig, [ 'wrapSections' => false ] );
 

@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"GrogeXaKaba",
+			"Letra.berdi"
+		]
+	},
+	"cite_error": "Éru di sitason: $1",
+	"cite-tracking-category-cite-error": "Pájinas ku érus di rafirénsa",
+	"cite-tracking-category-cite-error-desc": "Pájinas na es katiguria ta konte érus na utilizason di itikétas di rafirénsa.",
+	"cite-reference-previews-reference": "Rafirénsa",
+	"cite-reference-previews-book": "Rafirénsa di libru",
+	"cite-reference-previews-journal": "Rafirénsa di piriódiku",
+	"cite-reference-previews-news": "Rafirénsa di nóbas",
+	"cite-reference-previews-note": "Ozerbason",
+	"cite-reference-previews-web": "Rafirénsa di internéti",
+	"cite-reference-previews-collapsible-placeholder": "Es rafirénsa ta nklui un figura ki ka ta kebe na privizualizason",
+	"cite_references_link_accessibility_label": "Bai pa riba",
+	"cite_references_link_many_accessibility_label": "Bai ba:",
+	"cite_references_link_accessibility_back_label": "Bolta pa riba",
+	"cite_section_preview_references": "Privizualizason di rafirénsas",
+	"cite_warning_sectionpreview_no_text": "Itikéta <code>&lt;ref&gt</code> ku nómi <code>$1</code> ka podi fasi párti di privizualizason, pabia el sta difinidu fóra di es sekson atual o el ka foi difinidu.",
+	"cite-wikieditor-tool-reference": "Rafirénsa",
+	"cite-wikieditor-help-page-references": "Rafirénsas",
+	"cite-wikieditor-help-content-reference-description": "Rafirénsa",
+	"cite-wikieditor-help-content-named-reference-description": "Rafirénsa numiadu",
+	"cite-wikieditor-help-content-rereference-description": "Uzu disonal di un mésmu rafirénsa",
+	"cite-wikieditor-help-content-showreferences-description": "Mustra rafirénsas",
+	"cite-wikieditor-help-content-reference-example-text1": "Testu di pájina.$1",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 Testu di linki], testu disonal."
+}

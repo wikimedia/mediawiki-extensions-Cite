@@ -35,7 +35,7 @@
 
 	/**
 	 * @param {jQuery} $content
-	 * @param {MetricsPlatform.Instrument} instrument
+	 * @param {mw.testKitchen.Instrument} instrument
 	 */
 	function addFootnoteTracking( $content, instrument ) {
 		const $footnotes = $content.find( 'sup.reference a' );

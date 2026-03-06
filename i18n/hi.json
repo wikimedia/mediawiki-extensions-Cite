@@ -75,5 +75,13 @@
 	"cite-wikieditor-help-content-reference-example-extra-details": "पृष्ठ 76",
 	"communityconfiguration-cite-title": "उद्धरण",
 	"communityconfiguration-cite-description": "संदर्भों का प्रारूप और दिखावट अनुकूलित करें।",
-	"cite-configuration-title": "उद्धरण कॉन्फ़िगरेशन"
+	"cite-configuration-title": "उद्धरण कॉन्फ़िगरेशन",
+	"cite-configuration-info": "ये सेटिंग्स उद्धरण एक्सटेंशन का प्रयोग करने वाले सभी पृष्ठों पर लागू होती हैं। इन सेटिंग्स को केवल प्रबंधक संशोधित कर सकते हैं।",
+	"cite-configuration-backlink-title": "बैकलिंक सेटिंग्स",
+	"cite-configuration-backlink-description": "बैकलिंक्स संदर्भ सूची में दिखाई देती हैं और पृष्ठ में फ़ुटनोट्स की ओर इशारा करती हैं। जब किसी संदर्भ का एकाधिक बार प्रयोग किया जाता है, तब उसके बैकलिंक्स को क्रमांकित कर दिया जाता है। कॉन्फ़िगरेशन में इस उद्देश्य से अनुकूलित वर्णमाला का उपयोग अनुमोदित है।",
+	"cite-configuration-backlink-alpha-suggestion": "उद्धरण एक्सटेंशन ने आपके विकि की भाषा के लिए एक वर्णमाला निर्धारित की है। अगर आप उसका उपयोग करना चाहते हैं तो कृपया अपने बैकलिंक संकेतकों के रूप में निम्नलिखित टेक्स्ट को कॉपी और पेस्ट करें। आप क्रम को सम्पादित या पुनर्व्यवस्थित कर सकते हैं।",
+	"cite-configuration-backlink-marker-label": "बैकलिंक चिह्न समुच्चय",
+	"cite-configuration-backlink-marker-description": "निम्न कैरेक्टर्स का उपयोग आपके विकि पर बैकलिंक्स के लिए किया जाएगा।",
+	"cite-configuration-backlink-marker-help": "हर कैरेक्टर के बीच रिक्त स्थान सहित अपना अनुकूलित कैरेक्टर समुच्चय दर्ज करें। सुनिश्चित करें कि कंटेनर में XX कैरेक्टर्स हैं।",
+	"cite-configuration-submit": "बदलाव सहेजें"
 }

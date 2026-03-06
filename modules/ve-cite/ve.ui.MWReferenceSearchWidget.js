@@ -164,7 +164,8 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 
 		index = index.concat( flatNodes.map( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );
-			const footnoteNumber = groupRefs.getIndexLabel( listKey );
+			const listIndex = node.getAttribute( 'listIndex' );
+			const footnoteNumber = groupRefs.getIndexLabel( listIndex );
 			const footnoteLabel = ( group + ' ' + footnoteNumber ).trim();
 
 			// TODO: Why not use the original name attribute? Is that outdated after an edit?
@@ -173,7 +174,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			let $refContent;
 			// Make visible text, footnoteLabel and reference name searchable
 			let refText = ( '[' + footnoteLabel + '] ' + name ).trim();
-			const itemNode = groupRefs.getInternalModelNode( listKey );
+			const itemNode = groupRefs.getInternalModelNode( listIndex );
 			if ( itemNode.length ) {
 				$refContent = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 				refText += ' ' + $refContent.text();

@@ -246,9 +246,9 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	} else {
 		// Render all at once.
 		this.$reflist.append(
-			groupRefs.getTopLevelKeysInReflistOrder()
-				.map( ( listKey ) => this.renderListItem(
-					groupRefs, refGroup, listKey
+			groupRefs.getTopLevelListIndexesInReflistOrder()
+				.map( ( listIndex ) => this.renderListItem(
+					groupRefs, refGroup, listIndex
 				) )
 		);
 
@@ -265,16 +265,16 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
  * @private
  * @param {ve.dm.MWGroupReferences} groupRefs object holding calculated information about all group refs
  * @param {string} refGroup Reference group
- * @param {string} key top-level reference key, doesn't necessarily exist
+ * @param {number} listIndex Top-level reference listIndex, doesn't necessarily exist
  * @return {jQuery} Rendered list item
  */
-ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refGroup, key ) {
-	const ref = groupRefs.getInternalModelNode( key );
-	const backlinkNodes = groupRefs.getRefUsages( key );
-	const subrefs = groupRefs.getSubrefs( key );
+ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refGroup, listIndex ) {
+	const ref = groupRefs.getInternalModelNode( listIndex );
+	const backlinkNodes = groupRefs.getRefUsages( listIndex );
+	const subrefs = groupRefs.getSubrefs( listIndex );
 
 	const $li = $( '<li>' )
-		.css( '--footnote-number', `"${ groupRefs.getIndexLabel( key ) }."` )
+		.css( '--footnote-number', `"${ groupRefs.getIndexLabel( listIndex ) }."` )
 		.append( this.renderBacklinks( backlinkNodes, refGroup ), ' ' );
 
 	if ( ref && ref.length ) {
@@ -289,7 +289,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 			// TODO: attach to the singleton click handler on the surface
 			$li.on( 'mousedown', ( e ) => {
 				if ( ve.isUnmodifiedLeftClick( e ) ) {
-					const refNode = groupRefs.getRefNode( key );
+					const refNode = groupRefs.getRefNode( listIndex );
 					const editNodeAction = ve.ui.actionFactory.create(
 						'editNode',
 						this.getRoot().getSurface().getSurface()
@@ -312,7 +312,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 		$li.append(
 			$( '<ol>' ).append(
 				subrefs.map( ( subNode ) => this.renderListItem(
-					groupRefs, refGroup, subNode.getAttribute( 'listKey' )
+					groupRefs, refGroup, subNode.getAttribute( 'listIndex' )
 				) )
 			)
 		);

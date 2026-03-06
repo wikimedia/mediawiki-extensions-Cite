@@ -28,42 +28,39 @@ QUnit.test( 'getAllRefsInReflistOrder', function ( assert ) {
 	assert.deepEqual( this.emptyGroupRefs.getAllRefsInReflistOrder(), [] );
 } );
 
-QUnit.test( 'getTopLevelKeysInReflistOrder', function ( assert ) {
+QUnit.test( 'getTopLevelListIndexesInReflistOrder', function ( assert ) {
 	assert.deepEqual(
-		this.plainGroupRefs.getTopLevelKeysInReflistOrder(),
-		[
-			'auto/0',
-			'literal/bar',
-			'literal/:3',
-			'auto/1'
-		]
+		this.plainGroupRefs.getTopLevelListIndexesInReflistOrder(),
+		[ 0, 1, 2, 3 ]
 	);
 	assert.deepEqual(
-		this.fooGroupRefs.getTopLevelKeysInReflistOrder(),
-		[
-			'auto/2'
-		]
+		this.fooGroupRefs.getTopLevelListIndexesInReflistOrder(),
+		[ 4 ]
 	);
-	assert.deepEqual( this.emptyGroupRefs.getTopLevelKeysInReflistOrder(), [] );
+	assert.deepEqual( this.emptyGroupRefs.getTopLevelListIndexesInReflistOrder(), [] );
 } );
 
 QUnit.test( 'getRefNode', function ( assert ) {
-	assert.strictEqual( this.plainGroupRefs.getRefNode( 'auto/0' ).getAttribute( 'listIndex' ), 0 );
-	assert.strictEqual( this.plainGroupRefs.getRefNode( 'doesnotexist' ), undefined );
+	const listIndex = 0;
+	assert.strictEqual( this.plainGroupRefs.getRefNode( listIndex ).getAttribute( 'listIndex' ), 0 );
+	const doesNotExist = -1;
+	assert.strictEqual( this.plainGroupRefs.getRefNode( doesNotExist ), undefined );
 } );
 
 QUnit.test( 'getInternalModelNode', function ( assert ) {
 	// TODO: assert something that makes sense
-	// assert.strictEqual( this.plainGroupRefs.getInternalModelNode( 'auto/0' ), undefined );
-	assert.strictEqual( this.plainGroupRefs.getInternalModelNode( 'doesnotexist' ), undefined );
+	const doesNotExist = -1;
+	assert.strictEqual( this.plainGroupRefs.getInternalModelNode( doesNotExist ), undefined );
 } );
 
 QUnit.test( 'getRefUsages', function ( assert ) {
+	const listIndex = 1;
 	assert.deepEqual(
-		this.plainGroupRefs.getRefUsages( 'literal/bar' ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		this.plainGroupRefs.getRefUsages( listIndex ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
 		[ 1, 1 ]
 	);
-	assert.deepEqual( this.plainGroupRefs.getRefUsages( 'doesnotexist' ), [] );
+	const doesNotExist = -1;
+	assert.deepEqual( this.plainGroupRefs.getRefUsages( doesNotExist ), [] );
 } );
 
 QUnit.test( 'getAllReusesByListIndex', function ( assert ) {
@@ -85,13 +82,13 @@ QUnit.test( 'getListKeyForListIndex', function ( assert ) {
 } );
 
 QUnit.test( 'getTotalUsageCount', function ( assert ) {
-	const mockListKey = 'literal/bar';
+	const listIndex = 1;
 
 	// The total usage count should be the sum of main refs and subrefs
 	assert.strictEqual(
-		this.plainGroupRefs.getTotalUsageCount( mockListKey ),
-		this.plainGroupRefs.getRefUsages( mockListKey ).length +
-			this.plainGroupRefs.getSubrefs( mockListKey ).length
+		this.plainGroupRefs.getTotalUsageCount( listIndex ),
+		this.plainGroupRefs.getRefUsages( listIndex ).length +
+			this.plainGroupRefs.getSubrefs( listIndex ).length
 	);
 } );
 
@@ -105,21 +102,18 @@ QUnit.test( 'sub-references', ( assert ) => {
 	);
 
 	assert.deepEqual(
-		groupRefs.getTopLevelKeysInReflistOrder(),
-		[
-			'literal/ldr',
-			'auto/1',
-			'literal/nonexistent'
-		]
+		groupRefs.getTopLevelListIndexesInReflistOrder(),
+		[ 1, 2, 4 ]
 	);
 
+	const listIndex = 0;
 	assert.deepEqual(
-		groupRefs.getRefUsages( 'auto/0' ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		groupRefs.getRefUsages( listIndex ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
 		[ 0 ]
 	);
 
 	assert.deepEqual(
-		groupRefs.getSubrefs( 'literal/ldr' ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		groupRefs.getSubrefs( 1 ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
 		[ 0 ]
 	);
 } );

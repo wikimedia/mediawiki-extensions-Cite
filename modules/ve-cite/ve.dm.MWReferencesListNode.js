@@ -320,9 +320,9 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, c
 
 	const $wrapper = $( '<ol>', doc );
 	$wrapper.append(
-		groupRefs.getTopLevelKeysInReflistOrder()
-			.map( ( listKey ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-				groupRefs, listKey, doc, converter
+		groupRefs.getTopLevelListIndexesInReflistOrder()
+			.map( ( listIndex ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
+				groupRefs, listIndex, doc, converter
 			) )
 	);
 
@@ -335,24 +335,24 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, c
  * @private
  * @static
  * @param {ve.dm.MWGroupReferences} groupRefs
- * @param {string} listKey
+ * @param {number} listIndex
  * @param {HTMLDocument} doc
  * @param {ve.dm.Converter} converter
  * @return {jQuery} <li> element for the references listitem
  * */
 ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 	groupRefs,
-	listKey,
+	listIndex,
 	doc,
 	converter
 ) {
-	const internalItem = groupRefs.getInternalModelNode( listKey );
-	const subrefs = groupRefs.getSubrefs( listKey );
+	const internalItem = groupRefs.getInternalModelNode( listIndex );
+	const subrefs = groupRefs.getSubrefs( listIndex );
 	const $li = $( '<li>', doc );
 
 	if ( internalItem && internalItem.length ) {
 		// make sure to find the node holding the refListItemId
-		const refListNode = groupRefs.nodeGroup.getAllReuses( listKey )
+		const refListNode = groupRefs.getAllReusesByListIndex( listIndex )
 			.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 		const htmlWrapper = doc.createElement( 'span' );
 		converter.getDomSubtreeFromData(
@@ -375,7 +375,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 		$li.append(
 			$( '<ol>', doc ).append(
 				subrefs.map( ( subNode ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-					groupRefs, subNode.getAttribute( 'listKey' ), doc, converter
+					groupRefs, subNode.getAttribute( 'listIndex' ), doc, converter
 				) )
 			)
 		);

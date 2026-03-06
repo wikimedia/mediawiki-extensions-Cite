@@ -158,8 +158,8 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 		this.testKitchenExperiment.send( 'context-edit-click' );
 	}
 
-	const mainRefKey = this.model.getAttribute( 'mainRefKey' );
-	if ( !mainRefKey ) {
+	const mainListIndex = this.model.getAttribute( 'mainListIndex' );
+	if ( mainListIndex === undefined ) {
 		ve.ui.LinearContextItem.prototype.onEditButtonClick.apply( this );
 		return;
 	}
@@ -167,7 +167,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 	const groupRefs = MWDocumentReferences.static
 		.refsForDoc( this.getFragment().getDocument() )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
-	const mainRefNode = groupRefs.getRefNode( mainRefKey );
+	const mainRefNode = groupRefs.getRefNode( mainListIndex );
 
 	const editNodeAction = ve.ui.actionFactory.create(
 		'editNode',
@@ -191,8 +191,8 @@ ve.ui.MWReferenceContextItem.prototype.onEditSubref = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
-	const listKey = this.model.getAttribute( 'mainRefKey' ) || this.model.getAttribute( 'listKey' );
-	const totalUsageCount = this.groupRefs.getTotalUsageCount( listKey );
+	const listIndex = this.model.getAttribute( 'mainListIndex' ) || this.model.getAttribute( 'listIndex' );
+	const totalUsageCount = this.groupRefs.getTotalUsageCount( listIndex );
 
 	if ( totalUsageCount <= 1 ) {
 		return;
@@ -228,8 +228,8 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 		return;
 	}
 
-	const listKey = this.model.getAttribute( 'listKey' );
-	if ( this.groupRefs.getTotalUsageCount( listKey ) < 2 ) {
+	const listIndex = this.model.getAttribute( 'listIndex' );
+	if ( this.groupRefs.getTotalUsageCount( listIndex ) < 2 ) {
 		return;
 	}
 

@@ -7,13 +7,14 @@ QUnit.test( 'first simple test', ( assert ) => {
 	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc );
 
 	const group = docRefs.getGroupRefs( 'mwReference/' );
-	assert.strictEqual( group.getIndexLabel( 'auto/0' ), '1' );
-	assert.strictEqual( group.getIndexLabel( 'literal/bar' ), '2' );
-	assert.strictEqual( group.getIndexLabel( 'literal/:3' ), '3' );
-	assert.strictEqual( group.getIndexLabel( 'auto/1' ), '4' );
-	assert.strictEqual( docRefs.getGroupRefs( 'mwReference/foo' ).getIndexLabel( 'auto/2' ), '1' );
+	assert.strictEqual( group.getIndexLabel( 0 ), '1' );
+	assert.strictEqual( group.getIndexLabel( 1 ), '2' );
+	assert.strictEqual( group.getIndexLabel( 2 ), '3' );
+	assert.strictEqual( group.getIndexLabel( 3 ), '4' );
+	assert.strictEqual( docRefs.getGroupRefs( 'mwReference/foo' ).getIndexLabel( 4 ), '1' );
 
-	assert.strictEqual( group.getIndexLabel( 'doesNotExist' ), '…' );
+	const doesNotExist = -1;
+	assert.strictEqual( group.getIndexLabel( doesNotExist ), '…' );
 } );
 
 QUnit.test( 'sub-references', ( assert ) => {
@@ -21,8 +22,8 @@ QUnit.test( 'sub-references', ( assert ) => {
 	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc );
 
 	const group = docRefs.getGroupRefs( 'mwReference/' );
-	assert.strictEqual( group.getIndexLabel( 'auto/0' ), '1.1' );
-	assert.strictEqual( group.getIndexLabel( 'auto/1' ), '2' );
-	assert.strictEqual( group.getIndexLabel( 'literal/orphaned' ), '3.1' );
-	assert.strictEqual( group.getIndexLabel( 'literal/ldr' ), '1' );
+	assert.strictEqual( group.getIndexLabel( 0 ), '1.1' );
+	assert.strictEqual( group.getIndexLabel( 2 ), '2' );
+	assert.strictEqual( group.getIndexLabel( 3 ), '3.1' );
+	assert.strictEqual( group.getIndexLabel( 1 ), '1' );
 } );

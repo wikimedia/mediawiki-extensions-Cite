@@ -613,7 +613,7 @@ ve.dm.MWReferenceNode.static.findIndexNumber = function ( dataElement, internalL
 	return ve.getProp( dataElement, 'internal', 'overrideIndex' ) ||
 		MWDocumentReferences.static.refsForDoc( internalList.getDocument() )
 			.getGroupRefs( dataElement.attributes.refGroup )
-			.getIndexLabel( dataElement.attributes.listKey );
+			.getIndexLabel( dataElement.attributes.listIndex );
 };
 
 /**

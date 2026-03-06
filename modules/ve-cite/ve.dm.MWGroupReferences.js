@@ -19,19 +19,19 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 
 	// Properties
 	/**
-	 * Lookup from listKey to a pair of integers which are the [major, minor] footnote numbers
+	 * Lookup from listIndex to a pair of integers which are the [major, minor] footnote numbers
 	 * that will be rendered on the ref in some digit system.  Note that top-level refs always
 	 * have minor number `-1`.
 	 *
-	 * @member {Object.<string, number[]>}
+	 * @member {Object.<number, number[]>}
 	 * @private
 	 */
 	this.footnoteNumberLookup = {};
 
 	/**
-	 * Lookup from a main reference's listKey to the corresponding sub-refs.
+	 * Lookup from a main reference's listIndex to the corresponding sub-refs.
 	 *
-	 * @member {Object.<string, ve.dm.MWReferenceNode[]>}
+	 * @member {Object.<number, ve.dm.MWReferenceNode[]>}
 	 * @private
 	 */
 	this.subRefsByMain = {};
@@ -71,10 +71,11 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) )
 		.forEach( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );
-			const mainRefKey = node.getAttribute( 'mainRefKey' );
-			const groupItemIndex = ( mainRefKey ?
-				result.addSubref( mainRefKey, listKey, node ) :
-				[ result.getOrAllocateTopLevelIndex( listKey ), -1 ]
+			const listIndex = node.getAttribute( 'listIndex' );
+			const mainListIndex = node.getAttribute( 'mainListIndex' );
+			const groupItemIndex = ( mainListIndex !== undefined ?
+				result.addSubref( mainListIndex, listIndex, node ) :
+				[ result.getOrAllocateTopLevelIndex( listIndex ), -1 ]
 			);
 
 			const reuseNodes = nodeGroup.getAllReuses( listKey );
@@ -90,35 +91,35 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 
 /**
  * @private
- * @param {string} listKey Full key for the top-level ref
+ * @param {number} listIndex for the top-level ref
  * @return {number} Allocated topLevelIndex
  */
-ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listKey ) {
-	if ( !( listKey in this.footnoteNumberLookup ) ) {
+ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listIndex ) {
+	if ( !( listIndex in this.footnoteNumberLookup ) ) {
 		const number = this.topLevelCounter++;
-		this.footnoteNumberLookup[ listKey ] = [ number, -1 ];
+		this.footnoteNumberLookup[ listIndex ] = [ number, -1 ];
 	}
-	return this.footnoteNumberLookup[ listKey ][ 0 ];
+	return this.footnoteNumberLookup[ listIndex ][ 0 ];
 };
 
 /**
  * @private
- * @param {string} mainRefKey Full key of the main reference
- * @param {string} subRefKey Full key of the sub-reference
+ * @param {number} mainListIndex listIndex of the main reference
+ * @param {number} subRefListIndex listIndex of the sub-reference
  * @param {ve.dm.MWReferenceNode} subRefNode Sub-reference to add to internal tracking
  * @return {number[]}
  */
-ve.dm.MWGroupReferences.prototype.addSubref = function ( mainRefKey, subRefKey, subRefNode ) {
-	if ( !( mainRefKey in this.subRefsByMain ) ) {
-		this.subRefsByMain[ mainRefKey ] = [];
+ve.dm.MWGroupReferences.prototype.addSubref = function ( mainListIndex, subRefListIndex, subRefNode ) {
+	if ( !( mainListIndex in this.subRefsByMain ) ) {
+		this.subRefsByMain[ mainListIndex ] = [];
 	}
-	this.subRefsByMain[ mainRefKey ].push( subRefNode );
-	const subRefIndex = this.subRefsByMain[ mainRefKey ].length;
+	this.subRefsByMain[ mainListIndex ].push( subRefNode );
+	const subRefIndex = this.subRefsByMain[ mainListIndex ].length;
 
-	const topLevelIndex = this.getOrAllocateTopLevelIndex( mainRefKey );
-	this.footnoteNumberLookup[ subRefKey ] = [ topLevelIndex, subRefIndex ];
+	const topLevelIndex = this.getOrAllocateTopLevelIndex( mainListIndex );
+	this.footnoteNumberLookup[ subRefListIndex ] = [ topLevelIndex, subRefIndex ];
 
-	return this.footnoteNumberLookup[ subRefKey ];
+	return this.footnoteNumberLookup[ subRefListIndex ];
 };
 
 /**
@@ -132,14 +133,15 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
 };
 
 /**
- * List all reference listKeys in the order they appear in the reflist including
+ * List all reference listIndex's in the order they appear in the reflist including
  * named refs, unnamed refs, and those that don't resolve
  *
  * @private
- * @return {string[]}
+ * @return {number[]}
  */
-ve.dm.MWGroupReferences.prototype.getListKeysInReflistOrder = function () {
+ve.dm.MWGroupReferences.prototype.getListIndexesInReflistOrder = function () {
 	return Object.keys( this.footnoteNumberLookup )
+		.map( ( s ) => Number( s ) )
 		.sort( ( a, b ) => (
 			( this.footnoteNumberLookup[ a ][ 0 ] - this.footnoteNumberLookup[ b ][ 0 ] ) ||
 			( this.footnoteNumberLookup[ a ][ 1 ] - this.footnoteNumberLookup[ b ][ 1 ] )
@@ -153,22 +155,21 @@ ve.dm.MWGroupReferences.prototype.getListKeysInReflistOrder = function () {
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getAllRefsInReflistOrder = function () {
-	return this.getListKeysInReflistOrder()
-		.map( ( listKey ) => this.nodeGroup.getAllReuses( listKey ) )
-		.filter( ( nodes ) => !!nodes )
-		.map( ( nodes ) => nodes[ 0 ] );
+	return this.getListIndexesInReflistOrder()
+		.map( ( listIndex ) => this.nodeGroup.firstNodes[ listIndex ] )
+		.filter( ( firstNode ) => !!firstNode );
 };
 
 /**
- * List all main reference listKeys in the order they appear in the reflist including
+ * List all main reference listIndex's in the order they appear in the reflist including
  * named refs, unnamed refs, and those that don't resolve
  *
- * @return {string[]} Reference listKeys
+ * @return {number[]} Reference listIndex's
  */
-ve.dm.MWGroupReferences.prototype.getTopLevelKeysInReflistOrder = function () {
-	return this.getListKeysInReflistOrder()
+ve.dm.MWGroupReferences.prototype.getTopLevelListIndexesInReflistOrder = function () {
+	return this.getListIndexesInReflistOrder()
 		// Remove sub-refs
-		.filter( ( listKey ) => this.footnoteNumberLookup[ listKey ][ 1 ] === -1 );
+		.filter( ( listIndex ) => this.footnoteNumberLookup[ listIndex ][ 1 ] === -1 );
 };
 
 /**
@@ -177,11 +178,11 @@ ve.dm.MWGroupReferences.prototype.getTopLevelKeysInReflistOrder = function () {
  * @see #getInternalModelNode
  *
  * @deprecated use {@link ve.dm.InternalListNodeGroup.getFirstNode} instead
- * @param {string} key in listKey format
+ * @param {number} listIndex
  * @return {ve.dm.MWReferenceNode|undefined}
  */
-ve.dm.MWGroupReferences.prototype.getRefNode = function ( key ) {
-	return this.nodeGroup && this.nodeGroup.getFirstNode( key );
+ve.dm.MWGroupReferences.prototype.getRefNode = function ( listIndex ) {
+	return this.nodeGroup && this.nodeGroup.firstNodes[ listIndex ];
 };
 
 /**
@@ -189,27 +190,27 @@ ve.dm.MWGroupReferences.prototype.getRefNode = function ( key ) {
  *
  * @see #getRefNode
  *
- * @param {string} key in listKey format
+ * @param {number} listIndex
  * @return {ve.dm.InternalItemNode|undefined}
  */
-ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( key ) {
-	const ref = this.getRefNode( key );
+ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( listIndex ) {
+	const ref = this.getRefNode( listIndex );
 	return ref && ref.getInternalItem();
 };
 
 /**
- * Return document nodes for each usage of a ref key.  This excludes usages
+ * Return document nodes for each usage of a ref listIndex.  This excludes usages
  * under the `<references>` section, so note that nested references won't behave
  * as expected.  The reflist item for a ref is not counted as a reference,
  * either.
  *
  * FIXME: Implement backlinks from within a nested ref within the footnote body.
  *
- * @param {string} key in listKey format
+ * @param {number} listIndex
  * @return {ve.dm.MWReferenceNode[]}
  */
-ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
-	return ( this.nodeGroup && this.nodeGroup.getAllReuses( key ) || [] )
+ve.dm.MWGroupReferences.prototype.getRefUsages = function ( listIndex ) {
+	return this.getAllReusesByListIndex( listIndex )
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) &&
 		// FIXME: Couldn't resolve this so far because of a circular dependency!
 				!node.findParent( ve.dm.MWReferencesListNode )
@@ -246,6 +247,10 @@ ve.dm.MWGroupReferences.prototype.getListKeyForListIndex = function ( listIndex 
 	for ( const key of this.nodeGroup.getKeysInIndexOrder() ) {
 		// Note: This works with the guarantee that the first node is actually the first
 		if ( this.nodeGroup.getAllReuses( key )[ 0 ] === firstNode ) {
+			// TODO: Temporary safety-net, either remove or just return the attribute
+			if ( key !== firstNode.getAttribute( 'listKey' ) ) {
+				ve.log( 'Mismatching ' + key + ' vs. ' + firstNode.getAttribute( 'listKey' ) );
+			}
 			return key;
 		}
 	}
@@ -254,26 +259,26 @@ ve.dm.MWGroupReferences.prototype.getListKeyForListIndex = function ( listIndex 
 /**
  * Get the total number of usages for a reference, including sub-references.
  *
- * @param {string} listKey Full key of the reference
+ * @param {number} listIndex
  * @return {number} Total usage count of main refs and subrefs
  */
-ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listKey ) {
-	const mainRefs = this.getRefUsages( listKey );
+ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
+	const mainRefs = this.getRefUsages( listIndex );
 	let usageCount = mainRefs.length;
 
-	this.getSubrefs( listKey ).forEach( ( node ) => {
-		usageCount += this.getRefUsages( node.getAttribute( 'listKey' ) ).length;
+	this.getSubrefs( listIndex ).forEach( ( node ) => {
+		usageCount += this.getRefUsages( node.getAttribute( 'listIndex' ) ).length;
 	} );
 
 	return usageCount;
 };
 
 /**
- * @param {string} mainRefKey
+ * @param {number} mainListIndex
  * @return {ve.dm.MWReferenceNode[]} List of subrefs for this parent not including re-uses
  */
-ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainRefKey ) {
-	return this.subRefsByMain[ mainRefKey ] || [];
+ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainListIndex ) {
+	return this.subRefsByMain[ mainListIndex ] || [];
 };
 
 /**
@@ -281,11 +286,11 @@ ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainRefKey ) {
  * local content language.
  *
  * @deprecated TODO: push to presentation
- * @param {string} listKey full ref key
+ * @param {number} listIndex
  * @return {string} rendered number label
  */
-ve.dm.MWGroupReferences.prototype.getIndexLabel = function ( listKey ) {
-	const num = this.footnoteNumberLookup[ listKey ];
+ve.dm.MWGroupReferences.prototype.getIndexLabel = function ( listIndex ) {
+	const num = this.footnoteNumberLookup[ listIndex ];
 	if ( !num ) {
 		return '…';
 	}

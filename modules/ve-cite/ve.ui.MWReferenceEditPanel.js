@@ -280,9 +280,9 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	// ve.dm.MWReferenceModel.insertInternalItem
 	const groupRefs = this.docRefs.getGroupRefs( ref.getGroup() );
 
-	this.totalReuseCount = groupRefs.getTotalUsageCount( ref.getListKey() );
+	this.totalReuseCount = groupRefs.getTotalUsageCount( ref.getListIndex() );
 	if ( this.subRefMode ) {
-		const allMainRefs = groupRefs.getRefUsages( ref.mainRefKey );
+		const allMainRefs = groupRefs.getRefUsages( ref.mainListIndex );
 		const mainRefReuses = allMainRefs.filter(
 			( node ) => !node.findParent( ve.dm.MWReferencesListNode )
 		);
@@ -355,7 +355,7 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreview = function () {
 		// Note: listGroup is only available after a (possibly new) ref has been registered via
 		// ve.dm.MWReferenceModel.insertInternalItem
 		const mainRefNode = this.docRefs.getGroupRefs( this.referenceModel.getGroup() )
-			.getInternalModelNode( this.referenceModel.mainRefKey );
+			.getInternalModelNode( this.referenceModel.mainListIndex );
 		this.referenceListPreview.$element.empty()
 			.append( mainRefNode ?
 				$( '<div>' )

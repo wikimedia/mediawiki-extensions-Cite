@@ -143,6 +143,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	const mwData = mwDataJSON ? JSON.parse( mwDataJSON ) : {};
 	const mwAttrs = mwData.attrs || {};
 
+	// Load the item's embedded HTML or find it in the reflist.
 	const refListItemId = ve.getProp( mwData, 'body', 'id' );
 	const body = ve.getProp( mwData, 'body', 'html' ) || this.getBodyFromReflist( converter, refListItemId );
 	const refName = ( mwData.mainRef ? null : mwAttrs.name );
@@ -194,12 +195,22 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	};
 
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
+		// Create a main ref internalListItem
 		const mainRefKey = this.makeListKey(
 			converter.internalList,
 			mwData.mainRef
 		);
 		dataElement.attributes.mainRefKey = mainRefKey;
-		const { index: mainListIndex } = converter.internalList.queueItemHtml( listGroup, mainRefKey, '' );
+		let mainHtml;
+		if ( mw.config.get( 'wgCiteRemoveSyntheticRefsUnsafe' ) ) {
+			// If this is a non-synthetic main+details then read its contents from the
+			// list item fragment.  We skip synthetic refs because they may have been
+			// produced by a transclusion.
+			mainHtml = !mwData.isSyntheticMainRef &&
+				mwData.mainBody &&
+				this.getBodyFromReflist( converter, mwData.mainBody );
+		}
+		const { index: mainListIndex } = converter.internalList.queueItemHtml( listGroup, mainRefKey, mainHtml || '' );
 		dataElement.attributes.mainListIndex = mainListIndex;
 	}
 

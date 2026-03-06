@@ -48,8 +48,6 @@
 	"cite_error_empty_references_define": "Error message shown when there is a ref tag inside <code>&lt;references></code>, but it does not have any content, e.g.\n<pre>\n<references>\n<ref name=\"foo\" />\n</references>\n</pre>\nParameters:\n* $1 - The name of the erroneous ref tag (in the above example, “foo”)\n* $2 - Group name the ref tag belongs to",
 	"cite-tracking-category-cite-error": "{{tracking category name}}\nTracking category name.",
 	"cite-tracking-category-cite-error-desc": "Tracking category description.",
-	"cite-tracking-category-cite-diffing-error": "{{tracking category name}}\nTracking category name for pages with reference errors that trigger visual diffs.",
-	"cite-tracking-category-cite-diffing-error-desc": "Tracking category description for pages with reference errors that trigger visual diffs.",
 	"cite-tracking-category-ref-details": "{{tracking category name}}\nThe [[:mw:Special:MyLanguage/Help:Tracking categories|tracking category]] to add to the article if it uses <code>&lt;ref></code> tags with a <code>details</code> attribute.",
 	"cite-tracking-category-ref-details-desc": "Description of the details feature tracking category.",
 	"cite-reference-previews-reference": "Default heading for popups that show previews of references as provided by the Cite extension's <ref> tags (also known as footnotes).\n{{Identical|Reference}}",

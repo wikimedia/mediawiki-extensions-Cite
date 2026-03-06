@@ -315,7 +315,6 @@
 		"Cite\\Tests\\": "tests/phpunit/"
 	},
 	"TrackingCategories": [
-		"cite-tracking-category-cite-diffing-error",
 		"cite-tracking-category-cite-error",
 		"cite-tracking-category-ref-details"
 	],

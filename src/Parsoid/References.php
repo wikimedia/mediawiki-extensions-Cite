@@ -570,8 +570,10 @@ class References {
 				}
 			}
 			foreach ( $refGroup->toArray() as $ref ) {
-				if ( $ref->isSyntheticMainRef ||
-					( array_key_exists( $ref->numberInGroup, $mainRefIndexes ) && $ref->contentId !== null )
+				if ( ( $ref->isSyntheticMainRef ||
+					( array_key_exists( $ref->numberInGroup, $mainRefIndexes ) && $ref->contentId !== null ) ) &&
+					// T415526: gradual migration away from synthetic ref
+					!$this->mainConfig->get( 'CiteRemoveSyntheticRefsUnsafe' )
 				) {
 					$sup = $doc->createElement( 'sup' );
 					DOMUtils::addAttributes( $sup, [

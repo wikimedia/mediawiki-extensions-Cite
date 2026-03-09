@@ -18,19 +18,12 @@ QUnit.test( 'isEmpty', function ( assert ) {
 
 QUnit.test( 'getAllRefsInReflistOrder', function ( assert ) {
 	assert.deepEqual(
-		this.plainGroupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
-		[
-			'auto/0',
-			'literal/bar',
-			'literal/:3',
-			'auto/1'
-		]
+		this.plainGroupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		[ 0, 1, 2, 3 ]
 	);
 	assert.deepEqual(
-		this.fooGroupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
-		[
-			'auto/2'
-		]
+		this.fooGroupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		[ 4 ]
 	);
 	assert.deepEqual( this.emptyGroupRefs.getAllRefsInReflistOrder(), [] );
 } );
@@ -55,7 +48,7 @@ QUnit.test( 'getTopLevelKeysInReflistOrder', function ( assert ) {
 } );
 
 QUnit.test( 'getRefNode', function ( assert ) {
-	assert.strictEqual( this.plainGroupRefs.getRefNode( 'auto/0' ).getAttribute( 'listKey' ), 'auto/0' );
+	assert.strictEqual( this.plainGroupRefs.getRefNode( 'auto/0' ).getAttribute( 'listIndex' ), 0 );
 	assert.strictEqual( this.plainGroupRefs.getRefNode( 'doesnotexist' ), undefined );
 } );
 
@@ -67,11 +60,8 @@ QUnit.test( 'getInternalModelNode', function ( assert ) {
 
 QUnit.test( 'getRefUsages', function ( assert ) {
 	assert.deepEqual(
-		this.plainGroupRefs.getRefUsages( 'literal/bar' ).map( ( node ) => node.getAttribute( 'listKey' ) ),
-		[
-			'literal/bar',
-			'literal/bar'
-		]
+		this.plainGroupRefs.getRefUsages( 'literal/bar' ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		[ 1, 1 ]
 	);
 	assert.deepEqual( this.plainGroupRefs.getRefUsages( 'doesnotexist' ), [] );
 } );
@@ -92,13 +82,8 @@ QUnit.test( 'sub-references', ( assert ) => {
 	const groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( subRefDoc ).getGroupRefs( '' );
 
 	assert.deepEqual(
-		groupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listKey' ) ),
-		[
-			'literal/ldr',
-			'auto/0',
-			'auto/1',
-			'literal/orphaned'
-		]
+		groupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		[ 1, 0, 2, 3 ]
 	);
 
 	assert.deepEqual(
@@ -111,16 +96,12 @@ QUnit.test( 'sub-references', ( assert ) => {
 	);
 
 	assert.deepEqual(
-		groupRefs.getRefUsages( 'auto/0' ).map( ( node ) => node.getAttribute( 'listKey' ) ),
-		[
-			'auto/0'
-		]
+		groupRefs.getRefUsages( 'auto/0' ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		[ 0 ]
 	);
 
 	assert.deepEqual(
-		groupRefs.getSubrefs( 'literal/ldr' ).map( ( node ) => node.getAttribute( 'listKey' ) ),
-		[
-			'auto/0'
-		]
+		groupRefs.getSubrefs( 'literal/ldr' ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
+		[ 0 ]
 	);
 } );

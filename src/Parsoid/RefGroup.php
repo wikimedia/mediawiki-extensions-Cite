@@ -188,12 +188,12 @@ class RefGroup implements Countable {
 		$refsList->appendChild( $ownerDoc->createTextNode( "\n" ) );
 	}
 
-	/** @internal only for {@see ReferencesData} */
+	/** @internal only for {@link ReferencesData} */
 	public function getNextIndex(): int {
 		return $this->nextIndex++;
 	}
 
-	/** @internal only for {@see ReferencesData} */
+	/** @internal only for {@link ReferencesData} */
 	public function getNextSubrefSequence( string $parentName ): int {
 		$this->subRefCountByName[$parentName] ??= 0;
 		return ++$this->subRefCountByName[$parentName];

@@ -212,6 +212,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 /***
  * Prepare mwData for conversion to DOM and check for changes
  *
+ * @private
  * @static
  * @param {Object} data
  * @param {Document} doc
@@ -281,6 +282,7 @@ ve.dm.MWReferencesListNode.static.updatedMwForDom = function ( data, doc, conver
 /***
  * Check the reflist is the last element in the DM
  *
+ * @private
  * @static
  * @param {Array} documentData
  * @param {Object} data
@@ -330,6 +332,7 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, c
 /***
  * Create references list item HTML DOM for Parsoid
  *
+ * @private
  * @static
  * @param {ve.dm.MWGroupReferences} groupRefs
  * @param {string} listKey

@@ -24,6 +24,7 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 	 * have minor number `-1`.
 	 *
 	 * @member {Object.<string, number[]>}
+	 * @private
 	 */
 	this.footnoteNumberLookup = {};
 
@@ -34,6 +35,7 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 	 * FIXME: push labeling to presentation code and drop from here.
 	 *
 	 * @member {Object.<string, string>}
+	 * @private
 	 */
 	this.footnoteLabelLookup = {};
 

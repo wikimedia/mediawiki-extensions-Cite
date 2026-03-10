@@ -265,7 +265,7 @@ ve.dm.MWReferenceModel.prototype.getListKey = function () {
 /**
  * Get the index of reference in the references list.
  *
- * @return {string} Reference's index
+ * @return {number} Reference's index
  */
 ve.dm.MWReferenceModel.prototype.getListIndex = function () {
 	return this.listIndex;

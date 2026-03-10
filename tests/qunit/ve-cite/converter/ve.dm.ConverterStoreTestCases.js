@@ -242,6 +242,7 @@ ve.dm.ConverterStoreTestCases.listDefinedAndDetails = {
 					refGroup: '',
 					contentsUsed: true,
 					mainRefKey: 'literal/book',
+					mainListIndex: 4,
 					refListItemId: 'mw-reference-text-cite_note-5'
 				},
 				originalDomElementsHash: 'hee459d01aef341ad'

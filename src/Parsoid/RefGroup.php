@@ -9,6 +9,7 @@ use Wikimedia\Parsoid\Core\DOMCompat;
 use Wikimedia\Parsoid\Core\Sanitizer;
 use Wikimedia\Parsoid\DOM\Document;
 use Wikimedia\Parsoid\DOM\Element;
+use Wikimedia\Parsoid\DOM\Node;
 use Wikimedia\Parsoid\Ext\DOMDataUtils;
 use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
@@ -127,7 +128,9 @@ class RefGroup implements Countable {
 			DOMCompat::remove( $sup );
 			$extApi->clearContentDOM( $refContentId );
 		} elseif ( $ref->externalFragment ) {
-			DOMUtils::migrateChildren( $ref->externalFragment, $reftextSpan );
+			$externalFragment = $ref->externalFragment;
+			'@phan-var Node $externalFragment'; /** @var Node $externalFragment */
+			DOMUtils::migrateChildren( $externalFragment, $reftextSpan );
 		}
 		$li->appendChild( $reftextSpan );
 

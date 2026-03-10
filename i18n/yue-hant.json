@@ -31,8 +31,6 @@
 	"cite_error_empty_references_define": "喺 <code><references></code> 組 \"$2\" 入面定義、名稱為 \"$1\" 嘅 <code><ref></code> 標籤無內容。",
 	"cite-tracking-category-cite-error": "有參考錯誤嘅版",
 	"cite-tracking-category-cite-error-desc": "呢個分類入面嘅頁面有引用標籤使用錯誤。",
-	"cite-tracking-category-cite-diffing-error": "引用錯誤會觸發視覺差異嘅頁面",
-	"cite-tracking-category-cite-diffing-error-desc": "呢個分類入面嘅頁面有引用標籤使用錯誤，而且呢啲錯誤喺舊版解析器同 Parsoid 入面渲染方式唔同。",
 	"cite-tracking-category-ref-details": "使用子引用嘅版",
 	"cite-tracking-category-ref-details-desc": "呢個分類入面嘅版使用咗 <ref> 標籤嘅 \"details\" 屬性。",
 	"cite-reference-previews-reference": "引用",

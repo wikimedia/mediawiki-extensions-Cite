@@ -30,8 +30,6 @@
 	"cite_error_empty_references_define": "El <code>&lt;ref&gt;</code> tag que tiene nombre \"$1\" ya hace defini na grupo \"$2\" para na <code>&lt;references&gt;</code>",
 	"cite-tracking-category-cite-error": "Maga pagina que tiene error na referencia",
 	"cite-tracking-category-cite-error-desc": "Maga pagina na este categoria tiene maga error na usada del tags de referencia.",
-	"cite-tracking-category-cite-diffing-error": "Maga pagina tiene error na referencia que ta man trigger visual diffs",
-	"cite-tracking-category-cite-diffing-error-desc": "Maga pagina na este categoria ta tiene mags error na usada del maga tags de referencia, y estos maga error hende rendered na iguales manera na legacy parser y na Parsoid.",
 	"cite-tracking-category-ref-details": "Maga pagina que ta usa sub-references",
 	"cite-tracking-category-ref-details-desc": "Maga pagina na este categoria ta usa con el atributo de \"detalles\" del &lt;ref> tag.",
 	"cite-reference-previews-reference": "Referencia",

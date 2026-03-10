@@ -8,8 +8,6 @@
 	"cite_error": "Éru di sitason: $1",
 	"cite-tracking-category-cite-error": "Pájinas ku érus di rafirénsa",
 	"cite-tracking-category-cite-error-desc": "Pájinas na es katiguria ta konte érus na utilizason di itikétas di rafirénsa.",
-	"cite-tracking-category-cite-diffing-error": "Pájinas ku érus di rafirénsa ki ta mustra kunparasons vizual",
-	"cite-tracking-category-cite-diffing-error-desc": "Pájinas na es katiguria ta konte érus na utilizason di itikétas di rafirénsa, i es érus ka é mustradu di un mésmu fórma na analizador sintátiku bédju i na Parsoid.",
 	"cite-tracking-category-ref-details": "Pájinas ki ta uza subirafirénsas",
 	"cite-tracking-category-ref-details-desc": "Pájinas di es katiguria ta uza atributu \"ditalis\" di itikéta &lt;ref>.",
 	"cite-reference-previews-reference": "Rafirénsa",
@@ -41,6 +39,6 @@
 	"cite-wikieditor-help-content-reference-example-text3": "Un libru",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Pájina 76",
 	"communityconfiguration-cite-title": "Sita",
-	"communityconfiguration-cite-description": "Kustumiza furmatu i parénsa di rafirénsas.",
+	"communityconfiguration-cite-description": "Kustumiza furmatu i parsénsa di rafirénsas.",
 	"cite-configuration-submit": "Garda alterasons"
 }

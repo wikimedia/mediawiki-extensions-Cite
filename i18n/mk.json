@@ -31,8 +31,6 @@
 	"cite_error_empty_references_define": "Ознаката <code>&lt;ref&gt;</code> со назив „$1“ определена во <code>&lt;references&gt;</code> групата „$2“ нема содржина.",
 	"cite-tracking-category-cite-error": "Страници со грешки во наводите",
 	"cite-tracking-category-cite-error-desc": "Страниците во оваа категориај имаат грешки во употребата на ознаки за наведување.",
-	"cite-tracking-category-cite-diffing-error": "Страници со грешки во наводите кои предизвикуваат нагледни разлики",
-	"cite-tracking-category-cite-diffing-error-desc": "Страниците во оваа категорија имаат грешки во употребата на ознаките за навод, и тие грешки не се испишуваат исто во стариот расчленувач и во Parsoid.",
 	"cite-tracking-category-ref-details": "Страници што користат поднаводи",
 	"cite-tracking-category-ref-details-desc": "Страници во оваа категорија го користат атрибутот „details“ на ознаката &lt;ref>.",
 	"cite-reference-previews-reference": "Навод",

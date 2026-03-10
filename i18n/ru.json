@@ -53,8 +53,6 @@
 	"cite_error_empty_references_define": "Тег <code>&lt;ref&gt;</code> с именем «$1», определённый в <code>&lt;references&gt;</code> в группе «$2», не имеет содержания.",
 	"cite-tracking-category-cite-error": "Страницы с ошибками в примечаниях",
 	"cite-tracking-category-cite-error-desc": "Страницы в данной категории содержат ошибки в использовании тегов примечаний.",
-	"cite-tracking-category-cite-diffing-error": "Страницы с ошибками референсов, вызывающих визуальные различия",
-	"cite-tracking-category-cite-diffing-error-desc": "Страницы в этой категории имеют ошибки использования тегов референса. Эти ошибки отображаются по-разному в устаревшем синтаксическом анализаторе и в Parsoid.",
 	"cite-tracking-category-ref-details": "Страницы, использующие дочерние референсы",
 	"cite-tracking-category-ref-details-desc": "Страницы в этой категории используют атрибут \"details\" тега &lt;ref>.",
 	"cite-reference-previews-reference": "Сноска",

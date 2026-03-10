@@ -37,8 +37,6 @@
 	"cite_error_empty_references_define": "Тег <code>&lt;ref&gt;</code> з назвою «$1», визначений у <code>&lt;references&gt;</code> в групі «$2», нічого не містить.",
 	"cite-tracking-category-cite-error": "Сторінки з помилками посилань",
 	"cite-tracking-category-cite-error-desc": "Сторінок у цій категорії мають помилки у використанні тегів посилань.",
-	"cite-tracking-category-cite-diffing-error": "Сторінки з помилками приміток, які викликають візуальні відмінності",
-	"cite-tracking-category-cite-diffing-error-desc": "Сторінки в цій категорії містять помилки у використанні тегів приміток, і ці помилки показуються по-різному у старому парсері і в Parsoid.",
 	"cite-reference-previews-reference": "Виноска",
 	"cite-reference-previews-book": "Зноска на книгу",
 	"cite-reference-previews-journal": "Виноска на журнал",

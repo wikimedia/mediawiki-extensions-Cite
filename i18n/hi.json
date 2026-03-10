@@ -39,8 +39,6 @@
 	"cite_error_empty_references_define": "\"$2\" समूह में \"$1\" नाम के साथ परिभाषित <code>&lt;ref&gt;</code> टैग में कोई सामग्री नहीं है।",
 	"cite-tracking-category-cite-error": "संदर्भ त्रुटियों वाले पृष्ठ",
 	"cite-tracking-category-cite-error-desc": "इस श्रेणी के पृष्ठों पर संदर्भ टैगों के प्रयोग में त्रुटियाँ हैं।",
-	"cite-tracking-category-cite-diffing-error": "यथादृश्य अंतर ट्रिगर करने वाली संदर्भ त्रुटियों वाले पृष्ठ",
-	"cite-tracking-category-cite-diffing-error-desc": "इस श्रेणी के पृष्ठों पर संदर्भ टैगों के प्रयोगों में त्रुटियाँ हैं, और ये त्रुटियाँ विरासती पार्सर और Parsoid में समान प्रकार से हैंडल नहीं की जाती हैं।",
 	"cite-tracking-category-ref-details": "उपसंदर्भों का प्रयोग करने वाले पृष्ठ",
 	"cite-tracking-category-ref-details-desc": "इस श्रेणी के पृष्ठ &lt;ref> टैग के \"details\" एट्रीब्यूट का प्रयोग करते हैं।",
 	"cite-reference-previews-reference": "संदर्भ",

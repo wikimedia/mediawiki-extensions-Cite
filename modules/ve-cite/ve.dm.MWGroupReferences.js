@@ -229,6 +229,41 @@ ve.dm.MWGroupReferences.prototype.getRefUsages = function ( key ) {
 };
 
 /**
+ * Temporary helper as long as the upstream {@link ve.dm.InternalListNodeGroup} doesn't have a
+ * better method for this.
+ *
+ * @param {number} listIndex
+ * @return {ve.dm.MWReferenceNode[]}
+ */
+ve.dm.MWGroupReferences.prototype.getAllReusesByListIndex = function ( listIndex ) {
+	const key = this.getListKeyForListIndex( listIndex );
+	return key && this.nodeGroup.getAllReuses( key ) || [];
+};
+
+/**
+ * Temporary helper as long as the upstream {@link ve.dm.InternalListNodeGroup} doesn't have a
+ * better method for this.
+ *
+ * @private
+ * @param {number} listIndex
+ * @return {string|undefined}
+ */
+ve.dm.MWGroupReferences.prototype.getListKeyForListIndex = function ( listIndex ) {
+	const firstNode = this.nodeGroup && this.nodeGroup.firstNodes[ listIndex ];
+	if ( !firstNode ) {
+		return undefined;
+	}
+
+	// FIXME: This is an inefficient workaround, replace with a dedicated method
+	for ( const key of this.nodeGroup.getKeysInIndexOrder() ) {
+		// Note: This works with the guarantee that the first node is actually the first
+		if ( this.nodeGroup.getAllReuses( key )[ 0 ] === firstNode ) {
+			return key;
+		}
+	}
+};
+
+/**
  * Get the total number of usages for a reference, including sub-references.
  *
  * @param {string} listKey Full key of the reference

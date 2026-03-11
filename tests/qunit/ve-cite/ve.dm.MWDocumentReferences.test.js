@@ -11,9 +11,11 @@ QUnit.test( 'first simple test', ( assert ) => {
 	assert.strictEqual( docRefs.getIndexLabel( '', 'literal/:3' ), '3' );
 	assert.strictEqual( docRefs.getIndexLabel( '', 'auto/1' ), '4' );
 	assert.strictEqual( docRefs.getIndexLabel( 'foo', 'auto/2' ), '1' );
+
+	assert.strictEqual( docRefs.getIndexLabel( '', 'doesNotExist' ), '…' );
 } );
 
-QUnit.test( 'extends test', ( assert ) => {
+QUnit.test( 'sub-references', ( assert ) => {
 	const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
 	const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc );
 

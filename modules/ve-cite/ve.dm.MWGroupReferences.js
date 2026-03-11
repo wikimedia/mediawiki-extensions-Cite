@@ -29,17 +29,6 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 	this.footnoteNumberLookup = {};
 
 	/**
-	 * Lookup from listKey to a rendered footnote number or subref number like "1.2", in the
-	 * local content language.
-	 *
-	 * FIXME: push labeling to presentation code and drop from here.
-	 *
-	 * @member {Object.<string, string>}
-	 * @private
-	 */
-	this.footnoteLabelLookup = {};
-
-	/**
 	 * Lookup from a main reference's listKey to the corresponding sub-refs.
 	 *
 	 * @member {Object.<string, ve.dm.MWReferenceNode[]>}
@@ -108,7 +97,6 @@ ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listKe
 	if ( !( listKey in this.footnoteNumberLookup ) ) {
 		const number = this.topLevelCounter++;
 		this.footnoteNumberLookup[ listKey ] = [ number, -1 ];
-		this.footnoteLabelLookup[ listKey ] = ve.dm.MWDocumentReferences.static.contentLangDigits( number );
 	}
 	return this.footnoteNumberLookup[ listKey ][ 0 ];
 };
@@ -129,9 +117,6 @@ ve.dm.MWGroupReferences.prototype.addSubref = function ( mainRefKey, subRefKey, 
 
 	const topLevelIndex = this.getOrAllocateTopLevelIndex( mainRefKey );
 	this.footnoteNumberLookup[ subRefKey ] = [ topLevelIndex, subRefIndex ];
-	this.footnoteLabelLookup[ subRefKey ] = ve.dm.MWDocumentReferences.static.contentLangDigits( topLevelIndex ) +
-		// FIXME: RTL, and customization of the separator like with mw:referencedBy
-		'.' + ve.dm.MWDocumentReferences.static.contentLangDigits( subRefIndex );
 
 	return this.footnoteNumberLookup[ subRefKey ];
 };
@@ -292,12 +277,27 @@ ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainRefKey ) {
 };
 
 /**
+ * Lookup from listKey to a rendered footnote number or subref number like "1.2", in the
+ * local content language.
+ *
  * @deprecated TODO: push to presentation
  * @param {string} listKey full ref key
- * @return {string|undefined} rendered number label
+ * @return {string} rendered number label
  */
 ve.dm.MWGroupReferences.prototype.getIndexLabel = function ( listKey ) {
-	return this.footnoteLabelLookup[ listKey ];
+	const num = this.footnoteNumberLookup[ listKey ];
+	if ( !num ) {
+		return '…';
+	}
+
+	let label = ve.dm.MWDocumentReferences.static.contentLangDigits( num[ 0 ] );
+
+	if ( num[ 1 ] !== -1 ) {
+		// FIXME: RTL, and customization of the separator like with mw:referencedBy
+		label += '.' + ve.dm.MWDocumentReferences.static.contentLangDigits( num[ 1 ] );
+	}
+
+	return label;
 };
 
 module.exports = ve.dm.MWGroupReferences;

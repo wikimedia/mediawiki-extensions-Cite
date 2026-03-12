@@ -155,7 +155,10 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
  */
 ve.dm.MWGroupReferences.prototype.getListKeysInReflistOrder = function () {
 	return Object.keys( this.footnoteNumberLookup )
-		.sort( ( aKey, bKey ) => this.footnoteNumberLookup[ aKey ][ 0 ] - this.footnoteNumberLookup[ bKey ][ 0 ] );
+		.sort( ( a, b ) => (
+			( this.footnoteNumberLookup[ a ][ 0 ] - this.footnoteNumberLookup[ b ][ 0 ] ) ||
+			( this.footnoteNumberLookup[ a ][ 1 ] - this.footnoteNumberLookup[ b ][ 1 ] )
+		) );
 };
 
 /**

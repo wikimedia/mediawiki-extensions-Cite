@@ -7,6 +7,7 @@
  * @license MIT
  */
 
+const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
 
 /**
@@ -245,11 +246,11 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		this.$element.append( this.$refmsg );
 	} else {
 		// Render all at once.
+
+		const nodeGroup = model.getDocument().getInternalList().getNodeGroup( 'mwReference/' + refGroup );
 		this.$reflist.append(
-			groupRefs.getTopLevelListIndexesInReflistOrder()
-				.map( ( listIndex ) => this.renderListItem(
-					groupRefs, refGroup, listIndex
-				) )
+			new MWDataTransitionHelper().buildReflistStructure( nodeGroup )
+				.map( ( refInfo ) => this.renderListItem( groupRefs, refGroup, refInfo ) )
 		);
 
 		this.interactive = true;
@@ -265,16 +266,16 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
  * @private
  * @param {ve.dm.MWGroupReferences} groupRefs object holding calculated information about all group refs
  * @param {string} refGroup Reference group
- * @param {number} listIndex Top-level reference listIndex, doesn't necessarily exist
+ * @param {ve.dm.MWDataTransitionHelper.RefInfo} refInfo
  * @return {jQuery} Rendered list item
  */
-ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refGroup, listIndex ) {
-	const internalItem = this.model.getDocument().getInternalList().getItemNode( listIndex );
-	const backlinkNodes = groupRefs.getRefUsages( listIndex );
-	const subrefs = groupRefs.getSubrefs( listIndex );
+ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refGroup, refInfo ) {
+	const internalItem = this.model.getDocument().getInternalList().getItemNode( refInfo.internalListIndex );
+	const backlinkNodes = groupRefs.getRefUsages( refInfo.internalListIndex );
+	const hasSubRefs = refInfo.subrefs && refInfo.subrefs.length;
 
 	const $li = $( '<li>' )
-		.css( '--footnote-number', `"${ groupRefs.getIndexLabel( listIndex ) }."` )
+		.css( '--footnote-number', `"${ refInfo.label }."` )
 		.append( this.renderBacklinks( backlinkNodes, refGroup ), ' ' );
 
 	if ( internalItem && internalItem.getLength() ) {
@@ -289,7 +290,8 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 			// TODO: attach to the singleton click handler on the surface
 			$li.on( 'mousedown', ( e ) => {
 				if ( ve.isUnmodifiedLeftClick( e ) ) {
-					const refNode = groupRefs.getRefNode( listIndex );
+					const refNode = groupRefs.getRefNode( refInfo.internalListIndex );
+					// TODO: use the InternalItemNode once supported by the edit action
 					if ( !refNode ) {
 						return;
 					}
@@ -307,16 +309,16 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 		$li.append(
 			$( '<span>' )
 				.addClass( 've-ce-mwReferencesListNode-muted' )
-				.text( ve.msg( subrefs.length ? 'cite-ve-referenceslist-missing-parent' :
+				.text( ve.msg( hasSubRefs ? 'cite-ve-referenceslist-missing-parent' :
 					'cite-ve-referenceslist-missingref-in-list' ) )
 		).addClass( 've-ce-mwReferencesListNode-missingRef' );
 	}
 
-	if ( subrefs.length ) {
+	if ( hasSubRefs ) {
 		$li.append(
 			$( '<ol>' ).append(
-				subrefs.map( ( subNode ) => this.renderListItem(
-					groupRefs, refGroup, subNode.getAttribute( 'listIndex' )
+				refInfo.subrefs.map( ( subRefInfo ) => this.renderListItem(
+					groupRefs, refGroup, subRefInfo
 				) )
 			)
 		);

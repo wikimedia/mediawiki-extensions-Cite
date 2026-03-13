@@ -16,13 +16,7 @@ let usesCitoid;
 
 describe( 'Visual Editor Cite Integration', () => {
 	before( () => {
-		// Skip tests when VisualEditor is not loaded
-		cy.visit( '/index.php' );
-		helper.waitForMWLoader();
-		cy.window().then( async ( win ) => {
-			cy.skipOn( !win.mw.loader.getModuleNames().includes( 'ext.cite.VisualEditor' ) );
-		} );
-
+		cy.skipOn( !veHelper.hasVisualEditorInstalled() );
 		helper.editPage( title, wikiText );
 	} );
 

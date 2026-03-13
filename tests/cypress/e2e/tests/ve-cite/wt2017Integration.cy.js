@@ -12,14 +12,9 @@ let usesCitoid;
 
 describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 	before( () => {
+		cy.skipOn( !veHelper.hasVisualEditorInstalled() );
+
 		helper.loginAsAdmin();
-
-		// Skip tests when VisualEditor is not loaded
-		helper.waitForMWLoader();
-		cy.window().then( async ( win ) => {
-			cy.skipOn( !win.mw.loader.getModuleNames().includes( 'ext.cite.VisualEditor' ) );
-		} );
-
 		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
 			{
 				name: 'Webseite',

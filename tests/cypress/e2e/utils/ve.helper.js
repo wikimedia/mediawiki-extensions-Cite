@@ -1,5 +1,10 @@
 import * as helpers from './functions.helper.js';
 
+export function hasVisualEditorInstalled() {
+	helpers.visitTitle( 'Special:Version' );
+	return cy.get( 'body' ).then( ( $body ) => $body.find( '#mw-version-ext-editor-VisualEditor' ).length > 0 );
+}
+
 export function setVECookiesToDisableDialogs() {
 	cy.window().then( async ( win ) => {
 		win.localStorage.setItem( 've-beta-welcome-dialog', 1 );

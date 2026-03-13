@@ -40,10 +40,12 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 	const subRefsByMain = {};
 	let topLevelCounter = 1;
 
-	const getOrAllocateTopLevelNumber = function ( listIndex ) {
+	const getOrAllocateTopLevelNumber = function ( mainRefKey, listIndex ) {
 		if ( !( listIndex in footnoteNumberLookup ) ) {
 			const number = topLevelCounter++;
 			footnoteNumberLookup[ listIndex ] = {
+				// TODO: Can we eventually phase the string listKey out?
+				internalListKey: mainRefKey,
 				internalListIndex: listIndex,
 				topLevelNumber: number,
 				label: ve.dm.MWDocumentReferences.static.contentLangDigits( number )
@@ -52,14 +54,14 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 		return footnoteNumberLookup[ listIndex ].topLevelNumber;
 	};
 
-	const addSubref = function ( mainListIndex, subRefIndex, subRefNode ) {
+	const addSubref = function ( mainRefKey, mainListIndex, subRefIndex, subRefNode ) {
 		if ( !( mainListIndex in subRefsByMain ) ) {
 			subRefsByMain[ mainListIndex ] = [];
 		}
 		subRefsByMain[ mainListIndex ].push( subRefNode );
 		const subRefPos = subRefsByMain[ mainListIndex ].length;
 
-		const topLevelNumber = getOrAllocateTopLevelNumber( mainListIndex );
+		const topLevelNumber = getOrAllocateTopLevelNumber( mainRefKey, mainListIndex );
 		footnoteNumberLookup[ subRefIndex ] = {
 			internalListIndex: subRefIndex,
 			mainListIndex: mainListIndex,
@@ -76,13 +78,13 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 	nodeGroup.getFirstNodesInIndexOrder()
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) )
 		.forEach( ( node ) => {
-			// debugger;
 			const listIndex = node.getAttribute( 'listIndex' );
+			const mainRefKey = node.getAttribute( 'mainRefKey' ) || node.getAttribute( 'listKey' );
 			const mainListIndex = node.getAttribute( 'mainListIndex' );
 			if ( mainListIndex !== undefined ) {
-				addSubref( mainListIndex, listIndex, node );
+				addSubref( mainRefKey, mainListIndex, listIndex, node );
 			} else {
-				getOrAllocateTopLevelNumber( listIndex );
+				getOrAllocateTopLevelNumber( mainRefKey, listIndex );
 			}
 		} );
 

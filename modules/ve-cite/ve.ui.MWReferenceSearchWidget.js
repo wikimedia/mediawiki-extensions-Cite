@@ -146,26 +146,25 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			continue;
 		}
 
-		const groupRefs = this.docRefs.getGroupRefs( listGroup );
-		const flatNodes = groupRefs.getAllRefsInReflistOrder();
+		const nodeGroup = this.internalList.getNodeGroup( listGroup );
+		const reflistStructure = Object.values( new ve.dm.MWDataTransitionHelper().buildReflistNumbering( nodeGroup ) )
+			.sort( ve.dm.MWGroupReferences.static.compareAsRefInfos );
 
 		// TODO: Why not use the original group attribute? Is that outdated after an edit?
 		// remove `mwReference/` prefix
 		const group = listGroup.slice( 12 );
 
-		index = index.concat( flatNodes.map( ( node ) => {
-			const listKey = node.getAttribute( 'listKey' );
-			const listIndex = node.getAttribute( 'listIndex' );
-			const footnoteNumber = groupRefs.getIndexLabel( listIndex );
-			const footnoteLabel = ( group + ' ' + footnoteNumber ).trim();
+		index = index.concat( reflistStructure.map( ( refInfo ) => {
+			const footnoteLabel = ( group + ' ' + refInfo.label ).trim();
 
 			// TODO: Why not use the original name attribute? Is that outdated after an edit?
-			const name = MWReferenceKeyGenerator.extractNameFromListKey( listKey );
+			const name = MWReferenceKeyGenerator.extractNameFromListKey( refInfo.internalListKey );
 
 			let $refContent;
 			// Make visible text, footnoteLabel and reference name searchable
 			let refText = ( '[' + footnoteLabel + '] ' + name ).trim();
-			const itemNode = this.internalList.getItemNode( listIndex );
+
+			const itemNode = this.internalList.getItemNode( refInfo.internalListIndex );
 			if ( itemNode && itemNode.getLength() ) {
 				$refContent = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 				refText += ' ' + $refContent.text();
@@ -179,11 +178,20 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 					.text( ve.msg( 'cite-ve-referenceslist-missingref-in-list' ) );
 			}
 
+			const refNode = nodeGroup.getFirstNodeByListIndex( refInfo.internalListIndex );
+			const reference = refNode ?
+				MWReferenceModel.static.newFromReferenceNode( refNode ) :
+				MWReferenceModel.static.newFromMainNodeAttributes(
+					this.internalList.getDocument(),
+					listGroup,
+					refInfo.internalListKey,
+					refInfo.internalListIndex
+				);
+
 			return {
 				$refContent,
 				searchableText: refText.toLowerCase(),
-				// TODO: return a simple node
-				reference: MWReferenceModel.static.newFromReferenceNode( node ),
+				reference,
 				footnoteLabel,
 				name
 			};

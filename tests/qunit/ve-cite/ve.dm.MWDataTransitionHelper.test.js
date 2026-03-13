@@ -26,11 +26,13 @@
 					topLevelNumber: 1
 				},
 				1: {
+					internalListKey: 'literal/ldr',
 					internalListIndex: 1,
 					label: '1',
 					topLevelNumber: 1
 				},
 				2: {
+					internalListKey: 'auto/1',
 					internalListIndex: 2,
 					label: '2',
 					topLevelNumber: 2
@@ -43,6 +45,7 @@
 					topLevelNumber: 3
 				},
 				4: {
+					internalListKey: 'literal/nonexistent',
 					internalListIndex: 4,
 					label: '3',
 					topLevelNumber: 3
@@ -64,6 +67,7 @@
 		assert.deepEqual( result,
 			[
 				{
+					internalListKey: 'literal/ldr',
 					internalListIndex: 1,
 					label: '1',
 					subrefs: [
@@ -78,12 +82,14 @@
 					topLevelNumber: 1
 				},
 				{
+					internalListKey: 'auto/1',
 					internalListIndex: 2,
 					label: '2',
 					subrefs: [],
 					topLevelNumber: 2
 				},
 				{
+					internalListKey: 'literal/nonexistent',
 					internalListIndex: 4,
 					label: '3',
 					subrefs: [

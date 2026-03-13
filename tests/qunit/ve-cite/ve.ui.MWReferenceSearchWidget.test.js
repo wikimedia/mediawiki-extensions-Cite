@@ -38,7 +38,7 @@
 		widget.setInternalList( subRefDoc.getInternalList() );
 
 		const index = widget.buildSearchIndex();
-		assert.strictEqual( index.length, 4 );
+		assert.strictEqual( index.length, 5 );
 
 		// normal ref
 		assert.strictEqual( index[ 0 ].footnoteLabel, '1' );
@@ -51,6 +51,12 @@
 		assert.strictEqual( index[ 1 ].name, '' );
 		assert.strictEqual( index[ 1 ].searchableText, '[1.1] subref' );
 		assert.strictEqual( index[ 1 ].reference.getListKey(), 'auto/0' );
+
+		// main ref without a MWReferenceNode
+		assert.strictEqual( index[ 3 ].footnoteLabel, '3' );
+		assert.strictEqual( index[ 3 ].name, 'nonexistent' );
+		assert.strictEqual( index[ 3 ].searchableText, '[3] nonexistent main no node' );
+		assert.strictEqual( index[ 3 ].reference.getListKey(), 'literal/nonexistent' );
 	} );
 
 	QUnit.test( 'isIndexEmpty', ( assert ) => {

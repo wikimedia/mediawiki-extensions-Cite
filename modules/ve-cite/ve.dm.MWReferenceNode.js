@@ -256,7 +256,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Set reference content on data-mw
 		if ( isSubRef ||
-			( !this.isMainContentAlreadySet( dataElement, nodeReuses ) && shouldGetMainContent )
+			( !this.shouldAvoidContentOverride( dataElement, nodeReuses ) && shouldGetMainContent )
 		) {
 			// get the current content html of the node
 			const currentHtmlWrapper = doc.createElement( 'div' );
@@ -357,8 +357,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
  * @param {ve.dm.Node[]} nodeReuses
  * @return {boolean}
  * */
-ve.dm.MWReferenceNode.static.isMainContentAlreadySet = function ( dataElement, nodeReuses ) {
-	// Sub-refs can't set body content for other sub-refs so we can bail out early here
+ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement, nodeReuses ) {
+	// Avoiding an override is irrelevant when our node had content before or is a sub-ref
 	if ( !dataElement.attributes.contentsUsed ||
 		this.isSubRef( dataElement.attributes )
 	) {

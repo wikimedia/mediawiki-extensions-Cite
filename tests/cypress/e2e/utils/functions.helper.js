@@ -1,5 +1,3 @@
-import querystring from 'querystring';
-
 export function clickUntilVisible( clickElement, expectedSelector, timeout = 5000 ) {
 	const timeoutTime = Date.now() + timeout;
 
@@ -22,7 +20,8 @@ export function getTestString( prefix = '' ) {
 }
 
 export function visitTitle( title, query = {} ) {
-	cy.visit( `/index.php?title=${ encodeURIComponent( title ) }&${ querystring.stringify( query ) }` );
+	const queryString = new URLSearchParams( query ).toString();
+	cy.visit( `/index.php?title=${ encodeURIComponent( title ) }&${ queryString }` );
 }
 
 export function waitForMWLoader() {

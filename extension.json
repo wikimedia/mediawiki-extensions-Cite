@@ -179,6 +179,7 @@
 					"ve-cite/ve.dm.MWGroupReferences.test.js",
 					"ve-cite/ve.dm.InternalList.test.js",
 					"ve-cite/ve.dm.MWReferenceModel.test.js",
+					"ve-cite/ve.dm.MWReferenceKeyGenerator.test.js",
 					"ve-cite/ve.dm.MWReferenceNode.test.js",
 					"ve-cite/ve.dm.MWReferencesListNode.test.js",
 					"ve-cite/ve.dm.Transaction.test.js",

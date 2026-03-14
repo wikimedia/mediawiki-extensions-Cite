@@ -8,6 +8,7 @@
  */
 
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWReferenceKeyGenerator = require( './ve.dm.MWReferenceKeyGenerator.js' );
 
 /**
  * DataModel MediaWiki reference node.
@@ -52,29 +53,6 @@ ve.dm.MWReferenceNode.static.allowedRdfaTypes = [ 'dc:references', 'mw:Error' ];
 ve.dm.MWReferenceNode.static.isContent = true;
 
 ve.dm.MWReferenceNode.static.disallowedAnnotationTypes = [ 'link' ];
-
-/**
- * Regular expression for parsing the listKey attribute
- *
- * Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
- *
- * @static
- * @property {RegExp}
- * @inheritable
- */
-ve.dm.MWReferenceNode.static.listKeyRegex = /^(auto|literal)\/([\s\S]*)$/;
-
-/**
- * @private
- * @param {ve.dm.InternalList} internalList
- * @param {string|null} [name]
- * @return {string}
- */
-ve.dm.MWReferenceNode.static.makeListKey = function ( internalList, name ) {
-	return name ?
-		'literal/' + name :
-		'auto/' + internalList.getNextUniqueNumber();
-};
 
 /**
  * @private
@@ -168,7 +146,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		[ listKey, index ] = lookupResult;
 		isNew = false;
 	} else {
-		listKey = this.makeListKey( converter.internalList, refName );
+		listKey = MWReferenceKeyGenerator.makeListKey( converter.internalList, refName );
 		const { index: qIndex, isNew: qNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
 		index = qIndex;
 		isNew = qNew;
@@ -196,7 +174,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
 		// Create a main ref internalListItem
-		const mainRefKey = this.makeListKey(
+		const mainRefKey = MWReferenceKeyGenerator.makeListKey(
 			converter.internalList,
 			mwData.mainRef
 		);
@@ -262,7 +240,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		const nodeReuses = nodeGroup.getAllReuses( attributes.listKey ) || [];
 
 		// Generate and add name to data-mw
-		const name = this.generateName( attributes, internalList, nodeReuses );
+		const isReused = nodeReuses.length > 1 || this.hasSubRefs( attributes, internalList );
+		const name = MWReferenceKeyGenerator.generateName( attributes, internalList, isReused );
 		if ( name !== undefined ) {
 			ve.setProp( mwData, 'attrs', 'name', name );
 		}
@@ -470,37 +449,6 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
 };
 
 /**
- * Generate the name for a given reference
- *
- * @private
- * @static
- * @param {Object} attributes
- * @param {ve.dm.InternalList} internalList
- * @param {ve.dm.Node[]} nodeReuses
- * @return {string|undefined} literal or auto generated name
- */
-ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList, nodeReuses ) {
-	const listKey = attributes.mainRefKey || attributes.listKey;
-	const keyParts = this.listKeyRegex.exec( listKey );
-
-	// use literal name
-	if ( keyParts && keyParts[ 1 ] === 'literal' ) {
-		return keyParts[ 2 ];
-	}
-
-	// use auto generated name
-	if ( this.isSubRef( attributes ) ||
-		nodeReuses.length > 1 ||
-		this.hasSubRefs( attributes, internalList )
-	) {
-		return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(
-			listKey,
-			'literal/:'
-		).slice( 'literal/'.length );
-	}
-};
-
-/**
  * Return a list of nodes sharing the same main content.  This can be sub-refs or main refs.
  * This list includes all nodes in index.  Reuses are expaned in the list according to the
  * first occurence of the first node.  So the list is not in document order.
@@ -589,9 +537,9 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 	dataElement.attributes.listIndex = mapping[ dataElement.attributes.listIndex ];
 
 	// Remap listKey if it was automatically generated
-	const listKeyParts = this.listKeyRegex.exec( dataElement.attributes.listKey );
+	const listKeyParts = MWReferenceKeyGenerator.listKeyRegex.exec( dataElement.attributes.listKey );
 	if ( listKeyParts && listKeyParts[ 1 ] === 'auto' ) {
-		dataElement.attributes.listKey = this.makeListKey( newInternalList );
+		dataElement.attributes.listKey = MWReferenceKeyGenerator.makeListKey( newInternalList );
 	} else {
 		ve.error( 'T420107 ve.dm.MWReferenceNode.remapInternalListIndexes() called with named ref' );
 	}

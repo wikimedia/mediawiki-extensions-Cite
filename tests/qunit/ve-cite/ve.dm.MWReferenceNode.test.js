@@ -2,12 +2,6 @@
 
 QUnit.module( 've.dm.MWReferenceNode (Cite)', ve.test.utils.newMwEnvironment() );
 
-QUnit.test( 'makeListKey', ( assert ) => {
-	const internalList = { getNextUniqueNumber: () => 7 };
-	assert.strictEqual( ve.dm.MWReferenceNode.static.makeListKey( internalList, 'a' ), 'literal/a' );
-	assert.strictEqual( ve.dm.MWReferenceNode.static.makeListKey( internalList ), 'auto/7' );
-} );
-
 QUnit.test( 'isMainContentAlreadySet', ( assert ) => {
 	const dataElement = { attributes: { contentsUsed: true, listGroup: 'same' } };
 	const element = { attributes: { contentsUsed: false } };
@@ -123,35 +117,6 @@ QUnit.test( 'shouldGetMainContent on a sub reference', ( assert ) => {
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 		'If this sub-ref was holding the content before it should always get it'
 	);
-} );
-
-QUnit.test( 'generateName on a normal main reference', ( assert ) => {
-	const attributes = {};
-	const internalList = {
-		getNodeGroup: () => new ve.dm.InternalListNodeGroup()
-	};
-	const nodesWithSameKey = [ 'dummy1' ];
-	assert.strictEqual(
-		ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ),
-		undefined
-	);
-
-	nodesWithSameKey.push( 'dummy2' );
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ), ':0' );
-
-	attributes.listKey = 'literal/foo';
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, nodesWithSameKey ), 'foo' );
-} );
-
-QUnit.test( 'generateName on a sub-reference', ( assert ) => {
-	const attributes = { mainListIndex: 0 };
-	const internalList = {
-		getNodeGroup: () => new ve.dm.InternalListNodeGroup()
-	};
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, [] ), ':0' );
-
-	attributes.mainRefKey = 'literal/foo';
-	assert.strictEqual( ve.dm.MWReferenceNode.static.generateName( attributes, internalList, [] ), 'foo' );
 } );
 
 QUnit.test( 'getSubRefs and getRefsWithSameMain', ( assert ) => {

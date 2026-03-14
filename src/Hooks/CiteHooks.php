@@ -112,6 +112,7 @@ class CiteHooks implements
 						've.dm.MWDocumentReferences.js',
 						've.dm.MWGroupReferences.js',
 						've.dm.MWReferenceModel.js',
+						've.dm.MWReferenceKeyGenerator.js',
 						've.dm.MWReferencesListNode.js',
 						've.dm.MWReferenceNode.js',
 						've.ce.MWReferencesListNode.js',

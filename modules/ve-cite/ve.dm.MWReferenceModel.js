@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+const MWReferenceKeyGenerator = require( './ve.dm.MWReferenceKeyGenerator.js' );
+
 /**
  * Corresponds to one ref and its metadata, chosen for an action.
  *
@@ -165,7 +167,7 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
 
 	// Fill in data
 	this.listGroup = 'mwReference/' + this.group;
-	this.listKey = 'auto/' + internalList.getNextUniqueNumber();
+	this.listKey = MWReferenceKeyGenerator.makeListKey( internalList );
 
 	// Insert internal reference item into document
 	const item = internalList.getItemInsertion( this.listGroup, this.listKey, [] );
@@ -203,7 +205,7 @@ ve.dm.MWReferenceModel.prototype.updateGroup = function ( surfaceModel ) {
 	// Check for name collision when moving items between groups
 	const newNodeGroup = internalList.getNodeGroup( newListGroup );
 	const isUsed = newNodeGroup && newNodeGroup.getFirstNode( this.listKey );
-	const newListKey = isUsed ? 'auto/' + internalList.getNextUniqueNumber() : this.listKey;
+	const newListKey = isUsed ? MWReferenceKeyGenerator.makeListKey( internalList ) : this.listKey;
 
 	// Update the group name of all references nodes with the same group and key
 	const txs = [];

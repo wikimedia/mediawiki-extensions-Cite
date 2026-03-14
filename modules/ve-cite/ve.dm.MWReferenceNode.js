@@ -243,7 +243,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	const domElement = doc.createElement( 'sup' );
 	domElement.setAttribute( 'typeof', 'mw:Extension/ref' );
 
-	const isSubRef = attributes.mainRefKey;
+	const isSubRef = attributes.mainListIndex !== undefined;
 
 	const internalList = converter.internalList;
 	const mwData = attributes.mw ? ve.copy( attributes.mw ) : {};
@@ -418,8 +418,8 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
 		return ve.getProp( attributes, 'contentsUsed' );
 	}
 
-	const mainRefKey = ve.getProp( attributes, 'listKey' );
-	const subRefs = this.getSubRefs( mainRefKey, nodeGroup );
+	const mainListIndex = ve.getProp( attributes, 'listIndex' );
+	const subRefs = this.getSubRefs( mainListIndex, nodeGroup );
 	return subRefs.some(
 		// Is there a sub-ref that already holds the main body?
 		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'mainBody' )
@@ -438,8 +438,9 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
  * */
 ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;
-	const mainContentKey = attributes.mainRefKey || attributes.listKey;
-	const mainReuses = this.getRefsWithSameMain( mainContentKey, nodeGroup );
+	const mainListIndex = attributes.mainListIndex !== undefined ? attributes.mainListIndex :
+		attributes.listIndex;
+	const mainReuses = this.getRefsWithSameMain( mainListIndex, nodeGroup );
 
 	// If the reference already stored the main content before, it should be stored there again
 	if ( attributes.contentsUsed ||
@@ -506,18 +507,19 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
  *
  * @private
  * @static
- * @param {string} mainRefKey
+ * @param {number} mainListIndex
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {ve.dm.Node[]}
  */
-ve.dm.MWReferenceNode.static.getRefsWithSameMain = function ( mainRefKey, nodeGroup ) {
+ve.dm.MWReferenceNode.static.getRefsWithSameMain = function ( mainListIndex, nodeGroup ) {
 	const keys = nodeGroup.getKeysInIndexOrder();
 	const results = [];
 	keys.forEach( ( key ) => {
 		const reuses = nodeGroup.getAllReuses( key ) || [];
-		// Sub-ref reuses share the mainRefKey, that's why stopping after the first match is fine
-		if ( reuses.some( ( node ) => ( node.getAttribute( 'mainRefKey' ) === mainRefKey ) ||
-			node.getAttribute( 'listKey' ) === mainRefKey ) ) {
+		// Sub-ref reuses share the mainListIndex, that's why stopping after the first match is fine
+		if ( reuses.some( ( node ) => ( node.getAttribute( 'mainListIndex' ) === mainListIndex ) ||
+			node.getAttribute( 'listIndex' ) === mainListIndex )
+		) {
 			results.push( ...reuses );
 		}
 	} );
@@ -527,17 +529,17 @@ ve.dm.MWReferenceNode.static.getRefsWithSameMain = function ( mainRefKey, nodeGr
 /**
  * @private
  * @static
- * @param {string} mainRefKey
+ * @param {number} mainListIndex
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {ve.dm.Node[]}
  */
-ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
+ve.dm.MWReferenceNode.static.getSubRefs = function ( mainListIndex, nodeGroup ) {
 	const keys = nodeGroup.getKeysInIndexOrder();
 	const results = [];
 	keys.forEach( ( key ) => {
 		const reuses = nodeGroup.getAllReuses( key ) || [];
-		// Sub-ref reuses share the mainRefKey, that's why stopping after the first match is fine
-		if ( reuses.some( ( node ) => node.getAttribute( 'mainRefKey' ) === mainRefKey ) ) {
+		// Sub-ref reuses share the mainListIndex, that's why stopping after the first match is fine
+		if ( reuses.some( ( node ) => node.getAttribute( 'mainListIndex' ) === mainListIndex ) ) {
 			results.push( ...reuses );
 		}
 	} );
@@ -554,9 +556,9 @@ ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
 ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) {
 	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
 	return attributes.mainListIndex === undefined &&
-		// Sub-ref reuses share the mainRefKey, that's why using only the firstNodes is safe
+		// Sub-ref reuses share the mainListIndex, that's why using only the firstNodes is safe
 		internalList.getNodeGroup( attributes.listGroup ).firstNodes.some(
-			( node ) => node.getAttribute( 'mainRefKey' ) === attributes.listKey
+			( node ) => node.getAttribute( 'mainListIndex' ) === attributes.listIndex
 		);
 };
 

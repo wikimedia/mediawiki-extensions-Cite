@@ -57,6 +57,105 @@
 				],
 				expected: false
 			}
+		],
+		shouldGetMainContent: [
+			{
+				msg: 'If there\'s only this ref with that key it should get the content',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/main' } }
+				],
+				expected: true
+			},
+			{
+				msg: 'If this ref owned the content before it should get it',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } },
+					{ attributes: { listGroup: '', listKey: 'literal/main' } }
+				],
+				expected: true
+			},
+			{
+				msg: 'If there\'s another ref with that key that owned the content this ref should not get it',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } }
+				],
+				expected: false
+			},
+			{
+				msg: 'If there\'s no other ref with that key that owned the content the first node get\'s it',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: false } }
+				],
+				expected: true
+			},
+			{
+				msg: 'Sub-ref: If there\'s a sub-ref with that main key that owned the content this ref should not get it',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main', contentsUsed: true } }
+				],
+				expected: false
+			},
+			{
+				msg: 'Sub-ref: If there\'s only this sub-ref with that main key it should get the content',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } }
+				],
+				expected: true
+			},
+			{
+				msg: 'Sub-ref: If there\'s another main ref with that key that owned the content this ref should not get it',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } }
+				],
+				expected: false
+			},
+			{
+				msg: 'Sub-ref: If there\'s no other ref with that key that owned the content the first node get\'s it',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: false } }
+				],
+				expected: true
+			},
+			{
+				msg: 'Sub-ref: If there\'s another sub-ref with that key that owned the content this ref should not get it',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/subOther', mainRefKey: 'literal/main', contentsUsed: true } }
+				],
+				expected: false
+			},
+			{
+				msg: 'Sub-ref: If this sub-ref was holding the content before it should always get it',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main', contentsUsed: true } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } }
+				],
+				expected: true
+			},
+			{
+				msg: 'Sub-ref: If no other ref his holding the content the frist node get it, also if it\'s a sub-ref',
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				nodesInGroup: [
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/subOther', mainRefKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/main' } }
+				],
+				expected: true
+			}
 		]
 	};
 
@@ -76,48 +175,24 @@
 		} );
 	} );
 
-	QUnit.test( 'shouldGetMainContent on a sub reference', ( assert ) => {
-		const thisSubRefData = {
-			attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' }
-		};
-		const thisSubRef = ve.copy( thisSubRefData );
-
-		const nodeGroup = new ve.dm.InternalListNodeGroup();
-		nodeGroup.appendNode( 'literal/sub', new MWReferenceNode( thisSubRef ) );
-		assert.true(
-			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
-			'If there\'s only this sub-ref with that main key it should get the content'
-		);
-
-		const otherMainRef = {
-			attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true }
-		};
-		nodeGroup.appendNode( 'literal/main', new MWReferenceNode( otherMainRef ) );
-		assert.false(
-			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
-			'If there\'s another main ref with that key that owned the content this ref should not get it'
-		);
-
-		otherMainRef.attributes.contentsUsed = false;
-		assert.true(
-			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
-			'If there\'s no other ref with that key that owned the content the first node get\'s it'
-		);
-
-		const otherSubRef = { attributes: {
-			listGroup: '', listKey: 'literal/subOther', mainRefKey: 'literal/main', contentsUsed: true
-		} };
-		nodeGroup.appendNode( 'literal/subOther', new MWReferenceNode( otherSubRef ) );
-		assert.false(
-			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
-			'If there\'s another sub-ref with that key that owned the content this ref should not get it'
-		);
-
-		thisSubRefData.attributes.contentsUsed = true;
-		assert.true(
-			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
-			'If this sub-ref was holding the content before it should always get it'
-		);
+	QUnit.test( 'shouldGetMainContent', ( assert ) => {
+		fixtures.shouldGetMainContent.forEach( ( caseItem ) => {
+			const nodeGroup = new ve.dm.InternalListNodeGroup();
+			caseItem.nodesInGroup.forEach( ( element ) => {
+				nodeGroup.appendNode(
+					element.attributes.listKey,
+					new ve.dm.MWReferenceNode( element )
+				);
+			} );
+			assert.strictEqual(
+				ve.dm.MWReferenceNode.static.shouldGetMainContent(
+					caseItem.dataElement,
+					nodeGroup
+				),
+				caseItem.expected,
+				caseItem.msg
+			);
+		} );
 	} );
 
 	QUnit.test( 'getSubRefs and getRefsWithSameMain', ( assert ) => {

@@ -576,6 +576,8 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 	const listKeyParts = this.listKeyRegex.exec( dataElement.attributes.listKey );
 	if ( listKeyParts && listKeyParts[ 1 ] === 'auto' ) {
 		dataElement.attributes.listKey = this.makeListKey( newInternalList );
+	} else {
+		ve.error( 'T420107 ve.dm.MWReferenceNode.remapInternalListIndexes() called with named ref' );
 	}
 };
 

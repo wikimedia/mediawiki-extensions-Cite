@@ -118,7 +118,7 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
-	if ( !this.model.getAttribute( 'mainRefKey' ) ) {
+	if ( this.model.getAttribute( 'mainListIndex' ) === undefined ) {
 		return;
 	}
 
@@ -227,7 +227,9 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
-	if ( !mw.config.get( 'wgCiteSubReferencing' ) || this.model.getAttribute( 'mainRefKey' ) ) {
+	if ( !mw.config.get( 'wgCiteSubReferencing' ) ||
+		this.model.getAttribute( 'mainListIndex' ) !== undefined
+	) {
 		return;
 	}
 

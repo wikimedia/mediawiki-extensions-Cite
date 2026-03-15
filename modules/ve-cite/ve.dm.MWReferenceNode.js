@@ -380,7 +380,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
  * */
 ve.dm.MWReferenceNode.static.isMainContentAlreadySet = function ( dataElement, nodeReuses ) {
 	// Sub-refs can't set body content for other sub-refs so we can bail out early here
-	if ( !dataElement.attributes.contentsUsed || dataElement.attributes.mainRefKey ) {
+	if ( !dataElement.attributes.contentsUsed ||
+		dataElement.attributes.mainListIndex !== undefined
+	) {
 		return false;
 	}
 
@@ -458,7 +460,7 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
 		// first that holds it already.
 		!mainReuses.slice( 1 ).some(
 			( node ) => {
-				if ( node.getAttribute( 'mainRefKey' ) ) {
+				if ( node.getAttribute( 'mainListIndex' ) !== undefined ) {
 					return node.getAttribute( 'contentsUsed' );
 				}
 				return this.doesHoldBodyContent( node.getAttributes(), nodeGroup );
@@ -486,7 +488,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
 	}
 
 	// use auto generated name
-	if ( attributes.mainRefKey ||
+	if ( attributes.mainListIndex !== undefined ||
 		nodeReuses.length > 1 ||
 		this.hasSubRefs( attributes, internalList )
 	) {
@@ -551,7 +553,7 @@ ve.dm.MWReferenceNode.static.getSubRefs = function ( mainRefKey, nodeGroup ) {
  */
 ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) {
 	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
-	return !attributes.mainRefKey &&
+	return attributes.mainListIndex === undefined &&
 		// Sub-ref reuses share the mainRefKey, that's why using only the firstNodes is safe
 		internalList.getNodeGroup( attributes.listGroup ).firstNodes.some(
 			( node ) => node.getAttribute( 'mainRefKey' ) === attributes.listKey
@@ -852,7 +854,7 @@ ve.dm.MWReferenceNode.prototype.onRoot = function () {
 ve.dm.MWReferenceNode.prototype.onUnroot = function ( oldRoot ) {
 	if ( this.getDocument().getDocumentNode() === oldRoot ) {
 		// Phabricator T401495
-		if ( this.getAttribute( 'mainRefKey' ) ) {
+		if ( this.getAttribute( 'mainListIndex' ) !== undefined ) {
 			ve.track( 'activity.subReference', { action: 'delete-subref' } );
 		}
 		this.removeFromInternalList();

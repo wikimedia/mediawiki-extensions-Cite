@@ -144,7 +144,7 @@ QUnit.test( 'generateName on a normal main reference', ( assert ) => {
 } );
 
 QUnit.test( 'generateName on a sub-reference', ( assert ) => {
-	const attributes = { mainRefKey: 'x' };
+	const attributes = { mainListIndex: 0 };
 	const internalList = {
 		getNodeGroup: () => new ve.dm.InternalListNodeGroup()
 	};
@@ -205,7 +205,7 @@ QUnit.test( 'hasSubRefs', ( assert ) => {
 	assert.true( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
 	// But when it's a sub-ref it cannot have sub-refs
-	attributes.mainRefKey = 'x';
+	attributes.mainListIndex = 0;
 	assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 } );
 

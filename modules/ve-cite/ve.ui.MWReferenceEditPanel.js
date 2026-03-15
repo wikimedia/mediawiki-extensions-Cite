@@ -357,7 +357,7 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
 ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref ) {
 	this.reuseWarning
 		// Don't show the reuse warning when it's a sub-ref, these currently split on edit
-		.toggle( this.totalReuseCount > 1 && !ref.mainRefKey )
+		.toggle( this.totalReuseCount > 1 && !ref.isSubRef() )
 		.setLabel( ve.msg( 'cite-ve-dialog-reference-editing-reused-long', this.totalReuseCount ) );
 };
 

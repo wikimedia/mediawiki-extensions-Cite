@@ -27,7 +27,7 @@ ve.ui.MWReferenceResultWidget = function VeUiMWReferenceResultWidget( config ) {
 
 	this.$element
 		.addClass( 've-ui-mwReferenceResultWidget' );
-	if ( item.reference.mainRefKey ) {
+	if ( item.reference.isSubRef() ) {
 		this.$element.addClass( 've-ui-mwReferenceResultWidget-sub' );
 	}
 

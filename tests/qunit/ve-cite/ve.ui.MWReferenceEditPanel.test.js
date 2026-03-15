@@ -89,7 +89,7 @@
 		const ref = new ve.dm.MWReferenceModel( doc );
 
 		// does exist in the example document
-		ref.mainRefKey = 'literal/bar';
+		ref.mainListIndex = 0;
 		editPanel.setDocumentReferences( getDocumentReferencesMock( getSimpleNode( doc ) ) );
 		editPanel.setReferenceForEditing( ref );
 

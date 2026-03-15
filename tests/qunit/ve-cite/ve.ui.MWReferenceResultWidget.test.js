@@ -6,7 +6,7 @@
 	const getConfigMock = () => ( {
 		item: {
 			$refContent: '',
-			reference: {},
+			reference: new ve.dm.MWReferenceModel(),
 			footnoteLabel: '',
 			name: ''
 		}

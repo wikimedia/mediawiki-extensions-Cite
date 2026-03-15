@@ -67,11 +67,12 @@
 
 	QUnit.test( 'buildSearchResults', ( assert ) => {
 		const widget = new ve.ui.MWReferenceSearchWidget();
-		widget.index = [ { searchableText: 'a', reference: 'model-a' }, { searchableText: 'b' } ];
+		const reference = new ve.dm.MWReferenceModel();
+		widget.index = [ { searchableText: 'a', reference }, { searchableText: 'b' } ];
 
 		assert.strictEqual( widget.getResults().getItemCount(), 0 );
 		const results = widget.buildSearchResults( 'A' );
 		assert.strictEqual( results.length, 1 );
-		assert.strictEqual( results[ 0 ].getData(), 'model-a' );
+		assert.strictEqual( results[ 0 ].getData(), reference );
 	} );
 }

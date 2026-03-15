@@ -25,7 +25,7 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 
 	// Properties
 	this.mainRefKey = null;
-	this.mainListIndex = null;
+	this.mainListIndex = undefined;
 	this.listGroup = '';
 	this.listKey = '';
 	this.listIndex = null;
@@ -305,7 +305,7 @@ ve.dm.MWReferenceModel.prototype.getDocument = function () {
  * @return {boolean}
  */
 ve.dm.MWReferenceModel.prototype.isSubRef = function () {
-	return !!this.mainRefKey;
+	return this.mainListIndex !== undefined;
 };
 
 /**

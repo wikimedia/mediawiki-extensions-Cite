@@ -153,3 +153,48 @@ QUnit.test( 'updateGroup', ( assert ) => {
 		'Updated list has one ref with a new key in the g1 group'
 	);
 } );
+
+QUnit.test( 'newFromReferenceNode', ( assert ) => {
+	const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+
+	// Normal reference node
+	const normalRefNode = new ve.dm.MWReferenceNode( {
+		type: 'mwReference',
+		attributes: {
+			listGroup: 'mwReference/',
+			listKey: 'literal/main',
+			listIndex: 0,
+			refGroup: ''
+		}
+	} );
+	normalRefNode.setDocument( doc );
+
+	const normalRefModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( normalRefNode );
+	assert.strictEqual( normalRefModel.getListKey(), 'literal/main' );
+	assert.strictEqual( normalRefModel.getGroup(), '' );
+	assert.strictEqual( normalRefModel.getListIndex(), 0 );
+	assert.strictEqual( normalRefModel.mainRefKey, undefined );
+	assert.false( normalRefModel.isSubRef() );
+
+	// Sub-reference node
+	const subRefNode = new ve.dm.MWReferenceNode( {
+		type: 'mwReference',
+		attributes: {
+			listGroup: 'mwReference/',
+			listKey: 'auto/0',
+			listIndex: 5,
+			mainRefKey: 'literal/main',
+			mainListIndex: 0,
+			refGroup: ''
+		}
+	} );
+	subRefNode.setDocument( doc );
+
+	const subRefModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( subRefNode );
+	assert.strictEqual( subRefModel.getListKey(), 'auto/0' );
+	assert.strictEqual( subRefModel.getListIndex(), 5 );
+	assert.strictEqual( subRefModel.getGroup(), '' );
+	assert.strictEqual( subRefModel.mainRefKey, 'literal/main' );
+	assert.strictEqual( subRefModel.mainListIndex, 0 );
+	assert.true( subRefModel.isSubRef() );
+} );

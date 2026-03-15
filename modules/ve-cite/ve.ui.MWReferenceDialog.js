@@ -249,6 +249,10 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 					// Phabricator T396734
 					ve.track( 'activity.subReference', { action: 'dialog-done-edit-details' } );
 				}
+
+				if ( 'mwReference/' + ref.group !== ref.listGroup ) {
+					ref.updateGroup( this.getFragment().getSurface() );
+				}
 				ref.updateInternalItem( this.getFragment().getSurface() );
 			}
 			this.close( { action } );

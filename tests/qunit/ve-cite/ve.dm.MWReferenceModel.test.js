@@ -106,7 +106,7 @@ QUnit.test( 'insert ref reuse', ( assert ) => {
 	);
 } );
 
-QUnit.test( 'update internal item changing the group', ( assert ) => {
+QUnit.test( 'updateGroup', ( assert ) => {
 	const doc = ve.dm.citeExample.createExampleDocument( 'simpleRefsWithGroup' );
 	const surface = new ve.dm.Surface( doc );
 	const internalList = doc.getInternalList();
@@ -129,7 +129,7 @@ QUnit.test( 'update internal item changing the group', ( assert ) => {
 
 	// Change the group model and update the internal item accroding to the changed model
 	refModel.group = 'g1';
-	refModel.updateInternalItem( surface );
+	refModel.updateGroup( surface );
 
 	assert.strictEqual(
 		internalList.getItemNodeCount(),

@@ -145,6 +145,44 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
 };
 
 /**
+ * Change the group of reference.
+ *
+ * @param {ve.dm.Surface} surfaceModel Surface model of main document
+ */
+ve.dm.MWReferenceModel.prototype.updateGroup = function ( surfaceModel ) {
+	const doc = surfaceModel.getDocument();
+	const internalList = doc.getInternalList();
+	const newListGroup = 'mwReference/' + this.group;
+
+	// Get all reference nodes with the same group and key
+	const oldNodeGroup = internalList.getNodeGroup( this.listGroup );
+	const refNodes = oldNodeGroup.getAllReuses( this.listKey );
+
+	// Check for name collision when moving items between groups
+	const newNodeGroup = internalList.getNodeGroup( newListGroup );
+	const isUsed = newNodeGroup || newNodeGroup.getFirstNode( this.listKey );
+	const newListKey = isUsed ? 'auto/' + internalList.getNextUniqueNumber() : this.listKey;
+
+	// Update the group name of all references nodes with the same group and key
+	const txs = [];
+	for ( let i = 0, len = refNodes.length; i < len; i++ ) {
+		txs.push( ve.dm.TransactionBuilder.static.newFromAttributeChanges(
+			doc,
+			refNodes[ i ].getOuterRange().start,
+			{
+				// This is the new group from the form
+				refGroup: this.group,
+				listGroup: newListGroup,
+				listKey: newListKey
+			}
+		) );
+	}
+	surfaceModel.change( txs );
+	this.listGroup = newListGroup;
+	this.listKey = newListKey;
+};
+
+/**
  * Update an internal reference item.
  *
  * An internal item for the reference will be created if no `ref` argument is given.
@@ -154,37 +192,6 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
 ve.dm.MWReferenceModel.prototype.updateInternalItem = function ( surfaceModel ) {
 	const doc = surfaceModel.getDocument();
 	const internalList = doc.getInternalList();
-	const newListGroup = 'mwReference/' + this.group;
-
-	// Group/key has changed
-	if ( this.listGroup !== newListGroup ) {
-		// Get all reference nodes with the same group and key
-		const oldNodeGroup = internalList.getNodeGroup( this.listGroup );
-		const refNodes = oldNodeGroup.getAllReuses( this.listKey );
-
-		// Check for name collision when moving items between groups
-		const newNodeGroup = internalList.getNodeGroup( newListGroup );
-		const isUsed = newNodeGroup || newNodeGroup.getFirstNode( this.listKey );
-		const newListKey = isUsed ? 'auto/' + internalList.getNextUniqueNumber() : this.listKey;
-
-		// Update the group name of all references nodes with the same group and key
-		const txs = [];
-		for ( let i = 0, len = refNodes.length; i < len; i++ ) {
-			txs.push( ve.dm.TransactionBuilder.static.newFromAttributeChanges(
-				doc,
-				refNodes[ i ].getOuterRange().start,
-				{
-					// This is the new group from the form
-					refGroup: this.group,
-					listGroup: newListGroup,
-					listKey: newListKey
-				}
-			) );
-		}
-		surfaceModel.change( txs );
-		this.listGroup = newListGroup;
-		this.listKey = newListKey;
-	}
 
 	// Update internal node content
 	const itemNodeRange = internalList.getItemNode( this.listIndex ).getRange();

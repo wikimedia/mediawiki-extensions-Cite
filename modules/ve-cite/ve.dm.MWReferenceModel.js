@@ -24,14 +24,47 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
+	/** @member {string|null}  */
 	this.mainRefKey = null;
+
+	/** @member {number|undefined}  */
 	this.mainListIndex = undefined;
+
+	/** @member {string}  */
 	this.listGroup = '';
+
+	/** @member {string}  */
 	this.listKey = '';
+
+	/** @member {number|null}  */
 	this.listIndex = null;
+
+	/** @member {string}  */
 	this.group = '';
+
+	/**
+	 * Document with the primary content of the reference
+	 *
+	 * @member {ve.dm.Document|function():ve.dm.Document|null}
+	 */
+	this.doc = null;
+
+	/**
+	 * Document with the main content in case of a sub-reference
+	 *
+	 * @member {ve.dm.Document|function():ve.dm.Document|null}
+	 */
+	this.mainDoc = null;
+
 	if ( parentDoc ) {
 		this.doc = () => parentDoc.cloneWithData( [
+			{ type: 'paragraph', internal: { generated: 'wrapper' } },
+			{ type: '/paragraph' },
+			{ type: 'internalList' },
+			{ type: '/internalList' }
+		] );
+
+		this.mainDoc = () => parentDoc.cloneWithData( [
 			{ type: 'paragraph', internal: { generated: 'wrapper' } },
 			{ type: '/paragraph' },
 			{ type: 'internalList' },
@@ -68,6 +101,12 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 		// cloneFromRange is very expensive, so lazy evaluate it
 		return doc.cloneFromRange( internalList.getItemNode( attributes.listIndex ).getRange() );
 	};
+	if ( ref.isSubRef() ) {
+		ref.mainDoc = function () {
+			// cloneFromRange is very expensive, so lazy evaluate it
+			return doc.cloneFromRange( internalList.getItemNode( attributes.mainListIndex ).getRange() );
+		};
+	}
 
 	return ref;
 };
@@ -93,6 +132,7 @@ ve.dm.MWReferenceModel.static.copySubReference = function ( oldSubRef, doc ) {
 
 	newSubRef.mainRefKey = oldSubRef.mainRefKey;
 	newSubRef.mainListIndex = oldSubRef.mainListIndex;
+	newSubRef.mainDoc = oldSubRef.mainDoc;
 	newSubRef.setGroup( oldSubRef.getGroup() );
 
 	return newSubRef;
@@ -289,17 +329,35 @@ ve.dm.MWReferenceModel.prototype.getGroup = function () {
 };
 
 /**
- * Get reference document.
+ * Get the document with the primary content of the reference.
  *
  * Auto-generates a blank document if no document exists.
  *
- * @return {ve.dm.Document} The (small) document with the content of the reference
+ * @return {ve.dm.Document} The (small) document with the primary content of the reference
  */
 ve.dm.MWReferenceModel.prototype.getDocument = function () {
 	if ( typeof this.doc === 'function' ) {
 		this.doc = this.doc();
 	}
 	return this.doc;
+};
+
+/**
+ * Get the document with the main content in case of a sub-reference.
+ *
+ * Auto-generates a blank document if no document exists. Null if the reference is not
+ * a sub-reference.
+ *
+ * @return {ve.dm.Document|null} The (small) document with the main content of the sub-reference
+ */
+ve.dm.MWReferenceModel.prototype.getMainDocument = function () {
+	if ( !this.isSubRef() ) {
+		return null;
+	}
+	if ( typeof this.mainDoc === 'function' ) {
+		this.mainDoc = this.mainDoc();
+	}
+	return this.mainDoc;
 };
 
 /**

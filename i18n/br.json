@@ -6,7 +6,8 @@
 			"Fulup",
 			"Huñvreüs",
 			"VIGNERON",
-			"SaldırganSincap"
+			"SaldırganSincap",
+			"TMg"
 		]
 	},
 	"cite-desc": "Ouzhpennañ a ra ar tikedennoù <code>&lt;ref&gt;</code> ha <code>&lt;references/&gt;</code> evit an daveoù",
@@ -38,7 +39,7 @@
 	"cite-reference-previews-note": "Notenn",
 	"cite-reference-previews-web": "Dave gwiad",
 	"cite-reference-previews-collapsible-placeholder": "En dave-mañ ez eus un tres ha n’ez a ket ur rakwel.",
-	"cite_references_link_many_and": " ha",
+	"cite_references_link_many_and": "&#32;ha&#32;",
 	"cite_references_link_accessibility_label": "Lammat",
 	"cite_references_link_many_accessibility_label": "Lammat da :",
 	"cite-wikieditor-tool-reference": "Daveenn",

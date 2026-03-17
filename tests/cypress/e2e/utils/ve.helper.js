@@ -32,7 +32,9 @@ export function openVEForSourceEditingReferences( title, usesCitoid ) {
 }
 
 export function waitForVECiteToLoad() {
-	cy.get( '.ve-init-mw-desktopArticleTarget-toolbar-open', { timeout: 20000 } )
+	// Only DesktopArticleTarget sets "ve-init-mw-desktopArticleTarget-toolbar-open"
+	// MobileArticleTarget only sets "ve-init-mw-mobileArticleTarget-toolbar" but not "…-open"
+	cy.get( '.ve-ui-targetToolbar', { timeout: 20000 } )
 		.should( 'be.visible' );
 	helpers.waitForModuleReady( 'ext.cite.visualEditor' );
 }

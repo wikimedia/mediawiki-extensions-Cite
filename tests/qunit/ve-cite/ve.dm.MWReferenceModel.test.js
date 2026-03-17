@@ -155,46 +155,49 @@ QUnit.test( 'updateGroup', ( assert ) => {
 } );
 
 QUnit.test( 'newFromReferenceNode', ( assert ) => {
-	const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+	const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
 
 	// Normal reference node
-	const normalRefNode = new ve.dm.MWReferenceNode( {
-		type: 'mwReference',
-		attributes: {
-			listGroup: 'mwReference/',
-			listKey: 'literal/main',
-			listIndex: 0,
-			refGroup: ''
-		}
-	} );
-	normalRefNode.setDocument( doc );
-
+	const normalRefNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
 	const normalRefModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( normalRefNode );
-	assert.strictEqual( normalRefModel.getListKey(), 'literal/main' );
+
+	assert.strictEqual( normalRefModel.getListKey(), 'auto/1' );
 	assert.strictEqual( normalRefModel.getGroup(), '' );
-	assert.strictEqual( normalRefModel.getListIndex(), 0 );
+	assert.strictEqual( normalRefModel.getListIndex(), 2 );
 	assert.strictEqual( normalRefModel.mainRefKey, undefined );
 	assert.false( normalRefModel.isSubRef() );
 
 	// Sub-reference node
-	const subRefNode = new ve.dm.MWReferenceNode( {
-		type: 'mwReference',
-		attributes: {
-			listGroup: 'mwReference/',
-			listKey: 'auto/0',
-			listIndex: 5,
-			mainRefKey: 'literal/main',
-			mainListIndex: 0,
-			refGroup: ''
-		}
-	} );
-	subRefNode.setDocument( doc );
-
+	const subRefNode = doc.getDocumentNode().children[ 0 ].children[ 0 ];
 	const subRefModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( subRefNode );
+
 	assert.strictEqual( subRefModel.getListKey(), 'auto/0' );
-	assert.strictEqual( subRefModel.getListIndex(), 5 );
+	assert.strictEqual( subRefModel.getListIndex(), 0 );
 	assert.strictEqual( subRefModel.getGroup(), '' );
-	assert.strictEqual( subRefModel.mainRefKey, 'literal/main' );
-	assert.strictEqual( subRefModel.mainListIndex, 0 );
+	assert.strictEqual( subRefModel.mainRefKey, 'literal/ldr' );
+	assert.strictEqual( subRefModel.mainListIndex, 1 );
 	assert.true( subRefModel.isSubRef() );
+} );
+
+QUnit.test( 'copySubReference', ( assert ) => {
+	const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
+	const subRefNode = doc.getDocumentNode().children[ 0 ].children[ 0 ];
+
+	const oldSubRef = ve.dm.MWReferenceModel.static.newFromReferenceNode( subRefNode );
+	const newSubRef = ve.dm.MWReferenceModel.static.copySubReference( oldSubRef, doc );
+
+	assert.strictEqual( newSubRef.getListKey(), '', 'ListKey is not set yet, should be assigned on insert' );
+	assert.strictEqual( newSubRef.getListIndex(), null, 'ListIndex is not set yet, should be assigned on insert' );
+	assert.strictEqual( newSubRef.getGroup(), '' );
+	assert.strictEqual( newSubRef.mainRefKey, 'literal/ldr' );
+	assert.strictEqual( newSubRef.mainListIndex, 1 );
+
+	// Check content of the sub-ref
+	const oldData = oldSubRef.getDocument().getData();
+	const newData = newSubRef.getDocument().getData();
+
+	const internalListRange = oldSubRef.getDocument().internalList.getListNode().getRange();
+	oldData.splice( internalListRange.start, internalListRange.end - internalListRange.start );
+
+	assert.deepEqual( newData, oldData, 'data matches' );
 } );

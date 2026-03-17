@@ -73,7 +73,8 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 };
 
 /**
- * Create a copy of a sub-reference to split it up from reuses.
+ * Create a copy of a sub-reference to split it up from reuses.  A new
+ * listKey and listIndex will be set when inserting into the document.
  *
  * @param {ve.dm.MWReferenceModel} oldSubRef The sub-reference to copy
  * @param {ve.dm.Document} doc The Document we can use to clone the content

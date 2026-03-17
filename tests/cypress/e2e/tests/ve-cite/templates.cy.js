@@ -12,7 +12,9 @@ let usesCitoid;
 describe.skip( 'Re-using refs in Visual Editor using templates', () => {
 
 	before( () => {
-		cy.skipOn( !veHelper.hasVisualEditorInstalled() );
+		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
+			cy.skipOn( !hasVE );
+		} );
 
 		cy.clearCookies();
 		helper.loginAsAdmin();

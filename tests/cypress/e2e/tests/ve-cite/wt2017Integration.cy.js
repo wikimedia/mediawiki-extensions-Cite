@@ -12,7 +12,9 @@ let usesCitoid;
 
 describe.skip( 'Visual Editor Wt 2017 Cite Integration', () => {
 	before( () => {
-		cy.skipOn( !veHelper.hasVisualEditorInstalled() );
+		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
+			cy.skipOn( !hasVE );
+		} );
 
 		helper.loginAsAdmin();
 		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [

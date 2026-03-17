@@ -15,7 +15,9 @@ let usesCitoid;
 describe.skip( 'Re-using refs in Visual Editor', () => {
 
 	before( () => {
-		cy.skipOn( !veHelper.hasVisualEditorInstalled() );
+		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
+			cy.skipOn( !hasVE );
+		} );
 
 		cy.clearCookies();
 		helper.loginAsAdmin();

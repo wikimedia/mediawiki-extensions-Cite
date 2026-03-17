@@ -16,7 +16,9 @@ let usesCitoid;
 
 describe.skip( 'Visual Editor Cite Integration', () => {
 	before( () => {
-		cy.skipOn( !veHelper.hasVisualEditorInstalled() );
+		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
+			cy.skipOn( !hasVE );
+		} );
 		helper.editPage( title, wikiText );
 	} );
 

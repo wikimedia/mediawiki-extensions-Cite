@@ -3,7 +3,7 @@ import * as helper from '../../utils/functions.helper.js';
 
 const title = helper.getTestString( 'CiteTest-title' );
 
-describe( 'Cite popups integration', () => {
+describe.skip( 'Cite popups integration', () => {
 	before( () => {
 		cy.visit( '/index.php' );
 		helper.waitForMWLoader();

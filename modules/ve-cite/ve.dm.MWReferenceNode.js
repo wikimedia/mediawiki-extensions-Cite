@@ -243,7 +243,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	const domElement = doc.createElement( 'sup' );
 	domElement.setAttribute( 'typeof', 'mw:Extension/ref' );
 
-	const isSubRef = attributes.mainListIndex !== undefined;
+	const isSubRef = this.isSubRef( attributes );
 
 	const internalList = converter.internalList;
 	const mwData = attributes.mw ? ve.copy( attributes.mw ) : {};
@@ -381,7 +381,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 ve.dm.MWReferenceNode.static.isMainContentAlreadySet = function ( dataElement, nodeReuses ) {
 	// Sub-refs can't set body content for other sub-refs so we can bail out early here
 	if ( !dataElement.attributes.contentsUsed ||
-		dataElement.attributes.mainListIndex !== undefined
+		this.isSubRef( dataElement.attributes )
 	) {
 		return false;
 	}
@@ -464,7 +464,7 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
 				if ( node.getAttribute( 'mainListIndex' ) !== undefined ) {
 					return node.getAttribute( 'contentsUsed' );
 				}
-				return this.doesHoldBodyContent( node.getAttributes(), nodeGroup );
+				return this.doesHoldBodyContent( node.element.attributes, nodeGroup );
 			}
 		);
 };
@@ -489,7 +489,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
 	}
 
 	// use auto generated name
-	if ( attributes.mainListIndex !== undefined ||
+	if ( this.isSubRef( attributes ) ||
 		nodeReuses.length > 1 ||
 		this.hasSubRefs( attributes, internalList )
 	) {
@@ -509,7 +509,7 @@ ve.dm.MWReferenceNode.static.generateName = function ( attributes, internalList,
  * @static
  * @param {number} mainListIndex
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
- * @return {ve.dm.Node[]}
+ * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWReferenceNode.static.getRefsWithSameMain = function ( mainListIndex, nodeGroup ) {
 	const keys = nodeGroup.getKeysInIndexOrder();
@@ -555,11 +555,23 @@ ve.dm.MWReferenceNode.static.getSubRefs = function ( mainListIndex, nodeGroup ) 
  */
 ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) {
 	// A sub-ref cannot have sub-refs, bail out fast for performance reasons
-	return attributes.mainListIndex === undefined &&
+	return !this.isSubRef( attributes ) &&
 		// Sub-ref reuses share the mainListIndex, that's why using only the firstNodes is safe
 		internalList.getNodeGroup( attributes.listGroup ).firstNodes.some(
 			( node ) => node.getAttribute( 'mainListIndex' ) === attributes.listIndex
 		);
+};
+
+/**
+ * @private
+ * @static
+ * @param {Object} attributes
+ * @return {boolean}
+ */
+ve.dm.MWReferenceNode.static.isSubRef = function ( attributes ) {
+	return attributes.mainListIndex !== undefined ||
+		// TODO: Temporary redundancy, please remove as soon as possible
+		!!attributes.mainRefKey;
 };
 
 /**
@@ -770,6 +782,14 @@ ve.dm.MWReferenceNode.prototype.getGroup = function () {
 };
 
 /**
+ * @private
+ * @return {boolean}
+ */
+ve.dm.MWReferenceNode.prototype.isSubRef = function () {
+	return this.constructor.static.isSubRef( this.element.attributes );
+};
+
+/**
  * Gets the index label for the reference
  *
  * @return {jQuery} Formatted label including the square brackets
@@ -818,7 +838,7 @@ ve.dm.MWReferenceNode.prototype.copySyntheticRefIntoReferencesList = function ( 
 	}
 	const refListNodeRange = refListNode.getRange();
 
-	const attributes = ve.copy( this.getAttributes() );
+	const attributes = ve.copy( this.element.attributes );
 	ve.setProp( attributes, 'mw', 'isSyntheticMainRef', true );
 	ve.setProp( attributes, 'contentsUsed', true );
 	if ( !ve.getProp( attributes, 'refListItemId' ) ) {
@@ -857,7 +877,7 @@ ve.dm.MWReferenceNode.prototype.onRoot = function () {
 ve.dm.MWReferenceNode.prototype.onUnroot = function ( oldRoot ) {
 	if ( this.getDocument().getDocumentNode() === oldRoot ) {
 		// Phabricator T401495
-		if ( this.getAttribute( 'mainListIndex' ) !== undefined ) {
+		if ( this.isSubRef() ) {
 			ve.track( 'activity.subReference', { action: 'delete-subref' } );
 		}
 		this.removeFromInternalList();

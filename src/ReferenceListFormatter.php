@@ -172,9 +172,7 @@ class ReferenceListFormatter {
 				$extraAttributes,
 				Html::element( 'span',
 					[ 'class' => 'mw-cite-backlink' ],
-					$this->messageLocalizer->msg( 'cite_reference_backlink_symbol' )->plain()
-						// FIXME: Remove this space!
-						. ' '
+					$this->backlinkMarkRenderer->getUpArrow()
 				) . ' ' . $text
 			);
 		}

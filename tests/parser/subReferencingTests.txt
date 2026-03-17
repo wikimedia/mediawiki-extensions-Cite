@@ -58,7 +58,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">def</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">def</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">0</span>
 </li>
 </ol></li>
@@ -86,7 +86,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">def</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">def</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">0</span>
 </li>
 </ol></li>
@@ -137,7 +137,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">The book</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">The book</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p. 1</span>
 </li>
 </ol></li>
@@ -194,11 +194,11 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup> <sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">def</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">def</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">abc</span>
 </li>
 </ol></li>
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">jkl</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">jkl</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">ghi</span>
 </li>
 </ol></li>
@@ -294,7 +294,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup> <sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>1.2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">The book</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">The book</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p. 1</span>
 </li>
 <li id="cite&#95;note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">p. 2</span>
@@ -364,7 +364,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">The book</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">The book</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p. 1</span>
 </li>
 </ol></li>
@@ -431,7 +431,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>missingbook</code></span></span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>missingbook</code></span></span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 </ol></li>
@@ -463,7 +463,7 @@ parsoid=wt2html
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>missingbook</code></span></span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>missingbook</code></span></span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 </ol></li>
@@ -689,7 +689,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-book&#95;1-0" class="reference"><a href="#cite_note-book-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
 </li>
 </ol></div>
 !! html/parsoid
@@ -739,7 +739,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "book" cannot use details when inside <code>&lt;references&gt;</code>.</span></span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 </ol></li>
@@ -770,7 +770,7 @@ parsoid=wt2html
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup> <sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>1.2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "book" defined multiple times with different content</span></span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "book" defined multiple times with different content</span></span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 <li id="cite&#95;note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">page 2</span>
@@ -834,7 +834,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">content</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">content</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
@@ -842,7 +842,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">different</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">different</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
@@ -881,7 +881,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-2-1" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-2">1.0</a></sup> <sup><a href="#cite_ref-2-1">1.1</a></sup></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
@@ -910,7 +910,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-2-1" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-2">1.0</a></sup> <sup><a href="#cite_ref-2-1">1.1</a></sup></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
@@ -972,11 +972,11 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-4" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-2-1" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup><sup id="cite&#95;ref-4-1" class="reference"><a href="#cite_note-4"><span class="cite-bracket">&#91;</span>2.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book A</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book A</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-2">1.0</a></sup> <sup><a href="#cite_ref-2-1">1.1</a></sup></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book B</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book B</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-4"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-4">2.0</a></sup> <sup><a href="#cite_ref-4-1">2.1</a></sup></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
@@ -1013,7 +1013,7 @@ wgCiteSubReferencing=true
 <sup id="cite&#95;ref-2-1" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li class="mw-cite-dir-rtl"><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: One of the <code>&lt;ref&gt;</code> tags with the name "a" does have a conflicting dir attribute.</span></span>
+<li class="mw-cite-dir-rtl"><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: One of the <code>&lt;ref&gt;</code> tags with the name "a" does have a conflicting dir attribute.</span></span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2" class="mw-cite-dir-rtl"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-2">1.0</a></sup> <sup><a href="#cite_ref-2-1">1.1</a></sup></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
@@ -1034,7 +1034,7 @@ wgCiteSubReferencing=true
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: A <code>&lt;ref follow="…"&gt;</code> tag that is the continuation of a previous one cannot be named individually or have details.</span>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
@@ -1055,7 +1055,7 @@ wgCiteSubReferencing=true
 <sup id="cite&#95;ref-2-1" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; name "a" defined multiple times with different content</span></span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-2">1.0</a></sup> <sup><a href="#cite_ref-2-1">1.1</a></sup></span> <span class="reference-text">p1</span>
 </li>
 </ol></li>
@@ -1076,7 +1076,7 @@ parsoid=wt2html
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Book continued</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Book continued</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">page 1</span>
 </li>
 </ol></li>
@@ -1128,7 +1128,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">def</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">def</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text"><i>abc</i></span>
 </li>
 </ol></li>
@@ -1156,7 +1156,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">def</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">def</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">zabczz</span>
 </li>
 </ol></li>
@@ -1191,7 +1191,7 @@ parsoid=wt2html
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite&#95;note-x-1"><span class="mw-cite-backlink"><a href="#cite_ref-x_1-0">↑</a></span> <span class="reference-text">x</span>
 </li>
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">a</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">a</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">d<sup id="cite&#95;ref-x&#95;4-0" class="reference"><a href="#cite_note-x-4"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup></span>
 </li>
 </ol></li>
@@ -1224,7 +1224,7 @@ wgCiteSubReferencing=true
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite&#95;note-b-1"><span class="mw-cite-backlink"><a href="#cite_ref-b_1-0">↑</a></span> <span class="reference-text">Inner ref</span>
 </li>
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Outer ref</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Outer ref</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">Outer details<sup id="cite&#95;ref-b&#95;1-0" class="reference"><a href="#cite_note-b-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup></span>
 </li>
 </ol></li>
@@ -1254,7 +1254,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>1.2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">Outer ref</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">Outer ref</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">Inner details</span>
 </li>
 <li id="cite&#95;note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">Outer details<sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup></span>
@@ -1286,7 +1286,7 @@ wgCiteSubReferencing=true
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite&#95;note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">abc</span>
 </li>
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">ghi</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">ghi</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">def</span>
 </li>
 </ol></li>
@@ -1379,7 +1379,7 @@ wgCiteSubReferencing=true
 <p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1.1<span class="cite-bracket">&#93;</span></a></sup> <sup id="cite&#95;ref-3" class="reference"><a href="#cite_note-3"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li><span class="mw-cite-backlink">↑ </span> <span class="reference-text">The book</span>
+<li><span class="mw-cite-backlink">↑</span> <span class="reference-text">The book</span>
 <ol class="mw-subreference-list"><li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">p. 1</span>
 </li>
 </ol></li>

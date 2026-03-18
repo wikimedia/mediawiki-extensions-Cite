@@ -183,6 +183,7 @@
 					"ve-cite/ve.dm.MWReferencesListNode.test.js",
 					"ve-cite/ve.dm.Transaction.test.js",
 					"ve-cite/ve.ce.ClipboardHandler.test.js",
+					"ve-cite/ve.ce.MWReferencesListNode.test.js",
 					"ve-cite/ve.ui.DiffElement.test.js",
 					"ve-cite/ve.ui.MWCitationDialogTool.test.js",
 					"ve-cite/ve.ui.MWReferenceEditPanel.test.js",

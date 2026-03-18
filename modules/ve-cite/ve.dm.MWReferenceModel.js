@@ -24,8 +24,8 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
-	/** @member {string|null}  */
-	this.mainRefKey = null;
+	/** @member {string|undefined}  */
+	this.mainRefKey = undefined;
 
 	/** @member {number|undefined}  */
 	this.mainListIndex = undefined;
@@ -36,8 +36,8 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	/** @member {string}  */
 	this.listKey = '';
 
-	/** @member {number|null}  */
-	this.listIndex = null;
+	/** @member {number|undefined}  */
+	this.listIndex = undefined;
 
 	/** @member {string}  */
 	this.group = '';
@@ -144,13 +144,10 @@ ve.dm.MWReferenceModel.static.copySubReference = function ( oldSubRef, doc ) {
  * Find matching item in a surface.
  *
  * @param {ve.dm.Surface} surfaceModel Surface reference is in
- * @return {ve.dm.InternalItemNode|null} Internal reference item, null if none exists
+ * @return {ve.dm.InternalItemNode|undefined} Internal reference item, undefined if none exists
  */
 ve.dm.MWReferenceModel.prototype.findInternalItem = function ( surfaceModel ) {
-	if ( this.listIndex !== null ) {
-		return surfaceModel.getDocument().getInternalList().getItemNode( this.listIndex );
-	}
-	return null;
+	return surfaceModel.getDocument().getInternalList().getItemNode( this.listIndex );
 };
 
 /**

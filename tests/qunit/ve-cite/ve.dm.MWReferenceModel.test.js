@@ -196,7 +196,7 @@ QUnit.test( 'copySubReference', ( assert ) => {
 	const newSubRef = ve.dm.MWReferenceModel.static.copySubReference( oldSubRef, doc );
 
 	assert.strictEqual( newSubRef.getListKey(), '', 'ListKey is not set yet, should be assigned on insert' );
-	assert.strictEqual( newSubRef.getListIndex(), null, 'ListIndex is not set yet, should be assigned on insert' );
+	assert.strictEqual( newSubRef.getListIndex(), undefined, 'ListIndex is not set yet, should be assigned on insert' );
 	assert.strictEqual( newSubRef.getGroup(), '' );
 	assert.strictEqual( newSubRef.mainRefKey, 'literal/ldr' );
 	assert.strictEqual( newSubRef.mainListIndex, 1 );

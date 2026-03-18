@@ -44,6 +44,19 @@ export function waitForModuleReady( moduleName ) {
 		);
 }
 
+export function isModuleRegistered( moduleName ) {
+	// This method waits until the ResourceLoader register is available, then
+	// checks for the existence of a module but without waiting for that module to
+	// be ready.
+	cy.window()
+		.should( 'have.property', 'mw' )
+		.and( 'have.property', 'loader' )
+		.and( 'have.property', 'getModuleNames' );
+	return cy.window().then(
+		( win ) => win.mw.loader.getModuleNames().includes( moduleName )
+	);
+}
+
 export function editPage( title, wikiText ) {
 	visitTitle( '' );
 	waitForMWLoader();

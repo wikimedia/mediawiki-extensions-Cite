@@ -9,7 +9,7 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 
 let usesCitoid;
 
-describe.skip( 'Re-using refs in Visual Editor using templates', () => {
+describe( 'Re-using refs in Visual Editor using templates', () => {
 
 	before( () => {
 		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {

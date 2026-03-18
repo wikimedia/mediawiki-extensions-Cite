@@ -14,7 +14,7 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 
 let usesCitoid;
 
-describe.skip( 'Visual Editor Cite Integration', () => {
+describe( 'Visual Editor Cite Integration', () => {
 	before( () => {
 		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
 			cy.skipOn( !hasVE );

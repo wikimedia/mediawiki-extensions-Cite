@@ -10,7 +10,7 @@ const wikiText = '';
 
 let usesCitoid;
 
-describe.skip( 'Visual Editor Wt 2017 Cite Integration', () => {
+describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 	before( () => {
 		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
 			cy.skipOn( !hasVE );

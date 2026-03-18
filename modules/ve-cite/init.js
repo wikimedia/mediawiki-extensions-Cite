@@ -59,3 +59,5 @@ const data = require( './ve.ui.contentLanguage.json' );
 for ( const languageCode in data ) {
 	mw.language.setData( languageCode, data[ languageCode ] );
 }
+
+ve.dm.MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );

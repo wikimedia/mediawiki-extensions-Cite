@@ -652,7 +652,8 @@ ve.dm.MWReferenceNode.static.getFormattedRefLinkLabel = function ( dataElement, 
 ve.dm.MWReferenceNode.static.findIndexNumber = function ( dataElement, internalList ) {
 	return ve.getProp( dataElement, 'internal', 'overrideIndex' ) ||
 		MWDocumentReferences.static.refsForDoc( internalList.getDocument() )
-			.getIndexLabel( dataElement.attributes.refGroup, dataElement.attributes.listKey );
+			.getGroupRefs( dataElement.attributes.refGroup )
+			.getIndexLabel( dataElement.attributes.listKey );
 };
 
 /**

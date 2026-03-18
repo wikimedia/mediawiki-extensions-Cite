@@ -117,16 +117,4 @@ ve.dm.MWDocumentReferences.static.contentLangDigits = function ( num ) {
 	return numString.split( '' ).map( ( numChar ) => digitLookup[ numChar ] ).join( '' );
 };
 
-/**
- * @deprecated Should be refactored to store formatted index numbers as a simple
- *  property on each CE ref node after document transaction.
- * @param {string} groupName Ref group without prefix
- * @param {string} listKey Ref key with prefix
- * @return {string|undefined} Rendered index number string which can be used as a footnote
- *  marker or reflist item number.
- */
-ve.dm.MWDocumentReferences.prototype.getIndexLabel = function ( groupName, listKey ) {
-	return this.getGroupRefs( groupName ).getIndexLabel( listKey );
-};
-
 module.exports = ve.dm.MWDocumentReferences;

@@ -21,7 +21,6 @@
 		nodeGroup.appendNode( listKey, node );
 		return {
 			getAllGroupNames: () => [ 'mwReference/' ],
-			getIndexLabel: () => '1',
 			getItemNode: () => node,
 			getGroupRefs: () => ve.dm.MWGroupReferences.static.makeGroupRefs( nodeGroup ),
 			hasRefs: () => !!hasNode

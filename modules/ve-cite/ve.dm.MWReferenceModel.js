@@ -24,6 +24,9 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	OO.EventEmitter.call( this );
 
 	// Properties
+	/** @member {string}  */
+	this.group = '';
+
 	/** @member {string|undefined}  */
 	this.mainRefKey = undefined;
 
@@ -31,16 +34,13 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	this.mainListIndex = undefined;
 
 	/** @member {string}  */
-	this.listGroup = '';
+	this.listGroup = 'mwReference/' + this.group;
 
 	/** @member {string}  */
 	this.listKey = '';
 
 	/** @member {number|undefined}  */
 	this.listIndex = undefined;
-
-	/** @member {string}  */
-	this.group = '';
 
 	/**
 	 * Document with the primary content of the reference
@@ -183,14 +183,18 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
 };
 
 /**
- * Change the group of reference.
+ * Synchronize internal data structures and document to reflect a possibly changed group name.
  *
  * @param {ve.dm.Surface} surfaceModel Surface model of main document
  */
 ve.dm.MWReferenceModel.prototype.updateGroup = function ( surfaceModel ) {
+	const newListGroup = 'mwReference/' + this.group;
+	if ( this.listGroup === newListGroup ) {
+		return;
+	}
+
 	const doc = surfaceModel.getDocument();
 	const internalList = doc.getInternalList();
-	const newListGroup = 'mwReference/' + this.group;
 
 	// Get all reference nodes with the same group and key
 	const oldNodeGroup = internalList.getNodeGroup( this.listGroup );
@@ -290,9 +294,7 @@ ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragmen
 };
 
 /**
- * Get the name of the group a references list is in.
- *
- * @return {string} References list's group
+ * @return {string} The reference's list group name with the "mwReference/" prefix
  */
 ve.dm.MWReferenceModel.prototype.getListGroup = function () {
 	return this.listGroup;
@@ -317,9 +319,7 @@ ve.dm.MWReferenceModel.prototype.getListIndex = function () {
 };
 
 /**
- * Get the name of the group a reference is in.
- *
- * @return {string} Reference's group
+ * @return {string} The reference's plain list group name without any prefix
  */
 ve.dm.MWReferenceModel.prototype.getGroup = function () {
 	return this.group;
@@ -365,12 +365,11 @@ ve.dm.MWReferenceModel.prototype.isSubRef = function () {
 };
 
 /**
- * Set the name of the group a reference is in.
- *
- * @param {string} group Reference's group
+ * @param {string} group The reference's plain list group name without any prefix
  */
 ve.dm.MWReferenceModel.prototype.setGroup = function ( group ) {
 	this.group = group;
+	// For a moment this.listGroup holds the old value until this.updateGroup() got called
 };
 
 /**

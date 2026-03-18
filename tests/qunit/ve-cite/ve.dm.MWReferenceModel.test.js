@@ -46,6 +46,7 @@ QUnit.test( 'insert new ref', ( assert ) => {
 
 	// Create a new, blank reference model linked to the doc.
 	const refModel = new ve.dm.MWReferenceModel( doc );
+	assert.strictEqual( refModel.getListGroup(), 'mwReference/' );
 
 	const oldNodeCount = internalList.getItemNodeCount();
 	const oldDocLength = doc.getLength();
@@ -161,6 +162,7 @@ QUnit.test( 'newFromReferenceNode', ( assert ) => {
 	const normalRefNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
 	const normalRefModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( normalRefNode );
 
+	assert.strictEqual( normalRefModel.getListGroup(), 'mwReference/' );
 	assert.strictEqual( normalRefModel.getListKey(), 'auto/1' );
 	assert.strictEqual( normalRefModel.getGroup(), '' );
 	assert.strictEqual( normalRefModel.getListIndex(), 2 );

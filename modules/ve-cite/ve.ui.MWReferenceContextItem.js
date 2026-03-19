@@ -79,7 +79,7 @@ ve.ui.MWReferenceContextItem.static.commandName = 'reference';
  */
 ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	// Render a placeholder for missing refs.
-	let internalItemNode = this.getReferenceNode();
+	let internalItemNode = this.getInternalItemNode();
 	let errorMsgKey = 'cite-ve-referenceslist-missingref';
 
 	// Render main ref if this is a subref, or a placeholder if missing.
@@ -144,7 +144,7 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
 		]
 	} );
 
-	this.detailsView = new ve.ui.MWPreviewElement( this.getReferenceNode(), { useView: true } );
+	this.detailsView = new ve.ui.MWPreviewElement( this.getInternalItemNode(), { useView: true } );
 	// The $element property may be rendered into asynchronously, update the
 	// context's size when the rendering is complete if that's the case
 	this.detailsView.once( 'render', this.context.updateDimensions.bind( this.context ) );
@@ -280,23 +280,28 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 	return button.$element;
 };
 
+/** @deprecated */
+ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
+	return this.getInternalItemNode();
+};
+
 /**
  * Get the reference node in the containing document (not the internal list document)
  *
  * @return {ve.dm.InternalItemNode|null} Reference item node
  */
-ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
+ve.ui.MWReferenceContextItem.prototype.getInternalItemNode = function () {
 	if ( !this.model.isEditable() ) {
 		return null;
 	}
-	if ( !this.referenceNode ) {
-		this.referenceNode = this.dataTransitionHelper.getInternalItemNode(
+	if ( !this.internalItemNode ) {
+		this.internalItemNode = this.dataTransitionHelper.getInternalItemNode(
 			this.model.getAttribute( 'listKey' ),
 			this.model.getAttribute( 'listGroup' ),
 			this.model.getAttribute( 'listIndex' )
 		);
 	}
-	return this.referenceNode;
+	return this.internalItemNode;
 };
 
 /**

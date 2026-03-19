@@ -10,7 +10,6 @@
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
 const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 const MWReferenceNode = require( './ve.dm.MWReferenceNode.js' );
-const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
 const Options = require( './ve.ui.MWSubReferenceHelpDialogOptions.js' );
 
 /**
@@ -31,8 +30,8 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	this.detailsView = null;
 	/** @member {ve.dm.MWGroupReferences} */
 	this.groupRefs = null;
-	/** @member {ve.dm.MWDataTransitionHelper} */
-	this.dataTransitionHelper = null;
+	/** @member {ve.dm.InternalList} */
+	this.internalList = null;
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceContextItem' );
 
@@ -83,13 +82,9 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	let errorMsgKey = 'cite-ve-referenceslist-missingref';
 
 	// Render main ref if this is a subref, or a placeholder if missing.
-	const mainRefKey = this.model.getAttribute( 'mainRefKey' );
-	if ( mainRefKey && internalItemNode ) {
-		internalItemNode = this.dataTransitionHelper.getInternalItemNode(
-			mainRefKey,
-			this.model.getAttribute( 'listGroup' ),
-			this.model.getAttribute( 'mainListIndex' )
-		);
+	const mainListIndex = this.model.getAttribute( 'mainListIndex' );
+	if ( mainListIndex !== undefined && internalItemNode ) {
+		internalItemNode = this.internalList.getItemNode( mainListIndex );
 		errorMsgKey = 'cite-ve-dialog-reference-missing-parent-ref';
 	}
 
@@ -295,11 +290,7 @@ ve.ui.MWReferenceContextItem.prototype.getInternalItemNode = function () {
 		return null;
 	}
 	if ( !this.internalItemNode ) {
-		this.internalItemNode = this.dataTransitionHelper.getInternalItemNode(
-			this.model.getAttribute( 'listKey' ),
-			this.model.getAttribute( 'listGroup' ),
-			this.model.getAttribute( 'listIndex' )
-		);
+		this.internalItemNode = this.internalList.getItemNode( this.model.getAttribute( 'listIndex' ) );
 	}
 	return this.internalItemNode;
 };
@@ -318,7 +309,7 @@ ve.ui.MWReferenceContextItem.prototype.setup = function () {
 	const doc = this.getFragment().getDocument();
 	this.groupRefs = MWDocumentReferences.static.refsForDoc( doc )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
-	this.dataTransitionHelper = new MWDataTransitionHelper( doc.getInternalList() );
+	this.internalList = doc.getInternalList();
 
 	// Parent method
 	return ve.ui.MWReferenceContextItem.super.prototype.setup.apply( this, arguments );

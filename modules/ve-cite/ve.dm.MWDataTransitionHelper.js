@@ -21,31 +21,4 @@ ve.dm.MWDataTransitionHelper = function VeDmMWDataTransitionHelper( internalList
 	this.internalList = internalList;
 };
 
-/**
- * @param {string} listKey
- * @param {string} listGroup
- * @param {number} [listIndex]
- * @return {ve.dm.InternalItemNode|undefined}
- */
-ve.dm.MWDataTransitionHelper.prototype.getInternalItemNode = function ( listKey, listGroup, listIndex ) {
-	let listIndexInternalItem;
-	if ( listIndex !== undefined ) {
-		listIndexInternalItem = this.internalList.getItemNode( listIndex );
-	}
-
-	const nodeGroup = this.internalList.getNodeGroup( listGroup );
-	const firstNode = nodeGroup && nodeGroup.getFirstNode( listKey );
-	const listKeyInternalItem = firstNode && firstNode.getInternalItem();
-
-	// make sure this works in cases where the deprecated mechanism fails completely
-	// but in all other cases fall back to the listKey
-	if ( listKeyInternalItem && !ve.compare( listIndexInternalItem, listKeyInternalItem ) ) {
-		mw.log.warn(
-			'MWDataTransitionHelper.getInternalItemNode: Different result from listIndex.'
-		);
-		return listKeyInternalItem;
-	}
-	return listIndexInternalItem;
-};
-
 module.exports = ve.dm.MWDataTransitionHelper;

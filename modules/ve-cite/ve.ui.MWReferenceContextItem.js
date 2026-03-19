@@ -279,11 +279,6 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 	return button.$element;
 };
 
-/** @deprecated */
-ve.ui.MWReferenceContextItem.prototype.getReferenceNode = function () {
-	return this.getInternalItemNode();
-};
-
 /**
  * Get the reference node in the containing document (not the internal list document)
  *

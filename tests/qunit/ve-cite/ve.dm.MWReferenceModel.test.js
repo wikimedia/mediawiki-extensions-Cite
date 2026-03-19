@@ -153,6 +153,13 @@ QUnit.test( 'updateGroup', ( assert ) => {
 		1,
 		'Updated list has one ref with a new key in the g1 group'
 	);
+
+	// Move into a new group
+	assert.strictEqual( internalList.getNodeGroup( 'mwReference/newGroup' ), undefined );
+
+	refModel.group = 'newGroup';
+	refModel.updateGroup( surface );
+	assert.false( internalList.getNodeGroup( 'mwReference/newGroup' ).isEmpty() );
 } );
 
 QUnit.test( 'newFromReferenceNode', ( assert ) => {

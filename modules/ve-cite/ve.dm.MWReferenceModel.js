@@ -202,7 +202,7 @@ ve.dm.MWReferenceModel.prototype.updateGroup = function ( surfaceModel ) {
 
 	// Check for name collision when moving items between groups
 	const newNodeGroup = internalList.getNodeGroup( newListGroup );
-	const isUsed = newNodeGroup || newNodeGroup.getFirstNode( this.listKey );
+	const isUsed = newNodeGroup && newNodeGroup.getFirstNode( this.listKey );
 	const newListKey = isUsed ? 'auto/' + internalList.getNextUniqueNumber() : this.listKey;
 
 	// Update the group name of all references nodes with the same group and key

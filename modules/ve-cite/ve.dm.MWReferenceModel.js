@@ -290,11 +290,6 @@ ve.dm.MWReferenceModel.prototype.insertIntoFragment = function ( surfaceFragment
  * @param {boolean} [attributes.contentsUsed=false] If the new node should get the contentsUsed flag
  */
 ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragment, attributes ) {
-	// Temporary backwards-compatibility with Citoid
-	if ( typeof attributes === 'boolean' ) {
-		attributes = { placeholder: attributes };
-	}
-
 	surfaceFragment.insertContent( [
 		{
 			type: 'mwReference',

@@ -39,6 +39,11 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	this.referenceModel = null;
 	/**
 	 * @private
+	 * @member {boolean}
+	 */
+	this.subRefMode = false;
+	/**
+	 * @private
 	 * @member {string|null}
 	 */
 	this.originalGroup = null;
@@ -265,7 +270,8 @@ ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs 
  */
 ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	this.referenceModel = ref;
-	this.isInsertingSubRef = ref.isSubRef() && !this.documentHasContent();
+	this.subRefMode = ref.isSubRef();
+	this.isInsertingSubRef = this.subRefMode && !this.documentHasContent();
 	this.referenceListFieldset.setLabel( ve.msg( this.isInsertingSubRef ?
 		'cite-ve-dialog-reference-editing-add-details' :
 		'cite-ve-dialog-reference-editing-edit-details'
@@ -273,8 +279,9 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 	// Note: listGroup is only available after a (possibly new) ref has been registered via
 	// ve.dm.MWReferenceModel.insertInternalItem
 	const groupRefs = this.docRefs.getGroupRefs( ref.getGroup() );
+
 	this.totalReuseCount = groupRefs.getTotalUsageCount( ref.getListKey() );
-	if ( ref.isSubRef() ) {
+	if ( this.subRefMode ) {
 		const allMainRefs = groupRefs.getRefUsages( ref.mainRefKey );
 		const mainRefReuses = allMainRefs.filter(
 			( node ) => !node.findParent( ve.dm.MWReferencesListNode )
@@ -284,30 +291,11 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 		this.mainReuseCount = 0;
 	}
 
-	this.setFormFieldsFromRef( ref );
-	this.updateReuseWarningFromRef( ref );
-	this.updatePreviewFromRef( ref );
-
-	// reset checkbox visibility
-	this.changeAllCheckboxFieldset.toggle( false );
-
-	if ( this.mainReuseCount > 1 && this.isInsertingSubRef ) {
-		this.changeAllCheckboxFieldset.setLabel(
-			ve.msg( 'cite-ve-dialog-reference-convert-all-checkbox-label', this.mainReuseCount )
-		);
-		this.changeAllCheckbox.setSelected( false );
-		this.changeAllCheckboxFieldset.toggle( true );
-	}
-
-	if ( this.totalReuseCount > 1 && ref.isSubRef() && !this.isInsertingSubRef ) {
-		this.changeAllCheckboxFieldset.setLabel(
-			ve.msg( 'cite-ve-dialog-subreference-change-all-checkbox-label', this.totalReuseCount )
-		);
-		this.changeAllCheckbox.setSelected( true );
-		this.changeAllCheckboxFieldset.toggle( true );
-	}
-
-	this.helpLink.toggle( ref.isSubRef() );
+	this.populateFormFields();
+	this.updateReuseWarning();
+	this.updatePreview();
+	this.updateChangeAllCheckbox();
+	this.helpLink.toggle( this.subRefMode );
 };
 
 /**
@@ -330,19 +318,18 @@ ve.ui.MWReferenceEditPanel.prototype.getChangeAllCheckboxState = function () {
 
 /**
  * @private
- * @param {ve.dm.MWReferenceModel} ref
  */
-ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
-	this.referenceTarget.setDocument( ref.getDocument() );
+ve.ui.MWReferenceEditPanel.prototype.populateFormFields = function () {
+	this.referenceTarget.setDocument( this.referenceModel.getDocument() );
 
-	if ( ref.isSubRef() ) {
+	if ( this.subRefMode ) {
 		this.referenceTarget.getSurface().setPlaceholder(
 			ve.msg( 'cite-ve-dialog-reference-editing-add-details-placeholder' )
 		);
 	}
-	this.optionsFieldset.toggle( !ref.isSubRef() );
+	this.optionsFieldset.toggle( !this.subRefMode );
 
-	this.originalGroup = ref.getGroup();
+	this.originalGroup = this.referenceModel.getGroup();
 
 	// Set the group input while it's disabled, so this doesn't pop up the group-picker menu
 	this.referenceGroupInput.setDisabled( true );
@@ -352,25 +339,23 @@ ve.ui.MWReferenceEditPanel.prototype.setFormFieldsFromRef = function ( ref ) {
 
 /**
  * @private
- * @param {ve.dm.MWReferenceModel} ref
  */
-ve.ui.MWReferenceEditPanel.prototype.updateReuseWarningFromRef = function ( ref ) {
+ve.ui.MWReferenceEditPanel.prototype.updateReuseWarning = function () {
 	this.reuseWarning
 		// Don't show the reuse warning when it's a sub-ref, these currently split on edit
-		.toggle( this.totalReuseCount > 1 && !ref.isSubRef() )
+		.toggle( this.totalReuseCount > 1 && !this.subRefMode )
 		.setLabel( ve.msg( 'cite-ve-dialog-reference-editing-reused-long', this.totalReuseCount ) );
 };
 
 /**
  * @private
- * @param {ve.dm.MWReferenceModel} ref
  */
-ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
-	if ( ref.isSubRef() ) {
+ve.ui.MWReferenceEditPanel.prototype.updatePreview = function () {
+	if ( this.subRefMode ) {
 		// Note: listGroup is only available after a (possibly new) ref has been registered via
 		// ve.dm.MWReferenceModel.insertInternalItem
-		const mainRefNode = this.docRefs.getGroupRefs( ref.getGroup() )
-			.getInternalModelNode( ref.mainRefKey );
+		const mainRefNode = this.docRefs.getGroupRefs( this.referenceModel.getGroup() )
+			.getInternalModelNode( this.referenceModel.mainRefKey );
 		this.referenceListPreview.$element.empty()
 			.append( mainRefNode ?
 				$( '<div>' )
@@ -392,7 +377,28 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreviewFromRef = function ( ref ) {
 				)
 			);
 	}
-	this.previewPanel.toggle( ref.isSubRef() );
+	this.previewPanel.toggle( this.subRefMode );
+};
+
+ve.ui.MWReferenceEditPanel.prototype.updateChangeAllCheckbox = function () {
+	// reset checkbox visibility
+	this.changeAllCheckboxFieldset.toggle( false );
+
+	if ( this.mainReuseCount > 1 && this.isInsertingSubRef ) {
+		this.changeAllCheckboxFieldset.setLabel(
+			ve.msg( 'cite-ve-dialog-reference-convert-all-checkbox-label', this.mainReuseCount )
+		);
+		this.changeAllCheckbox.setSelected( false );
+		this.changeAllCheckboxFieldset.toggle( true );
+	}
+
+	if ( this.totalReuseCount > 1 && this.subRefMode && !this.isInsertingSubRef ) {
+		this.changeAllCheckboxFieldset.setLabel(
+			ve.msg( 'cite-ve-dialog-subreference-change-all-checkbox-label', this.totalReuseCount )
+		);
+		this.changeAllCheckbox.setSelected( true );
+		this.changeAllCheckboxFieldset.toggle( true );
+	}
 };
 
 /**

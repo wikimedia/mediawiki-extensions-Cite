@@ -7,7 +7,6 @@
  * @license MIT
  */
 
-const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 /**
  * Edit reference action. Executes the commands that open the {@link ve.ui.MWReferenceDialog}
  * or {@link ve.ui.MWCitationDialog} to edit a reference.
@@ -38,13 +37,24 @@ ve.ui.MWEditReferenceNodeAction.static.methods = [ 'execute' ];
 /**
  * Depending on the type of reference, compose the required arguments for the command and call it.
  *
- * @param {ve.dm.MWReferenceNode} node Node to edit
+ * @param {ve.dm.MWReferenceModel} ref reference to edit
  */
-ve.ui.MWEditReferenceNodeAction.prototype.execute = function ( node ) {
-	const commandName = this.getCommandNameFromInternalItem( node.getInternalItem() );
+ve.ui.MWEditReferenceNodeAction.prototype.execute = function ( ref ) {
+	const internalItem = ref.findInternalItem( this.surface.getModel() );
+
+	if ( !internalItem ) {
+		return;
+	}
+
+	const commandName = this.getCommandNameFromInternalItem( internalItem );
 	const refCommand = ve.ui.commandRegistry.lookup( commandName );
+
+	if ( !refCommand ) {
+		return;
+	}
+
 	const additionalWindowData = {
-		refToEdit: MWReferenceModel.static.newFromReferenceNode( node )
+		refToEdit: ref
 	};
 
 	if ( commandName === 'reference' ) {

@@ -164,21 +164,19 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 		return;
 	}
 
-	const groupRefs = MWDocumentReferences.static
-		.refsForDoc( this.getFragment().getDocument() )
-		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
-	const mainRefNode = groupRefs.getRefNode( mainListIndex );
-	// TODO: Disable click button
-	if ( !mainRefNode ) {
-		return;
-	}
-
 	const editNodeAction = ve.ui.actionFactory.create(
 		'editNode',
 		this.context.getSurface(),
 		'context'
 	);
-	editNodeAction.execute( mainRefNode );
+	editNodeAction.execute(
+		MWReferenceModel.static.newFromMainNodeAttributes(
+			this.internalList.getDocument(),
+			this.model.getAttribute( 'listGroup' ),
+			this.model.getAttribute( 'mainListKey' ),
+			mainListIndex
+		)
+	);
 };
 
 /**

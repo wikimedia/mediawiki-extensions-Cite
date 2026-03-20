@@ -9,6 +9,7 @@
 
 const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 
 /**
  * ContentEditable MediaWiki references list node.
@@ -290,17 +291,19 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 			// TODO: attach to the singleton click handler on the surface
 			$li.on( 'mousedown', ( e ) => {
 				if ( ve.isUnmodifiedLeftClick( e ) ) {
-					const refNode = groupRefs.getRefNode( refInfo.internalListIndex );
-					// TODO: use the InternalItemNode once supported by the edit action
-					if ( !refNode ) {
-						return;
-					}
-
 					const editNodeAction = ve.ui.actionFactory.create(
 						'editNode',
 						this.getRoot().getSurface().getSurface()
 					);
-					editNodeAction.execute( refNode );
+					// FIXME: This will currently only work for main refs
+					editNodeAction.execute(
+						MWReferenceModel.static.newFromMainNodeAttributes(
+							this.getModel().getDocument(),
+							'mwReference/' + refGroup,
+							null,
+							refInfo.internalListIndex
+						)
+					);
 				}
 				e.preventDefault();
 			} );

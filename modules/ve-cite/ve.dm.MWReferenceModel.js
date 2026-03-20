@@ -96,6 +96,39 @@ ve.dm.MWReferenceModel.static.newEmptyRef = function ( doc ) {
 };
 
 /**
+ * Create a reference model from main node attributes.  This does
+ * not work for a sub-ref, it does not take sub-ref attributes into
+ * account.
+ *
+ * @param {ve.dm.Document} doc Document the reference is a part of
+ * @param {string} listGroup reference group name, with the prefix
+ * @param {string|null} listKey reference listKey optional for the moment
+ * @param {number} listIndex reference InternalList index
+ * @return {ve.dm.MWReferenceModel}
+ */
+ve.dm.MWReferenceModel.static.newFromMainNodeAttributes = function (
+	doc,
+	listGroup,
+	listKey,
+	listIndex
+) {
+	const internalList = doc.getInternalList();
+	const groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc ).getGroupRefs( listGroup );
+	const ref = new ve.dm.MWReferenceModel();
+	ref.listGroup = listGroup;
+	// FIXME The fallback is used because the mainListKey is not availabile when rendering the references list atm
+	ref.listKey = listKey || groupRefs.getListKeyForListIndex( listIndex );
+	ref.listIndex = listIndex;
+	ref.group = listGroup.replace( /^mwReference\//, '' );
+	ref.doc = function () {
+		// cloneFromRange is very expensive, so lazy evaluate it
+		return doc.cloneFromRange( internalList.getItemNode( listIndex ).getRange() );
+	};
+
+	return ref;
+};
+
+/**
  * Create a copy of a sub-reference to split it up from reuses.  A new
  * listKey and listIndex will be set when inserting into the document.
  *

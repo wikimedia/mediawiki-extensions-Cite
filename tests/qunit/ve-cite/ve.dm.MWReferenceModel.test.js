@@ -187,6 +187,41 @@
 		assert.false( internalList.getNodeGroup( 'mwReference/newGroup' ).isEmpty() );
 	} );
 
+	QUnit.test( 'newFromMainNodeAttributes', ( assert ) => {
+		const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
+
+		const ref = MWReferenceModel.static.newFromMainNodeAttributes(
+			doc,
+			'mwReference/',
+			'auto/1',
+			2
+		);
+
+		assert.strictEqual( ref.getListGroup(), 'mwReference/' );
+		assert.strictEqual( ref.getListKey(), 'auto/1' );
+		assert.strictEqual( ref.getGroup(), '' );
+		assert.strictEqual( ref.getListIndex(), 2 );
+		assert.strictEqual( typeof ref.doc, 'function' );
+		assert.true( ref.getDocument() instanceof ve.dm.Document );
+		assert.false( ref.isSubRef() );
+
+		// omiting the listKey
+		const refTwo = MWReferenceModel.static.newFromMainNodeAttributes(
+			doc,
+			'mwReference/',
+			null,
+			2
+		);
+
+		assert.strictEqual( refTwo.getListGroup(), 'mwReference/' );
+		assert.strictEqual( refTwo.getListKey(), 'auto/1' );
+		assert.strictEqual( refTwo.getGroup(), '' );
+		assert.strictEqual( refTwo.getListIndex(), 2 );
+		assert.strictEqual( typeof refTwo.doc, 'function' );
+		assert.true( refTwo.getDocument() instanceof ve.dm.Document );
+		assert.false( refTwo.isSubRef() );
+	} );
+
 	QUnit.test( 'newFromReferenceNode', ( assert ) => {
 		const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
 

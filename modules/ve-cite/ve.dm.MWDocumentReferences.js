@@ -84,7 +84,7 @@ ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( groupName ) {
 };
 
 /**
- * @return {string[]}
+ * @return {string[]} List group names with the "mwReference/" prefix
  */
 ve.dm.MWDocumentReferences.prototype.getAllGroupNames = function () {
 	return Object.keys( this.doc.getInternalList().getNodeGroups() );

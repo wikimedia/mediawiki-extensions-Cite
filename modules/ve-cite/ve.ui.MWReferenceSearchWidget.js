@@ -147,10 +147,6 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 	const groupNames = this.docRefs.getAllGroupNames().sort();
 
-	// FIXME: Temporary hack, to be removed soon
-	// eslint-disable-next-line no-jquery/no-class-state
-	const filterExtends = this.$element.hasClass( 've-ui-citoidInspector-extends' );
-
 	let index = [];
 	for ( let i = 0; i < groupNames.length; i++ ) {
 		const groupName = groupNames[ i ];
@@ -159,8 +155,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			continue;
 		}
 		const groupRefs = this.docRefs.getGroupRefs( groupName );
-		const flatNodes = groupRefs.getAllRefsInReflistOrder()
-			.filter( ( node ) => !filterExtends || node.getAttribute( 'mainListIndex' ) === undefined );
+		const flatNodes = groupRefs.getAllRefsInReflistOrder();
 
 		index = index.concat( flatNodes.map( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );

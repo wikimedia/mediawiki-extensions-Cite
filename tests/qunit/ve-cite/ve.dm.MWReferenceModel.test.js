@@ -107,6 +107,31 @@ QUnit.test( 'insert ref reuse', ( assert ) => {
 	);
 } );
 
+QUnit.test( 'updateInternalItem with new content', ( assert ) => {
+	const doc = ve.dm.citeExample.createExampleDocument( 'simpleRef' );
+	const surface = new ve.dm.Surface( doc );
+	const internalList = doc.getInternalList();
+
+	// Get a ref model from the existing reference node
+	const refNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
+	const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
+
+	// Change the content on the ref's document
+	const refDoc = refModel.getDocument();
+	const fragment = new ve.dm.Surface( refDoc ).getLinearFragment( new ve.Range( 1, 4 ) );
+	fragment.insertContent( 'Quux' );
+
+	refModel.updateInternalItem( surface );
+
+	// Retrieve the new content from the internalItem
+	const itemNode = internalList.getItemNode( refModel.getListIndex() );
+	assert.deepEqual(
+		doc.getData( itemNode.children[ 0 ].getRange() ),
+		[ 'Q', 'u', 'u', 'x' ],
+		'Content in internal item updated'
+	);
+} );
+
 QUnit.test( 'updateGroup', ( assert ) => {
 	const doc = ve.dm.citeExample.createExampleDocument( 'simpleRefsWithGroup' );
 	const surface = new ve.dm.Surface( doc );

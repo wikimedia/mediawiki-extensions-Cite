@@ -28,6 +28,17 @@ ve.dm.MWReferenceKeyGenerator = {
 	},
 
 	/**
+	 * Inverse function of {@link #makeListKey}. Returns an empty string for unnamed references.
+	 *
+	 * @param {string} listKey
+	 * @return {string}
+	 */
+	extractNameFromListKey: function ( listKey ) {
+		const matches = this.listKeyRegex.exec( listKey );
+		return matches && matches[ 1 ] === 'literal' ? matches[ 2 ] : '';
+	},
+
+	/**
 	 * Generate the name for a given reference
 	 *
 	 * @param {Object} attributes
@@ -37,11 +48,11 @@ ve.dm.MWReferenceKeyGenerator = {
 	 */
 	generateName: function ( attributes, internalList, isReused ) {
 		const listKey = attributes.mainRefKey || attributes.listKey;
-		const keyParts = this.listKeyRegex.exec( listKey );
+		const name = this.extractNameFromListKey( listKey );
 
 		// use literal name
-		if ( keyParts && keyParts[ 1 ] === 'literal' ) {
-			return keyParts[ 2 ];
+		if ( name ) {
+			return name;
 		}
 
 		// Auto-generate a new name when it's a sub-ref (i.e. it's linked to a main ref's listIndex)

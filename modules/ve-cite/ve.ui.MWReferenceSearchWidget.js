@@ -8,6 +8,7 @@
  */
 
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWReferenceKeyGenerator = require( './ve.dm.MWReferenceKeyGenerator.js' );
 const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 const MWReferenceResultWidget = require( './ve.ui.MWReferenceResultWidget.js' );
 
@@ -164,9 +165,8 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			const footnoteNumber = this.docRefs.getGroupRefs( groupName ).getIndexLabel( listKey );
 			const footnoteLabel = ( group + ' ' + footnoteNumber ).trim();
 
-			// Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
-			const matches = listKey.match( /^literal\/([\s\S]*)$/ );
-			const name = matches && matches[ 1 ] || '';
+			// TODO: Why not use the original name attribute? Is that outdated after an edit?
+			const name = MWReferenceKeyGenerator.extractNameFromListKey( listKey );
 
 			let $refContent;
 			// Make visible text, footnoteLabel and reference name searchable

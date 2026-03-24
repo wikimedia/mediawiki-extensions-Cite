@@ -215,12 +215,12 @@ class Cite {
 			return null;
 		}
 
-		$status = Validator::filterReferenceListArguments( $argv );
+		$status = Validator::filterReferenceListArguments( $text, $argv );
 		$arguments = $status->getValue();
 
 		$this->inReferencesGroup = $arguments['group'] ?? self::DEFAULT_GROUP;
 
-		$status->merge( $this->parseReferencesTagContent( $parser, $text ) );
+		$this->parseReferencesTagContent( $parser, $text );
 		if ( !$status->isGood() ) {
 			$ret = $this->errorReporter->firstError( $status );
 		} else {
@@ -240,17 +240,11 @@ class Cite {
 	/**
 	 * @param Parser $parser
 	 * @param ?string $text Raw, untrimmed wikitext content of the <references> tag, if any
-	 *
-	 * @return StatusValue
 	 */
-	private function parseReferencesTagContent( Parser $parser, ?string $text ): StatusValue {
+	private function parseReferencesTagContent( Parser $parser, ?string $text ): void {
 		// Nothing to parse in an empty <references /> tag
 		if ( $text === null || trim( $text ) === '' ) {
-			return StatusValue::newGood();
-		}
-
-		if ( preg_match( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(ext-)?(?i:references)-}', $text ) ) {
-			return StatusValue::newFatal( 'cite_error_included_references' );
+			return;
 		}
 
 		// Detect whether we were sent already rendered <ref>s. Mostly a side effect of using
@@ -259,8 +253,11 @@ class Cite {
 		// all known use cases, but not strictly enforced by the parser. It is possible that
 		// some unusual combination of #tag, <references> and conditional parser functions could
 		// be created that would lead to malformed references here.
-		preg_match_all( '{' . preg_quote( Parser::MARKER_PREFIX ) . '-(ext-)?(?i:ref)-}', $text, $matches );
-		$count = count( $matches[0] );
+		// Note: Additional "ext-" prefix proposed via https://gerrit.wikimedia.org/r/1135791
+		$count = (int)preg_match_all(
+			'{' . preg_quote( Parser::MARKER_PREFIX ) . '-(ext-)?(?i:ref\b)}',
+			$text
+		);
 
 		// Undo effects of calling <ref> while unaware of being contained in <references>
 		foreach ( $this->referenceStack->rollbackRefs( $count ) as $call ) {
@@ -271,8 +268,6 @@ class Cite {
 		// Parse the <references> content to process any unparsed <ref> tags, but drop the resulting
 		// HTML
 		$parser->recursiveTagParse( $text );
-
-		return StatusValue::newGood();
 	}
 
 	private function formatReferencesErrors(): string {

@@ -2,6 +2,7 @@
 
 namespace Cite;
 
+use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\Sanitizer;
 use StatusValue;
 
@@ -123,19 +124,30 @@ class Validator {
 	 * Filters the raw <references> arguments and turns them into a predictable format with all
 	 * elements guaranteed to be present.
 	 *
+	 * @param string|null $text
 	 * @param array<string|int,?string> $argv The original arguments from the <references …> tag
 	 * @return StatusValue<array<string,mixed>> Always returns the complete dictionary of
 	 *  allowed argument names and values. Missing arguments are present, but null. Invalid
 	 *  arguments are stripped.
 	 */
-	public static function filterReferenceListArguments( array $argv ): StatusValue {
+	public static function filterReferenceListArguments( ?string $text, array $argv ): StatusValue {
 		$status = self::filterArguments( $argv, [ 'group', 'responsive' ] );
+
+		// Note: Additional "ext-" prefix proposed via https://gerrit.wikimedia.org/r/1135791
+		if ( $text && preg_match(
+			'{' . preg_quote( Parser::MARKER_PREFIX ) . '-(ext-)?(?i:references\b)}',
+			$text
+		) ) {
+			$status->fatal( 'cite_error_included_references' );
+		}
+
 		/** @var array<string,string|null> $arguments */
 		$arguments = $status->getValue();
 		if ( $arguments['responsive'] !== null ) {
 			// All strings including the empty string mean enabled, only "0" means disabled
 			$status->value['responsive'] = $arguments['responsive'] !== '0';
 		}
+
 		return $status;
 	}
 

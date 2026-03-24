@@ -292,7 +292,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		}
 
 		// Set or clear group on data-mw
-		if ( attributes.refGroup !== '' &&
+		if ( attributes.refGroup &&
 			// List defined references that had no group before should not save their group T400596
 			!( attributes.refListItemId && !ve.getProp( originalMwData, 'attrs', 'group' ) )
 		) {

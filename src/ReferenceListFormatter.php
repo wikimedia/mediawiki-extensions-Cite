@@ -39,7 +39,7 @@ class ReferenceListFormatter {
 		$wikitext = $this->formatRefsList( $groupRefs );
 		$html = $parser->recursiveTagParse( $wikitext );
 
-		$firstRef = reset( $groupRefs );
+		$firstRef = array_first( $groupRefs );
 		$html = Html::rawElement( 'ol', [
 			'class' => 'references',
 			'data-mw-group' => $firstRef->group === Cite::DEFAULT_GROUP ? null : $firstRef->group,

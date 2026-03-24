@@ -135,7 +135,7 @@ class Validator {
 
 		// Note: Additional "ext-" prefix proposed via https://gerrit.wikimedia.org/r/1135791
 		if ( $text && preg_match(
-			'{' . preg_quote( Parser::MARKER_PREFIX ) . '-(ext-)?(?i:references\b)}',
+			'{(<|' . preg_quote( Parser::MARKER_PREFIX ) . '-(ext-)?)(?i:references\b)}',
 			$text
 		) ) {
 			$status->fatal( 'cite_error_included_references' );

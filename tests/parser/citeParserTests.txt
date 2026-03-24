@@ -1031,10 +1031,11 @@ T242437 - Nested references edge case, outer tag function with LDR
 </p>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}'><a href="./Parser_test#cite_note-foo-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n  &lt;ref name=\"foo\">bar&lt;/ref>\n\n  &lt;References />\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n  &lt;ref name=\"foo\">bar&lt;/ref>\n\n  &lt;References />\n"}},"i":0}}]}'>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Error mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n  &lt;ref name=\"foo\">bar&lt;/ref>\n\n  &lt;References />\n"},"errors":[{"key":"cite_error_included_references"}],"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n  &lt;ref name=\"foo\">bar&lt;/ref>\n\n  &lt;References />\n"}},"i":0}}]}'>
 <ol class="mw-references references">
 <li id="cite_note-foo-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text">bar</span></li>
 </ol>
+<span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_included_references","params":[]}}]}}'></span>
 </div>
 !! end
 

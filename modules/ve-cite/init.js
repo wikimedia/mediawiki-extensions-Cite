@@ -53,6 +53,7 @@ ve.ui.HelpCompletionAction.static.toolGroups.cite = { mergeWith: 'insert' };
 ve.ui.mwCitationTools = require( './ve.ui.MWCitationTools.json' );
 
 require( './ve.ui.MWReference.init.js' );
+require( './ve.ui.MWCitationTools.init.js' );
 
 // Virtual file declared via extension.json, actual source is ContentLanguage.php
 const data = require( './ve.ui.contentLanguage.json' );

@@ -139,6 +139,7 @@ class CiteHooks implements
 						've.ui.MWCitationContextItem.js',
 						've.ui.MWCitationAction.js',
 						've.ui.MWReference.init.js',
+						've.ui.MWCitationTools.init.js',
 						've.ui.MWCitationNeededContextItem.js',
 						[
 							'name' => 've.ui.contentLanguage.json',

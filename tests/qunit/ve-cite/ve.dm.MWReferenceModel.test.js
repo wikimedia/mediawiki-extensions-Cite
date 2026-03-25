@@ -4,19 +4,21 @@
  * @license MIT
  */
 {
+	const { MWReferenceModel, MWReferenceNode } = require( 'ext.cite.visualEditor' ).test;
+
 	QUnit.module( 've.dm.MWReferenceModel (Cite)', ve.test.utils.newMwEnvironment() );
 
 	QUnit.test( 'find an unknown ref', ( assert ) => {
 		const doc = ve.dm.citeExample.createExampleDocument( 'references' );
 		const surface = new ve.dm.Surface( doc );
 
-		const refNode = new ve.dm.MWReferenceNode( {
+		const refNode = new MWReferenceNode( {
 			type: 'mwReference',
 			attributes: {},
 			originalDomElementsHash: Math.random()
 		} );
 		refNode.setDocument( doc );
-		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
+		const refModel = MWReferenceModel.static.newFromReferenceNode( refNode );
 		// TODO: Callers might be surprised, the docs hint that a missing entry results in `null`.
 		assert.strictEqual( refModel.findInternalItem( surface ), undefined );
 	} );
@@ -27,7 +29,7 @@
 
 		// We know exactly where the third ref node is, grab it from the document.
 		const refNode = doc.getDocumentNode().children[ 1 ].children[ 3 ];
-		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
+		const refModel = MWReferenceModel.static.newFromReferenceNode( refNode );
 		const found = refModel.findInternalItem( surface );
 		assert.strictEqual( found.type, 'internalItem' );
 	} );
@@ -43,7 +45,7 @@
 		const internalList = doc.getInternalList();
 
 		// Create a new, blank reference model linked to the doc.
-		const refModel = new ve.dm.MWReferenceModel( doc );
+		const refModel = new MWReferenceModel( doc );
 		assert.strictEqual( refModel.getListGroup(), 'mwReference/' );
 
 		const oldNodeCount = internalList.getItemNodeCount();
@@ -71,7 +73,7 @@
 
 		// Get a ref model from the existing reference node
 		const refNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
-		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
+		const refModel = MWReferenceModel.static.newFromReferenceNode( refNode );
 
 		const oldNodeCount = internalList.getItemNodeCount();
 		assert.strictEqual(
@@ -112,7 +114,7 @@
 
 		// Get a ref model from the existing reference node
 		const refNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
-		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
+		const refModel = MWReferenceModel.static.newFromReferenceNode( refNode );
 
 		// Change the content on the ref's document
 		const refDoc = refModel.getDocument();
@@ -137,7 +139,7 @@
 
 		// Get a ref model from the existing reference node
 		const refNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
-		const refModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( refNode );
+		const refModel = MWReferenceModel.static.newFromReferenceNode( refNode );
 
 		const oldNodeCount = internalList.getItemNodeCount();
 		assert.strictEqual(
@@ -190,7 +192,7 @@
 
 		// Normal reference node
 		const normalRefNode = doc.getDocumentNode().children[ 0 ].children[ 1 ];
-		const normalRefModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( normalRefNode );
+		const normalRefModel = MWReferenceModel.static.newFromReferenceNode( normalRefNode );
 
 		assert.strictEqual( normalRefModel.getListGroup(), 'mwReference/' );
 		assert.strictEqual( normalRefModel.getListKey(), 'auto/1' );
@@ -206,7 +208,7 @@
 
 		// Sub-reference node
 		const subRefNode = doc.getDocumentNode().children[ 0 ].children[ 0 ];
-		const subRefModel = ve.dm.MWReferenceModel.static.newFromReferenceNode( subRefNode );
+		const subRefModel = MWReferenceModel.static.newFromReferenceNode( subRefNode );
 
 		assert.strictEqual( subRefModel.getListKey(), 'auto/0' );
 		assert.strictEqual( subRefModel.getListIndex(), 0 );
@@ -224,8 +226,8 @@
 		const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
 		const subRefNode = doc.getDocumentNode().children[ 0 ].children[ 0 ];
 
-		const oldSubRef = ve.dm.MWReferenceModel.static.newFromReferenceNode( subRefNode );
-		const newSubRef = ve.dm.MWReferenceModel.static.copySubReference( oldSubRef, doc );
+		const oldSubRef = MWReferenceModel.static.newFromReferenceNode( subRefNode );
+		const newSubRef = MWReferenceModel.static.copySubReference( oldSubRef, doc );
 
 		assert.strictEqual( newSubRef.getListKey(), '', 'ListKey is not set yet, should be assigned on insert' );
 		assert.strictEqual( newSubRef.getListIndex(), undefined, 'ListIndex is not set yet, should be assigned on insert' );

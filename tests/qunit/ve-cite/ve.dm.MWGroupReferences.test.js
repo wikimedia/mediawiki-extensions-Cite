@@ -1,10 +1,12 @@
 'use strict';
 
 {
+	const { MWDocumentReferences } = require( 'ext.cite.visualEditor' ).test;
+
 	QUnit.module( 've.dm.MWGroupReferences (Cite)', ve.test.utils.newMwEnvironment( {
 		beforeEach: function () {
 			const doc = ve.dm.citeExample.createExampleDocument( 'references' );
-			const docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc );
+			const docRefs = MWDocumentReferences.static.refsForDoc( doc );
 			this.plainGroupRefs = docRefs.getGroupRefs( '' );
 			this.fooGroupRefs = docRefs.getGroupRefs( 'foo' );
 			this.emptyGroupRefs = docRefs.getGroupRefs( 'doesnotexist' );
@@ -95,7 +97,7 @@
 
 	QUnit.test( 'sub-references', ( assert ) => {
 		const subRefDoc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
-		const groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( subRefDoc ).getGroupRefs( '' );
+		const groupRefs = MWDocumentReferences.static.refsForDoc( subRefDoc ).getGroupRefs( '' );
 
 		assert.deepEqual(
 			groupRefs.getAllRefsInReflistOrder().map( ( node ) => node.getAttribute( 'listIndex' ) ),

@@ -1,28 +1,30 @@
 'use strict';
 
 {
+	const { MWReferenceNode } = require( 'ext.cite.visualEditor' ).test;
+
 	QUnit.module( 've.dm.MWReferenceNode (Cite)', ve.test.utils.newMwEnvironment() );
 
 	QUnit.test( 'isMainContentAlreadySet', ( assert ) => {
 		const dataElement = { attributes: { contentsUsed: true, listGroup: 'same' } };
 		const element = { attributes: { contentsUsed: false } };
 		const nodeReuses = [ new ve.dm.Model( element ) ];
-		assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
+		assert.false( MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 
 		// One of the other ref with the same name already holds the content
 		element.attributes.contentsUsed = true;
-		assert.true( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
+		assert.true( MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 
 		// The other ref is actually the same as the current one
 		element.attributes.listGroup = 'same';
-		assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
+		assert.false( MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 
 		element.attributes.listGroup = 'different';
-		assert.true( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
+		assert.true( MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 
 		// Nothing matters when the current ref doesn't hold content
 		dataElement.attributes.contentsUsed = false;
-		assert.false( ve.dm.MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
+		assert.false( MWReferenceNode.static.isMainContentAlreadySet( dataElement, nodeReuses ) );
 	} );
 
 	QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {
@@ -32,7 +34,7 @@
 		const nodeGroup = new ve.dm.InternalListNodeGroup();
 		nodeGroup.appendNode( 'literal/main', new ve.dm.MWReferenceNode( thisRef ) );
 		assert.true(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 			'If there\'s only this ref with that key it should get the content'
 		);
 
@@ -41,13 +43,13 @@
 		} };
 		nodeGroup.appendNode( 'literal/main', new ve.dm.MWReferenceNode( otherRef ) );
 		assert.false(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 			'If there\'s another ref with that key that owned the content this ref should not get it'
 		);
 
 		otherRef.attributes.contentsUsed = false;
 		assert.true(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 			'If there\'s no other ref with that key that owned the content the first node get\'s it'
 		);
 
@@ -56,7 +58,7 @@
 		} };
 		nodeGroup.appendNode( 'literal/sub', new ve.dm.MWReferenceNode( otherSubRef ) );
 		assert.false(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 			'If there\'s a sub-ref with that main key that owned the content this ref should not get it'
 		);
 
@@ -65,13 +67,13 @@
 
 		thisRef.attributes.listGroup = 'different';
 		assert.false(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 			'If this ref is not in the same group it should not get the content'
 		);
 
 		thisRefData.attributes.contentsUsed = true;
 		assert.true(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 			'If this ref was holding the content before it should always get it'
 		);
 	} );
@@ -85,7 +87,7 @@
 		const nodeGroup = new ve.dm.InternalListNodeGroup();
 		nodeGroup.appendNode( 'literal/sub', new ve.dm.MWReferenceNode( thisSubRef ) );
 		assert.true(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 			'If there\'s only this sub-ref with that main key it should get the content'
 		);
 
@@ -94,13 +96,13 @@
 		};
 		nodeGroup.appendNode( 'literal/main', new ve.dm.MWReferenceNode( otherMainRef ) );
 		assert.false(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 			'If there\'s another main ref with that key that owned the content this ref should not get it'
 		);
 
 		otherMainRef.attributes.contentsUsed = false;
 		assert.true(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 			'If there\'s no other ref with that key that owned the content the first node get\'s it'
 		);
 
@@ -109,13 +111,13 @@
 		} };
 		nodeGroup.appendNode( 'literal/subOther', new ve.dm.MWReferenceNode( otherSubRef ) );
 		assert.false(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 			'If there\'s another sub-ref with that key that owned the content this ref should not get it'
 		);
 
 		thisSubRefData.attributes.contentsUsed = true;
 		assert.true(
-			ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
+			MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 			'If this sub-ref was holding the content before it should always get it'
 		);
 	} );
@@ -156,11 +158,11 @@
 
 		nodeGroup.sortGroupIndexes();
 
-		const subRefs = ve.dm.MWReferenceNode.static.getSubRefs( 0, nodeGroup );
+		const subRefs = MWReferenceNode.static.getSubRefs( 0, nodeGroup );
 		assert.strictEqual( subRefs.length, 3, 'The list of sub-refs does include reuses' );
 		assert.strictEqual( subRefs[ 0 ].getOffset(), 10, 'The list of sub-refs is in document order' );
 
-		const refsWithSameMain = ve.dm.MWReferenceNode.static.getRefsWithSameMain( 0, nodeGroup );
+		const refsWithSameMain = MWReferenceNode.static.getRefsWithSameMain( 0, nodeGroup );
 		assert.strictEqual( refsWithSameMain.length, 5, 'The list of refs does only relevant include main and sub-refs' );
 		assert.strictEqual( refsWithSameMain[ 1 ].getOffset(), 15, 'The list is not in document order' );
 		assert.strictEqual( refsWithSameMain[ 2 ].getOffset(), 10, 'The list is not in document order' );
@@ -170,21 +172,21 @@
 		const attributes = { listGroup: '', listIndex: 0 };
 		const nodeGroup = new ve.dm.InternalListNodeGroup();
 		const internalList = { getNodeGroup: () => nodeGroup };
-		assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
+		assert.false( MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
 		nodeGroup.appendNode( 'a', new ve.dm.Model( { attributes: { listGroup: '', mainListIndex: 0 } } ) );
-		assert.true( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
+		assert.true( MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
 		// But when it's a sub-ref it cannot have sub-refs
 		attributes.mainListIndex = 0;
-		assert.false( ve.dm.MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
+		assert.false( MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 	} );
 
 	QUnit.test( 'remapInternalListIndexes', ( assert ) => {
 		const dataElement = { attributes: { listIndex: 'old', listKey: 'auto/' } };
 		const mapping = { old: 'new' };
 		const internalList = { getNextUniqueNumber: () => 7 };
-		ve.dm.MWReferenceNode.static.remapInternalListIndexes( dataElement, mapping, internalList );
+		MWReferenceNode.static.remapInternalListIndexes( dataElement, mapping, internalList );
 		assert.deepEqual( dataElement.attributes, { listIndex: 'new', listKey: 'auto/7' } );
 	} );
 
@@ -195,13 +197,13 @@
 				getAllReuses: ( key ) => ( { k: [] }[ key ] )
 			} )
 		};
-		ve.dm.MWReferenceNode.static.remapInternalListKeys( dataElement, internalList );
+		MWReferenceNode.static.remapInternalListKeys( dataElement, internalList );
 		assert.strictEqual( dataElement.attributes.listKey, 'k2' );
 	} );
 
 	QUnit.test( 'getGroup', ( assert ) => {
 		const dataElement = { attributes: { refGroup: 'g' } };
-		assert.deepEqual( ve.dm.MWReferenceNode.static.getGroup( dataElement ), 'g' );
+		assert.deepEqual( MWReferenceNode.static.getGroup( dataElement ), 'g' );
 	} );
 
 	QUnit.test( 'cloneElement', ( assert ) => {
@@ -209,16 +211,16 @@
 			attributes: { contentsUsed: true, mw: {}, originalMw: {} }
 		};
 		const store = { value: () => false };
-		const clone = ve.dm.MWReferenceNode.static.cloneElement( element, store );
+		const clone = MWReferenceNode.static.cloneElement( element, store );
 		assert.deepEqual( clone.attributes, {} );
 		assert.true( isFinite( clone.originalDomElementsHash ) );
 	} );
 
 	QUnit.test( 'getHashObject', ( assert ) => {
 		const dataElement = { type: 'T', attributes: { listGroup: 'L' } };
-		assert.deepEqual( ve.dm.MWReferenceNode.static.getHashObject( dataElement ), dataElement );
+		assert.deepEqual( MWReferenceNode.static.getHashObject( dataElement ), dataElement );
 		// FIXME: Shouldn't this behave different?
-		assert.deepEqual( ve.dm.MWReferenceNode.static.getInstanceHashObject( dataElement ),
+		assert.deepEqual( MWReferenceNode.static.getInstanceHashObject( dataElement ),
 			dataElement );
 	} );
 
@@ -229,7 +231,7 @@
 			[ 'refGroup', { from: 'a', to: 'b' }, 'cite-ve-changedesc-ref-group-both,<del>a</del>,<ins>b</ins>' ],
 			[ '', {}, undefined ]
 		] ) {
-			let msg = ve.dm.MWReferenceNode.static.describeChange( key, change );
+			let msg = MWReferenceNode.static.describeChange( key, change );
 			if ( Array.isArray( msg ) ) {
 				msg = $( '<span>' ).append( msg ).html();
 			}

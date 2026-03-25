@@ -1,14 +1,20 @@
 'use strict';
 
 {
+	const {
+		MWReferenceEditPanel,
+		MWReferenceModel,
+		MWReferenceNode
+	} = require( 'ext.cite.visualEditor' ).test;
+
 	QUnit.module( 've.ui.MWReferenceEditPanel (Cite)', ve.test.utils.newMwEnvironment() );
 
 	/**
 	 * @param {ve.dm.Document} doc
-	 * @return {ve.dm.MWReferenceNode}
+	 * @return {MWReferenceNode}
 	 */
 	const getSimpleNode = ( doc ) => {
-		const node = new ve.dm.MWReferenceNode( {
+		const node = new MWReferenceNode( {
 			type: 'mwReference',
 			attributes: {
 				refGroup: 'mwReference/'
@@ -20,7 +26,7 @@
 	};
 
 	/**
-	 * @param {ve.dm.MWReferenceNode|null} [node]
+	 * @param {MWReferenceNode|null} [node]
 	 * @param {boolean} [reUse=false]
 	 * @return {ve.dm.MWDocumentReferences}
 	 */
@@ -39,8 +45,8 @@
 
 	QUnit.test( 'setting and getting a reference', ( assert ) => {
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
-		const editPanel = new ve.ui.MWReferenceEditPanel();
-		const ref = new ve.dm.MWReferenceModel( new ve.dm.Document( [] ) );
+		const editPanel = new MWReferenceEditPanel();
+		const ref = new MWReferenceModel( new ve.dm.Document( [] ) );
 		editPanel.setDocumentReferences( getDocumentReferencesMock() );
 
 		const changeHandlerSpy = sinon.spy();
@@ -72,8 +78,8 @@
 
 	QUnit.test( 're-used references', ( assert ) => {
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
-		const editPanel = new ve.ui.MWReferenceEditPanel();
-		const ref = new ve.dm.MWReferenceModel( new ve.dm.Document( [] ) );
+		const editPanel = new MWReferenceEditPanel();
+		const ref = new MWReferenceModel( new ve.dm.Document( [] ) );
 		editPanel.setDocumentReferences( getDocumentReferencesMock( null, true ) );
 		editPanel.setReferenceForEditing( ref );
 
@@ -84,9 +90,9 @@
 
 	QUnit.test( 'sub-references', ( assert ) => {
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
-		const editPanel = new ve.ui.MWReferenceEditPanel();
+		const editPanel = new MWReferenceEditPanel();
 		const doc = new ve.dm.Document( [] );
-		const ref = new ve.dm.MWReferenceModel( doc );
+		const ref = new MWReferenceModel( doc );
 
 		// does exist in the example document
 		ref.mainListIndex = 0;

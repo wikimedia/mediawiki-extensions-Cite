@@ -1,19 +1,21 @@
 'use strict';
 
 {
+	const { MWReferencesListNode } = require( 'ext.cite.visualEditor' ).test;
+
 	QUnit.module( 've.dm.MWReferencesListNode (Cite)', ve.test.utils.newMwEnvironment() );
 
 	QUnit.test( 'isEditable', ( assert ) => {
-		let model = new ve.dm.MWReferencesListNode();
+		let model = new MWReferencesListNode();
 		assert.true( model.isEditable() );
 
-		model = new ve.dm.MWReferencesListNode( { attributes: { templateGenerated: true } } );
+		model = new MWReferencesListNode( { attributes: { templateGenerated: true } } );
 		assert.false( model.isEditable() );
 	} );
 
 	QUnit.test( 'matchFunction', ( assert ) => {
 		const el = document.createElement( 'div' );
-		assert.false( ve.dm.MWReferencesListNode.static.matchFunction( el ) );
+		assert.false( MWReferencesListNode.static.matchFunction( el ) );
 	} );
 
 	QUnit.test( 'describeChange', ( assert ) => {
@@ -26,7 +28,7 @@
 			[ 'originalMw', {}, null ],
 			[ '', {}, null ]
 		] ) {
-			let msg = ve.dm.MWReferencesListNode.static.describeChange( key, change );
+			let msg = MWReferencesListNode.static.describeChange( key, change );
 			if ( Array.isArray( msg ) ) {
 				msg = $( '<span>' ).append( msg ).html();
 			}
@@ -44,6 +46,6 @@
 				templateGenerated: true
 			}
 		};
-		assert.deepEqual( ve.dm.MWReferencesListNode.static.getHashObject( dataElement ), dataElement );
+		assert.deepEqual( MWReferencesListNode.static.getHashObject( dataElement ), dataElement );
 	} );
 }

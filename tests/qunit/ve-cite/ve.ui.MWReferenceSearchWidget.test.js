@@ -1,6 +1,12 @@
 'use strict';
 
 {
+	const {
+		MWGroupReferences,
+		MWReferenceModel,
+		MWReferenceSearchWidget
+	} = require( 'ext.cite.visualEditor' ).test;
+
 	QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
 	/**
@@ -22,13 +28,13 @@
 		return {
 			getAllGroupNames: () => [ 'mwReference/' ],
 			getInternalItemNodeByListIndex: () => node,
-			getGroupRefs: () => ve.dm.MWGroupReferences.static.makeGroupRefs( nodeGroup ),
+			getGroupRefs: () => MWGroupReferences.static.makeGroupRefs( nodeGroup ),
 			hasRefs: () => !!hasNode
 		};
 	};
 
 	QUnit.test( 'buildIndex', ( assert ) => {
-		const widget = new ve.ui.MWReferenceSearchWidget();
+		const widget = new MWReferenceSearchWidget();
 		widget.setDocumentRefs( getDocumentReferencesMock() );
 
 		assert.strictEqual( widget.index, null );
@@ -37,7 +43,7 @@
 	} );
 
 	QUnit.test( 'buildSearchIndex when empty', ( assert ) => {
-		const widget = new ve.ui.MWReferenceSearchWidget();
+		const widget = new MWReferenceSearchWidget();
 		widget.setDocumentRefs( getDocumentReferencesMock() );
 
 		const index = widget.buildSearchIndex();
@@ -45,7 +51,7 @@
 	} );
 
 	QUnit.test( 'buildSearchIndex', ( assert ) => {
-		const widget = new ve.ui.MWReferenceSearchWidget();
+		const widget = new MWReferenceSearchWidget();
 		widget.setDocumentRefs( getDocumentReferencesMock( true ) );
 
 		const index = widget.buildSearchIndex();
@@ -56,7 +62,7 @@
 	} );
 
 	QUnit.test( 'isIndexEmpty', ( assert ) => {
-		const widget = new ve.ui.MWReferenceSearchWidget();
+		const widget = new MWReferenceSearchWidget();
 		widget.setDocumentRefs( getDocumentReferencesMock() );
 		assert.true( widget.isIndexEmpty() );
 
@@ -65,8 +71,8 @@
 	} );
 
 	QUnit.test( 'buildSearchResults', ( assert ) => {
-		const widget = new ve.ui.MWReferenceSearchWidget();
-		const reference = new ve.dm.MWReferenceModel();
+		const widget = new MWReferenceSearchWidget();
+		const reference = new MWReferenceModel();
 		widget.index = [ { searchableText: 'a', reference }, { searchableText: 'b' } ];
 
 		assert.strictEqual( widget.getResults().getItemCount(), 0 );

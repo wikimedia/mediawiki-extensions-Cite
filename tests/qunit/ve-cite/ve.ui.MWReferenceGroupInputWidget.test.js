@@ -1,10 +1,12 @@
 'use strict';
 
 {
+	const { MWReferenceGroupInputWidget } = require( 'ext.cite.visualEditor' ).test;
+
 	QUnit.module( 've.ui.MWReferenceGroupInputWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
 	QUnit.test( 'Constructor', ( assert ) => {
-		const widget = new ve.ui.MWReferenceGroupInputWidget( {
+		const widget = new MWReferenceGroupInputWidget( {
 			emptyGroupName: '—'
 		} );
 		assert.strictEqual( widget.emptyGroupName, '—' );
@@ -12,7 +14,7 @@
 	} );
 
 	QUnit.test( 'populateMenu', ( assert ) => {
-		const widget = new ve.ui.MWReferenceGroupInputWidget( {
+		const widget = new MWReferenceGroupInputWidget( {
 			emptyGroupName: 'empty'
 		} );
 		widget.populateMenu( [ 'mwReference/', 'mwReference/foo' ] );

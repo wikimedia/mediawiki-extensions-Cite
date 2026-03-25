@@ -58,4 +58,22 @@ for ( const languageCode in data ) {
 	mw.language.setData( languageCode, data[ languageCode ] );
 }
 
-ve.dm.MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
+if ( window.QUnit ) {
+	module.exports = {
+		test: {
+			MWDataTransitionHelper: require( './ve.dm.MWDataTransitionHelper.js' ),
+			MWDocumentReferences: require( './ve.dm.MWDocumentReferences.js' ),
+			MWGroupReferences: require( './ve.dm.MWGroupReferences.js' ),
+			MWReferenceEditPanel: require( './ve.ui.MWReferenceEditPanel.js' ),
+			MWReferenceGroupInputWidget: require( './ve.ui.MWReferenceGroupInputWidget.js' ),
+			MWReferenceKeyGenerator: require( './ve.dm.MWReferenceKeyGenerator.js' ),
+			MWReferenceModel: require( './ve.dm.MWReferenceModel.js' ),
+			MWReferenceNode: require( './ve.dm.MWReferenceNode.js' ),
+			MWReferenceResultWidget: require( './ve.ui.MWReferenceResultWidget.js' ),
+			MWReferenceSearchWidget: require( './ve.ui.MWReferenceSearchWidget.js' ),
+			MWReferencesListDialog: require( './ve.ui.MWReferencesListDialog.js' ),
+			MWReferencesListNode: require( './ve.dm.MWReferencesListNode.js' ),
+			MWUseExistingReferenceCommand: require( './ve.ui.MWUseExistingReferenceCommand.js' )
+		}
+	};
+}

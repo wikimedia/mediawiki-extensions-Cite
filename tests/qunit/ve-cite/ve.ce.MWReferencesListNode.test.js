@@ -6,7 +6,7 @@
  * @copyright See AUTHORS.txt
  */
 {
-	QUnit.module( 've.ce.MWReferencesListNode' );
+	QUnit.module( 've.ce.MWReferencesListNode (Cite)' );
 
 	QUnit.test( 'getRenderedContents', ( assert ) => {
 		const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );

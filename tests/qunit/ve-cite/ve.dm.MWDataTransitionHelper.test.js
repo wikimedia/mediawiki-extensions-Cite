@@ -1,7 +1,9 @@
 'use strict';
 
 {
-	QUnit.module( 've.dm.MWDataTransitionHelper', ve.test.utils.newMwEnvironment() );
+	const { MWDataTransitionHelper } = require( 'ext.cite.visualEditor' ).test;
+
+	QUnit.module( 've.dm.MWDataTransitionHelper (Cite)', ve.test.utils.newMwEnvironment() );
 
 	QUnit.test( 'buildReflistNumbering', ( assert ) => {
 		// Pull the test fixture from `ve.dm.citeExample.subReferencing`
@@ -9,7 +11,7 @@
 		const groupName = 'mwReference/';
 		const nodeGroup = doc.getInternalList().getNodeGroup( groupName );
 
-		const dataTransitionHelper = new ve.dm.MWDataTransitionHelper(
+		const dataTransitionHelper = new MWDataTransitionHelper(
 			doc.getInternalList()
 		);
 
@@ -57,7 +59,7 @@
 		const groupName = 'mwReference/';
 		const nodeGroup = doc.getInternalList().getNodeGroup( groupName );
 
-		const dataTransitionHelper = new ve.dm.MWDataTransitionHelper(
+		const dataTransitionHelper = new MWDataTransitionHelper(
 			doc.getInternalList()
 		);
 

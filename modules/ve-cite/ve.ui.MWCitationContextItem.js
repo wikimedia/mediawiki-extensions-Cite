@@ -51,4 +51,35 @@ ve.ui.MWCitationContextItem.static.template = null;
 ve.ui.MWCitationContextItem.static.isCompatibleWith =
 	MWCitationDialogTool.static.isCompatibleWith;
 
+/**
+ * Create a context item from a MediaWiki:Cite-tool-definition.json entry
+ *
+ * @param {Object} toolDefinition
+ * @param {string} toolDefinition.icon
+ * @param {string} toolDefinition.name
+ * @param {string|string[]} toolDefinition.template
+ * @param {string} toolDefinition.title
+ * @return {ve.ui.MWCitationContextItem}
+ */
+ve.ui.MWCitationContextItem.static.newFromCitationToolsDefinition = function ( toolDefinition ) {
+	const name = ve.ui.MWCitationDialogTool.static.namePrefix + toolDefinition.name;
+	const contextItem = function GeneratedMWCitationContextItem() {
+		ve.ui.MWCitationContextItem.apply( this, arguments );
+	};
+	OO.inheritClass( contextItem, ve.ui.MWCitationContextItem );
+	contextItem.static.name = name;
+	contextItem.static.icon = toolDefinition.icon;
+	contextItem.static.label = toolDefinition.title;
+	contextItem.static.commandName = name;
+	contextItem.static.template = toolDefinition.template;
+	// If the grand-parent class (ve.ui.MWReferenceContextItem) is extended
+	// and re-registered (e.g. by Citoid), then the inheritance chain is
+	// broken, and the generic 'reference' context item would show. Instead
+	// manually specify that that context should never show when a more
+	// specific context item is shown.
+	contextItem.static.suppresses = [ 'reference' ];
+
+	return contextItem;
+};
+
 module.exports = ve.ui.MWCitationContextItem;

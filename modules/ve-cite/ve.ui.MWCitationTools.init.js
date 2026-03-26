@@ -35,54 +35,40 @@
 	const MWCitationContextItem = require( './ve.ui.MWCitationContextItem.js' );
 	const MWCitationDialogTool = require( './ve.ui.MWCitationDialogTool.js' );
 
-	citationTools.forEach( ( item ) => {
+	citationTools.forEach( ( toolDefinition ) => {
 		// Generate citation tool
-		const name = 'cite-' + item.name;
+		const name = MWCitationDialogTool.static.namePrefix + toolDefinition.name;
 		if ( !ve.ui.toolFactory.lookup( name ) ) {
-			const tool = function GeneratedMWCitationDialogTool() {
-				MWCitationDialogTool.apply( this, arguments );
-			};
-			OO.inheritClass( tool, MWCitationDialogTool );
-			tool.static.group = 'cite';
-			tool.static.name = name;
-			tool.static.icon = item.icon;
-			if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
-				tool.static.title = mw.msg( 'cite-ve-othergroup-item', item.title );
-			} else {
-				tool.static.title = item.title;
-			}
-			tool.static.commandName = name;
-			tool.static.template = item.template;
-			tool.static.autoAddToCatchall = false;
-			tool.static.autoAddToGroup = true;
-			tool.static.associatedWindows = [ name ];
-			ve.ui.toolFactory.register( tool );
+			ve.ui.toolFactory.register(
+				MWCitationDialogTool.static.newFromCitationToolsDefinition( toolDefinition )
+			);
 			ve.ui.commandRegistry.register(
-				new ve.ui.Command(
-					name, 'mwcite', 'open', { args: [ item ], supportedSelections: [ 'linear' ] }
-				)
+				createCitationToolsCommand( toolDefinition )
 			);
 		}
 
-		// Generate citation context item
 		if ( !ve.ui.contextItemFactory.lookup( name ) ) {
-			const contextItem = function GeneratedMWCitationContextItem() {
-				// Parent constructor
-				MWCitationContextItem.apply( this, arguments );
-			};
-			OO.inheritClass( contextItem, MWCitationContextItem );
-			contextItem.static.name = name;
-			contextItem.static.icon = item.icon;
-			contextItem.static.label = item.title;
-			contextItem.static.commandName = name;
-			contextItem.static.template = item.template;
-			// If the grand-parent class (ve.ui.MWReferenceContextItem) is extended
-			// and re-registered (e.g. by Citoid), then the inheritance chain is
-			// broken, and the generic 'reference' context item would show. Instead
-			// manually specify that that context should never show when a more
-			// specific context item is shown.
-			contextItem.static.suppresses = [ 'reference' ];
-			ve.ui.contextItemFactory.register( contextItem );
+			ve.ui.contextItemFactory.register(
+				MWCitationContextItem.static.newFromCitationToolsDefinition( toolDefinition )
+			);
 		}
 	} );
+
+	/**
+	 * Create a VE command from a MediaWiki:Cite-tool-definition.json entry
+	 *
+	 * @param {Object} toolDefinition
+	 * @param {string} toolDefinition.name
+	 * @param {string|string[]} toolDefinition.template
+	 * @param {string} toolDefinition.title
+	 * @return {ve.ui.Command}
+	 */
+	function createCitationToolsCommand( toolDefinition ) {
+		return new ve.ui.Command(
+			MWCitationDialogTool.static.namePrefix + toolDefinition.name,
+			'mwcite',
+			'open',
+			{ args: [ toolDefinition ], supportedSelections: [ 'linear' ] }
+		);
+	}
 }() );

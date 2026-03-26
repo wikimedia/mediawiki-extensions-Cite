@@ -28,6 +28,13 @@ ve.ui.MWCitationDialogTool = function VeUiMWCitationDialogTool( toolbar, config 
 OO.inheritClass( ve.ui.MWCitationDialogTool, MWReferenceDialogTool );
 
 /* Static Properties */
+/**
+ * Used to prefix the static name of commands, tools and context items from citation tools.
+ *
+ * @property {string}
+ */
+ve.ui.MWCitationDialogTool.static.namePrefix = 'cite-';
+
 ve.ui.MWCitationDialogTool.static.group = 'cite';
 
 /**
@@ -62,6 +69,39 @@ ve.ui.MWCitationDialogTool.static.isCompatibleWith = function ( model ) {
 	}
 
 	return compatible;
+};
+
+/**
+ * Create a citation dialog tool from a MediaWiki:Cite-tool-definition.json entry
+ *
+ * @param {Object} toolDefinition
+ * @param {string} toolDefinition.icon
+ * @param {string} toolDefinition.name
+ * @param {string|string[]} toolDefinition.template
+ * @param {string} toolDefinition.title
+ * @return {ve.ui.MWCitationDialogTool}
+ */
+ve.ui.MWCitationDialogTool.static.newFromCitationToolsDefinition = function ( toolDefinition ) {
+	const name = this.namePrefix + toolDefinition.name;
+	const tool = function GeneratedMWCitationDialogTool() {
+		ve.ui.MWCitationDialogTool.apply( this, arguments );
+	};
+	OO.inheritClass( tool, ve.ui.MWCitationDialogTool );
+	tool.static.group = 'cite';
+	tool.static.name = name;
+	tool.static.icon = toolDefinition.icon;
+	if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
+		tool.static.title = mw.msg( 'cite-ve-othergroup-item', toolDefinition.title );
+	} else {
+		tool.static.title = toolDefinition.title;
+	}
+	tool.static.commandName = name;
+	tool.static.template = toolDefinition.template;
+	tool.static.autoAddToCatchall = false;
+	tool.static.autoAddToGroup = true;
+	tool.static.associatedWindows = [ name ];
+
+	return tool;
 };
 
 module.exports = ve.ui.MWCitationDialogTool;

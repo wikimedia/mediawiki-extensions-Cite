@@ -40,35 +40,49 @@ ve.ui.MWEditReferenceNodeAction.static.methods = [ 'execute' ];
  * @param {ve.dm.MWReferenceNode} node Node to edit
  */
 ve.ui.MWEditReferenceNodeAction.prototype.execute = function ( node ) {
+	const commandName = this.getCommandNameFromRef( node );
+	if ( !commandName ) {
+		return;
+	}
+
+	const refCommand = ve.ui.commandRegistry.lookup( commandName );
+	const additionalWindowData = {
+		nodeToEdit: node
+	};
+
+	if ( commandName === 'reference' ) {
+		refCommand.execute(
+			this.surface,
+			// Arguments for calling ve.ui.MWReferenceDialog.getSetupProcess()
+			[ 'reference', additionalWindowData ],
+			this.source
+		);
+	} else {
+		// FIXME: Allow passing nodeToEdit to the CitationDialog see T413760
+		const fragmentArgs = {
+			fragment: this.surface.getModel().getLinearFragment(
+				node.getOuterRange(),
+				true
+			),
+			selectFragmentOnClose: false
+		};
+
+		const newArgs = ve.copy( refCommand.args );
+		ve.extendObject( newArgs[ 0 ], fragmentArgs );
+		refCommand.execute( this.surface, newArgs, this.source );
+	}
+};
+
+/**
+ * @param {ve.dm.MWReferenceNode} node
+ * @return {string}
+ * @private
+ */
+ve.ui.MWEditReferenceNodeAction.prototype.getCommandNameFromRef = function ( node ) {
 	const firstItem = ve.ui.contextItemFactory.getRelatedItems( [ node ] )
 		.find( ( item ) => item.name !== 'mobileActions' );
-	if ( firstItem && firstItem.name ) {
-		const refCommand = ve.ui.commandRegistry.lookup( firstItem.name );
-		const additionalWindowData = {
-			nodeToEdit: node
-		};
-		if ( firstItem.name === 'reference' ) {
-			refCommand.execute(
-				this.surface,
-				// Arguments for calling ve.ui.MWReferenceDialog.getSetupProcess()
-				[ 'reference', additionalWindowData ],
-				this.source
-			);
-		} else {
-			// FIXME: Allow passing nodeToEdit to the CitationDialog see T413760
-			const fragmentArgs = {
-				fragment: this.surface.getModel().getLinearFragment(
-					node.getOuterRange(),
-					true
-				),
-				selectFragmentOnClose: false
-			};
 
-			const newArgs = ve.copy( refCommand.args );
-			ve.extendObject( newArgs[ 0 ], fragmentArgs );
-			refCommand.execute( this.surface, newArgs, this.source );
-		}
-	}
+	return firstItem && firstItem.name;
 };
 
 module.exports = ve.ui.MWEditReferenceNodeAction;

@@ -174,7 +174,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			let $refContent;
 			// Make visible text, footnoteLabel and reference name searchable
 			let refText = ( '[' + footnoteLabel + '] ' + name ).trim();
-			const itemNode = groupRefs.getInternalModelNode( listIndex );
+			const itemNode = this.docRefs.getInternalItemNodeByListIndex( listIndex );
 			if ( itemNode.length ) {
 				$refContent = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 				refText += ' ' + $refContent.text();

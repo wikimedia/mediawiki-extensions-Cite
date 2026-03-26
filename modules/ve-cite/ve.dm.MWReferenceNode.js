@@ -417,8 +417,7 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
  * */
 ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;
-	const mainListIndex = attributes.mainListIndex !== undefined ? attributes.mainListIndex :
-		attributes.listIndex;
+	const mainListIndex = this.isSubRef( attributes ) ? attributes.mainListIndex : attributes.listIndex;
 	const mainReuses = this.getRefsWithSameMain( mainListIndex, nodeGroup );
 
 	// If the reference already stored the main content before, it should be stored there again
@@ -440,7 +439,7 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
 		// first that holds it already.
 		!mainReuses.slice( 1 ).some(
 			( node ) => {
-				if ( node.getAttribute( 'mainListIndex' ) !== undefined ) {
+				if ( node.isSubRef() ) {
 					return node.getAttribute( 'contentsUsed' );
 				}
 				return this.doesHoldBodyContent( node.element.attributes, nodeGroup );

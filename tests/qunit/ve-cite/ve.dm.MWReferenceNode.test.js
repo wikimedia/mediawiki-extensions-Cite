@@ -29,7 +29,7 @@ QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {
 	const thisRef = ve.copy( thisRefData );
 
 	const nodeGroup = new ve.dm.InternalListNodeGroup();
-	nodeGroup.appendNode( 'literal/main', new ve.dm.Model( thisRef ) );
+	nodeGroup.appendNode( 'literal/main', new ve.dm.MWReferenceNode( thisRef ) );
 	assert.true(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 		'If there\'s only this ref with that key it should get the content'
@@ -38,7 +38,7 @@ QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {
 	const otherRef = { attributes: {
 		listGroup: '', listKey: 'literal/main', contentsUsed: true
 	} };
-	nodeGroup.appendNode( 'literal/main', new ve.dm.Model( otherRef ) );
+	nodeGroup.appendNode( 'literal/main', new ve.dm.MWReferenceNode( otherRef ) );
 	assert.false(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 		'If there\'s another ref with that key that owned the content this ref should not get it'
@@ -53,7 +53,7 @@ QUnit.test( 'shouldGetMainContent on a normal main reference', ( assert ) => {
 	const otherSubRef = { attributes: {
 		listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main', contentsUsed: true
 	} };
-	nodeGroup.appendNode( 'literal/sub', new ve.dm.Model( otherSubRef ) );
+	nodeGroup.appendNode( 'literal/sub', new ve.dm.MWReferenceNode( otherSubRef ) );
 	assert.false(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( thisRefData, nodeGroup ),
 		'If there\'s a sub-ref with that main key that owned the content this ref should not get it'
@@ -82,7 +82,7 @@ QUnit.test( 'shouldGetMainContent on a sub reference', ( assert ) => {
 	const thisSubRef = ve.copy( thisSubRefData );
 
 	const nodeGroup = new ve.dm.InternalListNodeGroup();
-	nodeGroup.appendNode( 'literal/sub', new ve.dm.Model( thisSubRef ) );
+	nodeGroup.appendNode( 'literal/sub', new ve.dm.MWReferenceNode( thisSubRef ) );
 	assert.true(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 		'If there\'s only this sub-ref with that main key it should get the content'
@@ -91,7 +91,7 @@ QUnit.test( 'shouldGetMainContent on a sub reference', ( assert ) => {
 	const otherMainRef = {
 		attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true }
 	};
-	nodeGroup.appendNode( 'literal/main', new ve.dm.Model( otherMainRef ) );
+	nodeGroup.appendNode( 'literal/main', new ve.dm.MWReferenceNode( otherMainRef ) );
 	assert.false(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 		'If there\'s another main ref with that key that owned the content this ref should not get it'
@@ -106,7 +106,7 @@ QUnit.test( 'shouldGetMainContent on a sub reference', ( assert ) => {
 	const otherSubRef = { attributes: {
 		listGroup: '', listKey: 'literal/subOther', mainRefKey: 'literal/main', contentsUsed: true
 	} };
-	nodeGroup.appendNode( 'literal/subOther', new ve.dm.Model( otherSubRef ) );
+	nodeGroup.appendNode( 'literal/subOther', new ve.dm.MWReferenceNode( otherSubRef ) );
 	assert.false(
 		ve.dm.MWReferenceNode.static.shouldGetMainContent( thisSubRefData, nodeGroup ),
 		'If there\'s another sub-ref with that key that owned the content this ref should not get it'

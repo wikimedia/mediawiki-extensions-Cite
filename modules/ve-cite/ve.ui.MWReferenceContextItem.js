@@ -223,7 +223,7 @@ ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
  */
 ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 	if ( !mw.config.get( 'wgCiteSubReferencing' ) ||
-		this.model.getAttribute( 'mainListIndex' ) !== undefined
+		this.model.isSubRef()
 	) {
 		return;
 	}

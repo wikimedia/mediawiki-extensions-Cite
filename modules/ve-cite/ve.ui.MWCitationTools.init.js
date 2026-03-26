@@ -27,11 +27,15 @@
 	 * [ { "name": "web", "icon": "browser", "template": "Cite web" }, ... ]
 	 */
 
+	// Virtual file declared via extension.json, actual source is MWCitationToolsDefinition.php
+	const citationTools = require( './ve.ui.MWCitationTools.json' );
+	// Expose globally, used by Citoid and ContentTranslation as well as gadgets
+	ve.ui.mwCitationTools = citationTools;
+
 	const MWCitationContextItem = require( './ve.ui.MWCitationContextItem.js' );
 	const MWCitationDialogTool = require( './ve.ui.MWCitationDialogTool.js' );
 
-	// TODO: Replace with require( './ve.ui.MWCitationTools.json' );
-	ve.ui.mwCitationTools.forEach( ( item ) => {
+	citationTools.forEach( ( item ) => {
 		// Generate citation tool
 		const name = 'cite-' + item.name;
 		if ( !ve.ui.toolFactory.lookup( name ) ) {

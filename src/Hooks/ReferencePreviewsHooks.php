@@ -80,7 +80,7 @@ class ReferencePreviewsHooks implements
 					'cite-reference-previews-collapsible-placeholder',
 				],
 				'packageFiles' => [
-					'index.js',
+					'init.js',
 					'createReferenceGateway.js',
 					'createReferencePreview.js'
 				]

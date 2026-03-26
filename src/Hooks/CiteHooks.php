@@ -104,10 +104,7 @@ class CiteHooks implements
 					'localBasePath' => dirname( __DIR__, 2 ) . '/modules/ve-cite',
 					'remoteExtPath' => 'Cite/modules/ve-cite',
 					'packageFiles' => [
-						[
-							'name' => 'init.js',
-							'main' => true,
-						],
+						'init.js',
 						've.dm.MWDataTransitionHelper.js',
 						've.dm.MWDocumentReferences.js',
 						've.dm.MWGroupReferences.js',

@@ -319,7 +319,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 
 	if ( hasSubRefs ) {
 		$li.append(
-			$( '<ol>' ).append(
+			$( '<ol>' ).addClass( 'mw-subreference-list' ).append(
 				refInfo.subrefs.map( ( subRefInfo ) => this.renderListItem(
 					groupRefs, refGroup, subRefInfo
 				) )

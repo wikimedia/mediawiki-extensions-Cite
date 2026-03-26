@@ -26,7 +26,7 @@
 				</span>
 			</div>
 		</span>
-		<ol>
+		<ol class="mw-subreference-list">
 			<li style="--footnote-number: &quot;1.1.&quot;;">
 				<a rel="mw:referencedBy">
 					<span class="mw-linkback-text">↑</span>
@@ -65,7 +65,7 @@
 				</span>
 			</div>
 		</span>
-		<ol>
+		<ol class="mw-subreference-list">
 			<li class="ve-ce-mwReferencesListNode-missingRef" style="--footnote-number: &quot;3.1.&quot;;">
 				<a rel="mw:referencedBy">
 					<span class="mw-linkback-text">↑</span>

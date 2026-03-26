@@ -50,11 +50,12 @@ function createReferencePreviewsType() {
 
 module.exports = referencePreviewsState !== null ? createReferencePreviewsType() : null;
 
-// Expose private methods for QUnit tests
-if ( typeof QUnit !== 'undefined' ) {
-	module.exports = { private: {
-		createReferenceGateway: require( './createReferenceGateway.js' ),
-		createReferencePreview: require( './createReferencePreview.js' ),
-		isReferencePreviewsEnabled
-	} };
+if ( window.QUnit ) {
+	module.exports = {
+		test: {
+			createReferenceGateway: require( './createReferenceGateway.js' ),
+			createReferencePreview: require( './createReferencePreview.js' ),
+			isReferencePreviewsEnabled
+		}
+	};
 }

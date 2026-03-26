@@ -47,7 +47,7 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 	} );
 
 	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {
-		cy.contains( '.mw-reflink-text', '[1]' ).type( '{rightarrow}' );
+		cy.contains( '.ve-ui-surface  .mw-reflink-text', '[1]' ).type( '{rightarrow}' );
 
 		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();

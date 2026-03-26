@@ -1,21 +1,21 @@
+'use strict';
+
 /*!
  * VisualEditor ContentEditable MWReferencesList tests.
  *
  * @copyright See AUTHORS.txt
  */
+{
+	QUnit.module( 've.ce.MWReferencesListNode' );
 
-QUnit.module( 've.ce.MWReferencesListNode' );
+	QUnit.test( 'getRenderedContents', ( assert ) => {
+		const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
+		const uiSurface = ve.test.utils.createSurfaceFromDocument( doc );
+		const reflistCeNode = uiSurface.view.documentView.documentNode.children[ 1 ];
+		assert.strictEqual( reflistCeNode.type, 'mwReferencesList' );
+		reflistCeNode.update();
 
-/* Tests */
-
-QUnit.test( 'getRenderedContents', ( assert ) => {
-	const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
-	const uiSurface = ve.test.utils.createSurfaceFromDocument( doc );
-	const reflistCeNode = uiSurface.view.documentView.documentNode.children[ 1 ];
-	assert.strictEqual( reflistCeNode.type, 'mwReferencesList' );
-	reflistCeNode.update();
-
-	const expectedHtml = ve.dm.example.singleLine`
+		const expectedHtml = ve.dm.example.singleLine`
 	<li style="--footnote-number: &quot;1.&quot;;">
 		<span rel="mw:referencedBy"></span> <span class="reference-text">
 			<div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output">
@@ -71,8 +71,9 @@ QUnit.test( 'getRenderedContents', ( assert ) => {
 	</li>
 	`;
 
-	assert.equalDomElement(
-		$( '<div>' ).html( reflistCeNode.$reflist.html() )[ 0 ],
-		$( '<div>' ).html( expectedHtml )[ 0 ]
-	);
-} );
+		assert.equalDomElement(
+			$( '<div>' ).html( reflistCeNode.$reflist.html() )[ 0 ],
+			$( '<div>' ).html( expectedHtml )[ 0 ]
+		);
+	} );
+}

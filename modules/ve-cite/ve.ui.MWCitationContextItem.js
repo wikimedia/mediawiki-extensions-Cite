@@ -42,6 +42,13 @@ OO.inheritClass( ve.ui.MWCitationContextItem, MWReferenceContextItem );
  */
 ve.ui.MWCitationContextItem.static.template = null;
 
+// If the parent class (ve.ui.MWReferenceContextItem) is extended
+// and re-registered (e.g. by Citoid), then the inheritance chain is
+// broken, and the generic 'reference' context item would show.  To
+// aviod this we can manually specify that that context should never
+// show when a more specific context item is shown.
+ve.ui.MWCitationContextItem.static.suppresses = [ 'reference' ];
+
 /* Static Methods */
 
 /**
@@ -72,12 +79,6 @@ ve.ui.MWCitationContextItem.static.newFromCitationToolsDefinition = function ( t
 	contextItem.static.label = toolDefinition.title;
 	contextItem.static.commandName = name;
 	contextItem.static.template = toolDefinition.template;
-	// If the grand-parent class (ve.ui.MWReferenceContextItem) is extended
-	// and re-registered (e.g. by Citoid), then the inheritance chain is
-	// broken, and the generic 'reference' context item would show. Instead
-	// manually specify that that context should never show when a more
-	// specific context item is shown.
-	contextItem.static.suppresses = [ 'reference' ];
 
 	return contextItem;
 };

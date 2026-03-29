@@ -10,7 +10,7 @@
 const MWReferenceDialogTool = require( './ve.ui.MWReferenceDialogTool.js' );
 
 /**
- * MediaWiki UserInterface citation dialog tool.
+ * Interface for tools that work with the {@link ve.ui.MWCitationDialog}
  *
  * @abstract
  * @constructor
@@ -87,7 +87,6 @@ ve.ui.MWCitationDialogTool.static.newFromCitationToolsDefinition = function ( to
 		ve.ui.MWCitationDialogTool.apply( this, arguments );
 	};
 	OO.inheritClass( tool, ve.ui.MWCitationDialogTool );
-	tool.static.group = 'cite';
 	tool.static.name = name;
 	tool.static.icon = toolDefinition.icon;
 	if ( mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ) {
@@ -97,8 +96,6 @@ ve.ui.MWCitationDialogTool.static.newFromCitationToolsDefinition = function ( to
 	}
 	tool.static.commandName = name;
 	tool.static.template = toolDefinition.template;
-	tool.static.autoAddToCatchall = false;
-	tool.static.autoAddToGroup = true;
 	tool.static.associatedWindows = [ name ];
 
 	return tool;

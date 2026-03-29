@@ -34,6 +34,7 @@
 
 	const MWCitationContextItem = require( './ve.ui.MWCitationContextItem.js' );
 	const MWCitationDialogTool = require( './ve.ui.MWCitationDialogTool.js' );
+	const MWCitationAction = require( './ve.ui.MWCitationAction.js' );
 
 	citationTools.forEach( ( toolDefinition ) => {
 		// Generate citation tool
@@ -66,7 +67,7 @@
 	function createCitationToolsCommand( toolDefinition ) {
 		return new ve.ui.Command(
 			MWCitationDialogTool.static.namePrefix + toolDefinition.name,
-			'mwcite',
+			MWCitationAction.static.name,
 			'open',
 			{ args: [ toolDefinition ], supportedSelections: [ 'linear' ] }
 		);

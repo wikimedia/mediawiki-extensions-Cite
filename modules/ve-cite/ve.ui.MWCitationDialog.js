@@ -57,14 +57,18 @@ ve.ui.MWCitationDialog.prototype.getReferenceNode = function () {
  * @override
  */
 ve.ui.MWCitationDialog.prototype.getSelectedNode = function () {
+	const surface = this.getFragment().getSurface();
 	const referenceNode = this.getReferenceNode();
-	if ( !referenceNode ) {
+	const internalItem = ( this.referenceModel && this.referenceModel.findInternalItem( surface ) ) ||
+		( referenceNode && referenceNode.getInternalItem() );
+
+	if ( !internalItem ) {
 		return null;
 	}
 
-	// Only use the selected node if it is the same template as this dialog expects
+	// Only use the node if it is the same template as this dialog expects
 	return ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate(
-		referenceNode.getInternalItem(),
+		internalItem,
 		this.citationTemplate
 	);
 };
@@ -88,6 +92,7 @@ ve.ui.MWCitationDialog.prototype.initialize = function ( data ) {
  * @param {string} [data.inDialog]
  * @param {string|string[]} [data.template]
  * @param {string} [data.title]
+ * @param {ve.dm.MWReferenceModel} [data.refToEdit] Open the dialog to edit a specific reference
  */
 ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 	return ve.ui.MWCitationDialog.super.prototype.getSetupProcess.call( this, data )
@@ -96,7 +101,7 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 			this.inDialog = data.inDialog;
 			this.citationTemplate = data.template;
 			this.citationTitle = data.title;
-
+			this.referenceModel = data.refToEdit;
 			this.trackedCitationInputChange = false;
 		} )
 		.next( () => {
@@ -104,7 +109,7 @@ ve.ui.MWCitationDialog.prototype.getSetupProcess = function ( data ) {
 
 			// Initialization
 			this.referenceNode = this.getReferenceNode();
-			if ( this.referenceNode ) {
+			if ( !this.referenceModel && this.referenceNode ) {
 				this.referenceModel = MWReferenceModel.static.newFromReferenceNode(
 					this.referenceNode
 				);

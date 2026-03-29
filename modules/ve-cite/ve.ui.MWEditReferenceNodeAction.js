@@ -55,17 +55,9 @@ ve.ui.MWEditReferenceNodeAction.prototype.execute = function ( node ) {
 			this.source
 		);
 	} else {
-		// FIXME: Allow passing refToEdit to the CitationDialog see T413760
-		const fragmentArgs = {
-			fragment: this.surface.getModel().getLinearFragment(
-				node.getOuterRange(),
-				true
-			),
-			selectFragmentOnClose: false
-		};
-
+		//  Arguments for calling ve.ui.MWCitationDialog.getSetupProcess()
 		const newArgs = ve.copy( refCommand.args );
-		ve.extendObject( newArgs[ 0 ], fragmentArgs );
+		ve.extendObject( newArgs[ 0 ], additionalWindowData );
 		refCommand.execute( this.surface, newArgs, this.source );
 	}
 };

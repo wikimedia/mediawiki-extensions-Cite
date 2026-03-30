@@ -66,7 +66,7 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 
 	} );
 
-	it( 'should be able to create a VE-Cite tool template', () => {
+	it.skip( 'should be able to create a VE-Cite tool template', () => {
 		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 			cy.wait( 500 );

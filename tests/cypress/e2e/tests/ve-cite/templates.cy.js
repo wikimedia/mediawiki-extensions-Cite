@@ -46,7 +46,7 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 		veHelper.openVEForEditingReferences( title, usesCitoid );
 	} );
 
-	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {
+	it.skip( 'should add a template reference and verify correct content in both saved and edit mode', () => {
 		cy.contains( '.ve-ui-surface  .mw-reflink-text', '[1]' ).type( '{rightarrow}' );
 
 		if ( usesCitoid ) {

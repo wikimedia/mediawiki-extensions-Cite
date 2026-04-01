@@ -1,8 +1,19 @@
 import * as helpers from './functions.helper.js';
 
-export function hasVisualEditorInstalled() {
+export function checkModuleDependencies() {
 	helpers.visitTitle( '' );
-	return helpers.isModuleRegistered( 'ext.cite.visualEditor' );
+	cy.window()
+		.should( 'have.property', 'mw' )
+		.and( 'have.property', 'loader' )
+		.and( 'have.property', 'getModuleNames' );
+	return cy.window().then( ( win ) => {
+		const names = win.mw.loader.getModuleNames();
+		return {
+			citoid: names.includes( 'ext.citoid.visualEditor' ),
+			templateData: names.includes( 'ext.templateData' ),
+			visualEditor: names.includes( 'ext.cite.visualEditor' )
+		};
+	} );
 }
 
 export function setVECookiesToDisableDialogs() {

@@ -16,19 +16,17 @@ let usesCitoid;
 
 describe( 'Visual Editor Cite Integration', () => {
 	before( () => {
-		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
-			cy.skipOn( !hasVE );
+		veHelper.checkModuleDependencies().then( ( deps ) => {
+			cy.skipOn( !deps.visualEditor );
+			usesCitoid = deps.citoid;
 		} );
+
 		helper.editPage( title, wikiText );
 	} );
 
 	beforeEach( () => {
 		helper.visitTitle( title );
 		helper.waitForMWLoader();
-
-		cy.window().then( async ( win ) => {
-			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
-		} );
 
 		veHelper.setVECookiesToDisableDialogs();
 		veHelper.openVEForEditingReferences( title, usesCitoid );

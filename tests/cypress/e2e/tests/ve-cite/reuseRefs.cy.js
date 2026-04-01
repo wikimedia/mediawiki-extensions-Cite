@@ -15,8 +15,9 @@ let usesCitoid;
 describe( 'Re-using refs in Visual Editor', () => {
 
 	before( () => {
-		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
-			cy.skipOn( !hasVE );
+		veHelper.checkModuleDependencies().then( ( deps ) => {
+			cy.skipOn( !deps.visualEditor );
+			usesCitoid = deps.citoid;
 		} );
 
 		cy.clearCookies();
@@ -40,10 +41,6 @@ describe( 'Re-using refs in Visual Editor', () => {
 
 		cy.clearCookies();
 		helper.editPage( title, wikiText );
-
-		cy.window().then( async ( win ) => {
-			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
-		} );
 
 		veHelper.setVECookiesToDisableDialogs();
 		veHelper.openVEForEditingReferences( title, usesCitoid );

@@ -12,8 +12,9 @@ let usesCitoid;
 describe( 'Re-using refs in Visual Editor using templates', () => {
 
 	before( () => {
-		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
-			cy.skipOn( !hasVE );
+		veHelper.checkModuleDependencies().then( ( deps ) => {
+			cy.skipOn( !deps.visualEditor || !deps.templateData );
+			usesCitoid = deps.citoid;
 		} );
 
 		cy.clearCookies();
@@ -38,15 +39,11 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 		cy.clearCookies();
 		helper.editPage( title, wikiText );
 
-		cy.window().then( async ( win ) => {
-			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
-		} );
-
 		veHelper.setVECookiesToDisableDialogs();
 		veHelper.openVEForEditingReferences( title, usesCitoid );
 	} );
 
-	it.skip( 'should add a template reference and verify correct content in both saved and edit mode', () => {
+	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {
 		cy.contains( '.ve-ui-surface  .mw-reflink-text', '[1]' ).type( '{rightarrow}' );
 
 		if ( usesCitoid ) {

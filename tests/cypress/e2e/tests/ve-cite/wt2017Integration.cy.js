@@ -8,12 +8,14 @@ const title = helper.getTestString( 'CiteTest-title' );
 
 const wikiText = '';
 
-let usesCitoid;
+let usesCitoid, usesTemplateData;
 
 describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 	before( () => {
-		veHelper.hasVisualEditorInstalled().then( ( hasVE ) => {
-			cy.skipOn( !hasVE );
+		veHelper.checkModuleDependencies().then( ( deps ) => {
+			cy.skipOn( !deps.visualEditor );
+			usesCitoid = deps.citoid;
+			usesTemplateData = deps.templateData;
 		} );
 
 		helper.loginAsAdmin();
@@ -29,10 +31,6 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 	beforeEach( () => {
 		cy.clearCookies();
 		helper.editPage( title, wikiText );
-
-		cy.window().then( async ( win ) => {
-			usesCitoid = win.mw.loader.getModuleNames().includes( 'ext.citoid.visualEditor' );
-		} );
 
 		veHelper.setVECookiesToDisableDialogs();
 		veHelper.openVEForSourceEditingReferences( title, usesCitoid );
@@ -66,7 +64,9 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 
 	} );
 
-	it.skip( 'should be able to create a VE-Cite tool template', () => {
+	it( 'should be able to create a VE-Cite tool template', () => {
+		cy.skipOn( !usesTemplateData );
+
 		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 			cy.wait( 500 );

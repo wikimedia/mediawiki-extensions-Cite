@@ -517,11 +517,14 @@ class References {
 		$groupName = $nodeDp->group ?? '';
 		$refGroup = $refsData->lookupRefGroup( $groupName );
 
-		// Iterate through the ref list to back-patch typeof and data-mw error
-		// information into ref for errors only known at time of references
-		// insertion.  Refs in the top level dom will be processed immediately,
+		// Iterate through the ref list to check for subrefs and
+		// back-patch typeof and data-mw error information into ref
+		// for errors only known at time of references insertion.
+		// Refs in the top level dom will be processed immediately,
 		// whereas embedded refs will be gathered for batch processing, since
 		// we need to parse embedded content to find them.
+		$hasSubref = false;
+
 		if ( $refGroup ) {
 			foreach ( $refGroup->toArray() as $ref ) {
 				// Mark all refs that are named without content
@@ -534,7 +537,16 @@ class References {
 						$refsData->embeddedErrors[$about] = [ $err ];
 					}
 				}
+
+				if ( $ref->subrefIndex !== null ) {
+					$hasSubref = true;
+				}
 			}
+		}
+
+		// add tracking category for subrefs
+		if ( $hasSubref ) {
+			$extApi->addTrackingCategory( 'cite-tracking-category-ref-details' );
 		}
 
 		// Note that `$sup`s here are probably all we really need to check for

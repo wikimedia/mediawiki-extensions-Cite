@@ -4,5 +4,8 @@ QUnit.module( 've.ui.MWCitationDialogTool (Cite)', ve.test.utils.newMwEnvironmen
 
 QUnit.test( 'isCompatibleWith', ( assert ) => {
 	const model = new ve.dm.MWReferenceNode();
-	assert.true( ve.ui.MWCitationDialogTool.static.isCompatibleWith( model ) );
+	assert.false(
+		ve.ui.MWCitationDialogTool.static.isCompatibleWith( model ),
+		'CitationDialogTools are not compatible with plain ReferenceNodes'
+	);
 } );

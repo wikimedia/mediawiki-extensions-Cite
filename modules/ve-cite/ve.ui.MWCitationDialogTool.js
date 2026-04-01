@@ -53,22 +53,14 @@ ve.ui.MWCitationDialogTool.static.template = null;
  */
 ve.ui.MWCitationDialogTool.static.isCompatibleWith = function ( model ) {
 	const compatible = ve.ui.MWCitationDialogTool.super.static.isCompatibleWith.call( this, model );
-
-	if ( compatible && this.template ) {
-		// Check if content of the reference node contains only a template with the same name as
-		// this.template
-		const internalItem = model.getInternalItem();
-		const branches = internalItem ? internalItem.getChildren() : [];
-		if ( branches.length === 1 && branches[ 0 ].canContainContent() ) {
-			const leaves = branches[ 0 ].getChildren();
-			if ( leaves.length === 1 && leaves[ 0 ] instanceof ve.dm.MWTransclusionNode ) {
-				return leaves[ 0 ].isSingleTemplate( this.template );
-			}
-		}
+	if ( !compatible || !this.template ) {
 		return false;
 	}
 
-	return compatible;
+	return !!ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate(
+		model.getInternalItem(),
+		this.template
+	);
 };
 
 /**

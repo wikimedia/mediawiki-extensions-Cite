@@ -30,7 +30,8 @@
 			"Stefania.scaramuzzi",
 			"Supernino",
 			"Una giornata uggiosa '94",
-			"Vivbod"
+			"Vivbod",
+			"Valepert"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Libro",
@@ -43,7 +44,10 @@
 	"cite-ve-changedesc-reflist-group-both": "Elenco gruppo note cambiato da \"$1\" a \"$2\"",
 	"cite-ve-changedesc-reflist-group-from": "Elenco gruppo note cambiato da \"$1\" a gruppo generale",
 	"cite-ve-changedesc-reflist-group-to": "Elenco gruppo note cambiato da gruppo generale a \"$1\"",
+	"cite-ve-changedesc-reflist-responsive-set": "L'elenco dei riferimenti è stato modificato per essere visualizzato in colonne adattive.",
+	"cite-ve-changedesc-reflist-responsive-unset": "L'elenco dei riferimenti è stato modificato per essere visualizzato in una sola colonna.",
 	"cite-ve-citationneeded-button": "Aggiungi una fonte",
+	"cite-ve-citationneeded-description": "Un editore ha indicato che questa affermazione necessita di una citazione da una fonte attendibile.",
 	"cite-ve-citationneeded-reason": "Motivo fornito:",
 	"cite-ve-citationneeded-title": "Citazione necessaria",
 	"cite-ve-dialog-reference-contextitem-extends": "Questo riferimento è un riutilizzo con dettagli aggiuntivi:",

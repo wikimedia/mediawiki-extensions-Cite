@@ -22,6 +22,7 @@ export function setVECookiesToDisableDialogs() {
 		// Don't show the VE education popups with the blue
 		// pulsating dots (ve.ui.MWEducationPopupWidget)
 		win.localStorage.setItem( 've-hideusered', 1 );
+		win.localStorage.setItem( 'mw-cite-hide-subref-help', 1 );
 	} );
 }
 

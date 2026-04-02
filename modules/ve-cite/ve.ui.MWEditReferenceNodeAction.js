@@ -41,11 +41,7 @@ ve.ui.MWEditReferenceNodeAction.static.methods = [ 'execute' ];
  * @param {ve.dm.MWReferenceNode} node Node to edit
  */
 ve.ui.MWEditReferenceNodeAction.prototype.execute = function ( node ) {
-	const commandName = this.getCommandNameFromRef( node );
-	if ( !commandName ) {
-		return;
-	}
-
+	const commandName = this.getCommandNameFromInternalItem( node.getInternalItem() );
 	const refCommand = ve.ui.commandRegistry.lookup( commandName );
 	const additionalWindowData = {
 		refToEdit: MWReferenceModel.static.newFromReferenceNode( node )
@@ -75,15 +71,23 @@ ve.ui.MWEditReferenceNodeAction.prototype.execute = function ( node ) {
 };
 
 /**
- * @param {ve.dm.MWReferenceNode} node
+ * Gets the name of a command that works for the content of an InternalItem by
+ * iterating over MediaWiki:Cite-tool-definition.json entries and see if any
+ * template fits.
+ *
+ * @param {ve.dm.InternalItemNode} internalItem
  * @return {string}
  * @private
  */
-ve.ui.MWEditReferenceNodeAction.prototype.getCommandNameFromRef = function ( node ) {
-	const firstItem = ve.ui.contextItemFactory.getRelatedItems( [ node ] )
-		.find( ( item ) => item.name !== 'mobileActions' );
+ve.ui.MWEditReferenceNodeAction.prototype.getCommandNameFromInternalItem = function ( internalItem ) {
+	const matchingToolDefinition = ve.ui.mwCitationTools.find( ( toolDefinition ) => ve.ui.MWCitationDialog
+		.static.getTransclusionNodeWithTemplate(
+			internalItem, toolDefinition.template
+		) );
 
-	return firstItem && firstItem.name;
+	return matchingToolDefinition ?
+		ve.ui.MWCitationDialogTool.static.namePrefix + matchingToolDefinition.name :
+		'reference';
 };
 
 module.exports = ve.ui.MWEditReferenceNodeAction;

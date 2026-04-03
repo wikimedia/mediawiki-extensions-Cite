@@ -6,6 +6,7 @@
 			"CyberTroopers",
 			"Hakimi97",
 			"Izzudin",
+			"SNN95",
 			"Tofeiku"
 		]
 	},
@@ -19,10 +20,11 @@
 	"cite_error_ref_no_key": "Pembukaan tag <code>&lt;ref&gt;</code> tidak tidak berfungsi atau mempunyai nama yang salah.",
 	"cite_error_ref_with_details_no_name": "Tag <code>&lt;ref&gt;</code> yang tidak sah; atribut nama yang hilang. Atribut nama mesti disediakan bersama dengan atribut butiran.",
 	"cite_error_ref_too_many_keys": "Parameter \"$1\" yang tidak sah dalam tag <code>&lt;ref&gt;</code>. Parameter yang disokong ialah: $2.",
-	"cite_error_ref_follow_conflicts": "Tag <code>&lt;ref follow=\"…\"&gt;</code> yang merupakan kesinambungan daripada yang sebelumnya tidak boleh dinamakan secara individu mahupun dilanjutkan",
+	"cite_error_ref_parameter_suggestion": "Parameter \"$1\" tidak sah dalam tag <code>&lt;ref></code>. Adakah anda maksudkan \"$2\"?",
+	"cite_error_ref_follow_conflicts": "Tag <code>&lt;ref follow=\"…\"&gt;</code> yang merupakan kesinambungan daripada yang sebelumnya tidak boleh dinamakan secara individu mahupun diperincikan.",
 	"cite_error_ref_no_input": "Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa nama mestilah mempunyai kandungan",
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> tidak sah, nama \"$1\" digunakan secara berulang dengan kandungan yang berbeza",
-	"cite_error_references_invalid_parameters": "Parameter tidak sah dalam tag <code>&lt;references&gt;</code>",
+	"cite_error_references_invalid_parameters": "Parameter tidak sah \"$1\" dalam tag <code>&lt;references></code>. Parameter yang disokong ialah: $2.",
 	"cite_error_references_no_text": "Tag <code>&lt;ref&gt;</code> tidak sah; tiada teks disediakan bagi rujukan yang bernama <code>$1</code>",
 	"cite_error_included_ref": "Tag <code>&lt;ref&gt;</code> tidak ditutup dengan <code>&lt;/ref&gt;</code>",
 	"cite_error_included_references": "Tag penutup hilang untuk <code>&lt;references&gt;</code>",
@@ -33,11 +35,14 @@
 	"cite_error_empty_references_define": "Tag <code>&lt;ref&gt;</code> dengan nama dengan nama \"$1\" yang ditentukan dalam kumpulan <code>&lt;references&gt;</code> \"$2\" tidak mempunyai kandungan.",
 	"cite-tracking-category-cite-error": "Laman dengan ralat rujukan",
 	"cite-tracking-category-cite-error-desc": "Laman dalam kategori ini mempunyai ralat dari segi penggunaan tag rujukan.",
+	"cite-tracking-category-ref-details": "Laman yang menggunakan sub-rujukan",
+	"cite-tracking-category-ref-details-desc": "Laman dalam kategori ini menggunakan atribut \"butiran\" bagi tag &lt;ref>.",
 	"cite-reference-previews-reference": "Rujukan",
 	"cite-reference-previews-book": "Rujukan buku",
 	"cite-reference-previews-journal": "Rujukan jurnal",
 	"cite-reference-previews-news": "Rujukan berita",
 	"cite-reference-previews-note": "Catatan",
+	"cite-reference-previews-map": "Rujukan peta",
 	"cite-reference-previews-web": "Rujukan web",
 	"cite-reference-previews-collapsible-placeholder": "Rujukan ini termasuk angka yang tidak dapat disesuaikan dalam pralihat.",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "Anda mempunyai gajet [[$1|kotak timbul navigasi]], jadi anda tidak akan nampak pralihat yang disediakan oleh ciri ini. Bergantung pada wiki anda, beberapa alat mungkin mempunyai nama yang sedikit berbeza. Jika anda terus mengalami masalah, sila semak alat dan skrip pengguna anda, termasuk yang global.",
@@ -58,5 +63,5 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Teks laman.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Teks pautan], teks tambahan.",
 	"cite-wikieditor-help-content-reference-example-text3": "Buku",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Butiran tambahan"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Halaman 76"
 }

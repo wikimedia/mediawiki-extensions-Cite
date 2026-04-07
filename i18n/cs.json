@@ -14,6 +14,7 @@
 	"cite-desc": "Přidává značky <code>&lt;ref&gt;</code> a&nbsp;<code>&lt;references/&gt;</code> na označení citací",
 	"cite_error": "Chybná citace: $1",
 	"cite_error_ref_invalid_dir": "Chybné <code>dir=\"$1\"</code>, musí být <code>ltr</code> nebo <code>rtl</code>",
+	"cite_error_ref_conflicting_dir": "Jedna ze značek <code>&lt;ref&gt;</code> s názvem „$1“ má konfliktní atribut „dir“.",
 	"cite_error_ref_numeric_key": "Chyba v tagu <code>&lt;ref&gt;</code>; názvem nesmí být prosté číslo, použijte popisné označení",
 	"cite_error_ref_no_key": "Otvírací značka <code>&lt;ref&gt;</code> je chybná nebo má špatný název",
 	"cite_error_ref_too_many_keys": "Chyba v tagu <code>&lt;ref&gt;</code>; chybné názvy, např. je jich příliš mnoho",

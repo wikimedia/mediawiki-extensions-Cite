@@ -164,7 +164,6 @@ class Cite {
 				$firstError = $status->getMessages()[0];
 				$this->mReferencesErrors->fatal( $firstError->getKey(), ...$firstError->getParams() );
 			} else {
-				// Validation made sure we always have group and name while in <references>
 				$ref = $this->referenceStack->listDefinedRef( $arguments['group'], $arguments['name'], $text );
 				// Remember all non-fatal warnings to be displayed as part of the reference list
 				foreach ( $status->getMessages() as $msg ) {

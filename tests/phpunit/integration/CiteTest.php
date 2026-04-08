@@ -193,7 +193,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedRollbackCount' => 1,
 				'expectedInReferencesGroup' => '',
 				'expectedResponsive' => false,
-				'expectedOutput' => "references!\ncite_error_references_no_key"
+				'expectedOutput' => "references!"
 			],
 			'Contains refs (which are broken) (new-style)' => [
 				'text' => Parser::MARKER_PREFIX . '-ext-ref- and ' . Parser::MARKER_PREFIX . '-ext-notref-',
@@ -201,7 +201,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 				'expectedRollbackCount' => 1,
 				'expectedInReferencesGroup' => '',
 				'expectedResponsive' => false,
-				'expectedOutput' => "references!\ncite_error_references_no_key"
+				'expectedOutput' => "references!"
 			],
 		];
 	}

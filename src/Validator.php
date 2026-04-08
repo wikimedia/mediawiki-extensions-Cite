@@ -281,7 +281,7 @@ class Validator {
 
 		if ( !$name ) {
 			// <ref> calls inside <references> must be named
-			$status->fatal( 'cite_error_references_no_key' );
+			$status->warning( 'cite_error_references_no_key' );
 		}
 
 		if ( $text === null || trim( $text ) === '' ) {
@@ -301,8 +301,8 @@ class Validator {
 		$status = StatusValue::newGood();
 
 		if ( $this->inReferencesGroup !== null && $name && !$isKnownName ) {
-			// No such named ref exists in this group.
-			$status->fatal( 'cite_error_references_missing_key',
+			// <ref> declaration inside <references> was never used before
+			$status->warning( 'cite_error_references_missing_key',
 				Sanitizer::safeEncodeAttribute( $name )
 			);
 		}

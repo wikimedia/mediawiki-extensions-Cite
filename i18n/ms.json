@@ -6,7 +6,8 @@
 			"CyberTroopers",
 			"Hakimi97",
 			"Izzudin",
-			"Tofeiku"
+			"Tofeiku",
+			"SNN95"
 		]
 	},
 	"cite-desc": "Menambah tag <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> untuk pemetikan",
@@ -18,7 +19,7 @@
 	"cite_error_ref_numeric_key": "Teg <code>&lt;ref&gt;</code> tidak sah; nama tidak boleh menjadi integer mudah. Gunakan tajuk deskriptif",
 	"cite_error_ref_no_key": "Pembukaan tag <code>&lt;ref&gt;</code> tidak tidak berfungsi atau mempunyai nama yang salah.",
 	"cite_error_ref_too_many_keys": "Parameter tidak sah dalam teg <code>&lt;ref&gt;</code>",
-	"cite_error_ref_follow_conflicts": "Tag <code>&lt;ref follow=\"…\"&gt;</code> yang merupakan kesinambungan daripada yang sebelumnya tidak boleh dinamakan secara individu mahupun dilanjutkan",
+	"cite_error_ref_follow_conflicts": "Tag <code>&lt;ref follow=\"…\"&gt;</code> yang merupakan kesinambungan daripada yang sebelumnya tidak boleh dinamakan secara individu mahupun diperincikan.",
 	"cite_error_ref_no_input": "Tag <code>&lt;ref&gt;</code> tidak sah; rujukan tanpa nama mestilah mempunyai kandungan",
 	"cite_error_references_duplicate_key": "Tag <code>&lt;ref&gt;</code> tidak sah, nama \"$1\" digunakan secara berulang dengan kandungan yang berbeza",
 	"cite_error_references_invalid_parameters": "Parameter tidak sah dalam tag <code>&lt;references&gt;</code>",
@@ -32,6 +33,8 @@
 	"cite_error_empty_references_define": "Tag <code>&lt;ref&gt;</code> dengan nama dengan nama \"$1\" yang ditentukan dalam kumpulan <code>&lt;references&gt;</code> \"$2\" tidak mempunyai kandungan.",
 	"cite-tracking-category-cite-error": "Laman dengan ralat rujukan",
 	"cite-tracking-category-cite-error-desc": "Laman dalam kategori ini mempunyai ralat dari segi penggunaan tag rujukan.",
+	"cite-tracking-category-ref-details": "Laman yang menggunakan sub-rujukan",
+	"cite-tracking-category-ref-details-desc": "Laman dalam kategori ini menggunakan atribut \"butiran\" bagi tag &lt;ref>.",
 	"cite-reference-previews-reference": "Rujukan",
 	"cite-reference-previews-book": "Rujukan buku",
 	"cite-reference-previews-journal": "Rujukan jurnal",

@@ -201,9 +201,7 @@
 		assert.strictEqual( normalRefModel.mainRefKey, undefined );
 		assert.strictEqual( normalRefModel.mainListIndex, undefined );
 		assert.strictEqual( typeof normalRefModel.doc, 'function' );
-		assert.strictEqual( normalRefModel.mainDoc, null );
 		assert.true( normalRefModel.getDocument() instanceof ve.dm.Document );
-		assert.strictEqual( normalRefModel.getMainDocument(), null );
 		assert.false( normalRefModel.isSubRef() );
 
 		// Sub-reference node
@@ -216,9 +214,7 @@
 		assert.strictEqual( subRefModel.mainRefKey, 'literal/ldr' );
 		assert.strictEqual( subRefModel.mainListIndex, 1 );
 		assert.strictEqual( typeof subRefModel.doc, 'function' );
-		assert.strictEqual( typeof subRefModel.mainDoc, 'function' );
 		assert.true( subRefModel.getDocument() instanceof ve.dm.Document );
-		assert.true( subRefModel.getMainDocument() instanceof ve.dm.Document );
 		assert.true( subRefModel.isSubRef() );
 	} );
 
@@ -243,6 +239,5 @@
 		oldData.splice( internalListRange.start, internalListRange.end - internalListRange.start );
 
 		assert.deepEqual( newData, oldData, 'data matches' );
-		assert.deepEqual( oldSubRef.getMainDocument(), newSubRef.getMainDocument(), 'main content data matches' );
 	} );
 }

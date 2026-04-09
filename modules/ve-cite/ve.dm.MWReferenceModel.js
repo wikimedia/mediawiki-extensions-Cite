@@ -12,8 +12,6 @@ const MWReferenceKeyGenerator = require( './ve.dm.MWReferenceKeyGenerator.js' );
 /**
  * Corresponds to one ref and its metadata, chosen for an action.
  *
- * TODO: Distinguish this module from ve.dm.MWReferenceNode
- *
  * @constructor
  * @mixes OO.EventEmitter
  * @param {ve.dm.Document} [parentDoc] The parent Document we can use to auto-generate a blank
@@ -51,22 +49,8 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	 */
 	this.doc = null;
 
-	/**
-	 * Document with the main content in case of a sub-reference
-	 *
-	 * @member {ve.dm.Document|function():ve.dm.Document|null}
-	 */
-	this.mainDoc = null;
-
 	if ( parentDoc ) {
 		this.doc = () => parentDoc.cloneWithData( [
-			{ type: 'paragraph', internal: { generated: 'wrapper' } },
-			{ type: '/paragraph' },
-			{ type: 'internalList' },
-			{ type: '/internalList' }
-		] );
-
-		this.mainDoc = () => parentDoc.cloneWithData( [
 			{ type: 'paragraph', internal: { generated: 'wrapper' } },
 			{ type: '/paragraph' },
 			{ type: 'internalList' },
@@ -103,14 +87,12 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 		// cloneFromRange is very expensive, so lazy evaluate it
 		return doc.cloneFromRange( internalList.getItemNode( attributes.listIndex ).getRange() );
 	};
-	if ( ref.isSubRef() ) {
-		ref.mainDoc = function () {
-			// cloneFromRange is very expensive, so lazy evaluate it
-			return doc.cloneFromRange( internalList.getItemNode( attributes.mainListIndex ).getRange() );
-		};
-	}
 
 	return ref;
+};
+
+ve.dm.MWReferenceModel.static.newEmptyRef = function ( doc ) {
+	return new ve.dm.MWReferenceModel( doc );
 };
 
 /**
@@ -134,7 +116,6 @@ ve.dm.MWReferenceModel.static.copySubReference = function ( oldSubRef, doc ) {
 
 	newSubRef.mainRefKey = oldSubRef.mainRefKey;
 	newSubRef.mainListIndex = oldSubRef.mainListIndex;
-	newSubRef.mainDoc = oldSubRef.mainDoc;
 	newSubRef.setGroup( oldSubRef.getGroup() );
 
 	return newSubRef;
@@ -237,14 +218,20 @@ ve.dm.MWReferenceModel.prototype.updateInternalItem = function ( surfaceModel ) 
 	const doc = surfaceModel.getDocument();
 	const internalList = doc.getInternalList();
 
-	// Update internal node content
-	const itemNodeRange = internalList.getItemNode( this.listIndex ).getRange();
+	// Get internalItem to update
+	const itemIndexToUpdate = this.listIndex;
+	const itemNodeRange = internalList.getItemNode( itemIndexToUpdate ).getRange();
+
+	// Apply updates
+	const contentToUpdate = this.getDocument();
 	surfaceModel.change(
 		ve.dm.TransactionBuilder.static
 			.newFromRemoval( doc, itemNodeRange, true ) );
-	surfaceModel.change(
-		ve.dm.TransactionBuilder.static
-			.newFromDocumentInsertion( doc, itemNodeRange.start, this.getDocument() ) );
+	surfaceModel.change( ve.dm.TransactionBuilder.static.newFromDocumentInsertion(
+		doc,
+		itemNodeRange.start,
+		contentToUpdate
+	) );
 };
 
 /**
@@ -339,24 +326,6 @@ ve.dm.MWReferenceModel.prototype.getDocument = function () {
 		this.doc = this.doc();
 	}
 	return this.doc;
-};
-
-/**
- * Get the document with the main content in case of a sub-reference.
- *
- * Auto-generates a blank document if no document exists. Null if the reference is not
- * a sub-reference.
- *
- * @return {ve.dm.Document|null} The (small) document with the main content of the sub-reference
- */
-ve.dm.MWReferenceModel.prototype.getMainDocument = function () {
-	if ( !this.isSubRef() ) {
-		return null;
-	}
-	if ( typeof this.mainDoc === 'function' ) {
-		this.mainDoc = this.mainDoc();
-	}
-	return this.mainDoc;
 };
 
 /**

@@ -109,7 +109,7 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 };
 
 ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
-	const newRef = new MWReferenceModel( this.getFragment().getDocument() );
+	const newRef = MWReferenceModel.static.newEmptyRef( this.getFragment().getDocument() );
 	newRef.mainRefKey = mainRef.getListKey();
 	newRef.mainListIndex = mainRef.getListIndex();
 	newRef.group = mainRef.getGroup();
@@ -312,8 +312,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.actions.setAbilities( { done: false, replace: canReplace } );
 				this.actions.setMode( 'edit' );
 			} else {
-				// create a new reference
-				ref = new MWReferenceModel( this.getFragment().getDocument() );
+				ref = ve.dm.MWReferenceModel.static.newEmptyRef( this.getFragment().getDocument() );
 			}
 			this.editPanel.setReferenceForEditing( ref );
 			this.editPanel.setReadOnly( this.isReadOnly() );

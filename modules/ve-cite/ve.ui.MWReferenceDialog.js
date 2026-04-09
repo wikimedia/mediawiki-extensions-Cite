@@ -264,7 +264,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
  * @param {Object} [data] Setup data
  * @param {boolean} [data.reuseReference=false] Open the dialog in "use existing reference" mode
  * @param {ve.dm.MWReferenceModel} [data.createSubRef] Open the dialog to add additional details to a reuse
- * @param {ve.dm.MWReferenceNode} [data.nodeToEdit] Open the dialog to edit a specific reference node
+ * @param {ve.dm.MWReferenceModel} [data.refToEdit] Open the dialog to edit a specific reference
  */
 ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
@@ -298,9 +298,9 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 			}
 
 			let ref;
-			this.editReferenceMode = !!data.nodeToEdit || this.selectedNode instanceof MWReferenceNode;
+			this.editReferenceMode = !!data.refToEdit || this.selectedNode instanceof MWReferenceNode;
 			if ( this.editReferenceMode ) {
-				ref = MWReferenceModel.static.newFromReferenceNode( data.nodeToEdit || this.selectedNode );
+				ref = data.refToEdit || MWReferenceModel.static.newFromReferenceNode( this.selectedNode );
 				if ( ref.isSubRef() ) {
 					this.title.setLabel( ve.msg( 'cite-ve-dialog-reference-title-details' ) );
 				}

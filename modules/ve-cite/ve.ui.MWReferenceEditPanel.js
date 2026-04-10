@@ -354,8 +354,9 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreview = function () {
 	if ( this.subRefMode ) {
 		// Note: listGroup is only available after a (possibly new) ref has been registered via
 		// ve.dm.MWReferenceModel.insertInternalItem
-		const mainRefNode = this.docRefs.getGroupRefs( this.referenceModel.getGroup() )
-			.getInternalModelNode( this.referenceModel.mainListIndex );
+		const mainRefNode = this.docRefs.getInternalItemNodeByListIndex(
+			this.referenceModel.mainListIndex
+		);
 		this.referenceListPreview.$element.empty()
 			.append( mainRefNode ?
 				$( '<div>' )

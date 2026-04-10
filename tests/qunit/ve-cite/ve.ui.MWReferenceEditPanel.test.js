@@ -32,9 +32,9 @@
 	 */
 	const getDocumentReferencesMock = ( node, reUse ) => ( {
 		getAllGroupNames: () => [ 'mwReference/' ],
+		getInternalItemNodeByListIndex: () => ( node ),
 		getGroupRefs: () => ( {
 			getRefUsages: () => ( reUse ? [ node, node ] : [] ),
-			getInternalModelNode: () => ( node ),
 			getTotalUsageCount: () => {
 				const mainRefsCount = reUse ? 2 : 0;
 				const subRefsCount = reUse ? 1 : 0;

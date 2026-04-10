@@ -308,7 +308,7 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
  * @static
  * @param {string} refGroup
  * @param {HTMLDocument} doc
- * @param {ve.dm.Converter} converter
+ * @param {ve.dm.DomFromModelConverter} converter
  * @return {HTMLElement} <ol> element for the references list
  * */
 ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, converter ) {
@@ -337,7 +337,7 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, c
  * @param {ve.dm.MWGroupReferences} groupRefs
  * @param {number} listIndex
  * @param {HTMLDocument} doc
- * @param {ve.dm.Converter} converter
+ * @param {ve.dm.DomFromModelConverter} converter
  * @return {jQuery} <li> element for the references listitem
  * */
 ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
@@ -346,7 +346,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 	doc,
 	converter
 ) {
-	const internalItem = groupRefs.getInternalModelNode( listIndex );
+	const internalItem = converter.internalList.getItemNode( listIndex );
 	const subrefs = groupRefs.getSubrefs( listIndex );
 	const $li = $( '<li>', doc );
 

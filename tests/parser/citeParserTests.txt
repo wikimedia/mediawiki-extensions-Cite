@@ -1012,7 +1012,6 @@ parsoid=wt2html
 </ol></div>
 !! end
 
-# T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 T242437 - Nested references edge case, outer tag function with LDR
 !! wikitext
@@ -1027,10 +1026,14 @@ T242437 - Nested references edge case, outer tag function with LDR
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Closing tag missing for <code>&lt;references&gt;</code></span>
 </p>
 !! html/parsoid
-Parsoid fails this right now
+<p><sup class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}'><a href="./Parser_test#cite_note-foo-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n  &lt;ref name=\"foo\">bar&lt;/ref>\n\n  &lt;References />\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n  &lt;ref name=\"foo\">bar&lt;/ref>\n\n  &lt;References />\n"}},"i":0}}]}'>
+<ol class="mw-references references">
+<li id="cite_note-foo-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text">bar</span></li>
+</ol>
+</div>
 !! end
 
-# T307741: Parsoid fails this test in both standalone and integrated modes.
 !! test
 T242437 - Nested references edge case, outer tag function, inner LDR
 !! wikitext
@@ -1045,7 +1048,12 @@ T242437 - Nested references edge case, outer tag function, inner LDR
 <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Closing tag missing for <code>&lt;references&gt;</code></span>
 </p>
 !! html/parsoid
-Parsoid fails this right now
+<p><sup class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}'><a href="./Parser_test#cite_note-foo-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n  &lt;references>\n    &lt;ref name=\"foo\">bar&lt;/ref>\n  &lt;/references>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n  &lt;references>\n    &lt;ref name=\"foo\">bar&lt;/ref>\n  &lt;/references>\n"}},"i":0}}]}'>
+<ol class="mw-references references">
+<li id="cite_note-foo-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text">bar</span></li>
+</ol>
+</div>
 !! end
 
 !! test
@@ -1532,7 +1540,7 @@ T202593: Identical dir attributes are pointless, but should not generate an erro
 </ol></div>
 !! end
 
-# T307741: Parsoid fails this test in both standalone and integrated modes.
+# FIXME: Parsoid currently cannot report failure states from inside <references>, see T384599
 !! test
 Multiple definition (inside {{#tag:references}})
 !! wikitext
@@ -1550,7 +1558,15 @@ Multiple definition (inside {{#tag:references}})
 </li>
 </ol></div>
 !! html/parsoid
-Parsoid fails this right now
+<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a"}}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n&lt;ref name=\"a\">abc&lt;/ref>\n&lt;ref name=\"a\">def&lt;/ref>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"a\">abc&lt;/ref>\n&lt;ref name=\"a\">def&lt;/ref>\n"}},"i":0}}]}'>
+<ol class="mw-references references">
+<li id="cite_note-a-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text">abc</span></li>
+</ol>
+</div>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references"></ol>
+</div>
 !! end
 
 # Parsoid doesn't rt cleanly because name attribute is actually broken
@@ -3310,7 +3326,7 @@ T269531: Special case when a named group is entirely unused in the text
 </div>
 !! end
 
-# T307741: Parsoid fails this test in both standalone and integrated modes.
+# FIXME: Parsoid currently cannot report failure states from inside <references>, see T384599
 !! test
 T242437 - Blank ref name in #tag regression
 !! wikitext
@@ -3321,7 +3337,11 @@ T242437 - Blank ref name in #tag regression
 <p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag defined in <code>&lt;references&gt;</code> has no name attribute.</span>
 </p>
 !! html/parsoid
-Parsoid fails this right now
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n&lt;ref name=\"\">foo&lt;/ref>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n&lt;ref name=\"\">foo&lt;/ref>\n"}},"i":0}}]}'>
+<ol class="mw-references references">
+<li id="cite_note-1" data-mw-footnote-number="1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">foo</span></li>
+</ol>
+</div>
 !! end
 
 # While the ref numbering is identical, the ref links with Parsoid's implementation

@@ -1,8 +1,6 @@
 'use strict';
 
 {
-	const { MWDataTransitionHelper } = require( 'ext.cite.visualEditor' ).test;
-
 	QUnit.module( 've.dm.MWDataTransitionHelper', ve.test.utils.newMwEnvironment() );
 
 	QUnit.test( 'buildReflistNumbering', ( assert ) => {
@@ -11,7 +9,7 @@
 		const groupName = 'mwReference/';
 		const nodeGroup = doc.getInternalList().getNodeGroup( groupName );
 
-		const dataTransitionHelper = new MWDataTransitionHelper(
+		const dataTransitionHelper = new ve.dm.MWDataTransitionHelper(
 			doc.getInternalList()
 		);
 
@@ -59,15 +57,15 @@
 		const groupName = 'mwReference/';
 		const nodeGroup = doc.getInternalList().getNodeGroup( groupName );
 
-		const dataTransitionHelper = new MWDataTransitionHelper(
+		const dataTransitionHelper = new ve.dm.MWDataTransitionHelper(
 			doc.getInternalList()
 		);
 
 		const result = dataTransitionHelper.buildReflistStructure( nodeGroup );
 
 		assert.deepEqual( result,
-			{
-				1: {
+			[
+				{
 					internalListIndex: 1,
 					label: '1',
 					subrefs: [
@@ -81,13 +79,13 @@
 					],
 					topLevelNumber: 1
 				},
-				2: {
+				{
 					internalListIndex: 2,
 					label: '2',
 					subrefs: [],
 					topLevelNumber: 2
 				},
-				4: {
+				{
 					internalListIndex: 4,
 					label: '3',
 					subrefs: [
@@ -101,7 +99,7 @@
 					],
 					topLevelNumber: 3
 				}
-			}
+			]
 		);
 	} );
 }

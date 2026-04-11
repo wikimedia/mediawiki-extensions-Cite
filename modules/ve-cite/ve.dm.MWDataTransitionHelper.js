@@ -92,22 +92,23 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistStructure = function ( nodeGr
 	const topLevelIndexes = Object.keys( footnoteNumberLookup )
 		.filter( ( listIndex ) => footnoteNumberLookup[ listIndex ].subrefNumber === undefined );
 
-	// Build a map from top-level listIndex to a list of subrefs, in document order.
-	const nestedRefs = {};
+	// Build an array of top-level refs, and include their subrefs. Sort in footnote number order.
+	const nestedRefs = [];
 
-	topLevelIndexes.forEach( ( mainListIndex ) => {
-		const subrefs =
-		Object.keys( footnoteNumberLookup )
-			// Get all subrefs of one main ref.
-			.filter( ( listIndex ) => footnoteNumberLookup[ listIndex ].mainListIndex === Number( mainListIndex ) )
-			// Put them in number order.
-			.sort( ( a, b ) => footnoteNumberLookup[ a ].subrefNumber - footnoteNumberLookup[ b ].subrefNumber )
-			// Get the lookup object for each subref.
-			.map( ( subrefIndex ) => footnoteNumberLookup[ subrefIndex ] );
+	topLevelIndexes
+		.sort( ( a, b ) => footnoteNumberLookup[ a ].topLevelNumber - footnoteNumberLookup[ b ].topLevelNumber )
+		.forEach( ( mainListIndex ) => {
+			const subrefs =
+			Object.keys( footnoteNumberLookup )
+				// Get all subrefs of one main ref.
+				.filter( ( listIndex ) => footnoteNumberLookup[ listIndex ].mainListIndex === Number( mainListIndex ) )
+				// Put them in number order.
+				.sort( ( a, b ) => footnoteNumberLookup[ a ].subrefNumber - footnoteNumberLookup[ b ].subrefNumber )
+				// Get the lookup object for each subref.
+				.map( ( subrefIndex ) => footnoteNumberLookup[ subrefIndex ] );
 
-		nestedRefs[ mainListIndex ] = ve.extendObject( {}, footnoteNumberLookup[ mainListIndex ], { subrefs } );
-	} );
-
+			nestedRefs.push( ve.extendObject( {}, footnoteNumberLookup[ mainListIndex ], { subrefs } ) );
+		} );
 	return nestedRefs;
 };
 

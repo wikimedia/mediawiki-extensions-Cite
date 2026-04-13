@@ -308,6 +308,15 @@ ve.dm.MWReferenceModel.prototype.getListIndex = function () {
 };
 
 /**
+ * Get the index of the main ref, if one is associated
+ *
+ * @return {number|undefined} Main reference's index
+ */
+ve.dm.MWReferenceModel.prototype.getMainListIndex = function () {
+	return this.mainListIndex;
+};
+
+/**
  * @return {string} The reference's plain list group name without any prefix
  */
 ve.dm.MWReferenceModel.prototype.getGroup = function () {

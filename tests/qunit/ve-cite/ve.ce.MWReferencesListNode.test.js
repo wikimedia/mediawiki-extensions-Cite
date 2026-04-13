@@ -55,9 +55,15 @@
 			</div>
 		</span>
 	</li>
-	<li class="ve-ce-mwReferencesListNode-missingRef" style="--footnote-number: &quot;3.&quot;;">
-		<span rel="mw:referencedBy"></span> <span class="ve-ce-mwReferencesListNode-muted">
-			cite-ve-referenceslist-missing-parent
+	<li style="--footnote-number: &quot;3.&quot;;">
+		<span rel="mw:referencedBy"></span> <span class="reference-text">
+			<div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output">
+				<span class="ve-ce-branchNode ve-ce-internalItemNode">
+					<p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode">
+						Main no node
+					</p>
+				</span>
+			</div>
 		</span>
 		<ol>
 			<li class="ve-ce-mwReferencesListNode-missingRef" style="--footnote-number: &quot;3.1.&quot;;">

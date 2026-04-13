@@ -50,12 +50,6 @@
 		assert.strictEqual( this.plainGroupRefs.getRefNode( doesNotExist ), undefined );
 	} );
 
-	QUnit.test( 'getInternalModelNode', function ( assert ) {
-		// TODO: assert something that makes sense
-		const doesNotExist = -1;
-		assert.strictEqual( this.plainGroupRefs.getInternalModelNode( doesNotExist ), undefined );
-	} );
-
 	QUnit.test( 'getRefUsages', function ( assert ) {
 		const listIndex = 1;
 		assert.deepEqual(

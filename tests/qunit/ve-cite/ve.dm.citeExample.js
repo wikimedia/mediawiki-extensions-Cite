@@ -373,7 +373,9 @@ ve.dm.citeExample.subReferencing = [
 	{ type: 'internalItem' },
 	{ type: '/internalItem' },
 	{ type: 'internalItem' },
+	{ type: 'paragraph' },
 	'M', 'a', 'i', 'n', ' ', 'n', 'o', ' ', 'n', 'o', 'd', 'e',
+	{ type: '/paragraph' },
 	{ type: '/internalItem' },
 	{ type: '/internalList' }
 ];

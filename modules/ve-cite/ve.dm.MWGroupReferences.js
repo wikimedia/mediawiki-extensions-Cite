@@ -175,27 +175,12 @@ ve.dm.MWGroupReferences.prototype.getTopLevelListIndexesInReflistOrder = functio
 /**
  * Return the defining reference node for this key
  *
- * @see #getInternalModelNode
- *
  * @deprecated use {@link ve.dm.InternalListNodeGroup.getFirstNode} instead
  * @param {number} listIndex
  * @return {ve.dm.MWReferenceNode|undefined}
  */
 ve.dm.MWGroupReferences.prototype.getRefNode = function ( listIndex ) {
 	return this.nodeGroup && this.nodeGroup.firstNodes[ listIndex ];
-};
-
-/**
- * Return the internalList internal item if it exists.
- *
- * @see #getRefNode
- *
- * @param {number} listIndex
- * @return {ve.dm.InternalItemNode|undefined}
- */
-ve.dm.MWGroupReferences.prototype.getInternalModelNode = function ( listIndex ) {
-	const ref = this.getRefNode( listIndex );
-	return ref && ref.getInternalItem();
 };
 
 /**

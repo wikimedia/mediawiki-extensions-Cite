@@ -62,7 +62,7 @@ class RefGroupItem {
 
 	/**
 	 * Global, unique sequence number for each <ref>, no matter which group, starting from 1.
-	 * 0 is invalid. Currently unused.
+	 * 0 is invalid.
 	 */
 	public int $globalId;
 

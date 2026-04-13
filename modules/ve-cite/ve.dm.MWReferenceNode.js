@@ -879,14 +879,4 @@ ve.dm.MWReferenceNode.prototype.onAttributeChange = function ( key, _from, to ) 
 	}
 };
 
-/**
- * Set the footnote number
- *
- * @param {number[]} groupItemIndex Pair of numbers giving the top-level and sub-reference indexes.
- */
-ve.dm.MWReferenceNode.prototype.setGroupIndex = function ( groupItemIndex ) {
-	// TODO: refine where this is stored
-	this.groupItemIndex = groupItemIndex;
-};
-
 module.exports = ve.dm.MWReferenceNode;

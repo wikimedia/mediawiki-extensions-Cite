@@ -33,7 +33,7 @@ ve.dm.MWDataTransitionHelper = function VeDmMWDataTransitionHelper() {
 
 /**
  * @param {ve.dm.InternalListNodeGroup|undefined} nodeGroup
- * @return {Object.<number, ve.dm.MWDataTransitionHelper.RefInfo>} footnote number lookup
+ * @return {Object.<string, ve.dm.MWDataTransitionHelper.RefInfo>} footnote number lookup
  */
 ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGroup ) {
 	const footnoteNumberLookup = {};
@@ -84,7 +84,6 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 			} else {
 				getOrAllocateTopLevelNumber( listIndex );
 			}
-			// TODO: decide how to handle setGroupIndex side effect.
 		} );
 
 	return footnoteNumberLookup;

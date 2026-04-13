@@ -1,5 +1,7 @@
 'use strict';
 
+const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
+
 /*!
  * @copyright 2024 VisualEditor Team's Cite sub-team and others; see AUTHORS.txt
  * @license MIT
@@ -19,25 +21,10 @@ ve.dm.MWGroupReferences = function VeDmMWGroupReferences() {
 
 	// Properties
 	/**
-	 * Lookup from listIndex to a pair of integers which are the [major, minor] footnote numbers
-	 * that will be rendered on the ref in some digit system.  Note that top-level refs always
-	 * have minor number `-1`.
-	 *
-	 * @member {Object.<number, number[]>}
+	 * @member {Object.<string, ve.dm.MWDataTransitionHelper.RefInfo>}
 	 * @private
 	 */
-	this.footnoteNumberLookup = {};
-
-	/**
-	 * Lookup from a main reference's listIndex to the corresponding sub-refs.
-	 *
-	 * @member {Object.<number, ve.dm.MWReferenceNode[]>}
-	 * @private
-	 */
-	this.subRefsByMain = {};
-
-	/** @private */
-	this.topLevelCounter = 1;
+	this.calculatedNumbering = {};
 
 	/**
 	 * InternalList node group, or null if no such group exists.
@@ -66,61 +53,12 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 		return result;
 	}
 	result.nodeGroup = nodeGroup;
-
-	nodeGroup.getFirstNodesInIndexOrder()
-		.filter( ( node ) => !node.getAttribute( 'placeholder' ) )
-		.forEach( ( node ) => {
-			const listKey = node.getAttribute( 'listKey' );
-			const listIndex = node.getAttribute( 'listIndex' );
-			const mainListIndex = node.getAttribute( 'mainListIndex' );
-			const groupItemIndex = ( mainListIndex !== undefined ?
-				result.addSubref( mainListIndex, listIndex, node ) :
-				[ result.getOrAllocateTopLevelIndex( listIndex ), -1 ]
-			);
-
-			const reuseNodes = nodeGroup.getAllReuses( listKey );
-			if ( reuseNodes ) {
-				reuseNodes.forEach( ( refNode ) => refNode.setGroupIndex( groupItemIndex ) );
-			}
-		} );
+	result.calculatedNumbering = new MWDataTransitionHelper().buildReflistNumbering( nodeGroup );
 
 	return result;
 };
 
 /* Methods */
-
-/**
- * @private
- * @param {number} listIndex for the top-level ref
- * @return {number} Allocated topLevelIndex
- */
-ve.dm.MWGroupReferences.prototype.getOrAllocateTopLevelIndex = function ( listIndex ) {
-	if ( !( listIndex in this.footnoteNumberLookup ) ) {
-		const number = this.topLevelCounter++;
-		this.footnoteNumberLookup[ listIndex ] = [ number, -1 ];
-	}
-	return this.footnoteNumberLookup[ listIndex ][ 0 ];
-};
-
-/**
- * @private
- * @param {number} mainListIndex listIndex of the main reference
- * @param {number} subRefListIndex listIndex of the sub-reference
- * @param {ve.dm.MWReferenceNode} subRefNode Sub-reference to add to internal tracking
- * @return {number[]}
- */
-ve.dm.MWGroupReferences.prototype.addSubref = function ( mainListIndex, subRefListIndex, subRefNode ) {
-	if ( !( mainListIndex in this.subRefsByMain ) ) {
-		this.subRefsByMain[ mainListIndex ] = [];
-	}
-	this.subRefsByMain[ mainListIndex ].push( subRefNode );
-	const subRefIndex = this.subRefsByMain[ mainListIndex ].length;
-
-	const topLevelIndex = this.getOrAllocateTopLevelIndex( mainListIndex );
-	this.footnoteNumberLookup[ subRefListIndex ] = [ topLevelIndex, subRefIndex ];
-
-	return this.footnoteNumberLookup[ subRefListIndex ];
-};
 
 /**
  * Check whether the group has any references.
@@ -133,6 +71,30 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
 };
 
 /**
+ * Internal comparator for sorting references into reflist order, given two listIndexes
+ *
+ * @private
+ * @param {string} a Left listIndex
+ * @param {string} b Right listIndex
+ * @return {number} according to {@link Array.sort}
+ */
+ve.dm.MWGroupReferences.prototype.compareAsIndexes = function ( a, b ) {
+	return this.compareAsRefInfos( this.calculatedNumbering[ a ], this.calculatedNumbering[ b ] );
+};
+
+/**
+ * Internal comparator for sorting references into reflist order, given two RefInfo objects
+ *
+ * @private
+ * @param {ve.dm.MWDataTransitionHelper.RefInfo} a Left term
+ * @param {ve.dm.MWDataTransitionHelper.RefInfo} b Right term
+ * @return {number} according to {@link Array.sort}
+ */
+ve.dm.MWGroupReferences.prototype.compareAsRefInfos = function ( a, b ) {
+	return ( a.topLevelNumber - b.topLevelNumber ) || ( ( a.subrefNumber || 0 ) - ( b.subrefNumber || 0 ) );
+};
+
+/**
  * List all reference listIndex's in the order they appear in the reflist including
  * named refs, unnamed refs, and those that don't resolve
  *
@@ -140,12 +102,9 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
  * @return {number[]}
  */
 ve.dm.MWGroupReferences.prototype.getListIndexesInReflistOrder = function () {
-	return Object.keys( this.footnoteNumberLookup )
-		.map( ( s ) => Number( s ) )
-		.sort( ( a, b ) => (
-			( this.footnoteNumberLookup[ a ][ 0 ] - this.footnoteNumberLookup[ b ][ 0 ] ) ||
-			( this.footnoteNumberLookup[ a ][ 1 ] - this.footnoteNumberLookup[ b ][ 1 ] )
-		) );
+	return Object.keys( this.calculatedNumbering )
+		.sort( ( a, b ) => this.compareAsIndexes( a, b ) )
+		.map( ( indexStr ) => Number( indexStr ) );
 };
 
 /**
@@ -168,8 +127,7 @@ ve.dm.MWGroupReferences.prototype.getAllRefsInReflistOrder = function () {
  */
 ve.dm.MWGroupReferences.prototype.getTopLevelListIndexesInReflistOrder = function () {
 	return this.getListIndexesInReflistOrder()
-		// Remove sub-refs
-		.filter( ( listIndex ) => this.footnoteNumberLookup[ listIndex ][ 1 ] === -1 );
+		.filter( ( listIndex ) => this.calculatedNumbering[ listIndex ].subrefNumber === undefined );
 };
 
 /**
@@ -259,11 +217,18 @@ ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
 };
 
 /**
+ * Filter to subrefs on this main ref, order by reflist number, and then turn
+ * into a list of MWReferenceNodes from the document.
+ *
  * @param {number} mainListIndex
  * @return {ve.dm.MWReferenceNode[]} List of subrefs for this parent not including re-uses
  */
 ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainListIndex ) {
-	return this.subRefsByMain[ mainListIndex ] || [];
+	return Object.values( this.calculatedNumbering )
+		.filter( ( ref ) => ref.mainListIndex === mainListIndex )
+		.sort( ( a, b ) => this.compareAsRefInfos( a, b ) )
+		.map( ( ref ) => this.nodeGroup.firstNodes[ ref.internalListIndex ] )
+		.filter( ( node ) => node );
 };
 
 /**
@@ -275,19 +240,7 @@ ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainListIndex ) {
  * @return {string} rendered number label
  */
 ve.dm.MWGroupReferences.prototype.getIndexLabel = function ( listIndex ) {
-	const num = this.footnoteNumberLookup[ listIndex ];
-	if ( !num ) {
-		return '…';
-	}
-
-	let label = ve.dm.MWDocumentReferences.static.contentLangDigits( num[ 0 ] );
-
-	if ( num[ 1 ] !== -1 ) {
-		// FIXME: RTL, and customization of the separator like with mw:referencedBy
-		label += '.' + ve.dm.MWDocumentReferences.static.contentLangDigits( num[ 1 ] );
-	}
-
-	return label;
+	return ( this.calculatedNumbering[ listIndex ] ? this.calculatedNumbering[ listIndex ].label : '…' );
 };
 
 module.exports = ve.dm.MWGroupReferences;

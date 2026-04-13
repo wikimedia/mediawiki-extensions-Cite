@@ -10,15 +10,8 @@
  * each with a fallback using listKey and listGroup.
  *
  * @constructor
- * @param {ve.dm.InternalList} internalList
  */
-ve.dm.MWDataTransitionHelper = function VeDmMWDataTransitionHelper( internalList ) {
-	// Properties
-	/**
-	 * @private
-	 * @property {ve.dm.InternalList} internalList
-	 */
-	this.internalList = internalList;
+ve.dm.MWDataTransitionHelper = function VeDmMWDataTransitionHelper() {
 };
 
 /**
@@ -26,7 +19,6 @@ ve.dm.MWDataTransitionHelper = function VeDmMWDataTransitionHelper( internalList
  * @return {Object} footnote number lookup
  */
 ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGroup ) {
-
 	const footnoteNumberLookup = {};
 	const subRefsByMain = {};
 	let topLevelCounter = 1;

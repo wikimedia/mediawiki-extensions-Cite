@@ -11,9 +11,7 @@
 		const groupName = 'mwReference/';
 		const nodeGroup = doc.getInternalList().getNodeGroup( groupName );
 
-		const dataTransitionHelper = new MWDataTransitionHelper(
-			doc.getInternalList()
-		);
+		const dataTransitionHelper = new MWDataTransitionHelper();
 
 		const result = dataTransitionHelper.buildReflistNumbering( nodeGroup );
 
@@ -59,9 +57,7 @@
 		const groupName = 'mwReference/';
 		const nodeGroup = doc.getInternalList().getNodeGroup( groupName );
 
-		const dataTransitionHelper = new MWDataTransitionHelper(
-			doc.getInternalList()
-		);
+		const dataTransitionHelper = new MWDataTransitionHelper();
 
 		const result = dataTransitionHelper.buildReflistStructure( nodeGroup );
 

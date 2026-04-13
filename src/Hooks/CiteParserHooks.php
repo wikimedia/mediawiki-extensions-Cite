@@ -5,9 +5,9 @@ namespace Cite\Hooks;
 use Cite\CiteFactory;
 use MediaWiki\Api\ApiQuerySiteinfo;
 use MediaWiki\Api\Hook\APIQuerySiteInfoGeneralInfoHook;
-use MediaWiki\Hook\ParserAfterParseHook;
-use MediaWiki\Hook\ParserClearStateHook;
-use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Parser\Hook\ParserAfterParseHook;
+use MediaWiki\Parser\Hook\ParserClearStateHook;
+use MediaWiki\Parser\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\StripState;
 

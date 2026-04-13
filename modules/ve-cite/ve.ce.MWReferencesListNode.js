@@ -290,6 +290,10 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 			$li.on( 'mousedown', ( e ) => {
 				if ( ve.isUnmodifiedLeftClick( e ) ) {
 					const refNode = groupRefs.getRefNode( listIndex );
+					if ( !refNode ) {
+						return;
+					}
+
 					const editNodeAction = ve.ui.actionFactory.create(
 						'editNode',
 						this.getRoot().getSurface().getSurface()

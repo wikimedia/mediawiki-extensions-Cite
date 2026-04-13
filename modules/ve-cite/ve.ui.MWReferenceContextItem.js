@@ -168,6 +168,10 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 		.refsForDoc( this.getFragment().getDocument() )
 		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
 	const mainRefNode = groupRefs.getRefNode( mainListIndex );
+	// TODO: Disable click button
+	if ( !mainRefNode ) {
+		return;
+	}
 
 	const editNodeAction = ve.ui.actionFactory.create(
 		'editNode',

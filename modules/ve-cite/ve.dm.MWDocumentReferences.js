@@ -99,14 +99,6 @@ ve.dm.MWDocumentReferences.prototype.hasRefs = function () {
 };
 
 /**
- * @param {number} listIndex
- * @return {ve.dm.InternalItemNode|undefined}
- */
-ve.dm.MWDocumentReferences.prototype.getInternalItemNodeByListIndex = function ( listIndex ) {
-	return this.doc.getInternalList().getItemNode( listIndex );
-};
-
-/**
  * Return a formatted number, in the content script, with no separators.
  *
  * Partial clone of mw.language.convertNumber .

@@ -7,7 +7,6 @@
  * @license MIT
  */
 
-const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
 const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 const MWReferenceNode = require( './ve.dm.MWReferenceNode.js' );
 const MWReferenceEditPanel = require( './ve.ui.MWReferenceEditPanel.js' );
@@ -270,23 +269,21 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 	data = data || {};
 	return ve.ui.MWReferenceDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( () => {
+			const doc = this.getFragment().getDocument();
 			this.createSubRefMode = false;
 			this.editReferenceMode = false;
 			this.reuseReferenceMode = !!data.reuseReference;
 
 			// open the reuse panel
 			if ( this.reuseReferenceMode ) {
-				this.reuseSearch.setInternalList( this.getFragment().getDocument().getInternalList() );
+				this.reuseSearch.setInternalList( doc.getInternalList() );
 				this.openReusePanel();
 				return;
 			}
 
 			// editing or creating a reference
 			this.panels.setItem( this.editPanel );
-			const docRefs = MWDocumentReferences.static.refsForDoc(
-				this.getFragment().getDocument()
-			);
-			this.editPanel.setDocumentReferences( docRefs );
+			this.editPanel.setInternalList( doc.getInternalList() );
 
 			this.actions.setMode( 'insert' );
 			this.actions.setAbilities( { insert: false } );
@@ -312,7 +309,7 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 				this.actions.setAbilities( { done: false, replace: canReplace } );
 				this.actions.setMode( 'edit' );
 			} else {
-				ref = ve.dm.MWReferenceModel.static.newEmptyRef( this.getFragment().getDocument() );
+				ref = ve.dm.MWReferenceModel.static.newEmptyRef( doc );
 			}
 			this.editPanel.setReferenceForEditing( ref );
 			this.editPanel.setReadOnly( this.isReadOnly() );

@@ -34,6 +34,11 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	this.docRefs = null;
 	/**
 	 * @private
+	 * @member {ve.dm.InternalList|null}
+	 */
+	this.internalList = null;
+	/**
+	 * @private
 	 * @member {ve.dm.MWReferenceModel|null}
 	 */
 	this.referenceModel = null;
@@ -258,11 +263,12 @@ ve.ui.MWReferenceEditPanel.static.getImportRules = function () {
 };
 
 /**
- * @param {ve.dm.MWDocumentReferences} docRefs
+ * @param {ve.dm.InternalList} internalList
  */
-ve.ui.MWReferenceEditPanel.prototype.setDocumentReferences = function ( docRefs ) {
-	this.docRefs = docRefs;
-	this.referenceGroupInput.populateMenu( docRefs.getAllGroupNames() );
+ve.ui.MWReferenceEditPanel.prototype.setInternalList = function ( internalList ) {
+	this.internalList = internalList;
+	this.docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() );
+	this.referenceGroupInput.populateMenu( this.docRefs.getAllGroupNames() );
 };
 
 /**
@@ -356,13 +362,13 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreview = function () {
 	if ( this.subRefMode ) {
 		// Note: listGroup is only available after a (possibly new) ref has been registered via
 		// ve.dm.MWReferenceModel.insertInternalItem
-		const mainRefNode = this.docRefs.getInternalItemNodeByListIndex(
+		const mainInternalItem = this.internalList.getItemNode(
 			this.referenceModel.getMainListIndex()
 		);
 		this.referenceListPreview.$element.empty()
-			.append( mainRefNode ?
+			.append( mainInternalItem ?
 				$( '<div>' )
-					.append( new ve.ui.MWPreviewElement( mainRefNode, { useView: true } ).$element ) :
+					.append( new ve.ui.MWPreviewElement( mainInternalItem, { useView: true } ).$element ) :
 				$( '<div>' )
 					.addClass( 've-ui-mwReferenceContextItem-muted' )
 					.text( ve.msg( 'cite-ve-dialog-reference-missing-parent-ref' ) )

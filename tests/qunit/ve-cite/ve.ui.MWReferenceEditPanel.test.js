@@ -3,51 +3,17 @@
 {
 	const {
 		MWReferenceEditPanel,
-		MWReferenceModel,
-		MWReferenceNode
+		MWReferenceModel
 	} = require( 'ext.cite.visualEditor' ).test;
 
 	QUnit.module( 've.ui.MWReferenceEditPanel (Cite)', ve.test.utils.newMwEnvironment() );
-
-	/**
-	 * @param {ve.dm.Document} doc
-	 * @return {MWReferenceNode}
-	 */
-	const getSimpleNode = ( doc ) => {
-		const node = new MWReferenceNode( {
-			type: 'mwReference',
-			attributes: {
-				refGroup: 'mwReference/'
-			},
-			originalDomElementsHash: Math.random()
-		} );
-		node.setDocument( doc );
-		return node;
-	};
-
-	/**
-	 * @param {MWReferenceNode|null} [node]
-	 * @param {boolean} [reUse=false]
-	 * @return {ve.dm.MWDocumentReferences}
-	 */
-	const getDocumentReferencesMock = ( node, reUse ) => ( {
-		getAllGroupNames: () => [ 'mwReference/' ],
-		getInternalItemNodeByListIndex: () => ( node ),
-		getGroupRefs: () => ( {
-			getRefUsages: () => ( reUse ? [ node, node ] : [] ),
-			getTotalUsageCount: () => {
-				const mainRefsCount = reUse ? 2 : 0;
-				const subRefsCount = reUse ? 1 : 0;
-				return mainRefsCount + subRefsCount;
-			}
-		} )
-	} );
 
 	QUnit.test( 'setting and getting a reference', ( assert ) => {
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
 		const editPanel = new MWReferenceEditPanel();
 		const ref = new MWReferenceModel( new ve.dm.Document( [] ) );
-		editPanel.setDocumentReferences( getDocumentReferencesMock() );
+		const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+		editPanel.setInternalList( doc.getInternalList() );
 
 		const changeHandlerSpy = sinon.spy();
 		editPanel.connect( null, { change: changeHandlerSpy } );
@@ -79,8 +45,15 @@
 	QUnit.test( 're-used references', ( assert ) => {
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
 		const editPanel = new MWReferenceEditPanel();
+
+		// re-used in the example doc
 		const ref = new MWReferenceModel( new ve.dm.Document( [] ) );
-		editPanel.setDocumentReferences( getDocumentReferencesMock( null, true ) );
+		ref.listIndex = 1;
+		ref.listKey = 'literal/bar';
+
+		const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+		editPanel.setInternalList( doc.getInternalList() );
+		// editPanel.setInternalList( getDocumentReferencesMock( null, true ) );
 		editPanel.setReferenceForEditing( ref );
 
 		// interface setup correctly
@@ -91,12 +64,18 @@
 	QUnit.test( 'sub-references', ( assert ) => {
 		ve.init.target.surface = { commandRegistry: { getNames: () => [] } };
 		const editPanel = new MWReferenceEditPanel();
-		const doc = new ve.dm.Document( [] );
-		const ref = new MWReferenceModel( doc );
+		const doc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
+
+		// sub-ref
+		const ref = new MWReferenceModel( new ve.dm.Document( [] ) );
+		ref.mainRefKey = 'literal/ldr';
+		ref.mainListIndex = 1;
+		ref.listIndex = 0;
+		ref.listKey = 'auto/0';
 
 		// does exist in the example document
 		ref.mainListIndex = 0;
-		editPanel.setDocumentReferences( getDocumentReferencesMock( getSimpleNode( doc ) ) );
+		editPanel.setInternalList( doc.getInternalList() );
 		editPanel.setReferenceForEditing( ref );
 
 		assert.false( editPanel.reuseWarning.isVisible() );
@@ -107,7 +86,8 @@
 
 		// test sub ref with missing main ref
 		ref.mainRefKey = 'literal/notexist';
-		editPanel.setDocumentReferences( getDocumentReferencesMock() );
+		ref.mainListIndex = '6';
+		editPanel.setInternalList( doc.getInternalList() );
 		editPanel.setReferenceForEditing( ref );
 
 		assert.false( editPanel.reuseWarning.isVisible() );

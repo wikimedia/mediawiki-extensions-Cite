@@ -31,6 +31,7 @@ ve.ui.MWReferenceSearchWidget = function VeUiMWReferenceSearchWidget( config ) {
 	ve.ui.MWReferenceSearchWidget.super.call( this, config );
 
 	// Properties
+	this.internalList = null;
 	this.docRefs = null;
 	this.index = null;
 	this.wasUsedActively = false;
@@ -115,22 +116,12 @@ ve.ui.MWReferenceSearchWidget.prototype.onChoose = function ( item ) {
 /**
  * Set the internal list and check if it contains any references
  *
- * @param {ve.dm.MWDocumentReferences} docRefs handle to all refs in the original document
- */
-ve.ui.MWReferenceSearchWidget.prototype.setDocumentRefs = function ( docRefs ) {
-	this.results.unselectItem();
-
-	this.docRefs = docRefs;
-};
-
-/**
- * Set the internal list and check if it contains any references
- *
- * @deprecated use #setDocumentRefs instead.
  * @param {ve.dm.InternalList} internalList
  */
 ve.ui.MWReferenceSearchWidget.prototype.setInternalList = function ( internalList ) {
-	this.setDocumentRefs( MWDocumentReferences.static.refsForDoc( internalList.getDocument() ) );
+	this.results.unselectItem();
+	this.internalList = internalList;
+	this.docRefs = MWDocumentReferences.static.refsForDoc( internalList.getDocument() );
 };
 
 /**
@@ -174,8 +165,8 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			let $refContent;
 			// Make visible text, footnoteLabel and reference name searchable
 			let refText = ( '[' + footnoteLabel + '] ' + name ).trim();
-			const itemNode = this.docRefs.getInternalItemNodeByListIndex( listIndex );
-			if ( itemNode.length ) {
+			const itemNode = this.internalList.getItemNode( listIndex );
+			if ( itemNode ) {
 				$refContent = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 				refText += ' ' + $refContent.text();
 				// Make URLs searchable

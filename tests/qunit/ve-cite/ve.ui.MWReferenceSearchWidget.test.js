@@ -2,40 +2,23 @@
 
 {
 	const {
-		MWGroupReferences,
 		MWReferenceModel,
 		MWReferenceSearchWidget
 	} = require( 'ext.cite.visualEditor' ).test;
 
-	QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
+	const emptyDoc = ve.dm.example.createExampleDocumentFromData( [
+		{ type: 'paragraph' },
+		{ type: '/paragraph' },
+		{ type: 'internalList' },
+		{ type: '/internalList' }
+	] );
+	const subRefDoc = ve.dm.citeExample.createExampleDocument( 'subReferencing' );
 
-	/**
-	 * @param {boolean} [hasNode=false]
-	 * @return {ve.dm.MWDocumentReferences}
-	 */
-	const getDocumentReferencesMock = ( hasNode ) => {
-		const listKey = 'literal/foo';
-		const listIndex = 0;
-		const node = hasNode ? {
-			getAttribute: ( name ) => ( { listKey, listIndex }[ name ] ),
-			getAttributes: () => ( {} ),
-			getInternalItem: () => ( {} ),
-			getDocument: () => new ve.dm.Document(),
-			setGroupIndex: () => {}
-		} : undefined;
-		const nodeGroup = new ve.dm.InternalListNodeGroup();
-		nodeGroup.appendNode( listKey, node );
-		return {
-			getAllGroupNames: () => [ 'mwReference/' ],
-			getInternalItemNodeByListIndex: () => node,
-			getGroupRefs: () => MWGroupReferences.static.makeGroupRefs( nodeGroup ),
-			hasRefs: () => !!hasNode
-		};
-	};
+	QUnit.module( 've.ui.MWReferenceSearchWidget (Cite)', ve.test.utils.newMwEnvironment() );
 
 	QUnit.test( 'buildIndex', ( assert ) => {
 		const widget = new MWReferenceSearchWidget();
-		widget.setDocumentRefs( getDocumentReferencesMock() );
+		widget.setInternalList( emptyDoc.getInternalList() );
 
 		assert.strictEqual( widget.index, null );
 		widget.buildIndex();
@@ -44,7 +27,7 @@
 
 	QUnit.test( 'buildSearchIndex when empty', ( assert ) => {
 		const widget = new MWReferenceSearchWidget();
-		widget.setDocumentRefs( getDocumentReferencesMock() );
+		widget.setInternalList( emptyDoc.getInternalList() );
 
 		const index = widget.buildSearchIndex();
 		assert.deepEqual( index, [] );
@@ -52,21 +35,27 @@
 
 	QUnit.test( 'buildSearchIndex', ( assert ) => {
 		const widget = new MWReferenceSearchWidget();
-		widget.setDocumentRefs( getDocumentReferencesMock( true ) );
+		widget.setInternalList( subRefDoc.getInternalList() );
 
 		const index = widget.buildSearchIndex();
-		assert.deepEqual( index.length, 1 );
+		// normal ref
+		assert.deepEqual( index.length, 4 );
 		assert.deepEqual( index[ 0 ].footnoteLabel, '1' );
-		assert.deepEqual( index[ 0 ].name, 'foo' );
-		assert.deepEqual( index[ 0 ].searchableText, '[1] foo' );
+		assert.deepEqual( index[ 0 ].name, 'ldr' );
+		assert.deepEqual( index[ 0 ].searchableText, '[1] ldr list-defined' );
+
+		// sub-ref
+		assert.deepEqual( index[ 1 ].footnoteLabel, '1.1' );
+		assert.deepEqual( index[ 1 ].name, '' );
+		assert.deepEqual( index[ 1 ].searchableText, '[1.1] subref' );
 	} );
 
 	QUnit.test( 'isIndexEmpty', ( assert ) => {
 		const widget = new MWReferenceSearchWidget();
-		widget.setDocumentRefs( getDocumentReferencesMock() );
+		widget.setInternalList( emptyDoc.getInternalList() );
 		assert.true( widget.isIndexEmpty() );
 
-		widget.setDocumentRefs( getDocumentReferencesMock( true ) );
+		widget.setInternalList( subRefDoc.getInternalList() );
 		assert.false( widget.isIndexEmpty() );
 	} );
 

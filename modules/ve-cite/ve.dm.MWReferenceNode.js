@@ -237,7 +237,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		const hasEmptyItem = itemNodeRange.isCollapsed();
 
 		const nodeGroup = internalList.getNodeGroup( attributes.listGroup );
-		const nodeReuses = nodeGroup.getAllReuses( attributes.listKey ) || [];
+		const nodeReuses = nodeGroup.getAllReusesByListIndex( attributes.listIndex ) || [];
 
 		// Generate and add name to data-mw
 		const isReused = nodeReuses.length > 1 || this.hasSubRefs( attributes, internalList );

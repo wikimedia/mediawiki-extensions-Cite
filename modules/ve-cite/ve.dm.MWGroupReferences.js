@@ -49,12 +49,10 @@ OO.initClass( ve.dm.MWGroupReferences );
  */
 ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 	const result = new ve.dm.MWGroupReferences();
-	if ( !nodeGroup ) {
-		return result;
+	if ( nodeGroup ) {
+		result.nodeGroup = nodeGroup;
+		result.calculatedNumbering = new MWDataTransitionHelper().buildReflistNumbering( nodeGroup );
 	}
-	result.nodeGroup = nodeGroup;
-	result.calculatedNumbering = new MWDataTransitionHelper().buildReflistNumbering( nodeGroup );
-
 	return result;
 };
 
@@ -232,7 +230,7 @@ ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainListIndex ) {
 };
 
 /**
- * Lookup from listKey to a rendered footnote number or subref number like "1.2", in the
+ * Lookup from listIndex to a rendered footnote number or subref number like "1.2", in the
  * local content language.
  *
  * @deprecated TODO: push to presentation

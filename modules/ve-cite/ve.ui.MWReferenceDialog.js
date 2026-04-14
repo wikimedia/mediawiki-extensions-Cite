@@ -236,7 +236,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				ve.track( 'activity.subReference', { action: 'dialog-done-add-details' } );
 			} else {
 				if ( ref.isSubRef() ) {
-					const subRefReuses = nodeGroup.getAllReuses( ref.listKey ) || [];
+					const subRefReuses = nodeGroup.getAllReusesByListIndex( ref.listIndex ) || [];
 
 					// Editing defaults to changing all, if the change all checkbox is not selected,
 					// we need to generate new keys and insert the sub-ref as new node to split it.

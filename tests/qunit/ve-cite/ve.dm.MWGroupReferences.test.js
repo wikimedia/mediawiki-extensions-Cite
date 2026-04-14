@@ -69,15 +69,6 @@
 		assert.deepEqual( this.plainGroupRefs.getAllReusesByListIndex( doesNotExist ), [] );
 	} );
 
-	QUnit.test( 'getListKeyForListIndex', function ( assert ) {
-		assert.strictEqual( this.plainGroupRefs.getListKeyForListIndex( 0 ), 'auto/0' );
-		assert.strictEqual( this.plainGroupRefs.getListKeyForListIndex( 1 ), 'literal/bar' );
-		assert.strictEqual( this.plainGroupRefs.getListKeyForListIndex( 2 ), 'literal/:3' );
-		assert.strictEqual( this.plainGroupRefs.getListKeyForListIndex( 3 ), 'auto/1' );
-		const doesNotExist = -1;
-		assert.strictEqual( this.plainGroupRefs.getListKeyForListIndex( doesNotExist ), undefined );
-	} );
-
 	QUnit.test( 'getTotalUsageCount', function ( assert ) {
 		const listIndex = 1;
 

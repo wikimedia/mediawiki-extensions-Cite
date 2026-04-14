@@ -337,14 +337,14 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, c
  *
  * @private
  * @static
- * @param {ve.dm.MWGroupReferences} groupRefs
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @param {ve.dm.MWDataTransitionHelper.RefInfo} refInfo
  * @param {HTMLDocument} doc
  * @param {ve.dm.DomFromModelConverter} converter
  * @return {jQuery} <li> element for the references listitem
  * */
 ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
-	groupRefs,
+	nodeGroup,
 	refInfo,
 	doc,
 	converter
@@ -354,7 +354,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 
 	if ( internalItem && internalItem.getLength() ) {
 		// make sure to find the node holding the refListItemId
-		const refListNode = groupRefs.getAllReusesByListIndex( refInfo.internalListIndex )
+		const refListNode = nodeGroup.getAllReusesByListIndex( refInfo.internalListIndex )
 			.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 		const htmlWrapper = doc.createElement( 'span' );
 		converter.getDomSubtreeFromData(
@@ -380,7 +380,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 		$li.append(
 			$( '<ol>', doc ).append(
 				refInfo.subrefs.map( ( subRefInfo ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-					groupRefs, subRefInfo, doc, converter
+					nodeGroup, subRefInfo, doc, converter
 				) )
 			)
 		);

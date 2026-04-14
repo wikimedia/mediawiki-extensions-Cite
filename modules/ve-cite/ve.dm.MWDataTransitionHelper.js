@@ -15,8 +15,25 @@ ve.dm.MWDataTransitionHelper = function VeDmMWDataTransitionHelper() {
 };
 
 /**
+ * @typedef {Object} ve.dm.MWDataTransitionHelper.RefInfo
+ * @property {number} internalListIndex list index of the ve.dm.InternalItemNode
+ *   in a ve.dm.InternalList.
+ * @property {number} [mainListIndex] List index of a sub-reference's parent, or
+ *   omitted for a main reference.
+ * @property {number} topLevelNumber Main footnote number.  For a sub-reference,
+ *   this is the number of the parent.
+ * @property {number} [subrefNumber] Sub-reference footnote number, or omitted
+ *   for a main reference.
+ * @property {string} label Rendered full footnote number, in the wiki's content
+ *   language script.
+ * @property {Array.<ve.dm.MWDataTransitionHelper.RefInfo>} [subrefs] Only
+ *   included in the "buildReflistStructure" output flavor. This is a list of
+ *   sub-references on a main ref, in document order.
+ */
+
+/**
  * @param {ve.dm.InternalListNodeGroup|undefined} nodeGroup
- * @return {Object} footnote number lookup
+ * @return {Object.<number, ve.dm.MWDataTransitionHelper.RefInfo>} footnote number lookup
  */
 ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGroup ) {
 	const footnoteNumberLookup = {};
@@ -75,7 +92,9 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 
 /**
  * @param {ve.dm.InternalListNodeGroup|undefined} nodeGroup
- * @return {Object} nested structure with main and subref information
+ * @return {Array.<ve.dm.MWDataTransitionHelper.RefInfo>} List of main refs in
+ *   document order, including `subrefs` field containing the sub-references
+ *   under that main reference.
  */
 ve.dm.MWDataTransitionHelper.prototype.buildReflistStructure = function ( nodeGroup ) {
 	const footnoteNumberLookup = this.buildReflistNumbering( nodeGroup );

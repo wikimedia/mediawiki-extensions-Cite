@@ -8,15 +8,6 @@
 ve.dm.MWReferenceKeyGenerator = {
 
 	/**
-	 * Regular expression for parsing the listKey attribute
-	 *
-	 * Use [\s\S]* instead of .* to catch esoteric whitespace (T263698)
-	 *
-	 * @property {RegExp}
-	 */
-	listKeyRegex: /^(auto|literal)\/([\s\S]*)$/,
-
-	/**
 	 * @param {ve.dm.InternalList} internalList
 	 * @param {string|null} [name]
 	 * @return {string}
@@ -28,14 +19,21 @@ ve.dm.MWReferenceKeyGenerator = {
 	},
 
 	/**
+	 * @param {string} listKey
+	 * @return {boolean}
+	 */
+	isLiteralListKey: function ( listKey ) {
+		return !!this.extractNameFromListKey( listKey );
+	},
+
+	/**
 	 * Inverse function of {@link #makeListKey}. Returns an empty string for unnamed references.
 	 *
-	 * @param {string} listKey
+	 * @param {string|undefined} listKey
 	 * @return {string}
 	 */
 	extractNameFromListKey: function ( listKey ) {
-		const matches = this.listKeyRegex.exec( listKey );
-		return matches && matches[ 1 ] === 'literal' ? matches[ 2 ] : '';
+		return listKey && listKey.startsWith( 'literal/' ) ? listKey.slice( 8 ) : '';
 	},
 
 	/**

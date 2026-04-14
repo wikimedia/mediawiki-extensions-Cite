@@ -536,8 +536,7 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 	dataElement.attributes.listIndex = mapping[ dataElement.attributes.listIndex ];
 
 	// Remap listKey if it was automatically generated
-	const listKeyParts = MWReferenceKeyGenerator.listKeyRegex.exec( dataElement.attributes.listKey );
-	if ( listKeyParts && listKeyParts[ 1 ] === 'auto' ) {
+	if ( !MWReferenceKeyGenerator.isLiteralListKey( dataElement.attributes.listKey ) ) {
 		dataElement.attributes.listKey = MWReferenceKeyGenerator.makeListKey( newInternalList );
 	} else {
 		ve.error( 'T420107 ve.dm.MWReferenceNode.remapInternalListIndexes() called with named ref' );

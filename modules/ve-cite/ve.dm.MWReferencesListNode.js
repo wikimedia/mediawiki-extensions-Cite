@@ -350,7 +350,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 	const subrefs = groupRefs.getSubrefs( listIndex );
 	const $li = $( '<li>', doc );
 
-	if ( internalItem && internalItem.length ) {
+	if ( internalItem && internalItem.getLength() ) {
 		// make sure to find the node holding the refListItemId
 		const refListNode = groupRefs.getAllReusesByListIndex( listIndex )
 			.find( ( node ) => node.getAttribute( 'refListItemId' ) );

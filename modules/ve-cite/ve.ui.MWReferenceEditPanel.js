@@ -366,7 +366,7 @@ ve.ui.MWReferenceEditPanel.prototype.updatePreview = function () {
 			this.referenceModel.getMainListIndex()
 		);
 		this.referenceListPreview.$element.empty()
-			.append( mainInternalItem ?
+			.append( mainInternalItem && mainInternalItem.getLength() ?
 				$( '<div>' )
 					.append( new ve.ui.MWPreviewElement( mainInternalItem, { useView: true } ).$element ) :
 				$( '<div>' )

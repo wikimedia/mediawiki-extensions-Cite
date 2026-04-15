@@ -277,7 +277,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 		.css( '--footnote-number', `"${ groupRefs.getIndexLabel( listIndex ) }."` )
 		.append( this.renderBacklinks( backlinkNodes, refGroup ), ' ' );
 
-	if ( internalItem && internalItem.length ) {
+	if ( internalItem && internalItem.getLength() ) {
 		const refPreview = new ve.ui.MWPreviewElement( internalItem, { useView: true } );
 		$li.append(
 			$( '<span>' )

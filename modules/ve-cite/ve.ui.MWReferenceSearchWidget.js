@@ -166,7 +166,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			// Make visible text, footnoteLabel and reference name searchable
 			let refText = ( '[' + footnoteLabel + '] ' + name ).trim();
 			const itemNode = this.internalList.getItemNode( listIndex );
-			if ( itemNode ) {
+			if ( itemNode && itemNode.getLength() ) {
 				$refContent = new ve.ui.MWPreviewElement( itemNode, { useView: true } ).$element;
 				refText += ' ' + $refContent.text();
 				// Make URLs searchable

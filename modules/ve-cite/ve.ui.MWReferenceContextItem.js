@@ -88,7 +88,7 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 		errorMsgKey = 'cite-ve-dialog-reference-missing-parent-ref';
 	}
 
-	if ( !internalItemNode ) {
+	if ( !internalItemNode || !internalItemNode.getLength() ) {
 		return $( '<div>' )
 			.addClass( 've-ui-mwReferenceContextItem-muted' )
 			// The following messages are used here:

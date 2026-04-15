@@ -9,13 +9,28 @@ ve.dm.MWReferenceKeyGenerator = {
 
 	/**
 	 * @param {ve.dm.InternalList} internalList
-	 * @param {string|null} [name]
+	 * @param {string|null} [name] The reference's plain name without any prefix, if known
 	 * @return {string}
 	 */
 	makeListKey: function ( internalList, name ) {
 		return name ?
 			'literal/' + name :
 			'auto/' + internalList.getNextUniqueNumber();
+	},
+
+	/**
+	 * @param {ve.dm.InternalList} internalList
+	 * @param {string} listGroup Group to check for duplicates
+	 * @param {string} listKey Possibly conflicting addition to the group
+	 * @return {string} Original listKey if there was no conflict, an auto-generated one otherwise
+	 */
+	deduplicateListKey: function ( internalList, listGroup, listKey ) {
+		const group = internalList.getNodeGroup( listGroup );
+		// Note: This is currently the cheapest method to check if the listKey is known
+		if ( group && group.getAllReuses( listKey ) ) {
+			return this.makeListKey( internalList );
+		}
+		return listKey;
 	},
 
 	/**

@@ -6,9 +6,31 @@
 	QUnit.module( 've.dm.MWReferenceKeyGenerator (Cite)', ve.test.utils.newMwEnvironment() );
 
 	QUnit.test( 'makeListKey', ( assert ) => {
-		const internalList = { getNextUniqueNumber: () => 7 };
+		let i = 7;
+		const internalList = {
+			getNextUniqueNumber: () => i++
+		};
 		assert.strictEqual( MWReferenceKeyGenerator.makeListKey( internalList, 'a' ), 'literal/a' );
 		assert.strictEqual( MWReferenceKeyGenerator.makeListKey( internalList ), 'auto/7' );
+		assert.strictEqual( MWReferenceKeyGenerator.makeListKey( internalList, '' ), 'auto/8' );
+	} );
+
+	QUnit.test( 'deduplicateListKey', ( assert ) => {
+		let i = 7;
+		const internalList = {
+			getNodeGroup: () => ( {
+				getAllReuses: ( listKey ) => listKey === 'conflicts'
+			} ),
+			getNextUniqueNumber: () => i++
+		};
+		assert.strictEqual(
+			MWReferenceKeyGenerator.deduplicateListKey( internalList, '', 'fine' ),
+			'fine'
+		);
+		assert.strictEqual(
+			MWReferenceKeyGenerator.deduplicateListKey( internalList, '', 'conflicts' ),
+			'auto/7'
+		);
 	} );
 
 	QUnit.test( 'generateName on a normal main reference', ( assert ) => {

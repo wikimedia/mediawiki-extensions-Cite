@@ -9,7 +9,7 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 
 let usesCitoid;
 
-describe( 'Re-using refs in Visual Editor using templates', () => {
+describe( 'VisualEditor Cite with citation templates', () => {
 
 	before( () => {
 		veHelper.checkModuleDependencies().then( ( deps ) => {
@@ -34,12 +34,11 @@ describe( 'Re-using refs in Visual Editor using templates', () => {
 	} );
 
 	beforeEach( () => {
-		const title = helper.getTestString( 'CiteTest-templates' );
-
 		cy.clearCookies();
-		helper.editPage( title, wikiText );
-
 		veHelper.setVECookiesToDisableDialogs();
+
+		const title = helper.getTestString( 'CiteTest-templates' );
+		helper.editPage( title, wikiText );
 		veHelper.openVEForEditingReferences( title, usesCitoid );
 	} );
 

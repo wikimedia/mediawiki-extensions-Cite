@@ -12,37 +12,21 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 
 let usesCitoid;
 
-describe( 'Re-using refs in Visual Editor', () => {
+describe( 'VisualEditor Cite re-using references', () => {
 
 	before( () => {
 		veHelper.checkModuleDependencies().then( ( deps ) => {
 			cy.skipOn( !deps.visualEditor );
 			usesCitoid = deps.citoid;
 		} );
-
-		cy.clearCookies();
-		helper.loginAsAdmin();
-		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
-			{
-				name: 'web',
-				title: 'Webseite',
-				template: 'Internetquelle'
-			},
-			{
-				name: 'book',
-				title: 'Literatur',
-				template: 'Literatur'
-			}
-		] ) );
 	} );
 
 	beforeEach( () => {
-		const title = helper.getTestString( 'CiteTest-reuseRefs' );
-
 		cy.clearCookies();
-		helper.editPage( title, wikiText );
-
 		veHelper.setVECookiesToDisableDialogs();
+
+		const title = helper.getTestString( 'CiteTest-reuseRefs' );
+		helper.editPage( title, wikiText );
 		veHelper.openVEForEditingReferences( title, usesCitoid );
 	} );
 

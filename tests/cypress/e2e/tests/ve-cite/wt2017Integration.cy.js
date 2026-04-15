@@ -4,13 +4,11 @@ require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
-const title = helper.getTestString( 'CiteTest-title' );
-
 const wikiText = '';
 
 let usesCitoid, usesTemplateData;
 
-describe( 'Visual Editor Wt 2017 Cite Integration', () => {
+describe( 'VisualEditor Cite with WT2017 Editor', () => {
 	before( () => {
 		veHelper.checkModuleDependencies().then( ( deps ) => {
 			cy.skipOn( !deps.visualEditor );
@@ -30,11 +28,11 @@ describe( 'Visual Editor Wt 2017 Cite Integration', () => {
 
 	beforeEach( () => {
 		cy.clearCookies();
-		helper.editPage( title, wikiText );
-
 		veHelper.setVECookiesToDisableDialogs();
-		veHelper.openVEForSourceEditingReferences( title, usesCitoid );
 
+		const title = helper.getTestString( 'CiteTest-wt2017' );
+		helper.editPage( title, wikiText );
+		veHelper.openVEForSourceEditingReferences( title, usesCitoid );
 	} );
 
 	it( 'should be able to create a basic reference', () => {

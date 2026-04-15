@@ -2,8 +2,6 @@ require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
-const title = helper.getTestString( 'CiteTest-title' );
-
 const refText1 = 'This is citation #1 for reference #1 and #2';
 const refText2 = 'This is citation #2 for reference #3';
 
@@ -14,21 +12,20 @@ const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` 
 
 let usesCitoid;
 
-describe( 'Visual Editor Cite Integration', () => {
+describe( 'VisualEditor Cite', () => {
 	before( () => {
 		veHelper.checkModuleDependencies().then( ( deps ) => {
 			cy.skipOn( !deps.visualEditor );
 			usesCitoid = deps.citoid;
 		} );
-
-		helper.editPage( title, wikiText );
 	} );
 
 	beforeEach( () => {
-		helper.visitTitle( title );
-		helper.waitForMWLoader();
-
+		cy.clearCookies();
 		veHelper.setVECookiesToDisableDialogs();
+
+		const title = helper.getTestString( 'CiteTest-title' );
+		helper.editPage( title, wikiText );
 		veHelper.openVEForEditingReferences( title, usesCitoid );
 	} );
 

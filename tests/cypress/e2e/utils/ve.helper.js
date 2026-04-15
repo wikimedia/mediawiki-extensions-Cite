@@ -114,7 +114,7 @@ export function getCiteReuseDialogRefResultCitation( rowNumber ) {
 }
 
 export function getCiteReuseDialogRefText( rowNumber ) {
-	return cy.get( '.ve-ui-mwReferenceDialog .ve-ui-mwReferenceResultWidget' )
+	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget' )
 		.eq( rowNumber - 1 )
 		.find( '.mw-parser-output p' );
 }

@@ -397,9 +397,15 @@ class References {
 			$refDataMw
 		);
 
-		// FIXME(T214241): Should the errors be added to data-mw if
-		// $isTplWrapper?  Here and other calls to addErrorsToNode.
-		ErrorUtils::addErrorsToNode( $linkBackSup, $errs );
+		// The current <ref> is inside <references>, and no previous <ref> had the same name. There
+		// are no (visible) nodes that can be used to track errors.
+		if ( $referencesData->inReferenceList() && !$ref->nodes ) {
+			$refGroup->inReferencesListErrors[$about] = $errs;
+		} else {
+			// FIXME(T214241): Should the errors be added to data-mw if
+			// $isTplWrapper?  Here and other calls to addErrorsToNode.
+			ErrorUtils::addErrorsToNode( $linkBackSup, $errs );
+		}
 
 		// refLink is the link to the citation
 		$refLink = $doc->createElement( 'a' );
@@ -661,13 +667,15 @@ class References {
 		// references before generating fresh references.
 		DOMCompat::replaceChildren( $refsNode );
 
+		// FIXME: There is another large `if ( $refGroup )` above, can these be merged?
 		if ( $refGroup ) {
+			$doc = $refsNode->ownerDocument;
 			foreach ( $refGroup->toArray() as $ref ) {
 				// Skip sub-references in the outer loop
 				if ( $ref->subrefIndex === null ) {
 					$refGroup->renderReferenceListElement( $extApi, $refsNode, $ref, $this->markSymbolRenderer );
 					// Render and append related sub-refs to main ref node
-					$subRefs = $this->renderSubReferencesList( $extApi, $refsNode->ownerDocument, $refGroup, $ref );
+					$subRefs = $this->renderSubReferencesList( $extApi, $doc, $refGroup, $ref );
 					if ( $subRefs ) {
 						$refsNode->lastChild->previousSibling->appendChild( $subRefs );
 					}
@@ -687,6 +695,23 @@ class References {
 
 				$destNode = $hasResponsiveWrapper ? DOMCompat::getParentElement( $refsNode ) : $refsNode;
 				ErrorUtils::addErrorsToNode( $destNode, [ $error ] );
+			}
+
+			// Handle errors that happened while being inside <references>
+			$afterReferencesList = $refsNode->nextSibling;
+			$i = 0;
+			foreach ( $refGroup->inReferencesListErrors as $about => $errors ) {
+				// TODO: Scan for the node via $about and attach the errors there, if possible
+				foreach ( $errors as $error ) {
+					if ( $i++ ) {
+						$refsNode->parentNode->insertBefore( $doc->createElement( 'br' ), $afterReferencesList );
+						$refsNode->parentNode->insertBefore( $doc->createTextNode( "\n" ), $afterReferencesList );
+					}
+					$frag = ( new ErrorUtils( $extApi ) )->renderParsoidError( $error );
+					$span = DOMCompat::getFirstElementChild( $frag );
+					// T384599: This workaround displays remaining errors under the reference list
+					$refsNode->parentNode->insertBefore( $span, $afterReferencesList );
+				}
 			}
 		}
 

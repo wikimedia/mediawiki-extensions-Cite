@@ -13,6 +13,7 @@ use Wikimedia\Parsoid\DOM\Node;
 use Wikimedia\Parsoid\Ext\DOMDataUtils;
 use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
+use Wikimedia\Parsoid\NodeData\DataMwError;
 
 /**
  * Helper class used by `<references>` implementation.
@@ -24,6 +25,9 @@ class RefGroup implements Countable {
 	private array $refs = [];
 	/** @var array<string,RefGroupItem> Lookup map only for named refs */
 	private array $indexByName = [];
+
+	/** @var array<string,DataMwError[]> */
+	public array $inReferencesListErrors = [];
 
 	/** @var array<string,array<string,RefGroupItem>> Lookup for sub-references by details content and main reference name */
 	private array $subRefDetailsLookup = [];

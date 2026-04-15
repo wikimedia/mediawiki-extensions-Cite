@@ -13,7 +13,8 @@
 			"Piramidion",
 			"Prima klasy4na",
 			"Ytsukeng Fyvaprol",
-			"Ата"
+			"Ата",
+			"Repakr"
 		]
 	},
 	"cite-desc": "Додає теги <code>&lt;ref&gt;</code> і <code>&lt;references/&gt;</code> для виносок",
@@ -39,6 +40,7 @@
 	"cite-tracking-category-cite-error-desc": "Сторінок у цій категорії мають помилки у використанні тегів посилань.",
 	"cite-tracking-category-cite-diffing-error": "Сторінки з помилками приміток, які викликають візуальні відмінності",
 	"cite-tracking-category-cite-diffing-error-desc": "Сторінки в цій категорії містять помилки у використанні тегів приміток, і ці помилки показуються по-різному у старому парсері і в Parsoid.",
+	"cite-tracking-category-ref-details-desc": "Сторінки у цій категорії використовують атрибут «details» тегу &lt;ref>.",
 	"cite-reference-previews-reference": "Виноска",
 	"cite-reference-previews-book": "Зноска на книгу",
 	"cite-reference-previews-journal": "Виноска на журнал",
@@ -69,5 +71,6 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Текст посилання], додатковий текст.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Текст посилання]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "тест",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Додаткові деталі"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Додаткові деталі",
+	"cite-configuration-submit": "Зберегти зміни"
 }

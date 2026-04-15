@@ -10,7 +10,22 @@ module.exports = defineConfig( {
 		specPattern: 'tests/cypress/e2e/**/*.cy.js',
 		baseUrl: process.env.MW_SERVER + process.env.MW_SCRIPT_PATH,
 		mediawikiAdminUsername: process.env.MEDIAWIKI_USER,
-		mediawikiAdminPassword: process.env.MEDIAWIKI_PASSWORD
+		mediawikiAdminPassword: process.env.MEDIAWIKI_PASSWORD,
+		// Skip specs whose required extensions aren't loaded, before Cypress
+		// boots a browser. Runtime cy.skipOn() in the specs is the fallback.
+		async setupNodeEvents( on, config ) {
+			try {
+				// fetch is stable in Node 20+; CI runs 24.
+				// eslint-disable-next-line n/no-unsupported-features/node-builtins
+				const res = await fetch( config.baseUrl +
+					'/api.php?action=query&meta=siteinfo&siprop=extensions&format=json' );
+				const { query } = await res.json();
+				if ( !query.extensions.some( ( e ) => e.name === 'Popups' ) ) {
+					config.excludeSpecPattern = [ '**/referencePreviews/**' ];
+				}
+			} catch ( e ) { /* Use what we have */ }
+			return config;
+		}
 	},
 
 	retries: 2,

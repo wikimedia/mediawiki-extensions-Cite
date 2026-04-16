@@ -8,6 +8,7 @@
  */
 
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
 
 /**
  * DataModel MediaWiki references list node.
@@ -317,12 +318,13 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, c
 		converter.internalList.document
 	);
 	const groupRefs = docRefs.getGroupRefs( refGroup );
+	const nodeGroup = converter.internalList.getNodeGroup( 'mwReference/' + refGroup );
 
 	const $wrapper = $( '<ol>', doc );
 	$wrapper.append(
-		groupRefs.getTopLevelListIndexesInReflistOrder()
-			.map( ( listIndex ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-				groupRefs, listIndex, doc, converter
+		new MWDataTransitionHelper().buildReflistStructure( nodeGroup )
+			.map( ( refInfo ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
+				groupRefs, refInfo, doc, converter
 			) )
 	);
 
@@ -335,24 +337,23 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, c
  * @private
  * @static
  * @param {ve.dm.MWGroupReferences} groupRefs
- * @param {number} listIndex
+ * @param {ve.dm.MWDataTransitionHelper.RefInfo} refInfo
  * @param {HTMLDocument} doc
  * @param {ve.dm.DomFromModelConverter} converter
  * @return {jQuery} <li> element for the references listitem
  * */
 ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 	groupRefs,
-	listIndex,
+	refInfo,
 	doc,
 	converter
 ) {
-	const internalItem = converter.internalList.getItemNode( listIndex );
-	const subrefs = groupRefs.getSubrefs( listIndex );
+	const internalItem = converter.internalList.getItemNode( refInfo.internalListIndex );
 	const $li = $( '<li>', doc );
 
 	if ( internalItem && internalItem.getLength() ) {
 		// make sure to find the node holding the refListItemId
-		const refListNode = groupRefs.getAllReusesByListIndex( listIndex )
+		const refListNode = groupRefs.getAllReusesByListIndex( refInfo.internalListIndex )
 			.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 		const htmlWrapper = doc.createElement( 'span' );
 		converter.getDomSubtreeFromData(
@@ -362,6 +363,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 		$li.append(
 			$( htmlWrapper )
 				.attr( 'typeof', 'mw:Extension/ref' )
+				// TODO generate a new id here when there's no distinct main node that holds one
 				.attr( 'id', refListNode && refListNode.getAttribute( 'refListItemId' ) )
 		);
 	} else {
@@ -371,11 +373,11 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 		).addClass( 've-ce-mwReferencesListNode-missingRef' );
 	}
 
-	if ( subrefs.length ) {
+	if ( refInfo.subrefs && refInfo.subrefs.length ) {
 		$li.append(
 			$( '<ol>', doc ).append(
-				subrefs.map( ( subNode ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-					groupRefs, subNode.getAttribute( 'listIndex' ), doc, converter
+				refInfo.subrefs.map( ( subRefInfo ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
+					groupRefs, subRefInfo, doc, converter
 				) )
 			)
 		);

@@ -287,6 +287,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainRefKey ) || [];
 			const refListNode = mainKeyReuses.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 			if ( refListNode ) {
+				// TODO generate a new id here when there's no distinct main node that holds one
 				ve.setProp( mwData, 'mainBody', refListNode.getAttribute( 'refListItemId' ) );
 			}
 		}

@@ -13,7 +13,8 @@
 			"Piramidion",
 			"Prima klasy4na",
 			"Ytsukeng Fyvaprol",
-			"Ата"
+			"Ата",
+			"Repakr"
 		]
 	},
 	"cite-desc": "Додає теги <code>&lt;ref&gt;</code> і <code>&lt;references/&gt;</code> для виносок",
@@ -23,6 +24,7 @@
 	"cite_error_ref_numeric_key": "Неправильний виклик тегу <code>&lt;ref&gt;</code>: <code>name</code> не може містити лише цифри. Використовуйте описові назви",
 	"cite_error_ref_no_key": "Відкривальний тег <code>&lt;ref&gt;</code> неправильний або містить хибну назву.",
 	"cite_error_ref_too_many_keys": "Недійсний параметр «$1» у тезі <code>&lt;ref></code>. Підтримувані параметри: $2.",
+	"cite_error_ref_parameter_suggestion": "Недійсний параметр «$1» у тезі <code>&lt;ref></code>. Можливо, Ви мали на увазі «$2»?",
 	"cite_error_ref_follow_conflicts": "Тег <code>&lt;ref follow=\"…\"&gt;</code>, який є продовженням попереднього, не може мати названий окремо чи мати деталі",
 	"cite_error_ref_no_input": "Неправильний виклик тегу <code>&lt;ref&gt;</code>: теги без назви повинні мати якийсь вміст",
 	"cite_error_references_duplicate_key": "Некоректний тег <code>&lt;ref&gt;</code>; назва «$1» визначена кілька разів з різним вмістом",
@@ -39,6 +41,7 @@
 	"cite-tracking-category-cite-error-desc": "Сторінок у цій категорії мають помилки у використанні тегів посилань.",
 	"cite-tracking-category-cite-diffing-error": "Сторінки з помилками приміток, які викликають візуальні відмінності",
 	"cite-tracking-category-cite-diffing-error-desc": "Сторінки в цій категорії містять помилки у використанні тегів приміток, і ці помилки показуються по-різному у старому парсері і в Parsoid.",
+	"cite-tracking-category-ref-details-desc": "Сторінки у цій категорії використовують атрибут «details» тегу &lt;ref>.",
 	"cite-reference-previews-reference": "Виноска",
 	"cite-reference-previews-book": "Зноска на книгу",
 	"cite-reference-previews-journal": "Виноска на журнал",
@@ -68,5 +71,6 @@
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Текст посилання], додатковий текст.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Текст посилання]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "тест",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Додаткові деталі"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Додаткові деталі",
+	"cite-configuration-submit": "Зберегти зміни"
 }

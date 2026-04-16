@@ -13,6 +13,7 @@
 			"Piramidion",
 			"Prima klasy4na",
 			"Repakr",
+			"Vlad5250",
 			"Ytsukeng Fyvaprol",
 			"Ата"
 		]
@@ -45,6 +46,7 @@
 	"cite-reference-previews-journal": "Виноска на журнал",
 	"cite-reference-previews-news": "Зноска на новини",
 	"cite-reference-previews-note": "Нотатка",
+	"cite-reference-previews-map": "Виноска на мапу",
 	"cite-reference-previews-web": "Виноска на веб-сайт",
 	"cite-reference-previews-collapsible-placeholder": "Ця примітка включає рисунок, який не вміщається до попереднього перегляду.",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "У вас увімкнено додаток [[$1|спливних вікон навігації]], тому ви не побачите попередніх переглядів, передбачених цією функцією. Залежно від вашої вікі, додаток може мати дещо відмінну назву. Якщо ви продовжуєте відчувати проблеми, перегляньте свої додатки та користувацькі скрипти, у тому числі глобальні.",
@@ -64,6 +66,7 @@
 	"cite-wikieditor-help-content-reference-description": "Виноска",
 	"cite-wikieditor-help-content-named-reference-description": "Іменоване посилання",
 	"cite-wikieditor-help-content-rereference-description": "Додаткове використання тієї ж виноски",
+	"cite-wikieditor-help-content-sub-reference-description": "Додаткове використання тієї ж виноски з додатковими деталями",
 	"cite-wikieditor-help-content-showreferences-description": "Показати виноски",
 	"cite-wikieditor-help-content-reference-example-text1": "Текст сторінки.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Текст посилання], додатковий текст.",

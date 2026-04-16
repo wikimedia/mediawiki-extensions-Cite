@@ -20,12 +20,14 @@
 			"SteveR",
 			"Tel'et",
 			"Tifinaghes",
+			"Vlad5250",
 			"Ата"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Книга",
 	"visualeditor-cite-tool-name-journal": "Журнал",
 	"visualeditor-cite-tool-name-news": "Новини",
+	"visualeditor-cite-tool-name-map": "Мапа",
 	"visualeditor-cite-tool-name-web": "Веб-сайт",
 	"cite-ve-changedesc-ref-group-both": "Групу приміток змінено з «$1» на «$2»",
 	"cite-ve-changedesc-ref-group-from": "Групу приміток змінено з «$1» на загальну групу",

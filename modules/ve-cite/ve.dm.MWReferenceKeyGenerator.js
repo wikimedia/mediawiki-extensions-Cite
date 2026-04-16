@@ -76,6 +76,17 @@ ve.dm.MWReferenceKeyGenerator = {
 				'literal/:'
 			).slice( 'literal/'.length );
 		}
+	},
+
+	/**
+	 * Generate an identifier to match content from the references list with
+	 * reference nodes when converting back to Wikitext.
+	 *
+	 * @param {number} listIndex
+	 * @return {string}
+	 */
+	makeRefListItemId: function ( listIndex ) {
+		return 'cite_note-reflist-item' + listIndex;
 	}
 
 };

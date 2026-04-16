@@ -107,9 +107,9 @@ ve.dm.ConverterTestCases.cases = {
 				&amp;quot;attrs&amp;quot;:{&amp;quot;group&amp;quot;:&amp;quot;g1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;}}&apos;>
 				</sup>"}}'>
 				<ol>
-					<li><span typeof="mw:Extension/ref">Quux</span></li>
+					<li><span typeof="mw:Extension/ref" id="cite_note-reflist-item1">Quux</span></li>
 					<li><span typeof="mw:Extension/ref" id="mw-cite-3">No name</span></li>
-					<li><span typeof="mw:Extension/ref">Ref in refs</span></li>
+					<li><span typeof="mw:Extension/ref" id="cite_note-reflist-item3">Ref in refs</span></li>
 				</ol>
 			</div>
 		`,

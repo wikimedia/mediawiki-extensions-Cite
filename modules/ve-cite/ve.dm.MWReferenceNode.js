@@ -286,10 +286,9 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		) {
 			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainRefKey ) || [];
 			const refListNode = mainKeyReuses.find( ( node ) => node.getAttribute( 'refListItemId' ) );
-			if ( refListNode ) {
-				// TODO generate a new id here when there's no distinct main node that holds one
-				ve.setProp( mwData, 'mainBody', refListNode.getAttribute( 'refListItemId' ) );
-			}
+			const refListItemId = ( refListNode && refListNode.getAttribute( 'refListItemId' ) ) ||
+				MWReferenceKeyGenerator.makeRefListItemId( attributes.mainListIndex );
+			ve.setProp( mwData, 'mainBody', refListItemId );
 		}
 
 		// Set or clear group on data-mw
@@ -789,12 +788,9 @@ ve.dm.MWReferenceNode.prototype.copySyntheticRefIntoReferencesList = function ( 
 	ve.setProp( attributes, 'mw', 'isSyntheticMainRef', true );
 	ve.setProp( attributes, 'contentsUsed', true );
 	if ( !ve.getProp( attributes, 'refListItemId' ) ) {
-		// This will be the value of the `id` attribute of reference list item
-		const refListItemId = 'cite_note-' +
-			attributes.listGroup + '-' +
-			attributes.listKey + '-' +
-			attributes.listIndex;
-		ve.setProp( attributes, 'refListItemId', refListItemId.replace( /[_\s]+/u, '_' ) );
+		// This will be the value of the `id` attribute of the reference list item
+		const refListItemId = MWReferenceKeyGenerator.makeRefListItemId( attributes.listIndex );
+		ve.setProp( attributes, 'refListItemId', refListItemId );
 	}
 	const txInsert = ve.dm.TransactionBuilder.static.newFromInsertion(
 		this.getDocument(), refListNodeRange.to, [

@@ -9,6 +9,7 @@
 
 const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
 const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
+const MWReferenceKeyGenerator = require( './ve.dm.MWReferenceKeyGenerator.js' );
 
 /**
  * DataModel MediaWiki references list node.
@@ -360,11 +361,13 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 			internalItem.getDocument().getFullData( internalItem.getRange(), 'roundTrip' ),
 			htmlWrapper
 		);
+
+		const refListItemId = ( refListNode && refListNode.getAttribute( 'refListItemId' ) ) ||
+			MWReferenceKeyGenerator.makeRefListItemId( refInfo.internalListIndex );
 		$li.append(
 			$( htmlWrapper )
 				.attr( 'typeof', 'mw:Extension/ref' )
-				// TODO generate a new id here when there's no distinct main node that holds one
-				.attr( 'id', refListNode && refListNode.getAttribute( 'refListItemId' ) )
+				.attr( 'id', refListItemId )
 		);
 	} else {
 		// TODO: What to do here?

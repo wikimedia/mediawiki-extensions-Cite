@@ -59,7 +59,7 @@ export function waitForVECitoidToLoad() {
 }
 
 export function getVEFootnoteMarker( refName, sequenceNumber, index ) {
-	return cy.get( `sup.ve-ce-mwReferenceNode#cite_ref-${ refName }_${ sequenceNumber }-${ index - 1 }` );
+	return cy.get( '.ve-ce-surface:visible' ).find( `sup#cite_ref-${ refName }_${ sequenceNumber }-${ index - 1 }` );
 }
 
 export function getVEReferenceContextItem() {
@@ -89,7 +89,6 @@ export function openVECitoidReuseDialog() {
 	cy.wait( 500 );
 	cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label' ).contains( 'Re-use' ).click();
 }
-
 export function saveEdits() {
 	// TODO: Even if the button is enabled it seems we need a delay before we can click it.
 	// eslint-disable-next-line cypress/no-unnecessary-waiting
@@ -115,6 +114,7 @@ export function getCiteReuseDialogRefResultCitation( rowNumber ) {
 }
 
 export function getCiteReuseDialogRefText( rowNumber ) {
-	return cy.get( '.oo-ui-widget.oo-ui-widget-enabled .ve-ui-mwReferenceResultWidget .ve-ce-paragraphNode' )
-		.eq( rowNumber - 1 );
+	return cy.get( '.ve-ui-mwReferenceDialog .ve-ui-mwReferenceResultWidget' )
+		.eq( rowNumber - 1 )
+		.find( '.mw-parser-output p' );
 }

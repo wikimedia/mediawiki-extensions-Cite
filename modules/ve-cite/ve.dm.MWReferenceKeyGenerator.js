@@ -86,7 +86,7 @@ ve.dm.MWReferenceKeyGenerator = {
 	 * @return {string}
 	 */
 	makeRefListItemId: function ( listIndex ) {
-		return 'cite_note-reflist-item' + listIndex;
+		return 'mw-reflist-item-' + listIndex;
 	}
 
 };

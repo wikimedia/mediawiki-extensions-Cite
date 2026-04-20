@@ -7,7 +7,6 @@
  * @license MIT
  */
 
-const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
 const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
 const MWReferenceKeyGenerator = require( './ve.dm.MWReferenceKeyGenerator.js' );
 
@@ -314,18 +313,13 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
  * @return {HTMLElement} <ol> element for the references list
  * */
 ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, converter ) {
-	// Render all group refs
-	const docRefs = MWDocumentReferences.static.refsForDoc(
-		converter.internalList.document
-	);
-	const groupRefs = docRefs.getGroupRefs( refGroup );
 	const nodeGroup = converter.internalList.getNodeGroup( 'mwReference/' + refGroup );
 
 	const $wrapper = $( '<ol>', doc );
 	$wrapper.append(
 		new MWDataTransitionHelper().buildReflistStructure( nodeGroup )
 			.map( ( refInfo ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-				groupRefs, refInfo, doc, converter
+				nodeGroup, refInfo, doc, converter
 			) )
 	);
 

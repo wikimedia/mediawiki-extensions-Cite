@@ -280,10 +280,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		}
 
 		// Set flags for sub-refs with body content on data-mw
-		if ( isSubRef &&
-			shouldGetMainContent &&
-			!ve.getProp( mwData, 'mainBody' )
-		) {
+		if ( isSubRef && shouldGetMainContent ) {
 			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainRefKey ) || [];
 			const refListNode = mainKeyReuses.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 			const refListItemId = ( refListNode && refListNode.getAttribute( 'refListItemId' ) ) ||

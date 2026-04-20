@@ -166,6 +166,8 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	}
 
 	const updatedMw = ve.dm.MWReferencesListNode.static.updatedMwForDom( data, doc, converter );
+	const nodeGroup = converter.internalList.getNodeGroup( 'mwReference/' + dataElement.attributes.refGroup || '' );
+	const hasSubRefs = nodeGroup && nodeGroup.getFirstNodesInIndexOrder().some( ( node ) => node.isSubRef() );
 
 	let domElements = [ doc.createElement( 'div' ) ];
 	if ( !converter.isForParser() ) {
@@ -183,7 +185,10 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	} else if (
 		dataElement.originalDomElementsHash !== undefined &&
 		// don't get originalDamElements when there are changes, needed to update synthetic refs
-		!updatedMw
+		// FIXME with the line below this is obsolete I think
+		!updatedMw &&
+		// for subRefs we need to render a fresh references list for changes in main content
+		!hasSubRefs
 	) {
 		// If there's more than 1 element, preserve entire array, not just first element
 		domElements = ve.copyDomElements(
@@ -192,7 +197,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	} else {
 		domElements[ 0 ].appendChild(
 			ve.dm.MWReferencesListNode.static.listToDomElement(
-				dataElement.attributes.refGroup || '',
+				nodeGroup,
 				doc,
 				converter
 			)
@@ -271,7 +276,6 @@ ve.dm.MWReferencesListNode.static.updatedMwForDom = function ( data, doc, conver
 		originalHtmlWrapper.innerHTML = ve.getProp( mwData, 'body', 'html' ) || '';
 
 		// Only set body.html if contentsHtml and originalHtml are actually different
-		// FIXME?: Synthetic refs from main+details always seem to have different bodyHtml here
 		if ( !originalHtmlWrapper.isEqualNode( currentHtmlWrapper ) ) {
 			ve.setProp( mwData, 'body', 'html', currentHtmlWrapper.innerHTML );
 		}
@@ -307,14 +311,12 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
  * Create references list HTML DOM for Parsoid
  *
  * @static
- * @param {string} refGroup
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @param {HTMLDocument} doc
  * @param {ve.dm.DomFromModelConverter} converter
  * @return {HTMLElement} <ol> element for the references list
  * */
-ve.dm.MWReferencesListNode.static.listToDomElement = function ( refGroup, doc, converter ) {
-	const nodeGroup = converter.internalList.getNodeGroup( 'mwReference/' + refGroup );
-
+ve.dm.MWReferencesListNode.static.listToDomElement = function ( nodeGroup, doc, converter ) {
 	const $wrapper = $( '<ol>', doc );
 	$wrapper.append(
 		new MWDataTransitionHelper().buildReflistStructure( nodeGroup )

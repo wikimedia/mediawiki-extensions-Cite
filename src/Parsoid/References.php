@@ -40,7 +40,7 @@ class References {
 	private const CONFLICT_VISIBLE = 2;
 
 	private readonly MarkSymbolRenderer $markSymbolRenderer;
-	private readonly ParsoidValidator $validator;
+
 	/** @var array<string,array<string,string>>
 	 * @internal Local copy of ref body HTML for conflict detection. Top level
 	 * key is the ref group name, second level key is the ref name
@@ -51,7 +51,6 @@ class References {
 		private readonly Config $mainConfig,
 	) {
 		$this->markSymbolRenderer = MediaWikiServices::getInstance()->getService( 'Cite.MarkSymbolRenderer' );
-		$this->validator = new ParsoidValidator();
 	}
 
 	private static function hasRef( ParsoidExtensionAPI $extApi, Node $node ): bool {
@@ -205,9 +204,7 @@ class References {
 			$referencesData->isKnown( $arguments['group'], $arguments['name'] )
 		) );
 
-		foreach ( $status->getMessages() as $msg ) {
-			$errs[] = ErrorUtils::fromMessageSpecifier( $msg );
-		}
+		array_push( $errs, ...ErrorUtils::fromStatus( $status ) );
 
 		// Extract and validate attribute values
 		$groupName = $arguments['group'];
@@ -344,12 +341,8 @@ class References {
 		// Guaranteed from this point on
 		'@phan-var RefGroupItem $ref';
 
-		if ( isset( $arguments['dir'] ) ) {
-			$dirError = $this->validator->validateDir( $refDir, $ref );
-			if ( $dirError ) {
-				$errs[] = $dirError;
-			}
-		}
+		$dirError = Validator::validateDirAttribute( $ref->name, $ref->dir, $refDir );
+		array_push( $errs, ...ErrorUtils::fromStatus( $dirError ) );
 		if ( $conflicts === self::CONFLICT_VISIBLE && $refFragmentHtml !== '' ) {
 			$errs[] = new DataMwError( 'cite_error_references_duplicate_key', [ $arguments['name'] ] );
 		}

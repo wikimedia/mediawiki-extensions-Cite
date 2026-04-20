@@ -36,8 +36,7 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 		// Detect invalid parameters on the references tag
 		$status = Validator::filterReferenceListArguments( $txt, $extApi->extArgsToArray( $extArgs ) );
 		$refsOpts = $status->getValue();
-		foreach ( $status->getMessages() as $msg ) {
-			$error = ErrorUtils::fromMessageSpecifier( $msg );
+		foreach ( ErrorUtils::fromStatus( $status ) as $error ) {
 			$extApi->pushError( $error->key, ...$error->params );
 		}
 

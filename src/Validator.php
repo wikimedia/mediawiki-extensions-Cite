@@ -297,6 +297,19 @@ class Validator {
 		return $status;
 	}
 
+	public static function validateDirAttribute( ?string $name, ?string $oldDir, ?string $newDir ): StatusValue {
+		$status = StatusValue::newGood();
+
+		// Cannot be a conflict when unnamed or one of the two dir="" is empty or missing
+		if ( $name && $oldDir && $newDir && $oldDir !== $newDir ) {
+			$status->warning( 'cite_error_ref_conflicting_dir',
+				Sanitizer::safeEncodeAttribute( $name )
+			);
+		}
+
+		return $status;
+	}
+
 	public function validateListDefinedRefUsage( ?string $name, bool $isKnownName ): StatusValue {
 		$status = StatusValue::newGood();
 

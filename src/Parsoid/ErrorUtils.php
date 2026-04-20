@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use StatusValue;
 use Wikimedia\Message\MessageParam;
 use Wikimedia\Message\MessageSpecifier;
 use Wikimedia\Message\MessageValue;
@@ -25,11 +26,21 @@ class ErrorUtils {
 	) {
 	}
 
-	public static function fromMessageSpecifier( MessageSpecifier $msg ): DataMwError {
-		return new DataMwError( $msg->getKey(), array_map(
-			static fn ( $p ) => $p instanceof MessageParam ? $p->getValue() : $p,
-			$msg->getParams()
-		) );
+	/**
+	 * @param StatusValue $status
+	 * @return DataMwError[]
+	 */
+	public static function fromStatus( StatusValue $status ): array {
+		return array_map(
+			static fn ( MessageSpecifier $msg ) => new DataMwError(
+				$msg->getKey(),
+				array_map(
+					static fn ( $p ) => $p instanceof MessageParam ? $p->getValue() : $p,
+					$msg->getParams()
+				)
+			),
+			$status->getMessages()
+		);
 	}
 
 	/**

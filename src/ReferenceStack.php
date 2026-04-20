@@ -111,8 +111,9 @@ class ReferenceStack {
 			$ref = &$this->refs[$group][$name];
 			$ref->count++;
 
-			if ( $ref->dir && $dir && $ref->dir !== $dir ) {
-				$ref->warnings[] = [ 'cite_error_ref_conflicting_dir', $name ];
+			$status = Validator::validateDirAttribute( $name, $ref->dir, $dir );
+			foreach ( $status->getMessages() as $msg ) {
+				$ref->warnings[] = [ $msg->getKey(), ...$msg->getParams() ];
 			}
 
 			if ( $ref->text === null && $text !== null ) {

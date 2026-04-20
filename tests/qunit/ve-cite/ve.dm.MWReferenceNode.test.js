@@ -162,7 +162,7 @@
 	QUnit.test( 'shouldAvoidContentOverride', ( assert ) => {
 		fixtures.shouldAvoidContentOverride.forEach( ( caseItem ) => {
 			const nodeReuses = caseItem.nodeReuses.map(
-				( element ) => new ve.dm.Model( element )
+				( element ) => new ve.dm.MWReferenceNode( element )
 			);
 			assert.strictEqual(
 				MWReferenceNode.static.shouldAvoidContentOverride(
@@ -247,7 +247,7 @@
 		const internalList = { getNodeGroup: () => nodeGroup };
 		assert.false( MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
-		nodeGroup.appendNode( 'a', new ve.dm.Model( { attributes: { listGroup: '', mainListIndex: 0 } } ) );
+		nodeGroup.appendNode( 'a', new ve.dm.MWReferenceNode( { attributes: { listGroup: '', mainListIndex: 0 } } ) );
 		assert.true( MWReferenceNode.static.hasSubRefs( attributes, internalList ) );
 
 		// But when it's a sub-ref it cannot have sub-refs

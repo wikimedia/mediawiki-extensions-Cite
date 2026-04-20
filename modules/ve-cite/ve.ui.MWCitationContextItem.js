@@ -16,7 +16,7 @@ const MWReferenceContextItem = require( './ve.ui.MWReferenceContextItem.js' );
  * @constructor
  * @extends ve.ui.MWReferenceContextItem
  * @param {ve.ui.LinearContext} context Context the item is in
- * @param {ve.dm.Model} model Model the item is related to
+ * @param {ve.dm.MWReferenceNode} model Model the item is related to
  * @param {Object} [config]
  */
 ve.ui.MWCitationContextItem = function VeUiMWCitationContextItem() {

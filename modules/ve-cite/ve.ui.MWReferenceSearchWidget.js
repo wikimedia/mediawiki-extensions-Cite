@@ -137,21 +137,21 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
  * @return {Object[]}
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
-	const groupNames = this.docRefs.getAllGroupNames().sort();
+	const listGroups = this.docRefs.getAllGroupNames().sort();
 
 	let index = [];
-	for ( const groupName of groupNames ) {
-		if ( !groupName.startsWith( 'mwReference/' ) ) {
+	for ( const listGroup of listGroups ) {
+		if ( !listGroup.startsWith( 'mwReference/' ) ) {
 			// FIXME: Should be impossible to reach
 			continue;
 		}
 
-		const groupRefs = this.docRefs.getGroupRefs( groupName );
+		const groupRefs = this.docRefs.getGroupRefs( listGroup );
 		const flatNodes = groupRefs.getAllRefsInReflistOrder();
 
 		// TODO: Why not use the original group attribute? Is that outdated after an edit?
 		// remove `mwReference/` prefix
-		const group = groupName.slice( 12 );
+		const group = listGroup.slice( 12 );
 
 		index = index.concat( flatNodes.map( ( node ) => {
 			const listKey = node.getAttribute( 'listKey' );

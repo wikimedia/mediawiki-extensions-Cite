@@ -56,6 +56,18 @@ ve.dm.MWGroupReferences.static.makeGroupRefs = function ( nodeGroup ) {
 	return result;
 };
 
+/**
+ * Comparator for sorting references into reflist order, given two RefInfo objects
+ *
+ * @param {ve.dm.MWDataTransitionHelper.RefInfo} a Left term
+ * @param {ve.dm.MWDataTransitionHelper.RefInfo} b Right term
+ * @return {number} according to {@link Array.sort}
+ */
+ve.dm.MWGroupReferences.static.compareAsRefInfos = function ( a, b ) {
+	return ( a.topLevelNumber - b.topLevelNumber ) ||
+		( ( a.subrefNumber || 0 ) - ( b.subrefNumber || 0 ) );
+};
+
 /* Methods */
 
 /**
@@ -77,19 +89,10 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
  * @return {number} according to {@link Array.sort}
  */
 ve.dm.MWGroupReferences.prototype.compareAsIndexes = function ( a, b ) {
-	return this.compareAsRefInfos( this.calculatedNumbering[ a ], this.calculatedNumbering[ b ] );
-};
-
-/**
- * Internal comparator for sorting references into reflist order, given two RefInfo objects
- *
- * @private
- * @param {ve.dm.MWDataTransitionHelper.RefInfo} a Left term
- * @param {ve.dm.MWDataTransitionHelper.RefInfo} b Right term
- * @return {number} according to {@link Array.sort}
- */
-ve.dm.MWGroupReferences.prototype.compareAsRefInfos = function ( a, b ) {
-	return ( a.topLevelNumber - b.topLevelNumber ) || ( ( a.subrefNumber || 0 ) - ( b.subrefNumber || 0 ) );
+	return ve.dm.MWGroupReferences.static.compareAsRefInfos(
+		this.calculatedNumbering[ a ],
+		this.calculatedNumbering[ b ]
+	);
 };
 
 /**
@@ -197,7 +200,7 @@ ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
 ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainListIndex ) {
 	return Object.values( this.calculatedNumbering )
 		.filter( ( ref ) => ref.mainListIndex === mainListIndex )
-		.sort( ( a, b ) => this.compareAsRefInfos( a, b ) )
+		.sort( ve.dm.MWGroupReferences.static.compareAsRefInfos )
 		.map( ( ref ) => this.nodeGroup.firstNodes[ ref.internalListIndex ] )
 		.filter( ( node ) => node );
 };

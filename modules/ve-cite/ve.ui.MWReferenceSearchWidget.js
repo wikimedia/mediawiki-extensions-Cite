@@ -137,15 +137,10 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
  * @return {Object[]}
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
-	const listGroups = this.docRefs.getAllGroupNames().sort();
+	const listGroups = this.docRefs.getListGroupNames().sort();
 
 	let index = [];
 	for ( const listGroup of listGroups ) {
-		if ( !listGroup.startsWith( 'mwReference/' ) ) {
-			// FIXME: Should be impossible to reach
-			continue;
-		}
-
 		const nodeGroup = this.internalList.getNodeGroup( listGroup );
 		const reflistStructure = Object.values( new ve.dm.MWDataTransitionHelper().buildReflistNumbering( nodeGroup ) )
 			.sort( ve.dm.MWGroupReferences.static.compareAsRefInfos );

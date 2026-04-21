@@ -75,18 +75,20 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 		return footnoteNumberLookup[ subRefIndex ];
 	};
 
-	nodeGroup.getFirstNodesInIndexOrder()
-		.filter( ( node ) => !node.getAttribute( 'placeholder' ) )
-		.forEach( ( node ) => {
-			const listIndex = node.getAttribute( 'listIndex' );
-			const mainRefKey = node.getAttribute( 'mainRefKey' ) || node.getAttribute( 'listKey' );
-			const mainListIndex = node.getAttribute( 'mainListIndex' );
-			if ( mainListIndex !== undefined ) {
-				addSubref( mainRefKey, mainListIndex, listIndex, node );
-			} else {
-				getOrAllocateTopLevelNumber( mainRefKey, listIndex );
-			}
-		} );
+	if ( nodeGroup ) {
+		nodeGroup.getFirstNodesInIndexOrder()
+			.filter( ( node ) => !node.getAttribute( 'placeholder' ) )
+			.forEach( ( node ) => {
+				const listIndex = node.getAttribute( 'listIndex' );
+				const mainRefKey = node.getAttribute( 'mainRefKey' ) || node.getAttribute( 'listKey' );
+				const mainListIndex = node.getAttribute( 'mainListIndex' );
+				if ( mainListIndex !== undefined ) {
+					addSubref( mainRefKey, mainListIndex, listIndex, node );
+				} else {
+					getOrAllocateTopLevelNumber( mainRefKey, listIndex );
+				}
+			} );
+	}
 
 	return footnoteNumberLookup;
 };

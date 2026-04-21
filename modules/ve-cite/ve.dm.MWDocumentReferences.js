@@ -29,7 +29,7 @@ ve.dm.MWDocumentReferences = function VeDmMWDocumentReferences( doc ) {
 	this.cachedByGroup = {};
 
 	doc.getInternalList().connect( this, { update: 'updateGroups' } );
-	this.updateGroups( this.getAllGroupNames() );
+	this.updateGroups( this.getListGroupNames() );
 };
 
 /* Inheritance */
@@ -86,7 +86,7 @@ ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( groupName ) {
 /**
  * @return {string[]} List group names with the "mwReference/" prefix
  */
-ve.dm.MWDocumentReferences.prototype.getAllGroupNames = function () {
+ve.dm.MWDocumentReferences.prototype.getListGroupNames = function () {
 	return Object.keys( this.doc.getInternalList().getNodeGroups() );
 };
 

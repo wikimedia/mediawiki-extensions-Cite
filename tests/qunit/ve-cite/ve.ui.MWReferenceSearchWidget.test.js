@@ -38,16 +38,19 @@
 		widget.setInternalList( subRefDoc.getInternalList() );
 
 		const index = widget.buildSearchIndex();
+		assert.strictEqual( index.length, 4 );
+
 		// normal ref
-		assert.deepEqual( index.length, 4 );
-		assert.deepEqual( index[ 0 ].footnoteLabel, '1' );
-		assert.deepEqual( index[ 0 ].name, 'ldr' );
-		assert.deepEqual( index[ 0 ].searchableText, '[1] ldr list-defined' );
+		assert.strictEqual( index[ 0 ].footnoteLabel, '1' );
+		assert.strictEqual( index[ 0 ].name, 'ldr' );
+		assert.strictEqual( index[ 0 ].searchableText, '[1] ldr list-defined' );
+		assert.strictEqual( index[ 0 ].reference.getListKey(), 'literal/ldr' );
 
 		// sub-ref
-		assert.deepEqual( index[ 1 ].footnoteLabel, '1.1' );
-		assert.deepEqual( index[ 1 ].name, '' );
-		assert.deepEqual( index[ 1 ].searchableText, '[1.1] subref' );
+		assert.strictEqual( index[ 1 ].footnoteLabel, '1.1' );
+		assert.strictEqual( index[ 1 ].name, '' );
+		assert.strictEqual( index[ 1 ].searchableText, '[1.1] subref' );
+		assert.strictEqual( index[ 1 ].reference.getListKey(), 'auto/0' );
 	} );
 
 	QUnit.test( 'isIndexEmpty', ( assert ) => {

@@ -17,7 +17,7 @@ class ReferencesData {
 	private int $refSequence = 0;
 	/** @var array<string,RefGroup> indexed by group name */
 	private array $refGroups = [];
-	/** @var array<string,list<DataMwError>> */
+	/** @var array<string,DataMwError[]> */
 	public array $embeddedErrors = [];
 	/** @var array<?string> */
 	private array $embeddedContentStack = [];

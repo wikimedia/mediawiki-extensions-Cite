@@ -59,15 +59,18 @@ class ErrorUtils {
 	 * therefore map about ids to errors for a ref at that time, and then do
 	 * one final walk of the dom to peak into all the embedded content and
 	 * mark up the errors where necessary.
+	 *
+	 * @param array<string,DataMwError[]> $embeddedErrors
+	 * @param Node $node
 	 */
-	public function addEmbeddedErrors( ReferencesData $refsData, Node $node ): void {
+	public function addEmbeddedErrors( array $embeddedErrors, Node $node ): void {
 		// Either nothing to add or nothing to add to; stop recursing deeper
-		if ( !$refsData->embeddedErrors || !$node->hasChildNodes() ) {
+		if ( !$embeddedErrors || !$node->hasChildNodes() ) {
 			return;
 		}
 
-		$processEmbeddedErrors = function ( DocumentFragment $domFragment ) use ( $refsData ) {
-			$this->addEmbeddedErrors( $refsData, $domFragment );
+		$processEmbeddedErrors = function ( DocumentFragment $domFragment ) use ( $embeddedErrors ) {
+			$this->addEmbeddedErrors( $embeddedErrors, $domFragment );
 			return true;
 		};
 
@@ -79,12 +82,11 @@ class ErrorUtils {
 				if ( DOMUtils::hasTypeOf( $child, 'mw:Extension/ref' ) ) {
 					$about = DOMCompat::getAttribute( $child, 'about' );
 					'@phan-var string $about';
-					$errs = $refsData->embeddedErrors[$about] ?? [];
-					self::addErrorsToNode( $child, $errs );
+					self::addErrorsToNode( $child, $embeddedErrors[$about] ?? [] );
 				}
 
 				// Recursion
-				$this->addEmbeddedErrors( $refsData, $child );
+				$this->addEmbeddedErrors( $embeddedErrors, $child );
 			}
 			$child = $nextChild;
 		}

@@ -70,7 +70,7 @@
 	"cite-configuration-info": "Este maga configuracion ay afecta el todo'l maga pagina que ta utiliza Cita. El maga administrador lang el puede modifica con estos maga configuracion.",
 	"cite-configuration-backlink-title": "Maga configuracion del backlink",
 	"cite-configuration-backlink-description": "El maga backlinks ta aparece na lista del referencia y ta enseña pa'virada para na footnotes del pagina. Cuando el un referencia ta usa mas de una vez, el maga backlinks de este tiene ya numero - contao. El configuracion ta dale este habilidad con un alfabeto personalizao queda usao para con este sirve.",
-	"cite-configuration-backlink-alpha-suggestion": "Tiene alfabeto el ya puede detecta el Cita para na wiki que na lenguaje de tuyo. Si quiere man tu usa con aquel, por favor hace copia y pega con el texto abajo como un basis para na de tuyo backlink markers. Librao tu hace edit o hace aregla otra vez con el secuencia.",
+	"cite-configuration-backlink-alpha-suggestion": "Tiene alfabeto el ya puede detecta el Cita para na wiki na lenguaje de tuyo. Si quiere man tu usa con aquel, por favor copia y pega con el texto abajo como un basis para na de tuyo backlink markers. Librao tu edita o hace aregla otra vez con el secuencia.",
 	"cite-configuration-backlink-marker-label": "Backlink symbol set",
 	"cite-configuration-backlink-marker-description": "El maga caracter abajo el queda usao para na maga backlinks na de tuyo wiki.",
 	"cite-configuration-backlink-marker-help": "Hace entra con el conjunto del maga caracter personalizao, junto el espacio entra medio na cada caracter. Hace asegura que ta contene maga caracter de Xx na contenedor.",

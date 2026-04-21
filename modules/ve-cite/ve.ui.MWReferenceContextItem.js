@@ -173,7 +173,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 		MWReferenceModel.static.newFromMainNodeAttributes(
 			this.internalList.getDocument(),
 			this.model.getAttribute( 'listGroup' ),
-			this.model.getAttribute( 'mainListKey' ),
+			this.model.getAttribute( 'mainRefKey' ),
 			mainListIndex
 		)
 	);

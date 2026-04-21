@@ -116,7 +116,7 @@ ve.dm.MWReferenceModel.static.newFromMainNodeAttributes = function (
 	const groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc ).getGroupRefs( listGroup );
 	const ref = new ve.dm.MWReferenceModel();
 	ref.listGroup = listGroup;
-	// FIXME The fallback is used because the mainListKey is not availabile when rendering the references list atm
+	// FIXME The fallback is used because the mainRefKey is not availabile when rendering the references list atm
 	ref.listKey = listKey || groupRefs.nodeGroup.getListKeyForListIndex( listIndex );
 	ref.listIndex = listIndex;
 	ref.group = listGroup.replace( /^mwReference\//, '' );

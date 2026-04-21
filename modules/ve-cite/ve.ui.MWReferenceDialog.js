@@ -307,7 +307,6 @@ ve.ui.MWReferenceDialog.prototype.getSetupProcess = function ( data ) {
 					.getSelectedNode() instanceof MWReferenceNode;
 				this.actions.setMode( 'edit' );
 				this.actions.setAbilities( { done: false, replace: canReplace } );
-				this.actions.setMode( 'edit' );
 			} else {
 				ref = ve.dm.MWReferenceModel.static.newEmptyRef( doc );
 			}

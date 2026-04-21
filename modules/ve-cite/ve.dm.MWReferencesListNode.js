@@ -348,8 +348,8 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 
 	if ( internalItem && internalItem.getLength() ) {
 		// make sure to find the node holding the refListItemId
-		const refListNode = nodeGroup.getAllReusesByListIndex( refInfo.internalListIndex )
-			.find( ( node ) => node.getAttribute( 'refListItemId' ) );
+		const refListNodes = nodeGroup.getAllReusesByListIndex( refInfo.internalListIndex ) || [];
+		const refListNode = refListNodes.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 		const htmlWrapper = doc.createElement( 'span' );
 		converter.getDomSubtreeFromData(
 			internalItem.getDocument().getFullData( internalItem.getRange(), 'roundTrip' ),

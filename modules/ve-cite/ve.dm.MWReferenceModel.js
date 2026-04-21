@@ -214,7 +214,7 @@ ve.dm.MWReferenceModel.prototype.updateGroup = function ( surfaceModel ) {
 
 	// Get all reference nodes with the same group and key
 	const oldNodeGroup = internalList.getNodeGroup( this.listGroup );
-	const refNodes = oldNodeGroup.getAllReusesByListIndex( this.listIndex );
+	const refNodes = oldNodeGroup.getAllReusesByListIndex( this.listIndex ) || [];
 
 	// Check for name collision when moving items between groups
 	const newListKey = MWReferenceKeyGenerator.deduplicateListKey( internalList, newListGroup, this.listKey );

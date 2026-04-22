@@ -97,7 +97,7 @@ sup.reference {
 	white-space: nowrap;
 
 	/* Do not inherit bold or italic */
-	font-weight: normal;
+	font-weight: @font-weight-normal;
 	font-style: normal;
 }
 
@@ -109,14 +109,14 @@ sup.reference:target {
 
 /* Make cite errors "strong" */
 .mw-ext-cite-error {
-	font-weight: bold;
+	font-weight: @font-weight-bold;
 	/* For the case that the error is embedded in an element with a different direction */
 	unicode-bidi: embed;
 
 	code {
 		/* As code is inheriting `#f8f9fa` as background color from `code`,
 		   we need to increase contrast, by setting it to `transparent`. See T247903. */
-		background-color: transparent;
+		background-color: @background-color-transparent;
 		color: inherit;
 		/* Reduce inherited `padding` to make code fit in better in Resources list. */
 		padding: 1px 2px;

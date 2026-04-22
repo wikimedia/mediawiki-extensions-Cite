@@ -71,22 +71,22 @@
 
 		.mwe-popups-fade {
 			position: absolute;
-			width: 100%;
+			width: @size-full;
 			height: @lineHeight;
-			background-color: transparent;
-			background-image: linear-gradient( rgba( 255, 255, 255, 0 ), rgba( 255, 255, 255, 1 ) );
-			opacity: 0;
+			background-color: @background-color-transparent;
+			background-image: linear-gradient( @background-color-transparent, @background-color-base );
+			opacity: @opacity-transparent;
 			pointer-events: none; // Allows clicking "through" the element
-			transition: opacity 250ms ease;
+			transition: @transition-property-fade @transition-duration-medium @transition-timing-function-system;
 		}
 
 		&.mwe-popups-fade-out .mwe-popups-fade {
-			opacity: 1;
+			opacity: @opacity-base;
 		}
 	}
 
 	.mwe-collapsible-placeholder {
-		font-weight: bold;
+		font-weight: @font-weight-bold;
 		margin: 1em 0;
 		position: relative;
 	}

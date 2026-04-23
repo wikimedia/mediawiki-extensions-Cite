@@ -185,9 +185,10 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	}
 
 	const refGroup = model.getAttribute( 'refGroup' );
+	const listGroup = model.getAttribute( 'listGroup' );
 
 	const docRefs = MWDocumentReferences.static.refsForDoc( model.getDocument() );
-	const groupRefs = docRefs.getGroupRefs( refGroup );
+	const groupRefs = docRefs.getGroupRefs( listGroup );
 	const hasModelReferences = !groupRefs.isEmpty();
 
 	const emptyText = ve.msg(
@@ -248,7 +249,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	} else {
 		// Render all at once.
 
-		const nodeGroup = model.getDocument().getInternalList().getNodeGroup( 'mwReference/' + refGroup );
+		const nodeGroup = model.getDocument().getInternalList().getNodeGroup( listGroup );
 		this.$reflist.append(
 			new MWDataTransitionHelper().buildReflistStructure( nodeGroup )
 				.map( ( refInfo ) => this.renderListItem( groupRefs, refGroup, refInfo ) )

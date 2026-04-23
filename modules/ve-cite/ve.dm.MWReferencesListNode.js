@@ -166,8 +166,8 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	}
 
 	const updatedMw = ve.dm.MWReferencesListNode.static.updatedMwForDom( data, doc, converter );
-	const nodeGroup = converter.internalList.getNodeGroup( 'mwReference/' + dataElement.attributes.refGroup || '' );
-	const hasSubRefs = nodeGroup && nodeGroup.getFirstNodesInIndexOrder().some( ( node ) => node.isSubRef() );
+	const nodeGroup = converter.internalList.getNodeGroup( dataElement.attributes.listGroup );
+	const groupHasSubRefs = nodeGroup && nodeGroup.getFirstNodesInIndexOrder().some( ( node ) => node.isSubRef() );
 
 	let domElements = [ doc.createElement( 'div' ) ];
 	if ( !converter.isForParser() ) {
@@ -188,7 +188,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		// FIXME with the line below this is obsolete I think
 		!updatedMw &&
 		// for subRefs we need to render a fresh references list for changes in main content
-		!hasSubRefs
+		!groupHasSubRefs
 	) {
 		// If there's more than 1 element, preserve entire array, not just first element
 		domElements = ve.copyDomElements(

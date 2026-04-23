@@ -68,7 +68,7 @@
 
 		// sub-ref
 		const ref = new MWReferenceModel( new ve.dm.Document( [] ) );
-		ref.mainRefKey = 'literal/ldr';
+		ref.mainListKey = 'literal/ldr';
 		ref.mainListIndex = 1;
 		ref.listIndex = 0;
 		ref.listKey = 'auto/0';
@@ -85,7 +85,7 @@
 		// assert.true( editPanel.referenceListPreview.$element.text().indexOf( 'Bar' ) !== -1 );
 
 		// test sub ref with missing main ref
-		ref.mainRefKey = 'literal/notexist';
+		ref.mainListKey = 'literal/notexist';
 		ref.mainListIndex = '6';
 		editPanel.setInternalList( doc.getInternalList() );
 		editPanel.setReferenceForEditing( ref );

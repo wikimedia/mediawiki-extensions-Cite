@@ -56,7 +56,7 @@
 		};
 		assert.strictEqual( MWReferenceKeyGenerator.generateName( attributes, internalList ), ':0' );
 
-		attributes.mainRefKey = 'literal/foo';
+		attributes.mainListKey = 'literal/foo';
 		assert.strictEqual( MWReferenceKeyGenerator.generateName( attributes, internalList ), 'foo' );
 	} );
 }

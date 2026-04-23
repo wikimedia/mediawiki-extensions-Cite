@@ -174,11 +174,11 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
 		// Create a main ref internalListItem
-		const mainRefKey = MWReferenceKeyGenerator.makeListKey(
+		const mainListKey = MWReferenceKeyGenerator.makeListKey(
 			converter.internalList,
 			mwData.mainRef
 		);
-		dataElement.attributes.mainRefKey = mainRefKey;
+		dataElement.attributes.mainListKey = mainListKey;
 		let mainHtml;
 		if ( mw.config.get( 'wgCiteRemoveSyntheticRefsUnsafe' ) ) {
 			// If this is a non-synthetic main+details then read its contents from the
@@ -188,7 +188,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 				mwData.mainBody &&
 				this.getBodyFromReflist( converter, mwData.mainBody );
 		}
-		const { index: mainListIndex } = converter.internalList.queueItemHtml( listGroup, mainRefKey, mainHtml || '' );
+		const { index: mainListIndex } = converter.internalList.queueItemHtml( listGroup, mainListKey, mainHtml || '' );
 		dataElement.attributes.mainListIndex = mainListIndex;
 	}
 
@@ -281,7 +281,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Set flags for sub-refs with body content on data-mw
 		if ( isSubRef && shouldGetMainContent ) {
-			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainRefKey ) || [];
+			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainListKey ) || [];
 			const refListNode = mainKeyReuses.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 			const refListItemId = ( refListNode && refListNode.getAttribute( 'refListItemId' ) ) ||
 				MWReferenceKeyGenerator.makeRefListItemId( attributes.mainListIndex );
@@ -515,7 +515,7 @@ ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) 
 ve.dm.MWReferenceNode.static.isSubRef = function ( attributes ) {
 	return attributes.mainListIndex !== undefined ||
 		// TODO: Temporary redundancy, please remove as soon as possible
-		!!attributes.mainRefKey;
+		!!attributes.mainListKey;
 };
 
 /**

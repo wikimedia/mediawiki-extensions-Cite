@@ -109,7 +109,7 @@ ve.ui.MWReferenceDialog.prototype.onReuseSearchResultsReuse = function ( ref ) {
 
 ve.ui.MWReferenceDialog.prototype.setCreateSubRefPanel = function ( mainRef ) {
 	const newRef = MWReferenceModel.static.newEmptyRef( this.getFragment().getDocument() );
-	newRef.mainRefKey = mainRef.getListKey();
+	newRef.mainListKey = mainRef.getListKey();
 	newRef.mainListIndex = mainRef.getListIndex();
 	newRef.group = mainRef.getGroup();
 
@@ -209,7 +209,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 			} else if ( this.createSubRefMode ) {
 				// We're creating a new sub-ref by replacing a main ref
 				// make sure there's a list defined or synthetic main ref to save the main body
-				const mainNodes = nodeGroup.getAllReuses( ref.mainRefKey ) || [];
+				const mainNodes = nodeGroup.getAllReuses( ref.mainListKey ) || [];
 				const foundExistingListDefinedRef = mainNodes.some(
 					( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSyntheticMainRef' ) ||
 						node.findParent( ve.dm.MWReferencesListNode ) );

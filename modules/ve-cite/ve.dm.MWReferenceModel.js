@@ -28,7 +28,7 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	this.group = '';
 
 	/** @member {string|undefined}  */
-	this.mainRefKey = undefined;
+	this.mainListKey = undefined;
 
 	/** @member {number|undefined}  */
 	this.mainListIndex = undefined;
@@ -77,7 +77,7 @@ ve.dm.MWReferenceModel.static.newFromReferenceNode = function ( node ) {
 	const attributes = node.getAttributes();
 	const ref = new ve.dm.MWReferenceModel();
 
-	ref.mainRefKey = attributes.mainRefKey;
+	ref.mainListKey = attributes.mainListKey;
 	ref.mainListIndex = attributes.mainListIndex;
 	ref.listGroup = attributes.listGroup;
 	ref.listKey = attributes.listKey;
@@ -116,7 +116,7 @@ ve.dm.MWReferenceModel.static.newFromMainNodeAttributes = function (
 	const groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc ).getGroupRefs( listGroup );
 	const ref = new ve.dm.MWReferenceModel();
 	ref.listGroup = listGroup;
-	// FIXME The fallback is used because the mainRefKey is not availabile when rendering the references list atm
+	// FIXME The fallback is used because the mainListKey is not availabile when rendering the references list atm
 	ref.listKey = listKey || groupRefs.nodeGroup.getListKeyForListIndex( listIndex );
 	ref.listIndex = listIndex;
 	ref.group = listGroup.replace( /^mwReference\//, '' );
@@ -147,7 +147,7 @@ ve.dm.MWReferenceModel.static.copySubReference = function ( oldSubRef, doc ) {
 	originalData.splice( internalListRange.start, internalListRange.end - internalListRange.start );
 	newSubRef.setDocument( doc.cloneWithData( originalData ) );
 
-	newSubRef.mainRefKey = oldSubRef.mainRefKey;
+	newSubRef.mainListKey = oldSubRef.mainListKey;
 	newSubRef.mainListIndex = oldSubRef.mainListIndex;
 	newSubRef.setGroup( oldSubRef.getGroup() );
 
@@ -294,7 +294,7 @@ ve.dm.MWReferenceModel.prototype.insertReferenceNode = function ( surfaceFragmen
 		{
 			type: 'mwReference',
 			attributes: Object.assign( {
-				mainRefKey: this.mainRefKey,
+				mainListKey: this.mainListKey,
 				mainListIndex: this.mainListIndex,
 				listGroup: this.listGroup,
 				listKey: this.listKey,

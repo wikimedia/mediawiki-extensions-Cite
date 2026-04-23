@@ -37,7 +37,7 @@
 					contentsUsed: true,
 					listGroup: '',
 					listKey: 'literal/main',
-					mainRefKey: 'auto/0',
+					mainListKey: 'auto/0',
 					mainListIndex: 0
 				} },
 				nodeReuses: [
@@ -50,7 +50,7 @@
 							contentsUsed: true,
 							listGroup: '',
 							listKey: 'literal/main',
-							mainRefKey: 'auto/0',
+							mainListKey: 'auto/0',
 							mainListIndex: 0
 						}
 					}
@@ -99,59 +99,59 @@
 				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
 				nodesInGroup: [
 					{ attributes: { listGroup: '', listKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main', contentsUsed: true } }
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main', contentsUsed: true } }
 				],
 				expected: false
 			},
 			{
 				msg: 'Sub-ref: If there\'s only this sub-ref with that main key it should get the content',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
 				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } }
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } }
 				],
 				expected: true
 			},
 			{
 				msg: 'Sub-ref: If there\'s another main ref with that key that owned the content this ref should not get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
 				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
 					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } }
 				],
 				expected: false
 			},
 			{
 				msg: 'Sub-ref: If there\'s no other ref with that key that owned the content the first node get\'s it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
 				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
 					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: false } }
 				],
 				expected: true
 			},
 			{
 				msg: 'Sub-ref: If there\'s another sub-ref with that key that owned the content this ref should not get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
 				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/subOther', mainRefKey: 'literal/main', contentsUsed: true } }
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/subOther', mainListKey: 'literal/main', contentsUsed: true } }
 				],
 				expected: false
 			},
 			{
 				msg: 'Sub-ref: If this sub-ref was holding the content before it should always get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main', contentsUsed: true } },
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main', contentsUsed: true } },
 				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } }
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } }
 				],
 				expected: true
 			},
 			{
 				msg: 'Sub-ref: If no other ref his holding the content the frist node get it, also if it\'s a sub-ref',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
+				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
 				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainRefKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/subOther', mainRefKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
+					{ attributes: { listGroup: '', listKey: 'literal/subOther', mainListKey: 'literal/main' } },
 					{ attributes: { listGroup: '', listKey: 'literal/main' } }
 				],
 				expected: true
@@ -196,11 +196,11 @@
 	} );
 
 	QUnit.test( 'getSubRefs and getRefsWithSameMain', ( assert ) => {
-		const firstSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0', mainListIndex: 0 } } );
+		const firstSubRef = new ve.dm.Node( { attributes: { mainListKey: 'auto/0', mainListIndex: 0 } } );
 		firstSubRef.getOffset = () => 10;
-		const secondSubRef = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0', mainListIndex: 0 } } );
+		const secondSubRef = new ve.dm.Node( { attributes: { mainListKey: 'auto/0', mainListIndex: 0 } } );
 		secondSubRef.getOffset = () => 20;
-		const firstSubRefReuse = new ve.dm.Node( { attributes: { mainRefKey: 'auto/0', mainListIndex: 0 } } );
+		const firstSubRefReuse = new ve.dm.Node( { attributes: { mainListKey: 'auto/0', mainListIndex: 0 } } );
 		firstSubRefReuse.getOffset = () => 30;
 
 		// Add sub-refs to the test setup
@@ -222,7 +222,7 @@
 		const unrelatedRef = new ve.dm.Node( { attributes: {
 			listKey: 'auto/1',
 			listIndex: 1,
-			mainRefKey: 'auto/3',
+			mainListKey: 'auto/3',
 			mainListIndex: 3
 		} } );
 		unrelatedRef.getOffset = () => 25;

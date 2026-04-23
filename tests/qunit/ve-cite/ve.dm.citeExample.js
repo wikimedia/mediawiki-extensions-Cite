@@ -315,7 +315,7 @@ ve.dm.citeExample.complexInternalData.internalListNextUniqueNumber = 1;
 ve.dm.citeExample.subReferencing = [
 	{ type: 'paragraph' },
 	{ type: 'mwReference', attributes: {
-		mainRefKey: 'literal/ldr',
+		mainListKey: 'literal/ldr',
 		mainListIndex: 1,
 		listIndex: 0,
 		listGroup: 'mwReference/',
@@ -331,7 +331,7 @@ ve.dm.citeExample.subReferencing = [
 	} },
 	{ type: '/mwReference' },
 	{ type: 'mwReference', attributes: {
-		mainRefKey: 'literal/nonexistent',
+		mainListKey: 'literal/nonexistent',
 		mainListIndex: 4,
 		listIndex: 3,
 		listGroup: 'mwReference/',

@@ -233,7 +233,7 @@
 		assert.strictEqual( normalRefModel.getListKey(), 'auto/1' );
 		assert.strictEqual( normalRefModel.getGroup(), '' );
 		assert.strictEqual( normalRefModel.getListIndex(), 2 );
-		assert.strictEqual( normalRefModel.mainRefKey, undefined );
+		assert.strictEqual( normalRefModel.mainListKey, undefined );
 		assert.strictEqual( normalRefModel.mainListIndex, undefined );
 		assert.strictEqual( typeof normalRefModel.doc, 'function' );
 		assert.true( normalRefModel.getDocument() instanceof ve.dm.Document );
@@ -246,7 +246,7 @@
 		assert.strictEqual( subRefModel.getListKey(), 'auto/0' );
 		assert.strictEqual( subRefModel.getListIndex(), 0 );
 		assert.strictEqual( subRefModel.getGroup(), '' );
-		assert.strictEqual( subRefModel.mainRefKey, 'literal/ldr' );
+		assert.strictEqual( subRefModel.mainListKey, 'literal/ldr' );
 		assert.strictEqual( subRefModel.mainListIndex, 1 );
 		assert.strictEqual( typeof subRefModel.doc, 'function' );
 		assert.true( subRefModel.getDocument() instanceof ve.dm.Document );
@@ -263,7 +263,7 @@
 		assert.strictEqual( newSubRef.getListKey(), '', 'ListKey is not set yet, should be assigned on insert' );
 		assert.strictEqual( newSubRef.getListIndex(), undefined, 'ListIndex is not set yet, should be assigned on insert' );
 		assert.strictEqual( newSubRef.getGroup(), '' );
-		assert.strictEqual( newSubRef.mainRefKey, 'literal/ldr' );
+		assert.strictEqual( newSubRef.mainListKey, 'literal/ldr' );
 		assert.strictEqual( newSubRef.mainListIndex, 1 );
 
 		// Check content of the sub-ref

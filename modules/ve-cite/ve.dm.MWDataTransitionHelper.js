@@ -40,12 +40,12 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 	const subRefsByMain = {};
 	let topLevelCounter = 1;
 
-	const getOrAllocateTopLevelNumber = function ( mainRefKey, listIndex ) {
+	const getOrAllocateTopLevelNumber = function ( mainListKey, listIndex ) {
 		if ( !( listIndex in footnoteNumberLookup ) ) {
 			const number = topLevelCounter++;
 			footnoteNumberLookup[ listIndex ] = {
 				// TODO: Can we eventually phase the string listKey out?
-				internalListKey: mainRefKey,
+				internalListKey: mainListKey,
 				internalListIndex: listIndex,
 				topLevelNumber: number,
 				label: ve.dm.MWDocumentReferences.static.contentLangDigits( number )
@@ -54,14 +54,14 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 		return footnoteNumberLookup[ listIndex ].topLevelNumber;
 	};
 
-	const addSubref = function ( mainRefKey, mainListIndex, subRefIndex, subRefNode ) {
+	const addSubref = function ( mainListKey, mainListIndex, subRefIndex, subRefNode ) {
 		if ( !( mainListIndex in subRefsByMain ) ) {
 			subRefsByMain[ mainListIndex ] = [];
 		}
 		subRefsByMain[ mainListIndex ].push( subRefNode );
 		const subRefPos = subRefsByMain[ mainListIndex ].length;
 
-		const topLevelNumber = getOrAllocateTopLevelNumber( mainRefKey, mainListIndex );
+		const topLevelNumber = getOrAllocateTopLevelNumber( mainListKey, mainListIndex );
 		footnoteNumberLookup[ subRefIndex ] = {
 			internalListIndex: subRefIndex,
 			mainListIndex: mainListIndex,
@@ -80,12 +80,12 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 			.filter( ( node ) => !node.getAttribute( 'placeholder' ) )
 			.forEach( ( node ) => {
 				const listIndex = node.getAttribute( 'listIndex' );
-				const mainRefKey = node.getAttribute( 'mainRefKey' ) || node.getAttribute( 'listKey' );
+				const mainListKey = node.getAttribute( 'mainListKey' ) || node.getAttribute( 'listKey' );
 				const mainListIndex = node.getAttribute( 'mainListIndex' );
 				if ( mainListIndex !== undefined ) {
-					addSubref( mainRefKey, mainListIndex, listIndex, node );
+					addSubref( mainListKey, mainListIndex, listIndex, node );
 				} else {
-					getOrAllocateTopLevelNumber( mainRefKey, listIndex );
+					getOrAllocateTopLevelNumber( mainListKey, listIndex );
 				}
 			} );
 	}

@@ -60,7 +60,7 @@ ve.dm.MWReferenceKeyGenerator = {
 	 * @return {string|undefined} literal or auto generated name
 	 */
 	generateName: function ( attributes, internalList, isReused ) {
-		const listKey = attributes.mainRefKey || attributes.listKey;
+		const listKey = attributes.mainListKey || attributes.listKey;
 		const name = this.extractNameFromListKey( listKey );
 
 		// use literal name

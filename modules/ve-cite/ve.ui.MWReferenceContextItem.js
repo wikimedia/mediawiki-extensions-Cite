@@ -37,7 +37,7 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 
 	if ( mw.testKitchen ) {
 		// See 'Machine-readable name' in https://test-kitchen.wikimedia.org/create-experiment
-		this.testKitchenExperiment = mw.testKitchen.getExperiment( 'test-context-edit-color' );
+		this.testKitchenExperiment = mw.testKitchen.compat.getExperiment( 'test-context-edit-color' );
 	}
 
 	if ( this.testKitchenExperiment &&

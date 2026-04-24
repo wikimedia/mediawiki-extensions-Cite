@@ -282,11 +282,22 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Set flags for sub-refs with body content on data-mw
 		if ( isSubRef && shouldGetMainContent ) {
+			// TODO: mainBody will be deprecated in favor of mainBodyHtml
 			const mainKeyReuses = nodeGroup.getAllReuses( attributes.mainListKey ) || [];
 			const refListNode = mainKeyReuses.find( ( node ) => node.getAttribute( 'refListItemId' ) );
 			const refListItemId = ( refListNode && refListNode.getAttribute( 'refListItemId' ) ) ||
 				MWReferenceKeyGenerator.makeRefListItemId( attributes.mainListIndex );
 			ve.setProp( mwData, 'mainBody', refListItemId );
+
+			// add main body content to mw-data
+			const mainItemNode = internalList.getItemNode( attributes.mainListIndex );
+			const mainItemNodeRange = mainItemNode.getRange();
+			const mainItemNodeWrapper = doc.createElement( 'div' );
+			converter.getDomSubtreeFromData(
+				mainItemNode.getDocument().getFullData( mainItemNodeRange, 'roundTrip' ),
+				mainItemNodeWrapper
+			);
+			ve.setProp( mwData, 'mainBodyHtml', mainItemNodeWrapper.innerHTML );
 		}
 
 		// Set or clear group on data-mw

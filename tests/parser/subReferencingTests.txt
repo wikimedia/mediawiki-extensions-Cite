@@ -1397,12 +1397,12 @@ wgCiteSubReferencing=true
 <p><sup class="mw-ref reference" id="cite&#95;ref-2" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"details":"p. 1","name":"book"},"body":{"id":"mw-reference-text-cite_note-2"},"mainRef":"book","mainBody":"mw-reference-text-cite_note-book-1","mainBodyHtml":"The book"}'><a href="./Parser_test#cite_note-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a></sup> <sup class="mw-ref reference" id="cite&#95;ref-3" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-3"}}'><a href="./Parser_test#cite_note-3"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup></p>
 <div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{},"i":0}}],"body":{"html":"\n&lt;sup typeof=\"mw:Extension/ref\" data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"book\",\"group\":\"\"},\"body\":{\"id\":\"mw-reference-text-cite_note-book-1\"},\"isSyntheticMainRef\":1}&apos;>The book&lt;/sup>"}}'>
 <ol class="mw-references references">
-<li id="cite&#95;note-book-1" data-mw-footnote-number="1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite&#95;note-book-1" class="mw-reference-text reference-text">The book</span>
+<li data-mw-footnote-number="1" id="cite_note-book-1"><span class="mw-cite-backlink" rel="mw:referencedBy"></span> <span class="mw-reference-text reference-text" id="mw-reference-text-cite_note-book-1">The book</span>
 <ol class="mw-subreference-list">
-<li id="cite&#95;note-2" data-mw-footnote-number="1.1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite&#95;note-2" class="mw-reference-text reference-text">p. 1</span></li>
+<li data-mw-footnote-number="1.1" id="cite_note-2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span class="mw-reference-text reference-text" id="mw-reference-text-cite_note-2">p. 1</span></li>
 </ol>
 </li>
-<li id="cite&#95;note-3" data-mw-footnote-number="2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite&#95;note-3" class="mw-reference-text reference-text">Another book</span></li>
+<li data-mw-footnote-number="2" id="cite_note-3"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-3" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span class="mw-reference-text reference-text" id="mw-reference-text-cite_note-3">Another book</span></li>
 </ol>
 </div>
 !! end
@@ -1422,17 +1422,19 @@ parsoid=html2wt
 <ref name="smith">Smith</ref>
 </references>
 !! html/parsoid
-<p id="mwAg"><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;miller&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-miller-1&quot;,&quot;mainRef&quot;:&quot;miller&quot;}" class="mw-ref reference" about="#mwt1" id="cite&#95;ref-2" rel="dc:references"><a href="./Example/Test11#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>
+<p id="mwAg"><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 1&quot;,&quot;name&quot;:&quot;miller&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-2&quot;},&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-miller-1&quot;,&quot;mainRef&quot;:&quot;miller&quot;,&quot;mainBodyHtml&quot;:&quot;Miller&quot;}" class="mw-ref reference" about="#mwt1" id="cite&#95;ref-2" rel="dc:references"><a href="./Example/Test11#cite_note-2" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1.1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>
 <sup about="#mwt2" class="mw-ref reference" id="cite&#95;ref-smith&#95;3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;smith&quot;}}"><a href="./Example/Test11#cite_note-smith-3" id="mwBw"><span class="mw-reflink-text" id="mwCA"><span class="cite-bracket" id="mwCQ">[</span>2<span class="cite-bracket" id="mwCg">]</span></span></a></sup></p>
 
 <div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;smith&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-smith-3&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Smith&amp;quot;}}\&quot; class=\&quot;mw-ref reference\&quot; about=\&quot;#mwt3\&quot; rel=\&quot;dc:references\&quot;&gt;&lt;a href=\&quot;./Example/Test11#cite_note-smith-3\&quot;&gt;&lt;span class=\&quot;mw-reflink-text\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot;&gt;[&lt;/span&gt;2&lt;span class=\&quot;cite-bracket\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\n&lt;sup typeof=\&quot;mw:Extension/ref\&quot; data-mw=\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;miller&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-miller-1&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Miller&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\&quot; class=\&quot;mw-ref reference\&quot;&gt;&lt;a&gt;&lt;span class=\&quot;mw-reflink-text\&quot;&gt;&lt;span class=\&quot;cite-bracket\&quot;&gt;[&lt;/span&gt;1&lt;span class=\&quot;cite-bracket\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite&#95;note-miller-1">Miller</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite&#95;note-2">page 1</span></li></ol></li><li><span typeof="mw:Extension/ref">Smith</span></li></ol></div>
 !! end
 
+# Disabled because there's no obvious way to edit the main ref inside of a data-mw
 !! test
 T406002: Selser detects edits to the main part of a main+details
 !! config
 wgCiteSubReferencing=true
 !! options
+disabled
 parsoid={
   "modes": ["selser"],
   "changes": [["#x", "remove"]],

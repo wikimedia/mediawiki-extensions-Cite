@@ -224,11 +224,8 @@ class RefTagHandler extends ExtensionTagHandler {
 			// TODO: escape wikitext for attribute
 			$dataMw->setExtAttrib( 'details', $src );
 
-			if ( isset( $dataMw->mainBody ) ) {
-				$mainElt = DOMCompat::getElementById( $extApi->getTopLevelDoc(), $dataMw->mainBody );
-				if ( $mainElt ) {
-					$src = $extApi->domToWikitext( $html2wtOpts, $mainElt, true );
-				}
+			if ( isset( $dataMw->mainBodyHtml ) ) {
+				$src = $extApi->htmlToWikitext( $html2wtOpts, $dataMw->mainBodyHtml );
 			} else {
 				$src = '';
 				unset( $dataMw->body );
@@ -252,11 +249,10 @@ class RefTagHandler extends ExtensionTagHandler {
 
 		// FIXME: This compares the rendered bodies, the source elements should be
 		// compared instead.
-		if ( isset( $origDataMw->mainBody ) && isset( $editedDataMw->mainBody ) ) {
-			$origMainHtml = DOMCompat::getElementById( $origNode->ownerDocument, $origDataMw->mainBody );
-			$editedMainHtml = DOMCompat::getElementById( $editedNode->ownerDocument, $editedDataMw->mainBody );
-
-			if ( $origMainHtml && $editedMainHtml && $domDiff( $origMainHtml, $editedMainHtml ) ) {
+		if ( isset( $origDataMw->mainBodyHtml ) && isset( $editedDataMw->mainBodyHtml ) ) {
+			$origDom = $extApi->htmlToDom( $origDataMw->mainBodyHtml );
+			$editedDom = $extApi->htmlToDom( $editedDataMw->mainBodyHtml );
+			if ( $domDiff( $origDom, $editedDom ) ) {
 				return true;
 			}
 		}

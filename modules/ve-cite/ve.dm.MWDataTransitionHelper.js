@@ -14,6 +14,10 @@
 ve.dm.MWDataTransitionHelper = function VeDmMWDataTransitionHelper() {
 };
 
+/* Initialization */
+
+OO.initClass( ve.dm.MWDataTransitionHelper );
+
 /**
  * @typedef {Object} ve.dm.MWDataTransitionHelper.RefInfo
  * @property {number} internalListIndex list index of the ve.dm.InternalItemNode
@@ -30,6 +34,30 @@ ve.dm.MWDataTransitionHelper = function VeDmMWDataTransitionHelper() {
  *   included in the "buildReflistStructure" output flavor. This is a list of
  *   sub-references on a main ref, in document order.
  */
+
+/* Static Methods */
+
+/**
+ * Return a formatted number, in the content script, with no separators.
+ *
+ * Partial clone of mw.language.convertNumber .
+ *
+ * @private
+ * @param {number} num
+ * @return {string}
+ */
+ve.dm.MWDataTransitionHelper.static.contentLangDigits = function ( num ) {
+	const contentLang = mw.config.get( 'wgContentLanguage' );
+	const digitLookup = mw.config.get( 'wgTranslateNumerals' ) &&
+		mw.language.getData( contentLang, 'digitTransformTable' );
+	const numString = String( num );
+	if ( !digitLookup ) {
+		return numString;
+	}
+	return numString.split( '' ).map( ( numChar ) => digitLookup[ numChar ] ).join( '' );
+};
+
+/* Methods */
 
 /**
  * @param {ve.dm.InternalListNodeGroup|undefined} nodeGroup
@@ -48,7 +76,7 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 				internalListKey: mainListKey,
 				internalListIndex: listIndex,
 				topLevelNumber: number,
-				label: ve.dm.MWDocumentReferences.static.contentLangDigits( number )
+				label: ve.dm.MWDataTransitionHelper.static.contentLangDigits( number )
 			};
 		}
 		return footnoteNumberLookup[ listIndex ].topLevelNumber;
@@ -67,9 +95,9 @@ ve.dm.MWDataTransitionHelper.prototype.buildReflistNumbering = function ( nodeGr
 			mainListIndex: mainListIndex,
 			topLevelNumber: topLevelNumber,
 			subrefNumber: subRefPos,
-			label: ve.dm.MWDocumentReferences.static.contentLangDigits( topLevelNumber ) +
+			label: ve.dm.MWDataTransitionHelper.static.contentLangDigits( topLevelNumber ) +
 				// FIXME: RTL, and customization of the separator like with mw:referencedBy
-				'.' + ve.dm.MWDocumentReferences.static.contentLangDigits( subRefPos )
+				'.' + ve.dm.MWDataTransitionHelper.static.contentLangDigits( subRefPos )
 		};
 
 		return footnoteNumberLookup[ subRefIndex ];

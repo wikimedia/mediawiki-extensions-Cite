@@ -100,23 +100,4 @@ ve.dm.MWDocumentReferences.prototype.hasRefs = function () {
 		.some( ( group ) => !group.isEmpty() );
 };
 
-/**
- * Return a formatted number, in the content script, with no separators.
- *
- * Partial clone of mw.language.convertNumber .
- *
- * @param {number} num
- * @return {string}
- */
-ve.dm.MWDocumentReferences.static.contentLangDigits = function ( num ) {
-	const contentLang = mw.config.get( 'wgContentLanguage' );
-	const digitLookup = mw.config.get( 'wgTranslateNumerals' ) &&
-		mw.language.getData( contentLang, 'digitTransformTable' );
-	const numString = String( num );
-	if ( !digitLookup ) {
-		return numString;
-	}
-	return numString.split( '' ).map( ( numChar ) => digitLookup[ numChar ] ).join( '' );
-};
-
 module.exports = ve.dm.MWDocumentReferences;

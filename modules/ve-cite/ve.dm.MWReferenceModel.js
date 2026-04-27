@@ -113,11 +113,10 @@ ve.dm.MWReferenceModel.static.newFromMainNodeAttributes = function (
 	listIndex
 ) {
 	const internalList = doc.getInternalList();
-	const groupRefs = ve.dm.MWDocumentReferences.static.refsForDoc( doc ).getGroupRefs( listGroup );
 	const ref = new ve.dm.MWReferenceModel();
 	ref.listGroup = listGroup;
 	// FIXME The fallback is used because the mainListKey is not availabile when rendering the references list atm
-	ref.listKey = listKey || groupRefs.nodeGroup.getListKeyForListIndex( listIndex );
+	ref.listKey = listKey || internalList.getNodeGroup( listGroup ).getListKeyForListIndex( listIndex );
 	ref.listIndex = listIndex;
 	ref.group = listGroup.replace( /^mwReference\//, '' );
 	ref.doc = function () {

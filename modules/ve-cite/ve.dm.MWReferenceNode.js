@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWGroupReferences = require( './ve.dm.MWGroupReferences.js' );
 const MWReferenceKeyGenerator = require( './ve.dm.MWReferenceKeyGenerator.js' );
 
 /**
@@ -618,8 +618,7 @@ ve.dm.MWReferenceNode.static.getFormattedRefLinkLabel = function ( dataElement, 
  */
 ve.dm.MWReferenceNode.static.findIndexNumber = function ( dataElement, internalList ) {
 	return ve.getProp( dataElement, 'internal', 'overrideIndex' ) ||
-		MWDocumentReferences.static.refsForDoc( internalList.getDocument() )
-			.getGroupRefs( dataElement.attributes.refGroup )
+		MWGroupReferences.static.makeGroupRefs( internalList.getNodeGroup( dataElement.attributes.listGroup ) )
 			.getIndexLabel( dataElement.attributes.listIndex );
 };
 

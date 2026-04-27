@@ -7,7 +7,6 @@
  * @license MIT
  */
 
-const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
 const MWReferenceGroupInputWidget = require( './ve.ui.MWReferenceGroupInputWidget.js' );
 
 /**
@@ -171,8 +170,9 @@ ve.ui.MWReferencesListDialog.prototype.getSetupProcess = function ( data ) {
 			}
 
 			this.groupInput.setValue( this.selectedNode.getAttribute( 'refGroup' ) );
-			const docRefs = MWDocumentReferences.static.refsForDoc( this.getFragment().getDocument() );
-			this.groupInput.populateMenu( docRefs.getListGroupNames() );
+			const document = this.getFragment().getDocument();
+			const listGroups = Object.keys( document.getInternalList().getNodeGroups() );
+			this.groupInput.populateMenu( listGroups );
 
 			this.responsiveCheckbox.setSelected( this.selectedNode.getAttribute( 'isResponsive' ) );
 

@@ -8,7 +8,7 @@
  */
 
 const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
-const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWGroupReferences = require( './ve.dm.MWGroupReferences.js' );
 const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 
 /**
@@ -187,9 +187,8 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	const refGroup = model.getAttribute( 'refGroup' );
 	const listGroup = model.getAttribute( 'listGroup' );
 
-	const docRefs = MWDocumentReferences.static.refsForDoc( model.getDocument() );
-	const groupRefs = docRefs.getGroupRefs( listGroup );
-	const hasModelReferences = !groupRefs.isEmpty();
+	const nodeGroup = model.getDocument().getInternalList().getNodeGroup( listGroup );
+	const hasModelReferences = nodeGroup && !nodeGroup.isEmpty();
 
 	const emptyText = ve.msg(
 		refGroup ? 'cite-ve-referenceslist-isempty' : 'cite-ve-referenceslist-isempty-default',
@@ -249,7 +248,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 	} else {
 		// Render all at once.
 
-		const nodeGroup = model.getDocument().getInternalList().getNodeGroup( listGroup );
+		const groupRefs = MWGroupReferences.static.makeGroupRefs( nodeGroup );
 		this.$reflist.append(
 			new MWDataTransitionHelper().buildReflistStructure( nodeGroup )
 				.map( ( refInfo ) => this.renderListItem( groupRefs, refGroup, refInfo ) )

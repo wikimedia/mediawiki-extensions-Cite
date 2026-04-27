@@ -7,7 +7,7 @@
  * @license MIT
  */
 
-const MWDocumentReferences = require( './ve.dm.MWDocumentReferences.js' );
+const MWGroupReferences = require( './ve.dm.MWGroupReferences.js' );
 const MWReferenceModel = require( './ve.dm.MWReferenceModel.js' );
 const MWReferenceNode = require( './ve.dm.MWReferenceNode.js' );
 const Options = require( './ve.ui.MWSubReferenceHelpDialogOptions.js' );
@@ -304,9 +304,9 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  */
 ve.ui.MWReferenceContextItem.prototype.setup = function () {
 	const doc = this.getFragment().getDocument();
-	this.groupRefs = MWDocumentReferences.static.refsForDoc( doc )
-		.getGroupRefs( this.model.getAttribute( 'listGroup' ) );
 	this.internalList = doc.getInternalList();
+	const nodeGroup = this.internalList.getNodeGroup( this.model.getAttribute( 'listGroup' ) );
+	this.groupRefs = MWGroupReferences.static.makeGroupRefs( nodeGroup );
 
 	// Parent method
 	return ve.ui.MWReferenceContextItem.super.prototype.setup.apply( this, arguments );

@@ -166,7 +166,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	}
 
 	const updatedMw = ve.dm.MWReferencesListNode.static.updatedMwForDom( data, doc, converter );
-	const nodeGroup = converter.internalList.getNodeGroup( dataElement.attributes.listGroup );
+	const nodeGroup = converter.getInternalList().getNodeGroup( dataElement.attributes.listGroup );
 	const groupHasSubRefs = nodeGroup && nodeGroup.getFirstNodesInIndexOrder().some( ( node ) => node.isSubRef() );
 
 	let domElements = [ doc.createElement( 'div' ) ];
@@ -345,7 +345,7 @@ ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 	doc,
 	converter
 ) {
-	const internalItem = converter.internalList.getItemNode( refInfo.internalListIndex );
+	const internalItem = converter.getInternalList().getItemNode( refInfo.internalListIndex );
 	const $li = $( '<li>', doc );
 
 	if ( internalItem && internalItem.getLength() ) {

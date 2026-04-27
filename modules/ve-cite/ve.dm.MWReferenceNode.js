@@ -135,7 +135,8 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	const listGroup = this.name + '/' + refGroup;
 
 	// FIXME When ve.dm.InternalList takes more responsibilty for sub-refs the code might move there
-	if ( !converter.internalList.itemHtmlQueue.length ) {
+	const internalList = converter.getInternalList();
+	if ( !internalList.itemHtmlQueue.length ) {
 		// The property needs to be reset when we start parsing a new doc
 		ve.dm.converter.modelFromDomConverter.subrefLookup = null;
 	}
@@ -146,8 +147,8 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		[ listKey, index ] = lookupResult;
 		isNew = false;
 	} else {
-		listKey = MWReferenceKeyGenerator.makeListKey( converter.internalList, refName );
-		const { index: qIndex, isNew: qNew } = converter.internalList.queueItemHtml( listGroup, listKey, body );
+		listKey = MWReferenceKeyGenerator.makeListKey( internalList, refName );
+		const { index: qIndex, isNew: qNew } = internalList.queueItemHtml( listGroup, listKey, body );
 		index = qIndex;
 		isNew = qNew;
 		if ( mwData.mainRef ) {
@@ -175,7 +176,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 	if ( mwData.mainRef && mw.config.get( 'wgCiteSubReferencing' ) ) {
 		// Create a main ref internalListItem
 		const mainListKey = MWReferenceKeyGenerator.makeListKey(
-			converter.internalList,
+			internalList,
 			mwData.mainRef
 		);
 		dataElement.attributes.mainListKey = mainListKey;
@@ -188,7 +189,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 				mwData.mainBody &&
 				this.getBodyFromReflist( converter, mwData.mainBody );
 		}
-		const { index: mainListIndex } = converter.internalList.queueItemHtml( listGroup, mainListKey, mainHtml || '' );
+		const { index: mainListIndex } = internalList.queueItemHtml( listGroup, mainListKey, mainHtml || '' );
 		dataElement.attributes.mainListIndex = mainListIndex;
 	}
 
@@ -223,7 +224,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 	const isSubRef = this.isSubRef( attributes );
 
-	const internalList = converter.internalList;
+	const internalList = converter.getInternalList();
 	const mwData = attributes.mw ? ve.copy( attributes.mw ) : {};
 	const originalMw = attributes.originalMw;
 	const originalMwData = originalMw ? JSON.parse( originalMw ) : {};

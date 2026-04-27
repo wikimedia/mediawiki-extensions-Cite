@@ -81,68 +81,6 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
 };
 
 /**
- * Internal comparator for sorting references into reflist order, given two listIndexes
- *
- * @private
- * @param {string} a Left listIndex
- * @param {string} b Right listIndex
- * @return {number} according to {@link Array.sort}
- */
-ve.dm.MWGroupReferences.prototype.compareAsIndexes = function ( a, b ) {
-	return ve.dm.MWGroupReferences.static.compareAsRefInfos(
-		this.calculatedNumbering[ a ],
-		this.calculatedNumbering[ b ]
-	);
-};
-
-/**
- * List all reference listIndex's in the order they appear in the reflist including
- * named refs, unnamed refs, and those that don't resolve
- *
- * @private
- * @return {number[]}
- */
-ve.dm.MWGroupReferences.prototype.getListIndexesInReflistOrder = function () {
-	return Object.keys( this.calculatedNumbering )
-		.sort( ( a, b ) => this.compareAsIndexes( a, b ) )
-		.map( ( indexStr ) => Number( indexStr ) );
-};
-
-/**
- * List all document references in the order they first appear, ignoring reuses
- * and placeholders.
- *
- * @return {ve.dm.MWReferenceNode[]}
- */
-ve.dm.MWGroupReferences.prototype.getAllRefsInReflistOrder = function () {
-	return this.getListIndexesInReflistOrder()
-		.map( ( listIndex ) => this.nodeGroup.firstNodes[ listIndex ] )
-		.filter( ( firstNode ) => !!firstNode );
-};
-
-/**
- * List all main reference listIndex's in the order they appear in the reflist including
- * named refs, unnamed refs, and those that don't resolve
- *
- * @return {number[]} Reference listIndex's
- */
-ve.dm.MWGroupReferences.prototype.getTopLevelListIndexesInReflistOrder = function () {
-	return this.getListIndexesInReflistOrder()
-		.filter( ( listIndex ) => this.calculatedNumbering[ listIndex ].subrefNumber === undefined );
-};
-
-/**
- * Return the defining reference node for this key
- *
- * @deprecated use {@link ve.dm.InternalListNodeGroup.getFirstNodeByListIndex} instead
- * @param {number} listIndex
- * @return {ve.dm.MWReferenceNode|undefined}
- */
-ve.dm.MWGroupReferences.prototype.getRefNode = function ( listIndex ) {
-	return this.nodeGroup && this.nodeGroup.getFirstNodeByListIndex( listIndex );
-};
-
-/**
  * Return document nodes for each usage of a ref listIndex.  This excludes usages
  * under the `<references>` section, so note that nested references won't behave
  * as expected.  The reflist item for a ref is not counted as a reference,
@@ -194,6 +132,7 @@ ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
  * Filter to subrefs on this main ref, order by reflist number, and then turn
  * into a list of MWReferenceNodes from the document.
  *
+ * @private
  * @param {number} mainListIndex
  * @return {ve.dm.MWReferenceNode[]} List of subrefs for this parent not including re-uses
  */

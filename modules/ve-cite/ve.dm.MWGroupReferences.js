@@ -121,27 +121,13 @@ ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
 	const mainRefs = this.getRefUsages( listIndex );
 	let usageCount = mainRefs.length;
 
-	this.getSubrefs( listIndex ).forEach( ( node ) => {
-		usageCount += this.getRefUsages( node.getAttribute( 'listIndex' ) ).length;
+	Object.values( this.calculatedNumbering ).forEach( ( refInfo ) => {
+		if ( refInfo.mainListIndex === listIndex ) {
+			usageCount += this.getRefUsages( refInfo.internalListIndex ).length;
+		}
 	} );
 
 	return usageCount;
-};
-
-/**
- * Filter to subrefs on this main ref, order by reflist number, and then turn
- * into a list of MWReferenceNodes from the document.
- *
- * @private
- * @param {number} mainListIndex
- * @return {ve.dm.MWReferenceNode[]} List of subrefs for this parent not including re-uses
- */
-ve.dm.MWGroupReferences.prototype.getSubrefs = function ( mainListIndex ) {
-	return Object.values( this.calculatedNumbering )
-		.filter( ( ref ) => ref.mainListIndex === mainListIndex )
-		.sort( ve.dm.MWGroupReferences.static.compareAsRefInfos )
-		.map( ( ref ) => this.nodeGroup.firstNodes[ ref.internalListIndex ] )
-		.filter( ( node ) => node );
 };
 
 /**

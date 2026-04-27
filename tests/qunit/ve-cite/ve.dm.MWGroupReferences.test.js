@@ -39,14 +39,10 @@
 	} );
 
 	QUnit.test( 'getTotalUsageCount', function ( assert ) {
-		const listIndex = 1;
-
-		// The total usage count should be the sum of main refs and subrefs
-		assert.strictEqual(
-			this.plainGroupRefs.getTotalUsageCount( listIndex ),
-			this.plainGroupRefs.getRefUsages( listIndex ).length +
-				this.plainGroupRefs.getSubrefs( listIndex ).length
-		);
+		assert.strictEqual( this.plainGroupRefs.getTotalUsageCount( 0 ), 1 );
+		assert.strictEqual( this.plainGroupRefs.getTotalUsageCount( 1 ), 2 );
+		assert.strictEqual( this.plainGroupRefs.getTotalUsageCount( 2 ), 1 );
+		assert.strictEqual( this.plainGroupRefs.getTotalUsageCount( 3 ), 1 );
 	} );
 
 	QUnit.test( 'sub-references', ( assert ) => {
@@ -56,11 +52,6 @@
 		const listIndex = 0;
 		assert.deepEqual(
 			groupRefs.getRefUsages( listIndex ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
-			[ 0 ]
-		);
-
-		assert.deepEqual(
-			groupRefs.getSubrefs( 1 ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
 			[ 0 ]
 		);
 	} );

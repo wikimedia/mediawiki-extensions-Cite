@@ -154,7 +154,7 @@
 		);
 
 		// Change the group model and update the internal item accroding to the changed model
-		refModel.group = 'g1';
+		refModel.setGroup( 'g1' );
 		refModel.updateGroup( surface );
 
 		assert.strictEqual(
@@ -182,7 +182,7 @@
 		// Move into a new group
 		assert.strictEqual( internalList.getNodeGroup( 'mwReference/newGroup' ), undefined );
 
-		refModel.group = 'newGroup';
+		refModel.setGroup( 'newGroup' );
 		refModel.updateGroup( surface );
 		assert.false( internalList.getNodeGroup( 'mwReference/newGroup' ).isEmpty() );
 	} );

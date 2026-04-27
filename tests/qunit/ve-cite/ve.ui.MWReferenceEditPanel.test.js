@@ -13,12 +13,14 @@
 		const editPanel = new MWReferenceEditPanel();
 		const ref = new MWReferenceModel( new ve.dm.Document( [] ) );
 		const doc = ve.dm.citeExample.createExampleDocument( 'references' );
+		const surface = new ve.dm.Surface( doc );
 		editPanel.setInternalList( doc.getInternalList() );
 
 		const changeHandlerSpy = sinon.spy();
 		editPanel.connect( null, { change: changeHandlerSpy } );
 
 		ref.setGroup( 'group' );
+		ref.updateGroup( surface );
 		editPanel.setReferenceForEditing( ref );
 
 		// values setup correctly

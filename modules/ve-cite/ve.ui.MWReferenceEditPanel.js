@@ -29,11 +29,6 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	// Properties
 	/**
 	 * @private
-	 * @member {ve.dm.MWDocumentReferences|null}
-	 */
-	this.docRefs = null;
-	/**
-	 * @private
 	 * @member {ve.dm.InternalList|null}
 	 */
 	this.internalList = null;
@@ -267,7 +262,6 @@ ve.ui.MWReferenceEditPanel.static.getImportRules = function () {
  */
 ve.ui.MWReferenceEditPanel.prototype.setInternalList = function ( internalList ) {
 	this.internalList = internalList;
-	this.docRefs = ve.dm.MWDocumentReferences.static.refsForDoc( internalList.getDocument() );
 	this.referenceGroupInput.populateMenu( internalList.getListGroupNames() );
 };
 
@@ -282,9 +276,8 @@ ve.ui.MWReferenceEditPanel.prototype.setReferenceForEditing = function ( ref ) {
 		'cite-ve-dialog-reference-editing-add-details' :
 		'cite-ve-dialog-reference-editing-edit-details'
 	) );
-	// Note: listGroup is only available after a (possibly new) ref has been registered via
-	// ve.dm.MWReferenceModel.insertInternalItem
-	const groupRefs = this.docRefs.getGroupRefs( ref.getGroup() );
+	const nodeGroup = this.internalList.getNodeGroup( ref.getListGroup() );
+	const groupRefs = ve.dm.MWGroupReferences.static.makeGroupRefs( nodeGroup );
 
 	this.totalReuseCount = groupRefs.getTotalUsageCount( ref.getListIndex() );
 	if ( this.subRefMode ) {

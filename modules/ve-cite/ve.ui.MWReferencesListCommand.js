@@ -44,12 +44,13 @@ ve.ui.MWReferencesListCommand.prototype.execute = function ( surface ) {
 	if ( isReflistNodeSelected ) {
 		return surface.execute( 'window', 'open', 'referencesList' );
 	} else {
+		const refGroup = '';
 		fragment.collapseToEnd().insertContent( [
 			{
 				type: 'mwReferencesList',
 				attributes: {
-					listGroup: 'mwReference/',
-					refGroup: '',
+					listGroup: ve.dm.MWReferenceModel.static.makeListGroup( refGroup ),
+					refGroup,
 					isResponsive: mw.config.get( 'wgCiteResponsiveReferences' )
 				}
 			},

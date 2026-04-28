@@ -295,7 +295,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 						'editNode',
 						this.getRoot().getSurface().getSurface()
 					);
-					const listGroup = 'mwReference/' + refGroup;
+					const listGroup = ve.dm.MWReferenceModel.static.makeListGroup( refGroup );
 					// FIXME: This will currently only work for main refs
 					editNodeAction.execute(
 						MWReferenceModel.static.newFromMainNodeAttributes(

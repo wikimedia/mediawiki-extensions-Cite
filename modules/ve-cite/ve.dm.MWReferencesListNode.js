@@ -121,7 +121,7 @@ ve.dm.MWReferencesListNode.static.toDataElement = function ( domElements, conver
 	const mwAttrs = mwData.attrs || {};
 	const refGroup = mwAttrs.group || '';
 	const responsiveAttr = mwAttrs.responsive;
-	const listGroup = 'mwReference/' + refGroup;
+	const listGroup = ve.dm.MWReferenceModel.static.makeListGroup( refGroup );
 	const templateGenerated = type.includes( 'mw:Transclusion' );
 	const isResponsiveDefault = mw.config.get( 'wgCiteResponsiveReferences' );
 

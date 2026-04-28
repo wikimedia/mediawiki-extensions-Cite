@@ -232,8 +232,8 @@ ve.ui.MWReferenceEditPanel.static.getImportRules = function () {
 				blacklist: ve.extendObject(
 					{
 						// Nested references are impossible
-						mwReference: true,
-						mwReferencesList: true,
+						[ ve.dm.MWReferenceNode.static.name ]: true,
+						[ ve.dm.MWReferencesListNode.static.name ]: true,
 						// Lists and tables are actually possible in wikitext with a leading
 						// line break but we prevent creating these with the UI
 						list: true,

@@ -34,7 +34,7 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 	this.mainListIndex = undefined;
 
 	/** @member {string}  */
-	this.listGroup = 'mwReference/' + this.group;
+	this.listGroup = ve.dm.MWReferenceModel.static.makeListGroup( this.group );
 
 	/** @member {string}  */
 	this.listKey = '';
@@ -64,6 +64,23 @@ ve.dm.MWReferenceModel = function VeDmMWReferenceModel( parentDoc ) {
 OO.mixinClass( ve.dm.MWReferenceModel, OO.EventEmitter );
 
 /* Static Methods */
+
+/**
+ * @param {string} [refGroup=""] Plain group name without any prefix
+ * @return {string} List group name with the "mwReference/" prefix
+ */
+ve.dm.MWReferenceModel.static.makeListGroup = function ( refGroup ) {
+	return ve.dm.MWReferenceNode.static.name + '/' + ( refGroup || '' );
+};
+
+/**
+ * @param {string} listGroup with the "mwReference/" prefix
+ * @return {string} Plain group name without the prefix
+ */
+ve.dm.MWReferenceModel.static.extractRefGroup = function ( listGroup ) {
+	const prefix = this.makeListGroup();
+	return listGroup.startsWith( prefix ) ? listGroup.slice( prefix.length ) : listGroup;
+};
 
 /**
  * Create a reference model from a reference internal item.
@@ -179,7 +196,7 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
 	const internalList = doc.getInternalList();
 
 	// Fill in data
-	this.listGroup = 'mwReference/' + this.group;
+	this.listGroup = ve.dm.MWReferenceModel.static.makeListGroup( this.group );
 	this.listKey = MWReferenceKeyGenerator.makeListKey( internalList );
 
 	// Insert internal reference item into document
@@ -203,7 +220,7 @@ ve.dm.MWReferenceModel.prototype.insertInternalItem = function ( surfaceModel ) 
  * @param {ve.dm.Surface} surfaceModel Surface model of main document
  */
 ve.dm.MWReferenceModel.prototype.updateGroup = function ( surfaceModel ) {
-	const newListGroup = 'mwReference/' + this.group;
+	const newListGroup = ve.dm.MWReferenceModel.static.makeListGroup( this.group );
 	if ( this.listGroup === newListGroup ) {
 		return;
 	}

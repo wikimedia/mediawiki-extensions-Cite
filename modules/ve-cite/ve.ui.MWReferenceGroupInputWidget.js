@@ -41,14 +41,14 @@ OO.inheritClass( ve.ui.MWReferenceGroupInputWidget, OO.ui.ComboBoxInputWidget );
  * @param {string[]} listGroups Group names
  */
 ve.ui.MWReferenceGroupInputWidget.prototype.populateMenu = function ( listGroups ) {
-	const items = [ new OO.ui.MenuOptionWidget( {
-		data: '',
-		label: this.emptyGroupName
-	} ) ];
+	const items = [
+		new OO.ui.MenuOptionWidget( { data: '', label: this.emptyGroupName } )
+	];
 	listGroups.forEach( ( listGroup ) => {
-		const match = /^mwReference\/(.+)/.exec( listGroup );
-		if ( match ) {
-			items.push( new OO.ui.MenuOptionWidget( { data: match[ 1 ], label: match[ 1 ] } ) );
+		const refGroup = ve.dm.MWReferenceModel.static.extractRefGroup( listGroup );
+		// Don't add the default group a second time, already done above
+		if ( refGroup ) {
+			items.push( new OO.ui.MenuOptionWidget( { data: refGroup, label: refGroup } ) );
 		}
 	} );
 	this.menu.clearItems().addItems( items ).toggle( false );

@@ -197,7 +197,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
 		return new OO.ui.Process( () => {
 			let ref = this.editPanel.getReferenceFromEditing();
-			const newListGroup = 'mwReference/' + ref.group;
+			const newListGroup = ve.dm.MWReferenceModel.static.makeListGroup( ref.group );
 			const nodeGroup = this.getFragment().getDocument()
 				.getInternalList().getNodeGroup( newListGroup );
 			const changeAll = this.editPanel.getChangeAllCheckboxState();

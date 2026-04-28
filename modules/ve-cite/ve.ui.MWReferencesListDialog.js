@@ -104,7 +104,7 @@ ve.ui.MWReferencesListDialog.prototype.isModified = function () {
 	}
 
 	const refGroup = this.groupInput.getValue();
-	const listGroup = 'mwReference/' + refGroup;
+	const listGroup = ve.dm.MWReferenceModel.static.makeListGroup( refGroup );
 	const isResponsive = this.responsiveCheckbox.isSelected();
 
 	const oldListGroup = this.selectedNode.getAttribute( 'listGroup' );
@@ -122,7 +122,7 @@ ve.ui.MWReferencesListDialog.prototype.getActionProcess = function ( action ) {
 
 			// Save changes
 			const refGroup = this.groupInput.getValue();
-			const listGroup = 'mwReference/' + refGroup;
+			const listGroup = ve.dm.MWReferenceModel.static.makeListGroup( refGroup );
 			const isResponsive = this.responsiveCheckbox.isSelected();
 
 			if ( this.selectedNode ) {

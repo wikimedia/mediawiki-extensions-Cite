@@ -781,16 +781,16 @@ ve.dm.MWReferenceNode.prototype.copySyntheticRefIntoReferencesList = function ( 
 
 	// Get the ReferencesList we want to move the node into
 	const docChildren = this.getDocument().getDocumentNode().getChildren();
-	const refListNode = docChildren.find(
-		( node ) => node.type === 'mwReferencesList' &&
+	const referencesListNode = docChildren.find(
+		( node ) => node instanceof ve.dm.MWReferencesListNode &&
 			node.getAttribute( 'refGroup' ) === this.getGroup()
 	);
-	if ( !refListNode ) {
+	if ( !referencesListNode ) {
 		// FIXME: There is no guarantee we have a corresponding reflist in the document when it's
 		// not the default group. What to do then?
 		return;
 	}
-	const refListNodeRange = refListNode.getRange();
+	const refListNodeRange = referencesListNode.getRange();
 
 	const attributes = ve.copy( this.element.attributes );
 	ve.setProp( attributes, 'mw', 'isSyntheticMainRef', true );

@@ -146,11 +146,10 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 			.sort( ve.dm.MWGroupReferences.static.compareAsRefInfos );
 
 		// TODO: Why not use the original group attribute? Is that outdated after an edit?
-		// remove `mwReference/` prefix
-		const group = listGroup.slice( 12 );
+		const refGroup = ve.dm.MWReferenceModel.static.extractRefGroup( listGroup );
 
 		searchIndex.push( ...reflistStructure.map( ( refInfo ) => {
-			const footnoteLabel = ( group + ' ' + refInfo.label ).trim();
+			const footnoteLabel = ( refGroup + ' ' + refInfo.label ).trim();
 
 			// TODO: Why not use the original name attribute? Is that outdated after an edit?
 			const name = MWReferenceKeyGenerator.extractNameFromListKey( refInfo.internalListKey );

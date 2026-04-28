@@ -79,8 +79,9 @@ ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
  * @return {ve.dm.MWGroupReferences}
  */
 ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( listGroup ) {
-	if ( !listGroup.startsWith( 'mwReference/' ) ) {
-		listGroup = 'mwReference/' + listGroup;
+	const prefix = ve.dm.MWReferenceModel.static.makeListGroup();
+	if ( !listGroup.startsWith( prefix ) ) {
+		listGroup = prefix + listGroup;
 	}
 	return this.cachedByGroup[ listGroup ] || new MWGroupReferences();
 };

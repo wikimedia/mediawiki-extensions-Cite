@@ -15,7 +15,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.46"
+		"MediaWiki": ">= 1.47.0"
 	},
 	"MessagesDirs": {
 		"Cite": [
@@ -201,7 +201,6 @@
 					"ext.cite.visualEditor",
 					"test.VisualEditor"
 				]
-
 			}
 		},
 		"factory": "Cite\\ResourceLoader\\OptionalLoader::addOptional"

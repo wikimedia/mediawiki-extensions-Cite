@@ -30,7 +30,7 @@
 	"cite-ve-dialog-reference-options-group-placeholder": "Referencia de todo-todo",
 	"cite-ve-dialog-reference-options-responsive-label": "Usa responsivo layout de columna",
 	"cite-ve-dialog-reference-options-section": "Maga opcion",
-	"cite-ve-dialog-reference-placeholder": "Escribi o pega con el de tuyo referencia aqui, o inserta un template de citacion.",
+	"cite-ve-dialog-reference-placeholder": "Escribi o pega con el de tuyo referencia aqui, o inserta un plantilla de citacion.",
 	"cite-ve-dialog-reference-title": "Referencia",
 	"cite-ve-dialog-reference-title-add-details": "Aumenta con el maga detalle na referencia",
 	"cite-ve-dialog-reference-useexisting-tool": "Re-use",
@@ -49,7 +49,7 @@
 	"cite-ve-referenceslist-missing-parent": "Linked el maga detalles abajo para na un falta referencia. Por favor quita con estos estaba na pagina o quita o compone con el problema na editor de texto de codigo.",
 	"cite-ve-referenceslist-missingref": "Este referencia ta defini na un plantilla o otro bloque generao, y por ahora ta puede lang edita na editor de texto de codigo.",
 	"cite-ve-referenceslist-missingref-in-list": "Este referencia ta referi na un plamtilla o otro pa maga bloque generao, y por ahora, ta puede lang hace previsualiza na editor de texto de codigo.",
-	"cite-ve-referenceslist-missingreflist": "Generao usando el template este lista de referencia.",
+	"cite-ve-referenceslist-missingreflist": "Este lista de referencia ya hace genera usando el plantilla.",
 	"cite-ve-toolbar-group-label": "Cita",
 	"cite-ve-othergroup-item": "referencia $1"
 }

@@ -270,6 +270,7 @@ class References {
 					$ref->contentId = $contentId;
 				}
 				$refDataMw->mainBody = ParsoidAnchorFormatter::getNoteTextIdentifier( $ref );
+				$refDataMw->mainBodyHtml = $extApi->domToHtml( $refFragment, true );
 			}
 
 			// Switch $ref to a newly-created subref (or reuse a duplicate)

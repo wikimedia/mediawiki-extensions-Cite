@@ -38,15 +38,15 @@ OO.inheritClass( ve.ui.MWReferenceGroupInputWidget, OO.ui.ComboBoxInputWidget );
 /**
  * Populate the reference group menu
  *
- * @param {string[]} groups Group names
+ * @param {string[]} listGroups Group names
  */
-ve.ui.MWReferenceGroupInputWidget.prototype.populateMenu = function ( groups ) {
+ve.ui.MWReferenceGroupInputWidget.prototype.populateMenu = function ( listGroups ) {
 	const items = [ new OO.ui.MenuOptionWidget( {
 		data: '',
 		label: this.emptyGroupName
 	} ) ];
-	groups.forEach( ( groupName ) => {
-		const match = /^mwReference\/(.+)/.exec( groupName );
+	listGroups.forEach( ( listGroup ) => {
+		const match = /^mwReference\/(.+)/.exec( listGroup );
 		if ( match ) {
 			items.push( new OO.ui.MenuOptionWidget( { data: match[ 1 ], label: match[ 1 ] } ) );
 		}

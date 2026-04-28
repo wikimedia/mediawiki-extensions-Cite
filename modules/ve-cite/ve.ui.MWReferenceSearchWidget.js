@@ -139,7 +139,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 	const listGroups = this.docRefs.getListGroupNames().sort();
 
-	let index = [];
+	const searchIndex = [];
 	for ( const listGroup of listGroups ) {
 		const nodeGroup = this.internalList.getNodeGroup( listGroup );
 		const reflistStructure = Object.values( new ve.dm.MWDataTransitionHelper().buildReflistNumbering( nodeGroup ) )
@@ -149,7 +149,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 		// remove `mwReference/` prefix
 		const group = listGroup.slice( 12 );
 
-		index = index.concat( reflistStructure.map( ( refInfo ) => {
+		searchIndex.push( ...reflistStructure.map( ( refInfo ) => {
 			const footnoteLabel = ( group + ' ' + refInfo.label ).trim();
 
 			// TODO: Why not use the original name attribute? Is that outdated after an edit?
@@ -193,7 +193,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
 		} ) );
 	}
 
-	return index;
+	return searchIndex;
 };
 
 /**

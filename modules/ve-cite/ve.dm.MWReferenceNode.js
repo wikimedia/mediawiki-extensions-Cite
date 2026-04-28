@@ -97,16 +97,16 @@ ve.dm.MWReferenceNode.static.lookupSubRefIndex = function ( converter, refListIt
  * @param {ve.dm.ModelFromDomConverter} converter
  * @param {string|null} [refListItemId]
  * @param {string} listKey
- * @param {number} index
+ * @param {number} listIndex
  */
-ve.dm.MWReferenceNode.static.insertSubRefIndex = function ( converter, refListItemId, listKey, index ) {
+ve.dm.MWReferenceNode.static.insertSubRefIndex = function ( converter, refListItemId, listKey, listIndex ) {
 	if ( !refListItemId ) {
 		return;
 	}
 	if ( !converter.subrefLookup ) {
 		converter.subrefLookup = {};
 	}
-	converter.subrefLookup[ refListItemId ] = [ listKey, index ];
+	converter.subrefLookup[ refListItemId ] = [ listKey, listIndex ];
 };
 
 /**
@@ -141,18 +141,18 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 		ve.dm.converter.modelFromDomConverter.subrefLookup = null;
 	}
 
-	let listKey, index, isNew;
+	let listKey, listIndex;
+	let isNew = false;
 	const lookupResult = mwData.mainRef && this.lookupSubRefIndex( converter, refListItemId );
 	if ( lookupResult ) {
-		[ listKey, index ] = lookupResult;
-		isNew = false;
+		[ listKey, listIndex ] = lookupResult;
 	} else {
 		listKey = MWReferenceKeyGenerator.makeListKey( internalList, refName );
-		const { index: qIndex, isNew: qNew } = internalList.queueItemHtml( listGroup, listKey, body );
-		index = qIndex;
-		isNew = qNew;
+		const result = internalList.queueItemHtml( listGroup, listKey, body );
+		listIndex = result.index;
+		isNew = result.isNew;
 		if ( mwData.mainRef ) {
-			this.insertSubRefIndex( converter, refListItemId, listKey, index );
+			this.insertSubRefIndex( converter, refListItemId, listKey, listIndex );
 		}
 	}
 
@@ -167,7 +167,7 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			originalMw: mwDataJSON,
 			listGroup,
 			listKey,
-			listIndex: index,
+			listIndex,
 			refGroup,
 			contentsUsed
 		}
@@ -457,14 +457,14 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWReferenceNode.static.getRefsWithSameMain = function ( mainListIndex, nodeGroup ) {
-	const keys = nodeGroup.getKeysInIndexOrder();
+	const listKeys = nodeGroup.getKeysInIndexOrder();
 	const results = [];
-	keys.forEach( ( key ) => {
-		const reuses = nodeGroup.getAllReuses( key ) || [];
+	listKeys.forEach( ( listKey ) => {
+		const reuses = nodeGroup.getAllReuses( listKey ) || [];
 		// Sub-ref reuses share the mainListIndex, that's why stopping after the first match is fine
-		if ( reuses.some( ( node ) => ( node.getAttribute( 'mainListIndex' ) === mainListIndex ) ||
-			node.getAttribute( 'listIndex' ) === mainListIndex )
-		) {
+		if ( reuses.some( ( node ) => node.getAttribute( 'mainListIndex' ) === mainListIndex ||
+			node.getAttribute( 'listIndex' ) === mainListIndex
+		) ) {
 			results.push( ...reuses );
 		}
 	} );
@@ -479,10 +479,10 @@ ve.dm.MWReferenceNode.static.getRefsWithSameMain = function ( mainListIndex, nod
  * @return {ve.dm.Node[]}
  */
 ve.dm.MWReferenceNode.static.getSubRefs = function ( mainListIndex, nodeGroup ) {
-	const keys = nodeGroup.getKeysInIndexOrder();
+	const listKeys = nodeGroup.getKeysInIndexOrder();
 	const results = [];
-	keys.forEach( ( key ) => {
-		const reuses = nodeGroup.getAllReuses( key ) || [];
+	listKeys.forEach( ( listKey ) => {
+		const reuses = nodeGroup.getAllReuses( listKey ) || [];
 		// Sub-ref reuses share the mainListIndex, that's why stopping after the first match is fine
 		if ( reuses.some( ( node ) => node.getAttribute( 'mainListIndex' ) === mainListIndex ) ) {
 			results.push( ...reuses );

@@ -68,19 +68,21 @@ ve.dm.MWDocumentReferences.static.refsForDoc = function ( doc ) {
  *  this transaction
  */
 ve.dm.MWDocumentReferences.prototype.updateGroups = function ( groupsChanged ) {
-	groupsChanged.forEach( ( groupName ) => {
-		const nodeGroup = this.doc.getInternalList().getNodeGroup( groupName );
-		this.cachedByGroup[ groupName ] = MWGroupReferences.static.makeGroupRefs( nodeGroup );
+	groupsChanged.forEach( ( listGroup ) => {
+		const nodeGroup = this.doc.getInternalList().getNodeGroup( listGroup );
+		this.cachedByGroup[ listGroup ] = MWGroupReferences.static.makeGroupRefs( nodeGroup );
 	} );
 };
 
 /**
- * @param {string} groupName with or without prefix
+ * @param {string} listGroup with or without prefix
  * @return {ve.dm.MWGroupReferences}
  */
-ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( groupName ) {
-	return this.cachedByGroup[ groupName.startsWith( 'mwReference/' ) ? groupName : 'mwReference/' + groupName ] ||
-		new MWGroupReferences();
+ve.dm.MWDocumentReferences.prototype.getGroupRefs = function ( listGroup ) {
+	if ( !listGroup.startsWith( 'mwReference/' ) ) {
+		listGroup = 'mwReference/' + listGroup;
+	}
+	return this.cachedByGroup[ listGroup ] || new MWGroupReferences();
 };
 
 /**

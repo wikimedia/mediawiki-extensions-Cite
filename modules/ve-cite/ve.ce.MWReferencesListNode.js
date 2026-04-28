@@ -296,11 +296,12 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 						'editNode',
 						this.getRoot().getSurface().getSurface()
 					);
+					const listGroup = 'mwReference/' + refGroup;
 					// FIXME: This will currently only work for main refs
 					editNodeAction.execute(
 						MWReferenceModel.static.newFromMainNodeAttributes(
 							this.getModel().getDocument(),
-							'mwReference/' + refGroup,
+							listGroup,
 							null,
 							refInfo.internalListIndex
 						)

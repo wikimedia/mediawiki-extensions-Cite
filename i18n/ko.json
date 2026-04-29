@@ -14,7 +14,8 @@
 			"Ykhwong",
 			"아라",
 			"YeBoy371",
-			"Namoroka"
+			"Namoroka",
+			"Tensama0415"
 		]
 	},
 	"cite-desc": "인용에 쓰이는 <code>&lt;ref&gt;</code>와 <code>&lt;references&gt;</code> 태그를 추가합니다",
@@ -77,5 +78,10 @@
 	"cite-configuration-title": "인용 구성",
 	"cite-configuration-info": "이 설정은 Cite를 사용하는 모든 문서에 적용됩니다. 관리자만 이러한 설정을 수정할 수 있습니다.",
 	"cite-configuration-backlink-title": "백링크 설정",
+	"cite-configuration-backlink-description": "백링크는 참고 문헌 목록에 나타나며 해당 문서의 각주를 가리킵니다. 동일한 참고 문헌이 두 번 이상 사용될 경우, 해당 백링크에는 번호가 매겨집니다. 설정을 통해 사용자 지정 알파벳을 사용할 수도 있습니다.",
+	"cite-configuration-backlink-alpha-suggestion": "Cite에서 위키의 언어에 대한 알파벳을 감지했습니다. 사용하려면 아래 텍스트를 복사하여 백링크 마커의 기본 텍스트로 붙여넣으세요. 순서는 자유롭게 편집하거나 재배열할 수 있습니다.",
+	"cite-configuration-backlink-marker-label": "백링크 기호 집합",
+	"cite-configuration-backlink-marker-description": "아래 문자들은 위키의 백링크에 사용됩니다.",
+	"cite-configuration-backlink-marker-help": "사용자 지정 문자 집합을 입력하세요. 각 문자 사이에 공백을 넣어주세요. 입력란에 XX개의 문자가 포함되어 있는지 확인하세요.",
 	"cite-configuration-submit": "변경사항 저장"
 }

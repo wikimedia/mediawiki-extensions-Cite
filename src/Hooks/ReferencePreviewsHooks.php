@@ -73,6 +73,7 @@ class ReferencePreviewsHooks implements
 					'cite-reference-previews-reference',
 					'cite-reference-previews-book',
 					'cite-reference-previews-journal',
+					'cite-reference-previews-reflist-link',
 					'cite-reference-previews-news',
 					'cite-reference-previews-note',
 					'cite-reference-previews-map',

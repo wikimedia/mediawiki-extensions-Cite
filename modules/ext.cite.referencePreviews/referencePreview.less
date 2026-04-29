@@ -46,6 +46,16 @@
 		display: none;
 	}
 
+	footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.mwe-popups-settings {
+			margin-left: auto;
+		}
+	}
+
 	.mwe-popups-extract {
 		margin-right: 0;
 		max-height: inherit;
@@ -85,6 +95,14 @@
 		}
 	}
 
+	.mwe-popups-reflist-link-hidden {
+		display: none;
+	}
+
+	.mwe-popups-reflist-link {
+		text-decoration: none;
+	}
+
 	.mwe-collapsible-placeholder {
 		font-weight: @font-weight-bold;
 		margin: 1em 0;
@@ -94,4 +112,8 @@
 	.mw-reference-previews-parent {
 		margin-bottom: 1em;
 	}
+}
+
+.mwe-popups-ref-highlight {
+	background-color: @background-color-progressive-subtle;
 }

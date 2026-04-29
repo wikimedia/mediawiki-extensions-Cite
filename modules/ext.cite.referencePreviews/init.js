@@ -48,6 +48,33 @@ function createReferencePreviewsType() {
 	};
 }
 
+let testKitchenExperiment = null;
+
+// Test Kitchen experiment: cite-footnote-content-interaction-experiment (T123456)
+if ( mw.testKitchen ) {
+	testKitchenExperiment = mw.testKitchen.compat.getExperiment( 'cite-footnote-content-interaction-experiment' );
+}
+
+// Treatment Group
+const isRefPreviewReflistLinkEnabled = testKitchenExperiment && testKitchenExperiment.isAssignedGroup( 'treatment' );
+
+if ( isRefPreviewReflistLinkEnabled ) {
+	// eslint-disable-next-line no-jquery/no-global-selector
+	$( '#mw-content-text .reference a[ href*="#" ]' ).on( 'click', ( event ) => {
+		// Bail out when the event was triggerd by keyboard interaction
+		if ( !event.pointerType ) {
+			return;
+		}
+
+		// Prevent default jump to reference list
+		event.preventDefault();
+		// Click on footnote marker triggers open popup with jump to refList link
+		// eslint-disable-next-line no-jquery/no-global-selector
+		$( '.mwe-popups-reflist-link-hidden' )
+			.removeClass( 'mwe-popups-reflist-link-hidden' );
+	} );
+}
+
 module.exports = referencePreviewsState !== null ? createReferencePreviewsType() : null;
 
 if ( window.QUnit ) {

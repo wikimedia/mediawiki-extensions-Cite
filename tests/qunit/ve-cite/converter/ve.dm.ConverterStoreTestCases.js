@@ -554,7 +554,7 @@ ve.dm.ConverterStoreTestCases.cases[ 'List defined references and details' ] = {
 // <ref name="ldrOne">Foo</ref>
 // <ref name="ldrTwo">Bar</ref>
 // </references>
-ve.dm.ConverterStoreTestCases.cases[ 'List defined references and details ( editing main and details )' ] = {
+ve.dm.ConverterStoreTestCases.cases[ 'List defined references and details (editing main and details)' ] = {
 	data: ve.dm.ConverterStoreTestCases.listDefinedAndDetails.data,
 	body: ve.dm.ConverterStoreTestCases.listDefinedAndDetails.body,
 	storeItems: ve.dm.ConverterStoreTestCases.listDefinedAndDetails.storeItems,

@@ -206,7 +206,7 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Simple main ref including details' 
 
 // Expected Wikitext after change:
 // <ref details="page. 123 NEW" name="book">Miller NEW</ref>
-ve.dm.ConverterSubReferenceTestCases.cases[ 'Simple main ref including details ( edits on main and details )' ] = {
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Simple main ref including details (edits on main and details)' ] = {
 	data: ve.dm.ConverterSubReferenceTestCases.simpleMainPlusDetails.data,
 	body: ve.dm.ConverterSubReferenceTestCases.simpleMainPlusDetails.body,
 	modify:
@@ -416,7 +416,6 @@ ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub = {
 			{
 				type: '/internalItem'
 			},
-
 			{
 				type: 'internalItem',
 				attributes: {
@@ -497,7 +496,7 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref' ] 
 // <ref details="page 1" name="book" />
 //
 // <ref name="book">Miller</ref>
-ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref ( delete subref providing the main )' ] = {
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref (delete subref providing the main)' ] = {
 	data: ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub.data,
 	body: ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub.body,
 	modify:
@@ -522,7 +521,7 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref ( d
 
 // Expected Wikitext after change
 // <ref name="book">Miller</ref>
-ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref ( delete all subrefs )' ] = {
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref (delete all subrefs)' ] = {
 	data: ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub.data,
 	body: ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub.body,
 	modify:
@@ -547,7 +546,7 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref ( d
 
 // Expected Wikitext after change
 // <ref details="page 1" name="book">Miller</ref>
-ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref ( delete subref providing the main and other reuse )' ] = {
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Moving main content from subref (delete subref providing the main and other reuse)' ] = {
 	data: ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub.data,
 	body: ve.dm.ConverterSubReferenceTestCases.movingMainContentFromSub.body,
 	modify:
@@ -788,7 +787,7 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Delete main used by sub' ] = {
 
 // Expected Wikitext after change:
 // <ref details="page 1" name="book" >Miller</ref>
-ve.dm.ConverterSubReferenceTestCases.cases[ 'Delete main used by sub ( delete main ref )' ] = {
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Delete main used by sub (delete main ref)' ] = {
 	data: ve.dm.ConverterSubReferenceTestCases.deleteMainUsedBySub.data,
 	body: ve.dm.ConverterSubReferenceTestCases.deleteMainUsedBySub.body,
 	modify:
@@ -1060,7 +1059,7 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with duplicate ma
 // Expected Wikitext after change:
 // <ref details="page 1" name="book">Miller NEW</ref>
 // <ref details="page 2" name="book">Miller NEW</ref>
-ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with duplicate main content ( edit main )' ] = {
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Main plus details with duplicate main content (edit main)' ] = {
 	data: ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent.data,
 	body: ve.dm.ConverterSubReferenceTestCases.mainPlusDetailsWithDuplicateMainContent.body,
 	modify:
@@ -1227,7 +1226,7 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Two main refs with content' ] = {
 
 // Expected Wikitext after change:
 // <ref details="page 1" name="book" /><ref details="page 1" name="book">Miller</ref>
-ve.dm.ConverterSubReferenceTestCases.cases[ 'Two main refs with content ( convert both to sub-refs one at a time )' ] = {
+ve.dm.ConverterSubReferenceTestCases.cases[ 'Two main refs with content (convert both to sub-refs one at a time)' ] = {
 	data: ve.dm.ConverterSubReferenceTestCases.twoMainRefsWithContent.data,
 	body: ve.dm.ConverterSubReferenceTestCases.twoMainRefsWithContent.body,
 	modify:

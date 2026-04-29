@@ -355,7 +355,7 @@ ve.dm.ConverterIntegrationTestCases.cases[ 'Simple ref reuse' ] = {
 // Expected Wikitext after change:
 // Text
 // <ref name="bar">Body</ref>
-ve.dm.ConverterIntegrationTestCases.cases[ 'Simple ref reuse ( delete ref )' ] = {
+ve.dm.ConverterIntegrationTestCases.cases[ 'Simple ref reuse (delete ref)' ] = {
 	data: ve.dm.ConverterIntegrationTestCases.SimpleRefReuse.data,
 	body: ve.dm.ConverterIntegrationTestCases.SimpleRefReuse.body,
 	modify:
@@ -658,7 +658,7 @@ ve.dm.ConverterIntegrationTestCases.cases[ 'Simple template used in refs' ] = {
 // <references>
 // <ref name="ldrTpl">{{Cite|author=Smith|title=Bar New}}</ref>
 // </references>
-ve.dm.ConverterIntegrationTestCases.cases[ 'Simple template in refs ( edits on template parameters )' ] = {
+ve.dm.ConverterIntegrationTestCases.cases[ 'Simple template in refs (edits on template parameters)' ] = {
 	data: ve.dm.ConverterIntegrationTestCases.simpleTemplateInRefs.data,
 	body: ve.dm.ConverterIntegrationTestCases.simpleTemplateInRefs.body,
 	modify:
@@ -1093,7 +1093,7 @@ ve.dm.ConverterIntegrationTestCases.cases[ 'List-defined references with default
 // <ref name="a">Custom group content NEW</ref>
 // <ref name="b">Custom group content other</ref>
 // </references>
-ve.dm.ConverterIntegrationTestCases.cases[ 'List-defined references with default and custom group ( edit custom ldr )' ] = {
+ve.dm.ConverterIntegrationTestCases.cases[ 'List-defined references with default and custom group (edit custom ldr)' ] = {
 	data: ve.dm.ConverterIntegrationTestCases.listDefinedRefsWithGroups.data,
 	body: ve.dm.ConverterIntegrationTestCases.listDefinedRefsWithGroups.body,
 	modify:
@@ -1291,7 +1291,7 @@ ve.dm.ConverterIntegrationTestCases.cases[ 'Duplicate main content' ] = {
 // <ref name="book" />
 // <ref name="book">Miller NEW</ref>
 // <ref name="book">Miller</ref>
-ve.dm.ConverterIntegrationTestCases.cases[ 'Duplicate main content ( changing the main content )' ] = {
+ve.dm.ConverterIntegrationTestCases.cases[ 'Duplicate main content (changing the main content)' ] = {
 	data: ve.dm.ConverterIntegrationTestCases.duplicateMainContent.data,
 	body: ve.dm.ConverterIntegrationTestCases.duplicateMainContent.body,
 	modify:

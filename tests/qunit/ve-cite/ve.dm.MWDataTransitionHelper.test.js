@@ -16,7 +16,6 @@
 		const result = dataTransitionHelper.buildReflistNumbering( nodeGroup );
 
 		assert.deepEqual( result,
-
 			{
 				0: {
 					internalListIndex: 0,

@@ -21,7 +21,9 @@ class RefTagHandlerTest extends MediaWikiUnitTestCase {
 	public function testProcessAttributeEmbeddedDom() {
 		$env = new MockEnv( [] );
 		$extApi = new ParsoidExtensionAPI( $env );
-		$doc = ContentUtils::createAndLoadDocument( '' );
+		$doc = ContentUtils::createAndLoadDocument(
+			'', [ 'siteConfig' => $env->getSiteConfig() ]
+		);
 		$elt = $doc->createElement( 'a' );
 		$df = $doc->createDocumentFragment();
 		$df->textContent = 'old';

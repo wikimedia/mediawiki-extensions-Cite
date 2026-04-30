@@ -300,7 +300,10 @@ EOT;
 	 */
 	public function testProcessAttributeEmbeddedDom() {
 		$extApi = $this->createNoOpMock( ParsoidExtensionApi::class );
-		$doc = ContentUtils::createAndLoadDocument( '' );
+		$siteConfig = $this->getSiteConfig( [] );
+		$doc = ContentUtils::createAndLoadDocument(
+			'', [ 'siteConfig' => $siteConfig ]
+		);
 		$elt = $doc->createElement( 'a' );
 		$df = $doc->createDocumentFragment();
 		$df->textContent = 'old';

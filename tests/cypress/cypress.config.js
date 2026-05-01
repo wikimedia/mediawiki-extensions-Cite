@@ -20,9 +20,18 @@ module.exports = defineConfig( {
 				const res = await fetch( config.baseUrl +
 					'/api.php?action=query&meta=siteinfo&siprop=extensions&format=json' );
 				const { query } = await res.json();
+
+				const excludes = [];
 				if ( !query.extensions.some( ( e ) => e.name === 'Popups' ) ) {
-					config.excludeSpecPattern = [ '**/referencePreviews/**' ];
+					excludes.push( '**/referencePreviews/**' );
 				}
+				if ( !query.extensions.some( ( e ) => e.name === 'VisualEditor' ) ) {
+					excludes.push( '**/ve-cite/**' );
+				}
+				if ( !query.extensions.some( ( e ) => e.name === 'TemplateData' ) ) {
+					excludes.push( '**/ve-cite/templates.cy.js' );
+				}
+				config.excludeSpecPattern = excludes;
 			} catch ( e ) { /* Use what we have */ }
 			return config;
 		}

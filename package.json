@@ -3,9 +3,10 @@
 	"private": true,
 	"scripts": {
 		"selenium-daily": "npm run selenium-test",
-		"selenium-test": "npm run cypress",
+		"selenium-test": "npm run cypress:parallel",
 		"cypress": "CYPRESS_CACHE_FOLDER=./tests/cypress/.cache cypress run --pass-with-no-tests --config-file tests/cypress/cypress.config.js",
 		"cypress:open": "CYPRESS_CACHE_FOLDER=./tests/cypress/.cache cypress open --config-file tests/cypress/cypress.config.js",
+		"cypress:parallel": "CYPRESS_CACHE_FOLDER=./tests/cypress/.cache cypress-parallel -s cypress -t 5 -d './tests/cypress/e2e/tests/' -r 'cypress-multi-reporters' -p './tests/cypress/reporter-config.json' -w './tests/cypress/parallel-weights.json' -m 'false'",
 		"doc": "jsdoc -c jsdoc.json",
 		"test": "grunt test",
 		"lint:fix": "grunt test --fix"
@@ -13,6 +14,7 @@
 	"devDependencies": {
 		"@cypress/skip-test": "^2.6.1",
 		"cypress": "^15.11.0",
+		"cypress-parallel": "0.15.0",
 		"eslint-config-wikimedia": "0.32.4",
 		"eslint-plugin-cypress": "^3.6.0",
 		"grunt": "1.6.2",

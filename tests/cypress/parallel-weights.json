@@ -1,0 +1,22 @@
+{
+	"tests/cypress/e2e/tests/referencePreviews/referencePreviews.cy.js": {
+		"time": 26990,
+		"weight": 7
+	},
+	"tests/cypress/e2e/tests/ve-cite/subRefs.cy.js": {
+		"time": 47614,
+		"weight": 12
+	},
+	"tests/cypress/e2e/tests/ve-cite/templates.cy.js": {
+		"time": 47746,
+		"weight": 12
+	},
+	"tests/cypress/e2e/tests/ve-cite/veCiteIntegration.cy.js": {
+		"time": 37943,
+		"weight": 10
+	},
+	"tests/cypress/e2e/tests/ve-cite/wt2017Integration.cy.js": {
+		"time": 26933,
+		"weight": 7
+	}
+}

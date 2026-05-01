@@ -21,7 +21,7 @@ module.exports = function ( grunt ) {
 			},
 			all: [
 				'**/*.{js,json,vue}',
-				'!{docs,vendor,node_modules}/**',
+				'!{docs,vendor,node_modules,runner-results}/**',
 				'!tests/cypress/screenshots/**/*.js'
 			]
 		},

@@ -21,11 +21,16 @@ project.index
 ## Sublime
 sublime-*
 sftp-config.json
-.eslintcache
 
+## Linters
+.eslintcache
+.stylelintcache
+
+# Cypress
 /tests/cypress/.cache
 /tests/cypress/videos
 /tests/cypress/screenshots
 /tests/cypress/downloads
+/runner-results/
+
 /docs/js
-/.stylelintcache

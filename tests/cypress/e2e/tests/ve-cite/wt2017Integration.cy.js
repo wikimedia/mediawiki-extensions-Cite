@@ -22,6 +22,11 @@ describe( 'VisualEditor Cite with WT2017 Editor', () => {
 				name: 'web',
 				title: 'Webseite',
 				template: 'Internetquelle'
+			},
+			{
+				name: 'book',
+				title: 'Literatur',
+				template: 'Literatur'
 			}
 		] ) );
 	} );

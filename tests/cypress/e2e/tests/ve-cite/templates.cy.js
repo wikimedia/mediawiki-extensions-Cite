@@ -34,8 +34,10 @@ describe( 'VisualEditor Cite with citation templates', () => {
 	} );
 
 	beforeEach( () => {
-		cy.clearCookies();
-		veHelper.setVECookiesToDisableDialogs();
+		cy.session( 've-cite-templates', () => {
+			cy.clearCookies();
+			veHelper.setVECookiesToDisableDialogs();
+		} );
 
 		const title = helper.getTestString( 'CiteTest-templates' );
 		helper.editPage( title, wikiText );

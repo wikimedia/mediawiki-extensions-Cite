@@ -32,8 +32,10 @@ describe( 'VisualEditor Cite with WT2017 Editor', () => {
 	} );
 
 	beforeEach( () => {
-		cy.clearCookies();
-		veHelper.setVECookiesToDisableDialogs();
+		cy.session( 've-cite-wt2017-integration', () => {
+			cy.clearCookies();
+			veHelper.setVECookiesToDisableDialogs();
+		} );
 
 		const title = helper.getTestString( 'CiteTest-wt2017' );
 		helper.editPage( title, wikiText );

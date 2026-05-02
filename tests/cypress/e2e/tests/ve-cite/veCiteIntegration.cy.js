@@ -21,8 +21,10 @@ describe( 'VisualEditor Cite', () => {
 	} );
 
 	beforeEach( () => {
-		cy.clearCookies();
-		veHelper.setVECookiesToDisableDialogs();
+		cy.session( 've-cite-integration', () => {
+			cy.clearCookies();
+			veHelper.setVECookiesToDisableDialogs();
+		} );
 
 		const title = helper.getTestString( 'CiteTest-title' );
 		helper.editPage( title, wikiText );

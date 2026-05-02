@@ -24,8 +24,10 @@ describe( 'VisualEditor Cite with sub-references', () => {
 	} );
 
 	beforeEach( () => {
-		cy.clearCookies();
-		veHelper.setVECookiesToDisableDialogs();
+		cy.session( 've-cite-subRefs', () => {
+			cy.clearCookies();
+			veHelper.setVECookiesToDisableDialogs();
+		} );
 
 		const title = helper.getTestString( 'CiteTest-subRefs' );
 		helper.editPage( title, wikiText );

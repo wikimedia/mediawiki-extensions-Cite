@@ -64,10 +64,17 @@ export function editPage( title, wikiText ) {
 }
 
 export function loginAsAdmin() {
-	visitTitle( 'Special:UserLogin' );
-	cy.get( '#wpName1' ).type( cy.config( 'mediawikiAdminUsername' ) );
-	cy.get( '#wpPassword1' ).type( cy.config( 'mediawikiAdminPassword' ) );
-	cy.get( '#wpLoginAttempt' ).click();
+	visitTitle( '' );
+	waitForMWLoader();
+	cy.window().then( async ( win ) => {
+		await win.mw.loader.using( 'mediawiki.api' );
+		const response = await new win.mw.Api().login(
+			cy.config( 'mediawikiAdminUsername' ),
+			cy.config( 'mediawikiAdminPassword' )
+		);
+
+		expect( response.login.result ).to.equal( 'Success' );
+	} );
 }
 
 // Read Mode Helpers

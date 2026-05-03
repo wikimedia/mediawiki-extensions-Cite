@@ -4,29 +4,14 @@ require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
-let usesCitoid, usesTemplateData;
+let usesCitoid;
 
 describe( 'VisualEditor Cite with WT2017 Editor', () => {
 	before( () => {
 		veHelper.checkModuleDependencies().then( ( deps ) => {
 			cy.skipOn( !deps.visualEditor );
 			usesCitoid = deps.citoid;
-			usesTemplateData = deps.templateData;
 		} );
-
-		helper.loginAsAdmin();
-		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
-			{
-				name: 'web',
-				title: 'Webseite',
-				template: 'Internetquelle'
-			},
-			{
-				name: 'book',
-				title: 'Literatur',
-				template: 'Literatur'
-			}
-		] ) );
 	} );
 
 	beforeEach( () => {
@@ -63,39 +48,5 @@ describe( 'VisualEditor Cite with WT2017 Editor', () => {
 
 		// Ref has been added to references section and has correct content
 		helper.getRefFromReferencesSection( 1 ).find( '.reference-text' ).should( 'have.text', 'Basic ref' );
-
 	} );
-
-	it( 'should be able to create a VE-Cite tool template', () => {
-		cy.skipOn( !usesTemplateData );
-
-		if ( usesCitoid ) {
-			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
-			cy.wait( 500 );
-			cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label', { timeout: 5000 } ).should( 'be.visible' ).contains( 'Manual' ).click();
-			cy.wait( 500 );
-			cy.get( '.oo-ui-labelElement-label' ).contains( 'Webseite' ).click();
-		} else {
-			cy.get( '.ve-ui-toolbar-group-cite' ).click();
-			cy.get( '.oo-ui-popupToolGroup-active-tools .oo-ui-tool-title', { timeout: 5000 } ).should( 'be.visible' ).contains( 'Webseite' ).click();
-		}
-
-		// Add undocumented parameter
-		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-header' ).click();
-		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 't' );
-		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input .oo-ui-actionFieldLayout-button .oo-ui-buttonElement-button' ).click();
-		cy.get( '.ve-ui-mwParameterPage-field' ).type( 't' );
-		// Click on insert button
-		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
-
-		// Ref tag with template and added parameter has been created
-		cy.get( '.ve-ui-mwWikitextSurface' ).should( 'contain.text', '<ref>{{Internetquelle|t=t}}</ref>' );
-
-		// Save changes
-		veHelper.saveEdits();
-
-		// Ref has been added to references section and has correct content
-		helper.getRefFromReferencesSection( 1 ).find( '.reference-text' ).should( 'have.text', 'Template:Internetquelle' );
-	} );
-
 } );

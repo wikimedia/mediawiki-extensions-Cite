@@ -21,7 +21,10 @@ export function getTestString( prefix = '' ) {
 
 export function visitTitle( title, query = {} ) {
 	const queryString = new URLSearchParams( query ).toString();
-	cy.visit( `/index.php?title=${ encodeURIComponent( title ) }&${ queryString }` );
+	cy.visit(
+		`/index.php?title=${ encodeURIComponent( title ) }&${ queryString }`,
+		{ failOnStatusCode: false }
+	);
 }
 
 export function waitForMWLoader() {

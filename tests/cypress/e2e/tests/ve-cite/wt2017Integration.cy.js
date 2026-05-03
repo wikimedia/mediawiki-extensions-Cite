@@ -4,8 +4,6 @@ require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
-const wikiText = '';
-
 let usesCitoid, usesTemplateData;
 
 describe( 'VisualEditor Cite with WT2017 Editor', () => {
@@ -38,7 +36,6 @@ describe( 'VisualEditor Cite with WT2017 Editor', () => {
 		} );
 
 		const title = helper.getTestString( 'CiteTest-wt2017' );
-		helper.editPage( title, wikiText );
 		veHelper.openVEForSourceEditingReferences( title, usesCitoid );
 	} );
 

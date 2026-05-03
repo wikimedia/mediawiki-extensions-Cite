@@ -2,11 +2,6 @@ require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
-const refText1 = 'This is citation #1 for reference #1';
-
-const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` +
-	'<references />';
-
 let usesCitoid;
 
 describe( 'VisualEditor Cite with citation templates', () => {
@@ -40,13 +35,10 @@ describe( 'VisualEditor Cite with citation templates', () => {
 		} );
 
 		const title = helper.getTestString( 'CiteTest-templates' );
-		helper.editPage( title, wikiText );
 		veHelper.openVEForEditingReferences( title, usesCitoid );
 	} );
 
-	it( 'should add a template reference and verify correct content in both saved and edit mode', () => {
-		cy.contains( '.ve-ui-surface  .mw-reflink-text', '[1]' ).type( '{rightarrow}' );
-
+	it( 'should be able to add a new template in VE', () => {
 		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 
@@ -67,7 +59,7 @@ describe( 'VisualEditor Cite with citation templates', () => {
 			cy.get( '.oo-ui-tool-name-cite-web' ).contains( 'Webseite' ).click();
 		}
 
-		// Tempalte dialog is displayed with correct content
+		// Template dialog is displayed with correct content
 		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-title' )
 			.should( 'have.text', 'Webseite' );
 		cy.get( '.ve-ui-mwTemplateDialog .ve-ui-mwTemplatePage .oo-ui-labelElement-label' )
@@ -85,6 +77,6 @@ describe( 'VisualEditor Cite with citation templates', () => {
 		veHelper.saveEdits();
 
 		// Ref has been added to references section and has correct content
-		helper.getRefFromReferencesSection( 2 ).find( '.reference-text' ).should( 'have.text', 'Template:Internetquelle' );
+		helper.getRefFromReferencesSection( 1 ).find( '.reference-text' ).should( 'have.text', 'Template:Internetquelle' );
 	} );
 } );

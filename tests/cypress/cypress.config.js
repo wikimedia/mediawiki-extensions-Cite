@@ -1,11 +1,11 @@
 /* eslint-env node */
 const { defineConfig } = require( 'cypress' );
-// const { mwApiCommands } = require( './tests/cypress/support/MwApiPlugin.js' );
 
 const envLogDir = process.env.LOG_DIR ? process.env.LOG_DIR + '/Cite' : null;
 
 module.exports = defineConfig( {
 	e2e: {
+		allowCypressEnv: false,
 		supportFile: false,
 		specPattern: 'tests/cypress/e2e/**/*.cy.js',
 		baseUrl: process.env.MW_SERVER + process.env.MW_SCRIPT_PATH,

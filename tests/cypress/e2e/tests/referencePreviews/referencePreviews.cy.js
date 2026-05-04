@@ -54,8 +54,8 @@ describe( 'Cite popups integration', () => {
 		cy.get( '.mwe-popups-type-reference', { timeout: 1000 } )
 			.should( 'be.visible' );
 		helper.dwellReference( 'cite_ref-3' );
-		// eslint-disable-next-line cypress/no-unnecessary-waiting
-		cy.wait( 1000 );
+		// The next assertion retries until the popup re-renders with the
+		// nested reference's text, so a fixed wait isn't needed.
 		cy.get( '.mwe-popups-type-reference' )
 			.should( 'include.text', 'reference inception' );
 	} );

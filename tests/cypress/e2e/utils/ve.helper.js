@@ -32,8 +32,7 @@ export function openVEForEditingReferences( title, usesCitoid ) {
 	if ( usesCitoid ) {
 		waitForVECitoidToLoad();
 	}
-	// eslint-disable-next-line cypress/no-unnecessary-waiting
-	cy.wait( 500 );
+	cy.get( '.ve-ce-surface' ).should( 'be.visible' );
 }
 
 export function openVEForSourceEditingReferences( title, usesCitoid ) {
@@ -83,16 +82,13 @@ export function openVECiteReuseDialog() {
 
 export function openVECitoidReuseDialog() {
 	cy.get( '.ve-ui-toolbar-group-citoid' ).click();
-	// TODO: Sometimes enabling the tab does not work right away.
-	// eslint-disable-next-line cypress/no-unnecessary-waiting
-	cy.wait( 500 );
+	cy.get( '.oo-ui-tabSelectWidget' ).should( 'be.visible' );
 	cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label' ).contains( 'Re-use' ).click();
 }
 export function saveEdits() {
-	// TODO: Even if the button is enabled it seems we need a delay before we can click it.
-	// eslint-disable-next-line cypress/no-unnecessary-waiting
-	cy.wait( 500 );
-	cy.get( '.ve-ui-toolbar-saveButton' ).click();
+	cy.get( '.ve-ui-toolbar-saveButton' )
+		.should( 'not.have.class', 'oo-ui-widget-disabled' )
+		.click();
 	cy.get( '.ve-ui-mwSaveDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonWidget' ).click();
 	cy.get( '.mw-notification-visible .oo-ui-icon-success' ).should( 'be.visible' );
 }

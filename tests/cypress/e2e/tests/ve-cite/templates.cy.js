@@ -44,10 +44,7 @@ describe( 'VisualEditor Cite with citation templates', () => {
 		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 
-			// Switch to Manual tab
-			// TODO: Sometimes enabling the tab does not work right away.
-			// eslint-disable-next-line cypress/no-unnecessary-waiting
-			cy.wait( 500 );
+			cy.get( '.oo-ui-tabSelectWidget' ).should( 'be.visible' );
 			cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label' ).contains( 'Manual' ).click();
 
 			cy.get( '.oo-ui-labelElement-label' ).contains( 'Literatur' )
@@ -87,11 +84,7 @@ describe( 'VisualEditor Cite with citation templates', () => {
 
 		if ( usesCitoid ) {
 			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
-			// eslint-disable-next-line cypress/no-unnecessary-waiting
-			cy.wait( 500 );
 			cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label', { timeout: 5000 } ).should( 'be.visible' ).contains( 'Manual' ).click();
-			// eslint-disable-next-line cypress/no-unnecessary-waiting
-			cy.wait( 500 );
 			cy.get( '.oo-ui-labelElement-label' ).contains( 'Webseite' ).click();
 		} else {
 			cy.get( '.ve-ui-toolbar-group-cite' ).click();

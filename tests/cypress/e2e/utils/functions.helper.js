@@ -77,34 +77,6 @@ export function loginAsAdmin() {
 	} );
 }
 
-// Read Mode Helpers
-export function backlinksIdShouldMatchFootnoteId( supIndex, backlinkIndex, rowNumber ) {
-	return getRefsFromArticleSection()
-		.eq( supIndex )
-		.invoke( 'attr', 'id' )
-		.then( ( id ) => {
-			getRefFromReferencesSection( rowNumber )
-				.find( '.mw-cite-backlink a' )
-				.eq( backlinkIndex )
-				.invoke( 'attr', 'href' )
-				.should( 'eq', `#${ id }` );
-		} );
-}
-
-// Article Section
-export function getRefsFromArticleSection() {
-	return cy.get( '#mw-content-text p sup' );
-}
-
-// References Section
-export function getRefsFromReferencesSection() {
-	return cy.get( '#mw-content-text .references li' );
-}
-
-export function getRefFromReferencesSection( rowNumber ) {
-	return getRefsFromReferencesSection().eq( rowNumber - 1 );
-}
-
 export function abandonReference( id ) {
 	cy.get( `:not(.reference-text) > #${ id } a` )
 		.trigger( 'mouseout' );

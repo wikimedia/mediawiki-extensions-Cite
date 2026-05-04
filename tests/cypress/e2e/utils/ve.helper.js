@@ -61,11 +61,15 @@ export function getVEFootnoteMarker( refName, sequenceNumber, index ) {
 }
 
 export function getVEReferenceContextItem() {
-	return cy.get( '.ve-ui-context-menu .ve-ui-mwReferenceContextItem' );
+	return cy.get( '.ve-ui-mwReferenceContextItem' );
 }
 
 export function getVEReferenceContextItemEdit() {
-	return cy.get( '.ve-ui-context-menu .ve-ui-mwReferenceContextItem .ve-ui-linearContextItem-actions .oo-ui-buttonElement-button' );
+	return cy.get( '.ve-ui-mwReferenceContextItem .ve-ui-linearContextItem-actions .oo-ui-buttonElement-button' );
+}
+
+export function getVEReferenceContextItemDetailsEdit() {
+	return cy.get( '.ve-ui-mwReferenceContextItem-subrefHeader .ve-ui-mwReferenceContextItem-editButton' );
 }
 
 export function getVEReferenceEditDialog() {
@@ -121,4 +125,12 @@ export function getCiteReuseDialogRefText( rowNumber ) {
 
 export function getRefsFromArticleSection() {
 	return cy.get( 'sup.ve-ce-mwReferenceNode' );
+}
+
+export function getRefsFromReferencesSection() {
+	return cy.get( '.ve-ce-mwReferencesListNode li' );
+}
+
+export function getRefFromReferencesSection( rowNumber ) {
+	return getRefsFromReferencesSection().eq( rowNumber - 1 );
 }

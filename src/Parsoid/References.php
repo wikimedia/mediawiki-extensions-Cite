@@ -704,12 +704,18 @@ class References {
 			foreach ( $refGroup->inReferencesListErrors as $about => $errors ) {
 				// TODO: Scan for the node via $about and attach the errors there, if possible
 				foreach ( $errors as $error ) {
-					if ( $i++ ) {
+					if ( $hasResponsiveWrapper && $i++ ) {
 						$refsNode->parentNode->insertBefore( $doc->createElement( 'br' ), $afterReferencesList );
 						$refsNode->parentNode->insertBefore( $doc->createTextNode( "\n" ), $afterReferencesList );
 					}
 					$frag = ( new ErrorUtils( $extApi ) )->renderParsoidError( $error );
 					$span = DOMCompat::getFirstElementChild( $frag );
+					if ( !$hasResponsiveWrapper ) {
+						$refsNodeAbout = DOMCompat::getAttribute( $refsNode, 'about' );
+						if ( $refsNodeAbout ) {
+							$span->setAttribute( 'about', $refsNodeAbout );
+						}
+					}
 					// T384599: This workaround displays remaining errors under the reference list
 					$refsNode->parentNode->insertBefore( $span, $afterReferencesList );
 				}

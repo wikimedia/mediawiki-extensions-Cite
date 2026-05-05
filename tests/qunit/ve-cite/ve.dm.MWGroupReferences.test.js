@@ -39,6 +39,7 @@
 	} );
 
 	QUnit.test( 'getTotalUsageCount', function ( assert ) {
+		assert.strictEqual( this.plainGroupRefs.getTotalUsageCount( undefined ), 0 );
 		assert.strictEqual( this.plainGroupRefs.getTotalUsageCount( 0 ), 1 );
 		assert.strictEqual( this.plainGroupRefs.getTotalUsageCount( 1 ), 2 );
 		assert.strictEqual( this.plainGroupRefs.getTotalUsageCount( 2 ), 1 );

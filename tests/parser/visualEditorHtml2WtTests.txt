@@ -394,7 +394,7 @@ VE Converter: Template-generated main plus details; delete template
 !! end
 
 !! test
-VE Converter with store: List defined references and details
+VE Converter: List defined references and details
 !! config
 wgCiteSubReferencing=true
 !! wikitext
@@ -415,7 +415,7 @@ wgCiteSubReferencing=true
 !! end
 
 !! test
-VE Converter with store: List defined references and details ( editing main and details )
+VE Converter: List defined references and details ( editing main and details )
 !! config
 wgCiteSubReferencing=true
 !! wikitext

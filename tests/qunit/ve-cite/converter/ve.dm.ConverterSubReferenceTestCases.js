@@ -2153,3 +2153,418 @@ ve.dm.ConverterSubReferenceTestCases.cases[ 'Template-generated main plus detail
 	preserveAnnotationDomElements:
 		true
 };
+
+// T400052
+// Wikitext:
+// <ref>Default</ref>
+// <ref name="ldrOne" />
+// <ref name="ldrTwo" />
+// <ref details="page 123" name="book">Main</ref>
+// <references>
+// <ref name="ldrOne">Foo</ref>
+// <ref name="ldrTwo">Bar</ref>
+// </references>
+ve.dm.ConverterSubReferenceTestCases.listDefinedAndDetails = {
+	data:
+		[
+			{
+				type: 'paragraph',
+				internal: {
+					whitespace: [
+						undefined,
+						undefined,
+						undefined,
+						'\n'
+					]
+				}
+			},
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {},
+						body: {
+							id: 'mw-reference-text-cite_note-1'
+						}
+					},
+					originalMw: '{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}',
+					listGroup: 'mwReference/',
+					listKey: 'auto/0',
+					listIndex: 0,
+					refGroup: '',
+					contentsUsed: true,
+					refListItemId: 'mw-reference-text-cite_note-1'
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			'\n',
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {
+							name: 'ldrOne'
+						}
+					},
+					originalMw: '{"name":"ref","attrs":{"name":"ldrOne"}}',
+					listGroup: 'mwReference/',
+					listKey: 'literal/ldrOne',
+					listIndex: 1,
+					refGroup: '',
+					contentsUsed: false
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			'\n',
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {
+							name: 'ldrTwo'
+						}
+					},
+					originalMw: '{"name":"ref","attrs":{"name":"ldrTwo"}}',
+					listGroup: 'mwReference/',
+					listKey: 'literal/ldrTwo',
+					listIndex: 2,
+					refGroup: '',
+					contentsUsed: false
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			'\n',
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {
+							details: 'page 123',
+							name: 'book'
+						},
+						body: {
+							id: 'mw-reference-text-cite_note-5'
+						},
+						mainRef: 'book',
+						mainBody: 'mw-reference-text-cite_note-book-4',
+						mainBodyHtml: 'Main'
+					},
+					originalMw: '{"name":"ref","attrs":{"details":"page 123","name":"book"},"body":{"id":"mw-reference-text-cite_note-5"},"mainRef":"book","mainBody":"mw-reference-text-cite_note-book-4","mainBodyHtml":"Main"}',
+					listGroup: 'mwReference/',
+					listKey: 'auto/1',
+					listIndex: 3,
+					refGroup: '',
+					contentsUsed: true,
+					mainListKey: 'literal/book',
+					mainListIndex: 4,
+					refListItemId: 'mw-reference-text-cite_note-5'
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			{
+				type: '/paragraph'
+			},
+			{
+				type: 'mwReferencesList',
+				attributes: {
+					mw: {
+						name: 'references',
+						attrs: {},
+						body: {
+							html: "\n<sup about=\"#mwt5\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw='{\"name\":\"ref\",\"attrs\":{\"name\":\"ldrOne\"},\"body\":{\"id\":\"mw-reference-text-cite_note-ldrOne-2\"}}' id=\"mwEw\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-ldrOne-2\" id=\"mwFA\"><span class=\"mw-reflink-text\" id=\"mwFQ\"><span class=\"cite-bracket\" id=\"mwFg\">[</span>2<span class=\"cite-bracket\" id=\"mwFw\">]</span></span></a></sup>\n<sup about=\"#mwt6\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw='{\"name\":\"ref\",\"attrs\":{\"name\":\"ldrTwo\"},\"body\":{\"id\":\"mw-reference-text-cite_note-ldrTwo-3\"}}' id=\"mwGA\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-ldrTwo-3\" id=\"mwGQ\"><span class=\"mw-reflink-text\" id=\"mwGg\"><span class=\"cite-bracket\" id=\"mwGw\">[</span>3<span class=\"cite-bracket\" id=\"mwHA\">]</span></span></a></sup>\n<sup typeof=\"mw:Extension/ref\" data-mw='{\"name\":\"ref\",\"attrs\":{\"name\":\"book\",\"group\":\"\"},\"body\":{\"id\":\"mw-reference-text-cite_note-book-4\"},\"isSyntheticMainRef\":1}' id=\"mwHQ\">Main</sup>"
+						}
+					},
+					originalMw: "{\"name\":\"references\",\"attrs\":{},\"body\":{\"html\":\"\\n<sup about=\\\"#mwt5\\\" class=\\\"mw-ref reference\\\" rel=\\\"dc:references\\\" typeof=\\\"mw:Extension/ref\\\" data-mw='{\\\"name\\\":\\\"ref\\\",\\\"attrs\\\":{\\\"name\\\":\\\"ldrOne\\\"},\\\"body\\\":{\\\"id\\\":\\\"mw-reference-text-cite_note-ldrOne-2\\\"}}' id=\\\"mwEw\\\"><a href=\\\"./Example/CiteDetailsReferencesLoss#cite_note-ldrOne-2\\\" id=\\\"mwFA\\\"><span class=\\\"mw-reflink-text\\\" id=\\\"mwFQ\\\"><span class=\\\"cite-bracket\\\" id=\\\"mwFg\\\">[</span>2<span class=\\\"cite-bracket\\\" id=\\\"mwFw\\\">]</span></span></a></sup>\\n<sup about=\\\"#mwt6\\\" class=\\\"mw-ref reference\\\" rel=\\\"dc:references\\\" typeof=\\\"mw:Extension/ref\\\" data-mw='{\\\"name\\\":\\\"ref\\\",\\\"attrs\\\":{\\\"name\\\":\\\"ldrTwo\\\"},\\\"body\\\":{\\\"id\\\":\\\"mw-reference-text-cite_note-ldrTwo-3\\\"}}' id=\\\"mwGA\\\"><a href=\\\"./Example/CiteDetailsReferencesLoss#cite_note-ldrTwo-3\\\" id=\\\"mwGQ\\\"><span class=\\\"mw-reflink-text\\\" id=\\\"mwGg\\\"><span class=\\\"cite-bracket\\\" id=\\\"mwGw\\\">[</span>3<span class=\\\"cite-bracket\\\" id=\\\"mwHA\\\">]</span></span></a></sup>\\n<sup typeof=\\\"mw:Extension/ref\\\" data-mw='{\\\"name\\\":\\\"ref\\\",\\\"attrs\\\":{\\\"name\\\":\\\"book\\\",\\\"group\\\":\\\"\\\"},\\\"body\\\":{\\\"id\\\":\\\"mw-reference-text-cite_note-book-4\\\"},\\\"isSyntheticMainRef\\\":1}' id=\\\"mwHQ\\\">Main</sup>\"}}",
+					refGroup: '',
+					listGroup: 'mwReference/',
+					isResponsive: true,
+					templateGenerated: false
+				},
+				internal: {
+					whitespace: [
+						'\n'
+					]
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper',
+					whitespace: [
+						'\n'
+					]
+				}
+			},
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {
+							name: 'ldrOne'
+						},
+						body: {
+							id: 'mw-reference-text-cite_note-ldrOne-2'
+						}
+					},
+					originalMw: '{"name":"ref","attrs":{"name":"ldrOne"},"body":{"id":"mw-reference-text-cite_note-ldrOne-2"}}',
+					listGroup: 'mwReference/',
+					listKey: 'literal/ldrOne',
+					listIndex: 1,
+					refGroup: '',
+					contentsUsed: true,
+					refListItemId: 'mw-reference-text-cite_note-ldrOne-2'
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			'\n',
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {
+							name: 'ldrTwo'
+						},
+						body: {
+							id: 'mw-reference-text-cite_note-ldrTwo-3'
+						}
+					},
+					originalMw: '{"name":"ref","attrs":{"name":"ldrTwo"},"body":{"id":"mw-reference-text-cite_note-ldrTwo-3"}}',
+					listGroup: 'mwReference/',
+					listKey: 'literal/ldrTwo',
+					listIndex: 2,
+					refGroup: '',
+					contentsUsed: true,
+					refListItemId: 'mw-reference-text-cite_note-ldrTwo-3'
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			'\n',
+			{
+				type: 'mwReference',
+				attributes: {
+					mw: {
+						name: 'ref',
+						attrs: {
+							name: 'book',
+							group: ''
+						},
+						body: {
+							id: 'mw-reference-text-cite_note-book-4'
+						},
+						isSyntheticMainRef: 1
+					},
+					originalMw: '{"name":"ref","attrs":{"name":"book","group":""},"body":{"id":"mw-reference-text-cite_note-book-4"},"isSyntheticMainRef":1}',
+					listGroup: 'mwReference/',
+					listKey: 'literal/book',
+					listIndex: 4,
+					refGroup: '',
+					contentsUsed: true,
+					refListItemId: 'mw-reference-text-cite_note-book-4'
+				}
+			},
+			{
+				type: '/mwReference'
+			},
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/mwReferencesList'
+			},
+			{
+				type: 'internalList'
+			},
+			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'Default'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'D',
+			'e',
+			'f',
+			'a',
+			'u',
+			'l',
+			't',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'Foo'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'F',
+			'o',
+			'o',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'Bar'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'B',
+			'a',
+			'r',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'page 123'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'p',
+			'a',
+			'g',
+			'e',
+			' ',
+			'1',
+			'2',
+			'3',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: 'internalItem',
+				attributes: {
+					originalHtml: 'Main'
+				}
+			},
+			{
+				type: 'paragraph',
+				internal: {
+					generated: 'wrapper'
+				}
+			},
+			'M',
+			'a',
+			'i',
+			'n',
+			{
+				type: '/paragraph'
+			},
+			{
+				type: '/internalItem'
+			},
+			{
+				type: '/internalList'
+			}
+		],
+	body:
+		"<p id=\"mwAg\"><sup about=\"#mwt1\" class=\"mw-ref reference\" id=\"cite_ref-1\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-1\" id=\"mwAw\"><span class=\"mw-reflink-text\" id=\"mwBA\"><span class=\"cite-bracket\" id=\"mwBQ\">[</span>1<span class=\"cite-bracket\" id=\"mwBg\">]</span></span></a></sup>\n<sup about=\"#mwt2\" class=\"mw-ref reference\" id=\"cite_ref-ldrOne_2-0\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-ldrOne-2\" id=\"mwBw\"><span class=\"mw-reflink-text\" id=\"mwCA\"><span class=\"cite-bracket\" id=\"mwCQ\">[</span>2<span class=\"cite-bracket\" id=\"mwCg\">]</span></span></a></sup>\n<sup about=\"#mwt3\" class=\"mw-ref reference\" id=\"cite_ref-ldrTwo_3-0\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-ldrTwo-3\" id=\"mwCw\"><span class=\"mw-reflink-text\" id=\"mwDA\"><span class=\"cite-bracket\" id=\"mwDQ\">[</span>3<span class=\"cite-bracket\" id=\"mwDg\">]</span></span></a></sup>\n<sup about=\"#mwt4\" class=\"mw-ref reference\" id=\"cite_ref-5\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-mw=\"{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 123&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-4&quot;,&quot;mainBodyHtml&quot;:&quot;Main&quot;}\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_note-5\" id=\"mwDw\"><span class=\"mw-reflink-text\" id=\"mwEA\"><span class=\"cite-bracket\" id=\"mwEQ\">[</span>4.1<span class=\"cite-bracket\" id=\"mwEg\">]</span></span></a></sup></p>\n<div class=\"mw-references-wrap\" typeof=\"mw:Extension/references\" about=\"#mwt7\" data-mw=\"{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup about=\\&quot;#mwt5\\&quot; class=\\&quot;mw-ref reference\\&quot; rel=\\&quot;dc:references\\&quot; typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;ldrOne\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-ldrOne-2\\&quot;}}' id=\\&quot;mwEw\\&quot;&gt;&lt;a href=\\&quot;./Example/CiteDetailsReferencesLoss#cite_note-ldrOne-2\\&quot; id=\\&quot;mwFA\\&quot;&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot; id=\\&quot;mwFQ\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwFg\\&quot;&gt;[&lt;/span&gt;2&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwFw\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup about=\\&quot;#mwt6\\&quot; class=\\&quot;mw-ref reference\\&quot; rel=\\&quot;dc:references\\&quot; typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;ldrTwo\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-ldrTwo-3\\&quot;}}' id=\\&quot;mwGA\\&quot;&gt;&lt;a href=\\&quot;./Example/CiteDetailsReferencesLoss#cite_note-ldrTwo-3\\&quot; id=\\&quot;mwGQ\\&quot;&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot; id=\\&quot;mwGg\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwGw\\&quot;&gt;[&lt;/span&gt;3&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwHA\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw='{\\&quot;name\\&quot;:\\&quot;ref\\&quot;,\\&quot;attrs\\&quot;:{\\&quot;name\\&quot;:\\&quot;book\\&quot;,\\&quot;group\\&quot;:\\&quot;\\&quot;},\\&quot;body\\&quot;:{\\&quot;id\\&quot;:\\&quot;mw-reference-text-cite_note-book-4\\&quot;},\\&quot;isSyntheticMainRef\\&quot;:1}' id=\\&quot;mwHQ\\&quot;&gt;Main&lt;/sup&gt;&quot;}}\" id=\"mwHg\"><ol class=\"mw-references references\" id=\"mwHw\"><li about=\"#cite_note-1\" id=\"cite_note-1\" data-mw-footnote-number=\"1\"><span class=\"mw-cite-backlink\" id=\"mwIA\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_ref-1\" rel=\"mw:referencedBy\" id=\"mwIQ\"><span class=\"mw-linkback-text\" id=\"mwIg\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-1\" class=\"mw-reference-text reference-text\">Default</span></li>\n<li about=\"#cite_note-ldrOne-2\" id=\"cite_note-ldrOne-2\" data-mw-footnote-number=\"2\"><span class=\"mw-cite-backlink\" id=\"mwIw\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_ref-ldrOne_2-0\" rel=\"mw:referencedBy\" id=\"mwJA\"><span class=\"mw-linkback-text\" id=\"mwJQ\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-ldrOne-2\" class=\"mw-reference-text reference-text\">Foo</span></li>\n<li about=\"#cite_note-ldrTwo-3\" id=\"cite_note-ldrTwo-3\" data-mw-footnote-number=\"3\"><span class=\"mw-cite-backlink\" id=\"mwJg\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_ref-ldrTwo_3-0\" rel=\"mw:referencedBy\" id=\"mwJw\"><span class=\"mw-linkback-text\" id=\"mwKA\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-ldrTwo-3\" class=\"mw-reference-text reference-text\">Bar</span></li>\n<li about=\"#cite_note-book-4\" id=\"cite_note-book-4\" data-mw-footnote-number=\"4\"><span rel=\"mw:referencedBy\" class=\"mw-cite-backlink\" id=\"mwKQ\"></span> <span id=\"mw-reference-text-cite_note-book-4\" class=\"mw-reference-text reference-text\">Main</span><ol class=\"mw-subreference-list\" id=\"mwKg\"><li about=\"#cite_note-5\" id=\"cite_note-5\" data-mw-footnote-number=\"4.1\"><span class=\"mw-cite-backlink\" id=\"mwKw\"><a href=\"./Example/CiteDetailsReferencesLoss#cite_ref-5\" rel=\"mw:referencedBy\" id=\"mwLA\"><span class=\"mw-linkback-text\" id=\"mwLQ\">↑</span></a></span> <span id=\"mw-reference-text-cite_note-5\" class=\"mw-reference-text reference-text\">page 123</span></li>\n</ol></li>\n</ol></div>"
+};
+
+ve.dm.ConverterSubReferenceTestCases.cases[ 'List defined references and details' ] = {
+	data: ve.dm.ConverterSubReferenceTestCases.listDefinedAndDetails.data,
+	body: ve.dm.ConverterSubReferenceTestCases.listDefinedAndDetails.body,
+	fromDataBody:
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}"></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}"></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 123&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-4&quot;,&quot;mainBodyHtml&quot;:&quot;Main&quot;}"></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-2&amp;quot;}}\\&quot;&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-3&amp;quot;}}\\&quot;&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-4&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;4&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-1">Default</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrOne-2">Foo</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrTwo-3">Bar</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-4">Main</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-5">page 123</span></li></ol></li></ol></div>',
+	normalizedBody:
+		'<p id="mwAg"><sup about="#mwt1" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"><a href="./Example/CiteDetailsReferencesLoss#cite_note-1" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>\n<sup about="#mwt2" class="mw-ref reference" id="cite_ref-ldrOne_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}"><a href="./Example/CiteDetailsReferencesLoss#cite_note-ldrOne-2" id="mwBw"><span class="mw-reflink-text" id="mwCA"><span class="cite-bracket" id="mwCQ">[</span>2<span class="cite-bracket" id="mwCg">]</span></span></a></sup>\n<sup about="#mwt3" class="mw-ref reference" id="cite_ref-ldrTwo_3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}"><a href="./Example/CiteDetailsReferencesLoss#cite_note-ldrTwo-3" id="mwCw"><span class="mw-reflink-text" id="mwDA"><span class="cite-bracket" id="mwDQ">[</span>3<span class="cite-bracket" id="mwDg">]</span></span></a></sup>\n<sup about="#mwt4" class="mw-ref reference" id="cite_ref-5" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 123&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-4&quot;,&quot;mainBodyHtml&quot;:&quot;Main&quot;}"><a href="./Example/CiteDetailsReferencesLoss#cite_note-5" id="mwDw"><span class="mw-reflink-text" id="mwEA"><span class="cite-bracket" id="mwEQ">[</span>4.1<span class="cite-bracket" id="mwEg">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup about=\\&quot;#mwt5\\&quot; class=\\&quot;mw-ref reference\\&quot; rel=\\&quot;dc:references\\&quot; typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-2&amp;quot;}}\\&quot; id=\\&quot;mwEw\\&quot;&gt;&lt;a href=\\&quot;./Example/CiteDetailsReferencesLoss#cite_note-ldrOne-2\\&quot; id=\\&quot;mwFA\\&quot;&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot; id=\\&quot;mwFQ\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwFg\\&quot;&gt;[&lt;/span&gt;2&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwFw\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup about=\\&quot;#mwt6\\&quot; class=\\&quot;mw-ref reference\\&quot; rel=\\&quot;dc:references\\&quot; typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-3&amp;quot;}}\\&quot; id=\\&quot;mwGA\\&quot;&gt;&lt;a href=\\&quot;./Example/CiteDetailsReferencesLoss#cite_note-ldrTwo-3\\&quot; id=\\&quot;mwGQ\\&quot;&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot; id=\\&quot;mwGg\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwGw\\&quot;&gt;[&lt;/span&gt;3&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwHA\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-4&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot; id=\\&quot;mwHQ\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;4&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-1">Default</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrOne-2">Foo</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrTwo-3">Bar</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-4">Main</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-5">page 123</span></li></ol></li></ol></div>',
+	clipboardBody:
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;,&quot;html&quot;:&quot;Default&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 123&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;,&quot;html&quot;:&quot;page 123&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-4&quot;,&quot;mainBodyHtml&quot;:&quot;Main&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>4.1<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-2&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Foo&amp;quot;}}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;2&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-3&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Bar&amp;quot;}}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;3&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-4&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Main&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;4&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Default</p></span></div></span></li><li style="--footnote-number: &quot;2.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Foo</p></span></div></span></li><li style="--footnote-number: &quot;3.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Bar</p></span></div></span></li><li style="--footnote-number: &quot;4.&quot;;"><span rel="mw:referencedBy"></span> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Main</p></span></div></span><ol class="mw-subreference-list"><li style="--footnote-number: &quot;4.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 123</p></span></div></span></li></ol></li></ol></div>',
+	previewBody: false,
+	innerWhitespace:
+		[
+			undefined,
+			undefined
+		],
+	preserveAnnotationDomElements:
+		true
+};
+
+// Wikitext after:
+// <ref>Default</ref>
+// <ref name="ldrOne" />
+// <ref name="ldrTwo" />
+// <ref details="page 123 NEW" name="book">Main NEW</ref>
+// <references>
+// <ref name="ldrOne">Foo</ref>
+// <ref name="ldrTwo">Bar</ref>
+// </references>
+ve.dm.ConverterSubReferenceTestCases.cases[ 'List defined references and details (editing main and details)' ] = {
+	data: ve.dm.ConverterSubReferenceTestCases.listDefinedAndDetails.data,
+	body: ve.dm.ConverterSubReferenceTestCases.listDefinedAndDetails.body,
+	modify:
+		( model ) => {
+			model.commit( ve.dm.Transaction.static.deserialize( [ 64, [ [ { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'M', 'a', 'i', 'n', { type: '/paragraph' } ], '' ], 2 ] ) );
+			model.commit( ve.dm.Transaction.static.deserialize( [ 26, [ [ { type: 'internalItem', attributes: { originalHtml: 'Default' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'D', 'e', 'f', 'a', 'u', 'l', 't', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Foo' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'F', 'o', 'o', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Bar' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'B', 'a', 'r', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'page 123' } }, { type: 'paragraph', internal: { generated: 'wrapper', metaItems: [] } }, 'p', 'a', 'g', 'e', ' ', '1', '2', '3', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Main' } }, { type: '/internalItem' } ], [ { type: 'internalItem', attributes: { originalHtml: 'Default' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'D', 'e', 'f', 'a', 'u', 'l', 't', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Foo' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'F', 'o', 'o', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Bar' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'B', 'a', 'r', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'page 123' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '1', '2', '3', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Main' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'M', 'a', 'i', 'n', ' ', 'N', 'E', 'W', { type: '/paragraph' }, { type: '/internalItem' } ] ], 1 ] ) );
+			model.commit( ve.dm.Transaction.static.deserialize( [ 52, [ [ { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '1', '2', '3', { type: '/paragraph' } ], '' ], 14 ] ) );
+			model.commit( ve.dm.Transaction.static.deserialize( [ 26, [ [ { type: 'internalItem', attributes: { originalHtml: 'Default' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'D', 'e', 'f', 'a', 'u', 'l', 't', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Foo' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'F', 'o', 'o', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Bar' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'B', 'a', 'r', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'page 123' } }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Main' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'M', 'a', 'i', 'n', ' ', 'N', 'E', 'W', { type: '/paragraph' }, { type: '/internalItem' } ], [ { type: 'internalItem', attributes: { originalHtml: 'Default' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'D', 'e', 'f', 'a', 'u', 'l', 't', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Foo' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'F', 'o', 'o', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Bar' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'B', 'a', 'r', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'page 123' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'p', 'a', 'g', 'e', ' ', '1', '2', '3', ' ', 'N', 'E', 'W', { type: '/paragraph' }, { type: '/internalItem' }, { type: 'internalItem', attributes: { originalHtml: 'Main' } }, { type: 'paragraph', internal: { generated: 'wrapper' } }, 'M', 'a', 'i', 'n', ' ', 'N', 'E', 'W', { type: '/paragraph' }, { type: '/internalItem' } ] ], 1 ] ) );
+		},
+	fromDataBody:
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}"></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}"></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 123&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;,&quot;html&quot;:&quot;page 123 NEW&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-4&quot;,&quot;mainBodyHtml&quot;:&quot;Main&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>4.1<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-2&amp;quot;}}\\&quot;&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-3&amp;quot;}}\\&quot;&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-4&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Main NEW&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;4&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-1">Default</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrOne-2">Foo</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrTwo-3">Bar</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-4">Main NEW</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-5">page 123 NEW</span></li></ol></li></ol></div>',
+	normalizedBody:
+		'<p id="mwAg"><sup about="#mwt1" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;}}"><a href="./Example/CiteDetailsReferencesLoss#cite_note-1" id="mwAw"><span class="mw-reflink-text" id="mwBA"><span class="cite-bracket" id="mwBQ">[</span>1<span class="cite-bracket" id="mwBg">]</span></span></a></sup>\n<sup about="#mwt2" class="mw-ref reference" id="cite_ref-ldrOne_2-0" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}"><a href="./Example/CiteDetailsReferencesLoss#cite_note-ldrOne-2" id="mwBw"><span class="mw-reflink-text" id="mwCA"><span class="cite-bracket" id="mwCQ">[</span>2<span class="cite-bracket" id="mwCg">]</span></span></a></sup>\n<sup about="#mwt3" class="mw-ref reference" id="cite_ref-ldrTwo_3-0" rel="dc:references" typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}"><a href="./Example/CiteDetailsReferencesLoss#cite_note-ldrTwo-3" id="mwCw"><span class="mw-reflink-text" id="mwDA"><span class="cite-bracket" id="mwDQ">[</span>3<span class="cite-bracket" id="mwDg">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 123&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;,&quot;html&quot;:&quot;page 123 NEW&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-4&quot;,&quot;mainBodyHtml&quot;:&quot;Main&quot;}" class="mw-ref reference" about="#mwt4" id="cite_ref-5" rel="dc:references"><a href="./Example/CiteDetailsReferencesLoss#cite_note-5" id="mwDw"><span class="mw-reflink-text" id="mwEA"><span class="cite-bracket" id="mwEQ">[</span>4.1<span class="cite-bracket" id="mwEg">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup about=\\&quot;#mwt5\\&quot; class=\\&quot;mw-ref reference\\&quot; rel=\\&quot;dc:references\\&quot; typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-2&amp;quot;}}\\&quot; id=\\&quot;mwEw\\&quot;&gt;&lt;a href=\\&quot;./Example/CiteDetailsReferencesLoss#cite_note-ldrOne-2\\&quot; id=\\&quot;mwFA\\&quot;&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot; id=\\&quot;mwFQ\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwFg\\&quot;&gt;[&lt;/span&gt;2&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwFw\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup about=\\&quot;#mwt6\\&quot; class=\\&quot;mw-ref reference\\&quot; rel=\\&quot;dc:references\\&quot; typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-3&amp;quot;}}\\&quot; id=\\&quot;mwGA\\&quot;&gt;&lt;a href=\\&quot;./Example/CiteDetailsReferencesLoss#cite_note-ldrTwo-3\\&quot; id=\\&quot;mwGQ\\&quot;&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot; id=\\&quot;mwGg\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwGw\\&quot;&gt;[&lt;/span&gt;3&lt;span class=\\&quot;cite-bracket\\&quot; id=\\&quot;mwHA\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-4&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Main NEW&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot; id=\\&quot;mwHQ\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;4&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-1">Default</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrOne-2">Foo</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-ldrTwo-3">Bar</span></li><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-book-4">Main NEW</span><ol><li><span typeof="mw:Extension/ref" id="mw-reference-text-cite_note-5">page 123 NEW</span></li></ol></li></ol></div>',
+	clipboardBody:
+		'<p><sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-1&quot;,&quot;html&quot;:&quot;Default&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrOne&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;name&quot;:&quot;ldrTwo&quot;}}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>3<span class="cite-bracket">]</span></span></a></sup>\n<sup typeof="mw:Extension/ref" data-mw="{&quot;name&quot;:&quot;ref&quot;,&quot;attrs&quot;:{&quot;details&quot;:&quot;page 123&quot;,&quot;name&quot;:&quot;book&quot;},&quot;body&quot;:{&quot;id&quot;:&quot;mw-reference-text-cite_note-5&quot;,&quot;html&quot;:&quot;page 123 NEW&quot;},&quot;mainRef&quot;:&quot;book&quot;,&quot;mainBody&quot;:&quot;mw-reference-text-cite_note-book-4&quot;,&quot;mainBodyHtml&quot;:&quot;Main&quot;}" class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>4.1<span class="cite-bracket">]</span></span></a></sup></p>\n<div typeof="mw:Extension/references" data-mw="{&quot;name&quot;:&quot;references&quot;,&quot;attrs&quot;:{},&quot;body&quot;:{&quot;html&quot;:&quot;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrOne&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrOne-2&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Foo&amp;quot;}}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;2&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;ldrTwo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-ldrTwo-3&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Bar&amp;quot;}}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;3&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;\\n&lt;sup typeof=\\&quot;mw:Extension/ref\\&quot; data-mw=\\&quot;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;book&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;mw-reference-text-cite_note-book-4&amp;quot;,&amp;quot;html&amp;quot;:&amp;quot;Main NEW&amp;quot;},&amp;quot;isSyntheticMainRef&amp;quot;:1}\\&quot; class=\\&quot;mw-ref reference\\&quot;&gt;&lt;a&gt;&lt;span class=\\&quot;mw-reflink-text\\&quot;&gt;&lt;span class=\\&quot;cite-bracket\\&quot;&gt;[&lt;/span&gt;4&lt;span class=\\&quot;cite-bracket\\&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/sup&gt;&quot;}}"><ol class="mw-references references"><li style="--footnote-number: &quot;1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Default</p></span></div></span></li><li style="--footnote-number: &quot;2.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Foo</p></span></div></span></li><li style="--footnote-number: &quot;3.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Bar</p></span></div></span></li><li style="--footnote-number: &quot;4.&quot;;"><span rel="mw:referencedBy"></span> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">Main NEW</p></span></div></span><ol class="mw-subreference-list"><li style="--footnote-number: &quot;4.1.&quot;;"><a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a> <span class="reference-text"><div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output"><span class="ve-ce-branchNode ve-ce-internalItemNode"><p class="ve-ce-branchNode ve-ce-contentBranchNode ve-ce-paragraphNode ve-ce-generated-wrapper">page 123 NEW</p></span></div></span></li></ol></li></ol></div>',
+	previewBody: false,
+	innerWhitespace:
+		[
+			undefined,
+			undefined
+		],
+	preserveAnnotationDomElements:
+		true
+};

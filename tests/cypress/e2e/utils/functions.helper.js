@@ -96,16 +96,6 @@ export function getRefsFromArticleSection() {
 	return cy.get( '#mw-content-text p sup' );
 }
 
-export function articleSectionRefMarkersContainCorrectRefName( refMarkerContent ) {
-	return getRefsFromArticleSection()
-		.find( `a:contains('[${ refMarkerContent }]')` ) // Filter by refMarkerContent
-		.each( ( $el ) => {
-			cy.wrap( $el )
-				.should( 'have.text', `[${ refMarkerContent }]` )
-				.and( 'have.attr', 'href', `#cite_note-a-${ refMarkerContent }` );
-		} );
-}
-
 // References Section
 export function getRefsFromReferencesSection() {
 	return cy.get( '#mw-content-text .references li' );
@@ -113,19 +103,6 @@ export function getRefsFromReferencesSection() {
 
 export function getRefFromReferencesSection( rowNumber ) {
 	return getRefsFromReferencesSection().eq( rowNumber - 1 );
-}
-
-export function referenceSectionRefIdContainsRefName( rowNumber, refName ) {
-	const id = refName !== null ? `cite_note-${ refName }-${ rowNumber }` : `cite_note-${ rowNumber }`;
-	return getRefFromReferencesSection( rowNumber ).should( 'have.attr', 'id', id );
-}
-
-export function verifyBacklinkHrefContent( refName, rowNumber, index ) {
-	const expectedHref = `#cite_ref-${ refName }_${ rowNumber }-${ index }`;
-	return getRefFromReferencesSection( rowNumber )
-		.find( '.mw-cite-backlink a' )
-		.eq( index )
-		.should( 'have.attr', 'href', expectedHref );
 }
 
 export function abandonReference( id ) {

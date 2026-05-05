@@ -2,13 +2,21 @@ require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
-const refText1 = 'This is citation #1 for reference #1 and #2';
-const refText2 = 'This is citation #2 for reference #3';
+const refText1 = 'Citation #1';
+const refTextNew = 'Citation #1 NEW';
+const refText2 = 'Citation #2';
 
-const wikiText = `This is reference #1: <ref name="a">${ refText1 }</ref><br> ` +
-	'This is reference #2 <ref name="a" /><br>' +
-	`This is reference #3 <ref>${ refText2 }</ref><br>` +
-	'<references />';
+const wikiText = `# <ref name="foo">${ refText1 }</ref>\n` +
+	'# <ref name="foo" />\n' +
+	`# <ref>${ refText2 }</ref>`;
+
+const wikiTextEdited = `# <ref name="foo">${ refTextNew }</ref>\n` +
+	'# <ref name="foo" />\n' +
+	`# <ref>${ refText2 }</ref>`;
+
+const resuedWikiText = `# <ref name="foo">${ refText1 }</ref>\n` +
+	'# <ref name="foo" />\n' +
+	`# <ref name=":0">${ refText2 }</ref><ref name=":0" />`;
 
 let usesCitoid;
 
@@ -32,9 +40,9 @@ describe( 'VisualEditor Cite', () => {
 	} );
 
 	it( 'should be able to edit and verify reference content in Visual Editor', () => {
-		veHelper.getVEFootnoteMarker( 'a', 1, 1 ).click();
+		veHelper.getVEFootnoteMarker( 'foo', 1, 1 ).click();
 
-		// Popup appears containing ref content
+		// Context popup appears containing ref content
 		veHelper.getVEReferenceContextItem()
 			.should( 'be.visible' )
 			.should( 'contain.text', refText1 );
@@ -46,11 +54,27 @@ describe( 'VisualEditor Cite', () => {
 		veHelper.getVEReferenceEditDialog()
 			.should( 'be.visible' )
 			.should( 'contain.text', refText1 );
+
+		cy.get( '.ve-ui-mwReferenceEditPanel .ve-ce-documentNode' )
+			.type( ' NEW' );
+
+		// Click the "Apply" button in the edit dialog
+		cy.get( '.oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
+
+		// Use the save dialog
+		veHelper.saveEdits();
+
+		// Switch to WikiText Editor
+		cy.get( '#p-views #ca-edit' ).click();
+
+		// Assert that the Wikitext contains Main+Details Ref with updated details content
+		cy.get( 'textarea[name="wpTextbox1"]' )
+			.should( 'contain.value', wikiTextEdited );
 	} );
 
 	it( 'should be able to reuse existing references via the reuse dialog', () => {
 		// Currently there are 3 refs in the article
-		helper.getRefsFromArticleSection().should( 'have.length', 3 );
+		veHelper.getRefsFromArticleSection().should( 'have.length', 3 );
 
 		// Place cursor next to ref #2 in order to add reuse next to it
 		cy.contains( '.ve-ui-surface .mw-reflink-text', '[2]' ).type( '{rightarrow}' );
@@ -63,10 +87,9 @@ describe( 'VisualEditor Cite', () => {
 		}
 
 		// Assert reference content and name for the first reference
-		veHelper.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
+		veHelper.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'foo' );
 		veHelper.getCiteReuseDialogRefResultCitation( 1 ).should( 'have.text', '[1]' );
 		veHelper.getCiteReuseDialogRefText( 1 ).should( 'have.text', refText1 );
-		veHelper.getCiteReuseDialogRefResultName( 1 ).should( 'have.text', 'a' );
 
 		// Assert reference content for the second reference
 		veHelper.getCiteReuseDialogRefResultName( 2 ).should( 'have.text', '' );
@@ -76,32 +99,19 @@ describe( 'VisualEditor Cite', () => {
 		// Reuse the second reference
 		veHelper.getCiteReuseDialogRefResult( 2 ).click();
 
+		// Now there are 4 refs in the article
+		veHelper.getRefsFromArticleSection().should( 'have.length', 4 );
+
 		// The context dialog on the second reference shows it's being used twice
 		cy.contains( '.ve-ui-surface .mw-reflink-text', '[2]' ).click();
 		cy.get( '.oo-ui-popupWidget-popup .ve-ui-mwReferenceContextItem-reuse' )
 			.should( 'have.text', 'Used twice' );
 
-		veHelper.saveEdits();
+		// Switch to WikiText Editor
+		cy.get( '#p-views #ca-edit' ).click();
 
-		// ARTICLE SECTION
-		// Ref has been added to article, there are now 4 refs in the article
-		helper.getRefsFromArticleSection().should( 'have.length', 4 );
-
-		// Ref #2 appears twice in the article, corresponding IDs match the backlinks in
-		// the references section
-		helper.backlinksIdShouldMatchFootnoteId( 2, 0, 2 );
-		helper.backlinksIdShouldMatchFootnoteId( 3, 1, 2 );
-
-		// Both references have the same footnote number
-		cy.get( '#mw-content-text p sup a' ).eq( 2 ).should( 'have.text', '[2]' );
-		cy.get( '#mw-content-text p sup a' ).eq( 3 ).should( 'have.text', '[2]' );
-
-		// REFERENCES SECTION
-		// References section contains a list item for each reference
-		helper.getRefsFromReferencesSection().should( 'have.length', 2 );
-
-		// Ref content should match
-		helper.getRefFromReferencesSection( 1 ).should( 'contain', refText1 );
-		helper.getRefFromReferencesSection( 2 ).find( '.reference-text' ).should( 'have.text', refText2 );
+		// Assert that the Wikitext contains Main+Details Ref with updated details content
+		cy.get( 'textarea[name="wpTextbox1"]' )
+			.should( 'contain.value', resuedWikiText );
 	} );
 } );

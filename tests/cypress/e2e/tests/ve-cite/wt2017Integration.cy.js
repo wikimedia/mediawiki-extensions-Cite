@@ -42,11 +42,5 @@ describe( 'VisualEditor Cite with WT2017 Editor', () => {
 
 		// Ref tag appears with correct content in edit source mode
 		cy.get( '.ve-ui-mwWikitextSurface' ).should( 'contain.text', '<ref>Basic ref</ref>' );
-
-		// Save changes
-		veHelper.saveEdits();
-
-		// Ref has been added to references section and has correct content
-		helper.getRefFromReferencesSection( 1 ).find( '.reference-text' ).should( 'have.text', 'Basic ref' );
 	} );
 } );

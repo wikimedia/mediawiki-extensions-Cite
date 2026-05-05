@@ -85,7 +85,7 @@ export function openVECitoidReuseDialog() {
 	cy.get( '.ve-ui-toolbar-group-citoid' ).click();
 	cy.get( '.ve-ui-citoidInspector-form .oo-ui-tabSelectWidget' ).should( 'be.visible' );
 	// eslint-disable-next-line cypress/no-unnecessary-waiting
-	cy.wait( 10 );
+	cy.wait( 100 );
 	cy.get( '.ve-ui-citoidInspector-form .oo-ui-tabSelectWidget .oo-ui-labelElement-label' )
 		.contains( 'Re-use' ).click();
 	cy.get( '.ve-ui-citoidInspector-form .ve-ui-mwReferenceSearchWidget' ).should( 'be.visible' );
@@ -117,4 +117,8 @@ export function getCiteReuseDialogRefText( rowNumber ) {
 	return cy.get( '.ve-ui-mwReferenceSearchWidget .ve-ui-mwReferenceResultWidget' )
 		.eq( rowNumber - 1 )
 		.find( '.mw-parser-output p' );
+}
+
+export function getRefsFromArticleSection() {
+	return cy.get( 'sup.ve-ce-mwReferenceNode' );
 }

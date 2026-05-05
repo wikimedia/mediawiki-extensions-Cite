@@ -118,6 +118,10 @@ ve.dm.MWGroupReferences.prototype.getAllReusesByListIndex = function ( listIndex
  * @return {number} Total usage count of main refs and subrefs
  */
 ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
+	if ( listIndex === undefined ) {
+		return 0;
+	}
+
 	const mainRefs = this.getRefUsages( listIndex );
 	let usageCount = mainRefs.length;
 

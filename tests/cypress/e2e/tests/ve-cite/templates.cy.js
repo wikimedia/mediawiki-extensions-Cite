@@ -2,6 +2,8 @@ require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
+const expectedWikiText = '<ref>{{Internetquelle|foo=bar}}</ref>';
+
 let usesCitoid;
 let title;
 
@@ -66,17 +68,18 @@ describe( 'VisualEditor Cite with citation templates', () => {
 
 		// Add undocumented parameter
 		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-header' ).click();
-		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 'test' );
+		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 'foo' );
 		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input .oo-ui-actionFieldLayout-button .oo-ui-buttonElement-button' ).click();
-		cy.get( '.ve-ui-mwParameterPage-field' ).type( 'test' );
+		cy.get( '.ve-ui-mwParameterPage-field' ).type( 'bar' );
 		// Click on insert button
 		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
 
-		// Save changes
-		veHelper.saveEdits();
+		// Switch to WikiText Editor
+		cy.get( '#p-views #ca-edit' ).click();
 
-		// Ref has been added to references section and has correct content
-		helper.getRefFromReferencesSection( 1 ).find( '.reference-text' ).should( 'have.text', 'Template:Internetquelle' );
+		// Assert that the Wikitext contains Main+Details Ref with updated details content
+		cy.get( 'textarea[name="wpTextbox1"]' )
+			.should( 'contain.value', expectedWikiText );
 	} );
 
 	it( 'should be able to add a new template in VE WT2017 Editor', () => {
@@ -91,22 +94,22 @@ describe( 'VisualEditor Cite with citation templates', () => {
 			cy.get( '.oo-ui-popupToolGroup-active-tools .oo-ui-tool-title', { timeout: 5000 } ).should( 'be.visible' ).contains( 'Webseite' ).click();
 		}
 
+		// Template dialog is displayed with correct content
+		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-title' )
+			.should( 'have.text', 'Webseite' );
+		cy.get( '.ve-ui-mwTemplateDialog .ve-ui-mwTemplatePage .oo-ui-labelElement-label' )
+			.should( 'have.text', 'Internetquelle' );
+
 		// Add undocumented parameter
 		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-header' ).click();
-		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 't' );
+		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 'foo' );
 		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input .oo-ui-actionFieldLayout-button .oo-ui-buttonElement-button' ).click();
-		cy.get( '.ve-ui-mwParameterPage-field' ).type( 't' );
+		cy.get( '.ve-ui-mwParameterPage-field' ).type( 'bar' );
 		// Click on insert button
 		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
 
 		// Ref tag with template and added parameter has been created
-		cy.get( '.ve-ui-mwWikitextSurface' ).should( 'contain.text', '<ref>{{Internetquelle|t=t}}</ref>' );
-
-		// Save changes
-		veHelper.saveEdits();
-
-		// Ref has been added to references section and has correct content
-		helper.getRefFromReferencesSection( 1 ).find( '.reference-text' ).should( 'have.text', 'Template:Internetquelle' );
+		cy.get( '.ve-ui-mwWikitextSurface' ).should( 'contain.text', expectedWikiText );
 	} );
 
 } );

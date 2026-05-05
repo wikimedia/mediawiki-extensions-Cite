@@ -78,12 +78,17 @@ export function openVECiteReuseDialog() {
 		'.ve-ui-toolbar .oo-ui-tool-name-reference-existing'
 	);
 	cy.get( '.ve-ui-toolbar .oo-ui-tool-name-reference-existing' ).click();
+	cy.get( '.ve-ui-mwReferenceSearchWidget' ).should( 'be.visible' );
 }
 
 export function openVECitoidReuseDialog() {
 	cy.get( '.ve-ui-toolbar-group-citoid' ).click();
-	cy.get( '.oo-ui-tabSelectWidget' ).should( 'be.visible' );
-	cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label' ).contains( 'Re-use' ).click();
+	cy.get( '.ve-ui-citoidInspector-form .oo-ui-tabSelectWidget' ).should( 'be.visible' );
+	// eslint-disable-next-line cypress/no-unnecessary-waiting
+	cy.wait( 10 );
+	cy.get( '.ve-ui-citoidInspector-form .oo-ui-tabSelectWidget .oo-ui-labelElement-label' )
+		.contains( 'Re-use' ).click();
+	cy.get( '.ve-ui-citoidInspector-form .ve-ui-mwReferenceSearchWidget' ).should( 'be.visible' );
 }
 export function saveEdits() {
 	cy.get( '.ve-ui-toolbar-saveButton' )

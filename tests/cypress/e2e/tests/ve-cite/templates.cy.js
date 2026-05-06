@@ -2,7 +2,7 @@ require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
 
-const expectedWikiText = '<ref>{{Internetquelle|foo=bar}}</ref>';
+const expectedWikiText = '<ref>{{Internetquelle|f=b}}</ref>';
 
 let usesCitoid;
 let title;
@@ -68,9 +68,9 @@ describe( 'VisualEditor Cite with citation templates', () => {
 
 		// Add undocumented parameter
 		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-header' ).click();
-		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 'foo' );
+		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 'f' );
 		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input .oo-ui-actionFieldLayout-button .oo-ui-buttonElement-button' ).click();
-		cy.get( '.ve-ui-mwParameterPage-field' ).type( 'bar' );
+		cy.get( '.ve-ui-mwParameterPage-field' ).type( 'b' );
 		// Click on insert button
 		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
 
@@ -102,9 +102,9 @@ describe( 'VisualEditor Cite with citation templates', () => {
 
 		// Add undocumented parameter
 		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-header' ).click();
-		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 'foo' );
+		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input' ).type( 'f' );
 		cy.get( '.ve-ui-mwTransclusionDialog-addParameterFieldset-input .oo-ui-actionFieldLayout-button .oo-ui-buttonElement-button' ).click();
-		cy.get( '.ve-ui-mwParameterPage-field' ).type( 'bar' );
+		cy.get( '.ve-ui-mwParameterPage-field' ).type( 'b' );
 		// Click on insert button
 		cy.get( '.ve-ui-mwTemplateDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
 

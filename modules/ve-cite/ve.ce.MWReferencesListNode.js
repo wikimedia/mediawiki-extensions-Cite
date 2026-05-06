@@ -234,7 +234,7 @@ ve.ce.MWReferencesListNode.prototype.update = function () {
 		// Get first container, e.g. skipping TemplateStyles
 		const div = originalDomElements.find( ( element ) => element.tagName === 'DIV' );
 		if ( div ) {
-			// eslint-disable-next-line mediawiki/class-doc
+
 			this.$element.addClass( div.getAttribute( 'class' ) );
 			this.$element.attr( 'style', div.getAttribute( 'style' ) );
 		}

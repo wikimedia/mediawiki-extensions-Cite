@@ -27,7 +27,6 @@ ve.ui.MWUseExistingReferenceDialogTool.static.group = 'object';
 
 ve.ui.MWUseExistingReferenceDialogTool.static.icon = 'referenceExisting';
 
-// eslint-disable-next-line mediawiki/msg-doc
 ve.ui.MWUseExistingReferenceDialogTool.static.title = OO.ui.deferMsg(
 	...mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ?
 		[ 'cite-ve-othergroup-item', ve.msg( 'cite-ve-dialog-reference-useexisting-tool' ) ] :

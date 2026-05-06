@@ -29,7 +29,6 @@ ve.ui.MWReferenceDialogTool.static.group = 'cite';
 
 ve.ui.MWReferenceDialogTool.static.icon = 'reference';
 
-// eslint-disable-next-line mediawiki/msg-doc
 ve.ui.MWReferenceDialogTool.static.title = OO.ui.deferMsg(
 	...mw.config.get( 'wgCiteVisualEditorOtherGroup' ) ?
 		[ 'cite-ve-othergroup-item', ve.msg( 'cite-ve-dialogbutton-reference-tooltip' ) ] :

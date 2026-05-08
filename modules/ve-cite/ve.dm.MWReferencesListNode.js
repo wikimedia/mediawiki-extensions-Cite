@@ -64,22 +64,30 @@ ve.dm.MWReferencesListNode.static.matchFunction = function ( domElement ) {
 	function hasTypeof( el, type ) {
 		return ( el.getAttribute( 'typeof' ) || '' ).includes( type );
 	}
-	function isRefList( el ) {
-		return el && el.nodeType === Node.ELEMENT_NODE && hasTypeof( el, 'mw:Extension/references' );
+	function isTypeof( el, type ) {
+		// Is the element or its sole child of this type?
+		if ( !( el && el.nodeType === Node.ELEMENT_NODE ) ) {
+			return;
+		}
+		return hasTypeof( el, type ) ||
+			( el.children.length === 1 && hasTypeof( el.children[ 0 ], type ) );
 	}
-	// If the template generated only a reference list, treat it as a ref list (T52769)
+	function isRefList( el ) {
+		return isTypeof( el, 'mw:Extension/references' );
+	}
+	function isTemplateStyles( el ) {
+		return isTypeof( el, 'mw:Extension/templatestyles' );
+	}
+	// If the template generated only a reference list (or a div-wrapped reflist), treat it as a ref list (T52769)
 	return isRefList( domElement ) ||
-		// A div-wrapped reference list
-		( domElement.children.length === 1 && isRefList( domElement.children[ 0 ] ) ) ||
 		// TemplateStyles, about-grouped to a div-wrapped reference list
 		(
-			hasTypeof( domElement, 'mw:Extension/templatestyles' ) &&
+			isTemplateStyles( domElement ) &&
 			domElement.hasAttribute( 'about' ) &&
 			domElement.nextElementSibling &&
 			domElement.nextElementSibling.getAttribute( 'about' ) === domElement.getAttribute( 'about' ) &&
-			// A div-wrapped reference list
-			domElement.nextElementSibling.children.length === 1 &&
-			isRefList( domElement.nextElementSibling.children[ 0 ] )
+			// A following reference list or div-wrapped reference list
+			isRefList( domElement.nextElementSibling )
 			// TODO: We should probably check there aren't subsequent elements. This
 			// and the above checks would be easier if the matchFunction was passed
 			// all the elements in the about group.

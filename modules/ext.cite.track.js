@@ -7,6 +7,7 @@
 	/**
 	 * @param {jQuery} $content
 	 * @param {mw.testKitchen.InstrumentInterface} instrument
+	 * @return {boolean}
 	 */
 	function addTocTracking( $content, instrument ) {
 		// Find the references list inside the page content
@@ -15,15 +16,18 @@
 		const anchor = $headline.attr( 'id' );
 
 		if ( !anchor ) {
-			return;
+			return false;
 		}
 
 		// Find the TOC link that points to this anchor
 		const $tocLink = $( '#vector-toc a[href="#' + CSS.escape( anchor ) + '"]' );
+		if ( $tocLink.length === 0 ) {
+			return false;
+		}
 
 		// Ensure we only add the handler once
 		if ( $tocLink.data( 'toc-tracking-attached' ) ) {
-			return;
+			return true;
 		}
 		$tocLink.data( 'toc-tracking-attached', true );
 
@@ -31,6 +35,8 @@
 		$tocLink.on( 'click', () => {
 			instrument.submitInteraction( 'click-toc-link' );
 		} );
+
+		return true;
 	}
 
 	/**
@@ -65,7 +71,10 @@
 		mw.testKitchen.getInstrument( 'cite-footnote-content-interaction' );
 
 		if ( footNoteInteractionInstrument && footNoteInteractionInstrument.isInSample() ) {
-			addTocTracking( $content, footNoteInteractionInstrument );
+			const foundToc = addTocTracking( $content, footNoteInteractionInstrument );
+			if ( !foundToc ) {
+				footNoteInteractionInstrument.submitInteraction( 'no-toc-tracking-attached' );
+			}
 			addFootnoteTracking( $content, footNoteInteractionInstrument );
 		}
 	}

@@ -291,13 +291,15 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 			// add main body content to mw-data
 			const mainItemNode = internalList.getItemNode( attributes.mainListIndex );
-			const mainItemNodeRange = mainItemNode.getRange();
-			const mainItemNodeWrapper = doc.createElement( 'div' );
-			converter.getDomSubtreeFromData(
-				mainItemNode.getDocument().getFullData( mainItemNodeRange, 'roundTrip' ),
-				mainItemNodeWrapper
-			);
-			ve.setProp( mwData, 'mainBodyHtml', mainItemNodeWrapper.innerHTML );
+			if ( mainItemNode && mainItemNode.length ) {
+				const mainItemNodeRange = mainItemNode.getRange();
+				const mainItemNodeWrapper = doc.createElement( 'div' );
+				converter.getDomSubtreeFromData(
+					mainItemNode.getDocument().getFullData( mainItemNodeRange, 'roundTrip' ),
+					mainItemNodeWrapper
+				);
+				ve.setProp( mwData, 'mainBodyHtml', mainItemNodeWrapper.innerHTML );
+			}
 		}
 
 		// Set or clear group on data-mw

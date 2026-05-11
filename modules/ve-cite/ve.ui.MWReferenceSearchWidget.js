@@ -137,7 +137,7 @@ ve.ui.MWReferenceSearchWidget.prototype.buildIndex = function () {
  * @return {Object[]}
  */
 ve.ui.MWReferenceSearchWidget.prototype.buildSearchIndex = function () {
-	const listGroups = this.docRefs.getListGroupNames().sort();
+	const listGroups = this.internalList.getListGroupNames().sort();
 
 	const searchIndex = [];
 	for ( const listGroup of listGroups ) {

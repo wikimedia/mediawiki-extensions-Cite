@@ -40,13 +40,7 @@
 	function addFootnoteTracking( $content, experiment ) {
 		const $footnotes = $content.find( 'sup.reference a' );
 
-		// Add click handlers
-		$footnotes.each( function () {
-			const $anchor = $( this );
-			$anchor.on( 'click', () => {
-				experiment.send( 'click-footnote-marker' );
-			} );
-		} );
+		$footnotes.on( 'click', () => experiment.send( 'click-footnote-marker' ) );
 	}
 
 	/**

@@ -71,16 +71,6 @@ ve.dm.MWGroupReferences.static.compareAsRefInfos = function ( a, b ) {
 /* Methods */
 
 /**
- * Check whether the group has any references.
- *
- * @deprecated use {@link ve.dm.InternalListNodeGroup.isEmpty} instead
- * @return {boolean}
- */
-ve.dm.MWGroupReferences.prototype.isEmpty = function () {
-	return !this.nodeGroup || this.nodeGroup.isEmpty();
-};
-
-/**
  * Return document nodes for each usage of a ref listIndex.  This excludes usages
  * under the `<references>` section, so note that nested references won't behave
  * as expected.  The reflist item for a ref is not counted as a reference,
@@ -92,7 +82,7 @@ ve.dm.MWGroupReferences.prototype.isEmpty = function () {
  * @return {ve.dm.MWReferenceNode[]}
  */
 ve.dm.MWGroupReferences.prototype.getRefUsages = function ( listIndex ) {
-	return this.getAllReusesByListIndex( listIndex )
+	return ( this.nodeGroup && this.nodeGroup.getAllReusesByListIndex( listIndex ) || [] )
 		.filter( ( node ) => !node.getAttribute( 'placeholder' ) &&
 		// FIXME: Couldn't resolve this so far because of a circular dependency!
 				!node.findParent( ve.dm.MWReferencesListNode )
@@ -100,21 +90,9 @@ ve.dm.MWGroupReferences.prototype.getRefUsages = function ( listIndex ) {
 };
 
 /**
- * Temporary helper as long as the upstream {@link ve.dm.InternalListNodeGroup} doesn't have a
- * better method for this.
- *
- * @deprecated use {@link ve.dm.InternalListNodeGroup.getAllReusesByListIndex} instead
- * @param {number} listIndex
- * @return {ve.dm.MWReferenceNode[]}
- */
-ve.dm.MWGroupReferences.prototype.getAllReusesByListIndex = function ( listIndex ) {
-	return ( this.nodeGroup && this.nodeGroup.getAllReusesByListIndex( listIndex ) ) || [];
-};
-
-/**
  * Get the total number of usages for a reference, including sub-references.
  *
- * @param {number} listIndex
+ * @param {number|undefined} listIndex
  * @return {number} Total usage count of main refs and subrefs
  */
 ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
@@ -122,10 +100,10 @@ ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
 		return 0;
 	}
 
-	const mainRefs = this.getRefUsages( listIndex );
-	let usageCount = mainRefs.length;
+	let usageCount = this.getRefUsages( listIndex ).length;
 
 	Object.values( this.calculatedNumbering ).forEach( ( refInfo ) => {
+		// Also count any sub-ref that points to the requested listIndex as their main ref
 		if ( refInfo.mainListIndex === listIndex ) {
 			usageCount += this.getRefUsages( refInfo.internalListIndex ).length;
 		}

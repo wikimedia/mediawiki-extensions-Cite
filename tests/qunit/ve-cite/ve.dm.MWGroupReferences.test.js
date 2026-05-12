@@ -13,12 +13,6 @@
 		}
 	} ) );
 
-	QUnit.test( 'isEmpty', function ( assert ) {
-		assert.false( this.plainGroupRefs.isEmpty() );
-		assert.false( this.fooGroupRefs.isEmpty() );
-		assert.true( this.emptyGroupRefs.isEmpty() );
-	} );
-
 	QUnit.test( 'getRefUsages', function ( assert ) {
 		const listIndex = 1;
 		assert.deepEqual(
@@ -27,15 +21,6 @@
 		);
 		const doesNotExist = -1;
 		assert.deepEqual( this.plainGroupRefs.getRefUsages( doesNotExist ), [] );
-	} );
-
-	QUnit.test( 'getAllReusesByListIndex', function ( assert ) {
-		assert.deepEqual(
-			this.plainGroupRefs.getAllReusesByListIndex( 1 ).map( ( node ) => node.getAttribute( 'listIndex' ) ),
-			[ 1, 1 ]
-		);
-		const doesNotExist = -1;
-		assert.deepEqual( this.plainGroupRefs.getAllReusesByListIndex( doesNotExist ), [] );
 	} );
 
 	QUnit.test( 'getTotalUsageCount', function ( assert ) {

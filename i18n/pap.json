@@ -5,7 +5,7 @@
 			"ObaTango"
 		]
 	},
-	"cite-desc": "Ta vug <code>&lt;ref&gt;</code> i <code>&lt;references&gt;</code> lebel pa sitashon.",
+	"cite-desc": "Ta agregá <code>&lt;ref&gt;</code> i <code>&lt;references&gt;</code> lebel pa sitashon.",
 	"cite_error": "Eror di sita: $1",
 	"cite_error_details_missing_parent": "Un <code>&lt;ref></code> lebel ku detaye mester kontené kontenido òf punta na un referensia pariente pa nòmber.",
 	"cite_error_details_unsupported_context": "<code>&lt;ref&gt;</code> lebel ku nòmber \"$1\" no por usa detaye ora esaki aperesé den <code>&lt;references&gt;</code>.",

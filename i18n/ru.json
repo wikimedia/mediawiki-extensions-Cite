@@ -29,7 +29,8 @@
 			"Elzav",
 			"Vonavy",
 			"Merrahtar",
-			"Yurina Tatiana"
+			"Yurina Tatiana",
+			"Le Loi"
 		]
 	},
 	"cite-desc": "Добавляет для сносок теги <code>&lt;ref&gt;</code> и <code>&lt;references/&gt;</code>",
@@ -72,7 +73,7 @@
 	"cite-wikieditor-help-page-references": "Примечания",
 	"cite-wikieditor-help-content-reference-description": "Примечание",
 	"cite-wikieditor-help-content-named-reference-description": "Сноска с названием",
-	"cite-wikieditor-help-content-rereference-description": "Дополнительное использование той же ссылки",
+	"cite-wikieditor-help-content-rereference-description": "Повторное использование той же ссылки",
 	"cite-wikieditor-help-content-extended-reference-description": "Дополнительное использование той же ссылки с дополнительными подробностями",
 	"cite-wikieditor-help-content-showreferences-description": "Показывать примечания",
 	"cite-wikieditor-help-content-reference-example-text1": "Текст страницы. $1",

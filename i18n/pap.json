@@ -1,8 +1,33 @@
 {
 	"@metadata": {
 		"authors": [
-			"ObaTango"
+			"ObaTango",
+			"Kallmemel"
 		]
 	},
-	"cite_error": "Eror di sita: $1"
+	"cite-desc": "Ta vug <code>&lt;ref&gt;</code> i <code>&lt;references&gt;</code> lebel pa sitashon.",
+	"cite_error": "Eror di sita: $1",
+	"cite_error_ref_invalid_dir": "Inbálido <code>dir=\"$1\"</code>, mester ta <code>ltr</code> òf <code>rtl</code>",
+	"cite-tracking-category-cite-error": "Páginanan ku referensia defekto",
+	"cite-tracking-category-cite-error-desc": "Páginanan den e kategoria aki tin eror den e uso di tagnan di referensia.",
+	"cite-reference-previews-reference": "Referensia",
+	"cite-reference-previews-book": "Referensia di buki",
+	"cite-reference-previews-journal": "Referencia di revista",
+	"cite-reference-previews-news": "Referencia di notisia",
+	"cite-reference-previews-note": "Nota",
+	"cite-reference-previews-web": "Referensia di wèp",
+	"cite-reference-previews-collapsible-placeholder": "E referensia aki ta inkluí un figura ku no ta pas den e avanse.",
+	"cite_references_link_accessibility_label": "Na laira",
+	"cite_references_link_many_accessibility_label": "Bai laira na:",
+	"cite_references_link_accessibility_back_label": "Bai bèk laira",
+	"cite_section_preview_references": "Avanse di referensia",
+	"cite_warning_sectionpreview_no_text": "No ta posibel pa duna un avanse di <code>&lt;ref&gt;</code> ku e nòmber <code>$1</code>, ya ku e no ta definí den e sekshon aktual òf mes.",
+	"cite-wikieditor-tool-reference": "Referensia",
+	"cite-wikieditor-help-page-references": "Referensia",
+	"cite-wikieditor-help-content-reference-description": "Referensia",
+	"cite-wikieditor-help-content-named-reference-description": "Referensia nombrá",
+	"cite-wikieditor-help-content-rereference-description": "Uso adishonal di e mesun refernsia",
+	"cite-wikieditor-help-content-showreferences-description": "Mustra referensia",
+	"cite-wikieditor-help-content-reference-example-text1": "Teksto di página.$1",
+	"cite-wikieditor-help-content-reference-example-text2": "[$1 Teksto di lenk], teksto adishonal."
 }

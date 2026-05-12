@@ -11,10 +11,11 @@
 			"Niels",
 			"PiefPafPier",
 			"Romaine",
-			"Siebrand"
+			"Siebrand",
+			"Jeroen N"
 		]
 	},
-	"cite-desc": "Voegt <code>&lt;ref&gt;</code>- en <code>&lt;references&gt;</code>-labels toe voor citaten",
+	"cite-desc": "Voegt <code>&lt;ref&gt;</code>- en <code>&lt;references&gt;</code>-tags toe voor referenties",
 	"cite_error": "Citefout: $1",
 	"cite_error_ref_invalid_dir": "Ongeldig <code>dir=\"$1\"</code>, moet <code>ltr</code> of <code>rtl</code> zijn.",
 	"cite_error_ref_conflicting_dir": "Eén van de <code>&lt;ref&gt;</code>-tags met de naam “$1” heeft een conflicterend dir-attribuut.",

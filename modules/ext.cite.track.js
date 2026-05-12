@@ -4,6 +4,8 @@
  * Adding code for analytic instruments
  */
 ( function () {
+	let lastFootnoteClicked;
+
 	/**
 	 * @param {jQuery} $content
 	 * @param {mw.testKitchen.ExperimentInterface} experiment
@@ -52,7 +54,20 @@
 	function addFootnoteTracking( $content, experiment ) {
 		const $footnotes = $content.find( 'sup.reference a' );
 
-		$footnotes.on( 'click', () => experiment.send( 'click-footnote-marker' ) );
+		$footnotes.on( 'click', function () {
+			if ( this !== lastFootnoteClicked ) {
+				experiment.send( 'click-footnote-marker' );
+				lastFootnoteClicked = this;
+			} else {
+				// eslint-disable-next-line no-jquery/no-global-selector
+				const $popupsReflistLink = $( '.mwe-popups-reflist-link-wrapper' );
+				// eslint-disable-next-line no-jquery/no-class-state
+				if ( $popupsReflistLink.length && !$popupsReflistLink.hasClass( 'mwe-popups-reflist-link-hidden' ) ) {
+					// Send this event only if the popup is already in "persistent" state.
+					experiment.send( 'click-footnote-marker-twice' );
+				}
+			}
+		} );
 	}
 
 	/**

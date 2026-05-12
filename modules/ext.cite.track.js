@@ -25,12 +25,6 @@
 			return false;
 		}
 
-		// Ensure we only add the handler once
-		if ( $tocLink.data( 'toc-tracking-attached' ) ) {
-			return true;
-		}
-		$tocLink.data( 'toc-tracking-attached', true );
-
 		// Add click handler
 		$tocLink.on( 'click', () => {
 			experiment.send( 'click-toc-link' );
@@ -45,11 +39,6 @@
 	 */
 	function addFootnoteTracking( $content, experiment ) {
 		const $footnotes = $content.find( 'sup.reference a' );
-
-		if ( $footnotes.first().data( 'footnote-tracking-attached' ) ) {
-			return;
-		}
-		$footnotes.first().data( 'footnote-tracking-attached', true );
 
 		// Add click handlers
 		$footnotes.each( function () {

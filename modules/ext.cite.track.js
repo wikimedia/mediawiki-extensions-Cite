@@ -14,6 +14,8 @@
 		const $referencesList = $content.find( '.mw-heading2 ~ .mw-references-wrap, .mw-heading2 ~ ol.references' ).last();
 		const $headline = $referencesList.prevAll( '.mw-heading2' ).first().children( 'h2' );
 		const anchor = $headline.attr( 'id' );
+		const isReferencesListInViewport =
+			() => $headline.get( 0 ).getBoundingClientRect().top < window.innerHeight;
 
 		if ( !anchor ) {
 			return false;
@@ -25,10 +27,20 @@
 			return false;
 		}
 
+		if ( isReferencesListInViewport() ) {
+			experiment.send( 'initial-pageview-shows-references' );
+		}
+
 		// Add click handler
 		$tocLink.on( 'click', () => {
 			experiment.send( 'click-toc-link' );
 		} );
+
+		$( window ).on( 'scroll', mw.util.debounce( () => {
+			if ( isReferencesListInViewport() ) {
+				experiment.send( 'scrolled-to-references' );
+			}
+		}, 500 ) );
 
 		return true;
 	}

@@ -23,7 +23,8 @@
 			"Veracious",
 			"William Surya Permana",
 			"Felianiwiki",
-			"Penyuwangi"
+			"Penyuwangi",
+			"NikolasKHF"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Buku",
@@ -42,9 +43,11 @@
 	"cite-ve-citationneeded-description": "Penyunting telah mengindikasikan bahwa klaim ini memerlukan kutipan dari sumber tepercaya.",
 	"cite-ve-citationneeded-reason": "Alasan yang diberikan:",
 	"cite-ve-citationneeded-title": "Diperlukan kutipan",
+	"cite-ve-dialog-reference-contextitem-extends": "Referensi ini digunakan dengan tambahan rincian:",
 	"cite-ve-dialog-reference-editing-reused": "Referensi ini dipakai {{PLURAL:$1|sekali\n|$1 kali}} pada halaman ini.",
 	"cite-ve-dialog-reference-editing-reused-long": "Referensi ini dipakai {{PLURAL:$1|sekali|$1 kali}} pada halaman ini. Perubahan yang dilakukan di sini akan diterapkan di semua tempat referensi ini dipakai.",
 	"cite-ve-dialog-reference-editing-extends": "Ini adalah ekstensi referensi lainnya.",
+	"cite-ve-dialog-reference-missing-parent-ref": "Rincian berikut ditautkan pada referensi yang hilang. Harap hapus mereka dari halaman tersebut atau perbaiki masalahnya pada mode sumber.",
 	"cite-ve-dialog-reference-options-group-label": "Pakai kelompok ini",
 	"cite-ve-dialog-reference-options-group-placeholder": "Referensi umum",
 	"cite-ve-dialog-reference-options-responsive-label": "Gunakan tata letak kolom responsif",
@@ -64,6 +67,7 @@
 	"cite-ve-reference-input-placeholder": "Cari dalam kutipan saat ini",
 	"cite-ve-referenceslist-isempty": "Tidak ada referensi dengan kelompok \"$1\" pada halaman ini yang dapat disertakan dalam daftar ini.",
 	"cite-ve-referenceslist-isempty-default": "Tidak ada referensi pada halaman ini yang dapat disertakan dalam daftar ini.",
+	"cite-ve-referenceslist-missing-parent": "Rincian berikut ditautkan pada referensi yang hilang. Harap hapus mereka dari halaman tersebut atau perbaiki masalahnya pada mode sumber.",
 	"cite-ve-referenceslist-missingref": "Referensi ini didefinisikan dalam templat atau blok lain, dan saat ini hanya dapat disunting dalam mode sumber.",
 	"cite-ve-referenceslist-missingref-in-list": "Referensi ini didefinisikan dalam templat atau blok lain, dan saat ini hanya dapat dipratinjau dalam mode sumber.",
 	"cite-ve-referenceslist-missingreflist": "Daftar referensi ini dihasilkan oleh templat.",

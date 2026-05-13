@@ -299,6 +299,33 @@ ve.ui.MWReferenceContextItem.prototype.getInternalList = function () {
 };
 
 /**
+ * Get the InternalItemNode for the main content if we're dealing with a sub-ref.
+ *
+ * @private
+ * @return {ve.dm.InternalItemNode|undefined}
+ */
+ve.ui.MWReferenceContextItem.prototype.getMainItemNode = function () {
+	const mainListIndex = this.model.getAttribute( 'mainListIndex' );
+	if ( mainListIndex === undefined ) {
+		return;
+	}
+
+	return this.getInternalList().getItemNode( mainListIndex );
+};
+
+/**
+ * @override
+ */
+ve.ui.MWReferenceContextItem.prototype.isEditable = function () {
+	if ( this.model.getAttribute( 'mainListIndex' ) === undefined ) {
+		return ve.ui.MWReferenceContextItem.super.prototype.isEditable.call( this );
+	}
+
+	const mainItemNode = this.getMainItemNode();
+	return mainItemNode && mainItemNode.getLength() !== 0;
+};
+
+/**
  * @override
  */
 ve.ui.MWReferenceContextItem.prototype.getDescription = function () {

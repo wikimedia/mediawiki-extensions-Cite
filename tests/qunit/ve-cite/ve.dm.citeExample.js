@@ -379,3 +379,27 @@ ve.dm.citeExample.subReferencing = [
 	{ type: '/internalItem' },
 	{ type: '/internalList' }
 ];
+
+// A simple document with a reference without internalData
+ve.dm.citeExample.simpleRefEmptyMain = [
+	{ type: 'paragraph' },
+	{ type: 'mwReference', attributes: {
+		mainListKey: 'literal/emptymain',
+		mainListIndex: 1,
+		listIndex: 0,
+		listGroup: 'mwReference/',
+		listKey: 'auto/0',
+		refGroup: ''
+	} },
+	{ type: '/mwReference' },
+	{ type: '/paragraph' },
+	{ type: 'internalList' },
+	{ type: 'internalItem' },
+	{ type: 'paragraph' },
+	'F', 'o', 'o',
+	{ type: '/paragraph' },
+	{ type: '/internalItem' },
+	{ type: 'internalItem' },
+	{ type: '/internalItem' },
+	{ type: '/internalList' }
+];

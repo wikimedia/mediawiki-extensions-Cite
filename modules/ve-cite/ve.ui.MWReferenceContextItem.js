@@ -30,8 +30,6 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	this.detailsView = null;
 	/** @member {ve.dm.MWGroupReferences} */
 	this.groupRefs = null;
-	/** @member {ve.dm.InternalList} */
-	this.internalList = null;
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceContextItem' );
 
@@ -84,7 +82,7 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	// Render main ref if this is a subref, or a placeholder if missing.
 	const mainListIndex = this.model.getAttribute( 'mainListIndex' );
 	if ( mainListIndex !== undefined && internalItemNode ) {
-		internalItemNode = this.internalList.getItemNode( mainListIndex );
+		internalItemNode = this.getInternalList().getItemNode( mainListIndex );
 		errorMsgKey = 'cite-ve-dialog-reference-missing-parent-ref';
 	}
 
@@ -171,7 +169,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 	);
 	editNodeAction.execute(
 		MWReferenceModel.static.newFromMainNodeAttributes(
-			this.internalList.getDocument(),
+			this.getFragment().getDocument(),
 			this.model.getAttribute( 'listGroup' ),
 			this.model.getAttribute( 'mainListKey' ),
 			mainListIndex
@@ -278,18 +276,26 @@ ve.ui.MWReferenceContextItem.prototype.getAddDetailsButton = function () {
 };
 
 /**
- * Get the reference node in the containing document (not the internal list document)
+ * Get the InternalItemNode in the containing document.  On a sub-ref this is the content
+ * of the details.
  *
- * @return {ve.dm.InternalItemNode|null} Reference item node
+ * @return {ve.dm.InternalItemNode|null}
  */
 ve.ui.MWReferenceContextItem.prototype.getInternalItemNode = function () {
 	if ( !this.model.isEditable() ) {
 		return null;
 	}
 	if ( !this.internalItemNode ) {
-		this.internalItemNode = this.internalList.getItemNode( this.model.getAttribute( 'listIndex' ) );
+		this.internalItemNode = this.getInternalList().getItemNode( this.model.getAttribute( 'listIndex' ) );
 	}
 	return this.internalItemNode;
+};
+
+/**
+ * @return {ve.dm.InternalList}
+ */
+ve.ui.MWReferenceContextItem.prototype.getInternalList = function () {
+	return this.getFragment().getDocument().getInternalList();
 };
 
 /**
@@ -303,9 +309,7 @@ ve.ui.MWReferenceContextItem.prototype.getDescription = function () {
  * @override
  */
 ve.ui.MWReferenceContextItem.prototype.setup = function () {
-	const doc = this.getFragment().getDocument();
-	this.internalList = doc.getInternalList();
-	const nodeGroup = this.internalList.getNodeGroup( this.model.getAttribute( 'listGroup' ) );
+	const nodeGroup = this.getInternalList().getNodeGroup( this.model.getAttribute( 'listGroup' ) );
 	this.groupRefs = MWGroupReferences.static.makeGroupRefs( nodeGroup );
 
 	// Parent method

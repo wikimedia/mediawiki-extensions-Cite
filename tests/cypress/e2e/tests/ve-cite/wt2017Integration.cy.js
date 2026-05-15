@@ -12,6 +12,20 @@ describe( 'VisualEditor Cite with WT2017 Editor', () => {
 			cy.skipOn( !deps.visualEditor );
 			usesCitoid = deps.citoid;
 		} );
+
+		helper.loginAsAdmin();
+		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
+			{
+				name: 'web',
+				title: 'Webseite',
+				template: 'Internetquelle'
+			},
+			{
+				name: 'book',
+				title: 'Literatur',
+				template: 'Literatur'
+			}
+		] ) );
 	} );
 
 	beforeEach( () => {

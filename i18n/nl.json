@@ -11,10 +11,11 @@
 			"Niels",
 			"PiefPafPier",
 			"Romaine",
-			"Siebrand"
+			"Siebrand",
+			"Jeroen N"
 		]
 	},
-	"cite-desc": "Voegt <code>&lt;ref&gt;</code>- en <code>&lt;references&gt;</code>-labels toe voor citaten",
+	"cite-desc": "Voegt <code>&lt;ref&gt;</code>- en <code>&lt;references&gt;</code>-tags toe voor referenties",
 	"cite_error": "Citefout: $1",
 	"cite_error_details_missing_parent": "De <code>&lt;ref></code>-tag met details moet inhoud bevatten of via de naam naar een bovenliggende referentie verwijzen.",
 	"cite_error_details_unsupported_context": "De <code>&lt;ref&gt;</code>-tag met de naam “$1” kan geen details gebruiken wanneer deze zich binnen <code>&lt;references&gt;</code> bevindt.",

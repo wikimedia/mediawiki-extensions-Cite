@@ -29,7 +29,8 @@
 			"Wikisaurus",
 			"Wileyfoxyx",
 			"Yurina Tatiana",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Le Loi"
 		]
 	},
 	"cite-desc": "Добавляет для сносок теги <code>&lt;ref&gt;</code> и <code>&lt;references/&gt;</code>",
@@ -60,6 +61,7 @@
 	"cite-reference-previews-journal": "Ссылка на статью",
 	"cite-reference-previews-news": "Ссылка на новость",
 	"cite-reference-previews-note": "Примечание",
+	"cite-reference-previews-map": "Ссылка на карту",
 	"cite-reference-previews-web": "Веб-ссылка",
 	"cite-reference-previews-collapsible-placeholder": "В этой сноске есть элемент, который сюда не помещается.",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "У вас включен гаджет [[$1|всплывающих навигационных окон]], поэтому вы не увидите окно предпросмотра, предоставляемое этой функцией. В зависимости от вашей вики, гаджет может иметь немного другое название. Если вы продолжаете испытывать проблемы, пожалуйста, проверьте вашими гаджеты и пользовательские скрипты, в том числе глобальные.",
@@ -76,7 +78,8 @@
 	"cite-wikieditor-help-page-references": "Примечания",
 	"cite-wikieditor-help-content-reference-description": "Примечание",
 	"cite-wikieditor-help-content-named-reference-description": "Сноска с названием",
-	"cite-wikieditor-help-content-rereference-description": "Дополнительное использование той же ссылки",
+	"cite-wikieditor-help-content-rereference-description": "Повторное использование той же ссылки",
+	"cite-wikieditor-help-content-sub-reference-description": "Повторное использование той же ссылки с другими деталями",
 	"cite-wikieditor-help-content-showreferences-description": "Показывать примечания",
 	"cite-wikieditor-help-content-reference-example-text1": "Текст страницы. $1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Текст ссылки], ещё текст.",

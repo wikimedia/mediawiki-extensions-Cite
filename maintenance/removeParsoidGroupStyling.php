@@ -65,7 +65,7 @@ class RemoveParsoidGroupStyling extends Maintenance {
 		if ( $userName === false ) {
 			$user = User::newSystemUser( User::MAINTENANCE_SCRIPT_USER, [ 'steal' => true ] );
 		} else {
-			$user = User::newFromName( $userName );
+			$user = $this->getServiceContainer()->getUserFactory()->newFromName( $userName );
 		}
 		if ( !$user ) {
 			$this->fatalError( "Invalid username" );

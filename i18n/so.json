@@ -4,5 +4,9 @@
 			"AhmedG612"
 		]
 	},
-	"cite-tracking-category-ref-details": "Bogagga isticmaala tixraacyo-hoosaad"
+	"cite_error_ref_too_many_keys": "Halbeeg aan sax ahayn \"$1\" oo ku jira sumadda <code>&lt;ref&gt;</code>. Halbeegyada la taageerayo waa: $2.",
+	"cite_error_ref_parameter_suggestion": "Halbeeg aan sax ahayn \"$1\" oo ku jira sumadda <code>&lt;ref&gt;</code>. Ma u jeedday \"$2\"?",
+	"cite_error_references_invalid_parameters": "Halbeeg aan sax ahayn \"$1\" oo ku jira sumadda <code>&lt;references&gt;</code>. Halbeegyada la taageerayo waa: $2.",
+	"cite-tracking-category-ref-details": "Bogagga isticmaala tixraacyo-hoosaad",
+	"cite-reference-previews-preference-label": "Daar hor-u eegista tixraacyada (hel arag dhakhso ah oo tixraac ah markaad bog akhrinayso)"
 }

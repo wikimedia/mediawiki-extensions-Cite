@@ -4,5 +4,9 @@
 			"AhmedG612"
 		]
 	},
-	"cite-ve-dialog-reference-add-details-button": "Ku dar faahfaahin"
+	"cite-ve-dialog-reference-editing-details-placeholder": "Nuxurka lagu daro goobtan ayaa halkan ka soo muuqan doona.",
+	"cite-ve-dialog-reference-add-details-button": "Ku dar faahfaahin",
+	"cite-ve-dialog-reference-useexisting-tool": "Dib u isticmaal",
+	"cite-ve-dialogbutton-reference-tooltip": "Aasaasi",
+	"cite-ve-othergroup-item": "$1 tixraac"
 }

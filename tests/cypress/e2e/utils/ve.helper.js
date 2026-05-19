@@ -85,15 +85,32 @@ export function openVECiteReuseDialog() {
 	cy.get( '.ve-ui-mwReferenceSearchWidget' ).should( 'be.visible' );
 }
 
-export function openVECitoidReuseDialog() {
-	cy.get( '.ve-ui-toolbar-group-citoid' ).click();
-	cy.get( '.ve-ui-citoidInspector-form .oo-ui-tabSelectWidget' ).should( 'be.visible' );
+export function openVECitoidInspector() {
+	cy.get( 'body' ).type( '{ctrl}{shift}k' );
+	cy.get( '.ve-ui-citoidInspector .oo-ui-tabSelectWidget' )
+		.should( 'be.visible' );
+	// FIXME: Citoid inspector is flaky when openening up
+	//  if clicking to fast the selected tab gets reset again
 	// eslint-disable-next-line cypress/no-unnecessary-waiting
-	cy.wait( 100 );
-	cy.get( '.ve-ui-citoidInspector-form .oo-ui-tabSelectWidget .oo-ui-labelElement-label' )
-		.contains( 'Re-use' ).click();
-	cy.get( '.ve-ui-citoidInspector-form .ve-ui-mwReferenceSearchWidget' ).should( 'be.visible' );
+	cy.wait( 300 );
 }
+
+export function openVECitoidReuseDialog() {
+	this.openVECitoidInspector();
+	cy.get( '.ve-ui-citoidInspector .oo-ui-tabSelectWidget .oo-ui-labelElement-label' )
+		.contains( 'Re-use' ).click();
+	cy.get( '.ve-ui-citoidInspector .ve-ui-mwReferenceSearchWidget' )
+		.should( 'be.visible' );
+}
+
+export function openVECitoidSourceSelector() {
+	this.openVECitoidInspector();
+	cy.get( '.ve-ui-citoidInspector .oo-ui-tabSelectWidget .oo-ui-labelElement-label' )
+		.contains( 'Manual' ).click();
+	cy.get( '.ve-ui-citoidInspector .ve-ui-citoidInspector-sourceSelect' )
+		.should( 'be.visible' );
+}
+
 export function saveEdits() {
 	cy.get( '.ve-ui-toolbar-saveButton' )
 		.should( 'not.have.class', 'oo-ui-widget-disabled' )

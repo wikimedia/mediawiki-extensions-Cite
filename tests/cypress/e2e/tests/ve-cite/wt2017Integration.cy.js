@@ -1,5 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
-
 require( '@cypress/skip-test/support' );
 import * as helper from './../../utils/functions.helper.js';
 import * as veHelper from './../../utils/ve.helper.js';
@@ -40,14 +38,13 @@ describe( 'VisualEditor Cite with WT2017 Editor', () => {
 
 	it( 'should be able to create a basic reference', () => {
 		if ( usesCitoid ) {
-			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
-			cy.wait( 500 );
-			cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label', { timeout: 5000 } ).should( 'be.visible' ).contains( 'Manual' ).click();
-			cy.wait( 500 );
+			veHelper.openVECitoidSourceSelector();
 			cy.get( '.ve-ui-citeSourceSelectWidget-basic' ).click();
 		} else {
 			cy.get( '.ve-ui-toolbar-group-cite' ).click();
-			cy.get( '.oo-ui-popupToolGroup-active-tools .oo-ui-tool-title', { timeout: 5000 } ).should( 'be.visible' ).contains( 'Basic' ).click();
+			cy.get( '.oo-ui-popupToolGroup-active-tools .oo-ui-tool-title' )
+				.should( 'be.visible' )
+				.contains( 'Basic' ).click();
 		}
 
 		cy.get( '.ve-ui-mwReferenceDialog .mw-content-ltr' ).type( 'Basic ref' );

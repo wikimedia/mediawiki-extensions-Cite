@@ -44,15 +44,12 @@ describe( 'VisualEditor Cite with citation templates', () => {
 		veHelper.openVEForEditingReferences( title, usesCitoid );
 
 		if ( usesCitoid ) {
-			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
-
-			cy.get( '.oo-ui-tabSelectWidget' ).should( 'be.visible' );
-			cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label' ).contains( 'Manual' ).click();
-
-			cy.get( '.oo-ui-labelElement-label' ).contains( 'Literatur' )
+			veHelper.openVECitoidSourceSelector();
+			cy.get( '.oo-ui-labelElement-label' )
+				.contains( 'Literatur' )
 				.should( 'be.visible' );
-			cy.get( '.oo-ui-labelElement-label' ).contains( 'Webseite' ).click();
-
+			cy.get( '.oo-ui-labelElement-label' )
+				.contains( 'Webseite' ).click();
 		} else {
 			cy.get( '.ve-ui-toolbar-group-cite' ).click();
 			cy.get( '.oo-ui-tool-name-cite-book' ).contains( 'Literatur' )
@@ -86,12 +83,12 @@ describe( 'VisualEditor Cite with citation templates', () => {
 		veHelper.openVEForSourceEditingReferences( title, usesCitoid );
 
 		if ( usesCitoid ) {
-			cy.get( '.ve-ui-toolbar-group-citoid' ).click();
-			cy.get( '.oo-ui-tabSelectWidget .oo-ui-labelElement-label', { timeout: 5000 } ).should( 'be.visible' ).contains( 'Manual' ).click();
+			veHelper.openVECitoidSourceSelector();
 			cy.get( '.oo-ui-labelElement-label' ).contains( 'Webseite' ).click();
 		} else {
 			cy.get( '.ve-ui-toolbar-group-cite' ).click();
-			cy.get( '.oo-ui-popupToolGroup-active-tools .oo-ui-tool-title', { timeout: 5000 } ).should( 'be.visible' ).contains( 'Webseite' ).click();
+			cy.get( '.oo-ui-popupToolGroup-active-tools .oo-ui-tool-title' )
+				.should( 'be.visible' ).contains( 'Webseite' ).click();
 		}
 
 		// Template dialog is displayed with correct content

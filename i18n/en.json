@@ -50,6 +50,7 @@
 	"cite-reference-previews-map": "Map reference",
 	"cite-reference-previews-web": "Web reference",
 	"cite-reference-previews-collapsible-placeholder": "This reference includes a figure which does not fit in the preview.",
+	"cite-reference-previews-reflist-link": "Jump to reference list",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "You have the [[$1|Navigation popups]] gadget enabled, so you won't see previews provided by this feature. Depending on your wiki, the gadget may have a slightly different name. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "You have the [[$1|Reference Tooltips]] gadget enabled, so you won't see reference previews but will still see page previews. Depending on your wiki, the gadget may have a slightly different name. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "You have the [[$1|Navigation popups]] and [[$1|Reference Tooltips]] gadgets enabled, so you won't see previews provided by this feature. Depending on your wiki, the gadgets may have slightly different names. If you continue to experience issues, please review your gadgets and user scripts, including global ones.",

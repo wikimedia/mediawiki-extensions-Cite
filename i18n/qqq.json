@@ -58,6 +58,7 @@
 	"cite-reference-previews-map": "Heading for a popup previewing a citation that is or links to a map or part of a map.\n{{Identical|Map}}",
 	"cite-reference-previews-web": "Heading for a popup previewing a citation from a website.\n{{Identical|Website}}",
 	"cite-reference-previews-collapsible-placeholder": "Placeholder text for collapsible tables, templates, or other large elements inside of a reference.",
+	"cite-reference-previews-reflist-link": "Link in the reference preview popup that jumps to the reference in the reference list at the bottom of the page.",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "Help message telling to disable the \"Navigation popups\" gadget in order to allow page and reference previews. The word \"Gadgets\" should be based on {{msg-mw|prefs-gadgets}}.\n\nParameters:\n* $1 – Link to the Gadgets tab in the user's preferences",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "Help message telling to disable the \"Reference Tooltips\" gadget in order to allow reference previews. The word \"Gadgets\" should be based on {{msg-mw|prefs-gadgets}}.\n\nParameters:\n* $1 – Link to the Gadgets tab in the user's preferences",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "Help message telling to disable the \"Navigation popups\" and \"Reference Tooltips\" gadgets in order to allow page and reference previews. The word \"Gadgets\" should be based on {{msg-mw|prefs-gadgets}}.\n\nParameters:\n* $1 – Link to the Gadgets tab in the user's preferences",

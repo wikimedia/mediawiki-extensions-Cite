@@ -45,7 +45,7 @@
 	"cite_error_group_refs_without_references": "Error message shown when a ref group has no <code>&lt;references></code> tag.\n\nParameters:\n* $1 - the group name",
 	"cite_error_references_group_mismatch": "Error message shown when a <code>&lt;ref></code> has a different group than its enclosing <code>&lt;references></code>.\n\nParameters:\n* $1 - the value of the <code>group</code> attribute on the inner <code>&lt;ref&gt;</code>",
 	"cite_error_references_missing_key": "Error message shown when using something like\n<pre>\n<references>\n<ref name=\"refname\">...</ref>\n</references>\n</pre>\nand the reference <code>&lt;ref name=\"refname\"/&gt;</code> is not used anywhere in the page text.\n\nParameters:\n* $1 - the name of the unused reference (in the example above, “refname”)",
-	"cite_error_references_no_key": "Error message shown when a <code>&lt;ref&gt;</code> inside <code>&lt;references&gt;</code> does not have a <code>name</code> attribute.",
+	"cite_error_references_no_key": "Error message shown when a <code>&lt;ref&gt;</code> inside <code>&lt;references&gt;</code> does not have a name. A name is needed to be able to use the reference in the text before the reference list.",
 	"cite_error_empty_references_define": "Error message shown when there is a ref tag inside <code>&lt;references></code>, but it does not have any content, e.g.\n<pre>\n<references>\n<ref name=\"foo\" />\n</references>\n</pre>\nParameters:\n* $1 - The name of the erroneous ref tag (in the above example, “foo”)\n* $2 - Group name the ref tag belongs to",
 	"cite-tracking-category-cite-error": "{{tracking category name}}\nTracking category name.",
 	"cite-tracking-category-cite-error-desc": "Tracking category description.",

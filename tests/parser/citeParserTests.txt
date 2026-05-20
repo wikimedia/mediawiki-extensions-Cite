@@ -541,9 +541,9 @@ cat=Pages_with_reference_errors sort=
 </li>
 <li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">Also zero, but differently! (Normal ref)</span>
 </li>
-<li id="cite&#95;note-bar-3"><span class="mw-cite-backlink"><a href="#cite_ref-bar_3-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>bar</code></span></span>
+<li id="cite&#95;note-bar-3"><span class="mw-cite-backlink"><a href="#cite_ref-bar_3-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named "bar"</span></span>
 </li>
-<li id="cite&#95;note-blankwithnoreference-4"><span class="mw-cite-backlink"><a href="#cite_ref-blankwithnoreference_4-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>blankwithnoreference</code></span></span>
+<li id="cite&#95;note-blankwithnoreference-4"><span class="mw-cite-backlink"><a href="#cite_ref-blankwithnoreference_4-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named "blankwithnoreference"</span></span>
 </li>
 </ol></div>
 !! html/parsoid
@@ -1149,14 +1149,14 @@ THREE<sup about="#mwt12" class="mw-ref reference" id="cite_ref-bar_3-0" rel="dc:
 <p>ONE<sup id="cite&#95;ref-foo&#95;1-0" class="reference"><a href="#cite_note-foo-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite&#95;note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>foo</code></span></span>
+<li id="cite&#95;note-foo-1"><span class="mw-cite-backlink"><a href="#cite_ref-foo_1-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named "foo"</span></span>
 </li>
 </ol></div>
 <p>TWO<sup id="cite&#95;ref-foo&#95;2-0" class="reference"><a href="#cite_note-foo-2"><span class="cite-bracket">&#91;</span>NOTES 1<span class="cite-bracket">&#93;</span></a></sup>
 THREE<sup id="cite&#95;ref-bar&#95;3-0" class="reference"><a href="#cite_note-bar-3"><span class="cite-bracket">&#91;</span>NOTES 2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references" data-mw-group="NOTES">
-<li id="cite&#95;note-foo-2"><span class="mw-cite-backlink"><a href="#cite_ref-foo_2-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>foo</code></span></span>
+<li id="cite&#95;note-foo-2"><span class="mw-cite-backlink"><a href="#cite_ref-foo_2-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named "foo"</span></span>
 </li>
 <li id="cite&#95;note-bar-3"><span class="mw-cite-backlink"><a href="#cite_ref-bar_3-0">↑</a></span> <span class="reference-text">CONTENT</span>
 </li>
@@ -1182,9 +1182,9 @@ Error conditions on non-visible content
 <div class="mw-references-wrap"><ol class="references">
 <li id="cite&#95;note-a-1"><span class="mw-cite-backlink"><a href="#cite_ref-a_1-0">↑</a></span> <span class="reference-text">x</span>
 </li>
-<li id="cite&#95;note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>b</code></span></span>
+<li id="cite&#95;note-b-2"><span class="mw-cite-backlink"><a href="#cite_ref-b_2-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named "b"</span></span>
 </li>
-<li id="cite&#95;note-c-3"><span class="mw-cite-backlink"><a href="#cite_ref-c_3-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>c</code></span></span>
+<li id="cite&#95;note-c-3"><span class="mw-cite-backlink"><a href="#cite_ref-c_3-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named "c"</span></span>
 </li>
 </ol></div>
 <p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "a" defined in <code>&lt;references&gt;</code> group "" has no content.</span><br />
@@ -1378,7 +1378,7 @@ Bla.<ref name="void"> </ref>
 <p>Bla.<sup id="cite&#95;ref-void&#95;1-0" class="reference"><a href="#cite_note-void-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite&#95;note-void-1"><span class="mw-cite-backlink"><a href="#cite_ref-void_1-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>void</code></span></span>
+<li id="cite&#95;note-void-1"><span class="mw-cite-backlink"><a href="#cite_ref-void_1-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named "void"</span></span>
 </li>
 </ol></div>
 !! html/parsoid
@@ -3121,9 +3121,9 @@ T15673: <ref> with direction "nonsense" and "" (empty), strip invalid dir attrib
 <sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite&#95;note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">NONSENSE_DIR_TEST <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir="nonsense"</code>, must be <code>ltr</code> or <code>rtl</code></span></span>
+<li id="cite&#95;note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">NONSENSE_DIR_TEST <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir="nonsense"</code>, must be "ltr" or "rtl"</span></span>
 </li>
-<li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">EMPTY_DIR_TEST <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir=""</code>, must be <code>ltr</code> or <code>rtl</code></span></span>
+<li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">EMPTY_DIR_TEST <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir=""</code>, must be "ltr" or "rtl"</span></span>
 </li>
 </ol></div>
 !! html/parsoid
@@ -3961,7 +3961,7 @@ cat=Pages_with_reference_errors sort=
 <p><sup id="cite&#95;ref-aaa&#95;1-0" class="reference"><a href="#cite_note-aaa-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite&#95;note-aaa-1"><span class="mw-cite-backlink"><a href="#cite_ref-aaa_1-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named <code>aaa</code></span></span>
+<li id="cite&#95;note-aaa-1"><span class="mw-cite-backlink"><a href="#cite_ref-aaa_1-0">↑</a></span> <span class="reference-text"> <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>&lt;ref&gt;</code> tag; no text was provided for refs named "aaa"</span></span>
 </li>
 </ol></div>
 !! html/parsoid

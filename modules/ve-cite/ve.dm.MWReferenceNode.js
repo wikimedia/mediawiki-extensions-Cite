@@ -527,9 +527,7 @@ ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) 
  * @return {boolean}
  */
 ve.dm.MWReferenceNode.static.isSubRef = function ( attributes ) {
-	return attributes.mainListIndex !== undefined ||
-		// TODO: Temporary redundancy, please remove as soon as possible
-		!!attributes.mainListKey;
+	return attributes.mainListIndex !== undefined;
 };
 
 /**
@@ -738,11 +736,10 @@ ve.dm.MWReferenceNode.prototype.getGroup = function () {
 };
 
 /**
- * @private
  * @return {boolean}
  */
 ve.dm.MWReferenceNode.prototype.isSubRef = function () {
-	return this.constructor.static.isSubRef( this.element.attributes );
+	return this.constructor.static.isSubRef( this.element.attributes || {} );
 };
 
 /**

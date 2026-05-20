@@ -15,6 +15,9 @@ const Options = require( './ve.ui.MWSubReferenceHelpDialogOptions.js' );
 /**
  * Context item for a MWReference.
  *
+ * @class
+ * @property {ve.dm.MWReferenceNode} model
+ *
  * @constructor
  * @extends ve.ui.LinearContextItem
  * @param {ve.ui.LinearContext} context Context the item is in
@@ -30,6 +33,7 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	this.detailsView = null;
 	/** @member {ve.dm.MWGroupReferences} */
 	this.groupRefs = null;
+
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceContextItem' );
 
@@ -80,9 +84,8 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
 	let errorMsgKey = 'cite-ve-referenceslist-missingref';
 
 	// Render main ref if this is a subref, or a placeholder if missing.
-	const mainListIndex = this.model.getAttribute( 'mainListIndex' );
-	if ( mainListIndex !== undefined && internalItemNode ) {
-		internalItemNode = this.getInternalList().getItemNode( mainListIndex );
+	if ( internalItemNode && this.model.isSubRef() ) {
+		internalItemNode = this.getMainItemNode();
 		errorMsgKey = 'cite-ve-dialog-reference-missing-parent-ref';
 	}
 
@@ -111,7 +114,7 @@ ve.ui.MWReferenceContextItem.prototype.getMainRefPreview = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
-	if ( this.model.getAttribute( 'mainListIndex' ) === undefined ) {
+	if ( !this.model.isSubRef() ) {
 		return;
 	}
 
@@ -156,8 +159,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 		this.testKitchenExperiment.send( 'context-edit-click' );
 	}
 
-	const mainListIndex = this.model.getAttribute( 'mainListIndex' );
-	if ( mainListIndex === undefined ) {
+	if ( !this.model.isSubRef() ) {
 		ve.ui.LinearContextItem.prototype.onEditButtonClick.apply( this );
 		return;
 	}
@@ -172,7 +174,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
 			this.getFragment().getDocument(),
 			this.model.getAttribute( 'listGroup' ),
 			this.model.getAttribute( 'mainListKey' ),
-			mainListIndex
+			this.model.getAttribute( 'mainListIndex' )
 		)
 	);
 };
@@ -305,19 +307,18 @@ ve.ui.MWReferenceContextItem.prototype.getInternalList = function () {
  * @return {ve.dm.InternalItemNode|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getMainItemNode = function () {
-	const mainListIndex = this.model.getAttribute( 'mainListIndex' );
-	if ( mainListIndex === undefined ) {
+	if ( !this.model.isSubRef() ) {
 		return;
 	}
 
-	return this.getInternalList().getItemNode( mainListIndex );
+	return this.getInternalList().getItemNode( this.model.getAttribute( 'mainListIndex' ) );
 };
 
 /**
  * @override
  */
 ve.ui.MWReferenceContextItem.prototype.isEditable = function () {
-	if ( this.model.getAttribute( 'mainListIndex' ) === undefined ) {
+	if ( !this.model.isSubRef() ) {
 		return ve.ui.MWReferenceContextItem.super.prototype.isEditable.call( this );
 	}
 

@@ -7,7 +7,7 @@ module.exports = defineConfig( {
 	e2e: {
 		allowCypressEnv: false,
 		supportFile: false,
-		specPattern: 'tests/cypress/e2e/**/*.cy.js',
+		specPattern: [ 'tests/cypress/e2e/**/*.cy.js', 'tests/cypress/setup/**/*.cy.js' ],
 		baseUrl: process.env.MW_SERVER + process.env.MW_SCRIPT_PATH,
 		mediawikiAdminUsername: process.env.MEDIAWIKI_USER,
 		mediawikiAdminPassword: process.env.MEDIAWIKI_PASSWORD,
@@ -21,7 +21,16 @@ module.exports = defineConfig( {
 					'/api.php?action=query&meta=siteinfo&siprop=extensions&format=json' );
 				const { query } = await res.json();
 
-				const excludes = [];
+				// The setup spec is only invoked explicitly via --spec; keep it
+				// out of the normal worker run. The cypress:setup script sets
+				// CYPRESS_RUN_SETUP_ONLY so the setup phase can pick it up.
+				const excludes = process.env.CYPRESS_RUN_SETUP_ONLY ? [] : [ '**/setup/**' ];
+				// The setup writes MediaWiki:Cite-tool-definition.json, which
+				// is only consumed by TemplateData or Citoid integration paths.
+				if ( !query.extensions.some( ( e ) => e.name === 'TemplateData' ) &&
+					!query.extensions.some( ( e ) => e.name === 'Citoid' ) ) {
+					excludes.push( '**/setup/**' );
+				}
 				if ( !query.extensions.some( ( e ) => e.name === 'Popups' ) ) {
 					excludes.push( '**/referencePreviews/**' );
 				}

@@ -16,19 +16,6 @@ describe( 'VisualEditor Cite with citation templates', () => {
 		} );
 
 		cy.clearCookies();
-		helper.loginAsAdmin();
-		helper.editPage( 'MediaWiki:Cite-tool-definition.json', JSON.stringify( [
-			{
-				name: 'web',
-				title: 'Webseite',
-				template: 'Internetquelle'
-			},
-			{
-				name: 'book',
-				title: 'Literatur',
-				template: 'Literatur'
-			}
-		] ) );
 	} );
 
 	beforeEach( () => {

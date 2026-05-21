@@ -398,10 +398,14 @@ class References {
 			$refDataMw
 		);
 
-		// The current <ref> is inside <references>, and no previous <ref> had the same name. There
-		// are no (visible) nodes that can be used to track errors.
-		if ( $referencesData->inReferenceList() && !$ref->nodes ) {
-			$refGroup->inReferencesListErrors[$about] = $errs;
+		if ( $referencesData->inReferenceList() ) {
+			// The current <ref> is inside <references>, and no previous <ref> had the same name.
+			// There are no (visible) nodes that can be used to track errors.
+			if ( !$ref->nodes ) {
+				$refGroup->inReferencesListErrors[$about] = $errs;
+			} else {
+				ErrorUtils::addErrorsToNode( array_first( $ref->nodes ), $errs );
+			}
 		} else {
 			// FIXME(T214241): Should the errors be added to data-mw if
 			// $isTplWrapper?  Here and other calls to addErrorsToNode.

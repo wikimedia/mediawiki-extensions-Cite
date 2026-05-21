@@ -26,7 +26,10 @@ class RefGroup implements Countable {
 	/** @var array<string,RefGroupItem> Lookup map only for named refs */
 	private array $indexByName = [];
 
-	/** @var array<string,DataMwError[]> */
+	/**
+	 * @var array<string,DataMwError[]> Error from inside a <references> tag that couldn't be
+	 *  attached to a visible node. Indexed by the nested <ref>'s about id.
+	 */
 	public array $inReferencesListErrors = [];
 
 	/** @var array<string,array<string,RefGroupItem>> Lookup for sub-references by details content and main reference name */

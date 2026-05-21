@@ -61,8 +61,8 @@ const isRefPreviewReflistLinkEnabled = testKitchenExperiment && testKitchenExper
 if ( isRefPreviewReflistLinkEnabled ) {
 	// eslint-disable-next-line no-jquery/no-global-selector
 	$( '#mw-content-text .reference a[ href*="#" ]' ).on( 'click', ( event ) => {
-		// Bail out when the event was triggerd by keyboard interaction
-		if ( !event.pointerType ) {
+		// Bail out when the event was triggerd by keyboard interaction or touch
+		if ( !event.pointerType || event.pointerType === 'touch' ) {
 			return;
 		}
 

@@ -139,6 +139,8 @@ function renderReferencePreview(
 
 		// Jump to reflist
 		reflistLink.addEventListener( 'click', () => {
+			testKitchenExperiment.send( 'click-goto-references' );
+
 			const targetId = model.url ? model.url.slice( 1 ) : null;
 			const targetElement = document.getElementById( targetId );
 

@@ -37,9 +37,7 @@ OO.inheritClass( ve.ui.MWReferencesListCommand, ve.ui.Command );
  */
 ve.ui.MWReferencesListCommand.prototype.execute = function ( surface ) {
 	const fragment = surface.getModel().getFragment();
-	const selectedNode = fragment.getSelectedNode();
-	const isReflistNodeSelected = selectedNode &&
-		selectedNode instanceof MWReferencesListNode;
+	const isReflistNodeSelected = fragment.getSelectedNode() instanceof MWReferencesListNode;
 
 	if ( isReflistNodeSelected ) {
 		return surface.execute( 'window', 'open', 'referencesList' );

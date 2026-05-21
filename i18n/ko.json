@@ -53,6 +53,7 @@
 	"cite-reference-previews-map": "지도 참조",
 	"cite-reference-previews-web": "웹 참조",
 	"cite-reference-previews-collapsible-placeholder": "이 참조에는 미리 보기에는 맞지 않는 그림이 포함되어 있습니다.",
+	"cite-reference-previews-reflist-link": "각주 목록으로 이동",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "[[$1|내비게이션 팝업]] 소도구를 사용하고 있으므로 이 기능이 제공하는 미리 보기를 볼 수 없습니다. 위키에 따라 이 소도구의 이름은 조금씩 다를 수 있습니다. 문제를 계속 마주친다면 통합 계정을 포함하여 소도구와 사용자 스크립트를 검토해 주십시오.",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "[[$1|각주 말풍선]] 소도구가 활성화되어 있으므로 각주 미리 보기는 표시되지 않지만 문서 미리 보기는 계속 표시됩니다. 위키에 따라 소도구의 이름이 다소 다를 수 있습니다. 문제가 지속하는 경우 전역 소도구와 스크립트를 포함하여 자신의 소도구와 사용자 스크립트를 검토해 주십시오.",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "[[$1|내비게이션 팝업]]과 [[$1|각주 풍선말]] 소도구를 사용하고 있으므로 이 기능이 제공하는 미리 보기를 볼 수 없습니다. 위키에 따라 이 소도구의 이름은 조금씩 다를 수 있습니다. 문제를 계속 마주친다면 통합 계정을 포함하여 전역 환경 설정과 사용자 스크립트를 검토해 주십시오.",

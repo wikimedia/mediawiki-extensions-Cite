@@ -8,7 +8,8 @@
 			"Pere prlpz",
 			"SMP",
 			"Vriullop",
-			"Arnaugir"
+			"Arnaugir",
+			"Paucabot"
 		]
 	},
 	"cite-desc": "Afegiu les etiquetes <code>&lt;ref&gt;</code> i <code>&lt;references&gt;</code> per a cites",
@@ -22,7 +23,7 @@
 	"cite_error_references_invalid_parameters": "L’etiqueta <code>&lt;references&gt;</code> conté un paràmetre no vàlid",
 	"cite_error_references_no_backlink_label": "Hi ha massa etiquetes personalitzades. Se'n poden definir més a [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_no_link_label_group": "No hi ha etiquetes vincle personalitzat per al grup \"$1\". Defineix més al missatge [[MediaWiki:$2]].",
-	"cite_error_references_no_text": "Etiqueta <code>&lt;ref&gt;</code> no vàlida;\nno s'ha proporcionat text per les refs nomenades <code>$1</code>",
+	"cite_error_references_no_text": "Etiqueta <code>&lt;ref&gt;</code> no vàlida;\nno s'ha proporcionat text per les refs anomenades <code>$1</code>",
 	"cite_error_included_ref": "Es tanca el <code>&lt;/ref&gt;</code> que manca per una etiqueta <code>&lt;ref&gt;</code>",
 	"cite_error_group_refs_without_references": "Existeixen etiquetes <code>&lt;ref&gt;</code> pel grup «$1» però no s'ha trobat l'etiqueta <code>&lt;references group=\"$1\"/&gt;</code> corresponent.",
 	"cite_error_references_group_mismatch": "L'etiqueta <code>&lt;ref&gt;</code> a <code>&lt;references&gt;</code> té un conflicte amb l'atribut de grup \"$1\".",

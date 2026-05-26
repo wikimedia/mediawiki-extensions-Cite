@@ -25,7 +25,7 @@
 	"cite_error_ref_follow_conflicts": "Een <code>&lt;ref follow=\"…\"&gt;</code>-tag die de voortzetting is van een vorige, kan niet ook afzonderlijk worden genoemd (name=\"…\") of worden uitgebreid (extends=\"…\").",
 	"cite_error_ref_nested_extends": "Het uitbreiden van <code>&lt;ref&gt;</code>-tags tot meer dan één niveau diep is niet toegestaan",
 	"cite_error_ref_no_input": "Onjuist label <code>&lt;ref&gt;</code>; refs zonder naam moeten inhoud hebben",
-	"cite_error_references_duplicate_key": "Ongeldig label <code>&lt;ref&gt;</code>; de naam \"$1\" wordt meerdere keren met andere inhoud gedefinieerd.",
+	"cite_error_references_duplicate_key": "Incorrect label <code>&lt;ref&gt;</code>; de naam \"$1\" wordt meerdere keren met andere inhoud gedefinieerd.",
 	"cite_error_references_invalid_parameters": "Onjuiste parameter in <code>&lt;references&gt;</code>-tag",
 	"cite_error_references_no_backlink_label": "Het aantal beschikbare backlinklabels is opgebruikt. Geef meer labels op in het bericht [[MediaWiki:Cite references link many format backlink labels]]",
 	"cite_error_no_link_label_group": "Het aantal aangepaste koppelinglabels voor de group \"$1\" is uitgeput. U kunt er meer instellen in het systeembericht [[MediaWiki:$2]].",

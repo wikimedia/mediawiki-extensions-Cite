@@ -77,7 +77,7 @@
 	 */
 	function addFootnoteContentExperiment( $content ) {
 		/** @type {mw.testKitchen.ExperimentInterface|undefined} */
-		if ( mw.testKitchen ) {
+		if ( mw.testKitchen && !mw.config.get( 'wgMFMode' ) ) {
 			mw.testKitchen.getExperiment( 'cite-footnote-content-interaction-experiment' )
 				.then( ( experiment ) => {
 					if ( experiment && experiment.getAssignedGroup() ) {

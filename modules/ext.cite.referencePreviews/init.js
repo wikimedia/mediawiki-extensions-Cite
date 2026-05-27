@@ -51,7 +51,7 @@ function createReferencePreviewsType() {
 let testKitchenExperiment = null;
 
 // Test Kitchen experiment: cite-footnote-content-interaction-experiment (T123456)
-if ( mw.testKitchen ) {
+if ( mw.testKitchen && !mw.config.get( 'wgMFMode' ) ) {
 	testKitchenExperiment = mw.testKitchen.compat.getExperiment( 'cite-footnote-content-interaction-experiment' );
 }
 

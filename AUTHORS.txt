@@ -3,7 +3,7 @@ Principal Authors (major contributors, alphabetically)
 Adam Wight
 Ævar Arnfjörð Bjarmason
 Andrew Garrett
-Brion Vibber
+Brooke Vibber
 Ed Sanders
 Marius Hoch
 Steve Sanbeg

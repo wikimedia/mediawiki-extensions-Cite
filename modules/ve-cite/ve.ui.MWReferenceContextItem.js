@@ -37,18 +37,6 @@ ve.ui.MWReferenceContextItem = function VeUiMWReferenceContextItem() {
 	// Initialization
 	this.$element.addClass( 've-ui-mwReferenceContextItem' );
 
-	if ( mw.testKitchen ) {
-		// See 'Machine-readable name' in https://test-kitchen.wikimedia.org/create-experiment
-		this.testKitchenExperiment = mw.testKitchen.compat.getExperiment( 'test-context-edit-color' );
-	}
-
-	if ( this.testKitchenExperiment &&
-		// See 'Variations' in https://test-kitchen.wikimedia.org/create-experiment
-		this.testKitchenExperiment.isAssignedGroup( 'green-button' )
-	) {
-		this.$element.addClass( 'green-button' );
-	}
-
 	this.showHelp = !OO.ui.isMobile() &&
 		!Options.loadBoolean( 'hide-subref-help' );
 };
@@ -155,10 +143,6 @@ ve.ui.MWReferenceContextItem.prototype.getDetailsPreview = function () {
  * Override default edit button, when a subref is present.
  */
 ve.ui.MWReferenceContextItem.prototype.onEditButtonClick = function () {
-	if ( this.testKitchenExperiment ) {
-		this.testKitchenExperiment.send( 'context-edit-click' );
-	}
-
 	if ( !this.model.isSubRef() ) {
 		ve.ui.LinearContextItem.prototype.onEditButtonClick.apply( this );
 		return;

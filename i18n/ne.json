@@ -7,7 +7,7 @@
 		]
 	},
 	"cite_error": "उद्दरण त्रुटी: $1",
-	"cite_error_references_no_text": "अवैध <code>&lt;ref&gt;</code>चिनो; <code>$1</code> नामको सन्दर्भका लागि कुनै पाठ प्रदान गरिएको छैन",
+	"cite_error_references_no_text": "अवैध <code>&lt;ref&gt;</code>चिनो; \"$1\" नामको सन्दर्भका लागि कुनै पाठ प्रदान गरिएको छैन",
 	"cite-reference-previews-reference": "सन्दर्भ",
 	"cite-reference-previews-book": "पुस्तक सन्दर्भ",
 	"cite-reference-previews-journal": "जर्नल सन्दर्भ",

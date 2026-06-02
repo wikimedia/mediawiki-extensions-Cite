@@ -9,7 +9,7 @@
 	},
 	"cite-desc": "Pa'aseri la <code>&lt;ref&gt;</code> and <code>&lt;references&gt;</code> tags for citations",
 	"cite_error": "Tiɛ tuure: $1",
-	"cite_error_ref_invalid_dir": "Dagi ma'a <code>dir=\"$1\"</code>, must be <code>ltr</code> or <code>rtl</code>",
+	"cite_error_ref_invalid_dir": "Dagi ma'a <code>dir=\"$1\"</code>, must be \"ltr\" or \"rtl\"",
 	"cite_error_ref_conflicting_dir": "<code>&lt;ref&gt;</code> a yima n tari \"$1\" yu'urɛ sɛba n tari daaŋɔ tuulesum",
 	"cite_error_ref_numeric_key": "Dagi ma'a <code>&lt;ref&gt;</code> tag; name cannot be a simple integer. Use a descriptive title<code></code>",
 	"cite_error_ref_no_key": "Yu'ure la <code>&lt;ref&gt;</code> tag is malformed or has a bad name",

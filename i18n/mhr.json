@@ -8,7 +8,7 @@
 		]
 	},
 	"cite_error": "$1 - тыште йоҥылыш",
-	"cite_error_ref_invalid_dir": "Йӧрыдымӧ <code>dir=\"$1\"</code>, лийшаш <code>ltr</code> or <code>rtl</code>",
+	"cite_error_ref_invalid_dir": "Йӧрыдымӧ <code>dir=\"$1\"</code>, лийшаш \"ltr\" or \"rtl\"",
 	"cite_error_ref_conflicting_dir": "<code>&lt;ref&gt;</code> тег кокла гыч \"$1\" лӱманын ваштарешла dir атрибутшо уло.",
 	"cite_error_ref_numeric_key": "Йӧрыдымӧ <code>&lt;ref&gt;</code> тег; лӱм тыглай, тичмаш числа лийын ок керт. Возен ончыктымо лӱмым кучылт",
 	"cite_error_ref_no_key": "Почшо <code>&lt;ref&gt;</code> тег йоҥылыш але йӧрыдымӧ лӱман",

@@ -14,7 +14,7 @@
 	"cite_error_ref_no_input": "Ampèl invalid ; cap de dintrada pas especificada",
 	"cite_error_references_duplicate_key": "Etiqueta <code>&lt;ref&gt;</code> non valida; lo nom «$1» es definit divèrses còps amb un contengut diferent.",
 	"cite_error_references_invalid_parameters": "Arguments invalids ; argument esperat",
-	"cite_error_references_no_text": "Balisa  <code>&lt;ref&gt;</code> incorrècta ;\n\npas de tèxte per las referéncias nomenadas <code>$1</code>.",
+	"cite_error_references_no_text": "Balisa  <code>&lt;ref&gt;</code> incorrècta ;\n\npas de tèxte per las referéncias nomenadas \"$1\".",
 	"cite_error_included_ref": "Clausura <code>&lt;/ref&gt;</code> omesa per la balisa <code>&lt;ref&gt;</code>",
 	"cite_error_group_refs_without_references": "De balisas <code>&lt;ref&gt;</code> existisson per un grop nomenat « $1 », mas cap de balisa <code>&lt;references group=\"$1\"/&gt;</code> correspondenta es pas estada trobada, o alara una valisa tampanta <code>&lt;/ref&gt;</code> manca.",
 	"cite_error_references_group_mismatch": "La balisa <code>&lt;ref&gt;</code> dins <code>&lt;references&gt;</code> a l'atribut de grop « $1 » que dintra en conflicte amb lo de <code>&lt;references&gt;</code>.",

@@ -10,5 +10,5 @@
 	"cite_error_ref_too_many_keys": "El <code>&lt;ref&gt;</code> no lonöfon: labon nemis no lonöfikis, a. s. tumödikis",
 	"cite_error_ref_no_input": "El <code>&lt;ref&gt;</code> no lonöfon: els ref nen nem mutons labön ninädi",
 	"cite_error_references_invalid_parameters": "El <code>&lt;references&gt;</code> no lonöfon: paramets no padälons. Gebolös eli <code>&lt;references /&gt;</code>",
-	"cite_error_references_no_text": "El <code>&lt;ref&gt;</code> no lonöfon: vödem nonik pegivon eles refs labü nem: <code>$1</code>"
+	"cite_error_references_no_text": "El <code>&lt;ref&gt;</code> no lonöfon: vödem nonik pegivon eles refs labü nem: \"$1\""
 }

@@ -11,7 +11,7 @@
 	"cite_error_ref_too_many_keys": "Tikketta <code>&lt;ref&gt;</code> invalida;\nismijiet invalidi, e.ż. numru wisq kbir",
 	"cite_error_ref_no_input": "Żball fl-użu tat-tikketta <code>&lt;ref&gt;</code>; refs mingħajr isem ma jistgħux ikunu vojta",
 	"cite_error_references_invalid_parameters": "Żball fl-użu tat-tikketta <code>&lt;references&gt;</code>; il-parametri mhumiex permessi. Uża <code>&lt;references /&gt;</code>",
-	"cite_error_references_no_text": "Tikketta <code>&lt;ref&gt;</code> invalida;\nl-ebda test ma ngħata għar-refs bl-isem <code>$1</code>",
+	"cite_error_references_no_text": "Tikketta <code>&lt;ref&gt;</code> invalida;\nl-ebda test ma ngħata għar-refs bl-isem \"$1\"",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> tal-għeluq hija nieqsa għat-tikketta <code>&lt;ref&gt;</code>",
 	"cite_error_group_refs_without_references": "It-tikketti <code>&lt;ref&gt;</code> jeżistu għal grupp bl-isem \"$1\" imma l-ebda tikketta <code>&lt;references group=\"$1\"/&gt;</code> rispettiva ma nstabet",
 	"cite_error_references_group_mismatch": "It-tikketta <code>&lt;ref&gt;</code> f'<code>&lt;references&gt;</code> għandha l-attribut tal-grupp \"$1\" f'kunflitt.",

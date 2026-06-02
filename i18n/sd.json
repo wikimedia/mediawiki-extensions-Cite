@@ -10,7 +10,7 @@
 	"cite_error": "حوالي جي چڪ: $1",
 	"cite_error_details_missing_parent": "تفصيل سان گڏ هڪ <code>&lt;ref></code> ٽيگ ۾ مواد هجڻ گهرجي يا نالو کڻي اصل حوالي ڏانھن اشارو ڪندو ھجي.",
 	"cite_error_details_unsupported_context": "<code>&lt;ref&gt;</code> ٽيگ \"$1\" تفصيل استعمال نہ ٿو ڪري سگهي جڏھن ھن ڪوڊ جي اندر جي <code>&lt;references&gt;</code>.",
-	"cite_error_ref_invalid_dir": "ناقابلڪار <code>dir=\"$1\"</code>، لازمي <code>ltr</code> يا <code>rtl</code> ھجڻ گهرجي",
+	"cite_error_ref_invalid_dir": "ناقابلڪار <code>dir=\"$1\"</code>، لازمي \"ltr\" يا \"rtl\" ھجڻ گهرجي",
 	"cite_error_group_refs_without_references": "\"$1\" نالي جي حوالن جي لاءِ ٽيگ <code>&lt;ref&gt;</code> آهن، پر لاڳاپيل ٽيگ <code>&lt;references group=\"$1\"/&gt;</code> نہ مليو",
 	"cite-tracking-category-cite-error": "حوالن ۾ چُڪَ وارا صفحا",
 	"cite-reference-previews-reference": "حوالو",

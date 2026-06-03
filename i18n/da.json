@@ -76,6 +76,7 @@
 	"cite-configuration-backlink-title": "Indstillinger for backlinks",
 	"cite-configuration-backlink-description": "Backlinks vises i referencelisten og peger tilbage til fodnoterne på siden. Når en reference bruges mere end én gang, nummereres dens backlinks. Konfigurationen tillader brug af et brugerdefineret alfabet til dette formål.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite har fundet et alfabet til din wikis sprog. Hvis du vil bruge det, bedes du kopiere og indsætte teksten nedenfor som base for dine backlink-markører. Du kan frit redigere eller omarrangere rækkefølgen.",
+	"cite-configuration-backlink-marker-label": "Symbolsæt for tilbagehenvisninger",
 	"cite-configuration-backlink-marker-description": "Tegnene nedenfor vil blive brugt til backlinks på din wiki.",
 	"cite-configuration-backlink-marker-help": "Indtast dit brugerdefinerede tegnsæt med mellemrum mellem hvert tegn. Sørg for, at containeren indeholder XX tegn.",
 	"cite-configuration-submit": "Gem ændringer"

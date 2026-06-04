@@ -10,6 +10,7 @@
 	"cite_error_details_missing_parent": "Un <code>&lt;ref></code> lebel ku detaye mester kontené kontenido òf punta na un referensia pariente pa nòmber.",
 	"cite_error_details_unsupported_context": "<code>&lt;ref&gt;</code> lebel ku nòmber \"$1\" no por usa detaye ora esaki aperesé den <code>&lt;references&gt;</code>.",
 	"cite_error_ref_invalid_dir": "Inbálido <code>dir=\"$1\"</code>, mester ta <code>ltr</code> òf <code>rtl</code>",
+	"cite_error_ref_parameter_suggestion": "Parameter inbálido \"$1\" den <code>&lt;ref></code> lebel. Bo ke men \"$2\"?",
 	"cite-tracking-category-cite-error": "Páginanan ku referensia defekto",
 	"cite-tracking-category-cite-error-desc": "Páginanan den e kategoria aki tin eror den e uso di tagnan di referensia.",
 	"cite-tracking-category-ref-details": "Páginanan ku ta usa supreferensia",

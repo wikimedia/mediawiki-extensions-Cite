@@ -8,9 +8,9 @@
 			"செல்வா"
 		]
 	},
-	"cite-desc": "சேர்க்கிறது <code>&lt;ref[ name=id]&gt;</code>மற்றும் <code>&lt;references/&gt;</code> குறிச்சொற்கள், மேற்கோள்களுக்காக",
+	"cite-desc": "சேர்க்கிறது <code>&lt;ref[ name=id]></code>மற்றும் <code>&lt;references/></code> குறிச்சொற்கள், மேற்கோள்களுக்காக",
 	"cite_error": "பிழை காட்டு: $1",
-	"cite_error_references_no_text": "செல்லாத <code>&lt;ref&gt;</code> குறிச்சொல்;\n\"$1\" என்னும் பெயரில் உள்ள ref குறிச்சொல்லுக்கு உரையேதும் வழங்கப்படவில்லை",
+	"cite_error_references_no_text": "செல்லாத <code>&lt;ref></code> குறிச்சொல்;\n\"$1\" என்னும் பெயரில் உள்ள ref குறிச்சொல்லுக்கு உரையேதும் வழங்கப்படவில்லை",
 	"cite-tracking-category-cite-error": "மேற்கோள் பிழைகளுள்ள பக்கங்கள்",
 	"cite-reference-previews-book": "புத்தக குறிப்பரை/சான்றாதாரம்/மேற்கோள்",
 	"cite-reference-previews-journal": "தாளிகை மேற்கோள்/குறிப்பரை",

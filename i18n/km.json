@@ -2,7 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
-	"cite-desc": "បន្ថែមស្លាក <code>&lt;ref[ name=id]&gt;</code> និង <code>&lt;references/&gt;</code>​ សម្រាប់ការយោង​ឯកសារ​",
+	"cite-desc": "បន្ថែមស្លាក <code>&lt;ref[ name=id]></code> និង <code>&lt;references/></code>​ សម្រាប់ការយោង​ឯកសារ​",
 	"cite-wikieditor-tool-reference": "ឯកសារយោង",
 	"cite-wikieditor-help-page-references": "ឯកសារយោង",
 	"cite-wikieditor-help-content-reference-description": "ឯកសារ​យោង​",

@@ -10,7 +10,7 @@
 	},
 	"cite_error": "A chirim ya: $1",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code>, tu ni di nyɛ <code> ltr</code> or \"rtl\" kani",
-	"cite_error_group_refs_without_references": "<code>&It;ref&gt;</code> tuma maa yi laɣingu din yuli nyɛ \"$1\", ka lee bi saɣiritiri <code>$It;references group =\"$1\"/&gt;</code> tuka maa bon nya",
+	"cite_error_group_refs_without_references": "<code>&It;ref></code> tuma maa yi laɣingu din yuli nyɛ \"$1\", ka lee bi saɣiritiri <code>$It;references group =\"$1\"/></code> tuka maa bon nya",
 	"cite-tracking-category-cite-error": "Peejinima din kundivira bi viɛla",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "A mali la [[$1|Navigation popups]]",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "A mali la [[$1|Navigation popups]] ni [[$1|kundi vihira Tooltips]] soya din yooi, din zuɣu a pa ŋun ni tooi nya johi yuli shɛli di bɛ din bɔŋɔ ni. Di dolila a wiki nyɛ shɛli, din tooi niŋ ka gadgets ŋɔ mali yuya din waligi biɛla ni taba. Di yi niŋ ka a kuli nyɛri yɛlmuɣisira, dim suɣulo ka labi yuli gadgets mini ŋunsu scripts, n-ti pahi din nyɛ yaɣa zaa di ni.",

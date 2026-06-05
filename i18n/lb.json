@@ -24,7 +24,7 @@
 	"cite_error_references_group_mismatch": "Den <code>&lt;ref></code>-Tag an <code>&lt;references></code> huet den Attribut \"$1\" deen am Konflikt mat deem am <code>&lt;references></code> steet.",
 	"cite_error_references_missing_key": "Deen am <code>&lt;references></code> definéierten <code>&lt;ref></code>-Tag mam Numm \"$1\" gëtt am Text virdrun net benotzt.",
 	"cite_error_references_no_key": "D'Markéierung <code>&lt;ref></code> déi an <code>&lt;references></code> definéiert ass huet keng Nummeegeschaft.",
-	"cite_error_empty_references_define": "D'Markéierung <code>&lt;ref></code> déi am <code>&lt;references></code> mat dem Numm  « $1 » definéiert ass, ass eidel.",
+	"cite_error_empty_references_define": "Den Tag <code>&lt;ref></code> mam Numm „$1“, deen an der  <code>&lt;references></code>-Grupp „$2“ definéiert ass, huet keen Inhalt.",
 	"cite-tracking-category-cite-error": "Säite mat Referenzfeeler",
 	"cite-tracking-category-cite-error-desc": "Säiten an dëser Kategorie hu Feeler am Benotze vun de Referenz-Taggen.",
 	"cite-tracking-category-ref-details-desc": "Säiten an dëser Kategorie benotzen d'Attribut „details“ vum &lt;ref&gt;-Tag.",

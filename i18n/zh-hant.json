@@ -53,6 +53,7 @@
 	"cite-reference-previews-map": "地圖參考資料",
 	"cite-reference-previews-web": "網站參考",
 	"cite-reference-previews-collapsible-placeholder": "此參考包含的圖片不適合用在預覽。",
+	"cite-reference-previews-reflist-link": "跳至參考文獻列表",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "您已啟用[[$1|導航Popup]]小工具，因此您將無法看到本功能顯示的預覽。在您的wiki上，該小工具可能具有些微不同的名稱。如果您繼續遇到問題，請檢查您的小工具和使用者指令碼（包括全域指令碼）。",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "您已啟用[[$1|參考文獻提示]]小工具，因此您將無法看到參考文獻預覽，但頁面預覽不受影響。在您的wiki上，該小工具可能具有些微不同的名稱。如果您繼續遇到問題，請檢查您的小工具和使用者指令碼（包括全域指令碼）。",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "您已啟用[[$1|導航Popup]]和[[$1|參考文獻提示]]小工具，因此您將無法看到本功能顯示的預覽。在您的wiki上，這兩個小工具可能具有些微不同的名稱。如果您繼續遇到問題，請檢查您的小工具和使用者指令碼（包括全域指令碼）。",

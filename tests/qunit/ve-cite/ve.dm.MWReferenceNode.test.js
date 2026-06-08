@@ -257,9 +257,9 @@
 
 	QUnit.test( 'remapInternalListIndexes', ( assert ) => {
 		const dataElement = { attributes: { listIndex: 'old', listKey: 'auto/' } };
-		const mapping = { old: 'new' };
+		const listIndexMap = { old: 'new' };
 		const internalList = { getNextUniqueNumber: () => 7 };
-		MWReferenceNode.static.remapInternalListIndexes( dataElement, mapping, internalList );
+		MWReferenceNode.static.remapInternalListIndexes( dataElement, listIndexMap, internalList );
 		assert.deepEqual( dataElement.attributes, { listIndex: 'new', listKey: 'auto/7' } );
 	} );
 

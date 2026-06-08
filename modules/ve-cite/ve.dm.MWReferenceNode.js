@@ -535,14 +535,16 @@ ve.dm.MWReferenceNode.static.isSubRef = function ( attributes ) {
  * internal list autoincrement counter.
  *
  * @param {Object} dataElement Ref node data to modify
- * @param {Object<number,number>} mapping Stable map from old to new list index
+ * @param {Object.<number,number>} listIndexMap Stable map from old to new listIndex
  * @param {ve.dm.InternalList} newInternalList Target document internal list
  */
 ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
-	dataElement, mapping, newInternalList
+	dataElement, listIndexMap, newInternalList
 ) {
 	// Remap listIndex
-	dataElement.attributes.listIndex = mapping[ dataElement.attributes.listIndex ];
+	if ( dataElement.attributes.listIndex in listIndexMap ) {
+		dataElement.attributes.listIndex = listIndexMap[ dataElement.attributes.listIndex ];
+	}
 
 	// Remap listKey if it was automatically generated
 	if ( !MWReferenceKeyGenerator.isLiteralListKey( dataElement.attributes.listKey ) ) {

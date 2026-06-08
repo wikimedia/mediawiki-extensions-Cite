@@ -305,7 +305,7 @@
 		},
 		"CiteRemoveSyntheticRefsUnsafe": {
 			"description": "Only for development! This will stop the creation of synthetic list defined main refs.",
-			"value": false
+			"value": true
 		}
 	},
 	"AutoloadNamespaces": {

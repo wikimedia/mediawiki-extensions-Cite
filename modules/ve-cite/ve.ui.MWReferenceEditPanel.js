@@ -108,6 +108,7 @@ ve.ui.MWReferenceEditPanel = function VeUiMWReferenceEditPanel( config ) {
 	this.changeAllCheckboxFieldset = new OO.ui.FieldLayout( this.changeAllCheckbox, {
 		align: 'inline'
 	} );
+	this.changeAllCheckboxFieldset.$element.addClass( 've-ui-mwReferenceDialog-changeAll' );
 	this.changeAllCheckboxFieldset.toggle( false );
 
 	this.helpLink = new OO.ui.LabelWidget( {

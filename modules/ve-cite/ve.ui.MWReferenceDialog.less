@@ -25,17 +25,24 @@
 }
 
 .ve-ui-mwReference-details-preview-panel {
-	border-bottom: @border-style-base @border-color-subtle @border-width-base;
+	&.oo-ui-layout {
+		// Reset the bottom @spacing-100 from above
+		padding-bottom: 0;
+	}
 
-	// Reset OOUI's slightly larger font size for the header
-	.ve-ui-mwReferenceDialog-referencePreview-fieldset .oo-ui-fieldsetLayout-header .oo-ui-labelElement-label {
-		font-size: inherit;
-		margin-bottom: @spacing-100;
+	.ve-ui-mwReferenceDialog-referencePreview-fieldset {
+		padding-bottom: @spacing-100;
+		border-bottom: @border-style-base @border-color-subtle @border-width-base;
+
+		// Reset OOUI's slightly larger font size for the header
+		.oo-ui-fieldsetLayout-header .oo-ui-labelElement-label {
+			font-size: inherit;
+			margin-bottom: @spacing-100;
+		}
 	}
 
 	.ve-ui-mwReference-details-preview-item {
 		margin-top: @spacing-75;
-		margin-bottom: @spacing-50;
 		margin-left: @spacing-200;
 	}
 

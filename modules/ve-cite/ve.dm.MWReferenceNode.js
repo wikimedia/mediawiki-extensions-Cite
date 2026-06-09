@@ -356,7 +356,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 	return [ domElement ];
 };
 
-/***
+/**
  * Check if a previous node with the same key has already set the content.
  * If so, we don't overwrite the content of this node.
  * FIXME: I guess this method needs to take sub-refs with the main key into
@@ -367,7 +367,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
  * @param {Object} dataElement
  * @param {ve.dm.Node[]} nodeReuses
  * @return {boolean}
- * */
+ */
 ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement, nodeReuses ) {
 	// Avoiding an override is irrelevant when our node had content before or is a sub-ref
 	if ( !dataElement.attributes.contentsUsed ||
@@ -392,7 +392,7 @@ ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement
 	return false;
 };
 
-/***
+/**
  * Check if the node is already storing the body content.  Returns false for unused
  * synthetic main refs.
  *
@@ -401,7 +401,7 @@ ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement
  * @param {Object} attributes
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {boolean}
- * */
+ */
 ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGroup ) {
 	// Trivial handling for normal main refs
 	if ( !ve.getProp( attributes, 'mw', 'isSyntheticMainRef' ) ) {
@@ -416,7 +416,7 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
 	);
 };
 
-/***
+/**
  * Check if the node should get the body content.  Either it had it before, is the last remaining
  * reuse or is the first node and get's it because no other node holds it.
  *
@@ -425,7 +425,7 @@ ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGr
  * @param {Object} dataElement
  * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {boolean}
- * */
+ */
 ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;
 	const mainListIndex = this.isSubRef( attributes ) ? attributes.mainListIndex : attributes.listIndex;

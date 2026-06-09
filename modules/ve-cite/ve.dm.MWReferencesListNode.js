@@ -223,7 +223,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	return domElements;
 };
 
-/***
+/**
  * Prepare mwData for conversion to DOM and check for changes
  *
  * @private
@@ -232,7 +232,7 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
  * @param {Document} doc
  * @param {ve.dm.DomFromModelConverter} converter
  * @return {string|false} updated mwData as string or false if nothing changed
- * */
+ */
 ve.dm.MWReferencesListNode.static.updatedMwForDom = function ( data, doc, converter ) {
 	const attributes = data[ 0 ].attributes;
 	const originalMw = attributes.originalMw;
@@ -292,7 +292,7 @@ ve.dm.MWReferencesListNode.static.updatedMwForDom = function ( data, doc, conver
 	return originalMw && ve.compare( mwData, originalMwData ) ? false : JSON.stringify( mwData );
 };
 
-/***
+/**
  * Check the reflist is the last element in the DM
  *
  * @private
@@ -300,7 +300,7 @@ ve.dm.MWReferencesListNode.static.updatedMwForDom = function ( data, doc, conver
  * @param {Array} documentData
  * @param {Object} data
  * @return {boolean}
- * */
+ */
 ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData, data ) {
 	// TODO: it would be better to do this without needing to fish through
 	// the converter's linear data. Use the DM tree instead?
@@ -315,7 +315,7 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
 	return !nextElement || nextElement.type === 'internalList';
 };
 
-/***
+/**
  * Create references list HTML DOM for Parsoid
  *
  * @static
@@ -323,7 +323,7 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
  * @param {HTMLDocument} doc
  * @param {ve.dm.DomFromModelConverter} converter
  * @return {HTMLElement} <ol> element for the references list
- * */
+ */
 ve.dm.MWReferencesListNode.static.listToDomElement = function ( nodeGroup, doc, converter ) {
 	const $wrapper = $( '<ol>', doc );
 	$wrapper.append(
@@ -336,7 +336,7 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( nodeGroup, doc, 
 	return $wrapper[ 0 ];
 };
 
-/***
+/**
  * Create references list item HTML DOM for Parsoid
  *
  * @private
@@ -346,7 +346,7 @@ ve.dm.MWReferencesListNode.static.listToDomElement = function ( nodeGroup, doc, 
  * @param {HTMLDocument} doc
  * @param {ve.dm.DomFromModelConverter} converter
  * @return {jQuery} <li> element for the references listitem
- * */
+ */
 ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
 	nodeGroup,
 	refInfo,

@@ -159,7 +159,7 @@ EOT;
 
 		// Without selser
 		$editedWt = $parsoid->html2wikitext( $pageConfig, $editedHtml, [], null );
-		$this->assertEquals( "Ha ha <ref follow=\"123\"></ref>\n\n<references />", $editedWt );
+		$this->assertEquals( "Ha ha <ref follow=\"123\"></ref>\n\n", $editedWt );
 
 		// // With selser
 		$selserData = new SelserData( $wt, $html );

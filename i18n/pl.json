@@ -12,6 +12,7 @@
 			"Rail",
 			"Railfail536",
 			"Sp5uhe",
+			"Wostr",
 			"Woytecr"
 		]
 	},
@@ -50,6 +51,7 @@
 	"cite-reference-previews-map": "Przypis do mapy",
 	"cite-reference-previews-web": "Przypis do strony internetowej",
 	"cite-reference-previews-collapsible-placeholder": "Ten przypis zawiera elementy, które nie mieszczą się w podglądzie.",
+	"cite-reference-previews-reflist-link": "Przejdź do listy przypisów",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "Gadżet [[$1|navigation popups]] jest włączony, co oznacza, że nie zobaczysz poglądów dostarczanych przez tę funkcję. W zależności od wiki, na jakiej się znajdujesz, gadżet ten może nazywać się inaczej. Jeśli problem wciąż będzie występował, sprawdź swoje gadżety oraz skrypty, włączając również te globalne.",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "Gadżet [[$1|Reference Tooltips]] jest włączony, co oznacza, że nie zobaczysz poglądów przypisów dostarczanych przez tę funkcję. W zależności od wiki, na jakiej się znajdujesz, gadżet ten może nazywać się inaczej. Jeśli problem wciąż będzie występował, sprawdź swoje gadżety oraz skrypty, włączając również te globalne.",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "Gadżety [[$1|navigation popups]] i [[$1|Reference Tooltips]] są włączone, co oznacza, że nie zobaczysz poglądów dostarczanych przez tę funkcję. W zależności od wiki, na jakiej się znajdujesz, gadżety te mogą nazywać się inaczej. Jeśli problem wciąż będzie występował, sprawdź swoje gadżety oraz skrypty, włączając również te globalne.",

@@ -180,25 +180,14 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			mwData.mainRef
 		);
 		dataElement.attributes.mainListKey = mainListKey;
-		let mainHtml;
-		if ( mw.config.get( 'wgCiteRemoveSyntheticRefsUnsafe' ) ) {
-			// If this is a non-synthetic main+details then read its contents from the
-			// list item fragment.  We skip synthetic refs because they may have been
-			// produced by a transclusion.
-			mainHtml = !mwData.isSyntheticMainRef &&
-				mwData.mainBody &&
-				this.getBodyFromReflist( converter, mwData.mainBody );
-		}
+		const mainHtml = mwData.mainBody &&
+			this.getBodyFromReflist( converter, mwData.mainBody );
 		const { index: mainListIndex } = internalList.queueItemHtml( listGroup, mainListKey, mainHtml || '' );
 		dataElement.attributes.mainListIndex = mainListIndex;
 	}
 
 	if ( refListItemId ) {
 		dataElement.attributes.refListItemId = refListItemId;
-	}
-
-	if ( mw.config.get( 'wgCiteRemoveSyntheticRefsUnsafe' ) && ve.getProp( mwData, 'isSyntheticMainRef' ) ) {
-		return [];
 	}
 
 	return dataElement;
@@ -393,30 +382,6 @@ ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement
 };
 
 /**
- * Check if the node is already storing the body content.  Returns false for unused
- * synthetic main refs.
- *
- * @private
- * @static
- * @param {Object} attributes
- * @param {ve.dm.InternalListNodeGroup} nodeGroup
- * @return {boolean}
- */
-ve.dm.MWReferenceNode.static.doesHoldBodyContent = function ( attributes, nodeGroup ) {
-	// Trivial handling for normal main refs
-	if ( !ve.getProp( attributes, 'mw', 'isSyntheticMainRef' ) ) {
-		return ve.getProp( attributes, 'contentsUsed' );
-	}
-
-	const mainListIndex = ve.getProp( attributes, 'listIndex' );
-	const subRefs = this.getSubRefs( mainListIndex, nodeGroup );
-	return subRefs.some(
-		// Is there a sub-ref that already holds the main body?
-		( node ) => ve.getProp( node.getAttribute( 'mw' ), 'mainBody' )
-	);
-};
-
-/**
  * Check if the node should get the body content.  Either it had it before, is the last remaining
  * reuse or is the first node and get's it because no other node holds it.
  *
@@ -449,12 +414,7 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
 		// We only want to give this node the main content if there's no other main node after the
 		// first that holds it already.
 		!mainReuses.slice( 1 ).some(
-			( node ) => {
-				if ( node.isSubRef() ) {
-					return node.getAttribute( 'contentsUsed' );
-				}
-				return this.doesHoldBodyContent( node.element.attributes, nodeGroup );
-			}
+			( node ) => node.getAttribute( 'contentsUsed' )
 		);
 };
 
@@ -764,54 +724,6 @@ ve.dm.MWReferenceNode.prototype.getIndexNumber = function () {
 		this.element,
 		this.getDocument().getInternalList()
 	);
-};
-
-/**
- * Save a copy of this ref in the reflist as a backup
- *
- * This mechanism should be used whenever a ref becomes the main ref for a new
- * subref.  It allows the main ref to be deleted without losing a connection to
- * the main ref content.
- *
- * @param {ve.dm.Surface} surface
- */
-ve.dm.MWReferenceNode.prototype.copySyntheticRefIntoReferencesList = function ( surface ) {
-	if ( mw.config.get( 'wgCiteRemoveSyntheticRefsUnsafe' ) ) {
-		return;
-	}
-
-	// Get the ReferencesList we want to move the node into
-	const docChildren = this.getDocument().getDocumentNode().getChildren();
-	const referencesListNode = docChildren.find(
-		( node ) => node instanceof ve.dm.MWReferencesListNode &&
-			node.getAttribute( 'refGroup' ) === this.getGroup()
-	);
-	if ( !referencesListNode ) {
-		// FIXME: There is no guarantee we have a corresponding reflist in the document when it's
-		// not the default group. What to do then?
-		return;
-	}
-	const refListNodeRange = referencesListNode.getRange();
-
-	const attributes = ve.copy( this.element.attributes );
-	ve.setProp( attributes, 'mw', 'isSyntheticMainRef', true );
-	ve.setProp( attributes, 'contentsUsed', true );
-	if ( !ve.getProp( attributes, 'refListItemId' ) ) {
-		// This will be the value of the `id` attribute of the reference list item
-		const refListItemId = MWReferenceKeyGenerator.makeRefListItemId( attributes.listIndex );
-		ve.setProp( attributes, 'refListItemId', refListItemId );
-	}
-	const txInsert = ve.dm.TransactionBuilder.static.newFromInsertion(
-		this.getDocument(), refListNodeRange.to, [
-			{
-				type: 'mwReference',
-				attributes,
-				originalDomElementsHash: Math.random()
-			},
-			{ type: '/mwReference' }
-		]
-	);
-	surface.change( txInsert );
 };
 
 /**

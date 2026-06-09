@@ -192,10 +192,8 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		viewNode.destroy();
 	} else if (
 		dataElement.originalDomElementsHash !== undefined &&
-		// don't get originalDamElements when there are changes, needed to update synthetic refs
-		// FIXME with the line below this is obsolete I think
+		// FIXME both lines could be removed as part of T425927
 		!updatedMw &&
-		// for subRefs we need to render a fresh references list for changes in main content
 		!groupHasSubRefs
 	) {
 		// If there's more than 1 element, preserve entire array, not just first element

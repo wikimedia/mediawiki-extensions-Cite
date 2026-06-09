@@ -207,21 +207,10 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				this.fragment = this.getFragment().collapseToEnd();
 				ref.insertIntoFragment( this.getFragment() );
 			} else if ( this.createSubRefMode ) {
-				// We're creating a new sub-ref by replacing a main ref
-				// make sure there's a list defined or synthetic main ref to save the main body
-				const mainNodes = nodeGroup.getAllReuses( ref.mainListKey ) || [];
-				const foundExistingListDefinedRef = mainNodes.some(
-					( node ) => ve.getProp( node.getAttribute( 'mw' ), 'isSyntheticMainRef' ) ||
-						node.findParent( ve.dm.MWReferencesListNode ) );
-				if ( !foundExistingListDefinedRef && mainNodes.length ) {
-					const mainNodeToCopy = mainNodes
-						.find( ( node ) => node.getAttribute( 'refListItemId' ) ) || mainNodes[ 0 ];
-					mainNodeToCopy.copySyntheticRefIntoReferencesList( this.getFragment().getSurface() );
-				}
-
 				let nodesToConvert = [ this.selectedNode ];
 				if ( changeAll ) {
 					// filter out main nodes that are list defined
+					const mainNodes = nodeGroup.getAllReuses( ref.mainListKey ) || [];
 					nodesToConvert = mainNodes.filter( ( node ) => !node.findParent( ve.dm.MWReferencesListNode ) );
 				}
 

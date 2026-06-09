@@ -29,7 +29,6 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			'CiteVisualEditorOtherGroup' => $input,
 			'CiteResponsiveReferences' => $input,
 			'CiteSubReferencing' => $input,
-			'CiteRemoveSyntheticRefsUnsafe' => $input,
 		] );
 
 		( new CiteHooks(
@@ -42,7 +41,6 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 			'wgCiteVisualEditorOtherGroup' => $expected,
 			'wgCiteResponsiveReferences' => $expected,
 			'wgCiteSubReferencing' => $expected,
-			'wgCiteRemoveSyntheticRefsUnsafe' => $expected,
 		], $vars );
 	}
 

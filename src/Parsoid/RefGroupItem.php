@@ -67,11 +67,6 @@ class RefGroupItem {
 	public int $globalId;
 
 	/**
-	 * True if this was a main ref artificially split from a main+details in the article.
-	 */
-	public bool $isSyntheticMainRef = false;
-
-	/**
 	 * @var Element[] Collection of footnote markers that have been generated so far for the same
 	 * reference. Mainly used to track errors and render them in the reference list, instead of next
 	 * to (or instead of) the footnote marker. Can be empty in case of not-yet used or unused

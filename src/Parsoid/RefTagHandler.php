@@ -134,11 +134,6 @@ class RefTagHandler extends ExtensionTagHandler {
 		ParsoidExtensionAPI $extApi, Element $node, bool $wrapperUnmodified
 	) {
 		$dataMw = DOMDataUtils::getDataMw( $node );
-		// Drop the conversion of synthetic main refs. The content of these will be retrived
-		// by the corresponding subrefs with the `details` attribute.
-		if ( isset( $dataMw->isSyntheticMainRef ) ) {
-			return '';
-		}
 
 		$startTagSrc = $extApi->extStartTagToWikitext( $node );
 		if ( !isset( $dataMw->body ) ) {

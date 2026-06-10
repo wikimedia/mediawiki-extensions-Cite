@@ -77,6 +77,7 @@
 	"cite-ve-dialog-reference-title": "Примечание",
 	"cite-ve-dialog-reference-add-details-button": "Добавить подробности",
 	"cite-ve-dialog-subreference-help-dialog-title": "Подробности",
+	"cite-ve-dialog-subreference-help-dialog-content": "При повторном использовании сноски теперь можно добавлять различные подробности, такие как номер страницы или цитату, не повторяя весь текст сноски.<p><b>Используйте это для:</b></p><ul><li>Указания разных страниц или томов книги</li><li> Указания временной метки в цитируемом подкасте</li><li>Добавления соответствующей цитаты из источника</li></ul>",
 	"cite-ve-dialog-subreference-change-all-checkbox-label": "Edit all ($1) uses of these details.",
 	"cite-ve-dialog-reference-title-details": "Подробности",
 	"cite-ve-dialog-reference-useexisting-tool": "Повторно использовать",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bean49",
 			"Dani",
 			"Glanthor Reviol",
 			"KossuthRad",
@@ -27,6 +28,7 @@
 	"cite_error_empty_references_define": "a <code>&lt;references></code> címkében definiált „$1” <code>&lt;ref></code> címkének nincs tartalma.",
 	"cite-tracking-category-cite-error": "Lapok forráshivatkozás-hibákkal",
 	"cite-tracking-category-cite-error-desc": "Az ebben a kategóriában található lapokon hibásan használt forráshivatkozás-elemek találhatók.",
+	"cite-tracking-category-ref-details": "Alhivatkozásokat használó oldalak",
 	"cite-reference-previews-reference": "Forráshivatkozás",
 	"cite-reference-previews-book": "Könyvforrás",
 	"cite-reference-previews-journal": "Folyóirat-hivatkozás",

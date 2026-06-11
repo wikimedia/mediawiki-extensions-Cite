@@ -54,8 +54,15 @@
 	function addFootnoteTracking( $content, experiment ) {
 		const $footnotes = $content.find( 'sup.reference a' );
 
-		$footnotes.on( 'click', function () {
+		$footnotes.on( 'click', function ( event ) {
+			// Bail out when the event was triggerd by keyboard interaction or touch
+			if ( !event.pointerType || event.pointerType === 'touch' ) {
+				return;
+			}
+
 			if ( this !== lastFootnoteClicked ) {
+				// The first click triggers the exposure
+				experiment.sendExposure();
 				experiment.send( 'click-footnote-marker' );
 				lastFootnoteClicked = this;
 			} else {
@@ -81,7 +88,7 @@
 			mw.testKitchen.getExperiment( 'cite-footnote-content-interaction-experiment' )
 				.then( ( experiment ) => {
 					if ( experiment && experiment.getAssignedGroup() ) {
-						experiment.sendExposure();
+						experiment.send( 'page_visit' );
 
 						addFootnoteTracking( $content, experiment );
 

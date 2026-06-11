@@ -29,7 +29,7 @@
 	"cite_error_ref_no_key": "Avaava <code>&lt;ref></code>-elementti on väärän muotoinen tai sillä on virheellinen nimi.",
 	"cite_error_ref_too_many_keys": "Virheellinen parametri ”$1” <code>&lt;ref&gt;</code>-elementissä. Tuetut parametrit ovat: $2.",
 	"cite_error_ref_parameter_suggestion": "Virheellinen parametri ”$1” <code>&lt;ref></code>-elementissä. Tarkoititko ”$2”?",
-	"cite_error_ref_follow_conflicts": "<code>&lt;ref follow=\"…\"></code> -elementtiä, joka on edeltävän viitteen jatke, ei voi nimitä yksilöllisesti tai sisältää lisätietoja.",
+	"cite_error_ref_follow_conflicts": "<code>&lt;ref follow=\"…\"></code> -elementtiä, joka on edeltävän viitteen jatke, ei voi nimetä yksilöllisesti tai sisältää lisätietoja.",
 	"cite_error_ref_no_input": "Virheellinen <code>&lt;ref></code>-elementti; viitteillä ilman nimiä täytyy olla sisältöä.",
 	"cite_error_references_duplicate_key": "Virheellinen <code>&lt;ref></code>-elementti; nimi ”$1” on määritetty usean kerran eri sisällöillä.",
 	"cite_error_references_invalid_parameters": "Virheellinen parametri ”$1” <code>&lt;references&gt;</code>-elementissä. Tuetut parametrit ovat: $2.",

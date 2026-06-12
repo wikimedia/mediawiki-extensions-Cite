@@ -15,7 +15,7 @@
 	"cite_error": "Chybná citace: $1",
 	"cite_error_details_missing_parent": "Značka <code>&lt;ref></code> s podrobnostmi musí mít obsah nebo odkazovat na nadřazenou referenci pomocí názvu.",
 	"cite_error_details_unsupported_context": "Značka <code>&lt;ref></code> s názvem „$1“ nemůže používat podrobnosti, když je uvnitř <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "Chybné <code>dir=\"$1\"</code>, musí být „ltr“ nebo „rtl“",
+	"cite_error_ref_invalid_dir": "Chybné <code>dir=\"$1\"</code>, musí být „ltr“ nebo „rtl“.",
 	"cite_error_ref_conflicting_dir": "Jedna ze značek <code>&lt;ref></code> s názvem „$1“ má konfliktní atribut „dir“.",
 	"cite_error_ref_numeric_key": "Chyba v tagu <code>&lt;ref></code>; názvem nesmí být prosté číslo, použijte popisné označení",
 	"cite_error_ref_no_key": "Otvírací značka <code>&lt;ref></code> je chybná nebo má špatný název",
@@ -46,6 +46,7 @@
 	"cite-reference-previews-map": "Mapová reference",
 	"cite-reference-previews-web": "Webová reference",
 	"cite-reference-previews-collapsible-placeholder": "Tato reference obsahuje prvek, který se do náhledu nevejde.",
+	"cite-reference-previews-reflist-link": "Přejít na seznam referencí",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "Máte zapnuté udělátko [[$1|Vyskakovací reference]], takže neuvidíte náhledy referencí, ale i tak uvidíte náhledy stránek. V závislosti na vaší wiki se může udělátko jmenovat i mírně jinak. Pokud budete mít i nadále problémy, zkontrolujte prosím svá udělátka a uživatelské skripty včetně těch globálních.",
 	"cite-reference-previews-preference-label": "Zapnout náhledy referencí (při čtení stránky poskytne rychlé náhledy referencí)",
 	"cite_references_link_accessibility_label": "Skočit nahoru",
@@ -63,5 +64,6 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Text článku.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Text odkazu], další text.",
 	"cite-wikieditor-help-content-reference-example-text3": "Kniha",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Strana 76"
+	"cite-wikieditor-help-content-reference-example-extra-details": "Strana 76",
+	"communityconfiguration-cite-title": "Citace"
 }

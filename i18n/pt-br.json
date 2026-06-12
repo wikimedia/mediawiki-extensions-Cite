@@ -14,18 +14,20 @@
 			"Glaucia Japui Gonçalves",
 			"Mariagarbin",
 			"Marinaazev",
-			"TheEduGobi"
+			"TheEduGobi",
+			"Jaideraf"
 		]
 	},
 	"cite-desc": "Adiciona elementos <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para uso em citações",
 	"cite_error": "Erro de citação: $1",
+	"cite_error_details_missing_parent": "Uma etiqueta <code>&lt;ref></code> com detalhes precisa conter um conteúdo ou apontar para uma referência principal por nome.",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> inválido, deve ser <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Marca <code>&lt;ref&gt;</code> inválida; \no nome não pode ser um número inteiro. Utilize um título descritivo",
 	"cite_error_ref_no_key": "A tag de abertura <code>&lt;ref&gt;</code> está mal formada ou tem um nome ruim",
-	"cite_error_ref_too_many_keys": "Marca <code>&lt;ref&gt;</code> inválida; \nnomes inválidos, por exemplo, muito extenso",
+	"cite_error_ref_too_many_keys": "Parâmetro inválido \"$1\" na etiqueta <code>&lt;ref></code>. Os parâmetros suportados são: $2.",
 	"cite_error_ref_no_input": "Marca <code>&lt;ref&gt;</code> inválida; \nrefs sem nome devem possuir conteúdo",
 	"cite_error_references_duplicate_key": "Etiqueta inválida <code>&lt;ref&gt;</code>; Nome \"$1\" definido várias vezes com conteúdo diferente",
-	"cite_error_references_invalid_parameters": "Parâmetro inválido na marca <code>&lt;references&gt;</code>",
+	"cite_error_references_invalid_parameters": "Parâmetro inválido \"$1\" na etiqueta <code>&lt;references></code>. Os parâmetros suportados são: $2.",
 	"cite_error_references_no_text": "Marca <code>&lt;ref&gt;</code> inválida; \nnão foi fornecido texto para as refs chamadas <code>$1</code>",
 	"cite_error_included_ref": "<code>&lt;/ref&gt;</code> de fechamento ausente para a marca <code>&lt;ref&gt;</code>",
 	"cite_error_included_references": "Falta a etiqueta de fechamento para <code>&lt;references&gt;</code>",

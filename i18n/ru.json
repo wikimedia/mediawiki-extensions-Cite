@@ -30,7 +30,8 @@
 			"Wileyfoxyx",
 			"Yurina Tatiana",
 			"Александр Сигачёв",
-			"Le Loi"
+			"Le Loi",
+			"Alex NB IT"
 		]
 	},
 	"cite-desc": "Добавляет для сносок теги <code>&lt;ref&gt;</code> и <code>&lt;references/&gt;</code>",
@@ -39,6 +40,7 @@
 	"cite_error_ref_invalid_dir": "Неверное значение <code>dir=\"$1\"</code>, должно быть <code>ltr</code> или <code>rtl</code>",
 	"cite_error_ref_numeric_key": "Неправильный тег <code>&lt;ref&gt;</code>;\nимя не может быть целым числом. Используйте описательное название",
 	"cite_error_ref_no_key": "Открывающий тег <code>&lt;ref&gt;</code> — неправильный или содержит некорректное имя.",
+	"cite_error_ref_with_details_no_name": "Недействительный тэг <code>&lt;ref></code>; отсутствует атрибут «name». Атрибут «name» должен использоваться вместе с атрибутом «details».",
 	"cite_error_ref_too_many_keys": "Недействительный параметр \"$1\" в теге <code>&lt;ref></code>. Поддерживаемые параметры: $2.",
 	"cite_error_ref_parameter_suggestion": "Недействительный параметр «$1» в теге <code>&lt;ref></code>. Возможно, вы имели в виду «$2»?",
 	"cite_error_ref_no_input": "Неправильный тег <code>&lt;ref&gt;</code>;\nэлемент без имени должен иметь содержание",
@@ -54,7 +56,7 @@
 	"cite_error_empty_references_define": "Тег <code>&lt;ref&gt;</code> с именем «$1», определённый в <code>&lt;references&gt;</code> в группе «$2», не имеет содержания.",
 	"cite-tracking-category-cite-error": "Страницы с ошибками в примечаниях",
 	"cite-tracking-category-cite-error-desc": "Страницы в данной категории содержат ошибки в использовании тегов примечаний.",
-	"cite-tracking-category-ref-details": "Страницы, использующие дочерние референсы",
+	"cite-tracking-category-ref-details": "Страницы, использующие вложенные сноски",
 	"cite-tracking-category-ref-details-desc": "Страницы в этой категории используют атрибут \"details\" тега &lt;ref>.",
 	"cite-reference-previews-reference": "Сноска",
 	"cite-reference-previews-book": "Ссылка на книгу",
@@ -84,6 +86,7 @@
 	"cite-wikieditor-help-content-reference-example-text1": "Текст страницы. $1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Текст ссылки], ещё текст.",
 	"cite-wikieditor-help-content-reference-example-text3": "Книга",
+	"cite-wikieditor-help-content-reference-example-ref-id": "тест",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Страница 76",
 	"communityconfiguration-cite-title": "Cite",
 	"communityconfiguration-cite-description": "Настройте формат и внешний вид ссылок.",

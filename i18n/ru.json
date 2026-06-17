@@ -30,7 +30,8 @@
 			"Vonavy",
 			"Merrahtar",
 			"Yurina Tatiana",
-			"Le Loi"
+			"Le Loi",
+			"Alex NB IT"
 		]
 	},
 	"cite-desc": "Добавляет для сносок теги <code>&lt;ref&gt;</code> и <code>&lt;references/&gt;</code>",
@@ -55,7 +56,7 @@
 	"cite-tracking-category-cite-error-desc": "Страницы в данной категории содержат ошибки в использовании тегов примечаний.",
 	"cite-tracking-category-cite-diffing-error": "Страницы с ошибками референсов, вызывающих визуальные различия",
 	"cite-tracking-category-cite-diffing-error-desc": "Страницы в этой категории имеют ошибки использования тегов референса. Эти ошибки отображаются по-разному в устаревшем синтаксическом анализаторе и в Parsoid.",
-	"cite-tracking-category-ref-details": "Страницы, использующие дочерние референсы",
+	"cite-tracking-category-ref-details": "Страницы, использующие вложенные сноски",
 	"cite-tracking-category-ref-details-desc": "Страницы в этой категории используют атрибут \"details\" тега &lt;ref>.",
 	"cite-reference-previews-reference": "Сноска",
 	"cite-reference-previews-book": "Ссылка на книгу",

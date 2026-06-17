@@ -460,8 +460,8 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
 
 /**
  * Return a list of nodes sharing the same main content.  This can be sub-refs or main refs.
- * This list includes all nodes in index.  Reuses are expaned in the list according to the
- * first occurence of the first node.  So the list is not in document order.
+ * This list includes all nodes in index.  Reuses are expanded in the list according to the
+ * first occurrence of the first node.  So the list is not in document order.
  *
  * @private
  * @static

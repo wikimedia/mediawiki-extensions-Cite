@@ -13,7 +13,7 @@
 	"cite_error": "Памылка цытаваньня: $1",
 	"cite_error_ref_invalid_dir": "Няслушны <code>dir=\"$1\"</code>, мусіць быць \"ltr\" ці \"rtl\"",
 	"cite_error_ref_numeric_key": "Няслушны тэг <code>&lt;ref></code>; назва ня можа быць проста лікам. Ужывайце апісальную назву",
-	"cite_error_ref_no_key": "Пачатковы тэг <code>&lt;ref></code> зьяўляецца няслушным або мае кепскую назву",
+	"cite_error_ref_no_key": "Пачатковы тэг <code>&lt;ref></code> ёсьць няслушным або мае хібную назву.",
 	"cite_error_ref_too_many_keys": "Няслушны парамэтар „$1“ у цэтліку <code>&lt;ref&gt;</code>. Падтрымліваюцца парамэтры: $2.",
 	"cite_error_ref_no_input": "Няслушны тэг <code>&lt;ref></code>; крыніцы бяз назваў мусяць мець зьмест",
 	"cite_error_references_duplicate_key": "Няслушны тэг <code>&lt;ref></code>; назва «$1» вызначаная колькі разоў з розным зьместам",

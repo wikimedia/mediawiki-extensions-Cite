@@ -259,9 +259,6 @@
 			]
 		}
 	},
-	"ConfigRegistry": {
-		"cite": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
-	},
 	"config": {
 		"CiteSubReferencing": {
 			"description": "Temporary feature flag while the sub-referencing feature (a way to nest citations and e.g. reference pages in a book) is in development.",

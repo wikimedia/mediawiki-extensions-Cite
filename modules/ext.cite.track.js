@@ -77,27 +77,32 @@
 		} );
 	}
 
+	function getExperiment() {
+		return mw.loader.using( 'ext.testKitchen' ).then(
+			() => mw.testKitchen.getExperiment( 'cite-footnote-content-interaction-experiment' )
+		);
+	}
+
 	/**
 	 * Adds temporary tracking for user interactions with footnote content T415904
 	 *
 	 * @param {jQuery} $content
 	 */
 	function addFootnoteContentExperiment( $content ) {
-		/** @type {mw.testKitchen.ExperimentInterface|undefined} */
-		if ( mw.testKitchen && !mw.config.get( 'wgMFMode' ) ) {
-			mw.testKitchen.getExperiment( 'cite-footnote-content-interaction-experiment' )
-				.then( ( experiment ) => {
-					if ( experiment && experiment.getAssignedGroup() ) {
-						experiment.send( 'page_visit' );
+		// Test Kitchen experiment: cite-footnote-content-interaction-experiment (T123456)
+		if ( !mw.config.get( 'wgMFMode' ) ) {
+			getExperiment().then( ( experiment ) => {
+				if ( experiment && experiment.getAssignedGroup() ) {
+					experiment.send( 'page_visit' );
 
-						addFootnoteTracking( $content, experiment );
+					addFootnoteTracking( $content, experiment );
 
-						const foundToc = addTocTracking( $content, experiment );
-						if ( !foundToc ) {
-							experiment.send( 'no-toc-tracking-attached' );
-						}
+					const foundToc = addTocTracking( $content, experiment );
+					if ( !foundToc ) {
+						experiment.send( 'no-toc-tracking-attached' );
 					}
-				} );
+				}
+			} );
 		}
 	}
 

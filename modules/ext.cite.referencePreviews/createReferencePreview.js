@@ -59,16 +59,6 @@ function renderReferencePreview(
 
 	const el = TEMPLATE.content.cloneNode( true ).children[ 0 ];
 
-	let testKitchenExperiment = null;
-
-	// Test Kitchen experiment: cite-footnote-content-interaction-experiment (T123456)
-	if ( mw.testKitchen && !mw.config.get( 'wgMFMode' ) ) {
-		testKitchenExperiment = mw.testKitchen.compat.getExperiment( 'cite-footnote-content-interaction-experiment' );
-	}
-
-	// Treatment Group
-	const isRefPreviewReflistLinkEnabled = testKitchenExperiment && testKitchenExperiment.isAssignedGroup( 'treatment' );
-
 	replaceWith(
 		el.querySelector( '.mwe-popups-title-placeholder' ),
 		mw.html.escape( titleMsg.text() )
@@ -132,27 +122,37 @@ function renderReferencePreview(
 	settingsButton.append( settingsButtonLabel );
 	el.querySelector( '.mwe-popups-settings' ).appendChild( settingsButton );
 
-	// Treatment group behavior
-	if ( isRefPreviewReflistLinkEnabled ) {
-		const reflistLink = el.querySelector( '.mwe-popups-reflist-link' );
-		reflistLink.textContent = mw.msg( 'cite-reference-previews-reflist-link' );
+	function getExperiment() {
+		return mw.loader.using( 'ext.testKitchen' ).then(
+			() => mw.testKitchen.getExperiment( 'cite-footnote-content-interaction-experiment' )
+		);
+	}
 
-		// Jump to reflist
-		reflistLink.addEventListener( 'click', () => {
-			testKitchenExperiment.send( 'click-goto-references' );
+	// Test Kitchen experiment: cite-footnote-content-interaction-experiment (T123456)
+	if ( !mw.config.get( 'wgMFMode' ) ) {
+		getExperiment().then( ( experiment ) => {
+			if ( experiment && experiment.getAssignedGroup( 'treatment' ) ) {
+				const reflistLink = el.querySelector( '.mwe-popups-reflist-link' );
+				reflistLink.textContent = mw.msg( 'cite-reference-previews-reflist-link' );
 
-			const targetId = model.url ? model.url.slice( 1 ) : null;
-			const targetElement = document.getElementById( targetId );
+				// Jump to reflist
+				reflistLink.addEventListener( 'click', () => {
+					experiment.send( 'click-goto-references' );
 
-			// Remove highlight from previously highlighted reference when selecting a new footnote
-			const previousHighlight = document.querySelector( '.mwe-popups-ref-highlight' );
-			if ( previousHighlight ) {
-				previousHighlight.classList.remove( 'mwe-popups-ref-highlight' );
-			}
+					const targetId = model.url ? model.url.slice( 1 ) : null;
+					const targetElement = document.getElementById( targetId );
 
-			if ( targetElement ) {
-				targetElement.scrollIntoView();
-				targetElement.classList.add( 'mwe-popups-ref-highlight' );
+					// Remove highlight from previously highlighted reference when selecting a new footnote
+					const previousHighlight = document.querySelector( '.mwe-popups-ref-highlight' );
+					if ( previousHighlight ) {
+						previousHighlight.classList.remove( 'mwe-popups-ref-highlight' );
+					}
+
+					if ( targetElement ) {
+						targetElement.scrollIntoView();
+						targetElement.classList.add( 'mwe-popups-ref-highlight' );
+					}
+				} );
 			}
 		} );
 	}

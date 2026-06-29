@@ -65,15 +65,15 @@ ve.dm.ConverterTestCases.cases = {
 			${ /* The HTML below is enriched to wrap reference contents in <span id="mw-cite-[...]"> */'' }
 			${ /* which Parsoid doesn't do yet, but T88290 asks for */'' }
 			<ol class="references" typeof="mw:Extension/references" about="#mwt7"
-					data-mw='{"name":"references","body":{
-					"html":"<sup about=\\"#mwt8\\" class=\\"mw-ref reference\\"
-					 data-mw=&apos;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;body&amp;quot;:{&amp;quot;html&amp;quot;:&amp;quot;Ref in refs&amp;quot;},
-					&amp;quot;attrs&amp;quot;:{&amp;quot;group&amp;quot;:&amp;quot;g1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;}}&apos;
-					 rel=\\"dc:references\\" typeof=\\"mw:Extension/ref\\">
-					<a href=\\"#cite_note-foo-3\\">[3]</a></sup>"},"attrs":{"group":"g1"}}'>
-					<li about="#cite_note-.3A0-2" id="cite_note-.3A0-2"><span rel="mw:referencedBy"><a href="#cite_ref-.3A0_2-0">↑</a></span> <span id="mw-cite-:0">Quux</span></li>
-					<li about="#cite_note-3" id="cite_note-3"><span rel="mw:referencedBy"><a href="#cite_ref-3">↑</a></span> <span id="mw-cite-3">No name</span></li>
-					<li about="#cite_note-foo-4" id="cite_note-foo-4"><span rel="mw:referencedBy"><a href="#cite_ref-foo_4-0">↑</a></span> <span id="mw-cite-foo">Ref in refs</span></li>
+				data-mw='{"name":"references","body":{
+				"html":"<sup about=\\"#mwt8\\" class=\\"mw-ref reference\\"
+				 data-mw=&apos;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;body&amp;quot;:{&amp;quot;html&amp;quot;:&amp;quot;Ref in refs&amp;quot;},
+				&amp;quot;attrs&amp;quot;:{&amp;quot;group&amp;quot;:&amp;quot;g1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;}}&apos;
+				 rel=\\"dc:references\\" typeof=\\"mw:Extension/ref\\">
+				<a href=\\"#cite_note-foo-3\\">[3]</a></sup>"},"attrs":{"group":"g1"}}'>
+				<li about="#cite_note-.3A0-2" id="cite_note-.3A0-2"><span rel="mw:referencedBy"><a href="#cite_ref-.3A0_2-0">↑</a></span> <span id="mw-cite-:0">Quux</span></li>
+				<li about="#cite_note-3" id="cite_note-3"><span rel="mw:referencedBy"><a href="#cite_ref-3">↑</a></span> <span id="mw-cite-3">No name</span></li>
+				<li about="#cite_note-foo-4" id="cite_note-foo-4"><span rel="mw:referencedBy"><a href="#cite_ref-foo_4-0">↑</a></span> <span id="mw-cite-foo">Ref in refs</span></li>
 			</ol>
 		`,
 		fromDataBody: ve.dm.example.singleLine`
@@ -106,11 +106,6 @@ ve.dm.ConverterTestCases.cases = {
 				 data-mw=&apos;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;body&amp;quot;:{&amp;quot;html&amp;quot;:&amp;quot;Ref in refs&amp;quot;},
 				&amp;quot;attrs&amp;quot;:{&amp;quot;group&amp;quot;:&amp;quot;g1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;}}&apos;>
 				</sup>"}}'>
-				<ol>
-					<li><span typeof="mw:Extension/ref" id="mw-reflist-item-1">Quux</span></li>
-					<li><span typeof="mw:Extension/ref" id="mw-cite-3">No name</span></li>
-					<li><span typeof="mw:Extension/ref" id="mw-reflist-item-3">Ref in refs</span></li>
-				</ol>
 			</div>
 		`,
 		clipboardBody: ve.dm.example.singleLine`

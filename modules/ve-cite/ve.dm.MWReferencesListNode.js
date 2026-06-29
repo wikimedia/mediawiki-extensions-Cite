@@ -7,9 +7,6 @@
  * @license MIT
  */
 
-const MWDataTransitionHelper = require( './ve.dm.MWDataTransitionHelper.js' );
-const MWReferenceKeyGenerator = require( './ve.dm.MWReferenceKeyGenerator.js' );
-
 /**
  * DataModel MediaWiki references list node.
  *
@@ -174,8 +171,6 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 	}
 
 	const updatedMw = ve.dm.MWReferencesListNode.static.updatedMwForDom( data, doc, converter );
-	const nodeGroup = converter.getInternalList().getNodeGroup( dataElement.attributes.listGroup );
-	const groupHasSubRefs = nodeGroup && nodeGroup.getFirstNodesInIndexOrder().some( ( node ) => node.isSubRef() );
 
 	let domElements = [ doc.createElement( 'div' ) ];
 	if ( !converter.isForParser() ) {
@@ -191,22 +186,11 @@ ve.dm.MWReferencesListNode.static.toDomElements = function ( data, doc, converte
 		// (e.g. updateDebounced)
 		viewNode.destroy();
 	} else if (
-		dataElement.originalDomElementsHash !== undefined &&
-		// FIXME both lines could be removed as part of T425927
-		!updatedMw &&
-		!groupHasSubRefs
+		dataElement.originalDomElementsHash !== undefined
 	) {
 		// If there's more than 1 element, preserve entire array, not just first element
 		domElements = ve.copyDomElements(
 			converter.getStore().value( dataElement.originalDomElementsHash ), doc
-		);
-	} else {
-		domElements[ 0 ].appendChild(
-			ve.dm.MWReferencesListNode.static.listToDomElement(
-				nodeGroup,
-				doc,
-				converter
-			)
 		);
 	}
 
@@ -311,84 +295,6 @@ ve.dm.MWReferencesListNode.static.isReflistLastElement = function ( documentData
 		nextIndex++;
 	}
 	return !nextElement || nextElement.type === 'internalList';
-};
-
-/**
- * Create references list HTML DOM for Parsoid
- *
- * @static
- * @param {ve.dm.InternalListNodeGroup} nodeGroup
- * @param {HTMLDocument} doc
- * @param {ve.dm.DomFromModelConverter} converter
- * @return {HTMLElement} <ol> element for the references list
- */
-ve.dm.MWReferencesListNode.static.listToDomElement = function ( nodeGroup, doc, converter ) {
-	const $wrapper = $( '<ol>', doc );
-	$wrapper.append(
-		new MWDataTransitionHelper().buildReflistStructure( nodeGroup )
-			.map( ( refInfo ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-				nodeGroup, refInfo, doc, converter
-			) )
-	);
-
-	return $wrapper[ 0 ];
-};
-
-/**
- * Create references list item HTML DOM for Parsoid
- *
- * @private
- * @static
- * @param {ve.dm.InternalListNodeGroup} nodeGroup
- * @param {ve.dm.MWDataTransitionHelper.RefInfo} refInfo
- * @param {HTMLDocument} doc
- * @param {ve.dm.DomFromModelConverter} converter
- * @return {jQuery} <li> element for the references listitem
- */
-ve.dm.MWReferencesListNode.static.listItemToDomElement = function (
-	nodeGroup,
-	refInfo,
-	doc,
-	converter
-) {
-	const internalItem = converter.getInternalList().getItemNode( refInfo.internalListIndex );
-	const $li = $( '<li>', doc );
-
-	if ( internalItem && internalItem.getLength() ) {
-		// make sure to find the node holding the refListItemId
-		const refListNodes = nodeGroup.getAllReusesByListIndex( refInfo.internalListIndex ) || [];
-		const refListNode = refListNodes.find( ( node ) => node.getAttribute( 'refListItemId' ) );
-		const htmlWrapper = doc.createElement( 'span' );
-		converter.getDomSubtreeFromData(
-			internalItem.getDocument().getFullData( internalItem.getRange(), 'roundTrip' ),
-			htmlWrapper
-		);
-
-		const refListItemId = ( refListNode && refListNode.getAttribute( 'refListItemId' ) ) ||
-			MWReferenceKeyGenerator.makeRefListItemId( refInfo.internalListIndex );
-		$li.append(
-			$( htmlWrapper )
-				.attr( 'typeof', 'mw:Extension/ref' )
-				.attr( 'id', refListItemId )
-		);
-	} else {
-		// TODO: What to do here?
-		$li.append(
-			$( '<span>', doc )
-		).addClass( 've-ce-mwReferencesListNode-missingRef' );
-	}
-
-	if ( refInfo.subrefs && refInfo.subrefs.length ) {
-		$li.append(
-			$( '<ol>', doc ).append(
-				refInfo.subrefs.map( ( subRefInfo ) => ve.dm.MWReferencesListNode.static.listItemToDomElement(
-					nodeGroup, subRefInfo, doc, converter
-				) )
-			)
-		);
-	}
-
-	return $li;
 };
 
 ve.dm.MWReferencesListNode.static.describeChange = function ( key, change ) {

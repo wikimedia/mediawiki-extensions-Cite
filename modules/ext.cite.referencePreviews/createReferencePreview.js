@@ -131,7 +131,7 @@ function renderReferencePreview(
 	// Test Kitchen experiment: cite-footnote-content-interaction-experiment (T123456)
 	if ( !mw.config.get( 'wgMFMode' ) ) {
 		getExperiment().then( ( experiment ) => {
-			if ( experiment && experiment.getAssignedGroup( 'treatment' ) ) {
+			if ( experiment && experiment.getAssignedGroup() === 'treatment' ) {
 				const reflistLink = el.querySelector( '.mwe-popups-reflist-link' );
 				reflistLink.textContent = mw.msg( 'cite-reference-previews-reflist-link' );
 

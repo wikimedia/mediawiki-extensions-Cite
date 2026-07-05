@@ -180,9 +180,15 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 			mwData.mainRef
 		);
 		dataElement.attributes.mainListKey = mainListKey;
-		const mainHtml = mwData.mainBody &&
-			this.getBodyFromReflist( converter, mwData.mainBody );
-		const { index: mainListIndex } = internalList.queueItemHtml( listGroup, mainListKey, mainHtml || '' );
+
+		// Get content for the main ref internalListItem
+		// FIXME: mainBody could be deprecated here but maybe it's a useful backup worth keeping
+		const mainHtmlFromId = mwData.mainBody && this.getBodyFromReflist( converter, mwData.mainBody );
+		const { index: mainListIndex } = internalList.queueItemHtml(
+			listGroup,
+			mainListKey,
+			mwData.mainBodyHtml || mainHtmlFromId || ''
+		);
 		dataElement.attributes.mainListIndex = mainListIndex;
 	}
 

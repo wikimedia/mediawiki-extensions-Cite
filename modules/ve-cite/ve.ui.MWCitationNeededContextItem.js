@@ -45,6 +45,25 @@ ve.ui.MWCitationNeededContextItem.static.icon = 'quotes';
 
 ve.ui.MWCitationNeededContextItem.static.label = OO.ui.deferMsg( 'cite-ve-citationneeded-title' );
 
+/**
+ * @inheritdoc
+ */
+ve.ui.MWCitationNeededContextItem.static.isCompatibleWith = function () {
+	// Parent method
+	if ( !ve.ui.MWCitationNeededContextItem.super.static.isCompatibleWith.apply( this, arguments ) ) {
+		return false;
+	}
+	// De-conflict with CitationNeededEditCheck
+	if (
+		ve.init.target.editcheckController &&
+		ve.init.target.editcheckController.suggestionsVisible &&
+		ve.init.target.editcheckController.canBeShown( 'citationNeeded', true )
+	) {
+		return false;
+	}
+	return true;
+};
+
 /* Methods */
 
 ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {

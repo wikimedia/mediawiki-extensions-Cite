@@ -41,7 +41,7 @@
 	"cite-ve-dialog-reference-add-details-button": "Lisa üksikasjad",
 	"cite-ve-dialog-subreference-help-dialog-title": "Üksikasjad",
 	"cite-ve-dialog-subreference-help-dialog-head": "Uus: lisa korduvviitele täpsustus",
-	"cite-ve-dialog-subreference-help-dialog-content": "Kui kasutad üht viidet mitu korda, saad sellele lisada nüüd erinevad üksikasjad.<p><b>Kasuta seda kui</b></p><ul><li>viitad raamatus eri lehekülgedele või osadele</li><li>täpsustad viidatud raadiosaates ajahetke</li><li>lisad allikast asjakohase tsitaadi</li></ul>",
+	"cite-ve-dialog-subreference-help-dialog-content": "Kui kasutad üht viidet mitu korda, saad sellele lisada nüüd erinevad üksikasjad.<p><b>Kasuta seda, kui</b></p><ul><li>viitad raamatus eri lehekülgedele või osadele</li><li>täpsustad viidatud raadiosaates ajahetke</li><li>lisad allikast asjakohase tsitaadi</li></ul>",
 	"cite-ve-dialog-subreference-help-dialog-link-label": "Loe veel viidetele üksikasjade lisamise kohta",
 	"cite-ve-dialog-subreference-change-all-checkbox-label": "Muuda nende üksikasjade kõiki ($1) kasutusi",
 	"cite-ve-dialog-reference-convert-all-checkbox-label": "Lisa need üksiksajad selle viite kõigile ($1) kasutustele, millel ei ole veel üksikasju",

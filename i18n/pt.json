@@ -10,11 +10,13 @@
 			"Mansil alfalb",
 			"Opraco",
 			"Vitorvicentevalente",
-			"Waldir"
+			"Waldir",
+			"BraunOBruno"
 		]
 	},
 	"cite-desc": "Adiciona as etiquetas <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para citações",
 	"cite_error": "Erro de citação: $1",
+	"cite_error_details_missing_parent": "A marca <code>&lt;ref></code> com detalhes deve conter conteúdo ou apontar para uma referência principal pelo nome.",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> inválido, deve ser <code>ltr</code> ou <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "Uma das etiquetas <code>&lt;ref&gt;</code> com o nome \"$1\" tem um atributo 'dir' em conflito.",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> inválida; o nome não pode ser um número inteiro. Use um título descritivo",
@@ -34,6 +36,8 @@
 	"cite_error_empty_references_define": "A etiqueta <code>&lt;ref&gt;</code> com o nome \"$1\" definida no grupo <code>&lt;references&gt;</code> \"$2\" não tem conteúdo.",
 	"cite-tracking-category-cite-error": "Páginas com erros em referências",
 	"cite-tracking-category-cite-error-desc": "As páginas nesta categoria contêm erros no uso dos elementos de referências.",
+	"cite-tracking-category-ref-details": "Páginas que utilizam sub-referências",
+	"cite-tracking-category-ref-details-desc": "As páginas nesta categoria utilizam o atributo \"details\" da marca &lt;ref>.",
 	"cite-reference-previews-reference": "Referência",
 	"cite-reference-previews-book": "Referência de livro",
 	"cite-reference-previews-journal": "Referência de revista",

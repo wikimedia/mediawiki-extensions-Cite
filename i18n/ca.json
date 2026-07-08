@@ -9,7 +9,8 @@
 			"Pere prlpz",
 			"SMP",
 			"Vriullop",
-			"Paucabot"
+			"Paucabot",
+			"KRLS"
 		]
 	},
 	"cite-desc": "Afegiu les etiquetes <code>&lt;ref&gt;</code> i <code>&lt;references&gt;</code> per a cites",
@@ -40,5 +41,6 @@
 	"cite-wikieditor-help-content-reference-description": "Referències",
 	"cite-wikieditor-help-content-named-reference-description": "Referència anomenada",
 	"cite-wikieditor-help-content-rereference-description": "Ús addicional de la mateixa referència",
-	"cite-wikieditor-help-content-showreferences-description": "Mostra les referències"
+	"cite-wikieditor-help-content-showreferences-description": "Mostra les referències",
+	"cite-configuration-submit": "Desa els canvis"
 }

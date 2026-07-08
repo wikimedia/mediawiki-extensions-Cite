@@ -7,6 +7,7 @@
 	},
 	"cite-desc": "Lisab viitamiseks sildid <code>&lt;ref&gt;</code> ja <code>&lt;references&gt;</code>.",
 	"cite_error": "Viitamistõrge: $1",
+	"cite_error_details_missing_parent": "<code>&lt;ref></code>-sildil peab olema sisu või atribuut \"name\", mis osutab vanemviitele.",
 	"cite_error_ref_invalid_dir": "Vigane <code>dir=\"$1\"</code>, peab olema <code>ltr</code> või <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "Ühel sildil <code>&lt;ref&gt;</code> nimega \"$1\" on konfliktne atribuut \"dir\".",
 	"cite_error_ref_numeric_key": "Vigane <code>&lt;ref&gt;</code>-silt. Nimeparameeter ei tohi olla numbriline. Kasuta kirjeldavat nime.",

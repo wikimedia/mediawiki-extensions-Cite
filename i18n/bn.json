@@ -29,6 +29,7 @@
 	"cite_error_empty_references_define": "<code>&lt;references&gt;</code> গ্রুপ $2-এ সংজ্ঞায়িত \"$1\" নামসহ <code>&lt;ref&gt;</code> ট্যাগে কোন বিষয়বস্তু নেই।",
 	"cite-tracking-category-cite-error": "তথ্যসূত্র ত্রুটিসহ পাতা",
 	"cite-tracking-category-cite-error-desc": "এই বিষয়শ্রেণীতে অন্তর্ভুক্ত নিবন্ধসমূহে তথ্যসূত্র ট্যাগ ব্যবহারে ত্রুটি আছে।",
+	"cite-tracking-category-ref-details": "উপ-তথ্যসূত্র ব্যবহার করা পাতা",
 	"cite-reference-previews-reference": "তথ্যসূত্র",
 	"cite-reference-previews-book": "বইয়ের তথ্যসূত্র",
 	"cite-reference-previews-journal": "সাময়িকীর তথ্যসূত্র",

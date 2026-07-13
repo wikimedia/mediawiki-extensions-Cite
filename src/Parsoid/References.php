@@ -664,10 +664,15 @@ class References {
 			}
 		}
 
-		// T364830: Remove any templated refslist with zero refs
+		// T364830 (ruwiki specific): Remove any templated refslist with zero refs (but keep template info if it exists)
 		if ( $refsNode->firstChild === null && WTUtils::fromTemplatedContent( $refsNode ) ) {
 			$nodeToDelete = $hasResponsiveWrapper ? $refsNode->parentNode : $refsNode;
-			$nodeToDelete->parentNode->removeChild( $nodeToDelete );
+			$about = $nodeToDelete->getAttribute( 'about' );
+			if ( !DOMUtils::hasTypeOf( $nodeToDelete, 'mw:Transclusion' )
+				|| $nodeToDelete->nextElementSibling?->getAttribute( 'about' ) !== $about
+			) {
+				$nodeToDelete->parentNode->removeChild( $nodeToDelete );
+			}
 		}
 
 		// Remove the group from refsData

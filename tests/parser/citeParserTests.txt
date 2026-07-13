@@ -4244,7 +4244,6 @@ x
 <p>x</p>
 !! end
 
-## This is more like how this usage will show up in production
 !! test
 T364830: 2. Template-generated reference tags without any <ref> tags should be stripped
 !! wikitext
@@ -4277,6 +4276,19 @@ x
 <p>x</p>
 <p about="#mwt1" typeof="mw:Transclusion" data-mw='{"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"foo"}},"i":0}}]}'>foo</p>
 <div about="#mwt2" class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references"></ol></div>
+!! end
+
+!! test
+T426939: template info of empty <references /> should not be lost if there's more content in the template
+!! wikitext
+{{1x|<references />
+foo}}
+!! html/php
+<p>foo
+</p>
+!! html/parsoid
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" about="#mwt1" data-parsoid='{"selfClose":true,"pi":[[{"k":"1"}]]}' data-mw='{"name":"references","attrs":{},"parts":[{"template":{"target":{"wt":"1x","href":"./Template:1x"},"params":{"1":{"wt":"&lt;references />\nfoo"}},"i":0}}]}'><ol class="mw-references references" data-parsoid="{}"></ol></div><span about="#mwt1">
+</span><p about="#mwt1">foo</p>
 !! end
 
 !! test

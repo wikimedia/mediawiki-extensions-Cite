@@ -1040,6 +1040,8 @@ T242437 - Nested references edge case, outer tag function with LDR
 
 !! test
 T242437 - Nested references edge case, outer tag function, inner LDR
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 <ref name="foo" />
 {{#tag:references|
@@ -1053,7 +1055,7 @@ T242437 - Nested references edge case, outer tag function, inner LDR
 </p>
 !! html/parsoid
 <p><sup class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo"}}'><a href="./Parser_test#cite_note-foo-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n  &lt;references>\n    &lt;ref name=\"foo\">bar&lt;/ref>\n  &lt;/references>\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n  &lt;references>\n    &lt;ref name=\"foo\">bar&lt;/ref>\n  &lt;/references>\n"}},"i":0}}]}'>
+<div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{},"body":{"extsrc":"\n  {{#parsoid\u0000fragment}}\n"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"\n  &lt;references>\n    &lt;ref name=\"foo\">bar&lt;/ref>\n  &lt;/references>\n"}},"i":0}}]}'>
 <ol class="mw-references references">
 <li id="cite_note-foo-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text">bar</span></li>
 </ol>
@@ -1260,6 +1262,8 @@ Consecutive whitespace in custom link label message should not create empty []
 
 !! test
 Bug 31374 regression check: nested strip items
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 {{#tag:ref|note<ref>reference</ref>|group=Note}}
 <references group="Note" />
@@ -2668,6 +2672,8 @@ test {{refinref|456<ref>123</ref>}}
 ## processed by the time the parser gets to the outer ref's contents.
 !! test
 Ref in ref: top level ref nested in parser function
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 test {{#tag:ref|456<ref>123</ref>}}
 <references />
@@ -2690,6 +2696,8 @@ test {{#tag:ref|456<ref>123</ref>}}
 
 !! test
 Ref in ref: Multiple levels of nesting in parser function
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 !! html/php
@@ -2744,6 +2752,8 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 ## to content that isn't on the page.
 !! test
 2. Ref in ref: self-referential, redefinition
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 {{#tag:ref|<div><ref name="x">y</ref></div>|name="x"}}
 
@@ -2773,6 +2783,8 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 ## content for x does not take priority
 !! test
 3. Ref in ref: self-referential, redefinition and leading, with other ref
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 <ref name="x" />
 
@@ -2801,16 +2813,10 @@ one{{#tag:ref|two{{#tag:ref|three<ref>four</ref>}}}}
 </ol></div>
 !! end
 
-## Bleh! Only to be used in the below.  See above where the legacy parser
-## wouldn't stand for this nonsense.
-!! article
-Template:nestedrefslash
-!! text
-<ref><ref name="RDEN PRE/1355/2005">three</ref></ref>
-!! endarticle
-
 !! test
 Reference list-defined nested <ref>s (T349981)
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 <ref name="foo" group="1" />{{#tag:references|{{#tag:ref|foo<ref>bar</ref>|name=foo|group=1}}|group=1}}
 <references />
@@ -2824,7 +2830,7 @@ Reference list-defined nested <ref>s (T349981)
 </li>
 </ol></div>
 !! html/parsoid
-<p><sup class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo","group":"1"}}'><a href="./Parser_test#cite_note-foo-1" data-mw-group="1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1 1<span class="cite-bracket">]</span></span></a></sup></p><div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{"group":"1"},"body":{"extsrc":"&lt;ref name=\"foo\" group=\"1\">foo&lt;ref>bar&lt;/ref>&lt;/ref>"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"{{#tag:ref|foo&lt;ref>bar&lt;/ref>|name=foo|group=1}}"},"2":{"wt":"group=1"}},"i":0}}]}'>
+<p><sup class="mw-ref reference" id="cite_ref-foo_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"foo","group":"1"}}'><a href="./Parser_test#cite_note-foo-1" data-mw-group="1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1 1<span class="cite-bracket">]</span></span></a></sup></p><div class="mw-references-wrap" typeof="mw:Extension/references mw:Transclusion" data-mw='{"name":"references","attrs":{"group":"1"},"body":{"extsrc":"{{#parsoid\u0000fragment}}"},"parts":[{"template":{"target":{"wt":"#tag:references","function":"tag"},"params":{"1":{"wt":"{{#tag:ref|foo&lt;ref>bar&lt;/ref>|name=foo|group=1}}"},"2":{"wt":"group=1"}},"i":0}}]}'>
 <ol class="mw-references references" data-mw-group="1">
 <li id="cite_note-foo-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-foo_1-0" data-mw-group="1" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-foo-1" class="mw-reference-text reference-text" data-mw-group="1">foo<sup class="mw-ref reference" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-2"}}'><a href="./Parser_test#cite_note-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></span></li>
 </ol>
@@ -2834,20 +2840,6 @@ Reference list-defined nested <ref>s (T349981)
 <li id="cite_note-2" data-mw-footnote-number="1"><span rel="mw:referencedBy" class="mw-cite-backlink"></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text">bar</span></li>
 </ol>
 </div>
-!! end
-
-## Just a regression test for Parsoid
-!! test
-Nested ref with forward slash
-!! wikitext
-test {{nestedrefslash}}
-<references />
-!! html/parsoid
-<p>test <sup about="#mwt1" class="mw-ref reference" id="cite_ref-2" rel="dc:references" typeof="mw:Transclusion mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-2"},"parts":[{"template":{"target":{"wt":"nestedrefslash","href":"./Template:Nestedrefslash"},"params":{},"i":0}}]}'><a href="./Parser_test#cite_note-2"><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a></sup></p>
-<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt7" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references">
-<li about="#cite_note-RDEN_PRE/1355/2005-1" id="cite_note-RDEN_PRE/1355/2005-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-RDEN_PRE/1355/2005_1-0" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-RDEN_PRE/1355/2005-1" class="mw-reference-text reference-text">three</span></li>
-<li about="#cite_note-2" id="cite_note-2" data-mw-footnote-number="2"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-2" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-2" class="mw-reference-text reference-text"><sup about="#mwt4" class="mw-ref reference" id="cite_ref-RDEN_PRE/1355/2005_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"RDEN PRE/1355/2005"},"body":{"id":"mw-reference-text-cite_note-RDEN_PRE/1355/2005-1"}}'><a href="./Parser_test#cite_note-RDEN_PRE/1355/2005-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></span></li>
-</ol></div>
 !! end
 
 ## Parsoid responsive references tests
@@ -4042,6 +4034,8 @@ cat=Pages_with_reference_errors sort=
 
 !! test
 Nested reference with same name but different group
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 {{#tag:ref|note <ref name="foo" group="notes">nested note</ref>|name="foo"|group="foo"}}
 
@@ -4071,6 +4065,8 @@ Nested reference with same name but different group
 
 !! test
 Nested reference with same name but different group (default in nested)
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 {{#tag:ref|note <ref name="foo">nested note</ref>|name="foo"|group="foo"}}
 
@@ -4100,6 +4096,8 @@ Nested reference with same name but different group (default in nested)
 
 !! test
 Nested reference with same name but different group (default in outer)
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! wikitext
 {{#tag:ref|note <ref name="foo" group="foo">nested note</ref>|name="foo"}}
 
@@ -4142,6 +4140,8 @@ wgCiteResponsiveReferences=false
 
 !! test
 T393913: Parsoid support for nested <ref> in different groups
+!! config
+wgReturnExperimentalPFragmentTypes=[ "ExtTagPFragment" ]
 !! options
 parsoid=wt2html
 !! wikitext

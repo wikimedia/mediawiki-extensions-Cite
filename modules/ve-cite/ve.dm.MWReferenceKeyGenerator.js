@@ -52,6 +52,23 @@ ve.dm.MWReferenceKeyGenerator = {
 	},
 
 	/**
+	 * @param {Object} attributes
+	 * @param {ve.dm.InternalList} internalList
+	 * @return {boolean} Whether the reference's content is a template transclusion
+	 */
+	getCitationTypeName: function ( attributes, internalList ) {
+		const internalItem = internalList.getItemNode( attributes.listIndex );
+		const matchingToolDefinition = ve.ui.mwCitationTools.find( ( toolDefinition ) =>
+			// eslint-disable-next-line implicit-arrow-linebreak
+			ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate(
+				internalItem, toolDefinition.template )
+		);
+		// Uses the tool's title, already resolved via PHP.
+		// Potential FIXME: support an "-autoname" override.
+		return matchingToolDefinition ? matchingToolDefinition.title : null;
+	},
+
+	/**
 	 * Generate the name for a given reference
 	 *
 	 * @param {Object} attributes
@@ -62,18 +79,19 @@ ve.dm.MWReferenceKeyGenerator = {
 	generateName: function ( attributes, internalList, isReused ) {
 		const listKey = attributes.mainListKey || attributes.listKey;
 		const name = this.extractNameFromListKey( listKey );
-
-		// use literal name
+		let namePrefix = ':'; // old behavior
 		if ( name ) {
 			return name;
 		}
 
-		// Auto-generate a new name when it's a sub-ref (i.e. it's linked to a main ref's listIndex)
-		// or it's a reused main ref that's either reused as is or has sub-refs
+		if ( mw.config.get( 'wgCiteCitationTypeAutoNames' ) ) {
+			const citationTypeName = this.getCitationTypeName( attributes, internalList );
+			namePrefix = citationTypeName || ve.msg( 'cite-ve-dialogbutton-reference-title' );
+		}
 		if ( attributes.mainListIndex !== undefined || isReused ) {
 			return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(
 				listKey,
-				'literal/:'
+				'literal/' + namePrefix
 			).slice( 'literal/'.length );
 		}
 	}

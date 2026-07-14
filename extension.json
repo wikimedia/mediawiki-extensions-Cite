@@ -264,6 +264,10 @@
 			"description": "Temporary feature flag while the sub-referencing feature (a way to nest citations and e.g. reference pages in a book) is in development.",
 			"value": false
 		},
+		"CiteCitationTypeAutoNames": {
+			"description": "Feature flag to enable auto-generating reference names based on their citation type (e.g. Book-1, Website-1) instead of numeric autonames.",
+			"value": false
+		},
 		"CiteVisualEditorOtherGroup": {
 			"description": "If VisualEditor should list the citation features as part of the existing \"Insert\" drop-down menu instead of a top-level \"Cite\" toolbar button.",
 			"value": false

@@ -119,22 +119,26 @@ ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 };
 
 /**
- * @override
+ * Get a description of the citation needed template including date and reason
+ *
+ * @param {ve.dm.MWTransclusionNode} node Citation needed template node
+ * @return {jQuery} Description elements
  */
-ve.ui.MWCitationNeededContextItem.prototype.renderBody = function () {
-	const date = this.getCanonicalParam( 'date' );
+ve.ui.MWCitationNeededContextItem.static.getDescription = function ( node ) {
+	const date = this.getCanonicalParam( node, 'date' );
 	let description = ve.msg( 'cite-ve-citationneeded-description' );
 
 	if ( date ) {
 		description += ve.msg( 'word-separator' ) + ve.msg( 'parentheses', date );
 	}
 
-	this.$body.empty();
-	this.$body.append( $( '<p>' ).addClass( 've-ui-mwCitationNeededContextItem-description' ).text( description ) );
+	const $description = $( '<div>' ).append(
+		$( '<p>' ).addClass( 've-ui-mwCitationNeededContextItem-description' ).text( description )
+	);
 
-	const reason = this.getCanonicalParam( 'reason' );
+	const reason = this.getCanonicalParam( node, 'reason' );
 	if ( reason ) {
-		this.$body.append(
+		$description.append(
 			$( '<p>' ).addClass( 've-ui-mwCitationNeededContextItem-reason' ).append(
 				document.createTextNode( ve.msg( 'cite-ve-citationneeded-reason' ) + ve.msg( 'word-separator' ) ),
 				// TODO: reason could have HTML entities, but this is rare
@@ -142,7 +146,18 @@ ve.ui.MWCitationNeededContextItem.prototype.renderBody = function () {
 			)
 		);
 	}
-	this.$body.append( this.addButton.$element );
+
+	return $description.contents();
+};
+
+/**
+ * @override
+ */
+ve.ui.MWCitationNeededContextItem.prototype.renderBody = function () {
+	this.$body.empty().append(
+		this.constructor.static.getDescription( this.model ),
+		this.addButton.$element
+	);
 };
 
 module.exports = ve.ui.MWCitationNeededContextItem;

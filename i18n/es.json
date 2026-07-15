@@ -31,11 +31,13 @@
 			"Sanbec",
 			"Tiberius1701",
 			"Translationista",
-			"JorgeElias2302"
+			"JorgeElias2302",
+			"Ninovolador"
 		]
 	},
 	"cite-desc": "Añade las etiquetas <code>&lt;ref&gt;</code> y <code>&lt;references&gt;</code> para citas.",
 	"cite_error": "Error en la cita: $1",
+	"cite_error_details_missing_parent": "Una etiqueta <code>&lt;ref></code> con detalles debe incluir contenido o apuntar a una referencia principal por nombre.",
 	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> no es válido; debe ser <code>ltr</code> o <code>rtl</code>",
 	"cite_error_ref_conflicting_dir": "Una de las etiquetas <code>&lt;ref&gt;</code> con el nombre \"$1\" tiene un atributo <code>dir</code> contradictorio.",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref&gt;</code> no válida; el nombre no puede ser un número entero. Usa un título descriptivo",
@@ -57,6 +59,8 @@
 	"cite-tracking-category-cite-error-desc": "Las páginas en esta categoría tienen errores en el uso de las etiquetas de referencias.",
 	"cite-tracking-category-cite-diffing-error": "Páginas con errores en referencias que provocan diferencias visuales",
 	"cite-tracking-category-cite-diffing-error-desc": "Las páginas de esta categoría tienen errores en el uso de etiquetas de referencias, y estos errores no se muestran de la misma manera en el analizador heredado y en Parsoid.",
+	"cite-tracking-category-ref-details": "Páginas que utilizan subreferencias",
+	"cite-tracking-category-ref-details-desc": "Las páginas de esta categoría utilizan el atributo \"details\" de la etiqueta &lt;ref>.",
 	"cite-reference-previews-reference": "Referencia",
 	"cite-reference-previews-book": "Libro de referencia",
 	"cite-reference-previews-journal": "Referencia de revista",
@@ -86,5 +90,9 @@
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto del enlace]",
 	"cite-wikieditor-help-content-reference-example-ref-id": "prueba",
 	"cite-wikieditor-help-content-reference-example-extra-details": "Detalles adicionales",
+	"communityconfiguration-cite-title": "Citar",
+	"communityconfiguration-cite-description": "Personaliza el formato y la apariencia de las referencias.",
+	"cite-configuration-title": "Configuración de citas",
+	"cite-configuration-info": "Estos ajustes afectan a todas las páginas que utilizan Cite. Solo los administradores pueden modificarlos.",
 	"cite-configuration-submit": "Guardar cambios"
 }

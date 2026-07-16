@@ -29,7 +29,7 @@
 	"cite-ve-citationneeded-description": "Egy szerkesztő jelezte, hogy ehhez az állításhoz hiányzik egy megbízható forrásra való hivatkozás.",
 	"cite-ve-citationneeded-reason": "Indoklás:",
 	"cite-ve-citationneeded-title": "Forráshivatkozás szükséges",
-	"cite-ve-dialog-reference-contextitem-extends": "Ez a forráshivatkozás egy meglévő forráshivatkozás további részletekkel kiegészített újrafelhasználása.",
+	"cite-ve-dialog-reference-contextitem-extends": "Ez a forráshivatkozás egy meglévő forráshivatkozás további részletekkel kiegészített újrafelhasználása:",
 	"cite-ve-dialog-reference-editing-add-details": "További részleteket adsz ehhez a forráshivatkozáshoz:",
 	"cite-ve-dialog-reference-editing-add-details-placeholder": "Írd vagy másold be ide az információt, amit hozzá szeretnél adni a forráshivatkozáshoz.",
 	"cite-ve-dialog-reference-editing-reused": "Ez a forráshivatkozás {{PLURAL:$1|egyszer|2=kétszer|$1 helyen}} szerepel ezen a lapon.",

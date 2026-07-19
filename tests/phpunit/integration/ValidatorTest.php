@@ -301,6 +301,19 @@ class ValidatorTest extends \MediaWikiIntegrationTestCase {
 				],
 				'expected' => null,
 			],
+			'Good dir auto' => [
+				'isKnownName' => true,
+				'inReferencesGroup' => null,
+				'text' => 'not empty',
+				[
+					'group' => '',
+					'name' => 'n',
+					'follow' => null,
+					'dir' => 'auto',
+					'details' => null,
+				],
+				'expected' => null,
+			],
 			'Bad dir' => [
 				'isKnownName' => true,
 				'inReferencesGroup' => null,

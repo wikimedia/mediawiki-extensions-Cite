@@ -175,7 +175,7 @@ class Validator {
 
 		if ( isset( $arguments['dir'] ) ) {
 			$lowerDir = strtolower( $arguments['dir'] );
-			if ( $lowerDir !== 'rtl' && $lowerDir !== 'ltr' ) {
+			if ( $lowerDir !== 'rtl' && $lowerDir !== 'ltr' && $lowerDir !== 'auto' ) {
 				$lowerDir = null;
 				$status->warning( 'cite_error_ref_invalid_dir', $arguments['dir'] );
 			}

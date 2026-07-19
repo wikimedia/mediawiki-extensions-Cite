@@ -92,7 +92,8 @@ class RefGroup implements Countable {
 	}
 
 	public function renderReferenceListElement(
-		ParsoidExtensionAPI $extApi, Element $refsList, RefGroupItem $ref, MarkSymbolRenderer $markSymbolRenderer
+		ParsoidExtensionAPI $extApi, Element $refsList, RefGroupItem $ref, MarkSymbolRenderer $markSymbolRenderer,
+		bool $defaultDirAuto = false
 	): void {
 		$ownerDoc = $refsList->ownerDocument;
 
@@ -100,6 +101,11 @@ class RefGroup implements Countable {
 		// We then append the rest of the ref nodes before the first node
 		$li = $ownerDoc->createElement( 'li' );
 		$refDir = $ref->dir;
+		// A ref without an explicit dir defaults to "auto" when $wgCiteDefaultRefDirAuto is on,
+		// so mixed-direction reference lists take each footnote's direction from its own content.
+		if ( $refDir === '' && $defaultDirAuto ) {
+			$refDir = 'auto';
+		}
 		$footnoteNumber = $markSymbolRenderer->renderFootnoteNumber(
 			$ref->group, $ref->numberInGroup, $ref->subrefIndex );
 		$noteId = ParsoidAnchorFormatter::getNoteIdentifier( $ref );
@@ -108,7 +114,7 @@ class RefGroup implements Countable {
 		DOMUtils::addAttributes( $li, [
 				'about' => '#' . $noteId,
 				'id' => $noteId,
-				'class' => ( $refDir === 'rtl' || $refDir === 'ltr' ) ? 'mw-cite-dir-' . $refDir : null,
+				'class' => in_array( $refDir, [ 'rtl', 'ltr', 'auto' ], true ) ? 'mw-cite-dir-' . $refDir : null,
 				'data-mw-footnote-number' => $footnoteNumber
 			]
 		);
@@ -120,6 +126,11 @@ class RefGroup implements Countable {
 				// Add both mw-reference-text & reference-text for b/c.
 				// We will remove duplicate classes in the future.
 				'class' => 'mw-reference-text reference-text',
+				// For dir="auto" the direction has to come from the reference's own
+				// content, so emit a real dir="auto" attribute on the text rather
+				// than the <li> (which starts with the localized backlink label and
+				// would mislead the auto-detection).
+				'dir' => $refDir === 'auto' ? 'auto' : null,
 			]
 		);
 		if ( $refGroup ) {

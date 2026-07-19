@@ -1555,6 +1555,52 @@ T202593: Identical dir attributes are pointless, but should not generate an erro
 </ol></div>
 !! end
 
+!! test
+T432544: Conflicting dir attribute (auto vs explicit) keeps the first dir
+!! wikitext
+<ref name="a" dir="auto">abc</ref>
+<ref name="a" dir="ltr" />
+<references />
+!! html/php
+<p><sup id="cite&#95;ref-a&#95;1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite&#95;ref-a&#95;1-1" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-a-1" class="mw-cite-dir-auto"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text" dir="auto">abc <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: One of the <code>&lt;ref&gt;</code> tags with the name "a" does have a conflicting dir attribute.</span></span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","dir":"auto"},"body":{"id":"mw-reference-text-cite_note-a-1"}}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
+<sup class="mw-ref reference" id="cite_ref-a_1-1" rel="dc:references" typeof="mw:Extension/ref mw:Error" data-mw='{"name":"ref","attrs":{"name":"a","dir":"ltr"},"errors":[{"key":"cite_error_ref_conflicting_dir","params":["a"]}]}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
+<ol class="mw-references references">
+<li id="cite_note-a-1" class="mw-cite-dir-auto" data-mw-footnote-number="1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1</span></a> <a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2</span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text" dir="auto">abc</span> <span typeof="mw:I18n" class="error mw-ext-cite-error" data-mw-i18n='{"/":{"lang":"x-user","key":"cite_error","params":[{"text":{"key":"cite_error_ref_conflicting_dir","params":["a"]}}]}}'></span></li>
+</ol>
+</div>
+!! end
+
+!! test
+T432544: Identical dir="auto" on the same ref is not a conflict
+!! wikitext
+<ref name="a" dir="AUTO" />
+<ref name="a" dir="auto">abc</ref>
+<references />
+!! html/php
+<p><sup id="cite&#95;ref-a&#95;1-0" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+<sup id="cite&#95;ref-a&#95;1-1" class="reference"><a href="#cite_note-a-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-a-1" class="mw-cite-dir-auto"><span class="mw-cite-backlink">↑ <sup><a href="#cite_ref-a_1-0">1.0</a></sup> <sup><a href="#cite_ref-a_1-1">1.1</a></sup></span> <span class="reference-text" dir="auto">abc</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt2" class="mw-ref reference" id="cite_ref-a_1-0" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","dir":"AUTO"}}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup>
+<sup about="#mwt4" class="mw-ref reference" id="cite_ref-a_1-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"a","dir":"auto"},"body":{"id":"mw-reference-text-cite_note-a-1"}}'><a href="./Parser_test#cite_note-a-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references">
+<li about="#cite_note-a-1" id="cite_note-a-1" class="mw-cite-dir-auto" data-mw-footnote-number="1"><span rel="mw:referencedBy" class="mw-cite-backlink"><a href="./Parser_test#cite_ref-a_1-0"><span class="mw-linkback-text">1</span></a> <a href="./Parser_test#cite_ref-a_1-1"><span class="mw-linkback-text">2</span></a></span> <span id="mw-reference-text-cite_note-a-1" class="mw-reference-text reference-text" dir="auto">abc</span></li>
+</ol></div>
+!! end
+
 # FIXME: Parsoid currently cannot report failure states from inside <references>, see T384599
 !! test
 Multiple definition (inside {{#tag:references}})
@@ -3086,6 +3132,94 @@ T15673: <ref> with direction "ltr"
 !! end
 
 !! test
+T432544: <ref> with direction "auto"
+!! wikitext
+<ref dir="auto">TEST</ref>
+
+<references />
+!! html/php
+<p><sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1" class="mw-cite-dir-auto"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text" dir="auto">TEST</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt4" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"dir":"auto"},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1" class="mw-cite-dir-auto" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text" dir="auto">TEST</span></li>
+</ol></div>
+!! end
+
+!! test
+T432544: <ref> without dir defaults to "auto" when $wgCiteDefaultRefDirAuto is enabled
+!! config
+wgCiteDefaultRefDirAuto=true
+!! wikitext
+<ref>TEST</ref>
+
+<references />
+!! html/php
+<p><sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1" class="mw-cite-dir-auto"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text" dir="auto">TEST</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt4" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1" class="mw-cite-dir-auto" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text" dir="auto">TEST</span></li>
+</ol></div>
+!! end
+
+!! test
+T432544: <ref> without dir is left undirected when $wgCiteDefaultRefDirAuto is disabled (default)
+!! wikitext
+<ref>TEST</ref>
+
+<references />
+!! html/php
+<p><sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">TEST</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt4" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">TEST</span></li>
+</ol></div>
+!! end
+
+!! test
+T432544: explicit dir overrides the $wgCiteDefaultRefDirAuto default
+!! config
+wgCiteDefaultRefDirAuto=true
+!! wikitext
+<ref dir="ltr">TEST</ref>
+
+<references />
+!! html/php
+<p><sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1" class="mw-cite-dir-ltr"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">TEST</span>
+</li>
+</ol></div>
+!! html/parsoid
+<p><sup about="#mwt4" class="mw-ref reference" id="cite_ref-1" rel="dc:references" typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"dir":"ltr"},"body":{"id":"mw-reference-text-cite_note-1"}}'><a href="./Parser_test#cite_note-1"><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
+
+<div class="mw-references-wrap" typeof="mw:Extension/references" about="#mwt6" data-mw='{"name":"references","attrs":{}}'><ol class="mw-references references">
+<li about="#cite_note-1" id="cite_note-1" class="mw-cite-dir-ltr" data-mw-footnote-number="1"><span class="mw-cite-backlink"><a href="./Parser_test#cite_ref-1" rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a></span> <span id="mw-reference-text-cite_note-1" class="mw-reference-text reference-text">TEST</span></li>
+</ol></div>
+!! end
+
+!! test
 T15673: <ref> with direction "LTR", keeps upper case
 !! wikitext
 <ref dir="LTR">TEST</ref>
@@ -3117,9 +3251,9 @@ T15673: <ref> with direction "nonsense" and "" (empty), strip invalid dir attrib
 <sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>2<span class="cite-bracket">&#93;</span></a></sup>
 </p>
 <div class="mw-references-wrap"><ol class="references">
-<li id="cite&#95;note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">NONSENSE_DIR_TEST <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir="nonsense"</code>, must be "ltr" or "rtl".</span></span>
+<li id="cite&#95;note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">NONSENSE_DIR_TEST <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir="nonsense"</code>, must be "ltr", "rtl" or "auto".</span></span>
 </li>
-<li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">EMPTY_DIR_TEST <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir=""</code>, must be "ltr" or "rtl".</span></span>
+<li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">EMPTY_DIR_TEST <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Invalid <code>dir=""</code>, must be "ltr", "rtl" or "auto".</span></span>
 </li>
 </ol></div>
 !! html/parsoid

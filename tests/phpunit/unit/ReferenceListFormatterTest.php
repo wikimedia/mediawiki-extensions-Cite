@@ -132,7 +132,8 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testFormatListItem(
 		array $ref,
-		string $expectedOutput
+		string $expectedOutput,
+		bool $defaultDirAuto = false
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnArgument( 0 );
@@ -174,7 +175,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$ref = TestUtils::refFromArray( $ref );
-		$output = $formatter->formatListItem( $ref );
+		$output = $formatter->formatListItem( $ref, $defaultDirAuto );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -197,6 +198,28 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 				],
 				'expectedOutput' => '(cite_references_link_one|+1|+1+1|<span class="reference-text">t</span>' .
 					"\n" . '| class="mw-cite-dir-rtl")'
+			],
+			'Default dir auto when flag on' => [
+				'ref' => [
+					'count' => 1,
+					'globalId' => 1,
+					'text' => 't',
+				],
+				'expectedOutput' => '(cite_references_link_one|+1|+1+1|' .
+					'<span class="reference-text" dir="auto">t</span>' .
+					"\n" . '| class="mw-cite-dir-auto")',
+				'defaultDirAuto' => true,
+			],
+			'Explicit dir overrides the auto default' => [
+				'ref' => [
+					'count' => 1,
+					'dir' => 'rtl',
+					'globalId' => 1,
+					'text' => 't',
+				],
+				'expectedOutput' => '(cite_references_link_one|+1|+1+1|<span class="reference-text">t</span>' .
+					"\n" . '| class="mw-cite-dir-rtl")',
+				'defaultDirAuto' => true,
 			],
 			'Incomplete follow' => [
 				'ref' => [
@@ -248,7 +271,8 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testReferenceText(
 		?string $text,
-		string $expectedOutput
+		string $expectedOutput,
+		?string $dir = null
 	) {
 		$mockErrorReporter = $this->createMock( ErrorReporter::class );
 		$mockErrorReporter->method( 'plain' )->willReturnCallback(
@@ -264,7 +288,7 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 		) );
 
 		$ref = TestUtils::refFromArray( [ 'text' => $text ] );
-		$output = $formatter->renderTextAndWarnings( $ref );
+		$output = $formatter->renderTextAndWarnings( $ref, $dir );
 		$this->assertSame( $expectedOutput, $output );
 	}
 
@@ -281,6 +305,11 @@ class ReferenceListFormatterTest extends \MediaWikiUnitTestCase {
 			'Trims text' => [
 				'text' => "text\n\n",
 				'expectedOutput' => '<span class="reference-text">text</span>' . "\n"
+			],
+			'dir auto emits a dir attribute' => [
+				'text' => 'text',
+				'expectedOutput' => '<span class="reference-text" dir="auto">text</span>' . "\n",
+				'dir' => 'auto',
 			],
 		];
 	}

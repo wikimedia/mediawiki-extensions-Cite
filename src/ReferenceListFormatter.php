@@ -25,18 +25,20 @@ class ReferenceListFormatter {
 	 * @param Parser $parser
 	 * @param array<string|int,ReferenceStackItem> $groupRefs
 	 * @param bool $responsive
+	 * @param bool $defaultDirAuto Whether refs without an explicit dir default to dir="auto"
 	 * @return string HTML
 	 */
 	public function formatReferences(
 		Parser $parser,
 		array $groupRefs,
-		bool $responsive
+		bool $responsive,
+		bool $defaultDirAuto = false
 	): string {
 		if ( !$groupRefs ) {
 			return '';
 		}
 
-		$wikitext = $this->formatRefsList( $groupRefs );
+		$wikitext = $this->formatRefsList( $groupRefs, $defaultDirAuto );
 		$html = $parser->recursiveTagParse( $wikitext );
 
 		$firstRef = array_first( $groupRefs );
@@ -60,9 +62,10 @@ class ReferenceListFormatter {
 
 	/**
 	 * @param non-empty-array<string|int,ReferenceStackItem> $groupRefs
+	 * @param bool $defaultDirAuto Whether refs without an explicit dir default to dir="auto"
 	 * @return string Wikitext
 	 */
-	private function formatRefsList( array $groupRefs ): string {
+	private function formatRefsList( array $groupRefs, bool $defaultDirAuto ): string {
 		// After sorting the list, we can assume that references are in the same order as their
 		// numbering.  Subreferences will come immediately after their parent.
 		uasort( $groupRefs, static fn ( ReferenceStackItem $a, ReferenceStackItem $b ) =>
@@ -89,7 +92,7 @@ class ReferenceListFormatter {
 				$parserInput .= $this->closeIndention( $indented );
 				$indented = false;
 			}
-			$parserInput .= $this->formatListItem( $ref ) . "\n";
+			$parserInput .= $this->formatListItem( $ref, $defaultDirAuto ) . "\n";
 		}
 		$parserInput .= $this->closeIndention( $indented );
 		return $parserInput;
@@ -112,8 +115,11 @@ class ReferenceListFormatter {
 	 * @param ReferenceStackItem $ref
 	 * @return string Wikitext, wrapped in a single <li> element
 	 */
-	private function formatListItem( ReferenceStackItem $ref ): string {
-		$text = $this->renderTextAndWarnings( $ref );
+	private function formatListItem( ReferenceStackItem $ref, bool $defaultDirAuto ): string {
+		// A ref without an explicit dir defaults to "auto" when $wgCiteDefaultRefDirAuto is on,
+		// so mixed-direction reference lists take each footnote's direction from its own content.
+		$dir = $ref->dir ?? ( $defaultDirAuto ? 'auto' : null );
+		$text = $this->renderTextAndWarnings( $ref, $dir );
 
 		// Special case for an incomplete follow="…". This is valid e.g. in the Page:… namespace on
 		// Wikisource. Note this returns a <p>, not an <li> as expected!
@@ -123,11 +129,12 @@ class ReferenceListFormatter {
 
 		// Parameter $4 in the cite_references_link_one and cite_references_link_many messages
 		$extraAttributes = [];
-		if ( $ref->dir !== null ) {
+		if ( $dir !== null ) {
 			// The following classes are generated here:
 			// * mw-cite-dir-ltr
 			// * mw-cite-dir-rtl
-			$extraAttributes['class'] = 'mw-cite-dir-' . $ref->dir;
+			// * mw-cite-dir-auto
+			$extraAttributes['class'] = 'mw-cite-dir-' . $dir;
 		}
 
 		if ( $ref->count === 1 ) {
@@ -188,9 +195,10 @@ class ReferenceListFormatter {
 
 	/**
 	 * @param ReferenceStackItem $ref
+	 * @param ?string $dir Resolved direction, "auto" emits a dir="auto" attribute on the text
 	 * @return string Wikitext
 	 */
-	private function renderTextAndWarnings( ReferenceStackItem $ref ): string {
+	private function renderTextAndWarnings( ReferenceStackItem $ref, ?string $dir ): string {
 		$text = $ref->text ?? '';
 		foreach ( $ref->warnings as $warning ) {
 			// @phan-suppress-next-line PhanParamTooFewUnpack
@@ -199,7 +207,13 @@ class ReferenceListFormatter {
 			break;
 		}
 
-		return '<span class="reference-text">' . rtrim( $text, "\n" ) . "</span>\n";
+		// For dir="auto" the browser has to determine the direction from the
+		// reference's own content, so emit a real dir="auto" attribute on the
+		// text (not the whole <li>, which starts with the localized backlink
+		// label and would mislead the auto-detection).
+		$dirAttr = $dir === 'auto' ? ' dir="auto"' : '';
+
+		return '<span class="reference-text"' . $dirAttr . '>' . rtrim( $text, "\n" ) . "</span>\n";
 	}
 
 	/**

@@ -134,3 +134,24 @@ sup.reference:target {
 	direction: rtl;
 	unicode-bidi: embed;
 }
+
+/*
+ * For dir="auto" the <span class="reference-text" dir="auto"> already lays its own
+ * content out in the direction detected from its first strong character. Reflect
+ * that detected direction onto the whole list item so the footnote number and
+ * alignment follow the reference too (e.g. an English citation on an RTL wiki gets
+ * its number on the left). The :has()/:dir() combination reads the direction the
+ * browser computed for the isolated reference text; it is scoped to .mw-cite-dir-auto
+ * so it is only evaluated for references that actually opted in with dir="auto".
+ */
+/* @noflip */
+.mw-cite-dir-auto:has( .reference-text:dir( ltr ) ) {
+	direction: ltr;
+	text-align: left;
+}
+
+/* @noflip */
+.mw-cite-dir-auto:has( .reference-text:dir( rtl ) ) {
+	direction: rtl;
+	text-align: right;
+}

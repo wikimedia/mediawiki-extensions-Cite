@@ -276,6 +276,10 @@
 			"description": "The number of references at which CiteResponsiveReferences is enabled.",
 			"value": 10
 		},
+		"CiteDefaultRefDirAuto": {
+			"description": "If enabled, <ref> tags without an explicit dir attribute default to dir=\"auto\", so mixed-direction reference lists render each footnote in the direction detected from its own content (e.g. an English citation on a right-to-left wiki reads left-to-right and gets its number on the left). Individual references can still override this with dir=\"ltr\", dir=\"rtl\" or dir=\"auto\". Off by default; intended mainly for right-to-left wikis. See T432544.",
+			"value": false
+		},
 		"CiteReferencePreviews": {
 			"description": "Feature flag to enable or disable the popups provided by the Popups extension for <ref> tags.",
 			"value": true

@@ -487,6 +487,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 		$config = new HashConfig( [
 			'CiteBacklinkCommunityConfiguration' => false,
 			'CiteDefaultBacklinkAlphabet' => null,
+			'CiteDefaultRefDirAuto' => false,
 			'CiteResponsiveReferences' => false,
 			'CiteSubReferencing' => true,
 		] );

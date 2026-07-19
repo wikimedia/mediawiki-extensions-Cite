@@ -315,7 +315,8 @@ class Cite {
 		return $this->referenceListFormatter->formatReferences(
 			$parser,
 			$refs,
-			$responsive ?? $this->config->get( 'CiteResponsiveReferences' )
+			$responsive ?? $this->config->get( 'CiteResponsiveReferences' ),
+			$this->config->get( 'CiteDefaultRefDirAuto' )
 		);
 	}
 

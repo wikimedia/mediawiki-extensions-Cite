@@ -4294,7 +4294,6 @@ foo}}
 !! test
 Errors after references list without responsive wrapping
 !! config
-!! config
 wgCiteResponsiveReferences=false
 !! wikitext
 <references>

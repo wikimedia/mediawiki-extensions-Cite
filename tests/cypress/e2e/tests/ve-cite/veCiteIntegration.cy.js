@@ -59,7 +59,7 @@ describe( 'VisualEditor Cite', () => {
 			.type( ' NEW' );
 
 		// Click the "Apply" button in the edit dialog
-		cy.get( '.oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
+		cy.get( '.ve-ui-mwReferenceDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
 
 		// Use the save dialog
 		veHelper.saveEdits();

@@ -53,7 +53,7 @@ describe( 'VisualEditor Cite with sub-references', () => {
 			.should( 'be.checked' );
 
 		// Click the "Insert" button in the add-details dialog
-		cy.get( '.oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
+		cy.get( '.ve-ui-mwReferenceDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
 
 		// Close context item popup
 		cy.get( '#bodyContent' ).click();
@@ -112,7 +112,7 @@ describe( 'VisualEditor Cite with sub-references', () => {
 			.type( ' Edited' );
 
 		// Save changes
-		cy.get( '.oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
+		cy.get( '.ve-ui-mwReferenceDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonElement-button' ).click();
 
 		// Context item has updated details content
 		cy.get( '.ve-ui-mwReferenceContextItem-detailsPreview p' )

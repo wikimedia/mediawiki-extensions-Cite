@@ -115,8 +115,17 @@ export function saveEdits() {
 	cy.get( '.ve-ui-toolbar-saveButton' )
 		.should( 'not.have.class', 'oo-ui-widget-disabled' )
 		.click();
+	cy.get( '.ve-ui-mwSaveDialog' ).should( 'be.visible' );
 	cy.get( '.ve-ui-mwSaveDialog .oo-ui-processDialog-actions-primary .oo-ui-buttonWidget' ).click();
-	cy.get( '.mw-notification-visible .oo-ui-icon-success' ).should( 'be.visible' );
+	// Don't wait on the post-edit notification: mediawiki.notification only adds
+	// "mw-notification-visible" after two requestAnimationFrame callbacks, while the
+	// 5s auto-hide timer starts immediately, so under load it may never be matchable.
+	// Wait for VE to finish deactivating instead. DesktopArticleTarget drops
+	// "ve-active" when teardown starts and "ve-deactivating" only once it has moved
+	// the original content back, which is what makes the read-mode tabs clickable.
+	cy.get( 'html' )
+		.should( 'not.have.class', 've-active' )
+		.and( 'not.have.class', 've-deactivating' );
 }
 
 export function getCiteReuseDialogRefResult( rowNumber ) {

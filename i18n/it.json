@@ -17,7 +17,7 @@
 	"cite_error": "Errore nelle note: $1",
 	"cite_error_details_missing_parent": "Un tag <code>&lt;ref></code> con dettagli non deve essere vuoto o deve riferirsi a una citazione tramite nome.",
 	"cite_error_details_unsupported_context": "Il tag <code>&lt;ref></code> con il nome $1 non può utilizzare dettagli quando è all'interno di <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valido, deve essere  \"ltr\" o \"rtl\".",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valido, deve essere \"ltr\", \"rtl\" o \"auto\".",
 	"cite_error_ref_conflicting_dir": "Uno dei tag <code>&lt;ref></code> con il nome $1 ha un attributo dir in conflitto.",
 	"cite_error_ref_numeric_key": "Errore nell'uso del marcatore <code>&lt;ref></code>: il nome non può essere un numero intero. Usare un titolo esteso",
 	"cite_error_ref_no_key": "L'apertura dell'etichetta <code>&lt;ref></code> non è corretta o ha un nome errato.",

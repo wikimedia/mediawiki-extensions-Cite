@@ -18,7 +18,7 @@
 	"cite_error": "Referencefejl: $1",
 	"cite_error_details_missing_parent": "Et <code>&lt;ref&gt;</code>-tag med detaljer skal indeholde indhold eller pege på en overordnet reference med navn.",
 	"cite_error_details_unsupported_context": "<code>&lt;ref></code>-tag med navnet \"$1\" kan ikke bruge detaljer, når det er inde i <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "Ugyldig <code>dir=\"$1\"</code>, skal være \"ltr\" eller \"rtl\".",
+	"cite_error_ref_invalid_dir": "Ugyldig <code>dir=\"$1\"</code>, skal være \"ltr\", \"rtl\" eller \"auto\".",
 	"cite_error_ref_conflicting_dir": "En af <code>&lt;ref></code>-taggene med navnet \"$1\" har et modstridende dir-attribut.",
 	"cite_error_ref_numeric_key": "Ugyldigt <code>&lt;ref></code>-tag; \"name\" kan ikke være et simpelt heltal. Brug en beskrivende titel.",
 	"cite_error_ref_no_key": "Det indledende <code>&lt;ref></code>-tag har en forkert form eller har et ugyldigt navn.",

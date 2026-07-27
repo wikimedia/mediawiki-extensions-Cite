@@ -9,7 +9,7 @@
 	},
 	"cite-desc": "Setzt <code>&lt;ref[ name=id]></code> an <code>&lt;references/></code> Tagge fir Referenzen derbäi.",
 	"cite_error": "Zitéierfeeler: $1",
-	"cite_error_ref_invalid_dir": "Ongültegen <code>dir=\"$1\"</code>, muss „ltr“ oder „rtl“ sinn.",
+	"cite_error_ref_invalid_dir": "Ongültegen <code>dir=\"$1\"</code>, muss „ltr“, „rtl“ oder „auto“ sinn.",
 	"cite_error_ref_numeric_key": "Ongültegen Tag <code>&lt;ref></code>; den Numm ka keng einfach ganz Zuel sinn. Benotzt e beschreiwenden Titel.",
 	"cite_error_ref_no_key": "Den Ufanks-Tag <code>&lt;ref></code> ass falsch opgebaut oder huet en ongültegen Numm.",
 	"cite_error_ref_too_many_keys": "Ongültege Parameter „$1“ am Tag <code>&lt;ref&gt;</code>. Déi ënnerstëtzt Parametere sinn: $2.",

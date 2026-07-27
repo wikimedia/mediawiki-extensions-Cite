@@ -14,7 +14,7 @@
 	"cite_error": "Sitat səhvi: $1",
 	"cite_error_details_missing_parent": "Detallı <code>&lt;ref></code> teqi məzmuna sahib olmalıdır və ya əsas istinada keçid etməlidir.",
 	"cite_error_details_unsupported_context": "\"$1\" adlı <code>&lt;ref></code> teqi <code>&lt;references></code> daxilində olarkən detallardan istifadə edə bilməz.",
-	"cite_error_ref_invalid_dir": "Etibarsız <code>dir=\"$1\"</code>, \"ltr\" və ya \"rtl\" olmalıdır",
+	"cite_error_ref_invalid_dir": "Etibarsız <code>dir=\"$1\"</code>, \"ltr\", \"rtl\" və ya \"auto\" olmalıdır",
 	"cite_error_ref_conflicting_dir": "\"$1\" adlı <code>&lt;ref></code> teqlərindən birində ziddiyyətli dir atributu var.",
 	"cite_error_ref_numeric_key": "Xətalı <code>&lt;ref></code> etiketi; istinad adlandırması yalnız rəqəm ola bilməz. Daha yaxşı başlıqdan istifadə edin.",
 	"cite_error_ref_no_key": "<code>&lt;ref></code> açılış teqi səhv formalaşdırılıb və ya adı etibarsızdır.",

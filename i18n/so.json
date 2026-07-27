@@ -8,7 +8,7 @@
 	"cite_error": "Cillad tixraac: $1",
 	"cite_error_details_missing_parent": "Tagga <code>&lt;ref&gt;</code> ee faahfaahinta leh waa inuu ka koobnaadaa waxyaabo ama uu tixraac u sameeyaa tixraac waalid ah oo magac leh.",
 	"cite_error_details_unsupported_context": "Tagga <code>&lt;ref></code> ee leh magaca \"$1\" ma isticmaali karo faahfaahin marka uu ku jiro <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "Aan ansax ahayn <code>dir=\"$1\"</code>, waa inuu noqdaa \"ltr\" ama \"rtl\".",
+	"cite_error_ref_invalid_dir": "Aan ansax ahayn <code>dir=\"$1\"</code>, waa inuu noqdaa \"ltr\", \"rtl\" ama \"auto\".",
 	"cite_error_ref_conflicting_dir": "Mid ka mid ah tagyada <code>&lt;ref></code> ee leh magaca \"$1\" wuxuu leeyahay dir isku dhac ah.",
 	"cite_error_ref_numeric_key": "Calaamadda <code>&lt;ref></code> waa aan ansax ahayn; magaca ma noqon karo tiro kaliya. Isticmaal cinwaan sharaxaad leh.",
 	"cite_error_ref_no_key": "Calaamadda furitaanka <code>&lt;ref></code> waa khaldan ama magaceedu waa xun yahay.",

@@ -14,7 +14,7 @@
 	"cite_error": "Erro na cita: $1",
 	"cite_error_details_missing_parent": "A etiqueta <code>&lt;ref></code> con detalles debe ter contido ou apuntar a un pai polo seu nome.",
 	"cite_error_details_unsupported_context": "A etiqueta <code>&lt;ref></code> co nome «$1» non pode utilizar detalles cando está dentro de <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "O atributo <code>dir=\"$1\"</code> non é válido; debe ser «ltr» ou «rtl».",
+	"cite_error_ref_invalid_dir": "O atributo <code>dir=\"$1\"</code> non é válido; debe ser «ltr», «rtl» ou «auto».",
 	"cite_error_ref_conflicting_dir": "Unha das etiquetas <code>&lt;ref></code> co nome «$1» ten un atributo «dir» conflitivo.",
 	"cite_error_ref_numeric_key": "A etiqueta <code>&lt;ref></code> non é válida; o nome non pode ser un número enteiro. Utiliza un título descritivo.",
 	"cite_error_ref_no_key": "A etiqueta de apertura <code>&lt;ref></code> é incorrecta ou ten un nome incorrecto.",

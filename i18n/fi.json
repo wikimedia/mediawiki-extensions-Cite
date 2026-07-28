@@ -25,7 +25,7 @@
 	"cite_error": "Viittausvirhe: $1",
 	"cite_error_details_missing_parent": "<code>&lt;ref></code>-elementissä, jossa on lisätietoja, täytyy olla sisältöä tai sen täytyy viitata isäntäviitteeseen name-attribuutilla.",
 	"cite_error_details_unsupported_context": "<code>&lt;ref></code>-elementti nimellä ”$1” ei voi käyttää lisätietoja sen ollessa <code>&lt;references></code>-elementin sisällä.",
-	"cite_error_ref_invalid_dir": "Virheellinen <code>dir=\"$1\"</code>, tulee olla ”ltr” tai ”rtl”.",
+	"cite_error_ref_invalid_dir": "Virheellinen <code>dir=\"$1\"</code>, tulee olla ”ltr”, ”rtl” tai ”auto”.",
 	"cite_error_ref_conflicting_dir": "Yhdessä nimellä ”$1” olevista <code>&lt;ref></code>-elementeistä on ristiriitainen dir-attribuutti.",
 	"cite_error_ref_numeric_key": "Virheellinen <code>&lt;ref></code>-elementti; name-attribuutti ei voi olla luku. Käytä kuvaavampaa nimeä.",
 	"cite_error_ref_no_key": "Avaava <code>&lt;ref></code>-elementti on väärän muotoinen tai sillä on virheellinen nimi.",

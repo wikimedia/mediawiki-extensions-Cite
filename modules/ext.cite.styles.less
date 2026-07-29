@@ -65,7 +65,7 @@ ol.references {
 // T411472: Temporary workaround for Safari because of https://caniuse.com/css-marker-pseudo
 // stylelint-disable-next-line selector-type-no-unknown
 _::-webkit-full-page-media,
-ol.references .mw-subreference-list > li::before {
+ol.references > li > ol.mw-subreference-list > li::before {
 	content: counter( mw-ref-details-parent, decimal ) '.' counter( mw-ref-details-child, decimal ) '.\00a0';
 	display: inline-block;
 	margin-left: -3.2em;
@@ -75,14 +75,14 @@ ol.references .mw-subreference-list > li::before {
 
 // stylelint-disable-next-line selector-type-no-unknown
 _::-webkit-full-page-media,
-ol.references .mw-subreference-list > li::marker {
+ol.references > li > ol.mw-subreference-list > li::marker {
 	// Just in case some later Safari version suddenly renders both
 	content: none;
 }
 
 // stylelint-disable-next-line selector-type-no-unknown
 _::-webkit-full-page-media,
-ol.references .mw-subreference-list {
+ol.references > li > ol.mw-subreference-list {
 	list-style-type: none;
 }
 

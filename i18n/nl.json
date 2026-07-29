@@ -19,7 +19,7 @@
 	"cite_error": "Citefout: $1",
 	"cite_error_details_missing_parent": "De <code>&lt;ref></code>-tag met details moet inhoud bevatten of via de naam naar een bovenliggende referentie verwijzen.",
 	"cite_error_details_unsupported_context": "De <code>&lt;ref></code>-tag met de naam “$1” kan geen details gebruiken wanneer deze zich binnen <code>&lt;references></code> bevindt.",
-	"cite_error_ref_invalid_dir": "Incorrecte <code>dir=\"$1\"</code>. Moet \"ltr\" of \"rtl\" zijn.",
+	"cite_error_ref_invalid_dir": "Ongeldige <code>dir=\"$1\"</code> , moet \"ltr\", \"rtl\" of \"auto\" zijn.",
 	"cite_error_ref_conflicting_dir": "Eén van de <code>&lt;ref></code>-tags met de naam “$1” heeft een conflicterend dir-attribuut.",
 	"cite_error_ref_numeric_key": "Onjuist label <code>&lt;ref></code>; de naam mag niet slechts een geheel getal zijn. Gebruik een beschrijvende titel",
 	"cite_error_ref_no_key": "Het openingslabel <code>&lt;ref></code> is incorrect opgemaakt of heeft een verkeerde naam.",

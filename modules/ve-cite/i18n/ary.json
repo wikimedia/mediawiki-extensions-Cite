@@ -22,6 +22,8 @@
 	"cite-ve-citationneeded-reason": "السبب لي تعطى:",
 	"cite-ve-citationneeded-title": "خاص مرجع",
 	"cite-ve-dialog-reference-contextitem-extends": "هاد لمصدر مخدم عاوتان ب تفاصيل زايدين:",
+	"cite-ve-dialog-reference-editing-add-details": "راك كاتزيد تفاصيل ل هاد لمرجع:",
+	"cite-ve-dialog-reference-editing-edit-details": "راك كاتبدّل ف التفاصيل ديال هاد لمرجع:",
 	"cite-ve-dialog-reference-editing-reused": "هاد لعين مخدمة {{PLURAL:$1|مرة وحدة|2=جوج د لمرات|$1 مرات}} ف هاد صفحة.",
 	"cite-ve-dialog-reference-useexisting-tool": "عاود خدّم",
 	"cite-ve-reference-input-placeholder": "تقلاب بين عيون لكلام لي خدمتي",

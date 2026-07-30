@@ -22,7 +22,7 @@
 	"cite_error": "Помилка цитування: $1",
 	"cite_error_details_missing_parent": "Тег <code>&lt;ref></code> з деталями повинен містити вміст або вказувати на батьківську примітку за атрибутом name.",
 	"cite_error_details_unsupported_context": "Тег <code>&lt;ref></code> з назвою «$1» не може використовувати деталі всередині <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "Недійсний <code>dir=\"$1\"</code>, має бути \"ltr\" або \"rtl\".",
+	"cite_error_ref_invalid_dir": "Недійсний <code>dir=\"$1\"</code>, має бути «ltr», «rtl» або «auto».",
 	"cite_error_ref_conflicting_dir": "Один з тегів <code>&lt;ref></code> з назвою «$1» має конфліктуючий атрибут dir.",
 	"cite_error_ref_numeric_key": "Неправильний виклик тегу <code>&lt;ref></code>: <code>name</code> не може містити лише цифри. Використовуйте описові назви",
 	"cite_error_ref_no_key": "Відкривальний тег <code>&lt;ref></code> неправильний або містить хибну назву.",

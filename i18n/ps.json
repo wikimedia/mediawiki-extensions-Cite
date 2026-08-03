@@ -12,7 +12,7 @@
 	"cite_error": "د سرچينې ستونزه: $1",
 	"cite_error_details_missing_parent": "سپيناو لرونکی <code>&lt;ref></code> نښلن بايد منځپانگه ولري يا د نوم له‌مخې مورنۍ سرچينې ته اشاره وکړي.",
 	"cite_error_details_unsupported_context": "\"$1\" نوم لرونکی <code>&lt;ref></code> نښلن نشي کولی د <code>&lt;references></code> دننه سپيناوی وکاروي.",
-	"cite_error_ref_invalid_dir": "ناسم <code>dir=\"$1\"</code>، بايد \"ltr\" يا \"rtl\" وي",
+	"cite_error_ref_invalid_dir": "ناسم <code>dir=\"$1\"</code>، بايد \"ltr\" يا \"rtl\" يا \"auto\" وي",
 	"cite_error_ref_conflicting_dir": "د <code>&lt;ref></code> نښلنونو څخه يو يې د \"$1\" په نوم د dir متضاده ځانگړتيا لري.",
 	"cite_error_ref_numeric_key": "ناسم <code>&lt;ref></code> نښلن؛ نوم يوه ساده شمېره نشي کېدای. يو څرگندوونکی سرليک وکاروئ.",
 	"cite_error_ref_no_key": "پرانېستونکی <code>&lt;ref></code> نښلن بدبڼه شوی يا بد نوم لري.",

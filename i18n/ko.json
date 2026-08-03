@@ -22,7 +22,7 @@
 	"cite_error": "인용 오류: $1",
 	"cite_error_details_missing_parent": "세부 정보가 포함된 <code>&lt;ref></code> 태그는 내용을 포함하거나 이름으로 상위 참조를 가리켜야 합니다.",
 	"cite_error_details_unsupported_context": "\"$1\"이라는 이름의 <code>&lt;ref></code> 태그는 <code>&lt;references></code> 내부에 있을 때 세부 정보를 사용할 수 없습니다.",
-	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> 속성이 잘못되었습니다. \"ltr\" 또는 \"rtl\"이어야 합니다",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> 속성이 잘못되었습니다. \"ltr\", \"rtl\" 또는 \"auto\"이어야 합니다.",
 	"cite_error_ref_conflicting_dir": "\"$1\"이라는 이름을 가진 <code>&lt;ref></code> 태그 중 하나에 충돌하는 dir 속성이 있습니다.",
 	"cite_error_ref_numeric_key": "잘못된 <code>&lt;ref></code> 태그; 이름은 숫자가 될 수 없습니다. 설명적인 이름을 사용하세요.",
 	"cite_error_ref_no_key": "열린 <code>&lt;ref></code> 태그가 잘못 만들어졌거나 잘못된 이름을 갖고 있습니다.",

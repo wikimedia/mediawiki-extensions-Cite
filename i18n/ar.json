@@ -23,7 +23,7 @@
 	"cite_error": "خطأ استشهاد: $1",
 	"cite_error_details_missing_parent": "يجب أن تحتوي علامة <code>&lt;ref></code> التي تحتوي على تفاصيل على محتوى أو تشير إلى مرجع رئيسي بالاسم.",
 	"cite_error_details_unsupported_context": "لا يمكن لعلامة <code><ref></code> التي تحمل الاسم \" $1 \" استخدام التفاصيل عندما تكون داخل <code><references></code> .",
-	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> غير صالح؛ يجب أن يكون \"ltr\" أو \"rtl\"",
+	"cite_error_ref_invalid_dir": "قيمة <code>dir=\"$1\"</code> غير صالحة؛ يجب أن تكون \"ltr\" أو \"rtl\" أو \"auto\".",
 	"cite_error_ref_conflicting_dir": "تحتوي إحدى علامات <code>&lt;ref></code> التي تحمل الاسم \"$1\" على خاصية dir متداخلة.",
 	"cite_error_ref_numeric_key": "وسم <code>&lt;ref></code> غير صحيح؛ الاسم لا يمكن أن يكون عددا صحيحا بسيطا. استخدم عنوانا وصفيا",
 	"cite_error_ref_no_key": "وسم الفتح <code>&lt;ref></code> غير صحيح أو له اسم سييء.",

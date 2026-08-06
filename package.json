@@ -17,7 +17,7 @@
 		"@cypress/skip-test": "^2.6.1",
 		"cypress": "^15.11.0",
 		"cypress-parallel": "0.15.0",
-		"eslint-config-wikimedia": "0.32.4",
+		"eslint-config-wikimedia": "0.32.5",
 		"eslint-plugin-cypress": "^3.6.0",
 		"grunt": "1.6.3",
 		"grunt-banana-checker": "0.13.0",

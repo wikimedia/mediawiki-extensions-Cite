@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Adriendelucca",
+			"Ar choler",
 			"Fohanno",
 			"Fulup",
 			"Huñvreüs",
@@ -14,7 +15,7 @@
 	"cite_error": "Fazi arroud : $1",
 	"cite_error_details_missing_parent": "Rankout a ra un dikedenn <code>&lt;ref></code> gant munudoù kaout endalc'had pe kas war-du un daveenn dre anv.",
 	"cite_error_details_unsupported_context": "Ne c’hall ket an dikedenn <code>&lt;ref></code> anvet \"$1\" implijout munudoù pa vez e-barzh <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> direizh, rankout a ra bezañ \"ltr\" pe \"rtl\".",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> direizh, ret eo e vefe \"ltr\", \"rtl\" pe \"auto\".",
 	"cite_error_ref_conflicting_dir": "Ne glot ket arventenn dir unan eus ar balizennoù <code>&lt;ref></code> gant an anv \"$1\".",
 	"cite_error_ref_numeric_key": "Balizenn <code>&lt;ref></code> faziek; ne c’hell ket name bezañ niver anterin. Grit gant un titl deskrivus",
 	"cite_error_ref_no_key": "Stummet mat eo ar valizenn digeriñ <code>&lt;ref></code> pe fall eo e anv",

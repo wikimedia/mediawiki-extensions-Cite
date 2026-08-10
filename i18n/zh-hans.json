@@ -30,7 +30,7 @@
 	"cite_error": "引用错误：$1",
 	"cite_error_details_missing_parent": "带有详细信息的<code>&lt;ref></code>标签必须包含内容或通过名称指向父级参考。",
 	"cite_error_details_unsupported_context": "名称为“$1”的<code>&lt;ref></code>标签在<code>&lt;references></code>内部时不能使用详细信息。",
-	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"<code>无效，值必须为\"ltr\"或\"rtl\"",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code>无效，值必须为\"ltr\"、\"rtl\"或\"auto\"。",
 	"cite_error_ref_conflicting_dir": "一个name（名称）为“$1”的<code>&lt;ref></code>标签有冲突的dir（书写方向）属性。",
 	"cite_error_ref_numeric_key": "<code>&lt;ref></code>标签无效；name（名称）不能是单纯整数，请使用描述性标题。",
 	"cite_error_ref_no_key": "开放式<code>&lt;ref></code>标签格式错误或有错误的name（名称）。",

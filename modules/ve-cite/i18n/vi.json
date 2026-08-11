@@ -12,7 +12,8 @@
 			"Nguyên Lê",
 			"Quenhitran",
 			"Trần Nguyễn Minh Huy",
-			"NguyenHung"
+			"NguyenHung",
+			"NgocAnMaster"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Sách",
@@ -31,6 +32,7 @@
 	"cite-ve-citationneeded-description": "Một biên tập viên đã chỉ ra rằng lời khẳng định này cần một chú thích tới một nguồn đáng tin cậy.",
 	"cite-ve-citationneeded-reason": "Lý do đưa ra:",
 	"cite-ve-citationneeded-title": "Cần chú thích",
+	"cite-ve-dialog-reference-contextitem-extends": "Nguồn tham khảo này được sử dụng lại cùng việc bổ sung nội dung chi tiết sau:",
 	"cite-ve-dialog-reference-editing-reused": "Chú thích này được sử dụng {{PLURAL:$1|một lần|2=hai lần|$1 lần}} trên trang này.",
 	"cite-ve-dialog-reference-editing-reused-long": "Chú thích này được sử dụng {{PLURAL:$1|một lần|2=hai lần|$1 lần}} trên trang này. Các thay đổi được tạo ra ở đây sẽ được áp dụng ở tất cả những nơi chú thích này được tái sử dụng.",
 	"cite-ve-dialog-reference-options-group-label": "Sử dụng nhóm này",

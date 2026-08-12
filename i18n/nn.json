@@ -19,6 +19,7 @@
 	"cite_error_references_invalid_parameters": "Ugyldig <code>&lt;references&gt;</code>-kode; ingen parametrar er tillat, bruk <code>&lt;references /&gt;</code>",
 	"cite_error_references_no_text": "Ugyldig <code>&lt;ref></code>-merke; ingen tekst vart gjeven for referansen med namnet \"$1\"",
 	"cite_error_included_ref": "Avsluttande <code>&lt;/ref></code>-merke manglar for <code>&lt;ref></code>",
+	"cite_error_included_references": "Saknar avsluttande merke for <code>&lt;references></code>.",
 	"cite_error_group_refs_without_references": "<code>&lt;ref></code>-merke finst for gruppenamnet «$1», men inkje samsvarande <code>&lt;references group=\"$1\"/></code>-merke vart funne",
 	"cite_error_references_missing_key": "<code>&lt;ref></code>-merke med namnet «$1» definert i <code>&lt;references></code> vert ikkje nytta i teksten føre.",
 	"cite_error_references_no_key": "eit <code>&lt;ref></code>-merke definert i <code>&lt;references></code> er ikkje gjeve noko namn.",

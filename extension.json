@@ -122,26 +122,13 @@
 			"packageFiles": [
 				"init.js",
 				"components/BacklinkSettings.vue",
-				"components/CommunityConfiguration.vue",
-				{
-					"name": "icons.json",
-					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
-					"callbackParam": [
-						"cdxIconAdd",
-						"cdxIconTrash"
-					]
-				}
+				"components/CommunityConfiguration.vue"
 			],
 			"codexComponents": [
 				"CdxButton",
-				"CdxIcon",
 				"CdxField",
 				"CdxTextInput",
-				"CdxLookup",
-				"CdxToggleSwitch",
-				"CdxLabel",
-				"CdxTextArea",
-				"CdxCard"
+				"CdxTextArea"
 			]
 		}
 	},

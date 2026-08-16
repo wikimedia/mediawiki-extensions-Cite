@@ -166,7 +166,7 @@ QUnit.test.each( 'beforePaste/afterPaste', {
 			</sup>
 	`,
 		expectedRangeOrSelection: new ve.Range( 7 ),
-		// FIXME 2nd ref should be `book2` `...2nd reference HTML...` see #T418324
+		// sub-ref with name book2
 		expectedHtml: ve.dm.example.singleLine`
 		<p>
 			a
@@ -174,7 +174,7 @@ QUnit.test.each( 'beforePaste/afterPaste', {
 				<a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a>
 			</sup>
 			b
-			<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"book"},"body":{"html":"page 1"},"mainRef":"book","mainBodyHtml":"page 1"}' class="mw-ref reference">
+			<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","attrs":{"name":"book2"},"body":{"html":"page 1"},"mainRef":"book2","mainBodyHtml":"...2nd reference HTML..."}' class="mw-ref reference">
 				<a><span class="mw-reflink-text"><span class="cite-bracket">[</span>2.1<span class="cite-bracket">]</span></span></a>
 			</sup>
 		</p>
@@ -199,7 +199,7 @@ QUnit.test.each( 'beforePaste/afterPaste', {
 			</sup>
 	`,
 		expectedRangeOrSelection: new ve.Range( 7 ),
-		// FIXME 2nd ref should be `book2` see #T418324
+		// 2nd ref with name book2
 		expectedHtml: ve.dm.example.singleLine`
 		<p>
 			a
@@ -207,7 +207,7 @@ QUnit.test.each( 'beforePaste/afterPaste', {
 				<a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1.1<span class="cite-bracket">]</span></span></a>
 			</sup>
 			b
-			<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"...original reference HTML..."},"attrs":{"name":"book"}}' class="mw-ref reference">
+			<sup typeof="mw:Extension/ref" data-mw='{"name":"ref","body":{"html":"...original reference HTML..."},"attrs":{"name":"book2"}}' class="mw-ref reference">
 				<a><span class="mw-reflink-text"><span class="cite-bracket">[</span>2<span class="cite-bracket">]</span></span></a>
 			</sup>
 		</p>

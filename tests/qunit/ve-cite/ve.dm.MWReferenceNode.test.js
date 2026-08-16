@@ -278,10 +278,9 @@
 			internalListMock
 		);
 
-		// FIXME should be newMainIndex see #T418324
 		assert.deepEqual(
 			dataElement.attributes,
-			{ listIndex: 'newIndex', listKey: 'auto/7', mainListIndex: 'oldMainIndex' },
+			{ listIndex: 'newIndex', listKey: 'auto/7', mainListIndex: 'newMainIndex' },
 			'Maps the listIndex and mainListIndex according to the mapping'
 		);
 	} );
@@ -318,16 +317,14 @@
 			'Deduplicates listKey if found on an exising main node'
 		);
 
-		// FIXME should be literal/subMainKey2 see #T418324
 		dataElement = { attributes: { listKey: 'literal/subMainKey' } };
 		MWReferenceNode.static.remapInternalListKeys( dataElement, internalListMock );
 		assert.strictEqual(
 			dataElement.attributes.listKey,
-			'literal/subMainKey',
+			'literal/subMainKey2',
 			'Deduplicates listKey if found on an exising sub-ref node'
 		);
 
-		// FIXME should be literal/subMainKey2 see #T418324
 		dataElement = { attributes: {
 			listKey: 'auto/1',
 			mainListKey: 'literal/subMainKey',
@@ -336,7 +333,7 @@
 		MWReferenceNode.static.remapInternalListKeys( dataElement, internalListMock );
 		assert.strictEqual(
 			dataElement.attributes.mainListKey,
-			'literal/subMainKey',
+			'literal/subMainKey2',
 			'Deduplicates mainListKey if found on an exising sub-ref node'
 		);
 	} );

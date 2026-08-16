@@ -143,7 +143,9 @@ ve.dm.MWReferenceNode.static.toDataElement = function ( domElements, converter )
 
 	let listKey, listIndex;
 	let isNew = false;
-	const lookupResult = mwData.mainRef && this.lookupSubRefIndex( converter, refListItemId );
+	// for now, let's not try to deduplicate sub-refs from the clipboard
+	const lookupResult = !converter.isFromClipboard() &&
+		mwData.mainRef && this.lookupSubRefIndex( converter, refListItemId );
 	if ( lookupResult ) {
 		[ listKey, listIndex ] = lookupResult;
 	} else {
@@ -511,6 +513,11 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 		dataElement.attributes.listIndex = listIndexMap[ dataElement.attributes.listIndex ];
 	}
 
+	// Remap mainListIndex
+	if ( dataElement.attributes.mainListIndex in listIndexMap ) {
+		dataElement.attributes.mainListIndex = listIndexMap[ dataElement.attributes.mainListIndex ];
+	}
+
 	// Remap listKey if it was automatically generated
 	if ( !MWReferenceKeyGenerator.isLiteralListKey( dataElement.attributes.listKey ) ) {
 		dataElement.attributes.listKey = MWReferenceKeyGenerator.makeListKey( newInternalList );
@@ -520,28 +527,52 @@ ve.dm.MWReferenceNode.static.remapInternalListIndexes = function (
 };
 
 /**
+ * Returns true if a node uses the given key as listKey or mainListKey
+ *
+ * @private
+ * @static
+ * @param {string} mainListKey
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
+ * @return {boolean}
+ */
+ve.dm.MWReferenceNode.static.isListKeyUsed = function ( mainListKey, nodeGroup ) {
+	return nodeGroup.getFirstNodesInIndexOrder().some(
+		( node ) => node.getAttribute( 'listKey' ) === mainListKey ||
+			node.getAttribute( 'mainListKey' ) === mainListKey
+	);
+};
+
+/**
  * Change conflicting ref names pasted from an external document
  *
  * If a ref with name "ref-name" is pasted into a document which already has a
  * ref by that name, the new ref will be given a new name like "ref-name2" with
- * a suffix incremented until the name is unique.
+ * a suffix incremented until the name is unique.  For sub-refs this applies to
+ * the mainListKey because on these that's the name used in the tag.
  *
  * @param {Object} dataElement new ref data
  * @param {ve.dm.InternalList} newInternalList Target document's existing internalList
  */
 ve.dm.MWReferenceNode.static.remapInternalListKeys = function ( dataElement, newInternalList ) {
-	const group = newInternalList.getNodeGroup( dataElement.attributes.listGroup );
-	if ( !group ) {
+	const nodeGroup = newInternalList.getNodeGroup( dataElement.attributes.listGroup );
+	if ( !nodeGroup ) {
 		return;
 	}
 
+	const keyToDeduplicate = dataElement.attributes.mainListKey || dataElement.attributes.listKey;
 	let suffix = '';
+
 	// Try name, name2, name3, ... until unique
-	while ( group.getAllReuses( dataElement.attributes.listKey + suffix ) ) {
+	while ( ve.dm.MWReferenceNode.static.isListKeyUsed( keyToDeduplicate + suffix, nodeGroup ) ) {
 		suffix = suffix ? suffix + 1 : 2;
 	}
+
 	if ( suffix ) {
-		dataElement.attributes.listKey += suffix;
+		if ( this.isSubRef( dataElement.attributes ) ) {
+			dataElement.attributes.mainListKey += suffix;
+		} else {
+			dataElement.attributes.listKey += suffix;
+		}
 	}
 };
 

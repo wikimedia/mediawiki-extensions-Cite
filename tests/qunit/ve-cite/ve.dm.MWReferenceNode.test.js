@@ -5,57 +5,63 @@
 
 	QUnit.module( 've.dm.MWReferenceNode (Cite)', ve.test.utils.newMwEnvironment() );
 
+	const sharedMainKey = 'literal/main';
+	const subKey = 'literal/sub';
+	const subRefWithContentUsed = { attributes: {
+		contentsUsed: true,
+		listGroup: '',
+		listKey: subKey,
+		listIndex: 2,
+		mainListKey: sharedMainKey,
+		mainListIndex: 0
+	} };
 	const fixtures = {
 		shouldAvoidContentOverride: [
 			{
 				msg: 'Content not used in current node',
-				dataElement: { attributes: { contentsUsed: false, listGroup: '', listKey: 'literal/main' } },
-				nodeReuses: [],
+				dataElement: { attributes: { contentsUsed: false, listGroup: '', listKey: sharedMainKey } },
+				nodesInGroup: [],
 				expected: false
 			},
 			{
 				msg: 'Content used in current node and no other node before',
-				dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/main' } },
-				nodeReuses: [ { attributes: { contentsUsed: false, listGroup: '', listKey: 'literal/main' } } ],
+				dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } },
+				nodesInGroup: [ { attributes: { contentsUsed: false, listGroup: '', listKey: sharedMainKey } } ],
 				expected: false
 			},
 			{
 				msg: 'Content used in current node and another node before',
-				dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/main' } },
-				nodeReuses: [
+				dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } },
+				nodesInGroup: [
 					{
-						attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/main' },
+						attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey },
 						originalDomElementsHash: 'foo'
 					},
-					{ attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/main' } }
+					{ attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } }
 				],
 				expected: true
 			},
 			{
-				msg: 'Sub-ref defaulting to false',
-				dataElement: { attributes: {
-					contentsUsed: true,
-					listGroup: '',
-					listKey: 'literal/main',
-					mainListKey: 'auto/0',
-					mainListIndex: 0
-				} },
-				nodeReuses: [
+				msg: 'Content used in current sub-ref and in a unrelated main ref before',
+				dataElement: subRefWithContentUsed,
+				nodesInGroup: [
 					{
-						attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/main' },
-						originalDomElementsHash: 'foo'
+						attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/solomain', listIndex: 5 }
 					},
-					{
-						attributes: {
-							contentsUsed: true,
-							listGroup: '',
-							listKey: 'literal/main',
-							mainListKey: 'auto/0',
-							mainListIndex: 0
-						}
-					}
+					subRefWithContentUsed
 				],
 				expected: false
+			},
+			{
+				msg: 'Main content used in current sub-ref and in a main ref before',
+				dataElement: subRefWithContentUsed,
+				nodesInGroup: [
+					{
+						attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey, listIndex: 0 }
+					},
+					subRefWithContentUsed
+				],
+				expected: true
 			}
 		],
 		shouldGetMainContent: [
@@ -161,13 +167,17 @@
 
 	QUnit.test( 'shouldAvoidContentOverride', ( assert ) => {
 		fixtures.shouldAvoidContentOverride.forEach( ( caseItem ) => {
-			const nodeReuses = caseItem.nodeReuses.map(
-				( element ) => new ve.dm.MWReferenceNode( element )
-			);
+			const nodeGroup = new ve.dm.InternalListNodeGroup();
+			caseItem.nodesInGroup.forEach( ( element ) => {
+				nodeGroup.appendNode(
+					element.attributes.listKey,
+					new ve.dm.MWReferenceNode( element )
+				);
+			} );
 			assert.strictEqual(
 				MWReferenceNode.static.shouldAvoidContentOverride(
 					caseItem.dataElement,
-					nodeReuses
+					nodeGroup
 				),
 				caseItem.expected,
 				caseItem.msg

@@ -252,7 +252,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Set reference content on data-mw
 		if ( isSubRef ||
-			( !this.shouldAvoidContentOverride( dataElement, nodeReuses ) && shouldGetMainContent )
+			( !this.shouldAvoidContentOverride( dataElement, nodeGroup ) && shouldGetMainContent )
 		) {
 			// get the current content html of the node
 			const currentHtmlWrapper = doc.createElement( 'div' );
@@ -276,7 +276,7 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 		}
 
 		// Set flags for sub-refs with body content on data-mw
-		if ( isSubRef && shouldGetMainContent ) {
+		if ( isSubRef && shouldGetMainContent && !this.shouldAvoidContentOverride( dataElement, nodeGroup ) ) {
 			// Add main body content to mw-data
 			const mainItemNode = internalList.getItemNode( attributes.mainListIndex );
 			if ( mainItemNode && mainItemNode.length ) {
@@ -353,26 +353,28 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
  * @private
  * @static
  * @param {Object} dataElement
- * @param {ve.dm.Node[]} nodeReuses
+ * @param {ve.dm.InternalListNodeGroup} nodeGroup
  * @return {boolean}
  */
-ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement, nodeReuses ) {
-	// Avoiding an override is irrelevant when our node had content before or is a sub-ref
-	if ( !dataElement.attributes.contentsUsed ||
-		this.isSubRef( dataElement.attributes )
-	) {
+ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement, nodeGroup ) {
+	// Avoiding an override is irrelevant when our node had no content before
+	if ( !dataElement.attributes.contentsUsed ) {
 		return false;
 	}
 
+	const attributes = dataElement.attributes;
+	const mainListIndex = this.isSubRef( attributes ) ? attributes.mainListIndex : attributes.listIndex;
+	const mainReuses = this.getRefsWithSameMain( mainListIndex, nodeGroup );
+
 	const current = this.getInstanceHashObject( dataElement );
-	for ( let i = 0; i < nodeReuses.length; i++ ) {
+	for ( let i = 0; i < mainReuses.length; i++ ) {
 		// Stop at the current node, we are only interested in earlier nodes
-		if ( ve.compare( current, this.getInstanceHashObject( nodeReuses[ i ].element ) ) ) {
+		if ( ve.compare( current, this.getInstanceHashObject( mainReuses[ i ].element ) ) ) {
 			break;
 		}
 
 		// Yes, an earlier node is already marked as holding the content
-		if ( nodeReuses[ i ].getAttribute( 'contentsUsed' ) ) {
+		if ( mainReuses[ i ].getAttribute( 'contentsUsed' ) ) {
 			return true;
 		}
 	}

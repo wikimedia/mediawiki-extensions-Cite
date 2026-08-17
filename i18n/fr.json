@@ -37,7 +37,7 @@
 	"cite_error": "Erreur de référence : $1",
 	"cite_error_details_missing_parent": "Une balise <code>&lt;ref></code> avec des détails doit contenir du contenu ou pointer vers une autre référence par son nom.",
 	"cite_error_details_unsupported_context": "La balise <code>&lt;ref></code> avec le nom « $1 » ne peut pas utiliser de détails parce qu’elle est déclarée dans la balise <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "La valeur de l’attribut <code>dir=\"$1\"</code> n’est pas valide, elle doit être \"ltr\" ou \"rtl\".",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> n’est pas valide, doit être \"ltr\", \"rtl\" ou \"auto\".",
 	"cite_error_ref_conflicting_dir": "Une des balises <code>&lt;ref></code> avec le nom « $1 » a un attribut dir en conflit.",
 	"cite_error_ref_numeric_key": "Balise <code>&lt;ref></code> incorrecte : la valeur de l’attribut <code>name</code> ne peut être un simple entier. Utilisez un titre descriptif.",
 	"cite_error_ref_no_key": "La balise ouvrante <code>&lt;ref></code> est mal formée ou a un mauvais nom.",

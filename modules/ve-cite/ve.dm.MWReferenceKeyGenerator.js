@@ -63,9 +63,10 @@ ve.dm.MWReferenceKeyGenerator = {
 			ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate(
 				internalItem, toolDefinition.template )
 		);
-		// Uses the tool's title, already resolved via PHP.
-		// Potential FIXME: support an "-autoname" override.
-		return matchingToolDefinition ? matchingToolDefinition.title : null;
+		// Use the "-autoname" value from PHP if available
+		return matchingToolDefinition ?
+			( matchingToolDefinition.autoname || matchingToolDefinition.title ) :
+			null;
 	},
 
 	/**
@@ -85,8 +86,14 @@ ve.dm.MWReferenceKeyGenerator = {
 		}
 
 		if ( mw.config.get( 'wgCiteCitationTypeAutoNames' ) ) {
+			const hasAutonameOverride = mw.message( 'cite-ve-dialogbutton-reference-title-autoname' ).exists();
+			const autonameMsgKey = hasAutonameOverride ?
+				'cite-ve-dialogbutton-reference-title-autoname' :
+				'cite-ve-dialogbutton-reference-title';
+			const autonameMsgText = ve.msg( autonameMsgKey );
+			const autonamePrefix = hasAutonameOverride ? autonameMsgText : autonameMsgText + '-';
 			const citationTypeName = this.getCitationTypeName( attributes, internalList );
-			namePrefix = ( citationTypeName || ve.msg( 'cite-ve-dialogbutton-reference-title' ) ) + '-';
+			namePrefix = ( citationTypeName || autonamePrefix );
 		}
 		if ( attributes.mainListIndex !== undefined || isReused ) {
 			return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(

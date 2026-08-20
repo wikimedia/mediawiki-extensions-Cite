@@ -16,9 +16,14 @@ class MWCitationToolsDefinitionTest extends \MediaWikiUnitTestCase {
 		$context = $this->createResourceLoaderContext();
 
 		$expected = [
-			[ 'name' => 'no-message', 'title' => 'Hard-coded title', 'icon' => 'browser' ],
-			[ 'name' => 'missing-message', 'title' => 'missing-message' ],
-			[ 'name' => 'web', 'title' => 't', 'icon' => 'browser' ],
+			[
+				'name' => 'no-message',
+				'title' => 'Hard-coded title',
+				'icon' => 'browser',
+				'autoname' => 'Hard-coded title-',
+			],
+			[ 'name' => 'missing-message', 'title' => 'missing-message', 'autoname' => 'missing-message-' ],
+			[ 'name' => 'web', 'title' => 't', 'autoname' => 'Website', 'icon' => 'browser', ],
 		];
 		$this->assertSame( $expected, MWCitationToolsDefinition::getTools( $context ) );
 	}
@@ -44,13 +49,19 @@ class MWCitationToolsDefinitionTest extends \MediaWikiUnitTestCase {
 
 		$disabled = $this->createMock( Message::class );
 		$disabled->method( 'isDisabled' )->willReturn( true );
+		$autoname = $this->createMock( Message::class );
+		$autoname->method( 'isDisabled' )->willReturn( false );
+		$autoname->method( 'text' )->willReturn( 'Website' );
 
 		$context = $this->createStub( Context::class );
 		$context->method( 'msg' )
 			->willReturnMap( [
 				[ 'cite-tool-definition.json', $msg ],
 				[ 'visualeditor-cite-tool-name-missing-message', $disabled ],
-				[ 'visualeditor-cite-tool-name-web', $msg ]
+				[ 'visualeditor-cite-tool-name-web', $msg ],
+				[ 'visualeditor-cite-tool-name-no-message-autoname', $disabled ],
+				[ 'visualeditor-cite-tool-name-missing-message-autoname', $disabled ],
+				[ 'visualeditor-cite-tool-name-web-autoname', $autoname ]
 			] );
 		$context->method( 'encodeJson' )->willReturnCallback( 'json_encode' );
 		return $context;

@@ -53,6 +53,10 @@ class MWCitationToolsDefinition {
 				$tool['title'] = $msg->isDisabled() ? $tool['name'] : $msg->text();
 			}
 
+			// T434622 Add autoname override option
+			$autonameMsg = $context->msg( 'visualeditor-cite-tool-name-' . $tool['name'] . '-autoname' );
+			$tool['autoname'] = $autonameMsg->isDisabled() ? $tool['title'] . "-" : $autonameMsg->text();
+
 			// Safe-guard for users doing weird things in the JSON
 			if ( array_key_exists( 'icon', $tool ) && !is_string( $tool['icon'] ) ) {
 				unset( $tool['icon'] );

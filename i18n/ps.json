@@ -27,6 +27,7 @@
 	"cite_error_included_ref": "<code>&lt;ref></code> بشپړوونکي نښلن لپاره <code>&lt;/ref></code> نشته.",
 	"cite_error_included_references": "<code>&lt;سرچينې></code> پای نښلن نشته",
 	"cite_error_group_refs_without_references": "د \"$1\" په نوم د يوې ډلې لپاره <code>&lt;ref></code> نښلنونه شتونه لري؛ خو د code>&lt;references group=\"$1\"/></code> نښلن برابر هېڅ نښلن ونه موندل شو.",
+	"cite_error_references_group_mismatch": "په <code>&lt;سرچينو> کې <code>&lt;سرچينې></code> نښلن د \"$1\" ډلې ځانگړي‌کونگ سره ټکر کې دی.",
 	"cite-tracking-category-cite-error": "هغه مخونه چې د سرچينو تېروتنې لري",
 	"cite-tracking-category-cite-error-desc": "د دې وېشنيزې مخونه د سرچينې نښلنونو په کارولو کې تېروتنې لري.",
 	"cite-tracking-category-ref-details": "مخونه چې څېرمه سرچينې کاروي",

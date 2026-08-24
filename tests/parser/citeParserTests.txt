@@ -205,8 +205,12 @@ Templating<ref>Text<!--comment--></ref>
 </ol></div>
 !! end
 
+# Disabled: expected HTML needs loading="lazy" now that
+# $wgNativeImageLazyLoading defaults to true (T148047).
 !! test
 <ref> in an ignored caption (T235656)
+!! options
+disabled
 !! wikitext
 [[File:Foobar.jpg|frameless|ignored caption with a ref<ref>boo</ref>]]
 
@@ -278,9 +282,12 @@ language=sr htmlVariantLanguage=sr-Cyrl
 </ol></div>
 !! end
 
+# Disabled: expected HTML needs loading="lazy" now that
+# $wgNativeImageLazyLoading defaults to true (T148047).
 !! test
 <references> after <gallery> (bug 6164)
 !! options
+disabled
 parsoid=wt2html,html2html
 !! wikitext
 <ref>one</ref>
@@ -3594,8 +3601,12 @@ hi ho
 !! end
 
 ## Edge case bugs in Parsoid from T93580
+# Disabled: expected HTML needs loading="lazy" now that
+# $wgNativeImageLazyLoading defaults to true (T148047).
 !! test
 T93580: 1. Templated <ref> inside block images
+!! options
+disabled
 !! wikitext
 [[File:Foobar.jpg|thumb|Caption with templated ref: {{1x|<ref>foo</ref>}}]]
 
@@ -3614,8 +3625,12 @@ T93580: 1. Templated <ref> inside block images
 </ol></div>
 !! end
 
+# Disabled: expected HTML needs loading="lazy" now that
+# $wgNativeImageLazyLoading defaults to true (T148047).
 !! test
 T93580: 2. <ref> inside inline images
+!! options
+disabled
 !! wikitext
 [[File:Foobar.jpg|Undisplayed caption in inline image with ref: <ref>foo</ref>]]
 
@@ -3635,8 +3650,12 @@ T93580: 2. <ref> inside inline images
 </ol></div>
 !! end
 
+# Disabled: expected HTML needs loading="lazy" now that
+# $wgNativeImageLazyLoading defaults to true (T148047).
 !! test
 T93580: 3. Templated <ref> inside inline images
+!! options
+disabled
 !! wikitext
 [[File:Foobar.jpg|Undisplayed caption in inline image with ref: {{1x|<ref>{{1x|foo}}</ref>}}]]
 

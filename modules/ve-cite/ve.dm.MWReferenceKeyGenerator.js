@@ -86,7 +86,7 @@ ve.dm.MWReferenceKeyGenerator = {
 
 		if ( mw.config.get( 'wgCiteCitationTypeAutoNames' ) ) {
 			const citationTypeName = this.getCitationTypeName( attributes, internalList );
-			namePrefix = citationTypeName || ve.msg( 'cite-ve-dialogbutton-reference-title' );
+			namePrefix = ( citationTypeName || ve.msg( 'cite-ve-dialogbutton-reference-title' ) ) + '-';
 		}
 		if ( attributes.mainListIndex !== undefined || isReused ) {
 			return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(

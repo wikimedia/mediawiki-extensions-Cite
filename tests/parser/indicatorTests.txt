@@ -62,12 +62,9 @@ indic=<sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:refere
 </div>
 !! end
 
-# Disabled: expected HTML needs loading="lazy" now that
-# $wgNativeImageLazyLoading defaults to true (T148047).
 !! test
 T393913: Consider <indicator> only when at the very top of the stack
 !! options
-disabled
 showindicators
 !! wikitext
 <indicator name="test">
@@ -75,7 +72,7 @@ showindicators
 </indicator>
 !! metadata/parsoid+integrated
 test=
-<span class="mw-default-size" typeof="mw:File" data-parsoid='{"optList":[{"ck":"caption","ak":"&lt;ref name=\"test\">123&lt;/ref>"}],"dsr":[24,70,null,null]}' data-mw='{"caption":"&lt;sup about=\"#mwt1\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[42,68,17,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"test\"},\"body\":{\"id\":\"mw-reference-text-cite_note-test-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-test-1\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">&lt;span class=\"cite-bracket\" data-parsoid=\"{}\">[&lt;/span>1&lt;span class=\"cite-bracket\" data-parsoid=\"{}\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>"}'><a href="./File:Foobar.jpg" class="mw-file-description" data-parsoid="{}"><img resource="./File:Foobar.jpg" src="http://example.com/images/3/3a/Foobar.jpg" decoding="async" data-file-width="1941" data-file-height="220" data-file-type="bitmap" height="220" width="1941" class="mw-file-element" data-parsoid='{"a":{"resource":"./File:Foobar.jpg","height":"220","width":"1941"},"sa":{"resource":"File:Foobar.jpg"}}'/></a></span>
+<span class="mw-default-size" typeof="mw:File" data-parsoid='{"optList":[{"ck":"caption","ak":"&lt;ref name=\"test\">123&lt;/ref>"}],"dsr":[24,70,null,null]}' data-mw='{"caption":"&lt;sup about=\"#mwt1\" class=\"mw-ref reference\" rel=\"dc:references\" typeof=\"mw:Extension/ref\" data-parsoid=&apos;{\"dsr\":[42,68,17,6]}&apos; data-mw=&apos;{\"name\":\"ref\",\"attrs\":{\"name\":\"test\"},\"body\":{\"id\":\"mw-reference-text-cite_note-test-1\"}}&apos;>&lt;a href=\"./Parser_test#cite_note-test-1\" data-parsoid=\"{}\">&lt;span class=\"mw-reflink-text\" data-parsoid=\"{}\">&lt;span class=\"cite-bracket\" data-parsoid=\"{}\">[&lt;/span>1&lt;span class=\"cite-bracket\" data-parsoid=\"{}\">]&lt;/span>&lt;/span>&lt;/a>&lt;/sup>"}'><a href="./File:Foobar.jpg" class="mw-file-description" data-parsoid="{}"><img resource="./File:Foobar.jpg" src="http://example.com/images/3/3a/Foobar.jpg" decoding="async" loading="lazy" data-file-width="1941" data-file-height="220" data-file-type="bitmap" height="220" width="1941" class="mw-file-element" data-parsoid='{"a":{"resource":"./File:Foobar.jpg","height":"220","width":"1941"},"sa":{"resource":"File:Foobar.jpg"}}'/></a></span>
 
 !! html/parsoid+integrated
 <meta typeof="mw:Extension/indicator" data-mw='{"name":"indicator","attrs":{"name":"test"},"body":{"extsrc":"\n[[File:Foobar.jpg|&lt;ref name=\"test\">123&lt;/ref>]]\n"}}'/>

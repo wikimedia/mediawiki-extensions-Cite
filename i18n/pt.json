@@ -11,7 +11,8 @@
 			"Opraco",
 			"Vitorvicentevalente",
 			"Waldir",
-			"BraunOBruno"
+			"BraunOBruno",
+			"Vickvvy"
 		]
 	},
 	"cite-desc": "Adiciona as etiquetas <code>&lt;ref&gt;</code> e <code>&lt;references&gt;</code> para citações",
@@ -61,11 +62,12 @@
 	"cite-wikieditor-help-content-reference-description": "Referência",
 	"cite-wikieditor-help-content-named-reference-description": "Referência nomeada",
 	"cite-wikieditor-help-content-rereference-description": "Reutilização da mesma referência",
+	"cite-wikieditor-help-content-sub-reference-description": "Utilização adicional da mesma referência, com detalhes extra",
 	"cite-wikieditor-help-content-showreferences-description": "Mostrar referências",
 	"cite-wikieditor-help-content-reference-example-text1": "Texto da página.$1",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 Texto da hiperligação], texto adicional.",
-	"cite-wikieditor-help-content-reference-example-text3": "[$1 Texto da hiperligação]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "Detalhes extra",
+	"cite-wikieditor-help-content-reference-example-text3": "Um livro",
+	"cite-wikieditor-help-content-reference-example-extra-details": "Página 76",
 	"communityconfiguration-cite-title": "Cite",
 	"communityconfiguration-cite-description": "Personalize o formato e a aparência das referências.",
 	"cite-configuration-title": "Configuração de Cite",

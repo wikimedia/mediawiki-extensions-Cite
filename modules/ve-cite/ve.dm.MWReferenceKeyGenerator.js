@@ -54,9 +54,13 @@ ve.dm.MWReferenceKeyGenerator = {
 	/**
 	 * @param {Object} attributes
 	 * @param {ve.dm.InternalList} internalList
-	 * @return {boolean} Whether the reference's content is a template transclusion
+	 * @return {string|undefined} The prefix to use if it's a reference with citation template, otherwise undefined
 	 */
-	getCitationTypeName: function ( attributes, internalList ) {
+	getCitationAutonamePrefix: function ( attributes, internalList ) {
+		if ( !ve.ui.mwCitationTools || !ve.ui.mwCitationTools.length ) {
+			return;
+		}
+
 		const internalItem = internalList.getItemNode( attributes.listIndex );
 		const matchingToolDefinition = ve.ui.mwCitationTools.find( ( toolDefinition ) =>
 			// eslint-disable-next-line implicit-arrow-linebreak
@@ -64,9 +68,7 @@ ve.dm.MWReferenceKeyGenerator = {
 				internalItem, toolDefinition.template )
 		);
 		// Use the "-autoname" value from PHP if available
-		return matchingToolDefinition ?
-			( matchingToolDefinition.autoname || matchingToolDefinition.title ) :
-			null;
+		return matchingToolDefinition && ( matchingToolDefinition.autoname || matchingToolDefinition.title );
 	},
 
 	/**
@@ -75,26 +77,28 @@ ve.dm.MWReferenceKeyGenerator = {
 	 * @param {Object} attributes
 	 * @param {ve.dm.InternalList} internalList
 	 * @param {boolean} [isReused=false]
+	 * @param {boolean} [betterAutonames=false] // feature flag if better autonames should be used
 	 * @return {string|undefined} literal or auto generated name
 	 */
-	generateName: function ( attributes, internalList, isReused ) {
+	generateName: function ( attributes, internalList, isReused, betterAutonames ) {
 		const listKey = attributes.mainListKey || attributes.listKey;
 		const name = this.extractNameFromListKey( listKey );
-		let namePrefix = ':'; // old behavior
 		if ( name ) {
 			return name;
 		}
 
-		if ( mw.config.get( 'wgCiteCitationTypeAutoNames' ) ) {
+		let namePrefix = ':';
+		if ( betterAutonames ) {
 			const hasAutonameOverride = mw.message( 'cite-ve-dialogbutton-reference-title-autoname' ).exists();
-			const autonameMsgKey = hasAutonameOverride ?
+			const autonameMsgText = ve.msg( hasAutonameOverride ?
 				'cite-ve-dialogbutton-reference-title-autoname' :
-				'cite-ve-dialogbutton-reference-title';
-			const autonameMsgText = ve.msg( autonameMsgKey );
-			const autonamePrefix = hasAutonameOverride ? autonameMsgText : autonameMsgText + '-';
-			const citationTypeName = this.getCitationTypeName( attributes, internalList );
-			namePrefix = ( citationTypeName || autonamePrefix );
+				'cite-ve-dialogbutton-reference-title'
+			);
+			const defaultAutonamePrefix = hasAutonameOverride ? autonameMsgText : autonameMsgText + '-';
+			const citationAutonamePrefix = this.getCitationAutonamePrefix( attributes, internalList );
+			namePrefix = ( citationAutonamePrefix || defaultAutonamePrefix );
 		}
+
 		if ( attributes.mainListIndex !== undefined || isReused ) {
 			return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(
 				listKey,

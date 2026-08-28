@@ -237,7 +237,12 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 		// Generate and add name to data-mw
 		const isReused = nodeReuses.length > 1 || this.hasSubRefs( attributes, internalList );
-		const name = MWReferenceKeyGenerator.generateName( attributes, internalList, isReused );
+		const name = MWReferenceKeyGenerator.generateName(
+			attributes,
+			internalList,
+			isReused,
+			mw.config.get( 'wgCiteCitationTypeAutoNames' )
+		);
 		if ( name !== undefined ) {
 			ve.setProp( mwData, 'attrs', 'name', name );
 		}

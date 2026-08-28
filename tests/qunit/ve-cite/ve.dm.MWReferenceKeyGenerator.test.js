@@ -34,29 +34,108 @@
 	} );
 
 	QUnit.test( 'generateName on a normal main reference', ( assert ) => {
-		const attributes = {};
-		const internalList = {
-			getNodeGroup: () => new ve.dm.InternalListNodeGroup()
+		const internalListMock = {
+			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
+			getItemNode: () => new ve.dm.InternalItemNode()
 		};
+
+		const attributes = {};
 		assert.strictEqual(
-			MWReferenceKeyGenerator.generateName( attributes, internalList ),
-			undefined
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock ),
+			undefined,
+			'Should return undefined when there\'s no reuse'
 		);
 
-		assert.strictEqual( MWReferenceKeyGenerator.generateName( attributes, internalList, true ), ':0' );
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true ),
+			':0',
+			'Should return :0 pattern name when not using the new autoname patterns'
+		);
+
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
+			'cite-ve-dialogbutton-reference-title-0',
+			'Should return reference title when using the new autoname patterns'
+		);
 
 		attributes.listKey = 'literal/foo';
-		assert.strictEqual( MWReferenceKeyGenerator.generateName( attributes, internalList, true ), 'foo' );
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
+			'foo',
+			'Should return literal title when set'
+		);
+	} );
+
+	QUnit.test( 'generateName when using autonames with citation tools', ( assert ) => {
+		const internalListMock = {
+			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
+			getItemNode: () => new ve.dm.InternalItemNode()
+		};
+		const fixtures = [
+			{
+				mwCitationTools: undefined,
+				expected: 'cite-ve-dialogbutton-reference-title-0',
+				msg: 'Should fallback if there\'s no citation tool set'
+			},
+			{
+				mwCitationTools: [],
+				expected: 'cite-ve-dialogbutton-reference-title-0',
+				msg: 'Should fallback if there\'s no citation tool set'
+			},
+			{
+				mwCitationTools: [ { title: 'MockTitle-', template: '' } ],
+				expected: 'MockTitle-0',
+				msg: 'Should use citation tool title'
+			},
+			{
+				mwCitationTools: [ { title: 'MockTitle-', autoname: 'MockAuto-', template: '' } ],
+				expected: 'MockAuto-0',
+				msg: 'Should prefer citation tool autoname'
+			}
+		];
+
+		// mock the transclusion detection
+		sinon.stub( ve.ui.MWCitationDialog.static, 'getTransclusionNodeWithTemplate' ).returns( true );
+		const attributes = {};
+
+		fixtures.forEach( ( fixture ) => {
+			sinon.stub( ve.ui, 'mwCitationTools' ).value( fixture.mwCitationTools );
+
+			assert.strictEqual(
+				MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
+				fixture.expected,
+				fixture.msg
+			);
+		} );
+
+		sinon.restore();
 	} );
 
 	QUnit.test( 'generateName on a sub-reference', ( assert ) => {
-		const attributes = { mainListIndex: 0 };
-		const internalList = {
-			getNodeGroup: () => new ve.dm.InternalListNodeGroup()
+		const internalListMock = {
+			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
+			getItemNode: () => new ve.dm.InternalItemNode()
 		};
-		assert.strictEqual( MWReferenceKeyGenerator.generateName( attributes, internalList ), ':0' );
 
-		attributes.mainListKey = 'literal/foo';
-		assert.strictEqual( MWReferenceKeyGenerator.generateName( attributes, internalList ), 'foo' );
+		const attributes = { mainListIndex: 0 };
+
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock ),
+			':0',
+			'Should return :0 pattern name when not using the new autoname patterns'
+		);
+
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, false, true ),
+			'cite-ve-dialogbutton-reference-title-0',
+			'Should return reference title when using the new autoname patterns'
+		);
+
+		attributes.listKey = 'literal/foo';
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, false, true ),
+			'foo',
+			'Should return literal title when set'
+		);
 	} );
 }

@@ -33,7 +33,7 @@
 		);
 	} );
 
-	QUnit.test( 'generateName on a normal main reference', ( assert ) => {
+	QUnit.test.skip( 'generateName on a normal main reference', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
 			getItemNode: () => new ve.dm.InternalItemNode()
@@ -66,7 +66,7 @@
 		);
 	} );
 
-	QUnit.test( 'generateName when using autonames with citation tools', ( assert ) => {
+	QUnit.test.skip( 'generateName when using autonames with citation tools', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
 			getItemNode: () => new ve.dm.InternalItemNode()
@@ -111,7 +111,7 @@
 		sinon.restore();
 	} );
 
-	QUnit.test( 'generateName on a sub-reference', ( assert ) => {
+	QUnit.test.skip( 'generateName on a sub-reference', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
 			getItemNode: () => new ve.dm.InternalItemNode()

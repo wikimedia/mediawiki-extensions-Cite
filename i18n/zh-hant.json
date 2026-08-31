@@ -22,7 +22,7 @@
 	"cite_error": "引用錯誤：$1",
 	"cite_error_details_missing_parent": "一個帶有詳細資訊的 <code>&lt;ref></code> 標籤必須包含內容、或透過名稱指向父級參考。",
 	"cite_error_details_unsupported_context": "名稱為\"$1\"的 <code>&lt;ref></code> 標籤在 <code>&lt;references></code> 區塊內時無法使用詳細資訊。",
-	"cite_error_ref_invalid_dir": "無效的 <code>dir=\"$1\"</code>，必須是 \"ltr\" 或 \"rtl\"",
+	"cite_error_ref_invalid_dir": "無效的 <code>dir=\"$1\"</code>，必須是「左到右」或「右到左」或「自動」",
 	"cite_error_ref_conflicting_dir": "其中一個名為\"$1\"的<code>&lt;ref></code>標籤具有衝突的dir（書寫方向）屬性。",
 	"cite_error_ref_numeric_key": "無效的 <code>&lt;ref></code> 標籤，name 屬性不能使用數字，請使用可描述內容的標題",
 	"cite_error_ref_no_key": "<code>&lt;ref></code> 標籤開頭格式錯誤或名稱不正確",

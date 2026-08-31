@@ -8,7 +8,7 @@
 	"cite_error": "Error de citation: $1",
 	"cite_error_details_missing_parent": "Un etiquetta <code>&lt;ref></code> con detalios debe haber contento o punctar a un referentia genitor per nomine.",
 	"cite_error_details_unsupported_context": "Le etiquetta <code>&lt;ref></code> con nomine “$1” non pote usar detalios quando es intra <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valide, debe esser “ltr” o “rtl”",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> non valide, debe esser “ltr”, “rtl” o “auto”.",
 	"cite_error_ref_conflicting_dir": "Un del etiquettas <code>&lt;ref></code> con le nomine “$1” ha un attributo <code>dir</code> que es in conflicto.",
 	"cite_error_ref_numeric_key": "Etiquetta <code>&lt;ref></code> invalide; le nomine non pote esser un numero integre. Usa un titulo descriptive.",
 	"cite_error_ref_no_key": "Le etiquetta de apertura <code>&lt;ref></code> es mal formate o ha un mal nomine.",

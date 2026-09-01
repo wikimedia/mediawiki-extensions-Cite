@@ -75,6 +75,24 @@
 		);
 	} );
 
+	QUnit.test( 'generateName with autoname message override', ( assert ) => {
+		const internalListMock = {
+			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
+			getItemNode: () => new ve.dm.InternalItemNode()
+		};
+
+		sinon.stub( mw, 'message' ).returns( { exists: () => true } );
+
+		const attributes = {};
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
+			'cite-ve-dialogbutton-reference-title-autoname1',
+			'Should use autoname message key without dash'
+		);
+
+		sinon.restore();
+	} );
+
 	QUnit.test( 'generateName uses colon fallback when overwritten autoname is normalized to empty', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),

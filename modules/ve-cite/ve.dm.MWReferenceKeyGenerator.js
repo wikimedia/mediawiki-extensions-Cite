@@ -54,7 +54,8 @@ ve.dm.MWReferenceKeyGenerator = {
 	/**
 	 * @param {Object} attributes
 	 * @param {ve.dm.InternalList} internalList
-	 * @return {string|undefined} The prefix to use if it's a reference with citation template, otherwise undefined
+	 * @return {string|undefined} The citation type's autoname,
+	 * or undefined if it isn't a recognized template transclusion
 	 */
 	getCitationAutonamePrefix: function ( attributes, internalList ) {
 		if ( !ve.ui.mwCitationTools || !ve.ui.mwCitationTools.length ) {
@@ -68,7 +69,31 @@ ve.dm.MWReferenceKeyGenerator = {
 				internalItem, toolDefinition.template )
 		);
 		// Use the "-autoname" value from PHP if available
-		return matchingToolDefinition && ( matchingToolDefinition.autoname || matchingToolDefinition.title );
+		return matchingToolDefinition && (
+			this.normalizeName( matchingToolDefinition.autoname ) ||
+			this.normalizeName( matchingToolDefinition.title )
+		);
+	},
+
+	/**
+	 * Normalize an auto-generated reference name.
+	 *
+	 * @param {string|null|undefined} rawName The raw name to normalize
+	 * @return {string} The normalized name
+	 */
+	normalizeName: function ( rawName ) {
+		let name = rawName || '';
+
+		// Remove disallowed characters: < > " ' / \ =
+		name = name.replace( /[<>"'/\\=]+/g, '' );
+
+		// Normalize multiple whitespaces to only one simple space
+		name = name.replace( /\s+/g, ' ' );
+
+		// Remove leading and trailing whitespace
+		name = name.trim();
+
+		return name;
 	},
 
 	/**
@@ -80,6 +105,7 @@ ve.dm.MWReferenceKeyGenerator = {
 	 * @param {boolean} [betterAutonames=false] // feature flag if better autonames should be used
 	 * @return {string|undefined} literal or auto generated name
 	 */
+
 	generateName: function ( attributes, internalList, isReused, betterAutonames ) {
 		const listKey = attributes.mainListKey || attributes.listKey;
 		const name = this.extractNameFromListKey( listKey );
@@ -90,13 +116,17 @@ ve.dm.MWReferenceKeyGenerator = {
 		let namePrefix = ':';
 		if ( betterAutonames ) {
 			const hasAutonameOverride = mw.message( 'cite-ve-dialogbutton-reference-title-autoname' ).exists();
-			const autonameMsgText = ve.msg( hasAutonameOverride ?
+			const autonameMsgKey = hasAutonameOverride ?
 				'cite-ve-dialogbutton-reference-title-autoname' :
-				'cite-ve-dialogbutton-reference-title'
+				'cite-ve-dialogbutton-reference-title';
+			const autonameMsgText = this.normalizeName(
+				ve.msg( autonameMsgKey ) || ve.msg( 'cite-ve-dialogbutton-reference-title' )
 			);
 			const defaultAutonamePrefix = hasAutonameOverride ? autonameMsgText : autonameMsgText + '-';
-			const citationAutonamePrefix = this.getCitationAutonamePrefix( attributes, internalList );
-			namePrefix = ( citationAutonamePrefix || defaultAutonamePrefix );
+			const citationAutonamePrefix = this.normalizeName(
+				this.getCitationAutonamePrefix( attributes, internalList )
+			);
+			namePrefix = ( citationAutonamePrefix || defaultAutonamePrefix || ':' );
 		}
 
 		if ( attributes.mainListIndex !== undefined || isReused ) {
@@ -106,7 +136,6 @@ ve.dm.MWReferenceKeyGenerator = {
 			).slice( 'literal/'.length );
 		}
 	}
-
 };
 
 module.exports = ve.dm.MWReferenceKeyGenerator;

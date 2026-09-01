@@ -66,6 +66,23 @@
 		);
 	} );
 
+	QUnit.test( 'generateName uses fallback when normalized autoname is empty', ( assert ) => {
+		const internalListMock = {
+			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
+			getItemNode: () => new ve.dm.InternalItemNode()
+		};
+
+		sinon.stub( mw, 'message' ).returns( { exists: () => true } );
+		sinon.stub( ve, 'msg' ).callsFake( ( messageKey ) => messageKey === 'cite-ve-dialogbutton-reference-title-autoname' ? '' : messageKey );
+
+		const attributes = {};
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
+			'cite-ve-dialogbutton-reference-title1',
+			'Should return default message key when normalizedName returns empty string '
+		);
+	} );
+
 	QUnit.test( 'generateName when using autonames with citation tools', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
@@ -137,5 +154,50 @@
 			'foo',
 			'Should return literal title when set'
 		);
+	} );
+
+	QUnit.test( 'normalize reference name', ( assert ) => {
+
+		const cases = [
+			{
+				rawName: 'foo',
+				expected: 'foo',
+				message: 'Should not change valid name'
+			},
+			{
+				rawName: 'f<o\\"o',
+				expected: 'foo',
+				message: 'Should remove disallowed characters'
+			},
+
+			{
+				rawName: 'f     o  o',
+				expected: 'f o o',
+				message: 'Should change multiple white spaces to one space'
+			},
+			{
+				rawName: '    foo    ',
+				expected: 'foo',
+				message: 'Should remove leading and trailing whitespaces'
+			},
+			{
+				rawName: '',
+				expected: '',
+				message: 'Should return empty string when string is empty'
+			},
+			{
+				rawName: null,
+				expected: '',
+				message: 'Should accept null'
+			},
+			{
+				rawName: undefined,
+				expected: '',
+				message: 'Should accept undefined'
+			} ];
+
+		cases.forEach( ( c ) => {
+			assert.strictEqual( MWReferenceKeyGenerator.normalizeName( c.rawName ), c.expected, c.message );
+		} );
 	} );
 }

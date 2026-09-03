@@ -58,6 +58,15 @@
 			'Should return reference title when using the new autoname patterns'
 		);
 
+		sinon.stub( ve, 'msg' ).callsFake( ( messageKey ) => messageKey === 'cite-ve-dialogbutton-reference-title' ? ' < \\ > ' : messageKey );
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
+			'-1',
+			// Edge case, can only happen when translation consists of spaces and/or special chars
+			'Should use empty prefix and dash when translation is normalized to empty string'
+		);
+		sinon.restore();
+
 		attributes.listKey = 'literal/foo';
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
@@ -66,21 +75,24 @@
 		);
 	} );
 
-	QUnit.test( 'generateName uses fallback when normalized autoname is empty', ( assert ) => {
+	QUnit.test( 'generateName uses colon fallback when overwritten autoname is normalized to empty', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
 			getItemNode: () => new ve.dm.InternalItemNode()
 		};
 
 		sinon.stub( mw, 'message' ).returns( { exists: () => true } );
-		sinon.stub( ve, 'msg' ).callsFake( ( messageKey ) => messageKey === 'cite-ve-dialogbutton-reference-title-autoname' ? '' : messageKey );
+		sinon.stub( ve, 'msg' ).callsFake( ( messageKey ) => messageKey === 'cite-ve-dialogbutton-reference-title-autoname' ? '     ' : messageKey );
 
 		const attributes = {};
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
-			'cite-ve-dialogbutton-reference-title1',
-			'Should return default message key when normalizedName returns empty string '
+			':1',
+			// Edge case, can only happen when override translation consists of spaces and/or special chars
+			'Should return last resort fallback when normalizedName for overwritten autoname returns empty string '
 		);
+
+		sinon.restore();
 	} );
 
 	QUnit.test( 'generateName when using autonames with citation tools', ( assert ) => {

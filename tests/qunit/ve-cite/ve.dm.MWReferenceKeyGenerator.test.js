@@ -33,7 +33,7 @@
 		);
 	} );
 
-	QUnit.test.skip( 'generateName on a normal main reference', ( assert ) => {
+	QUnit.test( 'generateName on a normal main reference', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
 			getItemNode: () => new ve.dm.InternalItemNode()
@@ -48,13 +48,13 @@
 
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true ),
-			':0',
-			'Should return :0 pattern name when not using the new autoname patterns'
+			':1',
+			'Should return :1 pattern name when not using the new autoname patterns'
 		);
 
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
-			'cite-ve-dialogbutton-reference-title-0',
+			'cite-ve-dialogbutton-reference-title-1',
 			'Should return reference title when using the new autoname patterns'
 		);
 
@@ -66,7 +66,7 @@
 		);
 	} );
 
-	QUnit.test.skip( 'generateName when using autonames with citation tools', ( assert ) => {
+	QUnit.test( 'generateName when using autonames with citation tools', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
 			getItemNode: () => new ve.dm.InternalItemNode()
@@ -74,22 +74,22 @@
 		const fixtures = [
 			{
 				mwCitationTools: undefined,
-				expected: 'cite-ve-dialogbutton-reference-title-0',
+				expected: 'cite-ve-dialogbutton-reference-title-1',
 				msg: 'Should fallback if there\'s no citation tool set'
 			},
 			{
 				mwCitationTools: [],
-				expected: 'cite-ve-dialogbutton-reference-title-0',
+				expected: 'cite-ve-dialogbutton-reference-title-1',
 				msg: 'Should fallback if there\'s no citation tool set'
 			},
 			{
 				mwCitationTools: [ { title: 'MockTitle-', template: '' } ],
-				expected: 'MockTitle-0',
+				expected: 'MockTitle-1',
 				msg: 'Should use citation tool title'
 			},
 			{
 				mwCitationTools: [ { title: 'MockTitle-', autoname: 'MockAuto-', template: '' } ],
-				expected: 'MockAuto-0',
+				expected: 'MockAuto-1',
 				msg: 'Should prefer citation tool autoname'
 			}
 		];
@@ -111,7 +111,7 @@
 		sinon.restore();
 	} );
 
-	QUnit.test.skip( 'generateName on a sub-reference', ( assert ) => {
+	QUnit.test( 'generateName on a sub-reference', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
 			getItemNode: () => new ve.dm.InternalItemNode()
@@ -121,13 +121,13 @@
 
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock ),
-			':0',
+			':1',
 			'Should return :0 pattern name when not using the new autoname patterns'
 		);
 
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock, false, true ),
-			'cite-ve-dialogbutton-reference-title-0',
+			'cite-ve-dialogbutton-reference-title-1',
 			'Should return reference title when using the new autoname patterns'
 		);
 

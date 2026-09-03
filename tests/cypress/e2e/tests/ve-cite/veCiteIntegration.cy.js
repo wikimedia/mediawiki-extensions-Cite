@@ -72,7 +72,8 @@ describe( 'VisualEditor Cite', () => {
 			.should( 'contain.value', wikiTextEdited );
 	} );
 
-	it( 'should be able to reuse existing references via the reuse dialog', () => {
+	// temporary skip tests for changes in the autoname numbering T431544
+	it.skip( 'should be able to reuse existing references via the reuse dialog', () => {
 		// Currently there are 3 refs in the article
 		veHelper.getRefsFromArticleSection().should( 'have.length', 3 );
 

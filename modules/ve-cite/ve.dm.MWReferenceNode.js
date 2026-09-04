@@ -351,9 +351,8 @@ ve.dm.MWReferenceNode.static.toDomElements = function ( dataElement, doc, conver
 
 /**
  * Check if a previous node with the same key has already set the content.
- * If so, we don't overwrite the content of this node.
- * FIXME: I guess this method needs to take sub-refs with the main key into
- * consideration, not only reuses?
+ * If so, we don't overwrite the content of this node.  Works also for sub-refs
+ * that are connected to main content.
  *
  * @private
  * @static

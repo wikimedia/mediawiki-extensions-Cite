@@ -266,22 +266,79 @@
 	} );
 
 	QUnit.test( 'remapInternalListIndexes', ( assert ) => {
-		const dataElement = { attributes: { listIndex: 'old', listKey: 'auto/' } };
-		const listIndexMap = { old: 'new' };
-		const internalList = { getNextUniqueNumber: () => 7 };
-		MWReferenceNode.static.remapInternalListIndexes( dataElement, listIndexMap, internalList );
-		assert.deepEqual( dataElement.attributes, { listIndex: 'new', listKey: 'auto/7' } );
+		const dataElement = { attributes: {
+			listIndex: 'oldIndex', listKey: 'auto/', mainListIndex: 'oldMainIndex'
+		} };
+		const listIndexMap = { oldIndex: 'newIndex', oldMainIndex: 'newMainIndex' };
+		const internalListMock = { getNextUniqueNumber: () => 7 };
+
+		MWReferenceNode.static.remapInternalListIndexes(
+			dataElement,
+			listIndexMap,
+			internalListMock
+		);
+
+		// FIXME should be newMainIndex see #T418324
+		assert.deepEqual(
+			dataElement.attributes,
+			{ listIndex: 'newIndex', listKey: 'auto/7', mainListIndex: 'oldMainIndex' },
+			'Maps the listIndex and mainListIndex according to the mapping'
+		);
 	} );
 
 	QUnit.test( 'remapInternalListKeys', ( assert ) => {
-		const dataElement = { attributes: { listKey: 'k' } };
-		const internalList = {
-			getNodeGroup: () => ( {
-				getAllReuses: ( key ) => ( { k: [] }[ key ] )
-			} )
+		const mainRefNode = new ve.dm.Node( { attributes: {
+			listKey: 'literal/mainKey'
+		} } );
+		const subRefNode = new ve.dm.Node( { attributes: {
+			listKey: 'auto/0',
+			mainListKey: 'literal/subMainKey'
+		} } );
+		const nodeGroup = new ve.dm.InternalListNodeGroup();
+		nodeGroup.appendNode( 'literal/mainKey', mainRefNode );
+		nodeGroup.appendNode( 'auto/0', subRefNode );
+
+		const internalListMock = {
+			getNodeGroup: () => nodeGroup
 		};
-		MWReferenceNode.static.remapInternalListKeys( dataElement, internalList );
-		assert.strictEqual( dataElement.attributes.listKey, 'k2' );
+
+		let dataElement = { attributes: { listKey: 'literal/otherKey' } };
+		MWReferenceNode.static.remapInternalListKeys( dataElement, internalListMock );
+		assert.strictEqual(
+			dataElement.attributes.listKey,
+			'literal/otherKey',
+			'No deduplication if key not used'
+		);
+
+		dataElement = { attributes: { listKey: 'literal/mainKey' } };
+		MWReferenceNode.static.remapInternalListKeys( dataElement, internalListMock );
+		assert.strictEqual(
+			dataElement.attributes.listKey,
+			'literal/mainKey2',
+			'Deduplicates listKey if found on an exising main node'
+		);
+
+		// FIXME should be literal/subMainKey2 see #T418324
+		dataElement = { attributes: { listKey: 'literal/subMainKey' } };
+		MWReferenceNode.static.remapInternalListKeys( dataElement, internalListMock );
+		assert.strictEqual(
+			dataElement.attributes.listKey,
+			'literal/subMainKey',
+			'Deduplicates listKey if found on an exising sub-ref node'
+		);
+
+		// FIXME should be literal/subMainKey2 see #T418324
+		dataElement = { attributes: {
+			listKey: 'auto/1',
+			mainListKey: 'literal/subMainKey',
+			mainListIndex: 0
+		} };
+		MWReferenceNode.static.remapInternalListKeys( dataElement, internalListMock );
+		assert.strictEqual(
+			dataElement.attributes.mainListKey,
+			'literal/subMainKey',
+			'Deduplicates mainListKey if found on an exising sub-ref node'
+		);
 	} );
 
 	QUnit.test( 'getGroup', ( assert ) => {

@@ -299,12 +299,58 @@
 		assert.true( isFinite( clone.originalDomElementsHash ) );
 	} );
 
-	QUnit.test( 'getHashObject', ( assert ) => {
-		const dataElement = { type: 'T', attributes: { listGroup: 'L' } };
-		assert.deepEqual( MWReferenceNode.static.getHashObject( dataElement ), dataElement );
-		// FIXME: Shouldn't this behave different?
-		assert.deepEqual( MWReferenceNode.static.getInstanceHashObject( dataElement ),
-			dataElement );
+	QUnit.test( 'getHashObject and getInstanceHashObject', ( assert ) => {
+		const refData = { type: 'ref', attributes: {
+			listGroup: '',
+			listKey: 'auto/0',
+			listIndex: 0
+		} };
+		const refDataSameGroup = { type: 'ref', attributes: {
+			listGroup: '',
+			listKey: 'auto/1',
+			listIndex: 1
+		} };
+		const refDataOtherGroup = { type: 'ref', attributes: {
+			listGroup: 'other',
+			listKey: 'auto/0',
+			listIndex: 3
+		} };
+
+		assert.deepEqual(
+			MWReferenceNode.static.getHashObject( refData ),
+			MWReferenceNode.static.getHashObject( refData ),
+			'refs with identical data result in indentical hashes'
+		);
+
+		assert.deepEqual(
+			MWReferenceNode.static.getHashObject( refData ),
+			MWReferenceNode.static.getHashObject( refDataSameGroup ),
+			'refs with different data but the same group result in indentical hashes'
+		);
+
+		assert.notDeepEqual(
+			MWReferenceNode.static.getHashObject( refData ),
+			MWReferenceNode.static.getHashObject( refDataOtherGroup ),
+			'refs with different groups result in different hashes'
+		);
+
+		assert.deepEqual(
+			MWReferenceNode.static.getInstanceHashObject( refData ),
+			MWReferenceNode.static.getInstanceHashObject( refData ),
+			'refs with identical data result in indentical instance object hashes'
+		);
+
+		assert.notDeepEqual(
+			MWReferenceNode.static.getInstanceHashObject( refData ),
+			MWReferenceNode.static.getInstanceHashObject( refDataSameGroup ),
+			'refs with different data but the same group result in different instance object hashes'
+		);
+
+		assert.notDeepEqual(
+			MWReferenceNode.static.getInstanceHashObject( refData ),
+			MWReferenceNode.static.getInstanceHashObject( refDataOtherGroup ),
+			'refs with different data  result in different instance object hashes'
+		);
 	} );
 
 	QUnit.test( 'describeChange', ( assert ) => {

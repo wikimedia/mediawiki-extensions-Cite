@@ -1345,8 +1345,11 @@ zero<sup about="#mwt8" class="mw-ref reference" id="cite_ref-3" rel="dc:referenc
 </ol></div>
 !! end
 
+# T437234: disable tests until parsoid output is adapted
 !! test
 <ref> with an empty-string name parameter and no content.
+!! options
+disabled
 !! wikitext
 Bla.<ref name=""> </ref>
 <references />
@@ -3004,11 +3007,14 @@ Test <ref>1</ref><ref>2</ref>
 </ol></div>
 !! end
 
+# T437234: disable tests until parsoid output is adapted
 !! test
 Responsive references: disabled, explicit
 !! config
 wgCiteResponsiveReferences=false
 wgCiteResponsiveReferencesThreshold=2
+!! options
+disabled
 !! wikitext
 Test <ref>1</ref><ref>2</ref>
 <references responsive="" />
@@ -3020,11 +3026,14 @@ Test <ref>1</ref><ref>2</ref>
 </ol></div>
 !! end
 
+# T437234: disable tests until parsoid output is adapted
 !! test
 Responsive references: disabled, explicit, exceed
 !! config
 wgCiteResponsiveReferences=false
 wgCiteResponsiveReferencesThreshold=1
+!! options
+disabled
 !! wikitext
 Test <ref>1</ref><ref>2</ref>
 <references responsive="" />
@@ -3251,8 +3260,11 @@ T15673: <ref> with direction "LTR", keeps upper case
 </ol></div>
 !! end
 
+# T437234: disable tests until parsoid output is adapted
 !! test
 T15673: <ref> with direction "nonsense" and "" (empty), strip invalid dir attribute and shows error
+!! options
+disabled
 !! wikitext
 <ref dir="nonsense">NONSENSE_DIR_TEST</ref>
 <ref dir="">EMPTY_DIR_TEST</ref>

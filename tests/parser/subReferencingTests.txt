@@ -505,10 +505,13 @@ parsoid=wt2html
 </div>
 !! end
 
+# T437234: disable tests until parsoid output is adapted
 !! test
 Empty details content with name, ignored outside of <references>
 !! config
 wgCiteSubReferencing=true
+!! options
+disabled
 !! wikitext
 <ref details="" name="a">Book</ref>
 <references />
@@ -528,10 +531,13 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
+# T437234: disable tests until parsoid output is adapted
 !! test
 Empty details content without name, ignored outside of <references>
 !! config
 wgCiteSubReferencing=true
+!! options
+disabled
 !! wikitext
 <ref details="">Book</ref>
 <references />
@@ -551,10 +557,13 @@ wgCiteSubReferencing=true
 </div>
 !! end
 
+# T437234: disable tests until parsoid output is adapted
 !! test
 Empty details content inside of <references>
 !! config
 wgCiteSubReferencing=true
+!! options
+disabled
 !! wikitext
 <ref name="a" />
 <references>

@@ -10,7 +10,8 @@
 	"visualeditor-cite-tool-name-journal": "Tidsskrift",
 	"visualeditor-cite-tool-name-news": "Nyhende",
 	"visualeditor-cite-tool-name-web": "Nettstad",
-	"cite-ve-dialog-reference-editing-reused": "Denne referansen er nytta {{PLURAL:$1|éin gong|$1 gonger}} på denne sida.",
+	"cite-ve-dialog-reference-editing-reused": "Denne referansen er nytta {{PLURAL:$1|éin gong|$1 gongar}} på denne sida.",
+	"cite-ve-dialog-reference-editing-reused-long": "Denne referansen er nytta {{PLURAL:$1|éin gong|$1 gongar}} på denne sida. Endringar gjort her vil brukast {{PLURAL:$1|2=begge|alle}} stadene referansen er gjenbrukt.",
 	"cite-ve-dialog-reference-options-group-label": "Bruk denne gruppa",
 	"cite-ve-dialog-reference-options-group-placeholder": "Ålmenne kjelder",
 	"cite-ve-dialog-reference-options-section": "Val",
@@ -19,6 +20,7 @@
 	"cite-ve-dialog-referenceslist-title": "Kjeldeliste",
 	"cite-ve-dialogbutton-citation-educationpopup-text": "Betrar innhaldet ditt ved å leggja til kjeldene til informasjon. Du kan visa til bøker, aviser og nettstader som kjelder.",
 	"cite-ve-dialogbutton-citation-educationpopup-title": "Kjeldetilvisingar",
+	"cite-ve-dialogbutton-reference-full-label": "Enkel",
 	"cite-ve-dialogbutton-reference-title": "Referanse",
 	"cite-ve-dialogbutton-reference-tooltip": "Enkel",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Kjeldeliste",
@@ -26,5 +28,6 @@
 	"cite-ve-referenceslist-isempty": "Det finst ingen kjelder på sida med gruppa «$1» som kan leggjast til i lista.",
 	"cite-ve-referenceslist-isempty-default": "Det finst ingen kjelder på sida som kan leggjast til i lista.",
 	"cite-ve-referenceslist-missingref": "Denne kjelda er definert i ein mal eller annan oppretta blokk og kan enn så lenge berre endrast som wikitekst.",
-	"cite-ve-toolbar-group-label": "Gje kjelde"
+	"cite-ve-toolbar-group-label": "Gje kjelde",
+	"cite-ve-othergroup-item": "$1 referanse"
 }

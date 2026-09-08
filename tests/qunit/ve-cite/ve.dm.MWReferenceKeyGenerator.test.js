@@ -52,18 +52,11 @@
 			'Should return :1 pattern name when not using the new autoname patterns'
 		);
 
+		sinon.stub( MWReferenceKeyGenerator, 'getReferenceAutonamePrefix' ).returns( 'cite-ve-dialogbutton-reference-title-' );
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
 			'cite-ve-dialogbutton-reference-title-1',
 			'Should return reference title when using the new autoname patterns'
-		);
-
-		sinon.stub( ve, 'msg' ).callsFake( ( messageKey ) => messageKey === 'cite-ve-dialogbutton-reference-title' ? ' < \\ > ' : messageKey );
-		assert.strictEqual(
-			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
-			'-1',
-			// Edge case, can only happen when translation consists of spaces and/or special chars
-			'Should use empty prefix and dash when translation is normalized to empty string'
 		);
 		sinon.restore();
 
@@ -75,32 +68,13 @@
 		);
 	} );
 
-	QUnit.test( 'generateName with autoname message override', ( assert ) => {
+	QUnit.test( 'generateName uses colon fallback when autoname is normalized to empty', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
 			getItemNode: () => new ve.dm.InternalItemNode()
 		};
 
-		sinon.stub( mw, 'message' ).returns( { exists: () => true } );
-
-		const attributes = {};
-		assert.strictEqual(
-			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
-			'cite-ve-dialogbutton-reference-title-autoname1',
-			'Should use autoname message key without dash'
-		);
-
-		sinon.restore();
-	} );
-
-	QUnit.test( 'generateName uses colon fallback when overwritten autoname is normalized to empty', ( assert ) => {
-		const internalListMock = {
-			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
-			getItemNode: () => new ve.dm.InternalItemNode()
-		};
-
-		sinon.stub( mw, 'message' ).returns( { exists: () => true } );
-		sinon.stub( ve, 'msg' ).callsFake( ( messageKey ) => messageKey === 'cite-ve-dialogbutton-reference-title-autoname' ? '     ' : messageKey );
+		sinon.stub( MWReferenceKeyGenerator, 'getReferenceAutonamePrefix' ).returns( '   ///<>  ' );
 
 		const attributes = {};
 		assert.strictEqual(
@@ -125,17 +99,16 @@
 				msg: 'Should fallback if there\'s no fitting citation tool found'
 			},
 			{
-				toolDefinition: { title: 'MockTitle-' },
-				expected: 'MockTitle-1',
-				msg: 'Should use citation tool title'
-			},
-			{
 				toolDefinition: { title: 'MockTitle-', autoname: 'MockAuto-' },
 				expected: 'MockAuto-1',
-				msg: 'Should prefer citation tool autoname'
+				msg: 'Should use tool autoname'
 			}
 		];
 
+		// mock the default message for cases where code doesn't use translusion
+		sinon.stub( MWReferenceKeyGenerator, 'getReferenceAutonamePrefix' ).returns( 'cite-ve-dialogbutton-reference-title-' );
+		// mock the transclusion detection
+		sinon.stub( ve.ui.MWCitationDialog.static, 'getTransclusionNodeWithTemplate' ).returns( true );
 		const attributes = {};
 		fixtures.forEach( ( fixture ) => {
 			sinon.stub( ve.ui.MWCitationDialog.static, 'getToolDefinitionFromInternalItem' )
@@ -164,11 +137,13 @@
 			'Should return :0 pattern name when not using the new autoname patterns'
 		);
 
+		sinon.stub( MWReferenceKeyGenerator, 'getReferenceAutonamePrefix' ).returns( 'cite-ve-dialogbutton-reference-title-' );
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock, false, true ),
 			'cite-ve-dialogbutton-reference-title-1',
 			'Should return reference title when using the new autoname patterns'
 		);
+		sinon.restore();
 
 		attributes.listKey = 'literal/foo';
 		assert.strictEqual(

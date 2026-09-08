@@ -11,6 +11,7 @@ use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
@@ -148,6 +149,10 @@ class CiteHooks implements
 						[
 							'name' => 've.ui.citeAutonameTemplates.json',
 							'callback' => 'Cite\\ResourceLoader\\MWCitationAutonameTemplateMap::getAutonameTemplateMap'
+						],
+						[
+							'name' => 've.ui.referenceNameMessages.json',
+							'callback' => self::class . '::getReferenceNameMessages'
 						],
 						[
 							'name' => 'icons.json',
@@ -291,6 +296,23 @@ class CiteHooks implements
 				],
 			] );
 		}
+	}
+
+	/**
+	 * Ensure default reference autoname is always in content language
+	 *
+	 * @param Context $context
+	 * @return array
+	 */
+	public static function getReferenceNameMessages( Context $context ): array {
+		$autonameOverride = $context->msg( 'cite-ve-dialogbutton-reference-title-autoname' )->inContentLanguage();
+		if ( $autonameOverride->exists() ) {
+			return [ 'referenceAutonamePrefix' => $autonameOverride->text() ];
+		}
+		$autoname = $context->msg( 'cite-ve-dialogbutton-reference-title' )->inContentLanguage();
+		return [
+			'referenceAutonamePrefix' => $autoname->exists() ? $autoname->text() . '-' : ''
+		];
 	}
 
 }

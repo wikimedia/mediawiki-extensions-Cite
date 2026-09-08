@@ -1,6 +1,7 @@
 'use strict';
 
 const { citeAutonameTemplateMap } = require( './ve.ui.citeAutonameTemplates.json' );
+const { referenceAutonamePrefix } = require( './ve.ui.referenceNameMessages.json' );
 
 /**
  * Helper class to manage name and listKey generation.
@@ -54,6 +55,16 @@ ve.dm.MWReferenceKeyGenerator = {
 	},
 
 	/**
+	 * A wrapper around the imported variable (generated in PHP, loaded with ResourceLoader)
+	 * to make this easier to test.
+	 *
+	 * @return {string|null}
+	 */
+	getReferenceAutonamePrefix() {
+		return referenceAutonamePrefix;
+	},
+
+	/**
 	 * Map a Cite template to its autoname template, using a fallback if available
 	 *
 	 * @param {string|undefined} citeTemplate
@@ -77,8 +88,7 @@ ve.dm.MWReferenceKeyGenerator = {
 		const matchingToolDefinition = ve.ui.MWCitationDialog.static.getToolDefinitionFromInternalItem( internalItem );
 		// Use the "-autoname" value from PHP if available
 		return matchingToolDefinition && (
-			this.normalizeName( matchingToolDefinition.autoname ) ||
-			this.normalizeName( matchingToolDefinition.title )
+			this.normalizeName( matchingToolDefinition.autoname )
 		);
 	},
 
@@ -105,7 +115,7 @@ ve.dm.MWReferenceKeyGenerator = {
 
 	/**
 	 * @param {ve.dm.InternalItemNode} internalItem
-	 * @return {string|undefined} The autoname prefix if a valid was build, or undefined otherwise
+	 * @return {string|undefined} The autoname prefix if a valid one was found, or undefined otherwise
 	 */
 	getAutonamePrefix: function ( internalItem ) {
 		// try to build citation type autoname prefix
@@ -115,15 +125,7 @@ ve.dm.MWReferenceKeyGenerator = {
 			return citationAutonamePrefix;
 		}
 
-		// build default autoname prefix
-		const hasAutonameOverride = mw.message( 'cite-ve-dialogbutton-reference-title-autoname' ).exists();
-		const autonameMsgKey = hasAutonameOverride ?
-			'cite-ve-dialogbutton-reference-title-autoname' :
-			'cite-ve-dialogbutton-reference-title';
-		const autonameMsgText = this.normalizeName(
-			ve.msg( autonameMsgKey ) || ve.msg( 'cite-ve-dialogbutton-reference-title' )
-		);
-		return hasAutonameOverride ? autonameMsgText : autonameMsgText + '-';
+		return this.normalizeName( this.getReferenceAutonamePrefix() );
 	},
 
 	/**

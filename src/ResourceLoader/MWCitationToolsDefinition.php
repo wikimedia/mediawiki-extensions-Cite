@@ -51,11 +51,26 @@ class MWCitationToolsDefinition {
 				$msg = $context->msg( 'visualeditor-cite-tool-name-' . $tool['name'] );
 				// Fall back to the raw name if there is no message
 				$tool['title'] = $msg->isDisabled() ? $tool['name'] : $msg->text();
+				$autonameOverrideTitleFallback = null;
+			} else {
+				$autonameOverrideTitleFallback = $tool['title'];
 			}
 
-			// T434622 Add autoname override option
-			$autonameMsg = $context->msg( 'visualeditor-cite-tool-name-' . $tool['name'] . '-autoname' );
-			$tool['autoname'] = $autonameMsg->isDisabled() ? $tool['title'] . "-" : $autonameMsg->text();
+			// T434622 Set autoname and its override in content language
+			$titleMsg = $context->msg( 'visualeditor-cite-tool-name-' . $tool['name'] )
+				->inContentLanguage();
+			if ( $titleMsg->isDisabled() ) {
+				$tool['autoname'] = $autonameOverrideTitleFallback === null ?
+					null :
+					$autonameOverrideTitleFallback . '-';
+			} else {
+				$tool['autoname'] = $titleMsg->text() . '-';
+			}
+			$autonameMsg = $context->msg( 'visualeditor-cite-tool-name-' . $tool['name'] . '-autoname' )
+				->inContentLanguage();
+			if ( !$autonameMsg->isDisabled() ) {
+				$tool['autoname'] = $autonameMsg->text();
+			}
 
 			// Safe-guard for users doing weird things in the JSON
 			if ( array_key_exists( 'icon', $tool ) && !is_string( $tool['icon'] ) ) {

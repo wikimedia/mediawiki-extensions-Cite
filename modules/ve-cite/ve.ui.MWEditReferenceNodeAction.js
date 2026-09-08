@@ -82,10 +82,7 @@ ve.ui.MWEditReferenceNodeAction.prototype.execute = function ( ref ) {
  * @private
  */
 ve.ui.MWEditReferenceNodeAction.prototype.getCommandNameFromInternalItem = function ( internalItem ) {
-	const matchingToolDefinition = ve.ui.mwCitationTools.find( ( toolDefinition ) => ve.ui.MWCitationDialog
-		.static.getTransclusionNodeWithTemplate(
-			internalItem, toolDefinition.template
-		) );
+	const matchingToolDefinition = ve.ui.MWCitationDialog.static.getToolDefinitionFromInternalItem( internalItem );
 
 	return matchingToolDefinition ?
 		ve.ui.MWCitationDialogTool.static.namePrefix + matchingToolDefinition.name :

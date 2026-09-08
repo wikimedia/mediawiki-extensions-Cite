@@ -120,42 +120,34 @@
 		};
 		const fixtures = [
 			{
-				mwCitationTools: undefined,
+				toolDefinition: undefined,
 				expected: 'cite-ve-dialogbutton-reference-title-1',
-				msg: 'Should fallback if there\'s no citation tool set'
+				msg: 'Should fallback if there\'s no fitting citation tool found'
 			},
 			{
-				mwCitationTools: [],
-				expected: 'cite-ve-dialogbutton-reference-title-1',
-				msg: 'Should fallback if there\'s no citation tool set'
-			},
-			{
-				mwCitationTools: [ { title: 'MockTitle-', template: '' } ],
+				toolDefinition: { title: 'MockTitle-' },
 				expected: 'MockTitle-1',
 				msg: 'Should use citation tool title'
 			},
 			{
-				mwCitationTools: [ { title: 'MockTitle-', autoname: 'MockAuto-', template: '' } ],
+				toolDefinition: { title: 'MockTitle-', autoname: 'MockAuto-' },
 				expected: 'MockAuto-1',
 				msg: 'Should prefer citation tool autoname'
 			}
 		];
 
-		// mock the transclusion detection
-		sinon.stub( ve.ui.MWCitationDialog.static, 'getTransclusionNodeWithTemplate' ).returns( true );
 		const attributes = {};
-
 		fixtures.forEach( ( fixture ) => {
-			sinon.stub( ve.ui, 'mwCitationTools' ).value( fixture.mwCitationTools );
+			sinon.stub( ve.ui.MWCitationDialog.static, 'getToolDefinitionFromInternalItem' )
+				.returns( fixture.toolDefinition );
 
 			assert.strictEqual(
 				MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
 				fixture.expected,
 				fixture.msg
 			);
+			sinon.restore();
 		} );
-
-		sinon.restore();
 	} );
 
 	QUnit.test( 'generateName on a sub-reference', ( assert ) => {

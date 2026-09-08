@@ -52,22 +52,12 @@ ve.dm.MWReferenceKeyGenerator = {
 	},
 
 	/**
-	 * @param {Object} attributes
-	 * @param {ve.dm.InternalList} internalList
+	 * @param {ve.dm.InternalItemNode} internalItem
 	 * @return {string|undefined} The citation type's autoname,
 	 * or undefined if it isn't a recognized template transclusion
 	 */
-	getCitationAutonamePrefix: function ( attributes, internalList ) {
-		if ( !ve.ui.mwCitationTools || !ve.ui.mwCitationTools.length ) {
-			return;
-		}
-
-		const internalItem = internalList.getItemNode( attributes.listIndex );
-		const matchingToolDefinition = ve.ui.mwCitationTools.find( ( toolDefinition ) =>
-			// eslint-disable-next-line implicit-arrow-linebreak
-			ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate(
-				internalItem, toolDefinition.template )
-		);
+	getCitationAutonamePrefix: function ( internalItem ) {
+		const matchingToolDefinition = ve.ui.MWCitationDialog.static.getToolDefinitionFromInternalItem( internalItem );
 		// Use the "-autoname" value from PHP if available
 		return matchingToolDefinition && (
 			this.normalizeName( matchingToolDefinition.autoname ) ||
@@ -124,7 +114,7 @@ ve.dm.MWReferenceKeyGenerator = {
 			);
 			const defaultAutonamePrefix = hasAutonameOverride ? autonameMsgText : autonameMsgText + '-';
 			const citationAutonamePrefix = this.normalizeName(
-				this.getCitationAutonamePrefix( attributes, internalList )
+				this.getCitationAutonamePrefix( internalList.getItemNode( attributes.listIndex ) )
 			);
 			namePrefix = ( citationAutonamePrefix || defaultAutonamePrefix || ':' );
 		}

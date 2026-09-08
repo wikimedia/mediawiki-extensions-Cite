@@ -61,6 +61,7 @@ for ( const languageCode in data ) {
 if ( window.QUnit ) {
 	module.exports = {
 		test: {
+			MWCitationDialog: require( './ve.ui.MWCitationDialog.js' ),
 			MWDataTransitionHelper: require( './ve.dm.MWDataTransitionHelper.js' ),
 			MWDocumentReferences: require( './ve.dm.MWDocumentReferences.js' ),
 			MWGroupReferences: require( './ve.dm.MWGroupReferences.js' ),

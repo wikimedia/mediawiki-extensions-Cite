@@ -249,15 +249,12 @@ ve.ui.MWCitationDialog.prototype.onInputChange = function () {
 
 /**
  * Get the TransclusionNode from an InternalItem if it's a single transclusion
- * that fits a certain template.
  *
  * @param {ve.dm.InternalItemNode} internalItem
- * @param {string|string[]} template
- * @return {?ve.dm.MWTransclusionNode} null when there's no fitting single transclusion node
+ * @return {ve.dm.MWTransclusionNode|undefined} undefined if there's no single transclusion node
  */
-ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate = function (
-	internalItem,
-	template
+ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem = function (
+	internalItem
 ) {
 	const branches = internalItem.getChildren();
 	const leaves = branches.length === 1 &&
@@ -266,13 +263,46 @@ ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate = function (
 	const node = leaves &&
 		leaves.length === 1 &&
 		leaves[ 0 ];
-	if ( node instanceof ve.dm.MWTransclusionNode &&
-		node.isSingleTemplate( template )
-	) {
+	if ( node instanceof ve.dm.MWTransclusionNode ) {
 		return node;
 	}
+};
 
-	return null;
+/**
+ * Get the TransclusionNode from an InternalItem if it's a single transclusion
+ * that fits a certain template
+ *
+ * @param {ve.dm.InternalItemNode} internalItem
+ * @param {string|string[]} template
+ * @return {ve.dm.MWTransclusionNode|undefined} undefined if there's no fitting single transclusion node
+ */
+ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate = function (
+	internalItem,
+	template
+) {
+	const node = this.getTransclusionNodeFromInternalItem( internalItem );
+	if ( node && node.isSingleTemplate( template ) ) {
+		return node;
+	}
+};
+
+/**
+ * Get the fitting CitationTool definition object to an InternalItemNode
+ *
+ * @param {ve.dm.InternalItemNode} internalItem
+ * @return {Object|undefined} undefined if the InternalItemNode has no fitting Citation type
+ */
+ve.ui.MWCitationDialog.static.getToolDefinitionFromInternalItem = function (
+	internalItem
+) {
+	if ( !ve.ui.mwCitationTools || !ve.ui.mwCitationTools.length ) {
+		return;
+	}
+
+	return ve.ui.mwCitationTools.find( ( toolDefinition ) => ve.ui.MWCitationDialog
+		.static.getTransclusionNodeWithTemplate(
+			internalItem, toolDefinition.template
+		) );
 };
 
 module.exports = ve.ui.MWCitationDialog;

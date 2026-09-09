@@ -87,6 +87,29 @@ ve.dm.MWReferenceKeyGenerator = {
 	},
 
 	/**
+	 * @param {ve.dm.InternalItemNode} internalItem
+	 * @return {string|undefined} The autoname prefix if a valid was build, or undefined otherwise
+	 */
+	getAutonamePrefix: function ( internalItem ) {
+		// try to build citation type autoname prefix
+		const citationAutonamePrefix = this.getCitationAutonamePrefix( internalItem );
+
+		if ( citationAutonamePrefix ) {
+			return citationAutonamePrefix;
+		}
+
+		// build default autoname prefix
+		const hasAutonameOverride = mw.message( 'cite-ve-dialogbutton-reference-title-autoname' ).exists();
+		const autonameMsgKey = hasAutonameOverride ?
+			'cite-ve-dialogbutton-reference-title-autoname' :
+			'cite-ve-dialogbutton-reference-title';
+		const autonameMsgText = this.normalizeName(
+			ve.msg( autonameMsgKey ) || ve.msg( 'cite-ve-dialogbutton-reference-title' )
+		);
+		return hasAutonameOverride ? autonameMsgText : autonameMsgText + '-';
+	},
+
+	/**
 	 * Generate the name for a given reference
 	 *
 	 * @param {Object} attributes
@@ -95,7 +118,6 @@ ve.dm.MWReferenceKeyGenerator = {
 	 * @param {boolean} [betterAutonames=false] // feature flag if better autonames should be used
 	 * @return {string|undefined} literal or auto generated name
 	 */
-
 	generateName: function ( attributes, internalList, isReused, betterAutonames ) {
 		const listKey = attributes.mainListKey || attributes.listKey;
 		const name = this.extractNameFromListKey( listKey );
@@ -103,21 +125,9 @@ ve.dm.MWReferenceKeyGenerator = {
 			return name;
 		}
 
-		let namePrefix = ':';
-		if ( betterAutonames ) {
-			const hasAutonameOverride = mw.message( 'cite-ve-dialogbutton-reference-title-autoname' ).exists();
-			const autonameMsgKey = hasAutonameOverride ?
-				'cite-ve-dialogbutton-reference-title-autoname' :
-				'cite-ve-dialogbutton-reference-title';
-			const autonameMsgText = this.normalizeName(
-				ve.msg( autonameMsgKey ) || ve.msg( 'cite-ve-dialogbutton-reference-title' )
-			);
-			const defaultAutonamePrefix = hasAutonameOverride ? autonameMsgText : autonameMsgText + '-';
-			const citationAutonamePrefix = this.normalizeName(
-				this.getCitationAutonamePrefix( internalList.getItemNode( attributes.listIndex ) )
-			);
-			namePrefix = ( citationAutonamePrefix || defaultAutonamePrefix || ':' );
-		}
+		const namePrefix = betterAutonames && this.getAutonamePrefix(
+			internalList.getItemNode( attributes.listIndex )
+		) || ':';
 
 		if ( attributes.mainListIndex !== undefined || isReused ) {
 			return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(

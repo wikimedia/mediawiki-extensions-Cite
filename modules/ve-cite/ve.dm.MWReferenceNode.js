@@ -789,15 +789,55 @@ ve.dm.MWReferenceNode.prototype.onUnroot = function ( oldRoot ) {
  */
 ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
 	if ( this.getRoot() === this.getDocument().getDocumentNode() ) {
+		const internalList = this.getDocument().getInternalList();
+
 		const attributes = this.element.attributes;
 		this.registeredListGroup = attributes.listGroup;
 		this.registeredListKey = attributes.listKey;
 		this.registeredListIndex = attributes.listIndex;
-		this.getDocument().getInternalList().addNode(
+		internalList.addNode(
 			this.registeredListGroup,
 			this.registeredListKey,
 			this.registeredListIndex,
 			this
+		);
+
+		// don't set a prefix when it's a literal key already
+		const mainListKey = attributes.mainListKey || attributes.listKey;
+		if ( ve.dm.MWReferenceKeyGenerator.isLiteralListKey( mainListKey ) ) {
+			return;
+		}
+
+		const mainListIndex = attributes.mainListIndex || attributes.listIndex;
+		const mainReuses = ve.dm.MWReferenceNode.static.getRefsWithSameMain(
+			mainListIndex,
+			internalList.getNodeGroup( attributes.listGroup )
+		);
+
+		// only update the prefix on the first re-use
+		if ( !mainReuses || mainReuses.length !== 2 ) {
+			return;
+		}
+
+		const transclusion = ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem(
+			this.getInternalItem()
+		);
+		const template = transclusion && transclusion.getSingleTemplateName();
+		if ( !template ) {
+			return;
+		}
+
+		ve.dm.MWReferenceKeyGenerator.getAutonamePrefixFromTemplate(
+			transclusion,
+			this.getDocument(),
+			ve.dm.MWReferenceKeyGenerator.getCitationAutonameTemplate( template )
+		).then( ( autonamePrefix ) => {
+			ve.dm.MWReferenceKeyGenerator.setStoredAutonamePrefix(
+				autonamePrefix,
+				this.getDocument(),
+				mainListIndex
+			);
+		}
 		);
 	}
 };

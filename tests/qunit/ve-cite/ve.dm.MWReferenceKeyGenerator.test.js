@@ -36,7 +36,8 @@
 	QUnit.test( 'generateName on a normal main reference', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
-			getItemNode: () => new ve.dm.InternalItemNode()
+			getItemNode: () => new ve.dm.InternalItemNode(),
+			getDocument: () => new ve.dm.Document()
 		};
 
 		const attributes = {};
@@ -71,7 +72,8 @@
 	QUnit.test( 'generateName uses colon fallback when autoname is normalized to empty', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
-			getItemNode: () => new ve.dm.InternalItemNode()
+			getItemNode: () => new ve.dm.InternalItemNode(),
+			getDocument: () => new ve.dm.Document()
 		};
 
 		sinon.stub( MWReferenceKeyGenerator, 'getReferenceAutonamePrefix' ).returns( '   ///<>  ' );
@@ -91,7 +93,8 @@
 	QUnit.test( 'generateName when using autonames with citation tools', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
-			getItemNode: () => new ve.dm.InternalItemNode()
+			getItemNode: () => new ve.dm.InternalItemNode(),
+			getDocument: () => new ve.dm.Document()
 		};
 		const fixtures = [
 			{
@@ -124,10 +127,35 @@
 		} );
 	} );
 
+	QUnit.test( 'generateName when using autonames with citation tools and autoname template result', ( assert ) => {
+		const doc = new ve.dm.Document();
+		const internalListMock = {
+			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
+			getItemNode: () => new ve.dm.InternalItemNode(),
+			getDocument: () => doc
+		};
+
+		const attributes = { listIndex: '0' };
+		// mock the transclusion detection
+		sinon.stub( ve.ui.MWCitationDialog.static, 'getTransclusionNodeWithTemplate' ).returns( true );
+		sinon.stub( ve.ui.MWCitationDialog.static, 'getToolDefinitionFromInternalItem' )
+			.returns( { title: 'MockTitle-', autoname: 'MockAuto-' } );
+
+		MWReferenceKeyGenerator.setStoredAutonamePrefix( 'TestReference-2026', doc, '0' );
+
+		assert.strictEqual(
+			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
+			'TestReference-20261',
+			'Should return reference for listIndex stored in document fo internal list'
+		);
+		sinon.restore();
+	} );
+
 	QUnit.test( 'generateName on a sub-reference', ( assert ) => {
 		const internalListMock = {
 			getNodeGroup: () => new ve.dm.InternalListNodeGroup(),
-			getItemNode: () => new ve.dm.InternalItemNode()
+			getItemNode: () => new ve.dm.InternalItemNode(),
+			getDocument: () => new ve.dm.Document()
 		};
 
 		const attributes = { mainListIndex: 0 };
@@ -224,5 +252,117 @@
 			undefined,
 			'Should return undefined when there is no default'
 		);
+	} );
+
+	QUnit.test( 'getAutonamePrefixFromTemplate', async ( assert ) => {
+		const doc = new ve.dm.Document();
+		const template = new ve.dm.MWTransclusionNode( {
+			type: 'mwTransclusionInline',
+			attributes: {
+				mw: {
+					parts: [ {
+						template: {
+							target: { wt: 'Cite test', href: './Template:Cite_test' },
+							params: { title: { wt: 'Test title' } }
+						}
+					} ]
+				}
+			}
+		} );
+
+		const apiResult = jQuery.Deferred().resolve( {
+			visualeditor: {
+				result: 'success',
+				content: '<span>   generated-autoname-test title</span>'
+			}
+		} );
+
+		const parseFragment = sinon.stub( ve.init.target, 'parseWikitextFragment' ).returns( apiResult );
+
+		const autonamePrefix = await MWReferenceKeyGenerator.getAutonamePrefixFromTemplate( template, doc, 'Cite-test-autoname' );
+
+		assert.strictEqual(
+			parseFragment.firstCall.args[ 0 ],
+			'{{Cite-test-autoname|title=Test title}}',
+			'Should request the autoname template while preserving parameters'
+		);
+
+		assert.strictEqual(
+			autonamePrefix,
+			'generated-autoname-test title',
+			'Should return normalized autoname from WikitextFragment'
+		);
+
+		sinon.restore();
+	} );
+
+	QUnit.test( 'getAutonamePrefixFromTemplate returns undefined when transclusion node is malformed or has no params', async ( assert ) => {
+		const doc = new ve.dm.Document();
+		const testCases = [
+			{ attributes: {}, msg: 'Should return undefined when attributes are empty' },
+			{ attributes: { mw: {} }, msg: 'Should return undefined when mw attribute is empty' },
+			{ attributes: { mw: { parts: [] } }, msg: 'Should return undefined when transclusion node has no parts' },
+			{
+				attributes: {
+					mw: { parts: [ {
+						template: {
+							target: { wt: 'Cite test', href: './Template:Cite_test' }
+						}
+					} ] } },
+				msg: 'Should return undefined when template has no parameters'
+			}
+		];
+
+		const target = sinon.mock( ve.init.target );
+		target.expects( 'parseWikitextFragment' ).never();
+
+		await Promise.all( testCases.map( async ( testCase ) => {
+			const template = new ve.dm.MWTransclusionNode( {
+				type: 'mwTransclusionInline',
+				attributes: testCase.attributes
+			} );
+
+			const autonamePrefix = await MWReferenceKeyGenerator.getAutonamePrefixFromTemplate( template, doc, 'Cite-test-autoname' );
+
+			assert.strictEqual(
+				autonamePrefix,
+				undefined,
+				testCase.msg
+			);
+		} ) );
+
+		sinon.restore();
+	} );
+
+	QUnit.test( 'getAutonamePrefixFromTemplate returns undefined when parseWikitextFragment returns non-success result', async ( assert ) => {
+		const doc = new ve.dm.Document();
+		const template = new ve.dm.MWTransclusionNode( {
+			type: 'mwTransclusionInline',
+			attributes: {
+				mw: {
+					parts: [ {
+						template: {
+							target: { wt: 'Cite test', href: './Template:Cite_test' },
+							params: { title: { wt: 'Test title' } }
+						}
+					} ]
+				}
+			}
+		} );
+
+		const apiResult = jQuery.Deferred().resolve( {
+			visualeditor: {
+				result: 'failed',
+				message: 'template not found'
+			}
+		} );
+
+		sinon.stub( ve.init.target, 'parseWikitextFragment' ).returns( apiResult );
+
+		const autonamePrefix = await MWReferenceKeyGenerator.getAutonamePrefixFromTemplate( template, doc, 'Cite-test-autoname' );
+
+		assert.strictEqual( autonamePrefix, undefined, 'Should return undefined' );
+
+		sinon.restore();
 	} );
 }

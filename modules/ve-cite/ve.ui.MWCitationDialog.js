@@ -56,6 +56,13 @@ ve.ui.MWCitationDialog.prototype.getReferenceNode = function () {
 /**
  * @override
  */
+ve.ui.MWCitationDialog.prototype.isEditing = function () {
+	return this.getFragment().getSurface().getSelectedNode() instanceof MWReferenceNode;
+};
+
+/**
+ * @override
+ */
 ve.ui.MWCitationDialog.prototype.getSelectedNode = function () {
 	const surface = this.getFragment().getSurface();
 	const referenceNode = this.getReferenceNode();
@@ -219,6 +226,24 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 				)
 			);
 			this.referenceModel.updateInternalItem( surfaceModel );
+
+			// Update the autoname prefix only after changes
+			if ( this.isEditing() ) {
+				const transclusion = ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem(
+					this.referenceModel.findInternalItem( surfaceModel )
+				);
+
+				const autonamePrefix = await ve.dm.MWReferenceKeyGenerator.getAutonamePrefixFromTemplate(
+					transclusion,
+					doc,
+					ve.dm.MWReferenceKeyGenerator.getCitationAutonameTemplate( this.citationTemplate )
+				);
+				ve.dm.MWReferenceKeyGenerator.setStoredAutonamePrefix(
+					autonamePrefix,
+					doc,
+					this.referenceModel.listIndex
+				);
+			}
 
 			this.close( { action } );
 		} );

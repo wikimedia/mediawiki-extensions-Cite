@@ -195,7 +195,7 @@ ve.ui.MWReferenceDialog.prototype.openReusePanel = function () {
  */
 ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'insert' || action === 'done' ) {
-		return new OO.ui.Process( () => {
+		return new OO.ui.Process( async () => {
 			let ref = this.editPanel.getReferenceFromEditing();
 			const newListGroup = ve.dm.MWReferenceModel.static.makeListGroup( ref.group );
 			const nodeGroup = this.getFragment().getDocument()
@@ -242,6 +242,31 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				ref.updateGroup( this.getFragment().getSurface() );
 				ref.updateInternalItem( this.getFragment().getSurface() );
 			}
+
+			// Update the autoname prefix only after changes
+			if ( action === 'done' ) {
+				const surfaceModel = this.getFragment().getSurface();
+				const doc = surfaceModel.getDocument();
+
+				const transclusion = ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem(
+					doc.getInternalList().getItemNode( ref.mainListIndex || ref.listIndex )
+				);
+
+				const template = transclusion && transclusion.getSingleTemplateName();
+				if ( template ) {
+					const autonamePrefix = await ve.dm.MWReferenceKeyGenerator.getAutonamePrefixFromTemplate(
+						transclusion,
+						doc,
+						ve.dm.MWReferenceKeyGenerator.getCitationAutonameTemplate( template )
+					);
+					ve.dm.MWReferenceKeyGenerator.setStoredAutonamePrefix(
+						autonamePrefix,
+						doc,
+						ref.mainListIndex || ref.listIndex
+					);
+				}
+			}
+
 			this.close( { action } );
 		} );
 	}

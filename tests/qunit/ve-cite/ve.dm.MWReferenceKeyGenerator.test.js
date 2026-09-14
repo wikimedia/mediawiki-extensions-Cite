@@ -222,4 +222,27 @@
 			assert.strictEqual( MWReferenceKeyGenerator.normalizeName( c.rawName ), c.expected, c.message );
 		} );
 	} );
+
+	QUnit.test( 'getCitationAutonameTemplate', ( assert ) => {
+		const mapWithDefault = {
+			'Cite web': 'web-autoname',
+			'*': 'universal-autoname'
+		};
+
+		assert.strictEqual(
+			MWReferenceKeyGenerator.getCitationAutonameTemplate( 'Cite web', mapWithDefault ),
+			'web-autoname',
+			'Should return mapped autoname template'
+		);
+		assert.strictEqual(
+			MWReferenceKeyGenerator.getCitationAutonameTemplate( 'Cite book', mapWithDefault ),
+			'universal-autoname',
+			'Should return default autoname template'
+		);
+		assert.strictEqual(
+			MWReferenceKeyGenerator.getCitationAutonameTemplate( 'Cite book', {} ),
+			undefined,
+			'Should return undefined when there is no default'
+		);
+	} );
 }

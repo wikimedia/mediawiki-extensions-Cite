@@ -1,5 +1,7 @@
 'use strict';
 
+const { citeAutonameTemplateMap } = require( './ve.ui.citeAutonameTemplates.json' );
+
 /**
  * Helper class to manage name and listKey generation.
  *
@@ -49,6 +51,21 @@ ve.dm.MWReferenceKeyGenerator = {
 	 */
 	extractNameFromListKey: function ( listKey ) {
 		return listKey && listKey.startsWith( 'literal/' ) ? listKey.slice( 8 ) : '';
+	},
+
+	/**
+	 * Map a Cite template to its autoname template, using a fallback if available
+	 *
+	 * @param {string|undefined} citeTemplate
+	 * @param {Object} templateMap Cite template to "Autoname for Cite template" map. Only pass a parameter for testing
+	 * @return {string|undefined}
+	 */
+	getCitationAutonameTemplate: function ( citeTemplate, templateMap = citeAutonameTemplateMap ) {
+		if ( citeTemplate in templateMap ) {
+			return templateMap[ citeTemplate ];
+		} else if ( '*' in templateMap ) {
+			return templateMap[ '*' ];
+		}
 	},
 
 	/**

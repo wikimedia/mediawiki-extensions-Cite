@@ -146,6 +146,10 @@ class CiteHooks implements
 							'callback' => 'Cite\\ResourceLoader\\ContentLanguage::getJsData'
 						],
 						[
+							'name' => 've.ui.citeAutonameTemplates.json',
+							'callback' => 'Cite\\ResourceLoader\\MWCitationAutonameTemplateMap::getAutonameTemplateMap'
+						],
+						[
 							'name' => 'icons.json',
 							'callback' => 'MediaWiki\\ResourceLoader\\CodexModule::getIcons',
 							'callbackParam' => [

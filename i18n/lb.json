@@ -58,6 +58,7 @@
 	"communityconfiguration-cite-description": "Passt d'Format an d'Ausgesi vu Referenzen un.",
 	"cite-configuration-title": "Cite-Konfiguratioun",
 	"cite-configuration-info": "Dës Astellungen hunn Auswierkungen op all d'Säiten, déi Cite benotzen. Nëmmen Administrateure kënnen dës Astellungen änneren.",
+	"cite-configuration-autoname-desc-templates-heading": "Schablounen",
 	"cite-configuration-backlink-title": "Backlink-Astellungen",
 	"cite-configuration-backlink-description": "Backlinken tauchen an der Referenzelëscht op a verweisen zeréck op d'Foussnotten op der Säit. Wann eng Referenz méi wéi eng Kéier benotzt gëtt, da sinn hir Backlinken nummeréiert. D'Konfiguratioun mécht et méiglech, e benotzerdefinéiert Alphabet fir dësen Zweck ze benotzen.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite huet en Alphabet fir d'Sprooch vun Ärer Wiki detektéiert. Wann Dir et benotze wëllt, kopéiert wgl. den Text hei drënner a setzt en als Basis fir Är Backlink-Markéierungen an. Dir hutt d'Méiglechkeet, d'Sequenz z'änneren oder nei z'arrangéieren.",

@@ -5,6 +5,13 @@
 		]
 	},
 	"cite_error": "उद्धरण त्रुटि: $1",
+	"cite-reference-previews-reference": "सन्दर्भ",
+	"cite-reference-previews-book": "पुस्तक सन्दर्भ",
+	"cite-reference-previews-journal": "पत्रिका सन्दर्भ",
+	"cite-reference-previews-news": "समाचार सन्दर्भ",
+	"cite-reference-previews-note": "टिप्पणी",
+	"cite-reference-previews-map": "मानचित्र सन्दर्भ",
+	"cite-reference-previews-web": "जाल सन्दर्भ",
 	"cite_references_link_accessibility_label": "ऊपरे जैथिन",
 	"cite_references_link_many_accessibility_label": "एकरा तक ऊपरे जैथिन:",
 	"cite_references_link_accessibility_back_label": "पाछे जैथिन",

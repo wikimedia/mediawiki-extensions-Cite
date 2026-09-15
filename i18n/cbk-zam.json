@@ -9,7 +9,7 @@
 	"cite_error": "Error de citada: $1",
 	"cite_error_details_missing_parent": "Un etiqueta <code>&lt;ref></code> tiene detalle debe ta contene contenido o punto na referencia principal por nombre.",
 	"cite_error_details_unsupported_context": "El etiqueta <code>&lt;ref></code> con nombre \"$1\" no puede usa maga detalle cuando adentro del <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "Invalido <code>dir=$1</code>, debe \"ltr\" o \"rtl\" ele",
+	"cite_error_ref_invalid_dir": "Invalido <code>dir=\"$1\"</code>, debe hende queda \"ltr\", \"rtl\" o \"auto\".",
 	"cite_error_ref_conflicting_dir": "Uno del etiqueta  tiene nombre \"$1\" no hay  atributo contradictario \"$1\".",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref></code> invalido; no puede queda simple numero entero el nomnbre. Usa un titulo descriptivo",
 	"cite_error_ref_no_key": "El opening <code>&lt;ref></code> etiqueta malformao o tiene nombre umal",

@@ -5,6 +5,7 @@
 			"Dalba",
 			"Ebrahim",
 			"Ebraminio",
+			"Hanooz",
 			"Huji",
 			"Jeeputer",
 			"Ladsgroup",
@@ -62,5 +63,6 @@
 	"cite-wikieditor-help-content-showreferences-description": "نمایش منابع",
 	"cite-wikieditor-help-content-reference-example-text2": "[$1 متن پیوند]، متن اضافی.",
 	"cite-wikieditor-help-content-reference-example-text3": "[$1 متن پیوند]",
-	"cite-wikieditor-help-content-reference-example-extra-details": "جزئیات اضافی"
+	"cite-wikieditor-help-content-reference-example-extra-details": "جزئیات اضافی",
+	"cite-configuration-autoname-desc-templates-heading": "الگوها"
 }

@@ -141,17 +141,18 @@ ve.dm.MWReferenceKeyGenerator = {
 		if ( name ) {
 			return name;
 		}
+		if ( !isReused && attributes.mainListIndex === undefined ) {
+			return;
+		}
 
 		const namePrefix = betterAutonames && this.getAutonamePrefix(
 			internalList.getItemNode( attributes.listIndex )
 		) || ':';
 
-		if ( attributes.mainListIndex !== undefined || isReused ) {
-			return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(
-				listKey,
-				'literal/' + namePrefix
-			).slice( 'literal/'.length );
-		}
+		return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(
+			listKey,
+			'literal/' + namePrefix
+		).slice( 'literal/'.length );
 	}
 };
 

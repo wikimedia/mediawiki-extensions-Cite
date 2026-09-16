@@ -77,6 +77,7 @@
 	"communityconfiguration-cite-description": "Dostosuj format i wygląd przypisów.",
 	"cite-configuration-title": "Konfiguracja przypisów",
 	"cite-configuration-info": "Te ustawienia dotyczą wszystkich stron, które wykorzystują rozszerzenie Cite. Tylko administratorzy mogą dokonywać zmian w tym formularzu.",
+	"cite-configuration-autoname-desc-templates-heading": "Szablony",
 	"cite-configuration-backlink-title": "Ustawienia linków zwrotnych",
 	"cite-configuration-backlink-description": "Linki zwrotne są wyświetlane na liście przypisów i prowadzą z powrotem do miejsca wystąpienia odwołania w treści strony. Jeśli dany przypis występuje na niej wielokrotnie, linki zwrotne są numerowane. Schemat numerowania można skonfigurować.",
 	"cite-configuration-backlink-alpha-suggestion": "Rozszerzenie Cite wykryło alfabet dla języka Twojej wiki. Jeśli chcesz z niego skorzystać, skopiuj poniższy tekst i wklej go jako podstawę dla znaczników linków zwrotnych. Możesz swobodnie edytować i zmieniać tę sekwencję.",

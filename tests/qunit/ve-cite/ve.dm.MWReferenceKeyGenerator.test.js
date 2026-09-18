@@ -80,7 +80,8 @@
 		assert.strictEqual(
 			MWReferenceKeyGenerator.generateName( attributes, internalListMock, true, true ),
 			':1',
-			// Edge case, can only happen when override translation consists of spaces and/or special chars
+			// Edge case, can only happen when override translation consists of spaces
+			// and/or special chars
 			'Should return last resort fallback when normalizedName for overwritten autoname returns empty string '
 		);
 
@@ -194,7 +195,11 @@
 			} ];
 
 		cases.forEach( ( c ) => {
-			assert.strictEqual( MWReferenceKeyGenerator.normalizeName( c.rawName ), c.expected, c.message );
+			assert.strictEqual(
+				MWReferenceKeyGenerator.normalizeName( c.rawName ),
+				c.expected,
+				c.message
+			);
 		} );
 	} );
 

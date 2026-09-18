@@ -2,7 +2,7 @@
 	"opts": {
 		"destination": "docs/js",
 		"package": "package.json",
-		"pedantic": false,
+		"pedantic": true,
 		"readme": "README.md",
 		"recurse": true,
 		"template": "node_modules/jsdoc-wmf-theme"
@@ -37,7 +37,8 @@
 			"linkMap": {
 				"ext.popups.Preview": "https://doc.wikimedia.org/Popups/master/js/js/Popups/module-preview.html",
 				"ext.popups.PreviewModel": "https://doc.wikimedia.org/Popups/master/js/js/Popups/module-preview_model.html",
-				"Gateway": "https://doc.wikimedia.org/Popups/master/js/js/Popups/module-gateway.html"
+				"ext.popups.Gateway": "https://doc.wikimedia.org/Popups/master/js/js/Popups/module-gateway.html",
+				"ve.ui.MWPreviewElement": "https://doc.wikimedia.org/VisualEditor/master/js/ve.ui.MWPreviewElement.html"
 			}
 		}
 	}

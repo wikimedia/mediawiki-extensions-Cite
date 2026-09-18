@@ -5,7 +5,7 @@
 const TYPE_REFERENCE = 'reference';
 
 /**
- * @return {Gateway}
+ * @return {ext.popups.Gateway}
  */
 module.exports = function createReferenceGateway() {
 

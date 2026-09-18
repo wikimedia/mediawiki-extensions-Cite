@@ -142,7 +142,7 @@ function renderReferencePreview(
 					const targetId = model.url ? model.url.slice( 1 ) : null;
 					const targetElement = document.getElementById( targetId );
 
-					// Remove highlight from previously highlighted reference when selecting a new footnote
+					// Remove highlight from previously highlighted references
 					const previousHighlight = document.querySelector( '.mwe-popups-ref-highlight' );
 					if ( previousHighlight ) {
 						previousHighlight.classList.remove( 'mwe-popups-ref-highlight' );

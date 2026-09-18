@@ -78,6 +78,7 @@
 	"cite-configuration-autoname-desc-templates-heading": "Предлошки",
 	"cite-configuration-autoname-desc-templates": "Создајте прилагодена предлошка за именување која ги определува предложните параметри како автор и година на издавање со цел да создадете имиња на наводи (на пр. <code>&lt;ref name=\"Miller-1998-1\"&gt;</code>).",
 	"cite-configuration-autoname-desc-citation-type-heading": "Имиња на видови наводи",
+	"cite-configuration-autoname-desc-citation-type-text-1": "Создајте нов клуч за порака <code>-autoname</code> за да и замените стандардните имиња со алтернативни низи (на пр. заментата на <code>{{int:Cite-ve-dialogbutton-reference-title}}-</code> со <code>reference_</code> или <code>reference</code> создава <code>&lt;ref name=\"reference_1\"&gt;</code> или <code>&lt;ref name=\"reference1\"&gt;</code> наместо <code>&lt;ref name=\"{{int:Cite-ve-dialogbutton-reference-title}}-1\"&gt;</code>).",
 	"cite-configuration-autoname-desc-default-heading": "Стандардно поведение",
 	"cite-configuration-autoname-desc-default-text-1": "Ако изберете да не ги прилагодите вашите предлошки или имињата на видови наводи, тогаш ќе се создаваат автоматски имиња на наводи според видот на навод, како на пр. <code>{{int:Visualeditor-cite-tool-name-book}}-1</code>, <code>{{int:Visualeditor-cite-tool-name-web}}-1</code>.",
 	"cite-configuration-backlink-title": "Поставки за повратни врски",

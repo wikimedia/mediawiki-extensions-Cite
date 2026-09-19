@@ -153,69 +153,74 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 		this.inDialog !== 'reference' &&
 		( action === 'done' || action === 'insert' )
 	) {
-		return new OO.ui.Process( () => {
-			const deferred = $.Deferred();
-			this.checkRequiredParameters().done( () => {
-				const surfaceModel = this.getFragment().getSurface();
-				const doc = surfaceModel.getDocument();
+		return new OO.ui.Process( async () => {
+			// checkRequiredParameters returns an empty rejected promise when there are empty
+			// parameters and the user wants to correct them before proceeding.
+			const requiredParametersNeedCorrection = await this.checkRequiredParameters().then(
+				() => false,
+				() => true
+			);
+			if ( requiredParametersNeedCorrection ) {
+				return;
+			}
 
-				// We had a reference, but no template node (or wrong kind of template node)
-				if ( this.referenceModel && !this.selectedNode ) {
-					const refDoc = this.referenceModel.getDocument();
-					// Empty the existing reference, whatever it contained. This allows
-					// the dialog to be used for arbitrary references (to replace their
-					// contents with a citation).
-					refDoc.commit(
-						ve.dm.TransactionBuilder.static
-							.newFromRemoval( refDoc, refDoc.getDocumentRange(), true )
+			const surfaceModel = this.getFragment().getSurface();
+			const doc = surfaceModel.getDocument();
+
+			// We had a reference, but no template node (or wrong kind of template node)
+			if ( this.referenceModel && !this.selectedNode ) {
+				const refDoc = this.referenceModel.getDocument();
+				// Empty the existing reference, whatever it contained. This allows
+				// the dialog to be used for arbitrary references (to replace their
+				// contents with a citation).
+				refDoc.commit(
+					ve.dm.TransactionBuilder.static
+						.newFromRemoval( refDoc, refDoc.getDocumentRange(), true )
+				);
+			}
+
+			if ( !this.referenceModel ) {
+				// Collapse returns a new fragment, so update this.fragment
+				this.fragment = this.getFragment().collapseToEnd();
+				this.referenceModel = new MWReferenceModel( doc );
+				this.referenceModel.insertIntoFragment( this.getFragment() );
+			}
+
+			const item = this.referenceModel.findInternalItem( surfaceModel );
+			if ( item ) {
+				if ( this.selectedNode ) {
+					this.transclusionModel.updateTransclusionNode(
+						surfaceModel, this.selectedNode
+					);
+				} else if ( this.transclusionModel.getPlainObject() !== null ) {
+					this.transclusionModel.insertTransclusionNode(
+						// HACK: This is trying to place the cursor inside the first
+						// content branch node but this theoretically not a safe
+						// assumption - in practice, the citation dialog will only reach
+						// this code if we are inserting (not updating) a transclusion, so
+						// the referenceModel will have already initialized the internal
+						// node with a paragraph - getting the range of the item covers
+						// the entire paragraph so we have to get the range of it's first
+						// (and empty) child
+						this.getFragment().clone(
+							new ve.dm.LinearSelection( item.getChildren()[ 0 ].getRange() )
+						),
+						'inline'
 					);
 				}
+			}
 
-				if ( !this.referenceModel ) {
-					// Collapse returns a new fragment, so update this.fragment
-					this.fragment = this.getFragment().collapseToEnd();
-					this.referenceModel = new MWReferenceModel( doc );
-					this.referenceModel.insertIntoFragment( this.getFragment() );
-				}
+			// HACK: Scorch the earth - this is only needed because without it, the
+			// references list won't re-render properly, and can be removed once
+			// someone fixes that
+			this.referenceModel.setDocument(
+				doc.cloneFromRange(
+					doc.getInternalList().getItemNode( this.referenceModel.getListIndex() ).getRange()
+				)
+			);
+			this.referenceModel.updateInternalItem( surfaceModel );
 
-				const item = this.referenceModel.findInternalItem( surfaceModel );
-				if ( item ) {
-					if ( this.selectedNode ) {
-						this.transclusionModel.updateTransclusionNode(
-							surfaceModel, this.selectedNode
-						);
-					} else if ( this.transclusionModel.getPlainObject() !== null ) {
-						this.transclusionModel.insertTransclusionNode(
-							// HACK: This is trying to place the cursor inside the first
-							// content branch node but this theoretically not a safe
-							// assumption - in practice, the citation dialog will only reach
-							// this code if we are inserting (not updating) a transclusion, so
-							// the referenceModel will have already initialized the internal
-							// node with a paragraph - getting the range of the item covers
-							// the entire paragraph so we have to get the range of it's first
-							// (and empty) child
-							this.getFragment().clone(
-								new ve.dm.LinearSelection( item.getChildren()[ 0 ].getRange() )
-							),
-							'inline'
-						);
-					}
-				}
-
-				// HACK: Scorch the earth - this is only needed because without it, the
-				// references list won't re-render properly, and can be removed once
-				// someone fixes that
-				this.referenceModel.setDocument(
-					doc.cloneFromRange(
-						doc.getInternalList().getItemNode( this.referenceModel.getListIndex() ).getRange()
-					)
-				);
-				this.referenceModel.updateInternalItem( surfaceModel );
-
-				this.close( { action } );
-			} ).always( deferred.resolve );
-
-			return deferred;
+			this.close( { action } );
 		} );
 	}
 

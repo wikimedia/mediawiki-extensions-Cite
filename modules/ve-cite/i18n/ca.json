@@ -21,7 +21,8 @@
 			"Unapersona",
 			"Vfc",
 			"Vriullop",
-			"KRLS"
+			"KRLS",
+			"Paucabot"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Llibre",
@@ -40,6 +41,7 @@
 	"cite-ve-citationneeded-description": "Un editor o una editora ha indicat que aquesta afirmació necessita una citació d'una font fiable.",
 	"cite-ve-citationneeded-reason": "Raó donada:",
 	"cite-ve-citationneeded-title": "Es necessita una citació",
+	"cite-ve-dialog-reference-contextitem-extends": "Aquesta referència és una reutilització amb detalls addicionals:",
 	"cite-ve-dialog-reference-editing-reused": "Aquesta referència s'utilitza {{PLURAL:$1|una vegada|2=dues vegades|$1 vegades}} en aquesta pàgina.",
 	"cite-ve-dialog-reference-editing-reused-long": "Aquesta referència s'utilitza {{PLURAL:$1|una vegada|2=dues vegades|$1 vegades}} en aquesta pàgina. Els canvis fets aquí seran aplicats novament arreu on la referència es reutilitzi.",
 	"cite-ve-dialog-reference-options-group-label": "Utilitza aquest grup",

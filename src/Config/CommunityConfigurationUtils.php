@@ -14,9 +14,4 @@ class CommunityConfigurationUtils {
 		return ExtensionRegistry::getInstance()->isLoaded( 'CommunityConfiguration' ) &&
 			MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteBacklinkCommunityConfiguration' );
 	}
-
-	public static function useAutoNamesCommunityConfiguration(): bool {
-		return ExtensionRegistry::getInstance()->isLoaded( 'CommunityConfiguration' ) &&
-			MediaWikiServices::getInstance()->getMainConfig()->get( 'CiteCitationTypeAutoNames' );
-	}
 }

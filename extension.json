@@ -130,46 +130,6 @@
 				"CdxTextInput",
 				"CdxTextArea"
 			]
-		},
-		"ext.cite.community-configuration-autoname": {
-			"localBasePath": "modules/community-configuration",
-			"remoteExtPath": "Cite/modules/community-configuration",
-			"class": "MediaWiki\\ResourceLoader\\CodexModule",
-			"dependencies": [
-				"vue"
-			],
-			"messages": [
-				"cite-configuration-autoname-heading",
-				"cite-configuration-autoname-desc-intro-1",
-				"cite-configuration-autoname-desc-intro-2",
-				"cite-configuration-autoname-desc-pretext",
-				"cite-configuration-autoname-checkbox-label",
-				"cite-configuration-autoname-desc-templates-heading",
-				"cite-configuration-autoname-desc-templates",
-				"cite-configuration-autoname-desc-citation-type-heading",
-				"cite-configuration-autoname-desc-citation-type-text-1",
-				"cite-configuration-autoname-desc-citation-type-text-2",
-				"cite-configuration-autoname-desc-default-heading",
-				"cite-configuration-autoname-desc-default-text-1",
-				"cite-configuration-autoname-desc-default-text-2",
-				"cite-ve-dialogbutton-reference-title",
-				"communityconfiguration-editor-client-data-submission-error",
-				"communityconfiguration-editor-client-success-message",
-				"communityconfiguration-editor-client-notice-footer-message",
-				"communityconfiguration-editor-client-notice-message",
-				"communityconfiguration-editor-form-submit-button-text"
-
-			],
-			"packageFiles": [
-				"init-autoname.js",
-				"components/AutoNamesCommunityConfiguration.vue",
-				"components/AutoNamesSettings.vue"
-			],
-			"codexComponents": [
-				"CdxCheckbox",
-				"CdxButton",
-				"CdxMessage"
-			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -253,12 +213,6 @@
 						"ContentLanguage",
 						"LinkRenderer"
 					]
-				},
-				"autoNamesEditor": {
-					"class": "Cite\\Config\\AutoNamesEditorCapability",
-					"services": [
-						"LinkRenderer"
-					]
 				}
 			},
 			"Providers": {
@@ -278,25 +232,6 @@
 					"type": "mw-config",
 					"options": {
 						"editorCapability": "citeEditor"
-					}
-				},
-				"Cite-VisualEditor-Autonames": {
-					"store": {
-						"type": "wikipage",
-						"args": [
-							"MediaWiki:Cite-VisualEditor-Autonames.json"
-						]
-					},
-					"validator": {
-						"type": "jsonschema",
-						"args": [
-							"Cite\\Config\\Schemas\\AutoNamesSchema"
-						]
-					},
-					"type": "mw-config",
-					"options": {
-						"helpURL": "https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Cite/VisualEditor_reference_names",
-						"editorCapability": "autoNamesEditor"
 					}
 				}
 			}

@@ -6,6 +6,7 @@
 
 namespace Cite\Hooks;
 
+use Cite\Config\CommunityConfigurationUtils;
 use MediaWiki\Config\Config;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
@@ -294,6 +295,40 @@ class CiteHooks implements
 						'cite_reference_backlink_symbol',
 					],
 				],
+			] );
+		}
+
+		if ( CommunityConfigurationUtils::useCommunityConfiguration() ) {
+			$rl->register( [
+				'ext.cite.community-configuration' => [
+					'localBasePath' => dirname( __DIR__, 2 ) . '/modules/community-configuration',
+					'remoteExtPath' => 'Cite/modules/community-configuration',
+					'class' => 'MediaWiki\\ResourceLoader\\CodexModule',
+					'dependencies' => [
+						'vue'
+					],
+					'messages' => [
+						'cite-configuration-title',
+						'cite-configuration-submit',
+						'cite-configuration-backlink-title',
+						'cite-configuration-backlink-description',
+						'cite-configuration-backlink-alpha-suggestion',
+						'cite-configuration-backlink-marker-label',
+						'cite-configuration-backlink-marker-description',
+						'cite-configuration-backlink-marker-help'
+					],
+					'packageFiles' => [
+						'init.js',
+						'components/BacklinkSettings.vue',
+						'components/CommunityConfiguration.vue'
+					],
+					'codexComponents' => [
+						'CdxButton',
+						'CdxField',
+						'CdxTextInput',
+						'CdxTextArea'
+					]
+				]
 			] );
 		}
 	}

@@ -110,10 +110,14 @@ ve.dm.MWReferenceKeyGenerator = {
 	 * @async
 	 * @param {ve.dm.MWTransclusionNode} transclusionNode
 	 * @param {ve.dm.Document} doc
-	 * @param {string} autonameTemplate
+	 * @param {string|undefined} autonameTemplate
 	 * @return {string|undefined}
 	 */
 	getAutonamePrefixFromTemplate: async function ( transclusionNode, doc, autonameTemplate ) {
+		if ( !autonameTemplate ) {
+			return;
+		}
+
 		// Clone the transclusion node to avoid manipulating the actual one
 		const clonedNode = ve.dm.nodeFactory.createFromElement(
 			ve.copy( transclusionNode.getElement() )

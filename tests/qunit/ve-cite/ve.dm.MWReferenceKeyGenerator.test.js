@@ -279,7 +279,11 @@
 
 		const parseFragment = sinon.stub( ve.init.target, 'parseWikitextFragment' ).returns( apiResult );
 
-		const autonamePrefix = await MWReferenceKeyGenerator.getAutonamePrefixFromTemplate( template, doc, 'Cite-test-autoname' );
+		const autonamePrefix = await MWReferenceKeyGenerator.getAutonamePrefixFromTemplate(
+			template,
+			doc,
+			'Cite-test-autoname'
+		);
 
 		assert.strictEqual(
 			parseFragment.firstCall.args[ 0 ],
@@ -294,6 +298,19 @@
 		);
 
 		sinon.restore();
+	} );
+
+	QUnit.test( 'getAutonamePrefixFromTemplate returns undefined when autoname template is undefined', async ( assert ) => {
+		const result = await MWReferenceKeyGenerator.getAutonamePrefixFromTemplate(
+			'Cite_book',
+			new ve.dm.Document(),
+			undefined
+		);
+
+		assert.strictEqual(
+			result,
+			undefined
+		);
 	} );
 
 	QUnit.test( 'getAutonamePrefixFromTemplate returns undefined when transclusion node is malformed or has no params', async ( assert ) => {
@@ -322,7 +339,11 @@
 				attributes: testCase.attributes
 			} );
 
-			const autonamePrefix = await MWReferenceKeyGenerator.getAutonamePrefixFromTemplate( template, doc, 'Cite-test-autoname' );
+			const autonamePrefix = await MWReferenceKeyGenerator.getAutonamePrefixFromTemplate(
+				template,
+				doc,
+				'Cite-test-autoname'
+			);
 
 			assert.strictEqual(
 				autonamePrefix,

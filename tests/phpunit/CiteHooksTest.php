@@ -15,6 +15,9 @@ use MediaWiki\User\User;
 /**
  * @covers \Cite\Hooks\CiteHooks
  * @covers \Cite\Hooks\ReferencePreviewsHooks
+ * @covers \Cite\Hooks\ResourceLoaderModules\CommunityConfigurationResourceModule
+ * @covers \Cite\Hooks\ResourceLoaderModules\VisualEditorResourceModule
+ * @covers \Cite\Hooks\ResourceLoaderModules\WikiEditorResourceModule
  * @license GPL-2.0-or-later
  */
 class CiteHooksTest extends \MediaWikiIntegrationTestCase {
@@ -82,7 +85,13 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testResourceLoaderRegistration_VisualAndWikiEditor( bool $loaded ) {
 		$extensionRegistry = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
-		$extensionRegistry->method( 'isLoaded' )->willReturn( $loaded );
+		$extensionRegistry->method( 'isLoaded' )->willReturnCallback(
+			static function ( string $name ) use ( $loaded ) {
+				if ( $name === 'VisualEditor' || $name === 'WikiEditor' ) {
+					return $loaded;
+				}
+				return false;
+			} );
 
 		$rlModules = [];
 
@@ -102,6 +111,43 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		if ( $loaded ) {
 			$this->assertArrayHasKey( 'ext.cite.wikiEditor', $rlModules );
 			$this->assertArrayHasKey( 'ext.cite.visualEditor', $rlModules );
+		} else {
+			$this->assertSame( [], $rlModules );
+		}
+	}
+
+	/**
+	 * @dataProvider provideBooleans
+	 */
+	public function testResourceLoaderRegistration_CommunityConfiguration( bool $loaded ) {
+		$extensionRegistry = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
+		$extensionRegistry->method( 'isLoaded' )->willReturnCallback(
+			static function ( string $name ) use ( $loaded ) {
+				return $name === 'CommunityConfiguration' && $loaded;
+			} );
+
+		$rlModules = [];
+
+		$resourceLoader = $this->createNoOpMock( ResourceLoader::class, [ 'register', 'getConfig' ] );
+		$resourceLoader->expects( $this->exactly( $loaded ? 1 : 0 ) )
+			->method( 'register' )
+			->willReturnCallback( static function ( array $modules ) use ( &$rlModules ) {
+				$rlModules += $modules;
+			} );
+		$resourceLoader->expects( $this->exactly( $loaded ? 1 : 0 ) )
+			->method( 'getConfig' )
+			->willReturn( new HashConfig( [
+				'CiteBacklinkCommunityConfiguration' => $loaded
+			] ) );
+
+		( new CiteHooks(
+			$extensionRegistry,
+			new StaticUserOptionsLookup( [] )
+		) )
+			->onResourceLoaderRegisterModules( $resourceLoader );
+
+		if ( $loaded ) {
+			$this->assertArrayHasKey( 'ext.cite.community-configuration', $rlModules );
 		} else {
 			$this->assertSame( [], $rlModules );
 		}

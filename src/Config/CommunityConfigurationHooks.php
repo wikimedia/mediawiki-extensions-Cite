@@ -2,6 +2,7 @@
 
 namespace Cite\Config;
 
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\CommunityConfiguration\Hooks\CommunityConfigurationProvider_initListHook;
 
 /**
@@ -9,11 +10,16 @@ use MediaWiki\Extension\CommunityConfiguration\Hooks\CommunityConfigurationProvi
  */
 class CommunityConfigurationHooks implements CommunityConfigurationProvider_initListHook {
 
+	public function __construct(
+		private readonly Config $config
+	) {
+	}
+
 	/**
 	 * @inheritDoc
 	 */
 	public function onCommunityConfigurationProvider_initList( array &$providers ) {
-		if ( !CommunityConfigurationUtils::useCommunityConfiguration() ) {
+		if ( !$this->config->get( 'CiteBacklinkCommunityConfiguration' ) ) {
 			// Do not show the Cite provider in the dashboard when disabled
 			unset( $providers['Cite'] );
 		}

@@ -42,7 +42,10 @@
 	},
 	"HookHandlers": {
 		"communityconfiguration": {
-			"class": "Cite\\Config\\CommunityConfigurationHooks"
+			"class": "Cite\\Config\\CommunityConfigurationHooks",
+			"services": [
+				"MainConfig"
+			]
 		},
 		"main": {
 			"class": "Cite\\Hooks\\CiteHooks",

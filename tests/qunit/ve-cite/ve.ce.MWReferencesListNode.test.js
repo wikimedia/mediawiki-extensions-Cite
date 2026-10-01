@@ -16,7 +16,7 @@
 		reflistCeNode.update();
 
 		const expectedHtml = ve.dm.example.singleLine`
-	<li style="--footnote-number: &quot;1.&quot;;">
+	<li data-mw-footnote-number="1">
 		<span rel="mw:referencedBy"></span> <span class="reference-text">
 			<div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output">
 				<span class="ve-ce-branchNode ve-ce-internalItemNode">
@@ -27,7 +27,7 @@
 			</div>
 		</span>
 		<ol class="mw-subreference-list">
-			<li style="--footnote-number: &quot;1.1.&quot;;">
+			<li data-mw-footnote-number="1.1">
 				<a rel="mw:referencedBy">
 					<span class="mw-linkback-text">↑</span>
 				</a> <span class="reference-text">
@@ -42,7 +42,7 @@
 			</li>
 		</ol>
 	</li>
-	<li style="--footnote-number: &quot;2.&quot;;">
+	<li data-mw-footnote-number="2">
 		<a rel="mw:referencedBy">
 			<span class="mw-linkback-text">↑</span>
 		</a> <span class="reference-text">
@@ -55,7 +55,7 @@
 			</div>
 		</span>
 	</li>
-	<li style="--footnote-number: &quot;3.&quot;;">
+	<li data-mw-footnote-number="3">
 		<span rel="mw:referencedBy"></span> <span class="reference-text">
 			<div class="mw-content-ltr ve-ui-previewElement ve-ui-mwPreviewElement mw-body-content mw-parser-output">
 				<span class="ve-ce-branchNode ve-ce-internalItemNode">
@@ -66,7 +66,7 @@
 			</div>
 		</span>
 		<ol class="mw-subreference-list">
-			<li class="ve-ce-mwReferencesListNode-missingRef" style="--footnote-number: &quot;3.1.&quot;;">
+			<li class="ve-ce-mwReferencesListNode-missingRef" data-mw-footnote-number="3.1">
 				<a rel="mw:referencedBy">
 					<span class="mw-linkback-text">↑</span>
 				</a> <span class="ve-ce-mwReferencesListNode-muted">

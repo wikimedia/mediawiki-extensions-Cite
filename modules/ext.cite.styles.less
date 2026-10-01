@@ -37,6 +37,9 @@ ol.references {
 	 *
 	 * We have 2 counters for Parsoid HTML for different functionality.
 	 * Make sure both are reset!
+	 *
+	 * See ext.cite.parsoid.styles.less for an alternative solution that uses
+	 * an attribute only known to Parsoid instead of counters.
 	 */
 	counter-reset: mw-ref-details-parent mw-references list-item;
 
@@ -63,27 +66,23 @@ ol.references {
 }
 
 // T411472: Temporary workaround for Safari because of https://caniuse.com/css-marker-pseudo
-// stylelint-disable-next-line selector-type-no-unknown
-_::-webkit-full-page-media,
-ol.references > li > ol.mw-subreference-list > li::before {
-	content: counter( mw-ref-details-parent, decimal ) '.' counter( mw-ref-details-child, decimal ) '.\00a0';
-	display: inline-block;
-	margin-left: -3.2em;
-	min-width: 3.2em;
-	text-align: right;
-}
+@supports (-webkit-hyphens: none) {
+	ol.references > li > ol.mw-subreference-list > li {
+		list-style-type: none;
+	}
 
-// stylelint-disable-next-line selector-type-no-unknown
-_::-webkit-full-page-media,
-ol.references > li > ol.mw-subreference-list > li::marker {
-	// Just in case some later Safari version suddenly renders both
-	content: none;
-}
+	ol.references > li > ol.mw-subreference-list > li::before {
+		content: counter( mw-ref-details-parent, decimal ) '.' counter( mw-ref-details-child, decimal ) '.\00a0';
+		display: inline-block;
+		margin-left: -3.2em;
+		min-width: 3.2em;
+		text-align: right;
+	}
 
-// stylelint-disable-next-line selector-type-no-unknown
-_::-webkit-full-page-media,
-ol.references > li > ol.mw-subreference-list {
-	list-style-type: none;
+	ol.references > li > ol.mw-subreference-list > li::marker {
+		// Just in case some later Safari version suddenly renders both
+		content: none;
+	}
 }
 
 sup.reference {

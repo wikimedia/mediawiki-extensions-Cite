@@ -18,33 +18,28 @@
 
 /* Style for linkbacks from <references> to <ref>s */
 ol.mw-references {
-	/**
-	 * Resetting *any* counter on an <ol> element messes up the built-in numbering in Firefox.
-	 * Explicitly resetting the built-in "list-item" counter fixes this.
-	 *
-	 * We have 2 counters for Parsoid HTML for different functionality.
-	 * Make sure both are reset!
-	 *
-	 * NOTE: This rule is a duplicate of the one present in ext.cite.styles.less
-	 * but duplicating it here ensures no matter how the rules and files are
-	 * refactored and which rule ends up applying on the loaded doc, both
-	 * counters continue to be incremented. As of now, the rule in ext.cite.styles.less
-	 * is the one that seems to be winning.
-	 */
-	counter-reset: mw-ref-details-parent mw-references list-item;
+	&.references {
+		.mw-subreference-list {
+			> li {
+				list-style-type: none;
+			}
 
-	> li {
-		/**
-		 * We have 2 counters for Parsoid HTML for different functionality.
-		 * Make sure both are incremented!
-		 *
-		 * NOTE: This rule is a duplicate of the one present in ext.cite.styles.less
-		 * but duplicating it here ensures no matter how the rules and files are
-		 * refactored and which rule ends up applying on the loaded doc, both
-		 * counters continue to be incremented. As of now, the rule in ext.cite.styles.less
-		 * is the one that seems to be winning.
-		 */
-		counter-increment: mw-ref-details-parent mw-references;
+			> li::marker {
+				content: attr( data-mw-footnote-number ) '. ';
+			}
+		}
+	}
+}
+
+// T411472: Temporary workaround for Safari because of https://caniuse.com/css-marker-pseudo
+@supports (-webkit-hyphens: none) {
+	ol.mw-references.references > li > ol.mw-subreference-list > li::before {
+		content: attr( data-mw-footnote-number ) '.\00a0';
+	}
+
+	// Just in case some later Safari version suddenly renders both
+	ol.mw-references.references > li > ol.mw-subreference-list > li::marker {
+		content: none;
 	}
 }
 

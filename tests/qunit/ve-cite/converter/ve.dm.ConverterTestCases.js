@@ -146,15 +146,15 @@ ve.dm.ConverterTestCases.cases = {
 				 data-mw=&apos;{&amp;quot;name&amp;quot;:&amp;quot;ref&amp;quot;,&amp;quot;attrs&amp;quot;:{&amp;quot;group&amp;quot;:&amp;quot;g1&amp;quot;,&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;},&amp;quot;body&amp;quot;:{&amp;quot;html&amp;quot;:&amp;quot;Ref in refs&amp;quot;}}
 				&apos; class=\\"mw-ref reference\\"><a data-mw-group=\\"g1\\"><span class=\\"mw-reflink-text\\"><span class=\\"cite-bracket\\">[</span>g1 3<span class=\\"cite-bracket\\">]</span></span></a></sup>"}}'>
 					<ol class="mw-references references" data-mw-group="g1">
-						<li style='--footnote-number: "1.";'>
+						<li data-mw-footnote-number='1'>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑</span></a>
 								 ${ ve.dm.ConverterTestCases.refListItemClipboard( 'Quux' ) }
 						</li>
-						<li style='--footnote-number: "2.";'>
+						<li data-mw-footnote-number='2'>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑</span></a>
 								 ${ ve.dm.ConverterTestCases.refListItemClipboard( 'No name' ) }
 						</li>
-						<li style='--footnote-number: "3.";'>
+						<li data-mw-footnote-number='3'>
 							<a rel="mw:referencedBy" data-mw-group="g1"><span class="mw-linkback-text">↑</span></a>
 								 ${ ve.dm.ConverterTestCases.refListItemClipboard( 'Ref in refs' ) }
 						</li>
@@ -443,7 +443,7 @@ ve.dm.ConverterTestCases.cases = {
 			<p><sup typeof="mw:Extension/ref" data-mw='{"attrs":{},"body":{"id":"mw-reference-text-cite_note-1","html":"Foo"},"name":"ref"}' class="mw-ref reference"><a><span class="mw-reflink-text"><span class="cite-bracket">[</span>1<span class="cite-bracket">]</span></span></a></sup></p>
 			<div typeof="mw:Extension/references" data-mw='{"name":"references","attrs":{}}'>
 				<ol class="mw-references references">
-					<li style='--footnote-number: "1.";'>
+					<li data-mw-footnote-number='1'>
 						<a rel="mw:referencedBy"><span class="mw-linkback-text">↑</span></a>
 							 ${ ve.dm.ConverterTestCases.refListItemClipboard( 'Foo' ) }
 					</li>

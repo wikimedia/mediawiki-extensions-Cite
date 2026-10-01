@@ -276,7 +276,7 @@ ve.ce.MWReferencesListNode.prototype.renderListItem = function ( groupRefs, refG
 	const hasSubRefs = refInfo.subrefs && refInfo.subrefs.length;
 
 	const $li = $( '<li>' )
-		.css( '--footnote-number', `"${ refInfo.label }."` )
+		.attr( 'data-mw-footnote-number', refInfo.label )
 		.append( this.renderBacklinks( backlinkNodes, refGroup ), ' ' );
 
 	if ( internalItem && internalItem.getLength() ) {

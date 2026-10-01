@@ -9,7 +9,7 @@
 	"cite_error": "Viitamistõrge: $1",
 	"cite_error_details_missing_parent": "<code>&lt;ref></code>-sildil peab olema sisu või atribuut \"name\", mis osutab vanemviitele.",
 	"cite_error_details_unsupported_context": "<code>&lt;ref></code>-sildil nimega \"$1\" ei saa olla üksikasju, kui see on sildi <code>&lt;references></code> sees.",
-	"cite_error_ref_invalid_dir": "Vigane <code>dir=\"$1\"</code>, peab olema \"ltr\" või \"rtl\"",
+	"cite_error_ref_invalid_dir": "Vigane <code>dir=\"$1\"</code>, peab olema \"ltr\", \"rtl\" või \"auto\".",
 	"cite_error_ref_conflicting_dir": "Ühel sildil <code>&lt;ref></code> nimega \"$1\" on konfliktne atribuut \"dir\".",
 	"cite_error_ref_numeric_key": "Vigane <code>&lt;ref></code>-silt. Nimeparameeter ei tohi olla numbriline. Kasuta kirjeldavat nime.",
 	"cite_error_ref_no_key": "Algussilt <code>&lt;ref></code> on väärdunud või selle nimi on vigane.",

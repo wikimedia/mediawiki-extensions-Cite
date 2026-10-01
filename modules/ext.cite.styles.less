@@ -31,15 +31,33 @@
 }
 
 ol.references {
-	> li::marker {
-		content: attr( data-mw-footnote-number ) '. ';
+	/**
+	 * Resetting *any* counter on an <ol> element messes up the built-in numbering in Firefox.
+	 * Explicitly resetting the built-in "list-item" counter fixes this.
+	 *
+	 * We have 2 counters for Parsoid HTML for different functionality.
+	 * Make sure both are reset!
+	 */
+	counter-reset: mw-ref-details-parent mw-references list-item;
+
+	> li {
+		/**
+		 * We have 2 counters for Parsoid HTML for different functionality.
+		 * Make sure both are incremented!
+		 */
+		counter-increment: mw-ref-details-parent mw-references;
+		counter-reset: mw-ref-details-child;
 	}
 
 	.mw-subreference-list {
 		margin-top: 0;
 
-		> li::marker {
-			content: attr( data-mw-footnote-number ) '. ';
+		> li {
+			counter-increment: mw-ref-details-child;
+
+			&::marker {
+				content: counter( mw-ref-details-parent, decimal ) '.' counter( mw-ref-details-child, decimal ) '. ';
+			}
 		}
 	}
 }
@@ -48,7 +66,7 @@ ol.references {
 // stylelint-disable-next-line selector-type-no-unknown
 _::-webkit-full-page-media,
 ol.references > li > ol.mw-subreference-list > li::before {
-	content: attr( data-mw-footnote-number ) '.\00a0';
+	content: counter( mw-ref-details-parent, decimal ) '.' counter( mw-ref-details-child, decimal ) '.\00a0';
 	display: inline-block;
 	margin-left: -3.2em;
 	min-width: 3.2em;

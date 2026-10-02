@@ -7,6 +7,7 @@ use Cite\Hooks\ReferencePreviewsHooks;
 use Cite\ReferencePreviews\ReferencePreviewsContext;
 use Cite\ReferencePreviews\ReferencePreviewsGadgetsIntegration;
 use MediaWiki\Config\HashConfig;
+use MediaWiki\Extension\CommunityConfiguration\CommunityConfigurationServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\User\Options\StaticUserOptionsLookup;
@@ -26,20 +27,43 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 	 * @dataProvider provideConfigVars
 	 */
 	public function testOnResourceLoaderGetConfigVars( $input, bool $expected ) {
+		$registry = $this->getServiceContainer()->getExtensionRegistry();
+		$this->overrideConfigValue(	'CiteVisualEditorOtherGroup', $input );
+		$this->overrideConfigValue( 'CiteResponsiveReferences', $input, );
+		$this->overrideConfigValue( 'CiteSubReferencing', $input );
+		$this->overrideConfigValue( 'CiteCitationTypeAutoNames', $input );
+
+		// When CiteCitationTypeAutoNames config is false, the 'Cite-VisualEditor-Autonames'
+		// provider won't be active, leading to an error when trying to override it.
+		if ( $input ) {
+			if ( !$registry->isLoaded( 'CommunityConfiguration' ) ) {
+				$this->markTestSkipped( 'Community Configuration Extension not loaded' );
+			}
+			$providerId = 'Cite-VisualEditor-Autonames';
+			$providerSpec = CommunityConfigurationServices::wrap( $this->getServiceContainer() )
+				->getConfigurationProviderFactory()
+				->getProviderSpec( $providerId );
+
+			$providerSpec['store'] = [
+				'type' => 'static',
+				'args' => [
+					(object)[ 'enable' => true ],
+					$providerId
+				],
+			];
+			$this->overrideConfigValue(
+				'CommunityConfigurationProviders',
+				[ $providerId => $providerSpec ]
+			);
+		}
+
 		$vars = [];
 
-		$config = new HashConfig( [
-			'CiteVisualEditorOtherGroup' => $input,
-			'CiteResponsiveReferences' => $input,
-			'CiteSubReferencing' => $input,
-			'CiteCitationTypeAutoNames' => $input,
-		] );
-
 		( new CiteHooks(
-			$this->createNoOpMock( ExtensionRegistry::class ),
+			$registry,
 			new StaticUserOptionsLookup( [] )
 		) )
-			->onResourceLoaderGetConfigVars( $vars, 'vector', $config );
+			->onResourceLoaderGetConfigVars( $vars, 'vector', $this->getServiceContainer()->getMainConfig() );
 
 		$this->assertSame( [
 			'wgCiteVisualEditorOtherGroup' => $expected,
@@ -54,6 +78,61 @@ class CiteHooksTest extends \MediaWikiIntegrationTestCase {
 		yield [ false, false ];
 		yield [ 0, false ];
 		yield [ 'FooBar', true ];
+	}
+
+	/**
+	 * @dataProvider provideAutnamesConfigVars
+	 */
+	public function testOnResourceLoaderGetConfigVars_Autonames(
+		bool $flag,
+		bool $ccLoaded,
+		bool $ccEnabledSetting,
+		bool $expected
+	) {
+		$registry = $this->getServiceContainer()->getExtensionRegistry();
+		if ( !$registry->isLoaded( 'CommunityConfiguration' ) ) {
+			$this->markTestSkipped( 'Community Configuration Extension not loaded' );
+		}
+
+		$extensionRegistryMock = $this->createNoOpMock( ExtensionRegistry::class, [ 'isLoaded' ] );
+		$extensionRegistryMock->method( 'isLoaded' )->willReturn( $ccLoaded );
+
+		$this->overrideConfigValue( 'CiteCitationTypeAutoNames', $flag );
+		if ( $ccLoaded ) {
+			$providerId = 'Cite-VisualEditor-Autonames';
+			$providerSpec = CommunityConfigurationServices::wrap( $this->getServiceContainer() )
+				->getConfigurationProviderFactory()
+				->getProviderSpec( $providerId );
+
+			$providerSpec['store'] = [
+				'type' => 'static',
+				'args' => [
+					(object)[ 'enable' => $ccEnabledSetting ],
+					$providerId
+				],
+			];
+			$this->overrideConfigValue(
+				'CommunityConfigurationProviders',
+				[ $providerId => $providerSpec ]
+			);
+		}
+
+		$vars = [];
+
+		( new CiteHooks(
+			$extensionRegistryMock,
+			new StaticUserOptionsLookup( [] )
+		) )
+			->onResourceLoaderGetConfigVars( $vars, 'vector', $this->getServiceContainer()->getMainConfig() );
+
+		$this->assertSame( $expected, $vars['wgCiteCitationTypeAutoNames'] );
+	}
+
+	public static function provideAutnamesConfigVars(): iterable {
+		yield 'feature flag disables autonames completely' => [ false, false, false, false ];
+		yield 'feature flag enables autonames when CC is not loaded' => [ true, false, false, true ];
+		yield 'CC setting toggles autonames off when CC is loaded' => [ true, true, false, false ];
+		yield 'CC setting toggles autonames on when CC is loaded' => [ true, true, true, true ];
 	}
 
 	/**

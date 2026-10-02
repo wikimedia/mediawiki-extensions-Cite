@@ -187,6 +187,17 @@
 						"ContentLanguage",
 						"LinkRenderer"
 					]
+				},
+				"citeAutonamesEditor": {
+					"class": "Cite\\Config\\AutoNamesEditorCapability",
+					"services": [
+						"LinkRenderer",
+						"FormatterFactory",
+						"CommunityConfiguration.HookRunner",
+						"CommunityConfiguration.MessagesProcessor",
+						"MainConfig",
+						"CommunityConfiguration.ControlRegistry"
+					]
 				}
 			},
 			"Providers": {
@@ -206,6 +217,25 @@
 					"type": "mw-config",
 					"options": {
 						"editorCapability": "citeEditor"
+					}
+				},
+				"Cite-VisualEditor-Autonames": {
+					"store": {
+						"type": "wikipage",
+						"args": [
+							"MediaWiki:Cite-VisualEditor-Autonames.json"
+						]
+					},
+					"validator": {
+						"type": "jsonschema",
+						"args": [
+							"Cite\\Config\\Schemas\\VisualEditorAutonamesSchema"
+						]
+					},
+					"type": "mw-config",
+					"options": {
+						"editorCapability": "citeAutonamesEditor",
+						"helpURL": "https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Cite/VisualEditor_reference_names"
 					}
 				}
 			}
@@ -227,7 +257,7 @@
 			"value": false
 		},
 		"CiteCitationTypeAutoNames": {
-			"description": "Feature flag to enable auto-generating reference names based on their citation type (e.g. Book-1, Website-1) instead of numeric autonames.",
+			"description": "Feature flag to enable auto-generating reference names based on their citation type (e.g. Book-1, Website-1) instead of numeric autonames. If the CommunityConfiguration extension is installed, this flag enables a settings page in there, so that admins can toggle the feature on or off.",
 			"value": false
 		},
 		"CiteVisualEditorOtherGroup": {

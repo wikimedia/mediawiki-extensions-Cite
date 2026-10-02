@@ -23,5 +23,11 @@ class CommunityConfigurationHooks implements CommunityConfigurationProvider_init
 			// Do not show the Cite provider in the dashboard when disabled
 			unset( $providers['Cite'] );
 		}
+
+		if ( !$this->config->get( 'CiteCitationTypeAutoNames' ) ) {
+				// Do not show the Autonames provider in the dashboard when disabled
+				unset( $providers['Cite-VisualEditor-Autonames'] );
+		}
 	}
+
 }

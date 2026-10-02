@@ -6,12 +6,17 @@
 
 namespace Cite\Hooks;
 
+use Cite\Config\Schemas\VisualEditorAutonamesSchema;
 use Cite\Hooks\ResourceLoaderModules\CommunityConfigurationResourceModule;
+use Cite\Hooks\ResourceLoaderModules\VisualEditorAutonamesConfigurationResourceModule;
 use Cite\Hooks\ResourceLoaderModules\VisualEditorResourceModule;
 use Cite\Hooks\ResourceLoaderModules\WikiEditorResourceModule;
 use MediaWiki\Config\Config;
 use MediaWiki\EditPage\EditPage;
+use MediaWiki\Extension\CommunityConfiguration\CommunityConfigurationServices;
+use MediaWiki\Extension\CommunityConfiguration\Schema\JsonSchema;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook;
@@ -68,7 +73,30 @@ class CiteHooks implements
 		$vars['wgCiteVisualEditorOtherGroup'] = (bool)$config->get( 'CiteVisualEditorOtherGroup' );
 		$vars['wgCiteResponsiveReferences'] = (bool)$config->get( 'CiteResponsiveReferences' );
 		$vars['wgCiteSubReferencing'] = (bool)$config->get( 'CiteSubReferencing' );
-		$vars['wgCiteCitationTypeAutoNames'] = (bool)$config->get( 'CiteCitationTypeAutoNames' );
+		$vars['wgCiteCitationTypeAutoNames'] = $this->isAutoNamesEnabled( $config );
+	}
+
+	private function isAutoNamesEnabled( Config $config ): bool {
+		if ( !$this->extensionRegistry->isLoaded( 'CommunityConfiguration' ) ) {
+			return (bool)$config->get( 'CiteCitationTypeAutoNames' );
+		}
+
+		$factory = CommunityConfigurationServices::wrap( MediaWikiServices::getInstance() )
+			->getConfigurationProviderFactory();
+
+		if ( !$factory->isProviderSupported( 'Cite-VisualEditor-Autonames' ) ) {
+			return (bool)$config->get( 'CiteCitationTypeAutoNames' );
+		}
+
+		$status = $factory->newProvider( 'Cite-VisualEditor-Autonames' )
+			->loadValidConfiguration();
+
+		$defaultConfigFromSchema = VisualEditorAutonamesSchema::enable[ JsonSchema::DEFAULT ];
+		if ( !$status->isOK() ) {
+			return $defaultConfigFromSchema;
+		}
+
+		return (bool)( $status->getValue()->enable ?? $defaultConfigFromSchema );
 	}
 
 	/**
@@ -104,6 +132,7 @@ class CiteHooks implements
 		( new VisualEditorResourceModule( $this->extensionRegistry ) )->loadModule( $rl );
 		( new WikiEditorResourceModule( $this->extensionRegistry ) )->loadModule( $rl );
 		( new CommunityConfigurationResourceModule( $this->extensionRegistry ) )->loadModule( $rl );
+		( new VisualEditorAutonamesConfigurationResourceModule( $this->extensionRegistry ) )->loadModule( $rl );
 	}
 
 }

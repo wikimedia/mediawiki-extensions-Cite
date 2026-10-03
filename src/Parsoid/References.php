@@ -8,7 +8,6 @@ use Cite\MarkSymbolRenderer;
 use Cite\Validator;
 use MediaWiki\Config\Config;
 use MediaWiki\Html\HtmlHelper;
-use MediaWiki\MediaWikiServices;
 use Wikimedia\Parsoid\Core\DOMCompat;
 use Wikimedia\Parsoid\Core\DomSourceRange;
 use Wikimedia\Parsoid\Core\Sanitizer;
@@ -39,8 +38,6 @@ class References {
 	/** A conflict in the content that is visible to the user */
 	private const CONFLICT_VISIBLE = 2;
 
-	private readonly MarkSymbolRenderer $markSymbolRenderer;
-
 	/** @var array<string,array<string,string>>
 	 * @internal Local copy of ref body HTML for conflict detection. Top level
 	 * key is the ref group name, second level key is the ref name
@@ -49,8 +46,8 @@ class References {
 
 	public function __construct(
 		private readonly Config $mainConfig,
+		private readonly MarkSymbolRenderer $markSymbolRenderer,
 	) {
-		$this->markSymbolRenderer = MediaWikiServices::getInstance()->getService( 'Cite.MarkSymbolRenderer' );
 	}
 
 	private static function hasRef( ParsoidExtensionAPI $extApi, Node $node ): bool {

@@ -314,7 +314,8 @@
 				{
 					"class": "Cite\\Parsoid\\CiteDocumentPostProcessor",
 					"services": [
-						"MainConfig"
+						"MainConfig",
+						"Cite.MarkSymbolRenderer"
 					]
 				}
 			],
@@ -340,7 +341,8 @@
 					"handler": {
 						"class": "Cite\\Parsoid\\ReferenceListTagHandler",
 						"services": [
-							"MainConfig"
+							"MainConfig",
+							"Cite.MarkSymbolRenderer"
 						]
 					},
 					"options": {

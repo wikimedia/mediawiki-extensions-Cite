@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use Cite\MarkSymbolRenderer;
 use Cite\Validator;
 use MediaWiki\Config\Config;
 use Wikimedia\Parsoid\DOM\DocumentFragment;
@@ -18,6 +19,7 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 
 	public function __construct(
 		private readonly Config $mainConfig,
+		private readonly MarkSymbolRenderer $markSymbolRenderer,
 	) {
 	}
 
@@ -40,7 +42,7 @@ class ReferenceListTagHandler extends ExtensionTagHandler {
 			$extApi->pushError( $error->key, ...$error->params );
 		}
 
-		$referenceList = new References( $this->mainConfig );
+		$referenceList = new References( $this->mainConfig, $this->markSymbolRenderer );
 		$frag = $referenceList->createEmptyReferenceListFragment(
 			$extApi,
 			$domFragment,

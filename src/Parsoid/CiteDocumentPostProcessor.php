@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace Cite\Parsoid;
 
+use Cite\MarkSymbolRenderer;
 use MediaWiki\Config\Config;
 use Wikimedia\Parsoid\Core\DomSourceRange;
 use Wikimedia\Parsoid\DOM\Element;
@@ -17,6 +18,7 @@ use Wikimedia\Parsoid\Ext\ParsoidExtensionAPI;
 class CiteDocumentPostProcessor extends DOMProcessor {
 	public function __construct(
 		private readonly Config $mainConfig,
+		private readonly MarkSymbolRenderer $markSymbolRenderer,
 	) {
 	}
 
@@ -27,7 +29,7 @@ class CiteDocumentPostProcessor extends DOMProcessor {
 		ParsoidExtensionAPI $extApi, Node $node, array $options
 	): void {
 		$refsData = new ReferencesData();
-		$references = new References( $this->mainConfig );
+		$references = new References( $this->mainConfig, $this->markSymbolRenderer );
 		$references->processRefs( $extApi, $refsData, $node );
 		$this->insertMissingReferencesIntoDOM( $extApi, $refsData, $node );
 		( new ErrorUtils( $extApi ) )->addEmbeddedErrors( $refsData->embeddedErrors, $node );
@@ -41,7 +43,7 @@ class CiteDocumentPostProcessor extends DOMProcessor {
 	public function insertMissingReferencesIntoDOM(
 		ParsoidExtensionAPI $extApi, ReferencesData $referencesData, Node $node
 	): void {
-		$references = new References( $this->mainConfig );
+		$references = new References( $this->mainConfig, $this->markSymbolRenderer );
 
 		$doc = $node->ownerDocument;
 		foreach ( $referencesData->getRefGroups() as $groupName => $refsGroup ) {

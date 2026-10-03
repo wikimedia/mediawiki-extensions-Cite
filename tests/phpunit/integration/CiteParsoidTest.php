@@ -313,7 +313,10 @@ EOT;
 			'body' => $body,
 		] ) );
 
-		$refs = new ReferenceListTagHandler( new HashConfig() );
+		$refs = new ReferenceListTagHandler(
+			new HashConfig(),
+			$this->getServiceContainer()->getService( 'Cite.MarkSymbolRenderer' )
+		);
 		$refs->processAttributeEmbeddedDom(
 			$extApi,
 			$elt,

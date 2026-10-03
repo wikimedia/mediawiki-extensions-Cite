@@ -20,8 +20,8 @@ class CiteParserTagHooks {
 	 * Enables the two <ref> and <references> tags.
 	 */
 	public function register( Parser $parser ): void {
-		$parser->setHook( 'ref', [ $this, 'ref' ] );
-		$parser->setHook( 'references', [ $this, 'references' ] );
+		$parser->setHook( 'ref', $this->ref( ... ) );
+		$parser->setHook( 'references', $this->references( ... ) );
 	}
 
 	/**

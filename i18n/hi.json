@@ -19,7 +19,7 @@
 	"cite_error": "उद्धरण त्रुटि: $1",
 	"cite_error_details_missing_parent": "Details वाले <code>&lt;ref></code> टैग में सामग्री होनी चाहिए या फिर उसे नाम से जनक संदर्भ की ओर इशारा करना चाहिए।",
 	"cite_error_details_unsupported_context": "\"$1\" नाम वाला <code>&lt;ref></code> टैग <code>&lt;references></code> के अंदर details का उपयोग नहीं कर सकता।",
-	"cite_error_ref_invalid_dir": "अमान्य <code>dir=\"$1\"</code>; \"ltr\" या फिर \"rtl\" होना चाहिए",
+	"cite_error_ref_invalid_dir": "अमान्य <code>dir=\"$1\"</code>; \"ltr\", \"rtl\" या \"auto\" होना चाहिए",
 	"cite_error_ref_conflicting_dir": "<code>&lt;ref></code> टैग्स में से \"$1\" नाम वाले एक में परस्पर विरोधी dir एट्रीब्यूट है।",
 	"cite_error_ref_numeric_key": "अमान्य <code>&lt;ref></code> टैग; नाम कोई साधारण पूर्णांक नहीं हो सकता। एक वर्णनात्मक शीर्षक चुनें",
 	"cite_error_ref_no_key": "प्रारंभिक <code>&lt;ref></code> टैग विकृत है या फिर उसका नाम अनुचित है",

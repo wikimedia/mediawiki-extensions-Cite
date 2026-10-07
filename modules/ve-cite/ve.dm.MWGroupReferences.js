@@ -118,7 +118,7 @@ ve.dm.MWGroupReferences.prototype.getTotalUsageCount = function ( listIndex ) {
  *
  * @deprecated TODO: push to presentation
  * @param {number} listIndex
- * @return {string} rendered number label
+ * @return {string} Rendered footnote marker like "1" or "1.1"
  */
 ve.dm.MWGroupReferences.prototype.getIndexLabel = function ( listIndex ) {
 	return ( this.calculatedNumbering[ listIndex ] ? this.calculatedNumbering[ listIndex ].label : '…' );

@@ -612,9 +612,10 @@ ve.dm.MWReferenceNode.static.getFormattedRefLinkLabel = function ( dataElement, 
  * @private
  * @param {Object} dataElement data for the node to be looked up
  * @param {ve.dm.InternalList} internalList document internalList
- * @return {string|undefined} footnote number ready for rendering
+ * @return {string} Rendered footnote marker like "1" or "1.1"
  */
 ve.dm.MWReferenceNode.static.findIndexNumber = function ( dataElement, internalList ) {
+	// This "overrideIndex" property comes from ve.dm.VisualDiff from the VisualEditor lib
 	return ve.getProp( dataElement, 'internal', 'overrideIndex' ) ||
 		MWGroupReferences.static.makeGroupRefs( internalList.getNodeGroup( dataElement.attributes.listGroup ) )
 			.getIndexLabel( dataElement.attributes.listIndex );
@@ -753,7 +754,7 @@ ve.dm.MWReferenceNode.prototype.getFormattedRefLinkLabel = function () {
 /**
  * FIXME: This will be replaced by a simple property.
  *
- * @return {string|undefined} Footnote number ready for rendering
+ * @return {string} Rendered footnote marker like "1" or "1.1"
  */
 ve.dm.MWReferenceNode.prototype.getIndexNumber = function () {
 	return this.constructor.static.findIndexNumber(

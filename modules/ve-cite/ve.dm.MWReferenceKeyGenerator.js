@@ -229,7 +229,7 @@ ve.dm.MWReferenceKeyGenerator = {
 		if ( !isReused && attributes.mainListIndex === undefined ) {
 			return;
 		}
-		// debugger;
+
 		const namePrefix = betterAutonames && (
 			this.getStoredAutonamePrefix( internalList.getDocument(), listIndex ) ||
 				this.getAutonamePrefixFromInternalItem( internalList.getItemNode( listIndex ) )

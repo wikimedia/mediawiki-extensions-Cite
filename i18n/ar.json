@@ -84,6 +84,7 @@
 	"communityconfiguration-cite-visualeditor-autonames-title": "أسماء المراجع المستندة إلى المحتوى في محرر النصوص المرئي",
 	"communityconfiguration-cite-visualeditor-autonames-description": "قم بتمكين أسماء المراجع المستندة إلى المحتوى في محرر النصوص المرئي لاستبدال نمط :n بنمطك المخصص.",
 	"cite-configuration-autoname-desc-intro-1": "تتيح أسماء المراجع المستندة إلى المحتوى لبرنامج VisualEditor إنشاء أسماء مراجع تلقائية ذات معنى وقابلة للقراءة البشرية.",
+	"cite-configuration-autoname-desc-intro-2": "عند التفعيل، تحل أسماء المراجع المستندة إلى المحتوى محل النمط الافتراضي الحالي <code>:n</code> . لمزيد من المعلومات، راجع صفحة المساعدة الخاصة بأسماء المراجع في محرر النصوص المرئي [[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|help page]].",
 	"cite-configuration-autoname-heading": "أسماء المراجع المستندة إلى المحتوى في محرر النصوص المرئي",
 	"cite-configuration-autoname-checkbox-label": "فعّل هذه الميزة واستبدل النمط الحالي <code>:n</code>",
 	"cite-configuration-backlink-title": "إعدادات الروابط الخلفية",

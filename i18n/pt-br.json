@@ -22,7 +22,7 @@
 	"cite_error": "Erro de citação: $1",
 	"cite_error_details_missing_parent": "Uma etiqueta <code>&lt;ref></code> com detalhes precisa conter um conteúdo ou apontar para uma referência principal por nome.",
 	"cite_error_details_unsupported_context": "a etiqueta <code>&lt;ref></code> com o nome \"$1\" não pode usar os detalhes quando está dentro de <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> inválido, deve ser <code>ltr</code> ou <code>rtl</code>",
+	"cite_error_ref_invalid_dir": "<code>dir=\"$1\"</code> inválido, deve ser \"ltr\", \"rtl\" ou \"auto\".",
 	"cite_error_ref_numeric_key": "Marca <code>&lt;ref></code> inválida; \no nome não pode ser um número inteiro. Utilize um título descritivo",
 	"cite_error_ref_no_key": "A tag de abertura <code>&lt;ref></code> está mal formada ou tem um nome ruim",
 	"cite_error_ref_too_many_keys": "Parâmetro inválido \"$1\" na etiqueta <code>&lt;ref></code>. Os parâmetros suportados são: $2.",

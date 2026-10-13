@@ -49,6 +49,13 @@ describe( 'Cite popups integration', () => {
 	} );
 
 	it( 'hovering nested reference', () => {
+		// Parsoid only expands a <ref> nested in {{#tag:ref|…}} when
+		// $wgReturnExperimentalPFragmentTypes includes 'ExtTagPFragment';
+		// otherwise the inner <ref> is left as literal text.
+		// TODO: Remove this skip once that is the default (T440934).
+		cy.get( '.references' ).then( ( $refs ) => {
+			cy.skipOn( $refs.text().includes( '<ref>' ) );
+		} );
 		helper.abandonReference( 'cite_ref-4' );
 		helper.dwellReference( 'cite_ref-4' );
 		cy.get( '.mwe-popups-type-reference', { timeout: 1000 } )

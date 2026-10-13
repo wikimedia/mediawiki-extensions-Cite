@@ -66,6 +66,14 @@ ve.ui.MWCitationNeededContextItem.static.isCompatibleWith = function () {
 
 /* Methods */
 
+/**
+ * Handle click events on the add button
+ *
+ * Opens Citoid if it is installed, otherwise the plain reference dialog.
+ *
+ * @return {jQuery.Promise} Resolves with the closing data of the dialog that finishes the flow.
+ *  Rejects if the encapsulated wikitext cannot be parsed or the dialog cannot be opened.
+ */
 ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 	const surface = this.context.getSurface();
 	const encapsulatedWikitext = this.getCanonicalParam( 'encapsulate' );
@@ -110,12 +118,79 @@ ve.ui.MWCitationNeededContextItem.prototype.onAddClick = function () {
 		promise = ve.createDeferred().resolve( false ).promise();
 	}
 
-	// TODO: This assumes Citoid is installed...
-	const action = ve.ui.actionFactory.create( 'citoid', surface );
-	promise.then( ( inStaging ) => {
-		action.open( { replace: true, inStaging } );
-	} );
 	ve.track( 'activity.' + this.constructor.static.name, { action: 'context-add-citation' } );
+
+	return promise.then( ( inStaging ) => {
+		if ( ve.ui.actionFactory.lookup( 'citoid' ) ) {
+			return this.openCitoid( surface, inStaging );
+		}
+		return this.openReferenceDialog( surface, inStaging );
+	} );
+};
+
+/**
+ * Open Citoid to replace the template
+ *
+ * @private
+ * @param {ve.ui.Surface} surface
+ * @param {boolean} inStaging The surface has a staged change that Citoid must resolve
+ * @return {jQuery.Promise} Resolves with the closing data of the last dialog
+ */
+ve.ui.MWCitationNeededContextItem.prototype.openCitoid = function ( surface, inStaging ) {
+	const opened = ve.ui.actionFactory.create( 'citoid', surface ).open( { replace: true, inStaging } );
+	if ( !opened ) {
+		return ve.createDeferred().reject().promise();
+	}
+	return opened.then( ( instance ) => instance.closing ).then( ( citoidData ) => {
+		if ( citoidData && citoidData.action === 'manual-choose' ) {
+			// Citoid hands off to a manual citation dialog. Wait for that dialog instead.
+			const deferred = ve.createDeferred();
+			surface.getDialogs().once( 'closing', ( win, closed, data ) => {
+				deferred.resolve( data );
+			} );
+			return deferred.promise();
+		}
+		return citoidData;
+	} );
+};
+
+/**
+ * Open the plain reference dialog to replace the template
+ *
+ * The template is removed in staging. The staging is applied only if a reference is inserted.
+ *
+ * @private
+ * @param {ve.ui.Surface} surface
+ * @param {boolean} inStaging The surface already has a staged change that replaces the template
+ * @return {jQuery.Promise} Resolves with the closing data of the dialog
+ */
+ve.ui.MWCitationNeededContextItem.prototype.openReferenceDialog = function ( surface, inStaging ) {
+	const surfaceModel = surface.getModel();
+	if ( !inStaging ) {
+		surfaceModel.pushStaging();
+		surfaceModel.getFragment().removeContent().select();
+	}
+
+	const opened = ve.ui.actionFactory.create( 'window', surface ).open( 'reference' );
+	if ( !opened ) {
+		surfaceModel.popStaging();
+		return ve.createDeferred().reject().promise();
+	}
+	// Use the closed promise, as the dialog changes the selection during teardown
+	return opened.then( ( instance ) => instance.closed ).then(
+		( data ) => {
+			if ( data && data.action === 'insert' ) {
+				surfaceModel.applyStaging();
+			} else {
+				surfaceModel.popStaging();
+			}
+			return data;
+		},
+		( ...error ) => {
+			surfaceModel.popStaging();
+			return ve.createDeferred().reject( ...error ).promise();
+		}
+	);
 };
 
 /**

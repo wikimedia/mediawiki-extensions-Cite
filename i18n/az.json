@@ -75,7 +75,7 @@
 	"cite-configuration-autoname-desc-intro-1": "Məzmuna əsaslanan istinad adları VizualRedaktora mənalı və insan tərəfindən başa düşülə bilən avtomatik istinad adları yaratmağa imkan verir.",
 	"cite-configuration-autoname-desc-intro-2": "Aktivləşdirildikdə, məzmuna əsaslanan istinad adları cari standart <code>:n</code> formatını əvəz edir. Daha ətraflı məlumat üçün [[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|kömək səhifəsinə]] baxın.",
 	"cite-configuration-autoname-heading": "VizualRedaktor məzmun əsaslı istinad adları",
-	"cite-configuration-autoname-checkbox-label": "Bu funksiyanı aktivləşdirin və cari <code>:n</code> formatını əvəz edin",
+	"cite-configuration-autoname-checkbox-label": "Bu funksiyanı aktivləşdirin və cari :n formatını əvəz edin",
 	"cite-configuration-backlink-title": "Backlink parametrləri",
 	"cite-configuration-backlink-description": "Backlinklər istinad siyahısında görünür və səhifədəki istinadları göstərir. İstinad bir dəfədən çox istifadə edildikdə, onun keçidləri nömrələnir. Konfiqurasiya bu məqsəd üçün xüsusi əlifbadan istifadə etməyə imkan verir.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite sizin viki diliniz üçün əlifbanı aşkarladı. Əgər ondan istifadə etmək istəyirsinizsə, zəhmət olmasa, backlink markerləriniz üçün əsas kimi aşağıdakı mətni kopyalayıb yapışdırın. Siz ardıcıllığı redaktə etmək və ya yenidən sıralamaqda sərbəstsiniz.",

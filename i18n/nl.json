@@ -80,7 +80,7 @@
 	"cite-configuration-autoname-desc-intro-1": "Dankzij op de inhoud gebaseerde referentienamen kan VisualEditor automatisch betekenisvolle en leesbare referentienamen maken.",
 	"cite-configuration-autoname-desc-intro-2": "Wanneer deze optie is ingeschakeld, vervangen inhoudsgebaseerde referentienamen het huidige standaardpatroon <code>:n</code> . Zie de [[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|hulppagina]] voor meer informatie.",
 	"cite-configuration-autoname-heading": "Inhoudsgebaseerde referentienamen voor VisualEditor",
-	"cite-configuration-autoname-checkbox-label": "Schakel deze functie in en vervang het huidige <code>:n</code>-patroon",
+	"cite-configuration-autoname-checkbox-label": "Schakel deze functie in en vervang het huidige :n-patroon",
 	"cite-configuration-backlink-title": "Instellingen terugkoppelingen",
 	"cite-configuration-backlink-description": "Terugkoppelingen verschijnen in de referentielijst en verwijzen terug naar de voetnoten op de pagina. Wanneer een referentie meer dan eens wordt gebruikt, worden de terugkoppelingen genummerd. Hiervoor kan een aangepast alfabet worden ingesteld.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite heeft een alfabet voor de taal van uw wiki gedetecteerd. Als u dat wilt gebruiken, kopieer en plak dan de tekst hieronder als basis voor uw terugkoppelingsmarkeringen. De volgorde kan vrij bewerkt of gerangschikt worden.",

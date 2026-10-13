@@ -80,7 +80,7 @@
 	"cite-configuration-autoname-desc-intro-1": "Indholdsbaserede referencenavne gør det muligt for VisualEditor at generere meningsfulde og læsbare automatiske referencenavne.",
 	"cite-configuration-autoname-desc-intro-2": "Når det er aktiveret, erstatter indholdsbaserede referencenavne det nuværende standardmønster <code>:n</code> . For mere information, se [[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|hjælpesiden]].",
 	"cite-configuration-autoname-heading": "VisualEditor-indholdsbaserede referencenavne",
-	"cite-configuration-autoname-checkbox-label": "Aktiver denne funktion og erstat det nuværende <code>:n</code> mønster",
+	"cite-configuration-autoname-checkbox-label": "Aktiver denne funktion og erstat det nuværende :n mønster",
 	"cite-configuration-backlink-title": "Indstillinger for backlinks",
 	"cite-configuration-backlink-description": "Backlinks vises i referencelisten og peger tilbage til fodnoterne på siden. Når en reference bruges mere end én gang, nummereres dens backlinks. Konfigurationen tillader brug af et brugerdefineret alfabet til dette formål.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite har fundet et alfabet til din wikis sprog. Hvis du vil bruge det, bedes du kopiere og indsætte teksten nedenfor som base for dine backlink-markører. Du kan frit redigere eller omarrangere rækkefølgen.",

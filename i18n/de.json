@@ -84,7 +84,7 @@
 	"cite-configuration-autoname-desc-intro-1": "Inhaltsbasierte Namen für Einzelnachweise ermöglichen es dem VisualEditor, aussagekräftige und für Menschen lesbare automatische Namen für Einzelnachweise zu generieren.",
 	"cite-configuration-autoname-desc-intro-2": "Wenn diese Option aktiviert ist, ersetzen inhaltsbasierte Namen für Einzelnachweise das derzeitige Standardmuster <code>:n</code>. Weitere Informationen findest du auf der [[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|Hilfeseite]].",
 	"cite-configuration-autoname-heading": "Inhaltsbasierte Namen für Einzelnachweise im VisualEditor",
-	"cite-configuration-autoname-checkbox-label": "Aktiviere diese Funktion und ersetze das aktuelle Muster <code>:n</code>",
+	"cite-configuration-autoname-checkbox-label": "Aktiviere diese Funktion und ersetze das aktuelle Muster :n",
 	"cite-configuration-backlink-title": "Backlink-Einstellungen",
 	"cite-configuration-backlink-description": "Backlinks erscheinen in der Liste der Einzelnachweise und verweisen auf die Fußnoten in der Seite. Wenn ein Einzelnachweis mehr als einmal verwendet wird, werden deren Backlinks nummeriert. Die Konfiguration ermöglicht die Verwendung eines benutzerdefinierten Alphabets für diesen Zweck.",
 	"cite-configuration-backlink-alpha-suggestion": "Cite hat ein Alphabet für die Sprache deines Wikis erkannt. Wenn du es verwenden möchtest, kopiere bitte den folgenden Text und füge ihn als Grundlage für deine Backlink-Markierungen ein. Du kannst die Reihenfolge beliebig bearbeiten oder neu anordnen.",

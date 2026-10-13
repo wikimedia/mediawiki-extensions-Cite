@@ -76,7 +76,7 @@
 	"cite-configuration-autoname-desc-intro-1": "Os nomes das referencias baseados en contido permiten que o editor visual xere nomes automáticos para as referencias que sexan significativos e lexibles para humanos.",
 	"cite-configuration-autoname-desc-intro-2": "Cando están activados, os nomes das referencias baseados en contido substitúen o padrón predeterminado actual: <code>:n</code>. Para obter máis información, consulta a [[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|páxina de axuda]].",
 	"cite-configuration-autoname-heading": "Nomes das referencia baseados en contido do editor visual",
-	"cite-configuration-autoname-checkbox-label": "Activa esta funcionalidade e substitúe o padrón actual: <code>:n</code>",
+	"cite-configuration-autoname-checkbox-label": "Activa esta funcionalidade e substitúe o padrón actual: :n",
 	"cite-configuration-backlink-title": "Configuración das ligazóns de retroceso",
 	"cite-configuration-backlink-description": "As ligazóns de retroceso aparecen na lista de referencias e apuntan ás notas ao pé da páxina. Cando unha referencia se usa máis dunha vez, a súas ligazóns de retroceso están numeradas. A configuración permite utilizar un alfabeto personalizado para este fin.",
 	"cite-configuration-backlink-alpha-suggestion": "A extensión Cite detectou un alfabeto para a lingua do teu wiki. Se queres utilizalo, copia e pega o seguinte texto como base para os teus marcadores de ligazóns de retroceso. Es libre de editar ou reorganizar a secuencia.",

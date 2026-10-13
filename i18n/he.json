@@ -76,7 +76,7 @@
 	"cite-configuration-autoname-desc-intro-1": "שמות הערות שוליים מבוססי תוכן מאפשרים לעורך החזותי ליצור שמות הפניות אוטומטיים בעלי משמעות וקריאים לאנשים.",
 	"cite-configuration-autoname-desc-intro-2": "כשזה מופעל, שמות הערות שוליים מבוססי תוכן מחליפים את תבנית ברירת המחדל הנוכחית <code>:n</code>. למידע נוסף ר' את [[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|דף העזרה]].",
 	"cite-configuration-autoname-heading": "שמות הערות שוליים מבוססי תוכן של עורך חזותי",
-	"cite-configuration-autoname-checkbox-label": "להפעיל את תכונה הזאת ולהחליף את תבנית <code>:n</code> הנוכחית",
+	"cite-configuration-autoname-checkbox-label": "להפעיל את תכונה הזאת ולהחליף את תבנית :n הנוכחית",
 	"cite-configuration-backlink-title": "הגדרות קישורים חוזרים",
 	"cite-configuration-backlink-description": "קישורים חוזרים מופיעים ברשימת הערות השוליים ומצביעים חזרה להערות השוליים בדף. כאשר נעשה שימוש בהערת שוליים יותר מפעם אחת, הקישורים החוזרים שלו ממוספרים. תצורה מאפשרת להשתמש באלפבית מותאם למטרה הזאת.",
 	"cite-configuration-backlink-alpha-suggestion": "ההרחבה Cite זיהתה אלפבית לשפת הוויקי שלך. כדי להשתמש בו, יש להעתיק ולהדביק את הטקסט למטה כבסיס לסמני הקישורים החוזרים שלך. אפשר לערוך או לסדר מחדש את הרצף.",

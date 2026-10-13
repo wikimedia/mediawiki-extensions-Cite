@@ -92,7 +92,7 @@
 	"cite-configuration-autoname-desc-intro-1": "基于内容的参考文献名称使可视化编辑器能够生成有意义且易于人类阅读的自动参考文献名称。",
 	"cite-configuration-autoname-desc-intro-2": "启用此功能后，基于内容的参考文献名称将替换当前的默认模式<code>:n</code>。有关更多信息，请参阅[[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|帮助页面]]。",
 	"cite-configuration-autoname-heading": "可视化编辑器的基于内容的参考文献名称",
-	"cite-configuration-autoname-checkbox-label": "启用此功能并替换当前的<code>:n</code>模式",
+	"cite-configuration-autoname-checkbox-label": "启用此功能并替换当前的:n模式",
 	"cite-configuration-backlink-title": "反向链接设置",
 	"cite-configuration-backlink-description": "反向链接出现在参考资料列表中，指向页面中的脚注。当一项参考资料被复用时，其反向链接会以编号形式显示。更改此处的配置，以使用自定义的字母表作为编号。",
 	"cite-configuration-backlink-alpha-suggestion": "引证扩展已自动检测适合您wiki语言的字母表。如果您想要使用它，请复制粘贴以下文本，作为反向链接标记的基准。您可以自由编辑或排列顺序。",

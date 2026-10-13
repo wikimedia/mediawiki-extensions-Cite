@@ -20,6 +20,7 @@
 	"cite-ve-citationneeded-description": "एक सम्पादकके अनुसार ई दावा पर कौनो विश्वसनीय स्रोतके उद्धरणके आवश्यकता हे ।",
 	"cite-ve-citationneeded-reason": "देल कारण:",
 	"cite-ve-citationneeded-title": "उद्धरणके आवश्यकता हे",
+	"cite-ve-dialog-reference-contextitem-extends": "ई सन्दर्भ अतिरिक्त विवरण वाला एक पुनःप्रयोग हे:",
 	"cite-ve-dialog-reference-editing-reused": "ई उद्धरणके प्रयोग ई पन्ना पर {{PLURAL:$1|एक बेर|2=दु बार|$1 बेर}} कैल गेलै हे ।",
 	"cite-ve-dialog-reference-editing-reused-long": "ई उद्धरणके प्रयोग ई पन्ना पर {{PLURAL:$1|एक बेर|2=दु बेर|$1 बेर}} कैल गेलै हे । हियाँ कैल गेल बदलाव ऊसभ स्थानपर लागू कैल जैतै जने ई सन्दर्भके प्रयोग कैल गेलै हे ।",
 	"cite-ve-dialog-reference-editing-extends": "ई एगो दोसर सन्दर्भके बिस्तार हे ।",

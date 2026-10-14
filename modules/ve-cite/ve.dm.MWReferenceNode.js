@@ -808,7 +808,7 @@ ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
 			return;
 		}
 
-		const mainListIndex = attributes.mainListIndex || attributes.listIndex;
+		const mainListIndex = attributes.mainListIndex !== undefined ? attributes.mainListIndex : attributes.listIndex;
 		const mainReuses = ve.dm.MWReferenceNode.static.getRefsWithSameMain(
 			mainListIndex,
 			internalList.getNodeGroup( attributes.listGroup )

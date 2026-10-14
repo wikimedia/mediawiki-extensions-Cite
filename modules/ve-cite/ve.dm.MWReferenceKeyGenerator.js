@@ -221,7 +221,7 @@ ve.dm.MWReferenceKeyGenerator = {
 	 */
 	generateName: function ( attributes, internalList, isReused, betterAutonames ) {
 		const listKey = attributes.mainListKey || attributes.listKey;
-		const listIndex = attributes.mainListIndex || attributes.listIndex;
+		const listIndex = attributes.mainListIndex !== undefined ? attributes.mainListIndex : attributes.listIndex;
 		const name = this.extractNameFromListKey( listKey );
 		if ( name ) {
 			return name;

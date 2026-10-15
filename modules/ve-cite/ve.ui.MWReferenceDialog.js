@@ -248,7 +248,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				const surfaceModel = this.getFragment().getSurface();
 				const doc = surfaceModel.getDocument();
 
-				const transclusion = ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem(
+				const transclusion = ve.ui.MWCitationDialog.static.findFirstTemplateTransclusionNode(
 					doc.getInternalList().getItemNode( ref.mainListIndex || ref.listIndex )
 				);
 

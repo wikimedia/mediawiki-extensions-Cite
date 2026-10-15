@@ -846,7 +846,7 @@ ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
 			return;
 		}
 
-		const transclusion = ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem(
+		const transclusion = ve.ui.MWCitationDialog.static.findFirstTemplateTransclusionNode(
 			internalItem
 		);
 		const template = transclusion && transclusion.getSingleTemplateName();

@@ -57,7 +57,7 @@ ve.ui.MWCitationDialogTool.static.isCompatibleWith = function ( model ) {
 		return false;
 	}
 
-	return !!ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate(
+	return !!ve.ui.MWCitationDialog.static.getCitationTransclusionMatchingTemplate(
 		model.getInternalItem(),
 		this.template
 	);

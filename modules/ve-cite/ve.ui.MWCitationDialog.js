@@ -74,7 +74,7 @@ ve.ui.MWCitationDialog.prototype.getSelectedNode = function () {
 	}
 
 	// Only use the node if it is the same template as this dialog expects
-	return ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate(
+	return ve.ui.MWCitationDialog.static.getCitationTransclusionMatchingTemplate(
 		internalItem,
 		this.citationTemplate
 	);
@@ -229,7 +229,7 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 
 			// Update the autoname prefix only after changes
 			if ( this.isEditing() ) {
-				const transclusion = ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem(
+				const transclusion = ve.ui.MWCitationDialog.static.getCitationTransclusionFromInternalItem(
 					this.referenceModel.findInternalItem( surfaceModel )
 				);
 
@@ -278,12 +278,36 @@ ve.ui.MWCitationDialog.prototype.onInputChange = function () {
 };
 
 /**
- * Get the TransclusionNode from an InternalItem if it's a single transclusion
+ * Find the first template TransclusionNode traversing down, includes the node itself
+ *
+ * @param {ve.dm.Node} sourceNode
+ * @return {ve.dm.MWTransclusionNode|undefined} undefined if there's no node found
+ */
+ve.ui.MWCitationDialog.static.findFirstTemplateTransclusionNode = function ( sourceNode ) {
+	if ( sourceNode instanceof ve.dm.MWTransclusionNode && sourceNode.isSingleTemplate() ) {
+		return sourceNode;
+	}
+
+	if ( !sourceNode.canHaveChildren() ) {
+		return;
+	}
+
+	for ( const node of sourceNode.getChildren() ) {
+		const transclusionNode = this.findFirstTemplateTransclusionNode( node );
+		if ( transclusionNode ) {
+			return transclusionNode;
+		}
+	}
+};
+
+/**
+ * Get the TransclusionNode from an InternalItem if it's in the expected format where there's
+ * only one template and no other content allowed
  *
  * @param {ve.dm.InternalItemNode} internalItem
  * @return {ve.dm.MWTransclusionNode|undefined} undefined if there's no single transclusion node
  */
-ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem = function (
+ve.ui.MWCitationDialog.static.getCitationTransclusionFromInternalItem = function (
 	internalItem
 ) {
 	const branches = internalItem.getChildren();
@@ -299,18 +323,18 @@ ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem = function (
 };
 
 /**
- * Get the TransclusionNode from an InternalItem if it's a single transclusion
- * that fits a certain template
+ * Get the TransclusionNode from an InternalItem if it's in the expected format where there's
+ * only one template and no other content allowed and fits a certain template
  *
  * @param {ve.dm.InternalItemNode} internalItem
  * @param {string|string[]} template
  * @return {ve.dm.MWTransclusionNode|undefined} undefined if there's no fitting single transclusion node
  */
-ve.ui.MWCitationDialog.static.getTransclusionNodeWithTemplate = function (
+ve.ui.MWCitationDialog.static.getCitationTransclusionMatchingTemplate = function (
 	internalItem,
 	template
 ) {
-	const node = this.getTransclusionNodeFromInternalItem( internalItem );
+	const node = this.getCitationTransclusionFromInternalItem( internalItem );
 	if ( node && node.isSingleTemplate( template ) ) {
 		return node;
 	}
@@ -330,7 +354,7 @@ ve.ui.MWCitationDialog.static.getToolDefinitionFromInternalItem = function (
 	}
 
 	return ve.ui.mwCitationTools.find( ( toolDefinition ) => ve.ui.MWCitationDialog
-		.static.getTransclusionNodeWithTemplate(
+		.static.getCitationTransclusionMatchingTemplate(
 			internalItem, toolDefinition.template
 		) );
 };

@@ -112,7 +112,7 @@
 		// mock the default message for cases where code doesn't use translusion
 		sinon.stub( MWReferenceKeyGenerator, 'getReferenceAutonamePrefix' ).returns( 'cite-ve-dialogbutton-reference-title-' );
 		// mock the transclusion detection
-		sinon.stub( ve.ui.MWCitationDialog.static, 'getTransclusionNodeWithTemplate' ).returns( true );
+		sinon.stub( ve.ui.MWCitationDialog.static, 'getCitationTransclusionMatchingTemplate' ).returns( true );
 		const attributes = {};
 		fixtures.forEach( ( fixture ) => {
 			sinon.stub( ve.ui.MWCitationDialog.static, 'getToolDefinitionFromInternalItem' )
@@ -137,7 +137,7 @@
 
 		const attributes = { listIndex: '0' };
 		// mock the transclusion detection
-		sinon.stub( ve.ui.MWCitationDialog.static, 'getTransclusionNodeWithTemplate' ).returns( true );
+		sinon.stub( ve.ui.MWCitationDialog.static, 'getCitationTransclusionMatchingTemplate' ).returns( true );
 		sinon.stub( ve.ui.MWCitationDialog.static, 'getToolDefinitionFromInternalItem' )
 			.returns( { title: 'MockTitle-', autoname: 'MockAuto-' } );
 

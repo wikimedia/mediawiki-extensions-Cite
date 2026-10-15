@@ -820,8 +820,16 @@ ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
 			return;
 		}
 
+		let internalItem;
+		try {
+			// it seems that this can fail in some cases
+			internalItem = this.getInternalItem();
+		} catch ( e ) {
+			return;
+		}
+
 		const transclusion = ve.ui.MWCitationDialog.static.getTransclusionNodeFromInternalItem(
-			this.getInternalItem()
+			internalItem
 		);
 		const template = transclusion && transclusion.getSingleTemplateName();
 		if ( !template ) {

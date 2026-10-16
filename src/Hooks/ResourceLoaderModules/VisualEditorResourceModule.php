@@ -165,11 +165,6 @@ class VisualEditorResourceModule {
 			],
 		];
 
-		$autonameMsg = wfMessage( 'cite-ve-dialogbutton-reference-title-autoname' );
-		if ( $autonameMsg->exists() ) {
-			$veConfig[ 'ext.cite.visualEditor' ][ 'messages' ][] = 'cite-ve-dialogbutton-reference-title-autoname';
-		}
-
 		if ( $this->extensionRegistry->isLoaded( 'TestKitchen' ) ) {
 			$veConfig[ 'ext.cite.visualEditor' ][ 'dependencies' ][] = 'ext.testKitchen';
 		}

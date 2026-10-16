@@ -177,8 +177,7 @@ ve.ui.MWReferenceContextItem.prototype.onEditSubref = function () {
  * @return {jQuery|undefined}
  */
 ve.ui.MWReferenceContextItem.prototype.getReuseWarning = function () {
-	const listIndex = this.model.getAttribute( 'mainListIndex' ) || this.model.getAttribute( 'listIndex' );
-	const totalUsageCount = this.groupRefs.getTotalUsageCount( listIndex );
+	const totalUsageCount = this.groupRefs.getTotalUsageCount( this.model.getMainListIndex() );
 
 	if ( totalUsageCount <= 1 ) {
 		return;

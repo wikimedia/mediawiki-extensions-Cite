@@ -220,24 +220,24 @@ ve.dm.MWReferenceKeyGenerator = {
 	 * @return {string|undefined} literal or auto generated name
 	 */
 	generateName: function ( attributes, internalList, isReused, betterAutonames ) {
-		const listKey = attributes.mainListKey || attributes.listKey;
-		const listIndex = attributes.mainListIndex !== undefined ? attributes.mainListIndex : attributes.listIndex;
-		const name = this.extractNameFromListKey( listKey );
+		const mainListKey = attributes.mainListKey || attributes.listKey;
+		const mainListIndex = ve.dm.MWReferenceNode.static.getMainListIndex( attributes );
+		const name = this.extractNameFromListKey( mainListKey );
 		if ( name ) {
 			return name;
 		}
-		if ( !isReused && attributes.mainListIndex === undefined ) {
+		if ( !isReused && !ve.dm.MWReferenceNode.static.isSubRef( attributes ) ) {
 			return;
 		}
 
 		const namePrefix = betterAutonames && (
-			this.getStoredAutonamePrefix( internalList.getDocument(), listIndex ) ||
-				this.getAutonamePrefixFromInternalItem( internalList.getItemNode( listIndex ) )
+			this.getStoredAutonamePrefix( internalList.getDocument(), mainListIndex ) ||
+				this.getAutonamePrefixFromInternalItem( internalList.getItemNode( mainListIndex ) )
 		) ||
 			':';
 
 		return internalList.getNodeGroup( attributes.listGroup ).getUniqueListKey(
-			listKey,
+			mainListKey,
 			'literal/' + namePrefix
 		).slice( 'literal/'.length );
 	}

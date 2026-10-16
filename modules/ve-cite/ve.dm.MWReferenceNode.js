@@ -369,7 +369,7 @@ ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement
 	}
 
 	const attributes = dataElement.attributes;
-	const mainListIndex = this.isSubRef( attributes ) ? attributes.mainListIndex : attributes.listIndex;
+	const mainListIndex = this.getMainListIndex( attributes );
 	const mainReuses = this.getRefsWithSameMain( mainListIndex, nodeGroup );
 
 	const current = this.getInstanceHashObject( dataElement );
@@ -400,7 +400,7 @@ ve.dm.MWReferenceNode.static.shouldAvoidContentOverride = function ( dataElement
  */
 ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, nodeGroup ) {
 	const attributes = dataElement.attributes;
-	const mainListIndex = this.isSubRef( attributes ) ? attributes.mainListIndex : attributes.listIndex;
+	const mainListIndex = this.getMainListIndex( attributes );
 	const mainReuses = this.getRefsWithSameMain( mainListIndex, nodeGroup );
 
 	// If the reference already stored the main content before, it should be stored there again
@@ -488,13 +488,23 @@ ve.dm.MWReferenceNode.static.hasSubRefs = function ( attributes, internalList ) 
 };
 
 /**
- * @private
  * @static
  * @param {Object} attributes
  * @return {boolean}
  */
 ve.dm.MWReferenceNode.static.isSubRef = function ( attributes ) {
 	return attributes.mainListIndex !== undefined;
+};
+
+/**
+ * Returns the mainListIndex if it's a sub-ref otherwise the listIndex.
+ *
+ * @static
+ * @param {Object} attributes
+ * @return {number}
+ */
+ve.dm.MWReferenceNode.static.getMainListIndex = function ( attributes ) {
+	return this.isSubRef( attributes ) ? attributes.mainListIndex : attributes.listIndex;
 };
 
 /**
@@ -742,6 +752,15 @@ ve.dm.MWReferenceNode.prototype.isSubRef = function () {
 };
 
 /**
+ * Returns the mainListIndex if it's a sub-ref otherwise the listIndex.
+ *
+ * @return {number}
+ */
+ve.dm.MWReferenceNode.prototype.getMainListIndex = function () {
+	return this.constructor.static.getMainListIndex( this.element.attributes || {} );
+};
+
+/**
  * Gets the index label for the reference
  *
  * @return {jQuery} Formatted label including the square brackets
@@ -809,9 +828,8 @@ ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
 			return;
 		}
 
-		const mainListIndex = attributes.mainListIndex !== undefined ? attributes.mainListIndex : attributes.listIndex;
 		const mainReuses = ve.dm.MWReferenceNode.static.getRefsWithSameMain(
-			mainListIndex,
+			this.getMainListIndex(),
 			internalList.getNodeGroup( attributes.listGroup )
 		);
 
@@ -844,7 +862,7 @@ ve.dm.MWReferenceNode.prototype.addToInternalList = function () {
 			ve.dm.MWReferenceKeyGenerator.setStoredAutonamePrefix(
 				autonamePrefix,
 				this.getDocument(),
-				mainListIndex
+				this.getMainListIndex()
 			);
 		}
 		);

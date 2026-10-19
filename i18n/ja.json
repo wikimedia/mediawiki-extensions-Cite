@@ -21,6 +21,7 @@
 			"RYOUMA1117",
 			"Shirayuki",
 			"Sujiniku",
+			"Waki285",
 			"Yusuke1109",
 			"春春眠眠"
 		]
@@ -86,6 +87,12 @@
 	"communityconfiguration-cite-description": "脚注の形式と見た目をカスタマイズします。",
 	"cite-configuration-title": "引用の設定",
 	"cite-configuration-info": "これらの設定は、脚注を使用するすべてのページに影響します。管理者だけがこれらの設定を変更できます。",
+	"communityconfiguration-cite-visualeditor-autonames-title": "VisualEditor 内容ベースの脚注名",
+	"communityconfiguration-cite-visualeditor-autonames-description": "ビジュアルエディターの内容ベースの脚注名を有効にすると、「:n」というパターンを独自のスタイルに置き換えることができます。",
+	"cite-configuration-autoname-desc-intro-1": "内容ベースの脚注名を使用することで、ビジュアルエディターは意味のある、人間が読みやすい自動脚注名を生成することが可能になります。",
+	"cite-configuration-autoname-desc-intro-2": "有効にすると、内容ベースの脚注名は現在の既定である <code>:n</code> パターンを置き換えます。詳細については、[[mw:Special:MyLanguage/Help:Cite/VisualEditor reference names|ヘルプページ]]を参照してください。",
+	"cite-configuration-autoname-heading": "VisualEditor 内容ベースの脚注名",
+	"cite-configuration-autoname-checkbox-label": "この機能を有効にして、現在の :n パターンを置き換えます",
 	"cite-configuration-backlink-title": "バックリンクの設定",
 	"cite-configuration-backlink-description": "バックリンクは参照リストに表示され、本文の脚注番号に戻ります。同じ参照が複数使用された場合、バックリンクは番号付けされます。設定により、この目的のために独自のアルファベットを使用できます。",
 	"cite-configuration-backlink-alpha-suggestion": "サイトはウィキの言語のアルファベットを検出しました。これをバックリンクのマーカーとして使用する場合は、以下にテキストをコピー・ペーストして下さい。順序を編集したり再編したりできます。",

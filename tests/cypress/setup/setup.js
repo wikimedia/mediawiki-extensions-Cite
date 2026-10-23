@@ -8,6 +8,7 @@ const cookies = new Map();
 
 // Page name and content fixtures
 const citeBookTemplateName = 'Literatur';
+const autonameTemplateName = 'Book Autoname Test';
 const citeBookTemplate = `
 <cite class="book">A book reference: [{{{lastname}}} {{{title}}}]</cite>
 <noinclude>
@@ -28,6 +29,15 @@ const pageFixtures = [
 	{
 		name: `Template:${ citeBookTemplateName }`,
 		content: citeBookTemplate
+	},
+	{
+		name: `Template:${ autonameTemplateName }`,
+		content: '{{{lastname}}}-{{{title}}}-'
+	},
+	// Mapping of cite to autoname templates
+	{
+		name: 'MediaWiki:cite-autoname-template-map.json',
+		content: JSON.stringify( { [ autonameTemplateName ]: [ citeBookTemplateName ] } )
 	},
 	// Community Config setting to enable autonames, in case CC is active in test environment
 	{

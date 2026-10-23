@@ -11,7 +11,8 @@ export function checkModuleDependencies() {
 		return {
 			citoid: names.includes( 'ext.citoid.visualEditor' ),
 			templateData: names.includes( 'ext.templateData' ),
-			visualEditor: names.includes( 'ext.cite.visualEditor' )
+			visualEditor: names.includes( 'ext.cite.visualEditor' ),
+			communityConfiguration: names.includes( 'ext.cite.community-configuration-autoname' )
 		};
 	} );
 }

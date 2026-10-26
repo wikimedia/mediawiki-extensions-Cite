@@ -15,194 +15,180 @@
 		mainListKey: sharedMainKey,
 		mainListIndex: 0
 	} };
-	const fixtures = {
-		shouldAvoidContentOverride: [
-			{
-				msg: 'Content not used in current node',
-				dataElement: { attributes: { contentsUsed: false, listGroup: '', listKey: sharedMainKey } },
-				nodesInGroup: [],
-				expected: false
-			},
-			{
-				msg: 'Content used in current node and no other node before',
-				dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } },
-				nodesInGroup: [ { attributes: { contentsUsed: false, listGroup: '', listKey: sharedMainKey } } ],
-				expected: false
-			},
-			{
-				msg: 'Content used in current node and another node before',
-				dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } },
-				nodesInGroup: [
-					{
-						attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey },
-						originalDomElementsHash: 'foo'
-					},
-					{ attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } }
-				],
-				expected: true
-			},
-			{
-				msg: 'Content used in current sub-ref and in a unrelated main ref before',
-				dataElement: subRefWithContentUsed,
-				nodesInGroup: [
-					{
-						attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/solomain', listIndex: 5 }
-					},
-					subRefWithContentUsed
-				],
-				expected: false
-			},
-			{
-				msg: 'Main content used in current sub-ref and in a main ref before',
-				dataElement: subRefWithContentUsed,
-				nodesInGroup: [
-					{
-						attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey, listIndex: 0 }
-					},
-					subRefWithContentUsed
-				],
-				expected: true
-			}
-		],
-		shouldGetMainContent: [
-			{
-				msg: 'If there\'s only this ref with that key it should get the content',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/main' } }
-				],
-				expected: true
-			},
-			{
-				msg: 'If this ref owned the content before it should get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } },
-					{ attributes: { listGroup: '', listKey: 'literal/main' } }
-				],
-				expected: true
-			},
-			{
-				msg: 'If there\'s another ref with that key that owned the content this ref should not get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } }
-				],
-				expected: false
-			},
-			{
-				msg: 'If there\'s no other ref with that key that owned the content the first node get\'s it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: false } }
-				],
-				expected: true
-			},
-			{
-				msg: 'Sub-ref: If there\'s a sub-ref with that main key that owned the content this ref should not get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main', contentsUsed: true } }
-				],
-				expected: false
-			},
-			{
-				msg: 'Sub-ref: If there\'s only this sub-ref with that main key it should get the content',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } }
-				],
-				expected: true
-			},
-			{
-				msg: 'Sub-ref: If there\'s another main ref with that key that owned the content this ref should not get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: true } }
-				],
-				expected: false
-			},
-			{
-				msg: 'Sub-ref: If there\'s no other ref with that key that owned the content the first node get\'s it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/main', contentsUsed: false } }
-				],
-				expected: true
-			},
-			{
-				msg: 'Sub-ref: If there\'s another sub-ref with that key that owned the content this ref should not get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/subOther', mainListKey: 'literal/main', contentsUsed: true } }
-				],
-				expected: false
-			},
-			{
-				msg: 'Sub-ref: If this sub-ref was holding the content before it should always get it',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main', contentsUsed: true } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } }
-				],
-				expected: true
-			},
-			{
-				msg: 'Sub-ref: If no other ref his holding the content the frist node get it, also if it\'s a sub-ref',
-				dataElement: { attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-				nodesInGroup: [
-					{ attributes: { listGroup: '', listKey: 'literal/sub', mainListKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/subOther', mainListKey: 'literal/main' } },
-					{ attributes: { listGroup: '', listKey: 'literal/main' } }
-				],
-				expected: true
-			}
-		]
-	};
+	const cases = [
+		{
+			msg: 'Content not used in current node',
+			dataElement: { attributes: { contentsUsed: false, listGroup: '', listKey: sharedMainKey } },
+			nodesInGroup: [],
+			shouldAvoidContentOverride: false
+		},
+		{
+			msg: 'Content used in current node and no other node before',
+			dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } },
+			nodesInGroup: [ { attributes: { contentsUsed: false, listGroup: '', listKey: sharedMainKey } } ],
+			shouldAvoidContentOverride: false
+		},
+		{
+			msg: 'Content used in current node and another node before',
+			dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } },
+			nodesInGroup: [
+				{
+					attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey },
+					originalDomElementsHash: 'foo'
+				},
+				{ attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } }
+			],
+			shouldAvoidContentOverride: true
+		},
+		{
+			msg: 'Content used in current sub-ref and in a unrelated main ref before',
+			dataElement: subRefWithContentUsed,
+			nodesInGroup: [
+				{
+					attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/solomain', listIndex: 5 }
+				},
+				subRefWithContentUsed
+			],
+			shouldAvoidContentOverride: false
+		},
+		{
+			msg: 'Main content used in current sub-ref and in a main ref before',
+			dataElement: subRefWithContentUsed,
+			nodesInGroup: [
+				{
+					attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey, listIndex: 0 }
+				},
+				subRefWithContentUsed
+			],
+			shouldAvoidContentOverride: true
+		},
+		{
+			msg: 'If there\'s only this ref with that key it should get the content',
+			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: sharedMainKey } }
+			],
+			shouldGetMainContent: true
+		},
+		{
+			msg: 'If this ref owned the content before it should get it',
+			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: true } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: true } },
+				{ attributes: { listGroup: '', listKey: sharedMainKey } }
+			],
+			shouldGetMainContent: true
+		},
+		{
+			msg: 'If there\'s another ref with that key that owned the content this ref should not get it',
+			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: sharedMainKey } },
+				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: true } }
+			],
+			shouldGetMainContent: false
+		},
+		{
+			msg: 'If there\'s no other ref with that key that owned the content the first node get\'s it',
+			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: sharedMainKey } },
+				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: false } }
+			],
+			shouldGetMainContent: true
+		},
+		{
+			msg: 'Sub-ref: If there\'s a sub-ref with that main key that owned the content this ref should not get it',
+			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: sharedMainKey } },
+				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey, contentsUsed: true } }
+			],
+			shouldGetMainContent: false
+		},
+		{
+			msg: 'Sub-ref: If there\'s only this sub-ref with that main key it should get the content',
+			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } }
+			],
+			shouldGetMainContent: true
+		},
+		{
+			msg: 'Sub-ref: If there\'s another main ref with that key that owned the content this ref should not get it',
+			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: true } }
+			],
+			shouldGetMainContent: false
+		},
+		{
+			msg: 'Sub-ref: If there\'s no other ref with that key that owned the content the first node get\'s it',
+			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: false } }
+			],
+			shouldGetMainContent: true
+		},
+		{
+			msg: 'Sub-ref: If there\'s another sub-ref with that key that owned the content this ref should not get it',
+			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+				{ attributes: { listGroup: '', listKey: 'literal/subOther', mainListKey: sharedMainKey, contentsUsed: true } }
+			],
+			shouldGetMainContent: false
+		},
+		{
+			msg: 'Sub-ref: If this sub-ref was holding the content before it should always get it',
+			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey, contentsUsed: true } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } }
+			],
+			shouldGetMainContent: true
+		},
+		{
+			msg: 'Sub-ref: If no other ref his holding the content the frist node get it, also if it\'s a sub-ref',
+			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			nodesInGroup: [
+				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+				{ attributes: { listGroup: '', listKey: 'literal/subOther', mainListKey: sharedMainKey } },
+				{ attributes: { listGroup: '', listKey: sharedMainKey } }
+			],
+			shouldGetMainContent: true
+		}
+	];
 
-	QUnit.test( 'shouldAvoidContentOverride', ( assert ) => {
-		fixtures.shouldAvoidContentOverride.forEach( ( caseItem ) => {
-			const nodeGroup = new ve.dm.InternalListNodeGroup();
-			caseItem.nodesInGroup.forEach( ( element ) => {
-				nodeGroup.appendNode(
-					element.attributes.listKey,
-					new ve.dm.MWReferenceNode( element )
-				);
-			} );
+	QUnit.test.each( 'shouldAvoidContentOverride and shouldGetMainContent', cases, ( assert, caseItem ) => {
+		const nodeGroup = new ve.dm.InternalListNodeGroup();
+		caseItem.nodesInGroup.forEach( ( element ) => {
+			nodeGroup.appendNode(
+				element.attributes.listKey,
+				new ve.dm.MWReferenceNode( element )
+			);
+		} );
+		if ( caseItem.shouldAvoidContentOverride !== undefined ) {
 			assert.strictEqual(
 				MWReferenceNode.static.shouldAvoidContentOverride(
 					caseItem.dataElement,
 					nodeGroup
 				),
-				caseItem.expected,
+				caseItem.shouldAvoidContentOverride,
 				caseItem.msg
 			);
-		} );
-	} );
-
-	QUnit.test( 'shouldGetMainContent', ( assert ) => {
-		fixtures.shouldGetMainContent.forEach( ( caseItem ) => {
-			const nodeGroup = new ve.dm.InternalListNodeGroup();
-			caseItem.nodesInGroup.forEach( ( element ) => {
-				nodeGroup.appendNode(
-					element.attributes.listKey,
-					new ve.dm.MWReferenceNode( element )
-				);
-			} );
+		}
+		if ( caseItem.shouldGetMainContent !== undefined ) {
 			assert.strictEqual(
-				ve.dm.MWReferenceNode.static.shouldGetMainContent(
+				MWReferenceNode.static.shouldGetMainContent(
 					caseItem.dataElement,
 					nodeGroup
 				),
-				caseItem.expected,
+				caseItem.shouldGetMainContent,
 				caseItem.msg
 			);
-		} );
+		}
 	} );
 
 	QUnit.test( 'getSubRefs and getRefsWithSameMain', ( assert ) => {

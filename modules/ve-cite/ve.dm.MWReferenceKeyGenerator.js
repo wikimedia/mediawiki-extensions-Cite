@@ -104,6 +104,27 @@ ve.dm.MWReferenceKeyGenerator = {
 	},
 
 	/**
+	 * Test if we need to create an autoname prefix
+	 *
+	 * @param {string} mainListKey
+	 * @param {number} mainListIndex
+	 * @param {ve.dm.InternalListNodeGroup} nodeGroup
+	 * @return {boolean}
+	 */
+	isPrefixNameNeeded: function ( mainListKey, mainListIndex, nodeGroup ) {
+		if ( ve.dm.MWReferenceKeyGenerator.isLiteralListKey( mainListKey ) ) {
+			return false;
+		}
+
+		const mainReuses = ve.dm.MWReferenceNode.static.getRefsWithSameMain(
+			mainListIndex,
+			nodeGroup
+		);
+
+		return mainReuses && mainReuses.length > 1;
+	},
+
+	/**
 	 * Get an autoname prefix by applying an autoname template on a references template
 	 * content.  Only works on references with a single template transclusion.
 	 *

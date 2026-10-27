@@ -227,8 +227,14 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 			);
 			this.referenceModel.updateInternalItem( surfaceModel );
 
-			// Update the autoname prefix only after changes
-			if ( this.isEditing() ) {
+			// Update the autoname prefix only after changes and if it does not exist
+			if ( this.isEditing() &&
+				ve.dm.MWReferenceKeyGenerator.isPrefixNameNeeded(
+					this.referenceModel.getListKey(),
+					this.referenceModel.getListIndex(),
+					doc.getInternalList().getNodeGroup( this.referenceModel.getListGroup() )
+				)
+			) {
 				const transclusion = ve.ui.MWCitationDialog.static.getCitationTransclusionFromInternalItem(
 					this.referenceModel.findInternalItem( surfaceModel )
 				);
@@ -241,7 +247,7 @@ ve.ui.MWCitationDialog.prototype.getActionProcess = function ( action ) {
 				ve.dm.MWReferenceKeyGenerator.setStoredAutonamePrefix(
 					autonamePrefix,
 					doc,
-					this.referenceModel.listIndex
+					this.referenceModel.getListIndex()
 				);
 			}
 

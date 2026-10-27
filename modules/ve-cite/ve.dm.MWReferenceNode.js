@@ -430,7 +430,6 @@ ve.dm.MWReferenceNode.static.shouldGetMainContent = function ( dataElement, node
  * This list includes all nodes in index.  Reuses are expanded in the list according to the
  * first occurrence of the first node.  So the list is not in document order.
  *
- * @private
  * @static
  * @param {number} mainListIndex
  * @param {ve.dm.InternalListNodeGroup} nodeGroup

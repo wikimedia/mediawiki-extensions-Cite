@@ -198,8 +198,8 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 		return new OO.ui.Process( async () => {
 			let ref = this.editPanel.getReferenceFromEditing();
 			const newListGroup = ve.dm.MWReferenceModel.static.makeListGroup( ref.group );
-			const nodeGroup = this.getFragment().getDocument()
-				.getInternalList().getNodeGroup( newListGroup );
+			const doc = this.getFragment().getDocument();
+			const nodeGroup = doc.getInternalList().getNodeGroup( newListGroup );
 			const changeAll = this.editPanel.getChangeAllCheckboxState();
 
 			if ( !this.editReferenceMode && !this.createSubRefMode ) {
@@ -243,17 +243,22 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 				ref.updateInternalItem( this.getFragment().getSurface() );
 			}
 
-			// Update the autoname prefix only after changes
-			if ( action === 'done' ) {
-				const surfaceModel = this.getFragment().getSurface();
-				const doc = surfaceModel.getDocument();
-				const mainListIndex = ref.isSubRef() ? ref.getMainListIndex() : ref.getListIndex();
-
+			// Update the autoname prefix only after changes and if it does not exist
+			if ( action === 'done' &&
+				// Sub-ref content does not influence the name
+				!ref.isSubRef() &&
+				ve.dm.MWReferenceKeyGenerator.isPrefixNameNeeded(
+					ref.getListKey(),
+					ref.getListIndex(),
+					nodeGroup
+				)
+			) {
+				// Look for a transclusion with a template
 				const transclusion = ve.ui.MWCitationDialog.static.findFirstTemplateTransclusionNode(
-					doc.getInternalList().getItemNode( mainListIndex )
+					doc.getInternalList().getItemNode( ref.getListIndex() )
 				);
-
 				const template = transclusion && transclusion.getSingleTemplateName();
+
 				if ( template ) {
 					const autonamePrefix = await ve.dm.MWReferenceKeyGenerator.getAutonamePrefixFromTemplate(
 						transclusion,
@@ -263,7 +268,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 					ve.dm.MWReferenceKeyGenerator.setStoredAutonamePrefix(
 						autonamePrefix,
 						doc,
-						mainListIndex
+						ref.getListIndex()
 					);
 				}
 			}

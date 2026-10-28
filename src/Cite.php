@@ -295,6 +295,9 @@ class Cite {
 		?bool $responsive,
 		bool $isSectionPreview,
 	): string {
+		// T442272: This clears everything known about this group up to this point. This implies:
+		// - This doesn't know if and how tags are nested. Only the parsing order matters.
+		// - You can start an independend group with the same name after this.
 		$refs = $this->referenceStack->popGroup( $group );
 
 		// Check for missing content at the last possible moment before rendering

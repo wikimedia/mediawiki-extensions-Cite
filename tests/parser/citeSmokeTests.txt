@@ -146,3 +146,14 @@ It should be impossible to roll back a follow="…", because it must have a name
 </li>
 </ol></div>
 !! end
+
+!! test
+T442272: Rollback should not fail even in extreme semantically invalid edge-cases
+!! wikitext
+{{#tag:references|<ref>Legacy parses this first, then then inner reflist, then the outer reflist</ref>
+{{#tag:references}}
+}}
+!! html
+<p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Closing tag missing for <code>&lt;references&gt;</code>.</span>
+</p>
+!! end

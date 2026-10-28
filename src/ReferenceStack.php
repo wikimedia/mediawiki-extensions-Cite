@@ -282,6 +282,8 @@ class ReferenceStack {
 		unset( $this->refs[$group] );
 		unset( $this->subRefLookup[$group] );
 		unset( $this->groupRefSequence[$group] );
+		// Rollbacks cannot reliably work any more after parts of $this->refs etc. are gone
+		$this->refCallStack = [];
 		return $refs;
 	}
 

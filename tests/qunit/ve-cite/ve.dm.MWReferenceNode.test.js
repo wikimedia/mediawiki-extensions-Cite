@@ -7,8 +7,28 @@
 
 	const sharedMainKey = 'literal/main';
 	const subKey = 'literal/sub';
+	const mainRefWithContentUsed = { attributes: {
+		contentsUsed: true,
+		listGroup: '',
+		listKey: sharedMainKey,
+		listIndex: 0
+	} };
+	const mainRefWithContentNotUsed = { attributes: {
+		contentsUsed: false,
+		listGroup: '',
+		listKey: sharedMainKey,
+		listIndex: 0
+	} };
 	const subRefWithContentUsed = { attributes: {
 		contentsUsed: true,
+		listGroup: '',
+		listKey: subKey,
+		listIndex: 2,
+		mainListKey: sharedMainKey,
+		mainListIndex: 0
+	} };
+	const subRefWithContentNotUsed = { attributes: {
+		contentsUsed: false,
 		listGroup: '',
 		listKey: subKey,
 		listIndex: 2,
@@ -18,25 +38,25 @@
 	const cases = [
 		{
 			msg: 'Content not used in current node',
-			dataElement: { attributes: { contentsUsed: false, listGroup: '', listKey: sharedMainKey } },
+			dataElement: mainRefWithContentNotUsed,
 			nodesInGroup: [],
 			shouldAvoidContentOverride: false
 		},
 		{
 			msg: 'Content used in current node and no other node before',
-			dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } },
-			nodesInGroup: [ { attributes: { contentsUsed: false, listGroup: '', listKey: sharedMainKey } } ],
+			dataElement: mainRefWithContentUsed,
+			nodesInGroup: [ mainRefWithContentNotUsed ],
 			shouldAvoidContentOverride: false
 		},
 		{
 			msg: 'Content used in current node and another node before',
-			dataElement: { attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } },
+			dataElement: mainRefWithContentUsed,
 			nodesInGroup: [
 				{
 					attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey },
 					originalDomElementsHash: 'foo'
 				},
-				{ attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey } }
+				mainRefWithContentUsed
 			],
 			shouldAvoidContentOverride: true
 		},
@@ -45,7 +65,7 @@
 			dataElement: subRefWithContentUsed,
 			nodesInGroup: [
 				{
-					attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/solomain', listIndex: 5 }
+					attributes: { contentsUsed: true, listGroup: '', listKey: 'literal/mainOther', listIndex: 5 }
 				},
 				subRefWithContentUsed
 			],
@@ -55,107 +75,98 @@
 			msg: 'Main content used in current sub-ref and in a main ref before',
 			dataElement: subRefWithContentUsed,
 			nodesInGroup: [
-				{
-					attributes: { contentsUsed: true, listGroup: '', listKey: sharedMainKey, listIndex: 0 }
-				},
+				mainRefWithContentUsed,
 				subRefWithContentUsed
 			],
 			shouldAvoidContentOverride: true
 		},
 		{
 			msg: 'If there\'s only this ref with that key it should get the content',
-			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey } },
-			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: sharedMainKey } }
-			],
+			dataElement: mainRefWithContentNotUsed,
+			nodesInGroup: [ mainRefWithContentNotUsed ],
 			shouldGetMainContent: true
 		},
 		{
 			msg: 'If this ref owned the content before it should get it',
-			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: true } },
+			dataElement: mainRefWithContentUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: true } },
-				{ attributes: { listGroup: '', listKey: sharedMainKey } }
+				mainRefWithContentUsed,
+				mainRefWithContentNotUsed
 			],
 			shouldGetMainContent: true
 		},
 		{
 			msg: 'If there\'s another ref with that key that owned the content this ref should not get it',
-			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey } },
+			dataElement: mainRefWithContentNotUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: sharedMainKey } },
-				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: true } }
+				mainRefWithContentNotUsed,
+				mainRefWithContentUsed
 			],
 			shouldGetMainContent: false
 		},
 		{
 			msg: 'If there\'s no other ref with that key that owned the content the first node get\'s it',
-			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey } },
+			dataElement: mainRefWithContentNotUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: sharedMainKey } },
-				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: false } }
+				mainRefWithContentNotUsed,
+				{
+					attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: false },
+					originalDomElementsHash: 'foo'
+				}
 			],
 			shouldGetMainContent: true
 		},
 		{
 			msg: 'Sub-ref: If there\'s a sub-ref with that main key that owned the content this ref should not get it',
-			dataElement: { attributes: { listGroup: '', listKey: sharedMainKey } },
+			dataElement: mainRefWithContentNotUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: sharedMainKey } },
-				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey, contentsUsed: true } }
+				mainRefWithContentNotUsed,
+				subRefWithContentUsed
 			],
 			shouldGetMainContent: false
 		},
 		{
 			msg: 'Sub-ref: If there\'s only this sub-ref with that main key it should get the content',
-			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			dataElement: subRefWithContentUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } }
+				subRefWithContentUsed
 			],
 			shouldGetMainContent: true
 		},
 		{
 			msg: 'Sub-ref: If there\'s another main ref with that key that owned the content this ref should not get it',
-			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			dataElement: subRefWithContentNotUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
-				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: true } }
+				subRefWithContentNotUsed,
+				mainRefWithContentUsed
 			],
 			shouldGetMainContent: false
 		},
 		{
 			msg: 'Sub-ref: If there\'s no other ref with that key that owned the content the first node get\'s it',
-			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			dataElement: subRefWithContentNotUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
-				{ attributes: { listGroup: '', listKey: sharedMainKey, contentsUsed: false } }
+				subRefWithContentNotUsed,
+				mainRefWithContentNotUsed
 			],
 			shouldGetMainContent: true
 		},
 		{
 			msg: 'Sub-ref: If there\'s another sub-ref with that key that owned the content this ref should not get it',
-			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			dataElement: subRefWithContentNotUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
-				{ attributes: { listGroup: '', listKey: 'literal/subOther', mainListKey: sharedMainKey, contentsUsed: true } }
+				subRefWithContentNotUsed,
+				subRefWithContentUsed
 			],
 			shouldGetMainContent: false
 		},
 		{
-			msg: 'Sub-ref: If this sub-ref was holding the content before it should always get it',
-			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey, contentsUsed: true } },
-			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } }
-			],
-			shouldGetMainContent: true
-		},
-		{
 			msg: 'Sub-ref: If no other ref his holding the content the frist node get it, also if it\'s a sub-ref',
-			dataElement: { attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+			dataElement: subRefWithContentNotUsed,
 			nodesInGroup: [
-				{ attributes: { listGroup: '', listKey: subKey, mainListKey: sharedMainKey } },
+				subRefWithContentNotUsed,
 				{ attributes: { listGroup: '', listKey: 'literal/subOther', mainListKey: sharedMainKey } },
-				{ attributes: { listGroup: '', listKey: sharedMainKey } }
+				mainRefWithContentNotUsed
 			],
 			shouldGetMainContent: true
 		}

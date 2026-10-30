@@ -9,6 +9,7 @@
 			"Mguix",
 			"Paucabot",
 			"Pere prlpz",
+			"Qllach",
 			"SMP",
 			"Vriullop"
 		]
@@ -17,7 +18,7 @@
 	"cite_error": "Error de citació: $1",
 	"cite_error_details_missing_parent": "Una etiqueta <code>&lt;ref></code> amb detalls ha de contenir contingut o apuntar a una referència principal mitjançant el seu nom.",
 	"cite_error_details_unsupported_context": "L'etiqueta <code>&lt;ref></code> amb el nom «$1» no pot utilitzar «details» dins de <code>&lt;references></code>.",
-	"cite_error_ref_invalid_dir": "L’etiqueta <code>dir=\"$1\"</code> no és vàlida, ha de ser \"ltr\" o bé \"rtl\"",
+	"cite_error_ref_invalid_dir": "L'etiqueta <code>dir=\"$1\"</code>, ha de ser \"ltr\", \"rtl\" o \"auto\".",
 	"cite_error_ref_numeric_key": "Etiqueta <code>&lt;ref></code> no vàlida;\nel nom no pot ser un simple nombre sencer. Empreu un títol descriptiu",
 	"cite_error_ref_no_key": "L’etiqueta d’obertura <code>&lt;ref></code> s’ha formatat incorrectament o té un nom no permès",
 	"cite_error_ref_with_details_no_name": "Etiqueta <code>&lt;ref></code> no vàlida; manca l'atribut «name». Cal proporcionar un atribut «name» juntament amb un atribut «details».",
@@ -32,7 +33,7 @@
 	"cite_error_references_group_mismatch": "L'etiqueta <code>&lt;ref></code> a <code>&lt;references></code> té un conflicte amb l'atribut de grup \"$1\".",
 	"cite_error_references_missing_key": "L'etiqueta <code>&lt;ref></code> amb el nom \"$1\" definida a <code>&lt;references></code> no s'utilitza en el text anterior.",
 	"cite_error_references_no_key": "L'etiqueta <code>&lt;ref></code> definida a <code>&lt;references></code> no té cap atribut de nom.",
-	"cite_error_empty_references_define": "L'etiqueta <code>&lt;ref></code> definida a <code>&lt;references></code> amb el nom \"$1\" no té contingut.",
+	"cite_error_empty_references_define": "L'etiqueta <code>&lt;ref></code> amb el nom \"$1\" definit al <code>&lt;references></code> grup \"$2\" és buida.",
 	"cite-tracking-category-cite-error": "Pàgines amb errors a les referències",
 	"cite-tracking-category-cite-error-desc": "Les pàgines en aquesta categoria tenen errors d’ús de les etiquetes de referències.",
 	"cite-tracking-category-ref-details": "Pàgines que usen subreferències",

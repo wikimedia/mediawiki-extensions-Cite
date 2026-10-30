@@ -16,7 +16,7 @@ const wikiTextEdited = `# <ref name="foo">${ refTextNew }</ref>\n` +
 
 const resuedWikiText = `# <ref name="foo">${ refText1 }</ref>\n` +
 	'# <ref name="foo" />\n' +
-	`# <ref name=":1">${ refText2 }</ref><ref name=":1" />`;
+	`# <ref name="Reference-1">${ refText2 }</ref><ref name="Reference-1" />`;
 
 let usesCitoid;
 
@@ -72,8 +72,7 @@ describe( 'VisualEditor Cite', () => {
 			.should( 'contain.value', wikiTextEdited );
 	} );
 
-	// temporary skip tests for changes in the autoname numbering T439542
-	it.skip( 'should be able to reuse existing references via the reuse dialog', () => {
+	it( 'should be able to reuse existing references via the reuse dialog', () => {
 		// Currently there are 3 refs in the article
 		veHelper.getRefsFromArticleSection().should( 'have.length', 3 );
 

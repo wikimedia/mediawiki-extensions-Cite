@@ -40,6 +40,7 @@
 	"cite-tracking-category-cite-error-desc": "صفحه‌های در این رده خطای استفاده از برچسب ارجاع دارند.",
 	"cite-tracking-category-cite-diffing-error": "صفحه‌های دارای خطا در ارجاع که تفاوت دیداری را فعال می‌کنند",
 	"cite-tracking-category-cite-diffing-error-desc": "صفحه‌های موجود در این رده دارای خطاهایی در استفاده از برچسب‌های ارجاع هستند، و این خطاها به‌شکل یکسان با تجزیه‌گر قدیمی یا پارسوئید رندر نمی‌شوند.",
+	"cite-tracking-category-ref-details": "صفحه‌هایی که از ارجاعات فرعی استفاده می‌کنند",
 	"cite-reference-previews-reference": "منبع",
 	"cite-reference-previews-book": "منبع کتاب",
 	"cite-reference-previews-journal": "منبع ژورنال",

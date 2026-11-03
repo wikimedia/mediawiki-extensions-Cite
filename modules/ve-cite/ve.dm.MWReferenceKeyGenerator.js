@@ -96,7 +96,7 @@ ve.dm.MWReferenceKeyGenerator = {
 	 *
 	 * @param {string|undefined} prefix
 	 * @param {ve.dm.Document} doc
-	 * @param {string} listIndex
+	 * @param {number} listIndex
 	 */
 	setStoredAutonamePrefix: function ( prefix, doc, listIndex ) {
 		const storageKey = 'autonamePrefix-' + listIndex;

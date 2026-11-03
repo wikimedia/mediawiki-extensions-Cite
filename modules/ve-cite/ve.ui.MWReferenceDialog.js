@@ -247,9 +247,10 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 			if ( action === 'done' ) {
 				const surfaceModel = this.getFragment().getSurface();
 				const doc = surfaceModel.getDocument();
+				const mainListIndex = ref.isSubRef() ? ref.getMainListIndex() : ref.getListIndex();
 
 				const transclusion = ve.ui.MWCitationDialog.static.findFirstTemplateTransclusionNode(
-					doc.getInternalList().getItemNode( ref.mainListIndex || ref.listIndex )
+					doc.getInternalList().getItemNode( mainListIndex )
 				);
 
 				const template = transclusion && transclusion.getSingleTemplateName();
@@ -262,7 +263,7 @@ ve.ui.MWReferenceDialog.prototype.getActionProcess = function ( action ) {
 					ve.dm.MWReferenceKeyGenerator.setStoredAutonamePrefix(
 						autonamePrefix,
 						doc,
-						ref.mainListIndex || ref.listIndex
+						mainListIndex
 					);
 				}
 			}

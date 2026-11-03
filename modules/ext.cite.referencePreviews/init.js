@@ -48,34 +48,6 @@ function createReferencePreviewsType() {
 	};
 }
 
-function getExperiment() {
-	return mw.loader.using( 'ext.testKitchen' ).then(
-		() => mw.testKitchen.getExperiment( 'cite-footnote-content-interaction-experiment' )
-	);
-}
-
-// Test Kitchen experiment: cite-footnote-content-interaction-experiment (T123456)
-if ( !mw.config.get( 'wgMFMode' ) ) {
-	getExperiment().then( ( experiment ) => {
-		if ( experiment && experiment.getAssignedGroup() === 'treatment' ) {
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '#mw-content-text .reference a[ href*="#" ]' ).on( 'click', ( event ) => {
-				// Bail out when the event was triggerd by keyboard interaction or touch
-				if ( !event.pointerType || event.pointerType === 'touch' ) {
-					return;
-				}
-
-				// Prevent default jump to reference list
-				event.preventDefault();
-				// Click on footnote marker triggers open popup with jump to refList link
-				// eslint-disable-next-line no-jquery/no-global-selector
-				$( '.mwe-popups-reflist-link-hidden' )
-					.removeClass( 'mwe-popups-reflist-link-hidden' );
-			} );
-		}
-	} );
-}
-
 module.exports = referencePreviewsState !== null ? createReferencePreviewsType() : null;
 
 if ( window.QUnit ) {

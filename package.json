@@ -15,7 +15,7 @@
 	},
 	"devDependencies": {
 		"@cypress/skip-test": "^2.6.1",
-		"cypress": "^15.11.0",
+		"cypress": "15.21.1",
 		"cypress-parallel": "0.15.0",
 		"eslint-config-wikimedia": "0.32.6",
 		"eslint-plugin-cypress": "^3.6.0",

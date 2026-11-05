@@ -82,6 +82,9 @@ class RefGroup implements Countable {
 		$a = $ownerDoc->createElement( 'a' );
 		$span = $ownerDoc->createElement( 'span' );
 		$a->setAttribute( 'href', $extApi->getPageUri() . '#' . Sanitizer::escapeIdForLink( $target ) );
+		// Mark as a same-page link, so that post-processing (T436914) does not
+		// need to compare the href against the page title
+		$a->setAttribute( 'class', 'mw-selflink-fragment' );
 		$span->setAttribute( 'class', 'mw-linkback-text' );
 		if ( $group ) {
 			$a->setAttribute( 'data-mw-group', $group );

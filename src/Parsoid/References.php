@@ -405,7 +405,10 @@ class References {
 		$refLink = $doc->createElement( 'a' );
 		DOMUtils::addAttributes( $refLink, [
 			'href' => $extApi->getPageUri() . '#' .
-				Sanitizer::escapeIdForLink( ParsoidAnchorFormatter::getNoteIdentifier( $ref ) )
+				Sanitizer::escapeIdForLink( ParsoidAnchorFormatter::getNoteIdentifier( $ref ) ),
+			// Mark as a same-page link, so that post-processing (T436914) does not
+			// need to compare the href against the page title
+			'class' => 'mw-selflink-fragment',
 		] );
 		if ( $ref->group ) {
 			$refLink->setAttribute( 'data-mw-group', $ref->group );

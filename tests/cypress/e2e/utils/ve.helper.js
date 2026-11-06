@@ -17,16 +17,6 @@ export function checkModuleDependencies() {
 	} );
 }
 
-export function setVECookiesToDisableDialogs() {
-	cy.window().then( async ( win ) => {
-		win.localStorage.setItem( 've-beta-welcome-dialog', 1 );
-		// Don't show the VE education popups with the blue
-		// pulsating dots (ve.ui.MWEducationPopupWidget)
-		win.localStorage.setItem( 've-hideusered', 1 );
-		win.localStorage.setItem( 'mw-cite-hide-subref-help', 1 );
-	} );
-}
-
 export function openVEForEditingReferences( title, usesCitoid ) {
 	helpers.visitTitle( title, { veaction: 'edit' } );
 	waitForVECiteToLoad();

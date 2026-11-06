@@ -15,7 +15,7 @@ describe( 'VisualEditor Cite - Autonames', () => {
 	beforeEach( () => {
 		cy.session( 've-cite-integration', () => {
 			cy.clearCookies();
-			veHelper.setVECookiesToDisableDialogs();
+			helper.loginAsAdmin();
 		} );
 	} );
 

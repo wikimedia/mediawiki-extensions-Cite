@@ -31,7 +31,7 @@ describe( 'VisualEditor Cite', () => {
 	beforeEach( () => {
 		cy.session( 've-cite-integration', () => {
 			cy.clearCookies();
-			veHelper.setVECookiesToDisableDialogs();
+			helper.loginAsAdmin();
 		} );
 
 		const title = helper.getTestString( 'CiteTest-title' );

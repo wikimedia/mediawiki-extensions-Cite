@@ -26,7 +26,7 @@ describe( 'VisualEditor Cite with sub-references', () => {
 	beforeEach( () => {
 		cy.session( 've-cite-subRefs', () => {
 			cy.clearCookies();
-			veHelper.setVECookiesToDisableDialogs();
+			helper.loginAsAdmin();
 		} );
 
 		const title = helper.getTestString( 'CiteTest-subRefs' );

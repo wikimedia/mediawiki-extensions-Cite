@@ -88,6 +88,20 @@ async function main() {
 		}
 	} ) );
 	console.log( `inserted ${ fixtureResults.length } fixtures` );
+
+	// Do not show the welcome dialog and the help popups to the test user
+	const options = await call( {
+		action: 'options',
+		change: [
+			'visualeditor-hidebetawelcome=1',
+			'visualeditor-hideusered=1',
+			'userjs-cite-hide-subref-help=1'
+		].join( '|' ),
+		token: csrfToken
+	}, true );
+	if ( options.options !== 'success' ) {
+		throw new Error( 'Saving options failed: ' + JSON.stringify( options ) );
+	}
 }
 
 main().catch( ( e ) => {

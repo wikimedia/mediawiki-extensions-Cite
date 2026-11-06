@@ -21,7 +21,9 @@ describe( 'VisualEditor Cite with citation templates', () => {
 	beforeEach( () => {
 		cy.session( 've-cite-templates', () => {
 			cy.clearCookies();
-			veHelper.setVECookiesToDisableDialogs();
+			helper.loginAsAdmin();
+			// Do not show the ContentTranslation invitation on new pages
+			cy.setCookie( 'cx_campaign_newarticle_hide', '1' );
 		} );
 
 		title = helper.getTestString( 'CiteTest-wt2017' );

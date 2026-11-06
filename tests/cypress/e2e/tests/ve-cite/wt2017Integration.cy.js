@@ -15,7 +15,9 @@ describe( 'VisualEditor Cite with WT2017 Editor', () => {
 	beforeEach( () => {
 		cy.session( 've-cite-wt2017-integration', () => {
 			cy.clearCookies();
-			veHelper.setVECookiesToDisableDialogs();
+			helper.loginAsAdmin();
+			// Do not show the ContentTranslation invitation on new pages
+			cy.setCookie( 'cx_campaign_newarticle_hide', '1' );
 		} );
 
 		const title = helper.getTestString( 'CiteTest-wt2017' );

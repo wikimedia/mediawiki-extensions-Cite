@@ -45,7 +45,6 @@
 	"cite-reference-previews-map": "Chú thích bản đồ",
 	"cite-reference-previews-web": "Chú thích web",
 	"cite-reference-previews-collapsible-placeholder": "Chú thích này có chứa hình ảnh quá lớn để hiển thị trong bản xem trước.",
-	"cite-reference-previews-reflist-link": "Chuyển tới danh sách nguồn tham khảo",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "Bạn đang bật tiện ích [[$1|popup điều hướng]], do đó bạn sẽ không thấy các bản xem trước cung cấp bởi tính năng này. Tùy theo wiki của bạn, tiện ích này có thể có tên gọi khác nhau. Nếu bạn tiếp tục gặp vấn đề, vui lòng xem lại các tiện ích và kịch bản (script) thành viên của bạn, bao gồm cả các tiện ích và kịch bản toàn cục.",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "Bạn đang bật tiện ích [[$1|chú thích nổi]], do đó bạn sẽ không thấy các cửa sổ xem trước chú thích nhưng vẫn có thể xem các cửa sổ xem trước trang. Tùy theo wiki của bạn, tiện ích này có thể có tên gọi nhau. Nếu bạn tiếp tục gặp vấn đề, vui lòng xem lại các tiện ích và kịch bản (script) thành viên của bạn, bao gồm cả các tiện ích và kịch bản toàn cục.",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "Bạn đang bật các tiện ích [[$1|popup điều hướng]] và [[$1|chú thích nổi]], do đó bạn sẽ không thấy các bản xem trước cung cấp bởi tính năng này. Tùy theo wiki của bạn, các tiện ích này có thể có tên gọi khác nhau. Nếu bạn tiếp tục gặp vấn đề, vui lòng xem lại các tiện ích và kịch bản (script) thành viên, bao gồm cả các tiện ích và kịch bản toàn cục.",

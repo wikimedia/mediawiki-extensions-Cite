@@ -49,7 +49,6 @@
 	"cite-reference-previews-map": "Kortreference",
 	"cite-reference-previews-web": "Webreference",
 	"cite-reference-previews-collapsible-placeholder": "Denne reference indeholder en figur, der ikke passer i forhåndsvisningen.",
-	"cite-reference-previews-reflist-link": "Spring til referenceliste",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "Du har aktiveret gadget'en [[$1|Navigationspopups]], så du vil ikke se forhåndsvisninger fra denne funktion. Afhængigt af din wiki kan gadget'en have et lidt anderledes navn. Hvis du fortsætter med at opleve problemer, bedes du gennemgå dine gadgets og brugerscripts, inklusive globale.",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "Du har aktiveret gadget'en [[$1|Reference Tooltips]], så du vil ikke se referenceforhåndsvisninger, men du vil stadig se sideforhåndsvisninger. Afhængigt af din wiki kan gadget'en have et lidt anderledes navn. Hvis du fortsætter med at opleve problemer, bedes du gennemgå dine gadgets og brugerscripts, inklusive globale.",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "Du har aktiveret gadget'en [[$1|Navigationspopups]], så du vil ikke se forhåndsvisninger fra denne funktion. Afhængigt af din wiki kan gadget'en have et lidt anderledes navn. Hvis du fortsætter med at opleve problemer, bedes du gennemgå dine gadgets og brugerscripts, inklusive globale.",

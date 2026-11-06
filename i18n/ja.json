@@ -61,7 +61,6 @@
 	"cite-reference-previews-map": "地図の出典",
 	"cite-reference-previews-web": "ウェブサイトの出典",
 	"cite-reference-previews-collapsible-placeholder": "この参照には、プレビューに収まらない図が含まれています。",
-	"cite-reference-previews-reflist-link": "参照リストへジャンプ",
 	"cite-reference-previews-gadget-conflict-info-navpopups": "[[$1|ナビゲーションポップアップ]]ガジェットが有効になっているため、この機能によって提供されるプレビューは表示されません。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください。",
 	"cite-reference-previews-gadget-conflict-info-reftooltips": "[[$1|参照ツールチップ]]ガジェットが有効になっているため、参照プレビューは表示されませんが、ページプレビューは表示されます。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください。",
 	"cite-reference-previews-gadget-conflict-info-navpopups-reftooltips": "[[$1|ナビゲーションポップアップ]]および[[$1|参照ツールチップ]]ガジェットが有効になっているため、この機能によって提供されるプレビューは表示されません。ウィキによっては、ガジェットの名前が少し異なる場合があります。引き続き問題が発生する場合は、グローバルなものを含め、ガジェットと利用者スクリプトを確認してください",

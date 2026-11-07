@@ -4,6 +4,7 @@
 		"stylelint-config-wikimedia/mediawiki"
 	],
 	"rules": {
-		"selector-class-pattern": "^(cite|ve|ext|mw|oo-ui|cdx|client|skin)-|references?"
+		"selector-class-pattern": "^(cite|ve|ext|mw|oo-ui|cdx|client|skin)-|references?",
+		"wikimedia/selector-class-prefix": null
 	}
 }

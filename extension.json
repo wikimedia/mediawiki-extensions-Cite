@@ -89,8 +89,7 @@
 			"remoteExtPath": "Cite/modules",
 			"scripts": [
 				"ext.cite.a11y.js",
-				"ext.cite.highlighting.js",
-				"ext.cite.track.js"
+				"ext.cite.highlighting.js"
 			],
 			"styles": [
 				"ext.cite.a11y.less",

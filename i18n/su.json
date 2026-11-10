@@ -6,7 +6,7 @@
 		]
 	},
 	"cite-desc": "Nambahkeun tag <code>&lt;ref[ name=id]></code> jeung <code>&lt;references/></code>, pikeun cutatan",
-	"cite_error": "Salah ngutip: $1",
+	"cite_error": "Salah nyutat: $1",
 	"cite-reference-previews-map": "Réferénsi peta",
 	"cite-reference-previews-web": "Réferénsi loka",
 	"cite-reference-previews-collapsible-placeholder": "Réferénsi ieu ngawengku bagan nu teu bisa diasupkeun kana sawangan.",

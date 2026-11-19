@@ -4,7 +4,8 @@
 			"Arystanbek",
 			"Casserium",
 			"Нұрлан Рахымжанов",
-			"СеніңШешең"
+			"СеніңШешең",
+			"Wikuiser"
 		]
 	},
 	"visualeditor-cite-tool-name-book": "Кітап",
@@ -20,7 +21,7 @@
 	"cite-ve-dialog-referenceslist-contextitem-description-general": "Негізгі дереккөздер тізімі",
 	"cite-ve-dialog-referenceslist-contextitem-description-named": "«$1» тобы үшін дереккөзер тізімі",
 	"cite-ve-dialog-referenceslist-title": "Дереккөздер тізімі",
-	"cite-ve-dialogbutton-reference-full-label": "Негізгі пішін",
+	"cite-ve-dialogbutton-reference-full-label": "Негізгі",
 	"cite-ve-dialogbutton-reference-title": "Дереккөз",
 	"cite-ve-dialogbutton-reference-tooltip": "Негізгі",
 	"cite-ve-dialogbutton-referenceslist-tooltip": "Дереккөздер тізімі",

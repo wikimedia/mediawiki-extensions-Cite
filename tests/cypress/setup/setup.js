@@ -1,4 +1,3 @@
-/* eslint-env node */
 // Write the wiki-wide templates and JSON configurations once, before the
 // parallel workers start. A plain API client is used because a Cypress run
 // for two API calls costs one more browser start in CI.

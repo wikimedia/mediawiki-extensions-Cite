@@ -1,8 +1,0 @@
-{
-	"env": {
-		"commonjs": true
-	},
-	"globals": {
-		"ext.popups": "readonly"
-	}
-}

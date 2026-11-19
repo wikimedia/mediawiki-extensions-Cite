@@ -1,4 +1,3 @@
-/* eslint-env node */
 const { defineConfig } = require( 'cypress' );
 
 const envLogDir = process.env.LOG_DIR ? process.env.LOG_DIR + '/Cite' : null;

@@ -16,13 +16,9 @@ class CiteCSSFileModule extends FileModule {
 	/**
 	 * @inheritDoc
 	 */
-	public function __construct(
-		array $options = [],
-		$localBasePath = null,
-		$remoteBasePath = null
-	) {
+	public function __construct( array $options = [] ) {
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
-		parent::__construct( $options, $localBasePath, $remoteBasePath );
+		parent::__construct( $options );
 
 		// Get the content language code, and all the fallbacks. The first that
 		// has a ext.cite.style.<lang code>.css file present will be used.

@@ -383,6 +383,7 @@ class CiteTest extends \MediaWikiIntegrationTestCase {
 						'a' => [
 							'text' => 'T245376',
 							'count' => 0,
+							'globalId' => 1,
 						],
 					],
 				],

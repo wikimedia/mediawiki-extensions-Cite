@@ -65,7 +65,6 @@ indic=<sup about="#mwt2" class="mw-ref reference" id="cite_ref-1" rel="dc:refere
 !! test
 T393913: Consider <indicator> only when at the very top of the stack
 !! options
-disabled
 showindicators
 !! wikitext
 <indicator name="test">

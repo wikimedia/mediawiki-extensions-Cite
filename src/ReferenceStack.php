@@ -340,11 +340,16 @@ class ReferenceStack {
 	}
 
 	public function listDefinedRef( string $group, ?string $name, ?string $text ): ReferenceStackItem {
-		// This fallback is only for unused refs, the number will never be used again
-		$name ??= $this->nextRefSequence();
+		if ( $name === null || !isset( $this->refs[$group][$name] ) ) {
+			$ref = new ReferenceStackItem();
+			$ref->globalId = $this->nextRefSequence();
+			// This fallback is only for unused refs, the number will never be used again
+			$name ??= $ref->globalId;
+			$this->refs[$group][$name] = $ref;
+		} else {
+			$ref = $this->refs[$group][$name];
+		}
 
-		$ref =& $this->refs[$group][$name];
-		$ref ??= new ReferenceStackItem();
 		if ( $ref->text === null ) {
 			$ref->text = $text;
 		} elseif ( $text !== null && $ref->text !== $text ) {

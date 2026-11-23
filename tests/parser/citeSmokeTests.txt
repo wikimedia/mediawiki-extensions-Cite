@@ -157,3 +157,24 @@ T442272: Rollback should not fail even in extreme semantically invalid edge-case
 <p><span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: Closing tag missing for <code>&lt;references&gt;</code>.</span>
 </p>
 !! end
+
+!! test
+T407319: Extreme edge-case with nested <ref> that get detected as unused
+!! wikitext
+<ref>{{#tag:ref|…|name=x}}</ref>
+<references/>
+<ref name=x>…</ref>
+!! html
+<p><sup id="cite&#95;ref-1" class="reference"><a href="#cite_note-1"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text"></span>
+</li>
+</ol></div>
+<p><sup id="cite&#95;ref-2" class="reference"><a href="#cite_note-2"><span class="cite-bracket">&#91;</span>1<span class="cite-bracket">&#93;</span></a></sup>
+</p>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite&#95;note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">… <span class="error mw-ext-cite-error" lang="en" dir="ltr">Cite error: <code>&lt;ref&gt;</code> tag with name "x" defined in <code>&lt;references&gt;</code> is not used in prior text.</span></span>
+</li>
+</ol></div>
+!! end

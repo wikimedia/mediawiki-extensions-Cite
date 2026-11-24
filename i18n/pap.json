@@ -6,7 +6,7 @@
 		]
 	},
 	"cite-desc": "Ta agregá <code>&lt;ref&gt;</code> i <code>&lt;references&gt;</code> lebel pa sitashon.",
-	"cite_error": "Eror di sita: $1",
+	"cite_error": "Eror di sitashon: $1",
 	"cite_error_ref_invalid_dir": "Inbálido <code>dir=\"$1\"</code>, mester ta <code>ltr</code> òf <code>rtl</code>",
 	"cite-tracking-category-cite-error": "Páginanan ku referensia defekto",
 	"cite-tracking-category-cite-error-desc": "Páginanan den e kategoria aki tin eror den e uso di tagnan di referensia.",
